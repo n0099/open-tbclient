@@ -6,11 +6,11 @@ import android.content.DialogInterface;
 public class bi implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NewPbActivity f2076a;
+    final /* synthetic */ NewPbActivity f2183a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bi(NewPbActivity newPbActivity) {
-        this.f2076a = newPbActivity;
+        this.f2183a = newPbActivity;
     }
 
     @Override // android.content.DialogInterface.OnClickListener

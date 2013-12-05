@@ -12,9 +12,9 @@ import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.chat.RecentChatFriendData;
 import com.baidu.tieba.im.groupInfo.GroupSettingItemData;
+import com.baidu.tieba.util.ba;
+import com.baidu.tieba.util.bb;
 import com.baidu.tieba.util.bd;
-import com.baidu.tieba.util.be;
-import com.baidu.tieba.util.bg;
 import com.baidu.tieba.view.HeadImageView;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
@@ -27,7 +27,7 @@ import org.json.JSONException;
 public class m extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1145a;
+    private Context f1192a;
     private com.baidu.tieba.util.i h;
     private ChatListFragment b = null;
     private boolean c = false;
@@ -39,10 +39,10 @@ public class m extends BaseAdapter {
     private ArrayList<ProgressBar> g = new ArrayList<>();
 
     public m(Context context) {
-        this.f1145a = null;
+        this.f1192a = null;
         this.h = null;
-        this.f1145a = context;
-        this.h = new com.baidu.tieba.util.i(this.f1145a);
+        this.f1192a = context;
+        this.h = new com.baidu.tieba.util.i(this.f1192a);
         this.h.d(true);
     }
 
@@ -55,7 +55,7 @@ public class m extends BaseAdapter {
                     try {
                         this.g.get(i2).setVisibility(8);
                     } catch (Exception e) {
-                        bg.b(getClass().getName(), "releaseProgressBar", e.getMessage());
+                        bd.b(getClass().getName(), "releaseProgressBar", e.getMessage());
                     }
                     i = i2 + 1;
                 } else {
@@ -72,8 +72,8 @@ public class m extends BaseAdapter {
         }
         this.j.clear();
         this.j.addAll(list);
-        if (TiebaApplication.B()) {
-            com.baidu.adp.lib.h.d.d("mRecentChatData.size():" + this.j.size());
+        if (TiebaApplication.C()) {
+            com.baidu.adp.lib.h.e.d("mRecentChatData.size():" + this.j.size());
             if (this.j.size() <= 0) {
                 this.b.e(true);
             } else {
@@ -125,7 +125,7 @@ public class m extends BaseAdapter {
             oVar2 = (o) view.getTag();
         }
         if (oVar2 == null) {
-            view2 = LayoutInflater.from(this.f1145a).inflate(R.layout.chat_list_item, viewGroup, false);
+            view2 = LayoutInflater.from(this.f1192a).inflate(R.layout.chat_list_item, viewGroup, false);
             o a2 = a(view2);
             view2.setTag(a2);
             this.g.add(a2.j);
@@ -134,7 +134,7 @@ public class m extends BaseAdapter {
             oVar = oVar2;
             view2 = view;
         }
-        int ap = TiebaApplication.g().ap();
+        int an = TiebaApplication.h().an();
         long itemId = getItemId(i);
         if (itemId == -1) {
             ((ViewGroup) view2).setBackgroundDrawable(null);
@@ -147,11 +147,11 @@ public class m extends BaseAdapter {
                 oVar.i.setText(R.string.frs_pre);
                 oVar.j.setVisibility(8);
             }
-            if (ap == 1) {
-                bd.e((View) oVar.i, (int) R.drawable.btn_w_square_1);
+            if (an == 1) {
+                ba.e((View) oVar.i, (int) R.drawable.btn_w_square_1);
                 oVar.i.setTextColor(-8682095);
             } else {
-                bd.e((View) oVar.i, (int) R.drawable.btn_w_square);
+                ba.e((View) oVar.i, (int) R.drawable.btn_w_square);
                 oVar.i.setTextColor(-14277082);
             }
         } else if (itemId == -2) {
@@ -165,20 +165,20 @@ public class m extends BaseAdapter {
                 oVar.i.setText(R.string.frs_next);
                 oVar.j.setVisibility(8);
             }
-            if (ap == 1) {
-                bd.e((View) oVar.i, (int) R.drawable.btn_w_square_1);
+            if (an == 1) {
+                ba.e((View) oVar.i, (int) R.drawable.btn_w_square_1);
                 oVar.i.setTextColor(-8682095);
             } else {
-                bd.e((View) oVar.i, (int) R.drawable.btn_w_square);
+                ba.e((View) oVar.i, (int) R.drawable.btn_w_square);
                 oVar.i.setTextColor(-14277082);
             }
         } else {
-            if (ap == 1) {
-                bd.e(view2, (int) R.drawable.list_selector_1);
+            if (an == 1) {
+                ba.e(view2, (int) R.drawable.list_selector_1);
             } else {
-                bd.e(view2, (int) R.drawable.list_selector_divider1);
+                ba.e(view2, (int) R.drawable.list_selector_divider1);
             }
-            com.baidu.adp.lib.h.d.d("count:" + getCount());
+            com.baidu.adp.lib.h.e.d("count:" + getCount());
             oVar.b.setVisibility(0);
             oVar.h.setVisibility(8);
             RecentChatFriendData recentChatFriendData = (RecentChatFriendData) getItem(i);
@@ -190,11 +190,11 @@ public class m extends BaseAdapter {
                     date.setTime(recentChatFriendData.getServerTime());
                     String str = "";
                     if (recentChatFriendData.getServerTime() != 0) {
-                        str = be.f(date);
+                        str = bb.f(date);
                     }
                     oVar.f.setText(str);
                     c(oVar, recentChatFriendData);
-                    a(oVar, ap, recentChatFriendData);
+                    a(oVar, an, recentChatFriendData);
                     if (String.valueOf(String.valueOf(2)).equals(recentChatFriendData.getOwnerName())) {
                         if (recentChatFriendData.getUnReadCount() >= 30) {
                             if (this.b != null) {
@@ -223,7 +223,7 @@ public class m extends BaseAdapter {
                     oVar.k.setVisibility(8);
                 } else if (!groupSetting.isAcceptNotify()) {
                     oVar.k.setVisibility(0);
-                    if (TiebaApplication.g().ap() == 1) {
+                    if (TiebaApplication.h().an() == 1) {
                         oVar.k.setImageResource(R.drawable.icon_news_stop_1);
                     } else {
                         oVar.k.setImageResource(R.drawable.icon_news_stop);
@@ -241,12 +241,12 @@ public class m extends BaseAdapter {
         if (String.valueOf(2).equals(recentChatFriendData.getOwnerName())) {
             oVar.e.setText(recentChatFriendData.getMsgContent());
         } else if (String.valueOf(3).equals(recentChatFriendData.getOwnerName())) {
-            oVar.d.setText(this.f1145a.getString(R.string.updates_activity_title));
+            oVar.d.setText(this.f1192a.getString(R.string.updates_activity_title));
             oVar.e.setText(recentChatFriendData.getMsgContent());
         } else if (String.valueOf(1).equals(recentChatFriendData.getOwnerName())) {
             oVar.e.setText(recentChatFriendData.getMsgContent());
         } else {
-            com.baidu.adp.lib.h.d.d(recentChatFriendData.getMsgContent());
+            com.baidu.adp.lib.h.e.d(recentChatFriendData.getMsgContent());
             if (TextUtils.isEmpty(recentChatFriendData.getMsgContent())) {
                 oVar.e.setText((CharSequence) null);
                 return;
@@ -263,15 +263,15 @@ public class m extends BaseAdapter {
     private void a(o oVar, int i, RecentChatFriendData recentChatFriendData) {
         int i2 = 0;
         int unReadCount = recentChatFriendData.getUnReadCount();
-        com.baidu.adp.lib.h.d.d("type:" + recentChatFriendData.getOwnerName() + "  count:" + unReadCount);
+        com.baidu.adp.lib.h.e.d("type:" + recentChatFriendData.getOwnerName() + "  count:" + unReadCount);
         if (unReadCount > 0) {
             oVar.g.setVisibility(0);
             String valueOf = unReadCount > 99 ? "..." : String.valueOf(unReadCount);
-            if (!TiebaApplication.g().ac()) {
+            if (!TiebaApplication.h().aa()) {
                 valueOf = "";
                 unReadCount = 0;
             }
-            if (TiebaApplication.g().P() == 0) {
+            if (TiebaApplication.h().N() == 0) {
                 valueOf = "";
                 unReadCount = 0;
             }
@@ -294,38 +294,46 @@ public class m extends BaseAdapter {
             oVar.e.setTextColor(-10391164);
             oVar.f.setTextColor(-10391164);
             if (i2 < 10) {
-                oVar.g.setBackgroundResource(R.drawable.icon_news_head_prompt_one_1);
+                if (i2 == 0) {
+                    oVar.g.setBackgroundResource(R.drawable.icon_news_list_prompt_1);
+                } else {
+                    oVar.g.setBackgroundResource(R.drawable.icon_news_head_prompt_one_1);
+                }
             } else if (i2 < 100) {
                 oVar.g.setBackgroundResource(R.drawable.icon_news_head_prompt_two_1);
             } else {
                 oVar.g.setBackgroundResource(R.drawable.icon_news_head_prompt_more_1);
                 oVar.g.setText("");
             }
-            oVar.g.setTextColor(this.f1145a.getResources().getColor(R.color.top_msg_num_night));
+            oVar.g.setTextColor(this.f1192a.getResources().getColor(R.color.top_msg_num_night));
             return;
         }
         oVar.d.setTextColor(-14277082);
         oVar.e.setTextColor(-7829368);
         oVar.f.setTextColor(-7829368);
         if (i2 < 10) {
-            oVar.g.setBackgroundResource(R.drawable.icon_news_head_prompt_one);
+            if (i2 == 0) {
+                oVar.g.setBackgroundResource(R.drawable.icon_news_list_prompt);
+            } else {
+                oVar.g.setBackgroundResource(R.drawable.icon_news_head_prompt_one);
+            }
         } else if (i2 < 100) {
             oVar.g.setBackgroundResource(R.drawable.icon_news_head_prompt_two);
         } else {
             oVar.g.setBackgroundResource(R.drawable.icon_news_head_prompt_more);
             oVar.g.setText("");
         }
-        oVar.g.setTextColor(this.f1145a.getResources().getColor(R.color.top_msg_num_day));
+        oVar.g.setTextColor(this.f1192a.getResources().getColor(R.color.top_msg_num_day));
     }
 
     private void c(o oVar, RecentChatFriendData recentChatFriendData) {
-        com.baidu.adp.lib.h.d.d("ownername:" + recentChatFriendData.getOwnerName());
+        com.baidu.adp.lib.h.e.d("ownername:" + recentChatFriendData.getOwnerName());
         if (String.valueOf(2).equals(recentChatFriendData.getOwnerName())) {
             oVar.c.setDrawBorder(false);
             oVar.c.setAutoChangeStyle(false);
             oVar.c.setTag(recentChatFriendData.getOwnerName());
-            if (TiebaApplication.g().ap() == 1) {
-                oVar.c.setImageBitmap(com.baidu.tieba.util.m.a((int) R.drawable.icon_new_test));
+            if (TiebaApplication.h().an() == 1) {
+                oVar.c.setImageBitmap(com.baidu.tieba.util.m.a((int) R.drawable.icon_new_test_1));
             } else {
                 oVar.c.setImageBitmap(com.baidu.tieba.util.m.a((int) R.drawable.icon_new_test));
             }
@@ -339,8 +347,8 @@ public class m extends BaseAdapter {
             oVar.c.setTag(recentChatFriendData.getOwnerName());
             oVar.c.setUserName(String.valueOf(3));
             oVar.c.setUserId(recentChatFriendData.getFriendId());
-            if (TiebaApplication.g().ap() == 1) {
-                oVar.c.setImageBitmap(com.baidu.tieba.util.m.a((int) R.drawable.icon_new_trends));
+            if (TiebaApplication.h().an() == 1) {
+                oVar.c.setImageBitmap(com.baidu.tieba.util.m.a((int) R.drawable.icon_new_trends_1));
             } else {
                 oVar.c.setImageBitmap(com.baidu.tieba.util.m.a((int) R.drawable.icon_new_trends));
             }
@@ -365,7 +373,7 @@ public class m extends BaseAdapter {
             oVar.c.setClickable(false);
             oVar.c.setTag(recentChatFriendData.getFriendPortrait());
             oVar.c.setUserId(recentChatFriendData.getFriendId());
-            com.baidu.adp.lib.h.d.d("groupid:" + recentChatFriendData.getFriendId() + " groupHeadUrl:" + recentChatFriendData.getFriendPortrait() + " groupName:" + recentChatFriendData.getFriendName());
+            com.baidu.adp.lib.h.e.d("groupid:" + recentChatFriendData.getFriendId() + " groupHeadUrl:" + recentChatFriendData.getFriendPortrait() + " groupName:" + recentChatFriendData.getFriendName());
             oVar.c.setUserName(String.valueOf(1));
             oVar.c.setIsRound(false);
             oVar.c.invalidate();
@@ -395,7 +403,7 @@ public class m extends BaseAdapter {
 
     private o a(View view) {
         o oVar = new o(this);
-        oVar.f1146a = (ViewGroup) view.findViewById(R.id.chat_item);
+        oVar.f1193a = (ViewGroup) view.findViewById(R.id.chat_item);
         oVar.b = (ViewGroup) view.findViewById(R.id.list_content);
         oVar.c = (HeadImageView) view.findViewById(R.id.chat_head);
         oVar.d = (TextView) view.findViewById(R.id.chat_name);

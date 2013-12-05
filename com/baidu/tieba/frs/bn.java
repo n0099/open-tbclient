@@ -22,7 +22,6 @@ import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.ForumData;
-import com.baidu.tieba.util.UtilHelper;
 import com.baidu.tieba.view.FrsHeaderView;
 import com.baidu.tieba.view.NavigationBar;
 import com.baidu.tieba.view.NoNetworkView;
@@ -56,23 +55,23 @@ public class bn {
     private TextView q = null;
     private AlertDialog r = null;
     private FrsHeaderView s = null;
-    private com.baidu.tieba.view.aa t = null;
-    private com.baidu.tieba.view.v u = null;
+    private com.baidu.tieba.view.ab t = null;
+    private com.baidu.tieba.view.w u = null;
     private ap v = null;
     private TextView w = null;
     private View x = null;
     private int y = 0;
-    private com.baidu.tieba.view.bi z = null;
+    private com.baidu.tieba.view.bk z = null;
     private bs A = null;
-    private com.baidu.tieba.view.am B = null;
+    private com.baidu.tieba.view.an B = null;
     private SlidingMenu C = null;
     private String D = null;
 
     /* renamed from: a  reason: collision with root package name */
-    AlertDialog f1344a = null;
+    AlertDialog f1395a = null;
     Animation b = null;
     private DialogInterface.OnClickListener F = null;
-    private com.baidu.tieba.view.az G = null;
+    private com.baidu.tieba.view.ba G = null;
     private View.OnTouchListener M = new bq(this);
 
     public bn(FrsActivity frsActivity, View.OnClickListener onClickListener) {
@@ -80,10 +79,10 @@ public class bn {
         this.E = null;
         this.d = frsActivity;
         this.E = onClickListener;
-        K();
+        L();
     }
 
-    private void K() {
+    private void L() {
         this.d.setContentView(R.layout.frs_activity);
         this.A = new bs(this.d);
         this.A.a(R.id.show_all);
@@ -91,7 +90,7 @@ public class bn {
         this.C = new SlidingMenu(this.d);
         this.C.setMode(1);
         this.C.setTouchModeAbove(1);
-        this.C.setBehindOffset(UtilHelper.a((Context) this.d, 48.0f));
+        this.C.setBehindOffset(com.baidu.adp.lib.h.g.a((Context) this.d, 48.0f));
         this.C.setBehindScrollScale(0.5f);
         this.C.setFadeDegree(0.35f);
         this.C.attachToActivity(this.d, 1);
@@ -116,15 +115,15 @@ public class bn {
             this.r.setCanceledOnTouchOutside(true);
         }
         this.m = (BdListView) this.d.findViewById(R.id.frs_lv_thread);
-        this.z = new com.baidu.tieba.view.bi(this.d);
+        this.z = new com.baidu.tieba.view.bk(this.d);
         this.m.setPullRefresh(this.z);
         this.m.setDivider(null);
         this.m.setDividerHeight(0);
         this.m.setRecyclerListener(new bp(this));
         this.s = new FrsHeaderView(this.d, FrsHeaderView.PAGE.FRS_LIST, null, null);
-        this.t = new com.baidu.tieba.view.aa(this.d, null, null);
-        this.u = new com.baidu.tieba.view.v(this.d);
-        this.n = new ah(this.d, null, UtilHelper.a((Context) this.d), com.baidu.tieba.util.bf.a().b());
+        this.t = new com.baidu.tieba.view.ab(this.d, null, null);
+        this.u = new com.baidu.tieba.view.w(this.d);
+        this.n = new ah(this.d, null, com.baidu.adp.lib.h.g.b(this.d), com.baidu.tieba.util.bc.a().b());
         this.b = AnimationUtils.loadAnimation(this.d, R.anim.refresh_rotate);
         this.b.setInterpolator(new LinearInterpolator());
         this.b.setFillAfter(true);
@@ -164,8 +163,18 @@ public class bn {
         return this.x;
     }
 
-    public void a(com.baidu.tieba.view.az azVar) {
-        this.G = azVar;
+    public boolean e() {
+        if ("normal_page".equals(this.D)) {
+            return this.s.h();
+        }
+        if ("frs_page".equals(this.D)) {
+            return this.t.g();
+        }
+        return false;
+    }
+
+    public void a(com.baidu.tieba.view.ba baVar) {
+        this.G = baVar;
         if (this.K != null) {
             this.K.a(this.G);
         }
@@ -179,11 +188,11 @@ public class bn {
         this.C.setOnOpenedListener(onOpenedListener);
     }
 
-    public bs e() {
+    public bs f() {
         return this.A;
     }
 
-    public SlidingMenu f() {
+    public SlidingMenu g() {
         return this.C;
     }
 
@@ -191,15 +200,15 @@ public class bn {
         this.C.showMenu(z);
     }
 
-    public void g() {
+    public void h() {
         this.K.setVisibility(0);
     }
 
-    public void h() {
+    public void i() {
         this.K.setVisibility(8);
     }
 
-    public NoNetworkView i() {
+    public NoNetworkView j() {
         return this.K;
     }
 
@@ -214,8 +223,8 @@ public class bn {
         } else {
             builder.setItems(new String[]{string, string2, string3}, this.F);
         }
-        this.f1344a = builder.create();
-        this.f1344a.setCanceledOnTouchOutside(true);
+        this.f1395a = builder.create();
+        this.f1395a.setCanceledOnTouchOutside(true);
     }
 
     public void a(com.baidu.adp.widget.ListView.b bVar) {
@@ -230,8 +239,8 @@ public class bn {
         this.m.setOnSrollToBottomListener(rVar);
     }
 
-    public void a(com.baidu.adp.widget.ListView.s sVar) {
-        this.m.setOnSrollToTopListener(sVar);
+    public void a(com.baidu.adp.widget.ListView.t tVar) {
+        this.m.setOnSrollToTopListener(tVar);
     }
 
     public void a(AdapterView.OnItemClickListener onItemClickListener) {
@@ -246,9 +255,9 @@ public class bn {
         this.F = onClickListener;
     }
 
-    public void j() {
-        if (this.f1344a != null) {
-            this.f1344a.show();
+    public void k() {
+        if (this.f1395a != null) {
+            this.f1395a.show();
         }
     }
 
@@ -282,19 +291,19 @@ public class bn {
         }
     }
 
-    public boolean k() {
+    public boolean l() {
         return this.c;
     }
 
-    public ah l() {
+    public ah m() {
         return this.n;
     }
 
-    public FrsHeaderView m() {
+    public FrsHeaderView n() {
         return this.s;
     }
 
-    public com.baidu.tieba.view.aa n() {
+    public com.baidu.tieba.view.ab o() {
         return this.t;
     }
 
@@ -314,7 +323,7 @@ public class bn {
         this.C.setTouchModeAbove(2);
     }
 
-    public void o() {
+    public void p() {
         this.m.setVisibility(0);
     }
 
@@ -322,33 +331,33 @@ public class bn {
         this.g.setText(str + this.d.getString(R.string.forum));
     }
 
-    public void p() {
+    public void q() {
         if (this.n != null) {
             this.n.notifyDataSetChanged();
         }
     }
 
-    public void q() {
-        L();
+    public void r() {
+        M();
         this.D = "normal_page";
         this.m.addHeaderView(this.s.c());
     }
 
-    public void r() {
-        L();
+    public void s() {
+        M();
         this.D = "frs_page";
         this.m.addHeaderView(this.t.c());
     }
 
-    public void s() {
+    public void t() {
         if (!"good_page".equals(this.D)) {
-            L();
+            M();
             this.D = "good_page";
             this.m.addHeaderView(this.u.a());
         }
     }
 
-    private void L() {
+    private void M() {
         if ("normal_page".equals(this.D)) {
             this.m.removeHeaderView(this.s.c());
         } else if ("frs_page".equals(this.D)) {
@@ -358,31 +367,31 @@ public class bn {
         }
     }
 
-    public void t() {
+    public void u() {
         if (this.s != null) {
             this.s.g().setVisibility(0);
         }
     }
 
-    public void u() {
+    public void v() {
         if (this.s != null) {
             this.s.g().setVisibility(8);
         }
     }
 
-    public void v() {
-        if (this.t != null) {
-            this.t.g().setVisibility(0);
-        }
-    }
-
     public void w() {
         if (this.t != null) {
-            this.t.g().setVisibility(8);
+            this.t.h().setVisibility(0);
         }
     }
 
-    public boolean x() {
+    public void x() {
+        if (this.t != null) {
+            this.t.h().setVisibility(8);
+        }
+    }
+
+    public boolean y() {
         if ("normal_page".equals(this.D)) {
             return this.s.d();
         }
@@ -392,7 +401,7 @@ public class bn {
         return false;
     }
 
-    public boolean y() {
+    public boolean z() {
         if ("normal_page".equals(this.D)) {
             return this.s.e();
         }
@@ -402,7 +411,7 @@ public class bn {
         return false;
     }
 
-    public void z() {
+    public void A() {
         this.m.setAdapter((ListAdapter) this.n);
     }
 
@@ -414,7 +423,7 @@ public class bn {
         this.n.c(z);
     }
 
-    public void A() {
+    public void B() {
         this.r.show();
     }
 
@@ -436,7 +445,7 @@ public class bn {
         return this.m.findViewById(i);
     }
 
-    public BdListView B() {
+    public BdListView C() {
         return this.m;
     }
 
@@ -456,7 +465,7 @@ public class bn {
         }
     }
 
-    public void C() {
+    public void D() {
         this.n.b(false);
         this.n.c(false);
         this.n.notifyDataSetInvalidated();
@@ -587,22 +596,22 @@ public class bn {
         }
     }
 
-    public void D() {
+    public void E() {
         if (this.B != null) {
             this.B.dismiss();
         }
-        l().a().b();
-        n().a().b();
+        m().a().b();
+        o().a().b();
     }
 
-    public void E() {
+    public void F() {
         if (this.K != null && this.G != null) {
             this.K.b(this.G);
         }
     }
 
     public void a(ArrayList<com.baidu.tieba.data.z> arrayList, AdapterView.OnItemClickListener onItemClickListener) {
-        s();
+        t();
         if (this.v == null) {
             this.v = new ap(this.d, arrayList);
             this.u.a(this.v);
@@ -615,7 +624,7 @@ public class bn {
         this.A.a(R.id.show_good);
     }
 
-    public void F() {
+    public void G() {
         if (this.B != null) {
             this.B.a();
         }
@@ -623,7 +632,7 @@ public class bn {
 
     public void a(com.baidu.adp.widget.ImageView.e eVar, boolean z) {
         if (this.B == null) {
-            this.B = new com.baidu.tieba.view.am(this.d, this.e.getWidth(), this.e.getHeight());
+            this.B = new com.baidu.tieba.view.an(this.d, this.e.getWidth(), this.e.getHeight());
         }
         if (this.B.isShowing()) {
             this.B.a(eVar);
@@ -632,11 +641,11 @@ public class bn {
         }
     }
 
-    public com.baidu.tieba.view.am G() {
+    public com.baidu.tieba.view.an H() {
         return this.B;
     }
 
-    public void H() {
+    public void I() {
         if (this.B != null) {
             this.B.a(null);
         }
@@ -651,8 +660,8 @@ public class bn {
     public void a(com.baidu.tieba.model.ap apVar) {
         this.A.a(apVar);
         long a2 = apVar.a() + apVar.b();
-        boolean z = TiebaApplication.g().ap() == 1;
-        if (a2 > 0) {
+        boolean z = TiebaApplication.h().an() == 1;
+        if (a2 > 0 && this.x.getVisibility() == 0) {
             this.w.setVisibility(0);
             if (a2 < 10) {
                 this.w.setText(String.valueOf(a2));
@@ -668,7 +677,7 @@ public class bn {
                 return;
             }
         }
-        this.w.setVisibility(4);
+        this.w.setVisibility(8);
     }
 
     public void j(int i) {
@@ -703,11 +712,11 @@ public class bn {
         this.l.setAlpha(Util.MASK_8BIT);
     }
 
-    public void I() {
+    public void J() {
         this.m.b();
     }
 
-    public int J() {
+    public int K() {
         return R.id.user_icon_box;
     }
 }

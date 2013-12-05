@@ -6,18 +6,18 @@ import java.security.PrivilegedAction;
 final class q implements PrivilegedAction {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ AccessibleObject f2862a;
+    final /* synthetic */ AccessibleObject f3043a;
     final /* synthetic */ boolean b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(AccessibleObject accessibleObject, boolean z) {
-        this.f2862a = accessibleObject;
+        this.f3043a = accessibleObject;
         this.b = z;
     }
 
     @Override // java.security.PrivilegedAction
     public Object run() {
-        this.f2862a.setAccessible(this.b);
+        this.f3043a.setAccessible(this.b);
         return null;
     }
 }

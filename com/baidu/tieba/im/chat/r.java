@@ -1,31 +1,19 @@
 package com.baidu.tieba.im.chat;
-
-import com.baidu.tieba.im.message.Message;
-import com.baidu.tieba.im.message.ResponseReportGroupMessage;
-import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class r implements com.baidu.tieba.im.messageCenter.h {
+class r implements com.baidu.tieba.im.a<Void> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ GroupSettingActivity f1551a;
+    final /* synthetic */ GroupSettingActivity f1604a;
 
+    /* JADX INFO: Access modifiers changed from: package-private */
     public r(GroupSettingActivity groupSettingActivity) {
-        this.f1551a = groupSettingActivity;
+        this.f1604a = groupSettingActivity;
     }
 
-    @Override // com.baidu.tieba.im.messageCenter.h
-    public void a(Message message) {
-        if (message != null && message.getCmd() == 103103) {
-            if (!(message instanceof ResponseReportGroupMessage)) {
-                this.f1551a.showToast(R.string.group_report_fail);
-                return;
-            }
-            ResponseReportGroupMessage responseReportGroupMessage = (ResponseReportGroupMessage) message;
-            if (responseReportGroupMessage.hasError()) {
-                this.f1551a.a(responseReportGroupMessage.getErrMsg(), responseReportGroupMessage.getErrNo());
-            } else {
-                this.f1551a.showToast(R.string.group_report_success);
-            }
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.a
+    public void a(Void r4) {
+        com.baidu.tieba.im.pushNotify.a.h().b(false, (com.baidu.tieba.im.a<Void>) null);
+        this.f1604a.finish();
     }
 }

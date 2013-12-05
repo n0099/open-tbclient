@@ -16,17 +16,17 @@ import java.util.List;
 public class u {
 
     /* renamed from: a  reason: collision with root package name */
-    private static u f2023a = null;
+    private static u f2130a = null;
     private List<c> b = new ArrayList();
     private List<Uri> c;
     private String d;
     private boolean e;
 
     public static u a() {
-        if (f2023a == null) {
-            f2023a = new u();
+        if (f2130a == null) {
+            f2130a = new u();
         }
-        return f2023a;
+        return f2130a;
     }
 
     private u() {

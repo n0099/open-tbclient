@@ -11,11 +11,11 @@ import java.util.Date;
 public class aq implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WriteImageActivity f2673a;
+    final /* synthetic */ WriteImageActivity f2791a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aq(WriteImageActivity writeImageActivity) {
-        this.f2673a = writeImageActivity;
+        this.f2791a = writeImageActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -27,42 +27,42 @@ public class aq implements View.OnClickListener {
         Bitmap bitmap;
         Bitmap bitmap2;
         boolean b;
-        z = this.f2673a.y;
+        z = this.f2791a.y;
         if (!z) {
-            i = this.f2673a.z;
+            i = this.f2791a.z;
             if (i == 12003) {
                 Intent intent = new Intent();
-                progressBar = this.f2673a.g;
+                progressBar = this.f2791a.g;
                 if (progressBar.getVisibility() != 0) {
-                    z2 = this.f2673a.x;
+                    z2 = this.f2791a.x;
                     if (z2) {
-                        bitmap = this.f2673a.p;
+                        bitmap = this.f2791a.p;
                         if (bitmap != null) {
-                            bitmap2 = this.f2673a.p;
+                            bitmap2 = this.f2791a.p;
                             if (!bitmap2.isRecycled()) {
                                 String str = "tieba" + String.valueOf(new Date().getTime()) + Util.PHOTO_DEFAULT_EXT;
-                                b = this.f2673a.b(str);
+                                b = this.f2791a.b(str);
                                 if (b) {
                                     intent.putExtra("change", true);
                                     intent.putExtra("file_name", str);
                                 } else {
                                     intent.putExtra("change", false);
                                 }
-                                this.f2673a.setResult(-1, intent);
+                                this.f2791a.setResult(-1, intent);
                             }
                         }
                     }
                     intent.putExtra("change", false);
-                    this.f2673a.setResult(-1, intent);
+                    this.f2791a.setResult(-1, intent);
                 } else {
                     return;
                 }
             } else {
-                this.f2673a.setResult(0, new Intent());
+                this.f2791a.setResult(0, new Intent());
             }
         } else {
-            this.f2673a.setResult(0, new Intent());
+            this.f2791a.setResult(0, new Intent());
         }
-        this.f2673a.finish();
+        this.f2791a.finish();
     }
 }

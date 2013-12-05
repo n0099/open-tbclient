@@ -1,6 +1,5 @@
 package com.baidu.tieba.data;
 
-import com.baidu.tieba.util.bg;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -12,7 +11,7 @@ public class r {
     private long c = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    private ae f1211a = new ae();
+    private ae f1258a = new ae();
 
     public r() {
         this.b = true;
@@ -41,7 +40,7 @@ public class r {
             this.b = true;
         } catch (Exception e) {
             this.b = false;
-            bg.b(getClass().getName(), "parserJson", e.toString());
+            com.baidu.tieba.util.bd.b(getClass().getName(), "parserJson", e.toString());
         }
     }
 
@@ -51,17 +50,17 @@ public class r {
             this.e = jSONObject.optInt("msign_level");
             this.f = jSONObject.optString("msign_text");
             JSONArray optJSONArray = jSONObject.optJSONArray("like_forum");
-            this.f1211a.a(this.e);
-            this.f1211a.a(optJSONArray);
+            this.f1258a.a(this.e);
+            this.f1258a.a(optJSONArray);
             this.c = jSONObject.optLong("time");
         } catch (Exception e) {
             this.b = false;
-            bg.b(getClass().getName(), "parserJson", e.toString());
+            com.baidu.tieba.util.bd.b(getClass().getName(), "parserJson", e.toString());
         }
     }
 
     public ae d() {
-        return this.f1211a;
+        return this.f1258a;
     }
 
     public void a(boolean z) {
@@ -77,8 +76,8 @@ public class r {
     }
 
     public boolean g() {
-        if (this.f1211a != null) {
-            return this.f1211a.b();
+        if (this.f1258a != null) {
+            return this.f1258a.b();
         }
         return false;
     }

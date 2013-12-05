@@ -1,28 +1,25 @@
 package com.baidu.tieba.im.chat;
 
-import android.text.TextUtils;
-import com.baidu.tieba.im.db.pojo.GroupMsgPojo;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.im.message.ChatResponsedMessage;
+import com.baidu.tieba.im.message.Message;
+import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class i implements com.baidu.tieba.im.a<Void> {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f1543a;
-    final /* synthetic */ GroupMsgPojo b;
-    final /* synthetic */ a c;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public i(a aVar, String str, GroupMsgPojo groupMsgPojo) {
-        this.c = aVar;
-        this.f1543a = str;
-        this.b = groupMsgPojo;
+public class i implements com.baidu.tieba.im.b.n<com.baidu.tieba.im.b.a.d> {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.util.LinkedList, java.lang.Object, com.baidu.tieba.im.b.q, int] */
+    @Override // com.baidu.tieba.im.b.n
+    public /* bridge */ /* synthetic */ void a(LinkedList linkedList, com.baidu.tieba.im.b.a.d dVar, com.baidu.tieba.im.b.q qVar, int i) {
+        a2((LinkedList<Message>) linkedList, dVar, qVar, i);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    public void a(Void r3) {
-        if (!TextUtils.isEmpty(this.f1543a) && !TextUtils.isEmpty(com.baidu.tieba.im.pushNotify.n.a().d()) && !this.f1543a.equals(com.baidu.tieba.im.pushNotify.n.a().d())) {
-            com.baidu.tieba.im.pushNotify.n.a().a(this.b);
+    /* renamed from: a  reason: avoid collision after fix types in other method */
+    public void a2(LinkedList<Message> linkedList, com.baidu.tieba.im.b.a.d dVar, com.baidu.tieba.im.b.q qVar, int i) {
+        ChatResponsedMessage chatResponsedMessage = new ChatResponsedMessage();
+        chatResponsedMessage.setErrorInfo(qVar);
+        linkedList.add(chatResponsedMessage);
+        if (dVar != null && !chatResponsedMessage.hasError()) {
+            chatResponsedMessage.setMsgId(ac.b(dVar.c("msgId")));
+            chatResponsedMessage.setRecordId(dVar.c("recordId"));
+            chatResponsedMessage.setGroupId(dVar.a("groupId"));
         }
     }
 }

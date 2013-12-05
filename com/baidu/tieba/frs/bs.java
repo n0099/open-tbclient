@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class bs extends com.baidu.adp.a.e {
 
     /* renamed from: a  reason: collision with root package name */
-    private BdSwitchView f1349a;
+    private BdSwitchView f1400a;
     private BdSwitchView c;
     private View d;
     private LinearLayout e;
@@ -39,7 +39,7 @@ public class bs extends com.baidu.adp.a.e {
 
     public bs(Context context) {
         super(context);
-        this.f1349a = null;
+        this.f1400a = null;
         this.c = null;
         this.d = null;
         this.e = null;
@@ -74,9 +74,9 @@ public class bs extends com.baidu.adp.a.e {
         this.d = LayoutInflater.from(this.b).inflate(R.layout.frs_sidebar, (ViewGroup) null);
         this.c = (BdSwitchView) this.d.findViewById(R.id.thrift_mode_switch);
         this.c.setSwitchStyle(BdSwitchView.SwitchStyle.SIDE_BAR);
-        this.f1349a = (BdSwitchView) this.d.findViewById(R.id.eyeshield_mode_switch);
-        this.f1349a.setOnSwitchStateChangeListener((com.baidu.adp.widget.BdSwitchView.c) this.b);
-        this.f1349a.setSwitchStyle(BdSwitchView.SwitchStyle.SIDE_BAR);
+        this.f1400a = (BdSwitchView) this.d.findViewById(R.id.eyeshield_mode_switch);
+        this.f1400a.setOnSwitchStateChangeListener((com.baidu.adp.widget.BdSwitchView.c) this.b);
+        this.f1400a.setSwitchStyle(BdSwitchView.SwitchStyle.SIDE_BAR);
         this.g = (TextView) this.d.findViewById(R.id.message_btn);
         this.e = (LinearLayout) this.d.findViewById(R.id.message_layout);
         this.h = (LinearLayout) this.d.findViewById(R.id.like_forum_layout);
@@ -117,7 +117,7 @@ public class bs extends com.baidu.adp.a.e {
     }
 
     public BdSwitchView f() {
-        return this.f1349a;
+        return this.f1400a;
     }
 
     public boolean g() {
@@ -132,10 +132,10 @@ public class bs extends com.baidu.adp.a.e {
     }
 
     public void i() {
-        if (TiebaApplication.g().ap() == 1) {
-            this.f1349a.a();
+        if (TiebaApplication.h().an() == 1) {
+            this.f1400a.a();
         } else {
-            this.f1349a.b();
+            this.f1400a.b();
         }
     }
 
@@ -154,7 +154,7 @@ public class bs extends com.baidu.adp.a.e {
 
     public void a(com.baidu.tieba.model.ap apVar) {
         long a2 = apVar.a() + apVar.b();
-        boolean z = TiebaApplication.g().ap() == 1;
+        boolean z = TiebaApplication.h().an() == 1;
         if (a2 > 0) {
             this.g.setVisibility(0);
             if (a2 < 10) {
@@ -195,9 +195,9 @@ public class bs extends com.baidu.adp.a.e {
             int size = c.size();
             if (size != 0) {
                 int i = size > 10 ? 10 : size;
-                int ap = TiebaApplication.g().ap();
+                int an = TiebaApplication.h().an();
                 com.baidu.tieba.e layoutMode = ((com.baidu.tieba.j) this.b).getLayoutMode();
-                layoutMode.a(ap == 1);
+                layoutMode.a(an == 1);
                 for (int i2 = 0; i2 < i; i2++) {
                     LinearLayout linearLayout = (LinearLayout) from.inflate(R.layout.frs_sidebar_item, (ViewGroup) null);
                     layoutMode.a(linearLayout);

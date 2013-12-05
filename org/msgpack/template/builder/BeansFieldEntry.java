@@ -9,7 +9,7 @@ import org.msgpack.template.builder.beans.PropertyDescriptor;
 public class BeansFieldEntry extends c {
 
     /* renamed from: a  reason: collision with root package name */
-    protected PropertyDescriptor f2921a;
+    protected PropertyDescriptor f3102a;
 
     public BeansFieldEntry() {
     }
@@ -20,7 +20,7 @@ public class BeansFieldEntry extends c {
 
     public BeansFieldEntry(PropertyDescriptor propertyDescriptor, FieldOption fieldOption) {
         super(fieldOption);
-        this.f2921a = propertyDescriptor;
+        this.f3102a = propertyDescriptor;
     }
 
     public String a() {
@@ -32,7 +32,7 @@ public class BeansFieldEntry extends c {
     }
 
     public PropertyDescriptor c() {
-        return this.f2921a;
+        return this.f3102a;
     }
 
     @Override // org.msgpack.template.builder.c

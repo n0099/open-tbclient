@@ -1,6 +1,6 @@
 package com.baidu.tieba.account.appeal;
 
-import com.google.gson.annotations.SerializedName;
+import com.baidu.gson.annotations.SerializedName;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class ForbidReasonData implements Serializable {

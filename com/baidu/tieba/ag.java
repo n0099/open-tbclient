@@ -1,32 +1,36 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.view.animation.AlphaAnimation;
-import android.widget.ImageView;
-import com.slidingmenu.lib.R;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* loaded from: classes.dex */
-class ag implements Runnable {
+class ag extends BdAsyncTask<String, Integer, Boolean> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ LogoActivity f1103a;
+    final /* synthetic */ GuideActivity f1113a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ag(LogoActivity logoActivity) {
-        this.f1103a = logoActivity;
+    private ag(GuideActivity guideActivity) {
+        this.f1113a = guideActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        ImageView imageView;
-        Bitmap bitmap;
-        ImageView imageView2;
-        AlphaAnimation alphaAnimation;
-        this.f1103a.e = com.baidu.tieba.util.m.a(this.f1103a, (int) R.drawable.logo);
-        imageView = this.f1103a.d;
-        bitmap = this.f1103a.e;
-        imageView.setImageBitmap(bitmap);
-        imageView2 = this.f1103a.d;
-        alphaAnimation = this.f1103a.f;
-        imageView2.startAnimation(alphaAnimation);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ ag(GuideActivity guideActivity, ab abVar) {
+        this(guideActivity);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public Boolean a(String... strArr) {
+        boolean c;
+        c = this.f1113a.c();
+        return Boolean.valueOf(c);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(Boolean bool) {
+        if (!bool.booleanValue()) {
+            this.f1113a.b();
+        }
     }
 }

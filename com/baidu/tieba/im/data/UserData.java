@@ -1,10 +1,10 @@
 package com.baidu.tieba.im.data;
 
-import com.baidu.tieba.util.an;
+import com.baidu.tieba.util.ak;
 import java.io.Serializable;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class UserData implements an, Serializable {
+public class UserData implements ak, Serializable {
     private static final long serialVersionUID = -4483304441506804594L;
     private long inTime;
     private long lastReplyTime;
@@ -106,12 +106,12 @@ public class UserData implements an, Serializable {
         this.lastReplyTime = j;
     }
 
-    @Override // com.baidu.tieba.util.an
+    @Override // com.baidu.tieba.util.ak
     public LinkedList<String> getImageUrl() {
         return null;
     }
 
-    @Override // com.baidu.tieba.util.an
+    @Override // com.baidu.tieba.util.ak
     public LinkedList<String> getPhotoUrl() {
         LinkedList<String> linkedList = new LinkedList<>();
         linkedList.add(this.portrait);
@@ -145,7 +145,7 @@ public class UserData implements an, Serializable {
         }
     }
 
-    @Override // com.baidu.tieba.util.an
+    @Override // com.baidu.tieba.util.ak
     public LinkedList<String> getForumPhotoUrl() {
         return null;
     }

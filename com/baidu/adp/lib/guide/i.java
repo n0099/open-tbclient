@@ -114,7 +114,7 @@ public class i extends ViewGroup {
                         break;
                 }
                 this.c.offset((int) ((jVar.c * f) + 0.5f), (int) ((jVar.d * f) + 0.5f));
-                com.baidu.adp.lib.h.d.e("MaskView", "onLayout", "child layout to: " + this.c);
+                com.baidu.adp.lib.h.e.e("MaskView", "onLayout", "child layout to: " + this.c);
                 childAt.layout((int) this.c.left, (int) this.c.top, (int) this.c.right, (int) this.c.bottom);
             }
         }
@@ -163,22 +163,22 @@ public class i extends ViewGroup {
     private void b() {
         this.e.reset();
         this.e.addRect(this.f499a, Path.Direction.CW);
-        com.baidu.adp.lib.h.d.e("MaskView", "resetOutPath", "target rect = " + this.f499a);
+        com.baidu.adp.lib.h.e.e("MaskView", "resetOutPath", "target rect = " + this.f499a);
         this.e.addRect(this.b, Path.Direction.CW);
-        com.baidu.adp.lib.h.d.e("MaskView", "resetOutPath", "fulling rect = " + this.b);
+        com.baidu.adp.lib.h.e.e("MaskView", "resetOutPath", "fulling rect = " + this.b);
     }
 
     public void a(Rect rect) {
         this.f499a.set(rect);
         b();
-        com.baidu.adp.lib.h.d.e("MaskView", "settargetRect", "target rect = " + this.f499a);
+        com.baidu.adp.lib.h.e.e("MaskView", "settargetRect", "target rect = " + this.f499a);
         invalidate();
     }
 
     public void b(Rect rect) {
         this.b.set(rect);
         b();
-        com.baidu.adp.lib.h.d.e("MaskView", "setFullingRect", "fulling rect = " + this.b);
+        com.baidu.adp.lib.h.e.e("MaskView", "setFullingRect", "fulling rect = " + this.b);
         this.f = true;
         invalidate();
     }

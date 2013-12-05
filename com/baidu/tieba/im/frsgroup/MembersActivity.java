@@ -1,6 +1,8 @@
 package com.baidu.tieba.im.frsgroup;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -11,20 +13,21 @@ import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.im.data.UserData;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.message.RequestMembersMessage;
-import com.baidu.tieba.view.bi;
+import com.baidu.tieba.view.bk;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 /* loaded from: classes.dex */
-public class MembersActivity extends com.baidu.tieba.j implements View.OnClickListener, AbsListView.OnScrollListener, com.baidu.adp.widget.ListView.r, com.baidu.tieba.im.pushNotify.m {
+public class MembersActivity extends com.baidu.tieba.j implements View.OnClickListener, AbsListView.OnScrollListener, com.baidu.adp.widget.ListView.r, com.baidu.tieba.im.pushNotify.k {
 
     /* renamed from: a  reason: collision with root package name */
-    private aa f1632a;
-    private com.baidu.tieba.im.model.h b;
-    private Handler c;
-    private com.baidu.tieba.im.messageCenter.h d = new r(this);
-    private com.baidu.tieba.im.messageCenter.h e = new s(this);
-    private Runnable f = new l(this);
+    private bk f1699a;
+    private aa b;
+    private com.baidu.tieba.im.model.h c;
+    private Handler d;
+    private com.baidu.tieba.im.messageCenter.g e = new r(this);
+    private com.baidu.tieba.im.messageCenter.g f = new s(this);
+    private Runnable g = new l(this);
 
     public static void a(Context context, long j) {
         Intent intent = new Intent(context, MembersActivity.class);
@@ -43,59 +46,59 @@ public class MembersActivity extends com.baidu.tieba.j implements View.OnClickLi
     }
 
     private void d() {
-        com.baidu.tieba.im.pushNotify.n.a().a("kick_out", this);
-        com.baidu.tieba.im.pushNotify.n.a().a("apply_join_success", this);
+        com.baidu.tieba.im.pushNotify.l.a().a("kick_out", this);
+        com.baidu.tieba.im.pushNotify.l.a().a("apply_join_success", this);
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        this.b.b(bundle);
+        this.c.b(bundle);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j, android.app.Activity
     public void onStop() {
         super.onStop();
-        this.f1632a.h().h();
+        this.b.h().g();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        com.baidu.tieba.im.pushNotify.n.a().a(this);
-        this.b.b(this.d);
-        this.b.d(this.e);
+        com.baidu.tieba.im.pushNotify.l.a().a(this);
+        this.c.b(this.e);
+        this.c.d(this.f);
     }
 
     public com.baidu.tieba.im.model.h b() {
-        return this.b;
+        return this.c;
     }
 
     private void e() {
-        this.f1632a = new aa(this);
-        BdListView l = this.f1632a.l();
-        bi biVar = new bi(this);
-        biVar.a(new k(this, l));
-        l.setPullRefresh(biVar);
+        this.b = new aa(this);
+        BdListView l = this.b.l();
+        this.f1699a = new bk(this);
+        this.f1699a.a(new k(this, l));
+        l.setPullRefresh(this.f1699a);
         l.setOnScrollListener(this);
         l.setOnSrollToBottomListener(this);
         l.setOnItemClickListener(new m(this));
         l.setOnItemLongClickListener(new n(this));
-        this.f1632a.a().setOnClickListener(this);
-        this.f1632a.e().setOnClickListener(this);
-        this.f1632a.f().setOnClickListener(this);
-        this.f1632a.b(false);
-        this.f1632a.i().a(new q(this));
+        this.b.a().setOnClickListener(this);
+        this.b.e().setOnClickListener(this);
+        this.b.f().setOnClickListener(this);
+        this.b.b(false);
+        this.b.i().a(new q(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(long j, List<Long> list) {
         if (list != null && list.size() != 0) {
-            this.f1632a.a(true);
-            this.b.a(list);
-            this.b.a(j, a(list));
+            this.b.a(true);
+            this.c.a(list);
+            this.c.a(j, a(list));
         }
     }
 
@@ -111,121 +114,122 @@ public class MembersActivity extends com.baidu.tieba.j implements View.OnClickLi
     }
 
     private void f() {
-        this.b.b(false);
-        this.b.a((RequestMembersMessage) null);
-        this.f1632a.i().a(true);
-        this.b.b(0);
-        this.b.d(50);
-        this.f1632a.l().b();
+        this.c.b(false);
+        this.c.a((RequestMembersMessage) null);
+        this.b.i().a(true);
+        this.c.b(0);
+        this.c.d(50);
+        this.b.l().b();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void g() {
-        this.b.b(true);
-        this.b.a((RequestMembersMessage) null);
-        this.f1632a.i().a(false);
-        this.b.b(0);
-        this.b.d(50);
-        this.f1632a.l().b();
+        this.c.b(true);
+        this.c.a((RequestMembersMessage) null);
+        this.b.i().a(false);
+        this.c.b(0);
+        this.c.d(50);
+        this.b.l().b();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void h() {
         if (i()) {
-            this.f1632a.g();
+            this.b.g();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean i() {
-        RequestMembersMessage a2 = this.b.a();
-        return a2 != null ? 50 == a2.getRn() : 50 == this.b.f();
+        RequestMembersMessage a2 = this.c.a();
+        return a2 != null ? 50 == a2.getRn() : 50 == this.c.f();
     }
 
     public void a(Bundle bundle) {
-        this.b = new com.baidu.tieba.im.model.h();
+        this.c = new com.baidu.tieba.im.model.h();
         if (bundle == null) {
-            this.b.a(getIntent());
+            this.c.a(getIntent());
         } else {
-            this.b.a(bundle);
+            this.c.a(bundle);
         }
-        this.c = new Handler();
-        this.b.a(this.d);
-        this.b.c(this.e);
+        this.d = new Handler();
+        this.c.a(this.e);
+        this.c.c(this.f);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(UserData.Permission permission) {
         if (permission != null) {
             boolean isController = permission.isController();
-            this.b.a(isController);
-            this.f1632a.b(isController);
+            this.c.a(isController);
+            this.b.b(isController);
         }
     }
 
     public void c() {
-        if (this.c != null) {
-            this.c.removeCallbacks(this.f);
-            this.c.postDelayed(this.f, 0L);
+        if (this.d != null) {
+            this.d.removeCallbacks(this.g);
+            this.d.postDelayed(this.g, 0L);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void j() {
-        this.f1632a.h().g();
-        this.f1632a.h().e();
+        this.b.h().f();
+        this.b.h().d();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j
     public void onChangeSkinType(int i) {
-        this.f1632a.a(i);
+        this.b.a(i);
+        this.f1699a.a(i);
     }
 
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.f1632a.k()) {
+        if (view == this.b.k()) {
             k();
-        } else if (view == this.f1632a.a()) {
+        } else if (view == this.b.a()) {
             m();
-            this.f1632a.d(false);
-        } else if (view == this.f1632a.e()) {
+            this.b.d(false);
+        } else if (view == this.b.e()) {
             l();
-            this.f1632a.d(true);
-        } else if (view == this.f1632a.f()) {
+            this.b.d(true);
+        } else if (view == this.b.f()) {
             n();
         }
     }
 
     private void k() {
-        com.baidu.tieba.im.d.a.a(this, new t(this));
+        com.baidu.tieba.im.e.b.a((Activity) this, (DialogInterface.OnClickListener) new t(this));
     }
 
     private void l() {
-        this.f1632a.c(false);
-        this.f1632a.i().d(false);
-        this.f1632a.i().a();
-        this.f1632a.j();
+        this.b.c(false);
+        this.b.i().d(false);
+        this.b.i().a();
+        this.b.j();
     }
 
     private void m() {
-        this.f1632a.c(true);
-        this.f1632a.i().d(true);
-        this.f1632a.j();
+        this.b.c(true);
+        this.b.i().d(true);
+        this.b.j();
     }
 
     private void n() {
-        Set<Long> b = this.f1632a.i().b();
+        Set<Long> b = this.b.i().b();
         if (b.size() > 0) {
             ArrayList arrayList = new ArrayList();
             arrayList.addAll(b);
-            com.baidu.tieba.im.d.a.b(this, new u(this, arrayList), new v(this));
+            com.baidu.tieba.im.e.b.b(this, new u(this, arrayList), new v(this));
         }
     }
 
     private void o() {
-        if (this.f1632a.i().c()) {
-            this.b.a(this.b.g(), this.b.e(), this.b.f(), this.b.b());
+        if (this.b.i().c()) {
+            this.c.a(this.c.g(), this.c.e(), this.c.f(), this.c.b());
         }
     }
 
@@ -247,16 +251,16 @@ public class MembersActivity extends com.baidu.tieba.j implements View.OnClickLi
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScrollStateChanged(AbsListView absListView, int i) {
         if (i == 0) {
-            if (this.c != null) {
-                this.c.removeCallbacks(this.f);
-                this.c.postDelayed(this.f, 300L);
+            if (this.d != null) {
+                this.d.removeCallbacks(this.g);
+                this.d.postDelayed(this.g, 300L);
             }
-        } else if (this.c != null) {
-            this.c.removeCallbacks(this.f);
+        } else if (this.d != null) {
+            this.d.removeCallbacks(this.g);
         }
     }
 
-    @Override // com.baidu.tieba.im.pushNotify.m
+    @Override // com.baidu.tieba.im.pushNotify.k
     public void a(GroupNewsPojo groupNewsPojo) {
         if (groupNewsPojo != null) {
             String cmd = groupNewsPojo.getCmd();

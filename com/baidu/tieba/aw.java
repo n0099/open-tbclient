@@ -1,13 +1,26 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.im.SingleRunnable;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import com.baidu.mobstat.StatService;
 /* loaded from: classes.dex */
-public final class aw extends SingleRunnable<Void> {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.SingleRunnable
-    /* renamed from: a */
-    public Void b() {
-        return null;
+class aw implements View.OnClickListener {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ av f1124a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public aw(av avVar) {
+        this.f1124a = avVar;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        ay ayVar;
+        boolean isChecked = this.f1124a.e.isChecked();
+        if (TiebaApplication.h().t()) {
+            StatService.onEvent(this.f1124a.getContext(), "upgrade_channel", isChecked ? "withOtherApp" : "withoutOtherApp", 1);
+        }
+        ayVar = this.f1124a.h;
+        ayVar.a(isChecked);
     }
 }

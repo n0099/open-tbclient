@@ -4,17 +4,17 @@ package com.baidu.tieba.pb;
 public class ek implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f2150a;
+    final /* synthetic */ String f2257a;
     final /* synthetic */ ed b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ek(ed edVar, String str) {
         this.b = edVar;
-        this.f2150a = str;
+        this.f2257a = str;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.b.a(this.f2150a);
+        this.b.a(this.f2257a);
     }
 }

@@ -1,6 +1,6 @@
 package com.baidu.adp.lib.g;
 
-import com.baidu.adp.lib.network.d;
+import com.baidu.adp.lib.h.d;
 import com.baidu.adp.lib.network.e;
 import java.io.ByteArrayOutputStream;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -23,10 +23,10 @@ public class b implements Runnable {
             g = this.f485a.g();
             if (g != null && g.length > 0) {
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                com.baidu.adp.lib.h.c.a(g, byteArrayOutputStream);
+                d.a(g, byteArrayOutputStream);
                 try {
-                    e a2 = d.a().a("http://or.baidu.com/or/api/get", null, "monitor", byteArrayOutputStream.toByteArray(), 2, null, null);
-                    if (a2 == null || a2.f513a != 200) {
+                    e a2 = com.baidu.adp.lib.network.d.a().a("http://or.baidu.com/or/api/get", null, "monitor", byteArrayOutputStream.toByteArray(), 2, null, null);
+                    if (a2 == null || a2.f515a != 200) {
                         this.f485a.d();
                     } else {
                         this.f485a.e();

@@ -6,22 +6,21 @@ import android.os.Bundle;
 import android.os.Handler;
 import com.baidu.mobstat.StatService;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.UtilHelper;
 import com.tencent.mm.sdk.platformtools.Util;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class DailyRecommendActivity extends com.baidu.tieba.j {
-    private z c;
-    private w d;
+    private y c;
+    private v d;
     private String g;
     private final String b = DailyRecommendActivity.class.getSimpleName();
     private Handler e = null;
     private Runnable f = null;
 
     /* renamed from: a  reason: collision with root package name */
-    q f2284a = new c(this);
+    p f2402a = new c(this);
     private com.baidu.adp.widget.ListView.r h = new e(this);
     private com.baidu.adp.widget.ListView.b i = new g(this);
 
@@ -40,7 +39,7 @@ public class DailyRecommendActivity extends com.baidu.tieba.j {
     }
 
     private void a(Bundle bundle) {
-        this.d = new w(this);
+        this.d = new v(this);
         if (bundle != null) {
             this.d.a(bundle);
         } else {
@@ -52,11 +51,11 @@ public class DailyRecommendActivity extends com.baidu.tieba.j {
 
     @Override // com.baidu.tieba.j, com.baidu.adp.a.a
     public void showToast(String str) {
-        UtilHelper.a((Context) this, str);
+        com.baidu.adp.lib.h.g.a((Context) this, str);
     }
 
     private void d() {
-        this.c = new z(this, this.h, this.f2284a);
+        this.c = new y(this, this.h, this.f2402a);
         this.c.a(this.i);
         this.c.e();
     }
@@ -69,7 +68,7 @@ public class DailyRecommendActivity extends com.baidu.tieba.j {
             this.e.postDelayed(this.f, 300L);
         }
         this.c.i();
-        if (TiebaApplication.g().s()) {
+        if (TiebaApplication.h().t()) {
             StatService.onEvent(this, "recommend_feature", "visit", 1);
         }
     }
@@ -126,7 +125,7 @@ public class DailyRecommendActivity extends com.baidu.tieba.j {
 
     public static void a(Context context, String str) {
         Intent intent = new Intent(context, DailyRecommendActivity.class);
-        intent.putExtra(w.f2310a, str);
+        intent.putExtra(v.f2426a, str);
         intent.addFlags(268435456);
         context.startActivity(intent);
     }

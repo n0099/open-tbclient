@@ -9,7 +9,7 @@ import java.util.List;
 public class h extends com.baidu.adp.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    private long f1741a;
+    private long f1816a;
     private int b;
     private int c;
     private int d;
@@ -75,7 +75,7 @@ public class h extends com.baidu.adp.a.d {
     }
 
     public long g() {
-        return this.f1741a;
+        return this.f1816a;
     }
 
     @Override // com.baidu.adp.a.d
@@ -89,11 +89,11 @@ public class h extends com.baidu.adp.a.d {
     }
 
     public void a(Intent intent) {
-        this.f1741a = intent.getLongExtra("group_id", 0L);
+        this.f1816a = intent.getLongExtra("group_id", 0L);
     }
 
     public void a(Bundle bundle) {
-        this.f1741a = bundle.getLong("group_id", 0L);
+        this.f1816a = bundle.getLong("group_id", 0L);
         this.c = bundle.getInt("start_position", 0);
         this.d = bundle.getInt("len_position", 0);
     }
@@ -115,31 +115,31 @@ public class h extends com.baidu.adp.a.d {
     }
 
     public void a(long j, int i, int i2, int i3) {
-        com.baidu.tieba.im.messageCenter.f.a().a(b(j, i, i2, i3));
+        com.baidu.tieba.im.messageCenter.e.a().a(b(j, i, i2, i3));
     }
 
-    public void a(com.baidu.tieba.im.messageCenter.h hVar) {
-        com.baidu.tieba.im.messageCenter.f.a().a(103005, hVar);
+    public void a(com.baidu.tieba.im.messageCenter.g gVar) {
+        com.baidu.tieba.im.messageCenter.e.a().a(103005, gVar);
     }
 
-    public void b(com.baidu.tieba.im.messageCenter.h hVar) {
-        com.baidu.tieba.im.messageCenter.f.a().a(hVar);
+    public void b(com.baidu.tieba.im.messageCenter.g gVar) {
+        com.baidu.tieba.im.messageCenter.e.a().a(gVar);
     }
 
     public void a(long j, String str) {
-        com.baidu.tieba.im.messageCenter.f.a().a(b(j, str));
+        com.baidu.tieba.im.messageCenter.e.a().a(b(j, str));
     }
 
-    public void c(com.baidu.tieba.im.messageCenter.h hVar) {
-        com.baidu.tieba.im.messageCenter.f.a().a(103112, hVar);
+    public void c(com.baidu.tieba.im.messageCenter.g gVar) {
+        com.baidu.tieba.im.messageCenter.e.a().a(103112, gVar);
     }
 
-    public void d(com.baidu.tieba.im.messageCenter.h hVar) {
-        com.baidu.tieba.im.messageCenter.f.a().a(hVar);
+    public void d(com.baidu.tieba.im.messageCenter.g gVar) {
+        com.baidu.tieba.im.messageCenter.e.a().a(gVar);
     }
 
     public void b(Bundle bundle) {
-        bundle.putLong("group_id", this.f1741a);
+        bundle.putLong("group_id", this.f1816a);
         bundle.putInt("start_position", this.c);
         bundle.putInt("len_position", this.d);
     }

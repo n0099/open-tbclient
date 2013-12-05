@@ -9,7 +9,7 @@ import org.json.JSONObject;
 public class ar {
 
     /* renamed from: a  reason: collision with root package name */
-    private ArrayList<au> f2371a = new ArrayList<>();
+    private ArrayList<au> f2488a = new ArrayList<>();
     private ArrayList<au> b = new ArrayList<>();
     private ad c = new ad();
     private ForumDetailData.ThreadInfo[] d = null;
@@ -21,7 +21,7 @@ public class ar {
     }
 
     public ArrayList<au> b() {
-        return this.f2371a;
+        return this.f2488a;
     }
 
     public ArrayList<au> c() {
@@ -49,7 +49,7 @@ public class ar {
             a(new JSONObject(str));
         } catch (Exception e) {
             this.f = false;
-            com.baidu.tieba.util.bg.b(getClass().getName(), "parserJson", e.toString());
+            com.baidu.tieba.util.bd.b(getClass().getName(), "parserJson", e.toString());
         }
     }
 
@@ -63,7 +63,7 @@ public class ar {
             this.e.b(jSONObject);
         } catch (Exception e) {
             this.f = false;
-            com.baidu.tieba.util.bg.b(getClass().getName(), "parserJson", e.toString());
+            com.baidu.tieba.util.bd.b(getClass().getName(), "parserJson", e.toString());
         }
     }
 
@@ -76,11 +76,11 @@ public class ar {
                         JSONObject jSONObject = jSONArray.getJSONObject(i);
                         auVar.a(jSONObject.optString("pic_url", ""));
                         auVar.b(jSONObject.optString("link", ""));
-                        this.f2371a.add(auVar);
+                        this.f2488a.add(auVar);
                     }
                 }
             } catch (Exception e) {
-                com.baidu.tieba.util.bg.b(getClass().getName(), "parseCarouselRecommendData", e.toString());
+                com.baidu.tieba.util.bd.b(getClass().getName(), "parseCarouselRecommendData", e.toString());
             }
         }
     }
@@ -98,7 +98,7 @@ public class ar {
                     }
                 }
             } catch (Exception e) {
-                com.baidu.tieba.util.bg.b(getClass().getName(), "parseForumTopicRecommendData", e.toString());
+                com.baidu.tieba.util.bd.b(getClass().getName(), "parseForumTopicRecommendData", e.toString());
             }
         }
     }
@@ -134,7 +134,7 @@ public class ar {
                     }
                 }
             } catch (Exception e) {
-                com.baidu.tieba.util.bg.b(getClass().getName(), "parseRecommendPostData", e.toString());
+                com.baidu.tieba.util.bd.b(getClass().getName(), "parseRecommendPostData", e.toString());
             }
         }
     }
@@ -142,7 +142,7 @@ public class ar {
     public boolean g() {
         boolean z = false;
         if (this.f) {
-            if (this.f2371a == null || this.e == null || this.b == null || this.c == null || this.d == null) {
+            if (this.f2488a == null || this.e == null || this.b == null || this.c == null || this.d == null) {
                 z = true;
             }
             return z;

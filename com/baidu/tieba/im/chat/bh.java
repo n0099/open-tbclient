@@ -1,32 +1,22 @@
 package com.baidu.tieba.im.chat;
 
-import android.os.Handler;
-import android.os.Message;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.DialogInterface;
 /* loaded from: classes.dex */
-public class bh extends Handler {
+class bh implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bg f1519a;
+    final /* synthetic */ int f1566a;
+    final /* synthetic */ MsglistActivity b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bh(bg bgVar) {
-        this.f1519a = bgVar;
+    public bh(MsglistActivity msglistActivity, int i) {
+        this.b = msglistActivity;
+        this.f1566a = i;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        Handler handler;
-        super.handleMessage(message);
-        switch (message.what) {
-            case 1:
-                handler = this.f1519a.R;
-                handler.removeMessages(1);
-                this.f1519a.l();
-                this.f1519a.j();
-                return;
-            default:
-                return;
-        }
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        dialogInterface.dismiss();
+        this.b.a(this.f1566a);
     }
 }

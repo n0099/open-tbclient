@@ -23,7 +23,7 @@ public class MyPostActivity extends ActivityGroup {
     private RadioGroup g = null;
 
     /* renamed from: a  reason: collision with root package name */
-    protected int f2186a = -1;
+    protected int f2293a = -1;
     private String i = null;
     private int j = 0;
 
@@ -72,18 +72,18 @@ public class MyPostActivity extends ActivityGroup {
     @Override // android.app.ActivityGroup, android.app.Activity
     protected void onResume() {
         super.onResume();
-        if (TiebaApplication.g().ap() != this.f2186a) {
-            this.f2186a = TiebaApplication.g().ap();
-            a(this.f2186a);
+        if (TiebaApplication.h().an() != this.f2293a) {
+            this.f2293a = TiebaApplication.h().an();
+            a(this.f2293a);
         }
     }
 
     public void a(int i) {
-        com.baidu.tieba.util.bd.a(this.b, i);
-        com.baidu.tieba.util.bd.d(this.c, i);
-        com.baidu.tieba.util.bd.e(this.f, i);
-        com.baidu.tieba.util.bd.a(this.d, i);
-        com.baidu.tieba.util.bd.b(this.e, i);
+        com.baidu.tieba.util.ba.a(this.b, i);
+        com.baidu.tieba.util.ba.d(this.c, i);
+        com.baidu.tieba.util.ba.e(this.f, i);
+        com.baidu.tieba.util.ba.a(this.d, i);
+        com.baidu.tieba.util.ba.b(this.e, i);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

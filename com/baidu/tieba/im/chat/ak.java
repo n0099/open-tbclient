@@ -1,153 +1,109 @@
 package com.baidu.tieba.im.chat;
 
-import android.content.Context;
-import android.view.View;
+import android.text.TextUtils;
 import android.widget.TextView;
-import com.baidu.adp.widget.ImageView.BDImageView2;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
-import com.baidu.tieba.im.data.MsgCacheData;
-import com.baidu.tieba.im.message.ChatMessage;
-import com.baidu.tieba.im.widget.chatVoiceView.ChatVoiceView;
-import com.slidingmenu.lib.R;
-import java.util.Calendar;
+import com.baidu.tieba.view.MultiImageView;
+import java.util.ArrayList;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ak extends com.baidu.adp.a.c<ChatMessage> {
-    protected com.baidu.adp.lib.b.a c;
-    protected com.baidu.adp.lib.b.b d;
-    protected com.baidu.tieba.util.i e;
-    protected int f;
-    protected long g;
-    protected Long h;
-    protected TextView i;
-    protected TbRichTextView j;
-    protected BDImageView2 k;
-    protected ChatVoiceView l;
-    private long m;
-    private Calendar n;
+public class ak implements ab {
 
-    public ak(Context context, int i) {
-        super(context, i);
-        this.c = null;
-        this.d = null;
-        this.e = null;
-        this.f = 0;
-        this.g = 0L;
-        this.h = null;
-        this.m = 0L;
-        this.n = null;
-        this.b = context;
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ MsgImageActivity f1544a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ak(MsgImageActivity msgImageActivity) {
+        this.f1544a = msgImageActivity;
     }
 
-    public void a(com.baidu.adp.lib.b.a aVar) {
-        this.c = aVar;
-    }
-
-    public void a(com.baidu.adp.lib.b.b bVar) {
-        this.d = bVar;
-    }
-
-    public void a(com.baidu.tieba.util.i iVar) {
-        this.e = iVar;
-    }
-
-    public void b(int i) {
-        this.f = i;
-    }
-
-    public void a(long j) {
-        this.g = j;
-    }
-
-    public void b(long j) {
-        this.m = j;
-    }
-
-    public void c(long j) {
-        this.n = Calendar.getInstance();
-        this.n.setTimeInMillis(1000 * j);
-    }
-
-    private boolean d(long j) {
-        if (j < 1000) {
-            return false;
+    @Override // com.baidu.tieba.im.chat.ab
+    public void a(ArrayList<String> arrayList) {
+        ArrayList arrayList2;
+        ArrayList arrayList3;
+        ArrayList arrayList4;
+        String str;
+        String str2;
+        String str3;
+        boolean z;
+        ArrayList arrayList5;
+        TextView textView;
+        MultiImageView multiImageView;
+        MultiImageView multiImageView2;
+        MultiImageView multiImageView3;
+        ArrayList<String> arrayList6;
+        MultiImageView multiImageView4;
+        int i;
+        int i2;
+        ArrayList arrayList7;
+        String str4;
+        ArrayList arrayList8;
+        String str5;
+        this.f1544a.b = arrayList;
+        arrayList2 = this.f1544a.b;
+        if (arrayList2 == null) {
+            this.f1544a.b = new ArrayList();
         }
-        return this.m == 0 || j - this.m >= 180;
-    }
-
-    private String e(long j) {
-        if (j < 1000) {
-            return "";
-        }
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTimeInMillis(1000 * j);
-        if (this.n != null && this.n.get(1) == calendar.get(1) && this.n.get(6) == calendar.get(6)) {
-            return com.baidu.tieba.util.be.b(calendar.getTime());
-        }
-        return com.baidu.tieba.util.be.a(calendar.getTime());
-    }
-
-    public void a(View view, ChatMessage chatMessage) {
-        this.h = Long.valueOf(chatMessage.getMsgId());
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void e() {
-        this.i = (TextView) a(R.id.tex_msgitem_time);
-        this.j = (TbRichTextView) a(R.id.tex_msgitem_text);
-        this.k = (BDImageView2) a(R.id.img_msgitem_image);
-        this.k.setDefaultResource(R.drawable.image_h_not);
-        this.l = (ChatVoiceView) a(R.id.lay_msgitem_voice);
-        this.l.setClickable(true);
-        this.l.setOnClickListener(this.l);
-        this.l.setLongClickable(true);
-        this.l.setOnLongClickListener(new al(this));
-        this.k.setClickable(true);
-        this.k.setOnClickListener(new am(this));
-        this.k.setLongClickable(true);
-        this.k.setOnLongClickListener(new an(this));
-        this.j.setLongClickable(true);
-        this.j.setOnLongClickListener(new ao(this));
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void c(int i) {
-        this.k.setVisibility(i);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void a(ChatMessage chatMessage) {
-        boolean z = chatMessage.getCacheData() != null && chatMessage.getCacheData().getIs_show_time() == 1;
-        boolean d = d(chatMessage.getTime());
-        if (z || d) {
-            this.i.setVisibility(0);
-            this.i.setText(e(chatMessage.getTime()));
-        } else {
-            this.i.setVisibility(8);
-        }
-        if (!z && d) {
-            MsgCacheData cacheData = chatMessage.getCacheData();
-            if (cacheData == null) {
-                MsgCacheData msgCacheData = new MsgCacheData();
-                msgCacheData.setIs_show_time(1);
-                chatMessage.setCacheData(msgCacheData);
-                return;
+        arrayList3 = this.f1544a.b;
+        if (arrayList3.isEmpty()) {
+            str4 = this.f1544a.r;
+            if (!TextUtils.isEmpty(str4)) {
+                arrayList8 = this.f1544a.b;
+                str5 = this.f1544a.r;
+                arrayList8.add(str5);
             }
-            cacheData.setIs_show_time(1);
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void a(ChatMessage chatMessage, String str) {
-        by.a(this.b, this.j, chatMessage, str);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void a(View view, ChatMessage chatMessage, String str) {
-        by.a(this.b, view, this.k, chatMessage, this.g, str);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void b(ChatMessage chatMessage, String str) {
-        by.a(this.b, this.l, chatMessage, str);
+        arrayList4 = this.f1544a.b;
+        int size = arrayList4.size();
+        if (size == 0) {
+            this.f1544a.finish();
+            return;
+        }
+        StringBuilder append = new StringBuilder().append("get img curUrl:");
+        str = this.f1544a.r;
+        com.baidu.adp.lib.h.e.d(append.append(str).toString());
+        str2 = this.f1544a.r;
+        str3 = this.f1544a.r;
+        String substring = str2.substring(str3.lastIndexOf("/"));
+        int i3 = 0;
+        while (true) {
+            if (i3 >= size) {
+                z = false;
+                break;
+            }
+            arrayList7 = this.f1544a.b;
+            String str6 = (String) arrayList7.get(i3);
+            if (!TextUtils.isEmpty(str6)) {
+                com.baidu.adp.lib.h.e.d("get img url :" + str6);
+                String substring2 = str6.substring(str6.lastIndexOf("/"));
+                if (!TextUtils.isEmpty(substring) && !TextUtils.isEmpty(substring2) && substring2.equals(substring)) {
+                    com.baidu.adp.lib.h.e.d("get img idx:" + i3);
+                    this.f1544a.c = i3;
+                    z = true;
+                    break;
+                }
+            }
+            i3++;
+        }
+        MsgImageActivity msgImageActivity = this.f1544a;
+        arrayList5 = this.f1544a.b;
+        msgImageActivity.q = arrayList5.size();
+        if (!z) {
+            MsgImageActivity msgImageActivity2 = this.f1544a;
+            i2 = this.f1544a.q;
+            msgImageActivity2.c = i2 - 1;
+        }
+        textView = this.f1544a.h;
+        textView.setVisibility(0);
+        this.f1544a.b();
+        multiImageView = this.f1544a.j;
+        multiImageView.setIsFromCDN(true);
+        multiImageView2 = this.f1544a.j;
+        multiImageView2.setAllowLocalUrl(true);
+        multiImageView3 = this.f1544a.j;
+        arrayList6 = this.f1544a.b;
+        multiImageView3.setUrlData(arrayList6);
+        multiImageView4 = this.f1544a.j;
+        i = this.f1544a.c;
+        multiImageView4.a(i, false);
     }
 }

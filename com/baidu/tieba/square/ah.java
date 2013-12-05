@@ -7,21 +7,21 @@ import com.baidu.tieba.pb.NewPbActivity;
 class ah implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ int f2361a;
+    final /* synthetic */ int f2478a;
     final /* synthetic */ String b;
     final /* synthetic */ HotThreadPagerAdapter c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ah(HotThreadPagerAdapter hotThreadPagerAdapter, int i, String str) {
         this.c = hotThreadPagerAdapter;
-        this.f2361a = i;
+        this.f2478a = i;
         this.b = str;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Context context;
-        String a2 = SquareActivity.a("post_recommend", String.valueOf(this.f2361a));
+        String a2 = SquareActivity.a("post_recommend", String.valueOf(this.f2478a));
         context = this.c.c;
         NewPbActivity.a(context, this.b, "", a2);
     }

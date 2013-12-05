@@ -8,16 +8,16 @@ import android.widget.AdapterView;
 public class e implements AdapterView.OnItemLongClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MediaListActivity f736a;
+    final /* synthetic */ MediaListActivity f741a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(MediaListActivity mediaListActivity) {
-        this.f736a = mediaListActivity;
+        this.f741a = mediaListActivity;
     }
 
     @Override // android.widget.AdapterView.OnItemLongClickListener
     public boolean onItemLongClick(AdapterView adapterView, View view, int i, long j) {
-        new AlertDialog.Builder(this.f736a).setTitle("提示").setMessage("确定要删除该记录？").setPositiveButton("确定", new g(this, j)).setNegativeButton("取消", new f(this)).show();
+        new AlertDialog.Builder(this.f741a).setTitle("提示").setMessage("确定要删除该记录？").setPositiveButton("确定", new g(this, j)).setNegativeButton("取消", new f(this)).show();
         return true;
     }
 }

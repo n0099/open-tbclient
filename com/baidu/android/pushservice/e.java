@@ -27,7 +27,7 @@ import org.json.JSONArray;
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    static int f709a = -1;
+    static int f714a = -1;
     private static Boolean e = false;
     private static volatile e p;
     com.baidu.android.pushservice.message.a c;
@@ -147,7 +147,7 @@ public final class e {
             }
         } else if (y.a().e()) {
             e = true;
-            f709a = -1;
+            f714a = -1;
             Thread thread = new Thread(new f(this));
             thread.setName("PushService-PushService-connect");
             thread.start();
@@ -210,8 +210,8 @@ public final class e {
         } catch (IOException e2) {
             e2.printStackTrace();
         }
-        if (PushSocket.f715a) {
-            PushSocket.closeSocket(f709a);
+        if (PushSocket.f720a) {
+            PushSocket.closeSocket(f714a);
         }
         if (this.c != null) {
             this.c.c();

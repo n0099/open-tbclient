@@ -1,12 +1,11 @@
 package com.baidu.tieba.data;
 
-import com.baidu.tieba.util.bg;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ad {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1164a = null;
+    private String f1211a = null;
     private String b = null;
     private int c = 0;
     private int d = 0;
@@ -14,7 +13,7 @@ public class ad {
     private String e = null;
 
     public String a() {
-        return this.f1164a;
+        return this.f1211a;
     }
 
     public String b() {
@@ -29,6 +28,10 @@ public class ad {
         return this.d;
     }
 
+    public void b(int i) {
+        this.c = i;
+    }
+
     public int d() {
         return this.c;
     }
@@ -36,19 +39,19 @@ public class ad {
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.f1164a = jSONObject.optString("forum_id");
+                this.f1211a = jSONObject.optString("forum_id");
                 this.b = jSONObject.optString("forum_name");
-                b(jSONObject.optInt("is_like", 0));
+                c(jSONObject.optInt("is_like", 0));
                 this.d = jSONObject.optInt("is_sign", 0);
                 this.c = jSONObject.optInt("level_id", 0);
                 this.e = jSONObject.optString("avatar", "");
             } catch (Exception e) {
-                bg.b("BrowseForumData", "parserJson", "error = " + e.getMessage());
+                com.baidu.tieba.util.bd.b("BrowseForumData", "parserJson", "error = " + e.getMessage());
             }
         }
     }
 
-    public void b(int i) {
+    public void c(int i) {
         this.f = i;
     }
 

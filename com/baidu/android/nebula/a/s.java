@@ -9,7 +9,7 @@ public class s {
     private ArrayList b;
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f655a = false;
+    private boolean f660a = false;
     private t d = new t(this);
     private final ConcurrentHashMap c = new ConcurrentHashMap();
 
@@ -21,11 +21,11 @@ public class s {
         ArrayList arrayList = new ArrayList(values);
         Collections.sort(arrayList, this.d);
         this.b = arrayList;
-        this.f655a = true;
+        this.f660a = true;
     }
 
     public a a(int i) {
-        if (!this.f655a) {
+        if (!this.f660a) {
             d();
         }
         return (a) this.b.get(i);
@@ -66,21 +66,21 @@ public class s {
 
     public void a(a aVar) {
         this.c.put(aVar.b(), aVar);
-        this.f655a = false;
+        this.f660a = false;
     }
 
     public void a(String str, a aVar) {
-        this.f655a = false;
+        this.f660a = false;
         this.c.put(str, aVar);
     }
 
     public a b(String str) {
-        this.f655a = false;
+        this.f660a = false;
         return (a) this.c.remove(str);
     }
 
     public ArrayList b() {
-        if (!this.f655a) {
+        if (!this.f660a) {
             d();
         }
         return this.b;

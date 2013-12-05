@@ -1,106 +1,43 @@
 package com.baidu.tieba.im.searchGroup;
 
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ListAdapter;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tieba.im.data.BaseGroupData;
+import com.baidu.tieba.im.message.Message;
 import com.baidu.tieba.im.message.ResponseSearchGroupMessage;
-import com.baidu.tieba.util.bd;
-import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
-import java.util.LinkedList;
-import java.util.List;
 /* loaded from: classes.dex */
-public class d {
+class d implements com.baidu.tieba.im.messageCenter.g {
 
     /* renamed from: a  reason: collision with root package name */
-    public BdListView f1779a;
-    private SearchGroupActivity b;
-    private View c;
-    private NavigationBar d = null;
-    private EditText e = null;
-    private Button f = null;
-    private Button g = null;
-    private TextView h = null;
-    private ProgressBar i = null;
-    private b j;
+    final /* synthetic */ SearchGroupActivity f1875a;
 
-    public b a() {
-        return this.j;
-    }
-
+    /* JADX INFO: Access modifiers changed from: package-private */
     public d(SearchGroupActivity searchGroupActivity) {
-        this.b = searchGroupActivity;
-        searchGroupActivity.setContentView(R.layout.search_group_activity);
-        f();
-        e();
+        this.f1875a = searchGroupActivity;
     }
 
-    private void e() {
-        this.h = (TextView) this.b.findViewById(R.id.text_no_data);
-        this.h.setText(R.string.text_no_search_record_ground);
-        this.e = (EditText) this.b.findViewById(R.id.home_et_search);
-        this.e.setHint(R.string.search_group_by_id);
-        this.e.setOnFocusChangeListener(new e(this));
-        this.g = (Button) this.b.findViewById(R.id.home_bt_search_s);
-        this.g.setOnClickListener(this.b);
-        this.f = (Button) this.b.findViewById(R.id.home_bt_search_del);
-        this.f.setOnClickListener(new f(this));
-        this.e.addTextChangedListener(new g(this));
-        this.f1779a = (BdListView) this.b.findViewById(R.id.home_lv_search);
-        this.f1779a.a(new h(this), 300L);
-        this.j = new b(this.b);
-        this.f1779a.setOnItemClickListener(this.b);
-        this.f1779a.setAdapter((ListAdapter) this.j);
-        this.i = (ProgressBar) this.b.findViewById(R.id.home_progress_search);
-        this.i.setVisibility(8);
-        this.e.setText("");
-        this.e.setInputType(2);
-        this.e.requestFocus();
-        this.e.setOnEditorActionListener(new i(this));
-        this.b.ShowSoftKeyPadDelay(this.e, 150);
-    }
-
-    private void f() {
-        this.c = this.b.findViewById(R.id.mparent);
-        this.d = (NavigationBar) this.b.findViewById(R.id.view_navigation_bar);
-        this.d.a(this.b.getResources().getString(R.string.search_group_text));
-        this.d.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-    }
-
-    public void a(int i) {
-        this.b.getLayoutMode().a(false);
-        this.b.getLayoutMode().a(this.c);
-        bd.a(this.c, 0);
-        this.d.c(0);
-        this.h.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.pic_search_fruitless, 0, 0);
-    }
-
-    public void b() {
-        this.i.setVisibility(8);
-    }
-
-    public void c() {
-        if (this.j.getCount() == 0) {
-            this.h.setVisibility(0);
-        } else {
-            this.h.setVisibility(8);
+    @Override // com.baidu.tieba.im.messageCenter.g
+    public void a(Message message) {
+        g gVar;
+        g gVar2;
+        g gVar3;
+        gVar = this.f1875a.b;
+        gVar.b();
+        if (message == null) {
+            this.f1875a.showToast(R.string.neterror);
+        } else if (message.getCmd() == 103007) {
+            try {
+                if (message instanceof ResponseSearchGroupMessage) {
+                    ResponseSearchGroupMessage responseSearchGroupMessage = (ResponseSearchGroupMessage) message;
+                    if (!responseSearchGroupMessage.hasError()) {
+                        gVar3 = this.f1875a.b;
+                        gVar3.a(responseSearchGroupMessage);
+                        this.f1875a.a();
+                    }
+                    gVar2 = this.f1875a.b;
+                    gVar2.c();
+                }
+            } catch (Exception e) {
+                com.baidu.adp.lib.h.e.c("ResponseGroupInfoMessage invalid");
+            }
         }
-    }
-
-    public void a(ResponseSearchGroupMessage responseSearchGroupMessage) {
-        List<BaseGroupData> linkedList = new LinkedList<>();
-        if (responseSearchGroupMessage != null && responseSearchGroupMessage.getSearchResult() != null) {
-            linkedList = responseSearchGroupMessage.getSearchResult();
-        }
-        this.j.a(linkedList);
-    }
-
-    public void d() {
-        this.i.setVisibility(0);
     }
 }

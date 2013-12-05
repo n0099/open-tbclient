@@ -13,7 +13,7 @@ import java.util.List;
 public class EllipsizingTextView extends TextView {
 
     /* renamed from: a  reason: collision with root package name */
-    private final List<c> f1667a;
+    private final List<c> f1734a;
     private boolean b;
     private boolean c;
     private boolean d;
@@ -24,7 +24,7 @@ public class EllipsizingTextView extends TextView {
 
     public EllipsizingTextView(Context context) {
         super(context);
-        this.f1667a = new ArrayList();
+        this.f1734a = new ArrayList();
         this.f = -1;
         this.g = 1.0f;
         this.h = 0.0f;
@@ -32,7 +32,7 @@ public class EllipsizingTextView extends TextView {
 
     public EllipsizingTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f1667a = new ArrayList();
+        this.f1734a = new ArrayList();
         this.f = -1;
         this.g = 1.0f;
         this.h = 0.0f;
@@ -40,7 +40,7 @@ public class EllipsizingTextView extends TextView {
 
     public EllipsizingTextView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f1667a = new ArrayList();
+        this.f1734a = new ArrayList();
         this.f = -1;
         this.g = 1.0f;
         this.h = 0.0f;
@@ -50,7 +50,7 @@ public class EllipsizingTextView extends TextView {
         if (cVar == null) {
             throw new NullPointerException();
         }
-        this.f1667a.add(cVar);
+        this.f1734a.add(cVar);
     }
 
     @Override // android.widget.TextView
@@ -127,7 +127,7 @@ public class EllipsizingTextView extends TextView {
                 this.c = false;
                 if (z == this.b) {
                     this.b = z;
-                    for (c cVar : this.f1667a) {
+                    for (c cVar : this.f1734a) {
                         cVar.a(z);
                     }
                     return;

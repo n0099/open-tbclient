@@ -8,7 +8,7 @@ import com.baidu.tieba.TiebaApplication;
 public class q {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Toast f2499a;
+    private static Toast f2612a;
     private static Handler b = new Handler();
     private static Runnable c = new r();
     private boolean d;
@@ -25,28 +25,28 @@ public class q {
             String trim = str.trim();
             if (trim.length() != 0) {
                 b.removeCallbacks(c);
-                if (f2499a != null) {
-                    f2499a.setText(trim);
+                if (f2612a != null) {
+                    f2612a.setText(trim);
                 } else {
-                    f2499a = Toast.makeText(TiebaApplication.g(), trim, 0);
-                    f2499a.setGravity(17, 0, i2);
+                    f2612a = Toast.makeText(TiebaApplication.h(), trim, 0);
+                    f2612a.setGravity(17, 0, i2);
                 }
                 b.postDelayed(c, i);
-                f2499a.show();
+                f2612a.show();
             }
         }
     }
 
     public void a(String str, int i) {
-        a(str, i, UtilHelper.a((Context) TiebaApplication.g(), 100.0f));
+        a(str, i, com.baidu.adp.lib.h.g.a((Context) TiebaApplication.h(), 100.0f));
     }
 
     public void a(int i, int i2) {
-        a(TiebaApplication.g().getResources().getString(i), i2);
+        a(TiebaApplication.h().getResources().getString(i), i2);
     }
 
     public void a(int i, int i2, int i3) {
-        a(TiebaApplication.g().getResources().getString(i), i2, i3);
+        a(TiebaApplication.h().getResources().getString(i), i2, i3);
     }
 
     public void b() {
@@ -59,10 +59,10 @@ public class q {
     }
 
     public static void d() {
-        if (f2499a != null) {
+        if (f2612a != null) {
             b.removeCallbacks(c);
-            f2499a.cancel();
-            f2499a = null;
+            f2612a.cancel();
+            f2612a = null;
         }
     }
 }

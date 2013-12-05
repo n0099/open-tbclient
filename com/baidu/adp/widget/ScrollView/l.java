@@ -6,11 +6,11 @@ import com.baidu.adp.widget.ScrollView.BdPullRefreshScrollView;
 public class l implements i {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ BdPullRefreshScrollView f594a;
+    final /* synthetic */ BdPullRefreshScrollView f598a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(BdPullRefreshScrollView bdPullRefreshScrollView) {
-        this.f594a = bdPullRefreshScrollView;
+        this.f598a = bdPullRefreshScrollView;
     }
 
     @Override // com.baidu.adp.widget.ScrollView.i
@@ -21,25 +21,25 @@ public class l implements i {
         b bVar2;
         o oVar;
         o oVar2;
-        state = this.f594a.c;
+        state = this.f598a.c;
         if (state != BdPullRefreshScrollView.State.RELEASE_TO_REFRESH) {
-            state2 = this.f594a.c;
+            state2 = this.f598a.c;
             if (state2 == BdPullRefreshScrollView.State.PULL_TO_REFRESH) {
-                BdPullRefreshScrollView bdPullRefreshScrollView = this.f594a;
+                BdPullRefreshScrollView bdPullRefreshScrollView = this.f598a;
                 BdPullRefreshScrollView.State state3 = BdPullRefreshScrollView.State.RESET;
-                bVar = this.f594a.o;
+                bVar = this.f598a.o;
                 bdPullRefreshScrollView.a(state3, bVar);
                 return;
             }
             return;
         }
-        BdPullRefreshScrollView bdPullRefreshScrollView2 = this.f594a;
+        BdPullRefreshScrollView bdPullRefreshScrollView2 = this.f598a;
         BdPullRefreshScrollView.State state4 = BdPullRefreshScrollView.State.REFRESHING;
-        bVar2 = this.f594a.o;
+        bVar2 = this.f598a.o;
         bdPullRefreshScrollView2.a(state4, bVar2);
-        oVar = this.f594a.s;
+        oVar = this.f598a.s;
         if (oVar != null) {
-            oVar2 = this.f594a.s;
+            oVar2 = this.f598a.s;
             oVar2.a();
         }
     }

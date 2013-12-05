@@ -1,30 +1,46 @@
 package com.baidu.tieba.im.messageCenter;
 
-import com.baidu.cyberplayer.sdk.BVideoView;
-import com.baidu.tieba.TiebaApplication;
+import java.util.Map;
+import java.util.Random;
 /* loaded from: classes.dex */
 public class r {
-    public static void a(TiebaApplication tiebaApplication) {
-        b();
-        a();
+
+    /* renamed from: a  reason: collision with root package name */
+    private static r f1805a = null;
+    private int b = 0;
+
+    public static r a() {
+        if (f1805a == null) {
+            synchronized (r.class) {
+                if (f1805a == null) {
+                    f1805a = new r();
+                }
+            }
+        }
+        return f1805a;
     }
 
-    private static void a() {
-        f a2 = f.a();
-        a2.b(103004, com.baidu.tieba.im.net.a.f.class);
-        a2.a(-104, com.baidu.tieba.im.net.a.b.class);
-        a2.b(103003, com.baidu.tieba.im.net.a.j.class);
-        a2.b(103002, com.baidu.tieba.im.net.a.h.class);
-        a2.b(-10, com.baidu.tieba.im.net.a.k.class);
-        a2.a(BVideoView.MEDIA_ERROR_TIMED_OUT, com.baidu.tieba.im.net.a.d.class);
+    public synchronized void a(Map<String, String> map) {
+        if (map != null) {
+            try {
+                this.b = Integer.valueOf(map.get("Seq-Id")).intValue();
+            } catch (Exception e) {
+                com.baidu.adp.lib.h.e.a(e.getMessage());
+                com.baidu.tieba.log.a.b(com.baidu.tieba.log.i.a(0, 0, "on connected", "SequenceManager: setSequenceId", "Seq-Id = " + map.get("Seq-Id"), 0, null));
+                if (this.b == 0) {
+                    this.b = new Random().nextInt();
+                }
+            }
+        }
     }
 
-    private static void b() {
-        f a2 = f.a();
-        a2.a(-102, com.baidu.tieba.im.net.a.e.class);
-        a2.a(-103, com.baidu.tieba.im.net.a.a.class);
-        a2.a(-105, com.baidu.tieba.im.net.a.c.class);
-        a2.a(-201, com.baidu.tieba.im.net.a.g.class);
-        a2.a(-106, com.baidu.tieba.im.net.a.i.class);
+    public synchronized int b() {
+        int i;
+        if (this.b == 0) {
+            this.b++;
+        }
+        i = this.b;
+        this.b = i + 1;
+        return i;
     }
 }

@@ -6,7 +6,7 @@ import org.msgpack.MessageTypeException;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f2882a = 0;
+    private int f3063a = 0;
     private byte[] b = new byte[DERTags.TAGGED];
     private int[] c = new int[DERTags.TAGGED];
 
@@ -15,23 +15,23 @@ public final class b {
     }
 
     public void a(int i) {
-        this.f2882a++;
-        this.b[this.f2882a] = 1;
-        this.c[this.f2882a] = i;
+        this.f3063a++;
+        this.b[this.f3063a] = 1;
+        this.c[this.f3063a] = i;
     }
 
     public void b(int i) {
-        this.f2882a++;
-        this.b[this.f2882a] = 2;
-        this.c[this.f2882a] = i * 2;
+        this.f3063a++;
+        this.b[this.f3063a] = 2;
+        this.c[this.f3063a] = i * 2;
     }
 
     public void a() {
-        if (this.c[this.f2882a] <= 0) {
-            if (this.b[this.f2882a] == 1) {
+        if (this.c[this.f3063a] <= 0) {
+            if (this.b[this.f3063a] == 1) {
                 throw new MessageTypeException("Array is end but writeArrayEnd() is not called");
             }
-            if (this.b[this.f2882a] == 2) {
+            if (this.b[this.f3063a] == 2) {
                 throw new MessageTypeException("Map is end but writeMapEnd() is not called");
             }
         }
@@ -39,27 +39,27 @@ public final class b {
 
     public void b() {
         int[] iArr = this.c;
-        int i = this.f2882a;
+        int i = this.f3063a;
         iArr[i] = iArr[i] - 1;
     }
 
     public void c() {
-        this.f2882a--;
+        this.f3063a--;
     }
 
     public int d() {
-        return this.f2882a;
+        return this.f3063a;
     }
 
     public int e() {
-        return this.c[this.f2882a];
+        return this.c[this.f3063a];
     }
 
     public boolean f() {
-        return this.b[this.f2882a] == 1;
+        return this.b[this.f3063a] == 1;
     }
 
     public boolean g() {
-        return this.b[this.f2882a] == 2;
+        return this.b[this.f3063a] == 2;
     }
 }

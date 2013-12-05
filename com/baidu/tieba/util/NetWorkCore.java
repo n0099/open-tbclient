@@ -39,10 +39,10 @@ import java.util.regex.Pattern;
 import org.apache.http.message.BasicNameValuePair;
 @Deprecated
 /* loaded from: classes.dex */
-public class NetWorkCore implements ai {
+public class NetWorkCore implements af {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f2448a = "\r\n";
+    private static String f2565a = "\r\n";
     private static String b = "--";
     private static String c = "--------7da3d81520810*";
     private static int d = 2097152;
@@ -55,7 +55,7 @@ public class NetWorkCore implements ai {
     private int k;
     private boolean l;
     private volatile boolean m;
-    private az o;
+    private aw o;
     private int n = 0;
     private boolean p = false;
     private boolean q = false;
@@ -83,59 +83,59 @@ public class NetWorkCore implements ai {
         ThreeG
     }
 
-    public NetWorkCore(az azVar) {
+    public NetWorkCore(aw awVar) {
         D();
-        this.o = azVar;
-        this.i = TiebaApplication.g();
+        this.o = awVar;
+        this.i = TiebaApplication.h();
     }
 
-    @Override // com.baidu.tieba.util.ai
+    @Override // com.baidu.tieba.util.af
     public long d() {
         return this.t;
     }
 
-    @Override // com.baidu.tieba.util.ai
+    @Override // com.baidu.tieba.util.af
     public long e() {
         return this.n;
     }
 
-    @Override // com.baidu.tieba.util.ai
+    @Override // com.baidu.tieba.util.af
     public long f() {
         return this.v;
     }
 
-    @Override // com.baidu.tieba.util.ai
+    @Override // com.baidu.tieba.util.af
     public long g() {
         return this.u;
     }
 
-    @Override // com.baidu.tieba.util.ai
+    @Override // com.baidu.tieba.util.af
     public long i() {
         return this.w;
     }
 
-    @Override // com.baidu.tieba.util.ai
+    @Override // com.baidu.tieba.util.af
     public int h() {
         return this.x;
     }
 
-    @Override // com.baidu.tieba.util.ai
+    @Override // com.baidu.tieba.util.af
     public String c() {
-        if (this.o.f2478a == null) {
+        if (this.o.f2591a == null) {
             return null;
         }
-        String str = com.baidu.tieba.data.h.f1201a;
-        if (this.o.f2478a.startsWith(str)) {
-            int indexOf = this.o.f2478a.indexOf(63);
+        String str = com.baidu.tieba.data.h.f1248a;
+        if (this.o.f2591a.startsWith(str)) {
+            int indexOf = this.o.f2591a.indexOf(63);
             if (indexOf < 0) {
-                indexOf = this.o.f2478a.length();
+                indexOf = this.o.f2591a.length();
             }
-            return this.o.f2478a.substring(str.length(), indexOf);
+            return this.o.f2591a.substring(str.length(), indexOf);
         }
-        return this.o.f2478a;
+        return this.o.f2591a;
     }
 
-    @Override // com.baidu.tieba.util.ai
+    @Override // com.baidu.tieba.util.af
     public long b() {
         return this.y;
     }
@@ -162,12 +162,12 @@ public class NetWorkCore implements ai {
         A();
     }
 
-    @Override // com.baidu.tieba.util.ai
+    @Override // com.baidu.tieba.util.af
     public void c(boolean z) {
         this.o.j = z;
     }
 
-    @Override // com.baidu.tieba.util.ai
+    @Override // com.baidu.tieba.util.af
     public String n() {
         try {
             NetworkInfo activeNetworkInfo = ((ConnectivityManager) this.i.getSystemService("connectivity")).getActiveNetworkInfo();
@@ -201,12 +201,12 @@ public class NetWorkCore implements ai {
     public static synchronized void B() {
         synchronized (NetWorkCore.class) {
             try {
-                Cursor query = TiebaApplication.g().getContentResolver().query(Uri.parse("content://telephony/carriers/preferapn"), null, null, null, null);
+                Cursor query = TiebaApplication.h().getContentResolver().query(Uri.parse("content://telephony/carriers/preferapn"), null, null, null, null);
                 if (query != null && query.moveToNext()) {
                     String string = query.getString(query.getColumnIndex("user"));
                     String string2 = query.getString(query.getColumnIndex("password"));
                     query.close();
-                    f = "Basic " + be.b((string + ":" + string2).getBytes());
+                    f = "Basic " + bb.b((string + ":" + string2).getBytes());
                 }
             } catch (Exception e2) {
             }
@@ -219,10 +219,10 @@ public class NetWorkCore implements ai {
         } else {
             System.setProperty("http.keepAlive", "true");
         }
-        e = new as();
+        e = new ap();
     }
 
-    @Override // com.baidu.tieba.util.ai
+    @Override // com.baidu.tieba.util.af
     public void a(Boolean bool) {
         this.o.g = bool.booleanValue();
     }
@@ -245,47 +245,47 @@ public class NetWorkCore implements ai {
         }
     }
 
-    @Override // com.baidu.tieba.util.ai
+    @Override // com.baidu.tieba.util.af
     public void b(String str) {
-        this.o.f2478a = str;
+        this.o.f2591a = str;
     }
 
-    @Override // com.baidu.tieba.util.ai
+    @Override // com.baidu.tieba.util.af
     public boolean o() {
         return this.o.b == 200 && this.o.c == 0;
     }
 
-    @Override // com.baidu.tieba.util.ai
+    @Override // com.baidu.tieba.util.af
     public boolean p() {
         return this.o.b == 200;
     }
 
-    @Override // com.baidu.tieba.util.ai
+    @Override // com.baidu.tieba.util.af
     public int j() {
         return this.o.c;
     }
 
-    @Override // com.baidu.tieba.util.ai
+    @Override // com.baidu.tieba.util.af
     public int y() {
         return this.o.b;
     }
 
-    @Override // com.baidu.tieba.util.ai
+    @Override // com.baidu.tieba.util.af
     public String q() {
         return this.o.d;
     }
 
-    @Override // com.baidu.tieba.util.ai
+    @Override // com.baidu.tieba.util.af
     public void t() {
         this.o.d = "";
     }
 
-    @Override // com.baidu.tieba.util.ai
+    @Override // com.baidu.tieba.util.af
     public void c(String str) {
         this.o.d = str;
     }
 
-    @Override // com.baidu.tieba.util.ai
+    @Override // com.baidu.tieba.util.af
     public void r() {
         this.m = true;
         try {
@@ -296,46 +296,75 @@ public class NetWorkCore implements ai {
         }
     }
 
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:39:0x0124 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r0v11, types: [boolean] */
+    /* JADX WARN: Type inference failed for: r0v3 */
+    /* JADX WARN: Type inference failed for: r0v4, types: [java.net.HttpURLConnection] */
+    /* JADX WARN: Type inference failed for: r0v6 */
     private HttpURLConnection a(URL url) {
+        ?? r0;
+        Exception e2;
         String defaultHost;
         HttpURLConnection httpURLConnection = null;
         NetworkState b2 = b(this.i);
         this.l = false;
-        if (b2 == NetworkState.UNAVAIL) {
-            return null;
-        }
-        if (b2 == NetworkState.MOBILE && (defaultHost = Proxy.getDefaultHost()) != null && defaultHost.length() > 0) {
-            if (e(defaultHost)) {
-                this.l = true;
-                StringBuilder sb = new StringBuilder(80);
-                sb.append(com.baidu.loginshare.e.f);
-                sb.append(Proxy.getDefaultHost());
-                String file = url.getFile();
-                if (file != null && file.startsWith("?")) {
-                    sb.append("/");
-                }
-                sb.append(file);
-                httpURLConnection = (HttpURLConnection) new URL(sb.toString()).openConnection();
-                httpURLConnection.setRequestProperty(HttpUtils.HEADER_NAME_CMWAP_ONLINE_HOST, url.getHost());
-                httpURLConnection.setRequestProperty(HttpUtils.HEADER_NAME_USER_AGENT, "BaiduTieba for Android " + com.baidu.tieba.data.h.j());
-                if (!TextUtils.isEmpty(TiebaApplication.A())) {
-                    httpURLConnection.setRequestProperty("client_user_token", TiebaApplication.A());
-                }
-            } else {
-                httpURLConnection = (HttpURLConnection) url.openConnection(new java.net.Proxy(Proxy.Type.HTTP, new InetSocketAddress(android.net.Proxy.getDefaultHost(), android.net.Proxy.getDefaultPort())));
-                if (f != null) {
-                    httpURLConnection.setRequestProperty("Proxy-Authorization", f);
-                }
-                httpURLConnection.setRequestProperty(HttpUtils.HEADER_NAME_USER_AGENT, "BaiduTieba for Android " + com.baidu.tieba.data.h.j());
-                if (!TextUtils.isEmpty(TiebaApplication.A())) {
-                    httpURLConnection.setRequestProperty("client_user_token", TiebaApplication.A());
+        try {
+            if (b2 == NetworkState.UNAVAIL) {
+                return null;
+            }
+            if (b2 == NetworkState.MOBILE && (defaultHost = Proxy.getDefaultHost()) != null && defaultHost.length() > 0) {
+                r0 = e(defaultHost);
+                try {
+                    if (r0 != 0) {
+                        this.l = true;
+                        StringBuilder sb = new StringBuilder(80);
+                        sb.append(com.baidu.loginshare.e.f);
+                        sb.append(Proxy.getDefaultHost());
+                        String file = url.getFile();
+                        if (file != null && file.startsWith("?")) {
+                            sb.append("/");
+                        }
+                        sb.append(file);
+                        HttpURLConnection httpURLConnection2 = (HttpURLConnection) new URL(sb.toString()).openConnection();
+                        httpURLConnection2.setRequestProperty(HttpUtils.HEADER_NAME_CMWAP_ONLINE_HOST, url.getHost());
+                        httpURLConnection2.setRequestProperty(HttpUtils.HEADER_NAME_USER_AGENT, "BaiduTieba for Android " + com.baidu.tieba.data.h.j());
+                        if (!TextUtils.isEmpty(TiebaApplication.B())) {
+                            httpURLConnection2.setRequestProperty("client_user_token", TiebaApplication.B());
+                        }
+                        httpURLConnection = httpURLConnection2;
+                    } else {
+                        HttpURLConnection httpURLConnection3 = (HttpURLConnection) url.openConnection(new java.net.Proxy(Proxy.Type.HTTP, new InetSocketAddress(android.net.Proxy.getDefaultHost(), android.net.Proxy.getDefaultPort())));
+                        if (f != null) {
+                            httpURLConnection3.setRequestProperty("Proxy-Authorization", f);
+                        }
+                        httpURLConnection3.setRequestProperty(HttpUtils.HEADER_NAME_USER_AGENT, "BaiduTieba for Android " + com.baidu.tieba.data.h.j());
+                        if (!TextUtils.isEmpty(TiebaApplication.B())) {
+                            httpURLConnection3.setRequestProperty("client_user_token", TiebaApplication.B());
+                        }
+                        httpURLConnection = httpURLConnection3;
+                    }
+                } catch (Exception e3) {
+                    e2 = e3;
+                    bd.b(getClass().getName(), "getConnect", "error = " + e2.getMessage());
+                    return r0;
                 }
             }
+            if (httpURLConnection == null) {
+                try {
+                    return (HttpURLConnection) url.openConnection();
+                } catch (Exception e4) {
+                    r0 = httpURLConnection;
+                    e2 = e4;
+                    bd.b(getClass().getName(), "getConnect", "error = " + e2.getMessage());
+                    return r0;
+                }
+            }
+            return httpURLConnection;
+        } catch (Exception e5) {
+            r0 = 0;
+            e2 = e5;
         }
-        if (httpURLConnection == null) {
-            return (HttpURLConnection) url.openConnection();
-        }
-        return httpURLConnection;
     }
 
     private boolean e(String str) {
@@ -345,12 +374,12 @@ public class NetWorkCore implements ai {
         return false;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [655=11, 656=11, 660=11, 661=11, 663=4] */
-    /* JADX WARN: Removed duplicated region for block: B:196:0x05b3 A[Catch: Exception -> 0x05e7, TRY_LEAVE, TryCatch #16 {Exception -> 0x05e7, blocks: (B:194:0x05af, B:196:0x05b3), top: B:260:0x05af }] */
-    /* JADX WARN: Removed duplicated region for block: B:256:0x05ac A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:109:0x02ff -> B:241:0x00d0). Please submit an issue!!! */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:161:0x03ef -> B:232:0x01c1). Please submit an issue!!! */
-    @Override // com.baidu.tieba.util.ai
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [735=11, 736=11, 741=11, 742=11, 744=4] */
+    /* JADX WARN: Removed duplicated region for block: B:196:0x05e0 A[Catch: Exception -> 0x0614, TRY_LEAVE, TryCatch #10 {Exception -> 0x0614, blocks: (B:194:0x05dc, B:196:0x05e0), top: B:250:0x05dc }] */
+    /* JADX WARN: Removed duplicated region for block: B:268:0x05d9 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:109:0x02fc -> B:258:0x00d0). Please submit an issue!!! */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:161:0x03ec -> B:238:0x01c1). Please submit an issue!!! */
+    @Override // com.baidu.tieba.util.af
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -366,13 +395,13 @@ public class NetWorkCore implements ai {
         boolean z = true;
         try {
             if (this.o.e == null || this.o.e.size() <= 0 || this.p) {
-                str = this.o.f2478a;
+                str = this.o.f2591a;
             } else {
                 StringBuilder sb = new StringBuilder(30);
-                sb.append(this.o.f2478a);
-                if (this.o.f2478a.indexOf("?") < 0) {
+                sb.append(this.o.f2591a);
+                if (this.o.f2591a.indexOf("?") < 0) {
                     sb.append("?");
-                } else if (!this.o.f2478a.endsWith("?") && !this.o.f2478a.endsWith("&")) {
+                } else if (!this.o.f2591a.endsWith("?") && !this.o.f2591a.endsWith("&")) {
                     sb.append("&");
                 }
                 for (int i2 = 0; i2 < this.o.e.size(); i2++) {
@@ -381,18 +410,18 @@ public class NetWorkCore implements ai {
                     }
                     sb.append(this.o.e.get(i2).getName());
                     sb.append("=");
-                    sb.append(be.d(this.o.e.get(i2).getValue()));
+                    sb.append(bb.d(this.o.e.get(i2).getValue()));
                 }
                 str = sb.toString();
             }
             url = new URL(str);
             this.t = str.length();
             if (com.baidu.tieba.data.h.s()) {
-                bg.e(getClass().getName(), "getNetData", str);
+                bd.e(getClass().getName(), "getNetData", str);
             }
             i = 0;
         } catch (Exception e2) {
-            bg.b(getClass().getName(), "getNetData", e2.getMessage());
+            bd.b(getClass().getName(), "getNetData", e2.getMessage());
             this.o.l = String.valueOf(this.o.b) + e2.getClass() + e2.getMessage();
         }
         while (!this.m && z && i < 5) {
@@ -400,43 +429,41 @@ public class NetWorkCore implements ai {
             try {
                 try {
                     try {
+                        this.j = a(url);
+                    } catch (Throwable th) {
+                        th = th;
+                        if (inputStream2 != null) {
+                        }
                         try {
-                            this.j = a(url);
-                        } catch (Exception e3) {
-                            inputStream = null;
-                            exc = e3;
-                        }
-                    } catch (SocketTimeoutException e4) {
-                        ba.f2479a.incrementAndGet();
-                        this.o.l = String.valueOf(this.o.b) + "|retryCount:" + i + "|" + e4.getClass() + "|" + e4.getMessage();
-                        this.o.b = 0;
-                        z = true;
-                        this.o.d = this.i.getResources().getString(R.string.neterror);
-                        if (0 != 0) {
-                            try {
-                                inputStream2.close();
-                            } catch (Exception e5) {
+                            if (this.j != null) {
                             }
+                        } catch (Exception e3) {
                         }
-                        if (this.j != null) {
-                            this.j.disconnect();
-                        }
+                        throw th;
                     }
-                } catch (Throwable th) {
-                    th = th;
-                    if (inputStream2 != null) {
-                    }
+                } catch (Exception e4) {
+                    inputStream = null;
+                    exc = e4;
+                }
+            } catch (SocketException e5) {
+                this.o.l = String.valueOf(this.o.b) + "|retryCount:" + i + "|" + e5.getClass() + "|" + e5.getMessage();
+                this.o.b = 0;
+                ax.f2592a.incrementAndGet();
+                z = true;
+                this.o.d = this.i.getResources().getString(R.string.neterror);
+                if (0 != 0) {
                     try {
-                        if (this.j != null) {
-                        }
+                        inputStream2.close();
                     } catch (Exception e6) {
                     }
-                    throw th;
                 }
-            } catch (SocketException e7) {
+                if (this.j != null) {
+                    this.j.disconnect();
+                }
+            } catch (SocketTimeoutException e7) {
+                ax.f2592a.incrementAndGet();
                 this.o.l = String.valueOf(this.o.b) + "|retryCount:" + i + "|" + e7.getClass() + "|" + e7.getMessage();
                 this.o.b = 0;
-                ba.f2479a.incrementAndGet();
                 z = true;
                 this.o.d = this.i.getResources().getString(R.string.neterror);
                 if (0 != 0) {
@@ -469,7 +496,6 @@ public class NetWorkCore implements ai {
                 }
             } else {
                 long time = new Date().getTime();
-                b(url);
                 this.u = new Date().getTime() - time;
                 this.j.connect();
                 this.v = (new Date().getTime() - time) - this.u;
@@ -481,7 +507,7 @@ public class NetWorkCore implements ai {
                     String contentEncoding = this.j.getContentEncoding();
                     InputStream inputStream3 = this.j.getInputStream();
                     try {
-                        if (TiebaApplication.g().q() && (headerField = this.j.getHeaderField(HttpUtils.HEADER_NAME_CONTENT_LENGTH)) != null) {
+                        if (TiebaApplication.h().r() && (headerField = this.j.getHeaderField(HttpUtils.HEADER_NAME_CONTENT_LENGTH)) != null) {
                             try {
                                 int parseInt = Integer.parseInt(headerField);
                                 try {
@@ -499,11 +525,11 @@ public class NetWorkCore implements ai {
                                     } else {
                                         int i3 = parseInt * 10;
                                         if (i3 > 0) {
-                                            if (com.baidu.adp.lib.h.d.a()) {
-                                                com.baidu.adp.lib.h.d.d("pre-free memory for downloaded image:[" + this.o.f2478a + "], size:" + i3);
+                                            if (com.baidu.adp.lib.h.e.a()) {
+                                                com.baidu.adp.lib.h.e.d("pre-free memory for downloaded image:[" + this.o.f2591a + "], size:" + i3);
                                             }
                                             if (!com.baidu.tbadk.imageManager.d.a().c(i3)) {
-                                                com.baidu.adp.lib.h.d.d("Image download cacelled. out of memory. url:[" + this.o.f2478a + "], size:" + i3);
+                                                com.baidu.adp.lib.h.e.d("Image download cacelled. out of memory. url:[" + this.o.f2591a + "], size:" + i3);
                                                 bArr = null;
                                                 if (inputStream3 != null) {
                                                     try {
@@ -560,15 +586,15 @@ public class NetWorkCore implements ai {
                             this.n = i4;
                             long time2 = new Date().getTime() - time;
                             this.w = (time2 - this.v) - this.u;
-                            bg.a(getClass().getName(), "getNetData", "time = " + String.valueOf(time2) + LocaleUtil.MALAY);
+                            bd.a(getClass().getName(), "getNetData", "time = " + String.valueOf(time2) + LocaleUtil.MALAY);
                             if (i4 < d) {
                                 bArr = byteArrayOutputStream.toByteArray();
                                 byteArrayOutputStream.close();
-                                bg.a(getClass().getName(), "getNetData", "data.zise = " + String.valueOf(i4));
+                                bd.a(getClass().getName(), "getNetData", "data.zise = " + String.valueOf(i4));
                                 if (contentEncoding != null && contentEncoding.contains("gzip")) {
                                     ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
                                     ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream(1024);
-                                    ah.b(byteArrayInputStream, byteArrayOutputStream2);
+                                    ae.b(byteArrayInputStream, byteArrayOutputStream2);
                                     bArr = byteArrayOutputStream2.toByteArray();
                                 }
                             } else {
@@ -577,17 +603,17 @@ public class NetWorkCore implements ai {
                             }
                             this.x = i + 1;
                             this.y = time2;
-                            bb bbVar = new bb();
-                            bbVar.e = a(c(this.i));
-                            bbVar.c = this.n;
-                            bbVar.b = time2;
-                            bbVar.d = i + 1;
-                            bbVar.f2480a = 2;
-                            if (time2 > 1000) {
-                                y.a(url.toString(), "" + time2, bbVar.c + "", "old network download OK, retryCount:" + bbVar.d, "");
+                            ay ayVar = new ay();
+                            ayVar.e = a(c(this.i));
+                            ayVar.c = this.n;
+                            ayVar.b = time2;
+                            ayVar.d = i + 1;
+                            ayVar.f2593a = 2;
+                            if (time2 > 5000) {
+                                com.baidu.tieba.log.a.a(com.baidu.tieba.log.k.a(url.toString(), "" + time2, ayVar.c + " |DNS Time" + g() + "|ConnectTime" + f() + "|current ip" + UtilHelper.c(UtilHelper.d(url.toString())), "old network download OK, retryCount:" + ayVar.d, ""));
                             }
-                            ba.a(bbVar);
-                            bh.a(this);
+                            ax.a(ayVar);
+                            be.a(this);
                             if (inputStream3 != null) {
                                 try {
                                     inputStream3.close();
@@ -606,7 +632,7 @@ public class NetWorkCore implements ai {
                             this.o.b = 0;
                             z = false;
                             this.o.d = this.i.getResources().getString(R.string.neterror);
-                            bg.b(getClass().getName(), "getNetData", "error = " + exc.getMessage());
+                            bd.b(getClass().getName(), "getNetData", "error = " + exc.getMessage());
                             if (inputStream != null) {
                                 try {
                                     inputStream.close();
@@ -696,13 +722,13 @@ public class NetWorkCore implements ai {
                     this.o.d = errorData.getError_msg();
                 }
             } catch (Exception e2) {
-                bg.b("NetWork", "parseServerCode", "error = " + e2.getMessage());
+                bd.b("NetWork", "parseServerCode", "error = " + e2.getMessage());
                 this.o.d = this.i.getString(R.string.error_unkown_try_again);
             }
         }
     }
 
-    @Override // com.baidu.tieba.util.ai
+    @Override // com.baidu.tieba.util.af
     public String v() {
         String str;
         Exception e2;
@@ -721,12 +747,12 @@ public class NetWorkCore implements ai {
             return str;
         } catch (Exception e4) {
             e2 = e4;
-            bg.b(getClass().getName(), "getNetString", "error = " + e2.getMessage());
+            bd.b(getClass().getName(), "getNetString", "error = " + e2.getMessage());
             return str;
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [916=11, 917=11, 921=11, 922=11, 924=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1026=11, 1027=11, 1032=11, 1033=11, 1035=4] */
     /* JADX WARN: Code restructure failed: missing block: B:91:0x0284, code lost:
         if (0 == 0) goto L74;
      */
@@ -736,7 +762,7 @@ public class NetWorkCore implements ai {
     /* JADX WARN: Removed duplicated region for block: B:173:0x04b8 A[Catch: Exception -> 0x04ee, TRY_LEAVE, TryCatch #0 {Exception -> 0x04ee, blocks: (B:171:0x04b4, B:173:0x04b8), top: B:221:0x04b4 }] */
     /* JADX WARN: Removed duplicated region for block: B:249:0x04b1 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:53:0x0164 -> B:232:0x0109). Please submit an issue!!! */
-    @Override // com.baidu.tieba.util.ai
+    @Override // com.baidu.tieba.util.af
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -765,7 +791,7 @@ public class NetWorkCore implements ai {
                     sb.append("&");
                 }
                 sb.append(name + "=");
-                sb.append(be.d(value));
+                sb.append(bb.d(value));
                 sb2.append(name);
                 sb2.append("=");
                 sb2.append(value);
@@ -774,7 +800,7 @@ public class NetWorkCore implements ai {
         }
         if (this.o.i) {
             sb2.append("tiebaclient!!!");
-            String a2 = be.a(sb2.toString());
+            String a2 = bb.a(sb2.toString());
             if (sb.length() > 0) {
                 sb.append("&");
             }
@@ -784,7 +810,7 @@ public class NetWorkCore implements ai {
         String sb3 = sb.toString();
         this.t = sb3.length();
         if (com.baidu.tieba.data.h.s()) {
-            bg.e(getClass().getName(), "postNetData", this.o.f2478a + "?" + sb3);
+            bd.e(getClass().getName(), "postNetData", this.o.f2591a + "?" + sb3);
         }
         int i3 = 0;
         boolean z = true;
@@ -796,7 +822,7 @@ public class NetWorkCore implements ai {
             InputStream inputStream4 = null;
             try {
                 try {
-                    url = new URL(this.o.f2478a);
+                    url = new URL(this.o.f2591a);
                     this.j = a(url);
                 } catch (Throwable th) {
                     th = th;
@@ -867,7 +893,7 @@ public class NetWorkCore implements ai {
                         dataOutputStream.writeBytes(sb3);
                     }
                     dataOutputStream.flush();
-                    bg.a("NetWork", "postNetData", "Post data.zise = " + String.valueOf(dataOutputStream.size()));
+                    bd.a("NetWork", "postNetData", "Post data.zise = " + String.valueOf(dataOutputStream.size()));
                     dataOutputStream.close();
                     this.o.b = this.j.getResponseCode();
                     if (this.o.b != 200) {
@@ -906,15 +932,15 @@ public class NetWorkCore implements ai {
                                 this.n = i4;
                                 long time2 = new Date().getTime() - time;
                                 this.w = (time2 - this.v) - this.u;
-                                bg.a(getClass().getName(), "postNetData", "time = " + String.valueOf(time2) + LocaleUtil.MALAY);
+                                bd.a(getClass().getName(), "postNetData", "time = " + String.valueOf(time2) + LocaleUtil.MALAY);
                                 byte[] byteArray = byteArrayOutputStream.toByteArray();
-                                bg.a(getClass().getName(), "postNetData", "Get data.zise = " + String.valueOf(byteArray.length));
+                                bd.a(getClass().getName(), "postNetData", "Get data.zise = " + String.valueOf(byteArray.length));
                                 if (contentEncoding != null && contentEncoding.contains("gzip")) {
                                     ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArray);
                                     ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream(1024);
-                                    ah.b(byteArrayInputStream, byteArrayOutputStream2);
+                                    ae.b(byteArrayInputStream, byteArrayOutputStream2);
                                     byteArray = byteArrayOutputStream2.toByteArray();
-                                    bg.a(getClass().getName(), "postNetData", "After ungzip data.zise = " + String.valueOf(byteArray.length));
+                                    bd.a(getClass().getName(), "postNetData", "After ungzip data.zise = " + String.valueOf(byteArray.length));
                                 }
                                 byte[] bArr2 = byteArray;
                                 String str2 = new String(bArr2, 0, bArr2.length, E());
@@ -924,14 +950,14 @@ public class NetWorkCore implements ai {
                                     }
                                     this.x = i3 + 1;
                                     this.y = time2;
-                                    bb bbVar = new bb();
-                                    bbVar.e = a(c(this.i));
-                                    bbVar.c = this.n;
-                                    bbVar.b = time2;
-                                    bbVar.d = i3 + 1;
-                                    bbVar.f2480a = 1;
-                                    ba.a(bbVar);
-                                    bh.a(this);
+                                    ay ayVar = new ay();
+                                    ayVar.e = a(c(this.i));
+                                    ayVar.c = this.n;
+                                    ayVar.b = time2;
+                                    ayVar.d = i3 + 1;
+                                    ayVar.f2593a = 1;
+                                    ax.a(ayVar);
+                                    be.a(this);
                                     if (inputStream5 != null) {
                                         try {
                                             inputStream5.close();
@@ -949,11 +975,11 @@ public class NetWorkCore implements ai {
                                     inputStream3 = inputStream5;
                                     socketException = e12;
                                     str = str2;
-                                    ba.f2479a.incrementAndGet();
+                                    ax.f2592a.incrementAndGet();
                                     this.o.b = 0;
                                     z = true;
                                     this.o.d = this.i.getResources().getString(R.string.neterror);
-                                    bg.b(getClass().getName(), "postNetData", "SocketException " + socketException.getMessage());
+                                    bd.b(getClass().getName(), "postNetData", "SocketException " + socketException.getMessage());
                                     if (inputStream3 != null) {
                                         try {
                                             inputStream3.close();
@@ -969,11 +995,11 @@ public class NetWorkCore implements ai {
                                     socketTimeoutException = e14;
                                     str = str2;
                                     try {
-                                        ba.f2479a.incrementAndGet();
+                                        ax.f2592a.incrementAndGet();
                                         this.o.b = 0;
                                         z = true;
                                         this.o.d = this.i.getResources().getString(R.string.neterror);
-                                        bg.b(getClass().getName(), "postNetData", "SocketTimeoutException " + socketTimeoutException.getMessage());
+                                        bd.b(getClass().getName(), "postNetData", "SocketTimeoutException " + socketTimeoutException.getMessage());
                                         if (inputStream2 != null) {
                                             try {
                                                 inputStream2.close();
@@ -1000,7 +1026,7 @@ public class NetWorkCore implements ai {
                                     this.o.b = 0;
                                     z = false;
                                     this.o.d = this.i.getResources().getString(R.string.neterror);
-                                    bg.b(getClass().getName(), "postNetData", exc.getMessage());
+                                    bd.b(getClass().getName(), "postNetData", exc.getMessage());
                                     if (inputStream != null) {
                                         try {
                                             inputStream.close();
@@ -1068,12 +1094,12 @@ public class NetWorkCore implements ai {
         return str;
     }
 
-    @Override // com.baidu.tieba.util.ai
+    @Override // com.baidu.tieba.util.af
     public int m() {
         return this.n;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1081=10, 1082=10, 1084=10, 1086=10, 1087=10, 1091=10, 1092=10, 1094=10, 1095=10, 1096=10] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1214=10, 1215=10, 1217=10, 1220=10, 1221=10, 1226=10, 1227=10, 1229=10, 1231=10, 1232=10] */
     /* JADX WARN: Code restructure failed: missing block: B:23:0x004d, code lost:
         r0.removeMessages(0, r12);
      */
@@ -1096,7 +1122,7 @@ public class NetWorkCore implements ai {
     /* JADX WARN: Removed duplicated region for block: B:63:0x018a A[Catch: Exception -> 0x04f8, TRY_LEAVE, TryCatch #6 {Exception -> 0x04f8, blocks: (B:61:0x0186, B:63:0x018a), top: B:300:0x0186 }] */
     /* JADX WARN: Removed duplicated region for block: B:68:0x0198  */
     /* JADX WARN: Removed duplicated region for block: B:97:0x027c A[Catch: Exception -> 0x04f5, TRY_LEAVE, TryCatch #7 {Exception -> 0x04f5, blocks: (B:95:0x0278, B:97:0x027c), top: B:302:0x0278 }] */
-    @Override // com.baidu.tieba.util.ai
+    @Override // com.baidu.tieba.util.af
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -1123,7 +1149,7 @@ public class NetWorkCore implements ai {
             InputStream inputStream2 = null;
             DataOutputStream dataOutputStream3 = null;
             try {
-                this.j = a(new URL(this.o.f2478a));
+                this.j = a(new URL(this.o.f2591a));
             } catch (SocketException e2) {
                 str = str2;
                 dataOutputStream2 = null;
@@ -1209,12 +1235,12 @@ public class NetWorkCore implements ai {
                                 if (basicNameValuePair != null) {
                                     String name = basicNameValuePair.getName();
                                     String value = basicNameValuePair.getValue();
-                                    dataOutputStream.writeBytes(b + c + f2448a);
+                                    dataOutputStream.writeBytes(b + c + f2565a);
                                     byte[] bytes = value.getBytes("UTF-8");
-                                    dataOutputStream.writeBytes("Content-Disposition: form-data; name=\"" + name + "\"" + f2448a);
-                                    dataOutputStream.writeBytes(f2448a);
+                                    dataOutputStream.writeBytes("Content-Disposition: form-data; name=\"" + name + "\"" + f2565a);
+                                    dataOutputStream.writeBytes(f2565a);
                                     dataOutputStream.write(bytes);
-                                    dataOutputStream.writeBytes(f2448a);
+                                    dataOutputStream.writeBytes(f2565a);
                                 }
                             } catch (Throwable th3) {
                                 th = th3;
@@ -1240,17 +1266,17 @@ public class NetWorkCore implements ai {
                             if (this.m) {
                                 break;
                             } else if (value2 != null) {
-                                dataOutputStream.writeBytes(b + c + f2448a);
-                                dataOutputStream.writeBytes("Content-Disposition: form-data; name=\"" + key + "\"; filename=\"file\"" + f2448a);
-                                dataOutputStream.writeBytes(f2448a);
+                                dataOutputStream.writeBytes(b + c + f2565a);
+                                dataOutputStream.writeBytes("Content-Disposition: form-data; name=\"" + key + "\"; filename=\"file\"" + f2565a);
+                                dataOutputStream.writeBytes(f2565a);
                                 dataOutputStream.write(value2);
-                                dataOutputStream.writeBytes(f2448a);
+                                dataOutputStream.writeBytes(f2565a);
                             }
                         }
                     }
-                    dataOutputStream.writeBytes(b + c + b + f2448a);
+                    dataOutputStream.writeBytes(b + c + b + f2565a);
                     dataOutputStream.flush();
-                    bg.a("NetWork", "postMultiNetData", "Post data.zise = " + String.valueOf(dataOutputStream.size()));
+                    bd.a("NetWork", "postMultiNetData", "Post data.zise = " + String.valueOf(dataOutputStream.size()));
                     dataOutputStream.close();
                     if (e != null) {
                         e.sendMessageDelayed(e.obtainMessage(0, this), 45000L);
@@ -1297,15 +1323,15 @@ public class NetWorkCore implements ai {
                                 } else {
                                     inputStream3.close();
                                     this.j.disconnect();
-                                    bg.a("NetWork", "postMultiNetData", "time = " + String.valueOf(new Date().getTime() - time) + LocaleUtil.MALAY);
+                                    bd.a("NetWork", "postMultiNetData", "time = " + String.valueOf(new Date().getTime() - time) + LocaleUtil.MALAY);
                                     byte[] byteArray = byteArrayOutputStream.toByteArray();
-                                    bg.a("NetWork", "postMultiNetData", "Get data.zise = " + String.valueOf(byteArray.length));
+                                    bd.a("NetWork", "postMultiNetData", "Get data.zise = " + String.valueOf(byteArray.length));
                                     if (contentEncoding == null || !contentEncoding.contains("gzip")) {
                                         bArr = byteArray;
                                     } else {
                                         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArray);
                                         ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream(1024);
-                                        ah.b(byteArrayInputStream, byteArrayOutputStream2);
+                                        ae.b(byteArrayInputStream, byteArrayOutputStream2);
                                         bArr = byteArrayOutputStream2.toByteArray();
                                     }
                                     String str3 = new String(bArr, 0, bArr.length, E());
@@ -1372,7 +1398,7 @@ public class NetWorkCore implements ai {
                                         this.o.b = 0;
                                         z = false;
                                         this.o.d = this.i.getResources().getString(R.string.neterror);
-                                        bg.b("NetWork", "postMultiNetData", "error = " + exc.getMessage());
+                                        bd.b("NetWork", "postMultiNetData", "error = " + exc.getMessage());
                                         if (inputStream2 != null) {
                                         }
                                         if (this.j != null) {
@@ -1544,7 +1570,7 @@ public class NetWorkCore implements ai {
                             this.o.b = 0;
                             z = false;
                             this.o.d = this.i.getResources().getString(R.string.neterror);
-                            bg.b("NetWork", "postMultiNetData", "error = " + exc.getMessage());
+                            bd.b("NetWork", "postMultiNetData", "error = " + exc.getMessage());
                             if (inputStream2 != null) {
                                 try {
                                     inputStream2.close();
@@ -1608,16 +1634,16 @@ public class NetWorkCore implements ai {
         return str2;
     }
 
-    @Override // com.baidu.tieba.util.ai
+    @Override // com.baidu.tieba.util.af
     public boolean x() {
         return this.o.b == 200 || this.o.b == 206;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1230=9, 1232=7, 1233=7, 1237=7, 1238=7, 1242=7, 1243=7] */
-    /* JADX WARN: Removed duplicated region for block: B:156:0x0376 A[Catch: Exception -> 0x03a9, TRY_LEAVE, TryCatch #2 {Exception -> 0x03a9, blocks: (B:154:0x0370, B:156:0x0376), top: B:199:0x0370 }] */
-    /* JADX WARN: Removed duplicated region for block: B:235:0x037f A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:237:0x036d A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    @Override // com.baidu.tieba.util.ai
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1381=9, 1383=7, 1384=7, 1389=7, 1390=7, 1395=7, 1396=7] */
+    /* JADX WARN: Removed duplicated region for block: B:156:0x0374 A[Catch: Exception -> 0x03a7, TRY_LEAVE, TryCatch #8 {Exception -> 0x03a7, blocks: (B:154:0x036e, B:156:0x0374), top: B:208:0x036e }] */
+    /* JADX WARN: Removed duplicated region for block: B:235:0x037d A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:237:0x036b A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    @Override // com.baidu.tieba.util.af
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -1632,7 +1658,7 @@ public class NetWorkCore implements ai {
         try {
             try {
                 try {
-                    this.j = a(new URL(this.o.f2478a));
+                    this.j = a(new URL(this.o.f2591a));
                 } catch (Throwable th) {
                     th = th;
                 }
@@ -1648,7 +1674,7 @@ public class NetWorkCore implements ai {
         } catch (Exception e5) {
         }
         if (this.j == null) {
-            throw new SocketException("network not available.");
+            throw new SocketException();
         }
         this.j.setConnectTimeout(5000);
         this.j.setReadTimeout(30000);
@@ -1674,7 +1700,7 @@ public class NetWorkCore implements ai {
             return r2;
         }
         long time = new Date().getTime();
-        File g2 = af.g(str);
+        File g2 = x.g(str);
         if (g2 == null) {
             throw new FileNotFoundException();
         }
@@ -1773,9 +1799,9 @@ public class NetWorkCore implements ai {
                     }
                     try {
                         fileOutputStream.flush();
-                        bg.a("NetWork", "downloadFile", "time = " + String.valueOf(new Date().getTime() - time) + LocaleUtil.MALAY);
+                        bd.a("NetWork", "downloadFile", "time = " + String.valueOf(new Date().getTime() - time) + LocaleUtil.MALAY);
                         if (intValue != -1) {
-                            bg.a("NetWork", "downloadFile", "data.zise = " + String.valueOf(intValue));
+                            bd.a("NetWork", "downloadFile", "data.zise = " + String.valueOf(intValue));
                         }
                         r2 = ((long) i3) + length >= ((long) intValue);
                         this.k = 0;
@@ -1862,7 +1888,7 @@ public class NetWorkCore implements ai {
                 e2 = e24;
                 this.o.b = 0;
                 this.o.d = this.i.getResources().getString(R.string.neterror);
-                bg.b("NetWork", "downloadFile", "error = " + e2.getMessage());
+                bd.b("NetWork", "downloadFile", "error = " + e2.getMessage());
                 this.k = 0;
                 if (inputStream2 != null) {
                     try {
@@ -1887,22 +1913,22 @@ public class NetWorkCore implements ai {
         return r2;
     }
 
-    @Override // com.baidu.tieba.util.ai
+    @Override // com.baidu.tieba.util.af
     public void a(Context context) {
         this.i = context;
     }
 
-    @Override // com.baidu.tieba.util.ai
+    @Override // com.baidu.tieba.util.af
     public Context k() {
         return this.i;
     }
 
-    @Override // com.baidu.tieba.util.ai
+    @Override // com.baidu.tieba.util.af
     public ArrayList<BasicNameValuePair> l() {
         return this.o.e;
     }
 
-    @Override // com.baidu.tieba.util.ai
+    @Override // com.baidu.tieba.util.af
     public void a(ArrayList<BasicNameValuePair> arrayList) {
         if (this.o.e != null) {
             this.o.e.clear();
@@ -1919,12 +1945,12 @@ public class NetWorkCore implements ai {
         }
     }
 
-    @Override // com.baidu.tieba.util.ai
+    @Override // com.baidu.tieba.util.af
     public void a(String str, String str2) {
         a(new BasicNameValuePair(str, str2));
     }
 
-    @Override // com.baidu.tieba.util.ai
+    @Override // com.baidu.tieba.util.af
     public void a(String str, byte[] bArr) {
         if (this.o.f == null) {
             this.o.f = new HashMap<>();
@@ -1932,7 +1958,7 @@ public class NetWorkCore implements ai {
         this.o.f.put(str, bArr);
     }
 
-    @Override // com.baidu.tieba.util.ai
+    @Override // com.baidu.tieba.util.af
     public void a(BasicNameValuePair basicNameValuePair) {
         if (basicNameValuePair != null && basicNameValuePair.getName() != null) {
             if (this.o.e == null) {
@@ -1977,7 +2003,7 @@ public class NetWorkCore implements ai {
         return i >= size ? size : i2;
     }
 
-    @Override // com.baidu.tieba.util.ai
+    @Override // com.baidu.tieba.util.af
     public void d(boolean z) {
         this.o.h = z;
     }
@@ -2003,12 +2029,12 @@ public class NetWorkCore implements ai {
                 networkStateInfo = NetworkStateInfo.UNAVAIL;
                 try {
                     e2 = "NetWorkCore";
-                    bg.a("NetWorkCore", "NetworkStateInfo", "UNAVAIL");
+                    bd.a("NetWorkCore", "NetworkStateInfo", "UNAVAIL");
                 } catch (Exception e3) {
                     e2 = e3;
                 }
             } else if (activeNetworkInfo.getType() == 1) {
-                bg.a("NetWorkCore", "NetworkStateInfo", "WIFI");
+                bd.a("NetWorkCore", "NetworkStateInfo", "WIFI");
                 networkStateInfo = NetworkStateInfo.WIFI;
             } else {
                 switch (((TelephonyManager) context.getSystemService("phone")).getNetworkType()) {
@@ -2018,7 +2044,7 @@ public class NetWorkCore implements ai {
                     case 4:
                     case 7:
                     case 11:
-                        bg.a("NetWorkCore", "NetworkStateInfo", "TwoG");
+                        bd.a("NetWorkCore", "NetworkStateInfo", "TwoG");
                         networkStateInfo = NetworkStateInfo.TwoG;
                         break;
                     case 3:
@@ -2031,11 +2057,11 @@ public class NetWorkCore implements ai {
                     case 13:
                     case 14:
                     case 15:
-                        bg.a("NetWorkCore", "NetworkStateInfo", "ThreeG");
+                        bd.a("NetWorkCore", "NetworkStateInfo", "ThreeG");
                         networkStateInfo = NetworkStateInfo.ThreeG;
                         break;
                     default:
-                        bg.a("NetWorkCore", "NetworkStateInfo-default", "TwoG");
+                        bd.a("NetWorkCore", "NetworkStateInfo-default", "TwoG");
                         networkStateInfo = NetworkStateInfo.TwoG;
                         break;
                 }
@@ -2050,36 +2076,36 @@ public class NetWorkCore implements ai {
         try {
             InetAddress.getByName(url.getHost()).getHostAddress();
         } catch (Exception e2) {
-            bg.b(getClass().getName(), "checkDNS", e2.toString());
+            bd.b(getClass().getName(), "checkDNS", e2.toString());
         }
     }
 
-    @Override // com.baidu.tieba.util.ai
+    @Override // com.baidu.tieba.util.af
     public void a(boolean z) {
         this.p = z;
     }
 
-    @Override // com.baidu.tieba.util.ai
+    @Override // com.baidu.tieba.util.af
     public boolean a() {
         return this.j != null && "image/gif".equalsIgnoreCase(this.j.getHeaderField("Src-Content-Type"));
     }
 
-    @Override // com.baidu.tieba.util.ai
+    @Override // com.baidu.tieba.util.af
     public void b(boolean z) {
         this.q = z;
     }
 
-    @Override // com.baidu.tieba.util.ai
+    @Override // com.baidu.tieba.util.af
     public void a(int i) {
         this.s = i;
     }
 
-    @Override // com.baidu.tieba.util.ai
+    @Override // com.baidu.tieba.util.af
     public void a(String str) {
         this.r = str;
     }
 
-    @Override // com.baidu.tieba.util.ai
+    @Override // com.baidu.tieba.util.af
     public String z() {
         return this.o.l;
     }

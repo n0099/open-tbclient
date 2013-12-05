@@ -1,26 +1,32 @@
 package com.baidu.tieba.im.validate;
 
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tieba.util.ak;
+import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class d implements Runnable {
+public class d implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ValidateActivity f1798a;
+    final /* synthetic */ ValidateActivity f1897a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(ValidateActivity validateActivity) {
-        this.f1798a = validateActivity;
+        this.f1897a = validateActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        m mVar;
-        com.baidu.tieba.util.i iVar;
-        mVar = this.f1798a.b;
-        BdListView f = mVar.f();
-        iVar = this.f1798a.h;
-        ak.a(f, iVar, 0, 1);
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        n nVar;
+        ValidateItemData validateItemData;
+        switch (i) {
+            case 0:
+                nVar = this.f1897a.b;
+                nVar.a(true);
+                ValidateActivity validateActivity = this.f1897a;
+                validateItemData = this.f1897a.f;
+                validateActivity.c(validateItemData);
+                return;
+            default:
+                return;
+        }
     }
 }

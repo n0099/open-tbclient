@@ -3,5 +3,5 @@ package com.baidu.adp.lib.voice;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f517a = 300000;
+    public static int f519a = 300000;
 }

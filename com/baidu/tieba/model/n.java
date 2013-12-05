@@ -9,11 +9,11 @@ import java.util.List;
 public class n extends BdAsyncTask<Object, Integer, Boolean> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ f f1928a;
-    private volatile com.baidu.tieba.util.ap b;
+    final /* synthetic */ f f2040a;
+    private volatile com.baidu.tieba.util.am b;
 
     private n(f fVar) {
-        this.f1928a = fVar;
+        this.f2040a = fVar;
         this.b = null;
     }
 
@@ -37,33 +37,33 @@ public class n extends BdAsyncTask<Object, Integer, Boolean> {
         String str4;
         List list;
         try {
-            this.b = new com.baidu.tieba.util.ap(com.baidu.tieba.data.h.f1201a + "c/s/comlist");
+            this.b = new com.baidu.tieba.util.am(com.baidu.tieba.data.h.f1248a + "c/s/comlist");
             this.b.e(true);
-            com.baidu.tieba.util.ap apVar = this.b;
-            str = this.f1928a.d;
-            apVar.a(PushConstants.EXTRA_USER_ID, str);
-            com.baidu.tieba.util.ap apVar2 = this.b;
-            str2 = this.f1928a.f;
-            apVar2.a("pn", str2);
-            com.baidu.tieba.util.ap apVar3 = this.b;
-            str3 = this.f1928a.g;
-            apVar3.a("rn", str3);
+            com.baidu.tieba.util.am amVar = this.b;
+            str = this.f2040a.e;
+            amVar.a(PushConstants.EXTRA_USER_ID, str);
+            com.baidu.tieba.util.am amVar2 = this.b;
+            str2 = this.f2040a.g;
+            amVar2.a("pn", str2);
+            com.baidu.tieba.util.am amVar3 = this.b;
+            str3 = this.f2040a.h;
+            amVar3.a("rn", str3);
             String l = this.b.l();
             if (this.b.c() && l != null) {
-                this.f1928a.c(l);
-                if (this.f1928a.d() == 0) {
-                    str4 = this.f1928a.f;
+                this.f2040a.c(l);
+                if (this.f2040a.d() == 0) {
+                    str4 = this.f2040a.g;
                     if (str4.equals(SocialConstants.TRUE)) {
-                        list = this.f1928a.c;
+                        list = this.f2040a.d;
                         if (list != null) {
-                            this.f1928a.g();
+                            this.f2040a.g();
                         }
                     }
                 }
                 return true;
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.bg.b(getClass().getName(), "doInBackground", e.getMessage());
+            com.baidu.tieba.util.bd.b(getClass().getName(), "doInBackground", e.getMessage());
         }
         return false;
     }
@@ -72,18 +72,34 @@ public class n extends BdAsyncTask<Object, Integer, Boolean> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(Boolean bool) {
+        List list;
         com.baidu.adp.a.g gVar;
         com.baidu.adp.a.g gVar2;
-        this.f1928a.k = null;
-        this.f1928a.f();
+        List list2;
+        List list3;
+        List list4;
+        List list5;
+        this.f2040a.l = null;
+        list = this.f2040a.c;
+        if (list != null) {
+            list2 = this.f2040a.d;
+            if (list2 != null) {
+                list3 = this.f2040a.c;
+                list3.clear();
+                list4 = this.f2040a.c;
+                list5 = this.f2040a.d;
+                list4.addAll(list5);
+            }
+        }
+        this.f2040a.f();
         if (bool.booleanValue()) {
-            gVar = this.f1928a.mLoadDataCallBack;
+            gVar = this.f2040a.mLoadDataCallBack;
             gVar.a(true);
             return;
         }
-        this.f1928a.mErrorCode = this.b.e();
-        this.f1928a.mErrorString = this.b.i();
-        gVar2 = this.f1928a.mLoadDataCallBack;
+        this.f2040a.mErrorCode = this.b.e();
+        this.f2040a.mErrorString = this.b.i();
+        gVar2 = this.f2040a.mLoadDataCallBack;
         gVar2.a(false);
     }
 
@@ -95,7 +111,7 @@ public class n extends BdAsyncTask<Object, Integer, Boolean> {
             this.b.j();
             this.b = null;
         }
-        gVar = this.f1928a.mLoadDataCallBack;
+        gVar = this.f2040a.mLoadDataCallBack;
         gVar.a(false);
     }
 }

@@ -1,18 +1,18 @@
 package com.baidu.tieba.account.appeal;
 
 import android.widget.TextView;
-import com.baidu.tieba.util.be;
+import com.baidu.tieba.util.bb;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements l {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ AppealActivity f1045a;
+    final /* synthetic */ AppealActivity f1055a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(AppealActivity appealActivity) {
-        this.f1045a = appealActivity;
+        this.f1055a = appealActivity;
     }
 
     @Override // com.baidu.tieba.account.appeal.l
@@ -20,15 +20,15 @@ public class b implements l {
         TextView textView;
         String str;
         TextView textView2;
-        textView = this.f1045a.b;
-        str = this.f1045a.h;
+        textView = this.f1055a.b;
+        str = this.f1055a.h;
         textView.setText(str);
-        textView2 = this.f1045a.c;
-        textView2.setText(!be.c(forbidReasonData.reason) ? forbidReasonData.reason : this.f1045a.getString(R.string.default_forbid_reason));
+        textView2 = this.f1055a.c;
+        textView2.setText(!bb.c(forbidReasonData.reason) ? forbidReasonData.reason : this.f1055a.getString(R.string.default_forbid_reason));
     }
 
     @Override // com.baidu.tieba.account.appeal.l
     public void b(ForbidReasonData forbidReasonData) {
-        this.f1045a.showToast(forbidReasonData.error.b);
+        this.f1055a.showToast(forbidReasonData.error.b);
     }
 }

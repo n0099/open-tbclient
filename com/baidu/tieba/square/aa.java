@@ -17,7 +17,7 @@ public class aa extends BaseAdapter {
     private ArrayList<ad> c = null;
 
     /* renamed from: a  reason: collision with root package name */
-    View.OnClickListener f2354a = new ab(this);
+    View.OnClickListener f2471a = new ab(this);
 
     public aa(Context context) {
         this.b = null;
@@ -77,27 +77,27 @@ public class aa extends BaseAdapter {
             view = a(i, itemViewType);
         }
         ac acVar = (ac) view.getTag();
-        int ap = TiebaApplication.g().ap();
+        int an = TiebaApplication.h().an();
         int count = getCount();
         BaseFragmentActivity baseFragmentActivity = (BaseFragmentActivity) this.b;
-        baseFragmentActivity.a().a(ap == 1);
+        baseFragmentActivity.a().a(an == 1);
         baseFragmentActivity.a().a(view);
         if (count > 2) {
             if (i == 0) {
-                if (ap == 1) {
+                if (an == 1) {
                     acVar.d.setBackgroundResource(R.drawable.bg_hot_up_1);
                 } else {
                     acVar.d.setBackgroundResource(R.drawable.bg_hot_up);
                 }
             } else if (i == count - 2) {
-                if (ap == 1) {
+                if (an == 1) {
                     acVar.d.setBackgroundResource(R.drawable.bg_hot_down_1);
                 } else {
                     acVar.d.setBackgroundResource(R.drawable.bg_hot_down);
                 }
             }
         } else if (count == 2 && i == 0) {
-            if (ap == 1) {
+            if (an == 1) {
                 acVar.d.setBackgroundResource(R.drawable.bg_hot_1);
             } else {
                 acVar.d.setBackgroundResource(R.drawable.bg_hot);
@@ -106,9 +106,9 @@ public class aa extends BaseAdapter {
         if (i >= 0 && this.c != null) {
             if (i * 2 < this.c.size()) {
                 ad adVar = this.c.get(i * 2);
-                acVar.f2356a.setText(adVar.a());
+                acVar.f2473a.setText(adVar.a());
                 adVar.a(String.valueOf(i) + "_first");
-                acVar.f2356a.setTag(adVar);
+                acVar.f2473a.setTag(adVar);
             }
             if ((i * 2) + 1 < this.c.size()) {
                 ad adVar2 = this.c.get((i * 2) + 1);
@@ -125,19 +125,19 @@ public class aa extends BaseAdapter {
             View inflate = LayoutInflater.from(this.b).inflate(R.layout.forum_list_recommend_item, (ViewGroup) null);
             ac acVar = new ac(this, null);
             acVar.d = (LinearLayout) inflate.findViewById(R.id.container);
-            acVar.f2356a = (TextView) inflate.findViewById(R.id.forum_list_title_1);
+            acVar.f2473a = (TextView) inflate.findViewById(R.id.forum_list_title_1);
             acVar.b = (TextView) inflate.findViewById(R.id.forum_list_title_2);
             acVar.c = inflate.findViewById(R.id.forum_list_title_divider);
-            acVar.f2356a.setClickable(true);
+            acVar.f2473a.setClickable(true);
             acVar.b.setClickable(true);
-            acVar.f2356a.setOnClickListener(this.f2354a);
-            acVar.b.setOnClickListener(this.f2354a);
+            acVar.f2473a.setOnClickListener(this.f2471a);
+            acVar.b.setOnClickListener(this.f2471a);
             inflate.setTag(acVar);
             return inflate;
         } else if (i2 == 1) {
-            com.baidu.tieba.view.q qVar = new com.baidu.tieba.view.q(this.b);
-            qVar.setHeightPx(this.b.getResources().getDimensionPixelSize(R.dimen.square_forum_list_paddingBottom));
-            return qVar;
+            com.baidu.tieba.view.r rVar = new com.baidu.tieba.view.r(this.b);
+            rVar.setHeightPx(this.b.getResources().getDimensionPixelSize(R.dimen.square_forum_list_paddingBottom));
+            return rVar;
         } else {
             return null;
         }

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.bq;
 import android.view.LayoutInflater;
@@ -18,7 +19,8 @@ import com.baidu.tieba.BaseFragment;
 import com.baidu.tieba.BaseFragmentActivity;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.chat.ChatActivity;
-import com.baidu.tieba.util.bd;
+import com.baidu.tieba.chat.ChatListFragment;
+import com.baidu.tieba.util.ba;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 import com.tencent.mm.sdk.platformtools.LocaleUtil;
@@ -42,7 +44,7 @@ public class MentionActivity extends BaseFragment implements bq {
     private ViewPager ab = null;
 
     /* renamed from: a  reason: collision with root package name */
-    protected int f1827a = -1;
+    protected int f1939a = -1;
     private boolean ae = false;
     private e ah = null;
 
@@ -89,9 +91,20 @@ public class MentionActivity extends BaseFragment implements bq {
 
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
     public void r() {
-        this.f1827a = TiebaApplication.g().ap();
+        this.f1939a = TiebaApplication.h().an();
         super.r();
         if (F()) {
+            View q = q();
+            if (q != null) {
+                q.requestFocus();
+                q.requestFocusFromTouch();
+            }
+            if (this.e == 0) {
+                Fragment a2 = this.ad.a(this.e);
+                if (a2 instanceof ChatListFragment) {
+                    ((ChatListFragment) a2).a();
+                }
+            }
             if (this.ae) {
                 this.ae = false;
                 d(0);
@@ -207,7 +220,7 @@ public class MentionActivity extends BaseFragment implements bq {
             } else if (i == 2) {
                 str = "msg_atme_tab_click";
             }
-            if (str != null && TiebaApplication.g().s()) {
+            if (str != null && TiebaApplication.h().t()) {
                 StatService.onEvent(this.ag, str, "click", 1);
             }
             a();
@@ -219,11 +232,17 @@ public class MentionActivity extends BaseFragment implements bq {
     public void c(int i) {
         int i2 = 0;
         if (i == 1) {
-            this.ab.setBackgroundColor(-14538444);
-        } else {
+            if (TiebaApplication.C()) {
+                this.ab.setBackgroundColor(-14538444);
+            } else {
+                this.ab.setBackgroundColor(this.ag.getResources().getColor(R.color.bg_page_setting_1));
+            }
+        } else if (TiebaApplication.C()) {
             this.ab.setBackgroundColor(this.ag.getResources().getColor(R.color.backgroundcolor));
+        } else {
+            this.ab.setBackgroundColor(this.ag.getResources().getColor(R.color.bg_page_setting));
         }
-        bd.a(this.Y, i);
+        ba.a(this.Y, i);
         this.i.c(i);
         if (i == 1) {
             for (TextView textView : this.d) {
@@ -234,7 +253,7 @@ public class MentionActivity extends BaseFragment implements bq {
                 textView2.setTextColor(j().getColor(R.color.top_msg_num_day));
             }
         }
-        boolean z = this.f1827a == 1;
+        boolean z = this.f1939a == 1;
         while (true) {
             int i3 = i2;
             if (i3 < this.c.length) {
@@ -255,7 +274,7 @@ public class MentionActivity extends BaseFragment implements bq {
     }
 
     private void a() {
-        boolean z = TiebaApplication.g().ap() == 1;
+        boolean z = TiebaApplication.h().an() == 1;
         for (int i = 0; i < this.c.length; i++) {
             TextView textView = this.c[i];
             if (i == this.e) {
@@ -270,7 +289,7 @@ public class MentionActivity extends BaseFragment implements bq {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(long[] jArr) {
-        boolean z = this.f1827a == 1;
+        boolean z = this.f1939a == 1;
         for (int i = 0; i < jArr.length; i++) {
             TextView textView = this.d[i];
             long j = jArr[i];
@@ -302,17 +321,17 @@ public class MentionActivity extends BaseFragment implements bq {
     private boolean e(int i) {
         switch (i) {
             case 0:
-                return TiebaApplication.g().ab();
+                return TiebaApplication.h().Z();
             case 1:
-                if (!TiebaApplication.g().aa()) {
+                if (!TiebaApplication.h().Y()) {
                     return false;
                 }
-                if (TiebaApplication.g().Z()) {
+                if (TiebaApplication.h().X()) {
                     return false;
                 }
                 break;
             case 2:
-                if (TiebaApplication.g().Z()) {
+                if (TiebaApplication.h().X()) {
                 }
                 break;
         }
@@ -365,11 +384,11 @@ public class MentionActivity extends BaseFragment implements bq {
             } else if (i == 2) {
                 str = "msg_atme_tab_click";
             }
-            if (str != null && TiebaApplication.g().s()) {
+            if (str != null && TiebaApplication.h().t()) {
                 StatService.onEvent(this.ag, str, "click", 1);
             }
             a();
-            a(i, false);
+            a(i, true);
         }
     }
 

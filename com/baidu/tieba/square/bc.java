@@ -5,11 +5,11 @@ import android.content.DialogInterface;
 class bc implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bb f2382a;
+    final /* synthetic */ bb f2499a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bc(bb bbVar) {
-        this.f2382a = bbVar;
+        this.f2499a = bbVar;
     }
 
     @Override // android.content.DialogInterface.OnClickListener

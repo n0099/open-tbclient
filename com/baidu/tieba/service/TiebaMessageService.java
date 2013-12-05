@@ -6,12 +6,12 @@ import android.os.Handler;
 import android.os.IBinder;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.aj;
-import com.baidu.tieba.util.bg;
+import com.baidu.tieba.util.bd;
 /* loaded from: classes.dex */
 public class TiebaMessageService extends Service {
 
     /* renamed from: a  reason: collision with root package name */
-    private n f2319a = null;
+    private n f2436a = null;
     private n b = null;
     private aj c = null;
     private int d = 0;
@@ -36,8 +36,8 @@ public class TiebaMessageService extends Service {
         this.e = false;
         this.f.removeMessages(1);
         this.f.removeMessages(2);
-        if (this.f2319a != null) {
-            this.f2319a.cancel();
+        if (this.f2436a != null) {
+            this.f2436a.cancel();
         }
         if (this.b != null) {
             this.b.cancel();
@@ -47,7 +47,7 @@ public class TiebaMessageService extends Service {
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
-        if (!TiebaApplication.g().ad()) {
+        if (!TiebaApplication.h().ab()) {
             stopSelf();
             return;
         }
@@ -72,42 +72,42 @@ public class TiebaMessageService extends Service {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i) {
         try {
-            if (TiebaApplication.A() != null && TiebaApplication.F() != null) {
+            if (TiebaApplication.B() != null && TiebaApplication.G() != null) {
                 if (i == 1 || i == 3) {
-                    if (this.f2319a != null) {
-                        this.f2319a.cancel();
+                    if (this.f2436a != null) {
+                        this.f2436a.cancel();
                     }
-                    this.f2319a = new n(this, i);
-                    this.f2319a.execute(new String[0]);
+                    this.f2436a = new n(this, i);
+                    this.f2436a.execute(new String[0]);
                 } else if (i == 2) {
                     if (this.b != null) {
                         this.b.cancel();
                     }
-                    if (this.f2319a != null) {
-                        this.f2319a.cancel();
+                    if (this.f2436a != null) {
+                        this.f2436a.cancel();
                     }
                     this.b = new n(this, i);
                     this.b.execute(new String[0]);
                 }
             }
         } catch (Exception e) {
-            bg.b(getClass().getName(), "getMsg", e.getMessage());
+            bd.b(getClass().getName(), "getMsg", e.getMessage());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(int i) {
         if (this.c != null && this.c.a() >= 0 && this.c.b() >= 0 && this.c.c() >= 0 && this.c.d() >= 0 && this.c.e() >= 0) {
-            if (!TiebaApplication.g().aa()) {
+            if (!TiebaApplication.h().Y()) {
                 this.c.a(0L);
             }
-            if (!TiebaApplication.g().Z()) {
+            if (!TiebaApplication.h().X()) {
                 this.c.b(0L);
             }
-            if (!TiebaApplication.g().Y()) {
+            if (!TiebaApplication.h().W()) {
                 this.c.c(0L);
             }
-            if (!TiebaApplication.g().ab()) {
+            if (!TiebaApplication.h().Z()) {
                 this.c.d(0L);
             }
             Intent intent = new Intent("com.baidu.tieba.broadcast.service");
@@ -121,7 +121,7 @@ public class TiebaMessageService extends Service {
                 intent.putExtra("new_bookmark", this.c.e());
             }
             sendBroadcast(intent);
-            bg.a(getClass().getName(), "broadcastMsg", "sendBroadcast: " + String.format("%d %d %d %d", Long.valueOf(this.c.a()), Long.valueOf(this.c.b()), Long.valueOf(this.c.c()), Long.valueOf(this.c.e())));
+            bd.a(getClass().getName(), "broadcastMsg", "sendBroadcast: " + String.format("%d %d %d %d", Long.valueOf(this.c.a()), Long.valueOf(this.c.b()), Long.valueOf(this.c.c()), Long.valueOf(this.c.e())));
         }
     }
 }

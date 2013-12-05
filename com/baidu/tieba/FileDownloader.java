@@ -15,10 +15,10 @@ import com.slidingmenu.lib.R;
 public class FileDownloader extends Service {
 
     /* renamed from: a  reason: collision with root package name */
-    private NotificationManager f999a = null;
+    private NotificationManager f1006a = null;
     private Notification b = null;
-    private v c = null;
-    private Handler d = new u(this);
+    private w c = null;
+    private Handler d = new v(this);
 
     public static void a(Context context, String str, String str2, String str3) {
         Intent intent = new Intent(context, FileDownloader.class);
@@ -36,17 +36,17 @@ public class FileDownloader extends Service {
     @Override // android.app.Service
     public void onCreate() {
         super.onCreate();
-        this.f999a = (NotificationManager) getSystemService("notification");
+        this.f1006a = (NotificationManager) getSystemService("notification");
         this.b = a();
-        if (this.f999a == null) {
+        if (this.f1006a == null) {
             stopSelf();
         }
     }
 
     public Notification a() {
-        PendingIntent activity = PendingIntent.getActivity(TiebaApplication.g(), 0, new Intent(), 0);
+        PendingIntent activity = PendingIntent.getActivity(TiebaApplication.h(), 0, new Intent(), 0);
         Notification notification = new Notification(17301633, null, System.currentTimeMillis());
-        notification.contentView = new RemoteViews(TiebaApplication.g().getPackageName(), (int) R.layout.notify_item);
+        notification.contentView = new RemoteViews(TiebaApplication.h().getPackageName(), (int) R.layout.notify_item);
         notification.contentView.setProgressBar(R.id.progress, 100, 0, false);
         notification.contentIntent = activity;
         notification.flags = 32;
@@ -60,9 +60,9 @@ public class FileDownloader extends Service {
         if (this.c != null) {
             this.c.cancel();
         }
-        if (this.f999a != null) {
-            this.f999a.cancel(10);
-            this.f999a.cancel(14);
+        if (this.f1006a != null) {
+            this.f1006a.cancel(10);
+            this.f1006a.cancel(14);
         }
     }
 
@@ -79,13 +79,13 @@ public class FileDownloader extends Service {
             } else {
                 a2 = a(stringExtra2);
             }
-            if (com.baidu.tieba.util.af.d(a2) != null) {
+            if (com.baidu.tieba.util.x.d(a2) != null) {
                 this.d.sendMessageDelayed(this.d.obtainMessage(1, a2), 100L);
             } else if (this.c == null) {
-                this.c = new v(this, stringExtra2, a2);
+                this.c = new w(this, stringExtra2, a2);
                 this.c.execute(new String[0]);
                 this.b.contentView.setProgressBar(R.id.progress, 100, 0, false);
-                this.f999a.notify(10, this.b);
+                this.f1006a.notify(10, this.b);
             }
         }
         super.onStart(intent, i);

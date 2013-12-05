@@ -5,7 +5,7 @@ import org.msgpack.MessageTypeException;
 final class g extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    long f2959a;
+    long f3140a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g() {
@@ -15,46 +15,46 @@ final class g extends a {
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // org.msgpack.unpacker.a
     public void a(byte b) {
-        this.f2959a = b;
+        this.f3140a = b;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // org.msgpack.unpacker.a
     public void a(short s) {
-        this.f2959a = s;
+        this.f3140a = s;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // org.msgpack.unpacker.a
     public void a(int i) {
-        this.f2959a = i;
+        this.f3140a = i;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // org.msgpack.unpacker.a
     public void a(long j) {
-        this.f2959a = j;
+        this.f3140a = j;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // org.msgpack.unpacker.a
     public void b(byte b) {
-        this.f2959a = b & 255;
+        this.f3140a = b & 255;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // org.msgpack.unpacker.a
     public void b(short s) {
-        this.f2959a = 65535 & s;
+        this.f3140a = 65535 & s;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // org.msgpack.unpacker.a
     public void b(int i) {
         if (i < 0) {
-            this.f2959a = (Integer.MAX_VALUE & i) + 2147483648L;
+            this.f3140a = (Integer.MAX_VALUE & i) + 2147483648L;
         } else {
-            this.f2959a = i;
+            this.f3140a = i;
         }
     }
 
@@ -64,6 +64,6 @@ final class g extends a {
         if (j < 0) {
             throw new MessageTypeException();
         }
-        this.f2959a = j;
+        this.f3140a = j;
     }
 }

@@ -21,15 +21,15 @@ import com.baidu.tieba.data.chat.ChatPostData;
 import com.baidu.tieba.person.PersonInfoActivity;
 import com.baidu.tieba.util.UtilHelper;
 import com.baidu.tieba.view.HeadImageView;
-import com.baidu.tieba.view.ao;
+import com.baidu.tieba.view.ap;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class ChatActivity extends com.baidu.tieba.j implements com.baidu.tbadk.widget.richText.i {
 
     /* renamed from: a  reason: collision with root package name */
-    private ai f1122a = null;
-    private ab b = null;
-    private af c = null;
+    private aj f1168a = null;
+    private ac b = null;
+    private ag c = null;
     private ChatMessageData d = null;
     private boolean e = false;
     private boolean f = false;
@@ -40,9 +40,9 @@ public class ChatActivity extends com.baidu.tieba.j implements com.baidu.tbadk.w
     private Runnable k = new b(this);
     private DialogInterface.OnClickListener l = new c(this);
     private com.baidu.adp.widget.ListView.b m = new d(this);
-    private ah n = new e(this);
-    private ad o = new g(this);
-    private ao p = new h(this);
+    private ai n = new e(this);
+    private ae o = new g(this);
+    private ap p = new h(this);
 
     public static void a(Context context, String str, String str2, String str3, String str4, String str5) {
         if (str != null && str.length() >= 1) {
@@ -105,7 +105,7 @@ public class ChatActivity extends com.baidu.tieba.j implements com.baidu.tbadk.w
         super.onDestroy();
         this.b.cancelLoadData();
         this.c.cancelLoadData();
-        this.f1122a.s();
+        this.f1168a.s();
         this.h.removeCallbacks(this.k);
     }
 
@@ -115,10 +115,10 @@ public class ChatActivity extends com.baidu.tieba.j implements com.baidu.tbadk.w
 
     @Override // com.baidu.adp.a.a, android.view.View.OnLongClickListener
     public boolean onLongClick(View view) {
-        if (view.getId() == this.f1122a.v()) {
+        if (view.getId() == this.f1168a.v()) {
             this.d = (ChatMessageData) view.getTag();
             if (this.d != null) {
-                this.f1122a.a(this.l);
+                this.f1168a.a(this.l);
             }
             return true;
         }
@@ -127,25 +127,25 @@ public class ChatActivity extends com.baidu.tieba.j implements com.baidu.tbadk.w
 
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.f1122a.a()) {
+        if (view == this.f1168a.a()) {
             closeActivity();
-        } else if (view == this.f1122a.e()) {
-            this.f1122a.p();
-        } else if (view == this.f1122a.f()) {
-            String A = TiebaApplication.A();
-            if (A == null || A.length() <= 0) {
+        } else if (view == this.f1168a.e()) {
+            this.f1168a.p();
+        } else if (view == this.f1168a.f()) {
+            String B = TiebaApplication.B();
+            if (B == null || B.length() <= 0) {
                 LoginActivity.a((Activity) this, getString(R.string.login_to_use), true, 11031);
             } else {
                 a();
             }
-        } else if (view.getId() == this.f1122a.g()) {
+        } else if (view.getId() == this.f1168a.g()) {
             String userId = ((HeadImageView) view).getUserId();
             if (userId != null) {
                 PersonInfoActivity.a(this, userId, (String) null);
             }
-        } else if (view == this.f1122a.h()) {
-            String A2 = TiebaApplication.A();
-            if (A2 == null || A2.length() <= 0) {
+        } else if (view == this.f1168a.h()) {
+            String B2 = TiebaApplication.B();
+            if (B2 == null || B2.length() <= 0) {
                 LoginActivity.a((Activity) this, getString(R.string.login_to_use), true, 11032);
             } else {
                 b();
@@ -155,7 +155,7 @@ public class ChatActivity extends com.baidu.tieba.j implements com.baidu.tbadk.w
 
     private void a() {
         ChatPostData chatPostData = new ChatPostData();
-        String m = this.f1122a.m();
+        String m = this.f1168a.m();
         chatPostData.setFriendID(this.b.b());
         chatPostData.setUserID(this.b.c());
         chatPostData.setConent(m);
@@ -165,9 +165,9 @@ public class ChatActivity extends com.baidu.tieba.j implements com.baidu.tbadk.w
     }
 
     private void b() {
-        this.f1122a.q();
+        this.f1168a.q();
         if (this.b.g()) {
-            this.f1122a.n();
+            this.f1168a.n();
         }
     }
 
@@ -192,7 +192,7 @@ public class ChatActivity extends com.baidu.tieba.j implements com.baidu.tbadk.w
         if (a2 != null) {
             this.d = a2.getMsg(i);
             if (this.d != null) {
-                this.f1122a.a(this.l);
+                this.f1168a.a(this.l);
                 return true;
             }
             return true;
@@ -213,28 +213,28 @@ public class ChatActivity extends com.baidu.tieba.j implements com.baidu.tbadk.w
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j
     public void onChangeSkinType(int i) {
-        this.f1122a.a(i);
+        this.f1168a.a(i);
     }
 
     private void k() {
-        this.f1122a = new ai(this);
-        this.f1122a.a(this.m);
-        this.f1122a.a(this.p);
+        this.f1168a = new aj(this);
+        this.f1168a.a(this.m);
+        this.f1168a.a(this.p);
     }
 
     private void a(Bundle bundle) {
-        this.b = new ab();
+        this.b = new ac();
         if (bundle == null) {
             this.b.a(getIntent());
         } else {
             this.b.a(bundle);
         }
-        this.f1122a.a(this.b.a());
+        this.f1168a.a(this.b.a());
         this.b.a(this.o);
-        this.c = new af();
+        this.c = new ag();
         this.c.a(this.n);
-        String A = TiebaApplication.A();
-        if (A == null || A.length() <= 0) {
+        String B = TiebaApplication.B();
+        if (B == null || B.length() <= 0) {
             LoginActivity.a((Activity) this, getString(R.string.login_to_use), true, 11023);
         } else {
             j();
@@ -243,12 +243,12 @@ public class ChatActivity extends com.baidu.tieba.j implements com.baidu.tbadk.w
 
     @Override // com.baidu.tbadk.widget.richText.i
     public ListView c() {
-        return this.f1122a.u();
+        return this.f1168a.u();
     }
 
     @Override // com.baidu.tbadk.widget.richText.i
     public int d() {
-        return this.f1122a.v();
+        return this.f1168a.v();
     }
 
     @Override // com.baidu.tbadk.widget.richText.i
@@ -258,12 +258,12 @@ public class ChatActivity extends com.baidu.tieba.j implements com.baidu.tbadk.w
 
     @Override // com.baidu.tbadk.widget.richText.i
     public void b(Context context, String str) {
-        UtilHelper.c(this, str);
+        UtilHelper.b(this, str);
     }
 
     @Override // com.baidu.tbadk.widget.richText.i
     public void c(Context context, String str) {
-        UtilHelper.c(this, str);
+        UtilHelper.b(this, str);
     }
 
     @Override // com.baidu.tbadk.widget.richText.i
@@ -302,7 +302,7 @@ public class ChatActivity extends com.baidu.tieba.j implements com.baidu.tbadk.w
     }
 
     @Override // com.baidu.tbadk.widget.richText.i
-    public com.baidu.adp.lib.d.b<View> d_() {
+    public com.baidu.adp.lib.d.b<View> g() {
         return null;
     }
 

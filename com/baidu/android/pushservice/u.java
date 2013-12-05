@@ -8,20 +8,20 @@ import com.baidu.cloudsdk.social.core.SocialConstants;
 class u implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PushTestActivity f751a;
+    final /* synthetic */ PushTestActivity f756a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(PushTestActivity pushTestActivity) {
-        this.f751a = pushTestActivity;
+        this.f756a = pushTestActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Intent intent = new Intent(PushConstants.ACTION_METHOD);
         intent.putExtra(PushConstants.EXTRA_METHOD, PushConstants.METHOD_DELETE);
-        intent.putExtra(PushConstants.EXTRA_APP, PendingIntent.getBroadcast(this.f751a, 0, new Intent(), 0));
-        intent.putExtra("access_token", PushConstants.rsaEncrypt(this.f751a.f687a));
+        intent.putExtra(PushConstants.EXTRA_APP, PendingIntent.getBroadcast(this.f756a, 0, new Intent(), 0));
+        intent.putExtra("access_token", PushConstants.rsaEncrypt(this.f756a.f692a));
         intent.putExtra(PushConstants.EXTRA_MSG_IDS, new String[]{SocialConstants.TRUE, "2"});
-        this.f751a.sendBroadcast(intent);
+        this.f756a.sendBroadcast(intent);
     }
 }

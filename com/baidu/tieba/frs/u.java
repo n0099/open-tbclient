@@ -5,22 +5,22 @@ import com.slidingmenu.lib.SlidingMenu;
 class u implements SlidingMenu.OnClosedListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsActivity f1370a;
+    final /* synthetic */ FrsActivity f1421a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(FrsActivity frsActivity) {
-        this.f1370a = frsActivity;
+        this.f1421a = frsActivity;
     }
 
     @Override // com.slidingmenu.lib.SlidingMenu.OnClosedListener
     public void onClosed() {
         bn bnVar;
         bn bnVar2;
-        bnVar = this.f1370a.n;
-        if (bnVar.e().g()) {
-            bnVar2 = this.f1370a.n;
-            bnVar2.e().b(false);
-            this.f1370a.A();
+        bnVar = this.f1421a.n;
+        if (bnVar.f().g()) {
+            bnVar2 = this.f1421a.n;
+            bnVar2.f().b(false);
+            this.f1421a.A();
         }
     }
 }

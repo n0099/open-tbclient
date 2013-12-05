@@ -1,31 +1,30 @@
 package com.baidu.tieba.im.pushNotify;
 
-import com.baidu.tieba.im.SingleRunnable;
-import com.baidu.tieba.im.data.GroupMsgData;
-import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
-import java.util.LinkedList;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.tieba.im.groupUpdates.UpdatesItemData;
+import java.util.concurrent.ConcurrentHashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class p extends SingleRunnable<LinkedList<GroupNewsPojo>> {
+public class p implements com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMessageCenterPojo>> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ GroupMsgData f1772a;
-    final /* synthetic */ int b;
-    final /* synthetic */ n c;
+    final /* synthetic */ String f1869a;
+    final /* synthetic */ UpdatesItemData b;
+    final /* synthetic */ l c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public p(n nVar, GroupMsgData groupMsgData, int i) {
-        this.c = nVar;
-        this.f1772a = groupMsgData;
-        this.b = i;
+    public p(l lVar, String str, UpdatesItemData updatesItemData) {
+        this.c = lVar;
+        this.f1869a = str;
+        this.b = updatesItemData;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.SingleRunnable
-    /* renamed from: a */
-    public LinkedList<GroupNewsPojo> b() {
-        LinkedList<GroupNewsPojo> b;
-        b = this.c.b(this.f1772a, this.b);
-        return b;
+    @Override // com.baidu.tieba.im.a
+    public void a(ConcurrentHashMap<String, ImMessageCenterPojo> concurrentHashMap) {
+        ImMessageCenterPojo imMessageCenterPojo = concurrentHashMap.get(this.f1869a);
+        if (imMessageCenterPojo != null) {
+            imMessageCenterPojo.setGroup_head(this.b.getGroupHeadUrl());
+        }
     }
 }

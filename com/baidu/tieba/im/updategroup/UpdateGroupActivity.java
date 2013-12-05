@@ -7,17 +7,17 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
-import com.baidu.tieba.im.model.x;
+import com.baidu.tieba.im.model.ab;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class UpdateGroupActivity extends com.baidu.tieba.j {
-    private x d;
+    private ab d;
     private a c = null;
     private int e = 1;
     private d f = null;
 
     /* renamed from: a  reason: collision with root package name */
-    DialogInterface.OnClickListener f1785a = new b(this);
+    DialogInterface.OnClickListener f1884a = new b(this);
     DialogInterface.OnClickListener b = new c(this);
 
     public static void a(Activity activity, int i, int i2, int i3, String str) {
@@ -46,16 +46,16 @@ public class UpdateGroupActivity extends com.baidu.tieba.j {
         int intExtra2 = intent.getIntExtra("group_id", 0);
         String stringExtra = intent.getStringExtra("group_text");
         a(intExtra, intExtra2);
-        this.d = new x();
+        this.d = new ab();
         this.c.a(stringExtra);
         this.c.a(this.b);
-        this.c.b(this.f1785a);
+        this.c.b(this.f1884a);
         a();
     }
 
     private void a() {
         this.f = new d(this);
-        com.baidu.tieba.im.messageCenter.f.a().a(103102, this.f);
+        com.baidu.tieba.im.messageCenter.e.a().a(103102, this.f);
     }
 
     private void a(int i, int i2) {
@@ -78,15 +78,15 @@ public class UpdateGroupActivity extends com.baidu.tieba.j {
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.c.d()) {
-            if (this.c.m() && this.c.j()) {
+        if (view == this.c.e_()) {
+            if (this.c.l() && this.c.i()) {
                 c();
             } else {
-                showToast(this.c.k());
+                showToast(this.c.j());
             }
-        } else if (view == this.c.e()) {
-            this.c.g();
-        } else if (view == this.c.f() && !b()) {
+        } else if (view == this.c.d()) {
+            this.c.f();
+        } else if (view == this.c.e() && !b()) {
             finish();
         }
     }
@@ -100,22 +100,22 @@ public class UpdateGroupActivity extends com.baidu.tieba.j {
     }
 
     private boolean b() {
-        if (TextUtils.isEmpty(this.c.l()) || !this.c.j() || this.c.l().equals(this.c.e_())) {
+        if (TextUtils.isEmpty(this.c.k()) || !this.c.i() || this.c.k().equals(this.c.f_())) {
             return false;
         }
-        this.c.f_();
+        this.c.a();
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
         this.c.a(true);
-        this.d.a(this.c.i());
+        this.d.a(this.c.h());
         if (this.e == 1) {
-            this.d.a(this.c.l());
+            this.d.a(this.c.k());
             this.d.b(2);
         } else if (this.e == 2) {
-            this.d.b(this.c.l());
+            this.d.b(this.c.k());
             this.d.b(1);
         }
     }
@@ -125,7 +125,7 @@ public class UpdateGroupActivity extends com.baidu.tieba.j {
     public void onDestroy() {
         releaseResouce();
         super.onDestroy();
-        com.baidu.tieba.im.messageCenter.f.a().a(this.f);
-        this.d.g();
+        com.baidu.tieba.im.messageCenter.e.a().a(this.f);
+        this.d.i();
     }
 }

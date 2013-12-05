@@ -1,66 +1,23 @@
 package com.baidu.tieba.view;
 
-import java.util.ArrayList;
+import android.view.View;
+import android.widget.AbsListView;
 /* loaded from: classes.dex */
-class bw {
+class bw implements AbsListView.RecyclerListener {
 
     /* renamed from: a  reason: collision with root package name */
-    int f2568a = 0;
-    ArrayList<int[]> b = new ArrayList<>();
-    final /* synthetic */ WaterFallView c;
+    private int f2683a;
 
-    public bw(WaterFallView waterFallView) {
-        this.c = waterFallView;
+    public bw(int i) {
+        this.f2683a = 0;
+        this.f2683a = i;
     }
 
-    public void a(int i) {
-        this.f2568a += i;
-        this.b.add(new int[]{this.f2568a, this.f2568a});
-    }
-
-    public void a() {
-        this.f2568a = 0;
-        this.b.clear();
-    }
-
-    public int b() {
-        return this.f2568a;
-    }
-
-    public int b(int i) {
-        int size = this.b.size();
-        for (int i2 = 0; i2 < size; i2++) {
-            if (this.b.get(i2)[1] > i) {
-                return i2;
-            }
+    @Override // android.widget.AbsListView.RecyclerListener
+    public void onMovedToScrapHeap(View view) {
+        View findViewById = view.findViewById(this.f2683a);
+        if (findViewById != null && (findViewById instanceof UserIconBox)) {
+            ((UserIconBox) findViewById).a(null, 0, 0, 0, 0);
         }
-        return -1;
-    }
-
-    public int c(int i) {
-        int i2;
-        int size = this.b.size();
-        if (size <= 0) {
-            return -1;
-        }
-        int i3 = 0;
-        while (true) {
-            if (i3 >= size) {
-                i2 = i3;
-                break;
-            } else if (this.b.get(i3)[0] <= i) {
-                i3++;
-            } else {
-                i2 = i3 - 1;
-                break;
-            }
-        }
-        if (i2 < 0) {
-            i2 = 0;
-        }
-        if (i2 >= size) {
-            return size - 1;
-        }
-        return i2;
     }
 }

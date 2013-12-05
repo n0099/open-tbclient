@@ -5,16 +5,17 @@ import java.nio.charset.CharacterCodingException;
 import java.nio.charset.CharsetDecoder;
 import java.util.Arrays;
 import org.msgpack.MessageTypeException;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class g extends d {
+public class g extends d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static g f2942a = new g(new byte[0], true);
+    private static g f3123a = new g(new byte[0], true);
     private static final ThreadLocal<CharsetDecoder> b = new h();
     private byte[] c;
 
     public static RawValue a() {
-        return f2942a;
+        return f3123a;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

@@ -5,7 +5,7 @@ import javassist.bytecode.Bytecode;
 class b extends c {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ int f2824a;
+    final /* synthetic */ int f3005a;
     final /* synthetic */ CodeGen b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,12 +13,12 @@ class b extends c {
     public b(CodeGen codeGen, CodeGen codeGen2, int i) {
         super(codeGen2);
         this.b = codeGen;
-        this.f2824a = i;
+        this.f3005a = i;
     }
 
     @Override // javassist.compiler.c
     protected boolean a(Bytecode bytecode, int i) {
-        bytecode.k(this.f2824a);
+        bytecode.k(this.f3005a);
         bytecode.g(195);
         return false;
     }

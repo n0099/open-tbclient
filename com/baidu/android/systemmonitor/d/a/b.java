@@ -3,12 +3,12 @@ package com.baidu.android.systemmonitor.d.a;
 public abstract class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f791a = null;
+    private String f796a = null;
     private String b = null;
     private int c = -1;
 
     public String a() {
-        return this.f791a;
+        return this.f796a;
     }
 
     public void a(int i) {
@@ -16,7 +16,7 @@ public abstract class b {
     }
 
     public void a(String str) {
-        this.f791a = str;
+        this.f796a = str;
     }
 
     public String b() {
@@ -33,7 +33,7 @@ public abstract class b {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("[name=").append(this.f791a).append(",value=").append(this.b).append(",type=").append(this.c).append("]");
+        sb.append("[name=").append(this.f796a).append(",value=").append(this.b).append(",type=").append(this.c).append("]");
         return sb.toString();
     }
 }

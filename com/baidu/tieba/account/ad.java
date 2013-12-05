@@ -1,24 +1,26 @@
 package com.baidu.tieba.account;
+
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.data.AccountData;
+import com.baidu.tieba.util.DatabaseService;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ad {
+public class ad implements s {
 
     /* renamed from: a  reason: collision with root package name */
-    String f1030a;
-    String b;
-    String c;
-    String d;
-    int e;
-    int f;
-    boolean g;
-    final /* synthetic */ LoginActivity h;
-
-    private ad(LoginActivity loginActivity) {
-        this.h = loginActivity;
-    }
+    final /* synthetic */ LoginActivity f1040a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ad(LoginActivity loginActivity, u uVar) {
-        this(loginActivity);
+    public ad(LoginActivity loginActivity) {
+        this.f1040a = loginActivity;
+    }
+
+    @Override // com.baidu.tieba.account.s
+    public void a(AccountData accountData) {
+        AccountData accountData2;
+        DatabaseService.a(accountData);
+        accountData2 = this.f1040a.P;
+        TiebaApplication.a(accountData2, this.f1040a.getBaseContext());
+        this.f1040a.a();
     }
 }

@@ -10,6 +10,12 @@ public final class d {
     public static final int AdpPullToRefreshScrollView_adpHeaderNeedRefreshDelta = 1;
     public static final int AdpPullToRefreshScrollView_adpMode = 0;
     public static final int BDImageView_radius = 0;
+    public static final int BdRoundedImageView_android_scaleType = 0;
+    public static final int BdRoundedImageView_border_color = 3;
+    public static final int BdRoundedImageView_border_width = 2;
+    public static final int BdRoundedImageView_corner_radius = 1;
+    public static final int BdRoundedImageView_is_oval = 5;
+    public static final int BdRoundedImageView_round_background = 4;
     public static final int ColumnLayout_Layout_layout_column = 0;
     public static final int ColumnLayout_columnOrientation = 0;
     public static final int ColumnLayout_spacingLeft = 1;
@@ -64,4 +70,5 @@ public final class d {
     public static final int[] IndicatorView = {R.attr.spacing, R.attr.drawable, R.attr.selector, R.attr.autoHide, R.attr.count};
     public static final int[] TbImageView = {R.attr.isShowGifTag};
     public static final int[] RefresherView = {R.attr.direction, R.attr.max_height, R.attr.threshold_height, R.attr.refresher_head, R.attr.refresher_content, R.attr.empty_view};
+    public static final int[] BdRoundedImageView = {16843037, R.attr.corner_radius, R.attr.border_width, R.attr.border_color, R.attr.round_background, R.attr.is_oval};
 }

@@ -9,24 +9,24 @@ import java.util.Map;
 public class ao extends w {
 
     /* renamed from: a  reason: collision with root package name */
-    int f2775a;
+    int f2956a;
 
     public ao(int i, int i2) {
         super(i2);
-        this.f2775a = i;
+        this.f2956a = i;
     }
 
     public ao(DataInputStream dataInputStream, int i) {
         super(i);
-        this.f2775a = dataInputStream.readUnsignedShort();
+        this.f2956a = dataInputStream.readUnsignedShort();
     }
 
     public int hashCode() {
-        return this.f2775a;
+        return this.f2956a;
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof ao) && ((ao) obj).f2775a == this.f2775a;
+        return (obj instanceof ao) && ((ao) obj).f2956a == this.f2956a;
     }
 
     @Override // javassist.bytecode.w
@@ -36,18 +36,18 @@ public class ao extends w {
 
     @Override // javassist.bytecode.w
     public int a(y yVar, y yVar2, Map map) {
-        return yVar2.z(yVar2.c(z.a(yVar.w(this.f2775a), map)));
+        return yVar2.z(yVar2.c(z.a(yVar.w(this.f2956a), map)));
     }
 
     @Override // javassist.bytecode.w
     public void a(DataOutputStream dataOutputStream) {
         dataOutputStream.writeByte(16);
-        dataOutputStream.writeShort(this.f2775a);
+        dataOutputStream.writeShort(this.f2956a);
     }
 
     @Override // javassist.bytecode.w
     public void a(PrintWriter printWriter) {
         printWriter.print("MethodType #");
-        printWriter.println(this.f2775a);
+        printWriter.println(this.f2956a);
     }
 }

@@ -8,10 +8,10 @@ import java.io.FileReader;
 public class ac extends BdAsyncTask<Void, Void, Void> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ VoiceManager f2600a;
+    final /* synthetic */ VoiceManager f2718a;
 
     private ac(VoiceManager voiceManager) {
-        this.f2600a = voiceManager;
+        this.f2718a = voiceManager;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -19,7 +19,7 @@ public class ac extends BdAsyncTask<Void, Void, Void> {
         this(voiceManager);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1741=4, 1742=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1745=4, 1746=4] */
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -37,9 +37,9 @@ public class ac extends BdAsyncTask<Void, Void, Void> {
         }
         try {
             char[] cArr = new char[1024];
-            this.f2600a.l = Integer.valueOf(new String(cArr, 0, fileReader.read(cArr, 0, 1024)).trim()).intValue() != 0;
-            if (this.f2600a.l) {
-                this.f2600a.d(false);
+            this.f2718a.l = Integer.valueOf(new String(cArr, 0, fileReader.read(cArr, 0, 1024)).trim()).intValue() != 0;
+            if (this.f2718a.l) {
+                this.f2718a.d(false);
             }
             if (fileReader != null) {
                 try {

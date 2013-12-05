@@ -7,21 +7,21 @@ import com.baidu.tieba.frs.FrsImageActivity;
 public class bd implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsImageActivity f1335a;
+    final /* synthetic */ FrsImageActivity f1386a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bd(FrsImageActivity frsImageActivity) {
-        this.f1335a = frsImageActivity;
+        this.f1386a = frsImageActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         FrsImageActivity.FooterType footerType;
         int i;
-        footerType = this.f1335a.g;
+        footerType = this.f1386a.g;
         if (footerType == FrsImageActivity.FooterType.NEXT) {
-            FrsImageActivity frsImageActivity = this.f1335a;
-            i = this.f1335a.i;
+            FrsImageActivity frsImageActivity = this.f1386a;
+            i = this.f1386a.i;
             frsImageActivity.c(i + 240);
         }
     }

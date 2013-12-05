@@ -7,18 +7,18 @@ import com.slidingmenu.lib.R;
 class ar implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NewPbActivity f2058a;
+    final /* synthetic */ NewPbActivity f2165a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ar(NewPbActivity newPbActivity) {
-        this.f2058a = newPbActivity;
+        this.f2165a = newPbActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         String str;
-        NewPbActivity newPbActivity = this.f2058a;
-        String string = this.f2058a.getString(R.string.user_icon_intro);
+        NewPbActivity newPbActivity = this.f2165a;
+        String string = this.f2165a.getString(R.string.user_icon_intro);
         StringBuilder sb = new StringBuilder();
         str = NewPbActivity.c;
         CommonWebviewActivity.a(newPbActivity, string, sb.append(str).append("?st_type=pb_user_icon").toString(), true, "get");

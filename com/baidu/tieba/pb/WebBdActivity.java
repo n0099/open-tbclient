@@ -30,15 +30,15 @@ import java.util.Observer;
 public class WebBdActivity extends com.baidu.tieba.j implements Browser.BrowserListener, BdExploreViewListener, Observer {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2040a = null;
+    private String f2147a = null;
     private String b = null;
     private String c = null;
     private BdUploadHandler d;
     private BdValueCallback<Uri> e;
 
     public static void a(Context context, String str, String str2, String str3) {
-        if (UtilHelper.f(context)) {
-            UtilHelper.a(context, context.getString(R.string.web_view_corrupted));
+        if (UtilHelper.d(context)) {
+            com.baidu.adp.lib.h.g.a(context, context.getString(R.string.web_view_corrupted));
             return;
         }
         Intent intent = new Intent(context, WebBdActivity.class);
@@ -52,7 +52,7 @@ public class WebBdActivity extends com.baidu.tieba.j implements Browser.BrowserL
     }
 
     private void a(Intent intent, Bundle bundle) {
-        this.f2040a = intent.getStringExtra(SocialConstants.PARAM_URL);
+        this.f2147a = intent.getStringExtra(SocialConstants.PARAM_URL);
         this.b = intent.getStringExtra(SocialConstants.PARAM_BDUSS);
         this.c = intent.getStringExtra("ptoken");
     }
@@ -73,11 +73,11 @@ public class WebBdActivity extends com.baidu.tieba.j implements Browser.BrowserL
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         a(getIntent(), bundle);
-        if (this.f2040a == null) {
+        if (this.f2147a == null) {
             finish();
             return;
         }
-        String guessUrl = URLUtil.guessUrl(this.f2040a);
+        String guessUrl = URLUtil.guessUrl(this.f2147a);
         if (!URLUtil.isNetworkUrl(guessUrl)) {
             finish();
             return;
@@ -108,11 +108,11 @@ public class WebBdActivity extends com.baidu.tieba.j implements Browser.BrowserL
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         a(intent, null);
-        if (this.f2040a == null) {
+        if (this.f2147a == null) {
             finish();
             return;
         }
-        String guessUrl = URLUtil.guessUrl(this.f2040a);
+        String guessUrl = URLUtil.guessUrl(this.f2147a);
         if (!URLUtil.isNetworkUrl(guessUrl)) {
             finish();
             return;
@@ -274,6 +274,6 @@ public class WebBdActivity extends com.baidu.tieba.j implements Browser.BrowserL
 
     @Override // com.baidu.browser.Browser.BrowserListener
     public boolean shouldOverrideUrlLoading(BdWebPoolView bdWebPoolView, String str) {
-        return com.baidu.tieba.recommend.ac.a(this, str);
+        return com.baidu.tieba.recommend.ab.a(this, str);
     }
 }

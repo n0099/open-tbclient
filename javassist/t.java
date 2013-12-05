@@ -4,7 +4,7 @@ package javassist;
 public class t {
 
     /* renamed from: a  reason: collision with root package name */
-    t f2846a;
+    t f3027a;
     CtField b;
     k c;
 }

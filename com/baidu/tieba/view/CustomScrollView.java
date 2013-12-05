@@ -8,13 +8,12 @@ import android.view.View;
 import android.webkit.WebView;
 import android.widget.ScrollView;
 import android.widget.Scroller;
-import com.baidu.tieba.util.UtilHelper;
 import java.lang.reflect.Field;
 /* loaded from: classes.dex */
 public class CustomScrollView extends ScrollView {
 
     /* renamed from: a  reason: collision with root package name */
-    protected Field f2513a;
+    protected Field f2627a;
     private GestureDetector b;
     private int c;
     private int d;
@@ -23,7 +22,7 @@ public class CustomScrollView extends ScrollView {
         super(context, attributeSet);
         this.c = 0;
         this.d = 0;
-        this.b = new GestureDetector(context, new i(this));
+        this.b = new GestureDetector(context, new j(this));
         setFadingEdgeLength(0);
     }
 
@@ -40,17 +39,17 @@ public class CustomScrollView extends ScrollView {
         boolean z = this.c - this.d == i2;
         if (i2 == 0 || z) {
             try {
-                if (this.f2513a == null) {
-                    this.f2513a = UtilHelper.a(this, "mScroller");
+                if (this.f2627a == null) {
+                    this.f2627a = com.baidu.adp.lib.h.g.a(this, "mScroller");
                 }
-                Object obj = this.f2513a.get(this);
+                Object obj = this.f2627a.get(this);
                 if (obj != null && (obj instanceof Scroller)) {
                     ((Scroller) obj).abortAnimation();
                 } else {
                     return;
                 }
             } catch (Exception e) {
-                com.baidu.tieba.util.bg.b(getClass().getName(), "onScrollChanged", e.getMessage());
+                com.baidu.tieba.util.bd.b(getClass().getName(), "onScrollChanged", e.getMessage());
             }
         }
         super.onScrollChanged(i, i2, i3, i4);
@@ -58,15 +57,15 @@ public class CustomScrollView extends ScrollView {
 
     private void a() {
         try {
-            if (this.f2513a == null) {
-                this.f2513a = UtilHelper.a(this, "mScroller");
+            if (this.f2627a == null) {
+                this.f2627a = com.baidu.adp.lib.h.g.a(this, "mScroller");
             }
-            Object obj = this.f2513a.get(this);
+            Object obj = this.f2627a.get(this);
             if (obj != null) {
                 obj.getClass().getMethod("abortAnimation", new Class[0]).invoke(obj, new Object[0]);
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.bg.b(getClass().getName(), "stopAnim", e.getMessage());
+            com.baidu.tieba.util.bd.b(getClass().getName(), "stopAnim", e.getMessage());
         }
     }
 

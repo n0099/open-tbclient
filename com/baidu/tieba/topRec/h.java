@@ -14,19 +14,19 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.bd;
+import com.baidu.tieba.util.ba;
 import com.baidu.tieba.view.NavigationBar;
-import com.baidu.tieba.view.bi;
+import com.baidu.tieba.view.bk;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    NavigationBar f2434a;
+    NavigationBar f2551a;
     Handler b;
     private BdListView c;
     private Button d;
-    private bi e;
+    private bk e;
     private final View f;
     private LinearLayout g;
     private TextView h;
@@ -47,13 +47,13 @@ public class h {
         this.b = new Handler();
         this.j.setContentView(R.layout.top_recommended_activity);
         this.c = (BdListView) this.j.findViewById(R.id.top_list);
-        this.f2434a = (NavigationBar) topRecActivity.findViewById(R.id.view_navigation_bar);
-        this.f2434a.a(topRecActivity.getString(R.string.top_recommended));
-        View a2 = this.f2434a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.nb_item_top_rec, (View.OnClickListener) null);
+        this.f2551a = (NavigationBar) topRecActivity.findViewById(R.id.view_navigation_bar);
+        this.f2551a.a(topRecActivity.getString(R.string.top_recommended));
+        View a2 = this.f2551a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.nb_item_top_rec, (View.OnClickListener) null);
         this.d = (Button) a2.findViewById(R.id.title_finish);
         this.d.setOnClickListener(this.j);
         this.m = (TextView) a2.findViewById(R.id.title_finish_cover);
-        this.e = new bi(this.j);
+        this.e = new bk(this.j);
         this.g = (LinearLayout) topRecActivity.getLayoutInflater().inflate(R.layout.forum_list_forum_footer, (ViewGroup) null);
         this.f = this.g.findViewById(R.id.footer_background);
         this.h = (TextView) this.g.findViewById(R.id.footer_text);
@@ -109,7 +109,7 @@ public class h {
 
     public void d() {
         this.h.setText(this.j.getString(R.string.flist_expand_list));
-        if (TiebaApplication.g().ap() == 1) {
+        if (TiebaApplication.h().an() == 1) {
             this.i.setBackgroundResource(R.drawable.ico_downward_1);
         } else {
             this.i.setBackgroundResource(R.drawable.ico_downward);
@@ -125,12 +125,12 @@ public class h {
     }
 
     public void b(int i) {
-        this.f2434a.c(i);
-        bd.b(this.j.findViewById(R.id.container), i);
-        bd.f((TextView) this.d, i);
-        bd.e((TextView) this.d, i);
-        bd.e(this.m, i);
-        if (TiebaApplication.g().ap() == 1) {
+        this.f2551a.c(i);
+        ba.b(this.j.findViewById(R.id.container), i);
+        ba.f(this.d, i);
+        ba.e((TextView) this.d, i);
+        ba.e(this.m, i);
+        if (TiebaApplication.h().an() == 1) {
             this.c.setDivider(new ColorDrawable(-13881543));
         } else {
             this.c.setDivider(new ColorDrawable(-1775893));

@@ -4,7 +4,7 @@ package com.baidu.tieba.util;
 public class k {
 
     /* renamed from: a  reason: collision with root package name */
-    String f2494a;
+    String f2607a;
     int b;
     com.baidu.tbadk.imageManager.c c;
     boolean d;

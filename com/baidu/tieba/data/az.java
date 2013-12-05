@@ -6,7 +6,6 @@ import android.text.SpannableString;
 import android.text.style.ImageSpan;
 import com.baidu.location.LocationClientOption;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.bg;
 import com.baidu.tieba.voice.VoiceManager;
 import com.slidingmenu.lib.R;
 import com.tencent.mm.sdk.platformtools.LocaleUtil;
@@ -15,7 +14,7 @@ import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class az implements com.baidu.tieba.util.an {
+public class az implements com.baidu.tieba.util.ak {
     private SpannableString t;
     private int y;
     private int z;
@@ -36,7 +35,7 @@ public class az implements com.baidu.tieba.util.an {
     private String p = null;
 
     /* renamed from: a  reason: collision with root package name */
-    ArrayList<ai> f1186a = new ArrayList<>();
+    ArrayList<ai> f1233a = new ArrayList<>();
     ArrayList<VoiceManager.VoiceModel> b = new ArrayList<>();
     private int q = 0;
     private int r = 0;
@@ -138,7 +137,7 @@ public class az implements com.baidu.tieba.util.an {
     }
 
     public ArrayList<ai> p() {
-        return this.f1186a;
+        return this.f1233a;
     }
 
     public ArrayList<VoiceManager.VoiceModel> q() {
@@ -189,7 +188,7 @@ public class az implements com.baidu.tieba.util.an {
                     for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
                         ai aiVar = new ai();
                         aiVar.a(optJSONArray2.getJSONObject(i2));
-                        this.f1186a.add(aiVar);
+                        this.f1233a.add(aiVar);
                     }
                 }
                 JSONArray optJSONArray3 = jSONObject.optJSONArray("voice_info");
@@ -205,7 +204,7 @@ public class az implements com.baidu.tieba.util.an {
                     }
                 }
             } catch (Exception e) {
-                bg.b("ThreadData", "parserJson", "error = " + e.getMessage());
+                com.baidu.tieba.util.bd.b("ThreadData", "parserJson", "error = " + e.getMessage());
             }
         }
     }
@@ -222,7 +221,7 @@ public class az implements com.baidu.tieba.util.an {
         SpannableString spannableString;
         if (this.e != null) {
             ArrayList arrayList = new ArrayList();
-            if (TiebaApplication.g().ap() == 1) {
+            if (TiebaApplication.h().an() == 1) {
                 if (f() == 1) {
                     arrayList.add(Integer.valueOf((int) R.drawable.icon_top_1));
                 } else if (f() == 2) {
@@ -278,7 +277,7 @@ public class az implements com.baidu.tieba.util.an {
         }
     }
 
-    @Override // com.baidu.tieba.util.an
+    @Override // com.baidu.tieba.util.ak
     public LinkedList<String> getImageUrl() {
         ArrayList<ai> p = p();
         if (p == null) {
@@ -299,12 +298,12 @@ public class az implements com.baidu.tieba.util.an {
         return linkedList;
     }
 
-    @Override // com.baidu.tieba.util.an
+    @Override // com.baidu.tieba.util.ak
     public LinkedList<String> getPhotoUrl() {
         return null;
     }
 
-    @Override // com.baidu.tieba.util.an
+    @Override // com.baidu.tieba.util.ak
     public LinkedList<String> getForumPhotoUrl() {
         return null;
     }

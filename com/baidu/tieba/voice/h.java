@@ -23,7 +23,7 @@ public class h implements Runnable {
     private long h;
 
     /* renamed from: a  reason: collision with root package name */
-    private volatile int f2609a = 0;
+    private volatile int f2727a = 0;
     private Handler i = new Handler();
     private Runnable j = new i(this);
 
@@ -62,11 +62,11 @@ public class h implements Runnable {
             if (this.f != null) {
                 this.f.sendMessage(this.f.obtainMessage(5));
             }
-        } else if (this.f2609a == 4) {
+        } else if (this.f2727a == 4) {
             if (this.f != null) {
                 this.f.sendMessage(this.f.obtainMessage(8));
             }
-            this.f2609a = 0;
+            this.f2727a = 0;
         } else {
             if (this.b != null && this.b.length() > 0) {
                 try {
@@ -80,21 +80,21 @@ public class h implements Runnable {
                         return;
                     }
                 } catch (Exception e) {
-                    com.baidu.adp.lib.h.d.b("Recorder", "run", "error = " + e.getMessage());
+                    com.baidu.adp.lib.h.e.b("Recorder", "run", "error = " + e.getMessage());
                     c();
                     if (this.f != null) {
                         this.f.sendMessage(this.f.obtainMessage(1));
                     }
-                    this.f2609a = 0;
+                    this.f2727a = 0;
                     return;
                 }
             }
-            if (this.f2609a == 4) {
+            if (this.f2727a == 4) {
                 if (this.f != null) {
                     this.f.sendMessage(this.f.obtainMessage(8));
                 }
                 c();
-                this.f2609a = 0;
+                this.f2727a = 0;
                 return;
             }
             try {
@@ -110,8 +110,8 @@ public class h implements Runnable {
                         this.f.sendMessage(this.f.obtainMessage(6));
                     }
                     c();
-                    this.f2609a = 0;
-                } else if (this.f2609a == 4) {
+                    this.f2727a = 0;
+                } else if (this.f2727a == 4) {
                     try {
                         b.release();
                     } catch (Exception e3) {
@@ -120,10 +120,10 @@ public class h implements Runnable {
                         this.f.sendMessage(this.f.obtainMessage(8));
                     }
                     c();
-                    this.f2609a = 0;
+                    this.f2727a = 0;
                 } else {
                     b.startRecording();
-                    if (this.f2609a == 4) {
+                    if (this.f2727a == 4) {
                         try {
                             b.stop();
                             b.release();
@@ -133,10 +133,10 @@ public class h implements Runnable {
                             this.f.sendMessage(this.f.obtainMessage(8));
                         }
                         c();
-                        this.f2609a = 0;
+                        this.f2727a = 0;
                         return;
                     }
-                    this.f2609a = 3;
+                    this.f2727a = 3;
                     try {
                         if (this.d == null) {
                             try {
@@ -150,7 +150,7 @@ public class h implements Runnable {
                                 if (this.f != null) {
                                     this.f.sendMessage(this.f.obtainMessage(1));
                                 }
-                                this.f2609a = 0;
+                                this.f2727a = 0;
                                 return;
                             } catch (IOException e6) {
                                 try {
@@ -161,7 +161,7 @@ public class h implements Runnable {
                                 if (this.f != null) {
                                     this.f.sendMessage(this.f.obtainMessage(3));
                                 }
-                                this.f2609a = 0;
+                                this.f2727a = 0;
                                 return;
                             }
                         }
@@ -176,7 +176,7 @@ public class h implements Runnable {
                         int i2 = 0;
                         short[] sArr2 = null;
                         while (true) {
-                            if (this.f2609a != 3) {
+                            if (this.f2727a != 3) {
                                 sArr = sArr2;
                                 i = i2;
                                 z = false;
@@ -215,10 +215,10 @@ public class h implements Runnable {
                                 } else {
                                     a(sArr2);
                                 }
-                                com.baidu.adp.lib.h.d.a(getClass(), "TestVoice_compress", (System.currentTimeMillis() - currentTimeMillis) + "");
+                                com.baidu.adp.lib.h.e.a(getClass(), "TestVoice_compress", (System.currentTimeMillis() - currentTimeMillis) + "");
                                 sArr2 = null;
                             }
-                            if (System.currentTimeMillis() - this.g > com.baidu.adp.lib.voice.a.f517a) {
+                            if (System.currentTimeMillis() - this.g > com.baidu.adp.lib.voice.a.f519a) {
                                 sArr = sArr2;
                                 i = i2;
                                 z = true;
@@ -240,10 +240,10 @@ public class h implements Runnable {
                         long currentTimeMillis3 = System.currentTimeMillis();
                         b.stop();
                         b.release();
-                        com.baidu.adp.lib.h.d.a(getClass(), "test_record", "2:" + (System.currentTimeMillis() - currentTimeMillis3));
+                        com.baidu.adp.lib.h.e.a(getClass(), "test_record", "2:" + (System.currentTimeMillis() - currentTimeMillis3));
                         System.currentTimeMillis();
-                        if (this.f2609a == 5) {
-                            com.baidu.adp.lib.h.d.c("----runnable cancel");
+                        if (this.f2727a == 5) {
+                            com.baidu.adp.lib.h.e.c("----runnable cancel");
                             if (!c()) {
                                 if (this.f != null) {
                                     this.f.sendMessage(this.f.obtainMessage(2));
@@ -258,13 +258,13 @@ public class h implements Runnable {
                                     if (this.f != null) {
                                         this.f.sendMessage(this.f.obtainMessage(101));
                                     }
-                                    this.f2609a = 0;
+                                    this.f2727a = 0;
                                 }
                             }
-                            this.f2609a = 0;
+                            this.f2727a = 0;
                             return;
                         }
-                        this.f2609a = 4;
+                        this.f2727a = 4;
                         this.h = System.currentTimeMillis() - this.g;
                         a((int) this.h);
                         if (this.i != null) {
@@ -275,7 +275,7 @@ public class h implements Runnable {
                             this.f.sendMessage(this.f.obtainMessage(2));
                         }
                         this.e.encoderDeinit();
-                        this.f2609a = 0;
+                        this.f2727a = 0;
                         if (this.f != null) {
                             if (z) {
                                 this.f.sendMessage(this.f.obtainMessage(7));
@@ -285,7 +285,7 @@ public class h implements Runnable {
                                 this.f.sendMessage(obtainMessage2);
                             }
                         }
-                        com.baidu.adp.lib.h.d.a(getClass(), "test_record", "5:" + (System.currentTimeMillis() - currentTimeMillis4));
+                        com.baidu.adp.lib.h.e.a(getClass(), "test_record", "5:" + (System.currentTimeMillis() - currentTimeMillis4));
                     } catch (IOException e9) {
                         audioRecord = b;
                     }
@@ -295,7 +295,7 @@ public class h implements Runnable {
                     this.f.sendMessage(this.f.obtainMessage(6));
                 }
                 c();
-                this.f2609a = 0;
+                this.f2727a = 0;
             }
         }
     }
@@ -337,7 +337,7 @@ public class h implements Runnable {
             try {
                 this.d.close();
             } catch (IOException e) {
-                com.baidu.adp.lib.h.d.b("Recorder", "closeFileStream", "error = " + e.getMessage());
+                com.baidu.adp.lib.h.e.b("Recorder", "closeFileStream", "error = " + e.getMessage());
                 return false;
             }
         }
@@ -348,20 +348,20 @@ public class h implements Runnable {
         if (this.e == null) {
             return false;
         }
-        this.f2609a = 0;
+        this.f2727a = 0;
         this.b = str;
         this.c = i;
         return true;
     }
 
     public void a() {
-        this.f2609a = 4;
-        com.baidu.adp.lib.h.d.c("----stop:" + this.f2609a);
-        com.baidu.adp.lib.h.d.c("record runnable state after stop:----" + this.h);
+        this.f2727a = 4;
+        com.baidu.adp.lib.h.e.c("----stop:" + this.f2727a);
+        com.baidu.adp.lib.h.e.c("record runnable state after stop:----" + this.h);
     }
 
     public void b() {
-        this.f2609a = 5;
-        com.baidu.adp.lib.h.d.c("----cancel:");
+        this.f2727a = 5;
+        com.baidu.adp.lib.h.e.c("----cancel:");
     }
 }

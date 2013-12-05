@@ -1,20 +1,26 @@
 package com.baidu.tieba.view;
 
-import android.view.GestureDetector;
-import android.view.MotionEvent;
+import android.content.Context;
+import android.view.View;
+import com.baidu.tieba.util.UtilHelper;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class i extends GestureDetector.SimpleOnGestureListener {
+public class i implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ CustomScrollView f2571a;
+    final /* synthetic */ com.baidu.tieba.data.ai f2688a;
+    final /* synthetic */ CommonImageLayout b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public i(CustomScrollView customScrollView) {
-        this.f2571a = customScrollView;
+    public i(CommonImageLayout commonImageLayout, com.baidu.tieba.data.ai aiVar) {
+        this.b = commonImageLayout;
+        this.f2688a = aiVar;
     }
 
-    @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
-    public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-        return Math.abs(f2) > Math.abs(f);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Context context;
+        context = this.b.o;
+        UtilHelper.b(context, this.f2688a.c());
     }
 }

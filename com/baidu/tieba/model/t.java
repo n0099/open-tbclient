@@ -4,7 +4,7 @@ public class t extends com.baidu.adp.a.d {
     private com.baidu.tieba.data.r b;
 
     /* renamed from: a  reason: collision with root package name */
-    private v f1933a = null;
+    private v f2045a = null;
     private boolean c = true;
     private w d = null;
 
@@ -28,8 +28,8 @@ public class t extends com.baidu.adp.a.d {
 
     @Override // com.baidu.adp.a.d
     public boolean cancelLoadData() {
-        if (this.f1933a != null) {
-            this.f1933a.cancel();
+        if (this.f2045a != null) {
+            this.f2045a.cancel();
             return false;
         }
         return false;
@@ -37,21 +37,21 @@ public class t extends com.baidu.adp.a.d {
 
     public boolean a(boolean z) {
         this.c = z;
-        if (this.f1933a != null) {
+        if (this.f2045a != null) {
             return false;
         }
-        this.f1933a = new v(this, 1);
-        this.f1933a.execute(new Object[0]);
+        this.f2045a = new v(this, 1);
+        this.f2045a.execute(new Object[0]);
         return true;
     }
 
     public boolean b(boolean z) {
         this.c = z;
-        if (this.f1933a != null) {
+        if (this.f2045a != null) {
             return false;
         }
-        this.f1933a = new v(this, 0);
-        this.f1933a.execute(new Object[0]);
+        this.f2045a = new v(this, 0);
+        this.f2045a.execute(new Object[0]);
         return true;
     }
 }

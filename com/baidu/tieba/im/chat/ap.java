@@ -5,15 +5,15 @@ import android.view.View;
 class ap implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MsgleftView f1500a;
+    final /* synthetic */ an f1547a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ap(MsgleftView msgleftView) {
-        this.f1500a = msgleftView;
+    public ap(an anVar) {
+        this.f1547a = anVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.f1500a.c.a(view, 2, this.f1500a.f, 0L);
+        this.f1547a.c.a(view, 4, this.f1547a.f, 0L);
     }
 }

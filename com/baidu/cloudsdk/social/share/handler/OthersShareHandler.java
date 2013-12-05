@@ -22,7 +22,7 @@ import java.util.Map;
 public class OthersShareHandler extends am {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f865a = OthersShareHandler.class.getSimpleName();
+    private static final String f870a = OthersShareHandler.class.getSimpleName();
     private static Map b = new HashMap();
 
     static {
@@ -54,7 +54,7 @@ public class OthersShareHandler extends am {
         for (ResolveInfo resolveInfo : queryIntentActivities) {
             ActivityInfo activityInfo = resolveInfo.activityInfo;
             if (Build.DEBUG) {
-                Log.d(f865a, activityInfo.packageName + "   " + activityInfo.name);
+                Log.d(f870a, activityInfo.packageName + "   " + activityInfo.name);
             }
             if (z) {
                 MediaType mediaType = (MediaType) b.get(activityInfo.packageName);

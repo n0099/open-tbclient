@@ -12,31 +12,35 @@ import com.slidingmenu.lib.R;
 public class EnterForumGuideBottomView extends RelativeLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1380a;
+    private int f1434a;
     private ImageView b;
     private TextView c;
+    private ImageView d;
 
     public EnterForumGuideBottomView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f1380a = -1;
+        this.f1434a = -1;
         this.b = null;
         this.c = null;
+        this.d = null;
         a(context);
     }
 
     public EnterForumGuideBottomView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f1380a = -1;
+        this.f1434a = -1;
         this.b = null;
         this.c = null;
+        this.d = null;
         a(context);
     }
 
     public EnterForumGuideBottomView(Context context) {
         super(context);
-        this.f1380a = -1;
+        this.f1434a = -1;
         this.b = null;
         this.c = null;
+        this.d = null;
         a(context);
     }
 
@@ -44,14 +48,16 @@ public class EnterForumGuideBottomView extends RelativeLayout {
         ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(R.layout.enter_forum_guide_bottom, this);
         this.b = (ImageView) findViewById(R.id.img_bg_bottom);
         this.c = (TextView) findViewById(R.id.tip_bottom);
+        this.d = (ImageView) findViewById(R.id.arrows_bottom);
+        this.d.setVisibility(4);
     }
 
     private void setSkinType(int i) {
-        this.f1380a = i;
+        this.f1434a = i;
     }
 
     private int getSkinType() {
-        return this.f1380a;
+        return this.f1434a;
     }
 
     private boolean c(int i) {
@@ -89,7 +95,7 @@ public class EnterForumGuideBottomView extends RelativeLayout {
     }
 
     public void a() {
-        a(TiebaApplication.g().ap());
+        a(TiebaApplication.h().an());
     }
 
     public void b() {
@@ -97,7 +103,7 @@ public class EnterForumGuideBottomView extends RelativeLayout {
     }
 
     public void c() {
-        this.f1380a = -1;
+        this.f1434a = -1;
         this.b.setBackgroundDrawable(null);
     }
 }

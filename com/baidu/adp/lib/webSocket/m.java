@@ -1,108 +1,164 @@
 package com.baidu.adp.lib.webSocket;
 
 import java.util.ArrayList;
-import java.util.Iterator;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.util.List;
+import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
-public class m implements k {
+public class m {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ l f537a;
+    private static m f540a = null;
+    private String[] d;
+    private l h;
+    private String b = null;
+    private List<BasicNameValuePair> c = null;
+    private String e = null;
+    private o f = null;
+    private ArrayList<l> g = new ArrayList<>();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public m(l lVar) {
-        this.f537a = lVar;
+    public static synchronized m a() {
+        m mVar;
+        synchronized (m.class) {
+            if (f540a == null) {
+                f540a = new m();
+            }
+            mVar = f540a;
+        }
+        return mVar;
     }
 
-    @Override // com.baidu.adp.lib.webSocket.k
-    public void a(String str) {
-        ArrayList arrayList;
-        arrayList = this.f537a.g;
-        Iterator it = arrayList.iterator();
-        while (it.hasNext()) {
-            ((k) it.next()).a(str);
+    public void a(String str, String str2, String[] strArr, List<BasicNameValuePair> list) {
+        this.b = str;
+        this.e = str2;
+        this.d = strArr;
+        this.c = list;
+        if (k()) {
+            com.baidu.adp.lib.h.e.d("----ws init " + str);
         }
     }
 
-    @Override // com.baidu.adp.lib.webSocket.k
-    public void a(byte[] bArr) {
-        ArrayList arrayList;
-        arrayList = this.f537a.g;
-        Iterator it = arrayList.iterator();
-        while (it.hasNext()) {
-            ((k) it.next()).a(bArr);
+    private m() {
+        this.h = null;
+        this.h = new n(this);
+    }
+
+    public boolean b() {
+        if (k()) {
+            com.baidu.adp.lib.h.g.a();
+            com.baidu.adp.lib.h.e.d("----open");
+        }
+        if (this.f != null) {
+            if (this.f.e() || this.f.f()) {
+                if (k()) {
+                    com.baidu.adp.lib.h.e.d("----WebSocketConnection connecting");
+                }
+                return true;
+            }
+            this.f.a(1, (String) null);
+            this.f = null;
+        }
+        this.f = new o();
+        try {
+            am amVar = new am();
+            amVar.a(this.e);
+            this.f.a(this.b, this.d, this.h, amVar, this.c);
+            return true;
+        } catch (WebSocketException e) {
+            this.f = null;
+            return false;
         }
     }
 
-    @Override // com.baidu.adp.lib.webSocket.k
-    public void b(byte[] bArr) {
-        ArrayList arrayList;
-        arrayList = this.f537a.g;
-        Iterator it = arrayList.iterator();
-        while (it.hasNext()) {
-            ((k) it.next()).b(bArr);
+    public void a(int i) {
+        if (this.f != null) {
+            o oVar = this.f;
+            this.f = null;
+            oVar.a(i, (String) null);
+            if (this.f != null) {
+                com.baidu.adp.lib.h.e.a("close is opened and thread is leaded!!!");
+                this.f = null;
+            }
         }
     }
 
-    @Override // com.baidu.adp.lib.webSocket.k
-    public void a() {
-        ArrayList arrayList;
-        arrayList = this.f537a.g;
-        Iterator it = arrayList.iterator();
-        while (it.hasNext()) {
-            ((k) it.next()).a();
+    public void c() {
+        a(1);
+    }
+
+    public boolean d() {
+        if (k()) {
+            com.baidu.adp.lib.h.g.a();
+        }
+        return (this.f == null || !this.f.f() || this.f.d()) ? false : true;
+    }
+
+    public boolean e() {
+        if (k()) {
+            com.baidu.adp.lib.h.g.a();
+        }
+        return this.f != null && this.f.f();
+    }
+
+    public boolean f() {
+        if (k()) {
+            com.baidu.adp.lib.h.g.a();
+        }
+        return this.f != null && this.f.e();
+    }
+
+    public synchronized boolean a(d dVar) {
+        boolean z = false;
+        synchronized (this) {
+            if (dVar != null) {
+                com.baidu.adp.lib.h.g.a();
+                if (this.f != null) {
+                    z = this.f.a(dVar);
+                } else if (dVar != null) {
+                    dVar.a(1);
+                }
+            }
+        }
+        return z;
+    }
+
+    public boolean a(l lVar) {
+        if (lVar != null) {
+            synchronized (m.class) {
+                if (!this.g.contains(lVar)) {
+                    return this.g.add(lVar);
+                }
+            }
+        }
+        return false;
+    }
+
+    private boolean k() {
+        return com.baidu.adp.a.b.a().b();
+    }
+
+    public void g() {
+        if (this.f != null) {
+            this.f.g();
         }
     }
 
-    @Override // com.baidu.adp.lib.webSocket.k
-    public void a(int i, String str) {
-        ArrayList arrayList;
-        this.f537a.f = null;
-        arrayList = this.f537a.g;
-        Iterator it = arrayList.iterator();
-        while (it.hasNext()) {
-            ((k) it.next()).a(i, str);
+    public long h() {
+        if (this.f != null) {
+            return this.f.h();
+        }
+        return 0L;
+    }
+
+    public void i() {
+        if (this.f != null) {
+            this.f.i();
         }
     }
 
-    @Override // com.baidu.adp.lib.webSocket.k
-    public void a(am amVar) {
-        ArrayList arrayList;
-        arrayList = this.f537a.g;
-        Iterator it = arrayList.iterator();
-        while (it.hasNext()) {
-            ((k) it.next()).a(amVar);
+    public long j() {
+        if (this.f != null) {
+            return this.f.j();
         }
-    }
-
-    @Override // com.baidu.adp.lib.webSocket.k
-    public void b() {
-        ArrayList arrayList;
-        arrayList = this.f537a.g;
-        Iterator it = arrayList.iterator();
-        while (it.hasNext()) {
-            ((k) it.next()).b();
-        }
-    }
-
-    @Override // com.baidu.adp.lib.webSocket.k
-    public void b(am amVar) {
-        if (amVar != null && amVar.d() != null) {
-            amVar.d().a(amVar);
-        }
-    }
-
-    @Override // com.baidu.adp.lib.webSocket.k
-    public void c(am amVar) {
-        if (amVar != null && amVar.d() != null) {
-            amVar.d().b(amVar);
-        }
-    }
-
-    @Override // com.baidu.adp.lib.webSocket.k
-    public void d(am amVar) {
-        if (amVar != null && amVar.d() != null) {
-            amVar.d().c(amVar);
-        }
+        return 0L;
     }
 }

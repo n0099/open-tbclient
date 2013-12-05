@@ -1,53 +1,18 @@
 package com.baidu.adp.widget;
-
-import android.database.DataSetObservable;
-import android.database.DataSetObserver;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListAdapter;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public abstract class t implements ListAdapter {
+public class t implements com.baidu.adp.widget.ListView.s {
 
     /* renamed from: a  reason: collision with root package name */
-    private final DataSetObservable f612a = new DataSetObservable();
+    final /* synthetic */ PinnedHeaderListView f617a;
 
-    public abstract void a(View view, AdapterView adapterView, int i);
-
-    public abstract int b();
-
-    public abstract View c();
-
-    @Override // android.widget.Adapter
-    public boolean hasStableIds() {
-        return true;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public t(PinnedHeaderListView pinnedHeaderListView) {
+        this.f617a = pinnedHeaderListView;
     }
 
-    @Override // android.widget.Adapter
-    public void registerDataSetObserver(DataSetObserver dataSetObserver) {
-        this.f612a.registerObserver(dataSetObserver);
-    }
-
-    @Override // android.widget.Adapter
-    public void unregisterDataSetObserver(DataSetObserver dataSetObserver) {
-        this.f612a.unregisterObserver(dataSetObserver);
-    }
-
-    public void a() {
-        this.f612a.notifyChanged();
-    }
-
-    @Override // android.widget.ListAdapter
-    public boolean areAllItemsEnabled() {
-        return true;
-    }
-
-    @Override // android.widget.ListAdapter
-    public boolean isEnabled(int i) {
-        return true;
-    }
-
-    @Override // android.widget.Adapter
-    public boolean isEmpty() {
-        return getCount() == 0;
+    @Override // com.baidu.adp.widget.ListView.s
+    public void a(boolean z) {
+        this.f617a.l = z;
     }
 }

@@ -1,9 +1,11 @@
 package com.baidu.tieba.im.frsgroup;
 
+import android.graphics.drawable.Drawable;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
@@ -11,22 +13,24 @@ import com.slidingmenu.lib.R;
 public class aa extends com.baidu.adp.a.e {
 
     /* renamed from: a  reason: collision with root package name */
-    private MembersActivity f1634a;
+    private MembersActivity f1701a;
     private w c;
-    private Button d;
-    private NavigationBar e;
-    private BdListView f;
-    private InitGuideView g;
-    private ViewGroup h;
+    private ViewGroup d;
+    private TextView e;
+    private NavigationBar f;
+    private BdListView g;
+    private InitGuideView h;
     private ViewGroup i;
     private ViewGroup j;
-    private Button k;
+    private ViewGroup k;
     private Button l;
-    private ProgressBar m;
+    private Button m;
+    private TextView n;
+    private ProgressBar o;
 
     public aa(MembersActivity membersActivity) {
         super(membersActivity);
-        this.f1634a = membersActivity;
+        this.f1701a = membersActivity;
         membersActivity.setContentView(R.layout.im_members_activity);
         a(membersActivity);
         b(membersActivity);
@@ -34,80 +38,89 @@ public class aa extends com.baidu.adp.a.e {
     }
 
     private void a(MembersActivity membersActivity) {
-        this.e = (NavigationBar) this.f1634a.findViewById(R.id.view_navigation_bar);
-        this.e.a(this.f1634a.getString(R.string.members_title));
-        this.e.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new ab(this));
-        this.d = this.e.b(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.f1634a.getString(R.string.members_order));
-        this.d.setOnClickListener(membersActivity);
+        this.d = (ViewGroup) this.f1701a.findViewById(R.id.rootView);
+        this.f = (NavigationBar) this.f1701a.findViewById(R.id.view_navigation_bar);
+        this.f.a(this.f1701a.getString(R.string.members_title));
+        this.f.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new ab(this));
+        this.e = this.f.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.f1701a.getString(R.string.members_order));
+        this.e.setOnClickListener(membersActivity);
     }
 
     private void b(MembersActivity membersActivity) {
-        this.f = (BdListView) membersActivity.findViewById(R.id.members_list);
-        this.g = (InitGuideView) membersActivity.findViewById(R.id.members_guide);
-        this.c = new w(this.f1634a);
-        this.f.setAdapter((ListAdapter) this.c);
+        this.g = (BdListView) membersActivity.findViewById(R.id.members_list);
+        this.h = (InitGuideView) membersActivity.findViewById(R.id.members_guide);
+        this.c = new w(this.f1701a);
+        this.g.setAdapter((ListAdapter) this.c);
     }
 
     private void c(MembersActivity membersActivity) {
-        this.h = (ViewGroup) membersActivity.findViewById(R.id.bottom_manager);
-        this.i = (ViewGroup) membersActivity.findViewById(R.id.bottom_edit);
-        this.j = (ViewGroup) membersActivity.findViewById(R.id.bottom_send_edit);
-        this.k = (Button) membersActivity.findViewById(R.id.edit_cancel);
-        this.l = (Button) membersActivity.findViewById(R.id.edit_num);
-        this.m = (ProgressBar) membersActivity.findViewById(R.id.progress_loading);
+        this.i = (ViewGroup) membersActivity.findViewById(R.id.bottom_manager);
+        this.j = (ViewGroup) membersActivity.findViewById(R.id.bottom_edit);
+        this.k = (ViewGroup) membersActivity.findViewById(R.id.bottom_send_edit);
+        this.l = (Button) membersActivity.findViewById(R.id.edit_cancel);
+        this.m = (Button) membersActivity.findViewById(R.id.edit_num);
+        this.n = (TextView) membersActivity.findViewById(R.id.members_edit);
+        this.o = (ProgressBar) membersActivity.findViewById(R.id.progress_loading);
         b(0);
     }
 
     public void a(boolean z) {
-        this.m.setVisibility(z ? 0 : 8);
+        this.o.setVisibility(z ? 0 : 8);
     }
 
     public ViewGroup a() {
-        return this.i;
+        return this.j;
     }
 
     public void a(int i) {
-        this.e.c(0);
+        this.f1701a.getLayoutMode().a(i == 1);
+        this.f1701a.getLayoutMode().a(this.d);
+        this.f.c(i);
+        if (i == 1) {
+            this.n.setCompoundDrawablesWithIntrinsicBounds(this.f1701a.getResources().getDrawable(R.drawable.icon_brief_edit_1), (Drawable) null, (Drawable) null, (Drawable) null);
+        } else {
+            this.n.setCompoundDrawablesWithIntrinsicBounds(this.f1701a.getResources().getDrawable(R.drawable.icon_brief_edit), (Drawable) null, (Drawable) null, (Drawable) null);
+        }
     }
 
     public Button e() {
-        return this.k;
-    }
-
-    public Button f() {
         return this.l;
     }
 
+    public Button f() {
+        return this.m;
+    }
+
     public void b(int i) {
-        this.l.setText(this.f1634a.getString(R.string.members_delete_num, new Object[]{Integer.valueOf(i)}));
+        this.m.setText(this.f1701a.getString(R.string.members_delete_num, new Object[]{Integer.valueOf(i)}));
     }
 
     public void b(boolean z) {
         if (z) {
-            this.h.setVisibility(0);
             this.i.setVisibility(0);
-            this.j.setVisibility(8);
+            this.j.setVisibility(0);
+            this.k.setVisibility(8);
             return;
         }
-        this.h.setVisibility(8);
+        this.i.setVisibility(8);
     }
 
     public void c(boolean z) {
         if (z) {
-            this.i.setVisibility(8);
-            this.j.setVisibility(0);
+            this.j.setVisibility(8);
+            this.k.setVisibility(0);
             return;
         }
-        this.i.setVisibility(0);
-        this.j.setVisibility(8);
+        this.j.setVisibility(0);
+        this.k.setVisibility(8);
     }
 
     public void g() {
-        this.f.a();
+        this.g.a();
     }
 
     public InitGuideView h() {
-        return this.g;
+        return this.h;
     }
 
     public w i() {
@@ -118,19 +131,19 @@ public class aa extends com.baidu.adp.a.e {
         this.c.notifyDataSetChanged();
     }
 
-    public Button k() {
-        return this.d;
+    public TextView k() {
+        return this.e;
     }
 
     public void d(boolean z) {
-        this.d.setEnabled(z);
+        this.e.setEnabled(z);
     }
 
     public void c(int i) {
-        this.d.setText(this.f1634a.getResources().getStringArray(R.array.members_order_by_short)[i]);
+        this.e.setText(this.f1701a.getResources().getStringArray(R.array.members_order_by_short)[i]);
     }
 
     public BdListView l() {
-        return this.f;
+        return this.g;
     }
 }

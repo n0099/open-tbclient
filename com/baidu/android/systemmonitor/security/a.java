@@ -11,7 +11,7 @@ import java.security.NoSuchAlgorithmException;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final char[] f827a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+    private static final char[] f832a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
 
     public static String a(String str) {
         String str2 = "";
@@ -43,8 +43,8 @@ public final class a {
         byte[] digest = messageDigest.digest();
         StringBuilder sb = new StringBuilder(digest.length * 2);
         for (int i = 0; i < digest.length; i++) {
-            sb.append(f827a[(digest[i] & 240) >>> 4]);
-            sb.append(f827a[digest[i] & 15]);
+            sb.append(f832a[(digest[i] & 240) >>> 4]);
+            sb.append(f832a[digest[i] & 15]);
         }
         return sb.toString();
     }

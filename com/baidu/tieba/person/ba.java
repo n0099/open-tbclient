@@ -1,40 +1,33 @@
 package com.baidu.tieba.person;
 
-import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.Intent;
-import com.baidu.tieba.model.bx;
+import android.content.DialogInterface;
+import android.view.View;
+import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ba extends BroadcastReceiver {
+public class ba implements View.OnLongClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PersonInfoActivity f2218a;
+    final /* synthetic */ PersonImageActivity f2326a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ba(PersonInfoActivity personInfoActivity) {
-        this.f2218a = personInfoActivity;
+    public ba(PersonImageActivity personImageActivity) {
+        this.f2326a = personImageActivity;
     }
 
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
-        bx bxVar;
-        bx bxVar2;
-        bx bxVar3;
-        bx bxVar4;
-        long longExtra = intent.getLongExtra("fans", 0L);
-        long longExtra2 = intent.getLongExtra("new_bookmark", 0L);
-        bxVar = this.f2218a.e;
-        if (bxVar != null) {
-            bxVar3 = this.f2218a.e;
-            bxVar3.a(longExtra);
-            bxVar4 = this.f2218a.e;
-            bxVar4.c(longExtra2);
-        }
-        if (this.f2218a.f2188a != null) {
-            bd bdVar = this.f2218a.f2188a;
-            bxVar2 = this.f2218a.e;
-            bdVar.d(bxVar2);
-        }
+    @Override // android.view.View.OnLongClickListener
+    public boolean onLongClick(View view) {
+        Context context;
+        Context context2;
+        DialogInterface.OnClickListener onClickListener;
+        context = this.f2326a.i;
+        context2 = this.f2326a.i;
+        String[] strArr = {context.getString(R.string.save), context2.getString(R.string.cancel)};
+        PersonImageActivity personImageActivity = this.f2326a;
+        onClickListener = this.f2326a.f;
+        personImageActivity.createListMenu(strArr, onClickListener);
+        this.f2326a.showListMenu();
+        return false;
     }
 }

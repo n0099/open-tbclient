@@ -1,19 +1,20 @@
 package com.baidu.tieba.media;
 
 import android.content.DialogInterface;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class e implements DialogInterface.OnClickListener {
+public class e implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MediaPlayerActivity f1820a;
+    final /* synthetic */ MediaPlayerActivity f1932a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(MediaPlayerActivity mediaPlayerActivity) {
-        this.f1820a = mediaPlayerActivity;
+        this.f1932a = mediaPlayerActivity;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
-        this.f1820a.finish();
+        this.f1932a.finish();
     }
 }

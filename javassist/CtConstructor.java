@@ -12,21 +12,21 @@ public final class CtConstructor extends CtBehavior {
 
     public CtConstructor(h[] hVarArr, h hVar) {
         this((an) null, hVar);
-        this.f2724a = new an(hVar.h().c(), MethodDecl.initName, z.a(hVarArr));
+        this.f2905a = new an(hVar.h().c(), MethodDecl.initName, z.a(hVarArr));
         a(1);
     }
 
     public boolean g() {
-        return this.f2724a.d();
+        return this.f2905a.d();
     }
 
     public boolean h() {
-        return this.f2724a.e();
+        return this.f2905a.e();
     }
 
     @Override // javassist.l
     public String i() {
-        return this.f2724a.e() ? "<clinit>" : this.c.o();
+        return this.f2905a.e() ? "<clinit>" : this.c.o();
     }
 
     @Override // javassist.CtBehavior

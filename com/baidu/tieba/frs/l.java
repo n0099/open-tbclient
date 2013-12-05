@@ -6,11 +6,11 @@ import android.widget.AdapterView;
 class l implements AdapterView.OnItemLongClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsActivity f1361a;
+    final /* synthetic */ FrsActivity f1412a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(FrsActivity frsActivity) {
-        this.f1361a = frsActivity;
+        this.f1412a = frsActivity;
     }
 
     @Override // android.widget.AdapterView.OnItemLongClickListener
@@ -22,27 +22,27 @@ class l implements AdapterView.OnItemLongClickListener {
         com.baidu.tieba.data.az azVar3;
         bn bnVar3;
         if (i >= 0) {
-            bnVar = this.f1361a.n;
-            long itemId = bnVar.l().getItemId(i);
+            bnVar = this.f1412a.n;
+            long itemId = bnVar.m().getItemId(i);
             if (itemId != -1 && itemId != -2) {
-                FrsActivity frsActivity = this.f1361a;
-                bnVar2 = this.f1361a.n;
-                frsActivity.H = (com.baidu.tieba.data.az) bnVar2.l().getItem(i);
-                FrsActivity frsActivity2 = this.f1361a;
-                azVar = this.f1361a.H;
+                FrsActivity frsActivity = this.f1412a;
+                bnVar2 = this.f1412a.n;
+                frsActivity.H = (com.baidu.tieba.data.az) bnVar2.m().getItem(i);
+                FrsActivity frsActivity2 = this.f1412a;
+                azVar = this.f1412a.H;
                 frsActivity2.l = azVar.a();
-                azVar2 = this.f1361a.H;
+                azVar2 = this.f1412a.H;
                 String l = azVar2.l();
                 if (l == null || l.equals("")) {
-                    this.f1361a.m = false;
+                    this.f1412a.m = false;
                 } else {
-                    this.f1361a.m = true;
+                    this.f1412a.m = true;
                 }
-                FrsActivity frsActivity3 = this.f1361a;
-                azVar3 = this.f1361a.H;
+                FrsActivity frsActivity3 = this.f1412a;
+                azVar3 = this.f1412a.H;
                 frsActivity3.b(azVar3);
-                bnVar3 = this.f1361a.n;
-                bnVar3.j();
+                bnVar3 = this.f1412a.n;
+                bnVar3.k();
             }
         }
         return false;

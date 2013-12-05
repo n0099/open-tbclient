@@ -5,15 +5,15 @@ import javassist.bytecode.y;
 public class CharMemberValue extends d {
 
     /* renamed from: a  reason: collision with root package name */
-    int f2763a;
+    int f2944a;
 
     public CharMemberValue(int i, y yVar) {
         super('C', yVar);
-        this.f2763a = i;
+        this.f2944a = i;
     }
 
     public char a() {
-        return (char) this.c.r(this.f2763a);
+        return (char) this.c.r(this.f2944a);
     }
 
     public String toString() {

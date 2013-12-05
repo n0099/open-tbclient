@@ -4,28 +4,30 @@ import android.view.View;
 import com.baidu.tieba.im.data.PhotoUrlData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ab implements View.OnClickListener {
+public class ab implements View.OnLongClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PhotoUrlData f1672a;
+    final /* synthetic */ PhotoUrlData f1740a;
     final /* synthetic */ int b;
     final /* synthetic */ PhotoWallView c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(PhotoWallView photoWallView, PhotoUrlData photoUrlData, int i) {
         this.c = photoWallView;
-        this.f1672a = photoUrlData;
+        this.f1740a = photoUrlData;
         this.b = i;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    @Override // android.view.View.OnLongClickListener
+    public boolean onLongClick(View view) {
         z zVar;
         z zVar2;
         zVar = this.c.l;
         if (zVar != null) {
             zVar2 = this.c.l;
-            zVar2.onClick(view, 1, this.f1672a, this.b);
+            zVar2.a(view, this.f1740a, this.b);
+            return true;
         }
+        return true;
     }
 }

@@ -7,16 +7,16 @@ import java.net.URL;
 public class LoaderClassPath implements a {
 
     /* renamed from: a  reason: collision with root package name */
-    private WeakReference f2727a;
+    private WeakReference f2908a;
 
     public LoaderClassPath(ClassLoader classLoader) {
-        this.f2727a = new WeakReference(classLoader);
+        this.f2908a = new WeakReference(classLoader);
     }
 
     public String toString() {
         Object obj = null;
-        if (this.f2727a != null) {
-            obj = this.f2727a.get();
+        if (this.f2908a != null) {
+            obj = this.f2908a.get();
         }
         return obj == null ? "<null>" : obj.toString();
     }
@@ -24,7 +24,7 @@ public class LoaderClassPath implements a {
     @Override // javassist.a
     public InputStream a(String str) {
         String str2 = str.replace('.', '/') + ".class";
-        ClassLoader classLoader = (ClassLoader) this.f2727a.get();
+        ClassLoader classLoader = (ClassLoader) this.f2908a.get();
         if (classLoader == null) {
             return null;
         }
@@ -34,7 +34,7 @@ public class LoaderClassPath implements a {
     @Override // javassist.a
     public URL b(String str) {
         String str2 = str.replace('.', '/') + ".class";
-        ClassLoader classLoader = (ClassLoader) this.f2727a.get();
+        ClassLoader classLoader = (ClassLoader) this.f2908a.get();
         if (classLoader == null) {
             return null;
         }
@@ -43,6 +43,6 @@ public class LoaderClassPath implements a {
 
     @Override // javassist.a
     public void a() {
-        this.f2727a = null;
+        this.f2908a = null;
     }
 }

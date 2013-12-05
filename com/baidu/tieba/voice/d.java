@@ -8,11 +8,11 @@ import android.os.Message;
 public class d implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ c f2606a;
+    final /* synthetic */ c f2724a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar) {
-        this.f2606a = cVar;
+        this.f2724a = cVar;
     }
 
     @Override // java.lang.Runnable
@@ -26,26 +26,26 @@ public class d implements Runnable {
         Handler handler2;
         int i3;
         Handler handler3;
-        audioTrack = this.f2606a.b;
+        audioTrack = this.f2724a.b;
         if (audioTrack != null) {
-            audioTrack2 = this.f2606a.b;
+            audioTrack2 = this.f2724a.b;
             if (audioTrack2.getPlayState() == 3) {
-                int a2 = this.f2606a.a();
-                i = this.f2606a.h;
+                int a2 = this.f2724a.a();
+                i = this.f2724a.h;
                 int i4 = a2 + i;
-                com.baidu.adp.lib.h.d.a(getClass(), "TestVoice2", "elapsedTime=" + i4);
-                i2 = this.f2606a.i;
+                com.baidu.adp.lib.h.e.a(getClass(), "TestVoice2", "elapsedTime=" + i4);
+                i2 = this.f2724a.i;
                 if (i4 != i2) {
-                    this.f2606a.i = i4;
-                    handler2 = this.f2606a.f;
+                    this.f2724a.i = i4;
+                    handler2 = this.f2724a.f;
                     Message obtainMessage = handler2.obtainMessage(6);
-                    i3 = this.f2606a.i;
+                    i3 = this.f2724a.i;
                     obtainMessage.arg1 = i3;
-                    handler3 = this.f2606a.f;
+                    handler3 = this.f2724a.f;
                     handler3.sendMessage(obtainMessage);
                 }
-                handler = this.f2606a.j;
-                runnable = this.f2606a.k;
+                handler = this.f2724a.j;
+                runnable = this.f2724a.k;
                 handler.postDelayed(runnable, 100L);
             }
         }

@@ -1,80 +1,31 @@
 package com.baidu.tieba.home;
 
-import android.app.AlertDialog;
-import android.app.PendingIntent;
-import android.content.Context;
-import android.content.Intent;
-import com.baidu.tieba.util.UtilHelper;
-import com.slidingmenu.lib.R;
+import android.graphics.Camera;
+import android.graphics.Matrix;
+import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.Transformation;
 /* loaded from: classes.dex */
-class bi implements bs {
+public class bi extends Animation {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SignAllForumActivity f1418a;
+    private Camera f1473a = new Camera();
+    private View b;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bi(SignAllForumActivity signAllForumActivity) {
-        this.f1418a = signAllForumActivity;
+    public bi(View view) {
+        this.b = view;
     }
 
-    @Override // com.baidu.tieba.home.bs
-    public void a(String str) {
-        this.f1418a.a(str);
-    }
-
-    @Override // com.baidu.tieba.home.bs
-    public void a(bp bpVar) {
-        bx bxVar;
-        boolean z;
-        bx bxVar2;
-        bx bxVar3;
-        bx bxVar4;
-        AlertDialog alertDialog;
-        AlertDialog alertDialog2;
-        AlertDialog alertDialog3;
-        boolean z2;
-        r c = bpVar.c();
-        if (c == null || c.a() != 0) {
-            this.f1418a.a(c.b());
-            return;
-        }
-        bxVar = this.f1418a.f1385a;
-        y h = bxVar.h();
-        h.a(bpVar);
-        int size = h.j().size();
-        int size2 = h.l().size();
-        z = this.f1418a.e;
-        if (z) {
-            Intent intent = new Intent(this.f1418a, SignAllForumActivity.class);
-            intent.addFlags(805306368);
-            intent.putExtra("signall_noyify_click", true);
-            this.f1418a.a(String.format(this.f1418a.getString(R.string.signallforum_back_finish), Integer.valueOf(size2), Integer.valueOf(size - size2)), PendingIntent.getActivity(this.f1418a, 0, intent, 134217728), 16);
-            z2 = this.f1418a.f;
-            if (z2) {
-                return;
-            }
-        }
-        bxVar2 = this.f1418a.f1385a;
-        bxVar2.i().notifyDataSetChanged();
-        bxVar3 = this.f1418a.f1385a;
-        bxVar3.j().setText(String.format(this.f1418a.getString(R.string.signallforum_res), Integer.valueOf(size2), Integer.valueOf(size - size2)));
-        bxVar4 = this.f1418a.f1385a;
-        bu f = bxVar4.f();
-        if (size != size2) {
-            if (bpVar.a() != 0) {
-                alertDialog = this.f1418a.c;
-                alertDialog.setMessage(bpVar.b());
-                alertDialog2 = this.f1418a.c;
-                if (!alertDialog2.isShowing()) {
-                    alertDialog3 = this.f1418a.c;
-                    alertDialog3.show();
-                }
-            } else if (bpVar.e() != 0) {
-                UtilHelper.a((Context) this.f1418a, bpVar.f());
-            } else {
-                this.f1418a.showToast(R.string.signallforum_error);
-            }
-        }
-        f.a();
+    @Override // android.view.animation.Animation
+    protected void applyTransformation(float f, Transformation transformation) {
+        int width = this.b.getWidth() / 2;
+        int height = this.b.getHeight() / 2;
+        Matrix matrix = transformation.getMatrix();
+        this.f1473a.save();
+        this.f1473a.translate(0.0f, 0.0f, (-150.0f) * (1.0f - f));
+        this.f1473a.getMatrix(matrix);
+        this.f1473a.restore();
+        matrix.preTranslate(-width, -height);
+        matrix.postTranslate(width, height);
     }
 }

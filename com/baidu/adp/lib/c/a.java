@@ -10,13 +10,12 @@ import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
 import com.baidu.zeus.Headers;
-import com.tencent.mm.sdk.platformtools.Util;
 import java.lang.ref.SoftReference;
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a {
-    private static long b = Util.MILLSECONDS_OF_MINUTE;
+    private static long b = 10000;
     private static a c = null;
     private static long d = 300000;
     private LocationManager k;
@@ -74,7 +73,7 @@ public class a {
         try {
             this.k = (LocationManager) this.o.getSystemService(Headers.LOCATION);
         } catch (Exception e) {
-            com.baidu.adp.lib.h.d.a(e.getMessage());
+            com.baidu.adp.lib.h.e.a(e.getMessage());
         }
         try {
             if (this.e) {
@@ -91,7 +90,7 @@ public class a {
                 this.f.setLocOption(locationClientOption);
             }
         } catch (Exception e2) {
-            com.baidu.adp.lib.h.d.a(e2.getMessage());
+            com.baidu.adp.lib.h.e.a(e2.getMessage());
         }
     }
 

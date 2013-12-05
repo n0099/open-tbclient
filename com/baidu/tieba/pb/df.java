@@ -3,11 +3,11 @@ package com.baidu.tieba.pb;
 class df implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ de f2121a;
+    final /* synthetic */ de f2228a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public df(de deVar) {
-        this.f2121a = deVar;
+        this.f2228a = deVar;
     }
 
     @Override // java.lang.Runnable
@@ -15,15 +15,15 @@ class df implements Runnable {
         dx dxVar;
         ed edVar;
         dx dxVar2;
-        dxVar = this.f2121a.e.af;
+        dxVar = this.f2228a.e.af;
         if (dxVar != null) {
-            dxVar2 = this.f2121a.e.af;
-            dxVar2.a(this.f2121a.f2120a);
+            dxVar2 = this.f2228a.e.af;
+            dxVar2.a(this.f2228a.f2227a);
         }
-        if (this.f2121a.b) {
-            edVar = this.f2121a.e.q;
-            edVar.a(this.f2121a.c, this.f2121a.d);
+        if (this.f2228a.b) {
+            edVar = this.f2228a.e.q;
+            edVar.a(this.f2228a.c, this.f2228a.d);
         }
-        this.f2121a.e.al();
+        this.f2228a.e.al();
     }
 }

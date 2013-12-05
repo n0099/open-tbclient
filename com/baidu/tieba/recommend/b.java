@@ -8,20 +8,20 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.browser.core.util.BdUtil;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.ap;
-import com.baidu.tieba.util.bg;
+import com.baidu.tieba.util.am;
+import com.baidu.tieba.util.bd;
 import com.baidu.tieba.view.BaseWebView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends BdAsyncTask<Object, Integer, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ DailyClassicalActivity f2290a;
-    private ap b;
+    final /* synthetic */ DailyClassicalActivity f2407a;
+    private am b;
     private String c;
 
     private b(DailyClassicalActivity dailyClassicalActivity) {
-        this.f2290a = dailyClassicalActivity;
+        this.f2407a = dailyClassicalActivity;
         this.b = null;
     }
 
@@ -38,27 +38,27 @@ public class b extends BdAsyncTask<Object, Integer, String> {
         String str;
         boolean z;
         long j;
-        this.b = new ap(com.baidu.tieba.data.h.f1201a + "c/s/tag/gettogether");
+        this.b = new am(com.baidu.tieba.data.h.f1248a + "c/s/tag/gettogether");
         this.b.b(false);
-        if (TiebaApplication.g().ap() == 1) {
+        if (TiebaApplication.h().an() == 1) {
             this.b.a("night_type", SocialConstants.TRUE);
         }
-        ap apVar = this.b;
-        str = this.f2290a.q;
-        apVar.a("pn", str);
+        am amVar = this.b;
+        str = this.f2407a.q;
+        amVar.a("pn", str);
         this.b.a("_version_more", SocialConstants.TRUE);
         this.b.a("platform", SocialConstants.ANDROID_CLIENT_TYPE);
         z = DailyClassicalActivity.o;
         if (z) {
             boolean unused = DailyClassicalActivity.o = false;
             this.b.a("msg_click", SocialConstants.TRUE);
-            ap apVar2 = this.b;
+            am amVar2 = this.b;
             j = DailyClassicalActivity.p;
-            apVar2.a("message_id", String.valueOf(j));
+            amVar2.a("message_id", String.valueOf(j));
         }
-        Address aP = TiebaApplication.g().aP();
-        if (aP != null && TiebaApplication.g().t()) {
-            this.b.a("lbs", String.valueOf(aP.getLatitude()) + "," + String.valueOf(aP.getLongitude()));
+        Address aQ = TiebaApplication.h().aQ();
+        if (aQ != null && TiebaApplication.h().u()) {
+            this.b.a("lbs", String.valueOf(aQ.getLatitude()) + "," + String.valueOf(aQ.getLongitude()));
         }
         try {
             this.c = this.b.l();
@@ -66,7 +66,7 @@ public class b extends BdAsyncTask<Object, Integer, String> {
                 return this.c;
             }
         } catch (Exception e) {
-            bg.b("ContentAsyncTask", "doInBackground", "error = " + e.getMessage());
+            bd.b("ContentAsyncTask", "doInBackground", "error = " + e.getMessage());
         }
         return null;
     }
@@ -76,7 +76,7 @@ public class b extends BdAsyncTask<Object, Integer, String> {
         if (this.b != null) {
             this.b.j();
         }
-        this.f2290a.n = false;
+        this.f2407a.n = false;
         super.cancel(true);
     }
 
@@ -92,27 +92,27 @@ public class b extends BdAsyncTask<Object, Integer, String> {
         BaseWebView baseWebView2;
         TextView textView2;
         BaseWebView baseWebView3;
-        this.f2290a.i = null;
-        linearLayout = this.f2290a.h;
+        this.f2407a.i = null;
+        linearLayout = this.f2407a.h;
         linearLayout.setOnClickListener(null);
         if (this.b == null || !this.b.d() || str == null || str.length() <= 0) {
-            this.f2290a.k = false;
-            textView = this.f2290a.l;
+            this.f2407a.k = false;
+            textView = this.f2407a.l;
             textView.setVisibility(0);
-            baseWebView = this.f2290a.f;
+            baseWebView = this.f2407a.f;
             baseWebView.setVisibility(8);
-            linearLayout2 = this.f2290a.h;
-            onClickListener = this.f2290a.e;
+            linearLayout2 = this.f2407a.h;
+            onClickListener = this.f2407a.e;
             linearLayout2.setOnClickListener(onClickListener);
         } else {
-            baseWebView2 = this.f2290a.f;
-            baseWebView2.loadDataWithBaseURL(com.baidu.tieba.data.h.f1201a, str, "text/html", BdUtil.UTF8, "");
-            textView2 = this.f2290a.l;
+            baseWebView2 = this.f2407a.f;
+            baseWebView2.loadDataWithBaseURL(com.baidu.tieba.data.h.f1248a, str, "text/html", BdUtil.UTF8, "");
+            textView2 = this.f2407a.l;
             textView2.setVisibility(8);
-            baseWebView3 = this.f2290a.f;
+            baseWebView3 = this.f2407a.f;
             baseWebView3.setVisibility(0);
         }
-        this.f2290a.j = true;
-        this.f2290a.e();
+        this.f2407a.j = true;
+        this.f2407a.e();
     }
 }

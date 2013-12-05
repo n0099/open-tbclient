@@ -9,13 +9,13 @@ import java.util.Map;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    protected y f2795a;
+    protected y f2976a;
     int b;
     byte[] c;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public e(y yVar, int i, byte[] bArr) {
-        this.f2795a = yVar;
+        this.f2976a = yVar;
         this.b = i;
         this.c = bArr;
     }
@@ -31,7 +31,7 @@ public class e {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public e(y yVar, int i, DataInputStream dataInputStream) {
-        this.f2795a = yVar;
+        this.f2976a = yVar;
         this.b = i;
         int readInt = dataInputStream.readInt();
         this.c = new byte[readInt];
@@ -104,11 +104,11 @@ public class e {
     }
 
     public String b() {
-        return this.f2795a.w(this.b);
+        return this.f2976a.w(this.b);
     }
 
     public y c() {
-        return this.f2795a;
+        return this.f2976a;
     }
 
     public int d() {

@@ -4,7 +4,7 @@ public class GroupData extends BaseGroupData {
     private static final long serialVersionUID = 5616188082014345808L;
     private String authorPortrait;
     private String forumName;
-    private long grade;
+    private int grade;
     private int isHidePosition;
     private String nickName;
 
@@ -24,12 +24,12 @@ public class GroupData extends BaseGroupData {
         return this.isHidePosition;
     }
 
-    public long getGrade() {
+    public int getGrade() {
         return this.grade;
     }
 
-    public void setGrade(long j) {
-        this.grade = j;
+    public void setGrade(int i) {
+        this.grade = i;
     }
 
     public String getForumName() {

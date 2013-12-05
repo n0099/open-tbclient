@@ -8,14 +8,12 @@ import android.os.Bundle;
 import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.mobstat.StatService;
-import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.bg;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public abstract class BaseFragmentActivity extends android.support.v4.app.n {
 
     /* renamed from: a  reason: collision with root package name */
-    protected ProgressDialog f997a = null;
+    protected ProgressDialog f1004a = null;
     private DialogInterface.OnCancelListener b = null;
     private AlertDialog c = null;
     private int d = -1;
@@ -28,14 +26,14 @@ public abstract class BaseFragmentActivity extends android.support.v4.app.n {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         com.baidu.tieba.account.a.a().c();
-        TiebaApplication.u(true);
-        TiebaApplication.g().a(getClass().getName());
+        TiebaApplication.v(true);
+        TiebaApplication.h().a(getClass().getName());
         this.e = new e();
-        if (TiebaApplication.g().s()) {
+        if (TiebaApplication.h().t()) {
             try {
                 StatService.setAppChannel(com.baidu.tieba.data.h.a());
             } catch (Exception e) {
-                bg.b(getClass().getName(), "onCreate", e.getMessage());
+                com.baidu.tieba.util.bd.b(getClass().getName(), "onCreate", e.getMessage());
             }
         }
     }
@@ -44,31 +42,31 @@ public abstract class BaseFragmentActivity extends android.support.v4.app.n {
     @Override // android.support.v4.app.n, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (TiebaApplication.g().ap() != this.d) {
-            this.d = TiebaApplication.g().ap();
+        if (TiebaApplication.h().an() != this.d) {
+            this.d = TiebaApplication.h().an();
             a(this.d);
         }
-        if (TiebaApplication.g().s()) {
+        if (TiebaApplication.h().t()) {
             try {
                 StatService.onResume(this);
             } catch (Exception e) {
-                bg.b(getClass().getName(), "onResume", e.getMessage());
+                com.baidu.tieba.util.bd.b(getClass().getName(), "onResume", e.getMessage());
             }
         }
-        TiebaApplication.g().aA();
-        TiebaApplication.g().a(getClass().getName());
+        TiebaApplication.h().aA();
+        TiebaApplication.h().a(getClass().getName());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.support.v4.app.n, android.app.Activity
     public void onPause() {
         super.onPause();
-        TiebaApplication.g().aB();
-        if (TiebaApplication.g().s()) {
+        TiebaApplication.h().aB();
+        if (TiebaApplication.h().t()) {
             try {
                 StatService.onPause(this);
             } catch (Exception e) {
-                bg.b(getClass().getName(), "onPause", e.getMessage());
+                com.baidu.tieba.util.bd.b(getClass().getName(), "onPause", e.getMessage());
             }
         }
     }
@@ -77,7 +75,7 @@ public abstract class BaseFragmentActivity extends android.support.v4.app.n {
     @Override // android.support.v4.app.n, android.app.Activity
     public void onDestroy() {
         if (this.e != null) {
-            this.e.a();
+            this.e.b();
         }
         super.onDestroy();
     }
@@ -86,33 +84,36 @@ public abstract class BaseFragmentActivity extends android.support.v4.app.n {
         return this.e;
     }
 
-    public void a(String str, DialogInterface.OnCancelListener onCancelListener) {
+    public void a(String str) {
+        if (this.b == null) {
+            this.b = new n(this);
+        }
         if (str != null) {
-            this.f997a = ProgressDialog.show(this, "", str, true, true, onCancelListener);
+            this.f1004a = ProgressDialog.show(this, "", str, true, false, this.b);
         } else {
-            this.f997a = ProgressDialog.show(this, "", getResources().getString(R.string.Waiting), true, true, onCancelListener);
+            this.f1004a = ProgressDialog.show(this, "", getResources().getString(R.string.Waiting), true, false, this.b);
         }
     }
 
     public void b() {
-        if (this.f997a != null) {
+        if (this.f1004a != null) {
             try {
-                if (this.f997a.isShowing()) {
-                    this.f997a.dismiss();
+                if (this.f1004a.isShowing()) {
+                    this.f1004a.dismiss();
                 }
             } catch (Exception e) {
-                bg.b(getClass().getName(), "closeLoadingDialog", e.getMessage());
+                com.baidu.tieba.util.bd.b(getClass().getName(), "closeLoadingDialog", e.getMessage());
             }
-            this.f997a = null;
+            this.f1004a = null;
         }
     }
 
-    public void a(String str) {
-        UtilHelper.a((Context) this, str);
+    public void b(String str) {
+        com.baidu.adp.lib.h.g.a((Context) this, str);
     }
 
     public void b(int i) {
-        UtilHelper.a((Context) this, i);
+        com.baidu.adp.lib.h.g.a((Context) this, i);
     }
 
     @Override // android.support.v4.app.n, android.app.Activity, android.view.LayoutInflater.Factory

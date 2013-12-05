@@ -6,26 +6,26 @@ import com.baidu.tieba.TiebaApplication;
 class ab implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ w f1953a;
+    final /* synthetic */ w f2064a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(w wVar) {
-        this.f1953a = wVar;
+        this.f2064a = wVar;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
         switch (i) {
             case 0:
-                TiebaApplication.g().d(1);
+                TiebaApplication.h().c(1);
                 break;
             case 1:
-                TiebaApplication.g().d(2);
+                TiebaApplication.h().c(2);
                 break;
             case 2:
-                TiebaApplication.g().d(3);
+                TiebaApplication.h().c(3);
                 break;
         }
-        this.f1953a.t();
+        this.f2064a.t();
     }
 }

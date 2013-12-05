@@ -3,7 +3,6 @@ package com.baidu.tieba.account;
 import android.os.Bundle;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.tieba.util.bd;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 import java.io.BufferedReader;
@@ -12,7 +11,7 @@ import java.io.InputStreamReader;
 public class ProtocolActivity extends com.baidu.tieba.j {
 
     /* renamed from: a  reason: collision with root package name */
-    private TextView f1022a = null;
+    private TextView f1032a = null;
     private RelativeLayout b = null;
     private NavigationBar c;
 
@@ -41,7 +40,7 @@ public class ProtocolActivity extends com.baidu.tieba.j {
         NavigationBar navigationBar = this.c;
         String string = getString(R.string.account_protocol);
         navigationBar.a(string);
-        this.f1022a = (TextView) findViewById(R.id.text);
+        this.f1032a = (TextView) findViewById(R.id.text);
         StringBuilder sb = new StringBuilder(1024);
         ?? r2 = 0;
         try {
@@ -65,7 +64,7 @@ public class ProtocolActivity extends com.baidu.tieba.j {
                                 e2.printStackTrace();
                             }
                         }
-                        this.f1022a.setText(sb.toString());
+                        this.f1032a.setText(sb.toString());
                     }
                 }
                 if (bufferedReader != null) {
@@ -96,7 +95,7 @@ public class ProtocolActivity extends com.baidu.tieba.j {
             }
             throw th;
         }
-        this.f1022a.setText(sb.toString());
+        this.f1032a.setText(sb.toString());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -104,7 +103,7 @@ public class ProtocolActivity extends com.baidu.tieba.j {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.c.c(i);
-        bd.c(this.b, i);
-        bd.b(this.f1022a, i);
+        com.baidu.tieba.util.ba.c(this.b, i);
+        com.baidu.tieba.util.ba.b(this.f1032a, i);
     }
 }

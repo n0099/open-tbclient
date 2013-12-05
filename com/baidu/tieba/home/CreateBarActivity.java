@@ -35,7 +35,7 @@ public class CreateBarActivity extends com.baidu.tieba.j {
     private TextView t = null;
 
     /* renamed from: a  reason: collision with root package name */
-    RelativeLayout f1377a = null;
+    RelativeLayout f1431a = null;
     View b = null;
     TextView c = null;
     TextView d = null;
@@ -110,7 +110,7 @@ public class CreateBarActivity extends com.baidu.tieba.j {
     private void e() {
         this.q = new a(this);
         this.r = new b(this);
-        this.f1377a = (RelativeLayout) findViewById(R.id.container);
+        this.f1431a = (RelativeLayout) findViewById(R.id.container);
         this.b = findViewById(R.id.title);
         this.c = (TextView) findViewById(R.id.title_text);
         this.d = (TextView) findViewById(R.id.text);
@@ -146,12 +146,12 @@ public class CreateBarActivity extends com.baidu.tieba.j {
     @Override // com.baidu.tieba.j
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        com.baidu.tieba.util.bd.e(this.c, i);
-        com.baidu.tieba.util.bd.a(this.j, i);
-        com.baidu.tieba.util.bd.a(this.f1377a, i);
-        com.baidu.tieba.util.bd.d(this.b, i);
-        com.baidu.tieba.util.bd.a(this.d, i);
-        com.baidu.tieba.util.bd.b(this.f, i);
+        com.baidu.tieba.util.ba.e(this.c, i);
+        com.baidu.tieba.util.ba.a(this.j, i);
+        com.baidu.tieba.util.ba.a(this.f1431a, i);
+        com.baidu.tieba.util.ba.d(this.b, i);
+        com.baidu.tieba.util.ba.a(this.d, i);
+        com.baidu.tieba.util.ba.b(this.f, i);
         String str = this.u + getString(R.string.bar_not_create);
         SpannableString spannableString = new SpannableString(str);
         spannableString.setSpan(new ForegroundColorSpan(Color.rgb(229, 4, 0)), 0, this.u.length(), 33);

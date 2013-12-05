@@ -11,7 +11,7 @@ import java.util.Map;
 public class ChatMessage extends Message implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    private transient MsgCacheData f1717a;
+    private transient MsgCacheData f1790a;
     private String content;
     private String groupId;
     private int height;
@@ -25,9 +25,27 @@ public class ChatMessage extends Message implements c {
     private long userId;
     private UserData userInfo;
     private int width;
+    private int progressValue = 0;
+    private boolean isUploading = false;
 
     public ChatMessage() {
         setCmd(202001);
+    }
+
+    public boolean getIsUploading() {
+        return this.isUploading;
+    }
+
+    public void setIsUploading(boolean z) {
+        this.isUploading = z;
+    }
+
+    public int getProgressValue() {
+        return this.progressValue;
+    }
+
+    public void setProgressValue(int i) {
+        this.progressValue = i;
     }
 
     public Object getObjContent() {
@@ -95,11 +113,11 @@ public class ChatMessage extends Message implements c {
     }
 
     public MsgCacheData getCacheData() {
-        return this.f1717a;
+        return this.f1790a;
     }
 
     public void setCacheData(MsgCacheData msgCacheData) {
-        this.f1717a = msgCacheData;
+        this.f1790a = msgCacheData;
     }
 
     public long getTime() {

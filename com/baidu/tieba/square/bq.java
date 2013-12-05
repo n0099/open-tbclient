@@ -7,7 +7,6 @@ import android.widget.TextView;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tieba.data.SearchPostModel;
 import com.baidu.tieba.util.DatabaseService;
-import com.baidu.tieba.util.UtilHelper;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -17,17 +16,17 @@ import org.apache.http.message.BasicNameValuePair;
 public class bq extends BdAsyncTask<Object, Integer, SearchPostModel> {
 
     /* renamed from: a  reason: collision with root package name */
-    ArrayList<BasicNameValuePair> f2396a;
+    ArrayList<BasicNameValuePair> f2513a;
     final /* synthetic */ SquareSearchActivity b;
-    private com.baidu.tieba.util.ap c = null;
+    private com.baidu.tieba.util.am c = null;
     private String d;
 
     public bq(SquareSearchActivity squareSearchActivity, String str, ArrayList<BasicNameValuePair> arrayList) {
         this.b = squareSearchActivity;
         this.d = null;
-        this.f2396a = null;
+        this.f2513a = null;
         this.d = str;
-        this.f2396a = arrayList;
+        this.f2513a = arrayList;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -41,7 +40,7 @@ public class bq extends BdAsyncTask<Object, Integer, SearchPostModel> {
         textView.setVisibility(8);
         SquareSearchActivity squareSearchActivity = this.b;
         editText = this.b.c;
-        UtilHelper.a(squareSearchActivity, editText);
+        com.baidu.adp.lib.h.g.a(squareSearchActivity, editText);
         listView = this.b.p;
         if (listView.getVisibility() != 0) {
             progressBar = this.b.t;
@@ -58,8 +57,8 @@ public class bq extends BdAsyncTask<Object, Integer, SearchPostModel> {
         Exception e;
         String str;
         try {
-            this.c = new com.baidu.tieba.util.ap(this.d);
-            Iterator<BasicNameValuePair> it = this.f2396a.iterator();
+            this.c = new com.baidu.tieba.util.am(this.d);
+            Iterator<BasicNameValuePair> it = this.f2513a.iterator();
             while (it.hasNext()) {
                 this.c.a(it.next());
             }
@@ -71,11 +70,11 @@ public class bq extends BdAsyncTask<Object, Integer, SearchPostModel> {
             try {
                 searchPostModel.parserJson(l);
                 str = this.b.B;
-                DatabaseService.n(str);
+                DatabaseService.l(str);
                 return searchPostModel;
             } catch (Exception e2) {
                 e = e2;
-                com.baidu.tieba.util.bg.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
+                com.baidu.tieba.util.bd.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
                 return searchPostModel;
             }
         } catch (Exception e3) {
@@ -89,19 +88,19 @@ public class bq extends BdAsyncTask<Object, Integer, SearchPostModel> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(SearchPostModel searchPostModel) {
         ProgressBar progressBar;
-        com.baidu.tieba.home.bd bdVar;
-        com.baidu.tieba.home.bd bdVar2;
-        com.baidu.tieba.home.bd bdVar3;
+        com.baidu.tieba.home.ay ayVar;
+        com.baidu.tieba.home.ay ayVar2;
+        com.baidu.tieba.home.ay ayVar3;
         progressBar = this.b.t;
         progressBar.setVisibility(8);
-        bdVar = this.b.s;
-        bdVar.a(0);
-        bdVar2 = this.b.s;
-        bdVar2.notifyDataSetChanged();
+        ayVar = this.b.s;
+        ayVar.a(0);
+        ayVar2 = this.b.s;
+        ayVar2.notifyDataSetChanged();
         if (searchPostModel != null && this.c != null && this.c.c()) {
             this.b.y = searchPostModel;
-            bdVar3 = this.b.s;
-            bdVar3.notifyDataSetChanged();
+            ayVar3 = this.b.s;
+            ayVar3.notifyDataSetChanged();
             this.b.i();
         } else {
             this.b.showToast(this.b.getString(R.string.neterror));

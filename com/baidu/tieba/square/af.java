@@ -6,16 +6,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import com.baidu.tieba.util.UtilHelper;
 import com.baidu.tieba.view.HeadImageView;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
-public class af extends ViewGroup implements com.baidu.tbadk.imageManager.c, com.baidu.tieba.view.ah {
+public class af extends ViewGroup implements com.baidu.tbadk.imageManager.c, com.baidu.tieba.view.ai {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f2359a;
+    private Context f2476a;
     private LayoutInflater b;
     private final int c;
     private final int d;
@@ -36,7 +35,7 @@ public class af extends ViewGroup implements com.baidu.tbadk.imageManager.c, com
 
     public af(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f2359a = null;
+        this.f2476a = null;
         this.b = null;
         this.g = new ArrayList<>(4);
         this.h = 0;
@@ -46,8 +45,8 @@ public class af extends ViewGroup implements com.baidu.tbadk.imageManager.c, com
         this.l = null;
         this.m = null;
         this.n = null;
-        this.f2359a = context;
-        this.e = UtilHelper.a(context);
+        this.f2476a = context;
+        this.e = com.baidu.adp.lib.h.g.b(context);
         this.c = context.getResources().getDimensionPixelSize(R.dimen.square_page_padding);
         this.d = context.getResources().getDimensionPixelSize(R.dimen.square_forum_topic_margin);
         this.f = context.getResources().getDimensionPixelSize(R.dimen.square_forum_topic_paddingBottom);
@@ -153,14 +152,14 @@ public class af extends ViewGroup implements com.baidu.tbadk.imageManager.c, com
         }
     }
 
-    @Override // com.baidu.tieba.view.ah
+    @Override // com.baidu.tieba.view.ai
     public void d() {
         if (this.m != null) {
             this.m.b();
         }
     }
 
-    @Override // com.baidu.tieba.view.ah
+    @Override // com.baidu.tieba.view.ai
     public void a(View view, int i, int i2) {
         this.n = view;
         try {
@@ -189,7 +188,7 @@ public class af extends ViewGroup implements com.baidu.tbadk.imageManager.c, com
                 }
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.bg.b("ForumsTopicsRecommendView", "mGetImageRunnble.run", "error = " + e.getMessage());
+            com.baidu.tieba.util.bd.b("ForumsTopicsRecommendView", "mGetImageRunnble.run", "error = " + e.getMessage());
         }
     }
 

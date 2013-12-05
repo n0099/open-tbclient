@@ -6,17 +6,17 @@ import com.baidu.tieba.model.ck;
 public class bh implements ck {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsImageActivity f1339a;
+    final /* synthetic */ FrsImageActivity f1390a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bh(FrsImageActivity frsImageActivity) {
-        this.f1339a = frsImageActivity;
+        this.f1390a = frsImageActivity;
     }
 
     @Override // com.baidu.tieba.model.ck
     public void a(String str, long j) {
         com.baidu.tieba.model.ar arVar;
-        arVar = this.f1339a.r;
+        arVar = this.f1390a.r;
         arVar.a().setLike(0);
     }
 

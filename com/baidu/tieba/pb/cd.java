@@ -4,16 +4,16 @@ package com.baidu.tieba.pb;
 public class cd implements com.baidu.tieba.editortool.o {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PbEditor f2093a;
+    final /* synthetic */ PbEditor f2200a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cd(PbEditor pbEditor) {
-        this.f2093a = pbEditor;
+        this.f2200a = pbEditor;
     }
 
     @Override // com.baidu.tieba.editortool.o
     public void a() {
-        this.f2093a.f();
+        this.f2200a.f();
     }
 
     @Override // com.baidu.tieba.editortool.o

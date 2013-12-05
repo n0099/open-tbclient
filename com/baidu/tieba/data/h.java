@@ -12,7 +12,7 @@ import com.tencent.mm.sdk.platformtools.Util;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f1201a = "http://c.tieba.baidu.com/";
+    public static String f1248a = "http://c.tieba.baidu.com/";
     public static String b = "http://tieba.baidu.com/";
     public static String c = "http://static.tieba.baidu.com/";
     public static final Long d = Long.valueOf((long) Util.MILLSECONDS_OF_HOUR);
@@ -20,10 +20,10 @@ public class h {
     public static final Long f = 36000000L;
     public static final Long g = Long.valueOf((long) Util.MILLSECONDS_OF_DAY);
     public static final String h = b + "mo/q/topic_page/136_1";
-    public static final String i = f1201a + "c/s/recommend/";
-    public static final String j = f1201a + "c/s/classic";
+    public static final String i = f1248a + "c/s/recommend/";
+    public static final String j = f1248a + "c/s/classic";
     public static String k = "http://tb.himg.baidu.com/sys/portrait/item/";
-    public static final String l = f1201a + "c/p/img?";
+    public static final String l = f1248a + "c/p/img?";
     public static int m = 80;
     public static final Bitmap.Config n = Bitmap.Config.RGB_565;
     private static String p = null;
@@ -101,12 +101,12 @@ public class h {
 
     public static int a(Context context) {
         int i2 = BdWebErrorView.ERROR_CODE_400;
-        int a2 = UtilHelper.a(context, 267.0f);
+        int a2 = com.baidu.adp.lib.h.g.a(context, 267.0f);
         if (a2 <= 400) {
             i2 = a2;
         }
         w = (int) (i2 * i2 * 1.62f * 2.0f);
-        com.baidu.adp.lib.h.d.d("BIG_IMAGE_SIZE = " + w);
+        com.baidu.adp.lib.h.e.d("BIG_IMAGE_SIZE = " + w);
         return w;
     }
 
@@ -116,10 +116,10 @@ public class h {
 
     public static void b(Context context) {
         v = a(context) * 13;
-        if (v < UtilHelper.c(context) * 0.28d) {
-            v = (int) (UtilHelper.c(context) * 0.28d);
+        if (v < UtilHelper.a(context) * 0.28d) {
+            v = (int) (UtilHelper.a(context) * 0.28d);
         }
-        com.baidu.adp.lib.h.d.d("BIG_IMAGE_MAX_USED_MEMORY = " + v);
+        com.baidu.adp.lib.h.e.d("BIG_IMAGE_MAX_USED_MEMORY = " + v);
     }
 
     public static void c(Context context) {
@@ -153,7 +153,7 @@ public class h {
     }
 
     public static void d(Context context) {
-        int sqrt = (int) Math.sqrt(UtilHelper.a(context) * UtilHelper.b(context));
+        int sqrt = (int) Math.sqrt(com.baidu.adp.lib.h.g.b(context) * com.baidu.adp.lib.h.g.c(context));
         if (sqrt > A) {
             A = sqrt;
         }
@@ -178,7 +178,7 @@ public class h {
     }
 
     public static int o() {
-        switch (TiebaApplication.g().al()) {
+        switch (TiebaApplication.h().aj()) {
             case 1:
                 return 18;
             case 2:
@@ -197,7 +197,7 @@ public class h {
     }
 
     public static int r() {
-        switch (TiebaApplication.g().al()) {
+        switch (TiebaApplication.h().aj()) {
             case 1:
                 return 13;
             case 2:

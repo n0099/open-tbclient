@@ -8,7 +8,7 @@ import java.net.URL;
 public class ByteArrayClassPath implements a {
 
     /* renamed from: a  reason: collision with root package name */
-    protected String f2721a;
+    protected String f2902a;
     protected byte[] b;
 
     @Override // javassist.a
@@ -16,12 +16,12 @@ public class ByteArrayClassPath implements a {
     }
 
     public String toString() {
-        return "byte[]:" + this.f2721a;
+        return "byte[]:" + this.f2902a;
     }
 
     @Override // javassist.a
     public InputStream a(String str) {
-        if (this.f2721a.equals(str)) {
+        if (this.f2902a.equals(str)) {
             return new ByteArrayInputStream(this.b);
         }
         return null;
@@ -29,7 +29,7 @@ public class ByteArrayClassPath implements a {
 
     @Override // javassist.a
     public URL b(String str) {
-        if (this.f2721a.equals(str)) {
+        if (this.f2902a.equals(str)) {
             try {
                 return new URL("file:/ByteArrayClassPath/" + (str.replace('.', '/') + ".class"));
             } catch (MalformedURLException e) {

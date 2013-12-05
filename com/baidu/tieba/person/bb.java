@@ -1,67 +1,58 @@
 package com.baidu.tieba.person;
 
-import com.baidu.mobstat.StatService;
-import com.baidu.tieba.BaseFragmentActivity;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.model.bx;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.widget.ProgressBar;
+import com.baidu.tieba.view.MultiImageView;
+import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bb extends com.baidu.adp.a.g {
+public class bb implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PersonInfoActivity f2219a;
+    final /* synthetic */ PersonImageActivity f2327a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bb(PersonInfoActivity personInfoActivity) {
-        this.f2219a = personInfoActivity;
+    public bb(PersonImageActivity personImageActivity) {
+        this.f2327a = personImageActivity;
     }
 
-    @Override // com.baidu.adp.a.g
-    public void a(Object obj) {
-        bx bxVar;
-        Boolean bool;
-        bx bxVar2;
-        bx bxVar3;
-        bx bxVar4;
-        bx bxVar5;
-        BaseFragmentActivity baseFragmentActivity;
-        bx bxVar6;
-        bx bxVar7;
-        bx bxVar8;
-        bxVar = this.f2219a.e;
-        if (bxVar.getLoadDataMode() != 1) {
-            bxVar6 = this.f2219a.e;
-            if (bxVar6.getLoadDataMode() != 2) {
-                bxVar7 = this.f2219a.e;
-                if (bxVar7.getLoadDataMode() == 3 && this.f2219a.b != null) {
-                    bc bcVar = this.f2219a.b;
-                    boolean booleanValue = ((Boolean) obj).booleanValue();
-                    bxVar8 = this.f2219a.e;
-                    bcVar.a(booleanValue, bxVar8);
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        AlertDialog listMenu;
+        MultiImageView multiImageView;
+        MultiImageView multiImageView2;
+        bd bdVar;
+        ProgressBar progressBar;
+        listMenu = this.f2327a.getListMenu();
+        if (dialogInterface == listMenu) {
+            switch (i) {
+                case 0:
+                    try {
+                        multiImageView = this.f2327a.c;
+                        byte[] currentImageData = multiImageView.getCurrentImageData();
+                        if (currentImageData != null) {
+                            multiImageView2 = this.f2327a.c;
+                            String currentImageUrl = multiImageView2.getCurrentImageUrl();
+                            this.f2327a.b = new bd(this.f2327a, currentImageUrl, currentImageData);
+                            bdVar = this.f2327a.b;
+                            bdVar.execute(new String[0]);
+                            progressBar = this.f2327a.f2295a;
+                            progressBar.setVisibility(0);
+                        } else {
+                            this.f2327a.showToast(this.f2327a.getString(R.string.no_data));
+                        }
+                        return;
+                    } catch (Exception e) {
+                        com.baidu.adp.lib.h.e.a("PersonImageActivity click save  error" + e.getMessage());
+                        return;
+                    }
+                case 1:
+                    dialogInterface.dismiss();
                     return;
-                }
-                return;
+                default:
+                    return;
             }
-        }
-        if (TiebaApplication.g().s()) {
-            baseFragmentActivity = this.f2219a.g;
-            StatService.onEvent(baseFragmentActivity, "person_info_pv", "infopv", 1);
-        }
-        bool = this.f2219a.f;
-        if (bool.booleanValue()) {
-            if (this.f2219a.f2188a != null) {
-                bd bdVar = this.f2219a.f2188a;
-                boolean booleanValue2 = ((Boolean) obj).booleanValue();
-                bxVar4 = this.f2219a.e;
-                bxVar5 = this.f2219a.e;
-                bdVar.a(booleanValue2, bxVar4, bxVar5.getLoadDataMode());
-            }
-        } else if (this.f2219a.b != null) {
-            bc bcVar2 = this.f2219a.b;
-            boolean booleanValue3 = ((Boolean) obj).booleanValue();
-            bxVar2 = this.f2219a.e;
-            bxVar3 = this.f2219a.e;
-            bcVar2.a(booleanValue3, bxVar2, bxVar3.getLoadDataMode());
         }
     }
 }

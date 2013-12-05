@@ -1,31 +1,30 @@
 package com.baidu.tieba.im.chat;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
+import com.baidu.tieba.im.data.GroupMsgData;
+import com.baidu.tieba.im.db.pojo.GroupMsgPojo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class d implements com.baidu.tieba.im.a<LinkedList<String>> {
+public class d implements com.baidu.tieba.im.a<Boolean> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ y f1538a;
-    final /* synthetic */ a b;
+    final /* synthetic */ GroupMsgData f1591a;
+    final /* synthetic */ String b;
+    final /* synthetic */ GroupMsgPojo c;
+    final /* synthetic */ int d;
+    final /* synthetic */ a e;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d(a aVar, y yVar) {
-        this.b = aVar;
-        this.f1538a = yVar;
+    public d(a aVar, GroupMsgData groupMsgData, String str, GroupMsgPojo groupMsgPojo, int i) {
+        this.e = aVar;
+        this.f1591a = groupMsgData;
+        this.b = str;
+        this.c = groupMsgPojo;
+        this.d = i;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.a
-    public void a(LinkedList<String> linkedList) {
-        ArrayList<String> arrayList = new ArrayList<>();
-        while (!linkedList.isEmpty()) {
-            String a2 = com.baidu.tieba.im.d.c.a(linkedList.removeLast(), true);
-            if (a2 != null) {
-                arrayList.add(a2);
-            }
-        }
-        this.f1538a.a(arrayList);
+    public void a(Boolean bool) {
+        this.e.a(this.f1591a, this.b, this.c, this.d);
     }
 }

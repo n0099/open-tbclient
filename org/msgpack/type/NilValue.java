@@ -3,7 +3,7 @@ package org.msgpack.type;
 public class NilValue extends e {
 
     /* renamed from: a  reason: collision with root package name */
-    private static NilValue f2938a = new NilValue();
+    private static NilValue f3119a = new NilValue();
 
     @Override // org.msgpack.type.e, org.msgpack.type.r
     public /* bridge */ /* synthetic */ ArrayValue asArrayValue() {
@@ -70,7 +70,12 @@ public class NilValue extends e {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static NilValue a() {
-        return f2938a;
+        return f3119a;
+    }
+
+    @Override // org.msgpack.type.r
+    public ValueType getType() {
+        return ValueType.NIL;
     }
 
     @Override // org.msgpack.type.e, org.msgpack.type.r

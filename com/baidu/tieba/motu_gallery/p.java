@@ -7,18 +7,18 @@ import android.os.Message;
 class p extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ JigsawAlbumListActivity f2018a;
+    final /* synthetic */ JigsawAlbumListActivity f2125a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(JigsawAlbumListActivity jigsawAlbumListActivity) {
-        this.f2018a = jigsawAlbumListActivity;
+        this.f2125a = jigsawAlbumListActivity;
     }
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
         switch (message.what) {
             case 0:
-                this.f2018a.a(message.arg1, (Bitmap) message.obj);
+                this.f2125a.a(message.arg1, (Bitmap) message.obj);
                 return;
             default:
                 return;

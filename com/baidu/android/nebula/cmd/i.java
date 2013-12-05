@@ -7,11 +7,11 @@ import java.util.regex.Pattern;
 class i implements FilenameFilter {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ h f673a;
+    final /* synthetic */ h f678a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(h hVar) {
-        this.f673a = hVar;
+        this.f678a = hVar;
     }
 
     @Override // java.io.FilenameFilter
@@ -32,42 +32,42 @@ class i implements FilenameFilter {
         if (file.getName().startsWith(".") || lowerCase.startsWith(".") || file.getName().startsWith("image") || lowerCase.startsWith("image") || file.getName().startsWith("cache") || lowerCase.startsWith("cache") || file.getName().startsWith("thumb") || lowerCase.startsWith("thumb") || file.getName().startsWith("ting") || lowerCase.startsWith("ting")) {
             return false;
         }
-        this.f673a.b = new File(file, lowerCase);
-        file2 = this.f673a.f;
+        this.f678a.b = new File(file, lowerCase);
+        file2 = this.f678a.f;
         if (file2 == null) {
-            h hVar = this.f673a;
-            file11 = this.f673a.b;
+            h hVar = this.f678a;
+            file11 = this.f678a.b;
             hVar.f = file11;
         }
         if (file.isDirectory()) {
-            file6 = this.f673a.b;
+            file6 = this.f678a.b;
             if (file6.isFile()) {
-                str3 = this.f673a.e;
+                str3 = this.f678a.e;
                 if (Pattern.compile(str3).matcher(lowerCase).find()) {
-                    file8 = this.f673a.b;
+                    file8 = this.f678a.b;
                     long lastModified = file8.lastModified();
-                    file9 = this.f673a.f;
+                    file9 = this.f678a.f;
                     if (lastModified >= file9.lastModified()) {
-                        h hVar2 = this.f673a;
-                        file10 = this.f673a.b;
+                        h hVar2 = this.f678a;
+                        file10 = this.f678a.b;
                         hVar2.f = file10;
                         return true;
                     }
                     return true;
                 }
             } else {
-                file7 = this.f673a.b;
+                file7 = this.f678a.b;
                 file7.listFiles(this);
             }
         } else {
-            str2 = this.f673a.e;
+            str2 = this.f678a.e;
             if (Pattern.compile(str2).matcher(lowerCase).find()) {
-                file3 = this.f673a.b;
+                file3 = this.f678a.b;
                 long lastModified2 = file3.lastModified();
-                file4 = this.f673a.f;
+                file4 = this.f678a.f;
                 if (lastModified2 >= file4.lastModified()) {
-                    h hVar3 = this.f673a;
-                    file5 = this.f673a.b;
+                    h hVar3 = this.f678a;
+                    file5 = this.f678a.b;
                     hVar3.f = file5;
                     return true;
                 }

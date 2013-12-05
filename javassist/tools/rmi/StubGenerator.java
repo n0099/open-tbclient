@@ -9,7 +9,7 @@ import javassist.w;
 public class StubGenerator implements w {
 
     /* renamed from: a  reason: collision with root package name */
-    private c f2850a;
+    private c f3031a;
     private Hashtable b = new Hashtable();
     private CtMethod c;
     private CtMethod d;
@@ -19,7 +19,7 @@ public class StubGenerator implements w {
 
     @Override // javassist.w
     public void a(c cVar) {
-        this.f2850a = cVar;
+        this.f3031a = cVar;
         h c = cVar.c("javassist.tools.rmi.Sample");
         this.c = c.b("forward");
         this.d = c.b("forwardStatic");

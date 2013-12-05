@@ -6,11 +6,11 @@ import android.view.View;
 public class q implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsActivity f1366a;
+    final /* synthetic */ FrsActivity f1417a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(FrsActivity frsActivity) {
-        this.f1366a = frsActivity;
+        this.f1417a = frsActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -18,20 +18,20 @@ public class q implements View.OnClickListener {
         com.baidu.tieba.util.i iVar;
         com.baidu.tieba.util.i iVar2;
         bn bnVar;
-        if (((com.baidu.tieba.view.z) view).d()) {
-            iVar = this.f1366a.O;
+        if (((com.baidu.tieba.view.aa) view).d()) {
+            iVar = this.f1417a.O;
             iVar.b();
             if (view.getTag() != null && (view.getTag() instanceof String)) {
-                iVar2 = this.f1366a.O;
+                iVar2 = this.f1417a.O;
                 com.baidu.adp.widget.ImageView.e a2 = iVar2.a((String) view.getTag(), new r(this));
                 if (a2 != null) {
-                    this.f1366a.a(a2, false);
+                    this.f1417a.a(a2, false);
                     return;
                 }
-                bnVar = this.f1366a.n;
-                com.baidu.adp.widget.ImageView.e d = bnVar.l().a().d(((String) view.getTag()) + "_small");
+                bnVar = this.f1417a.n;
+                com.baidu.adp.widget.ImageView.e d = bnVar.m().a().d(((String) view.getTag()) + "_small");
                 if (d != null) {
-                    this.f1366a.a(d, true);
+                    this.f1417a.a(d, true);
                 }
             }
         }

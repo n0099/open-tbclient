@@ -18,7 +18,7 @@ import org.json.JSONObject;
 public final class r {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f705a = r.class.getSimpleName();
+    private static final String f710a = r.class.getSimpleName();
     private static volatile r b = null;
     private Context c;
 
@@ -26,7 +26,7 @@ public final class r {
         this.c = null;
         this.c = context.getApplicationContext();
         if (this.c == null) {
-            Log.e(f705a, "Error occurs with mContext");
+            Log.e(f710a, "Error occurs with mContext");
         }
     }
 
@@ -35,7 +35,7 @@ public final class r {
             b = new r(context);
         }
         if (com.baidu.android.pushservice.b.a(context)) {
-            Log.d(f705a, "Current packet name: " + context.getPackageName());
+            Log.d(f710a, "Current packet name: " + context.getPackageName());
         }
         return b;
     }
@@ -124,7 +124,7 @@ public final class r {
                         }
                     } catch (JSONException e) {
                         if (com.baidu.android.pushservice.b.a(this.c)) {
-                            Log.e(f705a, "error: JSONException");
+                            Log.e(f710a, "error: JSONException");
                         }
                     }
                     if (jSONArray3.length() != 0) {
@@ -135,12 +135,12 @@ public final class r {
             }
         } catch (JSONException e2) {
             if (com.baidu.android.pushservice.b.a(this.c)) {
-                Log.e(f705a, "error:" + e2.getMessage());
+                Log.e(f710a, "error:" + e2.getMessage());
             }
         }
         String jSONArray4 = jSONArray.length() == 0 ? "" : jSONArray.toString();
         if (com.baidu.android.pushservice.b.a(this.c)) {
-            Log.d(f705a, "用户行为统计信息:" + jSONArray4);
+            Log.d(f710a, "用户行为统计信息:" + jSONArray4);
         }
         return jSONArray4;
     }
@@ -180,7 +180,7 @@ public final class r {
                         jSONObject4.put("mnc", Integer.parseInt(networkOperator.substring(3)));
                     } catch (NumberFormatException e) {
                         if (com.baidu.android.pushservice.b.a(this.c)) {
-                            Log.e(f705a, "error:" + e.getMessage());
+                            Log.e(f710a, "error:" + e.getMessage());
                         }
                         jSONObject4.put("mcc", -1);
                         jSONObject4.put("mnc", -1);
@@ -194,7 +194,7 @@ public final class r {
             jSONObject.put("push_channel", jSONObject3);
         } catch (JSONException e2) {
             if (com.baidu.android.pushservice.b.a(this.c)) {
-                Log.e(f705a, "error:" + e2.getMessage());
+                Log.e(f710a, "error:" + e2.getMessage());
             }
         }
         return jSONObject.toString();

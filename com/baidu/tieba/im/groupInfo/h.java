@@ -1,13 +1,11 @@
 package com.baidu.tieba.im.groupInfo;
 
-import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.af;
-import com.baidu.tieba.util.ao;
-import com.baidu.tieba.util.be;
-import com.baidu.tieba.util.bg;
+import com.baidu.tieba.util.al;
+import com.baidu.tieba.util.bb;
+import com.baidu.tieba.util.bd;
 import com.slidingmenu.lib.R;
 import com.tencent.mm.sdk.platformtools.Util;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,15 +13,15 @@ import com.tencent.mm.sdk.platformtools.Util;
 public class h extends BdAsyncTask<String, Integer, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    String f1681a;
+    String f1748a;
     byte[] b;
     final /* synthetic */ GroupImageActivity c;
 
     public h(GroupImageActivity groupImageActivity, String str, byte[] bArr) {
         this.c = groupImageActivity;
-        this.f1681a = null;
+        this.f1748a = null;
         this.b = null;
-        this.f1681a = str;
+        this.f1748a = str;
         this.b = bArr;
     }
 
@@ -33,30 +31,30 @@ public class h extends BdAsyncTask<String, Integer, String> {
     public String a(String... strArr) {
         String str;
         try {
-            if (this.f1681a != null && this.f1681a.length() > 0 && this.b != null) {
-                if (!UtilHelper.a(this.b)) {
+            if (this.f1748a != null && this.f1748a.length() > 0 && this.b != null) {
+                if (!com.baidu.adp.lib.h.g.a(this.b)) {
                     str = Util.PHOTO_DEFAULT_EXT;
                 } else {
                     str = ".gif";
                 }
-                String f = be.f(this.f1681a);
+                String f = bb.f(this.f1748a);
                 if (f == null) {
                     return this.c.getString(R.string.save_error);
                 }
                 String str2 = f + str;
-                for (int i = 0; af.b(str2) && i < 10000; i++) {
+                for (int i = 0; com.baidu.tieba.util.x.b(str2) && i < 10000; i++) {
                     str2 = f + String.valueOf(Math.round(Math.random() * 9.9999999E7d)) + str;
                 }
-                String a2 = af.a(str2, this.b);
+                String a2 = com.baidu.tieba.util.x.a(str2, this.b);
                 if (a2 != null) {
-                    new ao(this.c).a(a2);
+                    new al(this.c).a(a2);
                     return this.c.getString(R.string.save_image_to_album);
                 }
-                return af.b();
+                return com.baidu.tieba.util.x.b();
             }
             return this.c.getString(R.string.save_error);
         } catch (Exception e) {
-            bg.b("SaveImageAsyncTask", "doInBackground", "error" + e.getMessage());
+            bd.b("SaveImageAsyncTask", "doInBackground", "error" + e.getMessage());
             return this.c.getString(R.string.save_error);
         }
     }
@@ -65,14 +63,14 @@ public class h extends BdAsyncTask<String, Integer, String> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(String str) {
-        Button button;
+        TextView textView;
         ProgressBar progressBar;
         super.a((h) str);
         this.c.showToast(str);
         this.c.d = null;
-        button = this.c.e;
-        button.setVisibility(0);
-        progressBar = this.c.f1668a;
+        textView = this.c.f;
+        textView.setVisibility(0);
+        progressBar = this.c.f1735a;
         progressBar.setVisibility(8);
     }
 
@@ -84,12 +82,12 @@ public class h extends BdAsyncTask<String, Integer, String> {
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        Button button;
+        TextView textView;
         ProgressBar progressBar;
         this.c.d = null;
-        button = this.c.e;
-        button.setVisibility(0);
-        progressBar = this.c.f1668a;
+        textView = this.c.f;
+        textView.setVisibility(0);
+        progressBar = this.c.f1735a;
         progressBar.setVisibility(8);
         super.cancel(true);
     }

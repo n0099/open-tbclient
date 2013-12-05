@@ -10,11 +10,11 @@ import org.json.JSONObject;
 public class cg {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1913a;
+    private Context f2025a;
     private com.baidu.tieba.data.av b = new com.baidu.tieba.data.av();
 
     public cg(Context context, String str) {
-        this.f1913a = context;
+        this.f2025a = context;
         a(str);
     }
 
@@ -37,7 +37,7 @@ public class cg {
             this.b.a(forumData);
             com.baidu.tieba.data.ar arVar = new com.baidu.tieba.data.ar();
             arVar.a(optJSONObject);
-            arVar.a(this.f1913a);
+            arVar.a(this.f2025a);
             this.b.a(arVar);
             int length = optJSONArray.length();
             ArrayList<com.baidu.tieba.data.ar> arrayList = new ArrayList<>();
@@ -45,7 +45,7 @@ public class cg {
                 JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                 com.baidu.tieba.data.ar arVar2 = new com.baidu.tieba.data.ar();
                 arVar2.a(jSONObject2);
-                arVar2.a(this.f1913a);
+                arVar2.a(this.f2025a);
                 arrayList.add(arVar2);
             }
             this.b.a(arrayList);
@@ -59,7 +59,7 @@ public class cg {
             this.b.c(optInt4);
             this.b.b(optInt);
         } catch (Exception e) {
-            com.baidu.tieba.util.bg.b("SubPbModel", "parseJson", "error = " + e.getMessage());
+            com.baidu.tieba.util.bd.b("SubPbModel", "parseJson", "error = " + e.getMessage());
         }
     }
 

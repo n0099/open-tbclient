@@ -9,7 +9,7 @@ import org.apache.http.message.BasicNameValuePair;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f2492a;
+    public Context f2605a;
     public boolean d;
     public boolean e;
     public String f;
@@ -27,7 +27,7 @@ public class i {
         this.e = false;
         this.f = null;
         this.g = false;
-        this.f2492a = context;
+        this.f2605a = context;
         this.d = true;
         this.f = null;
         this.e = false;
@@ -149,7 +149,7 @@ public class i {
                     while (true) {
                         if (i2 >= size2) {
                             break;
-                        } else if (this.l.get(i2).f2494a == null || !this.l.get(i2).f2494a.equals(str)) {
+                        } else if (this.l.get(i2).f2607a == null || !this.l.get(i2).f2607a.equals(str)) {
                             i2++;
                         } else if (z2) {
                             this.l.remove(i2);
@@ -162,7 +162,7 @@ public class i {
                     if (this.d) {
                         k kVar = new k(this, null);
                         kVar.c = cVar;
-                        kVar.f2494a = str;
+                        kVar.f2607a = str;
                         kVar.b = num.intValue();
                         kVar.d = z;
                         kVar.e = z3;
@@ -170,7 +170,7 @@ public class i {
                         this.l.add(kVar);
                         return null;
                     }
-                    com.baidu.adp.lib.e.c.a().a(this.k.get(0).c, TiebaApplication.g());
+                    com.baidu.adp.lib.e.c.a().a(this.k.get(0).c, TiebaApplication.h());
                 }
                 l lVar2 = lVar != null ? lVar : new l(str, num.intValue(), cVar, z, z3, z4);
                 if (lVar != lVar2) {
@@ -186,12 +186,12 @@ public class i {
                 if (num.intValue() == 0) {
                     i3 = 1;
                 }
-                Object a2 = com.baidu.adp.lib.e.c.a().a(str, i4, new j(this, lVar2), TiebaApplication.g(), fVar, i3);
+                Object a2 = com.baidu.adp.lib.e.c.a().a(str, i4, new j(this, lVar2), TiebaApplication.h(), fVar, i3);
                 if (a2 != null && (a2 instanceof com.baidu.adp.widget.ImageView.e)) {
                     return (com.baidu.adp.widget.ImageView.e) a2;
                 }
             } catch (Exception e) {
-                bg.b("AsyncImageLoader", "loadBitmap", "error = " + e.getMessage());
+                bd.b("AsyncImageLoader", "loadBitmap", "error = " + e.getMessage());
             }
             return null;
         }
@@ -206,7 +206,7 @@ public class i {
             if (i2 < this.k.size()) {
                 l lVar = this.k.get(i2);
                 if (lVar != null) {
-                    com.baidu.adp.lib.e.c.a().a(lVar.c, TiebaApplication.g());
+                    com.baidu.adp.lib.e.c.a().a(lVar.c, TiebaApplication.h());
                 }
                 i = i2 + 1;
             } else {

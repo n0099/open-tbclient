@@ -1,80 +1,44 @@
 package com.baidu.tieba.im.creategroup;
 
+import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.mobstat.StatService;
-import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class a implements q {
+public class a extends com.baidu.adp.a.e {
 
     /* renamed from: a  reason: collision with root package name */
-    CreateGroupStepActivity f1572a;
-    View b;
-    ImageView c;
-    EditText d;
-    TextView e;
+    private View f1618a;
+    private TextView c;
+    private ImageView d;
 
-    public a(CreateGroupStepActivity createGroupStepActivity) {
-        this.f1572a = null;
-        this.b = null;
+    public a(Context context) {
+        super(context);
+        this.f1618a = null;
         this.c = null;
         this.d = null;
-        this.e = null;
-        this.f1572a = createGroupStepActivity;
-        this.b = createGroupStepActivity.getLayoutInflater().inflate(R.layout.create_group_step2_view, (ViewGroup) null);
-        this.c = (ImageView) this.b.findViewById(R.id.step2_img_bg);
-        this.d = (EditText) this.b.findViewById(R.id.step2_group_info);
-        this.e = (TextView) this.b.findViewById(R.id.step2_group_info_count);
+        e();
     }
 
-    @Override // com.baidu.tieba.im.creategroup.q
-    public int a() {
-        return R.string.group_create_step_tip;
+    public View a() {
+        return this.f1618a;
     }
 
-    @Override // com.baidu.tieba.im.creategroup.q
-    public int b() {
-        return 2;
+    public void a(String str) {
+        this.c.setText(str);
     }
 
-    @Override // com.baidu.tieba.im.creategroup.q
-    public int c() {
-        return R.string.group_create_step2;
+    public void a(boolean z) {
+        this.d.setVisibility(z ? 0 : 8);
     }
 
-    public EditText d() {
-        return this.d;
-    }
-
-    public TextView e() {
-        return this.e;
-    }
-
-    @Override // com.baidu.tieba.im.creategroup.q
-    public View f() {
-        if (TiebaApplication.g().s()) {
-            StatService.onEvent(this.f1572a, "create_g_intro", "pv", 1);
-        }
-        return this.b;
-    }
-
-    @Override // com.baidu.tieba.im.creategroup.q
-    public void g() {
-        this.c.setBackgroundDrawable(null);
-    }
-
-    public void h() {
-        this.f1572a.getLayoutMode().a(TiebaApplication.g().ap() == 1);
-        this.f1572a.getLayoutMode().a(this.e);
-    }
-
-    @Override // com.baidu.tieba.im.creategroup.q
-    public void i() {
-        this.f1572a.getLayoutMode().a(TiebaApplication.g().ap() == 1);
-        this.f1572a.getLayoutMode().a(this.b);
+    private void e() {
+        this.f1618a = LayoutInflater.from(this.b).inflate(R.layout.address_lbs_item, (ViewGroup) null);
+        this.c = (TextView) this.f1618a.findViewById(R.id.text);
+        this.d = (ImageView) this.f1618a.findViewById(R.id.group_address_list_item_selected);
+        this.f1618a.setTag(this);
     }
 }

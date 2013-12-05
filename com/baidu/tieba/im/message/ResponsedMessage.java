@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.message;
 
-import com.baidu.tieba.im.codec.q;
+import com.baidu.tieba.im.b.q;
 /* loaded from: classes.dex */
 public class ResponsedMessage extends Message {
     private String errMsg;
@@ -39,7 +39,7 @@ public class ResponsedMessage extends Message {
             this.errNo = 0;
             return;
         }
-        this.errNo = qVar.f1567a;
+        this.errNo = qVar.f1525a;
         this.errMsg = qVar.c;
     }
 

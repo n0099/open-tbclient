@@ -1,8 +1,12 @@
 package com.baidu.adp.lib.webSocket;
+
+import java.io.ByteArrayOutputStream;
 /* loaded from: classes.dex */
-class e {
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public f a(String str, int i, ai aiVar, boolean z) {
-        return z ? new g(str, i, aiVar) : new h(str, i, aiVar);
+public class e extends ByteArrayOutputStream {
+    public e() {
+    }
+
+    public e(int i) {
+        super(i);
     }
 }

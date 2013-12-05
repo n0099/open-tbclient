@@ -7,14 +7,13 @@ import android.os.Bundle;
 import com.baidu.tieba.im.data.GroupPermData;
 import com.baidu.tieba.im.message.RequestFrsGroupsMessage;
 import com.baidu.tieba.im.message.RequestUserPermissionMessage;
-import com.baidu.tieba.util.UtilHelper;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class b extends com.baidu.adp.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1736a;
+    private String f1811a;
     private boolean b;
     private int c;
     private int d;
@@ -67,8 +66,8 @@ public class b extends com.baidu.adp.a.d {
     }
 
     public void a(Activity activity) {
-        this.g = UtilHelper.a((Context) activity, 70.0f);
-        this.h = UtilHelper.a((Context) activity, 70.0f);
+        this.g = com.baidu.adp.lib.h.g.a((Context) activity, 70.0f);
+        this.h = com.baidu.adp.lib.h.g.a((Context) activity, 70.0f);
     }
 
     public int g() {
@@ -112,7 +111,7 @@ public class b extends com.baidu.adp.a.d {
     }
 
     public String m() {
-        return this.f1736a;
+        return this.f1811a;
     }
 
     @Override // com.baidu.adp.a.d
@@ -126,13 +125,13 @@ public class b extends com.baidu.adp.a.d {
     }
 
     public void a(Intent intent) {
-        this.f1736a = intent.getStringExtra("forum_id");
+        this.f1811a = intent.getStringExtra("forum_id");
         this.b = intent.getBooleanExtra("show_recommend", true);
         this.c = this.b ? 1 : 2;
     }
 
     public void a(Bundle bundle) {
-        this.f1736a = bundle.getString("forum_id");
+        this.f1811a = bundle.getString("forum_id");
         this.b = bundle.getBoolean("show_recommend");
         this.c = bundle.getInt("card_type");
         this.d = bundle.getInt("start_position");
@@ -152,22 +151,22 @@ public class b extends com.baidu.adp.a.d {
     }
 
     public void a(String str, int i, int i2, int i3, int i4, int i5) {
-        com.baidu.tieba.im.messageCenter.f.a().a(c(str, i, i2, i3, i4, i5));
+        com.baidu.tieba.im.messageCenter.e.a().a(c(str, i, i2, i3, i4, i5));
     }
 
-    public void a(com.baidu.tieba.im.messageCenter.h hVar) {
-        com.baidu.tieba.im.messageCenter.f.a().a(103002, hVar);
-        com.baidu.tieba.im.messageCenter.f.a().a(-201, hVar);
+    public void a(com.baidu.tieba.im.messageCenter.g gVar) {
+        com.baidu.tieba.im.messageCenter.e.a().a(103002, gVar);
+        com.baidu.tieba.im.messageCenter.e.a().a(-201, gVar);
     }
 
-    public void b(com.baidu.tieba.im.messageCenter.h hVar) {
-        com.baidu.tieba.im.messageCenter.f.a().a(hVar);
+    public void b(com.baidu.tieba.im.messageCenter.g gVar) {
+        com.baidu.tieba.im.messageCenter.e.a().a(gVar);
     }
 
     public void b(String str, int i, int i2, int i3, int i4, int i5) {
         RequestFrsGroupsMessage c = c(str, i, i2, i3, i4, i5);
         c.setCmd(-201);
-        com.baidu.tieba.im.messageCenter.f.a().a(c);
+        com.baidu.tieba.im.messageCenter.e.a().a(c);
     }
 
     private RequestUserPermissionMessage d(String str) {
@@ -183,19 +182,19 @@ public class b extends com.baidu.adp.a.d {
     }
 
     public void c(String str) {
-        com.baidu.tieba.im.messageCenter.f.a().a(d(str));
+        com.baidu.tieba.im.messageCenter.e.a().a(d(str));
     }
 
-    public void c(com.baidu.tieba.im.messageCenter.h hVar) {
-        com.baidu.tieba.im.messageCenter.f.a().a(103008, hVar);
+    public void c(com.baidu.tieba.im.messageCenter.g gVar) {
+        com.baidu.tieba.im.messageCenter.e.a().a(103008, gVar);
     }
 
-    public void d(com.baidu.tieba.im.messageCenter.h hVar) {
-        com.baidu.tieba.im.messageCenter.f.a().a(hVar);
+    public void d(com.baidu.tieba.im.messageCenter.g gVar) {
+        com.baidu.tieba.im.messageCenter.e.a().a(gVar);
     }
 
     public void b(Bundle bundle) {
-        bundle.putString("forum_id", this.f1736a);
+        bundle.putString("forum_id", this.f1811a);
         bundle.putBoolean("show_recommend", this.b);
         bundle.putInt("card_type", this.c);
         bundle.putInt("start_position", this.d);

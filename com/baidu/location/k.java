@@ -41,7 +41,7 @@ public class k {
     private static double e = 0.0d;
 
     /* renamed from: a  reason: collision with root package name */
-    private static double f939a = 0.1d;
+    private static double f944a = 0.1d;
 
     /* renamed from: long  reason: not valid java name */
     private static double f256long = 30.0d;
@@ -200,7 +200,7 @@ public class k {
             d2 = e;
         }
         e = d2;
-        f939a = d3;
+        f944a = d3;
         if (d4 <= 20.0d) {
             d4 = f256long;
         }
@@ -212,25 +212,25 @@ public class k {
         String a2;
         j.a(f251else, "upload manager insert2UploadQueue...");
         if (j.f239long != 3 || a(location, cVar) || a(location, false)) {
-            if (aVar != null && aVar.m128do()) {
+            if (aVar != null && aVar.m129do()) {
                 if (!a(location, cVar)) {
                     cVar = null;
                 }
                 String a3 = j.a(aVar, cVar, location, str, 1);
                 if (a3 != null) {
-                    m264if(Jni.m17if(a3));
+                    m265if(Jni.m18if(a3));
                     f247byte = location;
                     f253goto = location;
                     if (cVar != null) {
                         f252for = cVar;
                     }
                 }
-            } else if (cVar != null && cVar.m153if() && a(location, cVar)) {
+            } else if (cVar != null && cVar.m154if() && a(location, cVar)) {
                 String a4 = j.a(a(location) ? aVar : null, cVar, location, str, 2);
                 if (a4 != null) {
-                    String m17if = Jni.m17if(a4);
-                    j.a(f251else, "upload size:" + m17if.length());
-                    a(m17if);
+                    String m18if = Jni.m18if(a4);
+                    j.a(f251else, "upload size:" + m18if.length());
+                    a(m18if);
                     f250do = location;
                     f253goto = location;
                     if (cVar != null) {
@@ -245,7 +245,7 @@ public class k {
                 if ((aVar == null && cVar2 == null) || (a2 = j.a(aVar, cVar2, location, str, 3)) == null) {
                     return;
                 }
-                m261do(Jni.m17if(a2));
+                m262do(Jni.m18if(a2));
                 f253goto = location;
                 if (cVar2 != null) {
                     f252for = cVar2;
@@ -257,7 +257,7 @@ public class k {
     public static void a(c.a aVar, e.c cVar, String str, double d2, double d3, String str2) {
         String str3 = String.format("&manll=%.5f|%.5f&manaddr=%s", Double.valueOf(d2), Double.valueOf(d3), str2) + j.a(aVar, cVar, null, str, 1);
         if (str3 != null) {
-            m264if(Jni.m17if(str3));
+            m265if(Jni.m18if(str3));
         }
     }
 
@@ -269,11 +269,11 @@ public class k {
         if (f258try.size() <= i) {
             f258try.add(str);
         }
-        if (f258try.size() < i || m262if(f258try, b) >= -1) {
+        if (f258try.size() < i || m263if(f258try, b) >= -1) {
             return;
         }
         a(b, j, f254if, g + (j * f254if));
-        m262if(f258try, b);
+        m263if(f258try, b);
     }
 
     private static boolean a(int i2, int i3, int i4, int i5, long j2) {
@@ -293,7 +293,7 @@ public class k {
     }
 
     private static boolean a(Location location, e.c cVar) {
-        if (location == null || cVar == null || cVar.f162do == null || cVar.f162do.isEmpty() || cVar.m150do(f252for)) {
+        if (location == null || cVar == null || cVar.f162do == null || cVar.f162do.isEmpty() || cVar.m151do(f252for)) {
             return false;
         }
         if (f250do == null) {
@@ -308,7 +308,7 @@ public class k {
     }
 
     /* renamed from: do  reason: not valid java name */
-    private static void m261do(String str) {
+    private static void m262do(String str) {
         if (f == null) {
             return;
         }
@@ -316,15 +316,15 @@ public class k {
         if (f.size() <= i) {
             f.add(str);
         }
-        if (f.size() < i || m262if(f, f255int) >= -1) {
+        if (f.size() < i || m263if(f, f255int) >= -1) {
             return;
         }
         a(f255int, j, f249char, g + (j * f254if * 2));
-        m262if(f, f255int);
+        m263if(f, f255int);
     }
 
     /* renamed from: if  reason: not valid java name */
-    private static int m262if(List list, int i2) {
+    private static int m263if(List list, int i2) {
         int i3;
         int i4;
         int i5 = 0;
@@ -385,26 +385,26 @@ public class k {
     }
 
     /* renamed from: if  reason: not valid java name */
-    public static void m263if() {
+    public static void m264if() {
         j.a(f251else, "upload manager flush...");
         f248case = 0;
-        if (m262if(f259void, f257new) < -1) {
+        if (m263if(f259void, f257new) < -1) {
             a(f257new, j, f254if, g);
-            m262if(f259void, f257new);
+            m263if(f259void, f257new);
         }
-        if (m262if(f258try, b) < -1) {
+        if (m263if(f258try, b) < -1) {
             a(b, j, f254if, g + (j * f254if));
-            m262if(f258try, b);
+            m263if(f258try, b);
         }
-        if (m262if(f, f255int) < -1) {
+        if (m263if(f, f255int) < -1) {
             a(f255int, j, f249char, g + (j * f254if * 2));
-            m262if(f, f255int);
+            m263if(f, f255int);
         }
         f248case = 5;
     }
 
     /* renamed from: if  reason: not valid java name */
-    private static void m264if(String str) {
+    private static void m265if(String str) {
         if (f259void == null) {
             return;
         }
@@ -412,10 +412,10 @@ public class k {
         if (f259void.size() <= i) {
             f259void.add(str);
         }
-        if (f259void.size() < i || m262if(f259void, f257new) >= -1) {
+        if (f259void.size() < i || m263if(f259void, f257new) >= -1) {
             return;
         }
         a(f257new, j, f254if, g);
-        m262if(f259void, f257new);
+        m263if(f259void, f257new);
     }
 }

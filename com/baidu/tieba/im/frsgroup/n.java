@@ -9,21 +9,26 @@ import java.util.ArrayList;
 public class n implements AdapterView.OnItemLongClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MembersActivity f1648a;
+    final /* synthetic */ MembersActivity f1715a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(MembersActivity membersActivity) {
-        this.f1648a = membersActivity;
+        this.f1715a = membersActivity;
     }
 
     @Override // android.widget.AdapterView.OnItemLongClickListener
     public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
-        com.baidu.tieba.im.model.h hVar;
         aa aaVar;
-        hVar = this.f1648a.b;
+        com.baidu.tieba.im.model.h hVar;
+        aa aaVar2;
+        aaVar = this.f1715a.b;
+        if (aaVar.i().d()) {
+            return false;
+        }
+        hVar = this.f1715a.c;
         if (hVar.c()) {
-            aaVar = this.f1648a.f1632a;
-            UserData userData = (UserData) aaVar.i().getItem(i);
+            aaVar2 = this.f1715a.b;
+            UserData userData = (UserData) aaVar2.i().getItem(i);
             if (userData != null) {
                 if (userData.getPermission().isController()) {
                     return false;
@@ -31,7 +36,7 @@ public class n implements AdapterView.OnItemLongClickListener {
                 long userId = userData.getUserId();
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(Long.valueOf(userId));
-                com.baidu.tieba.im.d.a.a(this.f1648a, new o(this, arrayList), new p(this));
+                com.baidu.tieba.im.e.b.a(this.f1715a, new o(this, arrayList), new p(this));
             }
             return true;
         }

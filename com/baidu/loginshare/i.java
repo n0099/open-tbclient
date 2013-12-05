@@ -10,7 +10,7 @@ import org.json.JSONObject;
 public class i implements h {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f946a;
+    private Context f951a;
     private JSONObject b = null;
     private File c = null;
     private String d = "loginshare";
@@ -18,13 +18,13 @@ public class i implements h {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(Context context) {
-        this.f946a = null;
-        this.f946a = context;
+        this.f951a = null;
+        this.f951a = context;
         c();
     }
 
     private void c() {
-        File filesDir = this.f946a.getFilesDir();
+        File filesDir = this.f951a.getFilesDir();
         if (filesDir != null) {
             this.c = new File(String.valueOf(filesDir.getAbsolutePath()) + "/" + g.e());
         }

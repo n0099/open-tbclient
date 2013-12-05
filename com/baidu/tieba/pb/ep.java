@@ -5,18 +5,18 @@ import android.webkit.URLUtil;
 class ep implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WebActivity f2155a;
+    final /* synthetic */ WebActivity f2262a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ep(WebActivity webActivity) {
-        this.f2155a = webActivity;
+        this.f2262a = webActivity;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        String guessUrl = URLUtil.guessUrl(this.f2155a.c);
+        String guessUrl = URLUtil.guessUrl(this.f2262a.c);
         if (URLUtil.isNetworkUrl(guessUrl)) {
-            this.f2155a.f2039a.loadUrl(guessUrl);
+            this.f2262a.f2146a.loadUrl(guessUrl);
         }
     }
 }

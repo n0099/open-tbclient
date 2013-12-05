@@ -2,20 +2,20 @@ package com.baidu.tieba.flist;
 
 import android.widget.ImageView;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.gson.JsonParseException;
 import com.baidu.tieba.flist.ForumListModel;
-import com.google.gson.JsonParseException;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q extends BdAsyncTask<Void, Void, ForumListModel> {
 
     /* renamed from: a  reason: collision with root package name */
-    boolean f1264a;
+    boolean f1311a;
     final /* synthetic */ ForumListActivity b;
 
     private q(ForumListActivity forumListActivity) {
         this.b = forumListActivity;
-        this.f1264a = false;
+        this.f1311a = false;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -24,14 +24,14 @@ public class q extends BdAsyncTask<Void, Void, ForumListModel> {
     }
 
     public void a(boolean z) {
-        this.f1264a = z;
+        this.f1311a = z;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void b() {
-        this.b.c.n.setEnabled(false);
-        this.b.c.o.setText(this.b.getString(R.string.flist_loading));
+        this.b.c.o.setEnabled(false);
+        this.b.c.p.setText(this.b.getString(R.string.flist_loading));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -82,35 +82,35 @@ public class q extends BdAsyncTask<Void, Void, ForumListModel> {
             sVar2.a(this.b.b.forum_list);
             i5 = this.b.o;
             if (i5 == 200) {
-                this.b.c.o.setText(this.b.getString(R.string.flist_expand_list));
-                ImageView imageView = this.b.c.p;
+                this.b.c.p.setText(this.b.getString(R.string.flist_expand_list));
+                ImageView imageView = this.b.c.q;
                 i7 = this.b.l;
                 imageView.setImageResource(i7);
             } else {
-                this.b.c.o.setText(this.b.getString(R.string.flist_collapse_list));
-                ImageView imageView2 = this.b.c.p;
+                this.b.c.p.setText(this.b.getString(R.string.flist_collapse_list));
+                ImageView imageView2 = this.b.c.q;
                 i6 = this.b.m;
                 imageView2.setImageResource(i6);
                 this.b.C = true;
             }
         } else {
             this.b.showToast(this.b.getString(R.string.neterror));
-            if (!this.f1264a) {
+            if (!this.f1311a) {
                 i = this.b.o;
                 if (i == 200) {
-                    this.b.c.o.setText(this.b.getString(R.string.flist_expand_list));
-                    ImageView imageView3 = this.b.c.p;
+                    this.b.c.p.setText(this.b.getString(R.string.flist_expand_list));
+                    ImageView imageView3 = this.b.c.q;
                     i3 = this.b.l;
                     imageView3.setImageResource(i3);
                 } else {
-                    this.b.c.o.setText(this.b.getString(R.string.flist_collapse_list));
-                    ImageView imageView4 = this.b.c.p;
+                    this.b.c.p.setText(this.b.getString(R.string.flist_collapse_list));
+                    ImageView imageView4 = this.b.c.q;
                     i2 = this.b.m;
                     imageView4.setImageResource(i2);
                 }
             } else {
-                this.b.c.o.setText(this.b.getString(R.string.flist_expand_list));
-                ImageView imageView5 = this.b.c.p;
+                this.b.c.p.setText(this.b.getString(R.string.flist_expand_list));
+                ImageView imageView5 = this.b.c.q;
                 i4 = this.b.l;
                 imageView5.setImageResource(i4);
                 requestParams = this.b.A;
@@ -118,7 +118,7 @@ public class q extends BdAsyncTask<Void, Void, ForumListModel> {
                 this.b.o = 200;
             }
         }
-        this.b.c.n.setEnabled(true);
+        this.b.c.o.setEnabled(true);
         this.b.c.c();
     }
 }

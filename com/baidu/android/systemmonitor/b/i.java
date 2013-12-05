@@ -4,15 +4,15 @@ package com.baidu.android.systemmonitor.b;
 public class i implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ f f778a;
+    final /* synthetic */ f f783a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(f fVar) {
-        this.f778a = fVar;
+        this.f783a = fVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f778a.n();
+        this.f783a.n();
     }
 }

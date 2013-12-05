@@ -1,20 +1,18 @@
 package com.baidu.tieba.chat;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class z implements com.baidu.adp.widget.ListView.b {
+class z implements com.baidu.tieba.im.a<Void> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ChatListFragment f1157a;
+    final /* synthetic */ y f1204a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public z(ChatListFragment chatListFragment) {
-        this.f1157a = chatListFragment;
+    public z(y yVar) {
+        this.f1204a = yVar;
     }
 
-    @Override // com.baidu.adp.widget.ListView.b
-    public void a(boolean z) {
-        if (!z) {
-            this.f1157a.a(1, 3);
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.a
+    public void a(Void r2) {
+        this.f1204a.b.K();
     }
 }

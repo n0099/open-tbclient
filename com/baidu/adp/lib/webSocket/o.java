@@ -1,166 +1,230 @@
 package com.baidu.adp.lib.webSocket;
 
 import android.os.Handler;
+import android.os.HandlerThread;
 import android.os.Message;
-import java.net.SocketException;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.List;
+import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
-public class o extends Handler {
+public class o implements k {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ n f539a;
+    protected Handler f542a;
+    protected volatile an b;
+    protected volatile WebSocketWriter c;
+    protected g d;
+    protected am e;
+    private URI f;
+    private String g;
+    private String h;
+    private int i;
+    private String j;
+    private String k;
+    private String[] l;
+    private List<BasicNameValuePair> m;
+    private l n;
+    private boolean o = false;
+    private boolean p = false;
+    private volatile boolean q = false;
+    private d r = null;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public o(n nVar) {
-        this.f539a = nVar;
+    public o() {
+        if (k()) {
+            com.baidu.adp.lib.h.e.d("created");
+        }
+        a();
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        k kVar;
-        am amVar;
-        k kVar2;
-        k kVar3;
-        k kVar4;
-        am amVar2;
-        k kVar5;
-        k kVar6;
-        am amVar3;
-        boolean k;
-        k kVar7;
-        boolean k2;
-        k kVar8;
-        k kVar9;
-        k kVar10;
-        boolean k3;
-        k kVar11;
-        boolean k4;
-        k kVar12;
-        boolean k5;
-        k kVar13;
-        k kVar14;
-        boolean k6;
-        k kVar15;
-        k kVar16;
-        boolean k7;
-        k kVar17;
-        if (message.obj instanceof ah) {
-            ah ahVar = (ah) message.obj;
-            kVar16 = this.f539a.n;
-            if (kVar16 != null) {
-                kVar17 = this.f539a.n;
-                kVar17.a(ahVar.f526a);
-                return;
-            }
-            k7 = this.f539a.k();
-            if (k7) {
-                com.baidu.adp.lib.h.d.d("could not call onTextMessage() .. handler already NULL");
-            }
-        } else if (message.obj instanceof ad) {
-            ad adVar = (ad) message.obj;
-            kVar14 = this.f539a.n;
-            if (kVar14 != null) {
-                kVar15 = this.f539a.n;
-                kVar15.a(adVar.f523a);
-                return;
-            }
-            k6 = this.f539a.k();
-            if (k6) {
-                com.baidu.adp.lib.h.d.d("could not call onRawTextMessage() .. handler already NULL");
-            }
-        } else if (message.obj instanceof s) {
-            s sVar = (s) message.obj;
-            kVar12 = this.f539a.n;
-            if (kVar12 != null) {
-                kVar13 = this.f539a.n;
-                kVar13.b(sVar.f541a);
-                return;
-            }
-            k5 = this.f539a.k();
-            if (k5) {
-                com.baidu.adp.lib.h.d.d("could not call onBinaryMessage() .. handler already NULL");
-            }
-        } else if (message.obj instanceof aa) {
-            aa aaVar = (aa) message.obj;
-            k4 = this.f539a.k();
-            if (k4) {
-                com.baidu.adp.lib.h.d.d("WebSockets Ping received");
-            }
-            ab abVar = new ab();
-            abVar.f521a = aaVar.f520a;
-            this.f539a.c.a((Object) abVar);
-        } else if (message.obj instanceof ab) {
-            ab abVar2 = (ab) message.obj;
-            kVar10 = this.f539a.n;
-            if (kVar10 != null) {
-                kVar11 = this.f539a.n;
-                kVar11.b();
-            }
-            k3 = this.f539a.k();
-            if (k3) {
-                com.baidu.adp.lib.h.d.d("WebSockets Pong received");
-            }
-        } else if (message.obj instanceof u) {
-            this.f539a.a(1, (String) null);
-        } else if (message.obj instanceof af) {
-            af afVar = (af) message.obj;
-            k = this.f539a.k();
-            if (k) {
-                com.baidu.adp.lib.h.d.d("opening handshake received");
-            }
-            if (afVar.f525a) {
-                kVar7 = this.f539a.n;
-                if (kVar7 != null) {
-                    kVar8 = this.f539a.n;
-                    kVar8.a();
-                    this.f539a.o = true;
-                    this.f539a.p = false;
-                    kVar9 = this.f539a.n;
-                    kVar9.a((am) null);
-                    return;
-                }
-                k2 = this.f539a.k();
-                if (k2) {
-                    com.baidu.adp.lib.h.d.d("could not call onOpen() .. handler already NULL");
-                }
-                this.f539a.a(6, "handler already NULL");
-            }
-        } else if (message.obj instanceof v) {
-            SocketException socketException = ((v) message.obj).f544a;
-            this.f539a.a(3, "WebSockets connection lost = " + (socketException != null ? socketException.getMessage() : null));
-        } else if (message.obj instanceof ac) {
-            WebSocketException webSocketException = ((ac) message.obj).f522a;
-            this.f539a.a(4, "WebSockets protocol violation error = " + (webSocketException != null ? webSocketException.getMessage() : null));
-        } else if (message.obj instanceof x) {
-            this.f539a.a(5, "WebSockets internal error (" + ((x) message.obj).f545a.toString() + ")");
-        } else if (message.obj instanceof ae) {
-            ae aeVar = (ae) message.obj;
-            this.f539a.a(6, "Server error " + aeVar.f524a + " (" + aeVar.b + ")");
-        } else if (message.obj instanceof w) {
-            this.f539a.a(2, "WebSockets connot connect");
-        } else if (message.obj instanceof ag) {
-            kVar5 = this.f539a.n;
-            if (kVar5 != null) {
-                kVar6 = this.f539a.n;
-                amVar3 = this.f539a.r;
-                kVar6.b(amVar3);
-            }
-        } else if (message.obj instanceof y) {
-            kVar = this.f539a.n;
-            if (kVar != null) {
-                kVar4 = this.f539a.n;
-                amVar2 = this.f539a.r;
-                kVar4.d(amVar2);
-            }
-            amVar = this.f539a.r;
-            this.f539a.r = null;
-            kVar2 = this.f539a.n;
-            if (kVar2 != null) {
-                kVar3 = this.f539a.n;
-                kVar3.a(amVar);
-            }
-        } else {
-            this.f539a.a(message.obj);
+    public boolean a(d dVar) {
+        if (dVar == null) {
+            return false;
         }
+        if (this.r != null || !f()) {
+            if (k()) {
+                com.baidu.adp.lib.h.e.d("mWebSocketSendData not null");
+            }
+            if (dVar != null) {
+                dVar.a(1);
+                return false;
+            }
+            return false;
+        }
+        this.r = dVar;
+        return b(this.r);
+    }
+
+    private boolean b(d dVar) {
+        if (this.c == null) {
+            b(new y(new Exception("mWriter = null")));
+            return false;
+        }
+        return this.c.a((Object) new ab(dVar));
+    }
+
+    public void a(int i, String str) {
+        if (k()) {
+            com.baidu.adp.lib.h.e.d("fail connection [code = " + i + ", reason = " + str);
+        }
+        this.o = false;
+        this.q = true;
+        if (this.b != null) {
+            this.b.a();
+            this.b = null;
+        }
+        if (this.c != null) {
+            this.c.a();
+            this.c = null;
+        }
+        if (this.d != null) {
+            try {
+                this.d.a();
+            } catch (IOException e) {
+                if (k()) {
+                    e.printStackTrace();
+                }
+            }
+            this.d = null;
+        }
+        l lVar = this.n;
+        this.n = null;
+        if (lVar != null) {
+            try {
+                lVar.a(i, str);
+            } catch (Exception e2) {
+                if (k()) {
+                    com.baidu.adp.lib.h.e.d(e2.getMessage());
+                }
+            }
+        }
+        if (k()) {
+            com.baidu.adp.lib.h.e.d("worker threads stopped");
+        }
+    }
+
+    public void a(String str, String[] strArr, l lVar, am amVar, List<BasicNameValuePair> list) {
+        this.p = true;
+        if (this.d != null && this.d.b()) {
+            throw new WebSocketException("already connected");
+        }
+        try {
+            this.f = new URI(str);
+            if (!this.f.getScheme().equals("ws") && !this.f.getScheme().equals("wss")) {
+                throw new WebSocketException("unsupported scheme for WebSockets URI");
+            }
+            if (this.f.getScheme().equals("wss")) {
+                throw new WebSocketException("secure WebSockets not implemented");
+            }
+            this.g = this.f.getScheme();
+            if (this.f.getPort() == -1) {
+                if (this.g.equals("ws")) {
+                    this.i = 80;
+                } else {
+                    this.i = 443;
+                }
+            } else {
+                this.i = this.f.getPort();
+            }
+            if (this.f.getHost() == null) {
+                throw new WebSocketException("no host specified in WebSockets URI");
+            }
+            this.h = this.f.getHost();
+            if (this.f.getPath() == null || this.f.getPath().equals("")) {
+                this.j = "/";
+            } else {
+                this.j = this.f.getPath();
+            }
+            if (this.f.getQuery() == null || this.f.getQuery().equals("")) {
+                this.k = null;
+            } else {
+                this.k = this.f.getQuery();
+            }
+            this.l = strArr;
+            this.m = list;
+            this.n = lVar;
+            this.e = new am(amVar);
+            new q(this, null).start();
+        } catch (URISyntaxException e) {
+            throw new WebSocketException("invalid WebSockets URI");
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void b(Object obj) {
+        Message obtainMessage = this.f542a.obtainMessage();
+        obtainMessage.obj = obj;
+        this.f542a.sendMessage(obtainMessage);
+    }
+
+    protected void a() {
+        this.f542a = new p(this);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void a(Object obj) {
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void b() {
+        HandlerThread handlerThread = new HandlerThread("WebSocketWriter");
+        handlerThread.start();
+        this.c = new WebSocketWriter(handlerThread.getLooper(), this.f542a, this.d, this.e);
+        if (k()) {
+            com.baidu.adp.lib.h.e.d("WS writer created and started");
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void c() {
+        this.b = new an(this.f542a, this.d, this.e, "WebSocketReader");
+        this.b.start();
+        if (k()) {
+            com.baidu.adp.lib.h.e.d("WS reader created and started");
+        }
+    }
+
+    public boolean d() {
+        return this.r != null;
+    }
+
+    public boolean e() {
+        return this.p;
+    }
+
+    public boolean f() {
+        return this.o;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public boolean k() {
+        return com.baidu.adp.a.b.a().b();
+    }
+
+    public void g() {
+        if (this.c != null) {
+            this.c.b();
+        }
+    }
+
+    public long h() {
+        if (this.c != null) {
+            return this.c.c();
+        }
+        return 0L;
+    }
+
+    public void i() {
+        if (this.b != null) {
+            this.b.b();
+        }
+    }
+
+    public long j() {
+        if (this.b != null) {
+            return this.b.c();
+        }
+        return 0L;
     }
 }

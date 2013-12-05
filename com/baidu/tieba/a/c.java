@@ -3,17 +3,17 @@ package com.baidu.tieba.a;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.tieba.data.NewErrorData;
 import com.baidu.tieba.data.chat.ChatPostData;
-import com.baidu.tieba.util.ap;
+import com.baidu.tieba.util.am;
 /* loaded from: classes.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1010a = com.baidu.tieba.data.h.f1201a + "c/s/addmsg";
-    private ap b = null;
+    private static final String f1020a = com.baidu.tieba.data.h.f1248a + "c/s/addmsg";
+    private am b = null;
     private NewErrorData c = null;
 
     public String a(ChatPostData chatPostData) {
-        this.b = new ap(f1010a);
+        this.b = new am(f1020a);
         this.b.a(PushConstants.EXTRA_USER_ID, chatPostData.getUserID());
         this.b.a("com_id", chatPostData.getFriendID());
         this.b.a("content", chatPostData.getContent());

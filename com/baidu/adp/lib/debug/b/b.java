@@ -153,7 +153,7 @@ public class b extends BaseAdapter implements View.OnFocusChangeListener, View.O
                     cls.getMethod(d, String.class).invoke(cls, charSequence);
                     z = true;
                 } catch (Exception e) {
-                    com.baidu.adp.lib.h.d.a(e.getMessage());
+                    com.baidu.adp.lib.h.e.a(e.getMessage());
                     z = false;
                 }
                 if (z) {

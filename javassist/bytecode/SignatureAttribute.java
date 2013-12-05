@@ -33,14 +33,14 @@ public class SignatureAttribute extends e {
     public class BaseType extends av {
 
         /* renamed from: a */
-        char f2734a;
+        char f2915a;
 
         BaseType(char c) {
-            this.f2734a = c;
+            this.f2915a = c;
         }
 
         public String toString() {
-            return z.c(Character.toString(this.f2734a));
+            return z.c(Character.toString(this.f2915a));
         }
     }
 
@@ -49,7 +49,7 @@ public class SignatureAttribute extends e {
         public static ClassType c = new ClassType("java.lang.Object", null);
 
         /* renamed from: a */
-        String f2735a;
+        String f2916a;
         aw[] b;
 
         static ClassType a(String str, int i, int i2, aw[] awVarArr, ClassType classType) {
@@ -57,12 +57,12 @@ public class SignatureAttribute extends e {
         }
 
         ClassType(String str, int i, int i2, aw[] awVarArr) {
-            this.f2735a = str.substring(i, i2).replace('/', '.');
+            this.f2916a = str.substring(i, i2).replace('/', '.');
             this.b = awVarArr;
         }
 
         public ClassType(String str, aw[] awVarArr) {
-            this.f2735a = str;
+            this.f2916a = str;
             this.b = awVarArr;
         }
 
@@ -76,7 +76,7 @@ public class SignatureAttribute extends e {
             if (a2 != null) {
                 stringBuffer.append(a2.toString()).append('.');
             }
-            stringBuffer.append(this.f2735a);
+            stringBuffer.append(this.f2916a);
             if (this.b != null) {
                 stringBuffer.append('<');
                 int length = this.b.length;
@@ -111,17 +111,17 @@ public class SignatureAttribute extends e {
     public class ArrayType extends ObjectType {
 
         /* renamed from: a */
-        int f2733a;
+        int f2914a;
         av b;
 
         public ArrayType(int i, av avVar) {
-            this.f2733a = i;
+            this.f2914a = i;
             this.b = avVar;
         }
 
         public String toString() {
             StringBuffer stringBuffer = new StringBuffer(this.b.toString());
-            for (int i = 0; i < this.f2733a; i++) {
+            for (int i = 0; i < this.f2914a; i++) {
                 stringBuffer.append("[]");
             }
             return stringBuffer.toString();
@@ -132,14 +132,14 @@ public class SignatureAttribute extends e {
     public class TypeVariable extends ObjectType {
 
         /* renamed from: a */
-        String f2736a;
+        String f2917a;
 
         TypeVariable(String str, int i, int i2) {
-            this.f2736a = str.substring(i, i2);
+            this.f2917a = str.substring(i, i2);
         }
 
         public String toString() {
-            return this.f2736a;
+            return this.f2917a;
         }
     }
 
@@ -152,7 +152,7 @@ public class SignatureAttribute extends e {
     }
 
     private static ObjectType a(String str, au auVar, boolean z) {
-        int i = auVar.f2778a;
+        int i = auVar.f2959a;
         switch (str.charAt(i)) {
             case 'L':
                 return a(str, auVar, (ClassType) null);
@@ -171,28 +171,28 @@ public class SignatureAttribute extends e {
     private static ClassType a(String str, au auVar, ClassType classType) {
         char charAt;
         aw[] awVarArr;
-        int i = auVar.f2778a + 1;
-        auVar.f2778a = i;
+        int i = auVar.f2959a + 1;
+        auVar.f2959a = i;
         do {
-            int i2 = auVar.f2778a;
-            auVar.f2778a = i2 + 1;
+            int i2 = auVar.f2959a;
+            auVar.f2959a = i2 + 1;
             charAt = str.charAt(i2);
             if (charAt == '$' || charAt == '<') {
                 break;
             }
         } while (charAt != ';');
-        int i3 = auVar.f2778a - 1;
+        int i3 = auVar.f2959a - 1;
         if (charAt == '<') {
             awVarArr = a(str, auVar);
-            int i4 = auVar.f2778a;
-            auVar.f2778a = i4 + 1;
+            int i4 = auVar.f2959a;
+            auVar.f2959a = i4 + 1;
             charAt = str.charAt(i4);
         } else {
             awVarArr = null;
         }
         ClassType a2 = ClassType.a(str, i, i3, awVarArr, classType);
         if (charAt == '$' || charAt == '.') {
-            auVar.f2778a--;
+            auVar.f2959a--;
             return a(str, auVar, a2);
         }
         return a2;
@@ -202,8 +202,8 @@ public class SignatureAttribute extends e {
         aw awVar;
         ArrayList arrayList = new ArrayList();
         while (true) {
-            int i = auVar.f2778a;
-            auVar.f2778a = i + 1;
+            int i = auVar.f2959a;
+            auVar.f2959a = i + 1;
             char charAt = str.charAt(i);
             if (charAt != '>') {
                 if (charAt == '*') {
@@ -211,7 +211,7 @@ public class SignatureAttribute extends e {
                 } else {
                     if (charAt != '+' && charAt != '-') {
                         charAt = ' ';
-                        auVar.f2778a--;
+                        auVar.f2959a--;
                     }
                     awVar = new aw(a(str, auVar, false), charAt);
                 }
@@ -225,8 +225,8 @@ public class SignatureAttribute extends e {
     private static ObjectType b(String str, au auVar) {
         int i = 1;
         while (true) {
-            int i2 = auVar.f2778a + 1;
-            auVar.f2778a = i2;
+            int i2 = auVar.f2959a + 1;
+            auVar.f2959a = i2;
             if (str.charAt(i2) == '[') {
                 i++;
             } else {
@@ -238,8 +238,8 @@ public class SignatureAttribute extends e {
     private static av c(String str, au auVar) {
         ObjectType a2 = a(str, auVar, true);
         if (a2 == null) {
-            int i = auVar.f2778a;
-            auVar.f2778a = i + 1;
+            int i = auVar.f2959a;
+            auVar.f2959a = i + 1;
             return new BaseType(str.charAt(i));
         }
         return a2;

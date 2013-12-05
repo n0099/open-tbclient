@@ -10,7 +10,7 @@ import com.baidu.cloudsdk.social.share.SocialShare;
 public class SocialShareHandlerFactory {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f867a;
+    private Context f872a;
     private String b;
     private String c;
     private SocialShare.Theme d;
@@ -18,7 +18,7 @@ public class SocialShareHandlerFactory {
     public SocialShareHandlerFactory(Context context, String str, SocialShare.Theme theme) {
         Validator.notNull(context, "context");
         Validator.notNullOrEmpty(str, "clientId");
-        this.f867a = context;
+        this.f872a = context;
         this.b = str;
         this.c = SocialConfig.getInstance(context).getClientId(MediaType.WEIXIN);
         this.d = theme;
@@ -28,24 +28,24 @@ public class SocialShareHandlerFactory {
         MediaType fromString = MediaType.fromString(str);
         switch (fromString) {
             case WEIXIN:
-                return new ap(this.f867a, this.d);
+                return new ap(this.f872a, this.d);
             case WEIXIN_FRIEND:
             case WEIXIN_TIMELINE:
                 if (TextUtils.isEmpty(this.c)) {
                     throw new IllegalArgumentException("no client_id provided for weixin");
                 }
-                return new aq(this.f867a, this.c, fromString == MediaType.WEIXIN_TIMELINE);
+                return new aq(this.f872a, this.c, fromString == MediaType.WEIXIN_TIMELINE);
             case QQFRIEND:
             case SMS:
             case EMAIL:
             case OTHERS:
-                return new ai(this.f867a, str);
+                return new ai(this.f872a, str);
             case BATCHSHARE:
-                return new CloudBatchShareHandler(this.f867a, this.b, null);
+                return new CloudBatchShareHandler(this.f872a, this.b, null);
             case COPYLINK:
-                return new ag(this.f867a);
+                return new ag(this.f872a);
             default:
-                return new ae(this.f867a, this.b, fromString);
+                return new ae(this.f872a, this.b, fromString);
         }
     }
 }

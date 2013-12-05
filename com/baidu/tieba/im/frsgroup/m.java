@@ -9,17 +9,17 @@ import com.baidu.tieba.person.PersonInfoActivity;
 public class m implements AdapterView.OnItemClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MembersActivity f1647a;
+    final /* synthetic */ MembersActivity f1714a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(MembersActivity membersActivity) {
-        this.f1647a = membersActivity;
+        this.f1714a = membersActivity;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         aa aaVar;
-        aaVar = this.f1647a.f1632a;
+        aaVar = this.f1714a.b;
         w i2 = aaVar.i();
         UserData userData = (UserData) i2.getItem(i);
         if (userData != null) {
@@ -30,7 +30,7 @@ public class m implements AdapterView.OnItemClickListener {
                 }
                 return;
             }
-            PersonInfoActivity.a(this.f1647a, userData.getUserId() + "", userData.getUserName());
+            PersonInfoActivity.a(this.f1714a, userData.getUserId() + "", userData.getUserName());
         }
     }
 }

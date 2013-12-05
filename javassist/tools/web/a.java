@@ -3,5 +3,5 @@ package javassist.tools.web;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final byte[] f2851a = {13, 10};
+    private static final byte[] f3032a = {13, 10};
 }

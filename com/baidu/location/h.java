@@ -11,7 +11,7 @@ class h {
     private static String f207if = f.v;
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f931a = 100;
+    private static int f936a = 100;
 
     /* renamed from: try  reason: not valid java name */
     private static long f210try = 64;
@@ -33,7 +33,7 @@ class h {
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private int f932a;
+        private int f937a;
 
         /* renamed from: do  reason: not valid java name */
         private int f211do;
@@ -57,21 +57,21 @@ class h {
             this.f211do = 0;
             this.f216try = 0;
             this.f213if = 0;
-            this.f932a = 0;
+            this.f937a = 0;
             this.f215new = 0.0d;
             this.f214int = 0.0d;
             this.f212for = 0.0f;
             this.f211do = i;
             this.f216try = i2;
             this.f213if = i3;
-            this.f932a = i4;
+            this.f937a = i4;
             this.f215new = d;
             this.f214int = d2;
             this.f212for = f;
         }
 
         public boolean a(int i, int i2, int i3) {
-            return this.f932a == i && this.f211do == i2 && this.f216try == i3;
+            return this.f937a == i && this.f211do == i2 && this.f216try == i3;
         }
     }
 
@@ -79,9 +79,9 @@ class h {
     }
 
     public static String a(int i, int i2, int i3) {
-        a m234if = m234if(i, i2, i3);
-        if (m234if != null) {
-            return String.format("{\"result\":{\"time\":\"" + j.a() + "\",\"error\":\"65\"},\"content\":{\"point\":{\"x\":\"%f\",\"y\":\"%f\"},\"radius\":\"%d\"}}", Double.valueOf(m234if.f215new), Double.valueOf(m234if.f214int), Integer.valueOf((int) m234if.f212for));
+        a m235if = m235if(i, i2, i3);
+        if (m235if != null) {
+            return String.format("{\"result\":{\"time\":\"" + j.a() + "\",\"error\":\"65\"},\"content\":{\"point\":{\"x\":\"%f\",\"y\":\"%f\"},\"radius\":\"%d\"}}", Double.valueOf(m235if.f215new), Double.valueOf(m235if.f214int), Integer.valueOf((int) m235if.f212for));
         }
         return null;
     }
@@ -118,11 +118,11 @@ class h {
             return;
         }
         float f2 = f < f206for ? f206for : f;
-        a m234if = m234if(aVar.f144if, aVar.f143for, aVar.f147try);
-        if (m234if != null) {
-            m234if.f215new = d;
-            m234if.f214int = d2;
-            m234if.f212for = f2;
+        a m235if = m235if(aVar.f144if, aVar.f143for, aVar.f147try);
+        if (m235if != null) {
+            m235if.f215new = d;
+            m235if.f214int = d2;
+            m235if.f212for = f2;
             j.a(f207if, "locCache update loc cache ...");
             return;
         }
@@ -130,14 +130,14 @@ class h {
             f208int = new ArrayList();
         }
         f208int.add(new a(aVar.f143for, aVar.f147try, aVar.f142do, aVar.f144if, d, d2, f2));
-        if (f208int.size() > f931a) {
+        if (f208int.size() > f936a) {
             f208int.remove(0);
         }
         j.a(f207if, "locCache add new cell info into loc cache ...");
     }
 
     /* renamed from: do  reason: not valid java name */
-    private static void m233do() {
+    private static void m234do() {
         File file;
         if (f208int == null) {
             return;
@@ -163,11 +163,11 @@ class h {
             while (size >= 0) {
                 a aVar = (a) f208int.get(size);
                 if (aVar != null) {
-                    randomAccessFile.seek(f210try + (f209new * (size % f931a)));
+                    randomAccessFile.seek(f210try + (f209new * (size % f936a)));
                     randomAccessFile.writeFloat(aVar.f212for);
                     randomAccessFile.writeInt(aVar.f213if);
                     randomAccessFile.writeDouble(aVar.f215new);
-                    randomAccessFile.writeInt(aVar.f932a);
+                    randomAccessFile.writeInt(aVar.f937a);
                     randomAccessFile.writeDouble(aVar.f214int);
                     randomAccessFile.writeInt(aVar.f211do);
                     randomAccessFile.writeInt(aVar.f216try);
@@ -185,7 +185,7 @@ class h {
     }
 
     /* renamed from: if  reason: not valid java name */
-    private static a m234if(int i, int i2, int i3) {
+    private static a m235if(int i, int i2, int i3) {
         try {
             if (f208int == null || f208int.size() < 1) {
                 a();
@@ -206,7 +206,7 @@ class h {
     }
 
     /* renamed from: if  reason: not valid java name */
-    public static void m235if() {
-        m233do();
+    public static void m236if() {
+        m234do();
     }
 }

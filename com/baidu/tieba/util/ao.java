@@ -1,35 +1,24 @@
 package com.baidu.tieba.util;
 
-import android.content.Context;
-import android.media.MediaScannerConnection;
-import android.net.Uri;
+import com.baidu.tieba.BaiduAccount.BaiduAccount;
+import com.baidu.tieba.TiebaApplication;
+import com.slidingmenu.lib.R;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ao implements MediaScannerConnection.MediaScannerConnectionClient {
+public class ao implements BaiduAccount.CallbackListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private MediaScannerConnection f2468a;
-    private Context b;
-    private String c;
-    private String d;
+    final /* synthetic */ am f2584a;
 
-    public ao(Context context) {
-        this.b = context;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ao(am amVar) {
+        this.f2584a = amVar;
     }
 
-    public void a(String str) {
-        this.c = str;
-        this.d = "image/*";
-        this.f2468a = new MediaScannerConnection(this.b, this);
-        this.f2468a.connect();
-    }
-
-    @Override // android.media.MediaScannerConnection.MediaScannerConnectionClient
-    public void onMediaScannerConnected() {
-        this.f2468a.scanFile(this.c, this.d);
-    }
-
-    @Override // android.media.MediaScannerConnection.OnScanCompletedListener
-    public void onScanCompleted(String str, Uri uri) {
-        this.f2468a.disconnect();
+    @Override // com.baidu.tieba.BaiduAccount.BaiduAccount.CallbackListener
+    public void callback() {
+        af afVar;
+        afVar = this.f2584a.f2582a;
+        afVar.c(TiebaApplication.h().getString(R.string.error_unkown));
     }
 }

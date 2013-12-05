@@ -13,7 +13,7 @@ import com.slidingmenu.lib.R;
 public class DottedLine extends ImageView {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f2515a;
+    private Context f2629a;
     private Bitmap b;
     private Rect c;
     private Rect d;
@@ -34,16 +34,16 @@ public class DottedLine extends ImageView {
     }
 
     private void a(Context context) {
-        this.f2515a = context;
+        this.f2629a = context;
         this.c = new Rect();
         this.d = new Rect();
     }
 
     public void setNight(boolean z) {
         if (z) {
-            this.b = BitmapFactory.decodeResource(this.f2515a.getResources(), R.drawable.line_frs_dotted_line_1);
+            this.b = BitmapFactory.decodeResource(this.f2629a.getResources(), R.drawable.line_frs_dotted_line_1);
         } else {
-            this.b = BitmapFactory.decodeResource(this.f2515a.getResources(), R.drawable.line_frs_dotted_line);
+            this.b = BitmapFactory.decodeResource(this.f2629a.getResources(), R.drawable.line_frs_dotted_line);
         }
     }
 
@@ -51,7 +51,7 @@ public class DottedLine extends ImageView {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         if (this.b == null) {
-            com.baidu.adp.lib.h.d.d("The bitmap not set by setNight() yet.");
+            com.baidu.adp.lib.h.e.d("The bitmap not set by setNight() yet.");
             return;
         }
         int width = getWidth() - getPaddingRight();

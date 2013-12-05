@@ -1,32 +1,29 @@
 package com.baidu.tieba;
 
-import android.view.animation.Animation;
+import android.view.View;
+import com.baidu.tieba.view.BaseViewPager;
 /* loaded from: classes.dex */
-class ae implements Animation.AnimationListener {
+class ae implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ LogoActivity f1101a;
+    final /* synthetic */ GuideActivity f1111a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ae(LogoActivity logoActivity) {
-        this.f1101a = logoActivity;
+    public ae(GuideActivity guideActivity) {
+        this.f1111a = guideActivity;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        boolean z;
-        this.f1101a.b = true;
-        z = this.f1101a.c;
-        if (z) {
-            this.f1101a.a(this.f1101a.getBaseContext());
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        BaseViewPager baseViewPager;
+        int[] iArr;
+        BaseViewPager baseViewPager2;
+        baseViewPager = this.f1111a.i;
+        int currentItem = baseViewPager.getCurrentItem();
+        iArr = this.f1111a.f;
+        if (currentItem != iArr.length) {
+            baseViewPager2 = this.f1111a.i;
+            baseViewPager2.a(currentItem + 1, true);
         }
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
     }
 }

@@ -1,6 +1,5 @@
 package com.baidu.tieba.data;
 
-import com.baidu.tieba.util.bg;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -8,7 +7,7 @@ import org.json.JSONObject;
 public class ap {
 
     /* renamed from: a  reason: collision with root package name */
-    private ArrayList<UserData> f1176a = new ArrayList<>();
+    private ArrayList<UserData> f1223a = new ArrayList<>();
     private am b = new am();
 
     public void a(am amVar) {
@@ -20,14 +19,14 @@ public class ap {
     }
 
     public ArrayList<UserData> b() {
-        return this.f1176a;
+        return this.f1223a;
     }
 
     public void a(String str) {
         try {
             a(new JSONObject(str));
         } catch (Exception e) {
-            bg.b(getClass().getName(), "parserJson", e.getMessage());
+            com.baidu.tieba.util.bd.b(getClass().getName(), "parserJson", e.getMessage());
         }
     }
 
@@ -39,12 +38,12 @@ public class ap {
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         UserData userData = new UserData();
                         userData.parserJson(optJSONArray.getJSONObject(i));
-                        this.f1176a.add(userData);
+                        this.f1223a.add(userData);
                     }
                 }
                 this.b.a(jSONObject.optJSONObject("page"));
             } catch (Exception e) {
-                bg.b(getClass().getName(), "parserJson", e.getMessage());
+                com.baidu.tieba.util.bd.b(getClass().getName(), "parserJson", e.getMessage());
             }
         }
     }

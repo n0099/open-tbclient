@@ -6,10 +6,10 @@ import android.os.SystemClock;
 import android.util.Log;
 import com.baidu.location.LocationClientOption;
 /* loaded from: classes.dex */
-public class q implements ak {
+public class q implements al {
 
     /* renamed from: a */
-    final /* synthetic */ IndicatorView f608a;
+    final /* synthetic */ IndicatorView f613a;
     private final int b;
     private long c;
     private long d;
@@ -19,41 +19,41 @@ public class q implements ak {
     private final r h = new r(this);
 
     public q(IndicatorView indicatorView) {
-        this.f608a = indicatorView;
+        this.f613a = indicatorView;
         this.b = (int) ((indicatorView.getResources().getDisplayMetrics().density * 1.0f) + 0.5f);
     }
 
-    @Override // com.baidu.adp.widget.ak
+    @Override // com.baidu.adp.widget.al
     public void a(int i, int i2) {
         Drawable drawable;
         Drawable drawable2;
         int i3;
         Drawable drawable3;
         Drawable drawable4;
-        drawable = this.f608a.f;
+        drawable = this.f613a.f;
         if (drawable != null) {
-            drawable2 = this.f608a.g;
+            drawable2 = this.f613a.g;
             if (drawable2 != null) {
-                i3 = this.f608a.c;
+                i3 = this.f613a.c;
                 if (i3 != 0) {
-                    this.f608a.setWillNotDraw(false);
+                    this.f613a.setWillNotDraw(false);
                     int a2 = a(i);
                     int b = b(i2);
                     Log.d("IndicatorView$IndicatorView", "@onMeasure width=" + a2);
                     Log.d("IndicatorView$IndicatorView", "@onMeasure height=" + b);
-                    this.f608a.setMeasuredDimension(a2, b);
+                    this.f613a.setMeasuredDimension(a2, b);
                     StringBuilder append = new StringBuilder().append("drawable bound = ");
-                    drawable3 = this.f608a.f;
+                    drawable3 = this.f613a.f;
                     Log.d("IndicatorView$IndicatorView", append.append(drawable3.getBounds().toShortString()).toString());
                     StringBuilder append2 = new StringBuilder().append("selector bound = ");
-                    drawable4 = this.f608a.g;
+                    drawable4 = this.f613a.g;
                     Log.d("IndicatorView$IndicatorView", append2.append(drawable4.getBounds().toShortString()).toString());
                     return;
                 }
             }
         }
-        this.f608a.setWillNotDraw(true);
-        this.f608a.setMeasuredDimension(0, 0);
+        this.f613a.setWillNotDraw(true);
+        this.f613a.setMeasuredDimension(0, 0);
         Log.d("IndicatorView$IndicatorView", "will not draw.");
     }
 
@@ -85,53 +85,53 @@ public class q implements ak {
         int i8 = i & (-1073741824);
         int i9 = 1073741823 & i;
         Log.d("IndicatorView$IndicatorView", "@measureWidth size=" + i9);
-        i2 = this.f608a.b;
-        i3 = this.f608a.c;
+        i2 = this.f613a.b;
+        i3 = this.f613a.c;
         int i10 = i2 * (i3 - 1);
-        drawable = this.f608a.f;
+        drawable = this.f613a.f;
         int intrinsicWidth = drawable.getIntrinsicWidth();
-        drawable2 = this.f608a.g;
+        drawable2 = this.f613a.g;
         int max = Math.max(intrinsicWidth, drawable2.getIntrinsicWidth());
-        i4 = this.f608a.c;
+        i4 = this.f613a.c;
         int i11 = i10 + (max * i4);
         StringBuilder append = new StringBuilder().append("drawable intrinsic width = ");
-        drawable3 = this.f608a.f;
-        com.baidu.adp.lib.h.d.e("IndicatorView$IndicatorView", "@measureWidth", append.append(drawable3.getIntrinsicWidth()).toString());
+        drawable3 = this.f613a.f;
+        com.baidu.adp.lib.h.e.e("IndicatorView$IndicatorView", "@measureWidth", append.append(drawable3.getIntrinsicWidth()).toString());
         StringBuilder append2 = new StringBuilder().append("selector intrinsic width = ");
-        drawable4 = this.f608a.g;
-        com.baidu.adp.lib.h.d.e("IndicatorView$IndicatorView", "@measureWidth", append2.append(drawable4.getIntrinsicWidth()).toString());
+        drawable4 = this.f613a.g;
+        com.baidu.adp.lib.h.e.e("IndicatorView$IndicatorView", "@measureWidth", append2.append(drawable4.getIntrinsicWidth()).toString());
         switch (i8) {
             case Integer.MIN_VALUE:
                 int min = Math.min(i9, i11);
-                drawable13 = this.f608a.f;
-                drawable14 = this.f608a.f;
+                drawable13 = this.f613a.f;
+                drawable14 = this.f613a.f;
                 int intrinsicWidth2 = drawable14.getIntrinsicWidth();
-                drawable15 = this.f608a.f;
+                drawable15 = this.f613a.f;
                 drawable13.setBounds(0, 0, intrinsicWidth2, drawable15.getBounds().height());
-                drawable16 = this.f608a.g;
-                drawable17 = this.f608a.g;
+                drawable16 = this.f613a.g;
+                drawable17 = this.f613a.g;
                 int intrinsicWidth3 = drawable17.getIntrinsicWidth();
-                drawable18 = this.f608a.g;
+                drawable18 = this.f613a.g;
                 drawable16.setBounds(0, 0, intrinsicWidth3, drawable18.getBounds().height());
                 return min;
             case 0:
-                drawable5 = this.f608a.f;
-                drawable6 = this.f608a.f;
+                drawable5 = this.f613a.f;
+                drawable6 = this.f613a.f;
                 drawable5.setBounds(0, 0, drawable6.getIntrinsicWidth(), 0);
-                drawable7 = this.f608a.g;
-                drawable8 = this.f608a.g;
+                drawable7 = this.f613a.g;
+                drawable8 = this.f613a.g;
                 drawable7.setBounds(0, 0, drawable8.getIntrinsicWidth(), 0);
                 return i11;
             case 1073741824:
-                i5 = this.f608a.b;
-                i6 = this.f608a.c;
-                i7 = this.f608a.c;
+                i5 = this.f613a.b;
+                i6 = this.f613a.c;
+                i7 = this.f613a.c;
                 int i12 = (int) ((i9 - (i5 * (i6 - 1))) / i7);
-                drawable9 = this.f608a.g;
-                drawable10 = this.f608a.g;
+                drawable9 = this.f613a.g;
+                drawable10 = this.f613a.g;
                 drawable9.setBounds(0, 0, i12, drawable10.getBounds().height());
-                drawable11 = this.f608a.f;
-                drawable12 = this.f608a.f;
+                drawable11 = this.f613a.f;
+                drawable12 = this.f613a.f;
                 drawable11.setBounds(0, 0, i12, drawable12.getBounds().height());
                 return i9;
             default:
@@ -156,35 +156,35 @@ public class q implements ak {
         Drawable drawable14;
         int i2 = i & (-1073741824);
         int i3 = 1073741823 & i;
-        drawable = this.f608a.f;
+        drawable = this.f613a.f;
         int intrinsicHeight = drawable.getIntrinsicHeight();
-        drawable2 = this.f608a.g;
+        drawable2 = this.f613a.g;
         int max = Math.max(intrinsicHeight, drawable2.getIntrinsicHeight());
         switch (i2) {
             case Integer.MIN_VALUE:
                 int min = Math.min(i3, max);
                 Log.d("IndicatorView$IndicatorView", "min size = " + min);
-                drawable11 = this.f608a.f;
-                drawable12 = this.f608a.f;
+                drawable11 = this.f613a.f;
+                drawable12 = this.f613a.f;
                 drawable11.setBounds(0, 0, drawable12.getBounds().width(), min);
-                drawable13 = this.f608a.g;
-                drawable14 = this.f608a.g;
+                drawable13 = this.f613a.g;
+                drawable14 = this.f613a.g;
                 drawable13.setBounds(0, 0, drawable14.getBounds().width(), min);
                 return min;
             case 0:
-                drawable3 = this.f608a.f;
-                drawable4 = this.f608a.f;
+                drawable3 = this.f613a.f;
+                drawable4 = this.f613a.f;
                 drawable3.setBounds(0, 0, drawable4.getBounds().width(), max);
-                drawable5 = this.f608a.g;
-                drawable6 = this.f608a.g;
+                drawable5 = this.f613a.g;
+                drawable6 = this.f613a.g;
                 drawable5.setBounds(0, 0, drawable6.getBounds().width(), max);
                 return max;
             case 1073741824:
-                drawable7 = this.f608a.f;
-                drawable8 = this.f608a.f;
+                drawable7 = this.f613a.f;
+                drawable8 = this.f613a.f;
                 drawable7.setBounds(0, 0, drawable8.getBounds().width(), i3);
-                drawable9 = this.f608a.g;
-                drawable10 = this.f608a.g;
+                drawable9 = this.f613a.g;
+                drawable10 = this.f613a.g;
                 drawable9.setBounds(0, 0, drawable10.getBounds().width(), i3);
                 return i3;
             default:
@@ -193,7 +193,7 @@ public class q implements ak {
     }
 
     /* JADX WARN: Incorrect condition in loop: B:17:0x0013 */
-    @Override // com.baidu.adp.widget.ak
+    @Override // com.baidu.adp.widget.al
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -210,22 +210,22 @@ public class q implements ak {
         int save = canvas.save();
         for (int i4 = 0; i4 < i; i4++) {
             if (i4 != 0) {
-                drawable4 = this.f608a.f;
+                drawable4 = this.f613a.f;
                 int width = drawable4.getBounds().width();
-                i3 = this.f608a.b;
+                i3 = this.f613a.b;
                 canvas.translate(width + i3, 0.0f);
             }
-            drawable3 = this.f608a.f;
+            drawable3 = this.f613a.f;
             drawable3.draw(canvas);
         }
         canvas.restoreToCount(save);
         int save2 = canvas.save();
-        drawable = this.f608a.g;
+        drawable = this.f613a.g;
         int width2 = drawable.getBounds().width();
-        i2 = this.f608a.b;
-        f = this.f608a.d;
+        i2 = this.f613a.b;
+        f = this.f613a.d;
         canvas.translate((width2 + i2) * f, 0.0f);
-        drawable2 = this.f608a.g;
+        drawable2 = this.f613a.g;
         drawable2.draw(canvas);
         canvas.restoreToCount(save2);
     }
@@ -241,31 +241,31 @@ public class q implements ak {
         this.d = this.c + 16;
         if (this.e < 0) {
             float f5 = this.f;
-            f3 = this.f608a.e;
+            f3 = this.f613a.e;
             if (f5 < f3) {
-                IndicatorView indicatorView = this.f608a;
-                f4 = this.f608a.e;
+                IndicatorView indicatorView = this.f613a;
+                f4 = this.f613a.e;
                 indicatorView.d = f4;
                 this.g = false;
             } else {
-                this.f608a.d = this.f;
+                this.f613a.d = this.f;
                 this.h.removeMessages(LocationClientOption.MIN_SCAN_SPAN);
                 this.h.sendEmptyMessageAtTime(LocationClientOption.MIN_SCAN_SPAN, this.d);
             }
         } else {
             float f6 = this.f;
-            f = this.f608a.e;
+            f = this.f613a.e;
             if (f6 > f) {
-                IndicatorView indicatorView2 = this.f608a;
-                f2 = this.f608a.e;
+                IndicatorView indicatorView2 = this.f613a;
+                f2 = this.f613a.e;
                 indicatorView2.d = f2;
                 this.g = false;
             } else {
-                this.f608a.d = this.f;
+                this.f613a.d = this.f;
                 this.h.removeMessages(LocationClientOption.MIN_SCAN_SPAN);
                 this.h.sendEmptyMessageAtTime(LocationClientOption.MIN_SCAN_SPAN, this.d);
             }
         }
-        this.f608a.invalidate();
+        this.f613a.invalidate();
     }
 }

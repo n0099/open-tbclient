@@ -1,24 +1,80 @@
 package com.baidu.tieba.util;
 
-import com.baidu.tieba.BaiduAccount.BaiduAccount;
-import com.baidu.tieba.TiebaApplication;
-import com.slidingmenu.lib.R;
+import com.baidu.cloudsdk.social.core.SocialConstants;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ar implements BaiduAccount.CallbackListener {
+public class ar implements com.baidu.adp.lib.network.c {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ap f2471a;
+    final /* synthetic */ String f2586a;
+    final /* synthetic */ long b;
+    final /* synthetic */ NetWorkCoreByBdHttp c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ar(ap apVar) {
-        this.f2471a = apVar;
+    public ar(NetWorkCoreByBdHttp netWorkCoreByBdHttp, String str, long j) {
+        this.c = netWorkCoreByBdHttp;
+        this.f2586a = str;
+        this.b = j;
     }
 
-    @Override // com.baidu.tieba.BaiduAccount.BaiduAccount.CallbackListener
-    public void callback() {
-        ai aiVar;
-        aiVar = this.f2471a.f2469a;
-        aiVar.c(TiebaApplication.g().getString(R.string.error_unkown));
+    @Override // com.baidu.adp.lib.network.c
+    public void a(int i, HttpURLConnection httpURLConnection, OutputStream outputStream) {
+        aw awVar;
+        int i2;
+        boolean z = false;
+        if (httpURLConnection != null) {
+            try {
+                if (httpURLConnection.getInputStream() != null) {
+                    String headerField = httpURLConnection.getHeaderField("imgsrc");
+                    if (headerField != null && headerField.length() > 0) {
+                        z = true;
+                    }
+                    awVar = this.c.d;
+                    if (awVar.h || z) {
+                        byte[] bArr = new byte[23];
+                        int read = httpURLConnection.getInputStream().read(bArr, 0, 23);
+                        if (!new String(bArr, 0, bArr.length).equalsIgnoreCase("app:tiebaclient;type:0;")) {
+                            outputStream.write(bArr, 0, read);
+                        }
+                    }
+                    if ("image/gif".equalsIgnoreCase(httpURLConnection.getHeaderField("Src-Content-Type"))) {
+                        this.c.f = true;
+                        i2 = this.c.i;
+                        if (i2 == 1) {
+                            this.c.i = 2;
+                            return;
+                        }
+                        return;
+                    }
+                    this.c.f = false;
+                    return;
+                }
+            } catch (IOException e) {
+                com.baidu.tieba.log.a.a(com.baidu.tieba.log.k.a(this.f2586a, String.valueOf(System.currentTimeMillis() - this.b), SocialConstants.FALSE, e.getMessage(), "connection failed."));
+                try {
+                    com.baidu.tieba.log.a.a(com.baidu.tieba.log.k.a(this.f2586a, String.valueOf(System.currentTimeMillis() - this.b), String.valueOf(httpURLConnection.getContentLength()), httpURLConnection.getResponseCode() + ":" + httpURLConnection.getHeaderFields(), "|download error|" + e.getMessage()));
+                } catch (IOException e2) {
+                    com.baidu.tieba.log.a.a(com.baidu.tieba.log.k.a(this.f2586a, String.valueOf(System.currentTimeMillis() - this.b), String.valueOf(httpURLConnection.getContentLength()), "cann't get responseCode:" + httpURLConnection.getHeaderFields(), "|download error|" + e.getMessage()));
+                }
+                e.printStackTrace();
+                return;
+            }
+        }
+        com.baidu.tieba.log.a.a(com.baidu.tieba.log.k.a(this.f2586a, String.valueOf(System.currentTimeMillis() - this.b), SocialConstants.FALSE, "failed to open connection.", "connection failed."));
+    }
+
+    @Override // com.baidu.adp.lib.network.c
+    public void a(int i, int i2, HttpURLConnection httpURLConnection) {
+    }
+
+    @Override // com.baidu.adp.lib.network.c
+    public void a(com.baidu.adp.lib.network.e eVar) {
+    }
+
+    @Override // com.baidu.adp.lib.network.c
+    public void a() {
     }
 }

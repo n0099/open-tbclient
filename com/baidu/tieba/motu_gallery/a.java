@@ -5,13 +5,12 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.widget.ImageView;
-import com.baidu.tieba.util.UtilHelper;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class a extends ImageView {
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f2004a = -1;
+    private static int f2111a = -1;
     private boolean b;
     private int c;
     private int d;
@@ -33,19 +32,19 @@ public class a extends ImageView {
     @Override // android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        this.c = (i3 - i) - UtilHelper.a(getContext(), 5.0f);
-        this.d = (i4 - i2) - UtilHelper.a(getContext(), 5.0f);
+        this.c = (i3 - i) - com.baidu.adp.lib.h.g.a(getContext(), 5.0f);
+        this.d = (i4 - i2) - com.baidu.adp.lib.h.g.a(getContext(), 5.0f);
     }
 
     private Bitmap getSelectIcon() {
         int i;
         if (this.b) {
-            if (f2004a == 1) {
+            if (f2111a == 1) {
                 i = R.drawable.but_posts_fit_select_s_1;
             } else {
                 i = R.drawable.but_posts_fit_select_s;
             }
-        } else if (f2004a == 1) {
+        } else if (f2111a == 1) {
             i = R.drawable.but_posts_fit_select_n_1;
         } else {
             i = R.drawable.but_posts_fit_select_n;

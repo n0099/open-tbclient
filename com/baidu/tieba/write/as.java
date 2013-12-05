@@ -11,11 +11,11 @@ import com.slidingmenu.lib.R;
 public class as implements CompoundButton.OnCheckedChangeListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WriteImageActivity f2675a;
+    final /* synthetic */ WriteImageActivity f2793a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public as(WriteImageActivity writeImageActivity) {
-        this.f2675a = writeImageActivity;
+        this.f2793a = writeImageActivity;
     }
 
     @Override // android.widget.CompoundButton.OnCheckedChangeListener
@@ -29,29 +29,29 @@ public class as implements CompoundButton.OnCheckedChangeListener {
         LinearLayout linearLayout2;
         TextView textView2;
         if (z) {
-            compoundButton.setTextColor(this.f2675a.getResources().getColor(R.color.white));
-            radioButton = this.f2675a.j;
+            compoundButton.setTextColor(this.f2793a.getResources().getColor(R.color.white));
+            radioButton = this.f2793a.j;
             if (compoundButton == radioButton) {
-                horizontalScrollView2 = this.f2675a.f;
+                horizontalScrollView2 = this.f2793a.f;
                 horizontalScrollView2.setVisibility(0);
-                linearLayout2 = this.f2675a.l;
+                linearLayout2 = this.f2793a.l;
                 linearLayout2.setVisibility(4);
-                textView2 = this.f2675a.n;
-                textView2.setText(this.f2675a.getString(R.string.beautify));
+                textView2 = this.f2793a.n;
+                textView2.setText(this.f2793a.getString(R.string.beautify));
                 return;
             }
-            radioButton2 = this.f2675a.k;
+            radioButton2 = this.f2793a.k;
             if (compoundButton == radioButton2) {
-                horizontalScrollView = this.f2675a.f;
+                horizontalScrollView = this.f2793a.f;
                 horizontalScrollView.setVisibility(4);
-                linearLayout = this.f2675a.l;
+                linearLayout = this.f2793a.l;
                 linearLayout.setVisibility(0);
-                textView = this.f2675a.n;
-                textView.setText(this.f2675a.getString(R.string.rotate));
+                textView = this.f2793a.n;
+                textView.setText(this.f2793a.getString(R.string.rotate));
                 return;
             }
             return;
         }
-        compoundButton.setTextColor(this.f2675a.getResources().getColor(R.color.beautify_rotate_tab_unchecked_color));
+        compoundButton.setTextColor(this.f2793a.getResources().getColor(R.color.beautify_rotate_tab_unchecked_color));
     }
 }

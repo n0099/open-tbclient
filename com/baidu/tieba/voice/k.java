@@ -7,7 +7,7 @@ public class k {
     private static short[] h = {2, 16, 12, 3};
 
     /* renamed from: a  reason: collision with root package name */
-    private int f2611a;
+    private int f2729a;
     private short b;
     private short c;
     private int d = -2;
@@ -37,12 +37,12 @@ public class k {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [149=8, 151=6] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [152=8, 154=6] */
     public android.media.AudioRecord b() {
         /*
             r18 = this;
             r0 = r18
-            int r1 = r0.f2611a
+            int r1 = r0.f2729a
             if (r1 <= 0) goto L29
             r0 = r18
             short r1 = r0.b
@@ -53,7 +53,7 @@ public class k {
             android.media.AudioRecord r1 = new android.media.AudioRecord
             r2 = 1
             r0 = r18
-            int r3 = r0.f2611a
+            int r3 = r0.f2729a
             r0 = r18
             short r4 = r0.c
             r0 = r18
@@ -71,7 +71,7 @@ public class k {
             r9 = r1
             r1 = r2
         L30:
-            if (r9 >= r13) goto L101
+            if (r9 >= r13) goto Lff
             r3 = r12[r9]
             short[] r14 = com.baidu.tieba.voice.k.g
             int r15 = r14.length
@@ -79,7 +79,7 @@ public class k {
             r10 = r2
             r2 = r1
         L3a:
-            if (r10 >= r15) goto Lfb
+            if (r10 >= r15) goto Lf9
             short r5 = r14[r10]
             short[] r16 = com.baidu.tieba.voice.k.h
             r0 = r16
@@ -90,19 +90,19 @@ public class k {
             r8 = r2
         L48:
             r0 = r17
-            if (r11 >= r0) goto Lf5
+            if (r11 >= r0) goto Lf3
             short r4 = r16[r11]
-            int r1 = android.media.AudioRecord.getMinBufferSize(r3, r4, r5)     // Catch: java.lang.Throwable -> L123
+            int r1 = android.media.AudioRecord.getMinBufferSize(r3, r4, r5)     // Catch: java.lang.Throwable -> L121
             r0 = r18
-            r0.d = r1     // Catch: java.lang.Throwable -> L123
+            r0.d = r1     // Catch: java.lang.Throwable -> L121
             r0 = r18
-            int r1 = r0.d     // Catch: java.lang.Throwable -> L123
+            int r1 = r0.d     // Catch: java.lang.Throwable -> L121
             r2 = -2
             if (r1 != r2) goto L70
-            if (r8 == 0) goto L126
+            if (r8 == 0) goto L124
             int r1 = r8.getState()
             r2 = 1
-            if (r1 == r2) goto L126
+            if (r1 == r2) goto L124
             r8.release()
             r8 = 0
             r1 = r8
@@ -112,94 +112,92 @@ public class k {
             r8 = r1
             goto L48
         L70:
-            android.media.AudioRecord r7 = new android.media.AudioRecord     // Catch: java.lang.Throwable -> L123
-            r2 = 1
             r0 = r18
-            int r6 = r0.d     // Catch: java.lang.Throwable -> L123
+            int r1 = r0.d     // Catch: java.lang.Throwable -> L121
+            int r1 = r1 * 8
+            r2 = 4096(0x1000, float:5.74E-42)
+            int r6 = java.lang.Math.min(r1, r2)     // Catch: java.lang.Throwable -> L121
+            android.media.AudioRecord r7 = new android.media.AudioRecord     // Catch: java.lang.Throwable -> L121
+            r2 = 1
             r1 = r7
-            r1.<init>(r2, r3, r4, r5, r6)     // Catch: java.lang.Throwable -> L123
-            int r1 = r7.getState()     // Catch: java.lang.Throwable -> Ld4
+            r1.<init>(r2, r3, r4, r5, r6)     // Catch: java.lang.Throwable -> L121
+            int r1 = r7.getState()     // Catch: java.lang.Throwable -> Ld2
             r2 = 1
-            if (r1 != r2) goto L9c
+            if (r1 != r2) goto La4
             r0 = r18
-            r0.f2611a = r3     // Catch: java.lang.Throwable -> Ld4
+            r0.f2729a = r3     // Catch: java.lang.Throwable -> Ld2
             r0 = r18
-            r0.b = r5     // Catch: java.lang.Throwable -> Ld4
+            r0.b = r5     // Catch: java.lang.Throwable -> Ld2
             r0 = r18
-            r0.c = r4     // Catch: java.lang.Throwable -> Ld4
-            if (r7 == 0) goto L9a
+            r0.c = r4     // Catch: java.lang.Throwable -> Ld2
+            if (r7 == 0) goto La2
             int r1 = r7.getState()
             r2 = 1
-            if (r1 == r2) goto L9a
+            if (r1 == r2) goto La2
             r7.release()
-        L9a:
+        La2:
             r1 = r7
             goto L28
-        L9c:
-            r7.release()     // Catch: java.lang.Throwable -> Ld4
-            r0 = r18
-            int r1 = r0.d     // Catch: java.lang.Throwable -> Ld4
-            int r1 = r1 + 100
-            r0 = r18
-            r0.d = r1     // Catch: java.lang.Throwable -> Ld4
-            android.media.AudioRecord r1 = new android.media.AudioRecord     // Catch: java.lang.Throwable -> Ld4
+        La4:
+            r7.release()     // Catch: java.lang.Throwable -> Ld2
+            android.media.AudioRecord r1 = new android.media.AudioRecord     // Catch: java.lang.Throwable -> Ld2
             r2 = 1
             r0 = r18
-            int r6 = r0.d     // Catch: java.lang.Throwable -> Ld4
-            r1.<init>(r2, r3, r4, r5, r6)     // Catch: java.lang.Throwable -> Ld4
-            int r2 = r1.getState()     // Catch: java.lang.Throwable -> L11f
+            int r6 = r0.d     // Catch: java.lang.Throwable -> Ld2
+            r1.<init>(r2, r3, r4, r5, r6)     // Catch: java.lang.Throwable -> Ld2
+            int r2 = r1.getState()     // Catch: java.lang.Throwable -> L11d
             r6 = 1
-            if (r2 != r6) goto L109
+            if (r2 != r6) goto L107
             r0 = r18
-            r0.f2611a = r3     // Catch: java.lang.Throwable -> L11f
+            r0.f2729a = r3     // Catch: java.lang.Throwable -> L11d
             r0 = r18
-            r0.b = r5     // Catch: java.lang.Throwable -> L11f
+            r0.b = r5     // Catch: java.lang.Throwable -> L11d
             r0 = r18
-            r0.c = r4     // Catch: java.lang.Throwable -> L11f
+            r0.c = r4     // Catch: java.lang.Throwable -> L11d
             if (r1 == 0) goto L28
             int r2 = r1.getState()
             r3 = 1
             if (r2 == r3) goto L28
             r1.release()
             goto L28
-        Ld4:
+        Ld2:
             r1 = move-exception
-        Ld5:
-            r1.printStackTrace()     // Catch: java.lang.Throwable -> Le7
-            if (r7 == 0) goto L129
+        Ld3:
+            r1.printStackTrace()     // Catch: java.lang.Throwable -> Le5
+            if (r7 == 0) goto L127
             int r1 = r7.getState()
             r2 = 1
-            if (r1 == r2) goto L129
+            if (r1 == r2) goto L127
             r7.release()
             r7 = 0
             r1 = r7
             goto L6b
-        Le7:
+        Le5:
             r1 = move-exception
-        Le8:
-            if (r7 == 0) goto Lf4
+        Le6:
+            if (r7 == 0) goto Lf2
             int r2 = r7.getState()
             r3 = 1
-            if (r2 == r3) goto Lf4
+            if (r2 == r3) goto Lf2
             r7.release()
-        Lf4:
+        Lf2:
             throw r1
-        Lf5:
+        Lf3:
             int r1 = r10 + 1
             r10 = r1
             r2 = r8
             goto L3a
-        Lfb:
+        Lf9:
             int r1 = r9 + 1
             r9 = r1
             r1 = r2
             goto L30
-        L101:
+        Lff:
             java.lang.IllegalArgumentException r1 = new java.lang.IllegalArgumentException
             java.lang.String r2 = "getInstance() failed : no suitable audio configurations on this device."
             r1.<init>(r2)
             throw r1
-        L109:
+        L107:
             if (r1 == 0) goto L6b
             int r2 = r1.getState()
             r4 = 1
@@ -207,28 +205,28 @@ public class k {
             r1.release()
             r1 = 0
             goto L6b
-        L118:
+        L116:
             r2 = move-exception
             r7 = r1
             r1 = r2
-            goto Le8
-        L11c:
+            goto Le6
+        L11a:
             r1 = move-exception
             r7 = r8
-            goto Le8
-        L11f:
+            goto Le6
+        L11d:
             r2 = move-exception
             r7 = r1
             r1 = r2
-            goto Ld5
-        L123:
+            goto Ld3
+        L121:
             r1 = move-exception
             r7 = r8
-            goto Ld5
-        L126:
+            goto Ld3
+        L124:
             r1 = r8
             goto L6b
-        L129:
+        L127:
             r1 = r7
             goto L6b
         */

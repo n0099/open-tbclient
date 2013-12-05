@@ -8,8 +8,6 @@ import android.text.SpannableString;
 import android.text.style.ImageSpan;
 import com.baidu.tbadk.imageManager.TbFaceManager;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
-import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.bg;
 import com.slidingmenu.lib.R;
 import com.tencent.mm.sdk.platformtools.LocaleUtil;
 import java.util.ArrayList;
@@ -18,13 +16,13 @@ import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class ar implements com.baidu.tieba.util.an {
+public class ar implements com.baidu.tieba.util.ak {
     private String e;
     private ArrayList<ar> j;
     private com.baidu.tbadk.widget.richText.a k = null;
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1178a = null;
+    private String f1225a = null;
     private String b = null;
     private int c = 0;
     private long d = 0;
@@ -51,7 +49,7 @@ public class ar implements com.baidu.tieba.util.an {
     }
 
     public String d() {
-        return this.f1178a;
+        return this.f1225a;
     }
 
     public int e() {
@@ -87,7 +85,7 @@ public class ar implements com.baidu.tieba.util.an {
             int length = spannableString.length();
             as asVar = new as(this, context, str, str2);
             if (z) {
-                int b = UtilHelper.b(context, 12.0f);
+                int b = com.baidu.adp.lib.h.g.b(context, 12.0f);
                 Bitmap a2 = com.baidu.tieba.util.m.a((int) R.drawable.icon_floorhost);
                 int width = (a2.getWidth() * b) / a2.getHeight();
                 BitmapDrawable bitmapDrawable = new BitmapDrawable(a2);
@@ -149,7 +147,7 @@ public class ar implements com.baidu.tieba.util.an {
                 try {
                     i3 = this.h.get(size - 1).a();
                 } catch (Exception e) {
-                    bg.b("PostData", "uniteContentExcepFace", "error = " + e.getMessage());
+                    com.baidu.tieba.util.bd.b("PostData", "uniteContentExcepFace", "error = " + e.getMessage());
                     return;
                 }
             }
@@ -193,7 +191,7 @@ public class ar implements com.baidu.tieba.util.an {
                 try {
                     i4 = this.h.get(size - 1).a();
                 } catch (Exception e) {
-                    bg.b("PostData", "uniteContent", "error = " + e.getMessage());
+                    com.baidu.tieba.util.bd.b("PostData", "uniteContent", "error = " + e.getMessage());
                     return;
                 }
             }
@@ -233,7 +231,7 @@ public class ar implements com.baidu.tieba.util.an {
                 ClipboardManager clipboardManager = (ClipboardManager) context.getSystemService("clipboard");
                 clipboardManager.setText(this.k.toString());
                 if (clipboardManager.getText() != null) {
-                    bg.e(getClass().getName(), "clip_text", clipboardManager.getText().toString());
+                    com.baidu.tieba.util.bd.e(getClass().getName(), "clip_text", clipboardManager.getText().toString());
                     return;
                 }
                 return;
@@ -264,11 +262,11 @@ public class ar implements com.baidu.tieba.util.an {
                 ClipboardManager clipboardManager2 = (ClipboardManager) context.getSystemService("clipboard");
                 clipboardManager2.setText(sb.toString());
                 if (clipboardManager2.getText() != null) {
-                    bg.e("PbActivity", "clip_text", clipboardManager2.getText().toString());
+                    com.baidu.tieba.util.bd.e("PbActivity", "clip_text", clipboardManager2.getText().toString());
                 }
             }
         } catch (NullPointerException e) {
-            bg.b("PostData", "setClipString", e.getMessage());
+            com.baidu.tieba.util.bd.b("PostData", "setClipString", e.getMessage());
         }
     }
 
@@ -279,7 +277,7 @@ public class ar implements com.baidu.tieba.util.an {
     public void a(JSONObject jSONObject, Context context) {
         if (jSONObject != null) {
             try {
-                this.f1178a = jSONObject.optString(LocaleUtil.INDONESIAN);
+                this.f1225a = jSONObject.optString(LocaleUtil.INDONESIAN);
                 this.b = jSONObject.optString("title");
                 this.c = jSONObject.optInt("floor", 0);
                 this.d = jSONObject.optLong("time", 0L) * 1000;
@@ -307,12 +305,12 @@ public class ar implements com.baidu.tieba.util.an {
                     }
                 }
             } catch (Exception e) {
-                bg.b("PostData", "parserJson", "error = " + e.getMessage());
+                com.baidu.tieba.util.bd.b("PostData", "parserJson", "error = " + e.getMessage());
             }
         }
     }
 
-    @Override // com.baidu.tieba.util.an
+    @Override // com.baidu.tieba.util.ak
     public LinkedList<String> getImageUrl() {
         if (this.k == null) {
             return null;
@@ -348,7 +346,7 @@ public class ar implements com.baidu.tieba.util.an {
         return stringBuffer.toString();
     }
 
-    @Override // com.baidu.tieba.util.an
+    @Override // com.baidu.tieba.util.ak
     public LinkedList<String> getPhotoUrl() {
         if (this.f == null) {
             return null;
@@ -364,7 +362,7 @@ public class ar implements com.baidu.tieba.util.an {
         return linkedList;
     }
 
-    @Override // com.baidu.tieba.util.an
+    @Override // com.baidu.tieba.util.ak
     public LinkedList<String> getForumPhotoUrl() {
         return null;
     }

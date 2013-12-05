@@ -3,7 +3,7 @@ package javassist;
 public final class CtPrimitiveType extends h {
 
     /* renamed from: a  reason: collision with root package name */
-    private char f2726a;
+    private char f2907a;
     private String n;
     private String o;
     private String p;
@@ -14,7 +14,7 @@ public final class CtPrimitiveType extends h {
     /* JADX INFO: Access modifiers changed from: package-private */
     public CtPrimitiveType(String str, char c, String str2, String str3, String str4, int i, int i2, int i3) {
         super(str);
-        this.f2726a = c;
+        this.f2907a = c;
         this.n = str2;
         this.o = str3;
         this.p = str4;
@@ -34,7 +34,7 @@ public final class CtPrimitiveType extends h {
     }
 
     public char y() {
-        return this.f2726a;
+        return this.f2907a;
     }
 
     public String z() {

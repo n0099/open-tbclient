@@ -20,7 +20,7 @@ public class bx extends com.baidu.adp.a.d {
     private bz o = null;
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f1905a = true;
+    private boolean f2017a = true;
     private String b = null;
     private UserData k = null;
     private boolean i = false;
@@ -54,11 +54,11 @@ public class bx extends com.baidu.adp.a.d {
     }
 
     public void a(boolean z) {
-        this.f1905a = z;
+        this.f2017a = z;
     }
 
     public boolean c() {
-        return this.f1905a;
+        return this.f2017a;
     }
 
     public void a(UserData userData) {
@@ -99,7 +99,7 @@ public class bx extends com.baidu.adp.a.d {
         try {
             a(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.tieba.util.bg.b(getClass().getName(), "parserJson", "error = " + e.getMessage());
+            com.baidu.tieba.util.bd.b(getClass().getName(), "parserJson", "error = " + e.getMessage());
         }
     }
 
@@ -111,7 +111,7 @@ public class bx extends com.baidu.adp.a.d {
                 this.l = new AntiData();
                 this.l.parserJson(jSONObject.optJSONObject("anti_stat"));
             } catch (Exception e) {
-                com.baidu.tieba.util.bg.b(getClass().getName(), "parserJson", "error = " + e.getMessage());
+                com.baidu.tieba.util.bd.b(getClass().getName(), "parserJson", "error = " + e.getMessage());
             }
         }
     }

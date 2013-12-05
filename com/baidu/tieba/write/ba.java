@@ -5,15 +5,15 @@ import android.graphics.Bitmap;
 class ba implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WriteImagePreview f2684a;
+    final /* synthetic */ WriteImagePreview f2802a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ba(WriteImagePreview writeImagePreview) {
-        this.f2684a = writeImagePreview;
+        this.f2802a = writeImagePreview;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f2684a.a((Bitmap) null);
+        this.f2802a.a((Bitmap) null);
     }
 }

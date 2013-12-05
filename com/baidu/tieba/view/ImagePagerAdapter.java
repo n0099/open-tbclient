@@ -14,25 +14,26 @@ import java.util.ArrayList;
 public class ImagePagerAdapter extends android.support.v4.view.ae {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f2520a;
+    private Context f2634a;
     private ArrayList<String> b;
-    private o e;
+    private p f;
     private View.OnClickListener c = null;
-    private p d = null;
-    private int f = 0;
-    private boolean g = false;
-    private String h = null;
-    private int i = 0;
-    private boolean j = false;
+    private View.OnLongClickListener d = null;
+    private q e = null;
+    private int g = 0;
+    private boolean h = false;
+    private String i = null;
+    private int j = 0;
     private boolean k = false;
+    private boolean l = false;
 
-    public ImagePagerAdapter(Context context, ArrayList<String> arrayList, o oVar) {
-        this.f2520a = null;
+    public ImagePagerAdapter(Context context, ArrayList<String> arrayList, p pVar) {
+        this.f2634a = null;
         this.b = null;
-        this.e = null;
-        this.f2520a = context;
+        this.f = null;
+        this.f2634a = context;
         this.b = arrayList;
-        this.e = oVar;
+        this.f = pVar;
     }
 
     public void a(ArrayList<String> arrayList) {
@@ -41,16 +42,16 @@ public class ImagePagerAdapter extends android.support.v4.view.ae {
     }
 
     public void a(String str) {
-        this.h = str;
+        this.i = str;
     }
 
     public void a(boolean z) {
-        this.g = z;
+        this.h = z;
         notifyDataSetChanged();
     }
 
     public boolean a() {
-        return this.g;
+        return this.h;
     }
 
     @Override // android.support.v4.view.ae
@@ -58,15 +59,15 @@ public class ImagePagerAdapter extends android.support.v4.view.ae {
         int i = 0;
         if (this.b != null) {
             i = this.b.size();
-            if (this.g) {
+            if (this.h) {
                 i++;
             }
         }
-        return i + this.i;
+        return i + this.j;
     }
 
     public void a(int i) {
-        this.i = i;
+        this.j = i;
         notifyDataSetChanged();
     }
 
@@ -74,12 +75,16 @@ public class ImagePagerAdapter extends android.support.v4.view.ae {
         this.c = onClickListener;
     }
 
-    public void b(int i) {
-        this.f = i;
+    public void a(View.OnLongClickListener onLongClickListener) {
+        this.d = onLongClickListener;
     }
 
-    public void a(p pVar) {
-        this.d = pVar;
+    public void b(int i) {
+        this.g = i;
+    }
+
+    public void a(q qVar) {
+        this.e = qVar;
     }
 
     @Override // android.support.v4.view.ae
@@ -90,40 +95,42 @@ public class ImagePagerAdapter extends android.support.v4.view.ae {
     @Override // android.support.v4.view.ae
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
         ((ViewPager) viewGroup).removeView((View) obj);
-        if (obj instanceof bl) {
-            ((bl) obj).c();
+        if (obj instanceof bo) {
+            ((bo) obj).c();
         }
     }
 
     @Override // android.support.v4.view.ae
     public Object instantiateItem(ViewGroup viewGroup, int i) {
         if (i == this.b.size()) {
-            View inflate = LayoutInflater.from(this.f2520a).inflate(R.layout.big_image_next, (ViewGroup) null);
-            ((TextView) inflate.findViewById(R.id.thread_name)).setText(this.h);
+            View inflate = LayoutInflater.from(this.f2634a).inflate(R.layout.big_image_next, (ViewGroup) null);
+            ((TextView) inflate.findViewById(R.id.thread_name)).setText(this.i);
             viewGroup.addView(inflate);
             inflate.setOnClickListener(this.c);
+            inflate.setOnLongClickListener(this.d);
             return inflate;
         }
-        bl blVar = new bl(this.f2520a);
+        bo boVar = new bo(this.f2634a);
         String str = i < this.b.size() ? this.b.get(i) : null;
-        blVar.setLayoutParams(new Gallery.LayoutParams(-1, -1));
-        blVar.setImageOnClickListener(this.c);
-        blVar.setIsCdn(this.j);
-        blVar.setOnSizeChangedListener(this.d);
-        ((ViewPager) viewGroup).addView(blVar, 0);
-        blVar.a(str, this.k);
-        blVar.setGifMaxUseableMem(this.f);
-        blVar.setTag(String.valueOf(i));
-        blVar.setGifSetListener(this.e);
-        return blVar;
+        boVar.setLayoutParams(new Gallery.LayoutParams(-1, -1));
+        boVar.setImageOnClickListener(this.c);
+        boVar.setImageOnLongClickListener(this.d);
+        boVar.setIsCdn(this.k);
+        boVar.setOnSizeChangedListener(this.e);
+        ((ViewPager) viewGroup).addView(boVar, 0);
+        boVar.a(str, this.l);
+        boVar.setGifMaxUseableMem(this.g);
+        boVar.setTag(String.valueOf(i));
+        boVar.setGifSetListener(this.f);
+        return boVar;
     }
 
     @Override // android.support.v4.view.ae
     public void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
         super.setPrimaryItem(viewGroup, i, obj);
-        if (obj instanceof bl) {
+        if (obj instanceof bo) {
             GalleryViewPager galleryViewPager = (GalleryViewPager) viewGroup;
-            k imageView = ((bl) obj).getImageView();
+            l imageView = ((bo) obj).getImageView();
             if (galleryViewPager.getSelectedView() == null) {
                 galleryViewPager.setSelectedView(imageView);
                 ViewParent parent = galleryViewPager.getParent();
@@ -131,25 +138,25 @@ public class ImagePagerAdapter extends android.support.v4.view.ae {
                     ((MultiImageView) parent).setZoomButton(imageView);
                 }
             }
-            k currentView = galleryViewPager.getCurrentView();
+            l currentView = galleryViewPager.getCurrentView();
             if (imageView != currentView) {
                 if (currentView != null) {
                     currentView.o();
                 }
-                ((bl) obj).a(this.k);
+                ((bo) obj).a(this.l);
                 galleryViewPager.setCurrentView(imageView);
-                if (((bl) obj).getImageType() == 1) {
-                    this.e.a(imageView);
+                if (((bo) obj).getImageType() == 1) {
+                    this.f.a(imageView);
                 }
             }
         }
     }
 
     public void b(boolean z) {
-        this.k = z;
+        this.l = z;
     }
 
     public void c(boolean z) {
-        this.j = z;
+        this.k = z;
     }
 }

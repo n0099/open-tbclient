@@ -3,7 +3,7 @@ package com.baidu.android.defense.b;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f623a;
+    private String f628a;
     private String b;
     private int c;
 
@@ -24,6 +24,6 @@ public final class a {
     }
 
     public String toString() {
-        return "ManageItem: mPackageName =" + this.b + " mVersionCode =" + this.c + " mApkPath =" + this.f623a;
+        return "ManageItem: mPackageName =" + this.b + " mVersionCode =" + this.c + " mApkPath =" + this.f628a;
     }
 }

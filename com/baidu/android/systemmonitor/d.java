@@ -7,11 +7,11 @@ import android.content.Intent;
 public class d implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ StatisticManager f789a;
+    final /* synthetic */ StatisticManager f794a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(StatisticManager statisticManager) {
-        this.f789a = statisticManager;
+        this.f794a = statisticManager;
     }
 
     @Override // java.lang.Runnable
@@ -23,19 +23,19 @@ public class d implements Runnable {
         Context context5;
         Context context6;
         long currentTimeMillis = System.currentTimeMillis();
-        context = this.f789a.mContext;
+        context = this.f794a.mContext;
         com.baidu.android.systemmonitor.b.d a2 = com.baidu.android.systemmonitor.b.d.a(context);
-        context2 = this.f789a.mContext;
+        context2 = this.f794a.mContext;
         if (a2.b(com.baidu.android.systemmonitor.d.b.h(context2))) {
-            context3 = this.f789a.mContext;
+            context3 = this.f794a.mContext;
             if (com.baidu.android.systemmonitor.d.c.a(context3)) {
-                context5 = this.f789a.mContext;
+                context5 = this.f794a.mContext;
                 com.baidu.android.systemmonitor.c.a.a(context5).e();
-                context6 = this.f789a.mContext;
+                context6 = this.f794a.mContext;
                 com.baidu.android.systemmonitor.d.b.a(context6, currentTimeMillis);
             }
             Intent intent = new Intent("com.baidu.freqstatistic.summaryresults");
-            context4 = this.f789a.mContext;
+            context4 = this.f794a.mContext;
             context4.getApplicationContext().sendBroadcast(intent);
         }
     }

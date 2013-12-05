@@ -7,40 +7,40 @@ import android.widget.AbsListView;
 public class j implements AbsListView.OnScrollListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ BdListView f572a;
+    final /* synthetic */ BdListView f576a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(BdListView bdListView) {
-        this.f572a = bdListView;
+        this.f576a = bdListView;
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScrollStateChanged(AbsListView absListView, int i) {
         AbsListView.OnScrollListener onScrollListener;
         r rVar;
-        s sVar;
+        t tVar;
         int i2;
-        s sVar2;
+        t tVar2;
         r rVar2;
         AbsListView.OnScrollListener onScrollListener2;
-        onScrollListener = this.f572a.g;
+        onScrollListener = this.f576a.g;
         if (onScrollListener != null) {
-            onScrollListener2 = this.f572a.g;
+            onScrollListener2 = this.f576a.g;
             onScrollListener2.onScrollStateChanged(absListView, i);
         }
         if (i == 0) {
-            rVar = this.f572a.l;
+            rVar = this.f576a.m;
             if (rVar != null && absListView.getLastVisiblePosition() == absListView.getCount() - 1 && absListView.getFirstVisiblePosition() != 0) {
-                rVar2 = this.f572a.l;
+                rVar2 = this.f576a.m;
                 rVar2.a();
             }
-            sVar = this.f572a.j;
-            if (sVar != null) {
+            tVar = this.f576a.k;
+            if (tVar != null) {
                 int firstVisiblePosition = absListView.getFirstVisiblePosition();
-                i2 = this.f572a.k;
+                i2 = this.f576a.l;
                 if (firstVisiblePosition <= i2) {
-                    sVar2 = this.f572a.j;
-                    sVar2.b();
+                    tVar2 = this.f576a.k;
+                    tVar2.b();
                 }
             }
         }
@@ -55,22 +55,22 @@ public class j implements AbsListView.OnScrollListener {
         Runnable runnable2;
         long j2;
         AbsListView.OnScrollListener onScrollListener2;
-        this.f572a.p = i;
-        onScrollListener = this.f572a.g;
+        this.f576a.q = i;
+        onScrollListener = this.f576a.g;
         if (onScrollListener != null) {
-            onScrollListener2 = this.f572a.g;
+            onScrollListener2 = this.f576a.g;
             onScrollListener2.onScroll(absListView, i, i2, i3);
         }
-        qVar = this.f572a.h;
+        qVar = this.f576a.h;
         if (qVar != null) {
-            j = this.f572a.i;
+            j = this.f576a.j;
             if (j > 0) {
-                Handler handler = this.f572a.getHandler();
-                runnable = this.f572a.q;
+                Handler handler = this.f576a.getHandler();
+                runnable = this.f576a.r;
                 handler.removeCallbacks(runnable);
-                Handler handler2 = this.f572a.getHandler();
-                runnable2 = this.f572a.q;
-                j2 = this.f572a.i;
+                Handler handler2 = this.f576a.getHandler();
+                runnable2 = this.f576a.r;
+                j2 = this.f576a.j;
                 handler2.postDelayed(runnable2, j2);
             }
         }

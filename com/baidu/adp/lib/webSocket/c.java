@@ -7,7 +7,7 @@ import java.nio.ByteBuffer;
 public class c extends OutputStream {
 
     /* renamed from: a  reason: collision with root package name */
-    private final int f532a;
+    private final int f535a;
     private final int b;
     private ByteBuffer c;
 
@@ -16,9 +16,9 @@ public class c extends OutputStream {
     }
 
     public c(int i, int i2) {
-        this.f532a = i;
+        this.f535a = i;
         this.b = i2;
-        this.c = ByteBuffer.allocateDirect(this.f532a);
+        this.c = ByteBuffer.allocateDirect(this.f535a);
         this.c.clear();
     }
 

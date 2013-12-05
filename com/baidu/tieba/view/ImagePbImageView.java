@@ -10,7 +10,6 @@ import android.os.Handler;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.UtilHelper;
 import com.slidingmenu.lib.R;
 import com.tencent.mm.sdk.platformtools.Util;
 import java.lang.ref.SoftReference;
@@ -18,7 +17,7 @@ import java.lang.ref.SoftReference;
 public class ImagePbImageView extends ImageView {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f2521a;
+    private boolean f2635a;
     private int b;
     private Matrix c;
     private Paint d;
@@ -46,7 +45,7 @@ public class ImagePbImageView extends ImageView {
     }
 
     public void setIsScale(boolean z) {
-        this.f2521a = z;
+        this.f2635a = z;
     }
 
     @Override // android.widget.ImageView, android.view.View
@@ -73,7 +72,7 @@ public class ImagePbImageView extends ImageView {
 
     public ImagePbImageView(Context context) {
         super(context);
-        this.f2521a = false;
+        this.f2635a = false;
         this.b = 0;
         this.c = new Matrix();
         this.d = new Paint();
@@ -87,13 +86,13 @@ public class ImagePbImageView extends ImageView {
         this.l = null;
         this.m = null;
         this.n = -1;
-        this.o = new ai(this);
+        this.o = new aj(this);
         c();
     }
 
     public ImagePbImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f2521a = false;
+        this.f2635a = false;
         this.b = 0;
         this.c = new Matrix();
         this.d = new Paint();
@@ -107,13 +106,13 @@ public class ImagePbImageView extends ImageView {
         this.l = null;
         this.m = null;
         this.n = -1;
-        this.o = new ai(this);
+        this.o = new aj(this);
         c();
     }
 
     public ImagePbImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f2521a = false;
+        this.f2635a = false;
         this.b = 0;
         this.c = new Matrix();
         this.d = new Paint();
@@ -127,7 +126,7 @@ public class ImagePbImageView extends ImageView {
         this.l = null;
         this.m = null;
         this.n = -1;
-        this.o = new ai(this);
+        this.o = new aj(this);
         c();
     }
 
@@ -142,7 +141,7 @@ public class ImagePbImageView extends ImageView {
         com.baidu.adp.widget.ImageView.e c = com.baidu.tbadk.imageManager.d.a().c(((String) getTag()) + "_big");
         if (c == null) {
             this.g = false;
-            if (TiebaApplication.g().ap() == 1) {
+            if (TiebaApplication.h().an() == 1) {
                 if (this.m == null) {
                     this.l = new com.baidu.adp.widget.ImageView.e(com.baidu.tieba.util.m.a((int) R.drawable.image_default_1), false, null);
                     this.m = new SoftReference<>(this.l);
@@ -164,13 +163,13 @@ public class ImagePbImageView extends ImageView {
             if (this.n >= 0) {
                 this.d.setAlpha(255 - ((this.n * Util.MASK_8BIT) / 10));
             }
-            int a2 = UtilHelper.a(getContext(), 8.0f);
+            int a2 = com.baidu.adp.lib.h.g.a(getContext(), 8.0f);
             int a3 = eVar.a();
             int b = eVar.b();
             int width = getWidth() - a2;
             int height = getHeight();
             this.c.reset();
-            if (this.g && this.f2521a) {
+            if (this.g && this.f2635a) {
                 float min = Math.min(width / a3, height / b);
                 a3 = (int) (a3 * min);
                 b = (int) (b * min);
@@ -183,7 +182,7 @@ public class ImagePbImageView extends ImageView {
             }
             this.c.postTranslate(f, f2);
             eVar.a(canvas, this.c, this.d);
-            if (this.g && TiebaApplication.g().ap() == 1) {
+            if (this.g && TiebaApplication.h().an() == 1) {
                 this.f.set(f, f2, a3 + f, b + f2);
                 canvas.drawRect(this.f, this.e);
             }

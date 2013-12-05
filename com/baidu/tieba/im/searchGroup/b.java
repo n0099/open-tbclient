@@ -1,86 +1,90 @@
 package com.baidu.tieba.im.searchGroup;
 
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.tieba.im.data.BaseGroupData;
-import com.baidu.tieba.view.HeadImageView;
+import android.widget.ProgressBar;
+import com.baidu.tieba.util.ba;
+import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes.dex */
-public class b extends BaseAdapter {
+public class b extends com.baidu.adp.a.e {
 
     /* renamed from: a  reason: collision with root package name */
-    private SearchGroupActivity f1777a;
-    private com.baidu.tieba.util.i b;
-    private List<BaseGroupData> c = new ArrayList();
+    private View f1873a;
+    private NavigationBar c;
+    private ImageView d;
+    private EditText e;
+    private ImageButton f;
+    private ProgressBar g;
+    private Button h;
+    private AddGroupActivity i;
 
-    public com.baidu.tieba.util.i a() {
-        return this.b;
+    public b(AddGroupActivity addGroupActivity) {
+        super(addGroupActivity);
+        this.f1873a = null;
+        this.c = null;
+        this.d = null;
+        this.e = null;
+        this.f = null;
+        this.g = null;
+        this.h = null;
+        this.i = null;
+        this.i = addGroupActivity;
+        h();
     }
 
-    public void a(List<BaseGroupData> list) {
-        this.c = list;
-        notifyDataSetChanged();
+    public View a() {
+        return this.f;
     }
 
-    public b(SearchGroupActivity searchGroupActivity) {
-        this.f1777a = searchGroupActivity;
-        this.b = new com.baidu.tieba.util.i(searchGroupActivity);
-        this.b.d(true);
+    public View e() {
+        return this.h;
     }
 
-    public boolean a(int i) {
-        return this.c != null && i >= 0 && i < this.c.size();
+    public View f() {
+        return this.d;
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
-        return this.c.size();
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: b */
-    public BaseGroupData getItem(int i) {
-        int itemId = (int) getItemId(i);
-        if (itemId < 0 || itemId >= this.c.size()) {
-            return null;
+    public void g() {
+        if (this.e != null) {
+            this.e.setText("");
         }
-        return this.c.get(itemId);
     }
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        return i;
+    public void a(boolean z) {
+        this.g.setVisibility(z ? 0 : 8);
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        c cVar;
-        if (view == null || view.getTag() == null) {
-            view = LayoutInflater.from(this.f1777a).inflate(R.layout.im_search_group_list_item, viewGroup, false);
-            cVar = new c();
-            cVar.f1778a = (HeadImageView) view.findViewById(R.id.item_head);
-            cVar.b = (TextView) view.findViewById(R.id.item_name);
-            cVar.c = (TextView) view.findViewById(R.id.item_count);
-            view.setTag(cVar);
+    public void a(int i) {
+        this.i.getLayoutMode().a(i == 1);
+        this.i.getLayoutMode().a(this.f1873a);
+        ba.b(this.f1873a, i);
+        this.c.c(i);
+        if (i == 1) {
+            this.f1873a.setBackgroundResource(R.color.im_add_group_page_backgroundcolor_1);
         } else {
-            cVar = (c) view.getTag();
+            this.f1873a.setBackgroundResource(R.color.im_add_group_page_backgroundcolor);
         }
-        BaseGroupData baseGroupData = this.c.get(i);
-        cVar.f1778a.setTag(null);
-        cVar.f1778a.setDefaultResource(R.drawable.avatar_poto_defaul50);
-        cVar.f1778a.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
-        if (baseGroupData != null) {
-            cVar.f1778a.setTag(baseGroupData.getPortrait());
-            cVar.b.setText(baseGroupData.getName());
-            cVar.c.setText(this.f1777a.getResources().getString(R.string.mem_count, String.valueOf(baseGroupData.getMemberNum())));
-        }
-        return view;
+    }
+
+    private void h() {
+        this.i.setContentView(R.layout.im_add_group_activity);
+        this.f1873a = this.i.findViewById(R.id.addgroup_rootlayout);
+        this.c = (NavigationBar) this.i.findViewById(R.id.addgroup_navigationbar);
+        this.c.a(this.i.getResources().getString(R.string.add_group_title_main));
+        this.d = this.c.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.e = (EditText) this.i.findViewById(R.id.addgroup_input);
+        this.e.setInputType(2);
+        this.f = (ImageButton) this.i.findViewById(R.id.addgroup_delbtn);
+        this.h = (Button) this.i.findViewById(R.id.addgroup_searchbutton);
+        this.e.addTextChangedListener(new c(this));
+        this.h = (Button) this.i.findViewById(R.id.addgroup_searchbutton);
+        this.g = (ProgressBar) this.i.findViewById(R.id.addgroup_progress);
+        this.d.setOnClickListener(this.i);
+        this.f.setOnClickListener(this.i);
+        this.h.setOnClickListener(this.i);
     }
 }

@@ -2,6 +2,7 @@ package com.baidu.tieba.im.frsgroup;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,44 +12,52 @@ import android.widget.ListAdapter;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.BaseFragment;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.view.bi;
+import com.baidu.tieba.im.data.GroupInfoData;
+import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
+import com.baidu.tieba.im.message.Message;
+import com.baidu.tieba.im.message.ResponseDismissGroupMessage;
+import com.baidu.tieba.view.bk;
 import com.slidingmenu.lib.R;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class FrsGroupListFragment extends BaseFragment implements AbsListView.OnScrollListener, com.baidu.adp.widget.ListView.r {
+public class FrsGroupListFragment extends BaseFragment implements AbsListView.OnScrollListener, com.baidu.adp.widget.ListView.r, com.baidu.tieba.im.messageCenter.g, com.baidu.tieba.im.pushNotify.k {
     private int Y;
+    private boolean Z;
 
     /* renamed from: a  reason: collision with root package name */
-    private FrsGroupActivity f1627a;
+    private FrsGroupActivity f1694a;
+    private Runnable aa = new e(this);
+    private com.baidu.tieba.im.messageCenter.g ab = new f(this);
     private com.baidu.tieba.im.model.b b;
     private g c;
     private BdListView d;
     private Button e;
-    private bi f;
+    private bk f;
     private InitGuideView g;
     private GroupListAdapter h;
     private Handler i;
-    private Runnable Z = new e(this);
-    private com.baidu.tieba.im.messageCenter.h aa = new f(this);
 
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
     public void a(Bundle bundle) {
         super.a(bundle);
-        this.f1627a = (FrsGroupActivity) i();
-        this.b = this.f1627a.c();
-        this.c = this.f1627a.d();
+        this.f1694a = (FrsGroupActivity) i();
+        this.b = this.f1694a.c();
+        this.c = this.f1694a.d();
         this.i = new Handler();
-        this.b.a(this.aa);
+        this.b.a(this.ab);
+        com.baidu.tieba.im.messageCenter.e.a().a(103104, this);
+        com.baidu.tieba.im.pushNotify.l.a().a("dismiss_group", this);
     }
 
     private void G() {
-        this.b.a(this.aa);
-        if (!this.b.b(g())) {
+        this.b.a(this.ab);
+        if (!this.b.b(g()) || this.Z) {
             J();
         }
     }
 
     private void H() {
-        this.b.b(this.aa);
+        this.b.b(this.ab);
     }
 
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
@@ -66,9 +75,9 @@ public class FrsGroupListFragment extends BaseFragment implements AbsListView.On
         this.g = (InitGuideView) inflate.findViewById(R.id.group_guide);
         this.e = (Button) inflate.findViewById(R.id.guide_create);
         this.d = (BdListView) inflate.findViewById(R.id.group_list);
-        this.f = new bi(this.f1627a);
+        this.f = new bk(this.f1694a);
         this.d.setPullRefresh(this.f);
-        this.h = new GroupListAdapter(this.f1627a);
+        this.h = new GroupListAdapter(this.f1694a);
         this.d.setAdapter((ListAdapter) this.h);
         this.d.setOnScrollListener(this);
         this.d.setOnSrollToBottomListener(this);
@@ -102,20 +111,22 @@ public class FrsGroupListFragment extends BaseFragment implements AbsListView.On
     public void c_() {
         super.c_();
         if (this.g.b()) {
-            this.g.g();
+            this.g.f();
         }
     }
 
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
     public void d() {
         super.d();
-        this.g.h();
+        this.g.g();
     }
 
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
     public void t() {
         super.t();
-        this.b.b(this.aa);
+        this.b.b(this.ab);
+        com.baidu.tieba.im.messageCenter.e.a().a(this);
+        com.baidu.tieba.im.pushNotify.l.a().a(this);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -155,7 +166,7 @@ public class FrsGroupListFragment extends BaseFragment implements AbsListView.On
     }
 
     private void L() {
-        if (this.h.b()) {
+        if (this.h.c()) {
             a(true);
         }
     }
@@ -164,11 +175,11 @@ public class FrsGroupListFragment extends BaseFragment implements AbsListView.On
     public void onScrollStateChanged(AbsListView absListView, int i) {
         if (i == 0) {
             if (this.i != null) {
-                this.i.removeCallbacks(this.Z);
-                this.i.postDelayed(this.Z, 300L);
+                this.i.removeCallbacks(this.aa);
+                this.i.postDelayed(this.aa, 300L);
             }
         } else if (this.i != null) {
-            this.i.removeCallbacks(this.Z);
+            this.i.removeCallbacks(this.aa);
         }
     }
 
@@ -204,17 +215,17 @@ public class FrsGroupListFragment extends BaseFragment implements AbsListView.On
     /* JADX INFO: Access modifiers changed from: private */
     public void O() {
         if (this.i != null) {
-            this.i.removeCallbacks(this.Z);
-            this.i.postDelayed(this.Z, 0L);
+            this.i.removeCallbacks(this.aa);
+            this.i.postDelayed(this.aa, 0L);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e(boolean z) {
-        int ap = TiebaApplication.g().ap();
+        int an = TiebaApplication.h().an();
         if (!z) {
             this.d.setDivider(j().getDrawable(17170445));
-        } else if (ap == 1) {
+        } else if (an == 1) {
             this.d.setDivider(j().getDrawable(R.drawable.list_divider_1));
         } else {
             this.d.setDivider(j().getDrawable(R.drawable.list_divider));
@@ -224,19 +235,57 @@ public class FrsGroupListFragment extends BaseFragment implements AbsListView.On
     /* JADX INFO: Access modifiers changed from: private */
     public void P() {
         e(false);
-        this.g.g();
+        this.g.f();
         switch (this.b.g()) {
             case 1:
                 this.g.c();
                 return;
             case 2:
-                this.g.d();
+                this.g.a(this.b.d());
                 return;
             case 3:
-                this.g.a(this.b.d());
+                this.g.b(this.b.d());
                 return;
             default:
                 return;
+        }
+    }
+
+    @Override // com.baidu.tieba.im.messageCenter.g
+    public void a(Message message) {
+        if (message instanceof ResponseDismissGroupMessage) {
+            ResponseDismissGroupMessage responseDismissGroupMessage = (ResponseDismissGroupMessage) message;
+            if (!responseDismissGroupMessage.hasError()) {
+                a(responseDismissGroupMessage.getGroupId());
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.im.pushNotify.k
+    public void a(GroupNewsPojo groupNewsPojo) {
+        if (groupNewsPojo != null) {
+            String cmd = groupNewsPojo.getCmd();
+            if (!TextUtils.isEmpty(cmd) && cmd.equals("dismiss_group")) {
+                a(Long.parseLong(groupNewsPojo.getGid()));
+            }
+        }
+    }
+
+    private void a(long j) {
+        ArrayList<GroupInfoData> a2 = this.h.a();
+        if (a2 != null) {
+            int size = a2.size();
+            for (int i = 0; i < size; i++) {
+                if (a2.get(i).getGroupId() == j) {
+                    if (F()) {
+                        J();
+                        return;
+                    } else {
+                        this.Z = true;
+                        return;
+                    }
+                }
+            }
         }
     }
 }

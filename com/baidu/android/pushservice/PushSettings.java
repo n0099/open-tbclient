@@ -20,34 +20,34 @@ import java.util.HashMap;
 public class PushSettings {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Context f686a;
+    private static Context f691a;
 
     public static String a() {
-        if (f686a == null) {
+        if (f691a == null) {
             Log.e("PushSettings", "mContext == null");
             return "";
         }
-        return Settings.System.getString(f686a.getContentResolver(), "com.baidu.pushservice.channel_id");
+        return Settings.System.getString(f691a.getContentResolver(), "com.baidu.pushservice.channel_id");
     }
 
     public static void a(int i) {
-        if (f686a == null) {
+        if (f691a == null) {
             Log.w("PushSettings", "setCurPeriod mContext == null");
         } else {
-            Settings.System.putInt(f686a.getContentResolver(), "com.baidu.pushservice.cur_period", i);
+            Settings.System.putInt(f691a.getContentResolver(), "com.baidu.pushservice.cur_period", i);
         }
     }
 
     public static void a(long j) {
-        if (f686a == null) {
+        if (f691a == null) {
             Log.w("PushSettings", "setLastSendStatisticTime mContext == null");
         } else {
-            Settings.System.putLong(f686a.getContentResolver(), "com.baidu.pushservice.cst", j);
+            Settings.System.putLong(f691a.getContentResolver(), "com.baidu.pushservice.cst", j);
         }
     }
 
     public static void a(Context context) {
-        f686a = context;
+        f691a = context;
     }
 
     public static void a(Context context, String str) {
@@ -102,16 +102,16 @@ public class PushSettings {
     }
 
     public static void a(String str) {
-        if (f686a == null) {
+        if (f691a == null) {
             Log.e("PushSettings", "setChannelId mContext == null");
         } else {
-            Settings.System.putString(f686a.getContentResolver(), "com.baidu.pushservice.channel_id", str);
+            Settings.System.putString(f691a.getContentResolver(), "com.baidu.pushservice.channel_id", str);
         }
     }
 
     public static void a(String str, int i, String str2) {
         String str3;
-        if (f686a == null) {
+        if (f691a == null) {
             Log.e("PushSettings", "setApiInfo mContext == null");
         } else if (i == 9) {
             try {
@@ -121,7 +121,7 @@ public class PushSettings {
                 }
                 g.remove("com.baidu.pushservice" + str);
                 a(g);
-                Settings.System.putString(f686a.getContentResolver(), "com.baidu.pushservice" + str, "");
+                Settings.System.putString(f691a.getContentResolver(), "com.baidu.pushservice" + str, "");
             } catch (Exception e) {
                 Log.d("PushSettings", "set appInfo exception");
             }
@@ -148,7 +148,7 @@ public class PushSettings {
                 hashMap.put("com.baidu.pushservice" + str, str3);
                 a(hashMap);
             }
-            Settings.System.putString(f686a.getContentResolver(), "com.baidu.pushservice" + str, str3);
+            Settings.System.putString(f691a.getContentResolver(), "com.baidu.pushservice" + str, str3);
         }
     }
 
@@ -170,19 +170,19 @@ public class PushSettings {
     }
 
     public static String b() {
-        if (f686a == null) {
+        if (f691a == null) {
             Log.e("PushSettings", "getChannelToken mContext == null");
             return "";
         }
-        return Settings.System.getString(f686a.getContentResolver(), "com.baidu.pushservice.channel_token_rsa");
+        return Settings.System.getString(f691a.getContentResolver(), "com.baidu.pushservice.channel_token_rsa");
     }
 
     public static String b(String str) {
-        if (f686a == null) {
+        if (f691a == null) {
             Log.e("PushSettings", "setApiInfo mContext == null");
             return "";
         }
-        String string = Settings.System.getString(f686a.getContentResolver(), "com.baidu.pushservice" + str);
+        String string = Settings.System.getString(f691a.getContentResolver(), "com.baidu.pushservice" + str);
         if (TextUtils.isEmpty(string)) {
             try {
                 string = (String) g().get("com.baidu.pushservice" + str);
@@ -201,18 +201,18 @@ public class PushSettings {
     }
 
     public static void b(int i) {
-        if (f686a == null) {
+        if (f691a == null) {
             Log.w("PushSettings", "setStatisticSendDisabled mContext == null");
         } else {
-            Settings.System.putInt(f686a.getContentResolver(), "com.baidu.pushservice.sd", i);
+            Settings.System.putInt(f691a.getContentResolver(), "com.baidu.pushservice.sd", i);
         }
     }
 
     public static void b(long j) {
-        if (f686a == null) {
+        if (f691a == null) {
             Log.w("PushSettings", "setLastSendLbsTime mContext == null");
         } else {
-            Settings.System.putLong(f686a.getContentResolver(), "com.baidu.pushservice.clt", j);
+            Settings.System.putLong(f691a.getContentResolver(), "com.baidu.pushservice.clt", j);
         }
     }
 
@@ -243,39 +243,39 @@ public class PushSettings {
     }
 
     public static void c(long j) {
-        if (f686a == null) {
+        if (f691a == null) {
             Log.w("PushSettings", "setLastSendStatisticTime mContext == null");
         } else {
-            Settings.System.putLong(f686a.getContentResolver(), "com.baidu.pushservice.st", j);
+            Settings.System.putLong(f691a.getContentResolver(), "com.baidu.pushservice.st", j);
         }
     }
 
     public static void c(String str) {
-        if (f686a == null) {
+        if (f691a == null) {
             Log.e("PushSettings", "setChannelToken mContext == null");
         } else {
-            Settings.System.putString(f686a.getContentResolver(), "com.baidu.pushservice.channel_token_rsa", str);
+            Settings.System.putString(f691a.getContentResolver(), "com.baidu.pushservice.channel_token_rsa", str);
         }
     }
 
     public static boolean c() {
-        if (f686a == null) {
+        if (f691a == null) {
             return false;
         }
         try {
-            return Settings.System.getInt(f686a.getContentResolver(), "com.baidu.android.pushservice.PushSettings.debug_mode") == 1;
+            return Settings.System.getInt(f691a.getContentResolver(), "com.baidu.android.pushservice.PushSettings.debug_mode") == 1;
         } catch (Settings.SettingNotFoundException e) {
             return false;
         }
     }
 
     public static int d() {
-        if (f686a == null) {
+        if (f691a == null) {
             Log.e("PushSettings", "getCurPeriod mContext == null");
             return 0;
         }
         try {
-            return Settings.System.getInt(f686a.getContentResolver(), "com.baidu.pushservice.cur_period");
+            return Settings.System.getInt(f691a.getContentResolver(), "com.baidu.pushservice.cur_period");
         } catch (Settings.SettingNotFoundException e) {
             e.printStackTrace();
             return 0;
@@ -296,7 +296,7 @@ public class PushSettings {
     }
 
     public static int e() {
-        return Settings.System.getInt(f686a.getContentResolver(), "com.baidu.pushservice.sd", 0);
+        return Settings.System.getInt(f691a.getContentResolver(), "com.baidu.pushservice.sd", 0);
     }
 
     public static void e(Context context) {
@@ -322,7 +322,7 @@ public class PushSettings {
                 sb.append(str + ",");
             }
         }
-        Settings.System.putString(f686a.getContentResolver(), "com.baidu.pushservice.le", sb.toString());
+        Settings.System.putString(f691a.getContentResolver(), "com.baidu.pushservice.le", sb.toString());
     }
 
     public static void enableDebugMode(Context context, boolean z) {
@@ -336,7 +336,7 @@ public class PushSettings {
     }
 
     public static boolean f() {
-        return !TextUtils.isEmpty(Settings.System.getString(f686a.getContentResolver(), "com.baidu.pushservice.le"));
+        return !TextUtils.isEmpty(Settings.System.getString(f691a.getContentResolver(), "com.baidu.pushservice.le"));
     }
 
     private static HashMap g() {

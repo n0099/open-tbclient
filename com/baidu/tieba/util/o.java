@@ -2,6 +2,7 @@ package com.baidu.tieba.util;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteStatement;
 import java.io.Closeable;
 import java.io.IOException;
 import java.io.InputStream;
@@ -13,7 +14,7 @@ public class o {
             try {
                 inputStream.close();
             } catch (IOException e) {
-                bg.b("CloseUtil", "error on close the inputstream.", e.getMessage());
+                bd.b("CloseUtil", "error on close the inputstream.", e.getMessage());
             }
         }
     }
@@ -23,7 +24,7 @@ public class o {
             try {
                 closeable.close();
             } catch (Throwable th) {
-                bg.b("CloseUtil", "error on close the Closeable.", th.getMessage());
+                bd.b("CloseUtil", "error on close the Closeable.", th.getMessage());
             }
         }
     }
@@ -33,7 +34,7 @@ public class o {
             try {
                 outputStream.close();
             } catch (IOException e) {
-                bg.b("CloseUtil", "error on close the outputstream.", e.getMessage());
+                bd.b("CloseUtil", "error on close the outputstream.", e.getMessage());
             }
         }
     }
@@ -43,7 +44,7 @@ public class o {
             try {
                 cursor.close();
             } catch (Exception e) {
-                bg.b("CloseUtil", "error on close android.database.Cursor.", e.getMessage());
+                bd.b("CloseUtil", "error on close android.database.Cursor.", e.getMessage());
             }
         }
     }
@@ -53,7 +54,17 @@ public class o {
             try {
                 sQLiteDatabase.close();
             } catch (Exception e) {
-                bg.b("CloseUtil", "error on close android.database.SQLiteDatabase.", e.getMessage());
+                bd.b("CloseUtil", "error on close android.database.SQLiteDatabase.", e.getMessage());
+            }
+        }
+    }
+
+    public static void a(SQLiteStatement sQLiteStatement) {
+        if (sQLiteStatement != null) {
+            try {
+                sQLiteStatement.close();
+            } catch (Exception e) {
+                bd.b("CloseUtil", "error on close android.database.SQLiteDatabase.", e.getMessage());
             }
         }
     }

@@ -4,7 +4,7 @@ import android.content.Context;
 import android.widget.TextView;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class bk extends com.baidu.adp.widget.ScrollView.r {
+public class bk extends com.baidu.adp.widget.ListView.a {
     public bk(Context context) {
         super(context);
     }

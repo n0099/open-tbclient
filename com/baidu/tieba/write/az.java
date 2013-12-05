@@ -8,10 +8,10 @@ import android.content.Intent;
 public class az extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WriteImageActivity f2682a;
+    final /* synthetic */ WriteImageActivity f2800a;
 
     private az(WriteImageActivity writeImageActivity) {
-        this.f2682a = writeImageActivity;
+        this.f2800a = writeImageActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -21,11 +21,11 @@ public class az extends BroadcastReceiver {
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        this.f2682a.releaseResouce();
+        this.f2800a.releaseResouce();
         if (intent.getBooleanExtra("result", false)) {
-            this.f2682a.c();
+            this.f2800a.c();
         } else {
-            this.f2682a.showToast(intent.getStringExtra("error"));
+            this.f2800a.showToast(intent.getStringExtra("error"));
         }
     }
 }

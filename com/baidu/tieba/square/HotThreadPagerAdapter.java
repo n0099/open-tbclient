@@ -13,29 +13,29 @@ import com.slidingmenu.lib.R;
 public class HotThreadPagerAdapter extends android.support.v4.view.ae {
 
     /* renamed from: a  reason: collision with root package name */
-    private ForumDetailData.ThreadInfo[] f2350a;
+    private ForumDetailData.ThreadInfo[] f2467a;
     private LayoutInflater b;
     private Context c;
 
     public HotThreadPagerAdapter(Context context, ForumDetailData.ThreadInfo[] threadInfoArr) {
         this.c = context;
         if (threadInfoArr != null && threadInfoArr.length != 0) {
-            this.f2350a = threadInfoArr;
+            this.f2467a = threadInfoArr;
             this.b = LayoutInflater.from(this.c);
         }
     }
 
     @Override // android.support.v4.view.ae
     public int getCount() {
-        if (this.f2350a == null) {
+        if (this.f2467a == null) {
             return 0;
         }
-        return this.f2350a.length;
+        return this.f2467a.length;
     }
 
     @Override // android.support.v4.view.ae
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        ForumDetailData.ThreadInfo threadInfo = this.f2350a[i];
+        ForumDetailData.ThreadInfo threadInfo = this.f2467a[i];
         View inflate = this.b.inflate(R.layout.square_hot_thread_item, viewGroup, false);
         TextView textView = (TextView) inflate.findViewById(R.id.ht_item_title);
         TextView textView2 = (TextView) inflate.findViewById(R.id.ht_item_content);
@@ -54,7 +54,7 @@ public class HotThreadPagerAdapter extends android.support.v4.view.ae {
         textView3.setVisibility(0);
         textView3.setText(threadInfo.forumName + this.c.getString(R.string.bar));
         textView4.setText(String.valueOf(threadInfo.replyNum));
-        if (TiebaApplication.g().ap() == 1) {
+        if (TiebaApplication.h().an() == 1) {
             textView.setTextColor(this.c.getResources().getColor(R.color.square_forum_barfolder_name_1));
             textView2.setTextColor(this.c.getResources().getColor(R.color.square_forum_barfolder_description_1));
             textView3.setTextColor(this.c.getResources().getColor(R.color.sqaure_post_info_text_1));

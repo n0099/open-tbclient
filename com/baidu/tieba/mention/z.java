@@ -3,20 +3,20 @@ package com.baidu.tieba.mention;
 import android.view.View;
 import com.baidu.tieba.model.bv;
 import com.baidu.tieba.pb.ImageActivity;
-import com.baidu.tieba.util.be;
-import com.baidu.tieba.util.bg;
+import com.baidu.tieba.util.bb;
+import com.baidu.tieba.util.bd;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class z implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PostActivity f1859a;
+    final /* synthetic */ PostActivity f1971a;
     private ArrayList<com.baidu.tieba.data.j> b;
     private int c;
 
     public z(PostActivity postActivity, ArrayList<com.baidu.tieba.data.j> arrayList, int i) {
-        this.f1859a = postActivity;
+        this.f1971a = postActivity;
         this.b = arrayList;
         this.c = i;
     }
@@ -32,16 +32,16 @@ public class z implements View.OnClickListener {
                     stringBuffer.append("size=");
                     stringBuffer.append(com.baidu.tieba.data.h.i());
                     stringBuffer.append("&src=");
-                    stringBuffer.append(be.d(this.b.get(i).d()));
+                    stringBuffer.append(bb.d(this.b.get(i).d()));
                     arrayList.add(stringBuffer.toString());
                 }
             }
-            PostActivity postActivity = this.f1859a;
+            PostActivity postActivity = this.f1971a;
             int i2 = this.c;
-            bvVar = this.f1859a.l;
+            bvVar = this.f1971a.l;
             ImageActivity.a(postActivity, arrayList, i2, bvVar);
         } catch (Exception e) {
-            bg.b("PbAdapter", "ImageOnClickListener", "error = " + e.getMessage());
+            bd.b("PbAdapter", "ImageOnClickListener", "error = " + e.getMessage());
         }
     }
 }

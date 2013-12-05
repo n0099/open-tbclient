@@ -6,11 +6,11 @@ import java.util.Comparator;
 class k implements Comparator<RecentChatFriendData> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ f f1925a;
+    final /* synthetic */ f f2037a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(f fVar) {
-        this.f1925a = fVar;
+        this.f2037a = fVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

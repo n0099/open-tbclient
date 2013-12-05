@@ -14,10 +14,9 @@ import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.ar;
 import com.baidu.tieba.model.bv;
-import com.baidu.tieba.util.UtilHelper;
+import com.baidu.tieba.util.ba;
+import com.baidu.tieba.util.bb;
 import com.baidu.tieba.util.bd;
-import com.baidu.tieba.util.be;
-import com.baidu.tieba.util.bg;
 import com.baidu.tieba.view.CustomTextView;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
@@ -26,7 +25,7 @@ import org.apache.http.message.BasicNameValuePair;
 public class PostActivity extends com.baidu.tieba.j {
 
     /* renamed from: a  reason: collision with root package name */
-    private LinearLayout f1829a = null;
+    private LinearLayout f1941a = null;
     private LinearLayout b = null;
     private TextView c = null;
     private Button d = null;
@@ -73,14 +72,14 @@ public class PostActivity extends com.baidu.tieba.j {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j, android.app.Activity
     public void onResume() {
-        if (this.u != TiebaApplication.g().al()) {
-            this.u = TiebaApplication.g().al();
+        if (this.u != TiebaApplication.h().aj()) {
+            this.u = TiebaApplication.h().aj();
             this.o.setTextSize(com.baidu.tieba.data.h.r());
             this.s.setTextSize(com.baidu.tieba.data.h.o());
             d();
         }
-        if (this.v != TiebaApplication.g().ak()) {
-            this.v = TiebaApplication.g().ak();
+        if (this.v != TiebaApplication.h().ai()) {
+            this.v = TiebaApplication.h().ai();
             d();
         }
         super.onResume();
@@ -101,7 +100,7 @@ public class PostActivity extends com.baidu.tieba.j {
             this.f.setVisibility(8);
             System.gc();
         } catch (Exception e) {
-            bg.b(getClass().getName(), "onDestroy", e.getMessage());
+            bd.b(getClass().getName(), "onDestroy", e.getMessage());
         }
     }
 
@@ -116,7 +115,7 @@ public class PostActivity extends com.baidu.tieba.j {
         this.g = (RelativeLayout) findViewById(R.id.container);
         this.b = (LinearLayout) findViewById(R.id.title);
         this.c = (TextView) findViewById(R.id.title_text);
-        this.f1829a = (LinearLayout) findViewById(R.id.post);
+        this.f1941a = (LinearLayout) findViewById(R.id.post);
         this.e = (ImageView) findViewById(R.id.back);
         this.e.setOnClickListener(new u(this));
         this.d = (Button) findViewById(R.id.reply);
@@ -138,27 +137,27 @@ public class PostActivity extends com.baidu.tieba.j {
         this.t = (LinearLayout) findViewById(R.id.seg);
         this.o.setTextSize(com.baidu.tieba.data.h.r());
         this.s.setTextSize(com.baidu.tieba.data.h.o());
-        this.u = TiebaApplication.g().al();
-        this.v = TiebaApplication.g().ak();
+        this.u = TiebaApplication.h().aj();
+        this.v = TiebaApplication.h().ai();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        bd.a(this.c, i);
-        bd.a(this.e, i);
-        bd.f((TextView) this.d, i);
-        bd.a(this.g, i);
-        bd.d(this.b, i);
-        bd.b(this.o, i);
+        ba.a(this.c, i);
+        ba.a(this.e, i);
+        ba.f(this.d, i);
+        ba.a(this.g, i);
+        ba.d(this.b, i);
+        ba.b(this.o, i);
         if (i == 1) {
             this.s.setTextColor(getResources().getColor(R.color.skin_1_second_common_color));
-            bd.e((View) this.p, (int) R.drawable.floor_bg_1);
+            ba.e((View) this.p, (int) R.drawable.floor_bg_1);
             return;
         }
         this.s.setTextColor(-12040120);
-        bd.e((View) this.p, (int) R.drawable.floor_bg);
+        ba.e((View) this.p, (int) R.drawable.floor_bg);
     }
 
     private void b() {
@@ -175,7 +174,7 @@ public class PostActivity extends com.baidu.tieba.j {
     public void c() {
         try {
             StringBuffer stringBuffer = new StringBuffer(30);
-            stringBuffer.append(com.baidu.tieba.data.h.f1201a);
+            stringBuffer.append(com.baidu.tieba.data.h.f1248a);
             stringBuffer.append("c/f/pb/page");
             ArrayList arrayList = new ArrayList();
             arrayList.add(new BasicNameValuePair("kz", this.h));
@@ -189,7 +188,7 @@ public class PostActivity extends com.baidu.tieba.j {
             this.k.setPriority(3);
             this.k.execute(stringBuffer.toString(), arrayList);
         } catch (Exception e) {
-            bg.b("PbActivity", "startPbAsyncTask", "error" + e.getMessage());
+            bd.b("PbActivity", "startPbAsyncTask", "error" + e.getMessage());
         }
     }
 
@@ -225,7 +224,7 @@ public class PostActivity extends com.baidu.tieba.j {
                 } else {
                     this.q.setText((CharSequence) null);
                 }
-                this.r.setText(be.b(arVar.f()));
+                this.r.setText(bb.b(arVar.f()));
                 this.p.setVisibility(0);
                 this.p.setText(String.valueOf(arVar.e()) + getString(R.string.floor));
                 ArrayList<com.baidu.tieba.data.j> i3 = arVar.i();
@@ -248,10 +247,10 @@ public class PostActivity extends com.baidu.tieba.j {
                             if (this.v) {
                                 int i6 = i4 + 1;
                                 ImageView imageView = new ImageView(this);
-                                int a2 = UtilHelper.a((Context) this, 105.0f);
-                                int a3 = UtilHelper.a((Context) this, 105.0f);
+                                int a2 = com.baidu.adp.lib.h.g.a((Context) this, 105.0f);
+                                int a3 = com.baidu.adp.lib.h.g.a((Context) this, 105.0f);
                                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, a2);
-                                layoutParams.topMargin = UtilHelper.a((Context) this, 15.0f);
+                                layoutParams.topMargin = com.baidu.adp.lib.h.g.a((Context) this, 15.0f);
                                 com.baidu.adp.widget.ImageView.e d = this.m.d(jVar2.d());
                                 imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
                                 imageView.setMaxWidth(a3);
@@ -273,7 +272,7 @@ public class PostActivity extends com.baidu.tieba.j {
                         } else {
                             CustomTextView customTextView = new CustomTextView(this);
                             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, -2);
-                            int a4 = UtilHelper.a((Context) this, 15.0f);
+                            int a4 = com.baidu.adp.lib.h.g.a((Context) this, 15.0f);
                             layoutParams2.rightMargin = 0;
                             layoutParams2.leftMargin = 0;
                             layoutParams2.topMargin = a4;
@@ -296,7 +295,7 @@ public class PostActivity extends com.baidu.tieba.j {
                 e();
             }
         } catch (Exception e2) {
-            bg.b("PbActivity", "refreshActivity", "error = " + e2.getMessage());
+            bd.b("PbActivity", "refreshActivity", "error = " + e2.getMessage());
         }
     }
 
@@ -319,7 +318,7 @@ public class PostActivity extends com.baidu.tieba.j {
                 }
             }
         } catch (Exception e) {
-            bg.b("PbActivity", "mGetImageRunnble.run", "error = " + e.getMessage());
+            bd.b("PbActivity", "mGetImageRunnble.run", "error = " + e.getMessage());
         }
     }
 }

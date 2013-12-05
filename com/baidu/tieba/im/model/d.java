@@ -7,10 +7,10 @@ import com.baidu.tieba.im.message.RequestGroupLevelMessage;
 public class d extends com.baidu.adp.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    private long f1738a;
+    private long f1813a;
 
     public long a() {
-        return this.f1738a;
+        return this.f1813a;
     }
 
     @Override // com.baidu.adp.a.d
@@ -24,11 +24,11 @@ public class d extends com.baidu.adp.a.d {
     }
 
     public void a(Intent intent) {
-        this.f1738a = intent.getLongExtra("group_id", 0L);
+        this.f1813a = intent.getLongExtra("group_id", 0L);
     }
 
     public void a(Bundle bundle) {
-        this.f1738a = bundle.getLong("group_id");
+        this.f1813a = bundle.getLong("group_id");
     }
 
     private RequestGroupLevelMessage b(long j) {
@@ -38,18 +38,18 @@ public class d extends com.baidu.adp.a.d {
     }
 
     public void a(long j) {
-        com.baidu.tieba.im.messageCenter.f.a().a(b(j));
+        com.baidu.tieba.im.messageCenter.e.a().a(b(j));
     }
 
-    public void a(com.baidu.tieba.im.messageCenter.h hVar) {
-        com.baidu.tieba.im.messageCenter.f.a().a(103006, hVar);
+    public void a(com.baidu.tieba.im.messageCenter.g gVar) {
+        com.baidu.tieba.im.messageCenter.e.a().a(103006, gVar);
     }
 
-    public void b(com.baidu.tieba.im.messageCenter.h hVar) {
-        com.baidu.tieba.im.messageCenter.f.a().a(hVar);
+    public void b(com.baidu.tieba.im.messageCenter.g gVar) {
+        com.baidu.tieba.im.messageCenter.e.a().a(gVar);
     }
 
     public void b(Bundle bundle) {
-        bundle.putLong("group_id", this.f1738a);
+        bundle.putLong("group_id", this.f1813a);
     }
 }

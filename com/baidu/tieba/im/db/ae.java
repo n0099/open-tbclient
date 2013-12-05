@@ -1,37 +1,49 @@
 package com.baidu.tieba.im.db;
 
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicBoolean;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ae implements com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMessageCenterPojo>> {
+public class ae implements com.baidu.tieba.im.a<LinkedList<ImMessageCenterPojo>> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ImMessageCenterPojo f1597a;
-    final /* synthetic */ aa b;
+    final /* synthetic */ com.baidu.tieba.im.a f1654a;
+    final /* synthetic */ ad b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ae(aa aaVar, ImMessageCenterPojo imMessageCenterPojo) {
-        this.b = aaVar;
-        this.f1597a = imMessageCenterPojo;
+    public ae(ad adVar, com.baidu.tieba.im.a aVar) {
+        this.b = adVar;
+        this.f1654a = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.a
-    public void a(ConcurrentHashMap<String, ImMessageCenterPojo> concurrentHashMap) {
-        ImMessageCenterPojo imMessageCenterPojo = concurrentHashMap.get(this.f1597a.getGid());
-        if (imMessageCenterPojo == null) {
-            imMessageCenterPojo = new ImMessageCenterPojo();
+    public void a(LinkedList<ImMessageCenterPojo> linkedList) {
+        AtomicBoolean atomicBoolean;
+        ConcurrentHashMap concurrentHashMap;
+        ConcurrentHashMap concurrentHashMap2;
+        AtomicBoolean atomicBoolean2;
+        ConcurrentHashMap concurrentHashMap3;
+        atomicBoolean = this.b.c;
+        if (!atomicBoolean.get() && linkedList != null) {
+            concurrentHashMap2 = this.b.d;
+            concurrentHashMap2.clear();
+            if (linkedList != null) {
+                Iterator<ImMessageCenterPojo> it = linkedList.iterator();
+                while (it.hasNext()) {
+                    ImMessageCenterPojo next = it.next();
+                    concurrentHashMap3 = this.b.d;
+                    concurrentHashMap3.put(next.getGid(), next);
+                }
+            }
+            atomicBoolean2 = this.b.c;
+            atomicBoolean2.set(true);
         }
-        imMessageCenterPojo.setExt(this.f1597a.getExt());
-        imMessageCenterPojo.setGid(this.f1597a.getGid());
-        imMessageCenterPojo.setGroup_ext(this.f1597a.getGroup_ext());
-        imMessageCenterPojo.setGroup_head(this.f1597a.getGroup_head());
-        imMessageCenterPojo.setGroup_name(this.f1597a.getGroup_name());
-        imMessageCenterPojo.setGroup_type(this.f1597a.getGroup_type());
-        imMessageCenterPojo.setIs_delete(0);
-        imMessageCenterPojo.setIs_hidden(0);
-        imMessageCenterPojo.setType(this.f1597a.getType());
-        imMessageCenterPojo.setUnread_count(this.f1597a.getUnread_count());
-        concurrentHashMap.put(imMessageCenterPojo.getGid(), imMessageCenterPojo);
+        com.baidu.tieba.im.a aVar = this.f1654a;
+        concurrentHashMap = this.b.d;
+        aVar.a(concurrentHashMap);
     }
 }

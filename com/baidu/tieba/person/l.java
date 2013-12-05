@@ -1,20 +1,21 @@
 package com.baidu.tieba.person;
 
 import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class l implements View.OnClickListener {
+public class l implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ EditHeadActivity f2239a;
+    final /* synthetic */ EditHeadActivity f2357a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(EditHeadActivity editHeadActivity) {
-        this.f2239a = editHeadActivity;
+        this.f2357a = editHeadActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.f2239a.setResult(0);
-        this.f2239a.finish();
+        this.f2357a.setResult(0);
+        this.f2357a.finish();
     }
 }

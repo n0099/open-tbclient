@@ -14,7 +14,7 @@ import com.slidingmenu.lib.R;
 public class m extends com.baidu.adp.widget.ListView.c {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ i f1302a;
+    final /* synthetic */ i f1351a;
     private BaseFragmentActivity b;
     private TextView c = null;
     private ProgressBar d = null;
@@ -23,7 +23,7 @@ public class m extends com.baidu.adp.widget.ListView.c {
     private View g;
 
     public m(i iVar, BaseFragmentActivity baseFragmentActivity) {
-        this.f1302a = iVar;
+        this.f1351a = iVar;
         this.b = null;
         this.b = baseFragmentActivity;
     }
@@ -36,7 +36,7 @@ public class m extends com.baidu.adp.widget.ListView.c {
         this.g = this.f.findViewById(R.id.pb_more_view);
         this.g.setVisibility(8);
         this.d = (ProgressBar) this.f.findViewById(R.id.progress);
-        a(TiebaApplication.g().ap());
+        a(TiebaApplication.h().an());
         this.g.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         return this.f;
     }
@@ -44,7 +44,7 @@ public class m extends com.baidu.adp.widget.ListView.c {
     public void a(int i) {
         n nVar;
         this.b.a().a(this.g);
-        nVar = this.f1302a.m;
+        nVar = this.f1351a.m;
         nVar.a(i);
     }
 

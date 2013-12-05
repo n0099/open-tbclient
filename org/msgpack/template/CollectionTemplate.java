@@ -6,7 +6,7 @@ import org.msgpack.MessageTypeException;
 public class CollectionTemplate<E> extends AbstractTemplate<Collection<E>> {
 
     /* renamed from: a  reason: collision with root package name */
-    private d<E> f2892a;
+    private d<E> f3073a;
 
     @Override // org.msgpack.template.d
     public /* bridge */ /* synthetic */ void a(org.msgpack.packer.a aVar, Object obj, boolean z) {
@@ -14,7 +14,7 @@ public class CollectionTemplate<E> extends AbstractTemplate<Collection<E>> {
     }
 
     public CollectionTemplate(d<E> dVar) {
-        this.f2892a = dVar;
+        this.f3073a = dVar;
     }
 
     public void a(org.msgpack.packer.a aVar, Collection<E> collection, boolean z) {
@@ -27,7 +27,7 @@ public class CollectionTemplate<E> extends AbstractTemplate<Collection<E>> {
         }
         aVar.c(collection.size());
         for (E e : collection) {
-            this.f2892a.a(aVar, e);
+            this.f3073a.a(aVar, e);
         }
         aVar.a();
     }

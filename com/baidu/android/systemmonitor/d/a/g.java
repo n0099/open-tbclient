@@ -17,11 +17,11 @@ import org.xmlpull.v1.XmlPullParserException;
 public class g extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ d f796a;
+    final /* synthetic */ d f801a;
     private String b;
 
     public g(d dVar, String str) {
-        this.f796a = dVar;
+        this.f801a = dVar;
         this.b = null;
         this.b = str;
         setName("SystemMonitor_ ServerCommandGrabberThread");
@@ -37,19 +37,19 @@ public class g extends Thread {
         Process.setThreadPriority(10);
         HttpUriRequest httpPost = new HttpPost(this.b);
         httpPost.setHeader("Accept-Encoding", "gzip");
-        b = this.f796a.b();
+        b = this.f801a.b();
         httpPost.setEntity(b);
         try {
             try {
-                proxyHttpClient2 = this.f796a.f793a;
+                proxyHttpClient2 = this.f801a.f798a;
                 HttpEntity entity = proxyHttpClient2.execute(httpPost).getEntity();
-                a2 = this.f796a.a(entity);
+                a2 = this.f801a.a(entity);
                 if (a2 == null) {
                     a2 = entity.getContent();
                 }
                 try {
-                    this.f796a.a(a2);
-                    this.f796a.c();
+                    this.f801a.a(a2);
+                    this.f801a.c();
                 } catch (IOException e) {
                 } catch (XmlPullParserException e2) {
                 }
@@ -58,12 +58,12 @@ public class g extends Thread {
         } catch (ClientProtocolException e4) {
         } catch (Exception e5) {
         } finally {
-            proxyHttpClient = this.f796a.f793a;
+            proxyHttpClient = this.f801a.f798a;
             proxyHttpClient.close();
             k.f();
             m.b();
             c.c();
-            context = this.f796a.c;
+            context = this.f801a.c;
             context.sendBroadcast(new Intent("com.baidu.moplus.systemmonitor.pathrefresh"));
         }
     }

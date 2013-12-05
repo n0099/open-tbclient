@@ -1,17 +1,30 @@
 package com.baidu.tieba.recommend;
+
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f2305a;
-    public Object b;
-    public String c;
-    final /* synthetic */ h d;
+    View f2422a;
+    TextView b;
+    LinearLayout c;
+    RelativeLayout d;
+    TextView e;
+    TextView f;
+    TextView g;
+    TextView h;
+    final /* synthetic */ h i;
 
-    public r(h hVar, int i, Object obj, String str) {
-        this.d = hVar;
-        this.f2305a = i;
-        this.b = obj;
-        this.c = str;
+    private r(h hVar) {
+        this.i = hVar;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ r(h hVar, i iVar) {
+        this(hVar);
     }
 }

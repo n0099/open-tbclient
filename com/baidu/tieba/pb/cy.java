@@ -7,13 +7,13 @@ import com.baidu.tieba.TiebaApplication;
 public class cy implements com.baidu.tieba.editortool.h {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ com.baidu.tieba.editortool.h f2113a;
+    final /* synthetic */ com.baidu.tieba.editortool.h f2220a;
     final /* synthetic */ cr b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cy(cr crVar, com.baidu.tieba.editortool.h hVar) {
         this.b = crVar;
-        this.f2113a = hVar;
+        this.f2220a = hVar;
     }
 
     @Override // com.baidu.tieba.editortool.h
@@ -25,12 +25,12 @@ public class cy implements com.baidu.tieba.editortool.h {
             pbEditor = this.b.an;
             if (!pbEditor.i()) {
                 pbEditor2 = this.b.an;
-                if (!pbEditor2.k() && TiebaApplication.g().s()) {
+                if (!pbEditor2.k() && TiebaApplication.h().t()) {
                     newPbActivity = this.b.g;
                     StatService.onEvent(newPbActivity, "pb_reply", "pbclick", 1);
                 }
             }
         }
-        this.f2113a.a(i, obj);
+        this.f2220a.a(i, obj);
     }
 }

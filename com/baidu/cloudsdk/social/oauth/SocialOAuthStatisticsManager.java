@@ -8,17 +8,17 @@ import com.baidu.cloudsdk.social.core.WidgetStatisticsManager;
 public class SocialOAuthStatisticsManager extends WidgetStatisticsManager {
 
     /* renamed from: a  reason: collision with root package name */
-    private static SocialOAuthStatisticsManager f855a;
+    private static SocialOAuthStatisticsManager f860a;
 
     private SocialOAuthStatisticsManager(Context context) {
         super(context, SocialConfig.getInstance(context).getClientId(MediaType.BAIDU));
     }
 
     public static SocialOAuthStatisticsManager getInstance(Context context) {
-        if (f855a == null) {
-            f855a = new SocialOAuthStatisticsManager(context);
+        if (f860a == null) {
+            f860a = new SocialOAuthStatisticsManager(context);
         }
-        return f855a;
+        return f860a;
     }
 
     @Override // com.baidu.cloudsdk.social.core.WidgetStatisticsManager

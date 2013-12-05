@@ -1,33 +1,27 @@
 package com.baidu.tieba.util;
 
-import android.content.Context;
-import android.text.style.ClickableSpan;
-import android.view.View;
-import com.baidu.tieba.pb.NewPbActivity;
+import android.widget.ImageView;
+import android.widget.ListView;
 /* loaded from: classes.dex */
-public class aj extends ClickableSpan {
+final class aj implements com.baidu.tbadk.imageManager.c {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f2465a;
+    final /* synthetic */ ListView f2580a;
 
-    public aj(Context context) {
-        this.f2465a = null;
-        this.f2465a = context;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public aj(ListView listView) {
+        this.f2580a = listView;
     }
 
-    @Override // android.text.style.ClickableSpan
-    public void onClick(View view) {
-    }
-
-    public Context a() {
-        return this.f2465a;
-    }
-
-    public void a(String str) {
-        UtilHelper.c(this.f2465a, str);
-    }
-
-    public void b(String str) {
-        NewPbActivity.a(this.f2465a, str, null, null);
+    @Override // com.baidu.tbadk.imageManager.c
+    public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
+        if (eVar != null) {
+            ImageView imageView = (ImageView) this.f2580a.findViewWithTag(str);
+            while (imageView != null) {
+                imageView.setTag(null);
+                imageView.setImageBitmap(eVar.f());
+                imageView = (ImageView) this.f2580a.findViewWithTag(str);
+            }
+        }
     }
 }

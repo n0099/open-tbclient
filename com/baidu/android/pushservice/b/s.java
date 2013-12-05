@@ -8,14 +8,14 @@ import com.baidu.android.pushservice.util.PushDatabase;
 public class s {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f706a;
+    private Context f711a;
     private e b;
     private h c;
     private long d;
     private o e;
 
     public s(Context context) {
-        this.f706a = context;
+        this.f711a = context;
         this.b = e.a(context);
         this.e = new o(context);
         this.c = new h(context);
@@ -55,7 +55,7 @@ public class s {
     }
 
     private boolean c() {
-        return PushSettings.f() && System.currentTimeMillis() - PushSettings.d(this.f706a) > 1800000;
+        return PushSettings.f() && System.currentTimeMillis() - PushSettings.d(this.f711a) > 1800000;
     }
 
     public void a() {
@@ -64,7 +64,7 @@ public class s {
 
     public void b() {
         if (this.c == null) {
-            this.c = h.a(this.f706a);
+            this.c = h.a(this.f711a);
         }
         if (c()) {
             this.c.g();

@@ -5,15 +5,15 @@ import java.util.ArrayList;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f795a;
+    private String f800a;
     private ArrayList b = new ArrayList();
 
     public String a() {
-        return this.f795a;
+        return this.f800a;
     }
 
     public void a(String str) {
-        this.f795a = str;
+        this.f800a = str;
     }
 
     public ArrayList b() {

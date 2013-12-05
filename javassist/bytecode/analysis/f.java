@@ -3,7 +3,7 @@ package javassist.bytecode.analysis;
 class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private f f2756a;
+    private f f2937a;
     private int b;
 
     private f(int i) {

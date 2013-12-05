@@ -1,7 +1,6 @@
 package com.baidu.tieba.data;
 
 import android.content.Context;
-import com.baidu.tieba.util.bg;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -9,14 +8,14 @@ import org.json.JSONObject;
 public class ac {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1163a;
+    private int f1210a;
     private int b;
     private AntiData c;
     private Context d;
     private ArrayList<ar> e;
 
     public ac() {
-        this.f1163a = 0;
+        this.f1210a = 0;
         this.b = 0;
         this.d = null;
         this.e = null;
@@ -25,7 +24,7 @@ public class ac {
     }
 
     public ac(Context context) {
-        this.f1163a = 0;
+        this.f1210a = 0;
         this.b = 0;
         this.d = null;
         this.e = null;
@@ -39,7 +38,7 @@ public class ac {
     }
 
     public int b() {
-        return this.f1163a;
+        return this.f1210a;
     }
 
     public int c() {
@@ -58,7 +57,7 @@ public class ac {
         try {
             a(new JSONObject(str));
         } catch (Exception e) {
-            bg.b(getClass().getName(), "paserJson", e.toString());
+            com.baidu.tieba.util.bd.b(getClass().getName(), "paserJson", e.toString());
         }
     }
 
@@ -82,12 +81,12 @@ public class ac {
                     }
                     size++;
                 }
-                this.f1163a = this.e.size();
+                this.f1210a = this.e.size();
             }
             this.b = jSONObject.optInt("comment_amount", 0);
             this.c.setTbs(jSONObject.getJSONObject("tbs").optString("common"));
         } catch (Exception e) {
-            bg.b(getClass().getName(), "paserJson", e.toString());
+            com.baidu.tieba.util.bd.b(getClass().getName(), "paserJson", e.toString());
         }
     }
 }

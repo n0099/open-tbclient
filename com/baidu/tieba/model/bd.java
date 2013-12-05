@@ -10,10 +10,10 @@ import java.util.Iterator;
 public class bd extends BdAsyncTask<String, com.baidu.tieba.data.ag, Boolean> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ba f1889a;
+    final /* synthetic */ ba f2001a;
 
     private bd(ba baVar) {
-        this.f1889a = baVar;
+        this.f2001a = baVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,17 +23,17 @@ public class bd extends BdAsyncTask<String, com.baidu.tieba.data.ag, Boolean> {
         ArrayList arrayList;
         Context context;
         Context context2;
-        com.baidu.tieba.util.bf a2 = com.baidu.tieba.util.bf.a();
-        arrayList = this.f1889a.b;
+        com.baidu.tieba.util.bc a2 = com.baidu.tieba.util.bc.a();
+        arrayList = this.f2001a.b;
         Iterator it = arrayList.iterator();
         boolean z = true;
         while (it.hasNext()) {
             com.baidu.tieba.data.ag agVar = (com.baidu.tieba.data.ag) it.next();
             if (agVar != null && agVar.d != null) {
                 try {
-                    context = this.f1889a.c;
+                    context = this.f2001a.c;
                     com.baidu.tieba.motu_gallery.b.a(context, agVar.d, a2.e(), a2.e());
-                    context2 = this.f1889a.c;
+                    context2 = this.f2001a.c;
                     Bitmap a3 = com.baidu.tieba.motu_gallery.b.a(context2, agVar.d, 150, 150);
                     if (a3 != null) {
                         agVar.e = a3;
@@ -50,7 +50,7 @@ public class bd extends BdAsyncTask<String, com.baidu.tieba.data.ag, Boolean> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         super.cancel(true);
-        this.f1889a.f1888a = null;
+        this.f2001a.f2000a = null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -59,10 +59,10 @@ public class bd extends BdAsyncTask<String, com.baidu.tieba.data.ag, Boolean> {
     public void a(Boolean bool) {
         bc bcVar;
         bc bcVar2;
-        this.f1889a.f1888a = null;
-        bcVar = this.f1889a.d;
+        this.f2001a.f2000a = null;
+        bcVar = this.f2001a.d;
         if (bcVar != null) {
-            bcVar2 = this.f1889a.d;
+            bcVar2 = this.f2001a.d;
             bcVar2.a(bool.booleanValue(), "载入失败");
         }
     }
@@ -74,9 +74,9 @@ public class bd extends BdAsyncTask<String, com.baidu.tieba.data.ag, Boolean> {
     public void b(com.baidu.tieba.data.ag... agVarArr) {
         bc bcVar;
         bc bcVar2;
-        bcVar = this.f1889a.d;
+        bcVar = this.f2001a.d;
         if (bcVar != null) {
-            bcVar2 = this.f1889a.d;
+            bcVar2 = this.f2001a.d;
             bcVar2.a(agVarArr[0]);
         }
     }

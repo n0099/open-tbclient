@@ -5,20 +5,20 @@ import com.baidu.tieba.view.HeadImageView;
 class n implements com.baidu.tbadk.imageManager.c {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ HeadImageView f1290a;
+    final /* synthetic */ HeadImageView f1337a;
     final /* synthetic */ ItemInfoView b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(ItemInfoView itemInfoView, HeadImageView headImageView) {
         this.b = itemInfoView;
-        this.f1290a = headImageView;
+        this.f1337a = headImageView;
     }
 
     @Override // com.baidu.tbadk.imageManager.c
     public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
         if (eVar != null) {
-            this.f1290a.setImageBitmap(eVar.f());
-            this.f1290a.invalidate();
+            this.f1337a.setImageBitmap(eVar.f());
+            this.f1337a.invalidate();
         }
     }
 }

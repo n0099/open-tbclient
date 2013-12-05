@@ -5,16 +5,16 @@ import com.baidu.tieba.util.DatabaseService;
 class ad implements p {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ReplyMeFragment f1835a;
+    final /* synthetic */ ReplyMeFragment f1947a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ad(ReplyMeFragment replyMeFragment) {
-        this.f1835a = replyMeFragment;
+        this.f1947a = replyMeFragment;
     }
 
     @Override // com.baidu.tieba.mention.p
     public void a(String str) {
-        DatabaseService.k(str);
+        DatabaseService.i(str);
     }
 
     @Override // com.baidu.tieba.mention.p

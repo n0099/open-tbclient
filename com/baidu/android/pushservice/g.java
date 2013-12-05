@@ -4,15 +4,15 @@ package com.baidu.android.pushservice;
 public class g implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ e f711a;
+    final /* synthetic */ e f716a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(e eVar) {
-        this.f711a = eVar;
+        this.f716a = eVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f711a.f();
+        this.f716a.f();
     }
 }

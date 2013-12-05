@@ -9,14 +9,14 @@ import android.os.Process;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.h;
-import com.baidu.tieba.util.bg;
+import com.baidu.tieba.util.bd;
 import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static b f2345a = null;
+    private static b f2462a = null;
     private static ContentResolver b = null;
     private static HashMap<String, String> f = null;
     private String c = null;
@@ -25,19 +25,19 @@ public class b {
 
     private b() {
         f = new HashMap<>();
-        f.put(a.f2344a, "settings");
+        f.put(a.f2461a, "settings");
         f.put(a.b, "remote_settings");
         f.put(a.c, "bdservice_settings");
-        b = TiebaApplication.g().getContentResolver();
+        b = TiebaApplication.h().getContentResolver();
     }
 
     public static synchronized b a() {
         b bVar;
         synchronized (b.class) {
-            if (f2345a == null) {
-                f2345a = new b();
+            if (f2462a == null) {
+                f2462a = new b();
             }
-            bVar = f2345a;
+            bVar = f2462a;
         }
         return bVar;
     }
@@ -49,7 +49,7 @@ public class b {
                 try {
                     return Boolean.parseBoolean(c);
                 } catch (NumberFormatException e) {
-                    bg.b("SharedPrefHelper", "getBoolean", "Convert error:" + c);
+                    bd.b("SharedPrefHelper", "getBoolean", "Convert error:" + c);
                     return z;
                 }
             }
@@ -66,7 +66,7 @@ public class b {
                 try {
                     return Integer.parseInt(c);
                 } catch (NumberFormatException e) {
-                    bg.b("SharedPrefHelper", "getInt", "Convert error:" + c);
+                    bd.b("SharedPrefHelper", "getInt", "Convert error:" + c);
                     return i;
                 }
             }
@@ -83,7 +83,7 @@ public class b {
                 try {
                     return Long.parseLong(c);
                 } catch (NumberFormatException e) {
-                    bg.b("SharedPrefHelper", "getLong", "Convert error:" + c);
+                    bd.b("SharedPrefHelper", "getLong", "Convert error:" + c);
                     return j;
                 }
             }
@@ -217,11 +217,11 @@ public class b {
                 this.e = "settings";
             }
         }
-        return TiebaApplication.g().getSharedPreferences(this.e, 0);
+        return TiebaApplication.h().getSharedPreferences(this.e, 0);
     }
 
     private String d() {
-        ActivityManager activityManager = (ActivityManager) TiebaApplication.g().getSystemService("activity");
+        ActivityManager activityManager = (ActivityManager) TiebaApplication.h().getSystemService("activity");
         if (activityManager != null) {
             List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = activityManager.getRunningAppProcesses();
             int myPid = Process.myPid();
@@ -239,11 +239,11 @@ public class b {
                 }
             }
         }
-        return a.f2344a;
+        return a.f2461a;
     }
 
     public void b() {
-        SharedPreferences sharedPreferences = TiebaApplication.g().getSharedPreferences("settings", 0);
+        SharedPreferences sharedPreferences = TiebaApplication.h().getSharedPreferences("settings", 0);
         String string = sharedPreferences.getString("lase_version", "");
         String j = h.j();
         if (string != null && string.length() != 0 && j != null && j.length() != 0 && !string.equals(j) && "4.5.0".compareTo(string) > 0 && "4.5.0".compareTo(j) <= 0) {

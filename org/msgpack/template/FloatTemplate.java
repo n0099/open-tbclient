@@ -5,7 +5,7 @@ import org.msgpack.MessageTypeException;
 public class FloatTemplate extends AbstractTemplate<Float> {
 
     /* renamed from: a  reason: collision with root package name */
-    static final FloatTemplate f2898a = new FloatTemplate();
+    static final FloatTemplate f3079a = new FloatTemplate();
 
     private FloatTemplate() {
     }
@@ -24,6 +24,6 @@ public class FloatTemplate extends AbstractTemplate<Float> {
     }
 
     public static FloatTemplate a() {
-        return f2898a;
+        return f3079a;
     }
 }

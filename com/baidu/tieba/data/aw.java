@@ -1,6 +1,5 @@
 package com.baidu.tieba.data;
 
-import com.baidu.tieba.util.bg;
 import java.util.ArrayList;
 import java.util.HashMap;
 import org.json.JSONArray;
@@ -9,7 +8,7 @@ import org.json.JSONObject;
 public class aw {
 
     /* renamed from: a  reason: collision with root package name */
-    private ArrayList<MetaData> f1183a = new ArrayList<>();
+    private ArrayList<MetaData> f1230a = new ArrayList<>();
 
     public void a(JSONObject jSONObject, HashMap<String, String> hashMap) {
         String str;
@@ -26,14 +25,14 @@ public class aw {
                     if (hashMap != null && (str = hashMap.get(metaData.getName())) != null) {
                         metaData.setPortrait(str);
                     }
-                    this.f1183a.add(metaData);
+                    this.f1230a.add(metaData);
                     i = i2 + 1;
                 } else {
                     return;
                 }
             }
         } catch (Exception e) {
-            bg.b("AtListModel", "parserSuggestJson", "error = " + e.getMessage());
+            com.baidu.tieba.util.bd.b("AtListModel", "parserSuggestJson", "error = " + e.getMessage());
         }
     }
 
@@ -41,7 +40,7 @@ public class aw {
         try {
             a(new JSONObject(str), hashMap);
         } catch (Exception e) {
-            bg.b("AtListModel", "parserSuggestJson", "error = " + e.getMessage());
+            com.baidu.tieba.util.bd.b("AtListModel", "parserSuggestJson", "error = " + e.getMessage());
         }
     }
 
@@ -50,8 +49,8 @@ public class aw {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < this.f1183a.size()) {
-                    MetaData metaData = this.f1183a.get(i2);
+                if (i2 < this.f1230a.size()) {
+                    MetaData metaData = this.f1230a.get(i2);
                     metaData.setPortrait(hashMap.get(metaData.getName()));
                     i = i2 + 1;
                 } else {
@@ -62,6 +61,6 @@ public class aw {
     }
 
     public ArrayList<MetaData> a() {
-        return this.f1183a;
+        return this.f1230a;
     }
 }

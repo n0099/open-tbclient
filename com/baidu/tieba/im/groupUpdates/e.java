@@ -9,21 +9,21 @@ import java.util.List;
 public class e extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    private UpdatesActivity f1702a;
+    private UpdatesActivity f1768a;
     private List<UpdatesItemData> b = new ArrayList();
 
     public e(UpdatesActivity updatesActivity) {
-        this.f1702a = updatesActivity;
+        this.f1768a = updatesActivity;
     }
 
     public void a() {
-        this.f1702a = null;
+        this.f1768a = null;
     }
 
     public void a(List<UpdatesItemData> list) {
         if (list != null) {
             this.b = list;
-            com.baidu.adp.lib.h.d.d("size:" + this.b.size());
+            com.baidu.adp.lib.h.e.d("size:" + this.b.size());
             notifyDataSetChanged();
         }
     }
@@ -42,7 +42,7 @@ public class e extends BaseAdapter {
         if (view != null) {
             fVar = (f) view.getTag();
         }
-        f fVar2 = fVar == null ? new f(this.f1702a) : fVar;
+        f fVar2 = fVar == null ? new f(this.f1768a) : fVar;
         fVar2.a(this.b.get(i));
         return fVar2.a();
     }

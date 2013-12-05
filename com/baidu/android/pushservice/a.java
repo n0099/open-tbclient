@@ -20,7 +20,7 @@ public final class a {
     private Context d;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList f688a = new ArrayList();
+    public ArrayList f693a = new ArrayList();
     public ArrayList b = new ArrayList();
     private HashMap e = new HashMap();
 
@@ -40,7 +40,7 @@ public final class a {
                 if (d != null) {
                     Iterator it = d.iterator();
                     while (it.hasNext()) {
-                        this.f688a.add((d) it.next());
+                        this.f693a.add((d) it.next());
                     }
                 }
             } catch (Exception e) {
@@ -97,7 +97,7 @@ public final class a {
                 return stringBuffer.toString();
             }
             d dVar = (d) list.get(i2);
-            stringBuffer.append(dVar.f708a);
+            stringBuffer.append(dVar.f713a);
             stringBuffer.append(",");
             stringBuffer.append(dVar.b);
             stringBuffer.append(",");
@@ -119,7 +119,7 @@ public final class a {
         String string;
         synchronized (a.class) {
             if (c != null) {
-                c.f688a.clear();
+                c.f693a.clear();
                 c.b.clear();
                 SharedPreferences sharedPreferences = context.getSharedPreferences(context.getPackageName() + ".push_sync", 1);
                 String string2 = sharedPreferences.getString("r", "");
@@ -139,7 +139,7 @@ public final class a {
                             if (d != null) {
                                 Iterator it = d.iterator();
                                 while (it.hasNext()) {
-                                    c.f688a.add((d) it.next());
+                                    c.f693a.add((d) it.next());
                                 }
                             }
                         } catch (Exception e) {
@@ -184,9 +184,9 @@ public final class a {
         if ("nodata".equals(sharedPreferences.getString("r", "nodata"))) {
             for (ResolveInfo resolveInfo : context.getPackageManager().queryBroadcastReceivers(new Intent("com.baidu.android.pushservice.action.BIND_SYNC"), 0)) {
                 d dVar = new d();
-                dVar.f708a = resolveInfo.activityInfo.packageName;
+                dVar.f713a = resolveInfo.activityInfo.packageName;
                 try {
-                    string = context.createPackageContext(dVar.f708a, 2).getSharedPreferences(dVar.f708a + ".push_sync", 1).getString("r", "nodata");
+                    string = context.createPackageContext(dVar.f713a, 2).getSharedPreferences(dVar.f713a + ".push_sync", 1).getString("r", "nodata");
                 } catch (PackageManager.NameNotFoundException e) {
                     e.printStackTrace();
                 }
@@ -194,7 +194,7 @@ public final class a {
                     SharedPreferences.Editor edit = sharedPreferences.edit();
                     edit.putString("r", string);
                     edit.commit();
-                    return dVar.f708a;
+                    return dVar.f713a;
                 }
                 continue;
             }
@@ -209,9 +209,9 @@ public final class a {
         if ("nodata".equals(sharedPreferences.getString("r_v2", "nodata"))) {
             for (ResolveInfo resolveInfo : context.getPackageManager().queryBroadcastReceivers(new Intent("com.baidu.android.pushservice.action.BIND_SYNC"), 0)) {
                 d dVar = new d();
-                dVar.f708a = resolveInfo.activityInfo.packageName;
+                dVar.f713a = resolveInfo.activityInfo.packageName;
                 try {
-                    string = context.createPackageContext(dVar.f708a, 2).getSharedPreferences(dVar.f708a + ".push_sync", 1).getString("r_v2", "nodata");
+                    string = context.createPackageContext(dVar.f713a, 2).getSharedPreferences(dVar.f713a + ".push_sync", 1).getString("r_v2", "nodata");
                 } catch (PackageManager.NameNotFoundException e) {
                     e.printStackTrace();
                 }
@@ -219,7 +219,7 @@ public final class a {
                     SharedPreferences.Editor edit = sharedPreferences.edit();
                     edit.putString("r_v2", string);
                     edit.commit();
-                    return dVar.f708a;
+                    return dVar.f713a;
                 }
                 continue;
             }
@@ -237,7 +237,7 @@ public final class a {
             String[] split = str2.trim().split(",");
             if (split.length >= 3) {
                 d dVar = new d();
-                dVar.f708a = split[0].trim();
+                dVar.f713a = split[0].trim();
                 dVar.b = split[1].trim();
                 dVar.c = split[2].trim();
                 arrayList.add(dVar);
@@ -250,14 +250,14 @@ public final class a {
         Iterator it = this.b.iterator();
         while (it.hasNext()) {
             d dVar = (d) it.next();
-            if (dVar.f708a.equals(str)) {
+            if (dVar.f713a.equals(str)) {
                 return dVar;
             }
         }
-        Iterator it2 = this.f688a.iterator();
+        Iterator it2 = this.f693a.iterator();
         while (it2.hasNext()) {
             d dVar2 = (d) it2.next();
-            if (dVar2.f708a.equals(str)) {
+            if (dVar2.f713a.equals(str)) {
                 return dVar2;
             }
         }
@@ -275,24 +275,24 @@ public final class a {
         if (b.a()) {
             Log.d("ClientManager", "sync addOrRemove:" + z + ", " + dVar);
         }
-        synchronized (this.f688a) {
-            Log.d("ClientManager", "client.packageName=" + dVar.f708a + " client.appId=" + dVar.b + " client.userId=" + dVar.c);
-            Iterator it = this.f688a.iterator();
+        synchronized (this.f693a) {
+            Log.d("ClientManager", "client.packageName=" + dVar.f713a + " client.appId=" + dVar.b + " client.userId=" + dVar.c);
+            Iterator it = this.f693a.iterator();
             try {
                 while (it.hasNext()) {
                     d dVar2 = (d) it.next();
-                    Log.d("ClientManager", "c.packageName=" + dVar2.f708a + " c.appId=" + dVar2.b + " c.userId=" + dVar2.c);
-                    if (dVar2.f708a.equals(dVar.f708a) || dVar2.b.equals(dVar.b)) {
-                        this.f688a.remove(dVar2);
+                    Log.d("ClientManager", "c.packageName=" + dVar2.f713a + " c.appId=" + dVar2.b + " c.userId=" + dVar2.c);
+                    if (dVar2.f713a.equals(dVar.f713a) || dVar2.b.equals(dVar.b)) {
+                        this.f693a.remove(dVar2);
                         if (z) {
-                            this.f688a.add(dVar);
+                            this.f693a.add(dVar);
                         }
                         z2 = true;
                         if (!z2 && z) {
-                            this.f688a.add(dVar);
+                            this.f693a.add(dVar);
                         }
                         SharedPreferences sharedPreferences = this.d.getSharedPreferences(this.d.getPackageName() + ".push_sync", 1);
-                        String a2 = a(this.f688a);
+                        String a2 = a(this.f693a);
                         if (b.a()) {
                             Log.i("ClientManager", "sync  strApps: " + a2);
                         }
@@ -314,10 +314,10 @@ public final class a {
             }
             z2 = false;
             if (!z2) {
-                this.f688a.add(dVar);
+                this.f693a.add(dVar);
             }
             SharedPreferences sharedPreferences2 = this.d.getSharedPreferences(this.d.getPackageName() + ".push_sync", 1);
-            String a22 = a(this.f688a);
+            String a22 = a(this.f693a);
             if (b.a()) {
             }
         }
@@ -343,7 +343,7 @@ public final class a {
                 return dVar;
             }
         }
-        Iterator it2 = this.f688a.iterator();
+        Iterator it2 = this.f693a.iterator();
         while (it2.hasNext()) {
             d dVar2 = (d) it2.next();
             if (dVar2.b.equals(str)) {
@@ -365,13 +365,13 @@ public final class a {
             Log.d("ClientManager", "syncV2 addOrRemove:" + z + ", " + dVar);
         }
         synchronized (this.b) {
-            Log.d("ClientManager", "client.packageName=" + dVar.f708a + " client.appId=" + dVar.b + " client.userId=" + dVar.c);
+            Log.d("ClientManager", "client.packageName=" + dVar.f713a + " client.appId=" + dVar.b + " client.userId=" + dVar.c);
             Iterator it = this.b.iterator();
             try {
                 while (it.hasNext()) {
                     d dVar2 = (d) it.next();
-                    Log.d("ClientManager", "c.packageName=" + dVar2.f708a + " c.appId=" + dVar2.b + " c.userId=" + dVar2.c);
-                    if (dVar2.f708a.equals(dVar.f708a) || dVar2.b.equals(dVar.b)) {
+                    Log.d("ClientManager", "c.packageName=" + dVar2.f713a + " c.appId=" + dVar2.b + " c.userId=" + dVar2.c);
+                    if (dVar2.f713a.equals(dVar.f713a) || dVar2.b.equals(dVar.b)) {
                         this.b.remove(dVar2);
                         if (z) {
                             this.b.add(dVar);

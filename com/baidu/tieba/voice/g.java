@@ -107,7 +107,7 @@ final class g implements Handler.Callback {
                     rVar13 = f.d;
                     rVar13.a(message.what, ak.a(R.string.voice_record_short_tip));
                     r unused7 = f.d = null;
-                    com.baidu.adp.lib.h.d.c("----record too short......");
+                    com.baidu.adp.lib.h.e.c("----record too short......");
                     break;
                 }
                 break;
@@ -137,7 +137,7 @@ final class g implements Handler.Callback {
                 }
                 break;
         }
-        int unused9 = f.f2608a = 0;
+        int unused9 = f.f2726a = 0;
         return false;
     }
 }

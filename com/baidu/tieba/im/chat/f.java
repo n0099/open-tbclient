@@ -1,30 +1,36 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tieba.im.data.GroupMsgData;
-import com.baidu.tieba.im.db.pojo.GroupMsgPojo;
+import com.baidu.tieba.im.message.ChatResponsedMessage;
+import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements com.baidu.tieba.im.a<Boolean> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ GroupMsgData f1540a;
-    final /* synthetic */ String b;
-    final /* synthetic */ GroupMsgPojo c;
-    final /* synthetic */ int d;
-    final /* synthetic */ a e;
+    final /* synthetic */ ChatResponsedMessage f1593a;
+    final /* synthetic */ a b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public f(a aVar, GroupMsgData groupMsgData, String str, GroupMsgPojo groupMsgPojo, int i) {
-        this.e = aVar;
-        this.f1540a = groupMsgData;
-        this.b = str;
-        this.c = groupMsgPojo;
-        this.d = i;
+    public f(a aVar, ChatResponsedMessage chatResponsedMessage) {
+        this.b = aVar;
+        this.f1593a = chatResponsedMessage;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.a
     public void a(Boolean bool) {
-        this.e.a(this.f1540a, this.b, this.c, this.d);
+        WeakReference weakReference;
+        WeakReference weakReference2;
+        WeakReference weakReference3;
+        if (this.f1593a != null) {
+            weakReference = this.b.b;
+            if (weakReference != null) {
+                weakReference2 = this.b.b;
+                if (weakReference2.get() != null) {
+                    weakReference3 = this.b.b;
+                    ((aa) weakReference3.get()).a(this.f1593a);
+                }
+            }
+        }
     }
 }

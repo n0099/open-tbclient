@@ -5,53 +5,53 @@ import com.baidu.tieba.data.chat.ChatData;
 import com.baidu.tieba.data.chat.ChatPostData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e implements ah {
+public class e implements ai {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ChatActivity f1138a;
+    final /* synthetic */ ChatActivity f1185a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(ChatActivity chatActivity) {
-        this.f1138a = chatActivity;
+        this.f1185a = chatActivity;
     }
 
-    @Override // com.baidu.tieba.chat.ah
+    @Override // com.baidu.tieba.chat.ai
     public void a() {
-        ai aiVar;
-        aiVar = this.f1138a.f1122a;
-        aiVar.n();
+        aj ajVar;
+        ajVar = this.f1185a.f1168a;
+        ajVar.n();
     }
 
-    @Override // com.baidu.tieba.chat.ah
+    @Override // com.baidu.tieba.chat.ai
     public void a(boolean z, String str, ChatData chatData) {
-        ai aiVar;
-        ab abVar;
-        ai aiVar2;
-        af afVar;
+        aj ajVar;
+        ac acVar;
+        aj ajVar2;
+        ag agVar;
         Handler handler;
         Runnable runnable;
         Handler handler2;
         Runnable runnable2;
-        aiVar = this.f1138a.f1122a;
-        aiVar.o();
+        ajVar = this.f1185a.f1168a;
+        ajVar.o();
         if (z) {
-            abVar = this.f1138a.b;
-            abVar.a().mergeData(chatData);
-            aiVar2 = this.f1138a.f1122a;
-            aiVar2.i();
+            acVar = this.f1185a.b;
+            acVar.a().mergeData(chatData);
+            ajVar2 = this.f1185a.f1168a;
+            ajVar2.i();
             new Handler().post(new f(this));
             if (chatData.getHasMore()) {
-                handler = this.f1138a.h;
-                runnable = this.f1138a.k;
+                handler = this.f1185a.h;
+                runnable = this.f1185a.k;
                 handler.removeCallbacks(runnable);
-                handler2 = this.f1138a.h;
-                runnable2 = this.f1138a.k;
+                handler2 = this.f1185a.h;
+                runnable2 = this.f1185a.k;
                 handler2.post(runnable2);
             }
-            afVar = this.f1138a.c;
-            afVar.a((ChatPostData) null);
+            agVar = this.f1185a.c;
+            agVar.a((ChatPostData) null);
             return;
         }
-        this.f1138a.showToast(str);
+        this.f1185a.showToast(str);
     }
 }

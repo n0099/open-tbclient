@@ -1,36 +1,31 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tieba.compatible.CompatibleUtile;
+import com.baidu.tieba.view.BaseViewPager;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class ab extends BdAsyncTask<String, Integer, Boolean> {
+class ab implements com.baidu.tieba.view.a {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ GuideActivity f1018a;
-
-    private ab(GuideActivity guideActivity) {
-        this.f1018a = guideActivity;
-    }
+    final /* synthetic */ GuideActivity f1028a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ab(GuideActivity guideActivity, w wVar) {
-        this(guideActivity);
+    public ab(GuideActivity guideActivity) {
+        this.f1028a = guideActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public Boolean a(String... strArr) {
-        boolean c;
-        c = this.f1018a.c();
-        return Boolean.valueOf(c);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(Boolean bool) {
-        if (!bool.booleanValue()) {
-            this.f1018a.b();
+    @Override // com.baidu.tieba.view.a
+    public void a(int i) {
+        BaseViewPager baseViewPager;
+        BaseViewPager baseViewPager2;
+        if (i == 0) {
+            baseViewPager = this.f1028a.i;
+            if (baseViewPager != null) {
+                baseViewPager2 = this.f1028a.i;
+                baseViewPager2.setOnScrollOutListener(null);
+            }
+            this.f1028a.a();
+            CompatibleUtile.setAnim(this.f1028a, 0, R.anim.left);
         }
     }
 }

@@ -1,20 +1,19 @@
 package com.baidu.tieba.data;
 
-import com.baidu.tieba.util.bg;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class z {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1219a = null;
+    private String f1266a = null;
     private int b = 0;
 
     public void a(String str) {
-        this.f1219a = str;
+        this.f1266a = str;
     }
 
     public String a() {
-        return this.f1219a;
+        return this.f1266a;
     }
 
     public void a(int i) {
@@ -29,9 +28,9 @@ public class z {
         if (jSONObject != null) {
             try {
                 this.b = jSONObject.optInt("class_id", 0);
-                this.f1219a = jSONObject.optString("class_name");
+                this.f1266a = jSONObject.optString("class_name");
             } catch (Exception e) {
-                bg.b("GoodData", "parserJson", "error = " + e.getMessage());
+                com.baidu.tieba.util.bd.b("GoodData", "parserJson", "error = " + e.getMessage());
             }
         }
     }

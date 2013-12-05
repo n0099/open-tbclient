@@ -6,7 +6,7 @@ import android.widget.TextView;
 class ar {
 
     /* renamed from: a  reason: collision with root package name */
-    TextView f1322a;
+    TextView f1373a;
     ImageView b;
     ImageView c;
     ImageView d;

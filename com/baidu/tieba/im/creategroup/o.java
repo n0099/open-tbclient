@@ -1,93 +1,62 @@
 package com.baidu.tieba.im.creategroup;
 
-import android.location.Address;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ListAdapter;
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tieba.util.bd;
-import com.baidu.tieba.view.NavigationBar;
-import com.slidingmenu.lib.R;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import com.baidu.tieba.TiebaApplication;
 /* loaded from: classes.dex */
-public class o extends com.baidu.adp.a.e {
+public class o extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    NavigationBar f1585a;
-    View c;
-    GroupAddressActivity d;
-    Button e;
-    BdListView f;
-    String g;
-    m h;
-    com.baidu.adp.lib.c.d i;
+    private String[] f1631a;
+    private GroupAddressEditActivity b;
 
-    public Button a() {
-        return this.e;
+    public o(GroupAddressEditActivity groupAddressEditActivity, String[] strArr) {
+        this.f1631a = null;
+        this.b = null;
+        this.b = groupAddressEditActivity;
+        this.f1631a = strArr;
     }
 
-    public o(GroupAddressActivity groupAddressActivity) {
-        super(groupAddressActivity);
-        this.f1585a = null;
-        this.c = null;
-        this.d = null;
-        this.e = null;
-        this.f = null;
-        this.g = null;
-        this.h = null;
-        this.i = new p(this);
-        b(groupAddressActivity);
-        a(groupAddressActivity);
-    }
-
-    public void a(String str) {
-        this.g = str;
-        f();
-    }
-
-    public Address e() {
-        return this.h.a();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void f() {
-        int count;
-        if (this.g != null && !this.g.equals("") && (count = this.h.getCount()) != 0) {
-            for (int i = 0; i < count; i++) {
-                Address address = (Address) this.h.getItem(i);
-                if (address != null && address.getAddressLine(0).equals(this.g)) {
-                    this.h.a(i);
-                    return;
-                }
-            }
+    @Override // android.widget.Adapter
+    public int getCount() {
+        if (this.f1631a != null) {
+            return this.f1631a.length;
         }
+        return 0;
     }
 
-    private void a(GroupAddressActivity groupAddressActivity) {
-        this.e.setOnClickListener(groupAddressActivity);
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        return (this.f1631a == null || i <= -1 || i >= this.f1631a.length) ? "" : this.f1631a[i];
     }
 
-    public void a(int i) {
-        this.h.a(i);
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        return i;
     }
 
-    private void b(GroupAddressActivity groupAddressActivity) {
-        this.d = groupAddressActivity;
-        groupAddressActivity.setContentView(R.layout.group_address_activity);
-        this.c = groupAddressActivity.findViewById(R.id.parent);
-        this.f = (BdListView) groupAddressActivity.findViewById(R.id.lv_address);
-        this.h = new m(this.d);
-        this.f.setAdapter((ListAdapter) this.h);
-        this.f1585a = (NavigationBar) groupAddressActivity.findViewById(R.id.view_navigation_bar);
-        this.f1585a.a(groupAddressActivity.getResources().getString(R.string.group_address));
-        this.e = this.f1585a.b(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, groupAddressActivity.getResources().getString(R.string.group_create_step_done_tip));
-        this.f.setOnItemClickListener(this.d);
-        com.baidu.adp.lib.c.a.a().a(true, this.i);
+    @Override // android.widget.Adapter
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        a aVar;
+        if (view == null) {
+            aVar = new a(this.b);
+            view = aVar.a();
+        } else {
+            aVar = (a) view.getTag();
+        }
+        aVar.a(getItem(i).toString());
+        if (this.b.a() == i) {
+            aVar.a(true);
+        } else {
+            aVar.a(false);
+        }
+        a(view);
+        return view;
     }
 
-    public void b(int i) {
-        this.d.getLayoutMode().a(i == 1);
-        this.d.getLayoutMode().a(this.c);
-        bd.b(this.c, i);
-        this.f1585a.c(i);
+    private void a(View view) {
+        this.b.getLayoutMode().a(TiebaApplication.h().an() == 1);
+        this.b.getLayoutMode().a(view);
     }
 }

@@ -24,7 +24,7 @@ public class h extends SQLiteOpenHelper {
             sQLiteDatabase.execSQL(str);
             return true;
         } catch (Throwable th) {
-            com.baidu.adp.lib.h.d.a(getClass(), str, th);
+            com.baidu.adp.lib.h.e.a(getClass(), str, th);
             return false;
         }
     }
@@ -34,6 +34,10 @@ public class h extends SQLiteOpenHelper {
         if (i < 1) {
             a(sQLiteDatabase);
         }
+    }
+
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
     }
 
     protected void a(SQLiteDatabase sQLiteDatabase) {

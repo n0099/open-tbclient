@@ -6,7 +6,7 @@ import org.msgpack.MessageTypeException;
 public class BigIntegerTemplate extends AbstractTemplate<BigInteger> {
 
     /* renamed from: a  reason: collision with root package name */
-    static final BigIntegerTemplate f2885a = new BigIntegerTemplate();
+    static final BigIntegerTemplate f3066a = new BigIntegerTemplate();
 
     private BigIntegerTemplate() {
     }
@@ -25,6 +25,6 @@ public class BigIntegerTemplate extends AbstractTemplate<BigInteger> {
     }
 
     public static BigIntegerTemplate a() {
-        return f2885a;
+        return f3066a;
     }
 }

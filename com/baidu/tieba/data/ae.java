@@ -1,6 +1,5 @@
 package com.baidu.tieba.data;
 
-import com.baidu.tieba.util.bg;
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.json.JSONArray;
@@ -8,12 +7,12 @@ import org.json.JSONArray;
 public class ae {
 
     /* renamed from: a  reason: collision with root package name */
-    private ArrayList<ad> f1165a = new ArrayList<>();
+    private ArrayList<ad> f1212a = new ArrayList<>();
     private boolean b;
     private int c;
 
     public ArrayList<ad> a() {
-        return this.f1165a;
+        return this.f1212a;
     }
 
     public void a(int i) {
@@ -25,7 +24,7 @@ public class ae {
     }
 
     public void c() {
-        Iterator<ad> it = this.f1165a.iterator();
+        Iterator<ad> it = this.f1212a.iterator();
         while (it.hasNext()) {
             it.next().a(0);
         }
@@ -40,9 +39,9 @@ public class ae {
                     if (adVar.d() >= this.c) {
                         this.b = true;
                     }
-                    this.f1165a.add(adVar);
+                    this.f1212a.add(adVar);
                 } catch (Exception e) {
-                    bg.b("LikeForumListData", "parserJson", "error = " + e.getMessage());
+                    com.baidu.tieba.util.bd.b("LikeForumListData", "parserJson", "error = " + e.getMessage());
                     return;
                 }
             }

@@ -16,7 +16,7 @@ public class EditBarActivity extends com.baidu.tieba.j {
     private NavigationBar c;
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.tieba.model.e f2183a = null;
+    private com.baidu.tieba.model.e f2290a = null;
     private ListView b = null;
     private TextView d = null;
     private TextView e = null;
@@ -76,7 +76,7 @@ public class EditBarActivity extends com.baidu.tieba.j {
     }
 
     private void b() {
-        this.f2183a = new com.baidu.tieba.model.e();
+        this.f2290a = new com.baidu.tieba.model.e();
         this.o = getIntent().getStringExtra("view_user_id");
         this.p = getIntent().getIntExtra("user_sex", 0);
     }
@@ -86,7 +86,7 @@ public class EditBarActivity extends com.baidu.tieba.j {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.c.c(i);
-        com.baidu.tieba.util.bd.a(this.l, i);
+        com.baidu.tieba.util.ba.a(this.l, i);
         this.f.notifyDataSetChanged();
         if (i == 1) {
             this.b.setDivider(getResources().getDrawable(R.drawable.list_divider_1));
@@ -108,7 +108,7 @@ public class EditBarActivity extends com.baidu.tieba.j {
         this.m = (FrameLayout) findViewById(R.id.empty_textview_container);
         this.n = (TextView) findViewById(R.id.empty_textview);
         this.g = (ProgressBar) findViewById(R.id.progress);
-        this.f = new i(this, this.f2183a);
+        this.f = new i(this, this.f2290a);
         this.f.a(new d(this));
         this.b = (ListView) findViewById(R.id.list);
         this.b.setAdapter((ListAdapter) this.f);

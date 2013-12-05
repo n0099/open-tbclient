@@ -7,7 +7,7 @@ import com.baidu.cloudsdk.common.util.Validator;
 public class WidgetPreferenceManager {
 
     /* renamed from: a  reason: collision with root package name */
-    private static WidgetPreferenceManager f851a;
+    private static WidgetPreferenceManager f856a;
     private SharedPreferences b;
 
     private WidgetPreferenceManager(Context context) {
@@ -16,10 +16,10 @@ public class WidgetPreferenceManager {
     }
 
     public static WidgetPreferenceManager getInstance(Context context) {
-        if (f851a == null) {
-            f851a = new WidgetPreferenceManager(context);
+        if (f856a == null) {
+            f856a = new WidgetPreferenceManager(context);
         }
-        return f851a;
+        return f856a;
     }
 
     public boolean isWidgetActivated(String str) {

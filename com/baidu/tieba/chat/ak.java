@@ -1,38 +1,17 @@
 package com.baidu.tieba.chat;
-
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.widget.Button;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ak implements TextWatcher {
+class ak implements com.baidu.tieba.view.h {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ai f1133a;
+    final /* synthetic */ aj f1179a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ak(ai aiVar) {
-        this.f1133a = aiVar;
+    public ak(aj ajVar) {
+        this.f1179a = ajVar;
     }
 
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
-        Button button;
-        Button button2;
-        if (editable == null || editable.toString().trim().length() <= 0) {
-            button = this.f1133a.d;
-            button.setEnabled(false);
-            return;
-        }
-        button2 = this.f1133a.d;
-        button2.setEnabled(true);
+    @Override // com.baidu.tieba.view.h
+    public void a() {
+        this.f1179a.r();
     }
 }

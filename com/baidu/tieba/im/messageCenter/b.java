@@ -6,6 +6,7 @@ import com.baidu.tieba.im.message.ResponseFrsGroupsMessage;
 import com.baidu.tieba.im.message.ResponseGroupInfoMessage;
 import com.baidu.tieba.im.message.ResponseGroupLevelMessage;
 import com.baidu.tieba.im.message.ResponseGroupsByUidMessage;
+import com.baidu.tieba.im.message.ResponseHotGroupsMessage;
 import com.baidu.tieba.im.message.ResponseMembersMessage;
 import com.baidu.tieba.im.message.ResponseOnlineMessage;
 import com.baidu.tieba.im.message.ResponseRemoveMembersMessage;
@@ -15,7 +16,7 @@ import com.baidu.tieba.im.message.ResponsedMessage;
 /* loaded from: classes.dex */
 public class b {
     public static void a(TiebaApplication tiebaApplication) {
-        f a2 = f.a();
+        e a2 = e.a();
         a2.c(1001, ResponseOnlineMessage.class);
         a2.c(202003, ResponsedMessage.class);
         a2.c(1003, ResponsedMessage.class);
@@ -30,5 +31,6 @@ public class b {
         a2.c(103006, ResponseGroupLevelMessage.class);
         a2.c(103112, ResponseRemoveMembersMessage.class);
         a2.c(103008, ResponseUserPermissionMessage.class);
+        a2.c(103012, ResponseHotGroupsMessage.class);
     }
 }

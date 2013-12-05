@@ -12,7 +12,6 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.im.data.GroupInfoData;
-import com.baidu.tieba.util.UtilHelper;
 import com.baidu.tieba.view.HeadImageView;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
@@ -23,7 +22,7 @@ import java.util.List;
 public class GroupListAdapter extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    private FrsGroupActivity f1629a;
+    private FrsGroupActivity f1696a;
     private BOTTOM_TYPE b;
     private boolean c;
     private com.baidu.tieba.util.i d;
@@ -38,7 +37,7 @@ public class GroupListAdapter extends BaseAdapter {
 
     public void a(List<GroupInfoData> list) {
         this.e.addAll(list);
-        c();
+        d();
     }
 
     public void a(boolean z) {
@@ -51,8 +50,12 @@ public class GroupListAdapter extends BaseAdapter {
         this.b = BOTTOM_TYPE.LINE;
     }
 
+    public ArrayList<GroupInfoData> a() {
+        return this.e;
+    }
+
     public GroupListAdapter(FrsGroupActivity frsGroupActivity) {
-        this.f1629a = frsGroupActivity;
+        this.f1696a = frsGroupActivity;
         this.d = new com.baidu.tieba.util.i(frsGroupActivity);
         this.d.d(true);
     }
@@ -108,57 +111,58 @@ public class GroupListAdapter extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         j jVar;
         if (this.e == null) {
-            return LayoutInflater.from(this.f1629a).inflate(R.layout.im_entergroup_list_item, viewGroup, false);
+            return LayoutInflater.from(this.f1696a).inflate(R.layout.im_frsgroup_list_item, viewGroup, false);
         }
         if (view == null) {
-            view = LayoutInflater.from(this.f1629a).inflate(R.layout.im_entergroup_list_item, viewGroup, false);
+            view = LayoutInflater.from(this.f1696a).inflate(R.layout.im_frsgroup_list_item, viewGroup, false);
             jVar = new j();
             jVar.b = (LinearLayout) view.findViewById(R.id.list_item_content);
-            jVar.f1644a = (LinearLayout) view.findViewById(R.id.list_more);
+            jVar.f1711a = (LinearLayout) view.findViewById(R.id.list_more);
             jVar.c = (HeadImageView) view.findViewById(R.id.item_head);
             jVar.d = (TextView) view.findViewById(R.id.item_group_name);
-            jVar.e = (TextView) view.findViewById(R.id.item_group_num);
-            jVar.f = (TextView) view.findViewById(R.id.item_introduce);
-            jVar.l = (TextView) view.findViewById(R.id.list_more_title);
-            jVar.m = (ProgressBar) view.findViewById(R.id.list_more_progress);
-            jVar.n = (ImageView) view.findViewById(R.id.list_more_line);
-            jVar.k = (LinearLayout) view.findViewById(R.id.list_more_text);
-            jVar.g = (ImageView) view.findViewById(R.id.item_grade1);
-            jVar.h = (ImageView) view.findViewById(R.id.item_grade2);
-            jVar.i = (ImageView) view.findViewById(R.id.item_grade3);
-            jVar.j = new ImageView[4];
-            jVar.j[1] = jVar.g;
-            jVar.j[2] = jVar.h;
-            jVar.j[3] = jVar.i;
+            jVar.e = (TextView) view.findViewById(R.id.item_group_meizi);
+            jVar.f = (TextView) view.findViewById(R.id.item_group_num);
+            jVar.g = (TextView) view.findViewById(R.id.item_introduce);
+            jVar.m = (TextView) view.findViewById(R.id.list_more_title);
+            jVar.n = (ProgressBar) view.findViewById(R.id.list_more_progress);
+            jVar.o = (ImageView) view.findViewById(R.id.list_more_line);
+            jVar.l = (LinearLayout) view.findViewById(R.id.list_more_text);
+            jVar.h = (ImageView) view.findViewById(R.id.item_grade1);
+            jVar.i = (ImageView) view.findViewById(R.id.item_grade2);
+            jVar.j = (ImageView) view.findViewById(R.id.item_grade3);
+            jVar.k = new ImageView[4];
+            jVar.k[1] = jVar.h;
+            jVar.k[2] = jVar.i;
+            jVar.k[3] = jVar.j;
             view.setTag(jVar);
         } else {
             jVar = (j) view.getTag();
         }
         if (getItemViewType(i) == 1) {
-            jVar.f1644a.setVisibility(0);
+            jVar.f1711a.setVisibility(0);
             jVar.b.setVisibility(8);
             if (this.b == BOTTOM_TYPE.LINE) {
-                jVar.n.setVisibility(0);
-                jVar.k.setVisibility(8);
+                jVar.o.setVisibility(0);
+                jVar.l.setVisibility(8);
                 return view;
             }
-            jVar.n.setVisibility(8);
-            jVar.k.setVisibility(0);
+            jVar.o.setVisibility(8);
+            jVar.l.setVisibility(0);
             if (this.b == BOTTOM_TYPE.HAVE_MORE) {
-                jVar.l.setText(R.string.frsgroup_load_more);
-                jVar.m.setVisibility(0);
+                jVar.m.setText(R.string.frsgroup_load_more);
+                jVar.n.setVisibility(0);
                 return view;
             }
-            jVar.l.setText(R.string.frsgroup_no_more);
-            jVar.m.setVisibility(8);
+            jVar.m.setText(R.string.frsgroup_no_more);
+            jVar.n.setVisibility(8);
             return view;
         }
-        jVar.f1644a.setVisibility(8);
+        jVar.f1711a.setVisibility(8);
         jVar.b.setVisibility(0);
         GroupInfoData groupInfoData = (GroupInfoData) getItem(i);
         jVar.c.setTag(null);
         jVar.c.setDrawBorder(true);
-        jVar.c.setRadius(UtilHelper.a((Context) this.f1629a, 5.0f));
+        jVar.c.setRadius(com.baidu.adp.lib.h.g.a((Context) this.f1696a, 5.0f));
         jVar.c.setDefaultResource(R.drawable.avatar_poto_defaul140);
         jVar.c.setNightDefaultResource(R.drawable.avatar_poto_defaul140);
         jVar.c.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
@@ -167,16 +171,17 @@ public class GroupListAdapter extends BaseAdapter {
             jVar.c.setTag(portrait);
         }
         jVar.d.setText(groupInfoData.getName());
-        jVar.e.setText(groupInfoData.getMemberNum() + "/" + groupInfoData.getMaxMemberNum());
-        jVar.f.setText(groupInfoData.getIntro());
-        a(jVar.j, groupInfoData.getGrade());
+        jVar.e.setVisibility(groupInfoData.autorIsMeizhi() ? 0 : 8);
+        jVar.f.setText(groupInfoData.getMemberNum() + "/" + groupInfoData.getMaxMemberNum());
+        jVar.g.setText(groupInfoData.getIntro().trim());
+        a(jVar.k, groupInfoData.getGrade());
         a(view);
         return view;
     }
 
     private void a(View view) {
-        this.f1629a.a().a(TiebaApplication.g().ap() == 1);
-        this.f1629a.a().a(view);
+        this.f1696a.a().a(TiebaApplication.h().an() == 1);
+        this.f1696a.a().a(view);
     }
 
     private void a(ImageView[] imageViewArr, int i) {
@@ -195,7 +200,7 @@ public class GroupListAdapter extends BaseAdapter {
         }
     }
 
-    private void c() {
+    private void d() {
         HashSet hashSet = new HashSet();
         Iterator<GroupInfoData> it = this.e.iterator();
         while (it.hasNext()) {
@@ -205,11 +210,11 @@ public class GroupListAdapter extends BaseAdapter {
         }
     }
 
-    public com.baidu.tieba.util.i a() {
+    public com.baidu.tieba.util.i b() {
         return this.d;
     }
 
-    public boolean b() {
+    public boolean c() {
         return this.b == BOTTOM_TYPE.HAVE_MORE;
     }
 }

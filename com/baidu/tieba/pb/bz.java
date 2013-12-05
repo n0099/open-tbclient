@@ -13,7 +13,7 @@ import com.baidu.tieba.view.UserIconBox;
 class bz {
 
     /* renamed from: a  reason: collision with root package name */
-    public View f2090a;
+    public View f2197a;
     public HeadImageView b;
     public TextView c;
     public TextView d;

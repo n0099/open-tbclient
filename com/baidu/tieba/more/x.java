@@ -6,16 +6,16 @@ import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 class x implements com.baidu.adp.widget.BdSwitchView.c {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ w f1999a;
+    final /* synthetic */ w f2106a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(w wVar) {
-        this.f1999a = wVar;
+        this.f2106a = wVar;
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.c
     public void a(View view, BdSwitchView.SwitchState switchState) {
         com.baidu.tieba.d.a.a().b(switchState == BdSwitchView.SwitchState.ON);
-        this.f1999a.o();
+        this.f2106a.o();
     }
 }

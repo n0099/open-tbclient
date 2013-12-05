@@ -25,7 +25,7 @@ import org.json.JSONObject;
 public final class o {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f702a = "";
+    public static String f707a = "";
     private static volatile o c = null;
     private Context b;
     private r d;

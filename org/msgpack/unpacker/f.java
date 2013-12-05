@@ -5,7 +5,7 @@ import org.msgpack.MessageTypeException;
 final class f extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    int f2958a;
+    int f3139a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f() {
@@ -15,19 +15,19 @@ final class f extends a {
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // org.msgpack.unpacker.a
     public void a(byte b) {
-        this.f2958a = b;
+        this.f3139a = b;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // org.msgpack.unpacker.a
     public void a(short s) {
-        this.f2958a = s;
+        this.f3139a = s;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // org.msgpack.unpacker.a
     public void a(int i) {
-        this.f2958a = i;
+        this.f3139a = i;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -36,19 +36,19 @@ final class f extends a {
         if (j < -2147483648L || j > 2147483647L) {
             throw new MessageTypeException();
         }
-        this.f2958a = (int) j;
+        this.f3139a = (int) j;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // org.msgpack.unpacker.a
     public void b(byte b) {
-        this.f2958a = b & 255;
+        this.f3139a = b & 255;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // org.msgpack.unpacker.a
     public void b(short s) {
-        this.f2958a = 65535 & s;
+        this.f3139a = 65535 & s;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -57,7 +57,7 @@ final class f extends a {
         if (i < 0) {
             throw new MessageTypeException();
         }
-        this.f2958a = i;
+        this.f3139a = i;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -66,6 +66,6 @@ final class f extends a {
         if (j < 0 || j > 2147483647L) {
             throw new MessageTypeException();
         }
-        this.f2958a = (int) j;
+        this.f3139a = (int) j;
     }
 }

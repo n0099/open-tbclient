@@ -9,16 +9,16 @@ import com.tencent.mm.sdk.platformtools.Util;
 public class cl extends BdAsyncTask<String, String, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    private PbEditorCacheModel.OP_TYPE f2101a;
+    private PbEditorCacheModel.OP_TYPE f2208a;
     private cm b;
     private String c;
     private String d;
 
     public cl(PbEditorCacheModel.OP_TYPE op_type, String str, cm cmVar, String str2) {
-        this.f2101a = op_type;
+        this.f2208a = op_type;
         this.b = cmVar;
         this.c = str2;
-        this.d = "pb_editor_" + TiebaApplication.A() + str;
+        this.d = "pb_editor_" + TiebaApplication.B() + str;
         setPriority(3);
     }
 
@@ -30,9 +30,9 @@ public class cl extends BdAsyncTask<String, String, String> {
             com.baidu.adp.lib.cache.s<String> d = com.baidu.tieba.b.a.a().d();
             String a2 = d.a(this.d);
             try {
-                if (this.f2101a == PbEditorCacheModel.OP_TYPE.SET) {
-                    if (com.baidu.tieba.util.be.c(this.c)) {
-                        if (!com.baidu.tieba.util.be.c(a2)) {
+                if (this.f2208a == PbEditorCacheModel.OP_TYPE.SET) {
+                    if (com.baidu.tieba.util.bb.c(this.c)) {
+                        if (!com.baidu.tieba.util.bb.c(a2)) {
                             d.c(this.d);
                         }
                     } else {

@@ -19,7 +19,7 @@ import java.util.Iterator;
 public class NoNetworkView extends RelativeLayout implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private static ArrayList<NoNetworkView> f2529a = new ArrayList<>();
+    private static ArrayList<NoNetworkView> f2643a = new ArrayList<>();
     private static boolean f;
     private TextView b;
     private ImageView c;
@@ -27,7 +27,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
     private TextView e;
     private Context g;
     private boolean h;
-    private ArrayList<az> i;
+    private ArrayList<ba> i;
 
     public NoNetworkView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
@@ -67,15 +67,15 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
         setIsHasNetwork(false);
     }
 
-    public void a(az azVar) {
-        if (azVar != null && !this.i.contains(azVar)) {
-            this.i.add(azVar);
+    public void a(ba baVar) {
+        if (baVar != null && !this.i.contains(baVar)) {
+            this.i.add(baVar);
         }
     }
 
-    public void b(az azVar) {
-        if (azVar != null && this.i.contains(azVar)) {
-            this.i.remove(azVar);
+    public void b(ba baVar) {
+        if (baVar != null && this.i.contains(baVar)) {
+            this.i.remove(baVar);
         }
     }
 
@@ -83,13 +83,13 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
         if (z != f) {
             f = z;
             if (f) {
-                Iterator<NoNetworkView> it = f2529a.iterator();
+                Iterator<NoNetworkView> it = f2643a.iterator();
                 while (it.hasNext()) {
                     it.next().setVisible(false);
                 }
                 return;
             }
-            Iterator<NoNetworkView> it2 = f2529a.iterator();
+            Iterator<NoNetworkView> it2 = f2643a.iterator();
             while (it2.hasNext()) {
                 it2.next().setVisible(true);
             }
@@ -103,7 +103,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
                 AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
                 alphaAnimation.setFillAfter(true);
                 alphaAnimation.setDuration(500L);
-                alphaAnimation.setAnimationListener(new ax(this));
+                alphaAnimation.setAnimationListener(new ay(this));
                 setVisibility(0);
                 startAnimation(alphaAnimation);
                 for (int i = 0; i < this.i.size(); i++) {
@@ -113,7 +113,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
                 AlphaAnimation alphaAnimation2 = new AlphaAnimation(1.0f, 0.0f);
                 alphaAnimation2.setFillAfter(true);
                 alphaAnimation2.setDuration(500L);
-                alphaAnimation2.setAnimationListener(new ay(this));
+                alphaAnimation2.setAnimationListener(new az(this));
                 startAnimation(alphaAnimation2);
                 for (int i2 = 0; i2 < this.i.size(); i2++) {
                     this.i.get(i2).a(true);
@@ -134,13 +134,13 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        f2529a.add(this);
+        f2643a.add(this);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        f2529a.remove(this);
+        f2643a.remove(this);
         this.i.clear();
     }
 

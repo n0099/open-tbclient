@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.person.post.PersonPostReplyModel;
-import com.baidu.tieba.util.be;
+import com.baidu.tieba.util.bb;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 import java.util.regex.Pattern;
@@ -16,7 +16,7 @@ import java.util.regex.Pattern;
 public class j extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    private m f2259a;
+    private m f2377a;
     private PersonPostReplyModel b;
     private String c;
     private String d;
@@ -27,11 +27,10 @@ public class j extends BaseAdapter {
     public j(Context context, String str, String str2) {
         this.e = (Activity) context;
         this.c = str;
-        this.d = str2;
     }
 
     public void a(m mVar) {
-        this.f2259a = mVar;
+        this.f2377a = mVar;
     }
 
     public void a(boolean z) {
@@ -73,9 +72,9 @@ public class j extends BaseAdapter {
             nVar = (n) view.getTag();
         }
         if (i == 0) {
-            nVar.f2251a.setVisibility(0);
+            nVar.f2369a.setVisibility(0);
         } else {
-            nVar.f2251a.setVisibility(8);
+            nVar.f2369a.setVisibility(8);
         }
         a(i, nVar, viewGroup);
         return view;
@@ -87,6 +86,9 @@ public class j extends BaseAdapter {
 
     private void a(int i, n nVar, ViewGroup viewGroup) {
         PersonPostReplyModel.Post a2 = a(i);
+        if (this.d == null) {
+            this.d = a2.user_portrait;
+        }
         nVar.a(a2, this.d);
         ArrayList<String[]> arrayList = new ArrayList<>();
         int length = a2.content.length;
@@ -100,7 +102,7 @@ public class j extends BaseAdapter {
                 for (int i3 = 0; i3 < length2; i3++) {
                     stringBuffer.append(a2.content[i2].post_content[i3].text);
                 }
-                arrayList.add(new String[]{stringBuffer.toString(), String.valueOf(a2.thread_id), String.valueOf(a2.content[i2].post_id), String.valueOf(a2.content[i2].post_type), be.b(a2.content[i2].create_time * 1000)});
+                arrayList.add(new String[]{stringBuffer.toString(), String.valueOf(a2.thread_id), String.valueOf(a2.content[i2].post_id), String.valueOf(a2.content[i2].post_type), bb.b(a2.content[i2].create_time * 1000)});
             }
         }
         nVar.g.setContent(arrayList);
@@ -110,7 +112,7 @@ public class j extends BaseAdapter {
             nVar.h.setText(a2.title);
         }
         nVar.h.setTag(new String[]{String.valueOf(a2.thread_id), null, null});
-        if (TiebaApplication.g().ap() == 1) {
+        if (TiebaApplication.h().an() == 1) {
             nVar.h.setTextColor(viewGroup.getResources().getColor(R.color.person_post_content_ori_1));
             nVar.h.setBackgroundResource(R.drawable.person_post_line_1);
         } else {
@@ -120,6 +122,6 @@ public class j extends BaseAdapter {
         int dimensionPixelSize = viewGroup.getResources().getDimensionPixelSize(R.dimen.person_post_reply_ori_padding);
         nVar.h.setPadding(dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize);
         nVar.a(this.g);
-        nVar.a(TiebaApplication.g().ap());
+        nVar.a(TiebaApplication.h().an());
     }
 }

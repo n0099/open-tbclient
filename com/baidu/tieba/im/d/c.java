@@ -1,276 +1,144 @@
 package com.baidu.tieba.im.d;
 
-import android.text.TextUtils;
+import android.os.Handler;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.data.UserData;
-import com.baidu.tieba.im.data.MsgCacheData;
-import com.baidu.tieba.im.data.SystemMsgData;
-import com.baidu.tieba.im.data.VoiceMsgData;
-import com.baidu.tieba.im.message.ChatMessage;
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonParser;
-import com.slidingmenu.lib.R;
+import com.baidu.tieba.im.chat.ac;
+import com.baidu.tieba.im.data.GroupMidData;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.tieba.im.m;
+import com.baidu.tieba.im.message.MessageSyncMessage;
+import com.baidu.tieba.log.i;
+import com.tencent.mm.sdk.platformtools.Util;
 import java.util.Iterator;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class c {
+public class c implements com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMessageCenterPojo>> {
 
     /* renamed from: a  reason: collision with root package name */
-    private static short f1588a = 1;
-    private static short b = 2;
-    private static short c = 3;
+    final /* synthetic */ a f1641a;
 
-    public static String a(String str, boolean z) {
-        String str2 = null;
-        if (str == null) {
-            return null;
-        }
-        try {
-            str2 = new JSONArray(str).getJSONObject(0).optString(z ? "big_src" : "src");
-            return str2;
-        } catch (Exception e) {
-            return str2;
-        }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public c(a aVar) {
+        this.f1641a = aVar;
     }
 
-    public static String a(JSONObject jSONObject, boolean z) {
-        return jSONObject.optString(z ? "big_src" : "src");
-    }
-
-    public static boolean a(ChatMessage chatMessage) {
-        return chatMessage != null && chatMessage.getMsgType() == b;
-    }
-
-    public static boolean b(ChatMessage chatMessage) {
-        return chatMessage != null && chatMessage.getMsgType() == c;
-    }
-
-    public static boolean c(ChatMessage chatMessage) {
-        try {
-            if (chatMessage.getMsgType() != 11 && TiebaApplication.B()) {
-                return chatMessage.getUserInfo().getId().equals(TiebaApplication.A());
-            }
-            return false;
-        } catch (Exception e) {
-            com.baidu.adp.lib.h.d.b("LocalUtil", "isAuthor", "Msg Author is Null");
-            return false;
-        }
-    }
-
-    public static MsgCacheData d(ChatMessage chatMessage) {
-        try {
-            MsgCacheData msgCacheData = new MsgCacheData();
-            msgCacheData.setRich_content(null);
-            return msgCacheData;
-        } catch (Exception e) {
-            com.baidu.adp.lib.h.d.b("LocalUtil", "getMsgCacheData", "error:" + e.getMessage());
-            return null;
-        }
-    }
-
-    public static VoiceMsgData e(ChatMessage chatMessage) {
-        VoiceMsgData voiceMsgData;
-        Exception e;
-        if (chatMessage == null || chatMessage.getMsgType() != 3) {
-            return null;
-        }
-        if (chatMessage.getObjContent() != null) {
-            return (VoiceMsgData) chatMessage.getObjContent();
-        }
-        String content = chatMessage.getContent();
-        if (TextUtils.isEmpty(content)) {
-            VoiceMsgData voiceMsgData2 = new VoiceMsgData();
-            chatMessage.setObjContent(voiceMsgData2);
-            return voiceMsgData2;
-        }
-        try {
-            Gson gson = new Gson();
-            JsonArray asJsonArray = new JsonParser().parse(content).getAsJsonArray();
-            if (asJsonArray == null || asJsonArray.size() <= 0) {
-                return null;
-            }
-            Iterator<JsonElement> it = asJsonArray.iterator();
-            voiceMsgData = it.hasNext() ? (VoiceMsgData) gson.fromJson(it.next(), (Class<Object>) VoiceMsgData.class) : null;
-            try {
-                chatMessage.setObjContent(voiceMsgData);
-                return voiceMsgData;
-            } catch (Exception e2) {
-                e = e2;
-                com.baidu.adp.lib.h.d.b("LocalUtil", "deserializerVoiceMsgData", "error:" + e.getMessage());
-                return voiceMsgData;
-            }
-        } catch (Exception e3) {
-            voiceMsgData = null;
-            e = e3;
-        }
-    }
-
-    private static final String a(String str) {
-        StringBuilder sb = new StringBuilder();
-        if (TextUtils.isEmpty(str)) {
-            return null;
-        }
-        try {
-            JSONArray jSONArray = new JSONArray(str);
-            int length = jSONArray.length();
-            for (int i = 0; i < length; i++) {
-                JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                if (optJSONObject != null && !optJSONObject.isNull("type")) {
-                    int optInt = optJSONObject.optInt("type");
-                    if (optInt == 0) {
-                        sb.append(optJSONObject.opt("text"));
-                    } else if (optInt == 2) {
-                        sb.append("#(");
-                        sb.append(optJSONObject.opt("c"));
-                        sb.append(")");
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.a
+    public void a(ConcurrentHashMap<String, ImMessageCenterPojo> concurrentHashMap) {
+        long j;
+        boolean z;
+        LinkedList linkedList;
+        boolean z2;
+        MessageSyncMessage k;
+        LinkedList linkedList2;
+        LinkedList linkedList3;
+        String str;
+        LinkedList linkedList4;
+        long j2;
+        long j3;
+        int i;
+        int i2;
+        Handler handler;
+        Handler handler2;
+        long j4;
+        long j5;
+        long j6;
+        long j7;
+        long j8;
+        if (concurrentHashMap != null) {
+            j = this.f1641a.v;
+            if (j > 0) {
+                j4 = this.f1641a.w;
+                if (j4 > 0) {
+                    j5 = this.f1641a.w;
+                    long b = ac.b(j5 - 1);
+                    j6 = this.f1641a.v;
+                    ImMessageCenterPojo imMessageCenterPojo = concurrentHashMap.get(String.valueOf(j6));
+                    if (imMessageCenterPojo == null) {
+                        ImMessageCenterPojo imMessageCenterPojo2 = new ImMessageCenterPojo();
+                        j7 = this.f1641a.v;
+                        imMessageCenterPojo2.setGid(String.valueOf(j7));
+                        imMessageCenterPojo2.setPulled_msgId(b);
+                        j8 = this.f1641a.v;
+                        concurrentHashMap.put(String.valueOf(j8), imMessageCenterPojo2);
+                    } else if (0 == imMessageCenterPojo.getPulled_msgId() || imMessageCenterPojo.getIs_delete() == 1) {
+                        imMessageCenterPojo.setPulled_msgId(b);
                     }
                 }
             }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        return sb.toString();
-    }
-
-    public static String f(ChatMessage chatMessage) {
-        if (chatMessage == null) {
-            return null;
-        }
-        if (chatMessage.getMsgType() == 1) {
-            String a2 = (chatMessage.getContent().length() <= 1 || chatMessage.getContent().charAt(0) != '[') ? null : a(chatMessage.getContent());
-            if (TextUtils.isEmpty(a2)) {
-                a2 = chatMessage.getContent();
+            if (m.a() > 10) {
+                com.baidu.adp.lib.h.e.c("----pull message, but TiebaIMSingleExecutor.QueueSize too big");
+                handler = this.f1641a.r;
+                handler2 = this.f1641a.r;
+                handler.sendMessageDelayed(handler2.obtainMessage(2), 2000L);
+                return;
             }
-            if (a2 != null) {
-                return a2;
-            }
-            return null;
-        } else if (chatMessage.getMsgType() == 2) {
-            return TiebaApplication.g().getString(R.string.last_msg_pic);
-        } else {
-            if (chatMessage.getMsgType() == 3) {
-                return TiebaApplication.g().getString(R.string.last_msg_voice);
-            }
-            if (chatMessage.getMsgType() == 11) {
-                return b(chatMessage.getContent());
-            }
-            return null;
-        }
-    }
-
-    public static String g(ChatMessage chatMessage) {
-        if (chatMessage == null) {
-            return null;
-        }
-        String str = "";
-        UserData userInfo = chatMessage.getUserInfo();
-        if (userInfo != null && !TextUtils.isEmpty(userInfo.getName())) {
-            str = chatMessage.getUserInfo().getName();
-        }
-        if (!TextUtils.isEmpty(userInfo.getId()) && userInfo.getId().equals(TiebaApplication.A())) {
-            return f(chatMessage);
-        }
-        if (chatMessage.getMsgType() == 11) {
-            return f(chatMessage);
-        }
-        if (!TextUtils.isEmpty(str)) {
-            return str + ":" + f(chatMessage);
-        }
-        return f(chatMessage);
-    }
-
-    private static String b(String str) {
-        String str2 = null;
-        if (!TextUtils.isEmpty(str)) {
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                String optString = jSONObject.optString("eventId");
-                String optString2 = jSONObject.optString("userMsg");
-                JSONObject optJSONObject = jSONObject.optJSONObject("eventParam");
-                if (TextUtils.isEmpty(optString) || optJSONObject == null) {
-                    com.baidu.adp.lib.h.d.a("eventId == null or eventParam == null");
-                } else if (optString.equals("003")) {
-                    str2 = TiebaApplication.g().getString(R.string.kick_out_myself);
-                } else if (optString.equals("105")) {
-                    String optString3 = optJSONObject.optString("userId");
-                    String optString4 = optJSONObject.optString("userName");
-                    if (optString3.equals(TiebaApplication.A())) {
-                        str2 = TiebaApplication.g().getString(R.string.join_group_myself);
-                    } else {
-                        str2 = optString4 + TiebaApplication.g().getString(R.string.join_group);
+            this.f1641a.f = com.baidu.tieba.im.messageCenter.e.a().b(202003);
+            z = this.f1641a.f;
+            if (!z) {
+                if (TiebaApplication.h().aC()) {
+                    long currentTimeMillis = System.currentTimeMillis();
+                    j2 = this.f1641a.l;
+                    if (currentTimeMillis - j2 > Util.MILLSECONDS_OF_MINUTE) {
+                        j3 = this.f1641a.j;
+                        if (currentTimeMillis - j3 < 180000) {
+                            i = this.f1641a.k;
+                            if (i < 20) {
+                                a.i(this.f1641a);
+                                StringBuilder append = new StringBuilder().append("----background pull skip. no pull count ");
+                                i2 = this.f1641a.k;
+                                com.baidu.adp.lib.h.e.c(append.append(i2).toString());
+                                return;
+                            }
+                        }
                     }
-                } else if (optString.equals("106")) {
-                    String optString5 = optJSONObject.optString("userId");
-                    optJSONObject.optString("userName");
-                    str2 = optString5.equals(TiebaApplication.A()) ? TiebaApplication.g().getString(R.string.kick_out_myself) : optString2;
-                } else if (optString.equals("002")) {
-                    str2 = TiebaApplication.g().getString(R.string.join_group_myself);
                 }
-            } catch (JSONException e) {
-                e.printStackTrace();
-                com.baidu.adp.lib.h.d.a("transform erro" + e.getMessage());
-            }
-        }
-        return str2;
-    }
-
-    public static SystemMsgData h(ChatMessage chatMessage) {
-        if (chatMessage == null || chatMessage.getMsgType() != 11 || TextUtils.isEmpty(chatMessage.getContent())) {
-            return null;
-        }
-        try {
-            JSONObject jSONObject = new JSONObject(chatMessage.getContent());
-            String optString = jSONObject.optString("eventId");
-            String optString2 = jSONObject.optString("userMsg");
-            JSONObject optJSONObject = jSONObject.optJSONObject("eventParam");
-            if (TextUtils.isEmpty(optString) || optJSONObject == null) {
-                com.baidu.adp.lib.h.d.a("eventId == null or eventParam == null");
-                return null;
-            } else if (optString.equals("003")) {
-                SystemMsgData systemMsgData = new SystemMsgData();
-                systemMsgData.setIsSelf(true);
-                systemMsgData.setContent(TiebaApplication.g().getString(R.string.kick_out_myself));
-                return systemMsgData;
-            } else if (optString.equals("105")) {
-                String optString3 = optJSONObject.optString("userId");
-                String optString4 = optJSONObject.optString("userName");
-                SystemMsgData systemMsgData2 = new SystemMsgData();
-                if (optString3.equals(TiebaApplication.A())) {
-                    systemMsgData2.setIsSelf(true);
-                    systemMsgData2.setContent(TiebaApplication.g().getString(R.string.join_group_myself));
+                com.baidu.adp.lib.h.e.c("----real pull msg.");
+                this.f1641a.k = 0;
+                linkedList = this.f1641a.h;
+                linkedList.clear();
+                z2 = this.f1641a.u;
+                if (z2) {
+                    this.f1641a.i = "active";
                 } else {
-                    systemMsgData2.setIsSelf(false);
-                    systemMsgData2.setContent(optString4 + TiebaApplication.g().getString(R.string.join_group));
+                    this.f1641a.i = "passive";
                 }
-                return systemMsgData2;
-            } else if (optString.equals("106")) {
-                String optString5 = optJSONObject.optString("userId");
-                optJSONObject.optString("userName");
-                SystemMsgData systemMsgData3 = new SystemMsgData();
-                if (optString5.equals(TiebaApplication.A())) {
-                    systemMsgData3.setIsSelf(true);
-                    systemMsgData3.setContent(TiebaApplication.g().getString(R.string.kick_out_myself));
-                } else {
-                    systemMsgData3.setIsSelf(false);
-                    systemMsgData3.setContent(optString2);
+                k = this.f1641a.k();
+                this.f1641a.h = new LinkedList();
+                for (String str2 : concurrentHashMap.keySet()) {
+                    ImMessageCenterPojo imMessageCenterPojo3 = concurrentHashMap.get(str2);
+                    if (imMessageCenterPojo3.getIs_delete() == 0) {
+                        long c = ac.c(imMessageCenterPojo3.getPulled_msgId());
+                        if (c != 0) {
+                            GroupMidData groupMidData = new GroupMidData();
+                            groupMidData.setGroupId(Long.parseLong(imMessageCenterPojo3.getGid()));
+                            groupMidData.setLastMsgId(c);
+                            linkedList4 = this.f1641a.h;
+                            linkedList4.add(groupMidData);
+                        }
+                    }
                 }
-                return systemMsgData3;
-            } else if (optString.equals("002")) {
-                SystemMsgData systemMsgData4 = new SystemMsgData();
-                systemMsgData4.setIsSelf(true);
-                systemMsgData4.setContent(TiebaApplication.g().getString(R.string.join_group_myself));
-                return null;
-            } else {
-                return null;
+                List<GroupMidData> groupMids = k.getGroupMids();
+                linkedList2 = this.f1641a.h;
+                groupMids.addAll(linkedList2);
+                this.f1641a.g = System.currentTimeMillis();
+                StringBuilder sb = new StringBuilder(200);
+                linkedList3 = this.f1641a.h;
+                Iterator it = linkedList3.iterator();
+                while (it.hasNext()) {
+                    GroupMidData groupMidData2 = (GroupMidData) it.next();
+                    sb.append(groupMidData2.getGroupId());
+                    sb.append("-");
+                    sb.append(groupMidData2.getLastMsgId());
+                    sb.append("|");
+                }
+                str = this.f1641a.i;
+                com.baidu.tieba.log.a.b(i.a(202003, 0, str, "MessageSync-send-pullmsg", "succ", 0, "", 0L, 0, sb.toString()));
+                com.baidu.tieba.im.messageCenter.e.a().a(k);
             }
-        } catch (JSONException e) {
-            e.printStackTrace();
-            com.baidu.adp.lib.h.d.a("transform erro" + e.getMessage());
-            return null;
         }
     }
 }

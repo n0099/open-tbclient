@@ -1,22 +1,24 @@
 package com.baidu.tieba.im.searchGroup;
 
-import com.baidu.adp.widget.ListView.q;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h implements q {
+public class h implements View.OnFocusChangeListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ d f1783a;
+    final /* synthetic */ g f1879a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public h(d dVar) {
-        this.f1783a = dVar;
+    public h(g gVar) {
+        this.f1879a = gVar;
     }
 
-    @Override // com.baidu.adp.widget.ListView.q
-    public void a(int i, int i2) {
+    @Override // android.view.View.OnFocusChangeListener
+    public void onFocusChange(View view, boolean z) {
         SearchGroupActivity searchGroupActivity;
-        searchGroupActivity = this.f1783a.b;
-        searchGroupActivity.a();
+        if (!z) {
+            searchGroupActivity = this.f1879a.b;
+            com.baidu.adp.lib.h.g.a(searchGroupActivity, view);
+        }
     }
 }

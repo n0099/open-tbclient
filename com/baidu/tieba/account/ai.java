@@ -1,41 +1,42 @@
 package com.baidu.tieba.account;
-
-import com.baidu.tieba.data.AccountData;
 /* loaded from: classes.dex */
-class ai implements Runnable {
+public class ai extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ReLoginActivity f1035a;
+    private String f1045a;
+    private String b;
+    private boolean c;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ai(ReLoginActivity reLoginActivity) {
-        this.f1035a = reLoginActivity;
+    public ai(String str) {
+        this.f1045a = null;
+        this.b = null;
+        this.c = false;
+        this.f1045a = str;
+        this.c = false;
     }
 
-    @Override // java.lang.Runnable
+    public ai(String str, String str2) {
+        this.f1045a = null;
+        this.b = null;
+        this.c = false;
+        this.f1045a = str;
+        this.b = str2;
+    }
+
+    @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
-        AccountData accountData;
         String str;
-        AccountData accountData2;
-        AccountData accountData3;
-        AccountData accountData4;
-        accountData = this.f1035a.i;
-        if (accountData != null) {
-            accountData2 = this.f1035a.i;
-            if (accountData2.getAccount() != null) {
-                accountData3 = this.f1035a.i;
-                if (!accountData3.getAccount().equals("BaiduUser")) {
-                    ReLoginActivity reLoginActivity = this.f1035a;
-                    accountData4 = this.f1035a.i;
-                    reLoginActivity.a(accountData4);
-                    return;
-                }
-            }
-            this.f1035a.e();
-            return;
+        super.run();
+        if (this.c) {
+            str = "c/s/inpv";
+        } else {
+            str = "c/s/pv";
         }
-        ReLoginActivity reLoginActivity2 = this.f1035a;
-        str = this.f1035a.l;
-        reLoginActivity2.a(1, str);
+        com.baidu.tieba.util.am amVar = new com.baidu.tieba.util.am(com.baidu.tieba.data.h.f1248a + str);
+        amVar.a("st_type", this.f1045a);
+        if (this.b != null) {
+            amVar.a("st_param", this.b);
+        }
+        amVar.l();
     }
 }

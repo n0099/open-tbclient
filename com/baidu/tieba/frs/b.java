@@ -9,12 +9,12 @@ import org.json.JSONObject;
 class b implements ag {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsActivity f1331a;
+    final /* synthetic */ FrsActivity f1382a;
     private long b = 0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(FrsActivity frsActivity) {
-        this.f1331a = frsActivity;
+        this.f1382a = frsActivity;
     }
 
     @Override // com.baidu.tieba.frs.ag
@@ -27,19 +27,19 @@ class b implements ag {
         this.b = System.nanoTime();
         switch (i) {
             case 1:
-                bnVar3 = this.f1331a.n;
+                bnVar3 = this.f1382a.n;
                 bnVar3.c(true);
-                bnVar4 = this.f1331a.n;
-                bnVar4.p();
+                bnVar4 = this.f1382a.n;
+                bnVar4.q();
                 return;
             case 2:
-                bnVar = this.f1331a.n;
+                bnVar = this.f1382a.n;
                 bnVar.d(true);
-                bnVar2 = this.f1331a.n;
-                bnVar2.p();
+                bnVar2 = this.f1382a.n;
+                bnVar2.q();
                 return;
             case 3:
-                bnVar5 = this.f1331a.n;
+                bnVar5 = this.f1382a.n;
                 bnVar5.b(true);
                 return;
             default:
@@ -78,58 +78,58 @@ class b implements ag {
         boolean z2;
         bn bnVar11;
         bn bnVar12;
-        if (UtilHelper.i(this.f1331a) == UtilHelper.NetworkStateInfo.UNAVAIL) {
-            bnVar12 = this.f1331a.n;
-            bnVar12.g();
+        if (UtilHelper.g(this.f1382a) == UtilHelper.NetworkStateInfo.UNAVAIL) {
+            bnVar12 = this.f1382a.n;
+            bnVar12.h();
         } else {
-            bnVar = this.f1331a.n;
-            bnVar.h();
+            bnVar = this.f1382a.n;
+            bnVar.i();
         }
         if (anVar == null || !anVar.b) {
             int unused = FrsActivity.s = 1;
         } else {
-            bnVar11 = this.f1331a.n;
-            bnVar11.l().a(com.baidu.tieba.util.bf.a().b());
+            bnVar11 = this.f1382a.n;
+            bnVar11.m().a(com.baidu.tieba.util.bc.a().b());
             long unused2 = FrsActivity.q = 0L;
             long unused3 = FrsActivity.r = 0L;
             int unused4 = FrsActivity.s = 0;
         }
-        bnVar2 = this.f1331a.n;
+        bnVar2 = this.f1382a.n;
         bnVar2.b(false);
         switch (i) {
             case 1:
-                bnVar5 = this.f1331a.n;
+                bnVar5 = this.f1382a.n;
                 bnVar5.c(false);
-                bnVar6 = this.f1331a.n;
-                bnVar6.p();
+                bnVar6 = this.f1382a.n;
+                bnVar6.q();
                 break;
             case 2:
-                bnVar3 = this.f1331a.n;
+                bnVar3 = this.f1382a.n;
                 bnVar3.d(false);
-                bnVar4 = this.f1331a.n;
-                bnVar4.p();
+                bnVar4 = this.f1382a.n;
+                bnVar4.q();
                 break;
         }
         if (jSONObject == null || (anVar != null && anVar.c != 0)) {
-            this.f1331a.a(anVar);
+            this.f1382a.a(anVar);
         } else {
-            akVar = this.f1331a.w;
+            akVar = this.f1382a.w;
             if (akVar != null) {
-                akVar8 = this.f1331a.w;
+                akVar8 = this.f1382a.w;
                 if (akVar8.f().a() == 1) {
-                    this.f1331a.C = "frs_page";
+                    this.f1382a.C = "frs_page";
                 } else {
-                    this.f1331a.C = "normal_page";
+                    this.f1382a.C = "normal_page";
                 }
-                FrsActivity frsActivity = this.f1331a;
-                akVar9 = this.f1331a.w;
+                FrsActivity frsActivity = this.f1382a;
+                akVar9 = this.f1382a.w;
                 frsActivity.f = akVar9.a().getName();
-                z2 = this.f1331a.u;
+                z2 = this.f1382a.u;
                 if (z2) {
-                    this.f1331a.C = "good_page";
+                    this.f1382a.C = "good_page";
                 }
             }
-            akVar2 = this.f1331a.w;
+            akVar2 = this.f1382a.w;
             com.baidu.tieba.data.bb top_notice_data = akVar2.a().getTop_notice_data();
             if (top_notice_data != null && top_notice_data.a() != null) {
                 com.baidu.tieba.data.az azVar = new com.baidu.tieba.data.az();
@@ -137,31 +137,31 @@ class b implements ag {
                 azVar.a(2);
                 azVar.b(top_notice_data.b());
                 azVar.t();
-                akVar7 = this.f1331a.w;
+                akVar7 = this.f1382a.w;
                 akVar7.b().add(0, azVar);
             }
-            z = this.f1331a.v;
+            z = this.f1382a.v;
             if (z) {
-                bnVar10 = this.f1331a.n;
-                bnVar10.z();
-                this.f1331a.v = false;
+                bnVar10 = this.f1382a.n;
+                bnVar10.A();
+                this.f1382a.v = false;
             }
-            str = this.f1331a.C;
+            str = this.f1382a.C;
             if (str.equals("frs_page")) {
-                bnVar9 = this.f1331a.n;
-                bnVar9.r();
+                bnVar9 = this.f1382a.n;
+                bnVar9.s();
             } else {
-                str2 = this.f1331a.C;
+                str2 = this.f1382a.C;
                 if (str2.equals("normal_page")) {
-                    bnVar8 = this.f1331a.n;
-                    bnVar8.q();
+                    bnVar8 = this.f1382a.n;
+                    bnVar8.r();
                 } else {
-                    str3 = this.f1331a.C;
+                    str3 = this.f1382a.C;
                     if (str3.equals("good_page")) {
-                        bnVar7 = this.f1331a.n;
-                        akVar3 = this.f1331a.w;
+                        bnVar7 = this.f1382a.n;
+                        akVar3 = this.f1382a.w;
                         ArrayList<com.baidu.tieba.data.z> good_classify = akVar3.a().getGood_classify();
-                        onItemClickListener = this.f1331a.ad;
+                        onItemClickListener = this.f1382a.ad;
                         bnVar7.a(good_classify, onItemClickListener);
                     }
                 }
@@ -170,18 +170,18 @@ class b implements ag {
             if (anVar != null) {
                 long unused6 = FrsActivity.r = anVar.e;
             }
-            akVar4 = this.f1331a.w;
+            akVar4 = this.f1382a.w;
             if (akVar4 != null) {
-                akVar5 = this.f1331a.w;
+                akVar5 = this.f1382a.w;
                 if (akVar5.b() != null) {
-                    akVar6 = this.f1331a.w;
+                    akVar6 = this.f1382a.w;
                     if (akVar6.b().size() == 0) {
-                        i2 = this.f1331a.e;
+                        i2 = this.f1382a.e;
                         if (i2 == 1) {
-                            this.f1331a.showToast(this.f1331a.getString(R.string.no_more_to_load));
-                            i3 = this.f1331a.i;
+                            this.f1382a.showToast(this.f1382a.getString(R.string.no_more_to_load));
+                            i3 = this.f1382a.i;
                             if (i3 > 1) {
-                                FrsActivity.i(this.f1331a);
+                                FrsActivity.i(this.f1382a);
                                 return;
                             }
                             return;
@@ -189,9 +189,9 @@ class b implements ag {
                     }
                 }
             }
-            this.f1331a.D();
+            this.f1382a.D();
         }
-        this.f1331a.o = null;
+        this.f1382a.o = null;
         System.gc();
     }
 
@@ -200,14 +200,14 @@ class b implements ag {
         String str;
         String str2;
         if (akVar != null) {
-            str = this.f1331a.C;
+            str = this.f1382a.C;
             if (!str.equals("normal_page")) {
-                str2 = this.f1331a.C;
+                str2 = this.f1382a.C;
                 if (!str2.equals("frs_page")) {
                     return;
                 }
             }
-            this.f1331a.a(akVar);
+            this.f1382a.a(akVar);
         }
     }
 }

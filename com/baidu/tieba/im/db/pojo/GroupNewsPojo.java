@@ -1,14 +1,16 @@
 package com.baidu.tieba.im.db.pojo;
 
 import android.text.TextUtils;
-import com.baidu.adp.lib.h.d;
+import com.baidu.adp.lib.h.e;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.im.groupUpdates.UpdatesItemData;
 import com.baidu.tieba.im.groupUpdates.m;
 import com.baidu.tieba.im.message.ChatMessage;
 import com.baidu.tieba.im.validate.ValidateItemData;
-import com.baidu.tieba.im.validate.k;
+import com.baidu.tieba.im.validate.l;
 import java.io.Serializable;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class GroupNewsPojo implements Serializable {
     public static final int hide = 3;
@@ -48,31 +50,47 @@ public class GroupNewsPojo implements Serializable {
                 str2 = "group_level_up";
             } else if (str.equals("108")) {
                 str2 = "group_head_change";
+            } else if (str.equals("107")) {
+                str2 = "dismiss_group";
+            } else if (str.equals("121")) {
+                str2 = "hide_group_warn";
+            } else if (str.equals("122")) {
+                str2 = "hide_group";
             }
             setCmd(str2);
-            setGid(chatMessage.getGroupId());
             setContent(chatMessage.getContent());
             setTime(chatMessage.getTime() * 1000);
             setNotice_id(String.valueOf(chatMessage.getMsgId()));
             a();
+            String content = getContent();
+            if (!TextUtils.isEmpty(content)) {
+                try {
+                    JSONObject optJSONObject = new JSONObject(content).optJSONObject("eventParam");
+                    if (optJSONObject != null) {
+                        setGid(optJSONObject.optString("groupId"));
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
             if (str2.equals("apply_join_group")) {
-                a(k.a(this));
+                a(l.a(this));
             }
         }
     }
 
     private void a() {
-        d.d("begin");
+        e.d("begin");
         if (!TextUtils.isEmpty(getCmd())) {
             if (getCmd().equals("group_intro_change") || getCmd().equals("group_name_change") || getCmd().equals("group_notice_change")) {
                 UpdatesItemData a2 = m.a(this);
                 if (a2 != null) {
-                    String A = TiebaApplication.A();
-                    if (!TextUtils.isEmpty(A)) {
+                    String B = TiebaApplication.B();
+                    if (!TextUtils.isEmpty(B)) {
                         String authorId = a2.getAuthorId();
                         if (!TextUtils.isEmpty(authorId)) {
-                            d.d("curUid:" + A + " uid:" + authorId);
-                            if (A.equals(authorId)) {
+                            e.d("curUid:" + B + " uid:" + authorId);
+                            if (B.equals(authorId)) {
                                 setContent_status(2);
                             } else {
                                 setContent_status(1);
@@ -87,7 +105,7 @@ public class GroupNewsPojo implements Serializable {
                     return;
                 }
             }
-            d.d("end");
+            e.d("end");
         }
     }
 
@@ -101,6 +119,9 @@ public class GroupNewsPojo implements Serializable {
             this.notice_id = validateItemData.getNotice_id();
             this.content = validateItemData.toJsonString();
             setTime(validateItemData.getApplyTime());
+            setGid(validateItemData.getGroupId());
+            setContent_status(validateItemData.isShown() ? 2 : 1);
+            setExt(validateItemData.getExt());
         }
     }
 

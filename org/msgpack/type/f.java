@@ -6,11 +6,11 @@ import java.util.ListIterator;
 public class f extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static f f2941a = new f(new r[0], true);
+    private static f f3122a = new f(new r[0], true);
     private r[] b;
 
     public static ArrayValue b() {
-        return f2941a;
+        return f3122a;
     }
 
     @Override // org.msgpack.type.ArrayValue

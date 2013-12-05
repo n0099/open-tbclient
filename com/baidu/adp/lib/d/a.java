@@ -1,7 +1,7 @@
 package com.baidu.adp.lib.d;
 
 import android.util.Log;
-import com.baidu.adp.lib.h.d;
+import com.baidu.adp.lib.h.e;
 import java.util.LinkedHashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
@@ -42,7 +42,7 @@ public class a<K, V> {
         V v2 = null;
         if (k != null && v != null) {
             if (b(k, v) > this.b) {
-                if (d.a()) {
+                if (e.a()) {
                     Log.w("adp", "image too big:" + v + ", size:" + b(k, v), new Exception());
                 }
                 a(false, k, v, null);

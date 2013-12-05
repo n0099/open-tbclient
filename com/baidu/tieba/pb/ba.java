@@ -6,23 +6,23 @@ import com.baidu.tieba.TiebaApplication;
 class ba implements com.baidu.adp.widget.ListView.r {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NewPbActivity f2068a;
+    final /* synthetic */ NewPbActivity f2175a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ba(NewPbActivity newPbActivity) {
-        this.f2068a = newPbActivity;
+        this.f2175a = newPbActivity;
     }
 
     @Override // com.baidu.adp.widget.ListView.r
     public void a() {
         com.baidu.tieba.model.bm bmVar;
         cr crVar;
-        bmVar = this.f2068a.s;
+        bmVar = this.f2175a.s;
         if (bmVar.a(false)) {
-            crVar = this.f2068a.y;
+            crVar = this.f2175a.y;
             crVar.q();
-            if (TiebaApplication.g().s()) {
-                StatService.onEvent(this.f2068a, "pb_more", "pbclick", 1);
+            if (TiebaApplication.h().t()) {
+                StatService.onEvent(this.f2175a, "pb_more", "pbclick", 1);
             }
         }
     }

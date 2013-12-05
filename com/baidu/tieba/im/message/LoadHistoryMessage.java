@@ -3,10 +3,19 @@ package com.baidu.tieba.im.message;
 public class LoadHistoryMessage extends Message {
     private String groupId;
     private String lastMsgId;
+    private String lastRid;
     private int limit;
 
     public LoadHistoryMessage() {
         setCmd(-105);
+    }
+
+    public String getLastRid() {
+        return this.lastRid;
+    }
+
+    public void setLastRid(String str) {
+        this.lastRid = str;
     }
 
     public String getLastMsgId() {

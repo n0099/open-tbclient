@@ -6,7 +6,7 @@ public class bg extends com.baidu.adp.a.d {
     private MarkData b;
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f1892a = false;
+    private boolean f2004a = false;
     private bh c = null;
     private bi d = null;
 
@@ -16,7 +16,7 @@ public class bg extends com.baidu.adp.a.d {
     }
 
     public boolean a() {
-        return this.f1892a;
+        return this.f2004a;
     }
 
     public MarkData b() {
@@ -32,7 +32,7 @@ public class bg extends com.baidu.adp.a.d {
     }
 
     public void a(boolean z) {
-        this.f1892a = z;
+        this.f2004a = z;
     }
 
     public String c() {

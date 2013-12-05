@@ -10,9 +10,8 @@ import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.person.post.PersonPostReplyModel;
 import com.baidu.tieba.person.post.PersonPostThreadModel;
-import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.bd;
-import com.baidu.tieba.util.be;
+import com.baidu.tieba.util.ba;
+import com.baidu.tieba.util.bb;
 import com.baidu.tieba.view.HeadImageView;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
@@ -21,7 +20,7 @@ class a implements View.OnClickListener {
     private static String k;
 
     /* renamed from: a  reason: collision with root package name */
-    public LinearLayout f2251a;
+    public LinearLayout f2369a;
     public HeadImageView b;
     public TextView c;
     public TextView d;
@@ -34,7 +33,7 @@ class a implements View.OnClickListener {
     private com.baidu.tieba.util.i m;
 
     public a(View view) {
-        this.f2251a = (LinearLayout) view.findViewById(R.id.top_line);
+        this.f2369a = (LinearLayout) view.findViewById(R.id.top_line);
         this.b = (HeadImageView) view.findViewById(R.id.portrait);
         this.c = (TextView) view.findViewById(R.id.username);
         this.d = (TextView) view.findViewById(R.id.reply_time);
@@ -44,7 +43,7 @@ class a implements View.OnClickListener {
         this.h = (ColumnLayout) view.findViewById(R.id.item_header);
         this.i = (ColumnLayout) view.findViewById(R.id.item_footer);
         this.m = new com.baidu.tieba.util.i(view.getContext());
-        int a2 = UtilHelper.a(view.getContext(), 42.0f);
+        int a2 = com.baidu.adp.lib.h.g.a(view.getContext(), 42.0f);
         this.m.a(a2, a2);
         if (this.g != null) {
             this.g.setOnClickListener(this);
@@ -60,7 +59,7 @@ class a implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.forum_name /* 2131100786 */:
+            case R.id.forum_name /* 2131100902 */:
                 FrsActivity.a(view.getContext(), (String) view.getTag(), "");
                 return;
             default:
@@ -148,7 +147,7 @@ class a implements View.OnClickListener {
             strArr[0] = String.valueOf(post.thread_id);
             strArr[1] = String.valueOf(post.content[0].post_id);
             strArr[2] = String.valueOf(post.content[0].post_type);
-            String b = be.b(post.create_time * 1000);
+            String b = bb.b(post.create_time * 1000);
             String str8 = post.forum_name;
             str7 = String.valueOf(post.reply_num);
             str5 = str8;
@@ -159,7 +158,7 @@ class a implements View.OnClickListener {
             str4 = postList.user_name;
             strArr[0] = String.valueOf(postList.thread_id);
             strArr[1] = String.valueOf(postList.post_id);
-            String b2 = be.b(postList.create_time * 1000);
+            String b2 = bb.b(postList.create_time * 1000);
             String str9 = postList.forum_name;
             str7 = String.valueOf(postList.reply_num);
             str5 = str9;
@@ -206,9 +205,9 @@ class a implements View.OnClickListener {
     }
 
     public void a(int i) {
-        bd.c(this.e, i);
-        bd.c(this.d, i);
-        if (TiebaApplication.g().ap() == 1) {
+        ba.c(this.e, i);
+        ba.c(this.d, i);
+        if (TiebaApplication.h().an() == 1) {
             a(this.h, R.drawable.bg_list_top_1);
             a(this.g, R.drawable.bg_list_border_1);
             a(this.i, R.drawable.bg_list_bottom_1);

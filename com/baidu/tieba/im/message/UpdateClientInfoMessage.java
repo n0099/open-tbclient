@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.message;
 
+import com.baidu.gson.Gson;
 import com.baidu.tieba.im.messageCenter.IDuplicateProcess;
-import com.google.gson.Gson;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
@@ -48,7 +48,7 @@ public class UpdateClientInfoMessage extends Message implements IDuplicateProces
 
     @Override // com.baidu.tieba.im.messageCenter.IDuplicateProcess
     public IDuplicateProcess.RemoveState getDuplicateRemoveType() {
-        return IDuplicateProcess.RemoveState.REMOVE_ALL;
+        return IDuplicateProcess.RemoveState.REMOVE_ME;
     }
 
     @Override // com.baidu.tieba.im.messageCenter.IDuplicateProcess

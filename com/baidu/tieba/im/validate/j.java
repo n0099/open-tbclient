@@ -1,24 +1,27 @@
 package com.baidu.tieba.im.validate;
 
-import com.baidu.tieba.view.HeadImageView;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class j implements com.baidu.tbadk.imageManager.c {
+public class j implements View.OnLongClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ f f1803a;
+    final /* synthetic */ g f1902a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public j(f fVar) {
-        this.f1803a = fVar;
+    public j(g gVar) {
+        this.f1902a = gVar;
     }
 
-    @Override // com.baidu.tbadk.imageManager.c
-    public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
-        HeadImageView headImageView;
-        if (eVar != null) {
-            headImageView = this.f1803a.d;
-            eVar.a(headImageView);
-        }
+    @Override // android.view.View.OnLongClickListener
+    public boolean onLongClick(View view) {
+        ValidateActivity validateActivity;
+        View view2;
+        ValidateItemData validateItemData;
+        validateActivity = this.f1902a.i;
+        view2 = this.f1902a.c;
+        validateItemData = this.f1902a.j;
+        validateActivity.b(view2, 200, 0, 0L, validateItemData);
+        return true;
     }
 }

@@ -1,30 +1,73 @@
 package com.baidu.tieba.im.db;
 
+import android.text.TextUtils;
+import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import java.util.LinkedList;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes.dex */
-class ad implements com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMessageCenterPojo>> {
+public class ad {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f1596a;
-    final /* synthetic */ aa b;
+    private static ad f1653a;
+    private volatile String b = "";
+    private AtomicBoolean c = new AtomicBoolean(false);
+    private ConcurrentHashMap<String, ImMessageCenterPojo> d = new ConcurrentHashMap<>();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ad(aa aaVar, String str) {
-        this.b = aaVar;
-        this.f1596a = str;
+    private ad() {
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    public void a(ConcurrentHashMap<String, ImMessageCenterPojo> concurrentHashMap) {
-        ImMessageCenterPojo imMessageCenterPojo = concurrentHashMap.get(this.f1596a);
-        if (imMessageCenterPojo != null) {
-            imMessageCenterPojo.setLast_msgId(0L);
-            imMessageCenterPojo.setPulled_msgId(0L);
-            imMessageCenterPojo.setIs_delete(1);
-            return;
+    public static synchronized ad a() {
+        ad adVar;
+        synchronized (ad.class) {
+            if (f1653a == null) {
+                f1653a = new ad();
+            }
+            adVar = f1653a;
         }
-        com.baidu.adp.lib.h.d.a("删除gid失败");
+        return adVar;
+    }
+
+    public synchronized void a(com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMessageCenterPojo>> aVar) {
+        if (Thread.currentThread().getId() != com.baidu.tieba.im.i.f1785a) {
+            com.baidu.adp.lib.h.e.a("!!!!!!!!!!!!!!!获取缓存不是在主线程里面执行了！");
+            if (com.baidu.tieba.data.h.s()) {
+                new RuntimeException().printStackTrace();
+            }
+        }
+        if (aVar != null) {
+            d();
+            if (this.c.get()) {
+                aVar.a(this.d);
+            } else {
+                b(new ae(this, aVar));
+            }
+        }
+    }
+
+    public synchronized ConcurrentHashMap<String, ImMessageCenterPojo> b() {
+        d();
+        return this.d;
+    }
+
+    private void b(com.baidu.tieba.im.a<LinkedList<ImMessageCenterPojo>> aVar) {
+        d();
+        com.baidu.tieba.im.m.a(new af(this), aVar);
+    }
+
+    private synchronized void d() {
+        String B = TiebaApplication.B();
+        if (TextUtils.isEmpty(B) || !B.equals(this.b)) {
+            this.d.clear();
+            this.b = B;
+            this.c.set(false);
+        }
+    }
+
+    public void c() {
+        this.c.set(false);
+        this.b = null;
+        this.d.clear();
     }
 }

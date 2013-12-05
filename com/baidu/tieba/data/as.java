@@ -12,13 +12,13 @@ import com.slidingmenu.lib.R;
 public class as extends ClickableSpan {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ar f1179a;
+    final /* synthetic */ ar f1226a;
     private String b;
     private String c;
     private Context d;
 
     public as(ar arVar, Context context, String str, String str2) {
-        this.f1179a = arVar;
+        this.f1226a = arVar;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -30,7 +30,7 @@ public class as extends ClickableSpan {
     @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
     public void updateDrawState(TextPaint textPaint) {
         if (this.d != null) {
-            if (TiebaApplication.g().ap() == 1) {
+            if (TiebaApplication.h().an() == 1) {
                 textPaint.setColor(this.d.getResources().getColor(R.color.common_link_text_1));
             } else {
                 textPaint.setColor(this.d.getResources().getColor(R.color.common_link_text));

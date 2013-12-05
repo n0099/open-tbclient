@@ -18,7 +18,7 @@ import java.lang.ref.SoftReference;
 public class a extends ImageView {
 
     /* renamed from: a  reason: collision with root package name */
-    protected int f556a;
+    protected int f560a;
     private int b;
     private Paint c;
     private ImageView.ScaleType d;
@@ -85,8 +85,8 @@ public class a extends ImageView {
         if (attributeSet != null) {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, g.BDImageView);
             if (obtainStyledAttributes != null) {
-                this.f556a = obtainStyledAttributes.getDimensionPixelSize(0, 0);
-                this.p = this.f556a != 0;
+                this.f560a = obtainStyledAttributes.getDimensionPixelSize(0, 0);
+                this.p = this.f560a != 0;
                 return;
             }
             this.p = false;
@@ -94,8 +94,8 @@ public class a extends ImageView {
     }
 
     public void setRadius(int i) {
-        this.f556a = i;
-        this.p = this.f556a != 0;
+        this.f560a = i;
+        this.p = this.f560a != 0;
     }
 
     @Override // android.widget.ImageView
@@ -164,7 +164,7 @@ public class a extends ImageView {
         float f2 = 0.0f;
         float f3 = realWidth / a2;
         float f4 = realHeight / b;
-        switch (c.f558a[scaleType.ordinal()]) {
+        switch (c.f562a[scaleType.ordinal()]) {
             case 2:
                 f4 = Math.min(f3, f4);
                 f3 = f4;
@@ -319,7 +319,7 @@ public class a extends ImageView {
                 matrix = this.e;
             }
             if (this.p) {
-                image.a(canvas, matrix, getResources(), this, this.f556a, this.o);
+                image.a(canvas, matrix, getResources(), this, this.f560a, this.o);
             } else if (matrix == null) {
                 image.a(canvas, 0.0f, 0.0f, this.c);
             } else {

@@ -16,13 +16,13 @@ public class k implements Runnable {
     private static final String c = "appcommunicate";
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ b f948a;
+    final /* synthetic */ b f953a;
     private String d;
     private boolean e;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(b bVar, boolean z, String str) {
-        this.f948a = bVar;
+        this.f953a = bVar;
         this.d = null;
         this.e = true;
         this.e = z;
@@ -63,7 +63,7 @@ public class k implements Runnable {
                     httpURLConnection2.disconnect();
                     String string = new JSONObject(new String(bArr)).getString(c);
                     long currentTimeMillis2 = System.currentTimeMillis();
-                    str3 = this.f948a.c;
+                    str3 = this.f953a.c;
                     Log.d(str3, "net check duration = " + (currentTimeMillis2 - currentTimeMillis));
                     bool = SocialConstants.FALSE.equals(string) ? new Boolean(false) : new Boolean(true);
                     if (httpURLConnection2 != null) {
@@ -74,10 +74,10 @@ public class k implements Runnable {
                 httpURLConnection = httpURLConnection2;
                 e = e;
                 try {
-                    str = this.f948a.c;
+                    str = this.f953a.c;
                     Log.d(str, "net check exception = " + e.toString());
                     long currentTimeMillis3 = System.currentTimeMillis();
-                    str2 = this.f948a.c;
+                    str2 = this.f953a.c;
                     Log.d(str2, "net check duration = " + (currentTimeMillis3 - currentTimeMillis));
                     bool = new Boolean(true);
                     if (httpURLConnection != null) {
@@ -123,34 +123,34 @@ public class k implements Runnable {
         ArrayList arrayList4;
         boolean booleanValue = bool.booleanValue();
         long currentTimeMillis = System.currentTimeMillis();
-        aVar = this.f948a.g;
+        aVar = this.f953a.g;
         aVar.a(booleanValue);
-        aVar2 = this.f948a.g;
+        aVar2 = this.f953a.g;
         aVar2.a(currentTimeMillis);
-        iVar = this.f948a.d;
+        iVar = this.f953a.d;
         iVar.a(g.p(), new StringBuilder(String.valueOf(currentTimeMillis)).toString());
-        iVar2 = this.f948a.d;
-        iVar2.a(g.m(), booleanValue ? this.f948a.k : this.f948a.l);
-        iVar3 = this.f948a.d;
+        iVar2 = this.f953a.d;
+        iVar2.a(g.m(), booleanValue ? this.f953a.k : this.f953a.l);
+        iVar3 = this.f953a.d;
         iVar3.a();
         ShareModel shareModel = null;
-        arrayList = this.f948a.r;
+        arrayList = this.f953a.r;
         synchronized (arrayList) {
-            arrayList2 = this.f948a.r;
+            arrayList2 = this.f953a.r;
             int size = arrayList2.size();
             if (size > 0) {
-                arrayList3 = this.f948a.r;
+                arrayList3 = this.f953a.r;
                 shareModel = (ShareModel) arrayList3.get(size - 1);
-                arrayList4 = this.f948a.r;
+                arrayList4 = this.f953a.r;
                 arrayList4.clear();
             }
         }
         if (shareModel != null) {
-            shareAssistant = this.f948a.b;
+            shareAssistant = this.f953a.b;
             if (shareAssistant != null) {
-                shareAssistant2 = this.f948a.b;
+                shareAssistant2 = this.f953a.b;
                 if (shareAssistant2.share(shareModel) && this.e) {
-                    cVar = this.f948a.f;
+                    cVar = this.f953a.f;
                     cVar.a(1, this.d);
                 }
             }
@@ -159,8 +159,8 @@ public class k implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f948a.q = true;
+        this.f953a.q = true;
         a(a());
-        this.f948a.q = false;
+        this.f953a.q = false;
     }
 }

@@ -9,23 +9,23 @@ import org.apache.http.message.BasicNameValuePair;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static d f512a;
+    private static d f514a;
     private Context b;
 
     public static synchronized d a() {
         d dVar;
         synchronized (d.class) {
-            if (f512a == null) {
-                f512a = new d();
+            if (f514a == null) {
+                f514a = new d();
             }
-            dVar = f512a;
+            dVar = f514a;
         }
         return dVar;
     }
 
     public void a(Context context, boolean z) {
         this.b = context;
-        b.f511a = z;
+        b.f513a = z;
         if (Integer.parseInt(Build.VERSION.SDK) < 8) {
             System.setProperty("http.keepAlive", "false");
         }
@@ -45,16 +45,16 @@ public class d {
 
     public e a(String str, boolean z, int i, c cVar, a aVar) {
         e a2 = b.a(str, z, i, cVar, aVar);
-        if (a2 != null && a2.f513a == 206) {
+        if (a2 != null && a2.f515a == 206) {
             int length = a2.d.length;
             int length2 = a2.d.length;
             ArrayList arrayList = new ArrayList();
             arrayList.add(a2.d);
             a2.d = b.a(str, length, length2, arrayList, i, cVar, aVar);
-            a2.f513a = 200;
-        } else if (a2 != null && a2.f513a == 413) {
+            a2.f515a = 200;
+        } else if (a2 != null && a2.f515a == 413) {
             a2.d = b.a(str, 0L, g.d(), new ArrayList(), i, cVar, aVar);
-            a2.f513a = a2.d != null ? 200 : a2.f513a;
+            a2.f515a = a2.d != null ? 200 : a2.f515a;
         }
         if (cVar != null) {
             cVar.a(a2);

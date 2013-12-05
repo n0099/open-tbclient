@@ -1,6 +1,5 @@
 package com.baidu.tieba.data;
 
-import com.baidu.tieba.util.bg;
 import java.util.ArrayList;
 import java.util.HashMap;
 import org.json.JSONArray;
@@ -9,7 +8,7 @@ import org.json.JSONObject;
 public class x {
 
     /* renamed from: a  reason: collision with root package name */
-    private ArrayList<MetaData> f1217a = new ArrayList<>();
+    private ArrayList<MetaData> f1264a = new ArrayList<>();
     private HashMap<String, String> b = null;
 
     public void a(JSONObject jSONObject, boolean z) {
@@ -20,7 +19,7 @@ public class x {
                         this.b = new HashMap<>();
                     }
                 } catch (Exception e) {
-                    bg.b("FriendData", "parserFreindJson", "error = " + e.getMessage());
+                    com.baidu.tieba.util.bd.b("FriendData", "parserFreindJson", "error = " + e.getMessage());
                     return;
                 }
             }
@@ -30,7 +29,7 @@ public class x {
                     MetaData metaData = new MetaData();
                     metaData.parserJson(optJSONArray.getJSONObject(i));
                     if (metaData.getName_show() != null) {
-                        this.f1217a.add(metaData);
+                        this.f1264a.add(metaData);
                         if (z) {
                             this.b.put(metaData.getName_show(), metaData.getPortrait());
                         }
@@ -44,12 +43,12 @@ public class x {
         try {
             a(new JSONObject(str), true);
         } catch (Exception e) {
-            bg.b("FriendData", "parserFreindJson", "error = " + e.getMessage());
+            com.baidu.tieba.util.bd.b("FriendData", "parserFreindJson", "error = " + e.getMessage());
         }
     }
 
     public ArrayList<MetaData> a() {
-        return this.f1217a;
+        return this.f1264a;
     }
 
     public HashMap<String, String> b() {

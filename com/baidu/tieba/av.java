@@ -1,91 +1,65 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.location.Address;
-import android.os.Handler;
-import android.os.Message;
-import com.baidu.tieba.account.LoginActivity;
-import com.baidu.tieba.data.AccountData;
-import com.baidu.tieba.util.bg;
+import android.app.Dialog;
+import android.content.Context;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.TextView;
+import com.baidu.tieba.data.CombineDownload;
+import com.baidu.tieba.data.VersionData;
+import com.baidu.tieba.util.UtilHelper;
 import com.slidingmenu.lib.R;
-import com.tencent.mm.sdk.platformtools.Util;
 /* loaded from: classes.dex */
-class av implements Handler.Callback {
+public class av extends Dialog {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ TiebaApplication f1112a;
+    public TextView f1123a;
+    public TextView b;
+    public Button c;
+    public Button d;
+    public CheckBox e;
+    private VersionData f;
+    private CombineDownload g;
+    private ay h;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public av(TiebaApplication tiebaApplication) {
-        this.f1112a = tiebaApplication;
+    public av(Context context, int i) {
+        super(context, i);
+        this.g = null;
+        this.h = null;
     }
 
-    @Override // android.os.Handler.Callback
-    public boolean handleMessage(Message message) {
-        long j;
-        switch (message.what) {
-            case 1:
-                bg.b("TiebaApplication", "handleMessage", "Do Aoto Login" + String.valueOf(message.what));
-                if (TiebaApplication.n()) {
-                    TiebaApplication.a((AccountData) null, this.f1112a.getBaseContext());
-                    MainTabActivity.b(this.f1112a, -1, true);
-                    break;
-                } else {
-                    TiebaApplication.a((AccountData) null, this.f1112a.getBaseContext());
-                    Intent intent = new Intent(TiebaApplication.g(), LoginActivity.class);
-                    String string = message.getData().getString("account");
-                    if (string == null) {
-                        string = "";
-                    }
-                    intent.putExtra("account", string);
-                    intent.putExtra("has_exit_dialog", false);
-                    intent.setFlags(268435456);
-                    TiebaApplication.g().startActivity(intent);
-                    break;
-                }
-            case 2:
-                com.baidu.tieba.mention.t.a().i();
-                break;
-            case 3:
-                com.baidu.tieba.mention.t.a().k();
-                break;
-            case 4:
-                long nanoTime = System.nanoTime();
-                j = this.f1112a.q;
-                long j2 = (((nanoTime - j) / 1000000) - Util.MILLSECONDS_OF_MINUTE) / 1000;
-                if (j2 > 0) {
-                    new com.baidu.tieba.account.ah("use", String.valueOf(j2)).start();
-                }
-                this.f1112a.q = 0L;
-                break;
-            case 5:
-                this.f1112a.aO();
-                String str = "";
-                switch (this.f1112a.B) {
-                    case 1:
-                        str = this.f1112a.getString(R.string.loc_gps_off);
-                        break;
-                    case 2:
-                        str = this.f1112a.getString(R.string.loc_net_off);
-                        break;
-                    case 3:
-                        str = this.f1112a.getString(R.string.loc_gps_net_off);
-                        break;
-                    case 4:
-                        str = this.f1112a.getString(R.string.loc_out_of_time);
-                        break;
-                }
-                this.f1112a.a(this.f1112a.B, str, (Address) null);
-                break;
-            case 6:
-                if (Boolean.TRUE.equals(message.obj)) {
-                    this.f1112a.aC();
-                    break;
-                } else {
-                    this.f1112a.aD();
-                    break;
-                }
+    @Override // android.app.Dialog
+    protected void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        setContentView(R.layout.update_dialog);
+        this.f1123a = (TextView) findViewById(R.id.newvison);
+        this.b = (TextView) findViewById(R.id.desc);
+        this.d = (Button) findViewById(R.id.update_button);
+        this.c = (Button) findViewById(R.id.update_cancel);
+        this.e = (CheckBox) findViewById(R.id.other_app_checkbox);
+        this.f1123a.setText("新版本：" + this.f.getNew_version());
+        this.b.setText(this.f.getNew_version_desc());
+        if (this.g != null && this.g.getIsShow() == 1) {
+            this.e.setText(this.g.getAppName());
+            if (!UtilHelper.e(getContext(), this.g.getAppProc()) && !TextUtils.isEmpty(this.g.getAppUrl())) {
+                this.e.setChecked(true);
+            } else {
+                this.e.setChecked(false);
+                this.e.setVisibility(8);
+            }
+        } else {
+            this.e.setChecked(false);
+            this.e.setVisibility(8);
         }
-        return false;
+        this.d.setOnClickListener(new aw(this));
+        this.c.setOnClickListener(new ax(this));
+    }
+
+    public void a(VersionData versionData, CombineDownload combineDownload, ay ayVar) {
+        this.f = versionData;
+        this.g = combineDownload;
+        this.h = ayVar;
     }
 }

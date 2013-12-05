@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.util.af;
+import com.baidu.tieba.util.x;
 import com.baidu.tieba.write.bd;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,16 +12,16 @@ import com.slidingmenu.lib.R;
 public class p extends BdAsyncTask<Object, Integer, Boolean> {
 
     /* renamed from: a  reason: collision with root package name */
-    int f2337a;
+    int f2454a;
     Uri b;
     String c = null;
     final /* synthetic */ TiebaPrepareImageService d;
 
     public p(TiebaPrepareImageService tiebaPrepareImageService, int i, Uri uri) {
         this.d = tiebaPrepareImageService;
-        this.f2337a = 0;
+        this.f2454a = 0;
         this.b = null;
-        this.f2337a = i;
+        this.f2454a = i;
         this.b = uri;
     }
 
@@ -35,41 +35,41 @@ public class p extends BdAsyncTask<Object, Integer, Boolean> {
         int i2;
         boolean z = true;
         boolean z2 = false;
-        TiebaPrepareImageService.f2320a = true;
+        TiebaPrepareImageService.f2437a = true;
         try {
-            int i3 = this.f2337a;
+            int i3 = this.f2454a;
             TiebaPrepareImageService tiebaPrepareImageService = this.d;
             Uri uri = this.b;
             i = this.d.f;
             a2 = bd.a(i3, tiebaPrepareImageService, uri, i);
         } catch (Exception e) {
-            TiebaPrepareImageService.f2320a = false;
+            TiebaPrepareImageService.f2437a = false;
         } catch (Throwable th) {
-            TiebaPrepareImageService.f2320a = false;
+            TiebaPrepareImageService.f2437a = false;
             throw th;
         }
         if (a2 != null) {
-            if (af.a((String) null, "tieba_resized_image", a2, 80) != null) {
+            if (x.a((String) null, "tieba_resized_image", a2, 80) != null) {
                 int i4 = 100;
                 i2 = this.d.g;
                 if (i2 > 0) {
                     i4 = this.d.g;
                 }
                 Bitmap a3 = com.baidu.tieba.util.m.a(a2, i4);
-                if (a3 == null || af.a((String) null, "tieba_resized_image_display", a3, 80) == null) {
+                if (a3 == null || x.a((String) null, "tieba_resized_image_display", a3, 80) == null) {
                     this.c = this.d.getString(R.string.error_sd_error);
                 }
             } else {
                 this.c = this.d.getString(R.string.error_sd_error);
                 z = false;
             }
-            TiebaPrepareImageService.f2320a = false;
+            TiebaPrepareImageService.f2437a = false;
             z2 = z;
             return Boolean.valueOf(z2);
         }
         this.c = this.d.getString(R.string.pic_parser_error);
         z = false;
-        TiebaPrepareImageService.f2320a = false;
+        TiebaPrepareImageService.f2437a = false;
         z2 = z;
         return Boolean.valueOf(z2);
     }

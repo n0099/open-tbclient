@@ -1,37 +1,39 @@
 package com.baidu.tieba.im.frsgroup;
 
-import android.widget.CompoundButton;
+import android.view.View;
 import java.util.Set;
 /* loaded from: classes.dex */
-class x implements CompoundButton.OnCheckedChangeListener {
+class x implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ w f1658a;
+    final /* synthetic */ w f1725a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(w wVar) {
-        this.f1658a = wVar;
+        this.f1725a = wVar;
     }
 
-    @Override // android.widget.CompoundButton.OnCheckedChangeListener
-    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
         Set set;
         y yVar;
         y yVar2;
         Set set2;
         Set set3;
-        Long l = (Long) compoundButton.getTag();
-        if (z) {
-            set3 = this.f1658a.g;
+        view.setSelected(!view.isSelected());
+        boolean isSelected = view.isSelected();
+        Long l = (Long) view.getTag();
+        if (isSelected) {
+            set3 = this.f1725a.g;
             set3.add(l);
         } else {
-            set = this.f1658a.g;
+            set = this.f1725a.g;
             set.remove(l);
         }
-        yVar = this.f1658a.b;
+        yVar = this.f1725a.b;
         if (yVar != null) {
-            yVar2 = this.f1658a.b;
-            set2 = this.f1658a.g;
+            yVar2 = this.f1725a.b;
+            set2 = this.f1725a.g;
             yVar2.a(set2.size());
         }
     }

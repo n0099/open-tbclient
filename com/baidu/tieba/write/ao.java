@@ -2,6 +2,7 @@ package com.baidu.tieba.write;
 
 import android.location.Address;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.browser.explorer.share.BdSharer;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.AntiData;
@@ -11,8 +12,6 @@ import com.baidu.tieba.data.WriteData;
 import com.baidu.tieba.editortool.EditorToolComponetContainer;
 import com.baidu.tieba.util.AntiHelper;
 import com.baidu.tieba.util.DatabaseService;
-import com.baidu.tieba.util.be;
-import com.baidu.tieba.util.bg;
 import com.baidu.tieba.voice.VoiceManager;
 import com.slidingmenu.lib.R;
 import java.io.File;
@@ -22,23 +21,23 @@ import org.json.JSONObject;
 public class ao extends BdAsyncTask<Integer, Integer, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WriteActivity f2671a;
+    final /* synthetic */ WriteActivity f2789a;
     private WriteData b;
-    private com.baidu.tieba.util.ap c = null;
+    private com.baidu.tieba.util.am c = null;
     private String d = null;
     private com.baidu.tieba.data.f e = null;
     private com.baidu.tieba.util.n f = null;
     private volatile boolean g = false;
 
     public ao(WriteActivity writeActivity, WriteData writeData) {
-        this.f2671a = writeActivity;
+        this.f2789a = writeActivity;
         this.b = null;
         this.b = writeData;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    /* JADX WARN: Code restructure failed: missing block: B:16:0x0096, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:16:0x0095, code lost:
         if (r11.c.c() == false) goto L20;
      */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -48,57 +47,57 @@ public class ao extends BdAsyncTask<Integer, Integer, String> {
     public String a(Integer... numArr) {
         WriteImagePreview writeImagePreview;
         EditorToolComponetContainer editorToolComponetContainer;
-        Address aP;
+        Address aQ;
         com.baidu.tieba.data.e a2;
         File d;
         WriteData writeData;
         String b;
         com.baidu.tieba.data.e eVar;
         WriteData writeData2;
-        writeImagePreview = this.f2671a.C;
+        writeImagePreview = this.f2789a.C;
         if (writeImagePreview.f() && this.b.getBitmapId() == null) {
-            bg.e("PostThreadTask", "doInBackground", "start upload image");
+            com.baidu.tieba.util.bd.e("PostThreadTask", "doInBackground", "start upload image");
             try {
-                d = com.baidu.tieba.util.af.d("tieba_resized_image");
-                this.c = new com.baidu.tieba.util.ap(com.baidu.tieba.data.h.f1201a + "c/c/img/upload");
+                d = com.baidu.tieba.util.x.d("tieba_resized_image");
+                this.c = new com.baidu.tieba.util.am(com.baidu.tieba.data.h.f1248a + "c/c/img/upload");
             } catch (Exception e) {
-                bg.b(getClass().getName(), "doInBackground", e.getMessage());
+                com.baidu.tieba.util.bd.b(getClass().getName(), "doInBackground", e.getMessage());
             }
-            if (d.length() <= 102400 || (com.baidu.tieba.data.h.n() == 0 && this.c.h() != null && !this.c.h().equals("2"))) {
-                bg.e("PostThreadTask", "doInBackground", "image size is less than 100K");
-                com.baidu.tieba.util.ap apVar = this.c;
-                writeData = this.f2671a.b;
-                apVar.a("pic_type", String.valueOf(writeData.getPicType()));
+            if (d.length() <= BdSharer.IMAGE_MIN_SIZE_TO_SHARE || (com.baidu.tieba.data.h.n() == 0 && this.c.h() != null && !this.c.h().equals("2"))) {
+                com.baidu.tieba.util.bd.e("PostThreadTask", "doInBackground", "image size is less than 100K");
+                com.baidu.tieba.util.am amVar = this.c;
+                writeData = this.f2789a.b;
+                amVar.a("pic_type", String.valueOf(writeData.getPicType()));
                 b = this.c.b("tieba_resized_image");
             } else {
-                bg.e("PostThreadTask", "doInBackground", "image size is more than 100K");
-                String a3 = be.a(com.baidu.tieba.util.af.a(d));
-                com.baidu.tieba.data.e p = DatabaseService.p(a3);
-                if (p == null) {
-                    bg.e("PostThreadTask", "doInBackground", "upload data is null");
+                com.baidu.tieba.util.bd.e("PostThreadTask", "doInBackground", "image size is more than 100K");
+                String a3 = com.baidu.tieba.util.bb.a(com.baidu.tieba.util.x.a(d));
+                com.baidu.tieba.data.e n = DatabaseService.n(a3);
+                if (n == null) {
+                    com.baidu.tieba.util.bd.e("PostThreadTask", "doInBackground", "upload data is null");
                     com.baidu.tieba.data.e eVar2 = new com.baidu.tieba.data.e();
                     eVar2.a(a3);
                     eVar2.a(0);
                     eVar2.a(d.length());
                     eVar = eVar2;
                 } else {
-                    eVar = p;
+                    eVar = n;
                 }
-                this.f = new com.baidu.tieba.util.n("tieba_resized_image", eVar, com.baidu.tieba.data.h.f1201a + "c/c/img/chunkupload");
+                this.f = new com.baidu.tieba.util.n("tieba_resized_image", eVar, com.baidu.tieba.data.h.f1248a + "c/c/img/chunkupload");
                 this.e = this.f.b();
                 if (this.e.b()) {
-                    this.c = new com.baidu.tieba.util.ap(com.baidu.tieba.data.h.f1201a + "c/c/img/finupload");
+                    this.c = new com.baidu.tieba.util.am(com.baidu.tieba.data.h.f1248a + "c/c/img/finupload");
                     this.c.a("md5", eVar.a());
-                    com.baidu.tieba.util.ap apVar2 = this.c;
-                    writeData2 = this.f2671a.b;
-                    apVar2.a("pic_type", String.valueOf(writeData2.getPicType()));
+                    com.baidu.tieba.util.am amVar2 = this.c;
+                    writeData2 = this.f2789a.b;
+                    amVar2.a("pic_type", String.valueOf(writeData2.getPicType()));
                     b = this.c.l();
                     if (b == null || !this.c.c()) {
                         long b2 = eVar.b();
-                        eVar.a((int) (b2 % 102400 == 0 ? b2 / 102400 : (b2 / 102400) + 1));
+                        eVar.a((int) (b2 % BdSharer.IMAGE_MIN_SIZE_TO_SHARE == 0 ? b2 / BdSharer.IMAGE_MIN_SIZE_TO_SHARE : (b2 / BdSharer.IMAGE_MIN_SIZE_TO_SHARE) + 1));
                         DatabaseService.a(eVar);
                     } else {
-                        DatabaseService.o(a3);
+                        DatabaseService.m(a3);
                         JSONObject jSONObject = new JSONObject(b);
                         InfoData infoData = new InfoData();
                         infoData.parserJson(jSONObject.optJSONObject("info"));
@@ -109,10 +108,10 @@ public class ao extends BdAsyncTask<Integer, Integer, String> {
             }
         }
         if (!this.g) {
-            editorToolComponetContainer = this.f2671a.B;
+            editorToolComponetContainer = this.f2789a.B;
             VoiceManager.VoiceModel audioData = editorToolComponetContainer.getAudioData();
             if (audioData != null && audioData.voiceId != null) {
-                this.e = new com.baidu.tieba.a.a("c/c/voice/chunkupload", "c/c/voice/voice_fin_chunk_upload").a(com.baidu.tieba.util.af.a(audioData.voiceId, 1));
+                this.e = new com.baidu.tieba.a.a("c/c/voice/chunkupload", "c/c/voice/voice_fin_chunk_upload").a(com.baidu.tieba.util.x.a(audioData.voiceId, 1));
                 if (this.e != null && this.e.b() && (a2 = this.e.a()) != null) {
                     this.b.setVoice(a2.a());
                     this.b.setVoiceDuringTime(audioData.duration);
@@ -120,7 +119,7 @@ public class ao extends BdAsyncTask<Integer, Integer, String> {
                 }
             }
             if (!this.g) {
-                this.c = new com.baidu.tieba.util.ap();
+                this.c = new com.baidu.tieba.util.am();
                 this.c.a("anonymous", SocialConstants.FALSE);
                 this.c.a("fid", this.b.getForumId());
                 this.c.a("kw", this.b.getForumName());
@@ -135,22 +134,22 @@ public class ao extends BdAsyncTask<Integer, Integer, String> {
                 if (this.b.getVcode() != null && this.b.getVcode().length() > 0) {
                     this.c.a("vcode", this.b.getVcode());
                 }
-                if (TiebaApplication.g().as() < 3) {
+                if (TiebaApplication.h().aq() < 3) {
                     this.c.a("vcode_tag", "11");
                 }
                 this.c.a("new_vcode", SocialConstants.TRUE);
                 this.c.a("content", this.b.getContent() + str);
                 this.c.e(true);
                 if (this.b.getType() == 0) {
-                    this.c.a(com.baidu.tieba.data.h.f1201a + "c/c/thread/add");
+                    this.c.a(com.baidu.tieba.data.h.f1248a + "c/c/thread/add");
                     this.c.a("title", this.b.getTitle());
-                    if (!com.baidu.tieba.data.h.h().equals(this.f2671a.getIntent().getStringExtra("forum_id")) && TiebaApplication.g().t() && (aP = TiebaApplication.g().aP()) != null) {
-                        this.c.a("lbs", String.valueOf(aP.getLatitude()) + "," + String.valueOf(aP.getLongitude()));
+                    if (!com.baidu.tieba.data.h.h().equals(this.f2789a.getIntent().getStringExtra("forum_id")) && TiebaApplication.h().u() && (aQ = TiebaApplication.h().aQ()) != null) {
+                        this.c.a("lbs", String.valueOf(aQ.getLatitude()) + "," + String.valueOf(aQ.getLongitude()));
                     }
                 } else {
-                    this.c.a(com.baidu.tieba.data.h.f1201a + "c/c/post/add");
+                    this.c.a(com.baidu.tieba.data.h.f1248a + "c/c/post/add");
                     this.c.a("tid", this.b.getThreadId());
-                    this.c.a("is_ad", this.f2671a.getIntent().getBooleanExtra("is_ad", false) ? SocialConstants.TRUE : SocialConstants.FALSE);
+                    this.c.a("is_ad", this.f2789a.getIntent().getBooleanExtra("is_ad", false) ? SocialConstants.TRUE : SocialConstants.FALSE);
                     if (this.b.getType() == 2) {
                         this.c.a("quote_id", String.valueOf(this.b.getFloor()));
                         this.c.a("floor_num", String.valueOf(this.b.getFloorNum()));
@@ -164,8 +163,8 @@ public class ao extends BdAsyncTask<Integer, Integer, String> {
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        this.f2671a.o = null;
-        this.f2671a.closeLoadingDialog();
+        this.f2789a.o = null;
+        this.f2789a.closeLoadingDialog();
         this.g = true;
         if (this.c != null) {
             this.c.j();
@@ -179,12 +178,12 @@ public class ao extends BdAsyncTask<Integer, Integer, String> {
     private void a(AntiData antiData, String str) {
         WriteData writeData;
         if (AntiHelper.a(antiData) || AntiHelper.b(antiData) || AntiHelper.c(antiData) || AntiHelper.d(antiData)) {
-            writeData = this.f2671a.b;
+            writeData = this.f2789a.b;
             antiData.setBlock_forum_name(writeData.getForumName());
-            AntiHelper.a(this.f2671a, antiData, AntiHelper.OperationType.REPLY, AntiHelper.PageType.WRITE);
+            AntiHelper.a(this.f2789a, antiData, AntiHelper.OperationType.REPLY, AntiHelper.PageType.WRITE);
             return;
         }
-        this.f2671a.showToast(str);
+        this.f2789a.showToast(str);
     }
 
     private void a(int i, String str, AntiData antiData) {
@@ -199,19 +198,19 @@ public class ao extends BdAsyncTask<Integer, Integer, String> {
                 a(antiData, str);
                 return;
             } else if (bdVar.b() != null) {
-                writeData = this.f2671a.b;
+                writeData = this.f2789a.b;
                 writeData.setVcodeMD5(bdVar.a());
-                writeData2 = this.f2671a.b;
+                writeData2 = this.f2789a.b;
                 writeData2.setVcodeUrl(bdVar.b());
                 if (bdVar.c().equals("4")) {
-                    WriteActivity writeActivity = this.f2671a;
-                    writeData4 = this.f2671a.b;
-                    NewVcodeActivity.a(writeActivity, writeData4, this.f2671a.getIntent().getBooleanExtra("is_ad", false), 12006);
+                    WriteActivity writeActivity = this.f2789a;
+                    writeData4 = this.f2789a.b;
+                    NewVcodeActivity.a(writeActivity, writeData4, this.f2789a.getIntent().getBooleanExtra("is_ad", false), 12006);
                     return;
                 }
-                WriteActivity writeActivity2 = this.f2671a;
-                writeData3 = this.f2671a.b;
-                VcodeActivity.a(writeActivity2, writeData3, this.f2671a.getIntent().getBooleanExtra("is_ad", false), 12006);
+                WriteActivity writeActivity2 = this.f2789a;
+                writeData3 = this.f2789a.b;
+                VcodeActivity.a(writeActivity2, writeData3, this.f2789a.getIntent().getBooleanExtra("is_ad", false), 12006);
                 return;
             } else {
                 a(antiData, str);
@@ -227,8 +226,8 @@ public class ao extends BdAsyncTask<Integer, Integer, String> {
     public void a(String str) {
         AntiData antiData;
         WriteData writeData;
-        this.f2671a.closeLoadingDialog();
-        this.f2671a.o = null;
+        this.f2789a.closeLoadingDialog();
+        this.f2789a.o = null;
         try {
             antiData = new AntiData();
             try {
@@ -242,17 +241,17 @@ public class ao extends BdAsyncTask<Integer, Integer, String> {
             a(this.e.c(), this.e.d(), antiData);
         } else if (this.c != null) {
             if (this.c.c()) {
-                writeData = this.f2671a.b;
+                writeData = this.f2789a.b;
                 DatabaseService.a(writeData);
                 ErrorData errorData = new ErrorData();
                 errorData.parserJson(this.d);
                 if (errorData.getError_msg() == null || errorData.getError_msg().length() <= 0) {
-                    this.f2671a.showToast(TiebaApplication.g().getString(R.string.send_success));
+                    this.f2789a.showToast(TiebaApplication.h().getString(R.string.send_success));
                 } else {
-                    this.f2671a.showToast(errorData.getError_msg());
+                    this.f2789a.showToast(errorData.getError_msg());
                 }
-                this.f2671a.setResult(-1);
-                this.f2671a.finish();
+                this.f2789a.setResult(-1);
+                this.f2789a.finish();
             } else {
                 a(this.c.e(), this.c.i(), antiData);
             }

@@ -13,7 +13,7 @@ import javassist.w;
 public class Reflection implements w {
 
     /* renamed from: a  reason: collision with root package name */
-    protected CtMethod f2847a;
+    protected CtMethod f3028a;
     protected CtMethod b;
     protected CtMethod c;
     protected CtMethod d;
@@ -27,7 +27,7 @@ public class Reflection implements w {
         try {
             h c = this.f.c("javassist.tools.reflect.Sample");
             a(c.g());
-            this.f2847a = c.b("trap");
+            this.f3028a = c.b("trap");
             this.b = c.b("trapStatic");
             this.c = c.b("trapRead");
             this.d = c.b("trapWrite");

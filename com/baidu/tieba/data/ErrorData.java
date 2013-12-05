@@ -1,7 +1,6 @@
 package com.baidu.tieba.data;
 
 import com.baidu.cloudsdk.social.core.SocialConstants;
-import com.baidu.tieba.util.bg;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -39,7 +38,7 @@ public class ErrorData implements Serializable {
         try {
             parserJson(new JSONObject(str));
         } catch (Exception e) {
-            bg.b(getClass().getName(), "parserJson", e.getMessage());
+            com.baidu.tieba.util.bd.b(getClass().getName(), "parserJson", e.getMessage());
         }
     }
 
@@ -50,14 +49,14 @@ public class ErrorData implements Serializable {
                 this.error_msg = jSONObject.optString("error_msg");
                 this.error_data = jSONObject.optString("error_data");
             } catch (Exception e) {
-                bg.b(getClass().getName(), "parserJson", e.getMessage());
+                com.baidu.tieba.util.bd.b(getClass().getName(), "parserJson", e.getMessage());
             }
         }
     }
 
     public void logPrint() {
-        bg.d(getClass().getName(), "logPrint", "error_code = " + String.valueOf(this.error_code));
-        bg.d(getClass().getName(), "logPrint", "error_msg = " + this.error_msg);
-        bg.d(getClass().getName(), "logPrint", "error_data = " + this.error_data);
+        com.baidu.tieba.util.bd.d(getClass().getName(), "logPrint", "error_code = " + String.valueOf(this.error_code));
+        com.baidu.tieba.util.bd.d(getClass().getName(), "logPrint", "error_msg = " + this.error_msg);
+        com.baidu.tieba.util.bd.d(getClass().getName(), "logPrint", "error_data = " + this.error_data);
     }
 }

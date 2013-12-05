@@ -7,17 +7,17 @@ import com.slidingmenu.lib.R;
 public class dg implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ cr f2122a;
+    final /* synthetic */ cr f2229a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public dg(cr crVar) {
-        this.f2122a = crVar;
+        this.f2229a = crVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         View view2;
-        view2 = this.f2122a.k;
+        view2 = this.f2229a.k;
         View findViewById = view2.findViewById(R.id.manage_bottom_bar);
         if (findViewById != null) {
             if (findViewById.getVisibility() == 0) {
@@ -25,7 +25,7 @@ public class dg implements View.OnClickListener {
             } else {
                 findViewById.setVisibility(0);
             }
-            this.f2122a.ai();
+            this.f2229a.ai();
         }
     }
 }

@@ -4,12 +4,12 @@ package javassist.bytecode;
 public class ay extends ba {
 
     /* renamed from: a  reason: collision with root package name */
-    int f2781a;
+    int f2962a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ay(StackMap stackMap, int i) {
         super(stackMap);
-        this.f2781a = i;
+        this.f2962a = i;
     }
 
     @Override // javassist.bytecode.bc
@@ -26,7 +26,7 @@ public class ay extends ba {
             if (b == 7) {
                 i6 += 3;
             } else if (b == 8) {
-                if (g.a(this.e, i6 + 1) == this.f2781a) {
+                if (g.a(this.e, i6 + 1) == this.f2962a) {
                     i5++;
                 }
                 i6 += 3;
@@ -43,7 +43,7 @@ public class ay extends ba {
                 i4 = i + 3;
             } else if (b2 == 8) {
                 int a2 = g.a(this.e, i + 1);
-                if (a2 != this.f2781a) {
+                if (a2 != this.f2962a) {
                     b(i, a2);
                 }
                 i4 = i + 3;

@@ -1,34 +1,66 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.data.NewErrorData;
 /* loaded from: classes.dex */
-public class o implements View.OnClickListener {
+public class o {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ CommonWebviewActivity f2027a;
+    protected com.baidu.tieba.util.am f2134a;
+    protected NewErrorData b = null;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public o(CommonWebviewActivity commonWebviewActivity) {
-        this.f2027a = commonWebviewActivity;
+    public o() {
+        this.f2134a = null;
+        this.f2134a = new com.baidu.tieba.util.am();
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.back /* 2131099658 */:
-                this.f2027a.finish();
-                return;
-            case R.id.refresh /* 2131099826 */:
-                TiebaApplication.g().h(0);
-                this.f2027a.a();
-                return;
-            case R.id.common_webview_item /* 2131099949 */:
-                this.f2027a.a();
-                return;
-            default:
-                return;
+    public void a() {
+        if (this.f2134a != null) {
+            this.f2134a.j();
         }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void a(String str) {
+        this.f2134a.a(str);
+    }
+
+    public void a(String str, String str2) {
+        this.f2134a.a(str, str2);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public String b() {
+        String l = this.f2134a.l();
+        this.b = new NewErrorData();
+        this.b.parserJson(l);
+        return l;
+    }
+
+    public boolean c() {
+        if (this.f2134a != null) {
+            return this.f2134a.c();
+        }
+        return false;
+    }
+
+    public String d() {
+        if (this.f2134a != null) {
+            return this.f2134a.i();
+        }
+        return null;
+    }
+
+    public int e() {
+        if (this.b != null) {
+            return this.b.getErrorNumber();
+        }
+        return -1;
+    }
+
+    public String f() {
+        if (this.b != null) {
+            return this.b.getErrorMsg();
+        }
+        return null;
     }
 }

@@ -4,19 +4,19 @@ package javassist;
 public final class g extends h {
 
     /* renamed from: a  reason: collision with root package name */
-    protected c f2839a;
+    protected c f3020a;
     private h[] n;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(String str, c cVar) {
         super(str);
         this.n = null;
-        this.f2839a = cVar;
+        this.f3020a = cVar;
     }
 
     @Override // javassist.h
     public c a() {
-        return this.f2839a;
+        return this.f3020a;
     }
 
     @Override // javassist.h
@@ -39,7 +39,7 @@ public final class g extends h {
             Class<?>[] interfaces = Object[].class.getInterfaces();
             this.n = new h[interfaces.length];
             for (int i = 0; i < interfaces.length; i++) {
-                this.n[i] = this.f2839a.c(interfaces[i].getName());
+                this.n[i] = this.f3020a.c(interfaces[i].getName());
             }
         }
         return this.n;
@@ -65,12 +65,12 @@ public final class g extends h {
     @Override // javassist.h
     public h e() {
         String n = n();
-        return this.f2839a.c(n.substring(0, n.length() - 2));
+        return this.f3020a.c(n.substring(0, n.length() - 2));
     }
 
     @Override // javassist.h
     public h f() {
-        return this.f2839a.c("java.lang.Object");
+        return this.f3020a.c("java.lang.Object");
     }
 
     @Override // javassist.h

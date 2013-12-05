@@ -9,21 +9,21 @@ import java.util.Set;
 public class c extends AbstractMap implements Map {
 
     /* renamed from: a  reason: collision with root package name */
-    private Map f2844a;
+    private Map f3025a;
     private ReferenceQueue b;
 
     @Override // java.util.AbstractMap, java.util.Map
     public Set entrySet() {
         a();
-        return this.f2844a.entrySet();
+        return this.f3025a.entrySet();
     }
 
     private void a() {
         while (true) {
             d dVar = (d) this.b.poll();
             if (dVar != null) {
-                if (dVar == ((d) this.f2844a.get(dVar.f2845a))) {
-                    this.f2844a.remove(dVar.f2845a);
+                if (dVar == ((d) this.f3025a.get(dVar.f3026a))) {
+                    this.f3025a.remove(dVar.f3026a);
                 }
             } else {
                 return;
@@ -34,25 +34,25 @@ public class c extends AbstractMap implements Map {
     @Override // java.util.AbstractMap, java.util.Map
     public int size() {
         a();
-        return this.f2844a.size();
+        return this.f3025a.size();
     }
 
     @Override // java.util.AbstractMap, java.util.Map
     public boolean isEmpty() {
         a();
-        return this.f2844a.isEmpty();
+        return this.f3025a.isEmpty();
     }
 
     @Override // java.util.AbstractMap, java.util.Map
     public boolean containsKey(Object obj) {
         a();
-        return this.f2844a.containsKey(obj);
+        return this.f3025a.containsKey(obj);
     }
 
     @Override // java.util.AbstractMap, java.util.Map
     public Object get(Object obj) {
         a();
-        SoftReference softReference = (SoftReference) this.f2844a.get(obj);
+        SoftReference softReference = (SoftReference) this.f3025a.get(obj);
         if (softReference != null) {
             return softReference.get();
         }
@@ -63,7 +63,7 @@ public class c extends AbstractMap implements Map {
     public Object put(Object obj, Object obj2) {
         d b;
         a();
-        Map map = this.f2844a;
+        Map map = this.f3025a;
         b = d.b(obj, obj2, this.b);
         Object put = map.put(obj, b);
         if (put != null) {
@@ -75,12 +75,12 @@ public class c extends AbstractMap implements Map {
     @Override // java.util.AbstractMap, java.util.Map
     public Object remove(Object obj) {
         a();
-        return this.f2844a.remove(obj);
+        return this.f3025a.remove(obj);
     }
 
     @Override // java.util.AbstractMap, java.util.Map
     public void clear() {
         a();
-        this.f2844a.clear();
+        this.f3025a.clear();
     }
 }

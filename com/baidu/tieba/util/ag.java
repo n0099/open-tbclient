@@ -1,50 +1,33 @@
 package com.baidu.tieba.util;
 
-import java.util.ArrayList;
-import java.util.Hashtable;
+import android.content.Context;
+import android.text.style.ClickableSpan;
+import android.view.View;
+import com.baidu.tieba.pb.NewPbActivity;
 /* loaded from: classes.dex */
-public class ag extends Thread {
+public class ag extends ClickableSpan {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f2464a;
-    private String b;
-    private Hashtable<String, Integer> c;
+    private Context f2578a;
 
-    public ag(Hashtable<String, Integer> hashtable) {
-        this.f2464a = 3;
-        this.b = null;
-        this.c = null;
-        this.f2464a = 3;
-        this.c = hashtable;
+    public ag(Context context) {
+        this.f2578a = null;
+        this.f2578a = context;
     }
 
-    public ag(int i, String str) {
-        this.f2464a = 3;
-        this.b = null;
-        this.c = null;
-        this.f2464a = i;
-        this.b = str;
+    @Override // android.text.style.ClickableSpan
+    public void onClick(View view) {
     }
 
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
-        ArrayList<String> y;
-        super.run();
-        try {
-            if (this.f2464a == 3) {
-                if (this.c != null && (y = DatabaseService.y()) != null) {
-                    int size = y.size();
-                    for (int i = 0; i < size; i++) {
-                        this.c.put(y.get(i), 1);
-                    }
-                }
-            } else if (this.f2464a == 2) {
-                DatabaseService.s(this.b);
-            } else if (this.f2464a == 1) {
-                DatabaseService.r(this.b);
-            }
-        } catch (Exception e) {
-            bg.b(getClass().getName(), "run", e.getMessage());
-        }
+    public Context a() {
+        return this.f2578a;
+    }
+
+    public void a(String str) {
+        UtilHelper.b(this.f2578a, str);
+    }
+
+    public void b(String str) {
+        NewPbActivity.a(this.f2578a, str, null, null);
     }
 }

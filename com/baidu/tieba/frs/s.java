@@ -11,11 +11,11 @@ import com.slidingmenu.lib.R;
 public class s implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsActivity f1368a;
+    final /* synthetic */ FrsActivity f1419a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(FrsActivity frsActivity) {
-        this.f1368a = frsActivity;
+        this.f1419a = frsActivity;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -24,15 +24,15 @@ public class s implements DialogInterface.OnClickListener {
         com.baidu.tieba.model.ak akVar;
         com.baidu.tieba.model.ak akVar2;
         dialogInterface.dismiss();
-        String A = TiebaApplication.A();
-        if (A != null && A.length() > 0) {
-            cjVar = this.f1368a.y;
-            akVar = this.f1368a.w;
+        String B = TiebaApplication.B();
+        if (B != null && B.length() > 0) {
+            cjVar = this.f1419a.y;
+            akVar = this.f1419a.w;
             String name = akVar.a().getName();
-            akVar2 = this.f1368a.w;
+            akVar2 = this.f1419a.w;
             cjVar.a(name, Long.valueOf(akVar2.a().getId()).longValue());
             return;
         }
-        LoginActivity.a((Activity) this.f1368a, this.f1368a.getString(R.string.login_to_use), true, 11036);
+        LoginActivity.a((Activity) this.f1419a, this.f1419a.getString(R.string.login_to_use), true, 11036);
     }
 }

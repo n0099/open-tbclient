@@ -1,29 +1,20 @@
 package com.baidu.tieba.im.pushNotify;
 
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import java.util.concurrent.ConcurrentHashMap;
+import com.baidu.tieba.im.db.ad;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h implements com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMessageCenterPojo>> {
+public final class h implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ boolean f1767a;
-    final /* synthetic */ com.baidu.tieba.im.a b;
-    final /* synthetic */ a c;
+    final /* synthetic */ String f1863a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public h(a aVar, boolean z, com.baidu.tieba.im.a aVar2) {
-        this.c = aVar;
-        this.f1767a = z;
-        this.b = aVar2;
+    public h(String str) {
+        this.f1863a = str;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    public void a(ConcurrentHashMap<String, ImMessageCenterPojo> concurrentHashMap) {
-        this.c.a(this.f1767a, concurrentHashMap);
-        if (this.b != null) {
-            this.b.a(null);
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        ad.a().a(new i(this));
     }
 }

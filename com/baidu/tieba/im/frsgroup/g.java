@@ -1,22 +1,21 @@
 package com.baidu.tieba.im.frsgroup;
 
-import android.content.res.ColorStateList;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.ae;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
-import com.baidu.tieba.util.bd;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class g extends com.baidu.adp.a.e {
 
     /* renamed from: a  reason: collision with root package name */
-    private FrsGroupActivity f1641a;
+    private FrsGroupActivity f1708a;
     private View c;
     private ImageView d;
     private TextView e;
@@ -25,14 +24,18 @@ public class g extends com.baidu.adp.a.e {
     private RadioButton h;
     private RadioButton i;
     private RadioButton j;
-    private Fragment[] k;
-    private String[] l;
-    private ProgressBar m;
-    private boolean n;
+    private ViewGroup k;
+    private ViewGroup l;
+    private ViewGroup m;
+    private Fragment[] n;
+    private String[] o;
+    private ViewGroup[] p;
+    private ProgressBar q;
+    private boolean r;
 
     public g(FrsGroupActivity frsGroupActivity) {
         super(frsGroupActivity);
-        this.f1641a = frsGroupActivity;
+        this.f1708a = frsGroupActivity;
         frsGroupActivity.setContentView(R.layout.im_frsgroup_activity);
         a(frsGroupActivity);
         b(frsGroupActivity);
@@ -41,9 +44,9 @@ public class g extends com.baidu.adp.a.e {
     private void a(FrsGroupActivity frsGroupActivity) {
         this.c = frsGroupActivity.findViewById(R.id.view_root);
         this.f = (NavigationBar) frsGroupActivity.findViewById(R.id.view_navigation_bar);
-        this.f.a(this.f1641a.getString(R.string.frsgroup_title));
+        this.f.a(this.f1708a.getString(R.string.frsgroup_title));
         this.d = this.f.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.e = this.f.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.f1641a.getString(R.string.frsgroup_create));
+        this.e = this.f.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.f1708a.getString(R.string.frsgroup_create));
         this.d.setOnClickListener(frsGroupActivity);
         this.e.setOnClickListener(frsGroupActivity);
     }
@@ -54,19 +57,36 @@ public class g extends com.baidu.adp.a.e {
         this.h.setChecked(true);
         this.i = (RadioButton) frsGroupActivity.findViewById(R.id.radio_hot);
         this.j = (RadioButton) frsGroupActivity.findViewById(R.id.radio_official);
-        this.m = (ProgressBar) frsGroupActivity.findViewById(R.id.progress_loading);
-        this.k = new Fragment[3];
-        this.l = new String[3];
-        this.l[0] = "f1";
-        this.l[1] = "f2";
-        this.l[2] = "f3";
-    }
-
-    public String[] a() {
-        return this.l;
+        this.k = (ViewGroup) frsGroupActivity.findViewById(R.id.radio_recommend_line);
+        this.l = (ViewGroup) frsGroupActivity.findViewById(R.id.radio_hot_line);
+        this.m = (ViewGroup) frsGroupActivity.findViewById(R.id.radio_official_line);
+        this.q = (ProgressBar) frsGroupActivity.findViewById(R.id.progress_loading);
+        this.n = new Fragment[3];
+        this.o = new String[3];
+        this.o[0] = "f1";
+        this.o[1] = "f2";
+        this.o[2] = "f3";
+        this.p = new ViewGroup[3];
+        this.p[0] = this.k;
+        this.p[1] = this.l;
+        this.p[2] = this.m;
     }
 
     public void a(int i) {
+        for (int i2 = this.r ? 0 : 1; i2 < 3; i2++) {
+            if (i == i2) {
+                this.p[i2].setVisibility(0);
+            } else {
+                this.p[i2].setVisibility(4);
+            }
+        }
+    }
+
+    public String[] a() {
+        return this.o;
+    }
+
+    public void b(int i) {
         switch (i) {
             case 1:
                 this.h.setChecked(true);
@@ -83,73 +103,48 @@ public class g extends com.baidu.adp.a.e {
     }
 
     public void e() {
-        this.g.setOnCheckedChangeListener(this.f1641a);
+        this.g.setOnCheckedChangeListener(this.f1708a);
     }
 
     public void f() {
         for (int i = 0; i < 3; i++) {
-            this.k[i] = new FrsGroupListFragment();
+            this.n[i] = new FrsGroupListFragment();
         }
     }
 
-    public void b(int i) {
-        ColorStateList colorStateList;
-        this.f1641a.a().a(i == 1);
-        this.f1641a.a().a(this.c);
+    public void c(int i) {
+        this.f1708a.a().a(i == 1);
+        this.f1708a.a().a(this.c);
         this.f.c(i);
-        if (i == 1) {
-            this.c.setBackgroundColor(this.f1641a.getResources().getColor(R.color.frsgruop_container_bg_1));
-            bd.e(this.g, (int) R.drawable.bg_pop_most_1);
-            colorStateList = this.f1641a.getResources().getColorStateList(R.drawable.im_textcolor_groupradios_1);
-            this.j.setBackgroundResource(R.drawable.radio_commen_bg_right_1);
-            this.h.setBackgroundResource(R.drawable.radio_commen_bg_left_1);
-            if (this.n) {
-                this.i.setBackgroundResource(R.drawable.radio_commen_bg_middle_1);
-            } else {
-                this.i.setBackgroundResource(R.drawable.radio_commen_bg_left_1);
-            }
-        } else {
-            this.c.setBackgroundColor(this.f1641a.getResources().getColor(R.color.frsgroup_container_bg));
-            bd.e(this.g, (int) R.drawable.bg_pop_most);
-            colorStateList = this.f1641a.getResources().getColorStateList(R.drawable.im_textcolor_groupradios);
-            this.j.setBackgroundResource(R.drawable.radio_commen_bg_right);
-            this.h.setBackgroundResource(R.drawable.radio_commen_bg_left);
-            if (this.n) {
-                this.i.setBackgroundResource(R.drawable.radio_commen_bg_middle);
-            } else {
-                this.i.setBackgroundResource(R.drawable.radio_commen_bg_left);
-            }
-        }
-        this.j.setTextColor(colorStateList);
-        this.h.setTextColor(colorStateList);
-        this.i.setTextColor(colorStateList);
     }
 
     @Override // com.baidu.adp.a.e
     public void c() {
         super.c();
-        if (this.k != null) {
-            ae a2 = this.f1641a.getSupportFragmentManager().a();
-            for (int i = 0; i < this.k.length; i++) {
-                a2.a(this.k[i]);
+        if (this.n != null) {
+            ae a2 = this.f1708a.getSupportFragmentManager().a();
+            for (int i = 0; i < this.n.length; i++) {
+                a2.a(this.n[i]);
             }
             a2.b();
         }
     }
 
     public Fragment[] g() {
-        return this.k;
+        return this.n;
     }
 
     public void a(boolean z) {
-        this.n = z;
+        this.r = z;
         if (z) {
             this.g.check(R.id.radio_recommend);
             this.h.setVisibility(0);
+            this.k.setVisibility(0);
             return;
         }
         this.g.check(R.id.radio_hot);
         this.h.setVisibility(8);
+        this.k.setVisibility(8);
     }
 
     public void b(boolean z) {
@@ -165,7 +160,7 @@ public class g extends com.baidu.adp.a.e {
     }
 
     public void d(boolean z) {
-        this.m.setVisibility(z ? 0 : 8);
+        this.q.setVisibility(z ? 0 : 8);
     }
 
     public TextView i() {

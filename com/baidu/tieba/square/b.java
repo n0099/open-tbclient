@@ -7,11 +7,11 @@ import com.tencent.mm.sdk.platformtools.Util;
 public class b extends BdAsyncTask<Object, h, h> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ BarFolderFirstDirActivity f2379a;
-    private com.baidu.tieba.util.ap b;
+    final /* synthetic */ BarFolderFirstDirActivity f2496a;
+    private com.baidu.tieba.util.am b;
 
     private b(BarFolderFirstDirActivity barFolderFirstDirActivity) {
-        this.f2379a = barFolderFirstDirActivity;
+        this.f2496a = barFolderFirstDirActivity;
         this.b = null;
     }
 
@@ -26,7 +26,7 @@ public class b extends BdAsyncTask<Object, h, h> {
     /* renamed from: a */
     public void b(h... hVarArr) {
         super.b((Object[]) hVarArr);
-        this.f2379a.a(hVarArr[0], false);
+        this.f2496a.a(hVarArr[0], false);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -37,7 +37,7 @@ public class b extends BdAsyncTask<Object, h, h> {
      */
     /* JADX WARN: Code restructure failed: missing block: B:23:0x00bd, code lost:
         r3.a(r0.getMessage());
-        com.baidu.tieba.util.bg.b(getClass().getName(), "doInBackground", r0.getMessage());
+        com.baidu.tieba.util.bd.b(getClass().getName(), "doInBackground", r0.getMessage());
      */
     /* JADX WARN: Removed duplicated region for block: B:10:0x0052 A[Catch: Exception -> 0x00bc, TryCatch #0 {Exception -> 0x00bc, blocks: (B:8:0x002e, B:10:0x0052, B:11:0x005f, B:13:0x006d, B:18:0x00a8, B:20:0x00b2), top: B:27:0x002e }] */
     /* JADX WARN: Removed duplicated region for block: B:13:0x006d A[Catch: Exception -> 0x00bc, TryCatch #0 {Exception -> 0x00bc, blocks: (B:8:0x002e, B:10:0x0052, B:11:0x005f, B:13:0x006d, B:18:0x00a8, B:20:0x00b2), top: B:27:0x002e }] */
@@ -53,20 +53,20 @@ public class b extends BdAsyncTask<Object, h, h> {
         boolean z = true;
         boolean z2 = false;
         h hVar = new h();
-        com.baidu.adp.lib.cache.s<String> m = com.baidu.tieba.b.a.a().m();
-        String a2 = m.a("first_dir_cache_key");
+        com.baidu.adp.lib.cache.s<String> p = com.baidu.tieba.b.a.a().p();
+        String a2 = p.a("first_dir_cache_key");
         if (a2 != null) {
             if (!a2.equals("")) {
                 hVar.b(a2);
                 c((Object[]) new h[]{hVar});
                 z2 = z;
-                this.b = new com.baidu.tieba.util.ap(com.baidu.tieba.data.h.f1201a + "c/f/forum/forumdir");
-                str = this.f2379a.g;
+                this.b = new com.baidu.tieba.util.am(com.baidu.tieba.data.h.f1248a + "c/f/forum/forumdir");
+                str = this.f2496a.g;
                 if (str != null) {
-                    com.baidu.tieba.util.ap apVar = this.b;
+                    com.baidu.tieba.util.am amVar = this.b;
                     String str3 = BarFolderFirstDirActivity.c;
-                    str2 = this.f2379a.g;
-                    apVar.a(str3, str2);
+                    str2 = this.f2496a.g;
+                    amVar.a(str3, str2);
                 }
                 String l = this.b.l();
                 if (!this.b.c()) {
@@ -76,7 +76,7 @@ public class b extends BdAsyncTask<Object, h, h> {
                             return null;
                         }
                     } else {
-                        m.a("first_dir_cache_key", l, Util.MILLSECONDS_OF_DAY);
+                        p.a("first_dir_cache_key", l, Util.MILLSECONDS_OF_DAY);
                     }
                 } else {
                     hVar.a(this.b.i());
@@ -86,8 +86,8 @@ public class b extends BdAsyncTask<Object, h, h> {
         }
         z = false;
         z2 = z;
-        this.b = new com.baidu.tieba.util.ap(com.baidu.tieba.data.h.f1201a + "c/f/forum/forumdir");
-        str = this.f2379a.g;
+        this.b = new com.baidu.tieba.util.am(com.baidu.tieba.data.h.f1248a + "c/f/forum/forumdir");
+        str = this.f2496a.g;
         if (str != null) {
         }
         String l2 = this.b.l();
@@ -101,7 +101,7 @@ public class b extends BdAsyncTask<Object, h, h> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(h hVar) {
         if (hVar != null) {
-            this.f2379a.a(hVar, false);
+            this.f2496a.a(hVar, false);
         }
     }
 
@@ -112,6 +112,6 @@ public class b extends BdAsyncTask<Object, h, h> {
             this.b.j();
             this.b = null;
         }
-        this.f2379a.a((h) null, true);
+        this.f2496a.a((h) null, true);
     }
 }

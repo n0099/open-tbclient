@@ -2,10 +2,10 @@ package com.baidu.tieba.account.forbid;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.pushservice.PushConstants;
-import com.baidu.tieba.util.ap;
-import com.baidu.tieba.util.be;
-import com.baidu.tieba.util.bg;
-import com.google.gson.GsonBuilder;
+import com.baidu.gson.GsonBuilder;
+import com.baidu.tieba.util.am;
+import com.baidu.tieba.util.bb;
+import com.baidu.tieba.util.bd;
 import com.tencent.mm.sdk.platformtools.LBSManager;
 import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,12 +13,12 @@ import java.lang.ref.WeakReference;
 public class m extends BdAsyncTask<String, Object, ForbidTplData> {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1080a;
+    private String f1091a;
     private String b;
     private WeakReference<n> c;
 
     public m(String str, String str2, n nVar) {
-        this.f1080a = str;
+        this.f1091a = str;
         this.b = str2;
         this.c = new WeakReference<>(nVar);
         setPriority(3);
@@ -29,24 +29,24 @@ public class m extends BdAsyncTask<String, Object, ForbidTplData> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public ForbidTplData a(String... strArr) {
         String str;
-        str = l.f1079a;
-        ap apVar = new ap(str);
-        apVar.a("forum_id", this.f1080a);
-        apVar.a(PushConstants.EXTRA_USER_ID, this.b);
-        String l = apVar.l();
-        if (apVar.c()) {
+        str = l.f1090a;
+        am amVar = new am(str);
+        amVar.a("forum_id", this.f1091a);
+        amVar.a(PushConstants.EXTRA_USER_ID, this.b);
+        String l = amVar.l();
+        if (amVar.c()) {
             try {
                 return (ForbidTplData) new GsonBuilder().create().fromJson(l, (Class<Object>) ForbidTplData.class);
             } catch (Exception e) {
-                bg.b("ForbidTplModel", "doInBackground", e.getMessage());
+                bd.b("ForbidTplModel", "doInBackground", e.getMessage());
                 ForbidTplData forbidTplData = new ForbidTplData();
-                forbidTplData.error.f1078a = LBSManager.INVALID_ACC;
+                forbidTplData.error.f1089a = LBSManager.INVALID_ACC;
                 return forbidTplData;
             }
         }
         ForbidTplData forbidTplData2 = new ForbidTplData();
-        forbidTplData2.error.f1078a = apVar.e();
-        forbidTplData2.error.b = apVar.i();
+        forbidTplData2.error.f1089a = amVar.e();
+        forbidTplData2.error.b = amVar.i();
         return forbidTplData2;
     }
 
@@ -57,7 +57,7 @@ public class m extends BdAsyncTask<String, Object, ForbidTplData> {
         super.a((m) forbidTplData);
         n nVar = this.c.get();
         if (nVar != null) {
-            if (forbidTplData.error.f1078a == 0 && be.c(forbidTplData.error.b)) {
+            if (forbidTplData.error.f1089a == 0 && bb.c(forbidTplData.error.b)) {
                 nVar.a(forbidTplData);
             } else {
                 nVar.b(forbidTplData);

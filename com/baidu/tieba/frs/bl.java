@@ -8,24 +8,23 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.UtilHelper;
 import com.baidu.tieba.view.NavigationBar;
 import com.baidu.tieba.view.NoNetworkView;
 import com.baidu.tieba.view.WaterFallView;
-import com.baidu.tieba.view.bx;
+import com.baidu.tieba.view.ca;
 import com.slidingmenu.lib.R;
 import com.slidingmenu.lib.SlidingMenu;
 /* loaded from: classes.dex */
 public class bl {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.tieba.j f1342a;
+    private com.baidu.tieba.j f1393a;
     private View.OnClickListener b;
     private LinearLayout c = null;
     private bs d = null;
     private SlidingMenu e = null;
     private WaterFallView f = null;
-    private com.baidu.tieba.view.bk g = null;
+    private com.baidu.tieba.view.bn g = null;
     private ProgressBar h = null;
     private ImageView i = null;
     private ImageView j = null;
@@ -36,39 +35,39 @@ public class bl {
     private NavigationBar o;
 
     public bl(FrsImageActivity frsImageActivity, View.OnClickListener onClickListener) {
-        this.f1342a = null;
+        this.f1393a = null;
         this.b = null;
-        this.f1342a = frsImageActivity;
+        this.f1393a = frsImageActivity;
         this.b = onClickListener;
         l();
     }
 
     private void l() {
-        this.f1342a.setContentView(R.layout.frs_image_activity);
-        this.d = new bs(this.f1342a);
+        this.f1393a.setContentView(R.layout.frs_image_activity);
+        this.d = new bs(this.f1393a);
         this.d.a(R.id.show_image);
-        this.c = (LinearLayout) this.f1342a.findViewById(R.id.container);
-        this.e = new SlidingMenu(this.f1342a);
+        this.c = (LinearLayout) this.f1393a.findViewById(R.id.container);
+        this.e = new SlidingMenu(this.f1393a);
         this.e.setMode(1);
         this.e.setTouchModeAbove(1);
-        this.e.setBehindOffset(UtilHelper.a((Context) this.f1342a, 48.0f));
+        this.e.setBehindOffset(com.baidu.adp.lib.h.g.a((Context) this.f1393a, 48.0f));
         this.e.setBehindScrollScale(0.5f);
         this.e.setFadeDegree(0.35f);
-        this.e.attachToActivity(this.f1342a, 1);
+        this.e.attachToActivity(this.f1393a, 1);
         this.e.setMenu(this.d.a());
-        this.o = (NavigationBar) this.f1342a.findViewById(R.id.view_navigation_bar);
+        this.o = (NavigationBar) this.f1393a.findViewById(R.id.view_navigation_bar);
         this.m = this.o.a("");
         this.i = this.o.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.b);
         this.j = this.o.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, NavigationBar.ControlType.EDIT_BUTTON, this.b);
         this.k = this.o.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.nb_item_frs_more, (View.OnClickListener) null).findViewById(R.id.frs_top_more);
         this.k.setOnClickListener(this.b);
-        this.f = (WaterFallView) this.f1342a.findViewById(R.id.water_fall);
-        this.g = new com.baidu.tieba.view.bk(this.f1342a);
+        this.f = (WaterFallView) this.f1393a.findViewById(R.id.water_fall);
+        this.g = new com.baidu.tieba.view.bn(this.f1393a);
         this.f.setCustomHeaderView(this.g);
-        this.h = (ProgressBar) this.f1342a.findViewById(R.id.progress);
+        this.h = (ProgressBar) this.f1393a.findViewById(R.id.progress);
         this.d.a(this.b);
-        this.l = (TextView) this.f1342a.findViewById(R.id.frs_more_mes_text);
-        this.n = (NoNetworkView) this.f1342a.findViewById(R.id.view_no_network);
+        this.l = (TextView) this.f1393a.findViewById(R.id.frs_more_mes_text);
+        this.n = (NoNetworkView) this.f1393a.findViewById(R.id.view_no_network);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -103,8 +102,8 @@ public class bl {
         }
     }
 
-    public void a(bx bxVar) {
-        this.f.setOnScrollListener(bxVar);
+    public void a(ca caVar) {
+        this.f.setOnScrollListener(caVar);
     }
 
     public void a(SlidingMenu.OnClosedListener onClosedListener) {
@@ -136,13 +135,13 @@ public class bl {
     }
 
     public void a(String str) {
-        this.m.setText(str + this.f1342a.getString(R.string.forum));
+        this.m.setText(str + this.f1393a.getString(R.string.forum));
     }
 
     public AlertDialog j() {
-        String[] strArr = {this.f1342a.getString(R.string.take_photo), this.f1342a.getString(R.string.album)};
-        AlertDialog.Builder builder = new AlertDialog.Builder(this.f1342a);
-        builder.setTitle(this.f1342a.getString(R.string.operation));
+        String[] strArr = {this.f1393a.getString(R.string.take_photo), this.f1393a.getString(R.string.album)};
+        AlertDialog.Builder builder = new AlertDialog.Builder(this.f1393a);
+        builder.setTitle(this.f1393a.getString(R.string.operation));
         builder.setItems(strArr, new bm(this));
         AlertDialog create = builder.create();
         create.setCanceledOnTouchOutside(true);
@@ -152,7 +151,7 @@ public class bl {
     public void a(com.baidu.tieba.model.ap apVar) {
         this.d.a(apVar);
         long a2 = apVar.a() + apVar.b();
-        boolean z = TiebaApplication.g().ap() == 1;
+        boolean z = TiebaApplication.h().an() == 1;
         if (a2 > 0) {
             this.l.setVisibility(0);
             if (a2 < 10) {
@@ -173,8 +172,8 @@ public class bl {
     }
 
     public void a(int i) {
-        this.f1342a.getLayoutMode().a(i == 1);
-        this.f1342a.getLayoutMode().a(this.c);
+        this.f1393a.getLayoutMode().a(i == 1);
+        this.f1393a.getLayoutMode().a(this.c);
         this.d.b(i);
         this.f.d(i);
         this.g.a(i);

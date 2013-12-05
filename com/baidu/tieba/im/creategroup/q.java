@@ -1,17 +1,20 @@
 package com.baidu.tieba.im.creategroup;
 
-import android.view.View;
+import android.content.DialogInterface;
 /* loaded from: classes.dex */
-public interface q {
-    int a();
+class q implements DialogInterface.OnClickListener {
 
-    int b();
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ GroupAddressLocateActivity f1633a;
 
-    int c();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public q(GroupAddressLocateActivity groupAddressLocateActivity) {
+        this.f1633a = groupAddressLocateActivity;
+    }
 
-    View f();
-
-    void g();
-
-    void i();
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        this.f1633a.setResult(0);
+        this.f1633a.finish();
+    }
 }

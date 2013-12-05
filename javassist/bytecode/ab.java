@@ -8,17 +8,17 @@ import java.util.Map;
 public class ab implements Cloneable {
 
     /* renamed from: a  reason: collision with root package name */
-    private y f2738a;
+    private y f2919a;
     private ArrayList b;
 
     public ab(y yVar) {
-        this.f2738a = yVar;
+        this.f2919a = yVar;
         this.b = new ArrayList();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(y yVar, DataInputStream dataInputStream) {
-        this.f2738a = yVar;
+        this.f2919a = yVar;
         int readUnsignedShort = dataInputStream.readUnsignedShort();
         ArrayList arrayList = new ArrayList(readUnsignedShort);
         for (int i = 0; i < readUnsignedShort; i++) {
@@ -38,7 +38,7 @@ public class ab implements Cloneable {
     }
 
     public int a(int i) {
-        return ((ac) this.b.get(i)).f2739a;
+        return ((ac) this.b.get(i)).f2920a;
     }
 
     public int b(int i) {
@@ -59,7 +59,7 @@ public class ab implements Cloneable {
             int i3 = a2 - 1;
             if (i3 >= 0) {
                 ac acVar = (ac) abVar.b.get(i3);
-                a(i, acVar.f2739a + i2, acVar.b + i2, acVar.c + i2, acVar.d);
+                a(i, acVar.f2920a + i2, acVar.b + i2, acVar.c + i2, acVar.d);
                 a2 = i3;
             } else {
                 return;
@@ -81,11 +81,11 @@ public class ab implements Cloneable {
 
     public ab a(y yVar, Map map) {
         ab abVar = new ab(yVar);
-        y yVar2 = this.f2738a;
+        y yVar2 = this.f2919a;
         int a2 = a();
         for (int i = 0; i < a2; i++) {
             ac acVar = (ac) this.b.get(i);
-            abVar.a(acVar.f2739a, acVar.b, acVar.c, yVar2.a(acVar.d, yVar, map));
+            abVar.a(acVar.f2920a, acVar.b, acVar.c, yVar2.a(acVar.d, yVar, map));
         }
         return abVar;
     }
@@ -95,7 +95,7 @@ public class ab implements Cloneable {
         int a2 = a();
         for (int i3 = 0; i3 < a2; i3++) {
             ac acVar = (ac) this.b.get(i3);
-            acVar.f2739a = a(acVar.f2739a, i, i2, z);
+            acVar.f2920a = a(acVar.f2920a, i, i2, z);
             acVar.b = a(acVar.b, i, i2, z);
             acVar.c = a(acVar.c, i, i2, z);
         }
@@ -114,7 +114,7 @@ public class ab implements Cloneable {
         dataOutputStream.writeShort(a2);
         for (int i = 0; i < a2; i++) {
             ac acVar = (ac) this.b.get(i);
-            dataOutputStream.writeShort(acVar.f2739a);
+            dataOutputStream.writeShort(acVar.f2920a);
             dataOutputStream.writeShort(acVar.b);
             dataOutputStream.writeShort(acVar.c);
             dataOutputStream.writeShort(acVar.d);

@@ -13,7 +13,7 @@ public class MD5 {
     private static final char[] f = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
     /* renamed from: a  reason: collision with root package name */
-    b f828a;
+    b f833a;
     b b;
 
     public MD5() {
@@ -38,10 +38,10 @@ public class MD5 {
     }
 
     private void a(b bVar, byte[] bArr, int i, int[] iArr) {
-        int i2 = bVar.f830a[0];
-        int i3 = bVar.f830a[1];
-        int i4 = bVar.f830a[2];
-        int i5 = bVar.f830a[3];
+        int i2 = bVar.f835a[0];
+        int i3 = bVar.f835a[1];
+        int i4 = bVar.f835a[2];
+        int i5 = bVar.f835a[3];
         a(bArr, i, iArr);
         int i6 = i2 + ((((i3 & i4) | ((i3 ^ (-1)) & i5)) + iArr[0]) - 680876936);
         int i7 = ((i6 >>> 25) | (i6 << 7)) + i3;
@@ -170,13 +170,13 @@ public class MD5 {
         int i130 = i123 + (((i125 ^ (-1)) | i129) ^ i127) + iArr[2] + 718787259;
         int i131 = ((i130 >>> 17) | (i130 << 15)) + i129;
         int i132 = i125 + (((((i127 ^ (-1)) | i131) ^ i129) + iArr[9]) - 343485551);
-        int[] iArr2 = bVar.f830a;
+        int[] iArr2 = bVar.f835a;
         iArr2[0] = i127 + iArr2[0];
-        int[] iArr3 = bVar.f830a;
+        int[] iArr3 = bVar.f835a;
         iArr3[1] = ((i132 >>> 11) | (i132 << 21)) + i131 + iArr3[1];
-        int[] iArr4 = bVar.f830a;
+        int[] iArr4 = bVar.f835a;
         iArr4[2] = iArr4[2] + i131;
-        int[] iArr5 = bVar.f830a;
+        int[] iArr5 = bVar.f835a;
         iArr5[3] = iArr5[3] + i129;
     }
 
@@ -267,7 +267,7 @@ public class MD5 {
     }
 
     public synchronized void a() {
-        this.f828a = new b();
+        this.f833a = new b();
         this.b = null;
     }
 
@@ -296,17 +296,17 @@ public class MD5 {
                     for (int i6 = 0; i6 < i5; i6++) {
                         bVar.c[i6 + i4] = bArr[i6 + i];
                     }
-                    Transform_native(bVar.f830a, bVar.c, 0, 64);
+                    Transform_native(bVar.f835a, bVar.c, 0, 64);
                 }
                 int i7 = (((i2 - i5) / 64) * 64) + i5;
                 int i8 = i2 - i5;
                 int i9 = i5 + i;
                 while (i8 > 65536) {
-                    Transform_native(bVar.f830a, bArr, i9, 65536);
+                    Transform_native(bVar.f835a, bArr, i9, 65536);
                     i8 -= 65536;
                     i9 += 65536;
                 }
-                Transform_native(bVar.f830a, bArr, i9, i8);
+                Transform_native(bVar.f835a, bArr, i9, i8);
                 i5 = i7;
             } else {
                 int[] iArr = new int[16];
@@ -334,22 +334,22 @@ public class MD5 {
     }
 
     public void a(byte[] bArr, int i) {
-        a(this.f828a, bArr, 0, i);
+        a(this.f833a, bArr, 0, i);
     }
 
     public void a(byte[] bArr, int i, int i2) {
-        a(this.f828a, bArr, i, i2);
+        a(this.f833a, bArr, i, i2);
     }
 
     public synchronized byte[] b() {
         if (this.b == null) {
-            b bVar = new b(this.f828a);
+            b bVar = new b(this.f833a);
             byte[] a2 = a(new int[]{(int) (bVar.b << 3), (int) (bVar.b >> 29)}, 8);
             int i = (int) (bVar.b & 63);
             a(bVar, c, 0, i < 56 ? 56 - i : 120 - i);
             a(bVar, a2, 0, 8);
             this.b = bVar;
         }
-        return a(this.b.f830a, 16);
+        return a(this.b.f835a, 16);
     }
 }

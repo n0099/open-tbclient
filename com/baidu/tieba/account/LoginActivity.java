@@ -19,8 +19,8 @@ import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.AccountData;
 import com.baidu.tieba.model.be;
 import com.baidu.tieba.util.DatabaseService;
+import com.baidu.tieba.util.bb;
 import com.baidu.tieba.util.bd;
-import com.baidu.tieba.util.bg;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
@@ -28,8 +28,8 @@ import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class LoginActivity extends com.baidu.tieba.j {
     private NavigationBar L;
-    private ad d;
-    private ad e;
+    private ae d;
+    private ae e;
     private String f = null;
     private String g = null;
     private String h = null;
@@ -64,12 +64,12 @@ public class LoginActivity extends com.baidu.tieba.j {
     private Button K = null;
 
     /* renamed from: a  reason: collision with root package name */
-    RelativeLayout f1021a = null;
-    private af M = null;
+    RelativeLayout f1031a = null;
+    private ag M = null;
     private be N = null;
-    private ae O = null;
+    private af O = null;
     InputMethodManager b = null;
-    m c = null;
+    n c = null;
     private AccountData P = null;
     private String Q = null;
 
@@ -80,7 +80,7 @@ public class LoginActivity extends com.baidu.tieba.j {
     }
 
     public static void a(Activity activity, int i, String str, int i2) {
-        if (TiebaApplication.n()) {
+        if (TiebaApplication.o()) {
             com.baidu.tieba.f.a(activity, i2, i, false);
             return;
         }
@@ -92,7 +92,7 @@ public class LoginActivity extends com.baidu.tieba.j {
     }
 
     public static void a(Activity activity, String str, boolean z, int i) {
-        if (TiebaApplication.n()) {
+        if (TiebaApplication.o()) {
             com.baidu.tieba.f.a(activity, i, -1, z);
             return;
         }
@@ -142,7 +142,7 @@ public class LoginActivity extends com.baidu.tieba.j {
             a(R.id.mobile_login);
         }
         ShowSoftKeyPadDelay(this.o, 150);
-        new ah("login").start();
+        new ai("login").start();
     }
 
     @Override // android.app.Activity
@@ -164,7 +164,7 @@ public class LoginActivity extends com.baidu.tieba.j {
             o();
             System.gc();
         } catch (Exception e) {
-            bg.b(getClass().getName(), "onDestroy", e.getMessage());
+            bd.b(getClass().getName(), "onDestroy", e.getMessage());
         }
         if (this.c != null) {
             this.c.b();
@@ -210,9 +210,9 @@ public class LoginActivity extends com.baidu.tieba.j {
     public void a() {
         a.a().b();
         if (this.l) {
-            TiebaApplication.g().z();
+            TiebaApplication.h().A();
             Intent intent = new Intent();
-            intent.putExtra("BDUSS", TiebaApplication.D());
+            intent.putExtra("BDUSS", TiebaApplication.E());
             setResult(-1, intent);
         } else {
             int intExtra = getIntent().getIntExtra("locate_type", -1);
@@ -223,11 +223,11 @@ public class LoginActivity extends com.baidu.tieba.j {
 
     private void b() {
         this.b = (InputMethodManager) getSystemService("input_method");
-        this.f1021a = (RelativeLayout) findViewById(R.id.container);
+        this.f1031a = (RelativeLayout) findViewById(R.id.container);
         this.L = (NavigationBar) findViewById(R.id.view_navigation_bar);
-        this.y = this.L.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new u(this));
+        this.y = this.L.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new v(this));
         this.L.a(getString(R.string.title_login));
-        this.L.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(R.string.account_regedit), new v(this));
+        this.L.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(R.string.account_regedit), new w(this));
         this.o = (EditText) findViewById(R.id.login_edit_account);
         this.p = (EditText) findViewById(R.id.login_edit_password);
         this.q = (EditText) findViewById(R.id.edit_vcode);
@@ -253,19 +253,19 @@ public class LoginActivity extends com.baidu.tieba.j {
         this.I = (TextView) findViewById(R.id.text_login);
         this.J = (Button) findViewById(R.id.normal_login);
         this.K = (Button) findViewById(R.id.mobile_login);
-        w wVar = new w(this);
-        this.o.setOnFocusChangeListener(wVar);
-        this.p.setOnFocusChangeListener(wVar);
-        this.q.setOnFocusChangeListener(wVar);
         x xVar = new x(this);
-        this.p.setOnEditorActionListener(xVar);
-        this.q.setOnEditorActionListener(xVar);
-        this.o.addTextChangedListener(new y(this));
-        this.p.addTextChangedListener(new z(this));
-        this.q.addTextChangedListener(new aa(this));
+        this.o.setOnFocusChangeListener(xVar);
+        this.p.setOnFocusChangeListener(xVar);
+        this.q.setOnFocusChangeListener(xVar);
+        y yVar = new y(this);
+        this.p.setOnEditorActionListener(yVar);
+        this.q.setOnEditorActionListener(yVar);
+        this.o.addTextChangedListener(new z(this));
+        this.p.addTextChangedListener(new aa(this));
+        this.q.addTextChangedListener(new ab(this));
         this.r = findViewById(R.id.layout_login);
         this.r.setEnabled(false);
-        this.r.setOnClickListener(new ab(this));
+        this.r.setOnClickListener(new ac(this));
         k();
     }
 
@@ -274,8 +274,8 @@ public class LoginActivity extends com.baidu.tieba.j {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.L.c(i);
-        bd.a(this.I, i);
-        bd.c(this.f1021a, i);
+        com.baidu.tieba.util.ba.a(this.I, i);
+        com.baidu.tieba.util.ba.c(this.f1031a, i);
         if (i == 1) {
             this.H.setTextColor(getResources().getColor(R.color.skin_1_common_color));
         } else {
@@ -320,9 +320,9 @@ public class LoginActivity extends com.baidu.tieba.j {
         String obj2 = this.p.getText().toString();
         String obj3 = this.q.getText().toString();
         if (this.B.getVisibility() == 8) {
-            z = com.baidu.tieba.util.be.c(obj) || com.baidu.tieba.util.be.c(obj2);
+            z = bb.c(obj) || bb.c(obj2);
         } else {
-            z = com.baidu.tieba.util.be.c(obj) || com.baidu.tieba.util.be.c(obj2) || com.baidu.tieba.util.be.c(obj3);
+            z = bb.c(obj) || bb.c(obj2) || bb.c(obj3);
         }
         if (!z) {
             this.r.setEnabled(true);
@@ -333,7 +333,7 @@ public class LoginActivity extends com.baidu.tieba.j {
 
     private void a(int i) {
         switch (i) {
-            case R.id.normal_login /* 2131099732 */:
+            case R.id.normal_login /* 2131099739 */:
                 this.s = this.t;
                 this.t.setVisibility(0);
                 this.u.setVisibility(8);
@@ -346,7 +346,7 @@ public class LoginActivity extends com.baidu.tieba.j {
                 this.o.setInputType(1);
                 c();
                 return;
-            case R.id.mobile_login /* 2131099733 */:
+            case R.id.mobile_login /* 2131099740 */:
                 this.s = this.u;
                 this.t.setVisibility(8);
                 this.u.setVisibility(0);
@@ -367,22 +367,22 @@ public class LoginActivity extends com.baidu.tieba.j {
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.normal_login /* 2131099732 */:
-            case R.id.mobile_login /* 2131099733 */:
+            case R.id.normal_login /* 2131099739 */:
+            case R.id.mobile_login /* 2131099740 */:
                 a(view.getId());
                 return;
-            case R.id.button_account_del /* 2131099740 */:
+            case R.id.button_account_del /* 2131099747 */:
                 this.o.setText((CharSequence) null);
                 return;
-            case R.id.button_pass_del /* 2131099744 */:
+            case R.id.button_pass_del /* 2131099751 */:
                 this.p.setText((CharSequence) null);
                 return;
-            case R.id.button_vcode_del /* 2131099747 */:
+            case R.id.button_vcode_del /* 2131099754 */:
                 this.q.setText((CharSequence) null);
                 return;
-            case R.id.image_vcode1 /* 2131099748 */:
-            case R.id.image_vcode2 /* 2131099749 */:
-            case R.id.button_vcode_refresh /* 2131099751 */:
+            case R.id.image_vcode1 /* 2131099755 */:
+            case R.id.image_vcode2 /* 2131099756 */:
+            case R.id.button_vcode_refresh /* 2131099758 */:
                 a(this.i);
                 return;
             default:
@@ -402,8 +402,8 @@ public class LoginActivity extends com.baidu.tieba.j {
                 this.n = true;
                 this.m = false;
             } else {
-                this.f = this.d.f1030a;
-                this.o.setText(this.d.f1030a);
+                this.f = this.d.f1041a;
+                this.o.setText(this.d.f1041a);
                 this.p.setText(this.d.b);
                 this.q.setText(this.d.c);
                 this.G.setText(this.d.d);
@@ -424,8 +424,8 @@ public class LoginActivity extends com.baidu.tieba.j {
                 this.n = true;
                 this.m = false;
             } else {
-                this.f = this.e.f1030a;
-                this.o.setText(this.e.f1030a);
+                this.f = this.e.f1041a;
+                this.o.setText(this.e.f1041a);
                 this.p.setText(this.e.b);
                 this.q.setText(this.e.c);
                 this.G.setText(this.e.d);
@@ -441,8 +441,8 @@ public class LoginActivity extends com.baidu.tieba.j {
 
     private void f() {
         if (this.j == 0) {
-            this.d = new ad(this, null);
-            this.d.f1030a = this.o.getText().toString();
+            this.d = new ae(this, null);
+            this.d.f1041a = this.o.getText().toString();
             this.d.b = this.p.getText().toString();
             this.d.c = this.q.getText().toString();
             this.d.d = this.G.getText().toString();
@@ -451,8 +451,8 @@ public class LoginActivity extends com.baidu.tieba.j {
             this.d.g = this.n;
         }
         if (this.j == 1) {
-            this.e = new ad(this, null);
-            this.e.f1030a = this.o.getText().toString();
+            this.e = new ae(this, null);
+            this.e.f1041a = this.o.getText().toString();
             this.e.b = this.p.getText().toString();
             this.e.c = this.q.getText().toString();
             this.e.d = this.G.getText().toString();
@@ -466,25 +466,25 @@ public class LoginActivity extends com.baidu.tieba.j {
     public void g() {
         if (this.M == null) {
             String obj = this.o.getText().toString();
-            this.g = com.baidu.tieba.util.be.b(this.p.getText().toString().getBytes());
+            this.g = bb.b(this.p.getText().toString().getBytes());
             if (obj.length() > 0 && this.g.length() > 0) {
-                if (!this.m || !com.baidu.tieba.util.be.c(this.q.getText().toString())) {
+                if (!this.m || !bb.c(this.q.getText().toString())) {
                     l();
                     StringBuffer stringBuffer = new StringBuffer(30);
-                    stringBuffer.append(com.baidu.tieba.data.h.f1201a);
+                    stringBuffer.append(com.baidu.tieba.data.h.f1248a);
                     stringBuffer.append("c/s/login");
                     ArrayList arrayList = new ArrayList();
                     arrayList.add(new BasicNameValuePair("un", obj));
                     arrayList.add(new BasicNameValuePair("passwd", this.g));
                     arrayList.add(new BasicNameValuePair("isphone", String.valueOf(this.j)));
-                    arrayList.add(new BasicNameValuePair("channel_id", TiebaApplication.g().bb()));
-                    arrayList.add(new BasicNameValuePair("channel_uid", TiebaApplication.g().ba()));
+                    arrayList.add(new BasicNameValuePair("channel_id", TiebaApplication.h().bc()));
+                    arrayList.add(new BasicNameValuePair("channel_uid", TiebaApplication.h().bb()));
                     if (this.B != null && this.B.getVisibility() == 0) {
                         arrayList.add(new BasicNameValuePair("vcode", this.q.getText().toString()));
                         arrayList.add(new BasicNameValuePair("vcode_md5", this.h));
                     }
                     o();
-                    this.M = new af(this, stringBuffer.toString(), arrayList);
+                    this.M = new ag(this, stringBuffer.toString(), arrayList);
                     this.M.setPriority(3);
                     this.M.execute(stringBuffer.toString(), arrayList);
                 }
@@ -516,8 +516,8 @@ public class LoginActivity extends com.baidu.tieba.j {
             return;
         }
         if (this.c == null) {
-            this.c = new m(this);
-            this.c.a(new ac(this));
+            this.c = new n(this);
+            this.c.a(new ad(this));
         }
         this.c.e();
         this.c.a(this.o.getText().toString());
@@ -539,7 +539,7 @@ public class LoginActivity extends com.baidu.tieba.j {
         this.v.setVisibility(0);
         this.s.setImageBitmap(null);
         o();
-        this.O = new ae(this, null);
+        this.O = new af(this, null);
         this.O.setPriority(3);
         this.O.execute(str);
     }

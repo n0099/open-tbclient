@@ -1,6 +1,5 @@
 package com.baidu.tieba.util.a;
 
-import com.baidu.adp.lib.e.f;
 import com.baidu.adp.lib.e.g;
 import com.baidu.tieba.util.i;
 import com.baidu.tieba.util.l;
@@ -13,7 +12,7 @@ public abstract class a implements g {
     protected abstract Object b(String str, com.baidu.adp.lib.e.e eVar, i iVar, l lVar);
 
     @Override // com.baidu.adp.lib.e.g
-    public Object a(String str, f fVar) {
+    public Object a(String str, com.baidu.adp.lib.e.f fVar) {
         if (fVar == null) {
             return null;
         }
@@ -30,7 +29,7 @@ public abstract class a implements g {
 
     @Override // com.baidu.adp.lib.e.g
     public Object a(String str, com.baidu.adp.lib.e.e eVar) {
-        f d = eVar.d();
+        com.baidu.adp.lib.e.f d = eVar.d();
         if (d == null) {
             return null;
         }
@@ -47,7 +46,7 @@ public abstract class a implements g {
 
     @Override // com.baidu.adp.lib.e.g
     public Object b(String str, com.baidu.adp.lib.e.e eVar) {
-        f d = eVar.d();
+        com.baidu.adp.lib.e.f d = eVar.d();
         if (d == null) {
             return null;
         }

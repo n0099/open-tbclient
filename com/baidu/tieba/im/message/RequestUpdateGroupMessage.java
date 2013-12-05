@@ -3,6 +3,7 @@ package com.baidu.tieba.im.message;
 public abstract class RequestUpdateGroupMessage extends Message {
     private static final long serialVersionUID = 5970126981799423191L;
     private long groupId;
+    public int type;
 
     public RequestUpdateGroupMessage() {
         setCmd(103102);
@@ -14,5 +15,13 @@ public abstract class RequestUpdateGroupMessage extends Message {
 
     public void setGroupId(long j) {
         this.groupId = j;
+    }
+
+    public int getType() {
+        return this.type;
+    }
+
+    public void setType(int i) {
+        this.type = i;
     }
 }

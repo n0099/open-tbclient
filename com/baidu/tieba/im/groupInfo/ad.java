@@ -1,28 +1,23 @@
 package com.baidu.tieba.im.groupInfo;
-
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ad implements View.OnClickListener {
+class ad implements com.baidu.tbadk.imageManager.c {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ int f1674a;
+    final /* synthetic */ com.baidu.adp.widget.ImageView.a f1742a;
     final /* synthetic */ PhotoWallView b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ad(PhotoWallView photoWallView, int i) {
+    public ad(PhotoWallView photoWallView, com.baidu.adp.widget.ImageView.a aVar) {
         this.b = photoWallView;
-        this.f1674a = i;
+        this.f1742a = aVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        z zVar;
-        z zVar2;
-        zVar = this.b.l;
-        if (zVar != null) {
-            zVar2 = this.b.l;
-            zVar2.onClick(view, 2, null, this.f1674a);
+    @Override // com.baidu.tbadk.imageManager.c
+    public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
+        if (eVar != null) {
+            this.f1742a.setBackgroundDrawable(null);
+            this.f1742a.setImageBitmap(null);
+            eVar.a(this.f1742a);
         }
     }
 }

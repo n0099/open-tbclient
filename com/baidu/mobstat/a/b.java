@@ -9,7 +9,7 @@ import java.text.SimpleDateFormat;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final SimpleDateFormat f955a = new SimpleDateFormat("MM-dd HH:mm:ss.SSS");
+    private static final SimpleDateFormat f960a = new SimpleDateFormat("MM-dd HH:mm:ss.SSS");
 
     static {
         a();

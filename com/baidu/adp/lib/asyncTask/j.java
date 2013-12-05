@@ -29,7 +29,7 @@ class j extends k {
                     Process.setThreadPriority(10);
                 }
             } catch (Exception e) {
-                com.baidu.adp.lib.h.d.a(e.getMessage());
+                com.baidu.adp.lib.h.e.a(e.getMessage());
             }
             a();
         } finally {

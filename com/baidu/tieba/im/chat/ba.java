@@ -1,22 +1,19 @@
 package com.baidu.tieba.im.chat;
 
-import android.content.DialogInterface;
+import com.baidu.tieba.im.message.ChatMessage;
 /* loaded from: classes.dex */
-class ba implements DialogInterface.OnClickListener {
+class ba implements com.baidu.tieba.im.model.x {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ int f1512a;
-    final /* synthetic */ MsglistActivity b;
+    final /* synthetic */ MsglistActivity f1559a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ba(MsglistActivity msglistActivity, int i) {
-        this.b = msglistActivity;
-        this.f1512a = i;
+    public ba(MsglistActivity msglistActivity) {
+        this.f1559a = msglistActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        dialogInterface.dismiss();
-        this.b.a(this.f1512a);
+    @Override // com.baidu.tieba.im.model.x
+    public void a(int i, ChatMessage chatMessage) {
+        this.f1559a.c.post(new bb(this, i, chatMessage));
     }
 }

@@ -2907,7 +2907,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
     }
 
     public WebBackForwardList copyBackForwardList() {
-        return this.mCallbackProxy.getBackForwardList().m265clone();
+        return this.mCallbackProxy.getBackForwardList().m266clone();
     }
 
     public void findNext(boolean z) {

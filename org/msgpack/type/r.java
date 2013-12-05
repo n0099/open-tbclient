@@ -13,6 +13,8 @@ public interface r {
 
     RawValue asRawValue();
 
+    ValueType getType();
+
     boolean isArrayValue();
 
     boolean isBooleanValue();

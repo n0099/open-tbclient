@@ -5,20 +5,20 @@ import android.content.Context;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private static f f2596a;
+    private static f f2714a;
     private com.baidu.adp.lib.e.c b = com.baidu.adp.lib.e.c.a();
 
     private f() {
-        this.b.a(com.baidu.tieba.util.a.e.a());
+        this.b.a(com.baidu.tieba.util.a.f.a());
     }
 
     public static synchronized f a() {
         f fVar;
         synchronized (f.class) {
-            if (f2596a == null) {
-                f2596a = new f();
+            if (f2714a == null) {
+                f2714a = new f();
             }
-            fVar = f2596a;
+            fVar = f2714a;
         }
         return fVar;
     }

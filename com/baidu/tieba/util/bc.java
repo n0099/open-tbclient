@@ -1,71 +1,109 @@
 package com.baidu.tieba.util;
 
-import java.util.HashMap;
-import java.util.Map;
+import com.baidu.browser.explorer.BdWebErrorView;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.util.UtilHelper;
 /* loaded from: classes.dex */
 public class bc {
-    private volatile int b;
-    private volatile HashMap<Long, Integer> c = new HashMap<>();
 
     /* renamed from: a  reason: collision with root package name */
-    private volatile int f2481a = 0;
+    private static bc f2597a = null;
+    private boolean b = false;
+    private boolean c = false;
+    private int d = 600;
+    private String e = String.valueOf(45);
 
-    public bc(int i) {
-        this.b = i;
+    public static bc a() {
+        if (f2597a == null) {
+            synchronized (bc.class) {
+                f2597a = new bc();
+            }
+        }
+        return f2597a;
     }
 
-    public void a(String str) {
-        try {
-            Long valueOf = Long.valueOf(Long.parseLong(str));
-            synchronized (this) {
-                if (this.c.size() >= this.b) {
-                    a();
+    public bc() {
+        j();
+        i();
+    }
+
+    private void i() {
+        f();
+        g();
+        h();
+    }
+
+    public void a(boolean z) {
+        this.c = z;
+    }
+
+    public boolean b() {
+        return this.c;
+    }
+
+    public void b(boolean z) {
+        this.b = z;
+        i();
+    }
+
+    private void j() {
+        this.b = UtilHelper.g(TiebaApplication.h().getApplicationContext()) == UtilHelper.NetworkStateInfo.WIFI;
+    }
+
+    public boolean c() {
+        return this.b;
+    }
+
+    public String d() {
+        return this.e;
+    }
+
+    public int e() {
+        h();
+        return this.d;
+    }
+
+    public void f() {
+        boolean z = true;
+        if (com.baidu.tieba.d.a.a().g() != 0 ? com.baidu.tieba.d.a.a().g() != 1 : !this.b) {
+            z = false;
+        }
+        a(z);
+    }
+
+    public void g() {
+        String valueOf = String.valueOf(45);
+        if (com.baidu.tieba.d.a.a().g() == 0) {
+            if (c()) {
+                valueOf = String.valueOf(80);
+            }
+        } else if (com.baidu.tieba.d.a.a().g() == 1) {
+            valueOf = String.valueOf(80);
+        }
+        this.e = valueOf;
+    }
+
+    public void h() {
+        int i = BdWebErrorView.ERROR_CODE_900;
+        switch (com.baidu.tieba.d.a.a().e()) {
+            case 0:
+                if (!c()) {
+                    i = 600;
+                    break;
                 }
-                this.f2481a++;
-                this.c.put(valueOf, Integer.valueOf(this.f2481a));
-            }
-        } catch (Exception e) {
-            bg.b(getClass().getName(), "addThread", e.getMessage());
+                break;
+            case 1:
+                break;
+            case 2:
+                i = 750;
+                break;
+            case 3:
+                i = 600;
+                break;
+            default:
+                i = 750;
+                break;
         }
-    }
-
-    public void a() {
-        int i;
-        Long l;
-        synchronized (this) {
-            Long l2 = null;
-            int i2 = 134217727;
-            for (Map.Entry<Long, Integer> entry : this.c.entrySet()) {
-                if (entry.getValue().intValue() < i2) {
-                    int intValue = entry.getValue().intValue();
-                    l = entry.getKey();
-                    i = intValue;
-                } else {
-                    i = i2;
-                    l = l2;
-                }
-                i2 = i;
-                l2 = l;
-            }
-            if (l2 != null) {
-                this.c.remove(l2);
-            } else {
-                this.c.clear();
-            }
-        }
-    }
-
-    public boolean b(String str) {
-        boolean z;
-        try {
-            Long valueOf = Long.valueOf(Long.parseLong(str));
-            synchronized (this) {
-                z = this.c.get(valueOf) != null;
-            }
-            return z;
-        } catch (Exception e) {
-            bg.b(getClass().getName(), "getThread", e.getMessage());
-            return false;
-        }
+        this.d = i;
     }
 }

@@ -9,7 +9,7 @@ import org.msgpack.template.builder.JavassistTemplateBuilder;
 public class DefaultBuildContext extends b<c> {
 
     /* renamed from: a  reason: collision with root package name */
-    protected c[] f2922a;
+    protected c[] f3103a;
     protected Class<?> b;
     protected String c;
     protected org.msgpack.template.d<?>[] d;
@@ -20,7 +20,7 @@ public class DefaultBuildContext extends b<c> {
 
     @Override // org.msgpack.template.builder.b
     public org.msgpack.template.d b(Class cls, c[] cVarArr, org.msgpack.template.d[] dVarArr) {
-        this.f2922a = cVarArr;
+        this.f3103a = cVarArr;
         this.d = dVarArr;
         this.b = cls;
         this.c = this.b.getName();
@@ -58,9 +58,9 @@ public class DefaultBuildContext extends b<c> {
         b("    return;\n");
         b("  }\n");
         a("  %s _$$_t = (%s) $2;\n", this.c, this.c);
-        a("  $1.writeArrayBegin(%d);\n", Integer.valueOf(this.f2922a.length));
-        for (int i = 0; i < this.f2922a.length; i++) {
-            c cVar = this.f2922a[i];
+        a("  $1.writeArrayBegin(%d);\n", Integer.valueOf(this.f3103a.length));
+        for (int i = 0; i < this.f3103a.length; i++) {
+            c cVar = this.f3103a[i];
             if (!cVar.g()) {
                 b("  $1.writeNil();\n");
             } else {
@@ -113,8 +113,8 @@ public class DefaultBuildContext extends b<c> {
         a("    _$$_t = (%s) $2;\n", this.c);
         b("  }\n");
         b("  $1.readArrayBegin();\n");
-        for (int i = 0; i < this.f2922a.length; i++) {
-            c cVar = this.f2922a[i];
+        for (int i = 0; i < this.f3103a.length; i++) {
+            c cVar = this.f3103a[i];
             if (!cVar.g()) {
                 b("  $1.skip();\n");
             } else {
@@ -149,7 +149,7 @@ public class DefaultBuildContext extends b<c> {
 
     @Override // org.msgpack.template.builder.b
     public org.msgpack.template.d a(Class<?> cls, c[] cVarArr, org.msgpack.template.d[] dVarArr) {
-        this.f2922a = cVarArr;
+        this.f3103a = cVarArr;
         this.d = dVarArr;
         this.b = cls;
         this.c = this.b.getName();

@@ -9,29 +9,29 @@ import java.util.Map;
 public class ai extends w {
 
     /* renamed from: a  reason: collision with root package name */
-    int f2743a;
+    int f2924a;
     int c;
 
     public ai(int i, int i2, int i3) {
         super(i3);
-        this.f2743a = i;
+        this.f2924a = i;
         this.c = i2;
     }
 
     public ai(DataInputStream dataInputStream, int i) {
         super(i);
-        this.f2743a = dataInputStream.readUnsignedShort();
+        this.f2924a = dataInputStream.readUnsignedShort();
         this.c = dataInputStream.readUnsignedShort();
     }
 
     public int hashCode() {
-        return (this.f2743a << 16) ^ this.c;
+        return (this.f2924a << 16) ^ this.c;
     }
 
     public boolean equals(Object obj) {
         if (obj instanceof ai) {
             ai aiVar = (ai) obj;
-            return aiVar.f2743a == this.f2743a && aiVar.c == this.c;
+            return aiVar.f2924a == this.f2924a && aiVar.c == this.c;
         }
         return false;
     }
@@ -43,20 +43,20 @@ public class ai extends w {
 
     @Override // javassist.bytecode.w
     public int a(y yVar, y yVar2, Map map) {
-        return yVar2.f(this.f2743a, yVar.b(this.c).a(yVar, yVar2, map));
+        return yVar2.f(this.f2924a, yVar.b(this.c).a(yVar, yVar2, map));
     }
 
     @Override // javassist.bytecode.w
     public void a(DataOutputStream dataOutputStream) {
         dataOutputStream.writeByte(18);
-        dataOutputStream.writeShort(this.f2743a);
+        dataOutputStream.writeShort(this.f2924a);
         dataOutputStream.writeShort(this.c);
     }
 
     @Override // javassist.bytecode.w
     public void a(PrintWriter printWriter) {
         printWriter.print("InvokeDynamic #");
-        printWriter.print(this.f2743a);
+        printWriter.print(this.f2924a);
         printWriter.print(", name&type #");
         printWriter.println(this.c);
     }

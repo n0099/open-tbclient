@@ -6,14 +6,14 @@ import java.io.Serializable;
 public class LocalViewSize {
 
     /* renamed from: a  reason: collision with root package name */
-    private static LocalViewSize f1482a = null;
+    private static LocalViewSize f1532a = null;
     private Context b = null;
 
     public static LocalViewSize a() {
-        if (f1482a == null) {
-            f1482a = new LocalViewSize();
+        if (f1532a == null) {
+            f1532a = new LocalViewSize();
         }
-        return f1482a;
+        return f1532a;
     }
 
     private LocalViewSize() {
@@ -55,25 +55,25 @@ public class LocalViewSize {
     }
 
     public int b() {
-        int a2 = com.baidu.adp.lib.h.f.a(this.b);
-        if (a2 >= 1080) {
+        int b = com.baidu.adp.lib.h.g.b(this.b);
+        if (b >= 1080) {
             return 1080;
         }
-        return (a2 < 720 || a2 >= 1080) ? 480 : 720;
+        return (b < 720 || b >= 1080) ? 480 : 720;
     }
 
     public ImageSize c() {
         int i = 240;
-        int a2 = com.baidu.adp.lib.h.f.a(this.b);
-        com.baidu.adp.lib.h.d.c("=======getEquipmentWidth:" + a2);
-        if (a2 < 240) {
-            i = a2 / 3;
-        } else if (a2 <= 320) {
+        int b = com.baidu.adp.lib.h.g.b(this.b);
+        com.baidu.adp.lib.h.e.c("=======getEquipmentWidth:" + b);
+        if (b < 240) {
+            i = b / 3;
+        } else if (b <= 320) {
             i = 80;
-        } else if (a2 <= 480) {
+        } else if (b <= 480) {
             i = 160;
-        } else if (a2 > 720) {
-            i = a2 / 3;
+        } else if (b > 720) {
+            i = b / 3;
         }
         ImageSize imageSize = new ImageSize();
         imageSize.height = i;
@@ -83,8 +83,8 @@ public class LocalViewSize {
 
     public ImageSize d() {
         ImageSize imageSize = new ImageSize();
-        imageSize.height = com.baidu.adp.lib.h.f.b(this.b);
-        imageSize.width = com.baidu.adp.lib.h.f.a(this.b);
+        imageSize.height = com.baidu.adp.lib.h.g.c(this.b);
+        imageSize.width = com.baidu.adp.lib.h.g.b(this.b);
         return imageSize;
     }
 

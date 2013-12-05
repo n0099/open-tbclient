@@ -8,11 +8,11 @@ import com.baidu.tieba.util.UtilHelper;
 public class ab implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ aa f2355a;
+    final /* synthetic */ aa f2472a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(aa aaVar) {
-        this.f2355a = aaVar;
+        this.f2472a = aaVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -21,7 +21,7 @@ public class ab implements View.OnClickListener {
         ad adVar = view.getTag() instanceof ad ? (ad) view.getTag() : null;
         String a2 = SquareActivity.a("forum_list_recommend", adVar.c());
         if (adVar != null) {
-            context = this.f2355a.b;
+            context = this.f2472a.b;
             UtilHelper.a(context, adVar.b(), null, a2);
         }
     }

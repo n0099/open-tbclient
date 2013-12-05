@@ -8,16 +8,16 @@ import android.widget.ImageView;
 public class PbImageIcon extends ImageView {
 
     /* renamed from: a  reason: collision with root package name */
-    protected Context f2036a;
+    protected Context f2143a;
 
     public PbImageIcon(Context context) {
         super(context);
-        this.f2036a = context;
+        this.f2143a = context;
     }
 
     public PbImageIcon(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f2036a = context;
+        this.f2143a = context;
     }
 
     @Override // android.widget.ImageView, android.view.View

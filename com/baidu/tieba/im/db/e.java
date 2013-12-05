@@ -2,93 +2,71 @@ package com.baidu.tieba.im.db;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
 import android.text.TextUtils;
-import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tieba.im.SingleRunnable;
-import java.util.Iterator;
 import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e extends SingleRunnable<Void> {
+public class e extends SingleRunnable<LinkedList<String>> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ LinkedList f1604a;
-    final /* synthetic */ a b;
+    final /* synthetic */ String f1667a;
+    final /* synthetic */ int b;
+    final /* synthetic */ String c;
+    final /* synthetic */ int e;
+    final /* synthetic */ d f;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public e(a aVar, LinkedList linkedList) {
-        this.b = aVar;
-        this.f1604a = linkedList;
+    public e(d dVar, String str, int i, String str2, int i2) {
+        this.f = dVar;
+        this.f1667a = str;
+        this.b = i;
+        this.c = str2;
+        this.e = i2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Removed duplicated region for block: B:23:0x004c  */
     @Override // com.baidu.tieba.im.SingleRunnable
     /* renamed from: a */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public Void b() {
-        Cursor cursor;
-        Iterator it;
-        if (this.f1604a != null && this.f1604a.size() != 0) {
-            SQLiteDatabase a2 = m.a();
-            LinkedList linkedList = new LinkedList();
-            if (a2 != null) {
-                try {
-                    cursor = a2.rawQuery("select * from sqlite_master where type='table'", null);
-                    if (cursor != null) {
-                        try {
-                            try {
-                                cursor.moveToFirst();
-                                while (cursor.moveToNext()) {
-                                    linkedList.add(cursor.getString(cursor.getColumnIndex(SocialConstants.PARAM_MEDIA_UNAME)));
-                                }
-                            } catch (Exception e) {
-                                e = e;
-                                e.printStackTrace();
-                                com.baidu.tieba.util.o.a(cursor);
-                                it = this.f1604a.iterator();
-                                while (it.hasNext()) {
-                                }
-                                return null;
-                            }
-                        } catch (Throwable th) {
-                            th = th;
-                            com.baidu.tieba.util.o.a(cursor);
-                            throw th;
-                        }
-                    }
-                } catch (Exception e2) {
-                    e = e2;
-                    cursor = null;
-                    e.printStackTrace();
-                    com.baidu.tieba.util.o.a(cursor);
-                    it = this.f1604a.iterator();
-                    while (it.hasNext()) {
-                    }
-                    return null;
-                } catch (Throwable th2) {
-                    th = th2;
-                    cursor = null;
-                    com.baidu.tieba.util.o.a(cursor);
-                    throw th;
-                }
-            } else {
-                cursor = null;
-            }
-            com.baidu.adp.lib.h.d.d("haveTables:" + linkedList);
+    public LinkedList<String> b() {
+        Cursor cursor = null;
+        if (TextUtils.isEmpty(this.f1667a)) {
+            return null;
+        }
+        int i = this.b;
+        if (i <= 0) {
+            i = 20;
+        }
+        LinkedList<String> linkedList = new LinkedList<>();
+        String str = d.f1666a + this.f1667a;
+        SQLiteDatabase a2 = s.a();
+        try {
+        } catch (Exception e) {
+            e.printStackTrace();
+        } catch (SQLiteException e2) {
+            e2.printStackTrace();
+            this.f.f(this.f1667a);
+        } finally {
             com.baidu.tieba.util.o.a(cursor);
-            it = this.f1604a.iterator();
-            while (it.hasNext()) {
-                String str = (String) it.next();
-                if (TextUtils.isEmpty(str)) {
-                    com.baidu.adp.lib.h.d.a("gid is null");
-                } else if (!linkedList.contains(str)) {
-                    this.b.d(str);
-                }
+        }
+        if (a2 == null) {
+            return linkedList;
+        }
+        if (TextUtils.isEmpty(this.c)) {
+            String str2 = "select * from " + str + " WHERE msg_type=? AND is_delete=? ORDER BY rid DESC LIMIT " + i;
+            com.baidu.adp.lib.h.e.d("sql:" + str2);
+            cursor = a2.rawQuery(str2, new String[]{String.valueOf(this.e), String.valueOf(0)});
+        } else {
+            String str3 = "select * from " + str + " WHERE mid <=? AND msg_type=? AND is_delete=? ORDER BY rid DESC LIMIT " + i;
+            com.baidu.adp.lib.h.e.d("sql:" + str3);
+            cursor = a2.rawQuery(str3, new String[]{this.c, String.valueOf(this.e), String.valueOf(0)});
+        }
+        if (cursor != null) {
+            while (cursor.moveToNext()) {
+                linkedList.add(cursor.getString(cursor.getColumnIndex("content")));
             }
         }
-        return null;
+        return linkedList;
     }
 }

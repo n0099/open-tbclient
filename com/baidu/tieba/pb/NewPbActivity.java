@@ -51,7 +51,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
-public class NewPbActivity extends com.baidu.tieba.j implements com.baidu.tbadk.widget.a, com.baidu.tbadk.widget.richText.i, com.baidu.tieba.view.bu, com.baidu.tieba.voice.af {
+public class NewPbActivity extends com.baidu.tieba.j implements com.baidu.tbadk.widget.a, com.baidu.tbadk.widget.richText.i, com.baidu.tieba.view.bx, com.baidu.tieba.voice.af {
     private static final String c = com.baidu.tieba.data.h.b + "mo/q/topic_page/135_1";
     private static final Pattern f = Pattern.compile("(/p/){1}\\d+");
     private static final Pattern g = Pattern.compile("[?|&]kz=[^&]+");
@@ -66,7 +66,7 @@ public class NewPbActivity extends com.baidu.tieba.j implements com.baidu.tbadk.
     private int j = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    HashMap<MediaType, String> f2032a = null;
+    HashMap<MediaType, String> f2139a = null;
     private String l = null;
     private com.baidu.adp.lib.d.b<TextView> m = TbRichTextView.a(this, 8);
     private com.baidu.adp.lib.d.b<TbImageView> n = UserIconBox.a(this, 8);
@@ -97,21 +97,21 @@ public class NewPbActivity extends com.baidu.tieba.j implements com.baidu.tbadk.
     private bw P = new ay(this);
     private com.baidu.adp.widget.ListView.b Q = new az(this);
     private com.baidu.adp.widget.ListView.r R = new ba(this);
-    private com.baidu.adp.widget.ListView.s S = new bb(this);
+    private com.baidu.adp.widget.ListView.t S = new bb(this);
     private DialogInterface.OnClickListener T = new bc(this);
     private com.baidu.adp.a.g U = new bd(this);
     private dx V = new bj(this);
     private int W = 0;
-    private com.baidu.tbadk.widget.richText.n X = new bk(this);
+    private com.baidu.tbadk.widget.richText.o X = new bk(this);
     com.baidu.tieba.data.ar b = null;
     private DialogInterface.OnClickListener Y = new bl(this);
     private View.OnLongClickListener Z = new bm(this);
-    private com.baidu.tieba.view.az aa = new bn(this);
+    private com.baidu.tieba.view.ba aa = new bn(this);
     private List<com.baidu.tbadk.widget.b> ab = new ArrayList();
 
     @Override // com.baidu.tieba.j
     public boolean getGpuSwitch() {
-        return TiebaApplication.g().u();
+        return TiebaApplication.h().v();
     }
 
     public static void a(Context context, String str, String str2, String str3) {
@@ -419,8 +419,8 @@ public class NewPbActivity extends com.baidu.tieba.j implements com.baidu.tbadk.
             } else {
                 antiData.setBlock_forum_name(this.w.e().h().getName());
                 antiData.setBlock_forum_id(this.w.e().h().getId());
-                antiData.setUser_name(TiebaApplication.F());
-                antiData.setUser_id(TiebaApplication.A());
+                antiData.setUser_name(TiebaApplication.G());
+                antiData.setUser_id(TiebaApplication.B());
             }
             AntiHelper.a(this, antiData, AntiHelper.OperationType.REPLY, AntiHelper.PageType.PB);
             return;
@@ -432,8 +432,8 @@ public class NewPbActivity extends com.baidu.tieba.j implements com.baidu.tbadk.
     public void a(com.baidu.tieba.model.af afVar) {
         boolean z;
         int i = 0;
-        this.y.a(0, afVar.f1868a, afVar.b, true);
-        if (afVar.f1868a) {
+        this.y.a(0, afVar.f1980a, afVar.b, true);
+        if (afVar.f1980a) {
             if (afVar.c == 1) {
                 ArrayList<com.baidu.tieba.data.ar> e = this.s.l().e();
                 int size = e.size();
@@ -510,19 +510,19 @@ public class NewPbActivity extends com.baidu.tieba.j implements com.baidu.tbadk.
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.tieba.model.ah ahVar) {
-        this.y.a(1, ahVar.f1870a, ahVar.b, true);
+        this.y.a(1, ahVar.f1982a, ahVar.b, true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.tieba.model.aj ajVar) {
-        this.y.a(this.x.getLoadDataMode(), ajVar.f1872a, ajVar.b, false);
+        this.y.a(this.x.getLoadDataMode(), ajVar.f1984a, ajVar.b, false);
         this.y.a(ajVar.c);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i, com.baidu.tieba.model.aj ajVar) {
-        this.y.a(this.x.getLoadDataMode(), ajVar.f1872a, ajVar.b, true);
-        if (ajVar.f1872a) {
+        this.y.a(this.x.getLoadDataMode(), ajVar.f1984a, ajVar.b, true);
+        if (ajVar.f1984a) {
             this.A = true;
             if (i == 2) {
                 this.s.l().d().b(1);
@@ -585,8 +585,8 @@ public class NewPbActivity extends com.baidu.tieba.j implements com.baidu.tbadk.
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean a(int i) {
-        String A = TiebaApplication.A();
-        if (A == null || A.length() <= 0) {
+        String B = TiebaApplication.B();
+        if (B == null || B.length() <= 0) {
             LoginActivity.a((Activity) this, getString(R.string.login_to_use), true, i);
             return false;
         }
@@ -713,14 +713,14 @@ public class NewPbActivity extends com.baidu.tieba.j implements com.baidu.tbadk.
             this.t.a(f2);
             if (!this.t.a()) {
                 this.t.d();
-                if (TiebaApplication.g().s()) {
+                if (TiebaApplication.h().t()) {
                     StatService.onEvent(this, "pb_collect", "pbclick", 1);
                     return;
                 }
                 return;
             }
             this.t.e();
-            if (TiebaApplication.g().s()) {
+            if (TiebaApplication.h().t()) {
                 StatService.onEvent(this, "pb_cancel_collect", "pbclick", 1);
             }
         }
@@ -803,7 +803,7 @@ public class NewPbActivity extends com.baidu.tieba.j implements com.baidu.tbadk.
         return this.y.P();
     }
 
-    @Override // com.baidu.tieba.view.bu
+    @Override // com.baidu.tieba.view.bx
     public int a() {
         if (this.y == null) {
             return 0;
@@ -822,11 +822,11 @@ public class NewPbActivity extends com.baidu.tieba.j implements com.baidu.tbadk.
     }
 
     @Override // com.baidu.tbadk.widget.richText.i
-    public com.baidu.adp.lib.d.b<View> d_() {
+    public com.baidu.adp.lib.d.b<View> g() {
         return this.p;
     }
 
-    @Override // com.baidu.tieba.view.bu
+    @Override // com.baidu.tieba.view.bx
     public com.baidu.adp.lib.d.b<TbImageView> G() {
         return this.n;
     }
@@ -847,7 +847,7 @@ public class NewPbActivity extends com.baidu.tieba.j implements com.baidu.tbadk.
                     a(this, group.substring(group.lastIndexOf("/") + 1), null, null);
                     return;
                 } catch (Exception e) {
-                    com.baidu.tieba.util.bg.b(getClass().getName(), "onClick", e.toString());
+                    com.baidu.tieba.util.bd.b(getClass().getName(), "onClick", e.toString());
                 }
             }
             Matcher matcher2 = g.matcher(lowerCase);
@@ -857,7 +857,7 @@ public class NewPbActivity extends com.baidu.tieba.j implements com.baidu.tbadk.
                     a(this, group2.substring(group2.lastIndexOf("=") + 1), null, null);
                     return;
                 } catch (Exception e2) {
-                    com.baidu.tieba.util.bg.b(getClass().getName(), "onClick", e2.toString());
+                    com.baidu.tieba.util.bd.b(getClass().getName(), "onClick", e2.toString());
                 }
             }
             Matcher matcher3 = h.matcher(lowerCase);
@@ -867,11 +867,11 @@ public class NewPbActivity extends com.baidu.tieba.j implements com.baidu.tbadk.
                     FrsActivity.a(this, group3.substring(group3.lastIndexOf("=") + 1), "pb");
                     return;
                 } catch (Exception e3) {
-                    com.baidu.tieba.util.bg.b(getClass().getName(), "onClick", e3.toString());
+                    com.baidu.tieba.util.bd.b(getClass().getName(), "onClick", e3.toString());
                 }
             }
         }
-        UtilHelper.c(this, lowerCase);
+        UtilHelper.b(this, str);
     }
 
     private DialogInterface t() {
@@ -890,8 +890,8 @@ public class NewPbActivity extends com.baidu.tieba.j implements com.baidu.tbadk.
 
     @Override // com.baidu.tbadk.widget.richText.i
     public void c(Context context, String str) {
-        UtilHelper.c(this, str);
-        if (TiebaApplication.g().s()) {
+        UtilHelper.b(this, str);
+        if (TiebaApplication.h().t()) {
             StatService.onEvent(this, "pb_video", "pbclick", 1);
         }
     }
@@ -908,7 +908,7 @@ public class NewPbActivity extends com.baidu.tieba.j implements com.baidu.tbadk.
         } catch (ActivityNotFoundException e) {
             t();
         }
-        if (TiebaApplication.g().s()) {
+        if (TiebaApplication.h().t()) {
             StatService.onEvent(this, "baidu_video", "click", 1);
         }
     }
@@ -974,7 +974,7 @@ public class NewPbActivity extends com.baidu.tieba.j implements com.baidu.tbadk.
         StringBuilder sb = new StringBuilder(150);
         com.baidu.tbadk.widget.richText.f c2 = cVar.c();
         if (c2 != null) {
-            if (!com.baidu.adp.lib.h.h.a(c2.a())) {
+            if (!com.baidu.adp.lib.h.l.a(c2.a())) {
                 return c2.a();
             }
             if (c2.b() * c2.c() > com.baidu.tieba.data.h.i() * com.baidu.tieba.data.h.i()) {
@@ -992,7 +992,7 @@ public class NewPbActivity extends com.baidu.tieba.j implements com.baidu.tbadk.
                 sb.append(String.valueOf((int) sqrt2));
             }
             sb.append("&src=");
-            sb.append(com.baidu.tieba.util.be.d(c2.e()));
+            sb.append(com.baidu.tieba.util.bb.d(c2.e()));
             return sb.toString();
         }
         return null;
@@ -1004,7 +1004,7 @@ public class NewPbActivity extends com.baidu.tieba.j implements com.baidu.tbadk.
             this.C = str;
             this.B.setMessage(this.C);
             this.B.show();
-            com.baidu.tieba.al.a(this, "pb_show_phonedialog");
+            com.baidu.tieba.ap.a(this, "pb_show_phonedialog");
             if (str2.equals("2")) {
                 this.B.getButton(-3).setVisibility(8);
             } else {
@@ -1032,7 +1032,7 @@ public class NewPbActivity extends com.baidu.tieba.j implements com.baidu.tbadk.
     }
 
     @Override // com.baidu.tieba.voice.af
-    public VoiceManager g() {
+    public VoiceManager d_() {
         return this.i;
     }
 
@@ -1056,7 +1056,7 @@ public class NewPbActivity extends com.baidu.tieba.j implements com.baidu.tbadk.
     /* JADX INFO: Access modifiers changed from: private */
     public void v() {
         if (this.s.s()) {
-            if (TiebaApplication.g().s()) {
+            if (TiebaApplication.h().t()) {
                 StatService.onEvent(this, "pb_share", "pbclick", 1);
             }
             com.baidu.tieba.data.an l = this.s.l();
@@ -1083,21 +1083,21 @@ public class NewPbActivity extends com.baidu.tieba.j implements com.baidu.tbadk.
     }
 
     private HashMap<MediaType, String> w() {
-        if (this.f2032a == null) {
-            this.f2032a = new HashMap<>(6);
-            this.f2032a.put(MediaType.WEIXIN_TIMELINE, "pb_wx_timeline");
-            this.f2032a.put(MediaType.WEIXIN_FRIEND, "pb_wx_friend");
-            this.f2032a.put(MediaType.QZONE, "pb_qq_zone");
-            this.f2032a.put(MediaType.QQWEIBO, "pb_tencent_weibo");
-            this.f2032a.put(MediaType.SINAWEIBO, "pb_sina_weibo");
-            this.f2032a.put(MediaType.RENREN, "pb_renren");
+        if (this.f2139a == null) {
+            this.f2139a = new HashMap<>(6);
+            this.f2139a.put(MediaType.WEIXIN_TIMELINE, "pb_wx_timeline");
+            this.f2139a.put(MediaType.WEIXIN_FRIEND, "pb_wx_friend");
+            this.f2139a.put(MediaType.QZONE, "pb_qq_zone");
+            this.f2139a.put(MediaType.QQWEIBO, "pb_tencent_weibo");
+            this.f2139a.put(MediaType.SINAWEIBO, "pb_sina_weibo");
+            this.f2139a.put(MediaType.RENREN, "pb_renren");
         }
-        return this.f2032a;
+        return this.f2139a;
     }
 
     private View x() {
         TextView textView = (TextView) getLayoutInflater().inflate(R.layout.btn_copy_pb_url, (ViewGroup) null);
-        if (TiebaApplication.g().ap() == 1) {
+        if (TiebaApplication.h().an() == 1) {
             textView.setBackgroundResource(R.drawable.btn_blue_square_1);
             textView.setTextColor(getResources().getColor(R.color.share_copy_pb_url_1));
         } else {

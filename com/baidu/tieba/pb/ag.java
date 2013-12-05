@@ -10,7 +10,6 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.UtilHelper;
 import com.baidu.tieba.view.ImagePbImageView;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
@@ -22,7 +21,7 @@ public class ag extends BaseAdapter {
     private int j;
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.tieba.data.ac f2047a = null;
+    private com.baidu.tieba.data.ac f2154a = null;
     private boolean d = true;
     private int e = 0;
     private int h = 0;
@@ -36,7 +35,7 @@ public class ag extends BaseAdapter {
         this.j = 0;
         this.c = context;
         this.b = aaVar;
-        this.j = UtilHelper.a(this.c);
+        this.j = com.baidu.adp.lib.h.g.b(this.c);
     }
 
     public void a() {
@@ -48,7 +47,7 @@ public class ag extends BaseAdapter {
                     try {
                         this.g.get(i2).setVisibility(8);
                     } catch (Exception e) {
-                        com.baidu.tieba.util.bg.b(getClass().getName(), "releaseProgressBar", e.getMessage());
+                        com.baidu.tieba.util.bd.b(getClass().getName(), "releaseProgressBar", e.getMessage());
                     }
                     i = i2 + 1;
                 } else {
@@ -60,21 +59,21 @@ public class ag extends BaseAdapter {
     }
 
     public boolean b() {
-        if (this.f2047a == null || !this.d) {
+        if (this.f2154a == null || !this.d) {
             return false;
         }
-        return this.f2047a.e();
+        return this.f2154a.e();
     }
 
     public boolean c() {
-        return !this.d || this.f2047a == null || this.f2047a.d();
+        return !this.d || this.f2154a == null || this.f2154a.d();
     }
 
     public int d() {
-        if (this.f2047a == null || this.f2047a.a() == null) {
+        if (this.f2154a == null || this.f2154a.a() == null) {
             return 1;
         }
-        return (this.f2047a.a().size() / 10) + 1;
+        return (this.f2154a.a().size() / 10) + 1;
     }
 
     public com.baidu.tieba.data.aa e() {
@@ -82,7 +81,7 @@ public class ag extends BaseAdapter {
     }
 
     public void a(com.baidu.tieba.data.ac acVar) {
-        this.f2047a = acVar;
+        this.f2154a = acVar;
     }
 
     public void a(boolean z) {
@@ -95,29 +94,29 @@ public class ag extends BaseAdapter {
         if (this.b == null) {
             return 0;
         }
-        if (this.f2047a == null || this.f2047a.a() == null) {
+        if (this.f2154a == null || this.f2154a.a() == null) {
             return 1;
         }
-        if (this.f2047a.a().size() != this.e) {
-            this.e = this.f2047a.a().size();
+        if (this.f2154a.a().size() != this.e) {
+            this.e = this.f2154a.a().size();
             notifyDataSetChanged();
             return 0;
-        } else if (this.f2047a.a().size() == 0 || this.f2047a.c() == 0) {
+        } else if (this.f2154a.a().size() == 0 || this.f2154a.c() == 0) {
             this.d = false;
             return 2;
         } else if (b()) {
-            return this.f2047a.a().size() + 2;
+            return this.f2154a.a().size() + 2;
         } else {
-            return this.f2047a.a().size() + 1;
+            return this.f2154a.a().size() + 1;
         }
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.f2047a == null || this.f2047a.a() == null || i >= this.f2047a.a().size()) {
+        if (this.f2154a == null || this.f2154a.a() == null || i >= this.f2154a.a().size()) {
             return null;
         }
-        return this.f2047a.a().get(i + 1);
+        return this.f2154a.a().get(i + 1);
     }
 
     @Override // android.widget.Adapter
@@ -127,7 +126,7 @@ public class ag extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        int b = this.f2047a != null ? this.f2047a.b() : 0;
+        int b = this.f2154a != null ? this.f2154a.b() : 0;
         if (i == 0) {
             return 2;
         }
@@ -152,7 +151,7 @@ public class ag extends BaseAdapter {
             if (itemViewType == 0) {
                 View inflate = from.inflate(R.layout.image_pb_list_item, (ViewGroup) null);
                 aj ajVar2 = new aj(this, null);
-                ajVar2.f2050a = (TextView) inflate.findViewById(R.id.image_pb_item_comment);
+                ajVar2.f2157a = (TextView) inflate.findViewById(R.id.image_pb_item_comment);
                 ajVar2.b = (TextView) inflate.findViewById(R.id.image_pb_item_auther);
                 ajVar2.c = (TextView) inflate.findViewById(R.id.image_pb_item_time);
                 ajVar2.d = (LinearLayout) inflate.findViewById(R.id.seg);
@@ -186,22 +185,22 @@ public class ag extends BaseAdapter {
             view2 = view;
         }
         if (itemViewType == 0) {
-            ajVar.f2050a.setGravity(3);
-            ajVar.f2050a.setMovementMethod(LinkMovementMethod.getInstance());
-            ajVar.f2050a.setTextColor(this.c.getResources().getColor(R.color.reg_font_color));
-            com.baidu.tieba.data.ar arVar = this.f2047a.a().get(i - 1);
+            ajVar.f2157a.setGravity(3);
+            ajVar.f2157a.setMovementMethod(LinkMovementMethod.getInstance());
+            ajVar.f2157a.setTextColor(this.c.getResources().getColor(R.color.reg_font_color));
+            com.baidu.tieba.data.ar arVar = this.f2154a.a().get(i - 1);
             ajVar.c.setVisibility(0);
             ajVar.b.setVisibility(0);
             ajVar.b.setText(arVar.g().getName());
             ajVar.b.setOnClickListener(new ah(this, arVar.g().getId(), arVar.g().getName()));
-            ajVar.c.setText(com.baidu.tieba.util.be.b(arVar.f()));
+            ajVar.c.setText(com.baidu.tieba.util.bb.b(arVar.f()));
             ajVar.d.setVisibility(8);
             ajVar.d.removeAllViews();
             ArrayList<com.baidu.tieba.data.j> i2 = arVar.i();
             com.baidu.tieba.util.p pVar = new com.baidu.tieba.util.p(this.c);
             pVar.a(-13421773);
-            pVar.a(ajVar.f2050a, ajVar.d, i2, false);
-            ajVar.f2050a.setTextSize(2, 13.0f);
+            pVar.a(ajVar.f2157a, ajVar.d, i2, false);
+            ajVar.f2157a.setTextSize(2, 13.0f);
             b(ajVar);
         } else if (itemViewType == 1) {
             if (ajVar.f == null || ajVar.e == null) {
@@ -240,8 +239,8 @@ public class ag extends BaseAdapter {
             if (this.k != null) {
                 ajVar.h.setOnClickListener(this.k);
             }
-            if (this.f2047a != null) {
-                a(this.f2047a.c(), ajVar.k);
+            if (this.f2154a != null) {
+                a(this.f2154a.c(), ajVar.k);
             }
             int g = this.b.g();
             int f = this.b.f();
@@ -269,41 +268,41 @@ public class ag extends BaseAdapter {
 
     private void a(aj ajVar) {
         try {
-            if (TiebaApplication.g().ap() == 1) {
-                ajVar.i.setTextColor(com.baidu.tieba.util.bd.a(1));
-                ajVar.k.setTextColor(com.baidu.tieba.util.bd.b(1));
-                ajVar.g.setBackgroundColor(com.baidu.tieba.util.bd.d(1));
+            if (TiebaApplication.h().an() == 1) {
+                ajVar.i.setTextColor(com.baidu.tieba.util.ba.a(1));
+                ajVar.k.setTextColor(com.baidu.tieba.util.ba.b(1));
+                ajVar.g.setBackgroundColor(com.baidu.tieba.util.ba.d(1));
             } else {
                 ajVar.i.setTextColor(-13421773);
                 ajVar.k.setTextColor(-6710887);
                 ajVar.g.setBackgroundColor(-1);
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.bg.b(getClass().getName(), "setHeaderSkin", e.getMessage());
+            com.baidu.tieba.util.bd.b(getClass().getName(), "setHeaderSkin", e.getMessage());
         }
     }
 
     private void b(aj ajVar) {
         try {
-            if (TiebaApplication.g().ap() == 1) {
-                ajVar.f2050a.setTextColor(com.baidu.tieba.util.bd.a(1));
-                ajVar.c.setTextColor(com.baidu.tieba.util.bd.b(1));
+            if (TiebaApplication.h().an() == 1) {
+                ajVar.f2157a.setTextColor(com.baidu.tieba.util.ba.a(1));
+                ajVar.c.setTextColor(com.baidu.tieba.util.ba.b(1));
             } else {
-                ajVar.f2050a.setTextColor(-13421773);
+                ajVar.f2157a.setTextColor(-13421773);
                 ajVar.c.setTextColor(-6710887);
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.bg.b(getClass().getName(), "setNormalSkin", e.getMessage());
+            com.baidu.tieba.util.bd.b(getClass().getName(), "setNormalSkin", e.getMessage());
         }
     }
 
     private void a(aj ajVar, boolean z) {
         try {
-            if (TiebaApplication.g().ap() == 1) {
+            if (TiebaApplication.h().an() == 1) {
                 if (z) {
-                    ajVar.e.setTextColor(com.baidu.tieba.util.bd.a(1));
+                    ajVar.e.setTextColor(com.baidu.tieba.util.ba.a(1));
                 } else {
-                    ajVar.e.setTextColor(com.baidu.tieba.util.bd.c(1));
+                    ajVar.e.setTextColor(com.baidu.tieba.util.ba.c(1));
                 }
             } else if (z) {
                 ajVar.e.setTextColor(-13421773);
@@ -311,7 +310,7 @@ public class ag extends BaseAdapter {
                 ajVar.e.setTextColor(this.c.getResources().getColor(R.color.gray));
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.bg.b(getClass().getName(), "setPageSkin", e.getMessage());
+            com.baidu.tieba.util.bd.b(getClass().getName(), "setPageSkin", e.getMessage());
         }
     }
 

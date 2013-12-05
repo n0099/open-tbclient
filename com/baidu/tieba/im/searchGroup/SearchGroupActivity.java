@@ -1,8 +1,5 @@
 package com.baidu.tieba.im.searchGroup;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -12,32 +9,31 @@ import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.im.data.BaseGroupData;
 import com.baidu.tieba.im.groupInfo.GroupInfoActivity;
 import com.baidu.tieba.im.message.ResponseSearchGroupMessage;
-import com.baidu.tieba.im.model.w;
-import com.baidu.tieba.j;
-import com.baidu.tieba.util.ak;
+import com.baidu.tieba.im.model.aa;
+import com.baidu.tieba.util.ah;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class SearchGroupActivity extends j implements View.OnClickListener {
+public class SearchGroupActivity extends com.baidu.tieba.j implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    protected w f1775a;
-    private d b;
-    private com.baidu.tieba.im.messageCenter.h c = new a(this);
+    protected aa f1871a;
+    private g b;
+    private com.baidu.tieba.im.messageCenter.g c = new d(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.b = new d(this);
-        this.f1775a = new w();
-        com.baidu.tieba.im.messageCenter.f.a().a(103007, this.c);
+        this.b = new g(this);
+        this.f1871a = new aa();
+        com.baidu.tieba.im.messageCenter.e.a().a(103007, this.c);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        com.baidu.tieba.im.messageCenter.f.a().a(this.c);
+        com.baidu.tieba.im.messageCenter.e.a().a(this.c);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -45,14 +41,6 @@ public class SearchGroupActivity extends j implements View.OnClickListener {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.b.a(i);
-    }
-
-    public static void a(Context context) {
-        Intent intent = new Intent(context, SearchGroupActivity.class);
-        if (!(context instanceof Activity)) {
-            intent.addFlags(268435456);
-        }
-        context.startActivity(intent);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -78,7 +66,7 @@ public class SearchGroupActivity extends j implements View.OnClickListener {
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.home_bt_search_s /* 2131100305 */:
+            case R.id.home_bt_search_s /* 2131100343 */:
                 if (view.getTag() instanceof String) {
                     a((String) view.getTag());
                     return;
@@ -94,7 +82,7 @@ public class SearchGroupActivity extends j implements View.OnClickListener {
             try {
                 this.b.d();
                 this.b.a((ResponseSearchGroupMessage) null);
-                this.f1775a.a(Long.parseLong(str));
+                this.f1871a.a(Long.parseLong(str));
                 return;
             } catch (NumberFormatException e) {
                 e.printStackTrace();
@@ -110,7 +98,7 @@ public class SearchGroupActivity extends j implements View.OnClickListener {
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         BaseGroupData item;
         if (this.b != null && this.b.a() != null && this.b.a().a(i) && (item = this.b.a().getItem(i)) != null) {
-            if (TiebaApplication.g().s()) {
+            if (TiebaApplication.h().t()) {
                 StatService.onEvent(this, "search_group_item", "click", 1);
             }
             GroupInfoActivity.a(this, item.getGroupId(), 0);
@@ -120,7 +108,7 @@ public class SearchGroupActivity extends j implements View.OnClickListener {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a() {
         if (this.b != null && this.b.a() != null) {
-            ak.a(this.b.f1779a, this.b.a().a(), 0, -1);
+            ah.a(this.b.f1878a, this.b.a().a(), 0, -1);
         }
     }
 }

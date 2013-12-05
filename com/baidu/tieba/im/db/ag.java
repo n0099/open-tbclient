@@ -1,72 +1,100 @@
 package com.baidu.tieba.im.db;
 
 import android.text.TextUtils;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.im.data.AddGroupInfoData;
+import com.baidu.tieba.im.db.pojo.GroupMsgPojo;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.im.message.Message;
-import com.baidu.tieba.im.message.RequestAddGroupMessage;
-import com.baidu.tieba.im.message.RequestRemoveMembersMessage;
-import com.baidu.tieba.im.message.ResponseAddGroupMessage;
-import com.baidu.tieba.im.message.ResponseRemoveMembersMessage;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes.dex */
-class ag implements com.baidu.tieba.im.messageCenter.h {
+public class ag {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ aa f1599a;
+    private static ag f1656a;
+    private am b;
 
-    private ag(aa aaVar) {
-        this.f1599a = aaVar;
+    private ag() {
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ag(aa aaVar, ab abVar) {
-        this(aaVar);
+    public static synchronized ag a() {
+        ag agVar;
+        synchronized (ag.class) {
+            if (f1656a == null) {
+                f1656a = new ag();
+            }
+            agVar = f1656a;
+        }
+        return agVar;
     }
 
-    @Override // com.baidu.tieba.im.messageCenter.h
-    public void a(Message message) {
-        Message orginalMessage;
-        String[] split;
-        if (message != null) {
-            if (message.getCmd() == 103112) {
-                if (message instanceof ResponseRemoveMembersMessage) {
-                    ResponseRemoveMembersMessage responseRemoveMembersMessage = (ResponseRemoveMembersMessage) message;
-                    if (!responseRemoveMembersMessage.hasError() && (orginalMessage = responseRemoveMembersMessage.getOrginalMessage()) != null && (orginalMessage instanceof RequestRemoveMembersMessage)) {
-                        String userIds = ((RequestRemoveMembersMessage) orginalMessage).getUserIds();
-                        if (!TextUtils.isEmpty(userIds) && (split = userIds.split(",")) != null && split.length != 0) {
-                            String id = TiebaApplication.E().getID();
-                            if (!TextUtils.isEmpty(id)) {
-                                for (String str : split) {
-                                    if (id.equals(str)) {
-                                        this.f1599a.a(responseRemoveMembersMessage.getGroupId());
-                                        com.baidu.tieba.im.m.a(new ah(this, responseRemoveMembersMessage), null);
-                                        aa.a().a(responseRemoveMembersMessage.getGroupId());
-                                        return;
-                                    }
-                                }
-                            }
-                        }
-                    }
+    public void b() {
+        c();
+    }
+
+    private void c() {
+        this.b = new am(this, null);
+        com.baidu.tieba.im.messageCenter.e.a().a(103112, this.b);
+        com.baidu.tieba.im.messageCenter.e.a().a(103101, this.b);
+    }
+
+    public void a(String str, int i, GroupMsgPojo groupMsgPojo, com.baidu.tieba.im.a<Void> aVar) {
+        ad.a().a(new ah(this, groupMsgPojo, str, i, aVar));
+    }
+
+    public synchronized void a(ImMessageCenterPojo imMessageCenterPojo) {
+        if (imMessageCenterPojo != null) {
+            String gid = imMessageCenterPojo.getGid();
+            if (!TextUtils.isEmpty(gid)) {
+                ad.a().a(new ai(this, gid, imMessageCenterPojo));
+            }
+        }
+    }
+
+    public synchronized void a(String str) {
+        ad.a().a(new aj(this, str));
+    }
+
+    public synchronized void b(ImMessageCenterPojo imMessageCenterPojo) {
+        if (imMessageCenterPojo != null) {
+            ad.a().a(new ak(this, imMessageCenterPojo));
+        }
+    }
+
+    public void a(String str, com.baidu.tieba.im.a<Void> aVar) {
+        if (!TextUtils.isEmpty(str)) {
+            ad.a().a(new al(this, str, aVar));
+        }
+    }
+
+    public void a(ConcurrentHashMap<String, ImMessageCenterPojo> concurrentHashMap, LinkedList<ImMessageCenterPojo> linkedList) {
+        if (concurrentHashMap != null && linkedList != null) {
+            HashSet<String> hashSet = new HashSet();
+            for (String str : concurrentHashMap.keySet()) {
+                hashSet.add(str);
+            }
+            Iterator<ImMessageCenterPojo> it = linkedList.iterator();
+            while (it.hasNext()) {
+                ImMessageCenterPojo next = it.next();
+                hashSet.remove(next.getGid());
+                if (concurrentHashMap.containsKey(next.getGid())) {
+                    ImMessageCenterPojo imMessageCenterPojo = concurrentHashMap.get(next.getGid());
+                    imMessageCenterPojo.setExt(next.getExt());
+                    imMessageCenterPojo.setGroup_ext(next.getGroup_ext());
+                    imMessageCenterPojo.setGroup_head(next.getGroup_head());
+                    imMessageCenterPojo.setGroup_name(next.getGroup_name());
+                    imMessageCenterPojo.setGroup_type(next.getGroup_type());
+                    imMessageCenterPojo.setIs_delete(next.getIs_delete());
+                    imMessageCenterPojo.setIs_hidden(next.getIs_hidden());
+                    imMessageCenterPojo.setOrderCol(next.getOrderCol());
+                } else {
+                    concurrentHashMap.put(next.getGid(), next);
                 }
-            } else if (message.getCmd() == 103101 && (message instanceof ResponseAddGroupMessage)) {
-                ResponseAddGroupMessage responseAddGroupMessage = (ResponseAddGroupMessage) message;
-                if (!responseAddGroupMessage.hasError()) {
-                    ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
-                    RequestAddGroupMessage requestAddGroupMessage = (RequestAddGroupMessage) responseAddGroupMessage.getOrginalMessage();
-                    imMessageCenterPojo.setGroup_name(requestAddGroupMessage.getName());
-                    imMessageCenterPojo.setGroup_type(requestAddGroupMessage.getGroupType());
-                    imMessageCenterPojo.setGroup_head(requestAddGroupMessage.getPortrait());
-                    AddGroupInfoData addGroupInfo = responseAddGroupMessage.getAddGroupInfo();
-                    if (addGroupInfo != null) {
-                        imMessageCenterPojo.setGid(String.valueOf(addGroupInfo.getGroupId()));
-                        LinkedList<String> linkedList = new LinkedList<>();
-                        linkedList.add(imMessageCenterPojo.getGid());
-                        a.a().a(linkedList, (com.baidu.tieba.im.a<Void>) null);
-                        n.a().a(imMessageCenterPojo, (com.baidu.tieba.im.a<Boolean>) null);
-                        aa.a().b(imMessageCenterPojo);
-                    }
+            }
+            for (String str2 : hashSet) {
+                ImMessageCenterPojo imMessageCenterPojo2 = concurrentHashMap.get(str2);
+                if (imMessageCenterPojo2 != null) {
+                    imMessageCenterPojo2.setIs_delete(1);
                 }
             }
         }

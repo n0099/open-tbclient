@@ -13,7 +13,7 @@ import com.slidingmenu.lib.R;
 public class n {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f1303a = false;
+    public boolean f1352a = false;
     final /* synthetic */ i b;
     private TextView c;
     private TextView d;
@@ -35,25 +35,25 @@ public class n {
 
     public void a() {
         LinearLayout linearLayout;
-        this.f1303a = false;
+        this.f1352a = false;
         this.c.setVisibility(8);
         this.d.setVisibility(8);
         this.e.setVisibility(8);
         this.f.setVisibility(8);
-        int i = TiebaApplication.g().ap() == 1 ? R.color.forumfeed_frs_bg_1 : R.color.forumfeed_frs_bg;
+        int i = TiebaApplication.h().an() == 1 ? R.color.forumfeed_frs_bg_1 : R.color.forumfeed_frs_bg;
         linearLayout = this.b.n;
         linearLayout.setBackgroundResource(i);
     }
 
     public void b() {
         LinearLayout linearLayout;
-        this.f1303a = true;
-        int ap = TiebaApplication.g().ap();
+        this.f1352a = true;
+        int an = TiebaApplication.h().an();
         this.c.setVisibility(0);
         this.d.setVisibility(0);
         this.e.setVisibility(0);
         this.f.setVisibility(0);
-        a(ap);
+        a(an);
         linearLayout = this.b.n;
         linearLayout.setBackgroundColor(0);
     }
@@ -61,7 +61,7 @@ public class n {
     public void a(int i) {
         if (i == 1) {
             this.h.setBackgroundResource(R.color.forumfeed_frs_bg_1);
-        } else if (this.f1303a) {
+        } else if (this.f1352a) {
             this.h.setBackgroundResource(R.color.forumfeed_frs_bg);
         }
     }

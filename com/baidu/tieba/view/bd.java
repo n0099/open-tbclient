@@ -1,26 +1,23 @@
 package com.baidu.tieba.view;
 
-import android.view.animation.Animation;
+import android.app.Activity;
+import android.view.View;
+import com.baidu.tieba.barcode.CaptureActivity;
 /* loaded from: classes.dex */
-class bd implements Animation.AnimationListener {
+class bd implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ShutDownValidateTipView f2557a;
+    final /* synthetic */ SearchBoxView f2671a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bd(ShutDownValidateTipView shutDownValidateTipView) {
-        this.f2557a = shutDownValidateTipView;
+    public bd(SearchBoxView searchBoxView) {
+        this.f2671a = searchBoxView;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Activity activity;
+        activity = this.f2671a.f2647a;
+        CaptureActivity.a(activity, 16003);
     }
 }

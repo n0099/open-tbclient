@@ -11,7 +11,7 @@ public final class k {
     private static k g = null;
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f800a = true;
+    private boolean f805a = true;
     private boolean b = true;
     private boolean c = true;
     private int d = 3;
@@ -58,7 +58,7 @@ public final class k {
     }
 
     public boolean a() {
-        return com.baidu.android.systemmonitor.d.d.f() != -1 ? com.baidu.android.systemmonitor.d.d.f() == 1 : (this.f == null || TextUtils.isEmpty((CharSequence) this.f.get("tjenable"))) ? this.f800a : Boolean.parseBoolean((String) this.f.get("tjenable"));
+        return com.baidu.android.systemmonitor.d.d.f() != -1 ? com.baidu.android.systemmonitor.d.d.f() == 1 : (this.f == null || TextUtils.isEmpty((CharSequence) this.f.get("tjenable"))) ? this.f805a : Boolean.parseBoolean((String) this.f.get("tjenable"));
     }
 
     public boolean b() {

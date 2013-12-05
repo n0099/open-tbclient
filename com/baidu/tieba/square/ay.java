@@ -7,10 +7,10 @@ import android.widget.BaseAdapter;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
-public class ay extends BaseAdapter implements com.baidu.tieba.view.ah {
+public class ay extends BaseAdapter implements com.baidu.tieba.view.ai {
 
     /* renamed from: a  reason: collision with root package name */
-    private ArrayList<BaseAdapter> f2377a;
+    private ArrayList<BaseAdapter> f2494a;
     private Context b;
     private com.baidu.tieba.util.i c;
     private u d;
@@ -20,7 +20,7 @@ public class ay extends BaseAdapter implements com.baidu.tieba.view.ah {
     private i h;
 
     public ay(Context context) {
-        this.f2377a = null;
+        this.f2494a = null;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -29,18 +29,18 @@ public class ay extends BaseAdapter implements com.baidu.tieba.view.ah {
         this.g = null;
         this.h = null;
         this.b = context;
-        this.f2377a = new ArrayList<>();
+        this.f2494a = new ArrayList<>();
         this.c = new com.baidu.tieba.util.i(context);
         this.d = new u(context);
         this.e = new ae(context);
         this.f = new aa(context);
         this.g = new ai(context);
         this.h = new i(context);
-        this.f2377a.add(this.d);
-        this.f2377a.add(this.e);
-        this.f2377a.add(this.f);
-        this.f2377a.add(this.h);
-        this.f2377a.add(this.g);
+        this.f2494a.add(this.d);
+        this.f2494a.add(this.e);
+        this.f2494a.add(this.f);
+        this.f2494a.add(this.h);
+        this.f2494a.add(this.g);
     }
 
     public void a(ar arVar) {
@@ -67,6 +67,9 @@ public class ay extends BaseAdapter implements com.baidu.tieba.view.ah {
         if (this.g != null) {
             this.g.a(i);
         }
+        if (this.d != null) {
+            this.d.a(i);
+        }
         notifyDataSetChanged();
     }
 
@@ -85,7 +88,7 @@ public class ay extends BaseAdapter implements com.baidu.tieba.view.ah {
     @Override // android.widget.Adapter
     public int getCount() {
         int i = 0;
-        Iterator<BaseAdapter> it = this.f2377a.iterator();
+        Iterator<BaseAdapter> it = this.f2494a.iterator();
         while (true) {
             int i2 = i;
             if (it.hasNext()) {
@@ -101,8 +104,8 @@ public class ay extends BaseAdapter implements com.baidu.tieba.view.ah {
         int i2 = 0;
         while (true) {
             int i3 = i2;
-            if (i3 < this.f2377a.size()) {
-                BaseAdapter baseAdapter = this.f2377a.get(i3);
+            if (i3 < this.f2494a.size()) {
+                BaseAdapter baseAdapter = this.f2494a.get(i3);
                 if (i < baseAdapter.getCount()) {
                     return baseAdapter.getItem(i);
                 }
@@ -118,7 +121,7 @@ public class ay extends BaseAdapter implements com.baidu.tieba.view.ah {
     public int getViewTypeCount() {
         int i;
         int i2 = 0;
-        Iterator<BaseAdapter> it = this.f2377a.iterator();
+        Iterator<BaseAdapter> it = this.f2494a.iterator();
         while (true) {
             i = i2;
             if (!it.hasNext()) {
@@ -135,8 +138,8 @@ public class ay extends BaseAdapter implements com.baidu.tieba.view.ah {
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
         int i2 = 0;
-        for (int i3 = 0; i3 < this.f2377a.size(); i3++) {
-            BaseAdapter baseAdapter = this.f2377a.get(i3);
+        for (int i3 = 0; i3 < this.f2494a.size(); i3++) {
+            BaseAdapter baseAdapter = this.f2494a.get(i3);
             if (i < baseAdapter.getCount()) {
                 return baseAdapter.getItemViewType(i) + i2;
             }
@@ -156,8 +159,8 @@ public class ay extends BaseAdapter implements com.baidu.tieba.view.ah {
         int i2 = 0;
         while (true) {
             int i3 = i2;
-            if (i3 < this.f2377a.size()) {
-                BaseAdapter baseAdapter = this.f2377a.get(i3);
+            if (i3 < this.f2494a.size()) {
+                BaseAdapter baseAdapter = this.f2494a.get(i3);
                 if (i < baseAdapter.getCount()) {
                     return baseAdapter.getView(i, view, viewGroup);
                 }
@@ -169,25 +172,25 @@ public class ay extends BaseAdapter implements com.baidu.tieba.view.ah {
         }
     }
 
-    @Override // com.baidu.tieba.view.ah
+    @Override // com.baidu.tieba.view.ai
     public void d() {
-        Iterator<BaseAdapter> it = this.f2377a.iterator();
+        Iterator<BaseAdapter> it = this.f2494a.iterator();
         while (it.hasNext()) {
             BaseAdapter next = it.next();
-            if (next instanceof com.baidu.tieba.view.ah) {
-                ((com.baidu.tieba.view.ah) next).d();
+            if (next instanceof com.baidu.tieba.view.ai) {
+                ((com.baidu.tieba.view.ai) next).d();
             }
         }
     }
 
-    @Override // com.baidu.tieba.view.ah
+    @Override // com.baidu.tieba.view.ai
     public void a(View view, int i, int i2) {
-        for (int i3 = 0; i3 < this.f2377a.size(); i3++) {
-            BaseAdapter baseAdapter = this.f2377a.get(i3);
-            if (baseAdapter instanceof com.baidu.tieba.view.ah) {
-                ((com.baidu.tieba.view.ah) baseAdapter).a(view, i < 0 ? 0 : i, i2 > baseAdapter.getCount() + (-1) ? baseAdapter.getCount() - 1 : i2);
+        for (int i3 = 0; i3 < this.f2494a.size(); i3++) {
+            BaseAdapter baseAdapter = this.f2494a.get(i3);
+            if (baseAdapter instanceof com.baidu.tieba.view.ai) {
+                ((com.baidu.tieba.view.ai) baseAdapter).a(view, i < 0 ? 0 : i, i2 > baseAdapter.getCount() + (-1) ? baseAdapter.getCount() - 1 : i2);
             }
-            com.baidu.tieba.util.bg.a(getClass().getName(), "startLoadImage", "start:" + i + "en:" + i2);
+            com.baidu.tieba.util.bd.a(getClass().getName(), "startLoadImage", "start:" + i + "en:" + i2);
             i -= baseAdapter.getCount();
             i2 -= baseAdapter.getCount();
             if (i2 < 0) {

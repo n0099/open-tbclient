@@ -17,12 +17,20 @@ public class ImMessageCenterPojo implements Serializable {
     int is_hidden;
     String last_content;
     long last_content_time;
-    long last_msgId;
+    long last_rid;
     String last_user_name;
     long orderCol;
     long pulled_msgId;
     int type;
     int unread_count;
+
+    public long getLast_rid() {
+        return this.last_rid;
+    }
+
+    public void setLast_rid(long j) {
+        this.last_rid = j;
+    }
 
     public long getPulled_msgId() {
         return this.pulled_msgId;
@@ -46,14 +54,6 @@ public class ImMessageCenterPojo implements Serializable {
 
     public void setIs_hidden(int i) {
         this.is_hidden = i;
-    }
-
-    public long getLast_msgId() {
-        return this.last_msgId;
-    }
-
-    public void setLast_msgId(long j) {
-        this.last_msgId = j;
     }
 
     public int getGroup_type() {
@@ -153,6 +153,6 @@ public class ImMessageCenterPojo implements Serializable {
     }
 
     public String toString() {
-        return "ImMessageCenterPojo [gid=" + this.gid + ", group_name=" + this.group_name + ", group_head=" + this.group_head + ", group_type=" + this.group_type + ", group_ext=" + this.group_ext + ", is_hidden=" + this.is_hidden + ", unread_count=" + this.unread_count + ", last_msgId=" + this.last_msgId + ", last_content_time=" + this.last_content_time + ", last_user_name=" + this.last_user_name + ", last_content=" + this.last_content + ", type=" + this.type + ", ext=" + this.ext + ", orderCol=" + this.orderCol + ", is_delete=" + this.is_delete + "]";
+        return "ImMessageCenterPojo [gid=" + this.gid + ", group_name=" + this.group_name + ", group_head=" + this.group_head + ", group_type=" + this.group_type + ", group_ext=" + this.group_ext + ", is_hidden=" + this.is_hidden + ", unread_count=" + this.unread_count + ", last_rid=" + this.last_rid + ", pulled_msgId=" + this.pulled_msgId + ", last_content_time=" + this.last_content_time + ", last_user_name=" + this.last_user_name + ", last_content=" + this.last_content + ", type=" + this.type + ", ext=" + this.ext + ", orderCol=" + this.orderCol + ", is_delete=" + this.is_delete + "]";
     }
 }

@@ -5,11 +5,11 @@ import android.widget.LinearLayout;
 class h implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ g f591a;
+    final /* synthetic */ g f595a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(g gVar) {
-        this.f591a = gVar;
+        this.f595a = gVar;
     }
 
     @Override // java.lang.Runnable
@@ -20,24 +20,24 @@ class h implements Runnable {
         i iVar;
         i iVar2;
         int i3;
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f591a.f590a.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f595a.f594a.getLayoutParams();
         int i4 = layoutParams.topMargin;
-        i = this.f591a.c.f589a;
+        i = this.f595a.c.f593a;
         layoutParams.topMargin = i4 - i;
         int i5 = layoutParams.topMargin;
-        i2 = this.f591a.c.c;
+        i2 = this.f595a.c.c;
         if (i5 <= i2) {
-            i3 = this.f591a.c.c;
+            i3 = this.f595a.c.c;
             layoutParams.topMargin = i3;
-            this.f591a.b.cancel();
-            this.f591a.c.d = true;
+            this.f595a.b.cancel();
+            this.f595a.c.d = true;
         }
-        this.f591a.f590a.setLayoutParams(layoutParams);
-        z = this.f591a.c.d;
+        this.f595a.f594a.setLayoutParams(layoutParams);
+        z = this.f595a.c.d;
         if (z) {
-            iVar = this.f591a.c.e;
+            iVar = this.f595a.c.e;
             if (iVar != null) {
-                iVar2 = this.f591a.c.e;
+                iVar2 = this.f595a.c.e;
                 iVar2.a();
             }
         }

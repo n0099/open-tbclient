@@ -6,21 +6,21 @@ import android.content.DialogInterface;
 public class al implements DialogInterface.OnCancelListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PersonChangeActivity f2202a;
+    final /* synthetic */ PersonChangeActivity f2310a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public al(PersonChangeActivity personChangeActivity) {
-        this.f2202a = personChangeActivity;
+        this.f2310a = personChangeActivity;
     }
 
     @Override // android.content.DialogInterface.OnCancelListener
     public void onCancel(DialogInterface dialogInterface) {
         ay ayVar;
         ay ayVar2;
-        this.f2202a.DeinitWaitingDialog();
-        ayVar = this.f2202a.B;
+        this.f2310a.DeinitWaitingDialog();
+        ayVar = this.f2310a.B;
         if (ayVar != null) {
-            ayVar2 = this.f2202a.B;
+            ayVar2 = this.f2310a.B;
             ayVar2.cancel();
         }
     }

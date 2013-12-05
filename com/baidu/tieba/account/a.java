@@ -8,13 +8,13 @@ import com.baidu.loginshare.Token;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.AccountData;
 import com.baidu.tieba.util.DatabaseService;
-import com.baidu.tieba.util.bg;
+import com.baidu.tieba.util.bd;
 /* loaded from: classes.dex */
 public class a {
     private static a b = null;
 
     /* renamed from: a  reason: collision with root package name */
-    private c f1026a = null;
+    private c f1036a = null;
     private d c = null;
 
     public static a a() {
@@ -29,31 +29,31 @@ public class a {
 
     public void b() {
         try {
-            if (!TiebaApplication.n()) {
+            if (!TiebaApplication.o()) {
                 Token token = new Token();
-                String D = TiebaApplication.D();
-                if (D != null) {
+                String E = TiebaApplication.E();
+                if (E != null) {
                     d();
-                    String[] split = D.split("[|]");
+                    String[] split = E.split("[|]");
                     if (split != null && split.length == 2) {
                         token.mBduss = split[0];
                         token.mPtoken = split[1];
                         if (token.mPtoken != null && token.mPtoken.length() > 0) {
-                            token.mUsername = TiebaApplication.F();
+                            token.mUsername = TiebaApplication.G();
                             LoginShareAssistant.getInstance().valid(token);
                         }
                     }
                 }
             }
         } catch (Exception e) {
-            bg.b(getClass().getName(), "valid", e.getMessage());
+            bd.b(getClass().getName(), "valid", e.getMessage());
         }
     }
 
     public void a(String str) {
         String[] split;
         try {
-            if (!TiebaApplication.n()) {
+            if (!TiebaApplication.o()) {
                 Token token = new Token();
                 if (str != null && (split = str.split("[|]")) != null && split.length == 2) {
                     token.mBduss = split[0];
@@ -64,67 +64,67 @@ public class a {
                 }
             }
         } catch (Exception e) {
-            bg.b(getClass().getName(), "invalid", e.getMessage());
+            bd.b(getClass().getName(), "invalid", e.getMessage());
         }
     }
 
     public void a(Token token) {
         if (token != null) {
             try {
-                if (!TiebaApplication.n()) {
+                if (!TiebaApplication.o()) {
                     LoginShareAssistant.getInstance().invalid(token);
                 }
             } catch (Exception e) {
-                bg.b(getClass().getName(), "invalid", e.getMessage());
+                bd.b(getClass().getName(), "invalid", e.getMessage());
             }
         }
     }
 
     public void c() {
         try {
-            if (!TiebaApplication.n()) {
+            if (!TiebaApplication.o()) {
                 LoginShareAssistant.getInstance().onActivityCreate();
             }
         } catch (Exception e) {
-            bg.b(getClass().getName(), "onActivityCreate", e.getMessage());
+            bd.b(getClass().getName(), "onActivityCreate", e.getMessage());
         }
     }
 
     public void a(Context context) {
-        String aM;
+        String aN;
         try {
-            if (!TiebaApplication.n() && (aM = TiebaApplication.g().aM()) != null) {
-                this.f1026a = new c(this);
-                String[] split = aM.split(":");
+            if (!TiebaApplication.o() && (aN = TiebaApplication.h().aN()) != null) {
+                this.f1036a = new c(this);
+                String[] split = aN.split(":");
                 int length = split.length;
                 if (length >= 1) {
                     if (SocialConstants.TRUE.equals(split[0])) {
-                        this.f1026a.f1064a = true;
+                        this.f1036a.f1075a = true;
                     } else {
-                        this.f1026a.f1064a = false;
+                        this.f1036a.f1075a = false;
                     }
                 }
                 if (length >= 2) {
-                    this.f1026a.b = split[1];
+                    this.f1036a.b = split[1];
                 }
                 if (length >= 3) {
-                    this.f1026a.c = split[2];
+                    this.f1036a.c = split[2];
                 }
                 if (length >= 4) {
                     if (split[3] == null || split[3].equalsIgnoreCase("null")) {
-                        this.f1026a.d = null;
+                        this.f1036a.d = null;
                     } else {
-                        this.f1026a.d = split[3];
+                        this.f1036a.d = split[3];
                     }
                 }
-                if (this.f1026a != null && !this.f1026a.f1064a) {
+                if (this.f1036a != null && !this.f1036a.f1075a) {
                     DatabaseService.k();
                     TiebaApplication.a((AccountData) null, context);
                     d();
                 }
             }
         } catch (Exception e) {
-            bg.b(getClass().getName(), "prepare", e.getMessage());
+            bd.b(getClass().getName(), "prepare", e.getMessage());
         }
     }
 
@@ -133,7 +133,7 @@ public class a {
         Exception e;
         String[] split;
         try {
-            if (TiebaApplication.n() || str == null || (split = str.split("[|]")) == null || split.length < 1) {
+            if (TiebaApplication.o() || str == null || (split = str.split("[|]")) == null || split.length < 1) {
                 return null;
             }
             token = new Token();
@@ -146,7 +146,7 @@ public class a {
                 return token;
             } catch (Exception e2) {
                 e = e2;
-                bg.b("AccountShareHelper", "parseBDUSS", e.getMessage());
+                bd.b("AccountShareHelper", "parseBDUSS", e.getMessage());
                 return token;
             }
         } catch (Exception e3) {
@@ -156,18 +156,18 @@ public class a {
     }
 
     public void d() {
-        this.f1026a = null;
-        TiebaApplication.g().aL();
+        this.f1036a = null;
+        TiebaApplication.h().aM();
     }
 
     public void e() {
-        this.f1026a = null;
+        this.f1036a = null;
     }
 
     public void a(Activity activity, int i) {
-        String F;
-        if (this.f1026a != null && this.f1026a.f1064a && TiebaApplication.A() == null && ((F = TiebaApplication.F()) == null || !F.equals(this.f1026a.d))) {
-            ReLoginShareActivity.a(activity, this.f1026a.d, this.f1026a.b, this.f1026a.c, i);
+        String G;
+        if (this.f1036a != null && this.f1036a.f1075a && TiebaApplication.B() == null && ((G = TiebaApplication.G()) == null || !G.equals(this.f1036a.d))) {
+            ReLoginShareActivity.a(activity, this.f1036a.d, this.f1036a.b, this.f1036a.c, i);
         }
         e();
     }
@@ -179,7 +179,7 @@ public class a {
             this.c = new d(this);
             loginShareAssistant.setLoginShareListener(this.c);
         } catch (Error e) {
-            bg.b(getClass().getName(), "init", e.getMessage());
+            bd.b(getClass().getName(), "init", e.getMessage());
         }
     }
 
@@ -188,6 +188,6 @@ public class a {
         if (!z) {
             str4 = "2:";
         }
-        TiebaApplication.g().r(str4 + str + ":" + str2 + ":" + str3);
+        TiebaApplication.h().s(str4 + str + ":" + str2 + ":" + str3);
     }
 }

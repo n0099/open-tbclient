@@ -1,21 +1,7 @@
 package com.baidu.tieba.im.model;
 
-import com.baidu.tieba.im.message.RequestSearchGroupsMessage;
+import com.baidu.tieba.im.data.UploadPicData2;
 /* loaded from: classes.dex */
-public class w extends com.baidu.adp.a.d {
-    public void a(long j) {
-        RequestSearchGroupsMessage requestSearchGroupsMessage = new RequestSearchGroupsMessage();
-        requestSearchGroupsMessage.setGroupId(j);
-        com.baidu.tieba.im.messageCenter.f.a().a(requestSearchGroupsMessage);
-    }
-
-    @Override // com.baidu.adp.a.d
-    protected boolean LoadData() {
-        return false;
-    }
-
-    @Override // com.baidu.adp.a.d
-    public boolean cancelLoadData() {
-        return false;
-    }
+public interface w {
+    void a(String str, UploadPicData2 uploadPicData2);
 }

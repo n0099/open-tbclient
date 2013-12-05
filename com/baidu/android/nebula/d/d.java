@@ -22,7 +22,7 @@ public class d {
     private ServerSocketChannel g;
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f677a = false;
+    private boolean f682a = false;
     private Thread h = null;
 
     public d(b bVar, a aVar) {
@@ -116,11 +116,11 @@ public class d {
                         }
                     }
                 }
-                if (!this.f677a) {
+                if (!this.f682a) {
                     break;
                 }
             }
-        } while (this.f677a);
+        } while (this.f682a);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -134,8 +134,8 @@ public class d {
                 this.g.close();
                 this.g = null;
             }
-            if (this.f677a) {
-                this.f677a = false;
+            if (this.f682a) {
+                this.f682a = false;
                 a(this.b);
             }
         } catch (Exception e) {
@@ -144,7 +144,7 @@ public class d {
     }
 
     public void a() {
-        this.f677a = false;
+        this.f682a = false;
         if (this.h != null) {
             this.h.interrupt();
         }
@@ -156,7 +156,7 @@ public class d {
 
     public boolean a(int i) {
         this.b = i;
-        if (this.f677a) {
+        if (this.f682a) {
             return true;
         }
         try {
@@ -176,7 +176,7 @@ public class d {
             this.h = new Thread(new e(this));
             this.h.setName("BdServer");
             this.h.start();
-            this.f677a = true;
+            this.f682a = true;
             return true;
         } catch (IOException e) {
             Log.e("HttpServer", "--- Start LocalServer Fail! \r\n", e);
@@ -185,6 +185,6 @@ public class d {
     }
 
     public boolean b() {
-        return this.f677a;
+        return this.f682a;
     }
 }

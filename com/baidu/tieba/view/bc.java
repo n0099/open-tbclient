@@ -1,35 +1,29 @@
 package com.baidu.tieba.view;
-
-import android.app.Activity;
-import android.view.View;
-import com.baidu.mobstat.StatService;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.square.SquareSearchActivity;
-import com.slidingmenu.lib.R;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bc implements View.OnClickListener {
+public class bc implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SearchBoxView f2556a;
+    final /* synthetic */ bb f2670a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bc(SearchBoxView searchBoxView) {
-        this.f2556a = searchBoxView;
+    public bc(bb bbVar) {
+        this.f2670a = bbVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Activity activity;
-        Activity activity2;
-        String str;
-        if (view.getId() == R.id.search_bg_layout) {
-            if (TiebaApplication.g().s()) {
-                activity2 = this.f2556a.f2532a;
-                str = this.f2556a.b;
-                StatService.onEvent(activity2, str, "click", 1);
-            }
-            activity = this.f2556a.f2532a;
-            SquareSearchActivity.a(activity, "");
+    @Override // java.lang.Runnable
+    public void run() {
+        int i;
+        int i2;
+        this.f2670a.f = true;
+        bb.a(this.f2670a, 30);
+        i = this.f2670a.i;
+        if (i > 360) {
+            bb bbVar = this.f2670a;
+            i2 = this.f2670a.i;
+            bbVar.i = i2 - 360;
         }
+        this.f2670a.invalidate(this.f2670a.getRotateInvalidRect());
+        this.f2670a.postDelayed(this.f2670a.e, 50L);
     }
 }

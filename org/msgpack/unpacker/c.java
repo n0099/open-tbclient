@@ -5,7 +5,7 @@ import java.math.BigInteger;
 final class c extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    BigInteger f2955a;
+    BigInteger f3136a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c() {
@@ -15,25 +15,25 @@ final class c extends a {
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // org.msgpack.unpacker.a
     public void a(byte b) {
-        this.f2955a = BigInteger.valueOf(b);
+        this.f3136a = BigInteger.valueOf(b);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // org.msgpack.unpacker.a
     public void a(short s) {
-        this.f2955a = BigInteger.valueOf(s);
+        this.f3136a = BigInteger.valueOf(s);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // org.msgpack.unpacker.a
     public void a(int i) {
-        this.f2955a = BigInteger.valueOf(i);
+        this.f3136a = BigInteger.valueOf(i);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // org.msgpack.unpacker.a
     public void a(long j) {
-        this.f2955a = BigInteger.valueOf(j);
+        this.f3136a = BigInteger.valueOf(j);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -52,9 +52,9 @@ final class c extends a {
     @Override // org.msgpack.unpacker.a
     public void b(int i) {
         if (i < 0) {
-            this.f2955a = BigInteger.valueOf((Integer.MAX_VALUE & i) + 2147483648L);
+            this.f3136a = BigInteger.valueOf((Integer.MAX_VALUE & i) + 2147483648L);
         } else {
-            this.f2955a = BigInteger.valueOf(i);
+            this.f3136a = BigInteger.valueOf(i);
         }
     }
 
@@ -62,9 +62,9 @@ final class c extends a {
     @Override // org.msgpack.unpacker.a
     public void b(long j) {
         if (j < 0) {
-            this.f2955a = BigInteger.valueOf(Long.MAX_VALUE + j + 1).setBit(63);
+            this.f3136a = BigInteger.valueOf(Long.MAX_VALUE + j + 1).setBit(63);
         } else {
-            this.f2955a = BigInteger.valueOf(j);
+            this.f3136a = BigInteger.valueOf(j);
         }
     }
 }

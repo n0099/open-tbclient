@@ -5,6 +5,11 @@ import org.msgpack.MessageTypeException;
 /* loaded from: classes.dex */
 abstract class c extends AbstractMap<r, r> implements MapValue {
     @Override // org.msgpack.type.r
+    public ValueType getType() {
+        return ValueType.MAP;
+    }
+
+    @Override // org.msgpack.type.r
     public boolean isMapValue() {
         return true;
     }

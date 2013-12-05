@@ -4,15 +4,16 @@ import android.view.View;
 import android.widget.AbsListView;
 import com.baidu.tieba.voice.PlayVoiceBnt;
 import com.slidingmenu.lib.R;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class k implements AbsListView.RecyclerListener {
+public class k implements AbsListView.RecyclerListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ i f1300a;
+    final /* synthetic */ i f1349a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(i iVar) {
-        this.f1300a = iVar;
+        this.f1349a = iVar;
     }
 
     @Override // android.widget.AbsListView.RecyclerListener

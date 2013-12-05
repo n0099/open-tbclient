@@ -1,27 +1,23 @@
 package com.baidu.tieba.im.chat;
 
-import android.app.Activity;
-import com.baidu.tieba.im.data.GroupData;
-import com.baidu.tieba.im.groupInfo.GroupSettingItemData;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class au implements com.baidu.tieba.im.a<GroupSettingItemData> {
+public class au implements View.OnLongClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Activity f1505a;
-    final /* synthetic */ GroupData b;
+    final /* synthetic */ MsgleftView f1552a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public au(Activity activity, GroupData groupData) {
-        this.f1505a = activity;
-        this.b = groupData;
+    public au(MsgleftView msgleftView) {
+        this.f1552a = msgleftView;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    public void a(GroupSettingItemData groupSettingItemData) {
-        if (groupSettingItemData != null) {
-            MsglistActivity.b(this.f1505a, this.b, groupSettingItemData.isInGroup(), groupSettingItemData.isAcceptNotify());
-        }
+    @Override // android.view.View.OnLongClickListener
+    public boolean onLongClick(View view) {
+        TouchType touchType;
+        touchType = this.f1552a.r;
+        touchType.set(true);
+        return true;
     }
 }

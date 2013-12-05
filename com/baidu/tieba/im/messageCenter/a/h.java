@@ -1,0 +1,23 @@
+package com.baidu.tieba.im.messageCenter.a;
+
+import com.baidu.tieba.im.message.Message;
+import com.baidu.tieba.im.message.RequestFrsGroupsMessage;
+import com.baidu.tieba.im.message.ResponseFrsGroupsMessage;
+import com.baidu.tieba.im.message.ResponsedMessage;
+/* loaded from: classes.dex */
+public class h extends com.baidu.tieba.im.messageCenter.d {
+    @Override // com.baidu.tieba.im.messageCenter.d
+    public ResponsedMessage a(Message message) {
+        if (message == null || !(message instanceof RequestFrsGroupsMessage)) {
+            return null;
+        }
+        RequestFrsGroupsMessage requestFrsGroupsMessage = (RequestFrsGroupsMessage) message;
+        ResponsedMessage a2 = com.baidu.tieba.im.b.m.a(com.baidu.tieba.b.a.a().e().a(requestFrsGroupsMessage.getType() + "_" + requestFrsGroupsMessage.getForumId()));
+        if (a2 == null) {
+            a2 = new ResponseFrsGroupsMessage();
+        }
+        a2.setCmd(-201);
+        a2.setOrginalMessage(message);
+        return a2;
+    }
+}

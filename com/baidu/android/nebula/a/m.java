@@ -13,13 +13,13 @@ import org.json.JSONArray;
 public class m implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ List f651a;
+    final /* synthetic */ List f656a;
     final /* synthetic */ l b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(l lVar, List list) {
         this.b = lVar;
-        this.f651a = list;
+        this.f656a = list;
     }
 
     @Override // java.lang.Runnable
@@ -27,7 +27,7 @@ public class m implements Runnable {
         Context context;
         Context context2;
         JSONArray jSONArray = new JSONArray();
-        for (a aVar : this.f651a) {
+        for (a aVar : this.f656a) {
             jSONArray.put(aVar.d());
         }
         try {

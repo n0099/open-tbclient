@@ -20,7 +20,7 @@ import java.util.Queue;
 public class SubPbLayout extends ViewGroup {
 
     /* renamed from: a  reason: collision with root package name */
-    private View.OnClickListener f2037a;
+    private View.OnClickListener f2144a;
     private View.OnLongClickListener b;
     private View.OnTouchListener c;
     private ca d;
@@ -44,7 +44,7 @@ public class SubPbLayout extends ViewGroup {
     }
 
     public void setChildOnClickListener(View.OnClickListener onClickListener) {
-        this.f2037a = onClickListener;
+        this.f2144a = onClickListener;
     }
 
     public void setChildOnLongClickListener(View.OnLongClickListener onLongClickListener) {
@@ -82,7 +82,7 @@ public class SubPbLayout extends ViewGroup {
             boolean z = false;
             View childAt = getChildAt(i4);
             if (childAt == null || childAt.equals(this.h)) {
-                com.baidu.tieba.util.bg.e("SubPbLayout", "onMeasure", "Item View Created for position: " + i4);
+                com.baidu.tieba.util.bd.e("SubPbLayout", "onMeasure", "Item View Created for position: " + i4);
                 View b = this.d.b();
                 this.g.offer(new dz(i4, b));
                 z = true;
@@ -90,7 +90,7 @@ public class SubPbLayout extends ViewGroup {
             } else {
                 view = childAt;
             }
-            view.setOnClickListener(this.f2037a);
+            view.setOnClickListener(this.f2144a);
             view.setOnLongClickListener(this.b);
             view.setOnTouchListener(this.c);
             view.setClickable(true);
@@ -122,14 +122,14 @@ public class SubPbLayout extends ViewGroup {
         }
         if (a2 != null && this.e.j() > a2.size()) {
             a(getContext(), (TextView) this.h.findViewById(R.id.sub_pb_more_text), this.e.j() - a2.size());
-            this.h.setBackgroundResource(TiebaApplication.g().ap() == 1 ? R.drawable.bg_floor_new_foot_1 : R.drawable.bg_floor_new_foot);
+            this.h.setBackgroundResource(TiebaApplication.h().an() == 1 ? R.drawable.bg_floor_new_foot_1 : R.drawable.bg_floor_new_foot);
             ImageView imageView = (ImageView) this.h.findViewById(R.id.image);
-            if (TiebaApplication.g().ap() == 1) {
+            if (TiebaApplication.h().an() == 1) {
                 imageView.setBackgroundResource(R.drawable.icon_downward_1);
             } else {
                 imageView.setBackgroundResource(R.drawable.icon_downward);
             }
-            this.h.setOnClickListener(this.f2037a);
+            this.h.setOnClickListener(this.f2144a);
             SparseArray sparseArray4 = (SparseArray) this.h.getTag();
             if (sparseArray4 == null) {
                 sparseArray4 = new SparseArray();
@@ -153,8 +153,8 @@ public class SubPbLayout extends ViewGroup {
             for (int i6 = 0; i6 < size; i6++) {
                 dz poll = this.g.poll();
                 if (poll.b.getParent() == null) {
-                    com.baidu.tieba.util.bg.e("SubPbLayout", "onLayout", "add to position: " + poll.f2139a);
-                    addViewInLayout(poll.b, poll.f2139a, this.i, true);
+                    com.baidu.tieba.util.bd.e("SubPbLayout", "onLayout", "add to position: " + poll.f2246a);
+                    addViewInLayout(poll.b, poll.f2246a, this.i, true);
                 }
             }
             int paddingLeft = getPaddingLeft();
@@ -189,11 +189,11 @@ public class SubPbLayout extends ViewGroup {
     }
 
     public static void a(Context context, TextView textView, int i) {
-        String string = TiebaApplication.g().getString(R.string.sub_pb_load_more);
+        String string = TiebaApplication.h().getString(R.string.sub_pb_load_more);
         String valueOf = String.valueOf(i);
         int indexOf = string.indexOf("%d");
         SpannableString spannableString = new SpannableString(string.replace("%d", valueOf));
-        if (TiebaApplication.g().ap() == 1) {
+        if (TiebaApplication.h().an() == 1) {
             spannableString.setSpan(new ForegroundColorSpan(context.getResources().getColor(R.color.sub_pb_more_text_1)), indexOf, valueOf.length() + indexOf, 33);
             textView.setTextColor(context.getResources().getColor(R.color.sub_pb_more_text_1));
         } else {

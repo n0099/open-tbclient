@@ -5,7 +5,7 @@ import com.baidu.tieba.MainTabActivity;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.AccountData;
 import com.baidu.tieba.util.DatabaseService;
-import com.baidu.tieba.util.bg;
+import com.baidu.tieba.util.bd;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,13 +13,13 @@ import java.util.ArrayList;
 public class j extends BdAsyncTask<Object, Integer, AccountData> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ AccountActivity f1986a;
+    final /* synthetic */ AccountActivity f2093a;
     private AccountData b;
     private int c = 0;
     private boolean d;
 
     public j(AccountActivity accountActivity, boolean z, AccountData accountData) {
-        this.f1986a = accountActivity;
+        this.f2093a = accountActivity;
         this.d = false;
         this.b = accountData;
         this.d = z;
@@ -28,7 +28,7 @@ public class j extends BdAsyncTask<Object, Integer, AccountData> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void b() {
-        this.f1986a.showLoadingDialog(this.f1986a.getString(R.string.deleting), new k(this));
+        this.f2093a.showLoadingDialog(this.f2093a.getString(R.string.deleting), new k(this));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -41,15 +41,15 @@ public class j extends BdAsyncTask<Object, Integer, AccountData> {
         try {
             Thread.sleep(1000L);
             if (this.d) {
-                com.baidu.tieba.im.db.m.a(this.b.getID());
+                com.baidu.tieba.im.db.s.a(this.b.getID());
             }
-            DatabaseService.q(this.b.getID());
-            if (this.b.getID().equals(TiebaApplication.A())) {
-                TiebaApplication.a((AccountData) null, this.f1986a.getBaseContext());
-                arrayList = this.f1986a.f1940a;
+            DatabaseService.o(this.b.getID());
+            if (this.b.getID().equals(TiebaApplication.B())) {
+                TiebaApplication.a((AccountData) null, this.f2093a.getBaseContext());
+                arrayList = this.f2093a.f2052a;
                 if (arrayList.size() >= 2) {
                     this.c = 1;
-                    arrayList2 = this.f1986a.f1940a;
+                    arrayList2 = this.f2093a.f2052a;
                     AccountData accountData = (AccountData) arrayList2.get(1);
                     accountData.setIsActive(1);
                     DatabaseService.a(accountData);
@@ -61,7 +61,7 @@ public class j extends BdAsyncTask<Object, Integer, AccountData> {
                 this.c = 0;
             }
         } catch (Exception e) {
-            bg.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
+            bd.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
         }
         return null;
     }
@@ -73,30 +73,30 @@ public class j extends BdAsyncTask<Object, Integer, AccountData> {
         ArrayList arrayList;
         p pVar;
         if (this.b != null) {
-            new l(this.f1986a, this.b.getBDUSS()).start();
+            new l(this.f2093a, this.b.getBDUSS()).start();
         }
-        this.f1986a.closeLoadingDialog();
+        this.f2093a.closeLoadingDialog();
         switch (this.c) {
             case 0:
-                this.f1986a.showToast(this.f1986a.getString(R.string.success));
-                arrayList = this.f1986a.f1940a;
+                this.f2093a.showToast(this.f2093a.getString(R.string.success));
+                arrayList = this.f2093a.f2052a;
                 arrayList.remove(this.b);
                 this.b = null;
-                pVar = this.f1986a.b;
+                pVar = this.f2093a.b;
                 pVar.notifyDataSetChanged();
                 break;
             case 1:
                 if (accountData != null) {
-                    new o(this.f1986a, accountData.getBDUSS()).start();
+                    new o(this.f2093a, accountData.getBDUSS()).start();
                 }
-                TiebaApplication.a(accountData, this.f1986a.getBaseContext());
+                TiebaApplication.a(accountData, this.f2093a.getBaseContext());
                 com.baidu.tieba.account.a.a().b();
-                MainTabActivity.b(this.f1986a, 1);
+                MainTabActivity.b(this.f2093a, 1);
                 break;
             case 2:
-                MainTabActivity.b(this.f1986a, 4);
+                MainTabActivity.b(this.f2093a, 4);
                 break;
         }
-        this.f1986a.h = null;
+        this.f2093a.h = null;
     }
 }

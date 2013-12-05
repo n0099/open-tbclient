@@ -9,11 +9,11 @@ import org.json.JSONObject;
 public class cf extends BdAsyncTask<Object, Integer, SignData> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ cd f1912a;
-    private volatile com.baidu.tieba.util.ap b;
+    final /* synthetic */ cd f2024a;
+    private volatile com.baidu.tieba.util.am b;
 
     private cf(cd cdVar) {
-        this.f1912a = cdVar;
+        this.f2024a = cdVar;
         this.b = null;
     }
 
@@ -47,13 +47,13 @@ public class cf extends BdAsyncTask<Object, Integer, SignData> {
         JSONObject jSONObject;
         Object obj2 = null;
         try {
-            this.b = new com.baidu.tieba.util.ap(com.baidu.tieba.data.h.f1201a + "c/c/forum/sign");
-            com.baidu.tieba.util.ap apVar = this.b;
-            str = this.f1912a.f1911a;
-            apVar.a("kw", str);
-            com.baidu.tieba.util.ap apVar2 = this.b;
-            str2 = this.f1912a.b;
-            apVar2.a("fid", str2);
+            this.b = new com.baidu.tieba.util.am(com.baidu.tieba.data.h.f1248a + "c/c/forum/sign");
+            com.baidu.tieba.util.am amVar = this.b;
+            str = this.f2024a.f2023a;
+            amVar.a("kw", str);
+            com.baidu.tieba.util.am amVar2 = this.b;
+            str2 = this.f2024a.b;
+            amVar2.a("fid", str2);
             this.b.e(true);
             l = this.b.l();
         } catch (Exception e2) {
@@ -67,7 +67,7 @@ public class cf extends BdAsyncTask<Object, Integer, SignData> {
                     SignData signData = new SignData();
                     signData.parserJson(l);
                     obj = signData;
-                } else if (!com.baidu.tieba.util.be.c(l) && (jSONObject = new JSONObject(l)) != null && "199901".equals(jSONObject.optString(SocialConstants.PARAM_ERROR_CODE))) {
+                } else if (!com.baidu.tieba.util.bb.c(l) && (jSONObject = new JSONObject(l)) != null && "199901".equals(jSONObject.optString(SocialConstants.PARAM_ERROR_CODE))) {
                     SignData signData2 = new SignData();
                     signData2.parserJson(l);
                     signData2.setIsSigned(1);
@@ -78,7 +78,7 @@ public class cf extends BdAsyncTask<Object, Integer, SignData> {
                 }
             } catch (Exception e3) {
                 e = e3;
-                com.baidu.tieba.util.bg.b(getClass().getName(), "doInBackground", e.getMessage());
+                com.baidu.tieba.util.bd.b(getClass().getName(), "doInBackground", e.getMessage());
                 return obj;
             }
             return obj;
@@ -93,9 +93,9 @@ public class cf extends BdAsyncTask<Object, Integer, SignData> {
         if (this.b != null) {
             this.b.j();
         }
-        this.f1912a.c = null;
+        this.f2024a.c = null;
         super.cancel(true);
-        gVar = this.f1912a.mLoadDataCallBack;
+        gVar = this.f2024a.mLoadDataCallBack;
         gVar.a(null);
     }
 
@@ -104,12 +104,12 @@ public class cf extends BdAsyncTask<Object, Integer, SignData> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(SignData signData) {
         com.baidu.adp.a.g gVar;
-        this.f1912a.c = null;
+        this.f2024a.c = null;
         if (signData == null && this.b != null) {
-            this.f1912a.mErrorCode = this.b.e();
-            this.f1912a.mErrorString = this.b.i();
+            this.f2024a.mErrorCode = this.b.e();
+            this.f2024a.mErrorString = this.b.i();
         }
-        gVar = this.f1912a.mLoadDataCallBack;
+        gVar = this.f2024a.mLoadDataCallBack;
         gVar.a(signData);
     }
 }

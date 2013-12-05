@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.data;
 
-import com.google.gson.GsonBuilder;
+import com.baidu.gson.GsonBuilder;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class UploadPicData2 implements Serializable {

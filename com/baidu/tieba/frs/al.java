@@ -9,12 +9,11 @@ import com.baidu.tieba.view.CommonImageLayout;
 import com.baidu.tieba.view.DottedLine;
 import com.baidu.tieba.view.UserIconBox;
 import com.baidu.tieba.voice.PlayVoiceBnt;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class al {
+class al {
 
     /* renamed from: a  reason: collision with root package name */
-    LinearLayout f1317a;
+    LinearLayout f1368a;
     LinearLayout b;
     RelativeLayout c;
     TextView d;

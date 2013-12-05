@@ -1,13 +1,11 @@
 package com.baidu.adp.lib.webSocket;
 /* loaded from: classes.dex */
-public class ae extends z {
+public class ae extends aa {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f524a;
-    public String b;
+    public WebSocketException f525a;
 
-    public ae(int i, String str) {
-        this.f524a = i;
-        this.b = str;
+    public ae(WebSocketException webSocketException) {
+        this.f525a = webSocketException;
     }
 }

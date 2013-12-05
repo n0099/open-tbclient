@@ -3,7 +3,7 @@ package com.baidu.tieba.model;
 public class ad extends com.baidu.adp.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    private ae f1866a = null;
+    private ae f1978a = null;
     private ag b = null;
     private ai c = null;
 
@@ -19,9 +19,9 @@ public class ad extends com.baidu.adp.a.d {
     }
 
     public void a() {
-        if (this.f1866a != null) {
-            this.f1866a.cancel();
-            this.f1866a = null;
+        if (this.f1978a != null) {
+            this.f1978a.cancel();
+            this.f1978a = null;
         }
         if (this.b != null) {
             this.b.cancel();
@@ -34,18 +34,18 @@ public class ad extends com.baidu.adp.a.d {
     }
 
     public void a(String str, String str2, String str3, String str4, int i, int i2, boolean z) {
-        if (this.f1866a != null) {
-            this.f1866a.cancel();
-            this.f1866a = null;
+        if (this.f1978a != null) {
+            this.f1978a.cancel();
+            this.f1978a = null;
         }
         this.mLoadDataMode = 0;
-        this.f1866a = new ae(this, str, str2, str3, str4, i, i2, z);
-        this.f1866a.setPriority(2);
-        this.f1866a.execute(new String[0]);
+        this.f1978a = new ae(this, str, str2, str3, str4, i, i2, z);
+        this.f1978a.setPriority(2);
+        this.f1978a.execute(new String[0]);
     }
 
     public boolean b() {
-        return (this.f1866a == null && this.b == null && this.c == null) ? false : true;
+        return (this.f1978a == null && this.b == null && this.c == null) ? false : true;
     }
 
     public void a(String str, String str2, String str3, int i, String str4) {
@@ -57,7 +57,7 @@ public class ad extends com.baidu.adp.a.d {
         this.mLoadDataMode = i;
         this.c = new ai(this, str, str2, str3, i, str4);
         this.c.setPriority(2);
-        String str6 = com.baidu.tieba.data.h.f1201a;
+        String str6 = com.baidu.tieba.data.h.f1248a;
         if (i == 6) {
             str5 = str6 + "c/c/bawu/goodlist";
         } else if (i == 2 || i == 3) {

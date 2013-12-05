@@ -13,7 +13,7 @@ import java.util.Date;
 public class bm extends com.baidu.adp.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final int f1897a = com.baidu.tieba.data.h.c() / 30;
+    private static final int f2009a = com.baidu.tieba.data.h.c() / 30;
     private static com.baidu.tieba.data.ao w = new com.baidu.tieba.data.ao();
     private com.baidu.adp.lib.cache.s<String> A;
     private com.baidu.adp.lib.cache.s<String> B;
@@ -194,14 +194,14 @@ public class bm extends com.baidu.adp.a.d {
     public void e(int i) {
         if (this.k < i) {
             this.k = i;
-            if (this.k - this.l >= f1897a) {
-                this.l = (this.k - f1897a) + 1;
+            if (this.k - this.l >= f2009a) {
+                this.l = (this.k - f2009a) + 1;
             }
         }
         if (this.l > i) {
             this.l = i;
-            if (this.k - this.l >= f1897a) {
-                this.k = (this.l + f1897a) - 1;
+            if (this.k - this.l >= f2009a) {
+                this.k = (this.l + f2009a) - 1;
             }
         }
     }
@@ -385,7 +385,7 @@ public class bm extends com.baidu.adp.a.d {
     public MarkData u() {
         MarkData markData = new MarkData();
         Date date = new Date();
-        markData.setAccount(TiebaApplication.A());
+        markData.setAccount(TiebaApplication.B());
         markData.setThreadId(this.c);
         markData.setPostId(this.u.j());
         markData.setTime(date.getTime());
@@ -398,7 +398,7 @@ public class bm extends com.baidu.adp.a.d {
     public MarkData b(com.baidu.tieba.data.ar arVar) {
         MarkData markData = new MarkData();
         Date date = new Date();
-        markData.setAccount(TiebaApplication.A());
+        markData.setAccount(TiebaApplication.B());
         markData.setThreadId(this.c);
         markData.setPostId(arVar.d());
         markData.setTime(date.getTime());
@@ -429,8 +429,8 @@ public class bm extends com.baidu.adp.a.d {
         if (!this.f) {
             str = str + "_rev";
         }
-        if (TiebaApplication.A() != null) {
-            return str + TiebaApplication.A();
+        if (TiebaApplication.B() != null) {
+            return str + TiebaApplication.B();
         }
         return str;
     }

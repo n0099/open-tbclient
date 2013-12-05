@@ -3,30 +3,30 @@ package com.baidu.tieba.account;
 public class ah extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1034a;
-    private String b;
+    private int f1044a;
+    private int b;
+    private String c = null;
 
-    public ah(String str) {
-        this.f1034a = null;
-        this.b = null;
-        this.f1034a = str;
+    public ah(int i, int i2) {
+        this.f1044a = 0;
+        this.b = 0;
+        this.f1044a = i;
+        this.b = i2;
     }
 
-    public ah(String str, String str2) {
-        this.f1034a = null;
-        this.b = null;
-        this.f1034a = str;
-        this.b = str2;
+    public void a(String str) {
+        this.c = str;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         super.run();
-        com.baidu.tieba.util.ap apVar = new com.baidu.tieba.util.ap(com.baidu.tieba.data.h.f1201a + "c/s/pv");
-        apVar.a("st_type", this.f1034a);
-        if (this.b != null) {
-            apVar.a("st_param", this.b);
+        com.baidu.tieba.util.am amVar = new com.baidu.tieba.util.am(com.baidu.tieba.data.h.f1248a + "c/s/pv");
+        amVar.a("img_num", String.valueOf(this.f1044a));
+        amVar.a("img_total", String.valueOf(this.b));
+        if (this.c != null) {
+            amVar.a("img_type", this.c);
         }
-        apVar.l();
+        amVar.l();
     }
 }

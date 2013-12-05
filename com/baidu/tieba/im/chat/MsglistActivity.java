@@ -25,46 +25,45 @@ import com.baidu.tieba.im.data.GroupData;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.groupInfo.GroupInfoActivity;
 import com.baidu.tieba.im.message.ChatMessage;
+import com.baidu.tieba.im.message.Message;
+import com.baidu.tieba.im.message.ResponseDismissGroupMessage;
 import com.baidu.tieba.im.model.LocalPicModel;
 import com.baidu.tieba.im.model.MsglistModel;
-import com.baidu.tieba.model.cc;
 import com.baidu.tieba.person.PersonInfoActivity;
-import com.baidu.tieba.util.UtilHelper;
 import com.baidu.tieba.voice.VoiceManager;
 import com.baidu.tieba.write.WriteImageActivity;
 import com.slidingmenu.lib.R;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class MsglistActivity extends com.baidu.tieba.j implements SensorEventListener, View.OnTouchListener, com.baidu.adp.lib.b.a, com.baidu.adp.lib.b.b, com.baidu.adp.widget.ListView.r, com.baidu.adp.widget.ListView.s, com.baidu.tbadk.widget.richText.i, com.baidu.tieba.im.pushNotify.m, com.baidu.tieba.voice.af {
+public class MsglistActivity extends com.baidu.tieba.j implements SensorEventListener, View.OnTouchListener, com.baidu.adp.lib.b.a, com.baidu.adp.lib.b.b, com.baidu.adp.widget.ListView.r, com.baidu.adp.widget.ListView.t, com.baidu.tbadk.widget.richText.i, com.baidu.tieba.im.messageCenter.g, com.baidu.tieba.im.pushNotify.k, com.baidu.tieba.voice.af {
     private VoiceManager j;
     private Context l;
-    private bc m;
+    private bi n;
     private static final String e = MsglistActivity.class.getName();
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f1484a = false;
+    public static boolean f1534a = false;
     public static String b = "";
-    private bg f = null;
+    private bm f = null;
     private MsglistModel g = null;
     private LocalPicModel h = null;
     private com.baidu.adp.a.g i = null;
     Handler c = new Handler();
-    private bd k = null;
-    private final int n = 0;
-    com.baidu.adp.a.g d = new at(this);
+    private bj k = null;
+    private com.baidu.tieba.im.model.x m = null;
+    private final int o = 0;
+    com.baidu.adp.a.g d = new ay(this);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void b(Activity activity, GroupData groupData, boolean z, boolean z2) {
+    public static void b(Activity activity, GroupData groupData, boolean z) {
         Intent intent = new Intent(activity, MsglistActivity.class);
         if (groupData.getGroupId() == 0) {
-            com.baidu.adp.lib.h.d.d("grounid" + groupData.getGroupId());
+            com.baidu.adp.lib.h.e.d("grounid" + groupData.getGroupId());
             return;
         }
-        com.baidu.adp.lib.h.d.d(" isJoin" + z);
         intent.putExtra("group", groupData);
-        intent.putExtra("is_join", z);
-        intent.putExtra("is_accept_notify", z2);
+        intent.putExtra("is_accept_notify", z);
         activity.startActivity(intent);
     }
 
@@ -74,11 +73,11 @@ public class MsglistActivity extends com.baidu.tieba.j implements SensorEventLis
         groupData.setName(str);
         groupData.setAuthorId(i2);
         String valueOf = String.valueOf(i);
-        if (!cc.a().a(valueOf)) {
-            new com.baidu.tieba.account.l("chat_pg", str2, valueOf).start();
-            cc.a().a(valueOf, valueOf);
+        if (!com.baidu.tieba.model.cc.a().a(valueOf)) {
+            new com.baidu.tieba.account.m("chat_pg", str2, valueOf).start();
+            com.baidu.tieba.model.cc.a().a(valueOf, Long.valueOf(System.currentTimeMillis()));
         }
-        com.baidu.tieba.im.m.a(new as(i), new au(activity, groupData));
+        com.baidu.tieba.im.m.a(new aw(i), new az(activity, groupData));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -87,7 +86,8 @@ public class MsglistActivity extends com.baidu.tieba.j implements SensorEventLis
         super.onCreate(bundle);
         try {
             this.l = this;
-            com.baidu.adp.lib.h.d.c("----onCreate start-----");
+            com.baidu.adp.lib.h.e.c("----onCreate start-----");
+            this.m = new ba(this);
             if (!a(bundle)) {
                 finish();
             } else {
@@ -101,7 +101,7 @@ public class MsglistActivity extends com.baidu.tieba.j implements SensorEventLis
                 }
             }
         } catch (Exception e2) {
-            com.baidu.adp.lib.h.d.b(e, "onCreate", e2.getMessage());
+            com.baidu.adp.lib.h.e.b(e, "onCreate", e2.getMessage());
         }
     }
 
@@ -110,7 +110,7 @@ public class MsglistActivity extends com.baidu.tieba.j implements SensorEventLis
         super.onNewIntent(intent);
         try {
             this.l = this;
-            com.baidu.adp.lib.h.d.c("----onNewIntent start-----");
+            com.baidu.adp.lib.h.e.c("----onNewIntent start-----");
             setIntent(intent);
             if (!a((Bundle) null)) {
                 finish();
@@ -124,7 +124,7 @@ public class MsglistActivity extends com.baidu.tieba.j implements SensorEventLis
                 }
             }
         } catch (Exception e2) {
-            com.baidu.adp.lib.h.d.b(e, "onNewIntent", e2.getMessage());
+            com.baidu.adp.lib.h.e.b(e, "onNewIntent", e2.getMessage());
         }
     }
 
@@ -136,7 +136,7 @@ public class MsglistActivity extends com.baidu.tieba.j implements SensorEventLis
     }
 
     private void l() {
-        this.i = new av(this);
+        this.i = new bc(this);
     }
 
     @Override // android.app.Activity
@@ -146,8 +146,7 @@ public class MsglistActivity extends com.baidu.tieba.j implements SensorEventLis
             this.j.e(this);
         }
         bundle.putSerializable("group", this.g.a());
-        bundle.putBoolean("is_join", this.g.c());
-        bundle.putBoolean("is_accept_notify", this.g.d());
+        bundle.putBoolean("is_accept_notify", this.g.c());
     }
 
     @Override // android.app.Activity
@@ -156,13 +155,13 @@ public class MsglistActivity extends com.baidu.tieba.j implements SensorEventLis
         if (this.j != null) {
             this.j.b((Activity) this);
         }
-        f1484a = true;
+        f1534a = true;
     }
 
     @Override // android.app.Activity
     protected void onRestart() {
         super.onRestart();
-        f1484a = true;
+        f1534a = true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -172,7 +171,7 @@ public class MsglistActivity extends com.baidu.tieba.j implements SensorEventLis
         if (this.j != null) {
             this.j.d(this);
         }
-        f1484a = false;
+        f1534a = false;
         if (this.g != null) {
             j();
         }
@@ -184,26 +183,26 @@ public class MsglistActivity extends com.baidu.tieba.j implements SensorEventLis
         super.onResume();
         if (this.j != null) {
             this.j.c(this);
-            boolean am = TiebaApplication.g().am();
-            com.baidu.adp.lib.h.d.d("isUseHeadSet:" + am);
-            this.j.c(!am);
+            boolean ak = TiebaApplication.h().ak();
+            com.baidu.adp.lib.h.e.d("isUseHeadSet:" + ak);
+            this.j.c(!ak);
         }
         if (this.f != null) {
             m();
         }
-        f1484a = true;
+        f1534a = true;
         com.baidu.tieba.mention.t.a().a(b);
         if (!TextUtils.isEmpty(b)) {
             com.baidu.tieba.model.f.b(b);
         }
-        this.f.f(TiebaApplication.g().ap());
+        this.f.f(TiebaApplication.h().an());
     }
 
     private void m() {
-        if (TiebaApplication.g().am()) {
-            this.f.G();
+        if (TiebaApplication.h().ak()) {
+            this.f.E();
         } else {
-            this.f.F();
+            this.f.D();
         }
         if (this.g != null && this.g.a() != null) {
             String name = this.g.a().getName();
@@ -211,7 +210,7 @@ public class MsglistActivity extends com.baidu.tieba.j implements SensorEventLis
                 this.f.a(name, true);
             }
         }
-        com.baidu.tieba.im.m.a(new aw(this), new ax(this));
+        com.baidu.tieba.im.m.a(new bd(this), new be(this));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -221,7 +220,7 @@ public class MsglistActivity extends com.baidu.tieba.j implements SensorEventLis
         if (this.j != null) {
             this.j.f(this);
         }
-        f1484a = false;
+        f1534a = false;
     }
 
     private boolean a(Bundle bundle) {
@@ -235,37 +234,33 @@ public class MsglistActivity extends com.baidu.tieba.j implements SensorEventLis
             }
             return o();
         } catch (Exception e2) {
-            com.baidu.adp.lib.h.d.b(e, "initData", e2.getMessage());
+            com.baidu.adp.lib.h.e.b(e, "initData", e2.getMessage());
             return false;
         }
     }
 
     private void n() {
         Intent intent = getIntent();
-        boolean booleanExtra = intent.getBooleanExtra("is_join", true);
-        boolean booleanExtra2 = intent.getBooleanExtra("is_accept_notify", true);
+        boolean booleanExtra = intent.getBooleanExtra("is_accept_notify", true);
         this.g.a((GroupData) intent.getSerializableExtra("group"));
         b = String.valueOf(this.g.a().getGroupId());
         this.g.a(booleanExtra);
-        this.g.b(booleanExtra2);
     }
 
     private void b(Bundle bundle) {
-        boolean z = bundle.getBoolean("is_join", true);
-        boolean z2 = bundle.getBoolean("is_accept_notify", true);
+        boolean z = bundle.getBoolean("is_accept_notify", true);
         this.g.a((GroupData) bundle.getSerializable("group"));
         b = String.valueOf(this.g.a().getGroupId());
         this.g.a(z);
-        this.g.b(z2);
     }
 
     private boolean o() {
         GroupData a2 = this.g.a();
         if (a2 == null) {
-            com.baidu.adp.lib.h.d.b(e, "checkParam", "error:group or forum is null");
+            com.baidu.adp.lib.h.e.b(e, "checkParam", "error:group or forum is null");
             return false;
         } else if (a2.getGroupId() == 0) {
-            com.baidu.adp.lib.h.d.b(e, "checkParam", "error:gid invalid," + a2.getGroupId());
+            com.baidu.adp.lib.h.e.b(e, "checkParam", "error:gid invalid," + a2.getGroupId());
             return false;
         } else {
             return true;
@@ -273,34 +268,34 @@ public class MsglistActivity extends com.baidu.tieba.j implements SensorEventLis
     }
 
     private void p() {
-        this.f = new bg(this, this.g.c(), this.g.d());
+        this.f = new bm(this, this.g.c());
         this.f.a((InputMethodManager) getSystemService("input_method"));
         this.f.a(this.g.b(), this.g.a());
-        this.f.a(new ay(this));
+        this.f.a(new bf(this));
     }
 
     private void q() {
         this.j = new VoiceManager();
         this.j.a((Activity) this);
-        boolean am = TiebaApplication.g().am();
-        com.baidu.adp.lib.h.d.d("isUseHeadSet:" + am);
-        this.j.c(!am);
+        boolean ak = TiebaApplication.h().ak();
+        com.baidu.adp.lib.h.e.d("isUseHeadSet:" + ak);
+        this.j.c(!ak);
     }
 
     private boolean r() {
-        return this.g.f();
+        return this.g.e();
     }
 
     private boolean s() {
-        return this.g.h();
+        return this.g.g();
     }
 
     private boolean t() {
-        return this.g.b(this.f.J());
+        return this.g.b(this.f.H());
     }
 
     public boolean i() {
-        if (com.baidu.tieba.util.af.a()) {
+        if (com.baidu.tieba.util.x.a()) {
             return true;
         }
         this.f.a(0, getString(R.string.voice_error_sdcard));
@@ -332,72 +327,84 @@ public class MsglistActivity extends com.baidu.tieba.j implements SensorEventLis
             this.f.b(this.g.b());
             this.f.m();
         } else {
-            com.baidu.adp.lib.h.d.b(e, "onclick", "default");
+            com.baidu.adp.lib.h.e.b(e, "onclick", "default");
         }
     }
 
     @Override // com.baidu.adp.a.a, android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
         if (dialogInterface == this.f.y()) {
-            ChatMessage b2 = this.g.b(((Integer) ((AlertDialog) dialogInterface).getListView().getTag()).intValue());
+            int intValue = ((Integer) ((AlertDialog) dialogInterface).getListView().getTag()).intValue();
+            ChatMessage a2 = this.g.a(intValue);
+            if (a2 != null) {
+                com.baidu.adp.lib.h.e.d("----------recordId" + a2.getRecordId() + "msgID" + a2.getMsgId());
+            }
             switch (i) {
                 case 0:
-                    if (b2 != null && b2.getCacheData() != null) {
+                    if (a2 != null && a2.getCacheData() != null) {
                         try {
                             ClipboardManager clipboardManager = (ClipboardManager) getSystemService("clipboard");
-                            clipboardManager.setText(b2.getContent());
+                            clipboardManager.setText(a2.getContent());
                             if (clipboardManager.getText() != null) {
-                                com.baidu.adp.lib.h.d.a(getClass().getName(), "clip_text", clipboardManager.getText().toString());
+                                com.baidu.adp.lib.h.e.a(getClass().getName(), "clip_text", clipboardManager.getText().toString());
                                 return;
                             }
                             return;
                         } catch (Exception e2) {
-                            com.baidu.adp.lib.h.d.b(e, "onClick", e2.getMessage());
+                            com.baidu.adp.lib.h.e.b(e, "onClick", e2.getMessage());
                             return;
                         }
                     }
                     return;
                 case 1:
-                    if (b2 != null && b2.getUserInfo() != null && b2.getUserInfo().getName() != null) {
-                        this.f.a(b2.getUserInfo().getName());
+                    if (a2 != null && a2.getUserInfo() != null && a2.getUserInfo().getName() != null) {
+                        this.f.a(a2.getUserInfo().getName());
                         return;
                     }
+                    return;
+                case 2:
+                    this.g.c(intValue);
                     return;
                 default:
                     return;
             }
         } else if (dialogInterface == this.f.z()) {
-            ChatMessage b3 = this.g.b(((Integer) ((AlertDialog) dialogInterface).getListView().getTag()).intValue());
+            int intValue2 = ((Integer) ((AlertDialog) dialogInterface).getListView().getTag()).intValue();
+            ChatMessage a3 = this.g.a(intValue2);
             switch (i) {
                 case 0:
-                    if (b3 != null && b3.getUserInfo() != null && b3.getUserInfo().getName() != null) {
-                        this.f.a(b3.getUserInfo().getName());
+                    if (a3 != null && a3.getUserInfo() != null && a3.getUserInfo().getName() != null) {
+                        this.f.a(a3.getUserInfo().getName());
                         return;
                     }
                     return;
                 case 1:
-                    String a2 = com.baidu.tieba.im.d.c.a(b3.getContent(), true);
-                    if (a2 != null) {
-                        this.k = new bd(this, a2);
+                    String a4 = com.baidu.tieba.im.e.d.a(a3.getContent(), true);
+                    if (a4 != null) {
+                        this.k = new bj(this, a4);
                         this.k.a();
                         return;
                     }
+                    return;
+                case 2:
+                    this.g.c(intValue2);
                     return;
                 default:
                     return;
             }
         } else if (dialogInterface == this.f.A()) {
-            ChatMessage b4 = this.g.b(((Integer) ((AlertDialog) dialogInterface).getListView().getTag()).intValue());
+            int intValue3 = ((Integer) ((AlertDialog) dialogInterface).getListView().getTag()).intValue();
+            ChatMessage a5 = this.g.a(intValue3);
             switch (i) {
                 case 0:
-                    if (TiebaApplication.g().am()) {
-                        TiebaApplication.g().s(false);
+                    if (TiebaApplication.h().ak()) {
+                        TiebaApplication.h().s(false);
                         this.j.c(true);
-                        this.f.F();
+                        this.f.D();
                     } else {
-                        TiebaApplication.g().s(true);
+                        TiebaApplication.h().s(true);
                         this.j.c(false);
-                        this.f.G();
+                        this.f.E();
                     }
                     if (this.g != null && this.g.a() != null) {
                         String name = this.g.a().getName();
@@ -409,10 +416,13 @@ public class MsglistActivity extends com.baidu.tieba.j implements SensorEventLis
                     }
                     return;
                 case 1:
-                    if (b4 != null && b4.getUserInfo() != null && b4.getUserInfo().getName() != null) {
-                        this.f.a(b4.getUserInfo().getName());
+                    if (a5 != null && a5.getUserInfo() != null && a5.getUserInfo().getName() != null) {
+                        this.f.a(a5.getUserInfo().getName());
                         return;
                     }
+                    return;
+                case 2:
+                    this.g.c(intValue3);
                     return;
                 default:
                     return;
@@ -462,27 +472,27 @@ public class MsglistActivity extends com.baidu.tieba.j implements SensorEventLis
     private void u() {
         String a2 = this.f.a();
         if (TextUtils.isEmpty(a2)) {
-            com.baidu.adp.lib.h.d.a("content == null");
+            com.baidu.adp.lib.h.e.a("content == null");
             return;
         }
         this.f.e();
-        this.c.postDelayed(new az(this, a2), 100L);
+        this.c.postDelayed(new bg(this, a2), 100L);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i) {
-        this.g.a(i);
+        this.g.a(i, this.m);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(int i) {
-        this.g.c(i);
+        this.g.b(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j, android.app.Activity
     public void onDestroy() {
-        com.baidu.adp.lib.h.d.d("----ondestroy---");
+        com.baidu.adp.lib.h.e.d("----ondestroy---");
         super.onDestroy();
         if (this.k != null) {
             this.k.b();
@@ -493,37 +503,37 @@ public class MsglistActivity extends com.baidu.tieba.j implements SensorEventLis
             this.h = null;
         }
         if (this.g != null) {
-            this.g.e();
+            this.g.d();
         }
         if (this.j != null) {
             this.j.g(this);
         }
         if (this.f != null) {
-            this.f.K();
+            this.f.I();
         }
-        if (this.m != null) {
-            this.m = null;
+        if (this.n != null) {
+            this.n = null;
         }
         y();
     }
 
     @Override // com.baidu.adp.lib.b.a
     public void a(View view, int i, int i2, long j) {
-        ChatMessage b2;
-        ChatMessage b3;
-        String a2;
+        ChatMessage a2;
+        ChatMessage a3;
+        String a4;
         switch (i) {
             case 1:
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setMessage(getString(R.string.operation));
-                builder.setPositiveButton(getString(R.string.msg_resend), new ba(this, i2));
-                builder.setNegativeButton(getString(R.string.delete), new bb(this, i2));
+                builder.setPositiveButton(getString(R.string.msg_resend), new bh(this, i2));
+                builder.setNegativeButton(getString(R.string.delete), new ax(this, i2));
                 builder.create().show();
                 return;
             case 2:
-                ChatMessage b4 = this.g.b(i2);
-                if (b4 != null && b4.getUserInfo() != null) {
-                    PersonInfoActivity.a(this, b4.getUserInfo().getId(), b4.getUserInfo().getName());
+                ChatMessage a5 = this.g.a(i2);
+                if (a5 != null && a5.getUserInfo() != null) {
+                    PersonInfoActivity.a(this, a5.getUserInfo().getId(), a5.getUserInfo().getName());
                     return;
                 }
                 return;
@@ -531,17 +541,17 @@ public class MsglistActivity extends com.baidu.tieba.j implements SensorEventLis
             default:
                 return;
             case 4:
-                if (i() && (b3 = this.g.b(i2)) != null && com.baidu.tieba.im.d.c.a(b3) && (a2 = com.baidu.tieba.im.d.c.a(b3.getContent(), true)) != null && this.g != null && this.g.a() != null) {
-                    MsgImageActivity.a(this, a2, this.g.a().getGroupId());
+                if (i() && (a3 = this.g.a(i2)) != null && com.baidu.tieba.im.e.d.a(a3) && (a4 = com.baidu.tieba.im.e.d.a(a3.getContent(), true)) != null && this.g != null && this.g.a() != null) {
+                    MsgImageActivity.a(this, a4, this.g.a().getGroupId());
                     return;
                 }
                 return;
             case 5:
-                if (!i() || (b2 = this.g.b(i2)) == null || !com.baidu.tieba.im.d.c.b(b2)) {
+                if (!i() || (a2 = this.g.a(i2)) == null || !com.baidu.tieba.im.e.d.b(a2)) {
                 }
                 return;
             case 6:
-                PersonInfoActivity.a(this, TiebaApplication.A(), TiebaApplication.F());
+                PersonInfoActivity.a(this, TiebaApplication.B(), TiebaApplication.G());
                 return;
         }
     }
@@ -550,9 +560,9 @@ public class MsglistActivity extends com.baidu.tieba.j implements SensorEventLis
     public void b(View view, int i, int i2, long j) {
         switch (i) {
             case 2:
-                ChatMessage b2 = this.g.b(i2);
-                if (b2 != null && b2.getUserInfo() != null && b2.getUserInfo().getName() != null) {
-                    this.f.a(b2.getUserInfo().getName());
+                ChatMessage a2 = this.g.a(i2);
+                if (a2 != null && a2.getUserInfo() != null && a2.getUserInfo().getName() != null) {
+                    this.f.a(a2.getUserInfo().getName());
                     return;
                 }
                 return;
@@ -570,7 +580,7 @@ public class MsglistActivity extends com.baidu.tieba.j implements SensorEventLis
         }
     }
 
-    @Override // com.baidu.adp.widget.ListView.s
+    @Override // com.baidu.adp.widget.ListView.t
     public void b() {
         v();
     }
@@ -581,7 +591,7 @@ public class MsglistActivity extends com.baidu.tieba.j implements SensorEventLis
     }
 
     private void v() {
-        this.g.g();
+        this.g.f();
     }
 
     @Override // android.view.View.OnTouchListener
@@ -597,7 +607,7 @@ public class MsglistActivity extends com.baidu.tieba.j implements SensorEventLis
                 this.f.g();
                 return true;
             } else if (motionEvent.getAction() == 1 || motionEvent.getAction() == 3) {
-                if (motionEvent.getY() < UtilHelper.a((Context) this, 5.0f) * (-1)) {
+                if (motionEvent.getY() < com.baidu.adp.lib.h.g.a((Context) this, 5.0f) * (-1)) {
                     if (this.j != null) {
                         this.j.d();
                     }
@@ -611,7 +621,7 @@ public class MsglistActivity extends com.baidu.tieba.j implements SensorEventLis
                 this.f.a(false);
                 return true;
             } else if (motionEvent.getAction() == 2) {
-                if (motionEvent.getY() < UtilHelper.a((Context) this, 5.0f) * (-1)) {
+                if (motionEvent.getY() < com.baidu.adp.lib.h.g.a((Context) this, 5.0f) * (-1)) {
                     this.f.k();
                     this.f.h();
                     return true;
@@ -641,7 +651,7 @@ public class MsglistActivity extends com.baidu.tieba.j implements SensorEventLis
     }
 
     @Override // com.baidu.tieba.voice.af
-    public VoiceManager g() {
+    public VoiceManager d_() {
         return this.j;
     }
 
@@ -658,25 +668,27 @@ public class MsglistActivity extends com.baidu.tieba.j implements SensorEventLis
     }
 
     private void x() {
-        com.baidu.tieba.im.pushNotify.n.a().a("kick_out", this);
-        com.baidu.tieba.im.pushNotify.n.a().a("apply_join_success", this);
-        com.baidu.tieba.im.pushNotify.n.a().a("group_name_change", this);
+        com.baidu.tieba.im.pushNotify.l.a().a("kick_out", this);
+        com.baidu.tieba.im.pushNotify.l.a().a("group_name_change", this);
+        com.baidu.tieba.im.messageCenter.e.a().a(103104, this);
+        com.baidu.tieba.im.pushNotify.l.a().a("dismiss_group", this);
     }
 
     private void y() {
-        com.baidu.tieba.im.pushNotify.n.a().a(this);
+        com.baidu.tieba.im.pushNotify.l.a().a(this);
+        com.baidu.tieba.im.messageCenter.e.a().a(this);
     }
 
-    @Override // com.baidu.tieba.im.pushNotify.m
+    @Override // com.baidu.tieba.im.pushNotify.k
     public void a(GroupNewsPojo groupNewsPojo) {
         if (groupNewsPojo != null) {
             String cmd = groupNewsPojo.getCmd();
-            if (!TextUtils.isEmpty(cmd)) {
-                if (cmd.equals("apply_join_success")) {
+            if (!TextUtils.isEmpty(cmd) && !cmd.equals("apply_join_success")) {
+                if (cmd.equals("kick_out")) {
                     b(groupNewsPojo);
-                } else if (cmd.equals("kick_out")) {
-                    c(groupNewsPojo);
                 } else if (cmd.equals("group_name_change")) {
+                    c(groupNewsPojo);
+                } else if (cmd.equals("dismiss_group")) {
                     d(groupNewsPojo);
                 }
             }
@@ -688,9 +700,10 @@ public class MsglistActivity extends com.baidu.tieba.j implements SensorEventLis
             try {
                 JSONObject jSONObject = new JSONObject(groupNewsPojo.getContent());
                 String string = jSONObject.getJSONObject("eventParam").getString("groupId");
-                if (jSONObject.getString("eventId").equals("002") && string.equals(String.valueOf(this.g.a().getGroupId()))) {
-                    this.f.E();
-                    com.baidu.adp.lib.h.d.d("newSystemMessageNotify suc and showBottom");
+                if (jSONObject.getString("eventId").equals("003") && string.equals(String.valueOf(this.g.a().getGroupId()))) {
+                    showToast(R.string.group_is_kicked, false);
+                    finish();
+                    com.baidu.adp.lib.h.e.d("newSystemMessageNotify suc and closeBottom");
                 }
             } catch (JSONException e2) {
                 e2.printStackTrace();
@@ -698,14 +711,24 @@ public class MsglistActivity extends com.baidu.tieba.j implements SensorEventLis
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
+    public void z() {
+        finish();
+    }
+
     private void c(GroupNewsPojo groupNewsPojo) {
         if (groupNewsPojo != null && this.g != null && this.g.a() != null) {
             try {
                 JSONObject jSONObject = new JSONObject(groupNewsPojo.getContent());
-                String string = jSONObject.getJSONObject("eventParam").getString("groupId");
-                if (jSONObject.getString("eventId").equals("003") && string.equals(String.valueOf(this.g.a().getGroupId()))) {
-                    this.f.D();
-                    com.baidu.adp.lib.h.d.d("newSystemMessageNotify suc and closeBottom");
+                JSONObject jSONObject2 = jSONObject.getJSONObject("eventParam");
+                String string = jSONObject2.getString("groupId");
+                if (jSONObject.getString("eventId").equals("101") && string.equals(String.valueOf(this.g.a().getGroupId()))) {
+                    String string2 = jSONObject2.getString("groupName");
+                    if (!TextUtils.isEmpty(string2)) {
+                        this.f.a(string2, true);
+                        this.g.a().setName(string2);
+                        com.baidu.adp.lib.h.e.d("newSystemMessageNotify suc and change name");
+                    }
                 }
             } catch (JSONException e2) {
                 e2.printStackTrace();
@@ -717,15 +740,11 @@ public class MsglistActivity extends com.baidu.tieba.j implements SensorEventLis
         if (groupNewsPojo != null && this.g != null && this.g.a() != null) {
             try {
                 JSONObject jSONObject = new JSONObject(groupNewsPojo.getContent());
-                JSONObject jSONObject2 = jSONObject.getJSONObject("eventParam");
-                String string = jSONObject2.getString("groupId");
-                if (jSONObject.getString("eventId").equals("101") && string.equals(String.valueOf(this.g.a().getGroupId()))) {
-                    String string2 = jSONObject2.getString("groupName");
-                    if (!TextUtils.isEmpty(string2)) {
-                        this.f.a(string2, true);
-                        this.g.a().setName(string2);
-                        com.baidu.adp.lib.h.d.d("newSystemMessageNotify suc and change name");
-                    }
+                String string = jSONObject.getJSONObject("eventParam").getString("groupId");
+                if (jSONObject.getString("eventId").equals("107") && string.equals(String.valueOf(this.g.a().getGroupId()))) {
+                    showToast(R.string.group_is_dismiss, false);
+                    finish();
+                    com.baidu.adp.lib.h.e.d("dismiss suc");
                 }
             } catch (JSONException e2) {
                 e2.printStackTrace();
@@ -750,15 +769,15 @@ public class MsglistActivity extends com.baidu.tieba.j implements SensorEventLis
     }
 
     public void j() {
-        if (this.m == null) {
-            this.m = new bc(this, null);
+        if (this.n == null) {
+            this.n = new bi(this, null);
         }
-        this.g.a(this.m);
+        this.g.a(this.n);
     }
 
     @Override // com.baidu.tbadk.widget.richText.i
     public ListView c() {
-        return null;
+        return this.f.f();
     }
 
     @Override // com.baidu.tbadk.widget.richText.i
@@ -777,7 +796,7 @@ public class MsglistActivity extends com.baidu.tieba.j implements SensorEventLis
     }
 
     @Override // com.baidu.tbadk.widget.richText.i
-    public com.baidu.adp.lib.d.b<View> d_() {
+    public com.baidu.adp.lib.d.b<View> g() {
         return null;
     }
 
@@ -792,7 +811,7 @@ public class MsglistActivity extends com.baidu.tieba.j implements SensorEventLis
 
     @Override // com.baidu.tbadk.widget.richText.i
     public void b(Context context, String str) {
-        com.baidu.tieba.im.d.g.a(context, str);
+        com.baidu.tieba.im.e.h.a(context, str);
     }
 
     @Override // com.baidu.tbadk.widget.richText.i
@@ -809,5 +828,15 @@ public class MsglistActivity extends com.baidu.tieba.j implements SensorEventLis
 
     @Override // com.baidu.tbadk.widget.richText.i
     public void a(Context context, String str, String str2) {
+    }
+
+    @Override // com.baidu.tieba.im.messageCenter.g
+    public void a(Message message) {
+        if (message != null && message.getCmd() == 103104 && (message instanceof ResponseDismissGroupMessage)) {
+            ResponseDismissGroupMessage responseDismissGroupMessage = (ResponseDismissGroupMessage) message;
+            if (!responseDismissGroupMessage.hasError() && this.g.a().getGroupId() == responseDismissGroupMessage.getGroupId()) {
+                finish();
+            }
+        }
     }
 }

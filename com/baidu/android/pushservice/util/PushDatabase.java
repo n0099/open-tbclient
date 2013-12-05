@@ -168,7 +168,7 @@ public class PushDatabase implements NoProGuard {
         Cursor query = sQLiteDatabase.query("FileDownloadingInfo", null, "(" + i.downloadUrl.name() + "==?)", new String[]{str}, null, null, null);
         if (query.moveToFirst()) {
             jVar = new j();
-            jVar.f759a = query.getString(query.getColumnIndex(i.belongTo.name()));
+            jVar.f764a = query.getString(query.getColumnIndex(i.belongTo.name()));
             jVar.b = query.getString(query.getColumnIndex(i.downloadUrl.name()));
             jVar.c = query.getString(query.getColumnIndex(i.title.name()));
             jVar.d = query.getString(query.getColumnIndex(i.description.name()));
@@ -311,7 +311,7 @@ public class PushDatabase implements NoProGuard {
             return -1L;
         }
         ContentValues contentValues = new ContentValues();
-        contentValues.put(i.belongTo.name(), jVar.f759a);
+        contentValues.put(i.belongTo.name(), jVar.f764a);
         contentValues.put(i.downloadUrl.name(), jVar.b);
         contentValues.put(i.title.name(), jVar.c);
         contentValues.put(i.description.name(), jVar.d);
@@ -402,7 +402,7 @@ public class PushDatabase implements NoProGuard {
         Cursor query = sQLiteDatabase.query("FileDownloadingInfo", null, null, null, null, null, i.timeStamp.name() + " DESC");
         while (query.moveToNext()) {
             j jVar = new j();
-            jVar.f759a = query.getString(query.getColumnIndex(i.belongTo.name()));
+            jVar.f764a = query.getString(query.getColumnIndex(i.belongTo.name()));
             jVar.b = query.getString(query.getColumnIndex(i.downloadUrl.name()));
             jVar.c = query.getString(query.getColumnIndex(i.title.name()));
             jVar.d = query.getString(query.getColumnIndex(i.description.name()));
@@ -426,7 +426,7 @@ public class PushDatabase implements NoProGuard {
         Cursor query = sQLiteDatabase.query("StatisticsInfo", null, null, null, null, null, null);
         while (query.moveToNext()) {
             k kVar = new k();
-            kVar.f760a = query.getInt(query.getColumnIndex(l.info_id.name()));
+            kVar.f765a = query.getInt(query.getColumnIndex(l.info_id.name()));
             kVar.b = query.getString(query.getColumnIndex(l.packageName.name()));
             kVar.c = query.getString(query.getColumnIndex(l.open_type.name()));
             kVar.d = query.getString(query.getColumnIndex(l.msgid.name()));
@@ -455,7 +455,7 @@ public class PushDatabase implements NoProGuard {
         Cursor query = sQLiteDatabase.query("StatisticsInfo", null, null, null, null, null, null, "" + i);
         while (query.moveToNext()) {
             k kVar = new k();
-            kVar.f760a = query.getInt(query.getColumnIndex(l.info_id.name()));
+            kVar.f765a = query.getInt(query.getColumnIndex(l.info_id.name()));
             kVar.b = query.getString(query.getColumnIndex(l.packageName.name()));
             kVar.c = query.getString(query.getColumnIndex(l.open_type.name()));
             kVar.d = query.getString(query.getColumnIndex(l.msgid.name()));
@@ -532,7 +532,7 @@ public class PushDatabase implements NoProGuard {
         }
         String[] strArr = {str};
         ContentValues contentValues = new ContentValues();
-        contentValues.put(i.belongTo.name(), jVar.f759a);
+        contentValues.put(i.belongTo.name(), jVar.f764a);
         contentValues.put(i.downloadUrl.name(), jVar.b);
         contentValues.put(i.title.name(), jVar.c);
         contentValues.put(i.description.name(), jVar.d);
@@ -551,7 +551,7 @@ public class PushDatabase implements NoProGuard {
         }
         String[] strArr = {"" + i};
         ContentValues contentValues = new ContentValues();
-        contentValues.put(l.info_id.name(), Integer.valueOf(kVar.f760a));
+        contentValues.put(l.info_id.name(), Integer.valueOf(kVar.f765a));
         contentValues.put(l.packageName.name(), kVar.b);
         contentValues.put(l.msgid.name(), kVar.d);
         contentValues.put(l.open_type.name(), kVar.c);

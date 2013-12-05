@@ -1,28 +1,23 @@
 package com.baidu.tieba.im.groupInfo;
 
-import android.widget.TextView;
+import android.view.View;
+import com.baidu.location.LocationClientOption;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class o implements c {
+public class o implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ n f1688a;
+    final /* synthetic */ m f1755a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public o(n nVar) {
-        this.f1688a = nVar;
+    public o(m mVar) {
+        this.f1755a = mVar;
     }
 
-    @Override // com.baidu.tieba.im.groupInfo.c
-    public void a(boolean z) {
-        TextView textView;
-        TextView textView2;
-        if (z) {
-            textView2 = this.f1688a.Q;
-            textView2.setVisibility(0);
-            return;
-        }
-        textView = this.f1688a.Q;
-        textView.setVisibility(8);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        EllipsizingTextView ellipsizingTextView;
+        ellipsizingTextView = this.f1755a.h;
+        ellipsizingTextView.setMaxLines(LocationClientOption.MIN_SCAN_SPAN);
     }
 }

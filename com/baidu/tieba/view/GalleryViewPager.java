@@ -8,19 +8,19 @@ import com.baidu.tieba.compatible.CompatibleUtile;
 public class GalleryViewPager extends BaseViewPager {
 
     /* renamed from: a  reason: collision with root package name */
-    private PointF f2519a;
-    private k b;
-    private k c;
+    private PointF f2633a;
+    private l b;
+    private l c;
 
     public GalleryViewPager(Context context) {
         super(context);
     }
 
-    public void setCurrentView(k kVar) {
-        this.b = kVar;
+    public void setCurrentView(l lVar) {
+        this.b = lVar;
     }
 
-    public k getCurrentView() {
+    public l getCurrentView() {
         return this.b;
     }
 
@@ -29,9 +29,9 @@ public class GalleryViewPager extends BaseViewPager {
             case 1:
             case 2:
                 PointF pointF = new PointF(motionEvent.getX(), motionEvent.getY());
-                return new float[]{pointF.x - this.f2519a.x, pointF.y - this.f2519a.y};
+                return new float[]{pointF.x - this.f2633a.x, pointF.y - this.f2633a.y};
             case 0:
-                this.f2519a = new PointF(motionEvent.getX(), motionEvent.getY());
+                this.f2633a = new PointF(motionEvent.getX(), motionEvent.getY());
                 break;
         }
         return null;
@@ -53,10 +53,10 @@ public class GalleryViewPager extends BaseViewPager {
             return super.onTouchEvent(motionEvent);
         }
         if (a2 != null && this.b.h() && a2[0] < 0.0f) {
-            com.baidu.tieba.util.bg.a(getClass().getName(), "onTouchEvent", "right");
+            com.baidu.tieba.util.bd.a(getClass().getName(), "onTouchEvent", "right");
             return super.onTouchEvent(motionEvent);
         } else if (a2 != null && this.b.i() && a2[0] > 0.0f) {
-            com.baidu.tieba.util.bg.a(getClass().getName(), "onTouchEvent", "left");
+            com.baidu.tieba.util.bd.a(getClass().getName(), "onTouchEvent", "left");
             return super.onTouchEvent(motionEvent);
         } else if (a2 == null) {
             if (this.b.i() || this.b.h()) {
@@ -95,11 +95,11 @@ public class GalleryViewPager extends BaseViewPager {
         return false;
     }
 
-    public void setSelectedView(k kVar) {
-        this.c = kVar;
+    public void setSelectedView(l lVar) {
+        this.c = lVar;
     }
 
-    public k getSelectedView() {
+    public l getSelectedView() {
         return this.c;
     }
 }

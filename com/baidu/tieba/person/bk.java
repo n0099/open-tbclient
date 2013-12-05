@@ -1,20 +1,22 @@
 package com.baidu.tieba.person;
-
-import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bk implements View.OnClickListener {
+public class bk implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PersonListActivity f2226a;
+    final /* synthetic */ bj f2334a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bk(PersonListActivity personListActivity) {
-        this.f2226a = personListActivity;
+    public bk(bj bjVar) {
+        this.f2334a = bjVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.f2226a.a(true);
+    @Override // java.lang.Runnable
+    public void run() {
+        bx bxVar;
+        if (!this.f2334a.c.p()) {
+            bxVar = this.f2334a.an;
+            bxVar.a(this.f2334a.n);
+        }
     }
 }

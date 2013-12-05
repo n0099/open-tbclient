@@ -19,16 +19,16 @@ import com.baidu.tieba.model.aa;
 import com.baidu.tieba.model.ac;
 import com.baidu.tieba.util.UtilHelper;
 import com.baidu.tieba.view.UserIconBox;
-import com.baidu.tieba.view.bu;
+import com.baidu.tieba.view.bx;
 import com.baidu.tieba.voice.VoiceManager;
 import com.baidu.tieba.voice.af;
 import com.baidu.zeus.Headers;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class ForumFeedActivity extends BaseFragment implements bu {
+public class ForumFeedActivity extends BaseFragment implements bx {
 
     /* renamed from: a  reason: collision with root package name */
-    private VoiceManager f1291a;
+    private VoiceManager f1338a;
     private aa b;
     private i c;
     private View d;
@@ -63,7 +63,7 @@ public class ForumFeedActivity extends BaseFragment implements bu {
         H();
         this.Z = null;
         if (this.f instanceof af) {
-            this.f1291a = ((af) this.f).g();
+            this.f1338a = ((af) this.f).d_();
         }
     }
 
@@ -102,8 +102,8 @@ public class ForumFeedActivity extends BaseFragment implements bu {
             if (this.c != null) {
                 this.c.k();
             }
-            if (this.f1291a != null) {
-                this.f1291a.c(this.f);
+            if (this.f1338a != null) {
+                this.f1338a.c(this.f);
             }
         }
     }
@@ -124,8 +124,8 @@ public class ForumFeedActivity extends BaseFragment implements bu {
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
     public void s() {
         super.s();
-        if (this.f1291a != null) {
-            this.f1291a.h();
+        if (this.f1338a != null) {
+            this.f1338a.h();
         }
     }
 
@@ -194,8 +194,8 @@ public class ForumFeedActivity extends BaseFragment implements bu {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Object obj) {
         ac acVar = (ac) obj;
-        if (acVar != null && acVar.f1865a != null && acVar.f1865a.b() != null && acVar.f1865a.b().size() > 0) {
-            this.c.a(acVar.f1865a);
+        if (acVar != null && acVar.f1977a != null && acVar.f1977a.b() != null && acVar.f1977a.b().size() > 0) {
+            this.c.a(acVar.f1977a);
             this.b.a(true);
         }
         this.c.a();
@@ -238,13 +238,13 @@ public class ForumFeedActivity extends BaseFragment implements bu {
                 }
             }
             if (errorCode != 0 && errorString != "" && R()) {
-                this.f.a(errorString);
+                this.f.b(errorString);
             }
         }
     }
 
     private boolean N() {
-        return (TiebaApplication.A() == null || TiebaApplication.F() == null) ? false : true;
+        return (TiebaApplication.B() == null || TiebaApplication.G() == null) ? false : true;
     }
 
     private void O() {
@@ -273,7 +273,7 @@ public class ForumFeedActivity extends BaseFragment implements bu {
     }
 
     private boolean R() {
-        return UtilHelper.i(this.f.getApplicationContext()) != UtilHelper.NetworkStateInfo.UNAVAIL;
+        return UtilHelper.g(this.f.getApplicationContext()) != UtilHelper.NetworkStateInfo.UNAVAIL;
     }
 
     private void S() {
@@ -281,18 +281,18 @@ public class ForumFeedActivity extends BaseFragment implements bu {
         if (this.d != null) {
             frameLayout.removeView(this.d);
         }
-        int ap = TiebaApplication.g().ap();
-        this.d = f.a(this.f, j().getString(R.string.forum_feed_login_tip), ap, this);
+        int an = TiebaApplication.h().an();
+        this.d = f.a(this.f, j().getString(R.string.forum_feed_login_tip), an, this);
         this.g.setVisibility(8);
         frameLayout.addView(this.d);
     }
 
-    @Override // com.baidu.tieba.view.bu
+    @Override // com.baidu.tieba.view.bx
     public ListView c() {
         return this.c.m();
     }
 
-    @Override // com.baidu.tieba.view.bu
+    @Override // com.baidu.tieba.view.bx
     public int a() {
         if (this.c == null) {
             return 0;
@@ -300,7 +300,7 @@ public class ForumFeedActivity extends BaseFragment implements bu {
         return this.c.n();
     }
 
-    @Override // com.baidu.tieba.view.bu
+    @Override // com.baidu.tieba.view.bx
     public com.baidu.adp.lib.d.b<TbImageView> G() {
         return this.i;
     }

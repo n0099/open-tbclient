@@ -12,7 +12,7 @@ class q extends l {
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // javassist.bytecode.l
     public void a(int i, int i2, boolean z) {
-        this.c = a(this.f2801a, this.c, i, i2, z);
+        this.c = a(this.f2982a, this.c, i, i2, z);
         super.a(i, i2, z);
     }
 

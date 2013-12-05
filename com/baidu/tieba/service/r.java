@@ -10,8 +10,8 @@ import com.baidu.tieba.UpdateDialog;
 import com.baidu.tieba.data.VersionData;
 import com.baidu.tieba.model.ci;
 import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.ap;
-import com.baidu.tieba.util.bg;
+import com.baidu.tieba.util.am;
+import com.baidu.tieba.util.bd;
 import com.tencent.mm.sdk.platformtools.Util;
 import java.util.Date;
 import java.util.Random;
@@ -20,12 +20,12 @@ import java.util.Random;
 public class r extends BdAsyncTask<String, Integer, ci> {
 
     /* renamed from: a  reason: collision with root package name */
-    ap f2339a;
+    am f2456a;
     final /* synthetic */ TiebaSyncService b;
 
     private r(TiebaSyncService tiebaSyncService) {
         this.b = tiebaSyncService;
-        this.f2339a = null;
+        this.f2456a = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -42,49 +42,49 @@ public class r extends BdAsyncTask<String, Integer, ci> {
         String str;
         String str2;
         try {
-            this.f2339a = new ap(com.baidu.tieba.data.h.f1201a + "c/s/sync");
-            this.f2339a.a("_os_version", Build.VERSION.RELEASE);
+            this.f2456a = new am(com.baidu.tieba.data.h.f1248a + "c/s/sync");
+            this.f2456a.a("_os_version", Build.VERSION.RELEASE);
             StringBuffer stringBuffer = new StringBuffer(15);
-            stringBuffer.append(String.valueOf(UtilHelper.a(TiebaApplication.g())));
+            stringBuffer.append(String.valueOf(com.baidu.adp.lib.h.g.b(TiebaApplication.h())));
             stringBuffer.append(",");
-            stringBuffer.append(String.valueOf(UtilHelper.b(TiebaApplication.g())));
-            this.f2339a.a("_phone_screen", stringBuffer.toString());
-            if (TiebaApplication.g().P() > 0) {
-                this.f2339a.a("_msg_status", SocialConstants.FALSE);
+            stringBuffer.append(String.valueOf(com.baidu.adp.lib.h.g.c(TiebaApplication.h())));
+            this.f2456a.a("_phone_screen", stringBuffer.toString());
+            if (TiebaApplication.h().N() > 0) {
+                this.f2456a.a("_msg_status", SocialConstants.FALSE);
             } else {
-                this.f2339a.a("_msg_status", SocialConstants.TRUE);
+                this.f2456a.a("_msg_status", SocialConstants.TRUE);
             }
-            String aI = TiebaApplication.g().aI();
-            if (aI != null) {
-                if (aI.length() < 1) {
-                    aI = SocialConstants.FALSE;
+            String aJ = TiebaApplication.h().aJ();
+            if (aJ != null) {
+                if (aJ.length() < 1) {
+                    aJ = SocialConstants.FALSE;
                 }
-                this.f2339a.a("_active", aI);
+                this.f2456a.a("_active", aJ);
             }
-            this.f2339a.a("_pic_quality", String.valueOf(TiebaApplication.g().aj()));
-            str = TiebaSyncService.f2321a;
+            this.f2456a.a("_pic_quality", String.valueOf(TiebaApplication.h().ah()));
+            str = TiebaSyncService.f2438a;
             if (str != null) {
-                ap apVar = this.f2339a;
-                str2 = TiebaSyncService.f2321a;
-                apVar.a("_msg_type", str2);
+                am amVar = this.f2456a;
+                str2 = TiebaSyncService.f2438a;
+                amVar.a("_msg_type", str2);
             }
-            String l = this.f2339a.l();
-            if (this.f2339a.d()) {
-                TiebaApplication.g().aK();
+            String l = this.f2456a.l();
+            if (this.f2456a.d()) {
+                TiebaApplication.h().aL();
             }
-            if (this.f2339a.c()) {
+            if (this.f2456a.c()) {
                 ciVar = new ci();
                 try {
                     ciVar.a(l);
-                    if (TiebaApplication.N() == null && ciVar.d().a() != null && ciVar.d().a().length() > 0) {
+                    if (TiebaApplication.L() == null && ciVar.d().a() != null && ciVar.d().a().length() > 0) {
                         TiebaApplication.a(this.b, ciVar.d().a());
-                        TiebaApplication.n(ciVar.d().a());
+                        TiebaApplication.o(ciVar.d().a());
                     }
-                    String unused = TiebaSyncService.f2321a = null;
+                    String unused = TiebaSyncService.f2438a = null;
                     return ciVar;
                 } catch (Exception e2) {
                     e = e2;
-                    bg.b(getClass().getName(), "doInBackground", e.getMessage());
+                    bd.b(getClass().getName(), "doInBackground", e.getMessage());
                     return ciVar;
                 }
             }
@@ -98,8 +98,8 @@ public class r extends BdAsyncTask<String, Integer, ci> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         this.b.b = null;
-        if (this.f2339a != null) {
-            this.f2339a.j();
+        if (this.f2456a != null) {
+            this.f2456a.j();
         }
         super.cancel(true);
     }
@@ -114,7 +114,7 @@ public class r extends BdAsyncTask<String, Integer, ci> {
         Handler handler2;
         Runnable runnable2;
         ci ciVar2;
-        int ar;
+        int ap;
         ci ciVar3;
         ci ciVar4;
         ci ciVar5;
@@ -127,35 +127,35 @@ public class r extends BdAsyncTask<String, Integer, ci> {
             this.b.d = ciVar;
             ciVar2 = this.b.d;
             if (ciVar2.c().getHas_new_ver() == 1) {
-                TiebaApplication g = TiebaApplication.g();
+                TiebaApplication h = TiebaApplication.h();
                 ciVar3 = this.b.d;
-                g.a(ciVar3.c());
+                h.a(ciVar3.c());
                 this.b.c();
                 ciVar4 = this.b.d;
                 if (ciVar4.c().getForce_update() == 1) {
-                    TiebaApplication g2 = TiebaApplication.g();
+                    TiebaApplication h2 = TiebaApplication.h();
                     ciVar7 = this.b.d;
                     VersionData c = ciVar7.c();
                     ciVar8 = this.b.d;
-                    UpdateDialog.a(g2, c, ciVar8.b());
+                    UpdateDialog.a(h2, c, ciVar8.b());
                 } else {
-                    Long valueOf = Long.valueOf(TiebaApplication.g().I());
+                    Long valueOf = Long.valueOf(TiebaApplication.h().H());
                     Long valueOf2 = Long.valueOf(new Date().getTime());
                     if (valueOf2.longValue() - valueOf.longValue() > Util.MILLSECONDS_OF_DAY) {
-                        TiebaApplication.g().a(valueOf2.longValue());
-                        TiebaApplication g3 = TiebaApplication.g();
+                        TiebaApplication.h().a(valueOf2.longValue());
+                        TiebaApplication h3 = TiebaApplication.h();
                         ciVar5 = this.b.d;
                         VersionData c2 = ciVar5.c();
                         ciVar6 = this.b.d;
-                        UpdateDialog.a(g3, c2, ciVar6.b());
+                        UpdateDialog.a(h3, c2, ciVar6.b());
                     }
                 }
             }
             int nextInt = new Random().nextInt(VersionUtils.CUR_DEVELOPMENT) + 1;
             int a2 = ciVar.a().a();
-            if (a2 > 0 && nextInt % a2 == 0 && (ar = TiebaApplication.g().ar()) < 10) {
-                TiebaApplication.g().i(ar + 1);
-                UtilHelper.e(this.b);
+            if (a2 > 0 && nextInt % a2 == 0 && (ap = TiebaApplication.h().ap()) < 10) {
+                TiebaApplication.h().h(ap + 1);
+                UtilHelper.c(this.b);
             }
             this.b.stopSelf();
             return;

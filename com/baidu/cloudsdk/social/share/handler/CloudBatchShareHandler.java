@@ -29,14 +29,14 @@ public class CloudBatchShareHandler implements ISocialShareHandler {
     protected static final String PARAM_URL = "url";
 
     /* renamed from: a  reason: collision with root package name */
-    private String[] f861a;
+    private String[] f866a;
     protected String mClientId;
     protected Context mContext;
 
     public CloudBatchShareHandler(Context context, String str, String[] strArr) {
         this.mContext = context;
         this.mClientId = str;
-        this.f861a = strArr;
+        this.f866a = strArr;
     }
 
     private void a(Uri uri, MultipartRequestParams multipartRequestParams, IBaiduListener iBaiduListener) {
@@ -120,14 +120,14 @@ public class CloudBatchShareHandler implements ISocialShareHandler {
         }
         Map all = SessionManager.getInstance(this.mContext).getAll();
         ArrayList arrayList = new ArrayList();
-        if (Utils.isEmpty(this.f861a)) {
+        if (Utils.isEmpty(this.f866a)) {
             for (SessionManager.Session session : all.values()) {
                 if (!session.isExpired()) {
                     arrayList.add(session.getAccessToken());
                 }
             }
         } else {
-            for (String str : this.f861a) {
+            for (String str : this.f866a) {
                 SessionManager.Session session2 = (SessionManager.Session) all.get(str);
                 if (session2 != null && !session2.isExpired()) {
                     arrayList.add(session2.getAccessToken());

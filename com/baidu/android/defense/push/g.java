@@ -9,11 +9,11 @@ public final class g {
     private static g b = null;
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f630a;
+    private Context f635a;
 
     private g(Context context) {
-        this.f630a = null;
-        this.f630a = context.getApplicationContext();
+        this.f635a = null;
+        this.f635a = context.getApplicationContext();
     }
 
     public static g a(Context context) {
@@ -34,22 +34,22 @@ public final class g {
             return null;
         }
         if ("appinstall".equals(str2)) {
-            return new c(str, this.f630a);
+            return new c(str, this.f635a);
         }
         if ("appuninstall".equals(str2)) {
-            return new e(str, this.f630a);
+            return new e(str, this.f635a);
         }
         if ("appfreeze".equals(str2)) {
-            return new b(str, this.f630a);
+            return new b(str, this.f635a);
         }
         if ("appunfreeze".equals(str2)) {
-            return new d(str, this.f630a);
+            return new d(str, this.f635a);
         }
         if ("filepush".equals(str2)) {
-            return new h(str, this.f630a);
+            return new h(str, this.f635a);
         }
         if ("settings".equals(str2)) {
-            return new i(str, this.f630a);
+            return new i(str, this.f635a);
         }
         return null;
     }

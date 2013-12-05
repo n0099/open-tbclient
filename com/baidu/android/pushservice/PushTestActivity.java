@@ -13,7 +13,7 @@ import com.baidu.android.common.util.DeviceId;
 public class PushTestActivity extends Activity {
 
     /* renamed from: a  reason: collision with root package name */
-    String f687a = "1.2b8a945ec32b6e4fea2971e78a98e040.86400.1335690526.2819575091-101962";
+    String f692a = "1.2b8a945ec32b6e4fea2971e78a98e040.86400.1335690526.2819575091-101962";
     private LinearLayout b;
 
     private void a() {

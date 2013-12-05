@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.data;
 
-import com.baidu.tieba.im.codec.l;
+import com.baidu.tieba.im.b.l;
 import java.io.Serializable;
 import java.util.Map;
 /* loaded from: classes.dex */

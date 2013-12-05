@@ -9,14 +9,13 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.forumdetail.ForumDetailData;
-import com.baidu.tieba.util.UtilHelper;
 import com.baidu.tieba.view.HeadImageView;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class ItemHeaderView extends RelativeLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1275a;
+    private Context f1322a;
     private HeadImageView b;
     private ImageView c;
     private TextView d;
@@ -41,7 +40,7 @@ public class ItemHeaderView extends RelativeLayout {
     }
 
     public void a(Context context) {
-        this.f1275a = context;
+        this.f1322a = context;
         ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(R.layout.forum_detail_header, (ViewGroup) this, true);
         this.b = (HeadImageView) findViewById(R.id.h_forum_portrait);
         this.d = (TextView) findViewById(R.id.h_forum_name);
@@ -57,14 +56,14 @@ public class ItemHeaderView extends RelativeLayout {
         if (forumDetailData == null || forumDetailData.forumDir == null) {
             return false;
         }
-        int ap = TiebaApplication.g().ap();
+        int an = TiebaApplication.h().an();
         ForumDetailData.ForumInfo forumInfo = forumDetailData.forumInfo;
         this.d.setText(forumInfo.forumName);
         this.e.setText(String.valueOf(forumInfo.memberCount));
         this.f.setText(String.valueOf(forumInfo.threadCount));
         int i2 = forumDetailData.forumDir.rank;
         if (i2 > 0 && i2 <= 3) {
-            if (ap == 1) {
+            if (an == 1) {
                 if (i2 == 1) {
                     i = R.drawable.icon_brief_grade_orange_1;
                 } else {
@@ -78,8 +77,8 @@ public class ItemHeaderView extends RelativeLayout {
         } else {
             this.c.setVisibility(8);
         }
-        int a2 = UtilHelper.a(this.f1275a, 80.0f);
-        com.baidu.tieba.util.i iVar = new com.baidu.tieba.util.i(this.f1275a);
+        int a2 = com.baidu.adp.lib.h.g.a(this.f1322a, 80.0f);
+        com.baidu.tieba.util.i iVar = new com.baidu.tieba.util.i(this.f1322a);
         iVar.a(a2, a2);
         com.baidu.adp.widget.ImageView.e d = iVar.d(forumInfo.avatar);
         if (d != null) {

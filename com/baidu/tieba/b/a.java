@@ -6,7 +6,7 @@ import com.baidu.adp.lib.cache.s;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f1115a = null;
+    private static a f1128a = null;
     private s<String> b = null;
     private s<String> c = null;
     private s<String> d = null;
@@ -20,15 +20,17 @@ public class a {
     private s<String> l = null;
     private s<byte[]> m = null;
     private s<byte[]> n = null;
-    private s<byte[]> o = null;
-    private s<String> p = null;
+    private s<String> o = null;
+    private s<byte[]> p = null;
     private s<String> q = null;
+    private s<String> r = null;
+    private s<byte[]> s = null;
 
     public static a a() {
-        if (f1115a == null) {
-            f1115a = new a();
+        if (f1128a == null) {
+            f1128a = new a();
         }
-        return f1115a;
+        return f1128a;
     }
 
     private a() {
@@ -62,87 +64,115 @@ public class a {
         return this.m;
     }
 
-    public s<String> f() {
+    public s<byte[]> f() {
+        if (this.s == null) {
+            this.s = BdCacheService.c().b("tb.im_hotgroup", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 30);
+        }
+        return this.s;
+    }
+
+    public s<String> g() {
         if (this.e == null) {
             this.e = BdCacheService.c().a("tb.my_pages", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 5);
         }
         return this.e;
     }
 
-    public s<String> g() {
+    public s<String> h() {
+        if (this.o == null) {
+            this.o = BdCacheService.c().a("tb.im_group_search_history", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 50);
+        }
+        return this.o;
+    }
+
+    public void i() {
+        if (this.o != null) {
+            BdCacheService.c().a(this.o);
+            this.o = null;
+        }
+    }
+
+    public s<String> j() {
         if (this.f == null) {
             this.f = BdCacheService.c().a("tb.my_pages", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 5);
         }
         return this.f;
     }
 
-    public s<String> h() {
+    public s<String> k() {
         if (this.g == null) {
             this.g = BdCacheService.c().a("tb.my_pages", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 5);
         }
         return this.g;
     }
 
-    public s<String> i() {
+    public s<String> l() {
         if (this.h == null) {
             this.h = BdCacheService.c().a("tb.my_bookmarks", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 3);
         }
         return this.h;
     }
 
-    public s<String> j() {
+    public s<String> m() {
         if (this.i == null) {
             this.i = BdCacheService.c().a("tb.my_posts", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 3);
         }
         return this.i;
     }
 
-    public s<String> k() {
+    public s<String> n() {
         if (this.j == null) {
             this.j = BdCacheService.c().a("tb.my_forums", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 3);
         }
         return this.j;
     }
 
-    public s<String> l() {
+    public s<String> o() {
         if (this.k == null) {
             this.k = BdCacheService.c().a("tb.square", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.NO_EVICT, 1);
         }
         return this.k;
     }
 
-    public s<String> m() {
+    public s<String> p() {
         if (this.l == null) {
             this.l = BdCacheService.c().a("tb.first_dir", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.NO_EVICT, 1);
         }
         return this.l;
     }
 
-    public s<byte[]> n() {
+    public s<byte[]> q() {
         if (this.n == null) {
             this.n = BdCacheService.c().b("tb.im_groupinfo", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 50);
         }
         return this.n;
     }
 
-    public s<byte[]> o() {
-        if (this.o == null) {
-            this.o = BdCacheService.c().b("tb.im_entergroup", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 10);
-        }
-        return this.o;
-    }
-
-    public s<String> p() {
+    public s<byte[]> r() {
         if (this.p == null) {
-            this.p = BdCacheService.c().a("tb.im_group_setting", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.NO_EVICT, 3);
+            this.p = BdCacheService.c().b("tb.im_entergroup", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 10);
         }
         return this.p;
     }
 
-    public s<String> q() {
+    public s<byte[]> s() {
+        if (this.p == null) {
+            this.p = BdCacheService.c().b("tb.im_enterforum_groupinfo", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 10);
+        }
+        return this.p;
+    }
+
+    public s<String> t() {
         if (this.q == null) {
-            this.q = BdCacheService.c().a("tb.pic_gif", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 50);
+            this.q = BdCacheService.c().a("tb.im_group_setting", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.NO_EVICT, 3);
         }
         return this.q;
+    }
+
+    public s<String> u() {
+        if (this.r == null) {
+            this.r = BdCacheService.c().a("tb.pic_gif", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 50);
+        }
+        return this.r;
     }
 }

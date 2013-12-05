@@ -8,24 +8,24 @@ import com.baidu.cloudsdk.social.core.SocialConfig;
 public class LocalShareHandlerFactory {
 
     /* renamed from: a  reason: collision with root package name */
-    private LocalShareActivity f863a;
+    private LocalShareActivity f868a;
 
     public LocalShareHandlerFactory(LocalShareActivity localShareActivity) {
         Validator.notNull(localShareActivity, "activity");
-        this.f863a = localShareActivity;
+        this.f868a = localShareActivity;
     }
 
     public ai newInstance(String str, int i, IBaiduListener iBaiduListener) {
-        SocialConfig socialConfig = SocialConfig.getInstance(this.f863a);
+        SocialConfig socialConfig = SocialConfig.getInstance(this.f868a);
         switch (MediaType.fromString(str)) {
             case QQFRIEND:
-                return new ak(this.f863a, iBaiduListener, i, socialConfig.getClientId(MediaType.QQFRIEND), socialConfig.getClientName(MediaType.QQFRIEND));
+                return new ak(this.f868a, iBaiduListener, i, socialConfig.getClientId(MediaType.QQFRIEND), socialConfig.getClientName(MediaType.QQFRIEND));
             case SMS:
-                return new al(this.f863a, iBaiduListener, i);
+                return new al(this.f868a, iBaiduListener, i);
             case EMAIL:
-                return new ah(this.f863a, iBaiduListener, i);
+                return new ah(this.f868a, iBaiduListener, i);
             case OTHERS:
-                return new OthersShareHandler(this.f863a, iBaiduListener, i);
+                return new OthersShareHandler(this.f868a, iBaiduListener, i);
             default:
                 return null;
         }

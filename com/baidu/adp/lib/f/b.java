@@ -11,4 +11,15 @@ public abstract class b {
         }
         return i;
     }
+
+    public static long a(String str, long j) {
+        if (str != null) {
+            try {
+                return Long.parseLong(str);
+            } catch (Exception e) {
+                return j;
+            }
+        }
+        return j;
+    }
 }

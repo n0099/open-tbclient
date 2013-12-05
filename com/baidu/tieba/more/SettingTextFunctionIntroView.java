@@ -9,7 +9,7 @@ import com.slidingmenu.lib.R;
 public class SettingTextFunctionIntroView extends SettingTextTipView {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f1945a = "has_shown_funtion_intro";
+    public static String f2057a = "has_shown_funtion_intro";
 
     public SettingTextFunctionIntroView(Context context) {
         super(context);
@@ -21,12 +21,12 @@ public class SettingTextFunctionIntroView extends SettingTextTipView {
 
     public void a() {
         boolean z = true;
-        boolean z2 = TiebaApplication.g().ap() == 1;
-        VersionData au = TiebaApplication.g().au();
+        boolean z2 = TiebaApplication.h().an() == 1;
+        VersionData au = TiebaApplication.h().au();
         if (au == null || au.getHas_new_ver() != 1) {
             z = false;
         }
-        boolean a2 = com.baidu.tieba.sharedPref.b.a().a(f1945a, false);
+        boolean a2 = com.baidu.tieba.sharedPref.b.a().a(f2057a, false);
         if (!z && !a2) {
             this.e.setText("New");
             this.e.setTextAppearance(this.b, z2 ? R.style.setting_version_prompt_text_1 : R.style.setting_version_prompt_text);

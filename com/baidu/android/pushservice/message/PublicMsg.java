@@ -26,7 +26,7 @@ public class PublicMsg implements Parcelable {
     public static final Parcelable.Creator CREATOR = new h();
 
     /* renamed from: a  reason: collision with root package name */
-    public String f719a;
+    public String f724a;
     public String b;
     public String c;
     public String d;
@@ -63,7 +63,7 @@ public class PublicMsg implements Parcelable {
         this.l = 0;
         this.m = 7;
         this.p = true;
-        this.f719a = parcel.readString();
+        this.f724a = parcel.readString();
         this.b = parcel.readString();
         this.c = parcel.readString();
         this.d = parcel.readString();
@@ -93,10 +93,10 @@ public class PublicMsg implements Parcelable {
 
     private void a(Context context, com.baidu.android.pushservice.d dVar, j jVar, com.baidu.android.pushservice.b.b bVar) {
         if (dVar != null) {
-            bVar.d(dVar.f708a);
+            bVar.d(dVar.f713a);
             bVar.c(m.b(dVar.c));
             bVar.b(dVar.c);
-            com.baidu.android.pushservice.b.b a2 = m.a(bVar, context, dVar.f708a);
+            com.baidu.android.pushservice.b.b a2 = m.a(bVar, context, dVar.f713a);
             s.a(context, jVar);
             s.a(context, a2);
         }
@@ -246,7 +246,7 @@ public class PublicMsg implements Parcelable {
             com.baidu.android.pushservice.b.b bVar = new com.baidu.android.pushservice.b.b(str3);
             bVar.c(m.b(b.c));
             bVar.b(b.c);
-            bVar.d(b.f708a);
+            bVar.d(b.f713a);
             a(context, b, jVar, bVar);
             return;
         }
@@ -336,7 +336,7 @@ public class PublicMsg implements Parcelable {
         } else if ("com.baidu.android.pushservice.action.media.DELETE".equals(str)) {
             j jVar = new j();
             jVar.c("010402");
-            jVar.a(this.f719a);
+            jVar.a(this.f724a);
             jVar.a(System.currentTimeMillis());
             jVar.a(0);
             jVar.d(com.baidu.android.pushservice.b.m.d(context));
@@ -345,7 +345,7 @@ public class PublicMsg implements Parcelable {
             com.baidu.android.pushservice.b.b bVar = new com.baidu.android.pushservice.b.b(str2);
             bVar.c(m.b(b.c));
             bVar.b(b.c);
-            bVar.d(b.f708a);
+            bVar.d(b.f713a);
             a(context, b, jVar, bVar);
         }
     }
@@ -356,12 +356,12 @@ public class PublicMsg implements Parcelable {
     }
 
     public String toString() {
-        return "\r\n mMsgId = " + this.f719a + "\r\n mAppId = " + this.b + "\r\n mTitle = " + this.c + "\r\n mDescription = " + this.d + "\r\n mUrl = " + this.e + "\r\n mNetType = " + this.i + "\r\n mSupportAppname = " + this.o + "\r\n mIsSupportApp = " + this.p + "\r\n mPkgName = " + this.f + "\r\n mPlgVercode = " + this.g + "\r\n mNotificationBuilder = " + this.j + "\r\n mNotificationBasicStyle = " + this.m + "\r\n mOpenType = " + this.k + "\r\n mUserConfirm = " + this.l + "\r\n mCustomContent = " + this.n + "\r\n mIntent = " + this.h;
+        return "\r\n mMsgId = " + this.f724a + "\r\n mAppId = " + this.b + "\r\n mTitle = " + this.c + "\r\n mDescription = " + this.d + "\r\n mUrl = " + this.e + "\r\n mNetType = " + this.i + "\r\n mSupportAppname = " + this.o + "\r\n mIsSupportApp = " + this.p + "\r\n mPkgName = " + this.f + "\r\n mPlgVercode = " + this.g + "\r\n mNotificationBuilder = " + this.j + "\r\n mNotificationBasicStyle = " + this.m + "\r\n mOpenType = " + this.k + "\r\n mUserConfirm = " + this.l + "\r\n mCustomContent = " + this.n + "\r\n mIntent = " + this.h;
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(this.f719a);
+        parcel.writeString(this.f724a);
         parcel.writeString(this.b);
         parcel.writeString(this.c);
         parcel.writeString(this.d);

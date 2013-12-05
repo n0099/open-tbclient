@@ -7,11 +7,11 @@ import com.baidu.tieba.model.ck;
 public class ac implements ck {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsActivity f1311a;
+    final /* synthetic */ FrsActivity f1362a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ac(FrsActivity frsActivity) {
-        this.f1311a = frsActivity;
+        this.f1362a = frsActivity;
     }
 
     @Override // com.baidu.tieba.model.ck
@@ -23,22 +23,22 @@ public class ac implements ck {
         bn bnVar;
         bn bnVar2;
         com.baidu.tieba.model.z a2 = com.baidu.tieba.model.z.a();
-        str2 = this.f1311a.f;
+        str2 = this.f1362a.f;
         a2.b(str2);
-        akVar = this.f1311a.w;
+        akVar = this.f1362a.w;
         akVar.a().setLike(0);
-        str3 = this.f1311a.C;
+        str3 = this.f1362a.C;
         if (str3.equals("normal_page")) {
-            bnVar2 = this.f1311a.n;
+            bnVar2 = this.f1362a.n;
             bnVar2.g(0);
         } else {
-            str4 = this.f1311a.C;
+            str4 = this.f1362a.C;
             if (str4.equals("frs_page")) {
-                bnVar = this.f1311a.n;
+                bnVar = this.f1362a.n;
                 bnVar.h(0);
             }
         }
-        TiebaApplication.g().f(str);
+        TiebaApplication.h().g(str);
     }
 
     @Override // com.baidu.tieba.model.ck

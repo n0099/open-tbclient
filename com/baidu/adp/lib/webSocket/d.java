@@ -1,12 +1,20 @@
 package com.baidu.adp.lib.webSocket;
-
-import java.io.ByteArrayOutputStream;
 /* loaded from: classes.dex */
-public class d extends ByteArrayOutputStream {
-    public d() {
-    }
+public abstract class d implements aq {
 
-    public d(int i) {
-        super(i);
+    /* renamed from: a  reason: collision with root package name */
+    private volatile byte[] f536a = null;
+    private volatile boolean b = false;
+
+    protected abstract byte[] a();
+
+    public byte[] b() {
+        synchronized (this) {
+            if (!this.b) {
+                this.b = true;
+                this.f536a = a();
+            }
+        }
+        return this.f536a;
     }
 }

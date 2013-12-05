@@ -1,36 +1,39 @@
 package com.baidu.tieba.home;
 
-import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.KeyEvent;
+import android.view.View;
+import android.widget.ListView;
 /* loaded from: classes.dex */
-public class g implements com.baidu.tieba.im.pushNotify.m {
+class g implements View.OnKeyListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ EnterForumActivity f1442a;
+    final /* synthetic */ EnterForumActivity f1492a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(EnterForumActivity enterForumActivity) {
-        this.f1442a = enterForumActivity;
+        this.f1492a = enterForumActivity;
     }
 
-    @Override // com.baidu.tieba.im.pushNotify.m
-    public void a(GroupNewsPojo groupNewsPojo) {
-        o oVar;
-        o oVar2;
-        o oVar3;
-        o oVar4;
-        oVar = this.f1442a.c;
-        if (oVar != null) {
-            oVar2 = this.f1442a.c;
-            if (oVar2.f1450a != null) {
-                if (this.f1442a.a()) {
-                    oVar4 = this.f1442a.c;
-                    oVar4.f1450a.f1468a.b();
-                    return;
+    @Override // android.view.View.OnKeyListener
+    public boolean onKey(View view, int i, KeyEvent keyEvent) {
+        if (view instanceof ListView) {
+            ListView listView = (ListView) view;
+            if (keyEvent.getAction() == 0) {
+                if (i == 21) {
+                    if (listView.getSelectedView() == null) {
+                        listView.dispatchKeyEvent(new KeyEvent(0, 19));
+                        return true;
+                    }
+                    return false;
+                } else if (i == 22 && listView.getSelectedView() == null) {
+                    listView.dispatchKeyEvent(new KeyEvent(0, 20));
+                    return true;
+                } else {
+                    return false;
                 }
-                oVar3 = this.f1442a.c;
-                oVar3.f1450a.c = true;
             }
+            return false;
         }
+        return false;
     }
 }

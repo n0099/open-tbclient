@@ -1,42 +1,44 @@
 package com.baidu.tieba.im.d;
 
-import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.tieba.im.groupInfo.GroupInfoActivity;
-import com.baidu.tieba.pb.NewPbActivity;
-import com.baidu.tieba.util.UtilHelper;
+import android.os.Handler;
+import android.os.Message;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g {
-    public static boolean a(Context context, String str) {
-        if (TextUtils.isEmpty(str)) {
-            return false;
+public class g extends Handler {
+    private g() {
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ g(b bVar) {
+        this();
+    }
+
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        Handler handler;
+        Handler handler2;
+        Handler handler3;
+        Handler handler4;
+        int i;
+        super.handleMessage(message);
+        switch (message.what) {
+            case 2:
+                handler = a.a().r;
+                handler.removeMessages(2);
+                a.a().g();
+                return;
+            case 3:
+                handler2 = a.a().r;
+                handler2.removeMessages(3);
+                a.a().g();
+                handler3 = a.a().r;
+                handler4 = a.a().r;
+                Message obtainMessage = handler4.obtainMessage(3);
+                i = a.a().e;
+                handler3.sendMessageDelayed(obtainMessage, i);
+                return;
+            default:
+                return;
         }
-        String lowerCase = str.toLowerCase();
-        if (lowerCase.contains("tieba.baidu.com/group/index?id=")) {
-            int length = "tieba.baidu.com/group/index?id=".length() + lowerCase.indexOf("tieba.baidu.com/group/index?id=");
-            int lastIndexOf = lowerCase.lastIndexOf(38);
-            if (lastIndexOf == -1) {
-                lastIndexOf = lowerCase.length();
-            }
-            String substring = lowerCase.substring(length, lastIndexOf);
-            if (TextUtils.isEmpty(substring)) {
-                return false;
-            }
-            try {
-                GroupInfoActivity.a(context, Long.parseLong(substring), 0);
-            } catch (Exception e) {
-                com.baidu.adp.lib.h.d.a("transform error " + e.getMessage());
-                return false;
-            }
-        } else if (lowerCase.contains("tieba.baidu.com/p/")) {
-            String substring2 = lowerCase.substring(lowerCase.indexOf("tieba.baidu.com/p/") + "tieba.baidu.com/p/".length());
-            if (TextUtils.isEmpty(substring2)) {
-                return false;
-            }
-            NewPbActivity.a(context, substring2, null, "allthread");
-        } else {
-            UtilHelper.c(context, lowerCase);
-        }
-        return true;
     }
 }

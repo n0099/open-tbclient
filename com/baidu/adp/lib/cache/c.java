@@ -28,6 +28,8 @@ public abstract class c<T> {
 
     public abstract Cursor b(SQLiteDatabase sQLiteDatabase, String str);
 
+    protected abstract boolean b(String str);
+
     public c(com.baidu.adp.a.h hVar) {
         this.f428a = hVar;
     }
@@ -42,12 +44,12 @@ public abstract class c<T> {
         }
     }
 
-    public m<T> b(String str) {
+    public m<T> c(String str) {
         try {
             return a(this.f428a.a(), str);
         } catch (Throwable th) {
             this.f428a.a(th);
-            com.baidu.adp.lib.h.d.a(getClass(), str, th);
+            com.baidu.adp.lib.h.e.a(getClass(), str, th);
             return null;
         }
     }
@@ -66,11 +68,11 @@ public abstract class c<T> {
                 }
             }
             if (this.c != null && (a2 = this.c.a(mVar)) != null) {
-                c(a2);
+                d(a2);
             }
         } catch (Throwable th) {
             this.f428a.a(th);
-            com.baidu.adp.lib.h.d.a(getClass(), "failed to insert " + mVar.f433a + " to db.", th);
+            com.baidu.adp.lib.h.e.a(getClass(), "failed to insert " + mVar.f433a + " to db.", th);
         }
     }
 
@@ -84,13 +86,23 @@ public abstract class c<T> {
         }
     }
 
-    public int c(String str) {
+    public int d(String str) {
         try {
             return this.f428a.a().delete(this.b, "m_key = ?", new String[]{str});
         } catch (Throwable th) {
             this.f428a.a(th);
-            com.baidu.adp.lib.h.d.a(getClass(), "failed to delete " + str + " from db.", th);
+            com.baidu.adp.lib.h.e.a(getClass(), "failed to delete " + str + " from db.", th);
             return 0;
+        }
+    }
+
+    public void e(String str) {
+        this.e = 0;
+        synchronized (this.g) {
+            this.f.clear();
+        }
+        if (b(str)) {
+            BdCacheService.c().d().b(str);
         }
     }
 
@@ -105,7 +117,7 @@ public abstract class c<T> {
         }
     }
 
-    public void d(String str) {
+    public void f(String str) {
         if (this.d != null) {
             Cursor cursor = null;
             try {
@@ -126,7 +138,7 @@ public abstract class c<T> {
             } catch (Throwable th) {
                 try {
                     this.f428a.a(th);
-                    com.baidu.adp.lib.h.d.a(getClass(), "performEvict", th);
+                    com.baidu.adp.lib.h.e.a(getClass(), "performEvict", th);
                 } finally {
                     com.baidu.adp.lib.f.a.a(cursor);
                     this.d.d();
@@ -135,7 +147,7 @@ public abstract class c<T> {
         }
     }
 
-    public void e(String str) {
+    public void g(String str) {
         if (this.c != null) {
             Cursor cursor = null;
             try {
@@ -156,7 +168,7 @@ public abstract class c<T> {
             } catch (Throwable th) {
                 try {
                     this.f428a.a(th);
-                    com.baidu.adp.lib.h.d.a(getClass(), "performPump", th);
+                    com.baidu.adp.lib.h.e.a(getClass(), "performPump", th);
                 } finally {
                     com.baidu.adp.lib.f.a.a(cursor);
                     this.c.d();
@@ -193,5 +205,9 @@ public abstract class c<T> {
                 }
             }
         }
+    }
+
+    public com.baidu.adp.a.h d() {
+        return this.f428a;
     }
 }

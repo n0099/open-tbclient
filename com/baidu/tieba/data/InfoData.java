@@ -1,6 +1,5 @@
 package com.baidu.tieba.data;
 
-import com.baidu.tieba.util.bg;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -38,7 +37,7 @@ public class InfoData implements Serializable {
         try {
             parserJson(new JSONObject(str));
         } catch (Exception e) {
-            bg.b("InfoData", "parserJson", "error = " + e.getMessage());
+            com.baidu.tieba.util.bd.b("InfoData", "parserJson", "error = " + e.getMessage());
         }
     }
 
@@ -49,14 +48,14 @@ public class InfoData implements Serializable {
                 this.width = jSONObject.optInt("width", 0);
                 this.height = jSONObject.optInt("height", 0);
             } catch (Exception e) {
-                bg.b("InfoData", "parserJson", "error = " + e.getMessage());
+                com.baidu.tieba.util.bd.b("InfoData", "parserJson", "error = " + e.getMessage());
             }
         }
     }
 
     public void logPrint() {
-        bg.d("InfoData", "logPrint", "pic_id = " + this.pic_id);
-        bg.d("InfoData", "logPrint", "width = " + String.valueOf(this.width));
-        bg.d("InfoData", "logPrint", "height = " + String.valueOf(this.height));
+        com.baidu.tieba.util.bd.d("InfoData", "logPrint", "pic_id = " + this.pic_id);
+        com.baidu.tieba.util.bd.d("InfoData", "logPrint", "width = " + String.valueOf(this.width));
+        com.baidu.tieba.util.bd.d("InfoData", "logPrint", "height = " + String.valueOf(this.height));
     }
 }

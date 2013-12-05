@@ -10,13 +10,13 @@ import java.util.Timer;
 public class c extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ GeoLocation f668a;
+    final /* synthetic */ GeoLocation f673a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(GeoLocation geoLocation, Looper looper) {
         super(looper);
-        this.f668a = geoLocation;
+        this.f673a = geoLocation;
     }
 
     @Override // android.os.Handler
@@ -30,30 +30,30 @@ public class c extends Handler {
         BDLocationManager bDLocationManager4;
         Timer timer;
         Timer timer2;
-        this.f668a.mLocMgr = BDLocationManager.b(this.f668a.mContext);
-        synchronized (this.f668a) {
-            GeoLocation geoLocation = this.f668a;
-            bDLocationManager = this.f668a.mLocMgr;
+        this.f673a.mLocMgr = BDLocationManager.b(this.f673a.mContext);
+        synchronized (this.f673a) {
+            GeoLocation geoLocation = this.f673a;
+            bDLocationManager = this.f673a.mLocMgr;
             geoLocation.mLocInfo = bDLocationManager.b();
-            cVar = this.f668a.mLocInfo;
+            cVar = this.f673a.mLocInfo;
             if (cVar != null) {
-                this.f668a.mErrcode = 0;
-                timer = this.f668a.mTimeoutTm;
+                this.f673a.mErrcode = 0;
+                timer = this.f673a.mTimeoutTm;
                 if (timer != null) {
-                    timer2 = this.f668a.mTimeoutTm;
+                    timer2 = this.f673a.mTimeoutTm;
                     timer2.cancel();
                 }
-                this.f668a.notifyAll();
+                this.f673a.notifyAll();
                 return;
             }
-            this.f668a.mLocListener = new d(this);
-            bDLocationManager2 = this.f668a.mLocMgr;
-            z = this.f668a.mGpsEnabled;
+            this.f673a.mLocListener = new d(this);
+            bDLocationManager2 = this.f673a.mLocMgr;
+            z = this.f673a.mGpsEnabled;
             bDLocationManager2.a(z);
-            bDLocationManager3 = this.f668a.mLocMgr;
-            dVar = this.f668a.mLocListener;
+            bDLocationManager3 = this.f673a.mLocMgr;
+            dVar = this.f673a.mLocListener;
             bDLocationManager3.a(dVar);
-            bDLocationManager4 = this.f668a.mLocMgr;
+            bDLocationManager4 = this.f673a.mLocMgr;
             bDLocationManager4.c();
         }
     }

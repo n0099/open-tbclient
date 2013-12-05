@@ -1,14 +1,13 @@
 package com.baidu.tieba.data;
 
 import com.baidu.cloudsdk.social.core.SocialConstants;
-import com.baidu.tieba.util.bg;
 import com.tencent.mm.sdk.platformtools.LocaleUtil;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class s {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1212a = null;
+    private String f1259a = null;
     private String b = null;
     private int c = 0;
     private int d = 0;
@@ -25,7 +24,7 @@ public class s {
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.f1212a = jSONObject.optString(LocaleUtil.INDONESIAN);
+                this.f1259a = jSONObject.optString(LocaleUtil.INDONESIAN);
                 this.b = jSONObject.optString(SocialConstants.PARAM_MEDIA_UNAME);
                 this.c = jSONObject.optInt("member_count", 0);
                 this.d = jSONObject.optInt("is_like", 0);
@@ -35,7 +34,7 @@ public class s {
                 this.h = jSONObject.optString("desc");
                 this.i = jSONObject.optString("avatar", "");
             } catch (Exception e) {
-                bg.b("LikeForumData", "parserJson", "error = " + e.getMessage());
+                com.baidu.tieba.util.bd.b("LikeForumData", "parserJson", "error = " + e.getMessage());
             }
         }
     }

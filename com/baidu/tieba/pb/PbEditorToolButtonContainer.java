@@ -19,7 +19,7 @@ public class PbEditorToolButtonContainer extends com.baidu.tieba.editortool.j {
 
     @Override // com.baidu.tieba.editortool.j
     protected void e() {
-        LayoutInflater.from(this.f1233a).inflate(R.layout.pb_editor_tool_button_container, (ViewGroup) this, true);
+        LayoutInflater.from(this.f1280a).inflate(R.layout.pb_editor_tool_button_container, (ViewGroup) this, true);
     }
 
     public void a(Bitmap bitmap) {
@@ -27,7 +27,7 @@ public class PbEditorToolButtonContainer extends com.baidu.tieba.editortool.j {
     }
 
     public void l() {
-        this.d.setImageResource(TiebaApplication.g().ap() == 1 ? R.drawable.new_pb_camera_btn_1 : R.drawable.new_pb_camera_btn);
+        this.d.setImageResource(TiebaApplication.h().an() == 1 ? R.drawable.new_pb_camera_btn_1 : R.drawable.new_pb_camera_btn);
         this.d.setTag(null);
     }
 

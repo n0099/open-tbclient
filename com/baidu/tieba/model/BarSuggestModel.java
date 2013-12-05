@@ -1,6 +1,6 @@
 package com.baidu.tieba.model;
 
-import com.google.gson.GsonBuilder;
+import com.baidu.gson.GsonBuilder;
 import java.io.Serializable;
 import java.util.ArrayList;
 /* loaded from: classes.dex */

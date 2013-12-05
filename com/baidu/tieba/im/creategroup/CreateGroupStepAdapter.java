@@ -9,23 +9,23 @@ import java.util.List;
 public class CreateGroupStepAdapter extends ae {
 
     /* renamed from: a  reason: collision with root package name */
-    public CreateGroupStepActivity f1570a;
-    private List<q> b = new ArrayList();
+    public CreateGroupStepActivity f1615a;
+    private List<v> b = new ArrayList();
 
     public CreateGroupStepAdapter(CreateGroupStepActivity createGroupStepActivity) {
-        this.f1570a = createGroupStepActivity;
+        this.f1615a = createGroupStepActivity;
     }
 
-    public List<q> a() {
+    public List<v> a() {
         return this.b;
     }
 
-    public q a(int i) {
+    public v a(int i) {
         return this.b.get(i);
     }
 
-    public void a(q qVar) {
-        this.b.add(qVar);
+    public void a(v vVar) {
+        this.b.add(vVar);
     }
 
     @Override // android.support.v4.view.ae
@@ -35,13 +35,13 @@ public class CreateGroupStepAdapter extends ae {
 
     @Override // android.support.v4.view.ae
     public Object instantiateItem(View view, int i) {
-        ((ViewPager) view).addView(this.b.get(i).f(), 0);
-        return this.b.get(i).f();
+        ((ViewPager) view).addView(this.b.get(i).a(), 0);
+        return this.b.get(i).a();
     }
 
     @Override // android.support.v4.view.ae
     public void destroyItem(View view, int i, Object obj) {
-        ((ViewPager) view).removeView(this.b.get(i).f());
+        ((ViewPager) view).removeView(this.b.get(i).a());
     }
 
     @Override // android.support.v4.view.ae

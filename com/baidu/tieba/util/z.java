@@ -1,38 +1,50 @@
 package com.baidu.tieba.util;
 
-import java.util.concurrent.atomic.AtomicBoolean;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.util.ArrayList;
+import java.util.Hashtable;
 /* loaded from: classes.dex */
-public class z implements Runnable {
+public class z extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ y f2504a;
+    private int f2618a;
+    private String b;
+    private Hashtable<String, Integer> c;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public z(y yVar) {
-        this.f2504a = yVar;
+    public z(Hashtable<String, Integer> hashtable) {
+        this.f2618a = 3;
+        this.b = null;
+        this.c = null;
+        this.f2618a = 3;
+        this.c = hashtable;
     }
 
-    @Override // java.lang.Runnable
+    public z(int i, String str) {
+        this.f2618a = 3;
+        this.b = null;
+        this.c = null;
+        this.f2618a = i;
+        this.b = str;
+    }
+
+    @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
-        AtomicBoolean atomicBoolean;
-        AtomicBoolean atomicBoolean2;
-        for (int i = 0; i < 60; i++) {
-            atomicBoolean2 = this.f2504a.f2503a;
-            if (!atomicBoolean2.get()) {
-                break;
-            }
-            try {
-                synchronized (this) {
-                    wait(3000L);
+        ArrayList<String> y;
+        super.run();
+        try {
+            if (this.f2618a == 3) {
+                if (this.c != null && (y = DatabaseService.y()) != null) {
+                    int size = y.size();
+                    for (int i = 0; i < size; i++) {
+                        this.c.put(y.get(i), 1);
+                    }
                 }
-            } catch (Exception e) {
-                com.baidu.adp.lib.h.d.a("DebugLogger", "write error ", e);
+            } else if (this.f2618a == 2) {
+                DatabaseService.q(this.b);
+            } else if (this.f2618a == 1) {
+                DatabaseService.p(this.b);
             }
-        }
-        atomicBoolean = this.f2504a.f2503a;
-        if (!atomicBoolean.get()) {
-            this.f2504a.b(true);
+        } catch (Exception e) {
+            bd.b(getClass().getName(), "run", e.getMessage());
         }
     }
 }

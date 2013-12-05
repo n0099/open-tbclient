@@ -1,6 +1,5 @@
 package com.baidu.tieba.data;
 
-import com.baidu.tieba.util.bg;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public abstract class b {
@@ -10,7 +9,7 @@ public abstract class b {
         try {
             parserJson(new JSONObject(str));
         } catch (Exception e) {
-            bg.b(getClass().getName(), "parserJson", e.getMessage());
+            com.baidu.tieba.util.bd.b(getClass().getName(), "parserJson", e.getMessage());
         }
     }
 }

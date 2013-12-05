@@ -13,8 +13,8 @@ public final class SettingTextTestNewView extends SettingTextTipView {
 
     public void a() {
         boolean z = true;
-        boolean z2 = TiebaApplication.g().ap() == 1;
-        VersionData au = TiebaApplication.g().au();
+        boolean z2 = TiebaApplication.h().an() == 1;
+        VersionData au = TiebaApplication.h().au();
         if (au == null || au.getHas_new_ver() != 1) {
             z = false;
         }

@@ -1,24 +1,26 @@
 package com.baidu.tieba.im.groupUpdates;
 
-import android.widget.CompoundButton;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class l implements CompoundButton.OnCheckedChangeListener {
+public class l implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ f f1708a;
+    final /* synthetic */ f f1774a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(f fVar) {
-        this.f1708a = fVar;
+        this.f1774a = fVar;
     }
 
-    @Override // android.widget.CompoundButton.OnCheckedChangeListener
-    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
         UpdatesActivity updatesActivity;
         UpdatesItemData updatesItemData;
-        updatesActivity = this.f1708a.l;
-        updatesItemData = this.f1708a.m;
-        updatesActivity.a(compoundButton, z, updatesItemData);
+        view.setSelected(!view.isSelected());
+        updatesActivity = this.f1774a.l;
+        boolean isSelected = view.isSelected();
+        updatesItemData = this.f1774a.m;
+        updatesActivity.a(view, isSelected, updatesItemData);
     }
 }

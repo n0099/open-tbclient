@@ -1,6 +1,5 @@
 package com.baidu.tieba.im.frsgroup;
 
-import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -10,11 +9,11 @@ import com.baidu.tieba.view.HeadImageView;
 class z {
 
     /* renamed from: a  reason: collision with root package name */
-    LinearLayout f1659a;
+    LinearLayout f1726a;
     LinearLayout b;
     TextView c;
     ProgressBar d;
-    CheckBox e;
+    ImageView e;
     HeadImageView f;
     TextView g;
     ImageView h;

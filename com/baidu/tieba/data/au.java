@@ -1,14 +1,13 @@
 package com.baidu.tieba.data;
 
 import android.graphics.Color;
-import com.baidu.tieba.util.bg;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class au {
     private String d;
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1181a = null;
+    private String f1228a = null;
     private String b = null;
     private String c = null;
     private boolean h = false;
@@ -26,7 +25,7 @@ public class au {
     }
 
     public String c() {
-        return this.f1181a;
+        return this.f1228a;
     }
 
     public String d() {
@@ -48,7 +47,7 @@ public class au {
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.f1181a = jSONObject.optString("tid");
+                this.f1228a = jSONObject.optString("tid");
                 this.c = jSONObject.optString("title");
                 this.b = jSONObject.optString("pid");
                 this.h = jSONObject.optInt("is_floor", 0) != 0;
@@ -56,14 +55,14 @@ public class au {
                 this.f.parserJson(jSONObject.optJSONObject("author"));
                 this.g = jSONObject.optString("content");
                 this.d = jSONObject.optString("fname");
-                this.c = com.baidu.tieba.util.be.a(this.c, (Color) null);
-                String a2 = com.baidu.tieba.util.be.a(this.g, (Color) null);
+                this.c = com.baidu.tieba.util.bb.a(this.c, (Color) null);
+                String a2 = com.baidu.tieba.util.bb.a(this.g, (Color) null);
                 if (!a2.equals(this.g)) {
                     this.g = a2;
                     this.i = false;
                 }
             } catch (Exception e) {
-                bg.b("PostData", "parserJson", "error = " + e.getMessage());
+                com.baidu.tieba.util.bd.b("PostData", "parserJson", "error = " + e.getMessage());
             }
         }
     }

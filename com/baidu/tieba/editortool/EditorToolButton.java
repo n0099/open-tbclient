@@ -5,7 +5,7 @@ import android.graphics.Bitmap;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.tieba.aq;
+import com.baidu.tieba.au;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class EditorToolButton extends ImageView {
@@ -13,7 +13,7 @@ public class EditorToolButton extends ImageView {
     protected static final int[] i = {R.attr.custom_state_skin};
 
     /* renamed from: a  reason: collision with root package name */
-    protected TextView f1221a;
+    protected TextView f1268a;
     protected Context b;
     protected boolean c;
     protected boolean d;
@@ -44,7 +44,7 @@ public class EditorToolButton extends ImageView {
         this.f = false;
         this.g = 0;
         this.b = context;
-        this.c = this.b.obtainStyledAttributes(attributeSet, aq.custom_state).getBoolean(1, false);
+        this.c = this.b.obtainStyledAttributes(attributeSet, au.custom_state).getBoolean(1, false);
     }
 
     @Override // android.widget.ImageView, android.view.View
@@ -63,7 +63,7 @@ public class EditorToolButton extends ImageView {
     }
 
     public TextView getTip() {
-        return this.f1221a;
+        return this.f1268a;
     }
 
     public void b() {
@@ -86,18 +86,18 @@ public class EditorToolButton extends ImageView {
     }
 
     public void a(TextView textView) {
-        this.f1221a = textView;
+        this.f1268a = textView;
     }
 
     public void e() {
-        if (this.f1221a != null) {
-            this.f1221a.setVisibility(0);
+        if (this.f1268a != null) {
+            this.f1268a.setVisibility(0);
         }
     }
 
     public void f() {
-        if (this.f1221a != null) {
-            this.f1221a.setVisibility(8);
+        if (this.f1268a != null) {
+            this.f1268a.setVisibility(8);
         }
     }
 

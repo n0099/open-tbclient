@@ -3,7 +3,7 @@ package org.msgpack.template;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2918a;
+    private String f3099a;
     private FieldOption b;
 
     public b() {
@@ -11,12 +11,12 @@ public class b {
     }
 
     public b(String str, FieldOption fieldOption) {
-        this.f2918a = str;
+        this.f3099a = str;
         this.b = fieldOption;
     }
 
     public String a() {
-        return this.f2918a;
+        return this.f3099a;
     }
 
     public FieldOption b() {

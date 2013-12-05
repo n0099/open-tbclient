@@ -5,11 +5,11 @@ import org.msgpack.MessageTypeException;
 public class MessagePackableTemplate extends AbstractTemplate<org.msgpack.b> {
 
     /* renamed from: a  reason: collision with root package name */
-    private Class<?> f2907a;
+    private Class<?> f3088a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public MessagePackableTemplate(Class<?> cls) {
-        this.f2907a = cls;
+        this.f3088a = cls;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

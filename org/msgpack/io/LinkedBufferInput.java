@@ -10,7 +10,7 @@ public class LinkedBufferInput extends a {
     private final int f;
 
     /* renamed from: a  reason: collision with root package name */
-    LinkedList<ByteBuffer> f2875a = new LinkedList<>();
+    LinkedList<ByteBuffer> f3056a = new LinkedList<>();
     int b = -1;
     private byte[] d = new byte[8];
     private ByteBuffer e = ByteBuffer.wrap(this.d);
@@ -22,12 +22,12 @@ public class LinkedBufferInput extends a {
     @Override // org.msgpack.io.e
     public int a(byte[] bArr, int i, int i2) {
         ByteBuffer first;
-        if (this.f2875a.isEmpty()) {
+        if (this.f3056a.isEmpty()) {
             return 0;
         }
         int i3 = i2;
         do {
-            first = this.f2875a.getFirst();
+            first = this.f3056a.getFirst();
             if (i3 < first.remaining()) {
                 first.get(bArr, i, i3);
                 a(i3);
@@ -46,7 +46,7 @@ public class LinkedBufferInput extends a {
     public boolean a(b bVar, int i) {
         ByteBuffer byteBuffer = null;
         try {
-            byteBuffer = this.f2875a.getFirst();
+            byteBuffer = this.f3056a.getFirst();
         } catch (NoSuchElementException e) {
         }
         if (byteBuffer == null) {
@@ -81,7 +81,7 @@ public class LinkedBufferInput extends a {
     public byte b() {
         ByteBuffer byteBuffer;
         try {
-            byteBuffer = this.f2875a.getFirst();
+            byteBuffer = this.f3056a.getFirst();
         } catch (NoSuchElementException e) {
             byteBuffer = null;
         }
@@ -98,10 +98,10 @@ public class LinkedBufferInput extends a {
 
     @Override // org.msgpack.io.e
     public void c() {
-        if (!this.f2875a.isEmpty()) {
+        if (!this.f3056a.isEmpty()) {
             int i = this.c;
             while (true) {
-                ByteBuffer first = this.f2875a.getFirst();
+                ByteBuffer first = this.f3056a.getFirst();
                 if (i < first.remaining()) {
                     first.position(i + first.position());
                     break;
@@ -118,23 +118,23 @@ public class LinkedBufferInput extends a {
     }
 
     private boolean a(ByteBuffer byteBuffer) {
-        if (this.f2875a.size() == 1) {
+        if (this.f3056a.size() == 1) {
             if (this.b >= 0) {
                 byteBuffer.position(0);
                 byteBuffer.limit(0);
                 this.b = byteBuffer.capacity();
                 return false;
             }
-            this.f2875a.removeFirst();
+            this.f3056a.removeFirst();
             return false;
         }
-        this.f2875a.removeFirst();
+        this.f3056a.removeFirst();
         return true;
     }
 
     private void b(int i) {
         int i2 = 0;
-        Iterator<ByteBuffer> it = this.f2875a.iterator();
+        Iterator<ByteBuffer> it = this.f3056a.iterator();
         while (true) {
             int i3 = i2;
             if (it.hasNext()) {
@@ -160,7 +160,7 @@ public class LinkedBufferInput extends a {
     private ByteBuffer c(int i) {
         ByteBuffer byteBuffer;
         try {
-            byteBuffer = this.f2875a.getFirst();
+            byteBuffer = this.f3056a.getFirst();
         } catch (NoSuchElementException e) {
             byteBuffer = null;
         }
@@ -215,16 +215,16 @@ public class LinkedBufferInput extends a {
     public void a(byte[] bArr, int i, int i2, boolean z) {
         ByteBuffer byteBuffer;
         if (z) {
-            if (this.b > 0 && this.f2875a.getLast().remaining() == 0) {
-                this.f2875a.add(this.f2875a.size() - 1, ByteBuffer.wrap(bArr, i, i2));
+            if (this.b > 0 && this.f3056a.getLast().remaining() == 0) {
+                this.f3056a.add(this.f3056a.size() - 1, ByteBuffer.wrap(bArr, i, i2));
                 return;
             }
-            this.f2875a.addLast(ByteBuffer.wrap(bArr, i, i2));
+            this.f3056a.addLast(ByteBuffer.wrap(bArr, i, i2));
             this.b = -1;
             return;
         }
         try {
-            byteBuffer = this.f2875a.getLast();
+            byteBuffer = this.f3056a.getLast();
         } catch (NoSuchElementException e) {
             byteBuffer = null;
         }
@@ -252,21 +252,21 @@ public class LinkedBufferInput extends a {
         allocate.put(bArr, i, i2);
         allocate.limit(i2);
         allocate.position(0);
-        this.f2875a.addLast(allocate);
+        this.f3056a.addLast(allocate);
         this.b = max - i2;
     }
 
     public void j() {
         if (this.b >= 0) {
-            ByteBuffer last = this.f2875a.getLast();
-            this.f2875a.clear();
+            ByteBuffer last = this.f3056a.getLast();
+            this.f3056a.clear();
             last.position(0);
             last.limit(0);
-            this.f2875a.addLast(last);
+            this.f3056a.addLast(last);
             this.b = last.capacity();
             return;
         }
-        this.f2875a.clear();
+        this.f3056a.clear();
         this.b = -1;
     }
 

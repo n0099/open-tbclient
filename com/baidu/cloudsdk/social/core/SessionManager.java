@@ -13,7 +13,7 @@ import org.json.JSONObject;
 public final class SessionManager {
 
     /* renamed from: a  reason: collision with root package name */
-    private static SessionManager f847a;
+    private static SessionManager f852a;
     private SharedPreferences b;
     private Context c;
 
@@ -21,7 +21,7 @@ public final class SessionManager {
     public class Session {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f848a;
+        private String f853a;
         private String b;
         private String c;
         private long d;
@@ -31,7 +31,7 @@ public final class SessionManager {
         private long h;
 
         private Session(JSONObject jSONObject, boolean z) {
-            this.f848a = jSONObject.getString(SocialConstants.PARAM_MEDIA_TYPE);
+            this.f853a = jSONObject.getString(SocialConstants.PARAM_MEDIA_TYPE);
             this.e = jSONObject.getString("access_token");
             this.f = jSONObject.getString(SocialConstants.PARAM_SESSION_KEY);
             this.g = jSONObject.getString(SocialConstants.PARAM_SESSION_SECRET);
@@ -53,7 +53,7 @@ public final class SessionManager {
         }
 
         public String getMediaType() {
-            return this.f848a;
+            return this.f853a;
         }
 
         public String getMediaUname() {
@@ -91,7 +91,7 @@ public final class SessionManager {
         }
 
         public Session setMediaType(String str) {
-            this.f848a = str;
+            this.f853a = str;
             return this;
         }
 
@@ -123,7 +123,7 @@ public final class SessionManager {
         public String toString() {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("access_token", this.e).put(SocialConstants.PARAM_SESSION_KEY, this.f).put(SocialConstants.PARAM_SESSION_SECRET, this.g).put(SocialConstants.PARAM_EXPIRES_IN, this.h).put(SocialConstants.PARAM_MEDIA_TYPE, this.f848a).putOpt(SocialConstants.PARAM_MEDIA_UID, this.b).putOpt(SocialConstants.PARAM_MEDIA_UNAME, this.c).putOpt(SocialConstants.PARAM_SOCIAL_UID, Long.valueOf(this.d));
+                jSONObject.put("access_token", this.e).put(SocialConstants.PARAM_SESSION_KEY, this.f).put(SocialConstants.PARAM_SESSION_SECRET, this.g).put(SocialConstants.PARAM_EXPIRES_IN, this.h).put(SocialConstants.PARAM_MEDIA_TYPE, this.f853a).putOpt(SocialConstants.PARAM_MEDIA_UID, this.b).putOpt(SocialConstants.PARAM_MEDIA_UNAME, this.c).putOpt(SocialConstants.PARAM_SOCIAL_UID, Long.valueOf(this.d));
             } catch (JSONException e) {
             }
             return jSONObject.toString();
@@ -142,10 +142,10 @@ public final class SessionManager {
     }
 
     public static SessionManager getInstance(Context context) {
-        if (f847a == null) {
-            f847a = new SessionManager(context);
+        if (f852a == null) {
+            f852a = new SessionManager(context);
         }
-        return f847a;
+        return f852a;
     }
 
     public Session get(String str) {

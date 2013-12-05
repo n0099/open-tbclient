@@ -15,7 +15,7 @@ import android.widget.ScrollView;
 public class BdPullRefreshScrollView extends ScrollView {
 
     /* renamed from: a  reason: collision with root package name */
-    protected View f582a;
+    protected View f586a;
     private int b;
     private State c;
     private Mode d;
@@ -227,7 +227,7 @@ public class BdPullRefreshScrollView extends ScrollView {
     public void setContentView(View view) {
         View childAt = getChildAt(0);
         if (childAt != null) {
-            this.f582a = view;
+            this.f586a = view;
             ((LinearLayout) childAt).addView(view, 1);
         }
     }
@@ -308,7 +308,7 @@ public class BdPullRefreshScrollView extends ScrollView {
     }
 
     private boolean g() {
-        switch (m.f595a[this.e.ordinal()]) {
+        switch (m.f599a[this.e.ordinal()]) {
             case 1:
                 return h();
             case 2:
@@ -321,7 +321,7 @@ public class BdPullRefreshScrollView extends ScrollView {
     }
 
     private boolean h() {
-        switch (m.f595a[this.e.ordinal()]) {
+        switch (m.f599a[this.e.ordinal()]) {
             case 1:
                 return getScrollY() <= 0;
             case 2:
@@ -334,14 +334,14 @@ public class BdPullRefreshScrollView extends ScrollView {
     }
 
     private boolean i() {
-        switch (m.f595a[this.e.ordinal()]) {
+        switch (m.f599a[this.e.ordinal()]) {
             case 1:
             default:
                 return false;
             case 2:
-                return getScrollY() + getHeight() >= this.f582a.getHeight() + this.k.getHeight();
+                return getScrollY() + getHeight() >= this.f586a.getHeight() + this.k.getHeight();
             case 3:
-                if (getScrollY() + getHeight() < this.f582a.getHeight() + this.k.getHeight() || getHeadViewTopMargin() != this.p) {
+                if (getScrollY() + getHeight() < this.f586a.getHeight() + this.k.getHeight() || getHeadViewTopMargin() != this.p) {
                     r0 = false;
                 }
                 return r0;

@@ -9,7 +9,7 @@ import java.util.Properties;
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f805a;
+    private static int f810a;
     private static String b;
     private static int c;
     private static int d;
@@ -30,7 +30,7 @@ public final class d {
     static {
         FileInputStream fileInputStream;
         FileInputStream fileInputStream2 = null;
-        f805a = 0;
+        f810a = 0;
         b = null;
         c = 0;
         d = 0;
@@ -57,7 +57,7 @@ public final class d {
             try {
                 properties.load(fileInputStream);
                 if (properties.getProperty("uefilesize") != null) {
-                    f805a = Integer.valueOf(properties.getProperty("uefilesize")).intValue();
+                    f810a = Integer.valueOf(properties.getProperty("uefilesize")).intValue();
                 }
                 if (properties.getProperty("server") != null) {
                     b = String.valueOf(properties.getProperty("server"));

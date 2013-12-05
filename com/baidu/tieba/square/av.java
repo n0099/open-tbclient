@@ -4,7 +4,7 @@ public class av extends com.baidu.adp.a.d {
     private ar b;
 
     /* renamed from: a  reason: collision with root package name */
-    private ax f2375a = null;
+    private ax f2492a = null;
     private aw c = null;
 
     public av() {
@@ -27,8 +27,8 @@ public class av extends com.baidu.adp.a.d {
 
     @Override // com.baidu.adp.a.d
     public boolean cancelLoadData() {
-        if (this.f2375a != null) {
-            this.f2375a.cancel();
+        if (this.f2492a != null) {
+            this.f2492a.cancel();
             return false;
         }
         return false;
@@ -43,11 +43,11 @@ public class av extends com.baidu.adp.a.d {
     }
 
     public boolean a(int i) {
-        if (this.f2375a != null) {
+        if (this.f2492a != null) {
             return false;
         }
-        this.f2375a = new ax(this, i);
-        this.f2375a.execute(new Object[0]);
+        this.f2492a = new ax(this, i);
+        this.f2492a.execute(new Object[0]);
         return true;
     }
 }

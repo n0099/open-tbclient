@@ -5,13 +5,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.im.data.UserData;
-import com.baidu.tieba.util.be;
+import com.baidu.tieba.util.bb;
 import com.baidu.tieba.view.HeadImageView;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
@@ -24,7 +24,7 @@ import java.util.Set;
 public class w extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    private MembersActivity f1657a;
+    private MembersActivity f1724a;
     private y b;
     private boolean c;
     private boolean d;
@@ -70,6 +70,9 @@ public class w extends BaseAdapter {
             this.g.add(l);
         }
         notifyDataSetChanged();
+        if (this.b != null) {
+            this.b.a(this.g.size());
+        }
     }
 
     public void a(boolean z) {
@@ -81,7 +84,7 @@ public class w extends BaseAdapter {
     }
 
     public w(MembersActivity membersActivity) {
-        this.f1657a = membersActivity;
+        this.f1724a = membersActivity;
         this.f = new com.baidu.tieba.util.i(membersActivity);
         this.f.d(false);
         this.d = false;
@@ -110,7 +113,7 @@ public class w extends BaseAdapter {
     @Override // android.widget.Adapter
     public int getCount() {
         if (this.h != null) {
-            int size = this.h.size();
+            int size = (this.h.size() * 2) + 1;
             if (this.d) {
                 return size + 1;
             }
@@ -131,19 +134,28 @@ public class w extends BaseAdapter {
     @Override // android.widget.Adapter
     public long getItemId(int i) {
         if (this.d && i == getCount() - 1) {
-            i = -2;
+            return -2L;
         }
-        return i;
+        if (i % 2 == 0) {
+            return -1L;
+        }
+        return i / 2;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        return getItemId(i) >= 0 ? 0 : 1;
+        if (getItemId(i) >= 0) {
+            return 0;
+        }
+        if (getItemId(i) == -1) {
+            return 2;
+        }
+        return 1;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getViewTypeCount() {
-        return 2;
+        return 3;
     }
 
     @Override // android.widget.Adapter
@@ -154,21 +166,24 @@ public class w extends BaseAdapter {
             if (view == null) {
                 z zVar2 = new z();
                 if (getItemViewType(i) == 1) {
-                    View inflate = LayoutInflater.from(this.f1657a).inflate(R.layout.im_members_list_foot, viewGroup, false);
-                    zVar2.f1659a = (LinearLayout) inflate.findViewById(R.id.list_more);
+                    View inflate = LayoutInflater.from(this.f1724a).inflate(R.layout.im_members_list_foot, viewGroup, false);
+                    zVar2.f1726a = (LinearLayout) inflate.findViewById(R.id.list_more);
                     zVar2.c = (TextView) inflate.findViewById(R.id.more_title);
                     zVar2.d = (ProgressBar) inflate.findViewById(R.id.more_progress);
                     view2 = inflate;
+                } else if (getItemViewType(i) == 2) {
+                    view2 = LayoutInflater.from(this.f1724a).inflate(R.layout.im_list_divide, viewGroup, false);
                 } else {
-                    View inflate2 = LayoutInflater.from(this.f1657a).inflate(R.layout.im_members_list_item, viewGroup, false);
+                    View inflate2 = LayoutInflater.from(this.f1724a).inflate(R.layout.im_members_list_item, viewGroup, false);
                     zVar2.b = (LinearLayout) inflate2.findViewById(R.id.list_content);
                     zVar2.f = (HeadImageView) inflate2.findViewById(R.id.item_head);
-                    zVar2.f.setAutoChangeStyle(false);
+                    zVar2.f.setIsRound(true);
+                    zVar2.f.setAutoChangeStyle(true);
                     zVar2.g = (TextView) inflate2.findViewById(R.id.item_name);
                     zVar2.h = (ImageView) inflate2.findViewById(R.id.item_sex);
                     zVar2.i = (TextView) inflate2.findViewById(R.id.item_time);
                     zVar2.j = (TextView) inflate2.findViewById(R.id.item_address);
-                    zVar2.e = (CheckBox) inflate2.findViewById(R.id.item_check);
+                    zVar2.e = (ImageView) inflate2.findViewById(R.id.item_check);
                     view2 = inflate2;
                 }
                 view2.setTag(zVar2);
@@ -185,7 +200,10 @@ public class w extends BaseAdapter {
                     zVar.c.setText(R.string.members_no_more_person);
                     zVar.d.setVisibility(8);
                 }
+            } else if (getItemViewType(i) == 2) {
+                a(view);
             } else {
+                int an = TiebaApplication.h().an();
                 UserData userData = (UserData) getItem(i);
                 zVar.f.setTag(null);
                 String portrait = userData.getPortrait();
@@ -195,19 +213,29 @@ public class w extends BaseAdapter {
                         zVar.f.setImageBitmap(c.f());
                     } else {
                         zVar.f.setTag(portrait);
-                        zVar.f.setImageResource(R.drawable.photo);
+                        zVar.f.setImageBitmap(com.baidu.tieba.util.m.a((int) R.drawable.photo));
                     }
                 }
                 zVar.g.setText(userData.getUserName());
                 switch (userData.getSex()) {
                     case 1:
                         zVar.h.setVisibility(0);
-                        zVar.h.setImageResource(R.drawable.icon_man);
-                        break;
+                        if (an == 1) {
+                            zVar.h.setImageResource(R.drawable.icon_pop_boy_1);
+                            break;
+                        } else {
+                            zVar.h.setImageResource(R.drawable.icon_pop_boy);
+                            break;
+                        }
                     case 2:
                         zVar.h.setVisibility(0);
-                        zVar.h.setImageResource(R.drawable.icon_woman);
-                        break;
+                        if (an == 1) {
+                            zVar.h.setImageResource(R.drawable.icon_pop_girl_1);
+                            break;
+                        } else {
+                            zVar.h.setImageResource(R.drawable.icon_pop_girl);
+                            break;
+                        }
                     default:
                         zVar.h.setVisibility(8);
                         break;
@@ -218,19 +246,25 @@ public class w extends BaseAdapter {
                     zVar.e.setVisibility(userData.getPermission().isController() ? 4 : 0);
                     Long valueOf = Long.valueOf(userData.getUserId());
                     zVar.e.setTag(valueOf);
-                    zVar.e.setChecked(this.g.contains(valueOf));
-                    zVar.e.setOnCheckedChangeListener(new x(this));
+                    zVar.e.setSelected(this.g.contains(valueOf));
+                    zVar.e.setOnClickListener(new x(this));
                 } else {
                     zVar.e.setVisibility(8);
                 }
+                a(view);
             }
         }
         return view;
     }
 
+    private void a(View view) {
+        this.f1724a.getLayoutMode().a(TiebaApplication.h().an() == 1);
+        this.f1724a.getLayoutMode().a(view);
+    }
+
     private String a(UserData userData) {
         long lastReplyTime;
-        com.baidu.tieba.im.model.h b = this.f1657a.b();
+        com.baidu.tieba.im.model.h b = this.f1724a.b();
         switch (b.b()) {
             case 0:
                 lastReplyTime = userData.getLoginTime();
@@ -247,11 +281,11 @@ public class w extends BaseAdapter {
         }
         if (lastReplyTime <= 0) {
             if (b.b() == 1) {
-                return this.f1657a.getString(R.string.members_no_speak);
+                return this.f1724a.getString(R.string.members_no_speak);
             }
             return "";
         }
-        return be.e(new Date(lastReplyTime * 1000));
+        return bb.e(new Date(lastReplyTime * 1000));
     }
 
     public com.baidu.tieba.util.i e() {

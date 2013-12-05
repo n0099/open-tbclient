@@ -1,31 +1,12 @@
 package com.baidu.tieba.im.searchGroup;
 
-import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
-import java.util.LinkedList;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.view.HeadImageView;
 /* loaded from: classes.dex */
-public class f implements View.OnClickListener {
+class f {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ d f1781a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public f(d dVar) {
-        this.f1781a = dVar;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        EditText editText;
-        b bVar;
-        TextView textView;
-        editText = this.f1781a.e;
-        editText.setText("");
-        bVar = this.f1781a.j;
-        bVar.a(new LinkedList());
-        textView = this.f1781a.h;
-        textView.setVisibility(8);
-    }
+    HeadImageView f1877a;
+    TextView b;
+    TextView c;
 }

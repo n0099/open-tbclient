@@ -1,50 +1,60 @@
 package com.baidu.tieba.im.model;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.util.bg;
-import org.apache.http.message.BasicNameValuePair;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.im.message.RequestQueryGroupLocMessage;
+import com.baidu.tieba.im.message.ResponseRequestGroupLocMessage;
 /* loaded from: classes.dex */
-public class z extends BdAsyncTask<Object, Integer, String> {
+public class z extends com.baidu.adp.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ y f1756a;
-    private String b;
-    private long c;
-    private e d = new e();
+    private RequestQueryGroupLocMessage f1831a = null;
+    private ResponseRequestGroupLocMessage b = null;
+    private int c;
+    private String d;
+    private String e;
 
-    public z(y yVar, String str, long j) {
-        this.f1756a = yVar;
-        this.b = str;
-        this.c = j;
+    public void a(int i) {
+        this.c = i;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: d */
-    public String a(Object... objArr) {
-        String str;
-        try {
-            return this.d.a(this.b);
-        } catch (Exception e) {
-            str = y.f1755a;
-            bg.b(str, "doInBackground", "errro: " + e.getMessage());
-            return null;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(String str) {
-        com.baidu.adp.a.g gVar;
-        com.baidu.adp.a.g gVar2;
-        super.a((z) str);
-        gVar = this.f1756a.mLoadDataCallBack;
-        if (gVar != null) {
-            gVar2 = this.f1756a.mLoadDataCallBack;
-            gVar2.a(new BasicNameValuePair(String.valueOf(this.c), str));
+        this.d = str;
+    }
+
+    public void b(String str) {
+        this.e = str;
+    }
+
+    private RequestQueryGroupLocMessage c() {
+        RequestQueryGroupLocMessage requestQueryGroupLocMessage = new RequestQueryGroupLocMessage();
+        requestQueryGroupLocMessage.setLng(this.d);
+        requestQueryGroupLocMessage.setLat(this.e);
+        requestQueryGroupLocMessage.setGroupId(this.c);
+        return requestQueryGroupLocMessage;
+    }
+
+    public void a() {
+        this.f1831a = c();
+        com.baidu.tieba.im.messageCenter.e.a().a(this.f1831a);
+    }
+
+    public void b() {
+        if (this.f1831a != null) {
+            com.baidu.tieba.im.messageCenter.e.a().b(this.f1831a);
+            this.f1831a = null;
         }
+        if (this.b != null) {
+            com.baidu.tieba.im.messageCenter.e.a().b(this.b);
+            this.b = null;
+        }
+    }
+
+    @Override // com.baidu.adp.a.d
+    protected boolean LoadData() {
+        return false;
+    }
+
+    @Override // com.baidu.adp.a.d
+    public boolean cancelLoadData() {
+        return false;
     }
 }

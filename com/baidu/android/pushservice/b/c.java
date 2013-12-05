@@ -18,13 +18,13 @@ public class c {
     private final String g = "3";
 
     /* renamed from: a  reason: collision with root package name */
-    public List f695a = new ArrayList();
+    public List f700a = new ArrayList();
 
     public String a() {
         JSONArray jSONArray = new JSONArray();
         JSONObject jSONObject = new JSONObject();
         try {
-            for (d dVar : this.f695a) {
+            for (d dVar : this.f700a) {
                 jSONArray.put(dVar.a());
             }
             JSONObject jSONObject2 = new JSONObject();
@@ -56,6 +56,6 @@ public class c {
     }
 
     public void a(d dVar) {
-        this.f695a.add(dVar);
+        this.f700a.add(dVar);
     }
 }

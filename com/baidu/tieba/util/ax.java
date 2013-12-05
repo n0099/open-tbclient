@@ -1,27 +1,38 @@
 package com.baidu.tieba.util;
 
-import java.util.TimerTask;
+import java.util.ArrayList;
+import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes.dex */
-class ax extends TimerTask {
+public class ax {
+    private static ArrayList<ay> b = new ArrayList<>();
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NetWorkCoreByBdHttp f2476a;
+    public static AtomicInteger f2592a = new AtomicInteger(0);
 
-    private ax(NetWorkCoreByBdHttp netWorkCoreByBdHttp) {
-        this.f2476a = netWorkCoreByBdHttp;
+    public static int a(int i) {
+        return f2592a.getAndSet(i);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ax(NetWorkCoreByBdHttp netWorkCoreByBdHttp, au auVar) {
-        this(netWorkCoreByBdHttp);
+    public static int b(int i) {
+        return f2592a.addAndGet(i);
     }
 
-    @Override // java.util.TimerTask, java.lang.Runnable
-    public void run() {
-        try {
-            this.f2476a.r();
-        } catch (Exception e) {
-            bg.b(getClass().getName(), "initNetWorkCore", e.getMessage());
+    public static synchronized void a(ay ayVar) {
+        synchronized (ax.class) {
+            if (ayVar != null) {
+                if (b.size() <= 20) {
+                    b.add(ayVar);
+                }
+            }
         }
+    }
+
+    public static synchronized ay a() {
+        ay remove;
+        synchronized (ax.class) {
+            int size = b.size();
+            remove = size > 0 ? b.remove(size - 1) : null;
+        }
+        return remove;
     }
 }

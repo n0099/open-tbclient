@@ -7,7 +7,7 @@ import java.nio.ByteBuffer;
 public class StreamInput extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final InputStream f2876a;
+    private final InputStream f3057a;
     private byte[] b;
     private ByteBuffer c;
     private int d;
@@ -16,7 +16,7 @@ public class StreamInput extends a {
     public int a(byte[] bArr, int i, int i2) {
         int i3 = i2;
         while (i3 > 0) {
-            int read = this.f2876a.read(bArr, i, i3);
+            int read = this.f3057a.read(bArr, i, i3);
             if (read <= 0) {
                 throw new EOFException();
             }
@@ -34,7 +34,7 @@ public class StreamInput extends a {
 
     @Override // org.msgpack.io.e
     public byte b() {
-        int read = this.f2876a.read();
+        int read = this.f3057a.read();
         if (read < 0) {
             throw new EOFException();
         }
@@ -50,7 +50,7 @@ public class StreamInput extends a {
 
     private void b(int i) {
         while (this.d < i) {
-            int read = this.f2876a.read(this.b, this.d, i - this.d);
+            int read = this.f3057a.read(this.b, this.d, i - this.d);
             if (read < 0) {
                 throw new EOFException();
             }
@@ -96,6 +96,6 @@ public class StreamInput extends a {
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() {
-        this.f2876a.close();
+        this.f3057a.close();
     }
 }

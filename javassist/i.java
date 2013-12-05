@@ -6,7 +6,7 @@ import java.io.OutputStream;
 class i extends OutputStream {
 
     /* renamed from: a  reason: collision with root package name */
-    private FileOutputStream f2840a = null;
+    private FileOutputStream f3021a = null;
     private String b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,38 +15,38 @@ class i extends OutputStream {
     }
 
     private void a() {
-        if (this.f2840a == null) {
-            this.f2840a = new FileOutputStream(this.b);
+        if (this.f3021a == null) {
+            this.f3021a = new FileOutputStream(this.b);
         }
     }
 
     @Override // java.io.OutputStream
     public void write(int i) {
         a();
-        this.f2840a.write(i);
+        this.f3021a.write(i);
     }
 
     @Override // java.io.OutputStream
     public void write(byte[] bArr) {
         a();
-        this.f2840a.write(bArr);
+        this.f3021a.write(bArr);
     }
 
     @Override // java.io.OutputStream
     public void write(byte[] bArr, int i, int i2) {
         a();
-        this.f2840a.write(bArr, i, i2);
+        this.f3021a.write(bArr, i, i2);
     }
 
     @Override // java.io.OutputStream, java.io.Flushable
     public void flush() {
         a();
-        this.f2840a.flush();
+        this.f3021a.flush();
     }
 
     @Override // java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() {
         a();
-        this.f2840a.close();
+        this.f3021a.close();
     }
 }

@@ -10,7 +10,7 @@ public class bp extends com.baidu.adp.a.d {
     protected com.baidu.tieba.data.av f;
 
     /* renamed from: a  reason: collision with root package name */
-    protected int f1899a = 0;
+    protected int f2011a = 0;
     protected String b = null;
     protected String c = null;
     protected String d = null;
@@ -94,7 +94,7 @@ public class bp extends com.baidu.adp.a.d {
     }
 
     public int g() {
-        return this.f1899a;
+        return this.f2011a;
     }
 
     @Override // com.baidu.adp.a.d
@@ -111,7 +111,7 @@ public class bp extends com.baidu.adp.a.d {
         if (this.b == null || this.c == null || this.g != null) {
             return false;
         }
-        this.f1899a = 0;
+        this.f2011a = 0;
         a(0);
         return true;
     }
@@ -121,21 +121,21 @@ public class bp extends com.baidu.adp.a.d {
         if (this.b == null || this.c == null || this.f.l() || this.g != null) {
             return false;
         }
-        this.f1899a = 2;
+        this.f2011a = 2;
         a(2);
         return true;
     }
 
     public boolean j() {
         cancelLoadData();
-        this.f1899a = 1;
+        this.f2011a = 1;
         a(1);
         return true;
     }
 
     public boolean k() {
         cancelLoadData();
-        this.f1899a = 3;
+        this.f2011a = 3;
         a(3);
         return true;
     }

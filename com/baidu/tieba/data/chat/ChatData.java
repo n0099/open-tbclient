@@ -1,6 +1,6 @@
 package com.baidu.tieba.data.chat;
 
-import com.baidu.tieba.util.bg;
+import com.baidu.tieba.util.bd;
 import java.io.Serializable;
 import java.util.LinkedList;
 import org.json.JSONArray;
@@ -150,7 +150,7 @@ public class ChatData implements Serializable {
         try {
             parserJson(new JSONObject(str));
         } catch (Exception e) {
-            bg.b(getClass().getName(), "parserJson", e.toString());
+            bd.b(getClass().getName(), "parserJson", e.toString());
         }
     }
 
@@ -174,7 +174,7 @@ public class ChatData implements Serializable {
                 }
             }
         } catch (Exception e) {
-            bg.b(getClass().getName(), "parserJson", e.toString());
+            bd.b(getClass().getName(), "parserJson", e.toString());
         }
     }
 

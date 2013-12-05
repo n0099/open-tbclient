@@ -1,25 +1,23 @@
 package com.baidu.tieba.im.pushNotify;
 
-import android.text.TextUtils;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import java.util.concurrent.ConcurrentHashMap;
+import com.baidu.tieba.im.SingleRunnable;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class c implements com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMessageCenterPojo>> {
+public final class c extends SingleRunnable<Void> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ b f1762a;
+    final /* synthetic */ boolean f1859a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public c(b bVar) {
-        this.f1762a = bVar;
+    public c(boolean z) {
+        this.f1859a = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    public void a(ConcurrentHashMap<String, ImMessageCenterPojo> concurrentHashMap) {
-        ImMessageCenterPojo imMessageCenterPojo;
-        if (concurrentHashMap != null && !TextUtils.isEmpty(this.f1762a.f1761a) && (imMessageCenterPojo = concurrentHashMap.get(this.f1762a.f1761a)) != null) {
-            imMessageCenterPojo.setPulled_msgId(0L);
-        }
+    @Override // com.baidu.tieba.im.SingleRunnable
+    /* renamed from: a */
+    public Void b() {
+        a.a(this.f1859a);
+        return null;
     }
 }

@@ -21,9 +21,10 @@ import com.slidingmenu.lib.R;
 public class MoreActivity extends com.baidu.tieba.j implements com.baidu.adp.widget.BdSwitchView.c {
 
     /* renamed from: a  reason: collision with root package name */
-    private ah f1943a;
+    private ah f2055a;
     private MoreModel b = null;
     private ag c = null;
+    private com.baidu.tieba.util.i d = null;
 
     public static void a(Activity activity, int i, PersonChangeData personChangeData) {
         Intent intent = new Intent(activity, MoreActivity.class);
@@ -39,9 +40,10 @@ public class MoreActivity extends com.baidu.tieba.j implements com.baidu.adp.wid
     @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.f1943a = new ah(this, a());
+        this.f2055a = new ah(this, a());
         a(bundle);
         c();
+        this.d = new com.baidu.tieba.util.i(this);
     }
 
     private ac a() {
@@ -59,16 +61,16 @@ public class MoreActivity extends com.baidu.tieba.j implements com.baidu.adp.wid
     @Override // com.baidu.tieba.j, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (TiebaApplication.n()) {
-            if (TiebaApplication.A() == null || TiebaApplication.F() == null || TiebaApplication.F().equals("BaiduUser")) {
-                this.f1943a.e();
+        if (TiebaApplication.o()) {
+            if (TiebaApplication.B() == null || TiebaApplication.G() == null || TiebaApplication.G().equals("BaiduUser")) {
+                this.f2055a.e();
             } else {
-                this.f1943a.a();
+                this.f2055a.a();
             }
-            this.f1943a.f();
+            this.f2055a.f();
         }
-        if (this.f1943a != null) {
-            this.f1943a.i();
+        if (this.f2055a != null) {
+            this.f2055a.i();
         }
     }
 
@@ -76,14 +78,14 @@ public class MoreActivity extends com.baidu.tieba.j implements com.baidu.adp.wid
     @Override // com.baidu.tieba.j
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.f1943a.a(i);
+        this.f2055a.a(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j
     public void onResourceRecycle() {
         setSkinType(-1);
-        this.f1943a.j();
+        this.f2055a.j();
     }
 
     @Override // android.app.Activity
@@ -109,13 +111,19 @@ public class MoreActivity extends com.baidu.tieba.j implements com.baidu.adp.wid
                     PersonChangeData personChangeData = (PersonChangeData) intent.getSerializableExtra("data");
                     this.b.a(personChangeData);
                     this.b.a(true);
-                    if (personChangeData != null && personChangeData.getPhotoChanged() && this.f1943a != null) {
-                        this.f1943a.h();
+                    if (personChangeData != null && personChangeData.getPhotoChanged() && this.f2055a != null) {
+                        this.f2055a.h();
                         String portrait = personChangeData.getPortrait();
-                        if (portrait != null && portrait.length() > 0 && this.f1943a != null) {
-                            this.f1943a.b(portrait);
-                            new af(this, null).execute(new Object[0]);
-                            return;
+                        if (portrait != null && portrait.length() > 0 && this.f2055a != null) {
+                            this.f2055a.b(portrait);
+                            com.baidu.adp.widget.ImageView.e c = this.d.c(portrait);
+                            if (c != null) {
+                                this.f2055a.a(c);
+                                return;
+                            } else {
+                                this.d.c(portrait, new ae(this));
+                                return;
+                            }
                         }
                         return;
                     }
@@ -145,10 +153,10 @@ public class MoreActivity extends com.baidu.tieba.j implements com.baidu.adp.wid
             personChangeData = (PersonChangeData) getIntent().getSerializableExtra("person_change_data");
         }
         if (personChangeData != null && personChangeData.getPortrait() != null) {
-            this.f1943a.a(personChangeData.getPortrait());
+            this.f2055a.a(personChangeData.getPortrait());
         }
         this.b = new MoreModel(personChangeData);
-        this.b.setLoadDataCallBack(new ae(this));
+        this.b.setLoadDataCallBack(new af(this));
     }
 
     private void c() {
@@ -170,8 +178,8 @@ public class MoreActivity extends com.baidu.tieba.j implements com.baidu.adp.wid
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        String A = TiebaApplication.A();
-        if (A == null || A.length() <= 0) {
+        String B = TiebaApplication.B();
+        if (B == null || B.length() <= 0) {
             LoginActivity.a((Activity) this, getString(R.string.login_feedback), true, 12008);
             return;
         }
@@ -189,7 +197,7 @@ public class MoreActivity extends com.baidu.tieba.j implements com.baidu.adp.wid
         } else if (!str2.endsWith("?") && !str2.endsWith("&")) {
             str2 = str2 + "&";
         }
-        if (TiebaApplication.g().ap() == 1) {
+        if (TiebaApplication.h().an() == 1) {
             str = str2 + "night_type=1";
         } else {
             str = str2 + "night_type=0";
@@ -209,12 +217,12 @@ public class MoreActivity extends com.baidu.tieba.j implements com.baidu.adp.wid
 
     /* JADX INFO: Access modifiers changed from: private */
     public void i() {
-        if (TiebaApplication.n()) {
+        if (TiebaApplication.o()) {
             com.baidu.tieba.f.a(this, 0, 4, false);
             return;
         }
-        String A = TiebaApplication.A();
-        if ((A == null || A.length() <= 0) && DatabaseService.m() <= 0) {
+        String B = TiebaApplication.B();
+        if ((B == null || B.length() <= 0) && DatabaseService.m() <= 0) {
             LoginActivity.a(this, 1, getString(R.string.login_manage_account), 11003);
         } else {
             AccountActivity.a(this);
@@ -223,8 +231,8 @@ public class MoreActivity extends com.baidu.tieba.j implements com.baidu.adp.wid
 
     /* JADX INFO: Access modifiers changed from: private */
     public void j() {
-        String A = TiebaApplication.A();
-        if (A != null && A.length() > 0) {
+        String B = TiebaApplication.B();
+        if (B != null && B.length() > 0) {
             PersonChangeActivity.a(this, 101, this.b.b(), false);
         }
     }

@@ -16,12 +16,12 @@ import javassist.compiler.ast.MethodDecl;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private javassist.h f2823a;
+    private javassist.h f3004a;
     private int b = 1;
     private HashMap c = new HashMap();
 
     public a(javassist.h hVar) {
-        this.f2823a = hVar;
+        this.f3004a = hVar;
     }
 
     public String a(javassist.h hVar, String str, an anVar) {
@@ -29,10 +29,10 @@ public class a {
         String str3 = (String) this.c.get(str2);
         if (str3 == null) {
             str3 = z.a("javassist.runtime.Inner", str);
-            javassist.bytecode.i g = this.f2823a.g();
+            javassist.bytecode.i g = this.f3004a.g();
             try {
                 y c = g.c();
-                javassist.c a2 = this.f2823a.a();
+                javassist.c a2 = this.f3004a.a();
                 an anVar2 = new an(c, MethodDecl.initName, str3);
                 anVar2.a(0);
                 anVar2.a(new SyntheticAttribute(c));
@@ -48,7 +48,7 @@ public class a {
                     i += bytecode.a(i, hVar2);
                 }
                 bytecode.d(i + 1);
-                bytecode.c(this.f2823a, MethodDecl.initName, str);
+                bytecode.c(this.f3004a, MethodDecl.initName, str);
                 bytecode.b((javassist.h) null);
                 anVar2.a(bytecode.e());
                 g.a(anVar2);
@@ -66,11 +66,11 @@ public class a {
         String str4 = str + ":" + str2;
         String str5 = (String) this.c.get(str4);
         if (str5 == null) {
-            javassist.bytecode.i g = this.f2823a.g();
+            javassist.bytecode.i g = this.f3004a.g();
             str5 = a(g);
             try {
                 y c = g.c();
-                javassist.c a2 = this.f2823a.a();
+                javassist.c a2 = this.f3004a.a();
                 an anVar2 = new an(c, str5, str3);
                 anVar2.a(8);
                 anVar2.a(new SyntheticAttribute(c));
@@ -86,9 +86,9 @@ public class a {
                 }
                 bytecode.d(i);
                 if (str2 == str3) {
-                    bytecode.d(this.f2823a, str, str2);
+                    bytecode.d(this.f3004a, str, str2);
                 } else {
-                    bytecode.e(this.f2823a, str, str2);
+                    bytecode.e(this.f3004a, str, str2);
                 }
                 bytecode.b(z.b(str2, a2));
                 anVar2.a(bytecode.e());
@@ -111,26 +111,26 @@ public class a {
         if (obj != null) {
             return (an) obj;
         }
-        javassist.bytecode.i g = this.f2823a.g();
+        javassist.bytecode.i g = this.f3004a.g();
         String a2 = a(g);
         try {
             y c = g.c();
-            javassist.c a3 = this.f2823a.a();
+            javassist.c a3 = this.f3004a.a();
             String d = adVar.d();
             if (z) {
                 str = "()" + d;
             } else {
-                str = "(" + z.b(this.f2823a) + ")" + d;
+                str = "(" + z.b(this.f3004a) + ")" + d;
             }
             an anVar = new an(c, a2, str);
             anVar.a(8);
             anVar.a(new SyntheticAttribute(c));
             Bytecode bytecode = new Bytecode(c);
             if (z) {
-                bytecode.b(Bytecode.f2730a, b, d);
+                bytecode.b(Bytecode.f2911a, b, d);
             } else {
                 bytecode.k(0);
-                bytecode.a(Bytecode.f2730a, b, d);
+                bytecode.a(Bytecode.f2911a, b, d);
                 bytecode.d(1);
             }
             bytecode.b(z.c(d, a3));
@@ -154,16 +154,16 @@ public class a {
         if (obj != null) {
             return (an) obj;
         }
-        javassist.bytecode.i g = this.f2823a.g();
+        javassist.bytecode.i g = this.f3004a.g();
         String a3 = a(g);
         try {
             y c = g.c();
-            javassist.c a4 = this.f2823a.a();
+            javassist.c a4 = this.f3004a.a();
             String d = adVar.d();
             if (z) {
                 str = "(" + d + ")V";
             } else {
-                str = "(" + z.b(this.f2823a) + d + ")V";
+                str = "(" + z.b(this.f3004a) + d + ")V";
             }
             an anVar = new an(c, a3, str);
             anVar.a(8);
@@ -171,11 +171,11 @@ public class a {
             Bytecode bytecode = new Bytecode(c);
             if (z) {
                 a2 = bytecode.a(0, z.c(d, a4));
-                bytecode.g(Bytecode.f2730a, b, d);
+                bytecode.g(Bytecode.f2911a, b, d);
             } else {
                 bytecode.k(0);
                 a2 = bytecode.a(1, z.c(d, a4)) + 1;
-                bytecode.f(Bytecode.f2730a, b, d);
+                bytecode.f(Bytecode.f2911a, b, d);
             }
             bytecode.b((javassist.h) null);
             bytecode.d(a2);

@@ -1,142 +1,136 @@
 package com.baidu.tieba.view;
 
-import android.app.Dialog;
 import android.content.Context;
-import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
-import com.baidu.tieba.util.UtilHelper;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.slidingmenu.lib.R;
+import java.util.ArrayList;
+import java.util.HashMap;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class am extends Dialog {
+public class am extends BdAsyncTask<String, Integer, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    private Window f2545a;
-    private ImageView b;
-    private View c;
-    private ProgressBar d;
-    private View.OnTouchListener e;
-    private int f;
-    private int g;
-    private int h;
-    private int i;
-    private int j;
-    private int k;
-    private int l;
-    private int m;
+    final /* synthetic */ ImagePbPagerAdapter f2659a;
+    private com.baidu.tieba.util.am b = null;
+    private int c;
+    private int d;
+    private String e;
+    private String f;
+    private com.baidu.tieba.pb.ag g;
+    private String h;
 
-    public am(Context context, int i, int i2) {
-        super(context, R.style.big_image_dialog);
-        this.f2545a = null;
-        this.b = null;
-        this.c = null;
-        this.d = null;
+    public am(ImagePbPagerAdapter imagePbPagerAdapter, com.baidu.tieba.pb.ag agVar, int i, int i2, String str, String str2) {
+        this.f2659a = imagePbPagerAdapter;
+        this.c = 0;
+        this.d = 10;
         this.e = null;
-        this.f = 0;
-        this.g = 0;
-        this.h = 0;
-        this.i = 0;
-        this.j = 0;
-        this.k = 0;
-        this.l = 0;
-        this.m = 0;
-        this.l = UtilHelper.a(context, 0.0f);
-        this.f = i;
-        this.g = i2;
-        if (this.f <= 0) {
-            this.f = 1;
-        }
-        if (this.g <= 0) {
-            this.g = 1;
-        }
-        this.c = LayoutInflater.from(context).inflate(R.layout.big_image_dialog, (ViewGroup) null);
-        this.b = (ImageView) this.c.findViewById(R.id.image);
-        this.b.setScaleType(ImageView.ScaleType.FIT_CENTER);
-        this.b.setPadding(this.l, this.l, this.l, this.l);
-        this.h = (int) (this.f * 0.8d);
-        this.i = (int) (this.g * 0.8d);
-        this.d = (ProgressBar) this.c.findViewById(R.id.image_progress);
-        this.e = new an(this);
+        this.f = null;
+        this.g = null;
+        this.h = null;
+        this.c = i;
+        this.d = i2;
+        this.e = str;
+        this.f = str2;
+        this.g = agVar;
+        this.h = agVar.e().d();
     }
 
-    public void a() {
-        if (isShowing()) {
-            this.d.setVisibility(8);
-            UtilHelper.a(getContext(), getContext().getResources().getString(R.string.image_error));
-        }
-    }
-
-    public void a(com.baidu.adp.widget.ImageView.e eVar) {
-        this.d.setVisibility(8);
-        if (eVar != null) {
-            this.b.setLayoutParams(this.b.getLayoutParams());
-            eVar.a(this.b);
-        }
-    }
-
-    public void a(com.baidu.adp.widget.ImageView.e eVar, boolean z) {
-        b(eVar);
-        if (!z) {
-            this.d.setVisibility(8);
-        } else {
-            this.d.setVisibility(0);
-        }
-        b();
-        show();
-    }
-
-    private void b(com.baidu.adp.widget.ImageView.e eVar) {
-        int i;
-        int b;
-        if (eVar != null) {
-            if (this.h / this.i > eVar.a() / eVar.b()) {
-                i = (eVar.a() * this.i) / eVar.b();
-                b = this.i;
-            } else {
-                i = this.h;
-                b = (eVar.b() * this.h) / eVar.a();
-            }
-            ViewGroup.LayoutParams layoutParams = this.b.getLayoutParams();
-            int i2 = i + (this.l * 2);
-            int i3 = b + (this.l * 2);
-            layoutParams.width = i2;
-            layoutParams.height = i3;
-            this.b.setLayoutParams(layoutParams);
-            this.j = (this.f - (i2 + (this.m * 2))) / 2;
-            this.k = (this.g - (i3 + (this.m * 2))) / 2;
-            eVar.a(this.b);
-        }
-    }
-
-    @Override // android.app.Dialog
-    protected void onStop() {
-        super.onStop();
-        this.d.setVisibility(8);
-    }
-
-    @Override // android.app.Dialog
-    protected void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        setContentView(this.c);
-        setCanceledOnTouchOutside(true);
-        setCancelable(true);
-        getWindow().getDecorView().setOnTouchListener(this.e);
-    }
-
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void b() {
-        this.f2545a = getWindow();
-        this.f2545a.setWindowAnimations(R.style.big_image_dialog_anim);
-        WindowManager.LayoutParams attributes = this.f2545a.getAttributes();
-        attributes.x = this.j;
-        attributes.y = this.k;
-        attributes.horizontalMargin = 0.0f;
-        attributes.verticalMargin = 0.0f;
-        attributes.gravity = 51;
-        this.f2545a.setAttributes(attributes);
+        if (this.g != null) {
+            this.g.a(true);
+            this.g.notifyDataSetChanged();
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public String a(String... strArr) {
+        String str;
+        this.b = new com.baidu.tieba.util.am(com.baidu.tieba.data.h.f1248a + "c/f/pb/piccomment");
+        com.baidu.tieba.util.am amVar = this.b;
+        str = this.f2659a.e;
+        amVar.a("kw", str);
+        this.b.a("pic_id", this.f);
+        this.b.a("tid", this.e);
+        this.b.a("pn", String.valueOf(this.c));
+        this.b.a("rn", String.valueOf(this.d));
+        this.b.a("alt", "json");
+        this.b.e(true);
+        return this.b.l();
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        if (this.b != null) {
+            this.b.j();
+        }
+        if (this.g != null) {
+            this.g.a(false);
+            this.g.notifyDataSetChanged();
+        }
+        super.cancel(true);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    /* JADX WARN: Incorrect condition in loop: B:22:0x0078 */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void a(String str) {
+        Context context;
+        Context context2;
+        HashMap hashMap;
+        ArrayList arrayList;
+        ArrayList arrayList2;
+        ArrayList arrayList3;
+        HashMap hashMap2;
+        com.baidu.tieba.data.ac acVar = null;
+        super.a((am) str);
+        try {
+            if (this.g != null) {
+                this.g.a(false);
+            }
+            if (this.b != null) {
+                if (!this.b.c() || this.g == null) {
+                    context = this.f2659a.b;
+                    context2 = this.f2659a.b;
+                    ((com.baidu.tieba.j) context).showToast(context2.getString(R.string.image_pb_comment_fail));
+                    return;
+                }
+                if (this.g != null) {
+                    this.g.a((com.baidu.tieba.data.ac) null);
+                    this.g.notifyDataSetChanged();
+                }
+                hashMap = this.f2659a.h;
+                if (hashMap.get(this.g.e().d()) != null) {
+                    hashMap2 = this.f2659a.h;
+                    acVar = (com.baidu.tieba.data.ac) hashMap2.get(this.g.e().d());
+                    acVar.a(str);
+                }
+                if (this.g != null) {
+                    this.g.a(acVar);
+                    this.g.notifyDataSetChanged();
+                    this.g = null;
+                }
+                for (int i = 0; i < arrayList.size(); i++) {
+                    arrayList2 = this.f2659a.s;
+                    if (((View) arrayList2.get(i)).getTag() instanceof com.baidu.tieba.pb.ag) {
+                        arrayList3 = this.f2659a.s;
+                        com.baidu.tieba.pb.ag agVar = (com.baidu.tieba.pb.ag) ((View) arrayList3.get(i)).getTag();
+                        if (agVar.e() != null && this.h.equals(agVar.e().d())) {
+                            agVar.notifyDataSetChanged();
+                        }
+                    }
+                }
+            }
+        } catch (Exception e) {
+            com.baidu.tieba.util.bd.b(getClass().getName(), "onPostExecute", e.getMessage());
+        }
     }
 }

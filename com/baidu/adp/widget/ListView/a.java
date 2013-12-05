@@ -18,7 +18,7 @@ public class a extends d {
     private static SimpleDateFormat l = new SimpleDateFormat("MM-dd HH:mm");
 
     /* renamed from: a  reason: collision with root package name */
-    private View f564a;
+    private View f568a;
     private ImageView b;
     private ProgressBar c;
     private TextView d;
@@ -32,7 +32,7 @@ public class a extends d {
 
     public a(Context context) {
         super(context);
-        this.f564a = null;
+        this.f568a = null;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -62,11 +62,11 @@ public class a extends d {
             str3 = h.getString(com.baidu.adp.f.adp_loading);
         }
         this.k = str3;
-        this.f564a = LayoutInflater.from(h()).inflate(com.baidu.adp.e.pull_view, (ViewGroup) null);
-        this.b = (ImageView) this.f564a.findViewById(com.baidu.adp.d.pull_arrow);
-        this.c = (ProgressBar) this.f564a.findViewById(com.baidu.adp.d.pull_progress);
-        this.d = (TextView) this.f564a.findViewById(com.baidu.adp.d.pull_text);
-        this.e = (TextView) this.f564a.findViewById(com.baidu.adp.d.pull_time);
+        this.f568a = LayoutInflater.from(h()).inflate(com.baidu.adp.e.pull_view, (ViewGroup) null);
+        this.b = (ImageView) this.f568a.findViewById(com.baidu.adp.d.pull_arrow);
+        this.c = (ProgressBar) this.f568a.findViewById(com.baidu.adp.d.pull_progress);
+        this.d = (TextView) this.f568a.findViewById(com.baidu.adp.d.pull_text);
+        this.e = (TextView) this.f568a.findViewById(com.baidu.adp.d.pull_time);
         a(g());
         this.f = new RotateAnimation(0.0f, -180.0f, 1, 0.5f, 1, 0.5f);
         this.f.setInterpolator(new LinearInterpolator());
@@ -76,14 +76,14 @@ public class a extends d {
         this.g.setInterpolator(new LinearInterpolator());
         this.g.setDuration(200L);
         this.g.setFillAfter(true);
-        return this.f564a;
+        return this.f568a;
     }
 
     public View b() {
-        if (this.f564a == null) {
-            this.f564a = a();
+        if (this.f568a == null) {
+            this.f568a = a();
         }
-        return this.f564a;
+        return this.f568a;
     }
 
     public TextView c() {

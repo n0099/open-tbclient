@@ -6,17 +6,17 @@ import java.io.ByteArrayOutputStream;
 public class bl {
 
     /* renamed from: a  reason: collision with root package name */
-    ByteArrayOutputStream f2791a;
+    ByteArrayOutputStream f2972a;
     int b = 0;
 
     public bl(int i) {
-        this.f2791a = new ByteArrayOutputStream(i);
-        this.f2791a.write(0);
-        this.f2791a.write(0);
+        this.f2972a = new ByteArrayOutputStream(i);
+        this.f2972a.write(0);
+        this.f2972a.write(0);
     }
 
     public byte[] a() {
-        byte[] byteArray = this.f2791a.toByteArray();
+        byte[] byteArray = this.f2972a.toByteArray();
         g.a(this.b, byteArray, 0);
         return byteArray;
     }
@@ -28,19 +28,19 @@ public class bl {
     public void a(int i) {
         this.b++;
         if (i < 64) {
-            this.f2791a.write(i);
+            this.f2972a.write(i);
             return;
         }
-        this.f2791a.write(251);
+        this.f2972a.write(251);
         b(i);
     }
 
     public void a(int i, int i2, int i3) {
         this.b++;
         if (i < 64) {
-            this.f2791a.write(i + 64);
+            this.f2972a.write(i + 64);
         } else {
-            this.f2791a.write(247);
+            this.f2972a.write(247);
             b(i);
         }
         b(i2, i3);
@@ -48,14 +48,14 @@ public class bl {
 
     public void a(int i, int i2) {
         this.b++;
-        this.f2791a.write(251 - i2);
+        this.f2972a.write(251 - i2);
         b(i);
     }
 
     public void a(int i, int[] iArr, int[] iArr2) {
         this.b++;
         int length = iArr.length;
-        this.f2791a.write(length + 251);
+        this.f2972a.write(length + 251);
         b(i);
         for (int i2 = 0; i2 < length; i2++) {
             b(iArr[i2], iArr2[i2]);
@@ -64,7 +64,7 @@ public class bl {
 
     public void a(int i, int[] iArr, int[] iArr2, int[] iArr3, int[] iArr4) {
         this.b++;
-        this.f2791a.write(Util.MASK_8BIT);
+        this.f2972a.write(Util.MASK_8BIT);
         b(i);
         int length = iArr.length;
         b(length);
@@ -79,14 +79,14 @@ public class bl {
     }
 
     private void b(int i, int i2) {
-        this.f2791a.write(i);
+        this.f2972a.write(i);
         if (i == 7 || i == 8) {
             b(i2);
         }
     }
 
     private void b(int i) {
-        this.f2791a.write((i >>> 8) & Util.MASK_8BIT);
-        this.f2791a.write(i & Util.MASK_8BIT);
+        this.f2972a.write((i >>> 8) & Util.MASK_8BIT);
+        this.f2972a.write(i & Util.MASK_8BIT);
     }
 }

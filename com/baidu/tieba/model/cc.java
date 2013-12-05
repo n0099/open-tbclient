@@ -1,45 +1,45 @@
 package com.baidu.tieba.model;
 
-import com.baidu.adp.lib.cache.BdCacheService;
+import android.text.TextUtils;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.util.UtilHelper;
-import com.tencent.mm.sdk.platformtools.Util;
 /* loaded from: classes.dex */
 public class cc {
 
     /* renamed from: a  reason: collision with root package name */
-    private static cc f1910a;
-    private com.baidu.adp.lib.cache.s<String> b;
+    private static cc f2022a;
+    private com.baidu.adp.lib.d.a<String, String> b;
 
     private cc() {
         this.b = null;
-        this.b = BdCacheService.c().a("tb.pv", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 20);
+        this.b = new com.baidu.adp.lib.d.a<>(256);
     }
 
     public static synchronized cc a() {
         cc ccVar;
         synchronized (cc.class) {
-            if (f1910a == null) {
-                f1910a = new cc();
+            if (f2022a == null) {
+                f2022a = new cc();
             }
-            ccVar = f1910a;
+            ccVar = f2022a;
         }
         return ccVar;
     }
 
-    public void a(String str, String str2) {
+    public void a(String str, Long l) {
         if (str != null && str.length() > 0) {
-            this.b.a(TiebaApplication.A() + str, str2, Util.MILLSECONDS_OF_DAY);
+            this.b.a(TiebaApplication.B() + str, String.valueOf(l));
         }
     }
 
     public boolean a(String str) {
-        if (str != null && str.length() > 0) {
-            com.baidu.adp.lib.cache.t<String> b = this.b.b(TiebaApplication.A() + str);
-            if (b != null) {
-                return UtilHelper.a(b.b, System.currentTimeMillis());
-            }
+        if (str == null || str.length() <= 0) {
+            return false;
         }
-        return false;
+        String a2 = this.b.a((com.baidu.adp.lib.d.a<String, String>) (TiebaApplication.B() + str));
+        if (TextUtils.isEmpty(a2)) {
+            return false;
+        }
+        return UtilHelper.a(com.baidu.adp.lib.f.b.a(a2, 0L), System.currentTimeMillis());
     }
 }

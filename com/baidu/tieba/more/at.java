@@ -1,19 +1,38 @@
 package com.baidu.tieba.more;
 
-import android.content.DialogInterface;
+import com.baidu.tieba.TiebaApplication;
 /* loaded from: classes.dex */
-class at implements DialogInterface.OnClickListener {
+public class at extends com.baidu.adp.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SystemHelpSettingActivity f1970a;
+    private av f2081a = null;
+    private aw b = null;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public at(SystemHelpSettingActivity systemHelpSettingActivity) {
-        this.f1970a = systemHelpSettingActivity;
+    public void a() {
+        if (this.f2081a == null) {
+            this.f2081a = new av(this);
+            this.f2081a.execute(new String[0]);
+        }
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        dialogInterface.cancel();
+    public void b() {
+        if (this.b == null) {
+            this.b = new aw(this);
+            this.b.execute(new String[0]);
+        }
+    }
+
+    public void a(boolean z) {
+        TiebaApplication.h().s(z);
+    }
+
+    @Override // com.baidu.adp.a.d
+    protected boolean LoadData() {
+        return false;
+    }
+
+    @Override // com.baidu.adp.a.d
+    public boolean cancelLoadData() {
+        return false;
     }
 }

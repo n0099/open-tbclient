@@ -4,18 +4,18 @@ package com.baidu.tieba.pb;
 public class cg implements com.baidu.tieba.editortool.o {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ int f2096a;
+    final /* synthetic */ int f2203a;
     final /* synthetic */ PbEditor b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cg(PbEditor pbEditor, int i) {
         this.b = pbEditor;
-        this.f2096a = i;
+        this.f2203a = i;
     }
 
     @Override // com.baidu.tieba.editortool.o
     public void a() {
-        this.b.a(this.f2096a, null);
+        this.b.a(this.f2203a, null);
     }
 
     @Override // com.baidu.tieba.editortool.o

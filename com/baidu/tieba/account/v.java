@@ -1,33 +1,33 @@
 package com.baidu.tieba.account;
 
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class v implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ LoginActivity f1095a;
+    final /* synthetic */ LoginActivity f1105a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(LoginActivity loginActivity) {
-        this.f1095a = loginActivity;
+        this.f1105a = loginActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         EditText editText;
         EditText editText2;
-        this.f1095a.o();
-        LoginActivity loginActivity = this.f1095a;
-        InputMethodManager inputMethodManager = this.f1095a.b;
-        editText = this.f1095a.o;
-        loginActivity.HidenSoftKeyPad(inputMethodManager, editText);
-        LoginActivity loginActivity2 = this.f1095a;
-        InputMethodManager inputMethodManager2 = this.f1095a.b;
-        editText2 = this.f1095a.p;
-        loginActivity2.HidenSoftKeyPad(inputMethodManager2, editText2);
-        Register2Activity.a(this.f1095a, 12007);
+        EditText editText3;
+        LoginActivity loginActivity = this.f1105a;
+        editText = this.f1105a.o;
+        com.baidu.adp.lib.h.g.a(loginActivity, editText);
+        LoginActivity loginActivity2 = this.f1105a;
+        editText2 = this.f1105a.p;
+        com.baidu.adp.lib.h.g.a(loginActivity2, editText2);
+        LoginActivity loginActivity3 = this.f1105a;
+        editText3 = this.f1105a.q;
+        com.baidu.adp.lib.h.g.a(loginActivity3, editText3);
+        this.f1105a.finish();
     }
 }

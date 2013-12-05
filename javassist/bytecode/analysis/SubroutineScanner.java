@@ -13,7 +13,7 @@ import javassist.bytecode.as;
 public class SubroutineScanner implements as {
 
     /* renamed from: a  reason: collision with root package name */
-    Map f2752a = new HashMap();
+    Map f2933a = new HashMap();
     Set b = new HashSet();
     private g[] c;
 
@@ -21,7 +21,7 @@ public class SubroutineScanner implements as {
         CodeAttribute i = anVar.i();
         CodeIterator j = i.j();
         this.c = new g[i.h()];
-        this.f2752a.clear();
+        this.f2933a.clear();
         this.b.clear();
         a(0, j, null);
         ab k = i.k();
@@ -65,10 +65,10 @@ public class SubroutineScanner implements as {
             if (Util.a(c)) {
                 int a2 = Util.a(i, codeIterator);
                 if (c == 168 || c == 201) {
-                    g gVar2 = (g) this.f2752a.get(new Integer(a2));
+                    g gVar2 = (g) this.f2933a.get(new Integer(a2));
                     if (gVar2 == null) {
                         g gVar3 = new g(a2, i);
-                        this.f2752a.put(new Integer(a2), gVar3);
+                        this.f2933a.put(new Integer(a2), gVar3);
                         a(a2, codeIterator, gVar3);
                     } else {
                         gVar2.a(i);

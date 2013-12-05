@@ -1,84 +1,23 @@
 package com.baidu.tieba.util;
 
-import android.database.sqlite.SQLiteDatabase;
+import com.baidu.tieba.TiebaApplication;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class v {
+public class v implements u {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f2501a;
-    private boolean b = false;
-    private w e = null;
-    private String c = "tieba_database.db";
-    private String d = af.f2463a + "/tieba/" + this.c;
+    final /* synthetic */ DatabaseService f2614a;
 
-    public v() {
-        this.f2501a = 1;
-        this.f2501a = 10;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public v(DatabaseService databaseService) {
+        this.f2614a = databaseService;
     }
 
-    private void a(SQLiteDatabase sQLiteDatabase, String str) {
+    @Override // com.baidu.tieba.util.u
+    public void a() {
         try {
-            sQLiteDatabase.execSQL(str);
+            TiebaApplication.h().J();
         } catch (Exception e) {
-            bg.a(3, getClass().getName(), "ExecSQL", str);
         }
-    }
-
-    public SQLiteDatabase a() {
-        SQLiteDatabase sQLiteDatabase = null;
-        if (af.c()) {
-            this.b = af.b(this.c);
-            sQLiteDatabase = SQLiteDatabase.openOrCreateDatabase(this.d, (SQLiteDatabase.CursorFactory) null);
-            if (sQLiteDatabase != null) {
-                if (!this.b) {
-                    a(sQLiteDatabase);
-                    sQLiteDatabase.setVersion(this.f2501a);
-                } else {
-                    int version = sQLiteDatabase.getVersion();
-                    if (version != this.f2501a) {
-                        a(sQLiteDatabase, version, this.f2501a);
-                        sQLiteDatabase.setVersion(this.f2501a);
-                    }
-                }
-            }
-        }
-        return sQLiteDatabase;
-    }
-
-    private void a(SQLiteDatabase sQLiteDatabase) {
-        if (sQLiteDatabase != null) {
-            a(sQLiteDatabase, "CREATE TABLE if not exists pb_photo(key varchar(50) Primary Key,image blob,date Integer)");
-            a(sQLiteDatabase, "CREATE INDEX if not exists pb_photo_index ON pb_photo(date)");
-            a(sQLiteDatabase, "CREATE TABLE if not exists friend_photo(key varchar(50) Primary Key,image blob,date Integer)");
-            a(sQLiteDatabase, "CREATE INDEX if not exists friend_photo_index ON friend_photo(date)");
-            b(sQLiteDatabase);
-        }
-        b();
-    }
-
-    private void a(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        if (i <= 9) {
-            b(sQLiteDatabase);
-        }
-        b();
-    }
-
-    private void b(SQLiteDatabase sQLiteDatabase) {
-        a(sQLiteDatabase, "CREATE TABLE if not exists user_icon(key varchar(50) Primary Key,image blob,date Integer)");
-        a(sQLiteDatabase, "CREATE INDEX if not exists user_icon_index ON user_icon(date)");
-    }
-
-    private void b() {
-        if (this.e != null) {
-            try {
-                this.e.a();
-            } catch (Exception e) {
-                bg.b(getClass().getName(), "onCreateDatabase", e.getMessage());
-            }
-        }
-    }
-
-    public void a(w wVar) {
-        this.e = wVar;
     }
 }

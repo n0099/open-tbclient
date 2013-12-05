@@ -1,6 +1,6 @@
 package com.baidu.tieba.forumdetail;
 
-import com.google.gson.annotations.SerializedName;
+import com.baidu.gson.annotations.SerializedName;
 import com.tencent.mm.sdk.platformtools.LocaleUtil;
 import java.io.Serializable;
 /* loaded from: classes.dex */

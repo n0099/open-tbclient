@@ -88,7 +88,7 @@ public class ArrayTemplateBuilder extends AbstractTemplateBuilder {
             if (cls == Byte.TYPE) {
                 return ByteArrayTemplate.a();
             }
-            return new ObjectArrayTemplate(cls, this.f2919a.a(type2));
+            return new ObjectArrayTemplate(cls, this.f3100a.a(type2));
         } else if (i == 2) {
             return new a(Array.newInstance(cls, 0).getClass(), a(type, type2, cls, i - 1));
         } else {

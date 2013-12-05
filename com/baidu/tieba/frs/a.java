@@ -5,7 +5,7 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1308a;
+    private int f1359a;
     private String b;
     private String c;
 
@@ -14,17 +14,17 @@ public class a {
     }
 
     public String b() {
-        return String.valueOf(this.f1308a);
+        return String.valueOf(this.f1359a);
     }
 
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.f1308a = jSONObject.optInt("badge_id", 0);
+                this.f1359a = jSONObject.optInt("badge_id", 0);
                 this.b = jSONObject.optString("badge_url", "");
                 this.c = jSONObject.optString("webview");
             } catch (Exception e) {
-                com.baidu.tieba.util.bg.b("BadgeData", "parserJson", "error = " + e.getMessage());
+                com.baidu.tieba.util.bd.b("BadgeData", "parserJson", "error = " + e.getMessage());
             }
         }
     }

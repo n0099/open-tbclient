@@ -1,20 +1,20 @@
 package com.baidu.tieba.data;
 
 import com.baidu.cloudsdk.social.core.SocialConstants;
-import com.baidu.tieba.util.bg;
 import com.tencent.mm.sdk.platformtools.LocaleUtil;
 import java.io.Serializable;
 import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class MetaData implements com.baidu.tieba.util.an, Serializable {
+public class MetaData implements com.baidu.tieba.util.ak, Serializable {
     private static final long serialVersionUID = -2969858506144441193L;
     private String id = null;
     private int type = 0;
     private String name = null;
     private String name_show = null;
     private String portrait = null;
+    private String portraith = null;
     LinkedList<IconData> mIconInfo = new LinkedList<>();
 
     public void setId(String str) {
@@ -57,6 +57,14 @@ public class MetaData implements com.baidu.tieba.util.an, Serializable {
         return this.portrait;
     }
 
+    public void setPortraitH(String str) {
+        this.portraith = str;
+    }
+
+    public String getPortraitH() {
+        return this.portraith;
+    }
+
     public LinkedList<IconData> getIconInfo() {
         return this.mIconInfo;
     }
@@ -65,7 +73,7 @@ public class MetaData implements com.baidu.tieba.util.an, Serializable {
         try {
             parserJson(new JSONObject(str));
         } catch (Exception e) {
-            bg.b("MetaData", "parserJson", "error = " + e.getMessage());
+            com.baidu.tieba.util.bd.b("MetaData", "parserJson", "error = " + e.getMessage());
         }
     }
 
@@ -80,6 +88,7 @@ public class MetaData implements com.baidu.tieba.util.an, Serializable {
                 }
                 this.name_show = jSONObject.optString("name_show");
                 this.portrait = jSONObject.optString("portrait");
+                this.portraith = jSONObject.optString("portraith");
                 JSONArray optJSONArray = jSONObject.optJSONArray("iconinfo");
                 if (optJSONArray != null) {
                     for (int i = 0; i < optJSONArray.length(); i++) {
@@ -89,20 +98,21 @@ public class MetaData implements com.baidu.tieba.util.an, Serializable {
                     }
                 }
             } catch (Exception e) {
-                bg.b("MetaData", "parserJson", "error = " + e.getMessage());
+                com.baidu.tieba.util.bd.b("MetaData", "parserJson", "error = " + e.getMessage());
             }
         }
     }
 
     public void logPrint() {
-        bg.d("MetaData", "logPrint", "id = " + this.id);
-        bg.d("MetaData", "logPrint", "type = " + String.valueOf(this.type));
-        bg.d("MetaData", "logPrint", "name = " + this.name);
-        bg.d("MetaData", "logPrint", "name_show = " + this.name_show);
-        bg.d("MetaData", "logPrint", "portrait = " + this.portrait);
+        com.baidu.tieba.util.bd.d("MetaData", "logPrint", "id = " + this.id);
+        com.baidu.tieba.util.bd.d("MetaData", "logPrint", "type = " + String.valueOf(this.type));
+        com.baidu.tieba.util.bd.d("MetaData", "logPrint", "name = " + this.name);
+        com.baidu.tieba.util.bd.d("MetaData", "logPrint", "name_show = " + this.name_show);
+        com.baidu.tieba.util.bd.d("MetaData", "logPrint", "portrait = " + this.portrait);
+        com.baidu.tieba.util.bd.d("MetaData", "logPrint", "portraith = " + this.portraith);
     }
 
-    @Override // com.baidu.tieba.util.an
+    @Override // com.baidu.tieba.util.ak
     public LinkedList<String> getImageUrl() {
         LinkedList<IconData> iconInfo = getIconInfo();
         if (iconInfo == null) {
@@ -120,12 +130,12 @@ public class MetaData implements com.baidu.tieba.util.an, Serializable {
         }
     }
 
-    @Override // com.baidu.tieba.util.an
+    @Override // com.baidu.tieba.util.ak
     public LinkedList<String> getPhotoUrl() {
         return null;
     }
 
-    @Override // com.baidu.tieba.util.an
+    @Override // com.baidu.tieba.util.ak
     public LinkedList<String> getForumPhotoUrl() {
         return null;
     }

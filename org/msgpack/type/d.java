@@ -10,7 +10,12 @@ import java.util.Arrays;
 public abstract class d extends e implements RawValue {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final char[] f2940a = "0123456789ABCDEF".toCharArray();
+    private static final char[] f3121a = "0123456789ABCDEF".toCharArray();
+
+    @Override // org.msgpack.type.r
+    public ValueType getType() {
+        return ValueType.RAW;
+    }
 
     @Override // org.msgpack.type.e, org.msgpack.type.r
     public boolean isRawValue() {
@@ -105,9 +110,9 @@ public abstract class d extends e implements RawValue {
 
     private void a(StringBuilder sb, int i) {
         sb.append("\\u");
-        sb.append(f2940a[(i >> 12) & 15]);
-        sb.append(f2940a[(i >> 8) & 15]);
-        sb.append(f2940a[(i >> 4) & 15]);
-        sb.append(f2940a[i & 15]);
+        sb.append(f3121a[(i >> 12) & 15]);
+        sb.append(f3121a[(i >> 8) & 15]);
+        sb.append(f3121a[(i >> 4) & 15]);
+        sb.append(f3121a[i & 15]);
     }
 }

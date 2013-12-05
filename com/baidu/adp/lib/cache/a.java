@@ -77,4 +77,16 @@ public class a extends c<byte[]> {
     public Cursor b(SQLiteDatabase sQLiteDatabase, String str) {
         return sQLiteDatabase.rawQuery("select * from " + this.b + " where m_ns = ?", new String[]{str});
     }
+
+    @Override // com.baidu.adp.lib.cache.c
+    protected boolean b(String str) {
+        try {
+            this.f428a.a().delete(this.b, "m_ns = ?", new String[]{str});
+            return true;
+        } catch (Throwable th) {
+            this.f428a.a(th);
+            com.baidu.adp.lib.h.e.a(getClass(), "failed to clear from " + str, th);
+            return false;
+        }
+    }
 }

@@ -1,78 +1,24 @@
 package com.baidu.tieba.account;
-
-import android.graphics.Bitmap;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ae extends BdAsyncTask<String, Integer, Bitmap> {
+public class ae {
 
     /* renamed from: a  reason: collision with root package name */
-    com.baidu.tieba.util.ap f1031a;
-    final /* synthetic */ LoginActivity b;
-    private volatile boolean c;
+    String f1041a;
+    String b;
+    String c;
+    String d;
+    int e;
+    int f;
+    boolean g;
+    final /* synthetic */ LoginActivity h;
 
     private ae(LoginActivity loginActivity) {
-        this.b = loginActivity;
-        this.f1031a = null;
-        this.c = false;
+        this.h = loginActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ae(LoginActivity loginActivity, u uVar) {
+    public /* synthetic */ ae(LoginActivity loginActivity, v vVar) {
         this(loginActivity);
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        this.b.O = null;
-        if (this.f1031a != null) {
-            this.f1031a.j();
-            this.f1031a = null;
-        }
-        this.c = true;
-        super.cancel(true);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void b() {
-        ImageView imageView;
-        imageView = this.b.s;
-        imageView.setImageBitmap(null);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public Bitmap a(String... strArr) {
-        String str = strArr[0];
-        if (str == null || str.length() <= 0 || this.c) {
-            return null;
-        }
-        this.f1031a = new com.baidu.tieba.util.ap(str);
-        return com.baidu.tieba.util.m.a(this.f1031a.k());
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(Bitmap bitmap) {
-        ImageView imageView;
-        ProgressBar progressBar;
-        ImageView imageView2;
-        this.b.O = null;
-        if (bitmap != null) {
-            imageView2 = this.b.s;
-            imageView2.setImageBitmap(bitmap);
-        } else {
-            imageView = this.b.s;
-            imageView.setImageResource(R.drawable.background);
-        }
-        progressBar = this.b.v;
-        progressBar.setVisibility(8);
-        super.a((ae) bitmap);
     }
 }

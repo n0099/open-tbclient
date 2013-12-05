@@ -2,23 +2,23 @@ package com.baidu.tieba.flist;
 
 import android.content.Context;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.gson.GsonBuilder;
+import com.baidu.gson.JsonParseException;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.flist.ForumListModel;
-import com.baidu.tieba.util.bg;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonParseException;
+import com.baidu.tieba.util.bd;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class x extends BdAsyncTask<Void, Void, ForumListModel> {
 
     /* renamed from: a  reason: collision with root package name */
-    ForumListModel f1269a;
+    ForumListModel f1316a;
     final /* synthetic */ u b;
 
     private x(u uVar) {
         this.b = uVar;
-        this.f1269a = new ForumListModel();
+        this.f1316a = new ForumListModel();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -29,11 +29,11 @@ public class x extends BdAsyncTask<Void, Void, ForumListModel> {
         w wVar;
         boolean z;
         super.b((Object[]) voidArr);
-        if (this.f1269a != null) {
+        if (this.f1316a != null) {
             wVar = this.b.c;
-            int errorCode = this.f1269a.getErrorCode();
-            ForumListModel forumListModel = this.f1269a;
-            String errorString = this.f1269a.getErrorString();
+            int errorCode = this.f1316a.getErrorCode();
+            ForumListModel forumListModel = this.f1316a;
+            String errorString = this.f1316a.getErrorString();
             z = this.b.f;
             wVar.a(true, errorCode, forumListModel, errorString, z);
         }
@@ -52,28 +52,28 @@ public class x extends BdAsyncTask<Void, Void, ForumListModel> {
         try {
             z = this.b.e;
             if (z) {
-                com.baidu.adp.lib.cache.s<String> j = com.baidu.tieba.b.a.a().j();
-                if (j != null) {
-                    StringBuilder append = new StringBuilder().append(TiebaApplication.A()).append("_");
+                com.baidu.adp.lib.cache.s<String> m = com.baidu.tieba.b.a.a().m();
+                if (m != null) {
+                    StringBuilder append = new StringBuilder().append(TiebaApplication.B()).append("_");
                     requestParams2 = this.b.b;
-                    str = j.a(append.append(requestParams2.menu_name).append("_list").toString());
+                    str = m.a(append.append(requestParams2.menu_name).append("_list").toString());
                 } else {
                     str = null;
                 }
                 if (str != null) {
-                    this.f1269a = (ForumListModel) new GsonBuilder().create().fromJson(str, (Class<Object>) ForumListModel.class);
-                    if (this.f1269a != null) {
+                    this.f1316a = (ForumListModel) new GsonBuilder().create().fromJson(str, (Class<Object>) ForumListModel.class);
+                    if (this.f1316a != null) {
                         c((Object[]) new Void[0]);
                     }
                     this.b.f = true;
                 }
             }
             this.b.e = false;
-            context = this.b.f1268a;
+            context = this.b.f1315a;
             requestParams = this.b.b;
             return ForumListModel.new_fetch(context, requestParams);
         } catch (JsonParseException e) {
-            bg.e("ForumListDetailModel", "ForumListTask", e.getMessage());
+            bd.e("ForumListDetailModel", "ForumListTask", e.getMessage());
             return null;
         }
     }
@@ -89,7 +89,7 @@ public class x extends BdAsyncTask<Void, Void, ForumListModel> {
         boolean z2;
         if (forumListModel == null || !forumListModel.isOk()) {
             wVar = this.b.c;
-            context = this.b.f1268a;
+            context = this.b.f1315a;
             String string = context.getString(R.string.neterror);
             z = this.b.f;
             wVar.a(false, 0, forumListModel, string, z);

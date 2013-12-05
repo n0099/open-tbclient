@@ -18,13 +18,12 @@ import com.baidu.tieba.data.RegistData;
 import com.baidu.tieba.model.be;
 import com.baidu.tieba.topRec.TopRecActivity;
 import com.baidu.tieba.util.DatabaseService;
-import com.baidu.tieba.util.bd;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class ActivationActivity extends com.baidu.tieba.j {
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f1020a = 60;
+    private static int f1030a = 60;
     private ImageView b = null;
     private LinearLayout c = null;
     private ImageView d = null;
@@ -38,7 +37,7 @@ public class ActivationActivity extends com.baidu.tieba.j {
     private j l = null;
     private i m = null;
     private boolean n = false;
-    private int o = f1020a;
+    private int o = f1030a;
     private RegistData p = null;
     private Handler q = new Handler();
     private RelativeLayout r = null;
@@ -87,7 +86,7 @@ public class ActivationActivity extends com.baidu.tieba.j {
             setResult(0);
             finish();
         } else if (this.p.getSmsCodeTime() > 0) {
-            f1020a = this.p.getSmsCodeTime();
+            f1030a = this.p.getSmsCodeTime();
         }
     }
 
@@ -120,7 +119,7 @@ public class ActivationActivity extends com.baidu.tieba.j {
     public void a() {
         this.n = false;
         this.k.setEnabled(false);
-        this.o = f1020a;
+        this.o = f1030a;
         this.g.setText(String.format(getString(R.string.resend_code_second), Integer.valueOf(this.o)));
         this.q.postDelayed(this.z, 1000L);
     }
@@ -159,13 +158,13 @@ public class ActivationActivity extends com.baidu.tieba.j {
     @Override // com.baidu.tieba.j
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        bd.a(this.r, i);
-        bd.d(this.t, i);
-        bd.a(this.b, i);
-        bd.e(this.s, i);
-        bd.a(this.u, i);
-        bd.a(this.g, i);
-        bd.b(this.v, i);
+        com.baidu.tieba.util.ba.a(this.r, i);
+        com.baidu.tieba.util.ba.d(this.t, i);
+        com.baidu.tieba.util.ba.a(this.b, i);
+        com.baidu.tieba.util.ba.e(this.s, i);
+        com.baidu.tieba.util.ba.a(this.u, i);
+        com.baidu.tieba.util.ba.a(this.g, i);
+        com.baidu.tieba.util.ba.b(this.v, i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

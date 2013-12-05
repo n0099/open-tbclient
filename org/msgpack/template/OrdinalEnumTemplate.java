@@ -7,15 +7,15 @@ import org.msgpack.a.j;
 public class OrdinalEnumTemplate<T> extends AbstractTemplate<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    protected T[] f2910a;
+    protected T[] f3091a;
     protected HashMap<T, Integer> b = new HashMap<>();
     protected boolean c;
 
     public OrdinalEnumTemplate(Class<T> cls) {
         boolean z = false;
-        this.f2910a = cls.getEnumConstants();
-        for (int i = 0; i < this.f2910a.length; i++) {
-            this.b.put(this.f2910a[i], Integer.valueOf(i));
+        this.f3091a = cls.getEnumConstants();
+        for (int i = 0; i < this.f3091a.length; i++) {
+            this.b.put(this.f3091a[i], Integer.valueOf(i));
         }
         this.c = (!cls.isAnnotationPresent(j.class) || ((j) cls.getAnnotation(j.class)).a()) ? true : true;
     }

@@ -4,14 +4,14 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.bd;
+import com.baidu.tieba.util.ba;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class ah extends com.baidu.adp.a.e {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.tieba.j f1958a;
+    private com.baidu.tieba.j f2069a;
     private ac c;
     private com.baidu.tieba.util.i d;
     private NavigationBar e;
@@ -28,16 +28,16 @@ public class ah extends com.baidu.adp.a.e {
 
     public ah(com.baidu.tieba.j jVar, ac acVar) {
         super(jVar);
-        this.f1958a = jVar;
+        this.f2069a = jVar;
         this.c = acVar;
-        this.f1958a.setContentView(R.layout.more_activity);
+        this.f2069a.setContentView(R.layout.more_activity);
         k();
     }
 
     public void a() {
         this.g.setFocusable(false);
         this.g.setClickable(false);
-        this.g.setText(TiebaApplication.F());
+        this.g.setText(TiebaApplication.G());
     }
 
     public void e() {
@@ -51,8 +51,8 @@ public class ah extends com.baidu.adp.a.e {
     }
 
     public void g() {
-        String A = TiebaApplication.A();
-        if (A == null || A.length() <= 0) {
+        String B = TiebaApplication.B();
+        if (B == null || B.length() <= 0) {
             this.f.setVisibility(8);
         } else {
             this.f.setVisibility(0);
@@ -68,7 +68,7 @@ public class ah extends com.baidu.adp.a.e {
             return;
         }
         if (this.d == null) {
-            this.d = new com.baidu.tieba.util.i(this.f1958a);
+            this.d = new com.baidu.tieba.util.i(this.f2069a);
         }
         this.f.b();
         h();
@@ -131,78 +131,78 @@ public class ah extends com.baidu.adp.a.e {
         this.k.a(i);
         this.l.a(i);
         if (i == 1) {
-            this.n.setBackgroundColor(this.f1958a.getResources().getColor(R.color.bg_page_setting_1));
+            this.n.setBackgroundColor(this.f2069a.getResources().getColor(R.color.bg_page_setting_1));
             m();
             return;
         }
-        this.n.setBackgroundColor(this.f1958a.getResources().getColor(R.color.bg_page_setting));
+        this.n.setBackgroundColor(this.f2069a.getResources().getColor(R.color.bg_page_setting));
         l();
     }
 
     private void k() {
         View.OnClickListener n = n();
-        this.n = (RelativeLayout) this.f1958a.findViewById(R.id.parent);
-        this.e = (NavigationBar) this.f1958a.findViewById(R.id.view_navigation_bar);
-        this.e.a(this.f1958a.getString(R.string.setup));
+        this.n = (RelativeLayout) this.f2069a.findViewById(R.id.parent);
+        this.e = (NavigationBar) this.f2069a.findViewById(R.id.view_navigation_bar);
+        this.e.a(this.f2069a.getString(R.string.setup));
         this.o = this.e.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f = (SettingTextImageView) this.f1958a.findViewById(R.id.personInfo);
-        this.g = (SettingTextTipView) this.f1958a.findViewById(R.id.accountManager);
-        this.h = (SettingTextTipView) this.f1958a.findViewById(R.id.browseSetting);
-        this.i = (SettingTextTipView) this.f1958a.findViewById(R.id.messageSetting);
-        this.j = (SettingTextVersionView) this.f1958a.findViewById(R.id.versionInfo);
-        this.k = (SettingTextTipView) this.f1958a.findViewById(R.id.feedBack);
-        this.l = (SettingTextTipView) this.f1958a.findViewById(R.id.recommend);
-        if (!TiebaApplication.g().x()) {
+        this.f = (SettingTextImageView) this.f2069a.findViewById(R.id.personInfo);
+        this.g = (SettingTextTipView) this.f2069a.findViewById(R.id.accountManager);
+        this.h = (SettingTextTipView) this.f2069a.findViewById(R.id.browseSetting);
+        this.i = (SettingTextTipView) this.f2069a.findViewById(R.id.messageSetting);
+        this.j = (SettingTextVersionView) this.f2069a.findViewById(R.id.versionInfo);
+        this.k = (SettingTextTipView) this.f2069a.findViewById(R.id.feedBack);
+        this.l = (SettingTextTipView) this.f2069a.findViewById(R.id.recommend);
+        if (!TiebaApplication.h().y()) {
             this.l.setVisibility(8);
         } else {
             this.l.setVisibility(0);
         }
-        this.m = (SettingTextTipView) this.f1958a.findViewById(R.id.systemhelpsetting);
+        this.m = (SettingTextTipView) this.f2069a.findViewById(R.id.systemhelpsetting);
         i();
         g();
         this.f.a();
-        b(TiebaApplication.g().ap());
+        b(TiebaApplication.h().an());
         a(n);
     }
 
     private void l() {
-        bd.e(this.f, (int) R.drawable.more_up);
+        ba.e(this.f, (int) R.drawable.more_up);
         if (this.f.getVisibility() == 0) {
-            bd.e(this.g, (int) R.drawable.more_down);
+            ba.e(this.g, (int) R.drawable.more_down);
         } else {
-            bd.e(this.g, (int) R.drawable.more_all);
+            ba.e(this.g, (int) R.drawable.more_all);
         }
-        bd.e(this.h, (int) R.drawable.more_all);
-        bd.e(this.i, (int) R.drawable.more_all);
-        bd.e(this.j, (int) R.drawable.more_up);
+        ba.e(this.h, (int) R.drawable.more_all);
+        ba.e(this.i, (int) R.drawable.more_all);
+        ba.e(this.j, (int) R.drawable.more_up);
         if (this.l.getVisibility() == 0) {
-            bd.e(this.k, (int) R.drawable.more_middle);
+            ba.e(this.k, (int) R.drawable.more_middle);
         } else {
-            bd.e(this.k, (int) R.drawable.more_down);
+            ba.e(this.k, (int) R.drawable.more_down);
         }
-        bd.e(this.l, (int) R.drawable.more_down);
+        ba.e(this.l, (int) R.drawable.more_down);
         this.m.a(0);
-        bd.e(this.m, (int) R.drawable.more_all);
+        ba.e(this.m, (int) R.drawable.more_all);
     }
 
     private void m() {
-        bd.e(this.f, (int) R.drawable.more_up_1);
+        ba.e(this.f, (int) R.drawable.more_up_1);
         if (this.f.getVisibility() == 0) {
-            bd.e(this.g, (int) R.drawable.more_down_1);
+            ba.e(this.g, (int) R.drawable.more_down_1);
         } else {
-            bd.e(this.g, (int) R.drawable.more_all_1);
+            ba.e(this.g, (int) R.drawable.more_all_1);
         }
-        bd.e(this.h, (int) R.drawable.more_all_1);
-        bd.e(this.i, (int) R.drawable.more_all_1);
-        bd.e(this.j, (int) R.drawable.more_up_1);
+        ba.e(this.h, (int) R.drawable.more_all_1);
+        ba.e(this.i, (int) R.drawable.more_all_1);
+        ba.e(this.j, (int) R.drawable.more_up_1);
         if (this.l.getVisibility() == 0) {
-            bd.e(this.k, (int) R.drawable.more_middle_1);
+            ba.e(this.k, (int) R.drawable.more_middle_1);
         } else {
-            bd.e(this.k, (int) R.drawable.more_down_1);
+            ba.e(this.k, (int) R.drawable.more_down_1);
         }
-        bd.e(this.l, (int) R.drawable.more_down_1);
+        ba.e(this.l, (int) R.drawable.more_down_1);
         this.m.a(1);
-        bd.e(this.m, (int) R.drawable.more_all_1);
+        ba.e(this.m, (int) R.drawable.more_all_1);
         i();
     }
 

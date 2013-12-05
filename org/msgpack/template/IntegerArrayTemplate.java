@@ -5,7 +5,7 @@ import org.msgpack.MessageTypeException;
 public class IntegerArrayTemplate extends AbstractTemplate<int[]> {
 
     /* renamed from: a  reason: collision with root package name */
-    static final IntegerArrayTemplate f2901a = new IntegerArrayTemplate();
+    static final IntegerArrayTemplate f3082a = new IntegerArrayTemplate();
 
     private IntegerArrayTemplate() {
     }
@@ -28,6 +28,6 @@ public class IntegerArrayTemplate extends AbstractTemplate<int[]> {
     }
 
     public static IntegerArrayTemplate a() {
-        return f2901a;
+        return f3082a;
     }
 }

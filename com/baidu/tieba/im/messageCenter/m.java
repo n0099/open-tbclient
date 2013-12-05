@@ -1,19 +1,18 @@
 package com.baidu.tieba.im.messageCenter;
+
+import com.baidu.tieba.im.message.Message;
+import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class m implements com.baidu.tieba.im.a<q> {
+public class m {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ k f1727a;
+    List<Message> f1801a;
+    p b;
+    final /* synthetic */ l c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(k kVar) {
-        this.f1727a = kVar;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    public void a(q qVar) {
-        this.f1727a.a(qVar);
+    public m(l lVar) {
+        this.c = lVar;
     }
 }

@@ -12,10 +12,10 @@ import com.baidu.tieba.im.message.Message;
 import com.baidu.tieba.im.message.ResponsedMessage;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class NetWorkDebugActivity extends Activity implements com.baidu.tieba.im.messageCenter.h {
+public class NetWorkDebugActivity extends Activity implements com.baidu.tieba.im.messageCenter.g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static NetWorkDebugActivity f1463a;
+    public static NetWorkDebugActivity f1512a;
     LinearLayout b;
     TextView c;
     EditText d;
@@ -25,14 +25,14 @@ public class NetWorkDebugActivity extends Activity implements com.baidu.tieba.im
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.activity_main);
-        f1463a = this;
+        f1512a = this;
         this.b = (LinearLayout) findViewById(R.id.action_layout);
         this.c = (TextView) findViewById(R.id.tv);
         this.d = new EditText(this);
         this.b.addView(this.d, new LinearLayout.LayoutParams(-2, -2));
-        this.d.setText(j.f1713a);
-        com.baidu.tieba.im.messageCenter.f.a().a(1001, this);
-        com.baidu.tieba.im.messageCenter.f.a().a(202001, this);
+        this.d.setText(j.f1786a);
+        com.baidu.tieba.im.messageCenter.e.a().a(1001, this);
+        com.baidu.tieba.im.messageCenter.e.a().a(202001, this);
         a("closeConnect", new d(this));
         b();
         c();
@@ -42,7 +42,7 @@ public class NetWorkDebugActivity extends Activity implements com.baidu.tieba.im
     @Override // android.app.Activity
     protected void onDestroy() {
         super.onDestroy();
-        com.baidu.tieba.im.messageCenter.f.a().a(this);
+        com.baidu.tieba.im.messageCenter.e.a().a(this);
     }
 
     private void a() {
@@ -65,12 +65,12 @@ public class NetWorkDebugActivity extends Activity implements com.baidu.tieba.im
     }
 
     public static void a(String str) {
-        if (f1463a != null) {
-            f1463a.e.sendMessage(f1463a.e.obtainMessage(0, str));
+        if (f1512a != null) {
+            f1512a.e.sendMessage(f1512a.e.obtainMessage(0, str));
         }
     }
 
-    @Override // com.baidu.tieba.im.messageCenter.h
+    @Override // com.baidu.tieba.im.messageCenter.g
     public void a(Message message) {
         if (message instanceof ResponsedMessage) {
             ResponsedMessage responsedMessage = (ResponsedMessage) message;

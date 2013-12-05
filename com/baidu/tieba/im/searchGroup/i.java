@@ -1,30 +1,31 @@
 package com.baidu.tieba.im.searchGroup;
 
-import android.view.KeyEvent;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i implements TextView.OnEditorActionListener {
+public class i implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ d f1784a;
+    final /* synthetic */ g f1880a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public i(d dVar) {
-        this.f1784a = dVar;
+    public i(g gVar) {
+        this.f1880a = gVar;
     }
 
-    @Override // android.widget.TextView.OnEditorActionListener
-    public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
-        SearchGroupActivity searchGroupActivity;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
         EditText editText;
-        if (i == 2) {
-            searchGroupActivity = this.f1784a.b;
-            editText = this.f1784a.e;
-            searchGroupActivity.a(editText.getText().toString());
-            return true;
-        }
-        return false;
+        e eVar;
+        TextView textView;
+        editText = this.f1880a.e;
+        editText.setText("");
+        eVar = this.f1880a.j;
+        eVar.a(new LinkedList());
+        textView = this.f1880a.h;
+        textView.setVisibility(8);
     }
 }

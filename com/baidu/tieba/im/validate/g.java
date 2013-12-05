@@ -1,27 +1,87 @@
 package com.baidu.tieba.im.validate;
 
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.TextView;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.view.HeadImageView;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class g implements View.OnClickListener {
+public class g extends com.baidu.adp.a.c<ValidateItemData> {
+    private View c;
+    private HeadImageView d;
+    private TextView e;
+    private TextView f;
+    private TextView g;
+    private Button h;
+    private ValidateActivity i;
+    private ValidateItemData j;
 
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ f f1800a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public g(f fVar) {
-        this.f1800a = fVar;
+    public g(ValidateActivity validateActivity) {
+        super(validateActivity, R.layout.validate_item);
+        this.i = validateActivity;
+        e();
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        ValidateActivity validateActivity;
-        Button button;
-        ValidateItemData validateItemData;
-        validateActivity = this.f1800a.i;
-        button = this.f1800a.h;
-        validateItemData = this.f1800a.j;
-        validateActivity.a(button, 100, 0, 0L, validateItemData);
+    void e() {
+        this.c = this.f399a.findViewById(R.id.root_view);
+        this.d = (HeadImageView) this.c.findViewById(R.id.iv_head);
+        this.d.setIsRound(true);
+        this.e = (TextView) this.c.findViewById(R.id.tv_user_name);
+        this.f = (TextView) this.c.findViewById(R.id.tv_group_name);
+        this.g = (TextView) this.c.findViewById(R.id.tv_apply_reason);
+        this.h = (Button) this.c.findViewById(R.id.btn_pass);
+        this.h.setOnClickListener(new h(this));
+        this.d.setOnClickListener(new i(this));
+        this.c.setOnLongClickListener(new j(this));
+    }
+
+    public void f() {
+        if (this.j != null) {
+            this.i.getLayoutMode().a(TiebaApplication.h().an() == 1);
+            this.i.getLayoutMode().a(this.c);
+            String portrait = this.j.getPortrait();
+            this.d.setTag(portrait);
+            com.baidu.adp.widget.ImageView.e c = this.i.b().c(portrait);
+            if (c != null) {
+                c.a(this.d);
+            } else {
+                this.i.b().d(portrait, new k(this));
+            }
+            if (!TextUtils.isEmpty(this.j.getUserName())) {
+                this.e.setText(this.j.getUserName());
+            }
+            if (!TextUtils.isEmpty(this.j.getGroupName())) {
+                this.f.setText(this.i.getString(R.string.validate_im_apply_prefix) + this.j.getGroupName());
+            }
+            if (!TextUtils.isEmpty(this.j.getApplyReason())) {
+                this.g.setText(this.i.getString(R.string.validate_im_reason_prefix) + this.j.getApplyReason());
+            }
+            if (this.j.isPass()) {
+                this.h.setEnabled(false);
+                this.h.setText(this.i.getString(R.string.validate_im_btn_passed));
+            } else {
+                this.h.setEnabled(true);
+                this.h.setText(this.i.getString(R.string.validate_im_btn_pass));
+            }
+            com.baidu.adp.lib.h.e.d("isShown:" + this.j.isShown());
+            if (!this.j.isShown()) {
+                if (TiebaApplication.h().an() == 1) {
+                    this.c.setBackgroundResource(R.color.validate_item_background_sean_1);
+                } else {
+                    this.c.setBackgroundResource(R.color.validate_item_background_sean);
+                }
+            }
+        }
+    }
+
+    public void a(ValidateItemData validateItemData) {
+        b(validateItemData);
+        f();
+    }
+
+    public void b(ValidateItemData validateItemData) {
+        this.j = validateItemData;
     }
 }

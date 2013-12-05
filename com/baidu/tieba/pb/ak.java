@@ -5,18 +5,18 @@ import android.widget.ImageView;
 class ak implements com.baidu.adp.lib.d.c<ImageView> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NewPbActivity f2051a;
+    final /* synthetic */ NewPbActivity f2158a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ak(NewPbActivity newPbActivity) {
-        this.f2051a = newPbActivity;
+        this.f2158a = newPbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.d.c
     /* renamed from: b */
     public ImageView a() {
-        return new com.baidu.tieba.view.ba(this.f2051a);
+        return new com.baidu.tieba.view.bb(this.f2158a);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,16 +26,16 @@ class ak implements com.baidu.adp.lib.d.c<ImageView> {
         imageView.setImageDrawable(null);
         imageView.setTag(null);
         imageView.setOnClickListener(null);
-        if (imageView instanceof com.baidu.tieba.view.ba) {
-            ((com.baidu.tieba.view.ba) imageView).g();
+        if (imageView instanceof com.baidu.tieba.view.bb) {
+            ((com.baidu.tieba.view.bb) imageView).g();
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.d.c
     public ImageView b(ImageView imageView) {
-        if (imageView instanceof com.baidu.tieba.view.ba) {
-            ((com.baidu.tieba.view.ba) imageView).f();
+        if (imageView instanceof com.baidu.tieba.view.bb) {
+            ((com.baidu.tieba.view.bb) imageView).f();
         }
         return imageView;
     }
@@ -47,8 +47,8 @@ class ak implements com.baidu.adp.lib.d.c<ImageView> {
         imageView.setImageDrawable(null);
         imageView.setTag(null);
         imageView.setOnClickListener(null);
-        if (imageView instanceof com.baidu.tieba.view.ba) {
-            ((com.baidu.tieba.view.ba) imageView).g();
+        if (imageView instanceof com.baidu.tieba.view.bb) {
+            ((com.baidu.tieba.view.bb) imageView).g();
         }
         return imageView;
     }

@@ -3,15 +3,15 @@ package com.baidu.tieba.write;
 class an implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ am f2670a;
+    final /* synthetic */ am f2788a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public an(am amVar) {
-        this.f2670a = amVar;
+        this.f2788a = amVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f2670a.f2669a.finish();
+        this.f2788a.f2787a.finish();
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.tieba.person.post;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.pushservice.PushConstants;
-import com.google.gson.annotations.SerializedName;
+import com.baidu.gson.annotations.SerializedName;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -12,7 +12,7 @@ public class PersonPostThreadModel extends com.baidu.adp.a.d implements Serializ
     public static final int PAGE_SIZE = 20;
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f2245a = 0;
+    private static int f2363a = 0;
     private static String b = "";
     public static h sFetchThreadAsyncTask;
     @SerializedName("post_list")
@@ -160,10 +160,10 @@ public class PersonPostThreadModel extends com.baidu.adp.a.d implements Serializ
 
     public static void fetchThread(g gVar, boolean z, String str) {
         if (z || !str.equals(b)) {
-            f2245a = 1;
+            f2363a = 1;
             b = str;
         } else {
-            f2245a++;
+            f2363a++;
         }
         if (sFetchThreadAsyncTask != null && sFetchThreadAsyncTask.getStatus() != BdAsyncTask.BdAsyncTaskStatus.FINISHED) {
             sFetchThreadAsyncTask.cancel();

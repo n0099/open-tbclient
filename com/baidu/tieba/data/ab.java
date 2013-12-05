@@ -2,7 +2,6 @@ package com.baidu.tieba.data;
 
 import android.content.Context;
 import com.baidu.cloudsdk.social.core.SocialConstants;
-import com.baidu.tieba.util.bg;
 import com.tencent.mm.sdk.platformtools.LocaleUtil;
 import java.util.LinkedList;
 import org.json.JSONArray;
@@ -11,7 +10,7 @@ import org.json.JSONObject;
 public class ab {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1162a;
+    private String f1209a;
     private String b;
     private int c;
     private AntiData d;
@@ -24,7 +23,7 @@ public class ab {
     private int k;
 
     public ab(Context context) {
-        this.f1162a = null;
+        this.f1209a = null;
         this.b = null;
         this.c = 0;
         this.d = null;
@@ -77,7 +76,7 @@ public class ab {
     }
 
     public ab() {
-        this.f1162a = null;
+        this.f1209a = null;
         this.b = null;
         this.c = 0;
         this.d = null;
@@ -96,7 +95,7 @@ public class ab {
         try {
             a(new JSONObject(str), Boolean.valueOf(z));
         } catch (Exception e) {
-            bg.b(getClass().getName(), "paserJson", e.toString());
+            com.baidu.tieba.util.bd.b(getClass().getName(), "paserJson", e.toString());
         }
     }
 
@@ -105,11 +104,11 @@ public class ab {
     }
 
     public void c(String str) {
-        this.f1162a = str;
+        this.f1209a = str;
     }
 
     public String i() {
-        return this.f1162a;
+        return this.f1209a;
     }
 
     public String j() {
@@ -130,7 +129,7 @@ public class ab {
                 a(jSONObject.optInt("is_new_url", 0));
                 JSONObject optJSONObject = jSONObject.optJSONObject("forum");
                 if (optJSONObject != null) {
-                    this.f1162a = optJSONObject.optString(SocialConstants.PARAM_MEDIA_UNAME);
+                    this.f1209a = optJSONObject.optString(SocialConstants.PARAM_MEDIA_UNAME);
                     this.b = optJSONObject.optString(LocaleUtil.INDONESIAN);
                 }
                 this.c = jSONObject.optInt("pic_amount", 0);
@@ -160,7 +159,7 @@ public class ab {
                 this.g = optJSONObject2.optString("tid");
                 this.h = optJSONObject2.optString("title");
             } catch (Exception e) {
-                bg.b(getClass().getName(), "paserJson", e.toString());
+                com.baidu.tieba.util.bd.b(getClass().getName(), "paserJson", e.toString());
             }
         }
     }

@@ -4,7 +4,7 @@ package javassist.bytecode;
 public class k {
 
     /* renamed from: a  reason: collision with root package name */
-    k f2800a;
+    k f2981a;
     int b;
     int c;
 

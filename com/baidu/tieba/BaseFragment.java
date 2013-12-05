@@ -10,12 +10,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
-import com.baidu.tieba.util.UtilHelper;
 /* loaded from: classes.dex */
 public abstract class BaseFragment extends Fragment implements DialogInterface.OnClickListener, View.OnClickListener, View.OnLongClickListener, AbsListView.OnScrollListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f996a = -1;
+    private int f1003a = -1;
     private com.baidu.tieba.util.q b;
 
     @Override // android.support.v4.app.Fragment
@@ -45,7 +44,7 @@ public abstract class BaseFragment extends Fragment implements DialogInterface.O
         if (name.startsWith(i().getApplicationContext().getPackageName() + ".im") || name.startsWith(str2)) {
             this.b.a(str, 2000);
         } else {
-            UtilHelper.a((Context) i(), str);
+            com.baidu.adp.lib.h.g.a((Context) i(), str);
         }
     }
 
@@ -55,7 +54,7 @@ public abstract class BaseFragment extends Fragment implements DialogInterface.O
         if (name.startsWith(i().getApplicationContext().getPackageName() + ".im") || name.startsWith(str)) {
             this.b.a(i, 2000);
         } else {
-            UtilHelper.a((Context) i(), i);
+            com.baidu.adp.lib.h.g.a((Context) i(), i);
         }
     }
 
@@ -66,11 +65,13 @@ public abstract class BaseFragment extends Fragment implements DialogInterface.O
 
     @Override // android.support.v4.app.Fragment
     public void r() {
-        this.b.c();
+        if (this.b != null) {
+            this.b.c();
+        }
         super.r();
         if (F()) {
-            this.f996a = TiebaApplication.g().ap();
-            c(this.f996a);
+            this.f1003a = TiebaApplication.h().an();
+            c(this.f1003a);
         }
     }
 

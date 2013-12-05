@@ -14,13 +14,13 @@ import org.json.JSONObject;
 public class ae extends BdAsyncTask<Integer, Integer, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ImagePbActivity f2045a;
+    final /* synthetic */ ImagePbActivity f2152a;
     private WriteData b;
-    private com.baidu.tieba.util.ap c = null;
+    private com.baidu.tieba.util.am c = null;
     private boolean d = false;
 
     public ae(ImagePbActivity imagePbActivity, WriteData writeData) {
-        this.f2045a = imagePbActivity;
+        this.f2152a = imagePbActivity;
         this.b = null;
         this.b = writeData;
     }
@@ -32,7 +32,7 @@ public class ae extends BdAsyncTask<Integer, Integer, String> {
         if (this.d) {
             return null;
         }
-        this.c = new com.baidu.tieba.util.ap(com.baidu.tieba.data.h.f1201a + "c/c/post/add");
+        this.c = new com.baidu.tieba.util.am(com.baidu.tieba.data.h.f1248a + "c/c/post/add");
         this.c.a("anonymous", SocialConstants.FALSE);
         this.c.a("fid", this.b.getForumId());
         this.c.a("kw", this.b.getForumName());
@@ -42,7 +42,7 @@ public class ae extends BdAsyncTask<Integer, Integer, String> {
         if (this.b.getVcode() != null && this.b.getVcode().length() > 0) {
             this.c.a("vcode", this.b.getVcode());
         }
-        if (TiebaApplication.g().as() < 3) {
+        if (TiebaApplication.h().aq() < 3) {
             this.c.a("vcode_tag", "11");
         }
         this.c.a("quote_id", this.b.getFloor());
@@ -55,12 +55,12 @@ public class ae extends BdAsyncTask<Integer, Integer, String> {
         if (AntiHelper.a(antiData) || AntiHelper.b(antiData) || AntiHelper.c(antiData) || AntiHelper.d(antiData)) {
             antiData.setBlock_forum_name(this.b.getForumName());
             antiData.setBlock_forum_id(this.b.getForumId());
-            antiData.setUser_id(TiebaApplication.A());
-            antiData.setUser_name(TiebaApplication.F());
-            AntiHelper.a(this.f2045a, antiData, AntiHelper.OperationType.REPLY, AntiHelper.PageType.IMAGE_PB);
+            antiData.setUser_id(TiebaApplication.B());
+            antiData.setUser_name(TiebaApplication.G());
+            AntiHelper.a(this.f2152a, antiData, AntiHelper.OperationType.REPLY, AntiHelper.PageType.IMAGE_PB);
             return;
         }
-        this.f2045a.showToast(str);
+        this.f2152a.showToast(str);
     }
 
     private void a(int i, String str, String str2, AntiData antiData) {
@@ -74,10 +74,10 @@ public class ae extends BdAsyncTask<Integer, Integer, String> {
                 this.b.setVcodeMD5(bdVar.a());
                 this.b.setVcodeUrl(bdVar.b());
                 if (bdVar.c().equals("4")) {
-                    NewVcodeActivity.a(this.f2045a, this.b, 12006);
+                    NewVcodeActivity.a(this.f2152a, this.b, 12006);
                     return;
                 } else {
-                    VcodeActivity.a(this.f2045a, this.b, 12006);
+                    VcodeActivity.a(this.f2152a, this.b, 12006);
                     return;
                 }
             } else {
@@ -94,8 +94,8 @@ public class ae extends BdAsyncTask<Integer, Integer, String> {
     public void a(String str) {
         AntiData antiData;
         super.a((ae) str);
-        this.f2045a.closeLoadingDialog();
-        this.f2045a.u = null;
+        this.f2152a.closeLoadingDialog();
+        this.f2152a.u = null;
         if (this.c != null) {
             try {
                 antiData = new AntiData();
@@ -107,7 +107,7 @@ public class ae extends BdAsyncTask<Integer, Integer, String> {
                 antiData = null;
             }
             if (this.c.c()) {
-                this.f2045a.h();
+                this.f2152a.h();
             } else {
                 a(this.c.e(), this.c.i(), str, antiData);
             }
@@ -116,8 +116,8 @@ public class ae extends BdAsyncTask<Integer, Integer, String> {
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        this.f2045a.u = null;
-        this.f2045a.closeLoadingDialog();
+        this.f2152a.u = null;
+        this.f2152a.closeLoadingDialog();
         this.d = true;
         if (this.c != null) {
             this.c.j();

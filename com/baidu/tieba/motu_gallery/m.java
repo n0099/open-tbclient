@@ -5,15 +5,15 @@ import android.view.View;
 class m implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ JigsawAlbumListActivity f2015a;
+    final /* synthetic */ JigsawAlbumListActivity f2122a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(JigsawAlbumListActivity jigsawAlbumListActivity) {
-        this.f2015a = jigsawAlbumListActivity;
+        this.f2122a = jigsawAlbumListActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.f2015a.finish();
+        this.f2122a.finish();
     }
 }

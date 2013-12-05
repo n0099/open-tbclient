@@ -1,68 +1,36 @@
 package com.baidu.tieba;
 
-import android.support.v4.view.ViewPager;
+import android.content.Intent;
 import android.view.View;
-import android.view.ViewGroup;
-import java.util.ArrayList;
+import com.baidu.tieba.frs.FrsActivity;
+import com.baidu.tieba.service.DealIntentService;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class ac extends android.support.v4.view.ae {
+class ac implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ GuideActivity f1019a;
-
-    private ac(GuideActivity guideActivity) {
-        this.f1019a = guideActivity;
-    }
+    final /* synthetic */ GuideActivity f1029a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ac(GuideActivity guideActivity, w wVar) {
-        this(guideActivity);
+    public ac(GuideActivity guideActivity) {
+        this.f1029a = guideActivity;
     }
 
-    @Override // android.support.v4.view.ae
-    public int getCount() {
-        int[] iArr;
-        iArr = this.f1019a.f;
-        return iArr.length + 1;
-    }
-
-    @Override // android.support.v4.view.ae
-    public Object instantiateItem(View view, int i) {
-        ArrayList arrayList;
-        ArrayList arrayList2;
-        ArrayList arrayList3;
-        ArrayList arrayList4;
-        ArrayList arrayList5;
-        arrayList = this.f1019a.g;
-        if (i < arrayList.size()) {
-            arrayList2 = this.f1019a.g;
-            ((ViewPager) view).addView((View) arrayList2.get(i), 0);
-            arrayList3 = this.f1019a.g;
-            if (i == arrayList3.size() - 1) {
-                arrayList5 = this.f1019a.g;
-                ((View) arrayList5.get(i)).setOnClickListener(this.f1019a.d);
-            }
-            arrayList4 = this.f1019a.g;
-            return arrayList4.get(i);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        String str;
+        str = this.f1029a.m;
+        if (str.equals(GuideActivity.f1010a)) {
+            Intent intent = new Intent(this.f1029a, DealIntentService.class);
+            intent.putExtra("class", 2);
+            intent.putExtra("fname", this.f1029a.getString(R.string.guide_ten_years));
+            intent.putExtra("from", "guide_ten_year");
+            intent.putExtra("go_to", 10);
+            TiebaApplication.a(intent);
+            this.f1029a.setResult(-1, intent);
+        } else {
+            FrsActivity.a(this.f1029a, this.f1029a.getString(R.string.guide_ten_years), "guide_ten_year");
         }
-        View view2 = new View(this.f1019a);
-        view2.setBackgroundColor(-1);
-        ((ViewPager) view).addView(view2, 0);
-        return view2;
-    }
-
-    @Override // android.support.v4.view.ae
-    public void destroyItem(View view, int i, Object obj) {
-        ((ViewPager) view).removeView((View) obj);
-    }
-
-    @Override // android.support.v4.view.ae
-    public boolean isViewFromObject(View view, Object obj) {
-        return view == obj;
-    }
-
-    @Override // android.support.v4.view.ae
-    public void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
-        super.setPrimaryItem(viewGroup, i, obj);
+        this.f1029a.closeActivity();
     }
 }

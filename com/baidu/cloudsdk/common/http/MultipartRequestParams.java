@@ -19,18 +19,18 @@ public class MultipartRequestParams extends RequestParams {
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f834a;
+        public String f839a;
         public String b;
         public InputStream c;
 
         public a(InputStream inputStream, String str, String str2) {
             this.c = inputStream;
-            this.f834a = str;
+            this.f839a = str;
             this.b = str2;
         }
 
         public String a() {
-            return this.f834a != null ? this.f834a : "nofilename";
+            return this.f839a != null ? this.f839a : "nofilename";
         }
     }
 

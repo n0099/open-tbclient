@@ -7,13 +7,13 @@ import com.tencent.mm.sdk.platformtools.Util;
 public class ax extends BdAsyncTask<Object, ar, ar> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ av f2376a;
+    final /* synthetic */ av f2493a;
     private int c;
     private com.baidu.tieba.a.j b = null;
     private com.baidu.adp.lib.cache.s<String> d = null;
 
     public ax(av avVar, int i) {
-        this.f2376a = avVar;
+        this.f2493a = avVar;
         this.c = 1;
         this.c = i;
         setPriority(3);
@@ -27,7 +27,7 @@ public class ax extends BdAsyncTask<Object, ar, ar> {
         ar arVar;
         String str = null;
         this.b = new com.baidu.tieba.a.j();
-        this.d = com.baidu.tieba.b.a.a().l();
+        this.d = com.baidu.tieba.b.a.a().o();
         if (this.c == 0) {
             String a2 = this.d.a("square_cache_key");
             if (a2 == null) {
@@ -62,7 +62,7 @@ public class ax extends BdAsyncTask<Object, ar, ar> {
         if (this.b != null) {
             this.b.a();
         }
-        this.f2376a.f2375a = null;
+        this.f2493a.f2492a = null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -72,17 +72,17 @@ public class ax extends BdAsyncTask<Object, ar, ar> {
         aw awVar;
         aw awVar2;
         aw awVar3;
-        this.f2376a.f2375a = null;
-        this.f2376a.b = arVar;
-        awVar = this.f2376a.c;
+        this.f2493a.f2492a = null;
+        this.f2493a.b = arVar;
+        awVar = this.f2493a.c;
         if (awVar != null) {
             if (this.c == 0 || this.b.c()) {
-                awVar2 = this.f2376a.c;
+                awVar2 = this.f2493a.c;
                 awVar2.a(true, null, arVar);
                 return;
             }
             String d = this.b.d();
-            awVar3 = this.f2376a.c;
+            awVar3 = this.f2493a.c;
             awVar3.a(false, d, arVar);
         }
     }

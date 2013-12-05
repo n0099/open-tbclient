@@ -9,24 +9,24 @@ import java.util.Map;
 public class aj extends w {
 
     /* renamed from: a  reason: collision with root package name */
-    long f2744a;
+    long f2925a;
 
     public aj(long j, int i) {
         super(i);
-        this.f2744a = j;
+        this.f2925a = j;
     }
 
     public aj(DataInputStream dataInputStream, int i) {
         super(i);
-        this.f2744a = dataInputStream.readLong();
+        this.f2925a = dataInputStream.readLong();
     }
 
     public int hashCode() {
-        return (int) (this.f2744a ^ (this.f2744a >>> 32));
+        return (int) (this.f2925a ^ (this.f2925a >>> 32));
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof aj) && ((aj) obj).f2744a == this.f2744a;
+        return (obj instanceof aj) && ((aj) obj).f2925a == this.f2925a;
     }
 
     @Override // javassist.bytecode.w
@@ -36,18 +36,18 @@ public class aj extends w {
 
     @Override // javassist.bytecode.w
     public int a(y yVar, y yVar2, Map map) {
-        return yVar2.a(this.f2744a);
+        return yVar2.a(this.f2925a);
     }
 
     @Override // javassist.bytecode.w
     public void a(DataOutputStream dataOutputStream) {
         dataOutputStream.writeByte(5);
-        dataOutputStream.writeLong(this.f2744a);
+        dataOutputStream.writeLong(this.f2925a);
     }
 
     @Override // javassist.bytecode.w
     public void a(PrintWriter printWriter) {
         printWriter.print("Long ");
-        printWriter.println(this.f2744a);
+        printWriter.println(this.f2925a);
     }
 }

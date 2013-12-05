@@ -1,44 +1,26 @@
 package com.baidu.tieba.home;
 
-import org.apache.http.message.BasicNameValuePair;
+import android.widget.CompoundButton;
+import android.widget.RadioButton;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class aq implements Runnable {
+public class aq implements CompoundButton.OnCheckedChangeListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SearchActivity f1401a;
+    final /* synthetic */ SearchActivity f1456a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aq(SearchActivity searchActivity) {
-        this.f1401a = searchActivity;
+        this.f1456a = searchActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        String str;
-        String str2;
-        String str3;
-        az azVar;
-        az azVar2;
-        try {
-            str = this.f1401a.A;
-            if (str != null) {
-                str2 = this.f1401a.A;
-                if (str2.length() > 0) {
-                    StringBuffer stringBuffer = new StringBuffer(30);
-                    stringBuffer.append(com.baidu.tieba.data.h.f1201a);
-                    stringBuffer.append("c/f/forum/sug");
-                    str3 = this.f1401a.A;
-                    BasicNameValuePair basicNameValuePair = new BasicNameValuePair("q", str3.trim());
-                    this.f1401a.a();
-                    this.f1401a.y = new az(this.f1401a, stringBuffer.toString(), basicNameValuePair, true);
-                    azVar = this.f1401a.y;
-                    azVar.setPriority(3);
-                    azVar2 = this.f1401a.y;
-                    azVar2.execute(stringBuffer.toString(), basicNameValuePair);
-                }
-            }
-        } catch (Exception e) {
-            com.baidu.tieba.util.bg.b(getClass().getName(), "mSuggestRunnble.run", "error = " + e.getMessage());
+    @Override // android.widget.CompoundButton.OnCheckedChangeListener
+    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
+        RadioButton radioButton;
+        if (z) {
+            this.f1456a.a(0);
+            radioButton = this.f1456a.j;
+            radioButton.setChecked(false);
         }
     }
 }

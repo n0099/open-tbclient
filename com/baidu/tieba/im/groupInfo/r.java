@@ -1,24 +1,26 @@
 package com.baidu.tieba.im.groupInfo;
 
-import com.baidu.tieba.view.HeadImageView;
+import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class r implements com.baidu.tbadk.imageManager.c {
+public class r implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ HeadImageView f1691a;
-    final /* synthetic */ n b;
+    final /* synthetic */ Object f1758a;
+    final /* synthetic */ int b;
+    final /* synthetic */ m c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public r(n nVar, HeadImageView headImageView) {
-        this.b = nVar;
-        this.f1691a = headImageView;
+    public r(m mVar, Object obj, int i) {
+        this.c = mVar;
+        this.f1758a = obj;
+        this.b = i;
     }
 
-    @Override // com.baidu.tbadk.imageManager.c
-    public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
-        if (eVar != null) {
-            eVar.a(this.f1691a);
-        }
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        x xVar;
+        xVar = this.c.G;
+        xVar.a(dialogInterface, i, this.f1758a, this.b);
     }
 }

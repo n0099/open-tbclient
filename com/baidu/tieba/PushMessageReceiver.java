@@ -8,14 +8,12 @@ import com.baidu.android.pushservice.PushConstants;
 import com.baidu.browser.core.util.BdUtil;
 import com.baidu.mobstat.StatService;
 import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.bg;
-import com.baidu.tieba.util.bh;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class PushMessageReceiver extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1003a = PushMessageReceiver.class.getSimpleName();
+    public static final String f1013a = PushMessageReceiver.class.getSimpleName();
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
@@ -29,7 +27,7 @@ public class PushMessageReceiver extends BroadcastReceiver {
                         string = new String(byteArrayExtra, BdUtil.UTF8);
                     }
                     if (TextUtils.isEmpty(string)) {
-                        com.baidu.adp.lib.h.d.a("receive message is empty");
+                        com.baidu.adp.lib.h.e.a("receive message is empty");
                         return;
                     }
                     JSONObject jSONObject = new JSONObject(string);
@@ -42,10 +40,10 @@ public class PushMessageReceiver extends BroadcastReceiver {
                                 case 4:
                                 case 9:
                                 case 13:
-                                    if (TiebaApplication.A() != null) {
+                                    if (TiebaApplication.B() != null) {
                                         com.baidu.tieba.data.at atVar = new com.baidu.tieba.data.at();
                                         atVar.a(optString);
-                                        if (TiebaApplication.A().equals(atVar.e()) && TiebaApplication.g().ad()) {
+                                        if (TiebaApplication.B().equals(atVar.e()) && TiebaApplication.h().ab()) {
                                             com.baidu.tieba.mention.t.a().j();
                                             return;
                                         }
@@ -53,7 +51,7 @@ public class PushMessageReceiver extends BroadcastReceiver {
                                     }
                                     return;
                                 case 14:
-                                    if (TiebaApplication.A() != null) {
+                                    if (TiebaApplication.B() != null) {
                                         UtilHelper.a(context, new com.baidu.tieba.data.at(-1L, "vote", optString), 15);
                                         return;
                                     }
@@ -61,14 +59,16 @@ public class PushMessageReceiver extends BroadcastReceiver {
                                 case 65535:
                                     com.baidu.tieba.data.at atVar2 = new com.baidu.tieba.data.at();
                                     atVar2.a(optString);
-                                    if (TiebaApplication.g().s() && !TextUtils.isEmpty(atVar2.a())) {
-                                        StatService.onEvent(TiebaApplication.g().getApplicationContext(), "push_noti:" + atVar2.a(), "msgID:" + atVar2.b());
+                                    if (TiebaApplication.h().t() && !TextUtils.isEmpty(atVar2.a())) {
+                                        StatService.onEvent(TiebaApplication.h().getApplicationContext(), "push_noti:" + atVar2.a(), "msgID:" + atVar2.b());
                                     }
-                                    bh.a(atVar2.b(), 1, atVar2.c());
+                                    if (!TextUtils.isEmpty(atVar2.c()) && !TextUtils.isEmpty(atVar2.a())) {
+                                        com.baidu.tieba.util.be.a(atVar2.b(), 1, atVar2.c(), atVar2.a());
+                                    }
                                     if (atVar2.b() != -1) {
-                                        TiebaApplication.g().b(atVar2.b());
+                                        TiebaApplication.h().b(atVar2.b());
                                     }
-                                    UtilHelper.a(TiebaApplication.g().getApplicationContext(), atVar2, 13);
+                                    UtilHelper.a(TiebaApplication.h().getApplicationContext(), atVar2, 13);
                                     return;
                                 default:
                                     return;
@@ -89,19 +89,19 @@ public class PushMessageReceiver extends BroadcastReceiver {
                             String optString2 = optJSONObject.optString("channel_id");
                             String optString3 = optJSONObject.optString(PushConstants.EXTRA_USER_ID);
                             if (optString2 != null) {
-                                TiebaApplication.g().w(optString2);
+                                TiebaApplication.h().w(optString2);
                             }
                             if (optString3 != null) {
-                                TiebaApplication.g().x(optString3);
+                                TiebaApplication.h().x(optString3);
                             }
-                            new ao().start();
+                            new as().start();
                         }
                     } catch (Exception e2) {
                         e2.printStackTrace();
                     }
                 }
             } else if (intent.getAction().equals(PushConstants.ACTION_RECEIVER_NOTIFICATION_CLICK)) {
-                bg.e(f1003a, "onReceive:click message", "EXTRA_EXTRA = " + intent.getStringExtra(PushConstants.EXTRA_EXTRA));
+                com.baidu.tieba.util.bd.e(f1013a, "onReceive:click message", "EXTRA_EXTRA = " + intent.getStringExtra(PushConstants.EXTRA_EXTRA));
             }
         }
     }

@@ -5,15 +5,15 @@ import javassist.bytecode.y;
 public class IntegerMemberValue extends d {
 
     /* renamed from: a  reason: collision with root package name */
-    int f2768a;
+    int f2949a;
 
     public IntegerMemberValue(int i, y yVar) {
         super('I', yVar);
-        this.f2768a = i;
+        this.f2949a = i;
     }
 
     public int a() {
-        return this.c.r(this.f2768a);
+        return this.c.r(this.f2949a);
     }
 
     public String toString() {

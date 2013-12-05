@@ -8,43 +8,41 @@ import com.slidingmenu.lib.R;
 public class p implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ m f1090a;
+    final /* synthetic */ n f1100a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public p(m mVar) {
-        this.f1090a = mVar;
+    public p(n nVar) {
+        this.f1100a = nVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         EditText editText;
         com.baidu.tieba.j jVar;
-        s sVar;
+        u uVar;
         t tVar;
         t tVar2;
         t tVar3;
-        s sVar2;
-        editText = this.f1090a.c;
+        editText = this.f1100a.c;
         String obj = editText.getText().toString();
         if (obj != null && obj.length() > 0) {
-            sVar = this.f1090a.m;
-            if (sVar != null) {
-                sVar2 = this.f1090a.m;
-                sVar2.cancel();
-            }
-            tVar = this.f1090a.l;
-            if (tVar == null) {
-                this.f1090a.l = new t(this.f1090a, com.baidu.tieba.data.h.f1201a + "c/s/filluname", obj);
-                tVar2 = this.f1090a.l;
-                tVar2.setPriority(3);
-                tVar3 = this.f1090a.l;
-                tVar3.execute(new String[0]);
+            uVar = this.f1100a.l;
+            if (uVar == null) {
+                tVar = this.f1100a.m;
+                if (tVar == null) {
+                    this.f1100a.m = new t(this.f1100a, com.baidu.tieba.data.h.f1248a + "c/s/detectuname", obj);
+                    tVar2 = this.f1100a.m;
+                    tVar2.setPriority(3);
+                    tVar3 = this.f1100a.m;
+                    tVar3.execute(new String[0]);
+                    return;
+                }
                 return;
             }
             return;
         }
-        m mVar = this.f1090a;
-        jVar = this.f1090a.j;
-        mVar.b(jVar.getString(R.string.input_name));
+        n nVar = this.f1100a;
+        jVar = this.f1100a.j;
+        nVar.b(jVar.getString(R.string.input_name));
     }
 }

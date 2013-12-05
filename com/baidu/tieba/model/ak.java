@@ -12,7 +12,7 @@ import org.json.JSONObject;
 public class ak {
 
     /* renamed from: a  reason: collision with root package name */
-    private ForumData f1873a;
+    private ForumData f1985a;
     private ArrayList<com.baidu.tieba.data.az> b;
     private AntiData c;
     private com.baidu.tieba.data.am d;
@@ -32,7 +32,7 @@ public class ak {
     }
 
     private void k() {
-        this.f1873a = new ForumData();
+        this.f1985a = new ForumData();
         this.b = new ArrayList<>();
         this.d = new com.baidu.tieba.data.am();
         this.e = new com.baidu.tieba.data.y();
@@ -42,19 +42,19 @@ public class ak {
     }
 
     public void a(com.baidu.tieba.data.af afVar) {
-        this.f1873a.setCurScore(afVar.d());
-        this.f1873a.setLevelupScore(afVar.e());
-        this.f1873a.setLike(afVar.b());
-        this.f1873a.setUser_level(afVar.a());
-        this.f1873a.setLevelName(afVar.c());
+        this.f1985a.setCurScore(afVar.d());
+        this.f1985a.setLevelupScore(afVar.e());
+        this.f1985a.setLike(afVar.b());
+        this.f1985a.setUser_level(afVar.a());
+        this.f1985a.setLevelName(afVar.c());
     }
 
     public void a(SignData signData) {
-        this.f1873a.setSignData(signData);
+        this.f1985a.setSignData(signData);
     }
 
     public ForumData a() {
-        return this.f1873a;
+        return this.f1985a;
     }
 
     public ArrayList<com.baidu.tieba.data.az> b() {
@@ -101,7 +101,7 @@ public class ak {
             a(jSONObject.optInt("is_new_url", 0));
             JSONObject optJSONObject = jSONObject.optJSONObject("forum");
             k();
-            this.f1873a.parserJson(optJSONObject);
+            this.f1985a.parserJson(optJSONObject);
             JSONArray optJSONArray = jSONObject.optJSONArray("thread_list");
             if (optJSONArray != null) {
                 for (int i = 0; i < optJSONArray.length(); i++) {
@@ -140,7 +140,7 @@ public class ak {
         ForumData a2 = a();
         this.m = new al(this, a2.getId(), a2.getName(), str);
         this.m.setPriority(2);
-        this.m.execute(com.baidu.tieba.data.h.f1201a + "c/c/user/fansno");
+        this.m.execute(com.baidu.tieba.data.h.f1248a + "c/c/user/fansno");
     }
 
     public void h() {

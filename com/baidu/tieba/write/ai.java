@@ -8,11 +8,11 @@ import com.slidingmenu.lib.R;
 public class ai implements com.baidu.tieba.editortool.h {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WriteActivity f2665a;
+    final /* synthetic */ WriteActivity f2783a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ai(WriteActivity writeActivity) {
-        this.f2665a = writeActivity;
+        this.f2783a = writeActivity;
     }
 
     @Override // com.baidu.tieba.editortool.h
@@ -21,19 +21,19 @@ public class ai implements com.baidu.tieba.editortool.h {
         WriteData writeData2;
         if (i == 28) {
             if (obj != null && (obj instanceof Bitmap)) {
-                WriteImageActivity.a(this.f2665a, (Bitmap) obj, 12003);
+                WriteImageActivity.a(this.f2783a, (Bitmap) obj, 12003);
             }
         } else if (i == 29) {
-            this.f2665a.showToast(R.string.pic_parser_error);
-            this.f2665a.t();
+            this.f2783a.showToast(R.string.pic_parser_error);
+            this.f2783a.t();
         } else if (i == 32) {
-            writeData2 = this.f2665a.b;
+            writeData2 = this.f2783a.b;
             writeData2.setBitmapId(null);
-            this.f2665a.t();
+            this.f2783a.t();
         } else if (i == 30) {
-            writeData = this.f2665a.b;
+            writeData = this.f2783a.b;
             writeData.setBitmapId(null);
-            this.f2665a.t();
+            this.f2783a.t();
         }
     }
 }

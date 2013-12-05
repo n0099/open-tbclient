@@ -1,39 +1,22 @@
 package com.baidu.tieba.view;
-
-import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class at implements o {
+public class at implements q {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MultiImageView f2550a;
+    final /* synthetic */ MultiImageView f2664a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public at(MultiImageView multiImageView) {
-        this.f2550a = multiImageView;
+        this.f2664a = multiImageView;
     }
 
-    @Override // com.baidu.tieba.view.o
-    public void a(k kVar) {
+    @Override // com.baidu.tieba.view.q
+    public void a(l lVar, boolean z, boolean z2) {
         GalleryViewPager galleryViewPager;
-        boolean z;
-        GalleryViewPager galleryViewPager2;
-        GalleryViewPager galleryViewPager3;
-        galleryViewPager = this.f2550a.e;
-        if (kVar == galleryViewPager.getCurrentView()) {
-            z = this.f2550a.l;
-            if (z) {
-                galleryViewPager2 = this.f2550a.e;
-                int childCount = galleryViewPager2.getChildCount();
-                for (int i = 0; i < childCount; i++) {
-                    galleryViewPager3 = this.f2550a.e;
-                    View childAt = galleryViewPager3.getChildAt(i);
-                    if (childAt != null && (childAt instanceof bl) && ((bl) childAt).getImageView() != kVar) {
-                        ((bl) childAt).d();
-                    }
-                }
-            }
-            kVar.e();
+        galleryViewPager = this.f2664a.e;
+        if (galleryViewPager.getSelectedView() == lVar) {
+            this.f2664a.setZoomButton(lVar);
         }
     }
 }

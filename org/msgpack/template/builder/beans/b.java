@@ -7,7 +7,7 @@ public class b {
     static final /* synthetic */ boolean g;
 
     /* renamed from: a  reason: collision with root package name */
-    boolean f2929a;
+    boolean f3110a;
     boolean b;
     boolean c;
     String d;
@@ -38,7 +38,7 @@ public class b {
         }
         this.c |= bVar.c;
         this.b |= bVar.b;
-        this.f2929a |= bVar.f2929a;
+        this.f3110a |= bVar.f3110a;
         if (this.d == null) {
             this.d = bVar.d;
         }

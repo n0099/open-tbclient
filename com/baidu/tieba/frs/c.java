@@ -10,11 +10,11 @@ import com.slidingmenu.lib.R;
 public class c extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsActivity f1352a;
+    final /* synthetic */ FrsActivity f1403a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(FrsActivity frsActivity) {
-        this.f1352a = frsActivity;
+        this.f1403a = frsActivity;
     }
 
     @Override // android.os.Handler
@@ -31,14 +31,14 @@ public class c extends Handler {
         switch (message.what) {
             case 1:
                 removeMessages(1);
-                akVar = this.f1352a.w;
+                akVar = this.f1403a.w;
                 if (akVar != null) {
-                    akVar2 = this.f1352a.w;
+                    akVar2 = this.f1403a.w;
                     long g = akVar2.f().g();
-                    j = this.f1352a.B;
+                    j = this.f1403a.B;
                     long nanoTime = g - ((System.nanoTime() / 1000000000) - j);
                     if (nanoTime > 0) {
-                        bnVar2 = this.f1352a.n;
+                        bnVar2 = this.f1403a.n;
                         CustomTimerView customTimerView = (CustomTimerView) bnVar2.a(R.id.open_timer);
                         if (customTimerView != null) {
                             customTimerView.setTime(nanoTime);
@@ -46,16 +46,16 @@ public class c extends Handler {
                         sendMessageDelayed(obtainMessage(1), 1000L);
                         return;
                     }
-                    akVar3 = this.f1352a.w;
+                    akVar3 = this.f1403a.w;
                     akVar3.f().a(1);
-                    z = this.f1352a.d;
+                    z = this.f1403a.d;
                     if (!z) {
-                        bnVar = this.f1352a.n;
-                        com.baidu.tieba.view.aa n = bnVar.n();
-                        akVar4 = this.f1352a.w;
+                        bnVar = this.f1403a.n;
+                        com.baidu.tieba.view.ab o = bnVar.o();
+                        akVar4 = this.f1403a.w;
                         ForumData a2 = akVar4.a();
-                        akVar5 = this.f1352a.w;
-                        n.a(a2, akVar5);
+                        akVar5 = this.f1403a.w;
+                        o.a(a2, akVar5);
                         return;
                     }
                     return;

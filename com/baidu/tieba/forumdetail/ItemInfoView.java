@@ -15,16 +15,15 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tieba.forumdetail.ForumDetailActivity;
 import com.baidu.tieba.forumdetail.ForumDetailData;
-import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.ae;
-import com.baidu.tieba.util.be;
+import com.baidu.tieba.util.bb;
+import com.baidu.tieba.util.w;
 import com.baidu.tieba.view.HeadImageView;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class ItemInfoView extends RelativeLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1277a;
+    private Context f1324a;
     private ViewGroup b;
     private TextView c;
     private ViewGroup d;
@@ -51,7 +50,7 @@ public class ItemInfoView extends RelativeLayout {
     }
 
     public void a(Context context) {
-        this.f1277a = context;
+        this.f1324a = context;
         ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(R.layout.forum_detail_info, (ViewGroup) this, true);
         this.b = (ViewGroup) findViewById(R.id.info_brief_box);
         this.c = (TextView) findViewById(R.id.info_brief_content);
@@ -66,7 +65,7 @@ public class ItemInfoView extends RelativeLayout {
 
     public boolean a(ForumDetailData forumDetailData, com.baidu.tieba.j jVar) {
         boolean z;
-        if (forumDetailData == null || (forumDetailData.forumInfo.contents.length == 0 && be.c(forumDetailData.forumInfo.slogan) && forumDetailData.badges.length == 0 && forumDetailData.forumDir == null)) {
+        if (forumDetailData == null || (forumDetailData.forumInfo.contents.length == 0 && bb.c(forumDetailData.forumInfo.slogan) && forumDetailData.badges.length == 0 && forumDetailData.forumDir == null)) {
             return false;
         }
         boolean equals = jVar.getIntent().getStringExtra("from_type").equals(ForumDetailActivity.FromType.BAR_DIR.toString());
@@ -75,7 +74,7 @@ public class ItemInfoView extends RelativeLayout {
             String str2 = forumDetailData.forumDir.levelOneName;
             String valueOf = String.valueOf(forumDetailData.forumDir.levelOneMenuType);
             String valueOf2 = String.valueOf(forumDetailData.forumDir.levelOneMenuID);
-            if (be.c(str)) {
+            if (bb.c(str)) {
                 z = false;
             } else {
                 this.e.setText(str);
@@ -98,7 +97,7 @@ public class ItemInfoView extends RelativeLayout {
         } else {
             z = false;
         }
-        if (forumDetailData.forumInfo.contents.length > 0 || !be.c(forumDetailData.forumInfo.slogan)) {
+        if (forumDetailData.forumInfo.contents.length > 0 || !bb.c(forumDetailData.forumInfo.slogan)) {
             this.c.setText(a(forumDetailData.forumInfo.contents, forumDetailData.forumInfo.slogan));
             this.b.setVisibility(0);
             z = true;
@@ -118,12 +117,12 @@ public class ItemInfoView extends RelativeLayout {
     }
 
     private SpannableStringBuilder a(ForumDetailData.ForumContent[] forumContentArr, String str) {
-        ae aeVar = new ae();
+        w wVar = new w();
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str + "\n");
         int length = forumContentArr.length;
         for (int i = 0; i < length; i++) {
             if (forumContentArr[i].type == 2) {
-                Bitmap a2 = com.baidu.tieba.util.m.a(aeVar.a(forumContentArr[i].text));
+                Bitmap a2 = com.baidu.tieba.util.m.a(wVar.a(forumContentArr[i].text));
                 if (a2 != null) {
                     BitmapDrawable bitmapDrawable = new BitmapDrawable(a2);
                     bitmapDrawable.setBounds(0, 0, a2.getWidth(), a2.getHeight());
@@ -139,14 +138,14 @@ public class ItemInfoView extends RelativeLayout {
     }
 
     private void a(ForumDetailData forumDetailData) {
-        com.baidu.tieba.util.i iVar = new com.baidu.tieba.util.i(this.f1277a);
-        int a2 = UtilHelper.a(this.f1277a, 20.0f);
+        com.baidu.tieba.util.i iVar = new com.baidu.tieba.util.i(this.f1324a);
+        int a2 = com.baidu.adp.lib.h.g.a(this.f1324a, 20.0f);
         iVar.a(a2, a2);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(a2, a2);
-        layoutParams.rightMargin = UtilHelper.a(this.f1277a, 6.0f);
+        layoutParams.rightMargin = com.baidu.adp.lib.h.g.a(this.f1324a, 6.0f);
         int length = forumDetailData.badges.length;
         for (int i = 0; i < length; i++) {
-            HeadImageView headImageView = new HeadImageView(this.f1277a);
+            HeadImageView headImageView = new HeadImageView(this.f1324a);
             headImageView.setLayoutParams(layoutParams);
             headImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             headImageView.setTag(forumDetailData.badges[i].badgeURL);

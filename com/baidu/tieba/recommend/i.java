@@ -5,24 +5,24 @@ import com.baidu.mobstat.StatService;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.util.UtilHelper;
 /* loaded from: classes.dex */
-class i implements com.baidu.tieba.view.f {
+class i implements com.baidu.tieba.view.g {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ h f2297a;
+    final /* synthetic */ h f2414a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(h hVar) {
-        this.f2297a = hVar;
+        this.f2414a = hVar;
     }
 
-    @Override // com.baidu.tieba.view.f
+    @Override // com.baidu.tieba.view.g
     public void a() {
-        if (h.a(this.f2297a) != null && h.a(this.f2297a).f2285a.size() > h.b(this.f2297a).getCurrentItem()) {
-            String str = (String) h.a(this.f2297a).f2285a.get(h.b(this.f2297a).getCurrentItem()).getTag();
+        if (this.f2414a.g != null && this.f2414a.g.f2403a.size() > this.f2414a.f.getCurrentItem()) {
+            String str = (String) this.f2414a.g.f2403a.get(this.f2414a.f.getCurrentItem()).getTag();
             if (!TextUtils.isEmpty(str)) {
-                UtilHelper.a(h.c(this.f2297a), str, null, null);
-                if (TiebaApplication.g().s()) {
-                    StatService.onEvent(h.c(this.f2297a), "recommend_banner", "click");
+                UtilHelper.a(this.f2414a.i, str, null, null);
+                if (TiebaApplication.h().t()) {
+                    StatService.onEvent(this.f2414a.i, "recommend_banner", "click");
                 }
             }
         }

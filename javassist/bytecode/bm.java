@@ -9,24 +9,24 @@ import java.util.Map;
 public class bm extends w {
 
     /* renamed from: a  reason: collision with root package name */
-    int f2792a;
+    int f2973a;
 
     public bm(int i, int i2) {
         super(i2);
-        this.f2792a = i;
+        this.f2973a = i;
     }
 
     public bm(DataInputStream dataInputStream, int i) {
         super(i);
-        this.f2792a = dataInputStream.readUnsignedShort();
+        this.f2973a = dataInputStream.readUnsignedShort();
     }
 
     public int hashCode() {
-        return this.f2792a;
+        return this.f2973a;
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof bm) && ((bm) obj).f2792a == this.f2792a;
+        return (obj instanceof bm) && ((bm) obj).f2973a == this.f2973a;
     }
 
     @Override // javassist.bytecode.w
@@ -36,18 +36,18 @@ public class bm extends w {
 
     @Override // javassist.bytecode.w
     public int a(y yVar, y yVar2, Map map) {
-        return yVar2.b(yVar.w(this.f2792a));
+        return yVar2.b(yVar.w(this.f2973a));
     }
 
     @Override // javassist.bytecode.w
     public void a(DataOutputStream dataOutputStream) {
         dataOutputStream.writeByte(8);
-        dataOutputStream.writeShort(this.f2792a);
+        dataOutputStream.writeShort(this.f2973a);
     }
 
     @Override // javassist.bytecode.w
     public void a(PrintWriter printWriter) {
         printWriter.print("String #");
-        printWriter.println(this.f2792a);
+        printWriter.println(this.f2973a);
     }
 }

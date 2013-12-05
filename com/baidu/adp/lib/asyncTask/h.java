@@ -11,7 +11,7 @@ final class h implements ThreadFactory {
     @Override // java.util.concurrent.ThreadFactory
     public Thread newThread(Runnable runnable) {
         String str = "BdAsyncTask #" + String.valueOf(this.f414a.getAndIncrement());
-        com.baidu.adp.lib.h.d.c(str);
+        com.baidu.adp.lib.h.e.c(str);
         return new Thread(runnable, str);
     }
 }

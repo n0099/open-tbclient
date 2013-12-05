@@ -8,6 +8,7 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import com.baidu.adp.lib.h.g;
 import com.baidu.adp.widget.ImageView.e;
 import com.baidu.cloudsdk.social.core.MediaType;
 import com.baidu.cloudsdk.social.share.ShareContent;
@@ -16,8 +17,7 @@ import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.h;
 import com.baidu.tieba.im.chat.LocalViewSize;
 import com.baidu.tieba.j;
-import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.af;
+import com.baidu.tieba.util.x;
 import com.slidingmenu.lib.R;
 import java.text.MessageFormat;
 import java.util.HashMap;
@@ -25,10 +25,10 @@ import java.util.HashMap;
 public class GroupCardActivity extends j implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f1661a = "groupid";
+    public static String f1728a = "groupid";
     public static String b = "groupname";
     public static String c = "groupportrait";
-    private static String j = h.f1201a + "c/p/groupShareImg?group_id=";
+    private static String j = h.f1248a + "c/p/groupShareImg?group_id=";
     private d d = null;
     private b e = null;
     private long f = 0;
@@ -39,7 +39,7 @@ public class GroupCardActivity extends j implements View.OnClickListener {
     public static void a(Activity activity, long j2, String str, String str2) {
         Intent intent = new Intent(activity, GroupCardActivity.class);
         if (j2 != 0) {
-            intent.putExtra(f1661a, j2);
+            intent.putExtra(f1728a, j2);
             intent.putExtra(b, str);
             intent.putExtra(c, str2);
             activity.startActivity(intent);
@@ -54,6 +54,14 @@ public class GroupCardActivity extends j implements View.OnClickListener {
         f();
     }
 
+    public boolean a() {
+        if (x.a()) {
+            return true;
+        }
+        this.d.a(0, getString(R.string.voice_error_sdcard));
+        return false;
+    }
+
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j
     public void onChangeSkinType(int i) {
@@ -61,20 +69,12 @@ public class GroupCardActivity extends j implements View.OnClickListener {
         this.d.a(i);
     }
 
-    public boolean a() {
-        if (af.a()) {
-            return true;
-        }
-        this.d.a(0, getString(R.string.voice_error_sdcard));
-        return false;
-    }
-
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
         if (view == this.d.g()) {
             if (a() && this.i != null) {
-                if (TiebaApplication.g().s()) {
+                if (TiebaApplication.h().t()) {
                     StatService.onEvent(this, "group_card_save", "click", 1);
                 }
                 this.e.a(this.i);
@@ -82,7 +82,7 @@ public class GroupCardActivity extends j implements View.OnClickListener {
         } else if (view == this.d.i()) {
             finish();
         } else if (view == this.d.h()) {
-            if (TiebaApplication.g().s()) {
+            if (TiebaApplication.h().t()) {
                 StatService.onEvent(this, "group_card_share", "click", 1);
             }
             b();
@@ -93,7 +93,7 @@ public class GroupCardActivity extends j implements View.OnClickListener {
         ShareContent shareContent = new ShareContent();
         shareContent.setTitle(MessageFormat.format(getString(R.string.im_share_title), this.g));
         shareContent.setContent(MessageFormat.format(getString(R.string.im_share_content), this.g, String.valueOf(this.f)));
-        shareContent.setLinkUrl(com.baidu.tieba.im.j.j + this.f);
+        shareContent.setLinkUrl(com.baidu.tieba.im.j.i + this.f);
         try {
             shareContent.setImageUri(Uri.parse(j + this.f + "&w=" + LocalViewSize.a().b()));
         } catch (Throwable th) {
@@ -109,14 +109,14 @@ public class GroupCardActivity extends j implements View.OnClickListener {
         ShareContent shareContent = new ShareContent();
         shareContent.setTitle(MessageFormat.format(getString(R.string.im_share_title), this.g));
         shareContent.setContent(MessageFormat.format(getString(R.string.im_share_content), this.g, String.valueOf(this.f)));
-        shareContent.setLinkUrl(com.baidu.tieba.im.j.j + this.f);
+        shareContent.setLinkUrl(com.baidu.tieba.im.j.i + this.f);
         try {
             if (this.h == null || this.h.equals("")) {
                 shareContent.setImageData(BitmapFactory.decodeResource(getResources(), R.drawable.icon));
             } else if (this.h.startsWith("http")) {
                 shareContent.setImageUri(Uri.parse(this.h));
             } else {
-                shareContent.setImageData(af.d(null, "tieba_group_image"));
+                shareContent.setImageData(x.c(null, "tieba_group_image"));
             }
         } catch (Throwable th) {
         }
@@ -141,12 +141,12 @@ public class GroupCardActivity extends j implements View.OnClickListener {
     private void f() {
         this.d.a();
         Intent intent = getIntent();
-        this.f = intent.getLongExtra(f1661a, 0L);
+        this.f = intent.getLongExtra(f1728a, 0L);
         this.g = intent.getStringExtra(b);
         this.h = intent.getStringExtra(c);
         this.e = new b(this.f, this);
         if (this.e != null) {
-            e a2 = this.e.a(this, UtilHelper.a((Context) this) - UtilHelper.a((Context) this, 10.0f), (UtilHelper.b((Context) this) - this.d.j().getHeight()) - this.d.k().getHeight(), new a(this));
+            e a2 = this.e.a(this, g.b(this) - g.a((Context) this, 10.0f), (g.c(this) - this.d.j().getHeight()) - this.d.k().getHeight(), new a(this));
             if (a2 != null) {
                 this.d.e();
                 this.i = a2.f();

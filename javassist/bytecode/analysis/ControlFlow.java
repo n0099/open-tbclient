@@ -8,15 +8,15 @@ public class ControlFlow {
     public class Block extends BasicBlock {
 
         /* renamed from: a  reason: collision with root package name */
-        Block[] f2750a;
+        Block[] f2931a;
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // javassist.bytecode.stackmap.BasicBlock
         public void a(StringBuffer stringBuffer) {
             super.a(stringBuffer);
             stringBuffer.append(", incoming{");
-            for (int i = 0; i < this.f2750a.length; i++) {
-                stringBuffer.append(this.f2750a[i].b).append(", ");
+            for (int i = 0; i < this.f2931a.length; i++) {
+                stringBuffer.append(this.f2931a[i].b).append(", ");
             }
             stringBuffer.append("}");
         }

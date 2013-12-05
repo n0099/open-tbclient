@@ -6,24 +6,24 @@ import com.baidu.tbadk.widget.TbImageView;
 class ay implements com.baidu.tbadk.imageManager.c {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsImageActivity f1329a;
+    final /* synthetic */ FrsImageActivity f1380a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ay(FrsImageActivity frsImageActivity) {
-        this.f1329a = frsImageActivity;
+        this.f1380a = frsImageActivity;
     }
 
     @Override // com.baidu.tbadk.imageManager.c
     public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
         bl blVar;
         try {
-            blVar = this.f1329a.l;
+            blVar = this.f1380a.l;
             View findViewWithTag = blVar.e().a(2).findViewWithTag(str);
             if (findViewWithTag != null && (findViewWithTag instanceof TbImageView)) {
                 findViewWithTag.invalidate();
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.bg.b(getClass().getName(), "imageLoaded", e.getMessage());
+            com.baidu.tieba.util.bd.b(getClass().getName(), "imageLoaded", e.getMessage());
         }
     }
 }

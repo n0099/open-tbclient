@@ -22,7 +22,7 @@ abstract class u extends l {
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // javassist.bytecode.l
     public void a(int i, int i2, boolean z) {
-        int i3 = this.f2801a;
+        int i3 = this.f2982a;
         this.e = a(i3, this.e, i, i2, z);
         int length = this.f.length;
         for (int i4 = 0; i4 < length; i4++) {
@@ -34,7 +34,7 @@ abstract class u extends l {
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // javassist.bytecode.l
     public int b() {
-        int i = 3 - (this.f2801a & 3);
+        int i = 3 - (this.f2982a & 3);
         if (i > this.d) {
             int i2 = i - this.d;
             this.d = i;
@@ -52,7 +52,7 @@ abstract class u extends l {
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // javassist.bytecode.l
     public int a(int i, byte[] bArr, int i2, byte[] bArr2) {
-        int i3 = 3 - (this.f2801a & 3);
+        int i3 = 3 - (this.f2982a & 3);
         int i4 = this.d - i3;
         int d = (3 - (this.b & 3)) + 5 + d();
         if (i4 > 0) {
@@ -85,7 +85,7 @@ abstract class u extends l {
     }
 
     void a(int i, int i2) {
-        this.g.a(this.f2801a + i, i2);
+        this.g.a(this.f2982a + i, i2);
         if (this.e == i) {
             this.e -= i2;
         }

@@ -44,7 +44,7 @@ public class cr {
     private View.OnClickListener H;
 
     /* renamed from: a  reason: collision with root package name */
-    NavigationBar f2106a;
+    NavigationBar f2213a;
     private View aj;
     private View ak;
     private View al;
@@ -63,7 +63,7 @@ public class cr {
     private View k;
     private View l;
     private bx m;
-    private com.baidu.tieba.view.bj u;
+    private com.baidu.tieba.view.bl u;
     private PbListView v;
     private View w;
     private View.OnClickListener z;
@@ -79,8 +79,8 @@ public class cr {
     private View.OnClickListener A = null;
     private View.OnClickListener B = null;
     private AbsListView.OnScrollListener C = null;
-    private com.baidu.tbadk.widget.richText.n D = null;
-    private com.baidu.tieba.view.az E = null;
+    private com.baidu.tbadk.widget.richText.o D = null;
+    private com.baidu.tieba.view.ba E = null;
     private Handler F = null;
     private Dialog G = null;
     private Dialog I = null;
@@ -116,11 +116,11 @@ public class cr {
     private int as = 0;
     private View.OnClickListener at = new dw(this);
     private boolean av = false;
-    private List<com.baidu.tieba.view.ba> aw = new ArrayList();
+    private List<com.baidu.tieba.view.bb> aw = new ArrayList();
     private com.baidu.tbadk.imageManager.c ax = new dk(this);
     private com.baidu.tbadk.imageManager.c ay = new dl(this);
     private com.baidu.tbadk.imageManager.c az = new dm(this);
-    private com.baidu.tieba.view.ao aA = new dn(this);
+    private com.baidu.tieba.view.ap aA = new dn(this);
     private com.baidu.tieba.c.a ai = new com.baidu.tieba.c.a(new cs(this));
 
     public NoNetworkView a() {
@@ -130,7 +130,7 @@ public class cr {
     public cr(NewPbActivity newPbActivity, View.OnClickListener onClickListener) {
         this.g = null;
         this.h = null;
-        this.f2106a = null;
+        this.f2213a = null;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -154,12 +154,12 @@ public class cr {
         this.g.addContentView(this.h, new FrameLayout.LayoutParams(-2, -2));
         this.j = (NoNetworkView) this.g.findViewById(R.id.view_no_network);
         this.i = (BdListView) this.g.findViewById(R.id.new_pb_list);
-        this.f2106a = (NavigationBar) this.g.findViewById(R.id.view_navigation_bar);
-        this.f2106a.setOnClickListener(new dd(this));
-        this.b = this.f2106a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.z);
-        this.c = this.f2106a.a("");
-        this.d = (ImageView) this.f2106a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.nb_item_floor_host, this.z);
-        this.e = this.f2106a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, NavigationBar.ControlType.MORE_BUTTON, this.z);
+        this.f2213a = (NavigationBar) this.g.findViewById(R.id.view_navigation_bar);
+        this.f2213a.setOnClickListener(new dd(this));
+        this.b = this.f2213a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.z);
+        this.c = this.f2213a.a("");
+        this.d = (ImageView) this.f2213a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.nb_item_floor_host, this.z);
+        this.e = this.f2213a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, NavigationBar.ControlType.MORE_BUTTON, this.z);
         this.an = (PbEditor) this.g.findViewById(R.id.pb_editor_view);
         this.an.setImageFocusable(false);
         C();
@@ -179,7 +179,7 @@ public class cr {
         this.m.d(this.H);
         this.i.setAdapter((ListAdapter) this.m);
         this.i.addHeaderView(this.l);
-        this.u = new com.baidu.tieba.view.bj(this.g);
+        this.u = new com.baidu.tieba.view.bl(this.g);
         this.u.a();
         this.v = new PbListView(this.g);
         this.w = this.v.b().findViewById(R.id.pb_more_view);
@@ -209,15 +209,15 @@ public class cr {
         int i2;
         Bitmap bitmap;
         Bitmap bitmap2 = null;
-        if (this.f2106a != null && this.an != null && view != null) {
-            boolean z = this.f2106a.getVisibility() != 0;
+        if (this.f2213a != null && this.an != null && view != null) {
+            boolean z = this.f2213a.getVisibility() != 0;
             boolean z2 = this.an.getVisibility() != 0;
             if (z || z2) {
-                this.f2106a.postDelayed(new dr(this), 50L);
+                this.f2213a.postDelayed(new dr(this), 50L);
                 return;
             }
             AccelerateInterpolator accelerateInterpolator = new AccelerateInterpolator(1.5f);
-            int measuredHeight = this.f2106a.getMeasuredHeight();
+            int measuredHeight = this.f2213a.getMeasuredHeight();
             if (this.i != null) {
                 i = this.i.getBottom() + measuredHeight;
                 i2 = measuredHeight;
@@ -263,7 +263,7 @@ public class cr {
                 imageView2.setAnimation(translateAnimation2);
                 translateAnimation2.setAnimationListener(new du(this, imageView2));
             }
-            this.f2106a.setVisibility(8);
+            this.f2213a.setVisibility(8);
             this.an.g();
             this.an.setVisibility(8);
         }
@@ -316,7 +316,7 @@ public class cr {
     public void i() {
         if (this.ae && this.g.getCurrentFocus() != null) {
             this.ae = false;
-            UtilHelper.a(this.g, this.g.getCurrentFocus());
+            com.baidu.adp.lib.h.g.a(this.g, this.g.getCurrentFocus());
         }
     }
 
@@ -346,7 +346,7 @@ public class cr {
         this.ap.addView(a2);
         this.ap.requestLayout();
         this.ap.invalidate();
-        this.aq.a(TiebaApplication.g().ap() == 1 ? R.drawable.button_load_next_1 : R.drawable.button_load_next);
+        this.aq.a(TiebaApplication.h().an() == 1 ? R.drawable.button_load_next_1 : R.drawable.button_load_next);
         ai();
     }
 
@@ -357,7 +357,7 @@ public class cr {
             this.G.setCancelable(true);
             this.G.setContentView(this.g.getLayoutInflater().inflate(R.layout.forum_manage_dialog, (ViewGroup) null));
             WindowManager.LayoutParams attributes = this.G.getWindow().getAttributes();
-            attributes.width = (int) (UtilHelper.a((Context) this.g) * 0.9d);
+            attributes.width = (int) (com.baidu.adp.lib.h.g.b(this.g) * 0.9d);
             this.G.getWindow().setAttributes(attributes);
         }
         Button button = (Button) this.G.findViewById(R.id.del_post_btn);
@@ -408,7 +408,7 @@ public class cr {
             this.J = this.g.getLayoutInflater().inflate(R.layout.del_post, (ViewGroup) null);
             this.I.setContentView(this.J);
             WindowManager.LayoutParams attributes = this.I.getWindow().getAttributes();
-            attributes.width = (int) (UtilHelper.a((Context) this.g) * 0.9d);
+            attributes.width = (int) (com.baidu.adp.lib.h.g.b(this.g) * 0.9d);
             this.I.getWindow().setAttributes(attributes);
             this.K = (Button) this.J.findViewById(R.id.dialog_button_ok);
             this.K.setOnClickListener(this.z);
@@ -441,7 +441,7 @@ public class cr {
             this.Y = this.g.getLayoutInflater().inflate(R.layout.commit_good, (ViewGroup) null);
             this.X.setContentView(this.Y);
             WindowManager.LayoutParams attributes = this.X.getWindow().getAttributes();
-            attributes.width = (int) (UtilHelper.a((Context) this.g) * 0.9d);
+            attributes.width = (int) (com.baidu.adp.lib.h.g.b(this.g) * 0.9d);
             this.X.getWindow().setAttributes(attributes);
             this.aa = new cw(this);
             this.Z = (RadioGroup) this.Y.findViewById(R.id.good_class_group);
@@ -457,7 +457,7 @@ public class cr {
         radioButton.setText(this.g.getString(R.string.def_good_class));
         radioButton.setOnCheckedChangeListener(this.aa);
         RadioGroup.LayoutParams layoutParams = new RadioGroup.LayoutParams(-1, -2);
-        layoutParams.setMargins(UtilHelper.a((Context) this.g, 10.0f), UtilHelper.a((Context) this.g, 5.0f), UtilHelper.a((Context) this.g, 10.0f), UtilHelper.a((Context) this.g, 5.0f));
+        layoutParams.setMargins(com.baidu.adp.lib.h.g.a((Context) this.g, 10.0f), com.baidu.adp.lib.h.g.a((Context) this.g, 5.0f), com.baidu.adp.lib.h.g.a((Context) this.g, 10.0f), com.baidu.adp.lib.h.g.a((Context) this.g, 5.0f));
         this.Z.addView(radioButton, layoutParams);
         this.Z.requestLayout();
         this.Z.check(radioButton.getId());
@@ -519,7 +519,7 @@ public class cr {
 
     public void o() {
         this.g.showProgressBar();
-        UtilHelper.a(this.g, this.an.getEditText());
+        com.baidu.adp.lib.h.g.a(this.g, this.an.getEditText());
     }
 
     public void p() {
@@ -619,7 +619,7 @@ public class cr {
         int i2;
         int i3;
         if (avVar != null && view != null) {
-            if (TiebaApplication.g().s()) {
+            if (TiebaApplication.h().t()) {
                 StatService.onEvent(this.g, "pb_tosubpb", "pbclick", 1);
             }
             if (this.q == null) {
@@ -640,7 +640,7 @@ public class cr {
             } else {
                 this.q.d(1);
             }
-            int height = this.f2106a.getHeight();
+            int height = this.f2213a.getHeight();
             if (view == null) {
                 i2 = 0;
                 i3 = 0;
@@ -652,7 +652,7 @@ public class cr {
             if (!z) {
                 this.q.q();
             }
-            int height2 = (view.getHeight() + this.i.getDividerHeight()) - (this.h.getHeight() - UtilHelper.a((Context) this.g, 43.0f));
+            int height2 = (view.getHeight() + this.i.getDividerHeight()) - (this.h.getHeight() - com.baidu.adp.lib.h.g.a((Context) this.g, 43.0f));
             if (view.findViewById(R.id.sub_pb_more) == null) {
             }
             if (height2 > 0) {
@@ -952,13 +952,13 @@ public class cr {
         } else {
             this.i.setPullRefresh(this.u);
             if (this.u != null) {
-                this.u.a(TiebaApplication.g().ap());
+                this.u.a(TiebaApplication.h().an());
             }
             this.ap.setVisibility(0);
             this.aq.d();
         }
         ai();
-        if (TiebaApplication.g().ap() == 1) {
+        if (TiebaApplication.h().an() == 1) {
         }
         if (z) {
             if (anVar.f().f() == 0) {
@@ -1006,7 +1006,7 @@ public class cr {
 
     public void f(boolean z) {
         this.ah = z;
-        if (TiebaApplication.g().ap() == 1) {
+        if (TiebaApplication.h().an() == 1) {
             if (z) {
                 this.d.setImageResource(R.drawable.icon_floor_host_s_1);
             } else {
@@ -1043,10 +1043,10 @@ public class cr {
             textView2.setOnClickListener(this.z);
             textView3.setOnClickListener(this.z);
             textView4.setOnClickListener(this.z);
-            int ap = TiebaApplication.g().ap();
-            this.g.getLayoutMode().a(ap == 1);
+            int an = TiebaApplication.h().an();
+            this.g.getLayoutMode().a(an == 1);
             this.g.getLayoutMode().a(this.t);
-            if (ap == 1) {
+            if (an == 1) {
                 textView4.setTextColor(this.g.getResources().getColor(R.color.pb_more_txt_color_1));
                 textView4.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.icon_recommend_collect_n_1, 0, 0);
                 textView3.setTextColor(this.g.getResources().getColor(R.color.pb_more_txt_color_1));
@@ -1077,7 +1077,7 @@ public class cr {
                     textView4.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.icon_recommend_collect_s, 0, 0);
                 }
             }
-            int height = this.f2106a.getHeight();
+            int height = this.f2213a.getHeight();
             WindowManager.LayoutParams attributes = this.n.getWindow().getAttributes();
             attributes.gravity = 53;
             attributes.x = 0;
@@ -1138,7 +1138,7 @@ public class cr {
             }
             if (j > 0) {
                 textView2.setVisibility(0);
-                textView2.setText(com.baidu.tieba.util.be.b(j));
+                textView2.setText(com.baidu.tieba.util.bb.b(j));
             }
             this.am = (Button) this.k.findViewById(R.id.go_to_live_post);
             com.baidu.tieba.data.az d = anVar.d();
@@ -1188,7 +1188,7 @@ public class cr {
         TextView textView = (TextView) this.k.findViewById(R.id.pb_list_header_time);
         TextView textView2 = (TextView) this.k.findViewById(R.id.pb_list_header_reply);
         TextView textView3 = (TextView) this.k.findViewById(R.id.pb_list_header_bar);
-        com.baidu.tieba.util.bd.a(this.b, i);
+        com.baidu.tieba.util.ba.a(this.b, i);
         f(this.ah);
         this.m.notifyDataSetChanged();
         if (i == 1) {
@@ -1210,7 +1210,7 @@ public class cr {
                 button.setCompoundDrawablesWithIntrinsicBounds(R.drawable.btn_manage_n, 0, 0, 0);
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.bg.b(getClass().getName(), "setBawuSkin", e.getMessage());
+            com.baidu.tieba.util.bd.b(getClass().getName(), "setBawuSkin", e.getMessage());
         }
     }
 
@@ -1257,8 +1257,8 @@ public class cr {
         this.i.setOnSrollToBottomListener(rVar);
     }
 
-    public void a(com.baidu.adp.widget.ListView.s sVar) {
-        this.i.setOnSrollToTopListener(sVar);
+    public void a(com.baidu.adp.widget.ListView.t tVar) {
+        this.i.setOnSrollToTopListener(tVar);
     }
 
     public void a(DialogInterface.OnClickListener onClickListener) {
@@ -1270,7 +1270,7 @@ public class cr {
     }
 
     private void aj() {
-        this.n = new com.baidu.tieba.view.aw(this.g);
+        this.n = new com.baidu.tieba.view.ax(this.g);
         this.t = this.g.getLayoutInflater().inflate(R.layout.new_pb_more, (ViewGroup) null);
         this.t.setOnTouchListener(new dh(this));
         this.n.setCanceledOnTouchOutside(true);
@@ -1296,8 +1296,8 @@ public class cr {
                 this.o.setContentView(this.r);
                 WindowManager.LayoutParams attributes = this.o.getWindow().getAttributes();
                 attributes.gravity = 49;
-                attributes.y = UtilHelper.a((Context) this.g, 54.0f);
-                attributes.width = (int) (UtilHelper.a((Context) this.g) * 0.9d);
+                attributes.y = com.baidu.adp.lib.h.g.a((Context) this.g, 54.0f);
+                attributes.width = (int) (com.baidu.adp.lib.h.g.b(this.g) * 0.9d);
                 this.o.getWindow().setAttributes(attributes);
                 this.o.setOnKeyListener(new di(this));
             }
@@ -1357,29 +1357,29 @@ public class cr {
         return true;
     }
 
-    public void a(com.baidu.tieba.view.ba baVar) {
-        if (baVar != null) {
+    public void a(com.baidu.tieba.view.bb bbVar) {
+        if (bbVar != null) {
             if (!UtilHelper.b()) {
-                UtilHelper.a((Context) this.g, (int) R.string.neterror);
+                com.baidu.adp.lib.h.g.a((Context) this.g, (int) R.string.neterror);
                 return;
             }
-            baVar.e();
+            bbVar.e();
             if (this.aw != null) {
-                this.aw.add(baVar);
+                this.aw.add(bbVar);
             }
         }
     }
 
-    public void b(com.baidu.tieba.view.ba baVar) {
-        if (baVar != null) {
-            this.aw.remove(baVar);
+    public void b(com.baidu.tieba.view.bb bbVar) {
+        if (bbVar != null) {
+            this.aw.remove(bbVar);
         }
     }
 
     public void W() {
         if (this.aw != null) {
             while (this.aw.size() > 0) {
-                com.baidu.tieba.view.ba remove = this.aw.remove(0);
+                com.baidu.tieba.view.bb remove = this.aw.remove(0);
                 if (remove != null) {
                     remove.a(false);
                 }
@@ -1402,7 +1402,7 @@ public class cr {
     }
 
     public void Z() {
-        UtilHelper.a(this.g, this.s);
+        com.baidu.adp.lib.h.g.a(this.g, this.s);
         this.an.f();
         if (this.n != null) {
             this.n.dismiss();
@@ -1456,22 +1456,22 @@ public class cr {
 
     public com.baidu.adp.widget.ImageView.e a(View view, String str) {
         com.baidu.adp.widget.ImageView.e a2 = this.m.a().a(str, this.az, true);
-        if (a2 == null && view != null && (view instanceof com.baidu.tieba.view.ba)) {
-            a((com.baidu.tieba.view.ba) view);
+        if (a2 == null && view != null && (view instanceof com.baidu.tieba.view.bb)) {
+            a((com.baidu.tieba.view.bb) view);
         }
         return a2;
     }
 
     public void ac() {
         this.g.j();
-        com.baidu.tieba.util.ak.a(this.i, this.m.a(), this.ay, this.ax, this.m.c() ? 0 : 1, 0);
+        com.baidu.tieba.util.ah.a(this.i, this.m.a(), this.ay, this.ax, this.m.c() ? 0 : 1, 0);
     }
 
     public void ad() {
         try {
             this.m.a().b();
         } catch (Exception e) {
-            com.baidu.tieba.util.bg.b(getClass().getName(), "stopLoadImage", "error = " + e.getMessage());
+            com.baidu.tieba.util.bd.b(getClass().getName(), "stopLoadImage", "error = " + e.getMessage());
         }
     }
 
@@ -1482,7 +1482,7 @@ public class cr {
         this.g.getLayoutMode().a(this.l);
         this.g.getLayoutMode().a(this.v.b());
         this.g.getLayoutMode().a(this.w);
-        this.f2106a.c(i);
+        this.f2213a.c(i);
         d(i);
         c(i);
         if (this.q != null) {
@@ -1504,16 +1504,16 @@ public class cr {
         return this.ae;
     }
 
-    public void a(com.baidu.tbadk.widget.richText.n nVar) {
-        this.D = nVar;
+    public void a(com.baidu.tbadk.widget.richText.o oVar) {
+        this.D = oVar;
         this.m.a(this.D);
         if (this.q != null) {
             this.q.a(this.D);
         }
     }
 
-    public void a(com.baidu.tieba.view.az azVar) {
-        this.E = azVar;
+    public void a(com.baidu.tieba.view.ba baVar) {
+        this.E = baVar;
         if (this.j != null) {
             this.j.a(this.E);
         }
@@ -1532,8 +1532,8 @@ public class cr {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void al() {
-        if (this.f2106a != null) {
-            this.f2106a.setVisibility(8);
+        if (this.f2213a != null) {
+            this.f2213a.setVisibility(8);
         }
         if (this.i != null) {
             this.i.setVisibility(8);
@@ -1544,8 +1544,8 @@ public class cr {
     }
 
     private void am() {
-        if (this.f2106a != null) {
-            this.f2106a.setVisibility(0);
+        if (this.f2213a != null) {
+            this.f2213a.setVisibility(0);
         }
         if (this.i != null) {
             this.i.setVisibility(0);

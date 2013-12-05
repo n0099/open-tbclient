@@ -12,11 +12,11 @@ public class r extends BdAsyncTask<Boolean, String, o> {
     final /* synthetic */ o b;
     private int e;
     private com.baidu.tieba.data.ay f;
-    private com.baidu.tieba.util.ap c = null;
+    private com.baidu.tieba.util.am c = null;
     private String d = null;
 
     /* renamed from: a  reason: collision with root package name */
-    Boolean f1931a = false;
+    Boolean f2043a = false;
 
     public r(o oVar, int i) {
         this.b = oVar;
@@ -37,12 +37,12 @@ public class r extends BdAsyncTask<Boolean, String, o> {
     public o a(Boolean... boolArr) {
         ArrayList arrayList;
         ArrayList arrayList2;
-        this.f1931a = boolArr[0];
+        this.f2043a = boolArr[0];
         o oVar = new o();
-        if (this.f1931a.booleanValue()) {
-            com.baidu.adp.lib.cache.s<String> i = com.baidu.tieba.b.a.a().i();
-            if (i != null) {
-                c((Object[]) new String[]{i.a(TiebaApplication.A())});
+        if (this.f2043a.booleanValue()) {
+            com.baidu.adp.lib.cache.s<String> l = com.baidu.tieba.b.a.a().l();
+            if (l != null) {
+                c((Object[]) new String[]{l.a(TiebaApplication.B())});
             }
             arrayList = this.b.e;
             if (arrayList == null) {
@@ -53,15 +53,15 @@ public class r extends BdAsyncTask<Boolean, String, o> {
             }
             this.b.f = 0;
         }
-        this.c = new com.baidu.tieba.util.ap(com.baidu.tieba.data.h.f1201a + "c/f/post/threadstore");
-        this.c.a(PushConstants.EXTRA_USER_ID, TiebaApplication.A());
+        this.c = new com.baidu.tieba.util.am(com.baidu.tieba.data.h.f1248a + "c/f/post/threadstore");
+        this.c.a(PushConstants.EXTRA_USER_ID, TiebaApplication.B());
         this.c.a("offset", String.valueOf(this.e));
         this.c.a("rn", String.valueOf(20));
         this.d = this.c.l();
         this.f.a(this.d);
         if (this.c.c()) {
             oVar.a(this.d);
-            if (this.e == 0 && this.f1931a.booleanValue()) {
+            if (this.e == 0 && this.f2043a.booleanValue()) {
                 a(this.d);
             }
         }
@@ -69,10 +69,10 @@ public class r extends BdAsyncTask<Boolean, String, o> {
     }
 
     private void a(String str) {
-        com.baidu.adp.lib.cache.s<String> i;
-        String A = TiebaApplication.A();
-        if (A != null && (i = com.baidu.tieba.b.a.a().i()) != null) {
-            i.a(A, str, 604800000L);
+        com.baidu.adp.lib.cache.s<String> l;
+        String B = TiebaApplication.B();
+        if (B != null && (l = com.baidu.tieba.b.a.a().l()) != null) {
+            l.a(B, str, 604800000L);
         }
     }
 
@@ -87,7 +87,7 @@ public class r extends BdAsyncTask<Boolean, String, o> {
         ArrayList<MarkData> arrayList = new ArrayList<>();
         if (str != null) {
             b = this.b.b(str);
-            if (this.f1931a.booleanValue()) {
+            if (this.f2043a.booleanValue()) {
                 this.b.a(b);
             } else {
                 this.b.b(b);
@@ -95,7 +95,7 @@ public class r extends BdAsyncTask<Boolean, String, o> {
         } else {
             this.b.a(arrayList);
         }
-        this.b.f1929a.a(0, null, true);
+        this.b.f2041a.a(0, null, true);
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -115,7 +115,7 @@ public class r extends BdAsyncTask<Boolean, String, o> {
         this.b.b = null;
         this.b.f = oVar.d();
         ArrayList<MarkData> c = oVar.c();
-        if (this.f1931a.booleanValue()) {
+        if (this.f2043a.booleanValue()) {
             this.b.a(c);
         } else {
             this.b.b(c);
@@ -131,14 +131,14 @@ public class r extends BdAsyncTask<Boolean, String, o> {
             }
             i2 = i;
         }
-        if (this.b.f1929a != null) {
+        if (this.b.f2041a != null) {
             if (this.c.c()) {
                 String b = this.f.b();
-                TiebaApplication.g().a((Boolean) true);
-                this.b.f1929a.a(0, b, false);
+                TiebaApplication.h().a((Boolean) true);
+                this.b.f2041a.a(0, b, false);
                 return;
             }
-            this.b.f1929a.a(3, this.c.i());
+            this.b.f2041a.a(3, this.c.i());
         }
     }
 }

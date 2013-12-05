@@ -10,13 +10,13 @@ import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.pb.NewPbActivity;
 import com.baidu.tieba.person.post.PersonPostThreadModel;
-import com.baidu.tieba.util.bg;
+import com.baidu.tieba.util.bd;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class q extends BaseAdapter implements c, g {
 
     /* renamed from: a  reason: collision with root package name */
-    private PersonPostThreadModel f2264a;
+    private PersonPostThreadModel f2382a;
     private r b;
     private String c;
     private String d;
@@ -25,7 +25,6 @@ public class q extends BaseAdapter implements c, g {
     public q(Context context, String str, String str2) {
         this.e = (Activity) context;
         this.c = str;
-        this.d = str2;
     }
 
     public void a(boolean z) {
@@ -33,17 +32,17 @@ public class q extends BaseAdapter implements c, g {
     }
 
     public void a() {
-        if (this.f2264a != null) {
-            this.f2264a.cancelLoadData();
+        if (this.f2382a != null) {
+            this.f2382a.cancelLoadData();
         }
     }
 
     @Override // com.baidu.tieba.person.post.g
     public void a(PersonPostThreadModel personPostThreadModel, boolean z) {
         if (z) {
-            this.f2264a = personPostThreadModel;
-        } else if (this.f2264a != null) {
-            this.f2264a.post_list.addAll(personPostThreadModel.post_list);
+            this.f2382a = personPostThreadModel;
+        } else if (this.f2382a != null) {
+            this.f2382a.post_list.addAll(personPostThreadModel.post_list);
         }
         if (this.b != null) {
             this.b.a(personPostThreadModel, z);
@@ -57,15 +56,15 @@ public class q extends BaseAdapter implements c, g {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.f2264a == null || this.f2264a.post_list == null) {
+        if (this.f2382a == null || this.f2382a.post_list == null) {
             return 0;
         }
-        return this.f2264a.post_list.size();
+        return this.f2382a.post_list.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return this.f2264a.post_list.get(i);
+        return this.f2382a.post_list.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -77,7 +76,7 @@ public class q extends BaseAdapter implements c, g {
     public View getView(int i, View view, ViewGroup viewGroup) {
         s sVar;
         if (view == null) {
-            bg.e("PersonThreadAdapter", "getView", "create convertView");
+            bd.e("PersonThreadAdapter", "getView", "create convertView");
             view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.person_post_item_thread, viewGroup, false);
             s sVar2 = new s(view);
             view.setTag(sVar2);
@@ -86,11 +85,14 @@ public class q extends BaseAdapter implements c, g {
             sVar = (s) view.getTag();
         }
         if (i == 0) {
-            sVar.f2251a.setVisibility(0);
+            sVar.f2369a.setVisibility(0);
         } else {
-            sVar.f2251a.setVisibility(8);
+            sVar.f2369a.setVisibility(8);
         }
-        PersonPostThreadModel.PostList postList = this.f2264a.post_list.get(i);
+        PersonPostThreadModel.PostList postList = this.f2382a.post_list.get(i);
+        if (this.d == null) {
+            this.d = postList.user_portrait;
+        }
         sVar.a(postList, this.d);
         String str = postList.title;
         if (str.trim().length() > 0) {
@@ -125,33 +127,33 @@ public class q extends BaseAdapter implements c, g {
             sVar.h.setVisibility(8);
         }
         sVar.a(this);
-        sVar.a(TiebaApplication.g().ap());
+        sVar.a(TiebaApplication.h().an());
         return view;
     }
 
     @Override // com.baidu.tieba.person.post.c
     public void a(View view) {
         switch (view.getId()) {
-            case R.id.portrait /* 2131099850 */:
+            case R.id.portrait /* 2131099857 */:
                 this.e.finish();
                 return;
-            case R.id.item_header /* 2131100062 */:
-            case R.id.item_content /* 2131100782 */:
+            case R.id.item_header /* 2131100079 */:
+            case R.id.item_content /* 2131100898 */:
                 String[] strArr = (String[]) view.getTag();
                 if (strArr != null) {
                     NewPbActivity.a(view.getContext(), strArr[0], strArr[1], "person_post");
-                    bg.e("PersonThreadAdapter", "on", "start thread = " + strArr[0] + " post_id = " + strArr[1]);
+                    bd.e("PersonThreadAdapter", "on", "start thread = " + strArr[0] + " post_id = " + strArr[1]);
                     return;
                 }
                 return;
-            case R.id.forum_name /* 2131100786 */:
+            case R.id.forum_name /* 2131100902 */:
                 String str = (String) view.getTag();
                 if (str != null) {
                     FrsActivity.a(view.getContext(), str, "");
                     return;
                 }
                 return;
-            case R.id.username /* 2131100788 */:
+            case R.id.username /* 2131100904 */:
                 this.e.finish();
                 return;
             default:

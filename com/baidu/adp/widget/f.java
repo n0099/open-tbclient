@@ -6,19 +6,19 @@ import com.baidu.adp.widget.HorizontalTranslateLayout;
 public /* synthetic */ class f {
 
     /* renamed from: a  reason: collision with root package name */
-    static final /* synthetic */ int[] f604a = new int[HorizontalTranslateLayout.TrackDirection.values().length];
+    static final /* synthetic */ int[] f609a = new int[HorizontalTranslateLayout.TrackDirection.values().length];
 
     static {
         try {
-            f604a[HorizontalTranslateLayout.TrackDirection.left.ordinal()] = 1;
+            f609a[HorizontalTranslateLayout.TrackDirection.left.ordinal()] = 1;
         } catch (NoSuchFieldError e) {
         }
         try {
-            f604a[HorizontalTranslateLayout.TrackDirection.right.ordinal()] = 2;
+            f609a[HorizontalTranslateLayout.TrackDirection.right.ordinal()] = 2;
         } catch (NoSuchFieldError e2) {
         }
         try {
-            f604a[HorizontalTranslateLayout.TrackDirection.horizontal.ordinal()] = 3;
+            f609a[HorizontalTranslateLayout.TrackDirection.horizontal.ordinal()] = 3;
         } catch (NoSuchFieldError e3) {
         }
     }

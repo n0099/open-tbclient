@@ -23,7 +23,6 @@ import com.baidu.location.LocationClientOption;
 import com.baidu.tieba.data.RegistData;
 import com.baidu.tieba.model.be;
 import com.baidu.tieba.util.bd;
-import com.baidu.tieba.util.bg;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
@@ -68,15 +67,15 @@ public class Register2Activity extends com.baidu.tieba.j {
     private String L = null;
 
     /* renamed from: a  reason: collision with root package name */
-    RelativeLayout f1025a = null;
+    RelativeLayout f1035a = null;
     TextView b = null;
-    private ay N = null;
-    private az O = null;
+    private az N = null;
+    private ba O = null;
     private be P = null;
-    private View.OnClickListener Q = new at(this);
-    private TextWatcher R = new au(this);
-    private View.OnFocusChangeListener S = new av(this);
-    private RadioGroup.OnCheckedChangeListener T = new aw(this);
+    private View.OnClickListener Q = new au(this);
+    private TextWatcher R = new av(this);
+    private View.OnFocusChangeListener S = new aw(this);
+    private RadioGroup.OnCheckedChangeListener T = new ax(this);
 
     public static void a(Activity activity, int i) {
         activity.startActivityForResult(new Intent(activity, Register2Activity.class), i);
@@ -88,7 +87,7 @@ public class Register2Activity extends com.baidu.tieba.j {
         super.onCreate(bundle);
         setContentView(R.layout.account_register2_activity);
         h();
-        new ah("reg").start();
+        new ai("reg").start();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -117,11 +116,11 @@ public class Register2Activity extends com.baidu.tieba.j {
         if (this.N != null) {
             this.N.cancel();
         }
-        bg.a("Register2Activity", "onDestroy", "onDestroy");
+        bd.a("Register2Activity", "onDestroy", "onDestroy");
     }
 
     private void h() {
-        this.f1025a = (RelativeLayout) findViewById(R.id.container);
+        this.f1035a = (RelativeLayout) findViewById(R.id.container);
         this.M = (NavigationBar) findViewById(R.id.view_navigation_bar);
         this.h = this.M.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.Q);
         this.M.a(getString(R.string.account_regedit_baidu));
@@ -175,8 +174,8 @@ public class Register2Activity extends com.baidu.tieba.j {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.M.c(i);
-        bd.a(this.b, i);
-        bd.c(this.f1025a, i);
+        com.baidu.tieba.util.ba.a(this.b, i);
+        com.baidu.tieba.util.ba.c(this.f1035a, i);
         n();
         k();
     }
@@ -265,7 +264,7 @@ public class Register2Activity extends com.baidu.tieba.j {
                 this.N.cancel();
             }
             if (this.P != null) {
-                this.N = new ay(this, this.P.b().getVcode_pic_url());
+                this.N = new az(this, this.P.b().getVcode_pic_url());
                 this.N.setPriority(3);
                 this.N.execute(new String[0]);
             }
@@ -346,7 +345,7 @@ public class Register2Activity extends com.baidu.tieba.j {
         String str = string + getString(R.string.user_server_agreement);
         int length2 = str.length();
         SpannableString spannableString = new SpannableString(str);
-        spannableString.setSpan(new ax(this, this), length, length2, 33);
+        spannableString.setSpan(new ay(this, this), length, length2, 33);
         if (this.mSkinType == 1) {
             spannableString.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.skin_1_common_color)), 0, length, 33);
         }
@@ -358,7 +357,7 @@ public class Register2Activity extends com.baidu.tieba.j {
     protected void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (i == c && i2 == -1) {
-            bg.a("Register2Activity", "onActivityResult", "onActivityResult");
+            bd.a("Register2Activity", "onActivityResult", "onActivityResult");
             setResult(-1);
             finish();
         }

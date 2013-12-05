@@ -14,7 +14,7 @@ import com.slidingmenu.lib.R;
 public class WriteImagePreview extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    protected Context f2655a;
+    protected Context f2773a;
     protected ImageView b;
     protected ProgressBar c;
     protected Bitmap d;
@@ -27,19 +27,19 @@ public class WriteImagePreview extends FrameLayout {
     public WriteImagePreview(Context context) {
         super(context);
         this.i = false;
-        this.f2655a = context;
+        this.f2773a = context;
         a();
     }
 
     public WriteImagePreview(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.i = false;
-        this.f2655a = context;
+        this.f2773a = context;
         a();
     }
 
     protected void a() {
-        LayoutInflater.from(this.f2655a).inflate(R.layout.write_image_preview, (ViewGroup) this, true);
+        LayoutInflater.from(this.f2773a).inflate(R.layout.write_image_preview, (ViewGroup) this, true);
         this.b = (ImageView) findViewById(R.id.image);
         this.c = (ProgressBar) findViewById(R.id.image_progress);
         this.g = new Handler();

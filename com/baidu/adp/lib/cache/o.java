@@ -10,7 +10,7 @@ public class o<T> extends e<T> {
 
     @Override // com.baidu.adp.lib.cache.e
     public m<T> a(String str) {
-        return this.c.b(str);
+        return this.c.c(str);
     }
 
     @Override // com.baidu.adp.lib.cache.e
@@ -20,7 +20,7 @@ public class o<T> extends e<T> {
 
     @Override // com.baidu.adp.lib.cache.e
     public void b(String str) {
-        this.c.c(str);
+        this.c.d(str);
     }
 
     @Override // com.baidu.adp.lib.cache.e
@@ -30,11 +30,20 @@ public class o<T> extends e<T> {
 
     @Override // com.baidu.adp.lib.cache.r
     public void d(String str) {
+        this.c.e(str);
+    }
+
+    @Override // com.baidu.adp.lib.cache.r
+    public void e(String str) {
         if (this.b instanceof h) {
             com.baidu.adp.lib.f.c.a().a(new p(this, str));
         }
         if (this.b instanceof g) {
             com.baidu.adp.lib.f.c.a().a(new q(this, str));
         }
+    }
+
+    public c<T> b() {
+        return this.c;
     }
 }

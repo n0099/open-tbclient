@@ -5,7 +5,7 @@ import android.database.Cursor;
 public class f extends c {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f811a;
+    public int f816a;
     public int b;
     public int c;
     public String d;
@@ -21,7 +21,7 @@ public class f extends c {
 
     public f(long j) {
         super(j);
-        this.f811a = 0;
+        this.f816a = 0;
         this.b = 0;
         this.c = 0;
         this.e = 0;
@@ -30,12 +30,12 @@ public class f extends c {
 
     public f(Cursor cursor) {
         super(cursor);
-        this.f811a = 0;
+        this.f816a = 0;
         this.b = 0;
         this.c = 0;
         this.e = 0;
         this.h = 4;
-        this.f811a = cursor.getInt(cursor.getColumnIndex("pconum"));
+        this.f816a = cursor.getInt(cursor.getColumnIndex("pconum"));
         this.b = cursor.getInt(cursor.getColumnIndex("sconum"));
         this.c = cursor.getInt(cursor.getColumnIndex("msnum"));
         this.d = cursor.getString(cursor.getColumnIndex("msinfo"));
@@ -52,6 +52,6 @@ public class f extends c {
 
     @Override // com.baidu.android.systemmonitor.devicestatistic.a.c
     public String toString() {
-        return "StoreInfomation :startStamp = " + this.g + "  phoneContactsNum =" + this.f811a + " simContactsNum = " + this.b + " smsNum = " + this.c + "\r\n smsInfo =" + this.d + "\r\n calllogNum = " + this.e + " calllogInfo = " + this.f + "\r\n sdcardFreeAll = " + this.i + " phoneFreeAll =" + this.j + " phonePhotoNum =" + this.k + " sdcardPhotoNum =" + this.l + " phoneMp3Num = " + this.m + " sdcardMp3Num =" + this.n + " sdcardTvNum =" + this.o;
+        return "StoreInfomation :startStamp = " + this.g + "  phoneContactsNum =" + this.f816a + " simContactsNum = " + this.b + " smsNum = " + this.c + "\r\n smsInfo =" + this.d + "\r\n calllogNum = " + this.e + " calllogInfo = " + this.f + "\r\n sdcardFreeAll = " + this.i + " phoneFreeAll =" + this.j + " phonePhotoNum =" + this.k + " sdcardPhotoNum =" + this.l + " phoneMp3Num = " + this.m + " sdcardMp3Num =" + this.n + " sdcardTvNum =" + this.o;
     }
 }

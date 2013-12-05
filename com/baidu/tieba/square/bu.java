@@ -8,7 +8,6 @@ import android.widget.ListAdapter;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.BaseFragment;
 import com.baidu.tieba.BaseFragmentActivity;
-import com.baidu.tieba.view.NavigationBar;
 import com.baidu.tieba.view.NoNetworkView;
 import com.baidu.tieba.view.SearchBoxView;
 import com.baidu.zeus.Headers;
@@ -17,142 +16,132 @@ import com.slidingmenu.lib.R;
 public class bu extends com.baidu.adp.a.e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f2400a = "top_nav_all_folder";
-    View c;
-    com.baidu.tieba.view.bi d;
-    private BaseFragmentActivity e;
-    private BaseFragment f;
-    private View g;
-    private BdListView h;
-    private LinearLayout i;
-    private SearchBoxView j;
-    private NoNetworkView k;
-    private NavigationBar l;
-    private ay m;
+    public static String f2517a = "top_nav_all_folder";
+    com.baidu.tieba.view.bk c;
+    private BaseFragmentActivity d;
+    private BaseFragment e;
+    private View f;
+    private BdListView g;
+    private LinearLayout h;
+    private SearchBoxView i;
+    private NoNetworkView j;
+    private ay k;
 
     public bu(BaseFragmentActivity baseFragmentActivity, BaseFragment baseFragment, View.OnKeyListener onKeyListener) {
         super(baseFragmentActivity);
-        this.e = null;
-        this.h = null;
-        this.i = null;
         this.d = null;
-        this.m = null;
-        this.e = baseFragmentActivity;
-        this.f = baseFragment;
-        this.g = baseFragment.q();
-        this.i = (LinearLayout) this.g.findViewById(R.id.container);
-        this.l = (NavigationBar) this.g.findViewById(R.id.view_navigation_bar);
-        this.l.a(this.e.getResources().getString(R.string.square));
-        this.c = this.l.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.square_nb_item_allcat, baseFragment);
-        this.j = (SearchBoxView) this.g.findViewById(R.id.view_searchbox);
-        this.h = (BdListView) this.g.findViewById(R.id.square_list);
-        this.h.setOnKeyListener(onKeyListener);
-        this.h.setOnItemClickListener(baseFragment);
-        this.h.setOnScrollListener(baseFragment);
-        this.m = new ay(baseFragmentActivity);
-        this.h.setAdapter((ListAdapter) this.m);
-        this.d = new com.baidu.tieba.view.bi(baseFragmentActivity);
-        this.h.setPullRefresh(this.d);
-        this.k = (NoNetworkView) this.g.findViewById(R.id.view_no_network);
-        com.baidu.tieba.view.q qVar = new com.baidu.tieba.view.q(this.b);
-        qVar.setHeightDip(30);
-        this.h.addFooterView(qVar);
+        this.g = null;
+        this.h = null;
+        this.c = null;
+        this.k = null;
+        this.d = baseFragmentActivity;
+        this.e = baseFragment;
+        this.f = baseFragment.q();
+        this.h = (LinearLayout) this.f.findViewById(R.id.container);
+        this.i = (SearchBoxView) this.f.findViewById(R.id.view_searchbox);
+        this.g = (BdListView) this.f.findViewById(R.id.square_list);
+        this.g.setOnKeyListener(onKeyListener);
+        this.g.setOnItemClickListener(baseFragment);
+        this.g.setOnScrollListener(baseFragment);
+        this.k = new ay(baseFragmentActivity);
+        this.g.setAdapter((ListAdapter) this.k);
+        this.c = new com.baidu.tieba.view.bk(baseFragmentActivity);
+        this.g.setPullRefresh(this.c);
+        this.j = (NoNetworkView) this.f.findViewById(R.id.view_no_network);
+        com.baidu.tieba.view.r rVar = new com.baidu.tieba.view.r(this.b);
+        rVar.setHeightDip(30);
+        this.g.addFooterView(rVar);
     }
 
     public void a(ar arVar) {
         if (arVar != null) {
             try {
-                this.m.a(arVar);
-                this.m.notifyDataSetChanged();
+                this.k.a(arVar);
+                this.k.notifyDataSetChanged();
             } catch (Exception e) {
-                com.baidu.tieba.util.bg.b(getClass().getName(), Headers.REFRESH, e.getMessage());
+                com.baidu.tieba.util.bd.b(getClass().getName(), Headers.REFRESH, e.getMessage());
             }
         }
     }
 
     public void a() {
-        if (this.h != null) {
-            int headerViewsCount = this.h.getHeaderViewsCount() + 1;
-            int firstVisiblePosition = this.h.getFirstVisiblePosition();
-            int lastVisiblePosition = this.h.getLastVisiblePosition();
+        if (this.g != null) {
+            int headerViewsCount = this.g.getHeaderViewsCount() + 1;
+            int firstVisiblePosition = this.g.getFirstVisiblePosition();
+            int lastVisiblePosition = this.g.getLastVisiblePosition();
             if (firstVisiblePosition > 0) {
                 firstVisiblePosition -= headerViewsCount;
                 lastVisiblePosition -= headerViewsCount;
             }
-            this.m.a(this.h, firstVisiblePosition, lastVisiblePosition);
+            this.k.a(this.g, firstVisiblePosition, lastVisiblePosition);
         }
     }
 
     public void e() {
-        this.h.a();
+        this.g.a();
     }
 
     public void a(boolean z, String str) {
         e();
         if (!z && str != null) {
-            this.e.a(str);
+            this.d.b(str);
         }
     }
 
     public SearchBoxView f() {
-        return this.j;
+        return this.i;
     }
 
     public void g() {
-        this.h.b();
+        this.g.b();
     }
 
-    public View h() {
-        return this.c;
+    public void h() {
+        this.j.setVisibility(0);
     }
 
     public void i() {
-        this.k.setVisibility(0);
+        this.j.setVisibility(8);
+    }
+
+    public void a(com.baidu.tieba.view.ba baVar) {
+        this.j.a(baVar);
+    }
+
+    public void b(com.baidu.tieba.view.ba baVar) {
+        this.j.b(baVar);
     }
 
     public void j() {
-        this.k.setVisibility(8);
-    }
-
-    public void a(com.baidu.tieba.view.az azVar) {
-        this.k.a(azVar);
-    }
-
-    public void b(com.baidu.tieba.view.az azVar) {
-        this.k.b(azVar);
+        this.k.d();
     }
 
     public void k() {
-        this.m.d();
-    }
-
-    public void l() {
         NetworkInfo activeNetworkInfo;
-        com.baidu.tieba.util.bg.e("SquareView", "onResume", "onResume");
-        this.m.a();
-        if (this.k != null && this.k.getVisibility() == 0 && (activeNetworkInfo = ((ConnectivityManager) this.e.getSystemService("connectivity")).getActiveNetworkInfo()) != null && activeNetworkInfo.isAvailable()) {
-            this.k.setVisible(false);
+        com.baidu.tieba.util.bd.e("SquareView", "onResume", "onResume");
+        this.k.a();
+        if (this.j != null && this.j.getVisibility() == 0 && (activeNetworkInfo = ((ConnectivityManager) this.d.getSystemService("connectivity")).getActiveNetworkInfo()) != null && activeNetworkInfo.isAvailable()) {
+            this.j.setVisible(false);
         }
     }
 
-    public void m() {
-        this.m.b();
+    public void l() {
+        this.k.b();
     }
 
-    public void n() {
+    public void m() {
     }
 
     public void a(int i) {
-        this.e.a().a(i == 1);
-        this.e.a().a(this.i);
-        this.l.c(i);
-        this.m.a(i);
-        this.d.a(i);
+        this.d.a().a(i == 1);
+        this.d.a().a(this.h);
         this.k.a(i);
+        this.c.a(i);
         this.j.a(i);
+        this.i.a(i);
     }
 
     public void a(com.baidu.adp.widget.ListView.b bVar) {
-        this.d.a(bVar);
+        this.c.a(bVar);
     }
 }

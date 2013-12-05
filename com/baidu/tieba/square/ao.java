@@ -4,21 +4,21 @@ package com.baidu.tieba.square;
 public class ao implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SquareActivity f2368a;
+    final /* synthetic */ SquareActivity f2485a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ao(SquareActivity squareActivity) {
-        this.f2368a = squareActivity;
+        this.f2485a = squareActivity;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         bu buVar;
         try {
-            buVar = this.f2368a.b;
+            buVar = this.f2485a.b;
             buVar.a();
         } catch (Exception e) {
-            com.baidu.tieba.util.bg.b("SquareActivity", "mLoadImageRunnable.run", "error = " + e.getMessage());
+            com.baidu.tieba.util.bd.b("SquareActivity", "mLoadImageRunnable.run", "error = " + e.getMessage());
         }
     }
 }

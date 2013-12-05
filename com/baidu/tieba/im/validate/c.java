@@ -1,32 +1,31 @@
 package com.baidu.tieba.im.validate;
-
-import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class c implements DialogInterface.OnClickListener {
+public class c implements com.baidu.tieba.im.a<Integer> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ValidateActivity f1797a;
+    final /* synthetic */ ValidateActivity f1896a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(ValidateActivity validateActivity) {
-        this.f1797a = validateActivity;
+        this.f1896a = validateActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        m mVar;
-        ValidateItemData validateItemData;
-        switch (i) {
-            case 0:
-                mVar = this.f1797a.b;
-                mVar.a(true);
-                ValidateActivity validateActivity = this.f1797a;
-                validateItemData = this.f1797a.f;
-                validateActivity.c(validateItemData);
-                return;
-            default:
-                return;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.a
+    public void a(Integer num) {
+        int i;
+        int i2;
+        int i3;
+        com.baidu.tieba.im.a aVar;
+        this.f1896a.j = num.intValue();
+        i = this.f1896a.j;
+        if (i > 0) {
+            this.f1896a.m = true;
+            i2 = this.f1896a.k;
+            i3 = this.f1896a.l;
+            aVar = this.f1896a.c;
+            l.a(i2, i3, aVar);
         }
     }
 }

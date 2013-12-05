@@ -5,17 +5,17 @@ import android.text.TextUtils;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.chat.RecentChatFriendData;
 import com.baidu.tieba.im.chat.MsglistActivity;
-import com.baidu.tieba.im.chat.z;
+import com.baidu.tieba.im.chat.ac;
+import com.baidu.tieba.im.db.ad;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.im.db.x;
+import com.baidu.tieba.im.db.t;
 import com.baidu.tieba.im.groupInfo.GroupSettingItemData;
-import com.baidu.tieba.im.groupInfo.v;
+import com.baidu.tieba.im.groupInfo.u;
 import com.baidu.tieba.im.groupUpdates.UpdatesItemData;
 import com.baidu.tieba.im.message.GroupUpdateMessage;
 import com.baidu.tieba.im.validate.ValidateItemData;
 import com.baidu.tieba.mention.ae;
-import com.baidu.tieba.mention.t;
 import com.slidingmenu.lib.R;
 import com.tencent.mm.sdk.conversation.RConversation;
 import java.util.HashMap;
@@ -24,13 +24,12 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f1760a;
+    private static a f1857a;
     private static Handler l = new Handler();
     private String c;
     private String d;
@@ -63,26 +62,12 @@ public class a {
 
     public static void c() {
         GroupNewsPojo groupNewsPojo;
-        com.baidu.adp.lib.h.d.d("begin");
-        LinkedList<GroupNewsPojo> a2 = com.baidu.tieba.im.db.g.a().a(0L, 1, "kick_out");
+        com.baidu.adp.lib.h.e.d("begin");
+        LinkedList<GroupNewsPojo> a2 = com.baidu.tieba.im.db.l.a().a(0L, 1, 0, "kick_out");
         if (a2 != null && !a2.isEmpty() && (groupNewsPojo = a2.get(0)) != null) {
-            String str = "";
-            try {
-                JSONObject jSONObject = new JSONObject(groupNewsPojo.getContent());
-                jSONObject.put("notice_id", groupNewsPojo.getNotice_id());
-                str = jSONObject.optJSONObject("eventParam").optString("groupId");
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            if (!TextUtils.isEmpty(str)) {
-                if (!v.c(TiebaApplication.A(), str)) {
-                    com.baidu.adp.lib.h.d.d("not in return");
-                    return;
-                }
-                v.a(TiebaApplication.A(), str, false);
-                v.c(TiebaApplication.A(), str, false);
-                l.post(new b(str));
-                com.baidu.adp.lib.h.d.d("save kick data: " + groupNewsPojo.toString());
+            String gid = groupNewsPojo.getGid();
+            if (!TextUtils.isEmpty(gid)) {
+                com.baidu.tieba.im.db.a.a(gid);
             }
         }
     }
@@ -91,99 +76,114 @@ public class a {
         GroupNewsPojo groupNewsPojo;
         String str;
         Exception e;
-        JSONObject optJSONObject;
-        com.baidu.adp.lib.h.d.d(" time:" + System.currentTimeMillis());
-        LinkedList<GroupNewsPojo> a2 = com.baidu.tieba.im.db.g.a().a(0L, 1, "apply_join_success");
+        com.baidu.adp.lib.h.e.d(" time:" + System.currentTimeMillis());
+        LinkedList<GroupNewsPojo> a2 = com.baidu.tieba.im.db.l.a().a(0L, 1, 0, "apply_join_success");
         if (a2 != null && !a2.isEmpty() && (groupNewsPojo = a2.get(0)) != null) {
             String content = groupNewsPojo.getContent();
             if (TextUtils.isEmpty(content)) {
-                com.baidu.adp.lib.h.d.a("content is null");
+                com.baidu.adp.lib.h.e.a("content is null");
                 return;
             }
             try {
                 JSONObject jSONObject = new JSONObject(content);
                 jSONObject.put("notice_id", groupNewsPojo.getNotice_id());
-                optJSONObject = jSONObject.optJSONObject("eventParam");
+                JSONObject optJSONObject = jSONObject.optJSONObject("eventParam");
                 str = optJSONObject.optString("groupId");
-            } catch (Exception e2) {
-                str = "";
-                e = e2;
-            }
-            try {
-                String optString = optJSONObject.optString("groupImage");
-                String optString2 = optJSONObject.optString("groupName");
-                long optLong = optJSONObject.optLong("lastMsgId");
-                v.c(TiebaApplication.A(), str, true);
-                ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
-                imMessageCenterPojo.setGid(str);
-                imMessageCenterPojo.setGroup_head(optString);
-                imMessageCenterPojo.setGroup_name(optString2);
-                imMessageCenterPojo.setIs_delete(0);
-                imMessageCenterPojo.setLast_content_time(groupNewsPojo.getTime());
-                imMessageCenterPojo.setIs_hidden(0);
-                imMessageCenterPojo.setUnread_count(0);
-                imMessageCenterPojo.setLast_msgId(z.b(optLong));
-                imMessageCenterPojo.setPulled_msgId(z.b(optLong));
-                com.baidu.tieba.im.db.n.a().a(imMessageCenterPojo, new d(imMessageCenterPojo));
+                try {
+                    String optString = optJSONObject.optString("groupImage");
+                    String optString2 = optJSONObject.optString("groupName");
+                    String optString3 = jSONObject.optString("userMsg");
+                    long optLong = optJSONObject.optLong("lastMsgId");
+                    u.c(TiebaApplication.B(), str, true);
+                    u.a(TiebaApplication.B(), str, true);
+                    u.c(TiebaApplication.B(), str, true);
+                    ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
+                    imMessageCenterPojo.setGid(str);
+                    imMessageCenterPojo.setGroup_head(optString);
+                    imMessageCenterPojo.setGroup_name(optString2);
+                    imMessageCenterPojo.setIs_delete(0);
+                    imMessageCenterPojo.setLast_content_time(groupNewsPojo.getTime());
+                    imMessageCenterPojo.setIs_hidden(0);
+                    imMessageCenterPojo.setUnread_count(0);
+                    imMessageCenterPojo.setLast_content(optString3);
+                    imMessageCenterPojo.setLast_rid(ac.b(optLong));
+                    imMessageCenterPojo.setPulled_msgId(ac.b(optLong));
+                    t.a().a(imMessageCenterPojo, new b(imMessageCenterPojo));
+                } catch (Exception e2) {
+                    e = e2;
+                    e.printStackTrace();
+                    LinkedList<String> linkedList = new LinkedList<>();
+                    linkedList.add(str);
+                    com.baidu.tieba.im.db.d.a().a(linkedList, (com.baidu.tieba.im.a<Void>) null);
+                    com.baidu.adp.lib.h.e.d("save apply approved data: " + groupNewsPojo.toString());
+                }
             } catch (Exception e3) {
+                str = "";
                 e = e3;
-                e.printStackTrace();
-                LinkedList<String> linkedList = new LinkedList<>();
-                linkedList.add(str);
-                com.baidu.tieba.im.db.a.a().a(linkedList, (com.baidu.tieba.im.a<Void>) null);
-                com.baidu.adp.lib.h.d.d("save apply approved data: " + groupNewsPojo.toString());
             }
             LinkedList<String> linkedList2 = new LinkedList<>();
             linkedList2.add(str);
-            com.baidu.tieba.im.db.a.a().a(linkedList2, (com.baidu.tieba.im.a<Void>) null);
-            com.baidu.adp.lib.h.d.d("save apply approved data: " + groupNewsPojo.toString());
+            com.baidu.tieba.im.db.d.a().a(linkedList2, (com.baidu.tieba.im.a<Void>) null);
+            com.baidu.adp.lib.h.e.d("save apply approved data: " + groupNewsPojo.toString());
         }
     }
 
     public static void a(boolean z, com.baidu.tieba.im.a<Void> aVar) {
-        com.baidu.tieba.im.m.a(new e(z), aVar);
+        com.baidu.tieba.im.m.a(new c(z), aVar);
     }
 
     public static void a(boolean z) {
-        int a2 = com.baidu.tieba.im.db.g.a().a("group_intro_change' , 'group_level_up' , 'group_name_change' , 'group_notice_change", 1);
+        int a2 = com.baidu.tieba.im.db.l.a().a("group_intro_change' , 'group_level_up' , 'group_name_change' , 'group_notice_change' , 'dismiss_group' , 'kick_out", 1);
         if (-1 == a2) {
-            g().g = null;
+            h().g = null;
             return;
         }
-        if (g().g == null) {
-            g().g = new RecentChatFriendData();
-            g().g.setOwnerName(String.valueOf(3));
+        if (h().g == null) {
+            h().g = new RecentChatFriendData();
+            h().g.setOwnerName(String.valueOf(3));
         }
-        RecentChatFriendData recentChatFriendData = g().g;
+        RecentChatFriendData recentChatFriendData = h().g;
         recentChatFriendData.setUnReadCount(a2);
-        g().b(a2);
-        List<UpdatesItemData> a3 = com.baidu.tieba.im.groupUpdates.m.a(com.baidu.tieba.im.db.g.a().a(0L, 1, "group_intro_change' , 'group_level_up' , 'group_name_change' , 'group_notice_change"));
+        h().b(a2);
+        List<UpdatesItemData> a3 = com.baidu.tieba.im.groupUpdates.m.a(com.baidu.tieba.im.db.l.a().a(0L, 1, 0, "group_intro_change' , 'group_level_up' , 'group_name_change' , 'group_notice_change' , 'dismiss_group' , 'kick_out"));
         if (a3 == null || a3.isEmpty()) {
-            com.baidu.adp.lib.h.d.d(" groupupdates is null or empty");
-            g().g = null;
+            com.baidu.adp.lib.h.e.d(" groupupdates is null or empty");
+            h().g = null;
             return;
         }
-        com.baidu.adp.lib.h.d.d("得到群组动态消息+" + a2);
+        com.baidu.adp.lib.h.e.d("得到群组动态消息+" + a2);
         UpdatesItemData updatesItemData = a3.get(0);
         recentChatFriendData.setFriendId(String.valueOf(3));
-        recentChatFriendData.setFriendName(TiebaApplication.g().getApplicationContext().getString(R.string.group_updates));
+        recentChatFriendData.setFriendName(TiebaApplication.h().getApplicationContext().getString(R.string.group_updates));
         recentChatFriendData.setMsgContent(updatesItemData.getContent());
         recentChatFriendData.setOwnerName(String.valueOf(3));
-        recentChatFriendData.setOwnerId(TiebaApplication.A());
+        recentChatFriendData.setOwnerId(TiebaApplication.B());
         recentChatFriendData.setServerTime(updatesItemData.getTime());
         String updatesType = updatesItemData.getUpdatesType();
-        g().c(updatesItemData.getContent());
+        h().c(updatesItemData.getContent());
         if (z) {
             a(updatesItemData, updatesType);
         }
         com.baidu.tieba.sharedPref.b.a().b("is_show_updates", true);
-        g().a();
-        l.post(new f(updatesItemData.getNotice_id()));
+        h().a();
+        l.post(new d(updatesItemData.getNotice_id()));
+    }
+
+    public static void e() {
+        GroupNewsPojo groupNewsPojo;
+        com.baidu.adp.lib.h.e.d("dismiss begin");
+        LinkedList<GroupNewsPojo> a2 = com.baidu.tieba.im.db.l.a().a(0L, 1, 0, "dismiss_group");
+        if (a2 != null && !a2.isEmpty() && (groupNewsPojo = a2.get(0)) != null) {
+            String gid = groupNewsPojo.getGid();
+            if (!TextUtils.isEmpty(gid)) {
+                com.baidu.tieba.im.db.a.a(gid);
+            }
+        }
     }
 
     public synchronized void b(boolean z, com.baidu.tieba.im.a<Void> aVar) {
-        com.baidu.adp.lib.h.d.d(" get recent isNeedShowNotify:" + z);
-        x.a().a(new h(this, z, aVar));
+        com.baidu.adp.lib.h.e.d(" get recent isNeedShowNotify:" + z);
+        ad.a().a(new f(this, z, aVar));
     }
 
     private void a(ae aeVar) {
@@ -206,20 +206,20 @@ public class a {
         if (recentChatFriendData != null) {
             String friendId = recentChatFriendData.getFriendId();
             if (!TextUtils.isEmpty(friendId)) {
-                if ((!MsglistActivity.f1484a || !friendId.equals(MsglistActivity.b)) && !TextUtils.isEmpty(recentChatFriendData.getMsgContent())) {
+                if ((!MsglistActivity.f1534a || !friendId.equals(MsglistActivity.b)) && !TextUtils.isEmpty(recentChatFriendData.getMsgContent())) {
                     HashMap<String, String> j = aeVar.j();
-                    boolean b = v.b(TiebaApplication.A(), friendId);
-                    com.baidu.adp.lib.h.d.d("isNofity:" + b + " gid:" + friendId + "count:" + recentChatFriendData.getUnReadCount());
+                    boolean b = u.b(TiebaApplication.B(), friendId);
+                    com.baidu.adp.lib.h.e.d("isNofity:" + b + " gid:" + friendId + "count:" + recentChatFriendData.getUnReadCount());
                     if (!b) {
                         aeVar.d(aeVar.e() + recentChatFriendData.getUnReadCount());
                         return;
                     }
-                    com.baidu.adp.lib.h.d.d("lastContent:" + recentChatFriendData.getMsgContent());
+                    com.baidu.adp.lib.h.e.d("lastContent:" + recentChatFriendData.getMsgContent());
                     if (recentChatFriendData.getUnReadCount() > 0) {
                         aeVar.a(recentChatFriendData.getMsgContent());
                         String friendName = recentChatFriendData.getFriendName();
                         j.put(friendId, friendName);
-                        com.baidu.adp.lib.h.d.d("p.getGid:" + friendId + " gname:" + friendName + " unread_count:" + recentChatFriendData.getUnReadCount());
+                        com.baidu.adp.lib.h.e.d("p.getGid:" + friendId + " gname:" + friendName + " unread_count:" + recentChatFriendData.getUnReadCount());
                     }
                     aeVar.a(aeVar.b() + recentChatFriendData.getUnReadCount());
                 }
@@ -229,62 +229,61 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void a(boolean z, ConcurrentHashMap<String, ImMessageCenterPojo> concurrentHashMap) {
-        if (concurrentHashMap != null) {
-            Set<String> keySet = concurrentHashMap.keySet();
-            if (keySet != null) {
-                int size = keySet.size();
-                ae aeVar = new ae();
-                aeVar.a();
-                aeVar.a(z);
-                try {
-                    Iterator<String> it = keySet.iterator();
-                    for (int i = 0; i < size; i++) {
-                        String next = it.next();
-                        if (!TextUtils.isEmpty(next)) {
-                            ImMessageCenterPojo imMessageCenterPojo = concurrentHashMap.get(next);
-                            com.baidu.adp.lib.h.d.d("=======lastPojo:" + imMessageCenterPojo.toString());
-                            if (a(imMessageCenterPojo)) {
-                                a(a(next, imMessageCenterPojo), aeVar);
-                            }
+        Set<String> keySet;
+        this.e.clear();
+        if (concurrentHashMap != null && (keySet = concurrentHashMap.keySet()) != null) {
+            int size = keySet.size();
+            ae aeVar = new ae();
+            aeVar.a();
+            aeVar.a(z);
+            try {
+                Iterator<String> it = keySet.iterator();
+                for (int i = 0; i < size; i++) {
+                    String next = it.next();
+                    if (!TextUtils.isEmpty(next)) {
+                        ImMessageCenterPojo imMessageCenterPojo = concurrentHashMap.get(next);
+                        com.baidu.adp.lib.h.e.d("=======lastPojo:" + imMessageCenterPojo.toString());
+                        if (a(imMessageCenterPojo)) {
+                            a(a(next, imMessageCenterPojo), aeVar);
                         }
                     }
-                } catch (Exception e) {
-                    e.printStackTrace();
                 }
-                a(aeVar);
-                int size2 = aeVar.j().size();
-                com.baidu.adp.lib.h.d.d("======= after process groupMsg unReadGroupMsg:" + aeVar.b() + "  gidAndNameSize:" + size2 + " self unCount:" + aeVar.g() + " notNotify:" + aeVar.e());
-                if (this.e != null) {
-                    Iterator<RecentChatFriendData> it2 = this.e.iterator();
-                    while (it2.hasNext()) {
-                        RecentChatFriendData next2 = it2.next();
-                        if (next2.getGroupSetting() == null) {
-                            a(next2);
-                        }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            a(aeVar);
+            int size2 = aeVar.j().size();
+            com.baidu.adp.lib.h.e.d("======= after process groupMsg unReadGroupMsg:" + aeVar.b() + "  gidAndNameSize:" + size2 + " self unCount:" + aeVar.g() + " notNotify:" + aeVar.e());
+            if (this.e != null) {
+                Iterator<RecentChatFriendData> it2 = this.e.iterator();
+                while (it2.hasNext()) {
+                    RecentChatFriendData next2 = it2.next();
+                    if (next2.getGroupSetting() == null) {
+                        a(next2);
                     }
-                    if (g().j) {
-                        c(aeVar);
-                    }
-                    if (g().k) {
-                        b(aeVar);
-                    }
-                    if (((aeVar.b() + aeVar.c()) + aeVar.d()) - aeVar.e() <= 0) {
-                        aeVar.a(false);
-                    }
-                    com.baidu.adp.lib.h.d.d("=======unReadGroupMsg:" + aeVar.b() + "  gidAndNameSize:" + size2 + " self unCount:" + aeVar.g() + " notNotify:" + aeVar.e() + " isShowNotify:" + aeVar.f());
-                    if (!TiebaApplication.g().ac() || TiebaApplication.g().P() <= 0) {
-                        aeVar.a(0L);
-                        aeVar.a(false);
-                    }
-                    t.a().b(aeVar);
                 }
+                if (h().j) {
+                    c(aeVar);
+                }
+                if (h().k) {
+                    b(aeVar);
+                }
+                if (((aeVar.b() + aeVar.c()) + aeVar.d()) - aeVar.e() <= 0) {
+                    aeVar.a(false);
+                }
+                com.baidu.adp.lib.h.e.d("=======unReadGroupMsg:" + aeVar.b() + "  gidAndNameSize:" + size2 + " self unCount:" + aeVar.g() + " notNotify:" + aeVar.e() + " isShowNotify:" + aeVar.f());
+                if (!TiebaApplication.h().aa() || TiebaApplication.h().N() <= 0) {
+                    aeVar.a(0L);
+                    aeVar.a(false);
+                }
+                com.baidu.tieba.mention.t.a().b(aeVar);
             }
         }
     }
 
     public void a(RecentChatFriendData recentChatFriendData) {
         if (recentChatFriendData != null) {
-            GroupSettingItemData a2 = v.a(TiebaApplication.A(), recentChatFriendData.getFriendId());
+            GroupSettingItemData a2 = u.a(TiebaApplication.B(), recentChatFriendData.getFriendId());
             if (a2 != null) {
                 recentChatFriendData.setGroupSetting(a2);
             }
@@ -310,35 +309,35 @@ public class a {
     }
 
     private void b(ae aeVar) {
-        RecentChatFriendData recentChatFriendData = g().g;
-        aeVar.e(t.a().t().c());
+        RecentChatFriendData recentChatFriendData = h().g;
+        aeVar.e(com.baidu.tieba.mention.t.a().t().c());
         if (recentChatFriendData != null) {
             long unReadCount = recentChatFriendData.getUnReadCount();
-            String h = g().h();
+            String i = h().i();
             aeVar.b(unReadCount);
             if (unReadCount > 0) {
                 aeVar.d(recentChatFriendData.getFriendName());
-                aeVar.e(h);
+                aeVar.e(i);
             }
-            com.baidu.adp.lib.h.d.d("updates Count:" + unReadCount + " updates summary:" + h);
+            com.baidu.adp.lib.h.e.d("updates Count:" + unReadCount + " updates summary:" + i);
             return;
         }
         aeVar.b(0L);
-        com.baidu.adp.lib.h.d.d(" getUpdate is null0");
+        com.baidu.adp.lib.h.e.d(" getUpdate is null0");
     }
 
     private void c(ae aeVar) {
-        aeVar.f(t.a().t().d());
-        RecentChatFriendData recentChatFriendData = g().f;
+        aeVar.f(com.baidu.tieba.mention.t.a().t().d());
+        RecentChatFriendData recentChatFriendData = h().f;
         if (recentChatFriendData != null) {
             long unReadCount = recentChatFriendData.getUnReadCount();
-            String i = g().i();
+            String j = h().j();
             aeVar.c(unReadCount);
             if (unReadCount > 0) {
-                aeVar.f(i);
+                aeVar.f(j);
                 aeVar.c(recentChatFriendData.getFriendName());
             }
-            com.baidu.adp.lib.h.d.d("validata Count:" + unReadCount + "validata summary:" + i);
+            com.baidu.adp.lib.h.e.d("validata Count:" + unReadCount + "validata summary:" + j);
             return;
         }
         aeVar.c(0L);
@@ -362,7 +361,7 @@ public class a {
         }
     }
 
-    public void e() {
+    public void f() {
         if (this.e != null) {
             this.e.clear();
         }
@@ -393,7 +392,7 @@ public class a {
                 return null;
             }
             recentChatFriendData.setFriendId(imMessageCenterPojo.getGid());
-            recentChatFriendData.setOwnerId(TiebaApplication.A());
+            recentChatFriendData.setOwnerId(TiebaApplication.B());
             recentChatFriendData.setFriendName(imMessageCenterPojo.getGroup_name());
             recentChatFriendData.setFriendPortrait(imMessageCenterPojo.getGroup_head());
             recentChatFriendData.setOwnerName(String.valueOf(1));
@@ -414,50 +413,50 @@ public class a {
         if (!TextUtils.isEmpty(str) && str.equals("group_name_change")) {
             String groupId = updatesItemData.getGroupId();
             if (!TextUtils.isEmpty(groupId)) {
-                com.baidu.adp.lib.h.d.d("update msg group name" + updatesItemData.getGroupName());
-                com.baidu.tieba.im.db.n.a().a(groupId, updatesItemData.getGroupName());
+                com.baidu.adp.lib.h.e.d("update msg group name" + updatesItemData.getGroupName());
+                t.a().a(groupId, updatesItemData.getGroupName());
             }
         }
     }
 
     public static void a(com.baidu.tieba.im.a<Void> aVar) {
-        com.baidu.tieba.im.m.a(new i(), aVar);
+        com.baidu.tieba.im.m.a(new g(), aVar);
     }
 
-    public static void f() {
-        com.baidu.adp.lib.h.d.d("begin");
-        int a2 = com.baidu.tieba.im.db.g.a().a("apply_join_group", 1);
-        com.baidu.adp.lib.h.d.d(RConversation.COL_UNREAD_COUNT + a2);
+    public static void g() {
+        com.baidu.adp.lib.h.e.d("begin");
+        int a2 = com.baidu.tieba.im.db.l.a().a("apply_join_group", 1);
+        com.baidu.adp.lib.h.e.d(RConversation.COL_UNREAD_COUNT + a2);
         if (-1 == a2) {
-            g().f = null;
+            h().f = null;
             return;
         }
-        if (g().f == null) {
-            g().f = new RecentChatFriendData();
+        if (h().f == null) {
+            h().f = new RecentChatFriendData();
         }
-        RecentChatFriendData recentChatFriendData = g().f;
+        RecentChatFriendData recentChatFriendData = h().f;
         recentChatFriendData.setUnReadCount(a2);
-        g().a(a2);
-        List<ValidateItemData> a3 = com.baidu.tieba.im.validate.k.a(com.baidu.tieba.im.db.g.a().a(0L, 1, "apply_join_group"));
+        h().a(a2);
+        List<ValidateItemData> a3 = com.baidu.tieba.im.validate.l.a(com.baidu.tieba.im.db.l.a().a(0L, 1, 0, "apply_join_group"));
         if (a3 == null || a3.isEmpty()) {
-            com.baidu.adp.lib.h.d.d("convertValidate is null");
-            g().f = null;
+            com.baidu.adp.lib.h.e.d("convertValidate is null");
+            h().f = null;
             return;
         }
-        com.baidu.adp.lib.h.d.d("convertValidate is not null");
+        com.baidu.adp.lib.h.e.d("convertValidate is not null");
         ValidateItemData validateItemData = a3.get(0);
-        String str = validateItemData.getUserName() + TiebaApplication.g().getApplicationContext().getString(R.string.validate_im_apply_prefix1) + validateItemData.getGroupName();
+        String str = validateItemData.getUserName() + TiebaApplication.h().getApplicationContext().getString(R.string.validate_im_apply_prefix1) + validateItemData.getGroupName();
         recentChatFriendData.setFriendId(String.valueOf(2));
-        recentChatFriendData.setFriendName(TiebaApplication.g().getApplicationContext().getString(R.string.valicate));
+        recentChatFriendData.setFriendName(TiebaApplication.h().getApplicationContext().getString(R.string.valicate));
         recentChatFriendData.setMsgContent(str);
         recentChatFriendData.setOwnerName(String.valueOf(2));
-        recentChatFriendData.setOwnerId(TiebaApplication.A());
+        recentChatFriendData.setOwnerId(TiebaApplication.B());
         recentChatFriendData.setServerTime(validateItemData.getApplyTime());
-        g().d(str);
+        h().d(str);
         com.baidu.tieba.sharedPref.b.a().b("is_show_validate", true);
-        g().b();
-        l.post(new j(validateItemData.getNotice_id()));
-        com.baidu.adp.lib.h.d.d(" new validate data");
+        h().b();
+        l.post(new h(validateItemData.getNotice_id()));
+        com.baidu.adp.lib.h.e.d(" new validate data");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -468,18 +467,18 @@ public class a {
             boolean z2 = true;
             if (concurrentHashMap != null) {
                 try {
-                    imMessageCenterPojo = concurrentHashMap.get(n.a().d());
+                    imMessageCenterPojo = concurrentHashMap.get(l.a().d());
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
                 if (imMessageCenterPojo != null) {
                     long parseLong = Long.parseLong(str);
-                    com.baidu.adp.lib.h.d.d("curMid:" + parseLong + " p.getLast_msgId():" + imMessageCenterPojo.getLast_msgId());
+                    com.baidu.adp.lib.h.e.d("curMid:" + parseLong + " p.getLast_rid():" + imMessageCenterPojo.getLast_rid());
                     if (imMessageCenterPojo != null) {
-                        if (parseLong <= imMessageCenterPojo.getLast_msgId()) {
+                        if (parseLong <= imMessageCenterPojo.getLast_rid()) {
                             z = false;
                             z2 = z;
-                            g().b(z2, new l());
+                            h().b(z2, new j());
                         }
                     }
                 } else {
@@ -488,26 +487,26 @@ public class a {
             }
             z = true;
             z2 = z;
-            g().b(z2, new l());
+            h().b(z2, new j());
         }
     }
 
-    public static a g() {
-        if (f1760a == null) {
+    public static a h() {
+        if (f1857a == null) {
             synchronized (a.class) {
-                if (f1760a == null) {
-                    f1760a = new a();
+                if (f1857a == null) {
+                    f1857a = new a();
                 }
             }
         }
-        return f1760a;
+        return f1857a;
     }
 
     public void b(long j) {
         this.m = j;
     }
 
-    public String h() {
+    public String i() {
         return this.d;
     }
 
@@ -515,7 +514,7 @@ public class a {
         this.d = str;
     }
 
-    public String i() {
+    public String j() {
         return this.c;
     }
 
@@ -523,15 +522,15 @@ public class a {
         this.c = str;
     }
 
-    public LinkedList<RecentChatFriendData> j() {
+    public LinkedList<RecentChatFriendData> k() {
         return this.e;
     }
 
-    public RecentChatFriendData k() {
+    public RecentChatFriendData l() {
         return this.f;
     }
 
-    public List<GroupUpdateMessage> l() {
+    public List<GroupUpdateMessage> m() {
         return this.i;
     }
 
@@ -549,7 +548,7 @@ public class a {
         this.f = recentChatFriendData;
     }
 
-    public RecentChatFriendData m() {
+    public RecentChatFriendData n() {
         return this.g;
     }
 
@@ -557,11 +556,11 @@ public class a {
         this.g = recentChatFriendData;
     }
 
-    public boolean n() {
+    public boolean o() {
         return this.j;
     }
 
-    public boolean o() {
+    public boolean p() {
         return this.k;
     }
 }

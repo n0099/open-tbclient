@@ -1,9 +1,17 @@
 package com.baidu.tieba.im.chat;
-
-import com.baidu.tieba.voice.VoiceManager;
 /* loaded from: classes.dex */
-public interface bu {
-    void a();
+class bu implements Runnable {
 
-    void a(VoiceManager.VoiceModel voiceModel);
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ bt f1579a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bu(bt btVar) {
+        this.f1579a = btVar;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        this.f1579a.f1578a.O();
+    }
 }

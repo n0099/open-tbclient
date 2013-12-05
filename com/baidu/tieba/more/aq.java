@@ -1,20 +1,24 @@
 package com.baidu.tieba.more;
 
-import android.view.View;
+import android.content.DialogInterface;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class aq implements View.OnClickListener {
+class aq implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SignRemindActivity f1967a;
+    final /* synthetic */ SystemHelpSettingActivity f2078a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aq(SignRemindActivity signRemindActivity) {
-        this.f1967a = signRemindActivity;
+    public aq(SystemHelpSettingActivity systemHelpSettingActivity) {
+        this.f2078a = systemHelpSettingActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.f1967a.showDialog(R.id.sign_remind);
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        at atVar;
+        this.f2078a.showLoadingDialog(this.f2078a.getString(R.string.deleting));
+        atVar = this.f2078a.b;
+        atVar.a();
+        dialogInterface.cancel();
     }
 }

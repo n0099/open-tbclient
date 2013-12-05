@@ -11,11 +11,11 @@ import android.os.SystemClock;
 public class g extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ f f776a;
+    final /* synthetic */ f f781a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(f fVar) {
-        this.f776a = fVar;
+        this.f781a = fVar;
     }
 
     @Override // android.content.BroadcastReceiver
@@ -32,36 +32,36 @@ public class g extends BroadcastReceiver {
         Runnable runnable2;
         String action = intent.getAction();
         if (action.equals("com.baidu.freqstatistic.summaryresults")) {
-            this.f776a.o();
+            this.f781a.o();
         } else if (action.equals("android.intent.action.TIME_SET") || action.equals("android.intent.action.TIMEZONE_CHANGED")) {
             long currentTimeMillis = System.currentTimeMillis();
             long elapsedRealtime = SystemClock.elapsedRealtime();
-            j = this.f776a.f;
-            j2 = this.f776a.d;
-            j3 = this.f776a.e;
+            j = this.f781a.f;
+            j2 = this.f781a.d;
+            j3 = this.f781a.e;
             long j4 = j + ((currentTimeMillis - j2) - (elapsedRealtime - j3));
-            this.f776a.f = j4;
-            context2 = this.f776a.b;
+            this.f781a.f = j4;
+            context2 = this.f781a.b;
             com.baidu.android.systemmonitor.d.b.a(context2.getApplicationContext(), j4);
-            this.f776a.d = currentTimeMillis;
-            this.f776a.e = elapsedRealtime;
+            this.f781a.d = currentTimeMillis;
+            this.f781a.e = elapsedRealtime;
         } else if (action.equals("android.intent.action.SCREEN_OFF")) {
-            handler2 = this.f776a.t;
-            runnable2 = this.f776a.l;
+            handler2 = this.f781a.t;
+            runnable2 = this.f781a.l;
             handler2.postDelayed(runnable2, 500L);
         } else if (!action.equals("android.intent.action.SCREEN_ON")) {
             if (action.equals("android.intent.action.USER_PRESENT")) {
-                this.f776a.g = SystemClock.elapsedRealtime();
+                this.f781a.g = SystemClock.elapsedRealtime();
                 boolean unused = f.i = false;
             }
         } else {
-            this.f776a.g = SystemClock.elapsedRealtime();
-            context3 = this.f776a.b;
+            this.f781a.g = SystemClock.elapsedRealtime();
+            context3 = this.f781a.b;
             boolean unused2 = f.i = ((KeyguardManager) context3.getSystemService("keyguard")).inKeyguardRestrictedInputMode();
             i = f.n;
             if (i == 2) {
-                handler = this.f776a.t;
-                runnable = this.f776a.m;
+                handler = this.f781a.t;
+                runnable = this.f781a.m;
                 handler.post(runnable);
             }
         }

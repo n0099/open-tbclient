@@ -12,7 +12,7 @@ public class v {
     private static final String[] b = {"image/jpeg", "image/png", "image/gif"};
 
     /* renamed from: a  reason: collision with root package name */
-    static final String[] f2024a = {"_id", "datetaken", "date_added", "orientation", "_data"};
+    static final String[] f2131a = {"_id", "datetaken", "date_added", "orientation", "_data"};
 
     protected static String a() {
         return "(mime_type in (?, ?, ?))";
@@ -32,9 +32,9 @@ public class v {
             if (uri.getScheme().startsWith("file")) {
                 String[] strArr = {""};
                 strArr[0] = uri.getPath();
-                query = MediaStore.Images.Media.query(contentResolver, MediaStore.Images.Media.EXTERNAL_CONTENT_URI, f2024a, "(_data=?)", strArr, c());
+                query = MediaStore.Images.Media.query(contentResolver, MediaStore.Images.Media.EXTERNAL_CONTENT_URI, f2131a, "(_data=?)", strArr, c());
             } else {
-                query = MediaStore.Images.Media.query(contentResolver, uri, f2024a, a(), b(), c());
+                query = MediaStore.Images.Media.query(contentResolver, uri, f2131a, a(), b(), c());
             }
             return query;
         } catch (Exception e) {

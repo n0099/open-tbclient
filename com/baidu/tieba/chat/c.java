@@ -6,21 +6,21 @@ import com.baidu.tieba.data.chat.ChatMessageData;
 class c implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ChatActivity f1136a;
+    final /* synthetic */ ChatActivity f1183a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(ChatActivity chatActivity) {
-        this.f1136a = chatActivity;
+        this.f1183a = chatActivity;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
         ChatMessageData chatMessageData;
         ChatMessageData chatMessageData2;
-        chatMessageData = this.f1136a.d;
+        chatMessageData = this.f1183a.d;
         if (chatMessageData != null) {
-            chatMessageData2 = this.f1136a.d;
-            chatMessageData2.setClipString(this.f1136a);
+            chatMessageData2 = this.f1183a.d;
+            chatMessageData2.setClipString(this.f1183a);
         }
     }
 }

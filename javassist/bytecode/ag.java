@@ -9,24 +9,24 @@ import java.util.Map;
 public class ag extends w {
 
     /* renamed from: a  reason: collision with root package name */
-    int f2742a;
+    int f2923a;
 
     public ag(int i, int i2) {
         super(i2);
-        this.f2742a = i;
+        this.f2923a = i;
     }
 
     public ag(DataInputStream dataInputStream, int i) {
         super(i);
-        this.f2742a = dataInputStream.readInt();
+        this.f2923a = dataInputStream.readInt();
     }
 
     public int hashCode() {
-        return this.f2742a;
+        return this.f2923a;
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof ag) && ((ag) obj).f2742a == this.f2742a;
+        return (obj instanceof ag) && ((ag) obj).f2923a == this.f2923a;
     }
 
     @Override // javassist.bytecode.w
@@ -36,18 +36,18 @@ public class ag extends w {
 
     @Override // javassist.bytecode.w
     public int a(y yVar, y yVar2, Map map) {
-        return yVar2.y(this.f2742a);
+        return yVar2.y(this.f2923a);
     }
 
     @Override // javassist.bytecode.w
     public void a(DataOutputStream dataOutputStream) {
         dataOutputStream.writeByte(3);
-        dataOutputStream.writeInt(this.f2742a);
+        dataOutputStream.writeInt(this.f2923a);
     }
 
     @Override // javassist.bytecode.w
     public void a(PrintWriter printWriter) {
         printWriter.print("Integer ");
-        printWriter.println(this.f2742a);
+        printWriter.println(this.f2923a);
     }
 }

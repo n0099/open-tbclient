@@ -9,24 +9,24 @@ import java.util.Map;
 public class j extends w {
 
     /* renamed from: a  reason: collision with root package name */
-    int f2799a;
+    int f2980a;
 
     public j(int i, int i2) {
         super(i2);
-        this.f2799a = i;
+        this.f2980a = i;
     }
 
     public j(DataInputStream dataInputStream, int i) {
         super(i);
-        this.f2799a = dataInputStream.readUnsignedShort();
+        this.f2980a = dataInputStream.readUnsignedShort();
     }
 
     public int hashCode() {
-        return this.f2799a;
+        return this.f2980a;
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof j) && ((j) obj).f2799a == this.f2799a;
+        return (obj instanceof j) && ((j) obj).f2980a == this.f2980a;
     }
 
     @Override // javassist.bytecode.w
@@ -37,7 +37,7 @@ public class j extends w {
     @Override // javassist.bytecode.w
     public int a(y yVar, y yVar2, Map map) {
         String str;
-        String w = yVar.w(this.f2799a);
+        String w = yVar.w(this.f2980a);
         if (map == null || (str = (String) map.get(w)) == null) {
             str = w;
         }
@@ -47,12 +47,12 @@ public class j extends w {
     @Override // javassist.bytecode.w
     public void a(DataOutputStream dataOutputStream) {
         dataOutputStream.writeByte(7);
-        dataOutputStream.writeShort(this.f2799a);
+        dataOutputStream.writeShort(this.f2980a);
     }
 
     @Override // javassist.bytecode.w
     public void a(PrintWriter printWriter) {
         printWriter.print("Class #");
-        printWriter.println(this.f2799a);
+        printWriter.println(this.f2980a);
     }
 }

@@ -4,16 +4,16 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import com.baidu.tieba.util.bg;
+import com.baidu.tieba.util.bd;
 /* loaded from: classes.dex */
 class f implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ActivationActivity f1067a;
+    final /* synthetic */ ActivationActivity f1078a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(ActivationActivity activationActivity) {
-        this.f1067a = activationActivity;
+        this.f1078a = activationActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -32,18 +32,18 @@ class f implements View.OnClickListener {
         j jVar4;
         i iVar3;
         i iVar4;
-        imageView = this.f1067a.b;
+        imageView = this.f1078a.b;
         if (view != imageView) {
-            relativeLayout = this.f1067a.j;
+            relativeLayout = this.f1078a.j;
             if (view == relativeLayout) {
-                iVar2 = this.f1067a.m;
+                iVar2 = this.f1078a.m;
                 if (iVar2 == null) {
-                    jVar4 = this.f1067a.l;
+                    jVar4 = this.f1078a.l;
                     if (jVar4 == null) {
-                        this.f1067a.m = new i(this.f1067a, null);
-                        iVar3 = this.f1067a.m;
+                        this.f1078a.m = new i(this.f1078a, null);
+                        iVar3 = this.f1078a.m;
                         iVar3.setPriority(3);
-                        iVar4 = this.f1067a.m;
+                        iVar4 = this.f1078a.m;
                         iVar4.execute(new String[0]);
                         return;
                     }
@@ -51,18 +51,18 @@ class f implements View.OnClickListener {
                 }
                 return;
             }
-            relativeLayout2 = this.f1067a.k;
+            relativeLayout2 = this.f1078a.k;
             if (view == relativeLayout2) {
-                z = this.f1067a.n;
+                z = this.f1078a.n;
                 if (z) {
-                    jVar = this.f1067a.l;
+                    jVar = this.f1078a.l;
                     if (jVar == null) {
-                        iVar = this.f1067a.m;
+                        iVar = this.f1078a.m;
                         if (iVar == null) {
-                            this.f1067a.l = new j(this.f1067a, null);
-                            jVar2 = this.f1067a.l;
+                            this.f1078a.l = new j(this.f1078a, null);
+                            jVar2 = this.f1078a.l;
                             jVar2.setPriority(3);
-                            jVar3 = this.f1067a.l;
+                            jVar3 = this.f1078a.l;
                             jVar3.execute(new String[0]);
                             return;
                         }
@@ -72,16 +72,16 @@ class f implements View.OnClickListener {
                 }
                 return;
             }
-            imageView2 = this.f1067a.d;
+            imageView2 = this.f1078a.d;
             if (view == imageView2) {
-                editText = this.f1067a.i;
+                editText = this.f1078a.i;
                 editText.setText((CharSequence) null);
                 return;
             }
             return;
         }
-        this.f1067a.setResult(0);
-        this.f1067a.finish();
-        bg.a("ActivationActivity", "mBack", "onClick");
+        this.f1078a.setResult(0);
+        this.f1078a.finish();
+        bd.a("ActivationActivity", "mBack", "onClick");
     }
 }

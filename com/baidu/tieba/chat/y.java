@@ -1,18 +1,32 @@
 package com.baidu.tieba.chat;
+
+import android.content.DialogInterface;
+import com.baidu.tieba.data.chat.RecentChatFriendData;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class y implements com.baidu.tieba.im.a<Void> {
+public class y implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ x f1156a;
+    final /* synthetic */ RecentChatFriendData f1203a;
+    final /* synthetic */ ChatListFragment b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public y(x xVar) {
-        this.f1156a = xVar;
+    public y(ChatListFragment chatListFragment, RecentChatFriendData recentChatFriendData) {
+        this.b = chatListFragment;
+        this.f1203a = recentChatFriendData;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    public void a(Void r2) {
-        this.f1156a.b.J();
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        com.baidu.tieba.model.f fVar;
+        switch (i) {
+            case 0:
+                this.b.i = 4;
+                fVar = this.b.c;
+                fVar.a(this.f1203a, new z(this));
+                return;
+            default:
+                return;
+        }
     }
 }

@@ -5,7 +5,7 @@ import org.msgpack.MessageTypeException;
 public class DoubleArrayTemplate extends AbstractTemplate<double[]> {
 
     /* renamed from: a  reason: collision with root package name */
-    static final DoubleArrayTemplate f2894a = new DoubleArrayTemplate();
+    static final DoubleArrayTemplate f3075a = new DoubleArrayTemplate();
 
     private DoubleArrayTemplate() {
     }
@@ -28,6 +28,6 @@ public class DoubleArrayTemplate extends AbstractTemplate<double[]> {
     }
 
     public static DoubleArrayTemplate a() {
-        return f2894a;
+        return f3075a;
     }
 }

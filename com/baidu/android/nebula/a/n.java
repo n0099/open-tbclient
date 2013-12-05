@@ -11,21 +11,21 @@ import org.json.JSONObject;
 public class n implements q {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f652a;
+    private Context f657a;
     private long b = -1;
 
     public n(Context context) {
-        this.f652a = null;
-        this.f652a = context;
+        this.f657a = null;
+        this.f657a = context;
     }
 
     public void a() {
         JSONObject jSONObject = new JSONObject();
-        String deviceID = DeviceId.getDeviceID(this.f652a);
+        String deviceID = DeviceId.getDeviceID(this.f657a);
         this.b = System.currentTimeMillis();
-        r a2 = i.a(this.f652a).a();
+        r a2 = i.a(this.f657a).a();
         try {
-            ArrayList b = e.a(this.f652a).a(a2.j()).b();
+            ArrayList b = e.a(this.f657a).a(a2.j()).b();
             if (b == null || b.size() <= 0) {
                 return;
             }
@@ -42,12 +42,12 @@ public class n implements q {
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("op", aVar.a().ordinal());
                 jSONObject2.put("package", aVar.b());
-                jSONObject2.put("signmd5", aVar.a(this.f652a));
+                jSONObject2.put("signmd5", aVar.a(this.f657a));
                 jSONObject2.put("version", aVar.c());
                 jSONArray.put(jSONObject2);
             }
             jSONObject.put("applist", jSONArray);
-            i.a(this.f652a).a(jSONObject.toString(), this);
+            i.a(this.f657a).a(jSONObject.toString(), this);
         } catch (JSONException e) {
         }
     }
@@ -58,19 +58,19 @@ public class n implements q {
             rVar.d();
         } else if (rVar.i() == 200) {
             if (rVar.e().size() > 0) {
-                e.a(this.f652a).a(rVar.e());
+                e.a(this.f657a).a(rVar.e());
             }
-            if (e.a(this.f652a).c()) {
-                new n(this.f652a).a();
+            if (e.a(this.f657a).c()) {
+                new n(this.f657a).a();
             }
         } else if (rVar.i() == 58217) {
             if (rVar.a().size() > 0) {
-                e.a(this.f652a).b(rVar.a());
+                e.a(this.f657a).b(rVar.a());
             } else if (rVar.e().size() > 0) {
-                e.a(this.f652a).a(rVar.e());
+                e.a(this.f657a).a(rVar.e());
             }
-            if (e.a(this.f652a).c()) {
-                new n(this.f652a).a();
+            if (e.a(this.f657a).c()) {
+                new n(this.f657a).a();
             }
         }
     }

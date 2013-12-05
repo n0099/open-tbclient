@@ -1,10 +1,21 @@
 package com.baidu.tieba.im.model;
+
+import com.baidu.tieba.im.message.RequestReportGroupMessage;
 /* loaded from: classes.dex */
 public class y extends com.baidu.adp.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1755a = y.class.getName();
-    private z b;
+    private int f1830a;
+    private int b;
+    private RequestReportGroupMessage c;
+
+    public void a(int i) {
+        this.f1830a = i;
+    }
+
+    public void b(int i) {
+        this.b = i;
+    }
 
     @Override // com.baidu.adp.a.d
     protected boolean LoadData() {
@@ -16,12 +27,22 @@ public class y extends com.baidu.adp.a.d {
         return false;
     }
 
-    public void a(String str, long j) {
-        if (this.b != null) {
-            this.b.cancel();
-            this.b = null;
+    private RequestReportGroupMessage c() {
+        RequestReportGroupMessage requestReportGroupMessage = new RequestReportGroupMessage();
+        requestReportGroupMessage.setGroupId(this.f1830a);
+        requestReportGroupMessage.setReportType(this.b);
+        return requestReportGroupMessage;
+    }
+
+    public void a() {
+        this.c = c();
+        com.baidu.tieba.im.messageCenter.e.a().a(this.c);
+    }
+
+    public void b() {
+        if (this.c != null) {
+            com.baidu.tieba.im.messageCenter.e.a().b(this.c);
+            this.c = null;
         }
-        this.b = new z(this, str, j);
-        this.b.execute(new Object[0]);
     }
 }

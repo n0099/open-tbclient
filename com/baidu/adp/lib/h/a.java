@@ -3,6 +3,7 @@ package com.baidu.adp.lib.h;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import java.io.ByteArrayOutputStream;
 import java.util.Hashtable;
 /* loaded from: classes.dex */
 public class a {
@@ -47,8 +48,14 @@ public class a {
         try {
             return BitmapFactory.decodeResource(context.getResources(), i, new BitmapFactory.Options());
         } catch (Exception e) {
-            d.a(e.getMessage());
+            e.a(e.getMessage());
             return null;
         }
+    }
+
+    public byte[] a(Bitmap bitmap, int i) {
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, i, byteArrayOutputStream);
+        return byteArrayOutputStream.toByteArray();
     }
 }

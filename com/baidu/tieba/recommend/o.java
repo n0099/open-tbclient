@@ -1,22 +1,32 @@
 package com.baidu.tieba.recommend;
 
 import android.view.View;
-import com.slidingmenu.lib.R;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.tbadk.widget.TbImageView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class o implements Runnable {
+public class o {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ View f2303a;
-    final /* synthetic */ h b;
+    View f2420a;
+    LinearLayout b;
+    RelativeLayout c;
+    TextView d;
+    TextView e;
+    TbImageView f;
+    TextView g;
+    TextView h;
+    TextView i;
+    final /* synthetic */ h j;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public o(h hVar, View view) {
-        this.b = hVar;
-        this.f2303a = view;
+    private o(h hVar) {
+        this.j = hVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        this.f2303a.findViewById(R.id.time).setVisibility(4);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ o(h hVar, i iVar) {
+        this(hVar);
     }
 }

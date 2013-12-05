@@ -28,13 +28,13 @@ import org.json.JSONObject;
 public class y implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f692a;
+    private Context f697a;
     private int b = 5;
     private int c = 0;
     private boolean d = false;
 
     public y(Context context) {
-        this.f692a = context.getApplicationContext();
+        this.f697a = context.getApplicationContext();
     }
 
     /* JADX WARN: Can't wrap try/catch for region: R(13:1|(1:3)|4|5|6|(4:8|(1:10)|11|(8:13|(1:15)|16|17|18|19|20|21)(2:36|(1:38)))(2:40|(1:42))|39|17|18|19|20|21|(1:(0))) */
@@ -73,7 +73,7 @@ public class y implements Runnable {
         if (com.baidu.android.pushservice.b.a()) {
             Log.d("TokenRequester", ">>> token request:" + str);
         }
-        ProxyHttpClient proxyHttpClient = new ProxyHttpClient(this.f692a);
+        ProxyHttpClient proxyHttpClient = new ProxyHttpClient(this.f697a);
         try {
             try {
                 HttpPost httpPost = new HttpPost(str);
@@ -127,9 +127,9 @@ public class y implements Runnable {
         arrayList.add(new BasicNameValuePair(PushConstants.EXTRA_METHOD, SocialConstants.TOKEN_RESPONSE_TYPE));
         b.a(arrayList);
         arrayList.add(new BasicNameValuePair("device_type", "3"));
-        arrayList.add(new BasicNameValuePair("rsa_device_id", Base64.encode(RSAUtil.encryptByPublicKey(DeviceId.getDeviceID(this.f692a).getBytes(), "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC/7VlVn9LIrZ71PL2RZMbK/Yxc\r\ndb046w/cXVylxS7ouPY06namZUFVhdbUnNRJzmGUZlzs3jUbvMO3l+4c9cw/n9aQ\r\nrm/brgaRDeZbeSrQYRZv60xzJIimuFFxsRM+ku6/dAyYmXiQXlRbgvFQ0MsVng4j\r\nv+cXhtTis2Kbwb8mQwIDAQAB\r\n"), BdUtil.UTF8)));
+        arrayList.add(new BasicNameValuePair("rsa_device_id", Base64.encode(RSAUtil.encryptByPublicKey(DeviceId.getDeviceID(this.f697a).getBytes(), "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC/7VlVn9LIrZ71PL2RZMbK/Yxc\r\ndb046w/cXVylxS7ouPY06namZUFVhdbUnNRJzmGUZlzs3jUbvMO3l+4c9cw/n9aQ\r\nrm/brgaRDeZbeSrQYRZv60xzJIimuFFxsRM+ku6/dAyYmXiQXlRbgvFQ0MsVng4j\r\nv+cXhtTis2Kbwb8mQwIDAQAB\r\n"), BdUtil.UTF8)));
         arrayList.add(new BasicNameValuePair("device_name", Build.MODEL));
-        SharedPreferences sharedPreferences = this.f692a.getSharedPreferences(this.f692a.getPackageName(), 1);
+        SharedPreferences sharedPreferences = this.f697a.getSharedPreferences(this.f697a.getPackageName(), 1);
         int i = sharedPreferences.getInt("com.baidu.android.pushservice.PushManager.LOGIN_TYPE", -1);
         String string = sharedPreferences.getString("com.baidu.android.pushservice.PushManager.LONGIN_VALUE", "");
         if (i == 2) {
@@ -142,12 +142,12 @@ public class y implements Runnable {
         }
         JSONObject jSONObject = new JSONObject();
         jSONObject.put("api_level", Build.VERSION.SDK_INT);
-        int[] b = com.baidu.android.pushservice.util.m.b(this.f692a);
+        int[] b = com.baidu.android.pushservice.util.m.b(this.f697a);
         jSONObject.put("screen_height", b[0]);
         jSONObject.put("screen_width", b[1]);
         jSONObject.put("model", Build.MODEL);
-        jSONObject.put("isroot", com.baidu.android.pushservice.util.m.a(this.f692a) ? 1 : 0);
-        jSONObject.put("is_baidu_app", com.baidu.android.pushservice.util.m.e(this.f692a, this.f692a.getPackageName()) ? 1 : 0);
+        jSONObject.put("isroot", com.baidu.android.pushservice.util.m.a(this.f697a) ? 1 : 0);
+        jSONObject.put("is_baidu_app", com.baidu.android.pushservice.util.m.e(this.f697a, this.f697a.getPackageName()) ? 1 : 0);
         jSONObject.put(PushConstants.EXTRA_PUSH_SDK_VERSION, 13);
         arrayList.add(new BasicNameValuePair("info", jSONObject.toString()));
         if (com.baidu.android.pushservice.b.a()) {
@@ -196,15 +196,15 @@ public class y implements Runnable {
             Log.i("TokenRequester", "RequestTokenThread connectResult: " + b);
         }
         if (!b) {
-            com.baidu.android.pushservice.util.m.i(this.f692a);
+            com.baidu.android.pushservice.util.m.i(this.f697a);
             return;
         }
-        b.b(this.f692a);
+        b.b(this.f697a);
         if (PushSDK.mPushConnection != null) {
             if (com.baidu.android.pushservice.b.a()) {
                 Log.i("TokenRequester", "TokenRequester start PushService after Request finish.");
             }
-            b.a(this.f692a);
+            b.a(this.f697a);
         }
     }
 

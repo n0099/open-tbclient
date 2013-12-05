@@ -3,11 +3,11 @@ package com.baidu.tieba.pb;
 class bj implements dx {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NewPbActivity f2077a;
+    final /* synthetic */ NewPbActivity f2184a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bj(NewPbActivity newPbActivity) {
-        this.f2077a = newPbActivity;
+        this.f2184a = newPbActivity;
     }
 
     @Override // com.baidu.tieba.pb.dx
@@ -15,11 +15,11 @@ class bj implements dx {
         com.baidu.tieba.model.bp bpVar;
         com.baidu.tieba.model.bp bpVar2;
         cr crVar;
-        bpVar = this.f2077a.w;
+        bpVar = this.f2184a.w;
         if (bpVar != null) {
-            bpVar2 = this.f2077a.w;
+            bpVar2 = this.f2184a.w;
             if (bpVar2.h()) {
-                crVar = this.f2077a.y;
+                crVar = this.f2184a.y;
                 crVar.v();
             }
         }

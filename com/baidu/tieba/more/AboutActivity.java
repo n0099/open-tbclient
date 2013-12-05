@@ -13,7 +13,7 @@ import java.util.Date;
 public class AboutActivity extends com.baidu.tieba.j {
 
     /* renamed from: a  reason: collision with root package name */
-    private d f1939a;
+    private d f2051a;
     private com.baidu.tieba.model.a b;
     private c c = null;
     private String d = com.baidu.tieba.data.h.b + "mo/q/topic_page/110_1";
@@ -26,8 +26,8 @@ public class AboutActivity extends com.baidu.tieba.j {
     @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.f1939a = new d(this, new a(this));
-        this.f1939a.f();
+        this.f2051a = new d(this, new a(this));
+        this.f2051a.f();
         b();
     }
 
@@ -35,8 +35,8 @@ public class AboutActivity extends com.baidu.tieba.j {
     @Override // com.baidu.tieba.j, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.f1939a != null) {
-            this.f1939a.f();
+        if (this.f2051a != null) {
+            this.f2051a.f();
         }
     }
 
@@ -48,8 +48,8 @@ public class AboutActivity extends com.baidu.tieba.j {
         if (this.b != null) {
             this.b.cancelLoadData();
         }
-        if (this.f1939a != null) {
-            this.f1939a.e();
+        if (this.f2051a != null) {
+            this.f2051a.e();
         }
     }
 
@@ -57,8 +57,8 @@ public class AboutActivity extends com.baidu.tieba.j {
     @Override // com.baidu.tieba.j
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.f1939a != null) {
-            this.f1939a.a(i);
+        if (this.f2051a != null) {
+            this.f2051a.a(i);
         }
     }
 
@@ -70,32 +70,32 @@ public class AboutActivity extends com.baidu.tieba.j {
             this.b.cancelLoadData();
         }
         this.b.a();
-        if (this.f1939a != null) {
-            this.f1939a.a();
+        if (this.f2051a != null) {
+            this.f2051a.a();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Object obj) {
-        if (this.f1939a != null) {
-            this.f1939a.e();
+        if (this.f2051a != null) {
+            this.f2051a.e();
         }
         ci ciVar = obj != null ? (ci) obj : null;
         if (ciVar != null) {
-            TiebaApplication.g().a(ciVar.c());
-            TiebaApplication.g().w(false);
+            TiebaApplication.h().a(ciVar.c());
+            TiebaApplication.h().x(false);
             if (ciVar.c().getHas_new_ver() == 1) {
                 if (ciVar.c().getForce_update() == 1) {
-                    UpdateDialog.a(TiebaApplication.g(), ciVar.c(), ciVar.b());
+                    UpdateDialog.a(TiebaApplication.h(), ciVar.c(), ciVar.b());
                 } else {
-                    TiebaApplication.g().a(Long.valueOf(new Date().getTime()).longValue());
-                    UpdateDialog.a(TiebaApplication.g(), ciVar.c(), ciVar.b());
+                    TiebaApplication.h().a(Long.valueOf(new Date().getTime()).longValue());
+                    UpdateDialog.a(TiebaApplication.h(), ciVar.c(), ciVar.b());
                 }
             } else {
                 showToast(getResources().getString(R.string.neednot_update));
             }
-            if (this.f1939a != null) {
-                this.f1939a.f();
+            if (this.f2051a != null) {
+                this.f2051a.f();
                 return;
             }
             return;

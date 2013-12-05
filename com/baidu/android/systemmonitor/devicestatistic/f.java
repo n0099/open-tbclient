@@ -10,7 +10,7 @@ public final class f {
     private static f b = null;
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f816a;
+    private boolean f821a;
     private Context d;
     private com.baidu.android.systemmonitor.devicestatistic.a.d c = null;
     private Handler e = new Handler();
@@ -20,13 +20,13 @@ public final class f {
     private Runnable i = new g(this);
 
     public f(Context context) {
-        this.f816a = false;
+        this.f821a = false;
         this.d = null;
         if (Build.VERSION.SDK_INT < 8) {
-            this.f816a = false;
+            this.f821a = false;
             return;
         }
-        this.f816a = TrafficStats.getTotalRxBytes() != -1;
+        this.f821a = TrafficStats.getTotalRxBytes() != -1;
         this.d = context.getApplicationContext();
     }
 
@@ -50,25 +50,25 @@ public final class f {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        if (this.f816a && a() > this.h) {
+        if (this.f821a && a() > this.h) {
             this.h = a();
         }
     }
 
     public long a() {
-        if (this.f816a) {
+        if (this.f821a) {
             return TrafficStats.getTotalRxBytes() + TrafficStats.getTotalTxBytes();
         }
         return -1L;
     }
 
     public void b() {
-        if (this.f816a) {
+        if (this.f821a) {
             int b2 = com.baidu.android.systemmonitor.d.c.b(this.d);
             if (b2 == 0) {
                 this.e.removeCallbacks(this.i);
                 if (this.c != null) {
-                    this.c.f809a = System.currentTimeMillis();
+                    this.c.f814a = System.currentTimeMillis();
                     this.c.c = this.h - this.g;
                     d.a(this.d).a(this.c);
                 }
@@ -84,7 +84,7 @@ public final class f {
                 this.e.postDelayed(this.i, Util.MILLSECONDS_OF_MINUTE);
             } else if (b2 != this.f) {
                 this.e.removeCallbacks(this.i);
-                this.c.f809a = System.currentTimeMillis();
+                this.c.f814a = System.currentTimeMillis();
                 this.c.c = this.h - this.g;
                 d.a(this.d).a(this.c);
                 this.c = null;

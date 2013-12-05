@@ -3,7 +3,7 @@ package javassist.bytecode.stackmap;
 class c implements Comparable {
 
     /* renamed from: a  reason: collision with root package name */
-    int f2813a;
+    int f2994a;
     BasicBlock b = null;
     BasicBlock[] c = null;
     boolean d = false;
@@ -12,13 +12,13 @@ class c implements Comparable {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(int i) {
-        this.f2813a = i;
+        this.f2994a = i;
     }
 
     @Override // java.lang.Comparable
     public int compareTo(Object obj) {
         if (obj instanceof c) {
-            return this.f2813a - ((c) obj).f2813a;
+            return this.f2994a - ((c) obj).f2994a;
         }
         return -1;
     }

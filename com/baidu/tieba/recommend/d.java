@@ -1,28 +1,28 @@
 package com.baidu.tieba.recommend;
 
-import com.baidu.tieba.util.bg;
+import com.baidu.tieba.util.bd;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ DailyRecommendActivity f2292a;
+    final /* synthetic */ DailyRecommendActivity f2409a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(DailyRecommendActivity dailyRecommendActivity) {
-        this.f2292a = dailyRecommendActivity;
+        this.f2409a = dailyRecommendActivity;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         String str;
-        z zVar;
+        y yVar;
         try {
-            zVar = this.f2292a.c;
-            zVar.h();
+            yVar = this.f2409a.c;
+            yVar.h();
         } catch (Exception e) {
-            str = this.f2292a.b;
-            bg.b(str, "mLoadImageRunnable.run", "error = " + e.getMessage());
+            str = this.f2409a.b;
+            bd.b(str, "mLoadImageRunnable.run", "error = " + e.getMessage());
         }
     }
 }

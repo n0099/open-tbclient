@@ -1,31 +1,31 @@
 package com.baidu.tieba.frs;
 /* loaded from: classes.dex */
-class x implements com.baidu.tieba.view.az {
+class x implements com.baidu.tieba.view.ba {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsActivity f1373a;
+    final /* synthetic */ FrsActivity f1424a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(FrsActivity frsActivity) {
-        this.f1373a = frsActivity;
+        this.f1424a = frsActivity;
     }
 
-    @Override // com.baidu.tieba.view.az
+    @Override // com.baidu.tieba.view.ba
     public void a(boolean z) {
         bn bnVar;
         com.baidu.tieba.model.ak akVar;
         com.baidu.tieba.model.ak akVar2;
         if (z) {
-            bnVar = this.f1373a.n;
-            if (!bnVar.k()) {
-                akVar = this.f1373a.w;
+            bnVar = this.f1424a.n;
+            if (!bnVar.l()) {
+                akVar = this.f1424a.w;
                 if (akVar != null) {
-                    akVar2 = this.f1373a.w;
+                    akVar2 = this.f1424a.w;
                     if (akVar2.b().size() != 0) {
                         return;
                     }
                 }
-                this.f1373a.A();
+                this.f1424a.A();
             }
         }
     }

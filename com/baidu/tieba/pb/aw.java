@@ -6,18 +6,18 @@ import com.baidu.tieba.voice.PlayVoiceBnt;
 class aw implements com.baidu.adp.lib.d.c<View> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NewPbActivity f2063a;
+    final /* synthetic */ NewPbActivity f2170a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aw(NewPbActivity newPbActivity) {
-        this.f2063a = newPbActivity;
+        this.f2170a = newPbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.d.c
     /* renamed from: b */
     public View a() {
-        return new PlayVoiceBnt(this.f2063a, PlayVoiceBnt.PLAY_TYPE.NORMAL);
+        return new PlayVoiceBnt(this.f2170a, PlayVoiceBnt.PLAY_TYPE.NORMAL);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

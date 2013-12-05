@@ -8,9 +8,8 @@ import com.baidu.tieba.data.an;
 import com.baidu.tieba.data.ar;
 import com.baidu.tieba.data.av;
 import com.baidu.tieba.model.cg;
-import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.ap;
-import com.baidu.tieba.util.bg;
+import com.baidu.tieba.util.am;
+import com.baidu.tieba.util.bd;
 import com.baidu.tieba.write.WriteActivity;
 import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
@@ -19,9 +18,9 @@ import org.apache.http.message.BasicNameValuePair;
 public class s extends BdAsyncTask<Object, Integer, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    ArrayList<BasicNameValuePair> f1852a;
+    ArrayList<BasicNameValuePair> f1964a;
     final /* synthetic */ j b;
-    private ap c = null;
+    private am c = null;
     private String d;
     private String e;
     private int f;
@@ -30,9 +29,9 @@ public class s extends BdAsyncTask<Object, Integer, String> {
         this.b = jVar;
         this.d = null;
         this.e = null;
-        this.f1852a = null;
+        this.f1964a = null;
         this.d = str;
-        this.f1852a = arrayList;
+        this.f1964a = arrayList;
         this.f = i;
         this.e = str2;
     }
@@ -49,11 +48,11 @@ public class s extends BdAsyncTask<Object, Integer, String> {
     /* renamed from: d */
     public String a(Object... objArr) {
         try {
-            this.c = new ap(this.d);
-            this.c.a(this.f1852a);
+            this.c = new am(this.d);
+            this.c.a(this.f1964a);
             return this.c.l();
         } catch (Exception e) {
-            bg.b("PostAsyncTask", "doInBackground", "error = " + e.getMessage());
+            bd.b("PostAsyncTask", "doInBackground", "error = " + e.getMessage());
             return null;
         }
     }
@@ -93,7 +92,7 @@ public class s extends BdAsyncTask<Object, Integer, String> {
                 }
             } else if (this.c != null) {
                 activity = this.b.c;
-                UtilHelper.a((Context) activity, this.c.i());
+                com.baidu.adp.lib.h.g.a((Context) activity, this.c.i());
             }
         } catch (Exception e2) {
         }

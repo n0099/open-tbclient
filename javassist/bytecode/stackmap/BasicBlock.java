@@ -56,7 +56,7 @@ public class BasicBlock {
             }
         }
         stringBuffer.append("}, {");
-        for (a aVar = this.g; aVar != null; aVar = aVar.f2812a) {
+        for (a aVar = this.g; aVar != null; aVar = aVar.f2993a) {
             stringBuffer.append("(").append(aVar.b.b).append(", ").append(aVar.c).append("), ");
         }
         stringBuffer.append("}");

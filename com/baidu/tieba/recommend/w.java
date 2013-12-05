@@ -1,86 +1,147 @@
 package com.baidu.tieba.recommend;
 
-import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tieba.TiebaApplication;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class w extends com.baidu.adp.a.d {
+public class w extends BdAsyncTask<String, Integer, com.baidu.tieba.data.o> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f2310a = "st_type";
-    private y b;
-    private x d;
-    private x e;
-    private boolean f;
-    private String g = null;
-    private com.baidu.tieba.data.o c = new com.baidu.tieba.data.o();
+    final /* synthetic */ v f2427a;
+    private com.baidu.tieba.a.l b;
+    private int c;
+    private String d;
 
-    public w(Context context) {
+    public w(v vVar, int i, String str) {
+        this.f2427a = vVar;
+        this.c = i;
+        this.d = str;
+        setPriority(3);
     }
 
-    public void a(Intent intent) {
-        this.g = intent.getStringExtra(f2310a);
-    }
-
-    public void a(Bundle bundle) {
-        this.g = bundle.getString(f2310a);
-    }
-
-    @Override // com.baidu.adp.a.d
-    protected boolean LoadData() {
-        return true;
-    }
-
-    public void a() {
-        if (this.d != null) {
-            this.d.cancel(true);
-            this.d = null;
-        }
-        this.d = new x(this, 0, "");
-        this.d.execute(new String[0]);
-    }
-
-    @Override // com.baidu.adp.a.d
-    public boolean cancelLoadData() {
-        if (this.d != null) {
-            this.d.cancel(true);
-            this.d = null;
-        }
-        if (this.e != null) {
-            this.e.cancel(true);
-            this.e = null;
-        }
-        return true;
-    }
-
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void b() {
-        if (this.e != null) {
-            this.e.cancel(true);
-            this.e = null;
-        }
-        this.e = new x(this, 1, "");
-        this.e.execute(new String[0]);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void b(String str) {
-        com.baidu.adp.lib.cache.s<String> bc = TiebaApplication.g().bc();
-        if (bc != null) {
-            bc.a("dailyrecommend", str, 2592000000L);
+        x xVar;
+        x xVar2;
+        super.b();
+        xVar = this.f2427a.b;
+        if (xVar != null) {
+            xVar2 = this.f2427a.b;
+            xVar2.a();
         }
     }
 
-    public void a(String str) {
-        if (this.d != null) {
-            this.d.cancel(true);
-            this.d = null;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public com.baidu.tieba.data.o a(String... strArr) {
+        String str;
+        String a2;
+        switch (this.c) {
+            case 0:
+            case 2:
+                this.b = new com.baidu.tieba.a.l(this.c == 0);
+                com.baidu.tieba.a.l lVar = this.b;
+                String str2 = this.d;
+                str = this.f2427a.g;
+                a2 = lVar.a(str2, str);
+                break;
+            case 1:
+                com.baidu.adp.lib.cache.s<String> bg = TiebaApplication.h().bg();
+                if (bg != null) {
+                    a2 = bg.a("dailyrecommend");
+                    break;
+                }
+            default:
+                a2 = null;
+                break;
         }
-        this.d = new x(this, 2, str);
-        this.d.execute(new String[0]);
+        if (a2 != null) {
+            if (this.c != 1 && this.b != null && this.b.b()) {
+                if (this.b.c() == 0) {
+                    if (this.c == 0) {
+                        this.f2427a.b(a2);
+                    }
+                    return a(a2);
+                }
+            } else if (this.c == 1) {
+                return a(a2);
+            }
+        }
+        return null;
     }
 
-    public void a(y yVar) {
-        this.b = yVar;
+    private com.baidu.tieba.data.o a(String str) {
+        com.baidu.tieba.data.o oVar = new com.baidu.tieba.data.o();
+        oVar.a(str);
+        if (this.c == 0 && oVar.b().size() > 0) {
+            oVar.b().get(0).a(true);
+        }
+        return oVar;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(com.baidu.tieba.data.o oVar) {
+        x xVar;
+        x xVar2;
+        com.baidu.tieba.data.o oVar2;
+        x xVar3;
+        com.baidu.tieba.data.o oVar3;
+        boolean z;
+        com.baidu.tieba.data.o oVar4;
+        x xVar4;
+        x xVar5;
+        com.baidu.tieba.data.o oVar5;
+        super.a((w) oVar);
+        if (oVar == null) {
+            xVar = this.f2427a.b;
+            if (xVar != null) {
+                if (this.c != 1) {
+                    xVar3 = this.f2427a.b;
+                    oVar3 = this.f2427a.c;
+                    xVar3.a(false, this.b.c() + "", oVar3, this.c);
+                    return;
+                }
+                xVar2 = this.f2427a.b;
+                oVar2 = this.f2427a.c;
+                xVar2.a(false, "db no data!", oVar2, this.c);
+                return;
+            }
+            return;
+        }
+        if (this.c == 1) {
+            this.f2427a.c = oVar;
+            this.f2427a.f = true;
+        } else {
+            z = this.f2427a.f;
+            if (z) {
+                this.f2427a.c = new com.baidu.tieba.data.o();
+                this.f2427a.f = false;
+            }
+            if (this.c == 0) {
+                this.f2427a.c = oVar;
+            } else {
+                oVar4 = this.f2427a.c;
+                oVar4.a(oVar);
+            }
+        }
+        xVar4 = this.f2427a.b;
+        if (xVar4 != null) {
+            xVar5 = this.f2427a.b;
+            oVar5 = this.f2427a.c;
+            xVar5.a(true, null, oVar5, this.c);
+        }
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        super.cancel(true);
+        if (this.b != null) {
+            this.b.a();
+            this.b = null;
+        }
     }
 }

@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
 public class ColumnLayout extends ViewGroup {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Pattern f551a = Pattern.compile("(vertical|horizontal)(\\|(vertical|horizontal))*");
+    private static final Pattern f555a = Pattern.compile("(vertical|horizontal)(\\|(vertical|horizontal))*");
     private final List<View> b;
     private final List<View> c;
     private final List<View> d;
@@ -46,7 +46,7 @@ public class ColumnLayout extends ViewGroup {
         if (string == null) {
             string = "vertical";
         }
-        if (f551a.matcher(string).matches()) {
+        if (f555a.matcher(string).matches()) {
             this.e = new int[3];
             String[] split = string.split("\\|");
             if (split.length == 1) {
@@ -84,13 +84,13 @@ public class ColumnLayout extends ViewGroup {
         if (dVar == null) {
             dVar = generateDefaultLayoutParams();
         }
-        a(view, dVar.f602a);
+        a(view, dVar.f607a);
     }
 
     @Override // android.view.ViewGroup, android.view.ViewManager
     public void removeView(View view) {
         super.removeView(view);
-        b(view, ((d) view.getLayoutParams()).f602a);
+        b(view, ((d) view.getLayoutParams()).f607a);
     }
 
     @Override // android.view.ViewGroup

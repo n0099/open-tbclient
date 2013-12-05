@@ -69,11 +69,11 @@ public final class LinkedBufferOutput extends c {
         int i = 0;
         while (it.hasNext()) {
             f next = it.next();
-            System.arraycopy(next.f2880a, next.b, bArr, i, next.c);
+            System.arraycopy(next.f3061a, next.b, bArr, i, next.c);
             i = next.c + i;
         }
         if (this.b > 0) {
-            System.arraycopy(this.f2879a, 0, bArr, i, this.b);
+            System.arraycopy(this.f3060a, 0, bArr, i, this.b);
         }
         return bArr;
     }

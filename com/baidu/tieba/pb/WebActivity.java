@@ -25,7 +25,7 @@ import com.slidingmenu.lib.R;
 public class WebActivity extends com.baidu.tieba.j {
 
     /* renamed from: a  reason: collision with root package name */
-    protected WebView f2039a = null;
+    protected WebView f2146a = null;
     private ImageView g = null;
     private ImageView h = null;
     private ImageView i = null;
@@ -41,8 +41,8 @@ public class WebActivity extends com.baidu.tieba.j {
     private Runnable n = new ep(this);
 
     public static void a(Context context, String str, String str2, String str3) {
-        if (UtilHelper.f(context)) {
-            UtilHelper.a(context, context.getString(R.string.web_view_corrupted));
+        if (UtilHelper.d(context)) {
+            com.baidu.adp.lib.h.g.a(context, context.getString(R.string.web_view_corrupted));
             return;
         }
         Intent intent = new Intent(context, WebActivity.class);
@@ -59,7 +59,7 @@ public class WebActivity extends com.baidu.tieba.j {
     @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        TiebaApplication.g().a((com.baidu.tieba.j) this);
+        TiebaApplication.h().a((com.baidu.tieba.j) this);
         UtilHelper.b((Activity) this);
         b();
         if (bundle == null) {
@@ -95,12 +95,12 @@ public class WebActivity extends com.baidu.tieba.j {
         setContentView(R.layout.web_activity);
         this.l = (LinearLayout) findViewById(R.id.softkey);
         this.j = (ProgressBar) findViewById(R.id.progress);
-        this.f2039a = (WebView) findViewById(R.id.webview);
-        CompatibleUtile.getInstance().removeJavascriptInterface(this.f2039a);
-        this.f2039a.setWebViewClient(new eq(this));
+        this.f2146a = (WebView) findViewById(R.id.webview);
+        CompatibleUtile.getInstance().removeJavascriptInterface(this.f2146a);
+        this.f2146a.setWebViewClient(new eq(this));
         this.k = CompatibleUtile.getInstance().getWebChromeClient(this);
-        this.f2039a.setWebChromeClient(this.k);
-        WebSettings settings = this.f2039a.getSettings();
+        this.f2146a.setWebChromeClient(this.k);
+        WebSettings settings = this.f2146a.getSettings();
         settings.setBuiltInZoomControls(true);
         settings.setJavaScriptEnabled(true);
         settings.setPluginsEnabled(true);
@@ -130,7 +130,7 @@ public class WebActivity extends com.baidu.tieba.j {
     @Override // com.baidu.tieba.j, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.f2039a.pauseTimers();
+        this.f2146a.pauseTimers();
         a("onPause");
     }
 
@@ -138,7 +138,7 @@ public class WebActivity extends com.baidu.tieba.j {
     @Override // com.baidu.tieba.j, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.f2039a.resumeTimers();
+        this.f2146a.resumeTimers();
         a("onResume");
     }
 
@@ -147,7 +147,7 @@ public class WebActivity extends com.baidu.tieba.j {
     public void onDestroy() {
         super.onDestroy();
         this.m.removeCallbacks(this.n);
-        TiebaApplication.g().b((com.baidu.tieba.j) this);
+        TiebaApplication.h().b((com.baidu.tieba.j) this);
         if (this.j != null) {
             this.j.setVisibility(8);
         }
@@ -185,11 +185,11 @@ public class WebActivity extends com.baidu.tieba.j {
     }
 
     private void a(String str) {
-        if (this.f2039a != null) {
+        if (this.f2146a != null) {
             try {
-                WebView.class.getMethod(str, new Class[0]).invoke(this.f2039a, new Object[0]);
+                WebView.class.getMethod(str, new Class[0]).invoke(this.f2146a, new Object[0]);
             } catch (Exception e) {
-                com.baidu.tieba.util.bg.b(getClass().getName(), "callHiddenWebViewMethod", "error = " + e.getMessage());
+                com.baidu.tieba.util.bd.b(getClass().getName(), "callHiddenWebViewMethod", "error = " + e.getMessage());
             }
         }
     }

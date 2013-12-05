@@ -10,7 +10,7 @@ import com.baidu.tieba.TiebaApplication;
 public class ForumDetailActivity extends com.baidu.tieba.j {
 
     /* renamed from: a  reason: collision with root package name */
-    private e f1272a = null;
+    private e f1319a = null;
     private String b = SocialConstants.FALSE;
     private String c = SocialConstants.FALSE;
     private d d = new a(this);
@@ -35,7 +35,7 @@ public class ForumDetailActivity extends com.baidu.tieba.j {
         super.onCreate(bundle);
         a();
         b();
-        if (TiebaApplication.g().s()) {
+        if (TiebaApplication.h().t()) {
             StatService.onEvent(this, getIntent().getStringExtra("from_type").equals(FromType.FRS.toString()) ? "detail_from_frs" : "detail_from_bar_dir", "click", 1);
         }
     }
@@ -44,11 +44,11 @@ public class ForumDetailActivity extends com.baidu.tieba.j {
     @Override // com.baidu.tieba.j, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.f1272a.a();
+        this.f1319a.a();
     }
 
     private void a() {
-        this.f1272a = new e(this);
+        this.f1319a = new e(this);
     }
 
     private void b() {
@@ -61,6 +61,6 @@ public class ForumDetailActivity extends com.baidu.tieba.j {
     @Override // com.baidu.tieba.j
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.f1272a.a(i);
+        this.f1319a.a(i);
     }
 }

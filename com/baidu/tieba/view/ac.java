@@ -2,25 +2,33 @@ package com.baidu.tieba.view;
 
 import android.app.Activity;
 import android.view.View;
-import com.baidu.tieba.forumdetail.ForumDetailActivity;
+import com.baidu.tieba.CommonWebviewActivity;
+import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ac implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ aa f2537a;
+    final /* synthetic */ ab f2651a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ac(aa aaVar) {
-        this.f2537a = aaVar;
+    public ac(ab abVar) {
+        this.f2651a = abVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        Activity activity;
         String str;
-        activity = this.f2537a.D;
-        str = this.f2537a.F;
-        ForumDetailActivity.a(activity, str, ForumDetailActivity.FromType.FRS);
+        Activity activity;
+        Activity activity2;
+        String str2;
+        str = this.f2651a.aB;
+        if (str != null) {
+            activity = this.f2651a.D;
+            activity2 = this.f2651a.D;
+            String string = activity2.getString(R.string.frs_badge_intro);
+            str2 = this.f2651a.aB;
+            CommonWebviewActivity.a(activity, string, str2, true);
+        }
     }
 }

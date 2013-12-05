@@ -12,7 +12,7 @@ import com.baidu.tieba.forumdetail.ForumDetailActivity;
 import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.model.ax;
 import com.baidu.tieba.switchs.SwitchKey;
-import com.baidu.tieba.util.bg;
+import com.baidu.tieba.util.bd;
 import com.baidu.tieba.view.HeadImageView;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -25,7 +25,7 @@ public class s extends BaseAdapter implements View.OnClickListener {
     private int g;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f1266a = -1;
+    public int f1313a = -1;
     private int f = 0;
     private boolean h = true;
     private ForumDetailActivity.FromType i = ForumDetailActivity.FromType.BAR_DIR;
@@ -66,10 +66,10 @@ public class s extends BaseAdapter implements View.OnClickListener {
 
     public void b() {
         for (int i = 0; i < this.f; i++) {
-            int d = TiebaApplication.g().d(this.j[i].forum_name);
-            if (d == 1) {
+            int e = TiebaApplication.h().e(this.j[i].forum_name);
+            if (e == 1) {
                 this.j[i].is_like = 1;
-            } else if (d == -1) {
+            } else if (e == -1) {
                 this.j[i].is_like = 0;
             }
         }
@@ -117,8 +117,8 @@ public class s extends BaseAdapter implements View.OnClickListener {
         if (view == null || view.getTag() == null) {
             view = View.inflate(this.b, R.layout.forum_list_forum_item, null);
             t tVar = new t(this);
-            tVar.f1267a = (HeadImageView) view.findViewById(R.id.forum_avatar);
-            tVar.f1267a.setGifIconSupport(false);
+            tVar.f1314a = (HeadImageView) view.findViewById(R.id.forum_avatar);
+            tVar.f1314a.setGifIconSupport(false);
             tVar.d = (TextView) view.findViewById(R.id.name);
             tVar.e = (TextView) view.findViewById(R.id.member_count);
             tVar.f = (TextView) view.findViewById(R.id.thread_count);
@@ -129,15 +129,15 @@ public class s extends BaseAdapter implements View.OnClickListener {
             view.setTag(tVar);
         }
         t tVar2 = (t) view.getTag();
-        int ap = TiebaApplication.g().ap();
-        this.b.getLayoutMode().a(ap == 1);
+        int an = TiebaApplication.h().an();
+        this.b.getLayoutMode().a(an == 1);
         this.b.getLayoutMode().a(view);
         ForumInfoData forumInfoData = this.j[i];
-        bg.e("ForumListAdapter", "getView", "forum name:" + this.j[i].forum_name + "forum avatar:" + this.j[i].avatar);
+        bd.e("ForumListAdapter", "getView", "forum name:" + this.j[i].forum_name + "forum avatar:" + this.j[i].avatar);
         String str = this.j[i].avatar;
-        HeadImageView headImageView = tVar2.f1267a;
-        tVar2.f1267a.setTag(str);
-        tVar2.f1267a.invalidate();
+        HeadImageView headImageView = tVar2.f1314a;
+        tVar2.f1314a.setTag(str);
+        tVar2.f1314a.invalidate();
         tVar2.d.setText(forumInfoData.forum_name);
         tVar2.d.setTag(Integer.valueOf(forumInfoData.forum_id));
         tVar2.h.setTag(forumInfoData.forum_name);
@@ -154,13 +154,13 @@ public class s extends BaseAdapter implements View.OnClickListener {
                 tVar2.b.setBackgroundDrawable(null);
                 switch (i) {
                     case 0:
-                        tVar2.b.setBackgroundResource(ap != 1 ? R.drawable.icon_brief_grade_orange : R.drawable.icon_brief_grade_orange_1);
+                        tVar2.b.setBackgroundResource(an != 1 ? R.drawable.icon_brief_grade_orange : R.drawable.icon_brief_grade_orange_1);
                         break;
                     case 1:
-                        tVar2.b.setBackgroundResource(ap != 1 ? R.drawable.icon_brief_grade_blue : R.drawable.icon_brief_grade_blue_1);
+                        tVar2.b.setBackgroundResource(an != 1 ? R.drawable.icon_brief_grade_blue : R.drawable.icon_brief_grade_blue_1);
                         break;
                     case 2:
-                        tVar2.b.setBackgroundResource(ap != 1 ? R.drawable.icon_brief_grade_green : R.drawable.icon_brief_grade_green_1);
+                        tVar2.b.setBackgroundResource(an != 1 ? R.drawable.icon_brief_grade_green : R.drawable.icon_brief_grade_green_1);
                         break;
                     default:
                         tVar2.b.setText(String.format("%02d", Integer.valueOf(i + 1)));
@@ -171,10 +171,10 @@ public class s extends BaseAdapter implements View.OnClickListener {
             tVar2.b.setVisibility(8);
             tVar2.c.setVisibility(0);
             tVar2.c.setText((CharSequence) null);
-            tVar2.c.setCompoundDrawablesWithIntrinsicBounds(ap != 1 ? R.drawable.icon_rise : R.drawable.icon_rise_1, 0, 0, 0);
+            tVar2.c.setCompoundDrawablesWithIntrinsicBounds(an != 1 ? R.drawable.icon_rise : R.drawable.icon_rise_1, 0, 0, 0);
             tVar2.c.setText(this.b.getString(R.string.rise) + String.valueOf(forumInfoData.mbr_inter_rank) + this.b.getString(R.string.number));
         }
-        if (TiebaApplication.g().ap() == 1) {
+        if (TiebaApplication.h().an() == 1) {
             tVar2.h.setTextColor(this.b.getResources().getColor(R.color.enterforum_name_txt_1));
         } else {
             tVar2.h.setTextColor(this.b.getResources().getColor(R.color.enterforum_name_txt));
@@ -187,8 +187,8 @@ public class s extends BaseAdapter implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.like /* 2131100146 */:
-                if (TiebaApplication.g().s()) {
+            case R.id.like /* 2131100163 */:
+                if (TiebaApplication.h().t()) {
                     StatService.onEvent(this.b, "forumlist_to_frs", "tofrsclick", 1);
                 }
                 FrsActivity.a(this.b, (String) view.getTag(), (String) null);
@@ -199,7 +199,7 @@ public class s extends BaseAdapter implements View.OnClickListener {
                     ForumDetailActivity.a(this.b, String.valueOf(tVar.d.getTag()), this.i);
                     return;
                 }
-                if (TiebaApplication.g().s()) {
+                if (TiebaApplication.h().t()) {
                     StatService.onEvent(this.b, "forumlist_to_frs", "tofrsclick", 1);
                 }
                 FrsActivity.a(this.b, tVar.d.getText().toString(), (String) null);

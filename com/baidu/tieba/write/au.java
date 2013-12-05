@@ -9,14 +9,14 @@ import android.widget.ProgressBar;
 public class au implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f2677a;
+    final /* synthetic */ String f2795a;
     final /* synthetic */ int b;
     final /* synthetic */ WriteImageActivity c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public au(WriteImageActivity writeImageActivity, String str, int i) {
         this.c = writeImageActivity;
-        this.f2677a = str;
+        this.f2795a = str;
         this.b = i;
     }
 
@@ -31,7 +31,7 @@ public class au implements View.OnClickListener {
             bitmap = this.c.c;
             imageView.setImageBitmap(bitmap);
             this.c.x = false;
-            this.c.c(this.f2677a);
+            this.c.c(this.f2795a);
             this.c.s = this.b;
         }
     }

@@ -47,7 +47,7 @@ public class b {
         if (a()) {
             File file = new File(a2);
             if (!file.exists() && !file.mkdirs()) {
-                d.b("FileHelper", "checkDir", "error fulldirObj.mkdirs:" + a2);
+                e.b("FileHelper", "checkDir", "error fulldirObj.mkdirs:" + a2);
                 return false;
             }
             return true;
@@ -69,11 +69,11 @@ public class b {
         if (!file.exists()) {
             try {
                 if (!file.mkdirs()) {
-                    d.b("FileHelper", "checkAndMkdirs", "error fulldirObj.mkdirs:" + e);
+                    e.b("FileHelper", "checkAndMkdirs", "error fulldirObj.mkdirs:" + e);
                     return false;
                 }
             } catch (Exception e2) {
-                d.b("FileHelper", "checkAndMkdirs", "error fulldirObj.mkdirs error:" + e2.getMessage() + " " + e);
+                e.b("FileHelper", "checkAndMkdirs", "error fulldirObj.mkdirs error:" + e2.getMessage() + " " + e);
                 return false;
             }
         }
@@ -85,7 +85,7 @@ public class b {
             try {
                 return new File(a(str, str2));
             } catch (SecurityException e) {
-                d.b("FileHelper", "GetFile", "error = " + e.getMessage());
+                e.b("FileHelper", "GetFile", "error = " + e.getMessage());
                 return null;
             }
         }
@@ -95,23 +95,23 @@ public class b {
     public static File d(String str, String str2) {
         File file = null;
         if (!c(str)) {
-            d.b("FileHelper", "CreateFile", "error checkDir");
+            e.b("FileHelper", "CreateFile", "error checkDir");
         } else {
             try {
                 if (!b(str, str2)) {
-                    d.b("FileHelper", "CreateFile", "error checkAndMkdirs");
+                    e.b("FileHelper", "CreateFile", "error checkAndMkdirs");
                 } else {
                     File c = c(str, str2);
                     if (c.exists() && !c.delete()) {
-                        d.b("FileHelper", "CreateFile", "error file.delete");
+                        e.b("FileHelper", "CreateFile", "error file.delete");
                     } else if (c.createNewFile()) {
                         file = c;
                     } else {
-                        d.b("FileHelper", "CreateFile", "error createNewFile" + str + str2);
+                        e.b("FileHelper", "CreateFile", "error createNewFile" + str + str2);
                     }
                 }
             } catch (Exception e) {
-                d.b("FileHelper", "CreateFile", "error = " + e.getMessage() + " input:" + str + str2);
+                e.b("FileHelper", "CreateFile", "error = " + e.getMessage() + " input:" + str + str2);
             }
         }
         return file;
@@ -126,7 +126,7 @@ public class b {
                 }
                 return false;
             } catch (Exception e) {
-                d.b("FileHelper", "DelFile", "error = " + e.getMessage());
+                e.b("FileHelper", "DelFile", "error = " + e.getMessage());
                 return false;
             }
         }

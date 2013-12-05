@@ -7,20 +7,20 @@ import java.io.IOException;
 public class e implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ d f678a;
+    final /* synthetic */ d f683a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar) {
-        this.f678a = dVar;
+        this.f683a = dVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         try {
-            this.f678a.c();
+            this.f683a.c();
         } catch (IOException e) {
             Log.e("HttpServer", "Serer Loop Excepiton :" + e);
         }
-        this.f678a.d();
+        this.f683a.d();
     }
 }

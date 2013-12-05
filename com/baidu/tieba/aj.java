@@ -1,24 +1,32 @@
 package com.baidu.tieba;
 
-import android.widget.RadioButton;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.animation.Animation;
 /* loaded from: classes.dex */
-public class aj {
+class aj implements Animation.AnimationListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f1106a;
-    public BaseFragment b;
-    public boolean c;
-    public RadioButton d;
-    public String e;
-    public int f;
-    public int g;
-
-    private aj() {
-    }
+    final /* synthetic */ LogoActivity f1116a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ aj(ai aiVar) {
-        this();
+    public aj(LogoActivity logoActivity) {
+        this.f1116a = logoActivity;
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        boolean z;
+        this.f1116a.b = true;
+        z = this.f1116a.c;
+        if (z) {
+            this.f1116a.a(this.f1116a.getBaseContext());
+        }
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
     }
 }

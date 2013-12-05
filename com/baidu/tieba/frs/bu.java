@@ -9,11 +9,11 @@ import com.baidu.tieba.TiebaApplication;
 public class bu implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bs f1351a;
+    final /* synthetic */ bs f1402a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bu(bs bsVar) {
-        this.f1351a = bsVar;
+        this.f1402a = bsVar;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -22,29 +22,29 @@ public class bu implements DialogInterface.OnClickListener {
         Context context;
         switch (i) {
             case 0:
-                if (TiebaApplication.g().an() != 1) {
-                    this.f1351a.r = true;
+                if (TiebaApplication.h().al() != 1) {
+                    this.f1402a.r = true;
                 }
-                TiebaApplication.g().e(1);
+                TiebaApplication.h().d(1);
                 break;
             case 1:
-                if (TiebaApplication.g().an() != 0) {
-                    this.f1351a.r = true;
+                if (TiebaApplication.h().al() != 0) {
+                    this.f1402a.r = true;
                 }
-                TiebaApplication.g().e(0);
+                TiebaApplication.h().d(0);
                 break;
             case 2:
-                if (TiebaApplication.g().an() != 2) {
-                    this.f1351a.r = true;
+                if (TiebaApplication.h().al() != 2) {
+                    this.f1402a.r = true;
                 }
-                TiebaApplication.g().e(2);
+                TiebaApplication.h().d(2);
                 break;
         }
-        z = this.f1351a.r;
-        if (z && TiebaApplication.g().s()) {
-            context = this.f1351a.b;
+        z = this.f1402a.r;
+        if (z && TiebaApplication.h().t()) {
+            context = this.f1402a.b;
             StatService.onEvent(context, "frs_abstract", "frsclick", 1);
         }
-        this.f1351a.h();
+        this.f1402a.h();
     }
 }

@@ -1,156 +1,101 @@
 package com.baidu.tieba.home;
 
-import android.content.res.Resources;
-import android.graphics.Color;
-import android.text.SpannableString;
-import android.text.style.ForegroundColorSpan;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ListAdapter;
-import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tieba.view.NavigationBar;
-import com.slidingmenu.lib.R;
-import java.util.ArrayList;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tieba.data.SignData;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bx extends com.baidu.adp.a.e {
+public class bx extends BdAsyncTask<Object, Integer, SignData> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f1432a;
-    private com.baidu.tieba.j c;
-    private NavigationBar d;
-    private RelativeLayout e;
-    private bu f;
-    private ProgressBar g;
-    private BdListView h;
-    private com.baidu.tieba.view.bi i;
-    private bk j;
-    private y k;
-    private View l;
-    private TextView m;
-    private TextView n;
-    private TextView o;
+    final /* synthetic */ bu f1485a;
+    private volatile com.baidu.tieba.util.am b;
 
-    public bx(com.baidu.tieba.j jVar) {
-        super(jVar);
-        this.i = null;
-        this.c = jVar;
-        this.c.setContentView(R.layout.signallforum_view);
-        this.e = (RelativeLayout) this.c.findViewById(R.id.parent);
-        this.d = (NavigationBar) this.c.findViewById(R.id.view_navigation_bar);
-        this.d.a(this.c.getString(R.string.signallforum));
-        this.d.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new by(this));
-        this.h = (BdListView) this.c.findViewById(R.id.signallforum_list);
-        this.h.setOnItemClickListener(jVar);
-        this.i = new com.baidu.tieba.view.bi(jVar);
-        this.h.setPullRefresh(this.i);
-        this.o = (TextView) this.c.getLayoutInflater().inflate(R.layout.signallforum_maxcount_warning, (ViewGroup) null);
-        this.h.addFooterView(this.o);
-        this.f = new bu(this.c);
-        this.g = this.f.getProgressBar();
-        this.g.setOnClickListener(this.c);
-        this.h.addHeaderView(this.f);
-        this.f.setVisibility(8);
-        this.l = this.c.getLayoutInflater().inflate(R.layout.signallforum_header, (ViewGroup) null);
-        this.m = (TextView) this.l.findViewById(R.id.signallforum_head_title);
-        this.n = (TextView) this.l.findViewById(R.id.signallforum_head_res);
-        this.h.addHeaderView(this.l);
-        this.l.setVisibility(8);
-        this.j = new bk(this.c, this.n);
-        this.h.setAdapter((ListAdapter) this.j);
-        this.h.setOnScrollListener(this.j);
+    private bx(bu buVar) {
+        this.f1485a = buVar;
+        this.b = null;
     }
 
-    public void a(int i) {
-        Resources resources = this.c.getResources();
-        this.c.getLayoutMode().a(i == 1);
-        this.c.getLayoutMode().a(this.e);
-        this.c.getLayoutMode().a(this.o);
-        if (i == 1) {
-            this.e.setBackgroundColor(-13618114);
-        } else {
-            this.e.setBackgroundColor(-197380);
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void b() {
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: d */
+    public SignData a(Object... objArr) {
+        SignData signData;
+        Exception e;
+        String str;
+        String str2;
+        String str3;
+        String str4;
+        try {
+            this.b = new com.baidu.tieba.util.am(com.baidu.tieba.data.h.f1248a + "c/c/forum/sign");
+            com.baidu.tieba.util.am amVar = this.b;
+            str = this.f1485a.f1484a;
+            amVar.a("kw", str);
+            com.baidu.tieba.util.am amVar2 = this.b;
+            str2 = this.f1485a.b;
+            amVar2.a("fid", str2);
+            this.b.e(true);
+            String l = this.b.l();
+            if (!this.b.d() || !this.b.c()) {
+                return null;
+            }
+            signData = new SignData();
+            try {
+                signData.parserJson(l);
+                str3 = this.f1485a.b;
+                signData.setForumId(str3);
+                str4 = this.f1485a.f1484a;
+                signData.setForumName(str4);
+                return signData;
+            } catch (Exception e2) {
+                e = e2;
+                com.baidu.tieba.util.bd.b(getClass().getName(), "doInBackground", e.getMessage());
+                return signData;
+            }
+        } catch (Exception e3) {
+            signData = null;
+            e = e3;
         }
-        this.d.c(i);
-        this.i.a(i);
-        int i2 = i == 1 ? R.drawable.bg_ba_catalogue_1 : R.drawable.bg_ba_catalogue;
-        int i3 = i == 1 ? R.color.forum_detail_ht_title_color_1 : R.color.forum_detail_ht_title_color;
-        this.l.setBackgroundResource(i2);
-        this.m.setTextColor(resources.getColor(i3));
-        this.n.setTextColor(resources.getColor(i3));
-        this.j.notifyDataSetChanged();
     }
 
-    public void a(y yVar) {
-        this.k = yVar;
-        k();
-        ArrayList<z> j = yVar.j();
-        this.j.a(this.k);
-        if (j.size() == f1432a) {
-            this.o.setVisibility(0);
-            this.o.setText(yVar.f());
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        bw bwVar;
+        String str;
+        if (this.b != null) {
+            this.b.j();
+        }
+        this.f1485a.c = null;
+        super.cancel(true);
+        bwVar = this.f1485a.d;
+        str = this.f1485a.b;
+        bwVar.a(str, null);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(SignData signData) {
+        bw bwVar;
+        bw bwVar2;
+        String str;
+        String str2;
+        this.f1485a.c = null;
+        if (signData != null || this.b == null) {
+            bwVar = this.f1485a.d;
+            bwVar.a(signData);
             return;
         }
-        this.o.setVisibility(8);
-    }
-
-    private void k() {
-        if (this.k.i() == 0 || this.k.l().size() == this.k.j().size()) {
-            this.f.a();
-            int size = this.k.j().size();
-            int size2 = this.k.l().size();
-            this.n.setText(String.format(this.c.getString(R.string.signallforum_res), Integer.valueOf(size2), Integer.valueOf(size - size2)));
-        } else {
-            this.n.setText(String.format(this.c.getString(R.string.signallforum_count), Integer.valueOf(this.k.j().size())));
-        }
-        TextView message1 = this.f.getMessage1();
-        SpannableString spannableString = new SpannableString(this.k.b() + this.k.c() + this.k.d());
-        ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(Color.parseColor("#56aeff"));
-        int length = this.k.b().length();
-        spannableString.setSpan(foregroundColorSpan, length, this.k.c().length() + length, 33);
-        message1.setText(spannableString);
-        this.f.getMessage2().setText(this.k.e());
-        this.m.setText(this.k.a());
-        this.l.setVisibility(0);
-        this.f.setVisibility(0);
-    }
-
-    public void a() {
-        this.h.b();
-    }
-
-    public void e() {
-        this.h.a();
-    }
-
-    public void a(com.baidu.adp.widget.ListView.b bVar) {
-        this.i.a(bVar);
-    }
-
-    public void a(AdapterView.OnItemClickListener onItemClickListener) {
-        this.h.setOnItemClickListener(onItemClickListener);
-    }
-
-    public bu f() {
-        return this.f;
-    }
-
-    public ProgressBar g() {
-        return this.g;
-    }
-
-    public y h() {
-        return this.k;
-    }
-
-    public bk i() {
-        return this.j;
-    }
-
-    public TextView j() {
-        return this.n;
+        this.f1485a.mErrorCode = this.b.e();
+        this.f1485a.mErrorString = this.b.i();
+        bwVar2 = this.f1485a.d;
+        str = this.f1485a.b;
+        str2 = this.f1485a.mErrorString;
+        bwVar2.a(str, str2);
     }
 }

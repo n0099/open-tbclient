@@ -21,7 +21,7 @@ import com.slidingmenu.lib.R;
 public class ItemFootNavView extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1274a;
+    private Context f1321a;
     private ViewGroup b;
     private TextView c;
     private ImageView d;
@@ -42,7 +42,7 @@ public class ItemFootNavView extends LinearLayout {
     }
 
     public void a(Context context) {
-        this.f1274a = context;
+        this.f1321a = context;
         ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(R.layout.forum_detail_foot_nav, (ViewGroup) this, true);
         this.b = (ViewGroup) findViewById(R.id.fn_care_box);
         this.c = (TextView) findViewById(R.id.fn_care_btn);
@@ -65,7 +65,7 @@ public class ItemFootNavView extends LinearLayout {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(com.baidu.tieba.j jVar) {
-        boolean z = (TiebaApplication.A() == null || TiebaApplication.F() == null) ? false : true;
+        boolean z = (TiebaApplication.B() == null || TiebaApplication.G() == null) ? false : true;
         Object tag = this.c.getTag();
         boolean z2 = (tag == null || ((Integer) tag).intValue() != 2) ? true : true;
         if (!z && !z2) {
@@ -80,8 +80,8 @@ public class ItemFootNavView extends LinearLayout {
         } else if (intValue == 1) {
             a(jVar, this.g);
         }
-        if (TiebaApplication.g().s()) {
-            StatService.onEvent(this.f1274a, intValue == 1 ? "detail_care_add" : "detail_care_cancel", "click", 1);
+        if (TiebaApplication.h().t()) {
+            StatService.onEvent(this.f1321a, intValue == 1 ? "detail_care_add" : "detail_care_cancel", "click", 1);
         }
     }
 
@@ -95,7 +95,7 @@ public class ItemFootNavView extends LinearLayout {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(boolean z) {
         if (z) {
-            FrsActivity.f1305a = !FrsActivity.f1305a;
+            FrsActivity.f1356a = !FrsActivity.f1356a;
         }
     }
 
@@ -112,9 +112,9 @@ public class ItemFootNavView extends LinearLayout {
         int i2;
         int i3;
         int i4;
-        int ap = TiebaApplication.g().ap();
+        int an = TiebaApplication.h().an();
         if (z) {
-            if (ap == 1) {
+            if (an == 1) {
                 i4 = R.drawable.icon_brief_cancel_1;
             } else {
                 i4 = R.drawable.icon_brief_cancel;
@@ -123,7 +123,7 @@ public class ItemFootNavView extends LinearLayout {
             i2 = i4;
             i3 = R.string.forum_detail_fans_cancel;
         } else {
-            if (ap == 1) {
+            if (an == 1) {
                 i = R.drawable.icon_brief_attention_1;
             } else {
                 i = R.drawable.icon_brief_attention;
@@ -133,7 +133,7 @@ public class ItemFootNavView extends LinearLayout {
             i3 = R.string.forum_detail_fans;
         }
         this.d.setImageResource(i2);
-        this.c.setText(this.f1274a.getResources().getString(i3));
+        this.c.setText(this.f1321a.getResources().getString(i3));
     }
 
     public void a(com.baidu.tieba.j jVar, int i) {

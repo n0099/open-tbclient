@@ -5,17 +5,17 @@ import android.view.View;
 class er implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WebActivity f2157a;
+    final /* synthetic */ WebActivity f2264a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public er(WebActivity webActivity) {
-        this.f2157a = webActivity;
+        this.f2264a = webActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.f2157a.f2039a.canGoBack()) {
-            this.f2157a.f2039a.goBack();
+        if (this.f2264a.f2146a.canGoBack()) {
+            this.f2264a.f2146a.goBack();
         }
     }
 }

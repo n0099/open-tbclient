@@ -3,8 +3,6 @@ package com.baidu.tieba.forumfeed;
 import android.view.View;
 import android.widget.LinearLayout;
 import com.baidu.tieba.BaseFragmentActivity;
-import com.baidu.tieba.home.s;
-import com.baidu.tieba.view.NavigationBar;
 import com.baidu.tieba.view.NoNetworkView;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
@@ -12,12 +10,10 @@ public class f {
     public static final View a(BaseFragmentActivity baseFragmentActivity, String str, int i, View.OnClickListener onClickListener) {
         h hVar = new h();
         View inflate = LinearLayout.inflate(baseFragmentActivity, R.layout.forum_feed_guide, null);
-        hVar.b = (NavigationBar) inflate.findViewById(R.id.view_navigation_bar);
-        hVar.b.a(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.nb_item_tieba_logo, (View.OnClickListener) null);
-        hVar.f1297a = (LinearLayout) inflate.findViewById(R.id.forum_feed_login_container);
-        hVar.d = (NoNetworkView) inflate.findViewById(R.id.view_no_network);
-        hVar.c = new s(baseFragmentActivity, str, str, 0);
-        hVar.f1297a.addView(hVar.c.e());
+        hVar.f1346a = (LinearLayout) inflate.findViewById(R.id.forum_feed_login_container);
+        hVar.c = (NoNetworkView) inflate.findViewById(R.id.view_no_network);
+        hVar.b = new com.baidu.tieba.home.n(baseFragmentActivity, str, str, 0);
+        hVar.f1346a.addView(hVar.b.e());
         inflate.setTag(hVar);
         a(baseFragmentActivity, inflate, i);
         return inflate;
@@ -40,9 +36,8 @@ public class f {
         baseFragmentActivity.a().a(i == 1);
         baseFragmentActivity.a().a(view);
         if (hVar != null) {
-            hVar.c.b(i);
-            hVar.b.c(i);
-            hVar.d.a(i);
+            hVar.b.b(i);
+            hVar.c.a(i);
         }
     }
 }

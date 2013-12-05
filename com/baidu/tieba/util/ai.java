@@ -1,90 +1,23 @@
 package com.baidu.tieba.util;
 
-import android.content.Context;
-import android.os.Handler;
-import java.util.ArrayList;
-import org.apache.http.message.BasicNameValuePair;
+import android.view.View;
+import android.widget.ListView;
 /* loaded from: classes.dex */
-public interface ai {
-    Boolean a(String str, Handler handler, int i);
+final class ai implements com.baidu.tbadk.imageManager.c {
 
-    void a(int i);
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ ListView f2579a;
 
-    void a(Context context);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ai(ListView listView) {
+        this.f2579a = listView;
+    }
 
-    void a(Boolean bool);
-
-    void a(String str);
-
-    void a(String str, String str2);
-
-    void a(String str, byte[] bArr);
-
-    void a(ArrayList<BasicNameValuePair> arrayList);
-
-    void a(BasicNameValuePair basicNameValuePair);
-
-    void a(boolean z);
-
-    boolean a();
-
-    long b();
-
-    void b(String str);
-
-    void b(boolean z);
-
-    String c();
-
-    void c(String str);
-
-    void c(boolean z);
-
-    long d();
-
-    void d(boolean z);
-
-    long e();
-
-    long f();
-
-    long g();
-
-    int h();
-
-    long i();
-
-    int j();
-
-    Context k();
-
-    ArrayList<BasicNameValuePair> l();
-
-    int m();
-
-    String n();
-
-    boolean o();
-
-    boolean p();
-
-    String q();
-
-    void r();
-
-    String s();
-
-    void t();
-
-    byte[] u();
-
-    String v();
-
-    String w();
-
-    boolean x();
-
-    int y();
-
-    String z();
+    @Override // com.baidu.tbadk.imageManager.c
+    public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
+        View findViewWithTag;
+        if (eVar != null && (findViewWithTag = this.f2579a.findViewWithTag(str)) != null) {
+            findViewWithTag.invalidate();
+        }
+    }
 }

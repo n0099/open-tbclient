@@ -1,14 +1,15 @@
 package com.baidu.tieba.im.data;
 
-import com.baidu.tieba.util.an;
+import com.baidu.tieba.util.ak;
 import java.io.Serializable;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class BaseGroupData implements an, Serializable {
+public class BaseGroupData implements ak, Serializable {
     private static final long serialVersionUID = 5616188082014345808L;
     private String album;
     private int authorId;
     private String authorName;
+    private String business;
     private int createTime;
     private int flag;
     private int forumId;
@@ -79,6 +80,14 @@ public class BaseGroupData implements an, Serializable {
 
     public void setPosition(String str) {
         this.position = str;
+    }
+
+    public String getBusiness() {
+        return this.business;
+    }
+
+    public void setBusiness(String str) {
+        this.business = str;
     }
 
     public String getLng() {
@@ -169,19 +178,19 @@ public class BaseGroupData implements an, Serializable {
         this.groupType = i;
     }
 
-    @Override // com.baidu.tieba.util.an
+    @Override // com.baidu.tieba.util.ak
     public LinkedList<String> getImageUrl() {
         LinkedList<String> linkedList = new LinkedList<>();
         linkedList.add(this.portrait);
         return linkedList;
     }
 
-    @Override // com.baidu.tieba.util.an
+    @Override // com.baidu.tieba.util.ak
     public LinkedList<String> getPhotoUrl() {
         return null;
     }
 
-    @Override // com.baidu.tieba.util.an
+    @Override // com.baidu.tieba.util.ak
     public LinkedList<String> getForumPhotoUrl() {
         return null;
     }

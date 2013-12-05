@@ -13,7 +13,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.bg;
 import com.baidu.tieba.view.BaseWebView;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
@@ -25,7 +24,7 @@ public class CommonWebviewActivity extends j implements com.baidu.tieba.view.d {
     private NavigationBar u;
 
     /* renamed from: a  reason: collision with root package name */
-    private String f998a = null;
+    private String f1005a = null;
     private String b = null;
     private boolean c = true;
     private ImageView d = null;
@@ -35,20 +34,20 @@ public class CommonWebviewActivity extends j implements com.baidu.tieba.view.d {
     private BaseWebView h = null;
     private ProgressBar i = null;
     private LinearLayout j = null;
-    private r k = null;
+    private s k = null;
     private boolean l = false;
     private boolean m = true;
     private TextView n = null;
     private TextView o = null;
     private boolean p = false;
     private String s = SocialConstants.TRUE;
-    private View.OnClickListener v = new o(this);
-    private View.OnClickListener w = new p(this);
-    private View.OnClickListener x = new q(this);
+    private View.OnClickListener v = new p(this);
+    private View.OnClickListener w = new q(this);
+    private View.OnClickListener x = new r(this);
 
     @Override // com.baidu.tieba.j
     public boolean getGpuSwitch() {
-        return TiebaApplication.g().u();
+        return TiebaApplication.h().v();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -58,7 +57,7 @@ public class CommonWebviewActivity extends j implements com.baidu.tieba.view.d {
         setContentView(R.layout.common_webview_activity);
         a(bundle);
         if (this.b == null || this.b.length() == 0) {
-            UtilHelper.a((Context) this, getResources().getString(R.string.url_is_null));
+            com.baidu.adp.lib.h.g.a((Context) this, getResources().getString(R.string.url_is_null));
         } else {
             d();
         }
@@ -66,7 +65,7 @@ public class CommonWebviewActivity extends j implements com.baidu.tieba.view.d {
 
     private void a(Bundle bundle) {
         Intent intent = getIntent();
-        this.f998a = intent.getStringExtra("tag_title");
+        this.f1005a = intent.getStringExtra("tag_title");
         this.b = intent.getStringExtra("tag_url");
         this.c = intent.getBooleanExtra("tag_back", true);
         this.t = intent.getStringExtra("tag_http_method");
@@ -75,7 +74,7 @@ public class CommonWebviewActivity extends j implements com.baidu.tieba.view.d {
     private void d() {
         this.e = (RelativeLayout) findViewById(R.id.parent);
         this.u = (NavigationBar) findViewById(R.id.view_navigation_bar);
-        this.g = this.u.a(this.f998a);
+        this.g = this.u.a(this.f1005a);
         this.d = this.u.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.w);
         this.f = this.u.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.nb_item_refresh, (View.OnClickListener) null);
         this.f.setOnClickListener(this.x);
@@ -88,7 +87,7 @@ public class CommonWebviewActivity extends j implements com.baidu.tieba.view.d {
         this.n = (TextView) this.j.findViewById(R.id.webview_fail);
         this.o = (TextView) this.j.findViewById(R.id.webview_crash_tip);
         this.i = (ProgressBar) findViewById(R.id.common_progress);
-        if (TiebaApplication.g().aq() >= 5) {
+        if (TiebaApplication.h().ao() >= 5) {
             this.n.setVisibility(8);
             this.o.setVisibility(0);
         } else if (f()) {
@@ -120,9 +119,9 @@ public class CommonWebviewActivity extends j implements com.baidu.tieba.view.d {
     @Override // com.baidu.tieba.j
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        com.baidu.tieba.util.bd.a(this.e, i);
+        com.baidu.tieba.util.ba.a(this.e, i);
         if (this.h != null) {
-            com.baidu.tieba.util.bd.a(this.h, i);
+            com.baidu.tieba.util.ba.a(this.h, i);
             a();
         }
         this.u.c(i);
@@ -135,7 +134,7 @@ public class CommonWebviewActivity extends j implements com.baidu.tieba.view.d {
     }
 
     public void a() {
-        if (TiebaApplication.g().aq() == 0 && !f()) {
+        if (TiebaApplication.h().ao() == 0 && !f()) {
             this.o.setVisibility(0);
             return;
         }
@@ -146,7 +145,7 @@ public class CommonWebviewActivity extends j implements com.baidu.tieba.view.d {
             this.l = false;
             this.m = true;
             g();
-            this.k = new r(this, null);
+            this.k = new s(this, null);
             this.k.setPriority(3);
             this.k.execute(new Object[0]);
         }
@@ -165,8 +164,8 @@ public class CommonWebviewActivity extends j implements com.baidu.tieba.view.d {
 
     @Override // com.baidu.tieba.view.d
     public boolean a(WebView webView, String str) {
-        if (!com.baidu.tieba.recommend.ac.a(this, str)) {
-            UtilHelper.d(this, str + "&_client_version=" + com.baidu.tieba.data.h.j());
+        if (!com.baidu.tieba.recommend.ab.a(this, str)) {
+            UtilHelper.c(this, str + "&_client_version=" + com.baidu.tieba.data.h.j());
         }
         return true;
     }
@@ -175,11 +174,11 @@ public class CommonWebviewActivity extends j implements com.baidu.tieba.view.d {
         boolean z = false;
         if (this.h == null) {
             try {
-                if (UtilHelper.f(this) && TiebaApplication.g().aq() >= 5) {
+                if (UtilHelper.d(this) && TiebaApplication.h().ao() >= 5) {
                     super.showToast(getString(R.string.web_view_corrupted));
                 } else {
                     this.h = new BaseWebView(this);
-                    com.baidu.tieba.util.bd.a(this.h, TiebaApplication.g().ap());
+                    com.baidu.tieba.util.ba.a(this.h, TiebaApplication.h().an());
                     this.h.setOnLoadUrlListener(this);
                     this.h.setHorizontalScrollBarEnabled(false);
                     this.h.setHorizontalScrollbarOverlay(false);
@@ -190,7 +189,7 @@ public class CommonWebviewActivity extends j implements com.baidu.tieba.view.d {
                 }
                 return z;
             } catch (Exception e) {
-                bg.b(getClass().getName(), "", "CommonWebviewActivity.refreshFrs error = " + e.getMessage());
+                com.baidu.tieba.util.bd.b(getClass().getName(), "", "CommonWebviewActivity.refreshFrs error = " + e.getMessage());
                 return z;
             }
         }

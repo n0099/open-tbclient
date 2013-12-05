@@ -1,114 +1,129 @@
 package com.baidu.tieba.im.chat;
 
-import android.content.Intent;
+import android.app.Activity;
+import android.graphics.drawable.ColorDrawable;
+import android.support.v4.view.ViewPager;
 import android.view.View;
-import android.view.animation.AlphaAnimation;
-import android.widget.Button;
-import android.widget.FrameLayout;
+import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
-import com.baidu.tieba.view.MultiImageView;
-import com.baidu.tieba.view.NavigationBar;
+import android.widget.LinearLayout;
+import android.widget.ListAdapter;
+import android.widget.RelativeLayout;
+import com.baidu.tbadk.imageManager.TbFaceManager;
 import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class ad implements View.OnClickListener {
+public class ad {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MsgImageActivity f1490a;
+    private Activity f1537a;
+    private EditText b;
+    private int c = 1;
+    private double d = 0.0d;
+    private int e = 0;
+    private k f = null;
+    private ArrayList<View> g = null;
+    private ArrayList<ImageView> h = null;
+    private RelativeLayout i = null;
+    private ViewPager j = null;
+    private LinearLayout k = null;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ad(MsgImageActivity msgImageActivity) {
-        this.f1490a = msgImageActivity;
+    public ad(Activity activity, EditText editText) {
+        this.b = null;
+        this.f1537a = activity;
+        this.b = editText;
+        b();
+        c();
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        ImageView imageView;
-        FrameLayout frameLayout;
-        boolean z;
-        NavigationBar navigationBar;
-        MultiImageView multiImageView;
-        AlphaAnimation alphaAnimation;
-        AlphaAnimation alphaAnimation2;
-        AlphaAnimation alphaAnimation3;
-        NavigationBar navigationBar2;
-        AlphaAnimation alphaAnimation4;
-        NavigationBar navigationBar3;
-        MultiImageView multiImageView2;
-        NavigationBar navigationBar4;
-        MultiImageView multiImageView3;
-        MultiImageView multiImageView4;
-        ai aiVar;
-        Button button;
-        ProgressBar progressBar;
-        NavigationBar navigationBar5;
-        int i;
-        imageView = this.f1490a.f;
-        if (view == imageView) {
-            navigationBar5 = this.f1490a.i;
-            if (navigationBar5.getVisibility() != 8) {
-                Intent intent = new Intent();
-                i = this.f1490a.c;
-                intent.putExtra("index", i);
-                this.f1490a.setResult(-1, intent);
-                this.f1490a.finish();
+    private void b() {
+        this.i = (RelativeLayout) this.f1537a.findViewById(R.id.face_view);
+        this.j = (ViewPager) this.f1537a.findViewById(R.id.face_im_contains);
+        this.g = new ArrayList<>();
+        this.d = TbFaceManager.a().b();
+        int ceil = (int) Math.ceil(this.d / 27.0d);
+        View view = new View(this.f1537a);
+        view.setBackgroundColor(0);
+        this.g.add(view);
+        ArrayList arrayList = new ArrayList();
+        for (int i = 0; i < ceil; i++) {
+            GridView gridView = new GridView(this.f1537a);
+            this.e = i * 28;
+            this.f = new k(this.f1537a, 28, this.e - i, i);
+            gridView.setAdapter((ListAdapter) this.f);
+            arrayList.add(this.f);
+            gridView.setNumColumns(7);
+            gridView.setBackgroundColor(0);
+            gridView.setHorizontalSpacing(5);
+            gridView.setVerticalSpacing(5);
+            gridView.setStretchMode(2);
+            gridView.setSelector(new ColorDrawable(0));
+            gridView.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
+            gridView.setGravity(17);
+            this.g.add(gridView);
+            gridView.setOnItemClickListener(new ae(this));
+        }
+        View view2 = new View(this.f1537a);
+        view2.setBackgroundColor(0);
+        this.g.add(view2);
+        this.j.setAdapter(new ViewPagerAdapter(this.g));
+        b(1);
+        this.j.setOnPageChangeListener(new af(this));
+    }
+
+    private void c() {
+        this.k = (LinearLayout) this.f1537a.findViewById(R.id.iv_image);
+        this.h = new ArrayList<>();
+        for (int i = 0; i < this.g.size(); i++) {
+            ImageView imageView = new ImageView(this.f1537a);
+            imageView.setBackgroundResource(R.drawable.icon_liaotianye_n);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(new ViewGroup.LayoutParams(-2, -2));
+            layoutParams.leftMargin = 10;
+            layoutParams.rightMargin = 10;
+            this.k.addView(imageView, layoutParams);
+            if (i == 0 || i == this.g.size() - 1) {
+                imageView.setVisibility(8);
+            }
+            if (i == 1) {
+                imageView.setBackgroundResource(R.drawable.icon_liaotianye_s);
+            }
+            this.h.add(imageView);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void c(int i) {
+        int i2 = 1;
+        while (true) {
+            int i3 = i2;
+            if (i3 < this.h.size()) {
+                if (i == i3) {
+                    this.h.get(i3).setBackgroundResource(R.drawable.icon_liaotianye_s);
+                } else {
+                    this.h.get(i3).setBackgroundResource(R.drawable.icon_liaotianye_n);
+                }
+                i2 = i3 + 1;
+            } else {
                 return;
             }
-            return;
         }
-        frameLayout = this.f1490a.g;
-        if (view == frameLayout) {
-            navigationBar4 = this.f1490a.i;
-            if (navigationBar4.getVisibility() != 8) {
-                try {
-                    multiImageView3 = this.f1490a.j;
-                    byte[] currentImageData = multiImageView3.getCurrentImageData();
-                    if (currentImageData != null) {
-                        multiImageView4 = this.f1490a.j;
-                        String currentImageUrl = multiImageView4.getCurrentImageUrl();
-                        this.f1490a.d = new ai(this.f1490a, currentImageUrl, currentImageData);
-                        aiVar = this.f1490a.d;
-                        aiVar.execute(new String[0]);
-                        button = this.f1490a.e;
-                        button.setVisibility(4);
-                        progressBar = this.f1490a.f1483a;
-                        progressBar.setVisibility(0);
-                    } else {
-                        this.f1490a.showToast(this.f1490a.getString(R.string.no_data));
-                    }
-                    return;
-                } catch (Exception e) {
-                    return;
-                }
-            }
-            return;
+    }
+
+    public void a(int i) {
+        if (i == 0 || 8 == i || 4 == i) {
+            this.i.setVisibility(i);
         }
-        z = this.f1490a.o;
-        if (z) {
-            navigationBar = this.f1490a.i;
-            if (navigationBar.getVisibility() != 0) {
-                navigationBar3 = this.f1490a.i;
-                navigationBar3.setVisibility(0);
-                multiImageView2 = this.f1490a.j;
-                multiImageView2.d();
-                this.f1490a.n = new AlphaAnimation(0.0f, 1.0f);
-            } else {
-                this.f1490a.n = new AlphaAnimation(1.0f, 0.0f);
-                this.f1490a.p = true;
-                multiImageView = this.f1490a.j;
-                multiImageView.e();
-            }
-            alphaAnimation = this.f1490a.n;
-            alphaAnimation.setDuration(300L);
-            alphaAnimation2 = this.f1490a.n;
-            alphaAnimation2.setFillAfter(true);
-            alphaAnimation3 = this.f1490a.n;
-            alphaAnimation3.setAnimationListener(new ae(this));
-            this.f1490a.o = false;
-            navigationBar2 = this.f1490a.i;
-            alphaAnimation4 = this.f1490a.n;
-            navigationBar2.startAnimation(alphaAnimation4);
+    }
+
+    public int a() {
+        return this.i.getVisibility();
+    }
+
+    public void b(int i) {
+        if (i >= 0) {
+            this.j.setCurrentItem(i);
         }
     }
 }

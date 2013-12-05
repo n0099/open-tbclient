@@ -11,11 +11,11 @@ import java.util.ArrayList;
 public class h extends BdAsyncTask<ForumData, Integer, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ EditBarActivity f2236a;
-    private com.baidu.tieba.util.ap b;
+    final /* synthetic */ EditBarActivity f2354a;
+    private com.baidu.tieba.util.am b;
 
     private h(EditBarActivity editBarActivity) {
-        this.f2236a = editBarActivity;
+        this.f2354a = editBarActivity;
         this.b = null;
     }
 
@@ -33,12 +33,12 @@ public class h extends BdAsyncTask<ForumData, Integer, String> {
         if (forumData != null) {
             try {
                 if (forumData.getId() != null && forumData.getName() != null) {
-                    this.f2236a.j = forumData.getName();
-                    this.b = new com.baidu.tieba.util.ap(com.baidu.tieba.data.h.f1201a + "c/c/forum/unfavolike");
+                    this.f2354a.j = forumData.getName();
+                    this.b = new com.baidu.tieba.util.am(com.baidu.tieba.data.h.f1248a + "c/c/forum/unfavolike");
                     this.b.a("fid", forumData.getId());
-                    com.baidu.tieba.util.ap apVar = this.b;
-                    str = this.f2236a.j;
-                    apVar.a("kw", str);
+                    com.baidu.tieba.util.am amVar = this.b;
+                    str = this.f2354a.j;
+                    amVar.a("kw", str);
                     this.b.a("favo_type", String.valueOf(forumData.getFavo_type()));
                     this.b.e(true);
                     this.b.l();
@@ -46,7 +46,7 @@ public class h extends BdAsyncTask<ForumData, Integer, String> {
                 }
                 return null;
             } catch (Exception e) {
-                com.baidu.tieba.util.bg.b(getClass().getName(), "doInBackground", e.getMessage());
+                com.baidu.tieba.util.bd.b(getClass().getName(), "doInBackground", e.getMessage());
                 return null;
             }
         }
@@ -66,36 +66,36 @@ public class h extends BdAsyncTask<ForumData, Integer, String> {
         i iVar;
         i iVar2;
         super.a((h) str);
-        this.f2236a.k = null;
-        progressBar = this.f2236a.g;
+        this.f2354a.k = null;
+        progressBar = this.f2354a.g;
         progressBar.setVisibility(8);
         if (this.b != null) {
             if (this.b.c()) {
-                eVar = this.f2236a.f2183a;
+                eVar = this.f2354a.f2290a;
                 ArrayList<ForumData> a2 = eVar.a();
                 if (a2 != null) {
-                    i = this.f2236a.i;
+                    i = this.f2354a.i;
                     if (i >= 0) {
-                        i2 = this.f2236a.i;
+                        i2 = this.f2354a.i;
                         if (i2 < a2.size()) {
-                            i3 = this.f2236a.i;
+                            i3 = this.f2354a.i;
                             a2.remove(i3);
-                            TiebaApplication g = TiebaApplication.g();
-                            str2 = this.f2236a.j;
-                            g.f(str2);
-                            iVar = this.f2236a.f;
+                            TiebaApplication h = TiebaApplication.h();
+                            str2 = this.f2354a.j;
+                            h.g(str2);
+                            iVar = this.f2354a.f;
                             if (iVar != null) {
-                                this.f2236a.a(true);
-                                iVar2 = this.f2236a.f;
+                                this.f2354a.a(true);
+                                iVar2 = this.f2354a.f;
                                 iVar2.notifyDataSetChanged();
                             }
                         }
                     }
                 }
-                this.f2236a.showToast(this.f2236a.getString(R.string.success));
+                this.f2354a.showToast(this.f2354a.getString(R.string.success));
                 return;
             }
-            this.f2236a.showToast(this.b.i());
+            this.f2354a.showToast(this.b.i());
         }
     }
 
@@ -103,7 +103,7 @@ public class h extends BdAsyncTask<ForumData, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void b() {
         ProgressBar progressBar;
-        progressBar = this.f2236a.g;
+        progressBar = this.f2354a.g;
         progressBar.setVisibility(0);
     }
 
@@ -114,9 +114,9 @@ public class h extends BdAsyncTask<ForumData, Integer, String> {
             this.b.j();
             this.b = null;
         }
-        progressBar = this.f2236a.g;
+        progressBar = this.f2354a.g;
         progressBar.setVisibility(8);
-        this.f2236a.k = null;
+        this.f2354a.k = null;
         super.cancel(true);
     }
 }

@@ -3,17 +3,17 @@ package com.baidu.tieba.pb;
 import android.view.View;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-class bk implements com.baidu.tbadk.widget.richText.n {
+class bk implements com.baidu.tbadk.widget.richText.o {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NewPbActivity f2078a;
+    final /* synthetic */ NewPbActivity f2185a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bk(NewPbActivity newPbActivity) {
-        this.f2078a = newPbActivity;
+        this.f2185a = newPbActivity;
     }
 
-    @Override // com.baidu.tbadk.widget.richText.n
+    @Override // com.baidu.tbadk.widget.richText.o
     public void onClick(View view, String str, int i) {
         cr crVar;
         com.baidu.tieba.model.bm bmVar;
@@ -24,20 +24,20 @@ class bk implements com.baidu.tbadk.widget.richText.n {
         String a3;
         String a4;
         try {
-            crVar = this.f2078a.y;
+            crVar = this.f2185a.y;
             if (crVar.a(view, str) != null) {
-                bmVar = this.f2078a.s;
+                bmVar = this.f2185a.s;
                 com.baidu.tieba.data.an l = bmVar.l();
-                a2 = this.f2078a.a(str, i);
+                a2 = this.f2185a.a(str, i);
                 ArrayList<com.baidu.tbadk.widget.richText.c> a5 = a2.a();
-                i2 = this.f2078a.W;
+                i2 = this.f2185a.W;
                 com.baidu.tbadk.widget.richText.c cVar = a5.get(i2);
                 if (cVar != null) {
                     ArrayList arrayList = new ArrayList();
                     if (!cVar.c().d()) {
-                        a4 = this.f2078a.a(cVar);
+                        a4 = this.f2185a.a(cVar);
                         arrayList.add(a4);
-                        ImageActivity.a(this.f2078a, arrayList, 0, l);
+                        ImageActivity.a(this.f2185a, arrayList, 0, l);
                         return;
                     }
                     boolean z = false;
@@ -57,7 +57,7 @@ class bk implements com.baidu.tbadk.widget.richText.n {
                                     int c = h.a().get(i8).c().c();
                                     int b = h.a().get(i8).c().b();
                                     if (!(c < 80 || b < 80 || b * c < 10000) && h.a().get(i8).c().d()) {
-                                        a3 = this.f2078a.a(h.a().get(i8));
+                                        a3 = this.f2185a.a(h.a().get(i8));
                                         arrayList.add(a3);
                                         if (!z2) {
                                             i4 = i6 + 1;
@@ -81,11 +81,11 @@ class bk implements com.baidu.tbadk.widget.richText.n {
                         i5++;
                         z = z2;
                     }
-                    ImageActivity.a(this.f2078a, arrayList, i6, l);
+                    ImageActivity.a(this.f2185a, arrayList, i6, l);
                 }
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.bg.b("PbAdapter", "ImageOnClickListener", "error = " + e.getMessage());
+            com.baidu.tieba.util.bd.b("PbAdapter", "ImageOnClickListener", "error = " + e.getMessage());
         }
     }
 }

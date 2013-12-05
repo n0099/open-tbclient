@@ -19,8 +19,8 @@ public class JvstTypeChecker extends TypeChecker {
     }
 
     public void a() {
-        if (this.f2822a == 344) {
-            this.f2822a = 307;
+        if (this.f3003a == 344) {
+            this.f3003a = 307;
             this.b = 0;
             this.c = "java/lang/Object";
         }
@@ -30,15 +30,15 @@ public class JvstTypeChecker extends TypeChecker {
     public void a(Member member) {
         String str = member.get();
         if (str.equals(this.h.m)) {
-            this.f2822a = 307;
+            this.f3003a = 307;
             this.b = 1;
             this.c = "java/lang/Object";
         } else if (str.equals("$sig")) {
-            this.f2822a = 307;
+            this.f3003a = 307;
             this.b = 1;
             this.c = "java/lang/Class";
         } else if (str.equals("$type") || str.equals("$class")) {
-            this.f2822a = 307;
+            this.f3003a = 307;
             this.b = 0;
             this.c = "java/lang/Class";
         } else {
@@ -85,10 +85,10 @@ public class JvstTypeChecker extends TypeChecker {
     protected void b(CastExpr castExpr) {
         javassist.h hVar = this.h.p;
         castExpr.getOprand().accept(this);
-        if (this.f2822a == 344 || CodeGen.d(this.f2822a) || this.b > 0) {
+        if (this.f3003a == 344 || CodeGen.d(this.f3003a) || this.b > 0) {
             a(hVar);
         } else if (hVar instanceof CtPrimitiveType) {
-            this.f2822a = MemberResolver.a(((CtPrimitiveType) hVar).y());
+            this.f3003a = MemberResolver.a(((CtPrimitiveType) hVar).y());
             this.b = 0;
             this.c = null;
         }
@@ -96,8 +96,8 @@ public class JvstTypeChecker extends TypeChecker {
 
     protected void c(CastExpr castExpr) {
         castExpr.getOprand().accept(this);
-        if (!CodeGen.d(this.f2822a) && this.b <= 0 && (this.d.a(this.f2822a, this.b, this.c) instanceof CtPrimitiveType)) {
-            this.f2822a = 307;
+        if (!CodeGen.d(this.f3003a) && this.b <= 0 && (this.d.a(this.f3003a, this.b, this.c) instanceof CtPrimitiveType)) {
+            this.f3003a = 307;
             this.b = 0;
             this.c = "java/lang/Object";
         }
@@ -120,7 +120,7 @@ public class JvstTypeChecker extends TypeChecker {
     }
 
     protected void a(ASTList aSTList) {
-        this.f2822a = 324;
+        this.f3003a = 324;
         this.b = 0;
         this.c = null;
     }
@@ -158,7 +158,7 @@ public class JvstTypeChecker extends TypeChecker {
                     i = i2;
                     while (i3 < length) {
                         b(hVarArr[i3]);
-                        iArr[i] = this.f2822a;
+                        iArr[i] = this.f3003a;
                         iArr2[i] = this.b;
                         strArr[i] = this.c;
                         i3++;
@@ -169,7 +169,7 @@ public class JvstTypeChecker extends TypeChecker {
                 }
             } else {
                 head.accept(this);
-                iArr[i2] = this.f2822a;
+                iArr[i2] = this.f3003a;
                 iArr2[i2] = this.b;
                 strArr[i2] = this.c;
                 i = i2 + 1;
@@ -193,7 +193,7 @@ public class JvstTypeChecker extends TypeChecker {
 
     private void a(javassist.h hVar, int i) {
         if (hVar.m()) {
-            this.f2822a = MemberResolver.a(((CtPrimitiveType) hVar).y());
+            this.f3003a = MemberResolver.a(((CtPrimitiveType) hVar).y());
             this.b = i;
             this.c = null;
         } else if (hVar.b()) {
@@ -203,7 +203,7 @@ public class JvstTypeChecker extends TypeChecker {
                 throw new CompileError("undefined type: " + hVar.n());
             }
         } else {
-            this.f2822a = 307;
+            this.f3003a = 307;
             this.b = i;
             this.c = MemberResolver.c(hVar.n());
         }

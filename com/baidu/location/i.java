@@ -41,7 +41,7 @@ public class i {
     private long b = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f933a = 0;
+    private int f938a = 0;
 
     /* renamed from: char  reason: not valid java name */
     private long f220char = 0;
@@ -110,7 +110,7 @@ public class i {
     private void a() {
         boolean z;
         int i = VersionUtils.CUR_DEVELOPMENT;
-        if (!m244do()) {
+        if (!m245do()) {
             return;
         }
         int i2 = this.f224goto > 5000.0f ? 600000 : this.f224goto > 1000.0f ? 120000 : this.f224goto > 500.0f ? 60000 : 10000;
@@ -119,15 +119,15 @@ public class i {
         } else {
             i = i2;
         }
-        if (this.f933a != 0) {
-            if (i > (this.f220char + this.f933a) - System.currentTimeMillis()) {
+        if (this.f938a != 0) {
+            if (i > (this.f220char + this.f938a) - System.currentTimeMillis()) {
                 z = false;
                 if (z) {
                     return;
                 }
-                this.f933a = i;
+                this.f938a = i;
                 this.f220char = System.currentTimeMillis();
-                a(this.f933a);
+                a(this.f938a);
                 return;
             }
         }
@@ -183,13 +183,13 @@ public class i {
             if (f < this.f224goto) {
                 this.f224goto = f;
             }
-            this.f933a = 0;
+            this.f938a = 0;
             a();
         }
     }
 
     /* renamed from: do  reason: not valid java name */
-    private boolean m244do() {
+    private boolean m245do() {
         boolean z = false;
         if (this.f218byte == null || this.f218byte.isEmpty()) {
             return false;
@@ -210,9 +210,9 @@ public class i {
             return;
         }
         if (!bDNotifyListener.mCoorType.equals("gcj02")) {
-            double[] m18if = Jni.m18if(bDNotifyListener.mLongitude, bDNotifyListener.mLatitude, bDNotifyListener.mCoorType + "2gcj");
-            bDNotifyListener.mLongitudeC = m18if[0];
-            bDNotifyListener.mLatitudeC = m18if[1];
+            double[] m19if = Jni.m19if(bDNotifyListener.mLongitude, bDNotifyListener.mLatitude, bDNotifyListener.mCoorType + "2gcj");
+            bDNotifyListener.mLongitudeC = m19if[0];
+            bDNotifyListener.mLatitudeC = m19if[1];
             j.a(this.f221do, bDNotifyListener.mCoorType + "2gcj");
             j.a(this.f221do, "coor:" + bDNotifyListener.mLongitude + "," + bDNotifyListener.mLatitude + ":" + bDNotifyListener.mLongitudeC + "," + bDNotifyListener.mLatitudeC);
         }
@@ -238,7 +238,7 @@ public class i {
     }
 
     /* renamed from: do  reason: not valid java name */
-    public int m246do(BDNotifyListener bDNotifyListener) {
+    public int m247do(BDNotifyListener bDNotifyListener) {
         if (this.f218byte == null) {
             return 0;
         }
@@ -252,7 +252,7 @@ public class i {
     }
 
     /* renamed from: if  reason: not valid java name */
-    public int m247if(BDNotifyListener bDNotifyListener) {
+    public int m248if(BDNotifyListener bDNotifyListener) {
         if (this.f218byte == null) {
             this.f218byte = new ArrayList();
         }
@@ -265,9 +265,9 @@ public class i {
         }
         if (bDNotifyListener.mCoorType != null) {
             if (!bDNotifyListener.mCoorType.equals("gcj02")) {
-                double[] m18if = Jni.m18if(bDNotifyListener.mLongitude, bDNotifyListener.mLatitude, bDNotifyListener.mCoorType + "2gcj");
-                bDNotifyListener.mLongitudeC = m18if[0];
-                bDNotifyListener.mLatitudeC = m18if[1];
+                double[] m19if = Jni.m19if(bDNotifyListener.mLongitude, bDNotifyListener.mLatitude, bDNotifyListener.mCoorType + "2gcj");
+                bDNotifyListener.mLongitudeC = m19if[0];
+                bDNotifyListener.mLatitudeC = m19if[1];
                 j.a(this.f221do, bDNotifyListener.mCoorType + "2gcj");
                 j.a(this.f221do, "coor:" + bDNotifyListener.mLongitude + "," + bDNotifyListener.mLatitude + ":" + bDNotifyListener.mLongitudeC + "," + bDNotifyListener.mLatitudeC);
             }
@@ -295,7 +295,7 @@ public class i {
     }
 
     /* renamed from: if  reason: not valid java name */
-    public void m248if() {
+    public void m249if() {
         if (this.f229void) {
             this.f223for.cancel(this.f228try);
         }

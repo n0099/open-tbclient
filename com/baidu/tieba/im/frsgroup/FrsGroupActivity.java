@@ -20,7 +20,7 @@ import com.slidingmenu.lib.R;
 public class FrsGroupActivity extends BaseFragmentActivity implements View.OnClickListener, RadioGroup.OnCheckedChangeListener {
     private g b;
     private com.baidu.tieba.im.model.b c;
-    private com.baidu.tieba.im.messageCenter.h d = new a(this);
+    private com.baidu.tieba.im.messageCenter.g d = new a(this);
 
     public static void a(Context context, String str, boolean z) {
         Intent intent = new Intent(context, FrsGroupActivity.class);
@@ -33,7 +33,7 @@ public class FrsGroupActivity extends BaseFragmentActivity implements View.OnCli
     @Override // com.baidu.tieba.BaseFragmentActivity, android.support.v4.app.n, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        a(bundle, (Intent) null);
+        a(bundle, null);
         e();
         a(bundle);
         a(false);
@@ -47,9 +47,9 @@ public class FrsGroupActivity extends BaseFragmentActivity implements View.OnCli
             this.b.c();
             this.b = null;
         }
-        a((Bundle) null, intent);
+        a(null, intent);
         a(intent != null ? intent.getExtras() : null);
-        a(TiebaApplication.g().ap());
+        a(TiebaApplication.h().an());
         a(true);
     }
 
@@ -78,8 +78,9 @@ public class FrsGroupActivity extends BaseFragmentActivity implements View.OnCli
         this.b.c(this.c.a());
         this.b.a(this.c.a());
         if (bundle != null) {
-            this.b.a(this.c.g());
+            this.b.b(this.c.g());
         }
+        this.b.a(f());
         this.b.e();
     }
 
@@ -111,7 +112,7 @@ public class FrsGroupActivity extends BaseFragmentActivity implements View.OnCli
 
     @Override // com.baidu.tieba.BaseFragmentActivity
     protected void a(int i) {
-        this.b.b(i);
+        this.b.c(i);
     }
 
     private void a(boolean z) {
@@ -153,7 +154,7 @@ public class FrsGroupActivity extends BaseFragmentActivity implements View.OnCli
     }
 
     private void j() {
-        if (TextUtils.isEmpty(TiebaApplication.A())) {
+        if (TextUtils.isEmpty(TiebaApplication.B())) {
             LoginActivity.a((Activity) this, "", true, 0);
         } else {
             i();
@@ -163,17 +164,17 @@ public class FrsGroupActivity extends BaseFragmentActivity implements View.OnCli
     public void a(GroupPermData groupPermData) {
         if (!groupPermData.isManager()) {
             if (!groupPermData.isCreateNormal()) {
-                a(groupPermData.getCreateNormalTip());
+                b(groupPermData.getCreateNormalTip());
                 return;
             } else {
-                CreateGroupStepActivity.a(this, 3, b(this.c.m()));
+                CreateGroupStepActivity.a(this, 3, c(this.c.m()), 1013);
                 return;
             }
         }
-        CreateGroupMainActivity.a(this, groupPermData.isCreateOfficial(), groupPermData.isCreateNormal(), groupPermData.getCreateOfficialTip(), groupPermData.getCreateNormalTip(), b(this.c.m()));
+        CreateGroupMainActivity.a(this, groupPermData.isCreateOfficial(), groupPermData.isCreateNormal(), groupPermData.getCreateOfficialTip(), groupPermData.getCreateNormalTip(), c(this.c.m()));
     }
 
-    private int b(String str) {
+    private int c(String str) {
         try {
             return Integer.valueOf(str).intValue();
         } catch (NumberFormatException e) {
@@ -186,16 +187,17 @@ public class FrsGroupActivity extends BaseFragmentActivity implements View.OnCli
     public void onCheckedChanged(RadioGroup radioGroup, int i) {
         g();
         switch (i) {
-            case R.id.radio_recommend /* 2131100349 */:
+            case R.id.radio_recommend /* 2131100401 */:
                 this.c.a(1);
                 break;
-            case R.id.radio_hot /* 2131100350 */:
+            case R.id.radio_hot /* 2131100403 */:
                 this.c.a(2);
                 break;
-            case R.id.radio_official /* 2131100351 */:
+            case R.id.radio_official /* 2131100405 */:
                 this.c.a(3);
                 break;
         }
+        this.b.a(f());
         a(false);
     }
 

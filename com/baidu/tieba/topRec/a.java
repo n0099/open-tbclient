@@ -3,11 +3,11 @@ package com.baidu.tieba.topRec;
 class a implements o {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ TopRecActivity f2427a;
+    final /* synthetic */ TopRecActivity f2544a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(TopRecActivity topRecActivity) {
-        this.f2427a = topRecActivity;
+        this.f2544a = topRecActivity;
     }
 
     @Override // com.baidu.tieba.topRec.o
@@ -18,20 +18,20 @@ class a implements o {
         e eVar;
         e eVar2;
         if (bool.booleanValue() && i == 0) {
-            eVar = this.f2427a.b;
+            eVar = this.f2544a.b;
             if (eVar != null) {
-                eVar2 = this.f2427a.b;
+                eVar2 = this.f2544a.b;
                 eVar2.a(tRForumListData);
-                this.f2427a.f = tRForumListData;
+                this.f2544a.f = tRForumListData;
             }
         } else {
-            this.f2427a.showToast(str);
+            this.f2544a.showToast(str);
         }
-        hVar = this.f2427a.f2426a;
+        hVar = this.f2544a.f2543a;
         hVar.a(false);
-        hVar2 = this.f2427a.f2426a;
+        hVar2 = this.f2544a.f2543a;
         hVar2.c();
-        hVar3 = this.f2427a.f2426a;
+        hVar3 = this.f2544a.f2543a;
         hVar3.f();
     }
 }

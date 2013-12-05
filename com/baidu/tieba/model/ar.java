@@ -9,7 +9,7 @@ import org.json.JSONObject;
 public class ar {
 
     /* renamed from: a  reason: collision with root package name */
-    private ForumData f1880a;
+    private ForumData f1992a;
     private ArrayList<com.baidu.tieba.data.ba> b;
     private ArrayList<String> c;
     private int d;
@@ -29,7 +29,7 @@ public class ar {
     }
 
     private void g() {
-        this.f1880a = new ForumData();
+        this.f1992a = new ForumData();
         this.b = new ArrayList<>();
         this.c = new ArrayList<>();
         this.d = 0;
@@ -40,7 +40,7 @@ public class ar {
     }
 
     public ForumData a() {
-        return this.f1880a;
+        return this.f1992a;
     }
 
     public ArrayList<com.baidu.tieba.data.ba> b() {
@@ -63,7 +63,7 @@ public class ar {
         if (jSONObject != null) {
             try {
                 g();
-                this.f1880a.parserJson(jSONObject.optJSONObject("forum"));
+                this.f1992a.parserJson(jSONObject.optJSONObject("forum"));
                 this.h.a(jSONObject.optJSONObject("user"));
                 this.g.parserJson(jSONObject.optJSONObject("anti"));
                 JSONObject optJSONObject = jSONObject.optJSONObject("photo_data");

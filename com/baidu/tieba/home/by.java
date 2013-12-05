@@ -1,22 +1,16 @@
 package com.baidu.tieba.home;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 /* loaded from: classes.dex */
-public class by implements View.OnClickListener {
+final class by extends bz {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bx f1433a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public by(bx bxVar) {
-        this.f1433a = bxVar;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        com.baidu.tieba.j jVar;
-        jVar = this.f1433a.c;
-        jVar.finish();
-    }
+    LinearLayout f1486a;
+    RelativeLayout b;
+    TextView c;
+    TextView d;
+    TextView e;
+    by f;
 }

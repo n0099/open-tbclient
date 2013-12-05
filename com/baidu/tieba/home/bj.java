@@ -1,23 +1,34 @@
 package com.baidu.tieba.home;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.tieba.view.HeadImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bj implements DialogInterface.OnClickListener {
+public class bj {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SignAllForumActivity f1419a;
+    public HeadImageView f1474a;
+    public LinearLayout b;
+    public TextView c;
+    public TextView d;
+    public TextView e;
+    public FrameLayout f;
+    public TextView g;
+    public RelativeLayout h;
+    public ImageView i;
+    public ProgressBar j;
+    public TextView k;
+    public TextView l;
+    public TextView m;
+    final /* synthetic */ bf n;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bj(SignAllForumActivity signAllForumActivity) {
-        this.f1419a = signAllForumActivity;
-    }
-
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        AlertDialog alertDialog;
-        alertDialog = this.f1419a.c;
-        alertDialog.dismiss();
+    public bj(bf bfVar) {
+        this.n = bfVar;
     }
 }

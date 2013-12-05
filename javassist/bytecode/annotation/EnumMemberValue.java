@@ -6,17 +6,17 @@ import javassist.bytecode.z;
 public class EnumMemberValue extends d {
 
     /* renamed from: a  reason: collision with root package name */
-    int f2766a;
+    int f2947a;
     int b;
 
     public EnumMemberValue(int i, int i2, y yVar) {
         super('e', yVar);
-        this.f2766a = i;
+        this.f2947a = i;
         this.b = i2;
     }
 
     public String a() {
-        return z.c(this.c.w(this.f2766a));
+        return z.c(this.c.w(this.f2947a));
     }
 
     public String b() {

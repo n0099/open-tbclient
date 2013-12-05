@@ -5,16 +5,16 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import com.baidu.tieba.util.bd;
+import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class i extends com.baidu.adp.a.e {
 
     /* renamed from: a  reason: collision with root package name */
-    protected NavigationBar f1643a;
-    protected View c;
-    private GroupLevelActivity d;
+    protected NavigationBar f1710a;
+    private GroupLevelActivity c;
+    private View d;
     private ImageView e;
     private ImageView f;
     private ImageView g;
@@ -39,23 +39,19 @@ public class i extends com.baidu.adp.a.e {
         this.t = new ImageView[4];
         this.u = new TextView[4];
         this.v = new String[4];
-        this.f1643a = null;
-        this.c = null;
-        this.d = groupLevelActivity;
+        this.f1710a = null;
+        this.c = groupLevelActivity;
         groupLevelActivity.setContentView(R.layout.im_grouplevel_activity);
-        a(groupLevelActivity);
         b(groupLevelActivity);
+        a(groupLevelActivity);
     }
 
     private void a(GroupLevelActivity groupLevelActivity) {
-        this.c = this.d.findViewById(R.id.parent);
-        this.f1643a = (NavigationBar) this.d.findViewById(R.id.view_navigation_bar);
-        this.f1643a.a(this.d.getResources().getString(R.string.grouplevel_title));
-        this.e = this.f1643a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.e.setOnClickListener(groupLevelActivity);
+        this.e.setOnClickListener(this.c);
     }
 
     private void b(GroupLevelActivity groupLevelActivity) {
+        this.d = groupLevelActivity.findViewById(R.id.parent);
         this.s = (ProgressBar) groupLevelActivity.findViewById(R.id.progress_loading);
         this.f = (ImageView) groupLevelActivity.findViewById(R.id.level_image_1);
         this.g = (ImageView) groupLevelActivity.findViewById(R.id.level_image_2);
@@ -79,13 +75,16 @@ public class i extends com.baidu.adp.a.e {
         this.u[1] = this.p;
         this.u[2] = this.q;
         this.u[3] = this.r;
+        this.f1710a = (NavigationBar) groupLevelActivity.findViewById(R.id.grouplevel_top_bar);
+        this.f1710a.setSystemClickable(false);
+        this.f1710a.a(this.c.getResources().getString(R.string.grouplevel_title));
+        this.e = this.f1710a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
     }
 
     public void a(int i) {
-        this.d.getLayoutMode().a(false);
-        this.d.getLayoutMode().a(this.c);
-        this.f1643a.c(0);
-        bd.b(this.c, 0);
+        this.c.getLayoutMode().a(i == 1);
+        this.c.getLayoutMode().a(this.d);
+        this.f1710a.c(i);
     }
 
     public ImageView a() {
@@ -106,11 +105,19 @@ public class i extends com.baidu.adp.a.e {
             i = 1;
         }
         while (i2 <= i) {
-            this.t[i2].setImageResource(R.drawable.icon_grade_big_star_s);
+            if (TiebaApplication.h().an() == 0) {
+                this.t[i2].setImageResource(R.drawable.icon_grade_big_star_s);
+            } else {
+                this.t[i2].setImageResource(R.drawable.icon_grade_big_star_s_1);
+            }
             i2++;
         }
         while (i2 <= 3) {
-            this.t[i2].setImageResource(R.drawable.icon_grade_big_star_n);
+            if (TiebaApplication.h().an() == 0) {
+                this.t[i2].setImageResource(R.drawable.icon_grade_big_star_n);
+            } else {
+                this.t[i2].setImageResource(R.drawable.icon_grade_big_star_n_1);
+            }
             i2++;
         }
         this.i.setText(this.v[i]);
@@ -125,7 +132,7 @@ public class i extends com.baidu.adp.a.e {
             this.j.setVisibility(0);
             this.k.setVisibility(8);
             this.l.setProgress((int) ((i2 / i3) * 100.0f));
-            String string = this.d.getString(R.string.grouplevel_active_day_value, new Object[]{String.valueOf(i3)});
+            String string = this.c.getString(R.string.grouplevel_active_day_value, new Object[]{String.valueOf(i3)});
             this.m.setText(String.valueOf(i2));
             this.n.setText(string);
         } else if (i >= 3) {

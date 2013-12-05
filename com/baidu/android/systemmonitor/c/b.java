@@ -7,11 +7,11 @@ import java.util.ArrayList;
 public class b implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f786a;
+    final /* synthetic */ a f791a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.f786a = aVar;
+        this.f791a = aVar;
     }
 
     @Override // java.lang.Runnable
@@ -22,6 +22,6 @@ public class b implements Runnable {
         arrayList.add(l.POWER_EVENT);
         arrayList.add(l.STORE_INFORMATION);
         arrayList.add(l.APKDOWNLOAD_EVENT);
-        this.f786a.a(arrayList);
+        this.f791a.a(arrayList);
     }
 }

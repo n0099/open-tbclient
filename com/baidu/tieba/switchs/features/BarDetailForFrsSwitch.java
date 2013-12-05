@@ -13,5 +13,6 @@ public class BarDetailForFrsSwitch extends AbstractSwitch {
     @Override // com.baidu.tieba.switchs.features.AbstractSwitch
     protected void initData() {
         this.mName = SwitchKey.BAR_DETAIL_FRS;
+        this.mDefaultType = 1;
     }
 }

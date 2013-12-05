@@ -7,10 +7,9 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.BaseFragmentActivity;
 import com.baidu.tieba.model.bj;
-import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.ap;
-import com.baidu.tieba.util.be;
-import com.baidu.tieba.util.bg;
+import com.baidu.tieba.util.am;
+import com.baidu.tieba.util.bb;
+import com.baidu.tieba.util.bd;
 import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -18,11 +17,11 @@ import org.apache.http.message.BasicNameValuePair;
 public class r extends BdAsyncTask<Object, Integer, bj> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ j f1851a;
+    final /* synthetic */ j f1963a;
     private String c;
     private ArrayList<BasicNameValuePair> d;
     private f e;
-    private ap b = null;
+    private am b = null;
     private bj f = null;
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -32,12 +31,12 @@ public class r extends BdAsyncTask<Object, Integer, bj> {
     public void b(Integer... numArr) {
         super.b((Object[]) numArr);
         if (this.f != null) {
-            this.f1851a.a(this.f, true);
+            this.f1963a.a(this.f, true);
         }
     }
 
     public r(j jVar, String str, ArrayList<BasicNameValuePair> arrayList, f fVar) {
-        this.f1851a = jVar;
+        this.f1963a = jVar;
         this.c = null;
         this.d = null;
         this.e = null;
@@ -63,45 +62,45 @@ public class r extends BdAsyncTask<Object, Integer, bj> {
         p pVar2;
         int i2;
         p pVar3;
-        pVar = this.f1851a.j;
+        pVar = this.f1963a.j;
         String a2 = pVar.a();
         if (a2 != null && a2.length() > 0) {
-            i2 = this.f1851a.h;
+            i2 = this.f1963a.h;
             if (i2 == 1) {
                 this.f = new bj();
                 this.f.a(a2);
                 if (!this.f.a()) {
-                    bg.e("MentionAsyncTask", "doInBackground", "cache data format err");
+                    bd.e("MentionAsyncTask", "doInBackground", "cache data format err");
                     this.f = null;
-                    pVar3 = this.f1851a.j;
+                    pVar3 = this.f1963a.j;
                     pVar3.b();
                 } else {
-                    bg.e("MentionAsyncTask", "doInBackground", "cache data.size: " + String.valueOf(a2.length()));
+                    bd.e("MentionAsyncTask", "doInBackground", "cache data.size: " + String.valueOf(a2.length()));
                     c((Object[]) new Integer[]{0});
                 }
             }
         }
         try {
-            str = this.f1851a.o;
+            str = this.f1963a.o;
         } catch (Exception e) {
-            bg.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
+            bd.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
         }
-        if (be.c(str)) {
+        if (bb.c(str)) {
             return null;
         }
-        this.b = new ap(this.c);
+        this.b = new am(this.c);
         this.b.a(this.d);
-        ap apVar = this.b;
-        activity = this.f1851a.c;
-        apVar.a(activity);
+        am amVar = this.b;
+        activity = this.f1963a.c;
+        amVar.a(activity);
         String l = this.b.l();
         if (this.b.c() && l != null) {
             this.f = new bj();
             this.f.a(l);
             if (this.f.a()) {
-                i = this.f1851a.n;
+                i = this.f1963a.n;
                 if (i != 4) {
-                    pVar2 = this.f1851a.j;
+                    pVar2 = this.f1963a.j;
                     pVar2.a(l);
                 }
             } else {
@@ -119,14 +118,14 @@ public class r extends BdAsyncTask<Object, Integer, bj> {
         BdListView bdListView3;
         BdListView bdListView4;
         if (z) {
-            i2 = this.f1851a.n;
+            i2 = this.f1963a.n;
             switch (i2) {
                 case 1:
                 case 2:
                 case 3:
-                    bdListView3 = this.f1851a.e;
+                    bdListView3 = this.f1963a.e;
                     if (bdListView3 != null) {
-                        bdListView4 = this.f1851a.e;
+                        bdListView4 = this.f1963a.e;
                         bdListView4.b();
                         return;
                     }
@@ -139,14 +138,14 @@ public class r extends BdAsyncTask<Object, Integer, bj> {
                     return;
             }
         }
-        i = this.f1851a.n;
+        i = this.f1963a.n;
         switch (i) {
             case 1:
             case 2:
             case 3:
-                bdListView = this.f1851a.e;
+                bdListView = this.f1963a.e;
                 if (bdListView != null) {
-                    bdListView2 = this.f1851a.e;
+                    bdListView2 = this.f1963a.e;
                     bdListView2.a();
                     return;
                 }
@@ -169,18 +168,18 @@ public class r extends BdAsyncTask<Object, Integer, bj> {
         a(false);
         if (this.b != null) {
             if (!this.b.d() || bjVar == null) {
-                fragment = this.f1851a.b;
+                fragment = this.f1963a.b;
                 android.support.v4.app.n i2 = fragment.i();
                 if (i2 != null && (i2 instanceof BaseFragmentActivity)) {
-                    UtilHelper.a((Context) ((BaseFragmentActivity) i2), this.b.i());
+                    com.baidu.adp.lib.h.g.a((Context) ((BaseFragmentActivity) i2), this.b.i());
                 }
             } else {
-                j jVar = this.f1851a;
-                i = this.f1851a.n;
+                j jVar = this.f1963a;
+                i = this.f1963a.n;
                 jVar.a(bjVar, i == 4);
             }
         }
-        this.f1851a.k = null;
+        this.f1963a.k = null;
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -189,7 +188,7 @@ public class r extends BdAsyncTask<Object, Integer, bj> {
             this.b.j();
         }
         a(false);
-        this.f1851a.k = null;
+        this.f1963a.k = null;
         super.cancel(true);
     }
 }

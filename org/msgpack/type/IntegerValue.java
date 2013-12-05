@@ -11,6 +11,7 @@ public abstract class IntegerValue extends NumberValue {
 
     public abstract short getShort();
 
+    @Override // org.msgpack.type.r
     public ValueType getType() {
         return ValueType.INTEGER;
     }

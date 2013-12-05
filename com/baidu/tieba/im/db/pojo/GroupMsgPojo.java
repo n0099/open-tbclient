@@ -1,25 +1,28 @@
 package com.baidu.tieba.im.db.pojo;
 
 import android.text.TextUtils;
-import com.baidu.adp.lib.h.d;
+import com.baidu.adp.lib.h.e;
+import com.baidu.gson.Gson;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.UserData;
-import com.baidu.tieba.im.d.c;
 import com.baidu.tieba.im.data.MsgLocalData;
+import com.baidu.tieba.im.e.d;
 import com.baidu.tieba.im.message.ChatMessage;
-import com.google.gson.Gson;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class GroupMsgPojo implements Serializable {
+    public static final int DELETEED = 1;
     public static final int READED = 0;
     public static final int UNREAD = 1;
+    public static final int UN_DELETE = 0;
     private static final long serialVersionUID = -7522120557807426716L;
     String content;
     long create_time;
     String ext;
     String gid;
-    Gson gson = new Gson();
+    Gson gson;
     boolean isSelf;
+    int is_delete;
     long mid;
     int msg_status;
     int msg_type;
@@ -29,9 +32,21 @@ public class GroupMsgPojo implements Serializable {
     String user_info;
 
     public GroupMsgPojo() {
+        this.gid = "";
+        this.uid = "";
+        this.user_info = "";
+        this.content = "";
+        this.ext = "";
+        this.gson = new Gson();
     }
 
     public GroupMsgPojo(ChatMessage chatMessage) {
+        this.gid = "";
+        this.uid = "";
+        this.user_info = "";
+        this.content = "";
+        this.ext = "";
+        this.gson = new Gson();
         if (chatMessage != null) {
             this.gid = chatMessage.getGroupId();
             this.mid = chatMessage.getMsgId();
@@ -41,11 +56,18 @@ public class GroupMsgPojo implements Serializable {
             this.msg_type = chatMessage.getMsgType();
             this.msg_status = chatMessage.getLocalData().getStatus().shortValue();
             this.content = chatMessage.getContent();
+            this.is_delete = 0;
             this.rid = chatMessage.getRecordId();
-            if (!TextUtils.isEmpty(this.uid)) {
-                this.isSelf = this.uid.equals(TiebaApplication.A());
-            }
+            checkRidAndSelf();
         }
+    }
+
+    public int getIs_delete() {
+        return this.is_delete;
+    }
+
+    public void setIs_delete(int i) {
+        this.is_delete = i;
     }
 
     public int getRead_flag() {
@@ -91,11 +113,11 @@ public class GroupMsgPojo implements Serializable {
             try {
                 j = Long.parseLong(id);
             } catch (Exception e) {
-                d.a("error" + e.getMessage());
+                e.a("error" + e.getMessage());
             }
             chatMessage.setUserId(j);
         }
-        c.e(chatMessage);
+        d.e(chatMessage);
         return chatMessage;
     }
 
@@ -171,7 +193,22 @@ public class GroupMsgPojo implements Serializable {
         this.ext = str;
     }
 
+    public void checkRidAndSelf() {
+        if (!TextUtils.isEmpty(TiebaApplication.B())) {
+            if (TiebaApplication.B().equals(this.uid)) {
+                this.isSelf = true;
+            }
+        } else {
+            this.isSelf = false;
+        }
+        if (!this.isSelf) {
+            this.rid = this.mid;
+        } else if (this.rid == 0) {
+            this.rid = this.mid;
+        }
+    }
+
     public String toString() {
-        return "GroupMsgPojo [gid=" + this.gid + ", mid=" + this.mid + ", uid=" + this.uid + ", user_info=" + this.user_info + ", create_time=" + this.create_time + ", msg_type=" + this.msg_type + ", msg_status=" + this.msg_status + ", content=" + this.content + ", ext=" + this.ext + "]";
+        return "GroupMsgPojo [gid=" + this.gid + ", mid=" + this.mid + ", uid=" + this.uid + ", user_info=" + this.user_info + ", create_time=" + this.create_time + ", msg_type=" + this.msg_type + ", msg_status=" + this.msg_status + ", content=" + this.content + ", ext=" + this.ext + ", read_flag=" + this.read_flag + ", isSelf=" + this.isSelf + ", rid=" + this.rid + ", gson=" + this.gson + "]";
     }
 }

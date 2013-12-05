@@ -6,12 +6,12 @@ import java.util.ResourceBundle;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static ResourceBundle f2869a = null;
+    private static ResourceBundle f3050a = null;
 
     public static String a(String str) {
-        if (f2869a != null) {
+        if (f3050a != null) {
             try {
-                return f2869a.getString(str);
+                return f3050a.getString(str);
             } catch (MissingResourceException e) {
                 return "Missing message: " + str;
             }

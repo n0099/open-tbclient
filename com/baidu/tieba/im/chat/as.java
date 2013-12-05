@@ -1,24 +1,19 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.im.SingleRunnable;
-import com.baidu.tieba.im.groupInfo.GroupSettingItemData;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
 /* loaded from: classes.dex */
-public final class as extends SingleRunnable<GroupSettingItemData> {
+class as implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ int f1503a;
+    final /* synthetic */ MsgleftView f1550a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public as(int i) {
-        this.f1503a = i;
+    public as(MsgleftView msgleftView) {
+        this.f1550a = msgleftView;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.SingleRunnable
-    /* renamed from: a */
-    public GroupSettingItemData b() {
-        return com.baidu.tieba.im.groupInfo.v.a(TiebaApplication.A(), String.valueOf(this.f1503a));
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.f1550a.c.a(view, 2, this.f1550a.f, 0L);
     }
 }

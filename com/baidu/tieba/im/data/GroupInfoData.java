@@ -1,14 +1,18 @@
 package com.baidu.tieba.im.data;
 
-import com.baidu.tieba.util.an;
+import android.text.TextUtils;
+import com.baidu.tieba.util.ak;
 import java.io.Serializable;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class GroupInfoData implements an, Serializable {
+public class GroupInfoData implements ak, Serializable {
     private static final long serialVersionUID = 5616188082014345808L;
     private int authorId;
+    private int authorIsMeizhi;
     private String authorName;
     private int forumId;
+    private String forumName;
+    private String forumShowName;
     private int grade;
     private int groupId;
     private String intro;
@@ -59,7 +63,7 @@ public class GroupInfoData implements an, Serializable {
     }
 
     public String getIntro() {
-        return this.intro;
+        return TextUtils.isEmpty(this.intro) ? "" : this.intro;
     }
 
     public void setIntro(String str) {
@@ -94,6 +98,18 @@ public class GroupInfoData implements an, Serializable {
         return this.authorId;
     }
 
+    public int getAuthorIsMeizhi() {
+        return this.authorIsMeizhi;
+    }
+
+    public boolean autorIsMeizhi() {
+        return this.authorIsMeizhi == 1;
+    }
+
+    public void setAuthorIsMeizhi(int i) {
+        this.authorIsMeizhi = i;
+    }
+
     public void setAuthorId(int i) {
         this.authorId = i;
     }
@@ -106,23 +122,39 @@ public class GroupInfoData implements an, Serializable {
         this.authorName = str;
     }
 
+    public String getForumName() {
+        return this.forumName;
+    }
+
+    public void setForumName(String str) {
+        this.forumName = str;
+    }
+
+    public String getForumShowName() {
+        return this.forumShowName;
+    }
+
+    public void setForumShowName(String str) {
+        this.forumShowName = str;
+    }
+
     public String toString() {
         return "GroupInfoData [isManager=" + this.isGroupManager + ", groupId=" + this.groupId + ", forumId=" + this.forumId + ", name=" + this.name + ", intro=" + this.intro + ", portrait=" + this.portrait + ", maxMemberNum=" + this.maxMemberNum + ", memberNum=" + this.memberNum + ", authorId=" + this.authorId + ", authorName=" + this.authorName + "]";
     }
 
-    @Override // com.baidu.tieba.util.an
+    @Override // com.baidu.tieba.util.ak
     public LinkedList<String> getImageUrl() {
         LinkedList<String> linkedList = new LinkedList<>();
         linkedList.add(this.portrait);
         return linkedList;
     }
 
-    @Override // com.baidu.tieba.util.an
+    @Override // com.baidu.tieba.util.ak
     public LinkedList<String> getPhotoUrl() {
         return null;
     }
 
-    @Override // com.baidu.tieba.util.an
+    @Override // com.baidu.tieba.util.ak
     public LinkedList<String> getForumPhotoUrl() {
         return null;
     }

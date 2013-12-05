@@ -5,15 +5,15 @@ import javassist.bytecode.y;
 public class LongMemberValue extends d {
 
     /* renamed from: a  reason: collision with root package name */
-    int f2769a;
+    int f2950a;
 
     public LongMemberValue(int i, y yVar) {
         super('J', yVar);
-        this.f2769a = i;
+        this.f2950a = i;
     }
 
     public long a() {
-        return this.c.t(this.f2769a);
+        return this.c.t(this.f2950a);
     }
 
     public String toString() {

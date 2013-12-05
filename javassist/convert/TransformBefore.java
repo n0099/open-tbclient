@@ -10,7 +10,7 @@ import javassist.h;
 public class TransformBefore extends TransformCall {
 
     /* renamed from: a  reason: collision with root package name */
-    protected h[] f2831a;
+    protected h[] f3012a;
     protected int b;
     protected int c;
     protected byte[] d;
@@ -28,11 +28,11 @@ public class TransformBefore extends TransformCall {
     @Override // javassist.convert.TransformCall
     protected int a(int i, int i2, CodeIterator codeIterator, int i3, y yVar) {
         if (this.m == 0) {
-            this.m = yVar.c(yVar.a(this.j), yVar.a(this.k, z.b(this.g, z.b(this.f2831a) + 'V')));
+            this.m = yVar.c(yVar.a(this.j), yVar.a(this.k, z.b(this.g, z.b(this.f3012a) + 'V')));
             this.n = yVar;
         }
         if (this.d == null) {
-            a(this.f2831a, yVar);
+            a(this.f3012a, yVar);
         }
         return a(i2, codeIterator);
     }

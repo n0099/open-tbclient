@@ -11,7 +11,7 @@ public class ae {
     private String o;
 
     /* renamed from: a  reason: collision with root package name */
-    private long f1836a = 0;
+    private long f1948a = 0;
     private long b = 0;
     private long c = 0;
     private long d = 0;
@@ -23,7 +23,7 @@ public class ae {
 
     public void a() {
         this.l.clear();
-        this.f1836a = 0L;
+        this.f1948a = 0L;
         this.b = 0L;
         this.c = 0L;
         this.d = 0L;
@@ -40,11 +40,11 @@ public class ae {
     }
 
     public long b() {
-        return this.f1836a;
+        return this.f1948a;
     }
 
     public void a(long j) {
-        this.f1836a = j;
+        this.f1948a = j;
     }
 
     public long c() {

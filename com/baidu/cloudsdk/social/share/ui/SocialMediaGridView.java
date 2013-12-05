@@ -23,7 +23,7 @@ import java.util.List;
 public class SocialMediaGridView extends LinearLayout implements bq {
 
     /* renamed from: a  reason: collision with root package name */
-    private GridViewParams f877a;
+    private GridViewParams f882a;
     private boolean b;
     private ViewPager c;
     private View.OnClickListener d;
@@ -103,7 +103,7 @@ public class SocialMediaGridView extends LinearLayout implements bq {
             TextView textView = new TextView(context);
             textView.setText(SocialMediaGridView.this.e.getString(mediaType.toString()));
             textView.setTextSize(0, DrawableUtils.fix720px(context, 26));
-            textView.setTextColor(SocialMediaGridView.this.f877a.mItemTextColor);
+            textView.setTextColor(SocialMediaGridView.this.f882a.mItemTextColor);
             textView.setSingleLine();
             textView.setGravity(1);
             int fix720px3 = DrawableUtils.fix720px(context, 3);
@@ -163,7 +163,7 @@ public class SocialMediaGridView extends LinearLayout implements bq {
 
     public SocialMediaGridView(Context context, GridViewParams gridViewParams, boolean z, View.OnClickListener onClickListener) {
         super(context);
-        this.f877a = gridViewParams;
+        this.f882a = gridViewParams;
         this.b = z;
         this.d = onClickListener;
         this.e = SocialShareConfig.getInstance(context);
@@ -179,7 +179,7 @@ public class SocialMediaGridView extends LinearLayout implements bq {
 
     private Drawable a() {
         if (this.h == null) {
-            this.h = DrawableUtils.getDrawable(getContext(), this.e.getAssetFileName(this.f877a.mNonCurrentPageIcon));
+            this.h = DrawableUtils.getDrawable(getContext(), this.e.getAssetFileName(this.f882a.mNonCurrentPageIcon));
         }
         return this.h;
     }
@@ -198,7 +198,7 @@ public class SocialMediaGridView extends LinearLayout implements bq {
         if (this.f.size() % this.j > 0) {
             size++;
         }
-        int i3 = ((i2 - this.f877a.mFixedHeight) - fix720px2) - this.f877a.mPageIndicatorLayoutHeight;
+        int i3 = ((i2 - this.f882a.mFixedHeight) - fix720px2) - this.f882a.mPageIndicatorLayoutHeight;
         int fix720px3 = DrawableUtils.fix720px(context, 8) + this.m;
         this.k = i3 / fix720px3;
         if (this.k > 3) {
@@ -215,7 +215,7 @@ public class SocialMediaGridView extends LinearLayout implements bq {
 
     private Drawable b() {
         if (this.g == null) {
-            this.g = DrawableUtils.getDrawable(getContext(), this.e.getAssetFileName(this.f877a.mCurrentPageIcon));
+            this.g = DrawableUtils.getDrawable(getContext(), this.e.getAssetFileName(this.f882a.mCurrentPageIcon));
         }
         return this.g;
     }
@@ -230,7 +230,7 @@ public class SocialMediaGridView extends LinearLayout implements bq {
 
     private void c(Context context) {
         RelativeLayout relativeLayout = new RelativeLayout(context);
-        relativeLayout.setLayoutParams(new LinearLayout.LayoutParams(-1, this.f877a.mPageIndicatorLayoutHeight));
+        relativeLayout.setLayoutParams(new LinearLayout.LayoutParams(-1, this.f882a.mPageIndicatorLayoutHeight));
         addView(relativeLayout);
         if (this.l <= 1) {
             return;

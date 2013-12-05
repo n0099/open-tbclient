@@ -8,11 +8,11 @@ import com.baidu.tieba.flist.ForumListActivity;
 public class r implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ q f2416a;
+    final /* synthetic */ q f2533a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(q qVar) {
-        this.f2416a = qVar;
+        this.f2533a = qVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -22,12 +22,12 @@ public class r implements View.OnClickListener {
         String str2;
         Object tag = view.getTag();
         if ((tag instanceof s) && (zVar = ((s) tag).b) != null) {
-            Activity b = this.f2416a.b();
+            Activity b = this.f2533a.b();
             String str3 = zVar.b;
             String str4 = zVar.c;
-            String str5 = zVar.f2424a;
-            str = this.f2416a.d;
-            str2 = this.f2416a.e;
+            String str5 = zVar.f2541a;
+            str = this.f2533a.d;
+            str2 = this.f2533a.e;
             ForumListActivity.a(b, str3, str4, str5, str, str2);
         }
     }

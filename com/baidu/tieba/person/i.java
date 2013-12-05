@@ -14,14 +14,14 @@ import com.slidingmenu.lib.R;
 public class i extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f2237a;
+    private Context f2355a;
     private com.baidu.tieba.model.e b;
     private boolean c = false;
     private View.OnClickListener d = null;
     private boolean e = false;
 
     public i(Context context, com.baidu.tieba.model.e eVar) {
-        this.f2237a = context;
+        this.f2355a = context;
         this.b = eVar;
     }
 
@@ -79,10 +79,10 @@ public class i extends BaseAdapter {
         ForumData forumData;
         try {
             if (view == null) {
-                view3 = LayoutInflater.from(this.f2237a).inflate(R.layout.edit_bar_item, (ViewGroup) null);
+                view3 = LayoutInflater.from(this.f2355a).inflate(R.layout.edit_bar_item, (ViewGroup) null);
                 try {
                     kVar = new k(this);
-                    kVar.f2238a = (TextView) view3.findViewById(R.id.name);
+                    kVar.f2356a = (TextView) view3.findViewById(R.id.name);
                     kVar.b = new StringBuffer(10);
                     kVar.c = (TextView) view3.findViewById(R.id.degree);
                     kVar.d = new StringBuffer(10);
@@ -91,7 +91,7 @@ public class i extends BaseAdapter {
                 } catch (Exception e) {
                     view2 = view3;
                     exc = e;
-                    com.baidu.tieba.util.bg.b(getClass().getName(), "getView", exc.getMessage());
+                    com.baidu.tieba.util.bd.b(getClass().getName(), "getView", exc.getMessage());
                     return view2;
                 }
             } else {
@@ -101,19 +101,19 @@ public class i extends BaseAdapter {
             if (this.e) {
                 kVar.c.setVisibility(8);
                 kVar.e.setVisibility(8);
-                kVar.f2238a.setVisibility(8);
+                kVar.f2356a.setVisibility(8);
             } else {
                 kVar.c.setVisibility(0);
                 kVar.e.setVisibility(0);
-                kVar.f2238a.setVisibility(0);
+                kVar.f2356a.setVisibility(0);
             }
             if (this.b != null && this.b.a() != null && i >= 0 && i < this.b.a().size() && (forumData = this.b.a().get(i)) != null) {
                 kVar.b.delete(0, kVar.b.length());
                 kVar.b.append(forumData.getName());
-                kVar.b.append(this.f2237a.getString(R.string.bar));
-                kVar.f2238a.setText(kVar.b);
+                kVar.b.append(this.f2355a.getString(R.string.bar));
+                kVar.f2356a.setText(kVar.b);
                 kVar.d.delete(0, kVar.d.length());
-                kVar.d.append(this.f2237a.getString(R.string.degree));
+                kVar.d.append(this.f2355a.getString(R.string.degree));
                 kVar.d.append(forumData.getUser_level());
                 kVar.c.setText(kVar.d);
                 kVar.c.setVisibility(0);
@@ -125,12 +125,12 @@ public class i extends BaseAdapter {
                     kVar.e.setVisibility(8);
                 }
             }
-            if (TiebaApplication.g().ap() == 1) {
-                int a2 = com.baidu.tieba.util.bd.a(1);
-                kVar.f2238a.setTextColor(a2);
+            if (TiebaApplication.h().an() == 1) {
+                int a2 = com.baidu.tieba.util.ba.a(1);
+                kVar.f2356a.setTextColor(a2);
                 kVar.c.setTextColor(a2);
             } else {
-                kVar.f2238a.setTextColor(-12895429);
+                kVar.f2356a.setTextColor(-12895429);
                 kVar.c.setTextColor(-12895429);
             }
             return view3;

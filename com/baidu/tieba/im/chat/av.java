@@ -1,34 +1,23 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tieba.im.model.LocalPicModel;
-import com.baidu.tieba.im.model.MsglistModel;
-import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.view.HeadImageView;
 /* loaded from: classes.dex */
-public class av extends com.baidu.adp.a.g {
+class av implements com.baidu.tbadk.imageManager.c {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MsglistActivity f1506a;
+    final /* synthetic */ MsgleftView f1553a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public av(MsglistActivity msglistActivity) {
-        this.f1506a = msglistActivity;
+    public av(MsgleftView msgleftView) {
+        this.f1553a = msgleftView;
     }
 
-    @Override // com.baidu.adp.a.g
-    public void a(Object obj) {
-        MsglistModel msglistModel;
-        MsglistModel msglistModel2;
-        if (obj != null && (obj instanceof LocalPicModel.ResponseData)) {
-            LocalPicModel.ResponseData responseData = (LocalPicModel.ResponseData) obj;
-            msglistModel = this.f1506a.g;
-            if (msglistModel != null) {
-                msglistModel2 = this.f1506a.g;
-                msglistModel2.a(responseData.getSPathGen(), responseData.getBitmap());
-                return;
-            }
-            return;
+    @Override // com.baidu.tbadk.imageManager.c
+    public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
+        HeadImageView headImageView;
+        if (eVar != null) {
+            headImageView = this.f1553a.o;
+            eVar.a(headImageView);
         }
-        this.f1506a.showToast(R.string.pic_parser_error);
     }
 }

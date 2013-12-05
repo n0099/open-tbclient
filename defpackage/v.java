@@ -8,27 +8,27 @@ import com.baidu.cloudsdk.social.share.ui.ShareDialog;
 public class v implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ShareDialog f2973a;
+    final /* synthetic */ ShareDialog f3154a;
 
     public v(ShareDialog shareDialog) {
-        this.f2973a = shareDialog;
+        this.f3154a = shareDialog;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         String str;
         String str2;
-        str = this.f2973a.e;
+        str = this.f3154a.e;
         if (TextUtils.isEmpty(str)) {
-            this.f2973a.a("share_content_empty");
+            this.f3154a.a("share_content_empty");
             return;
         }
-        int i = this.f2973a.mMaxLength;
-        str2 = this.f2973a.e;
+        int i = this.f3154a.mMaxLength;
+        str2 = this.f3154a.e;
         if (i - str2.length() >= 0) {
-            this.f2973a.doShare();
+            this.f3154a.doShare();
         } else {
-            this.f2973a.a("share_content_exceed");
+            this.f3154a.a("share_content_exceed");
         }
     }
 }

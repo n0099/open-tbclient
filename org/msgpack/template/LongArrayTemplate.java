@@ -5,7 +5,7 @@ import org.msgpack.MessageTypeException;
 public class LongArrayTemplate extends AbstractTemplate<long[]> {
 
     /* renamed from: a  reason: collision with root package name */
-    static final LongArrayTemplate f2904a = new LongArrayTemplate();
+    static final LongArrayTemplate f3085a = new LongArrayTemplate();
 
     private LongArrayTemplate() {
     }
@@ -28,6 +28,6 @@ public class LongArrayTemplate extends AbstractTemplate<long[]> {
     }
 
     public static LongArrayTemplate a() {
-        return f2904a;
+        return f3085a;
     }
 }

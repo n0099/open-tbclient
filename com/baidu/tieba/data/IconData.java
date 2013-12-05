@@ -1,7 +1,6 @@
 package com.baidu.tieba.data;
 
 import com.baidu.cloudsdk.social.core.SocialConstants;
-import com.baidu.tieba.util.bg;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -33,7 +32,7 @@ public class IconData implements Serializable {
                 this.icon = jSONObject.optString("icon");
                 this.name = jSONObject.optString(SocialConstants.PARAM_MEDIA_UNAME);
             } catch (Exception e) {
-                bg.b(getClass().getName(), "parserJson", "error=" + e.toString());
+                com.baidu.tieba.util.bd.b(getClass().getName(), "parserJson", "error=" + e.toString());
             }
         }
     }

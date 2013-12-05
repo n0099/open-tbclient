@@ -4,17 +4,16 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.view.KeyEvent;
 import android.widget.EditText;
-import com.baidu.tieba.util.UtilHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class di implements DialogInterface.OnKeyListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ cr f2124a;
+    final /* synthetic */ cr f2231a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public di(cr crVar) {
-        this.f2124a = crVar;
+        this.f2231a = crVar;
     }
 
     @Override // android.content.DialogInterface.OnKeyListener
@@ -23,10 +22,10 @@ public class di implements DialogInterface.OnKeyListener {
         EditText editText;
         Dialog dialog;
         if (i == 4) {
-            newPbActivity = this.f2124a.g;
-            editText = this.f2124a.s;
-            UtilHelper.a(newPbActivity, editText);
-            dialog = this.f2124a.o;
+            newPbActivity = this.f2231a.g;
+            editText = this.f2231a.s;
+            com.baidu.adp.lib.h.g.a(newPbActivity, editText);
+            dialog = this.f2231a.o;
             dialog.dismiss();
             return true;
         }

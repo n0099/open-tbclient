@@ -1,23 +1,20 @@
 package com.baidu.tieba.im.pushNotify;
 
-import com.baidu.tieba.im.db.aa;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.tieba.im.db.ad;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class d implements com.baidu.tieba.im.a<Boolean> {
+public final class d implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ImMessageCenterPojo f1763a;
+    final /* synthetic */ String f1860a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d(ImMessageCenterPojo imMessageCenterPojo) {
-        this.f1763a = imMessageCenterPojo;
+    public d(String str) {
+        this.f1860a = str;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    public void a(Boolean bool) {
-        aa.a().a(this.f1763a);
-        com.baidu.tieba.im.c.a.a().h();
+    @Override // java.lang.Runnable
+    public void run() {
+        ad.a().a(new e(this));
     }
 }

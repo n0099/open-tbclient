@@ -1,20 +1,51 @@
 package com.baidu.tieba.util;
 
 import android.os.Handler;
-import android.os.Message;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
 /* loaded from: classes.dex */
-public final class as extends Handler {
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        super.handleMessage(message);
-        try {
-            NetWorkCore netWorkCore = (NetWorkCore) message.obj;
-            if (netWorkCore != null) {
-                netWorkCore.r();
-            }
-        } catch (Exception e) {
-            bg.b(getClass().getName(), "initNetWorkCore", e.getMessage());
+class as implements com.baidu.adp.lib.network.c {
+
+    /* renamed from: a  reason: collision with root package name */
+    int f2587a = 0;
+    int b = 0;
+    int c = 0;
+    final /* synthetic */ Handler d;
+    final /* synthetic */ int e;
+    final /* synthetic */ NetWorkCoreByBdHttp f;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public as(NetWorkCoreByBdHttp netWorkCoreByBdHttp, Handler handler, int i) {
+        this.f = netWorkCoreByBdHttp;
+        this.d = handler;
+        this.e = i;
+    }
+
+    @Override // com.baidu.adp.lib.network.c
+    public void a(int i, HttpURLConnection httpURLConnection, OutputStream outputStream) {
+        if (httpURLConnection != null && i > 0) {
+            this.f2587a = i / 50;
         }
+    }
+
+    @Override // com.baidu.adp.lib.network.c
+    public void a(int i, int i2, HttpURLConnection httpURLConnection) {
+        this.b += i - this.c;
+        this.c = i;
+        if (this.d != null) {
+            if (this.b > this.f2587a || i == i2) {
+                this.b = 0;
+                this.d.sendMessage(this.d.obtainMessage(this.e, i, i2));
+            }
+        }
+    }
+
+    @Override // com.baidu.adp.lib.network.c
+    public void a(com.baidu.adp.lib.network.e eVar) {
+        bd.a("NetWork", "downloadFile", "data.zise = " + String.valueOf(eVar.b));
+    }
+
+    @Override // com.baidu.adp.lib.network.c
+    public void a() {
     }
 }

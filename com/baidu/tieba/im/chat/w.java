@@ -1,23 +1,23 @@
 package com.baidu.tieba.im.chat;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.im.SingleRunnable;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class w implements DialogInterface.OnClickListener {
+public class w extends SingleRunnable<Boolean> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ v f1556a;
+    final /* synthetic */ u f1609a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public w(v vVar) {
-        this.f1556a = vVar;
+    public w(u uVar) {
+        this.f1609a = uVar;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        AlertDialog alertDialog;
-        alertDialog = this.f1556a.e;
-        alertDialog.dismiss();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.SingleRunnable
+    /* renamed from: a */
+    public Boolean b() {
+        return Boolean.valueOf(com.baidu.tieba.im.groupInfo.u.b(TiebaApplication.B(), this.f1609a.c()));
     }
 }

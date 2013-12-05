@@ -3,7 +3,7 @@ package com.baidu.adp.lib.network;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f514a = 0;
+    public int f516a = 0;
     public int b = 0;
     public long c = 0;
     public long d = 0;

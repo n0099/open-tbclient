@@ -15,16 +15,16 @@ import android.widget.TextView;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tieba.MainTabActivity;
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.UpdateDialog;
 import com.baidu.tieba.data.AccountData;
 import com.baidu.tieba.util.DatabaseService;
-import com.baidu.tieba.util.bd;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 import com.tencent.mm.sdk.platformtools.Util;
 /* loaded from: classes.dex */
 public class ReLoginShareActivity extends com.baidu.tieba.j {
     private NavigationBar l;
-    private aq b = null;
+    private ar b = null;
     private Button c = null;
     private Button d = null;
     private TextView e = null;
@@ -33,11 +33,11 @@ public class ReLoginShareActivity extends com.baidu.tieba.j {
     private String h = null;
     private String i = null;
     private AccountData j = null;
-    private m k = null;
+    private n k = null;
 
     /* renamed from: a  reason: collision with root package name */
-    LinearLayout f1024a = null;
-    private View.OnClickListener m = new ap(this);
+    LinearLayout f1034a = null;
+    private View.OnClickListener m = new aq(this);
 
     public static void a(Activity activity, String str, String str2, String str3, int i) {
         Intent intent = new Intent(activity, ReLoginShareActivity.class);
@@ -90,7 +90,7 @@ public class ReLoginShareActivity extends com.baidu.tieba.j {
         this.d.setOnClickListener(this.m);
         this.f = (ProgressBar) findViewById(R.id.relogin_progressbar);
         this.e = (TextView) findViewById(R.id.relogin_textview);
-        this.f1024a = (LinearLayout) findViewById(R.id.container);
+        this.f1034a = (LinearLayout) findViewById(R.id.container);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -99,9 +99,9 @@ public class ReLoginShareActivity extends com.baidu.tieba.j {
         super.onChangeSkinType(i);
         a(0, this.g);
         this.l.c(i);
-        bd.a((TextView) this.d, i);
-        bd.a(this.f1024a, i);
-        bd.b(this.e, i);
+        com.baidu.tieba.util.ba.a((TextView) this.d, i);
+        com.baidu.tieba.util.ba.a(this.f1034a, i);
+        com.baidu.tieba.util.ba.b(this.e, i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -151,8 +151,8 @@ public class ReLoginShareActivity extends com.baidu.tieba.j {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
-        String A = TiebaApplication.A();
-        if (A == null || A.length() <= 0) {
+        String B = TiebaApplication.B();
+        if (B == null || B.length() <= 0) {
             MainTabActivity.a(this, 0);
             return;
         }
@@ -173,7 +173,7 @@ public class ReLoginShareActivity extends com.baidu.tieba.j {
     /* JADX INFO: Access modifiers changed from: private */
     public void d() {
         if (this.b == null && this.h != null && this.i != null) {
-            this.b = new aq(this, null);
+            this.b = new ar(this, null);
             this.b.setPriority(3);
             this.b.execute(new String[0]);
         }
@@ -186,5 +186,8 @@ public class ReLoginShareActivity extends com.baidu.tieba.j {
         TiebaApplication.a(this.j, getBaseContext());
         MainTabActivity.b(this, intExtra);
         a.a().d();
+        if (TiebaApplication.h().as() && TiebaApplication.h().au() != null) {
+            UpdateDialog.a(TiebaApplication.h(), TiebaApplication.h().au(), TiebaApplication.h().at());
+        }
     }
 }

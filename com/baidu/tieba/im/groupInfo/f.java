@@ -8,21 +8,21 @@ import java.util.HashMap;
 public class f implements bq {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ GroupImageActivity f1679a;
+    final /* synthetic */ GroupImageActivity f1746a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(GroupImageActivity groupImageActivity) {
-        this.f1679a = groupImageActivity;
+        this.f1746a = groupImageActivity;
     }
 
     @Override // android.support.v4.view.bq
     public void onPageSelected(int i) {
         int i2;
-        GroupImageActivity groupImageActivity = this.f1679a;
-        i2 = this.f1679a.c;
+        GroupImageActivity groupImageActivity = this.f1746a;
+        i2 = this.f1746a.c;
         groupImageActivity.a(i2, i);
-        this.f1679a.c = i;
-        this.f1679a.b();
+        this.f1746a.c = i;
+        this.f1746a.b();
     }
 
     @Override // android.support.v4.view.bq
@@ -40,16 +40,16 @@ public class f implements bq {
         int i3;
         if (i == 1) {
             long nanoTime = System.nanoTime();
-            j = this.f1679a.s;
+            j = this.f1746a.s;
             if (nanoTime - j > 300000000) {
-                arrayList = this.f1679a.b;
+                arrayList = this.f1746a.b;
                 if (arrayList != null) {
-                    i2 = this.f1679a.c;
-                    arrayList2 = this.f1679a.b;
+                    i2 = this.f1746a.c;
+                    arrayList2 = this.f1746a.b;
                     if (i2 < arrayList2.size()) {
-                        hashMap = this.f1679a.t;
-                        arrayList3 = this.f1679a.b;
-                        i3 = this.f1679a.c;
+                        hashMap = this.f1746a.t;
+                        arrayList3 = this.f1746a.b;
+                        i3 = this.f1746a.c;
                         hashMap.put(arrayList3.get(i3), true);
                     }
                 }

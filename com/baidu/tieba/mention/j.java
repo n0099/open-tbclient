@@ -9,8 +9,8 @@ import android.view.ViewGroup;
 import android.widget.ListAdapter;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.al;
-import com.baidu.tieba.am;
+import com.baidu.tieba.ap;
+import com.baidu.tieba.aq;
 import com.baidu.tieba.model.bj;
 import com.baidu.tieba.pb.NewPbActivity;
 import java.util.ArrayList;
@@ -29,12 +29,12 @@ public class j {
     private int h = 1;
     private r k = null;
     private s l = null;
-    private am m = null;
+    private aq m = null;
     private String o = null;
-    private com.baidu.tieba.view.q p = null;
+    private com.baidu.tieba.view.r p = null;
 
     /* renamed from: a  reason: collision with root package name */
-    AlertDialog f1844a = null;
+    AlertDialog f1956a = null;
     private q q = null;
     private Handler r = new Handler();
     private Runnable s = new k(this);
@@ -73,8 +73,8 @@ public class j {
         this.o = str;
     }
 
-    public void a(am amVar) {
-        this.m = amVar;
+    public void a(aq aqVar) {
+        this.m = aqVar;
     }
 
     public void a() {
@@ -92,17 +92,17 @@ public class j {
         if (uVar != null) {
             if (uVar.j()) {
                 if (this.i == 2) {
-                    al.a(this.c, "new_at_me_visit_post");
+                    ap.a(this.c, "new_at_me_visit_post");
                 } else if (this.i == 1) {
-                    al.a(this.c, "new_my_reply_visit_post");
+                    ap.a(this.c, "new_my_reply_visit_post");
                 }
                 b(uVar);
                 return;
             }
             if (this.i == 2) {
-                al.a(this.c, "new_at_me_visit_pb");
+                ap.a(this.c, "new_at_me_visit_pb");
             } else if (this.i == 1) {
-                al.a(this.c, "new_my_reply_visit_pb");
+                ap.a(this.c, "new_my_reply_visit_pb");
             }
             NewPbActivity.a(this.c, uVar.g(), uVar.h(), "mention");
         }
@@ -113,7 +113,7 @@ public class j {
         this.h = 1;
         this.f = new f(this.c, null);
         this.f.a(this.i);
-        this.f.b(TiebaApplication.g().al());
+        this.f.b(TiebaApplication.h().aj());
         this.e.setAdapter((ListAdapter) this.f);
         this.e.setOnItemClickListener(new m(this));
         this.e.setOnScrollListener(new n(this));
@@ -150,10 +150,10 @@ public class j {
             this.h = 1;
         }
         StringBuffer stringBuffer = new StringBuffer(30);
-        stringBuffer.append(com.baidu.tieba.data.h.f1201a);
+        stringBuffer.append(com.baidu.tieba.data.h.f1248a);
         stringBuffer.append(this.o);
         ArrayList arrayList = new ArrayList();
-        arrayList.add(new BasicNameValuePair("uid", TiebaApplication.A()));
+        arrayList.add(new BasicNameValuePair("uid", TiebaApplication.B()));
         arrayList.add(new BasicNameValuePair("pn", String.valueOf(this.h)));
         if (this.n == 4 && this.g != null && (b = this.g.b()) != null && b.size() > 0) {
             com.baidu.tieba.data.u uVar = b.get(b.size() - 1);
@@ -204,9 +204,9 @@ public class j {
                     }
                     if (this.b.n()) {
                         if (this.b instanceof AtMeFragment) {
-                            ((AtMeFragment) this.b).c(TiebaApplication.g().ap());
+                            ((AtMeFragment) this.b).c(TiebaApplication.h().an());
                         } else if (this.b instanceof ReplyMeFragment) {
-                            ((ReplyMeFragment) this.b).c(TiebaApplication.g().ap());
+                            ((ReplyMeFragment) this.b).c(TiebaApplication.h().an());
                         }
                     }
                 }
@@ -228,8 +228,8 @@ public class j {
     }
 
     public void e() {
-        if (this.f != null && this.f.d() != TiebaApplication.g().al()) {
-            this.f.b(TiebaApplication.g().al());
+        if (this.f != null && this.f.d() != TiebaApplication.h().aj()) {
+            this.f.b(TiebaApplication.h().aj());
             this.f.notifyDataSetChanged();
         }
     }
@@ -260,7 +260,7 @@ public class j {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, String str2, String str3, int i) {
         StringBuffer stringBuffer = new StringBuffer(30);
-        stringBuffer.append(com.baidu.tieba.data.h.f1201a);
+        stringBuffer.append(com.baidu.tieba.data.h.f1248a);
         ArrayList arrayList = new ArrayList();
         if (i == 1) {
             stringBuffer.append("c/f/pb/page");

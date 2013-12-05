@@ -1,92 +1,58 @@
 package com.baidu.tieba.im.chat;
 
-import android.widget.Button;
-import android.widget.ProgressBar;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.util.UtilHelper;
-import com.slidingmenu.lib.R;
-import com.tencent.mm.sdk.platformtools.Util;
+import java.util.ArrayList;
+import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ai extends BdAsyncTask<String, Integer, String> {
+public class ai implements android.support.v4.view.bq {
 
     /* renamed from: a  reason: collision with root package name */
-    String f1495a;
-    byte[] b;
-    final /* synthetic */ MsgImageActivity c;
+    final /* synthetic */ MsgImageActivity f1542a;
 
-    public ai(MsgImageActivity msgImageActivity, String str, byte[] bArr) {
-        this.c = msgImageActivity;
-        this.f1495a = null;
-        this.b = null;
-        this.f1495a = str;
-        this.b = bArr;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ai(MsgImageActivity msgImageActivity) {
+        this.f1542a = msgImageActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public String a(String... strArr) {
-        String str;
-        try {
-            if (this.f1495a != null && this.f1495a.length() > 0 && this.b != null) {
-                if (!UtilHelper.a(this.b)) {
-                    str = Util.PHOTO_DEFAULT_EXT;
-                } else {
-                    str = ".gif";
+    @Override // android.support.v4.view.bq
+    public void onPageSelected(int i) {
+        int i2;
+        MsgImageActivity msgImageActivity = this.f1542a;
+        i2 = this.f1542a.c;
+        msgImageActivity.a(i2, i);
+        this.f1542a.c = i;
+        this.f1542a.b();
+    }
+
+    @Override // android.support.v4.view.bq
+    public void onPageScrolled(int i, float f, int i2) {
+    }
+
+    @Override // android.support.v4.view.bq
+    public void onPageScrollStateChanged(int i) {
+        long j;
+        ArrayList arrayList;
+        int i2;
+        ArrayList arrayList2;
+        HashMap hashMap;
+        ArrayList arrayList3;
+        int i3;
+        if (i == 1) {
+            long nanoTime = System.nanoTime();
+            j = this.f1542a.t;
+            if (nanoTime - j > 300000000) {
+                arrayList = this.f1542a.b;
+                if (arrayList != null) {
+                    i2 = this.f1542a.c;
+                    arrayList2 = this.f1542a.b;
+                    if (i2 < arrayList2.size()) {
+                        hashMap = this.f1542a.u;
+                        arrayList3 = this.f1542a.b;
+                        i3 = this.f1542a.c;
+                        hashMap.put(arrayList3.get(i3), true);
+                    }
                 }
-                String f = com.baidu.tieba.util.be.f(this.f1495a);
-                if (f == null) {
-                    return this.c.getString(R.string.save_error);
-                }
-                String str2 = f + str;
-                for (int i = 0; com.baidu.tieba.util.af.b(str2) && i < 10000; i++) {
-                    str2 = f + String.valueOf(Math.round(Math.random() * 9.9999999E7d)) + str;
-                }
-                String a2 = com.baidu.tieba.util.af.a(str2, this.b);
-                if (a2 != null) {
-                    new com.baidu.tieba.util.ao(this.c).a(a2);
-                    return this.c.getString(R.string.save_image_to_album);
-                }
-                return com.baidu.tieba.util.af.b();
             }
-            return this.c.getString(R.string.save_error);
-        } catch (Exception e) {
-            com.baidu.tieba.util.bg.b("SaveImageAsyncTask", "doInBackground", "error" + e.getMessage());
-            return this.c.getString(R.string.save_error);
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(String str) {
-        Button button;
-        ProgressBar progressBar;
-        super.a((ai) str);
-        this.c.d = null;
-        button = this.c.e;
-        button.setVisibility(0);
-        progressBar = this.c.f1483a;
-        progressBar.setVisibility(8);
-        this.c.showToast(str);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void c() {
-        super.c();
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        Button button;
-        ProgressBar progressBar;
-        this.c.d = null;
-        button = this.c.e;
-        button.setVisibility(0);
-        progressBar = this.c.f1483a;
-        progressBar.setVisibility(8);
-        super.cancel(true);
     }
 }

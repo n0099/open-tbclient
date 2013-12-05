@@ -9,9 +9,7 @@ import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
-import android.content.res.Resources;
 import android.database.sqlite.SQLiteDatabase;
-import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -19,11 +17,7 @@ import android.net.Uri;
 import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.telephony.TelephonyManager;
-import android.text.TextPaint;
 import android.text.TextUtils;
-import android.util.TypedValue;
-import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 import android.webkit.WebSettings;
 import android.widget.RemoteViews;
 import com.baidu.android.pushservice.PushManager;
@@ -54,7 +48,6 @@ import com.tencent.mm.sdk.platformtools.LocaleUtil;
 import com.tencent.mm.sdk.platformtools.Util;
 import java.io.File;
 import java.io.RandomAccessFile;
-import java.lang.reflect.Field;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.net.SocketException;
@@ -62,14 +55,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Enumeration;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class UtilHelper {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static boolean f2453a = false;
-    private static float b;
-    private static int c;
-    private static int d;
 
     /* loaded from: classes.dex */
     public enum NetworkStateInfo {
@@ -79,109 +68,28 @@ public class UtilHelper {
         ThreeG
     }
 
-    private static void k(Context context) {
-        b = context.getResources().getDisplayMetrics().density;
-        c = context.getResources().getDisplayMetrics().widthPixels;
-        d = context.getResources().getDisplayMetrics().heightPixels;
-        f2453a = true;
-    }
-
-    public static int a(Context context, float f) {
-        if (!f2453a) {
-            k(context);
-        }
-        return (int) ((b * f) + 0.5f);
-    }
-
-    public static int a(Context context) {
-        if (!f2453a) {
-            k(context);
-        }
-        return c;
-    }
-
-    public static int b(Context context) {
-        if (!f2453a) {
-            k(context);
-        }
-        return d;
-    }
-
     public static void a(Context context, String str) {
-        s.a(context, str);
-    }
-
-    public static void a(Context context, int i) {
-        s.a(context, i);
-    }
-
-    public static void a(Activity activity) {
-        new AlertDialog.Builder(activity).setTitle(R.string.alerm_title).setIcon((Drawable) null).setCancelable(false).setMessage(R.string.alert_quit_confirm).setPositiveButton(R.string.alert_yes_button, new bk(activity)).setNegativeButton(R.string.alert_no_button, new bj()).create().show();
-    }
-
-    public static void a(Context context, View view) {
-        if (view != null) {
-            try {
-                if (view.getWindowToken() != null) {
-                    ((InputMethodManager) context.getSystemService("input_method")).hideSoftInputFromWindow(view.getWindowToken(), 2);
-                }
-            } catch (Throwable th) {
-                bg.b("UtilHelper", "hideSoftKeyPad", "error = " + th.getMessage());
-            }
-        }
-    }
-
-    public static void b(Context context, View view) {
-        try {
-            ((InputMethodManager) context.getSystemService("input_method")).showSoftInput(view, 0);
-        } catch (Throwable th) {
-            bg.b("UtilHelper", "showSoftKeyPad", "error = " + th.getMessage());
-        }
-    }
-
-    public static void b(Context context, String str) {
-        File d2;
-        if (str != null && str.length() > 0 && (d2 = af.d(str)) != null) {
+        File d;
+        if (str != null && str.length() > 0 && (d = x.d(str)) != null) {
             Intent intent = new Intent();
             intent.addFlags(268435456);
             intent.setAction("android.intent.action.VIEW");
-            intent.setDataAndType(Uri.fromFile(d2), "application/vnd.android.package-archive");
+            intent.setDataAndType(Uri.fromFile(d), "application/vnd.android.package-archive");
             context.startActivity(intent);
         }
     }
 
-    public static Field a(Object obj, String str) {
-        for (Class<?> cls = obj.getClass(); cls != Object.class; cls = cls.getSuperclass()) {
-            try {
-                Field declaredField = cls.getDeclaredField(str);
-                declaredField.setAccessible(true);
-                return declaredField;
-            } catch (Exception e) {
-            }
-        }
-        return null;
+    public static void a(Activity activity) {
+        new AlertDialog.Builder(activity).setTitle(R.string.alerm_title).setIcon((Drawable) null).setCancelable(false).setMessage(R.string.alert_quit_confirm).setPositiveButton(R.string.alert_yes_button, new bi(activity)).setNegativeButton(R.string.alert_no_button, new bh()).create().show();
     }
 
-    public static int c(Context context) {
+    public static int a(Context context) {
         int bitmapMaxMemory = CompatibleUtile.getInstance().getBitmapMaxMemory(context);
-        bg.e("UtilHelper", "getBitmapMaxMemory", String.valueOf(bitmapMaxMemory));
+        bd.e("UtilHelper", "getBitmapMaxMemory", String.valueOf(bitmapMaxMemory));
         return bitmapMaxMemory;
     }
 
-    public static boolean a(byte[] bArr) {
-        try {
-            if (bArr[0] == 71 && bArr[1] == 73) {
-                if (bArr[2] == 70) {
-                    return true;
-                }
-            }
-            return false;
-        } catch (Exception e) {
-            return false;
-        }
-    }
-
-    public static boolean d(Context context) {
+    public static boolean b(Context context) {
         return Build.VERSION.SDK_INT > 4 && CompatibleUtile.getInstance().supportMultiTouch(context);
     }
 
@@ -198,7 +106,7 @@ public class UtilHelper {
             sb.append("?");
         }
         sb.append("cuid=");
-        sb.append(TiebaApplication.g().o());
+        sb.append(TiebaApplication.h().p());
         sb.append("&timestamp=");
         sb.append(Long.toString(System.currentTimeMillis()));
         return sb.toString();
@@ -208,65 +116,65 @@ public class UtilHelper {
         return str + "&_client_version=" + com.baidu.tieba.data.h.j();
     }
 
-    public static void c(Context context, String str) {
+    public static void b(Context context, String str) {
         try {
-            Token b2 = com.baidu.tieba.account.a.b(TiebaApplication.D());
+            Token b = com.baidu.tieba.account.a.b(TiebaApplication.E());
             int i = Build.VERSION.SDK_INT;
-            int b3 = com.baidu.adp.lib.a.d.a().b(SwitchKey.BAIDU_WEBVIEW);
-            String b4 = b(a(str));
-            if (b3 == 1) {
-                if (b2 != null) {
-                    WebActivity.a(context, b4, b2.mBduss, b2.mPtoken);
+            int b2 = com.baidu.adp.lib.a.d.a().b(SwitchKey.BAIDU_WEBVIEW);
+            String b3 = b(a(str));
+            if (b2 == 1) {
+                if (b != null) {
+                    WebActivity.a(context, b3, b.mBduss, b.mPtoken);
                 } else {
-                    WebActivity.a(context, b4, null, null);
+                    WebActivity.a(context, b3, null, null);
                 }
-            } else if (i >= 7 && b3 == 0) {
-                if (b2 != null) {
-                    WebBdActivity.a(context, b4, b2.mBduss, b2.mPtoken);
+            } else if (i >= 7 && b2 == 0) {
+                if (b != null) {
+                    WebBdActivity.a(context, b3, b.mBduss, b.mPtoken);
                 } else {
-                    WebBdActivity.a(context, b4, null, null);
+                    WebBdActivity.a(context, b3, null, null);
                 }
             } else {
-                e(context, b4);
+                d(context, b3);
             }
         } catch (Exception e) {
-            bg.b("UtilHelper", "startWebActivity", e.getMessage());
+            bd.b("UtilHelper", "startWebActivity", e.getMessage());
+        }
+    }
+
+    public static void c(Context context, String str) {
+        String b = b(a(str));
+        try {
+            int i = Build.VERSION.SDK_INT;
+            Token b2 = com.baidu.tieba.account.a.b(TiebaApplication.E());
+            int b3 = com.baidu.adp.lib.a.d.a().b(SwitchKey.BAIDU_WEBVIEW);
+            if (i > 7 && b3 == 0) {
+                if (b2 != null) {
+                    WebBdActivity.a(context, b, b2.mBduss, b2.mPtoken);
+                } else {
+                    WebBdActivity.a(context, b, null, null);
+                }
+            } else if (b2 != null) {
+                WebActivity.a(context, b, b2.mBduss, b2.mPtoken);
+            } else {
+                WebActivity.a(context, b, null, null);
+            }
+        } catch (Exception e) {
+            bd.b("UtilHelper", "startInternalWebActivity", e.getMessage());
         }
     }
 
     public static void d(Context context, String str) {
-        String b2 = b(a(str));
-        try {
-            int i = Build.VERSION.SDK_INT;
-            Token b3 = com.baidu.tieba.account.a.b(TiebaApplication.D());
-            int b4 = com.baidu.adp.lib.a.d.a().b(SwitchKey.BAIDU_WEBVIEW);
-            if (i > 7 && b4 == 0) {
-                if (b3 != null) {
-                    WebBdActivity.a(context, b2, b3.mBduss, b3.mPtoken);
-                } else {
-                    WebBdActivity.a(context, b2, null, null);
-                }
-            } else if (b3 != null) {
-                WebActivity.a(context, b2, b3.mBduss, b3.mPtoken);
-            } else {
-                WebActivity.a(context, b2, null, null);
-            }
-        } catch (Exception e) {
-            bg.b("UtilHelper", "startInternalWebActivity", e.getMessage());
-        }
-    }
-
-    public static void e(Context context, String str) {
-        String b2 = b(a(str));
+        String b = b(a(str));
         try {
             Intent intent = new Intent("android.intent.action.VIEW");
-            intent.setData(Uri.parse(b2));
+            intent.setData(Uri.parse(b));
             if (!(context instanceof Activity)) {
                 intent.addFlags(268435456);
             }
             context.startActivity(intent);
         } catch (Exception e) {
-            bg.b("UtilHelper", "startExternWebActivity", e.getMessage());
+            bd.b("UtilHelper", "startExternWebActivity", e.getMessage());
         }
     }
 
@@ -274,42 +182,7 @@ public class UtilHelper {
         CompatibleUtile.getInstance().WebViewNoDataBase(webSettings);
     }
 
-    public static float a(Paint paint, String str) {
-        if (paint == null || str == null) {
-            return 0.0f;
-        }
-        return paint.measureText(str);
-    }
-
-    public static String a(TextPaint textPaint, String str, int i) {
-        CharSequence ellipsize = TextUtils.ellipsize(str, textPaint, i, TextUtils.TruncateAt.END);
-        if (ellipsize == null) {
-            return null;
-        }
-        return ellipsize.toString();
-    }
-
-    public static TextPaint a(Context context, TextPaint textPaint, float f) {
-        Resources resources;
-        if (context == null) {
-            resources = Resources.getSystem();
-        } else {
-            resources = context.getResources();
-        }
-        if (resources != null) {
-            textPaint.setTextSize(TypedValue.applyDimension(2, f, resources.getDisplayMetrics()));
-        }
-        return textPaint;
-    }
-
-    public static int b(Context context, float f) {
-        TextPaint textPaint = new TextPaint();
-        a(context, textPaint, f);
-        Paint.FontMetrics fontMetrics = textPaint.getFontMetrics();
-        return (int) Math.ceil(fontMetrics.descent - fontMetrics.ascent);
-    }
-
-    public static void e(Context context) {
+    public static void c(Context context) {
         context.startService(new Intent(context, PerformMonitorService.class));
     }
 
@@ -324,7 +197,7 @@ public class UtilHelper {
                     try {
                     } catch (Exception e) {
                         e = e;
-                        com.baidu.adp.lib.h.d.a(e.getMessage());
+                        com.baidu.adp.lib.h.e.a(e.getMessage());
                         o.a(randomAccessFile);
                         return false;
                     }
@@ -361,7 +234,7 @@ public class UtilHelper {
         return true;
     }
 
-    public static boolean f(Context context, String str) {
+    public static boolean e(Context context, String str) {
         int i = 0;
         List<PackageInfo> installedPackages = context.getPackageManager().getInstalledPackages(0);
         ArrayList arrayList = new ArrayList();
@@ -378,14 +251,14 @@ public class UtilHelper {
         return arrayList.contains(str);
     }
 
-    public static final boolean f(Context context) {
+    public static final boolean d(Context context) {
         SQLiteDatabase openOrCreateDatabase;
         try {
             openOrCreateDatabase = context.openOrCreateDatabase("webviewCache.db", 0, null);
         } catch (Throwable th) {
             try {
-                if (com.baidu.adp.lib.h.d.a()) {
-                    com.baidu.adp.lib.h.d.b(UtilHelper.class.getName(), "webViewIsProbablyCorrupt", th.getMessage());
+                if (com.baidu.adp.lib.h.e.a()) {
+                    com.baidu.adp.lib.h.e.b(UtilHelper.class.getName(), "webViewIsProbablyCorrupt", th.getMessage());
                 }
             } finally {
                 o.a((SQLiteDatabase) null);
@@ -404,9 +277,9 @@ public class UtilHelper {
         if (lowerCase.startsWith("pb:")) {
             NewPbActivity.a(context, lowerCase.substring(3), null, str3);
         } else if (lowerCase.startsWith("opfeature:")) {
-            c(context, a(lowerCase.replaceFirst("opfeature:", ""), str3));
+            b(context, a(lowerCase.replaceFirst("opfeature:", ""), str3));
         } else if (lowerCase.startsWith("web:")) {
-            c(context, a(lowerCase.replaceFirst("web:", ""), str3));
+            b(context, a(lowerCase.replaceFirst("web:", ""), str3));
         } else if (lowerCase.startsWith("frs:")) {
             FrsActivity.a(context, lowerCase.substring(4), str3);
         } else if (lowerCase.startsWith("topic:")) {
@@ -418,7 +291,7 @@ public class UtilHelper {
         } else if (lowerCase.startsWith("list:")) {
             ForumRankActivity.a(context, lowerCase.substring(5), str3);
         } else {
-            a(context, (int) R.string.deal_link_error);
+            com.baidu.adp.lib.h.g.a(context, (int) R.string.deal_link_error);
         }
     }
 
@@ -444,51 +317,51 @@ public class UtilHelper {
             if (com.baidu.tieba.mention.t.c()) {
                 z = false;
                 z2 = false;
-            } else if (time - TiebaApplication.g().aS() >= 5000) {
-                boolean z3 = TiebaApplication.g().V();
-                z = TiebaApplication.g().W();
-                TiebaApplication.g().c(time);
+            } else if (time - TiebaApplication.h().aT() >= 5000) {
+                boolean z3 = TiebaApplication.h().T();
+                z = TiebaApplication.h().U();
+                TiebaApplication.h().c(time);
                 z2 = z3;
             } else {
                 z = false;
                 z2 = false;
             }
             NotificationManager notificationManager = (NotificationManager) context.getSystemService("notification");
-            String d2 = atVar.d();
-            String c2 = atVar.c();
-            if (TiebaApplication.g().R()) {
-                Notification notification = new Notification(R.drawable.icon, d2, System.currentTimeMillis());
-                if (c2 != null && c2.length() > 0) {
+            String d = atVar.d();
+            String c = atVar.c();
+            if (TiebaApplication.h().P()) {
+                Notification notification = new Notification(R.drawable.icon, d, System.currentTimeMillis());
+                if (c != null && c.length() > 0) {
                     Intent intent = new Intent(context, DealIntentService.class);
-                    if (c2.startsWith("http:")) {
-                        String substring = c2.substring(c2.lastIndexOf("/") + 1);
+                    if (c.startsWith("http:")) {
+                        String substring = c.substring(c.lastIndexOf("/") + 1);
                         intent.putExtra("class", 1);
                         intent.putExtra(LocaleUtil.INDONESIAN, substring);
                         intent.putExtra("is_message_pv", true);
-                    } else if (c2.equals("tab://1")) {
+                    } else if (c.equals("tab://1")) {
                         intent.putExtra("class", 3);
                         intent.putExtra("is_message_pv", true);
                         intent.putExtra("refresh_all", true);
                         intent.putExtra("close_dialog", true);
                         intent.putExtra("locate_type", 0);
                         intent.setFlags(603979776);
-                        TiebaApplication.g().h(0);
-                    } else if (c2.startsWith("opfeature:")) {
+                        TiebaApplication.h().g(0);
+                    } else if (c.startsWith("opfeature:")) {
                         try {
                             intent.putExtra("class", 0);
-                            intent.putExtra(SocialConstants.PARAM_URL, c2.replaceFirst("opfeature:", com.baidu.loginshare.e.f));
+                            intent.putExtra(SocialConstants.PARAM_URL, c.replaceFirst("opfeature:", com.baidu.loginshare.e.f));
                             intent.putExtra("is_message_pv", true);
                         } catch (Exception e) {
-                            bg.a("MessagePullService", "showNotification", e.toString());
+                            bd.a("MessagePullService", "showNotification", e.toString());
                             return;
                         }
-                    } else if (c2.startsWith("pk_before:")) {
+                    } else if (c.startsWith("pk_before:")) {
                         intent.putExtra("class", 6);
-                        intent.putExtra("value", c2.substring(c2.lastIndexOf(":") + 1));
-                    } else if (c2.startsWith("pk_after:")) {
+                        intent.putExtra("value", c.substring(c.lastIndexOf(":") + 1));
+                    } else if (c.startsWith("pk_after:")) {
                         intent.putExtra("class", 7);
-                        intent.putExtra("value", c2.substring(c2.lastIndexOf(":") + 1));
-                    } else if (c2.startsWith("vote")) {
+                        intent.putExtra("value", c.substring(c.lastIndexOf(":") + 1));
+                    } else if (c.startsWith("vote")) {
                         intent.putExtra("class", 8);
                     } else {
                         return;
@@ -501,11 +374,11 @@ public class UtilHelper {
                     PendingIntent service = PendingIntent.getService(context, 0, intent, 134217728);
                     String string = context.getString(R.string.app_name);
                     notification.icon = R.drawable.icon_notify;
-                    notification.setLatestEventInfo(context, string, d2, service);
-                    RemoteViews remoteViews = new RemoteViews(TiebaApplication.g().getPackageName(), (int) R.layout.custom_notification);
+                    notification.setLatestEventInfo(context, string, d, service);
+                    RemoteViews remoteViews = new RemoteViews(TiebaApplication.h().getPackageName(), (int) R.layout.custom_notification);
                     remoteViews.setImageViewResource(R.id.notification_icon, R.drawable.icon);
-                    remoteViews.setTextViewText(R.id.notification_content, d2);
-                    remoteViews.setTextViewText(R.id.notification_time, be.b(new Date()));
+                    remoteViews.setTextViewText(R.id.notification_content, d);
+                    remoteViews.setTextViewText(R.id.notification_time, bb.b(new Date()));
                     notification.contentView = remoteViews;
                     notification.defaults = -1;
                     if (!z) {
@@ -527,7 +400,7 @@ public class UtilHelper {
         if (intent != null) {
             switch (intent.getExtras().getInt("class", -1)) {
                 case 0:
-                    c(context, intent.getExtras().getString(SocialConstants.PARAM_URL));
+                    b(context, intent.getExtras().getString(SocialConstants.PARAM_URL));
                     return true;
                 case 1:
                     if (intent.getBooleanExtra("is_message_pv", false)) {
@@ -557,7 +430,7 @@ public class UtilHelper {
                     long longExtra6 = intent.getLongExtra("group_msg_validate", 0L);
                     long longExtra7 = intent.getLongExtra("group_msg_updates", 0L);
                     com.baidu.tieba.mention.t.a().a(longExtra2, longExtra, longExtra3, longExtra4);
-                    com.baidu.adp.lib.h.d.d("group_msg:" + longExtra5 + " group_msg_validate:" + longExtra6 + " group_msg_updates" + longExtra7);
+                    com.baidu.adp.lib.h.e.d("group_msg:" + longExtra5 + " group_msg_validate:" + longExtra6 + " group_msg_updates" + longExtra7);
                     if (longExtra2 > 0 || longExtra > 0 || longExtra4 > 0 || longExtra7 > 0 || longExtra6 > 0 || longExtra5 > 0) {
                         MainTabActivity.a(context, 3, true);
                         return false;
@@ -582,7 +455,7 @@ public class UtilHelper {
                     long longExtra13 = intent.getLongExtra("group_msg_validate", 0L);
                     long longExtra14 = intent.getLongExtra("group_msg_updates", 0L);
                     com.baidu.tieba.mention.t.a().a(longExtra9, longExtra8, longExtra10, longExtra11);
-                    com.baidu.adp.lib.h.d.d("group_msg1:" + longExtra12 + " group_msg_validate1 " + longExtra13 + " group_msg_updates1 " + longExtra14);
+                    com.baidu.adp.lib.h.e.d("group_msg1:" + longExtra12 + " group_msg_validate1 " + longExtra13 + " group_msg_updates1 " + longExtra14);
                     if (longExtra9 > 0 || longExtra8 > 0 || longExtra11 > 0 || longExtra14 > 0 || longExtra13 > 0 || longExtra12 > 0) {
                         MentionActivity.b = true;
                         MentionActivity.a(context);
@@ -590,10 +463,10 @@ public class UtilHelper {
                     }
                     break;
                 case 12:
-                    String A = TiebaApplication.A();
-                    String F = TiebaApplication.F();
-                    if (!TextUtils.isEmpty(A) && !TextUtils.isEmpty(F)) {
-                        PersonInfoActivity.a(context, A, F);
+                    String B = TiebaApplication.B();
+                    String G = TiebaApplication.G();
+                    if (!TextUtils.isEmpty(B) && !TextUtils.isEmpty(G)) {
+                        PersonInfoActivity.a(context, B, G);
                         return false;
                     }
                     break;
@@ -605,32 +478,32 @@ public class UtilHelper {
         return false;
     }
 
-    public static void g(Context context, String str) {
+    public static void f(Context context, String str) {
         Intent intent = new Intent("android.intent.action.CALL", Uri.parse("tel:" + str));
         intent.addFlags(268435456);
         try {
             context.startActivity(intent);
         } catch (ActivityNotFoundException e) {
-            bg.a(e.getMessage());
+            bd.a(e.getMessage());
         } catch (SecurityException e2) {
-            bg.a(e2.getMessage());
+            bd.a(e2.getMessage());
         }
     }
 
-    public static void h(Context context, String str) {
+    public static void g(Context context, String str) {
         Intent intent = new Intent("android.intent.action.SENDTO", Uri.parse("smsto:" + str));
         intent.putExtra("sms_body", "");
         intent.addFlags(268435456);
         try {
             context.startActivity(intent);
         } catch (ActivityNotFoundException e) {
-            bg.a(e.getMessage());
+            bd.a(e.getMessage());
         } catch (SecurityException e2) {
-            bg.a(e2.getMessage());
+            bd.a(e2.getMessage());
         }
     }
 
-    public static void i(Context context, String str) {
+    public static void h(Context context, String str) {
         try {
             StatService.onEvent(context, "search_in_baidu", "searchclick", 1);
             Intent intent = new Intent();
@@ -647,41 +520,41 @@ public class UtilHelper {
             intent.addFlags(268435456);
             context.startActivity(intent);
         } catch (Exception e) {
-            j(context, str);
+            i(context, str);
         }
     }
 
-    private static void j(Context context, String str) {
+    private static void i(Context context, String str) {
         if (str != null && str.length() > 0) {
-            d(context, "http://m.baidu.com/s?from=1001157a&word=" + str);
+            c(context, "http://m.baidu.com/s?from=1001157a&word=" + str);
         } else {
-            d(context, "http://m.baidu.com/?from=1001157a");
+            c(context, "http://m.baidu.com/?from=1001157a");
         }
     }
 
-    public static void g(Context context) {
+    public static void e(Context context) {
         if (context == null) {
-            com.baidu.adp.lib.h.d.b(UtilHelper.class.getName(), "startPushService", " context is null!");
+            com.baidu.adp.lib.h.e.b(UtilHelper.class.getName(), "startPushService", " context is null!");
             return;
         }
-        String D = TiebaApplication.D();
-        if (TextUtils.isEmpty(D)) {
+        String E = TiebaApplication.E();
+        if (TextUtils.isEmpty(E)) {
             PushManager.startWork(context, 0, "GXGROE8KmWiRmcWFpiWTmUbE");
             return;
         }
-        int indexOf = D.indexOf("|");
+        int indexOf = E.indexOf("|");
         if (indexOf > 0) {
-            D = D.substring(0, indexOf);
+            E = E.substring(0, indexOf);
         }
-        PushManager.startWork(context, "1095821", D);
+        PushManager.startWork(context, "1095821", E);
     }
 
-    public static void h(Context context) {
+    public static void f(Context context) {
         PushManager.stopWork(context);
     }
 
     public static boolean b() {
-        return i(TiebaApplication.g().getApplicationContext()) != NetworkStateInfo.UNAVAIL;
+        return g(TiebaApplication.h().getApplicationContext()) != NetworkStateInfo.UNAVAIL;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:19:0x0069 */
@@ -692,7 +565,7 @@ public class UtilHelper {
     /* JADX WARN: Type inference failed for: r1v2 */
     /* JADX WARN: Type inference failed for: r1v3, types: [java.lang.Exception] */
     /* JADX WARN: Type inference failed for: r1v4, types: [java.lang.String] */
-    public static NetworkStateInfo i(Context context) {
+    public static NetworkStateInfo g(Context context) {
         NetworkStateInfo networkStateInfo;
         ?? e = NetworkStateInfo.UNAVAIL;
         try {
@@ -701,12 +574,12 @@ public class UtilHelper {
                 networkStateInfo = NetworkStateInfo.UNAVAIL;
                 try {
                     e = "NetWorkCore";
-                    bg.a("NetWorkCore", "NetworkStateInfo", "UNAVAIL");
+                    bd.a("NetWorkCore", "NetworkStateInfo", "UNAVAIL");
                 } catch (Exception e2) {
                     e = e2;
                 }
             } else if (activeNetworkInfo.getType() == 1) {
-                bg.a("NetWorkCore", "NetworkStateInfo", "WIFI");
+                bd.a("NetWorkCore", "NetworkStateInfo", "WIFI");
                 networkStateInfo = NetworkStateInfo.WIFI;
             } else {
                 switch (((TelephonyManager) context.getSystemService("phone")).getNetworkType()) {
@@ -716,7 +589,7 @@ public class UtilHelper {
                     case 4:
                     case 7:
                     case 11:
-                        bg.a("NetWorkCore", "NetworkStateInfo", "TwoG");
+                        bd.a("NetWorkCore", "NetworkStateInfo", "TwoG");
                         networkStateInfo = NetworkStateInfo.TwoG;
                         break;
                     case 3:
@@ -729,11 +602,11 @@ public class UtilHelper {
                     case 13:
                     case 14:
                     case 15:
-                        bg.a("NetWorkCore", "NetworkStateInfo", "ThreeG");
+                        bd.a("NetWorkCore", "NetworkStateInfo", "ThreeG");
                         networkStateInfo = NetworkStateInfo.ThreeG;
                         break;
                     default:
-                        bg.a("NetWorkCore", "NetworkStateInfo-default", "TwoG");
+                        bd.a("NetWorkCore", "NetworkStateInfo-default", "TwoG");
                         networkStateInfo = NetworkStateInfo.TwoG;
                         break;
                 }
@@ -750,15 +623,15 @@ public class UtilHelper {
 
     public static String a(String str, int i) {
         String str2 = "";
-        double d2 = 0.0d;
+        double d = 0.0d;
         for (int i2 = 0; i2 < str.length(); i2++) {
             char charAt = str.charAt(i2);
             if ((charAt >= 'a' && charAt <= 'z') || ((charAt >= 'A' && charAt <= 'Z') || (charAt >= '0' && charAt <= '9'))) {
-                d2 += 0.5d;
+                d += 0.5d;
             } else {
-                d2 += 1.0d;
+                d += 1.0d;
             }
-            if (d2 <= i) {
+            if (d <= i) {
                 str2 = str2 + charAt;
             } else {
                 return str2 + "...";
@@ -767,7 +640,7 @@ public class UtilHelper {
         return str2;
     }
 
-    public static String j(Context context) {
+    public static String h(Context context) {
         try {
             WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
             if (!wifiManager.isWifiEnabled()) {
@@ -775,7 +648,7 @@ public class UtilHelper {
             }
             return a(wifiManager.getConnectionInfo().getIpAddress());
         } catch (Exception e) {
-            bg.b("UtilHelper", "getWifiMac", e.toString());
+            bd.b("UtilHelper", "getWifiMac", e.toString());
             return null;
         }
     }
@@ -797,7 +670,7 @@ public class UtilHelper {
                 }
             }
         } catch (SocketException e) {
-            bg.b("UtilHelper", "getGprsIpAddress", e.toString());
+            bd.b("UtilHelper", "getGprsIpAddress", e.toString());
         }
         return null;
     }
@@ -809,8 +682,25 @@ public class UtilHelper {
         try {
             return InetAddress.getByName(str).getHostAddress();
         } catch (Exception e) {
-            bg.b("UtilHelper", "getIpFromDomain", e.toString());
+            bd.b("UtilHelper", "getIpFromDomain", e.toString());
             return null;
         }
+    }
+
+    public static String d(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return "";
+        }
+        Matcher matcher = Pattern.compile("http(s)?://([\\w-]+\\.)+[\\w-]+/?").matcher(str.toLowerCase());
+        String str2 = "";
+        if (matcher.find()) {
+            str2 = matcher.group();
+            if (str2.indexOf(com.baidu.loginshare.e.f) > -1) {
+                str2 = str2.replace(com.baidu.loginshare.e.f, "");
+            } else if (str2.indexOf(com.baidu.loginshare.e.g) > -1) {
+                str2 = str2.replace(com.baidu.loginshare.e.g, "");
+            }
+        }
+        return str2.replace("/", "");
     }
 }

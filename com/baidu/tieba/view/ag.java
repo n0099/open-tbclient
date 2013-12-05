@@ -1,17 +1,15 @@
 package com.baidu.tieba.view;
 
 import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.widget.ImageView;
 /* loaded from: classes.dex */
-public class ag extends ImageView {
-    public void a() {
-        if (getBackground() != null) {
-            Bitmap bitmap = ((BitmapDrawable) getBackground()).getBitmap();
-            setBackgroundDrawable(null);
-            if (bitmap != null && !bitmap.isRecycled()) {
-                bitmap.recycle();
-            }
-        }
+class ag {
+
+    /* renamed from: a  reason: collision with root package name */
+    public Bitmap f2655a;
+    public int b;
+
+    public ag(Bitmap bitmap, int i) {
+        this.f2655a = bitmap;
+        this.b = i;
     }
 }

@@ -9,7 +9,7 @@ class d {
     private static char[] f148if = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/.".toCharArray();
 
     /* renamed from: a  reason: collision with root package name */
-    private static char[] f918a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    private static char[] f923a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
     d() {
     }
@@ -38,7 +38,7 @@ class d {
             for (int i5 = 0; i5 < length2; i5++) {
                 bArr2[length + i5] = (byte) str2.charAt(i5);
             }
-            return new String(m132if(bArr2));
+            return new String(m133if(bArr2));
         } catch (Exception e) {
             e.printStackTrace();
             return "UnsupportedEncodingException";
@@ -55,9 +55,9 @@ class d {
             for (int i2 = 0; i2 < 16; i2++) {
                 byte b = digest[i2];
                 int i3 = i + 1;
-                cArr[i] = f918a[(b >>> 4) & 15];
+                cArr[i] = f923a[(b >>> 4) & 15];
                 i = i3 + 1;
-                cArr[i3] = f918a[b & 15];
+                cArr[i3] = f923a[b & 15];
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -66,7 +66,7 @@ class d {
     }
 
     /* renamed from: if  reason: not valid java name */
-    private static char[] m132if(byte[] bArr) {
+    private static char[] m133if(byte[] bArr) {
         boolean z;
         boolean z2;
         char[] cArr = new char[((bArr.length + 2) / 3) * 4];

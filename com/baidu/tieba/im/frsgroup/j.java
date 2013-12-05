@@ -9,18 +9,19 @@ import com.baidu.tieba.view.HeadImageView;
 class j {
 
     /* renamed from: a  reason: collision with root package name */
-    LinearLayout f1644a;
+    LinearLayout f1711a;
     LinearLayout b;
     HeadImageView c;
     TextView d;
     TextView e;
     TextView f;
-    ImageView g;
+    TextView g;
     ImageView h;
     ImageView i;
-    ImageView[] j;
-    LinearLayout k;
-    TextView l;
-    ProgressBar m;
-    ImageView n;
+    ImageView j;
+    ImageView[] k;
+    LinearLayout l;
+    TextView m;
+    ProgressBar n;
+    ImageView o;
 }

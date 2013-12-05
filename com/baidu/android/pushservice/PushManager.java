@@ -251,12 +251,12 @@ public class PushManager {
     private static void insertAppStartInfo(String str, int i, String str2, String str3, String str4) {
         if (mStatisticsMap.size() < INFO_MAX_NUM) {
             com.baidu.android.pushservice.util.k kVar = new com.baidu.android.pushservice.util.k();
-            kVar.f760a = i;
+            kVar.f765a = i;
             kVar.b = str;
             kVar.c = str2;
             kVar.d = str3;
             kVar.e = str4;
-            mStatisticsMap.put(Integer.valueOf(kVar.f760a), kVar);
+            mStatisticsMap.put(Integer.valueOf(kVar.f765a), kVar);
         }
     }
 

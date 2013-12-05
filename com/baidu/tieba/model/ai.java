@@ -9,10 +9,10 @@ import org.json.JSONObject;
 public class ai extends BdAsyncTask<String, String, Boolean> {
 
     /* renamed from: a  reason: collision with root package name */
-    ArrayList<com.baidu.tieba.data.z> f1871a;
+    ArrayList<com.baidu.tieba.data.z> f1983a;
     String b;
     final /* synthetic */ ad c;
-    private com.baidu.tieba.util.ap d = null;
+    private com.baidu.tieba.util.am d = null;
     private String e;
     private String f;
     private String g;
@@ -20,21 +20,21 @@ public class ai extends BdAsyncTask<String, String, Boolean> {
 
     public ai(ad adVar, String str, String str2, String str3, int i, String str4) {
         this.c = adVar;
-        this.f1871a = null;
+        this.f1983a = null;
         this.b = null;
         this.e = str;
         this.f = str2;
         this.g = str3;
         this.h = i;
         this.b = str4;
-        this.f1871a = new ArrayList<>();
+        this.f1983a = new ArrayList<>();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public Boolean a(String... strArr) {
-        this.d = new com.baidu.tieba.util.ap(strArr[0]);
+        this.d = new com.baidu.tieba.util.am(strArr[0]);
         this.d.a("word", this.f);
         if (this.h != 6) {
             this.d.a("fid", this.e);
@@ -59,10 +59,10 @@ public class ai extends BdAsyncTask<String, String, Boolean> {
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         com.baidu.tieba.data.z zVar = new com.baidu.tieba.data.z();
                         zVar.a(optJSONArray.optJSONObject(i));
-                        this.f1871a.add(zVar);
+                        this.f1983a.add(zVar);
                     }
                 } catch (Exception e) {
-                    com.baidu.tieba.util.bg.b(getClass().getName(), "doInBackground", e.getMessage());
+                    com.baidu.tieba.util.bd.b(getClass().getName(), "doInBackground", e.getMessage());
                     return false;
                 }
             }
@@ -85,10 +85,10 @@ public class ai extends BdAsyncTask<String, String, Boolean> {
             return;
         }
         aj ajVar = new aj(this.c);
-        ajVar.f1872a = bool.booleanValue();
+        ajVar.f1984a = bool.booleanValue();
         if (bool.booleanValue()) {
             if (this.h == 6) {
-                ajVar.c = this.f1871a;
+                ajVar.c = this.f1983a;
             }
         } else {
             ajVar.b = this.d.i();

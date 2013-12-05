@@ -1,6 +1,5 @@
 package com.baidu.tieba.data;
 
-import com.baidu.tieba.util.bg;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class AccountData implements Serializable {
@@ -55,11 +54,11 @@ public class AccountData implements Serializable {
     }
 
     public void logPrint() {
-        bg.d(getClass().getName(), "logPrint", "mAccount = " + this.mAccount);
-        bg.d(getClass().getName(), "logPrint", "mPassword = " + this.mPassword);
-        bg.d(getClass().getName(), "logPrint", "mIsActive = " + String.valueOf(this.mIsActive));
-        bg.d(getClass().getName(), "logPrint", "BDUSS = " + this.BDUSS);
-        bg.d(getClass().getName(), "logPrint", "portrait = " + this.portrait);
+        com.baidu.tieba.util.bd.d(getClass().getName(), "logPrint", "mAccount = " + this.mAccount);
+        com.baidu.tieba.util.bd.d(getClass().getName(), "logPrint", "mPassword = " + this.mPassword);
+        com.baidu.tieba.util.bd.d(getClass().getName(), "logPrint", "mIsActive = " + String.valueOf(this.mIsActive));
+        com.baidu.tieba.util.bd.d(getClass().getName(), "logPrint", "BDUSS = " + this.BDUSS);
+        com.baidu.tieba.util.bd.d(getClass().getName(), "logPrint", "portrait = " + this.portrait);
     }
 
     public void setTbs(String str) {

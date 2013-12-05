@@ -1,33 +1,23 @@
 package com.baidu.tieba.im.chat;
-
-import android.view.MotionEvent;
-import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bi implements View.OnTouchListener {
+public class bi implements com.baidu.tieba.im.a<Void> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bg f1520a;
+    final /* synthetic */ MsglistActivity f1567a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bi(bg bgVar) {
-        this.f1520a = bgVar;
+    private bi(MsglistActivity msglistActivity) {
+        this.f1567a = msglistActivity;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        aa aaVar;
-        if (motionEvent.getAction() == 1) {
-            this.f1520a.M();
-        } else if (motionEvent.getAction() == 0) {
-            this.f1520a.S();
-            aaVar = this.f1520a.E;
-            if (aaVar.a() == 0) {
-                this.f1520a.N();
-                this.f1520a.Q();
-                return true;
-            }
-        }
-        return false;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ bi(MsglistActivity msglistActivity, aw awVar) {
+        this(msglistActivity);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.a
+    public void a(Void r4) {
+        com.baidu.tieba.im.pushNotify.a.h().b(false, (com.baidu.tieba.im.a<Void>) null);
     }
 }

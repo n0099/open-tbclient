@@ -1,86 +1,43 @@
 package com.baidu.tieba.view;
 
 import android.view.View;
-import com.baidu.tieba.util.UtilHelper;
+import android.widget.Button;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ar implements android.support.v4.view.bq {
+public class ar implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MultiImageView f2548a;
+    final /* synthetic */ MultiImageView f2662a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ar(MultiImageView multiImageView) {
-        this.f2548a = multiImageView;
+        this.f2662a = multiImageView;
     }
 
-    @Override // android.support.v4.view.bq
-    public void onPageScrollStateChanged(int i) {
-        android.support.v4.view.bq bqVar;
-        android.support.v4.view.bq bqVar2;
-        bqVar = this.f2548a.g;
-        if (bqVar != null) {
-            bqVar2 = this.f2548a.g;
-            bqVar2.onPageScrollStateChanged(i);
-        }
-    }
-
-    @Override // android.support.v4.view.bq
-    public void onPageScrolled(int i, float f, int i2) {
-        android.support.v4.view.bq bqVar;
-        android.support.v4.view.bq bqVar2;
-        bqVar = this.f2548a.g;
-        if (bqVar != null) {
-            bqVar2 = this.f2548a.g;
-            bqVar2.onPageScrolled(i, f, i2);
-        }
-    }
-
-    @Override // android.support.v4.view.bq
-    public void onPageSelected(int i) {
-        GalleryViewPager galleryViewPager;
-        GalleryViewPager galleryViewPager2;
-        boolean z;
-        android.support.v4.view.bq bqVar;
-        android.support.v4.view.bq bqVar2;
-        GalleryViewPager galleryViewPager3;
-        boolean z2;
-        GalleryViewPager galleryViewPager4;
-        k imageView;
-        GalleryViewPager galleryViewPager5;
-        com.baidu.tieba.util.bg.e(getClass().getName(), "onPageSelected", "postion = " + String.valueOf(i));
-        galleryViewPager = this.f2548a.e;
-        View findViewWithTag = galleryViewPager.findViewWithTag(String.valueOf(i));
-        if (findViewWithTag != null && (findViewWithTag instanceof bl) && (imageView = ((bl) findViewWithTag).getImageView()) != null) {
-            galleryViewPager5 = this.f2548a.e;
-            galleryViewPager5.setSelectedView(imageView);
-            imageView.o();
-        }
-        galleryViewPager2 = this.f2548a.e;
-        int childCount = galleryViewPager2.getChildCount();
-        for (int i2 = 0; i2 < childCount; i2++) {
-            galleryViewPager4 = this.f2548a.e;
-            View childAt = galleryViewPager4.getChildAt(i2);
-            if (childAt != null && (childAt instanceof bl)) {
-                ((bl) childAt).e();
+    /* JADX WARN: Code restructure failed: missing block: B:10:0x001c, code lost:
+        r0 = r1.f2662a.getCurrentImageView();
+     */
+    @Override // android.view.View.OnClickListener
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void onClick(View view) {
+        Button button;
+        Button button2;
+        l currentImageView;
+        l currentImageView2;
+        button = this.f2662a.f2639a;
+        if (view == button) {
+            currentImageView2 = this.f2662a.getCurrentImageView();
+            if (currentImageView2 != null) {
+                currentImageView2.m();
+                return;
             }
+            return;
         }
-        UtilHelper.NetworkStateInfo i3 = UtilHelper.i(this.f2548a.getContext());
-        z = this.f2548a.l;
-        if (z && (i3 == UtilHelper.NetworkStateInfo.WIFI || i3 == UtilHelper.NetworkStateInfo.ThreeG)) {
-            for (int i4 = 0; i4 < childCount; i4++) {
-                galleryViewPager3 = this.f2548a.e;
-                View childAt2 = galleryViewPager3.getChildAt(i4);
-                if (childAt2 != null && (childAt2 instanceof bl)) {
-                    z2 = this.f2548a.o;
-                    ((bl) childAt2).a(z2);
-                }
-            }
-        }
-        bqVar = this.f2548a.g;
-        if (bqVar != null) {
-            bqVar2 = this.f2548a.g;
-            bqVar2.onPageSelected(i);
+        button2 = this.f2662a.b;
+        if (view == button2 && currentImageView != null) {
+            currentImageView.n();
         }
     }
 }

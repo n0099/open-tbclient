@@ -1,30 +1,19 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Message;
-import com.baidu.tieba.util.DatabaseService;
+import android.view.View;
 /* loaded from: classes.dex */
-class ad extends Handler {
+class ad implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ LogoActivity f1100a;
+    final /* synthetic */ GuideActivity f1110a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ad(LogoActivity logoActivity) {
-        this.f1100a = logoActivity;
+    public ad(GuideActivity guideActivity) {
+        this.f1110a = guideActivity;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        boolean z;
-        this.f1100a.c = true;
-        z = this.f1100a.b;
-        if (z) {
-            if (!this.f1100a.getDatabasePath("baidu_tieba.db").exists()) {
-                TiebaApplication.a(DatabaseService.n(), this.f1100a.getBaseContext());
-            }
-            this.f1100a.a(this.f1100a.getBaseContext());
-        }
-        super.handleMessage(message);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.f1110a.a();
     }
 }

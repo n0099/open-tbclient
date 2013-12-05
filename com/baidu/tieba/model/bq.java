@@ -5,7 +5,7 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 public class bq extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.av> {
 
     /* renamed from: a  reason: collision with root package name */
-    protected com.baidu.tieba.a.i f1900a = null;
+    protected com.baidu.tieba.a.i f2012a = null;
     protected int b;
     final /* synthetic */ bp c;
 
@@ -20,10 +20,10 @@ public class bq extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.av> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: d */
     public com.baidu.tieba.data.av a(Object... objArr) {
-        this.f1900a = new com.baidu.tieba.a.i();
+        this.f2012a = new com.baidu.tieba.a.i();
         try {
-            String a2 = this.f1900a.a(this.c.b, this.c.d, this.b, this.c.c, d());
-            if (!this.f1900a.a()) {
+            String a2 = this.f2012a.a(this.c.b, this.c.d, this.b, this.c.c, d());
+            if (!this.f2012a.a()) {
                 return null;
             }
             com.baidu.tieba.data.av avVar = new com.baidu.tieba.data.av();
@@ -39,7 +39,7 @@ public class bq extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.av> {
                 i = i2 + 1;
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.bg.b(getClass().getName(), "doInBackground", e.toString());
+            com.baidu.tieba.util.bd.b(getClass().getName(), "doInBackground", e.toString());
             return null;
         }
     }
@@ -65,8 +65,8 @@ public class bq extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.av> {
     public void cancel() {
         super.cancel(true);
         this.c.g = null;
-        if (this.f1900a != null) {
-            this.f1900a.d();
+        if (this.f2012a != null) {
+            this.f2012a.d();
         }
     }
 
@@ -77,7 +77,7 @@ public class bq extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.av> {
         this.c.g = null;
         if (avVar == null) {
             if (this.c.h != null) {
-                this.c.h.a(false, this.f1900a.c(), this.f1900a.b(), null);
+                this.c.h.a(false, this.f2012a.c(), this.f2012a.b(), null);
                 return;
             }
             return;
@@ -98,8 +98,8 @@ public class bq extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.av> {
             this.c.f.b(avVar, false);
         }
         if (this.c.h != null) {
-            this.c.h.a(true, this.f1900a.c(), this.f1900a.b(), this.c.f);
+            this.c.h.a(true, this.f2012a.c(), this.f2012a.b(), this.c.f);
         }
-        this.f1900a = null;
+        this.f2012a = null;
     }
 }

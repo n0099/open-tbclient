@@ -1,23 +1,35 @@
 package com.baidu.tieba.view;
 
 import android.view.View;
-import android.widget.AbsListView;
+import android.view.ViewGroup;
+import com.baidu.tbadk.widget.TbImageView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bt implements AbsListView.RecyclerListener {
+public class bt implements ViewGroup.OnHierarchyChangeListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f2566a;
+    final /* synthetic */ UserIconBox f2680a;
 
-    public bt(int i) {
-        this.f2566a = 0;
-        this.f2566a = i;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bt(UserIconBox userIconBox) {
+        this.f2680a = userIconBox;
     }
 
-    @Override // android.widget.AbsListView.RecyclerListener
-    public void onMovedToScrapHeap(View view) {
-        View findViewById = view.findViewById(this.f2566a);
-        if (findViewById != null && (findViewById instanceof UserIconBox)) {
-            ((UserIconBox) findViewById).a(null, 0, 0, 0, 0);
+    @Override // android.view.ViewGroup.OnHierarchyChangeListener
+    public void onChildViewRemoved(View view, View view2) {
+        com.baidu.adp.lib.d.b bVar;
+        com.baidu.adp.lib.d.b bVar2;
+        com.baidu.adp.lib.h.e.d("pool return child");
+        if (view2 instanceof TbImageView) {
+            bVar = this.f2680a.b;
+            if (bVar != null) {
+                bVar2 = this.f2680a.b;
+                bVar2.a((com.baidu.adp.lib.d.b) ((TbImageView) view2));
+            }
         }
+    }
+
+    @Override // android.view.ViewGroup.OnHierarchyChangeListener
+    public void onChildViewAdded(View view, View view2) {
     }
 }

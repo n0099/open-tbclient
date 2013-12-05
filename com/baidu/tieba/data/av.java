@@ -1,7 +1,6 @@
 package com.baidu.tieba.data;
 
 import android.content.Context;
-import com.baidu.tieba.util.bg;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -9,7 +8,7 @@ import org.json.JSONObject;
 public class av {
 
     /* renamed from: a  reason: collision with root package name */
-    private ForumData f1182a;
+    private ForumData f1229a;
     private int e;
     private int g;
     private AntiData i;
@@ -116,11 +115,11 @@ public class av {
     }
 
     public void a(ForumData forumData) {
-        this.f1182a = forumData;
+        this.f1229a = forumData;
     }
 
     public ForumData h() {
-        return this.f1182a;
+        return this.f1229a;
     }
 
     public void a(AntiData antiData) {
@@ -190,7 +189,7 @@ public class av {
             c(optInt4);
             b(optInt);
         } catch (Exception e) {
-            bg.b("SubPbModel", "parseJson", "error = " + e.getMessage());
+            com.baidu.tieba.util.bd.b("SubPbModel", "parseJson", "error = " + e.getMessage());
         }
     }
 

@@ -14,11 +14,11 @@ import com.baidu.cloudsdk.social.share.SocialShareConfig;
 public class n implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ m f2866a;
+    final /* synthetic */ m f3047a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(m mVar) {
-        this.f2866a = mVar;
+        this.f3047a = mVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -34,36 +34,36 @@ public class n implements View.OnClickListener {
         TextView textView2;
         SocialShareConfig socialShareConfig2;
         ImageView imageView;
-        z = this.f2866a.e;
+        z = this.f3047a.e;
         if (z) {
-            this.f2866a.e = false;
-            textView2 = this.f2866a.d;
-            socialShareConfig2 = this.f2866a.h;
+            this.f3047a.e = false;
+            textView2 = this.f3047a.d;
+            socialShareConfig2 = this.f3047a.h;
             textView2.setText(socialShareConfig2.getString("insert_location"));
-            imageView = this.f2866a.c;
+            imageView = this.f3047a.c;
             imageView.setVisibility(8);
             return;
         }
-        str = this.f2866a.g;
+        str = this.f3047a.g;
         if (!TextUtils.isEmpty(str)) {
-            m mVar = this.f2866a;
-            str2 = this.f2866a.g;
+            m mVar = this.f3047a;
+            str2 = this.f3047a.g;
             mVar.a(str2);
             return;
         }
-        textView = this.f2866a.d;
-        socialShareConfig = this.f2866a.h;
+        textView = this.f3047a.d;
+        socialShareConfig = this.f3047a.h;
         textView.setText(socialShareConfig.getString("get_location"));
-        location = this.f2866a.f;
+        location = this.f3047a.f;
         if (location != null) {
-            m mVar2 = this.f2866a;
-            location2 = this.f2866a.f;
+            m mVar2 = this.f3047a;
+            location2 = this.f3047a.f;
             mVar2.b(location2);
             return;
         }
-        context = this.f2866a.i;
+        context = this.f3047a.i;
         if (context.checkCallingOrSelfPermission("android.permission.ACCESS_FINE_LOCATION") == 0) {
-            PositionManager.getInstance(this.f2866a.getContext()).requestLoation(new r(this));
+            PositionManager.getInstance(this.f3047a.getContext()).requestLoation(new r(this));
         }
     }
 }

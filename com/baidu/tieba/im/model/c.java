@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import com.baidu.tieba.im.chat.LocalViewSize;
 import com.baidu.tieba.im.data.MemberData;
 import com.baidu.tieba.im.data.PhotoUrlData;
+import com.baidu.tieba.im.message.ClearGroupInfoCacheMessage;
 import com.baidu.tieba.im.message.Message;
 import com.baidu.tieba.im.message.RequestGroupInfoMessage;
 import com.baidu.tieba.im.message.ResponseGroupInfoMessage;
@@ -16,7 +17,7 @@ import java.util.List;
 public class c extends com.baidu.adp.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    private long f1737a;
+    private long f1812a;
     private int b;
     private ResponseGroupInfoMessage c;
     private RequestGroupInfoMessage d;
@@ -29,7 +30,7 @@ public class c extends com.baidu.adp.a.d {
     }
 
     public long a() {
-        return this.f1737a;
+        return this.f1812a;
     }
 
     public int b() {
@@ -47,12 +48,12 @@ public class c extends com.baidu.adp.a.d {
     }
 
     public void a(Intent intent) {
-        this.f1737a = intent.getLongExtra("group_id", 0L);
+        this.f1812a = intent.getLongExtra("group_id", 0L);
         this.b = intent.getIntExtra("activity_from", 0);
     }
 
     public void a(Bundle bundle) {
-        this.f1737a = bundle.getLong("group_id", 0L);
+        this.f1812a = bundle.getLong("group_id", 0L);
         this.b = bundle.getInt("activity_from", 0);
     }
 
@@ -84,22 +85,22 @@ public class c extends com.baidu.adp.a.d {
     public void a(long j, int i) {
         this.d = c(j, i);
         if (this.d != null && this.d.toMap() != null) {
-            com.baidu.adp.lib.h.d.a(this.d.toMap().toString());
+            com.baidu.adp.lib.h.e.a(this.d.toMap().toString());
         }
-        com.baidu.tieba.im.messageCenter.f.a().a(this.d);
+        com.baidu.tieba.im.messageCenter.e.a().a(this.d);
     }
 
     public void c() {
         if (this.d != null) {
-            com.baidu.tieba.im.messageCenter.f.a().b(this.d);
+            com.baidu.tieba.im.messageCenter.e.a().b(this.d);
         }
         if (this.e != null) {
-            com.baidu.tieba.im.messageCenter.f.a().b(this.d);
+            com.baidu.tieba.im.messageCenter.e.a().b(this.d);
         }
     }
 
     public void b(Bundle bundle) {
-        bundle.putLong("group_id", this.f1737a);
+        bundle.putLong("group_id", this.f1812a);
         bundle.putInt("activity_from", this.b);
     }
 
@@ -239,7 +240,7 @@ public class c extends com.baidu.adp.a.d {
     public void b(long j, int i) {
         this.e = c(j, i);
         this.e.setCmd(-102);
-        com.baidu.tieba.im.messageCenter.f.a().a(this.e);
+        com.baidu.tieba.im.messageCenter.e.a().a(this.e);
     }
 
     public boolean a(String str) {
@@ -268,5 +269,11 @@ public class c extends com.baidu.adp.a.d {
 
     public void a(boolean z) {
         this.g = z;
+    }
+
+    public void b(String str) {
+        ClearGroupInfoCacheMessage clearGroupInfoCacheMessage = new ClearGroupInfoCacheMessage();
+        clearGroupInfoCacheMessage.setGroupId(str);
+        com.baidu.tieba.im.messageCenter.e.a().a(clearGroupInfoCacheMessage);
     }
 }

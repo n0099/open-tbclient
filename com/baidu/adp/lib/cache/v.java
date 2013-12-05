@@ -47,11 +47,29 @@ public class v<T> implements u<T> {
     }
 
     @Override // com.baidu.adp.lib.cache.u
-    public r<T> a() {
+    public String a() {
+        return this.b;
+    }
+
+    @Override // com.baidu.adp.lib.cache.u
+    public r<T> b() {
         return this.f438a;
     }
 
-    public void b() {
+    public void d() {
+        this.f438a.e(this.b);
+    }
+
+    protected void e() {
+        f a2 = b().a();
+        if (a2 instanceof h) {
+            ((h) a2).e();
+        }
+    }
+
+    @Override // com.baidu.adp.lib.cache.u
+    public void c() {
         this.f438a.d(this.b);
+        e();
     }
 }

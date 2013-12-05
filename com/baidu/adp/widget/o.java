@@ -7,7 +7,7 @@ import com.baidu.adp.widget.HorizontalTranslateLayout;
 public class o {
 
     /* renamed from: a */
-    VelocityTracker f607a;
+    VelocityTracker f612a;
     boolean b;
     final int c;
     final int d;
@@ -21,7 +21,7 @@ public class o {
         int i3;
         int i4;
         int i5;
-        int[] iArr = f.f604a;
+        int[] iArr = f.f609a;
         trackDirection = this.e.j;
         switch (iArr[trackDirection.ordinal()]) {
             case 1:
@@ -51,7 +51,7 @@ public class o {
                 }
                 break;
         }
-        this.f607a = VelocityTracker.obtain();
+        this.f612a = VelocityTracker.obtain();
         this.b = true;
         return true;
     }
@@ -70,7 +70,7 @@ public class o {
         if (this.b) {
             i2 = this.e.f;
             int i3 = i2 - i;
-            int[] iArr = f.f604a;
+            int[] iArr = f.f609a;
             trackDirection = this.e.j;
             switch (iArr[trackDirection.ordinal()]) {
                 case 1:
@@ -113,15 +113,15 @@ public class o {
     public void b() {
         float max;
         HorizontalTranslateLayout.TrackDirection trackDirection;
-        this.f607a.computeCurrentVelocity(this.c);
-        float xVelocity = this.f607a.getXVelocity();
+        this.f612a.computeCurrentVelocity(this.c);
+        float xVelocity = this.f612a.getXVelocity();
         Log.d("HorizontalTranslateLayout", "@fling x " + xVelocity);
         if (xVelocity < 0.0f) {
             max = Math.min(xVelocity, -this.d);
         } else {
             max = Math.max(xVelocity, this.d);
         }
-        int[] iArr = f.f604a;
+        int[] iArr = f.f609a;
         trackDirection = this.e.j;
         switch (iArr[trackDirection.ordinal()]) {
             case 1:
@@ -134,8 +134,8 @@ public class o {
                 a(max);
                 break;
         }
-        this.f607a.recycle();
-        this.f607a = null;
+        this.f612a.recycle();
+        this.f612a = null;
     }
 
     private void a(float f) {

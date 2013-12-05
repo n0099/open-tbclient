@@ -8,13 +8,13 @@ import com.baidu.tieba.data.MarkData;
 public class bh extends BdAsyncTask<Boolean, Integer, Boolean> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bg f1893a;
-    private com.baidu.tieba.util.ap b = null;
+    final /* synthetic */ bg f2005a;
+    private com.baidu.tieba.util.am b = null;
     private boolean c;
     private com.baidu.tieba.data.ay d;
 
     public bh(bg bgVar, boolean z) {
-        this.f1893a = bgVar;
+        this.f2005a = bgVar;
         this.c = true;
         this.d = null;
         this.c = z;
@@ -34,19 +34,19 @@ public class bh extends BdAsyncTask<Boolean, Integer, Boolean> {
         MarkData markData2;
         MarkData markData3;
         if (this.c) {
-            this.b = new com.baidu.tieba.util.ap(com.baidu.tieba.data.h.f1201a + "c/c/post/addstore");
+            this.b = new com.baidu.tieba.util.am(com.baidu.tieba.data.h.f1248a + "c/c/post/addstore");
             o oVar = new o();
-            markData3 = this.f1893a.b;
+            markData3 = this.f2005a.b;
             oVar.a(markData3);
             this.b.a("data", oVar.a(0, 1));
         } else {
-            this.b = new com.baidu.tieba.util.ap(com.baidu.tieba.data.h.f1201a + "c/c/post/rmstore");
-            com.baidu.tieba.util.ap apVar = this.b;
-            markData = this.f1893a.b;
-            apVar.a(PushConstants.EXTRA_USER_ID, markData.getAccount());
-            com.baidu.tieba.util.ap apVar2 = this.b;
-            markData2 = this.f1893a.b;
-            apVar2.a("tid", markData2.getId());
+            this.b = new com.baidu.tieba.util.am(com.baidu.tieba.data.h.f1248a + "c/c/post/rmstore");
+            com.baidu.tieba.util.am amVar = this.b;
+            markData = this.f2005a.b;
+            amVar.a(PushConstants.EXTRA_USER_ID, markData.getAccount());
+            com.baidu.tieba.util.am amVar2 = this.b;
+            markData2 = this.f2005a.b;
+            amVar2.a("tid", markData2.getId());
         }
         this.d.a(this.b.l());
         boolean z = this.d.a() == 0;
@@ -62,7 +62,7 @@ public class bh extends BdAsyncTask<Boolean, Integer, Boolean> {
         if (this.b != null) {
             this.b.j();
         }
-        this.f1893a.c = null;
+        this.f2005a.c = null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -75,23 +75,23 @@ public class bh extends BdAsyncTask<Boolean, Integer, Boolean> {
         bi biVar4;
         bi biVar5;
         if (bool.booleanValue()) {
-            biVar4 = this.f1893a.d;
+            biVar4 = this.f2005a.d;
             if (biVar4 != null) {
-                biVar5 = this.f1893a.d;
+                biVar5 = this.f2005a.d;
                 biVar5.a(true, this.c, null);
             }
         } else {
-            biVar = this.f1893a.d;
+            biVar = this.f2005a.d;
             if (biVar != null) {
                 if (this.b == null || this.b.c()) {
-                    biVar2 = this.f1893a.d;
+                    biVar2 = this.f2005a.d;
                     biVar2.a(false, this.c, this.d.b());
                 } else {
-                    biVar3 = this.f1893a.d;
+                    biVar3 = this.f2005a.d;
                     biVar3.a(false, this.c, this.b.i());
                 }
             }
         }
-        this.f1893a.c = null;
+        this.f2005a.c = null;
     }
 }

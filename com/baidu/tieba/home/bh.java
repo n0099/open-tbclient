@@ -1,34 +1,25 @@
 package com.baidu.tieba.home;
+
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bh implements ac {
+public class bh implements com.baidu.tbadk.imageManager.c {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SignAllForumActivity f1417a;
+    final /* synthetic */ View f1472a;
+    final /* synthetic */ bf b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bh(SignAllForumActivity signAllForumActivity) {
-        this.f1417a = signAllForumActivity;
+    public bh(bf bfVar, View view) {
+        this.b = bfVar;
+        this.f1472a = view;
     }
 
-    @Override // com.baidu.tieba.home.ac
-    public void a(y yVar) {
-        bx bxVar;
-        bx bxVar2;
-        bxVar = this.f1417a.f1385a;
-        bxVar.e();
-        r k = yVar.k();
-        if (k != null && k.a() == 0) {
-            bxVar2 = this.f1417a.f1385a;
-            bxVar2.a(yVar);
-            return;
+    @Override // com.baidu.tbadk.imageManager.c
+    public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
+        View findViewWithTag = this.f1472a.findViewWithTag(str);
+        if (findViewWithTag != null) {
+            findViewWithTag.invalidate();
         }
-        this.f1417a.showToast(k.b());
-        this.f1417a.finish();
-    }
-
-    @Override // com.baidu.tieba.home.ac
-    public void a(String str) {
-        this.f1417a.showToast(str);
-        this.f1417a.finish();
     }
 }

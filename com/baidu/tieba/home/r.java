@@ -1,31 +1,26 @@
 package com.baidu.tieba.home;
 
-import org.json.JSONObject;
+import android.view.View;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class r {
+class r implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1453a = -1;
-    private String b = null;
-    private String c = null;
+    final /* synthetic */ ForumTopicActivity f1503a;
 
-    public int a() {
-        return this.f1453a;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public r(ForumTopicActivity forumTopicActivity) {
+        this.f1503a = forumTopicActivity;
     }
 
-    public String b() {
-        return this.c;
-    }
-
-    public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.f1453a = jSONObject.optInt("errno");
-                this.b = jSONObject.optString("errmsg");
-                this.c = jSONObject.optString("usermsg");
-            } catch (Exception e) {
-                com.baidu.tieba.util.bg.b(getClass().getName(), "parserJson", e.getMessage());
-            }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.forum_topic_title_back /* 2131100170 */:
+                this.f1503a.finish();
+                return;
+            default:
+                return;
         }
     }
 }

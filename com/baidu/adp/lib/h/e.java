@@ -1,69 +1,124 @@
 package com.baidu.adp.lib.h;
 
-import android.annotation.SuppressLint;
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
-import java.security.MessageDigest;
-import java.text.SimpleDateFormat;
-@SuppressLint({"SimpleDateFormat"})
+import android.util.Log;
 /* loaded from: classes.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private static SimpleDateFormat f504a = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-    private static SimpleDateFormat b = new SimpleDateFormat("yyyy年");
-    private static SimpleDateFormat c = new SimpleDateFormat("HH:mm");
-    private static SimpleDateFormat d = new SimpleDateFormat("M月d日");
-    private static SimpleDateFormat e = new SimpleDateFormat("M月d日 HH:mm");
-    private static SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd");
-    private static SimpleDateFormat g = new SimpleDateFormat("MM-dd");
-    private static final char[] h = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
-    private static final char[] i = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '/'};
-    private static byte[] j = {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, -1, -1, 63, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -1, -1, -1, -1, -1, -1, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, -1, -1, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, -1, -1, -1, -1, -1};
+    private static String f504a = null;
 
-    public static String a(byte[] bArr) {
-        if (bArr == null) {
-            return null;
-        }
-        StringBuilder sb = new StringBuilder(bArr.length * 2);
-        for (int i2 = 0; i2 < bArr.length; i2++) {
-            sb.append(h[(bArr[i2] & 240) >>> 4]);
-            sb.append(h[bArr[i2] & 15]);
-        }
-        return sb.toString();
+    public static boolean a() {
+        return com.baidu.adp.a.b.a().b();
     }
 
-    public static String a(InputStream inputStream) {
-        if (inputStream == null) {
-            return null;
+    public static void a(String str, String str2, String str3) {
+        String f = f(str, str2, str3);
+        if (f != null) {
+            Log.i("BaiduLog", f);
         }
-        try {
-            byte[] bArr = new byte[1024];
-            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-            while (true) {
-                int read = inputStream.read(bArr);
-                if (read > 0) {
-                    messageDigest.update(bArr, 0, read);
-                } else {
-                    inputStream.close();
-                    return a(messageDigest.digest());
-                }
+    }
+
+    public static void b(String str, String str2, String str3) {
+        String f = f(str, str2, str3);
+        if (f != null) {
+            Log.e("BaiduLog", f);
+        }
+    }
+
+    public static void a(String str, String str2, Throwable th) {
+        String f = f(str, str2, th.getMessage());
+        if (f != null) {
+            Log.e("BaiduLog", f);
+        }
+    }
+
+    public static void c(String str, String str2, String str3) {
+        String f = f(str, str2, str3);
+        if (f != null) {
+            Log.w("BaiduLog", f);
+        }
+    }
+
+    public static void d(String str, String str2, String str3) {
+        String f = f(str, str2, str3);
+        if (f != null) {
+            Log.v("BaiduLog", f);
+        }
+    }
+
+    public static void e(String str, String str2, String str3) {
+        String f = f(str, str2, str3);
+        if (f != null) {
+            Log.d("BaiduLog", f);
+        }
+    }
+
+    public static void a(Class<?> cls, String str, String str2) {
+        e(cls.getName(), str, str2);
+    }
+
+    public static void a(Class<?> cls, String str, Throwable th) {
+        b(cls.getName(), str, th.getMessage());
+    }
+
+    private static String f(String str, String str2, String str3) {
+        if (com.baidu.adp.a.b.a().b()) {
+            if (f504a == null || str3.startsWith(f504a)) {
+                StringBuffer stringBuffer = new StringBuffer(100);
+                stringBuffer.append(str);
+                stringBuffer.append(":");
+                stringBuffer.append(str2);
+                stringBuffer.append(":");
+                stringBuffer.append(str3);
+                return stringBuffer.toString();
             }
-        } catch (Exception e2) {
-            d.a("StringHelper", "ToMd5", e2.toString());
             return null;
         }
+        return null;
     }
 
-    public static String a(String str) {
-        try {
-            return a(new ByteArrayInputStream(str.getBytes("UTF-8")));
-        } catch (Exception e2) {
-            return null;
+    public static int a(int i, String str) {
+        if (com.baidu.adp.a.b.a().b()) {
+            StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+            if (stackTrace.length < 5) {
+                return -1;
+            }
+            StackTraceElement stackTraceElement = stackTrace[4];
+            String methodName = stackTraceElement.getMethodName();
+            String className = stackTraceElement.getClassName();
+            if (i == 0) {
+                b(className, methodName, str);
+            } else if (i == 1) {
+                c(className, methodName, str);
+            } else if (i == 2) {
+                a(className, methodName, str);
+            } else if (i == 3) {
+                e(className, methodName, str);
+            } else {
+                d(className, methodName, str);
+            }
+            return 0;
         }
+        return -1;
     }
 
-    public static boolean b(String str) {
-        return str == null || str.length() == 0 || str.equals("null");
+    public static int a(String str) {
+        return a(0, str);
+    }
+
+    public static int b(String str) {
+        return a(1, str);
+    }
+
+    public static int c(String str) {
+        return a(2, str);
+    }
+
+    public static int d(String str) {
+        return a(3, str);
+    }
+
+    public static int e(String str) {
+        return a(4, str);
     }
 }

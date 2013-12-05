@@ -1,27 +1,36 @@
 package com.baidu.tieba.im.chat;
 
+import android.widget.ImageView;
+import com.slidingmenu.lib.R;
 import java.util.ArrayList;
-import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class af implements android.support.v4.view.bq {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MsgImageActivity f1492a;
+    final /* synthetic */ ad f1539a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public af(MsgImageActivity msgImageActivity) {
-        this.f1492a = msgImageActivity;
+    public af(ad adVar) {
+        this.f1539a = adVar;
     }
 
     @Override // android.support.v4.view.bq
     public void onPageSelected(int i) {
-        int i2;
-        MsgImageActivity msgImageActivity = this.f1492a;
-        i2 = this.f1492a.c;
-        msgImageActivity.a(i2, i);
-        this.f1492a.c = i;
-        this.f1492a.b();
+        ArrayList arrayList;
+        ArrayList arrayList2;
+        this.f1539a.c = i;
+        this.f1539a.c(i);
+        arrayList = this.f1539a.g;
+        if (i == arrayList.size() - 1 || i == 0) {
+            if (i == 0) {
+                this.f1539a.b(1);
+                return;
+            }
+            this.f1539a.b(i - 1);
+            arrayList2 = this.f1539a.h;
+            ((ImageView) arrayList2.get(i - 1)).setBackgroundResource(R.drawable.icon_liaotianye_s);
+        }
     }
 
     @Override // android.support.v4.view.bq
@@ -30,29 +39,5 @@ public class af implements android.support.v4.view.bq {
 
     @Override // android.support.v4.view.bq
     public void onPageScrollStateChanged(int i) {
-        long j;
-        ArrayList arrayList;
-        int i2;
-        ArrayList arrayList2;
-        HashMap hashMap;
-        ArrayList arrayList3;
-        int i3;
-        if (i == 1) {
-            long nanoTime = System.nanoTime();
-            j = this.f1492a.t;
-            if (nanoTime - j > 300000000) {
-                arrayList = this.f1492a.b;
-                if (arrayList != null) {
-                    i2 = this.f1492a.c;
-                    arrayList2 = this.f1492a.b;
-                    if (i2 < arrayList2.size()) {
-                        hashMap = this.f1492a.u;
-                        arrayList3 = this.f1492a.b;
-                        i3 = this.f1492a.c;
-                        hashMap.put(arrayList3.get(i3), true);
-                    }
-                }
-            }
-        }
     }
 }

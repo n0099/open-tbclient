@@ -1,59 +1,58 @@
 package com.baidu.tieba.im.a;
 
-import com.baidu.cloudsdk.social.core.SocialConstants;
-import com.baidu.tieba.im.codec.n;
-import com.baidu.tieba.im.codec.q;
-import com.baidu.tieba.im.data.GroupInfoData;
-import com.baidu.tieba.im.data.GroupPermData;
+import com.baidu.tieba.im.b.q;
+import com.baidu.tieba.im.data.MembersData;
+import com.baidu.tieba.im.data.UserData;
 import com.baidu.tieba.im.message.Message;
-import com.baidu.tieba.im.message.ResponseGroupsByUidMessage;
+import com.baidu.tieba.im.message.ResponseMembersMessage;
 import java.util.ArrayList;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class f implements n<com.baidu.tieba.im.codec.a.c> {
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.util.LinkedList, java.lang.Object, com.baidu.tieba.im.codec.q, int] */
-    @Override // com.baidu.tieba.im.codec.n
-    public /* bridge */ /* synthetic */ void a(LinkedList linkedList, com.baidu.tieba.im.codec.a.c cVar, q qVar, int i) {
-        a2((LinkedList<Message>) linkedList, cVar, qVar, i);
+public class f implements com.baidu.tieba.im.b.n<com.baidu.tieba.im.b.a.d> {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.util.LinkedList, java.lang.Object, com.baidu.tieba.im.b.q, int] */
+    @Override // com.baidu.tieba.im.b.n
+    public /* bridge */ /* synthetic */ void a(LinkedList linkedList, com.baidu.tieba.im.b.a.d dVar, q qVar, int i) {
+        a2((LinkedList<Message>) linkedList, dVar, qVar, i);
     }
 
     /* renamed from: a  reason: avoid collision after fix types in other method */
-    public void a2(LinkedList<Message> linkedList, com.baidu.tieba.im.codec.a.c cVar, q qVar, int i) {
-        ResponseGroupsByUidMessage responseGroupsByUidMessage = new ResponseGroupsByUidMessage(103003);
-        responseGroupsByUidMessage.setErrorInfo(qVar);
-        responseGroupsByUidMessage.setCmd(i);
-        linkedList.add(responseGroupsByUidMessage);
-        if (cVar != null && !responseGroupsByUidMessage.hasError()) {
-            com.baidu.tieba.im.codec.a.a d = cVar.d("groups");
+    public void a2(LinkedList<Message> linkedList, com.baidu.tieba.im.b.a.d dVar, q qVar, int i) {
+        ResponseMembersMessage responseMembersMessage = new ResponseMembersMessage(103005);
+        responseMembersMessage.setErrorInfo(qVar);
+        responseMembersMessage.setCmd(i);
+        linkedList.add(responseMembersMessage);
+        if (dVar != null && !responseMembersMessage.hasError()) {
+            MembersData membersData = new MembersData();
+            com.baidu.tieba.im.b.a.a e = dVar.e("userList");
+            int a2 = e.a();
             ArrayList arrayList = new ArrayList();
-            int a2 = d.a();
+            membersData.setUsers(arrayList);
             for (int i2 = 0; i2 < a2; i2++) {
-                com.baidu.tieba.im.codec.a.c a3 = d.a(i2);
-                GroupInfoData groupInfoData = new GroupInfoData();
-                groupInfoData.setIsGroupManager(a3.b("isGroupManager"));
-                groupInfoData.setForumId(a3.b("forumId"));
-                groupInfoData.setGroupId(a3.b("groupId"));
-                groupInfoData.setIntro(a3.a("intro"));
-                groupInfoData.setMaxMemberNum(a3.b("maxMemberNum"));
-                groupInfoData.setMemberNum(a3.b("memberNum"));
-                groupInfoData.setName(a3.a(SocialConstants.PARAM_MEDIA_UNAME));
-                groupInfoData.setPortrait(a3.a("portrait"));
-                groupInfoData.setAuthorId(a3.b("authorId"));
-                groupInfoData.setAuthorName(a3.a("authorName"));
-                groupInfoData.setGrade(a3.b("grade"));
-                arrayList.add(groupInfoData);
+                UserData userData = new UserData();
+                com.baidu.tieba.im.b.a.d a3 = e.a(i2);
+                userData.setUserId(a3.c("userId"));
+                userData.setUserName(a3.a("userName"));
+                userData.setPortrait(a3.a("portrait"));
+                userData.setSex(a3.b("sex"));
+                userData.setPosition(a3.a("position"));
+                userData.setLng(a3.a("lng"));
+                userData.setLat(a3.a("lat"));
+                userData.setInTime(a3.c("inTime"));
+                userData.setLoginTime(a3.c("loginTime"));
+                userData.setLastReplyTime(a3.c("lastReplyTime"));
+                com.baidu.tieba.im.b.a.d f = a3.f("permission");
+                UserData.Permission permission = new UserData.Permission();
+                permission.setIsGroupManager(f.b("isGroupManager"));
+                permission.setIsGroupOwner(f.b("isGroupOwner"));
+                userData.setPermission(permission);
+                arrayList.add(userData);
             }
-            responseGroupsByUidMessage.setGroups(arrayList);
-            com.baidu.tieba.im.codec.a.c e = cVar.e("groupPerm");
-            GroupPermData groupPermData = new GroupPermData();
-            groupPermData.setIsManager(e.b("isForumManager"));
-            groupPermData.setCanCreateNormal(e.b("canCreateNormal"));
-            groupPermData.setCanCreateOfficial(e.b("canCreateOfficial"));
-            groupPermData.setCreateNormalTip(e.a("createNormalTip"));
-            groupPermData.setCreateOfficialTip(e.a("createOfficialTip"));
-            groupPermData.setCanCreatePersonal(e.b("canCreatePersonal"));
-            groupPermData.setCreatePersonalTip(e.a("createPersonalTip"));
-            responseGroupsByUidMessage.setGroupPerm(groupPermData);
+            com.baidu.tieba.im.b.a.d f2 = dVar.f("permission");
+            UserData.Permission permission2 = new UserData.Permission();
+            permission2.setIsGroupOwner(f2.b("isGroupOwner"));
+            permission2.setIsGroupManager(f2.b("isGroupManager"));
+            membersData.setPermission(permission2);
+            responseMembersMessage.setMembersData(membersData);
         }
     }
 }

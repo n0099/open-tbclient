@@ -8,13 +8,13 @@ import com.baidu.tieba.pb.NewPbActivity;
 public class i implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ com.baidu.tieba.data.az f1358a;
+    final /* synthetic */ com.baidu.tieba.data.az f1409a;
     final /* synthetic */ FrsActivity b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(FrsActivity frsActivity, com.baidu.tieba.data.az azVar) {
         this.b = frsActivity;
-        this.f1358a = azVar;
+        this.f1409a = azVar;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -28,7 +28,7 @@ public class i implements DialogInterface.OnClickListener {
                 str = this.b.l;
                 if (str != null) {
                     FrsActivity frsActivity = this.b;
-                    com.baidu.tieba.data.az azVar = this.f1358a;
+                    com.baidu.tieba.data.az azVar = this.f1409a;
                     str2 = this.b.f;
                     z = this.b.m;
                     NewPbActivity.a(frsActivity, azVar, str2, null, 18003, true, false, z);
@@ -36,17 +36,17 @@ public class i implements DialogInterface.OnClickListener {
                 }
                 break;
             case 1:
-                this.b.c(this.f1358a);
+                this.b.c(this.f1409a);
                 break;
             case 2:
-                this.b.d(this.f1358a);
+                this.b.d(this.f1409a);
                 break;
         }
-        com.baidu.tieba.util.bc aw = TiebaApplication.g().aw();
-        if (aw != null && !aw.b(this.f1358a.a())) {
-            aw.a(this.f1358a.a());
+        com.baidu.tieba.util.az aw = TiebaApplication.h().aw();
+        if (aw != null && !aw.b(this.f1409a.a())) {
+            aw.a(this.f1409a.a());
         }
         bnVar = this.b.n;
-        bnVar.p();
+        bnVar.q();
     }
 }

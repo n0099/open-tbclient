@@ -1,38 +1,31 @@
 package com.baidu.tieba;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.os.Handler;
+import com.baidu.tieba.util.DatabaseService;
 /* loaded from: classes.dex */
-public class ak extends BroadcastReceiver {
+class ak extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MainTabActivity f1107a;
-
-    private ak(MainTabActivity mainTabActivity) {
-        this.f1107a = mainTabActivity;
-    }
+    final /* synthetic */ LogoActivity f1117a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ak(MainTabActivity mainTabActivity, ai aiVar) {
-        this(mainTabActivity);
+    public ak(LogoActivity logoActivity) {
+        this.f1117a = logoActivity;
     }
 
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
-        String action = intent.getAction();
-        if (action.equals("com.baidu.tieba.broadcast.notify")) {
-            this.f1107a.h = intent.getLongExtra("relay", 0L);
-            this.f1107a.i = intent.getLongExtra("at_me", 0L);
-            this.f1107a.j = intent.getLongExtra("fans", 0L);
-            this.f1107a.k = intent.getLongExtra("pletter", 0L);
-            this.f1107a.l = intent.getLongExtra("new_bookmark", 0L);
-            this.f1107a.p();
-        } else if (action.equals("com.baidu.tieba.broadcast.newversion")) {
-            this.f1107a.q();
-        } else if (action.equals("com.baidu.tieba.broadcast.newrecommends")) {
-            this.f1107a.e();
+    @Override // java.lang.Thread, java.lang.Runnable
+    public void run() {
+        Handler handler;
+        Handler handler2;
+        super.run();
+        try {
+            DatabaseService.t();
+            DatabaseService.w();
+            this.f1117a.a(this.f1117a.getCacheDir());
+        } catch (Exception e) {
         }
+        handler = this.f1117a.i;
+        handler2 = this.f1117a.i;
+        handler.sendMessage(handler2.obtainMessage());
     }
 }

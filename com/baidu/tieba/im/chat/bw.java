@@ -1,23 +1,23 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tieba.view.HeadImageView;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bw implements com.baidu.tbadk.imageManager.c {
+public class bw implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MsgrightView f1533a;
+    final /* synthetic */ bm f1581a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bw(MsgrightView msgrightView) {
-        this.f1533a = msgrightView;
+    public bw(bm bmVar) {
+        this.f1581a = bmVar;
     }
 
-    @Override // com.baidu.tbadk.imageManager.c
-    public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
-        HeadImageView headImageView;
-        if (eVar != null) {
-            headImageView = this.f1533a.p;
-            eVar.a(headImageView);
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.f1581a.J();
+        this.f1581a.L();
+        this.f1581a.K();
+        this.f1581a.N();
     }
 }

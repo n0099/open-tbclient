@@ -7,7 +7,6 @@ import android.text.SpannableStringBuilder;
 import android.text.style.ImageSpan;
 import com.baidu.tbadk.imageManager.TbFaceManager;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.bg;
 import com.slidingmenu.lib.R;
 import java.util.regex.Pattern;
 import org.json.JSONObject;
@@ -19,7 +18,7 @@ public class j {
     private int d;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1203a = 0;
+    private int f1250a = 0;
     private String b = null;
     private String f = null;
     private String g = null;
@@ -35,11 +34,11 @@ public class j {
     }
 
     public void a(int i2) {
-        this.f1203a = i2;
+        this.f1250a = i2;
     }
 
     public int a() {
-        return this.f1203a;
+        return this.f1250a;
     }
 
     public String b() {
@@ -64,7 +63,7 @@ public class j {
 
     public SpannableString a(Context context) {
         String str;
-        switch (this.f1203a) {
+        switch (this.f1250a) {
             case 0:
                 return new SpannableString(this.b);
             case 1:
@@ -76,10 +75,10 @@ public class j {
                 return spannableString;
             case 2:
                 SpannableString spannableString2 = new SpannableString(this.b + " ");
-                com.baidu.adp.widget.ImageView.e j2 = TiebaApplication.g().j(this.b);
-                if (j2 != null) {
-                    BitmapDrawable g = j2.g();
-                    g.setBounds(0, 0, j2.a(), j2.b());
+                com.baidu.adp.widget.ImageView.e k = TiebaApplication.h().k(this.b);
+                if (k != null) {
+                    BitmapDrawable g = k.g();
+                    g.setBounds(0, 0, k.a(), k.b());
                     spannableString2.setSpan(new ImageSpan(g, 1), 0, this.b.length(), 33);
                     return spannableString2;
                 }
@@ -107,19 +106,19 @@ public class j {
 
     public SpannableString a(Context context, int i2, int i3) {
         int b;
-        if (this.f1203a != 2) {
+        if (this.f1250a != 2) {
             return null;
         }
         SpannableString spannableString = new SpannableString(this.b + " ");
-        com.baidu.adp.widget.ImageView.e j2 = TiebaApplication.g().j(this.b);
-        if (j2 != null) {
-            BitmapDrawable g = j2.g();
+        com.baidu.adp.widget.ImageView.e k = TiebaApplication.h().k(this.b);
+        if (k != null) {
+            BitmapDrawable g = k.g();
             if (i2 - i3 > 0) {
-                b = j2.b() + ((i2 - i3) >> 1);
+                b = k.b() + ((i2 - i3) >> 1);
             } else {
-                b = j2.b();
+                b = k.b();
             }
-            g.setBounds(0, 0, j2.a(), b);
+            g.setBounds(0, 0, k.a(), b);
             spannableString.setSpan(new ImageSpan(g, 1), 0, this.b.length(), 33);
         }
         return spannableString;
@@ -132,8 +131,8 @@ public class j {
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.f1203a = jSONObject.optInt("type", 0);
-                if (this.f1203a == 3) {
+                this.f1250a = jSONObject.optInt("type", 0);
+                if (this.f1250a == 3) {
                     this.f = jSONObject.optString("src");
                     this.b = jSONObject.optString("bsize");
                     this.g = jSONObject.optString("cdn_src", null);
@@ -155,23 +154,23 @@ public class j {
                     if (this.f != null && this.f.indexOf(".baidu.com") != -1) {
                         this.e = true;
                     }
-                } else if (this.f1203a == 4) {
+                } else if (this.f1250a == 4) {
                     this.b = jSONObject.optString("text");
                     this.f = jSONObject.optString("uid");
                 } else {
                     this.b = jSONObject.optString("text");
                     this.f = jSONObject.optString("link");
-                    if (this.f1203a == 2 && TbFaceManager.a().b(this.b) == 0) {
-                        this.f1203a = 0;
+                    if (this.f1250a == 2 && TbFaceManager.a().b(this.b) == 0) {
+                        this.f1250a = 0;
                         this.b = "[" + jSONObject.optString("c") + "]";
                     }
                 }
-                if (this.f1203a != 0) {
+                if (this.f1250a != 0) {
                     this.b = this.b.replaceAll("\n", "");
                     this.f = this.f.replaceAll("\n", "");
                 }
             } catch (Exception e2) {
-                bg.b("ContentData", "parserJson", "error = " + e2.getMessage());
+                com.baidu.tieba.util.bd.b("ContentData", "parserJson", "error = " + e2.getMessage());
             }
         }
     }

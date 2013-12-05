@@ -12,7 +12,7 @@ import com.slidingmenu.lib.R;
 public class q extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    View.OnClickListener f2415a = new r(this);
+    View.OnClickListener f2532a = new r(this);
     private Activity b;
     private final t c;
     private final String d;
@@ -43,11 +43,11 @@ public class q extends BaseAdapter {
         int itemViewType = getItemViewType(i);
         if (view == null) {
             view = a(viewGroup, itemViewType);
-            com.baidu.tieba.util.bl.b(view);
+            com.baidu.tieba.util.bj.b(view);
         }
-        com.baidu.tieba.util.bl.a(view);
+        com.baidu.tieba.util.bj.a(view);
         if (itemViewType != 3) {
-            int ap = TiebaApplication.g().ap();
+            int an = TiebaApplication.h().an();
             View findViewById = view.findViewById(R.id.container);
             View findViewById2 = view.findViewById(R.id.item_up);
             View findViewById3 = view.findViewById(R.id.item_down);
@@ -61,7 +61,7 @@ public class q extends BaseAdapter {
                 findViewById2.setVisibility(8);
                 findViewById3.setVisibility(8);
             }
-            com.baidu.tieba.util.bl.a(findViewById, itemViewType, ap);
+            com.baidu.tieba.util.bj.a(findViewById, itemViewType, an);
             a(viewGroup, (s) view.getTag(), i);
         }
         return view;
@@ -73,9 +73,9 @@ public class q extends BaseAdapter {
             return from.inflate(R.layout.bar_home_list_line, viewGroup, false);
         }
         View inflate = from.inflate(R.layout.bar_folder_second_dir_item, viewGroup, false);
-        inflate.setOnClickListener(this.f2415a);
+        inflate.setOnClickListener(this.f2532a);
         s sVar = new s();
-        sVar.f2417a = (TextView) inflate.findViewById(R.id.name);
+        sVar.f2534a = (TextView) inflate.findViewById(R.id.name);
         inflate.setTag(sVar);
         return inflate;
     }
@@ -83,7 +83,7 @@ public class q extends BaseAdapter {
     private void a(ViewGroup viewGroup, s sVar, int i) {
         z zVar = this.c.d().e.get(i / 2);
         sVar.b = zVar;
-        sVar.f2417a.setText(zVar.b);
+        sVar.f2534a.setText(zVar.b);
     }
 
     @Override // android.widget.Adapter

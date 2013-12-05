@@ -22,13 +22,13 @@ public interface i {
 
     void d(Context context, String str);
 
-    com.baidu.adp.lib.d.b<View> d_();
-
     com.baidu.adp.lib.d.b<ImageView> e();
 
     void e(Context context, String str);
 
     com.baidu.adp.lib.d.b<TextView> f();
+
+    com.baidu.adp.lib.d.b<View> g();
 
     com.baidu.adp.lib.d.b<LinearLayout> h();
 }

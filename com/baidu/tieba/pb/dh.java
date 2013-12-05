@@ -7,11 +7,11 @@ import android.view.View;
 public class dh implements View.OnTouchListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ cr f2123a;
+    final /* synthetic */ cr f2230a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public dh(cr crVar) {
-        this.f2123a = crVar;
+        this.f2230a = crVar;
     }
 
     @Override // android.view.View.OnTouchListener

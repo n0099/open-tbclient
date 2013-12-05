@@ -1,12 +1,11 @@
 package com.baidu.tieba.data;
 
-import com.baidu.tieba.util.bg;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ba {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1187a = null;
+    private String f1234a = null;
     private String d = null;
     private String b = null;
     private int c = 0;
@@ -25,7 +24,7 @@ public class ba {
     }
 
     public String d() {
-        return this.f1187a;
+        return this.f1234a;
     }
 
     public int e() {
@@ -35,7 +34,7 @@ public class ba {
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.f1187a = jSONObject.optString("tid");
+                this.f1234a = jSONObject.optString("tid");
                 this.b = jSONObject.optString("title");
                 this.c = jSONObject.optInt("reply_amount", 0);
                 JSONObject optJSONObject = jSONObject.optJSONObject("user");
@@ -44,7 +43,7 @@ public class ba {
                 }
                 this.e.a(jSONObject.optJSONObject("photo"));
             } catch (Exception e) {
-                bg.b("HotspotData", "parserJson", "error = " + e.getMessage());
+                com.baidu.tieba.util.bd.b("HotspotData", "parserJson", "error = " + e.getMessage());
             }
         }
     }

@@ -12,7 +12,7 @@ import java.util.Iterator;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f806a = null;
+    private static a f811a = null;
     private BroadcastReceiver b;
     private Context c;
     private HashMap d = null;
@@ -38,18 +38,18 @@ public final class a {
     public static synchronized a a(Context context) {
         a aVar;
         synchronized (a.class) {
-            if (f806a == null) {
-                f806a = new a(context);
+            if (f811a == null) {
+                f811a = new a(context);
             }
-            aVar = f806a;
+            aVar = f811a;
         }
         return aVar;
     }
 
     public static void a() {
-        if (f806a != null) {
-            f806a.f();
-            f806a = null;
+        if (f811a != null) {
+            f811a.f();
+            f811a = null;
         }
     }
 

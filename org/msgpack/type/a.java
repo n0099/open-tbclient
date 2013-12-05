@@ -5,6 +5,11 @@ import org.msgpack.MessageTypeException;
 /* loaded from: classes.dex */
 abstract class a extends AbstractList<r> implements ArrayValue {
     @Override // org.msgpack.type.r
+    public ValueType getType() {
+        return ValueType.ARRAY;
+    }
+
+    @Override // org.msgpack.type.r
     public boolean isArrayValue() {
         return true;
     }

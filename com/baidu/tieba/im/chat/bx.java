@@ -1,19 +1,24 @@
 package com.baidu.tieba.im.chat;
 
 import android.view.View;
+import android.widget.Button;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bx implements View.OnClickListener {
+public class bx implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MsgrightView f1534a;
+    final /* synthetic */ bm f1582a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bx(MsgrightView msgrightView) {
-        this.f1534a = msgrightView;
+    public bx(bm bmVar) {
+        this.f1582a = bmVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.f1534a.c.a(view, 1, this.f1534a.f, 0L);
+        Button button;
+        this.f1582a.J();
+        button = this.f1582a.x;
+        button.postDelayed(new by(this), 100L);
     }
 }

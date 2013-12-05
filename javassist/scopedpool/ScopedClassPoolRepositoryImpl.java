@@ -12,7 +12,7 @@ public class ScopedClassPoolRepositoryImpl implements b {
     private boolean e = true;
 
     /* renamed from: a  reason: collision with root package name */
-    protected Map f2843a = Collections.synchronizedMap(new WeakHashMap());
+    protected Map f3024a = Collections.synchronizedMap(new WeakHashMap());
     protected a c = new ScopedClassPoolFactoryImpl();
     protected javassist.c b = javassist.c.a();
 
@@ -28,14 +28,14 @@ public class ScopedClassPoolRepositoryImpl implements b {
     @Override // javassist.scopedpool.b
     public Map b() {
         c();
-        return this.f2843a;
+        return this.f3024a;
     }
 
     public void c() {
         ArrayList arrayList;
         ArrayList arrayList2 = null;
-        synchronized (this.f2843a) {
-            Iterator it = this.f2843a.values().iterator();
+        synchronized (this.f3024a) {
+            Iterator it = this.f3024a.values().iterator();
             while (it.hasNext()) {
                 ScopedClassPool scopedClassPool = (ScopedClassPool) it.next();
                 if (scopedClassPool.j()) {
@@ -60,8 +60,8 @@ public class ScopedClassPoolRepositoryImpl implements b {
 
     @Override // javassist.scopedpool.b
     public void a(ClassLoader classLoader) {
-        synchronized (this.f2843a) {
-            ScopedClassPool scopedClassPool = (ScopedClassPool) this.f2843a.remove(classLoader);
+        synchronized (this.f3024a) {
+            ScopedClassPool scopedClassPool = (ScopedClassPool) this.f3024a.remove(classLoader);
             if (scopedClassPool != null) {
                 scopedClassPool.i();
             }

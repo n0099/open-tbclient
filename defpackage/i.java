@@ -12,14 +12,14 @@ import com.baidu.cloudsdk.common.imgloader.AsyncImageLoader;
 public class i implements AsyncImageLoader.IAsyncImageLoaderListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ aq f2719a;
+    final /* synthetic */ aq f2900a;
     private Uri b;
     private String c;
     private String d;
     private String e;
 
     public i(aq aqVar, Uri uri, String str, String str2, String str3) {
-        this.f2719a = aqVar;
+        this.f2900a = aqVar;
         this.b = uri;
         this.c = str;
         this.d = str2;
@@ -33,17 +33,17 @@ public class i implements AsyncImageLoader.IAsyncImageLoaderListener {
         String str3;
         int a2;
         if (bitmap != null) {
-            a2 = this.f2719a.a(bitmap, 150);
-            this.f2719a.a(this.c, this.d, this.e, Bitmap.createScaledBitmap(bitmap, 150, a2, true));
+            a2 = this.f2900a.a(bitmap, 150);
+            this.f2900a.a(this.c, this.d, this.e, Bitmap.createScaledBitmap(bitmap, 150, a2, true));
             return;
         }
         if (this.b != null) {
             str3 = aq.f362a;
             Log.e(str3, "fail to load image uri from" + this.b.toString());
         }
-        str = this.f2719a.h;
+        str = this.f2900a.h;
         IBaiduListener a3 = aq.a(str);
-        str2 = this.f2719a.h;
+        str2 = this.f2900a.h;
         aq.b(str2);
         a3.onError(new BaiduException("failed to load image uri "));
     }

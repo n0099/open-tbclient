@@ -1,75 +1,34 @@
 package com.baidu.tieba.im.model;
 
-import com.baidu.tieba.im.chat.LocalViewSize;
-import com.baidu.tieba.im.message.ChatMessage;
+import com.baidu.tieba.im.message.Message;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class r {
-    private static int b = -1;
-    private static int c = -2;
-    private static int d = -3;
-    private static int e = 2230203;
+public class r implements com.baidu.tieba.im.messageCenter.g {
 
     /* renamed from: a  reason: collision with root package name */
-    public ChatMessage f1751a;
-    private String g;
-    private int i;
-    private int j;
-    private int k;
-    private int l;
-    private u f = null;
-    private String h = null;
-    private t m = null;
+    final /* synthetic */ MsglistModel f1826a;
 
-    public r(String str, int i, int i2, int i3, int i4) {
-        this.g = null;
-        this.i = 0;
-        this.j = 0;
-        this.k = 0;
-        this.l = 0;
-        this.g = str;
-        this.i = i;
-        this.j = i2;
-        this.k = i3;
-        this.l = i4;
-        LocalViewSize.ImageSize c2 = LocalViewSize.a().c();
-        LocalViewSize.ImageSize d2 = LocalViewSize.a().d();
-        if (this.i <= 0) {
-            this.i = c2.width;
-        }
-        if (this.j <= 0) {
-            this.j = c2.height;
-        }
-        if (this.k <= 0) {
-            this.k = d2.width;
-        }
-        if (this.l <= 0) {
-            this.l = d2.height;
-        }
+    private r(MsglistModel msglistModel) {
+        this.f1826a = msglistModel;
     }
 
-    public void a() {
-        if (this.m == null) {
-            this.m = new t(this);
-            this.m.execute(new String[0]);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ r(MsglistModel msglistModel, i iVar) {
+        this(msglistModel);
+    }
+
+    @Override // com.baidu.tieba.im.messageCenter.g
+    public void a(Message message) {
+        if (message == null) {
+            com.baidu.adp.lib.h.e.a("msg == null");
+        } else if (message.getCmd() == 103112) {
+            this.f1826a.a(message);
+        } else if (message.getCmd() == 103102) {
+            this.f1826a.c(message);
+        } else if (message.getCmd() == 202003) {
+            this.f1826a.b(message);
+        } else if (message.getCmd() == -113) {
+            this.f1826a.l();
         }
-    }
-
-    public void b() {
-        if (this.m != null) {
-            this.m.cancel();
-            this.m = null;
-        }
-    }
-
-    public void a(u uVar) {
-        this.f = uVar;
-    }
-
-    public void a(String str) {
-        this.h = str;
-    }
-
-    public void a(ChatMessage chatMessage) {
-        this.f1751a = chatMessage;
     }
 }

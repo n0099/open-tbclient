@@ -25,7 +25,7 @@ public class Jni {
     private static int f60if = 13;
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f901a = 14;
+    private static int f906a = 14;
 
     /* renamed from: do  reason: not valid java name */
     private static int f58do = 1024;
@@ -48,7 +48,7 @@ public class Jni {
     private static native String b(double d, double d2, int i, int i2);
 
     /* renamed from: if  reason: not valid java name */
-    public static String m17if(String str) {
+    public static String m18if(String str) {
         if (f62new) {
             return "err!";
         }
@@ -70,7 +70,7 @@ public class Jni {
     }
 
     /* renamed from: if  reason: not valid java name */
-    public static double[] m18if(double d, double d2, String str) {
+    public static double[] m19if(double d, double d2, String str) {
         double[] dArr = {0.0d, 0.0d};
         if (f62new) {
             return dArr;

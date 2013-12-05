@@ -1,36 +1,18 @@
 package com.baidu.tieba.im.chat;
-
-import android.content.Context;
-import android.text.TextUtils;
-import android.text.method.LinkMovementMethod;
-import android.widget.TextView;
-import com.baidu.tieba.im.message.ChatMessage;
-import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class aj extends com.baidu.adp.a.c<ChatMessage> {
-    private TextView c;
+class aj implements com.baidu.tieba.view.a {
 
-    public aj(Context context) {
-        super(context, R.layout.msg_msgmid_view);
-        this.c = null;
-        e();
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ MsgImageActivity f1543a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public aj(MsgImageActivity msgImageActivity) {
+        this.f1543a = msgImageActivity;
     }
 
-    private void e() {
-        this.c = (TextView) a(R.id.tex_msgcontent);
-        this.c.setMovementMethod(LinkMovementMethod.getInstance());
-    }
-
-    public void a(ChatMessage chatMessage) {
-        if (chatMessage == null) {
-            this.c.setText((CharSequence) null);
-            return;
-        }
-        String f = com.baidu.tieba.im.d.c.f(chatMessage);
-        if (!TextUtils.isEmpty(f)) {
-            this.c.setText(f);
-        } else {
-            this.c.setText((CharSequence) null);
+    @Override // com.baidu.tieba.view.a
+    public void a(int i) {
+        if (i == 0) {
         }
     }
 }

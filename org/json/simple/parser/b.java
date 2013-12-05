@@ -11,7 +11,7 @@ import org.json.simple.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private LinkedList f2870a;
+    private LinkedList f3051a;
     private c b = new c(null);
     private d c = null;
     private int d = 0;
@@ -26,7 +26,7 @@ public class b {
     public void a() {
         this.c = null;
         this.d = 0;
-        this.f2870a = null;
+        this.f3051a = null;
     }
 
     public void a(Reader reader) {
@@ -53,7 +53,7 @@ public class b {
                     case -1:
                         throw new ParseException(b(), 1, this.c);
                     case 0:
-                        switch (this.c.f2872a) {
+                        switch (this.c.f3053a) {
                             case 0:
                                 this.d = 1;
                                 linkedList.addFirst(new Integer(this.d));
@@ -75,12 +75,12 @@ public class b {
                                 break;
                         }
                     case 1:
-                        if (this.c.f2872a == -1) {
+                        if (this.c.f3053a == -1) {
                             return linkedList2.removeFirst();
                         }
                         throw new ParseException(b(), 1, this.c);
                     case 2:
-                        switch (this.c.f2872a) {
+                        switch (this.c.f3053a) {
                             case 0:
                                 if (this.c.b instanceof String) {
                                     linkedList2.addFirst((String) this.c.b);
@@ -111,7 +111,7 @@ public class b {
                                 break;
                         }
                     case 3:
-                        switch (this.c.f2872a) {
+                        switch (this.c.f3053a) {
                             case 0:
                                 ((List) linkedList2.getFirst()).add(this.c.b);
                                 break;
@@ -147,7 +147,7 @@ public class b {
                                 break;
                         }
                     case 4:
-                        switch (this.c.f2872a) {
+                        switch (this.c.f3053a) {
                             case 0:
                                 linkedList.removeFirst();
                                 ((Map) linkedList2.getFirst()).put((String) linkedList2.removeFirst(), this.c.b);
@@ -187,7 +187,7 @@ public class b {
             } catch (IOException e) {
                 throw e;
             }
-        } while (this.c.f2872a != -1);
+        } while (this.c.f3053a != -1);
         throw new ParseException(b(), 1, this.c);
     }
 

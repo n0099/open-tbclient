@@ -1,54 +1,23 @@
 package com.baidu.tieba.home;
-
-import android.view.View;
-import com.baidu.mobstat.StatService;
-import com.baidu.tieba.BaseFragmentActivity;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.im.message.GroupsByUidMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h implements View.OnClickListener {
+public class h implements com.baidu.adp.widget.ListView.b {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ EnterForumActivity f1443a;
+    final /* synthetic */ EnterForumActivity f1493a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(EnterForumActivity enterForumActivity) {
-        this.f1443a = enterForumActivity;
+        this.f1493a = enterForumActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        o oVar;
-        o oVar2;
-        o oVar3;
-        o oVar4;
-        BaseFragmentActivity baseFragmentActivity;
-        BaseFragmentActivity baseFragmentActivity2;
-        BaseFragmentActivity baseFragmentActivity3;
-        oVar = this.f1443a.c;
-        if (oVar != null) {
-            oVar2 = this.f1443a.c;
-            if (oVar2.f1450a != null) {
-                oVar3 = this.f1443a.c;
-                if (oVar3.f1450a.b != null) {
-                    oVar4 = this.f1443a.c;
-                    com.baidu.tieba.im.b.c cVar = oVar4.f1450a.b;
-                    if (!TiebaApplication.B()) {
-                        baseFragmentActivity3 = this.f1443a.i;
-                        baseFragmentActivity3.a("请先登录");
-                    } else if (!EnterForumActivity.b) {
-                        if (TiebaApplication.g().s()) {
-                            baseFragmentActivity2 = this.f1443a.i;
-                            StatService.onEvent(baseFragmentActivity2, "create_group_tab", "click", 1);
-                        }
-                        baseFragmentActivity = this.f1443a.i;
-                        baseFragmentActivity.a(null, new i(this));
-                        com.baidu.tieba.im.messageCenter.f.a().a(new GroupsByUidMessage(cVar.f1467a, cVar.b));
-                        EnterForumActivity.b = true;
-                    }
-                }
-            }
+    @Override // com.baidu.adp.widget.ListView.b
+    public void a(boolean z) {
+        com.baidu.tieba.model.t tVar;
+        Boolean bool;
+        tVar = this.f1493a.c;
+        bool = this.f1493a.f;
+        if (tVar.a(bool.booleanValue())) {
         }
     }
 }

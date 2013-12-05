@@ -1,22 +1,26 @@
 package com.baidu.tieba.home;
 
-import android.app.AlertDialog;
-import android.view.View;
-import com.slidingmenu.lib.R;
+import android.widget.AbsListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ak implements View.OnClickListener {
+public class ak implements AbsListView.OnScrollListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SearchActivity f1395a;
+    final /* synthetic */ SearchActivity f1450a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ak(SearchActivity searchActivity) {
-        this.f1395a = searchActivity;
+        this.f1450a = searchActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        new AlertDialog.Builder(this.f1395a).setTitle("提醒").setIcon(R.drawable.dialogue_quit).setMessage("确认清除搜索记录？").setPositiveButton("确认", new am(this)).setNegativeButton("取消", new al(this)).create().show();
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScrollStateChanged(AbsListView absListView, int i) {
+        if (i == 2 || i == 1) {
+            com.baidu.adp.lib.h.g.a(this.f1450a, absListView);
+        }
+    }
+
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
     }
 }

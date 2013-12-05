@@ -6,11 +6,11 @@ import android.content.DialogInterface;
 public class f implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PublicMsg f723a;
+    final /* synthetic */ PublicMsg f728a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(PublicMsg publicMsg) {
-        this.f723a = publicMsg;
+        this.f728a = publicMsg;
     }
 
     @Override // android.content.DialogInterface.OnClickListener

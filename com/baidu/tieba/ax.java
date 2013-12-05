@@ -1,15 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.data.chat.RecentChatFriendData;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
 /* loaded from: classes.dex */
-public final class ax implements com.baidu.tieba.im.a<Void> {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    public void a(Void r4) {
-        com.baidu.tieba.im.pushNotify.a.g().e();
-        com.baidu.tieba.im.pushNotify.a.g().b((RecentChatFriendData) null);
-        com.baidu.tieba.im.pushNotify.a.g().c((RecentChatFriendData) null);
-        com.baidu.tieba.im.pushNotify.a.g().b(false, (com.baidu.tieba.im.a<Void>) null);
+class ax implements View.OnClickListener {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ av f1125a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ax(av avVar) {
+        this.f1125a = avVar;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        ay ayVar;
+        ayVar = this.f1125a.h;
+        ayVar.a();
     }
 }

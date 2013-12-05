@@ -1,38 +1,75 @@
 package com.baidu.adp.lib.webSocket;
+
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.InetSocketAddress;
+import java.net.Socket;
+import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
-public class i {
+class i implements g {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final int[] f535a = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 8, 8, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 10, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 3, 3, 11, 6, 6, 6, 5, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 0, 1, 2, 3, 5, 8, 7, 1, 1, 1, 4, 6, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 2, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 1, 3, 1, 1, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 3, 1, 3, 1, 1, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
-    private int b;
-    private int c;
+    private Socket f538a;
+    private InputStream b;
+    private OutputStream c;
+    private byte[] d;
 
-    public i() {
-        a();
+    public i(String str, int i, am amVar) {
+        this.f538a = null;
+        this.b = null;
+        this.c = null;
+        this.d = null;
+        this.f538a = new Socket();
+        this.f538a.connect(new InetSocketAddress(str, i), amVar.f());
+        this.f538a.setSoTimeout(amVar.e());
+        this.f538a.setTcpNoDelay(amVar.d());
+        this.b = this.f538a.getInputStream();
+        this.c = this.f538a.getOutputStream();
+        this.d = new byte[1024];
     }
 
+    @Override // com.baidu.adp.lib.webSocket.g
     public void a() {
-        this.b = 0;
-        this.c = 0;
-    }
-
-    public boolean b() {
-        return this.b == 0;
-    }
-
-    public boolean a(byte[] bArr, int i, int i2) {
-        for (int i3 = i; i3 < i + i2; i3++) {
-            this.b = f535a[(this.b << 4) + 256 + f535a[bArr[i3] & 255]];
-            if (this.b == 1) {
-                this.c += i3;
-                return false;
-            }
+        try {
+            this.b.close();
+        } catch (Exception e) {
+            com.baidu.adp.lib.h.e.a(e.getMessage());
         }
-        this.c += i2;
-        return true;
+        try {
+            this.c.close();
+        } catch (Exception e2) {
+            com.baidu.adp.lib.h.e.a(e2.getMessage());
+        }
+        if (this.f538a != null) {
+            this.f538a.close();
+        }
     }
 
-    public boolean a(byte[] bArr) {
-        return a(bArr, 0, bArr.length);
+    @Override // com.baidu.adp.lib.webSocket.g
+    public boolean b() {
+        if (this.f538a != null) {
+            return this.f538a.isConnected();
+        }
+        return false;
+    }
+
+    @Override // com.baidu.adp.lib.webSocket.g
+    public int a(ByteBuffer byteBuffer) {
+        int read = this.b.read(this.d);
+        if (read > 0) {
+            byteBuffer.put(this.d, 0, read);
+        }
+        return read;
+    }
+
+    @Override // com.baidu.adp.lib.webSocket.g
+    public int b(ByteBuffer byteBuffer) {
+        int remaining = byteBuffer.remaining();
+        if (remaining > 0) {
+            byte[] bArr = new byte[remaining];
+            byteBuffer.get(bArr);
+            this.c.write(bArr);
+        }
+        return remaining;
     }
 }

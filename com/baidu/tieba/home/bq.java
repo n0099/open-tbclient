@@ -1,53 +1,63 @@
 package com.baidu.tieba.home;
 
-import org.json.JSONObject;
+import android.widget.ProgressBar;
+import android.widget.Scroller;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bq {
+public class bq implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1426a;
-    private String b;
-    private int c;
-    private int d;
-    private int e;
-    private int f;
-    private int g;
-    private r h = new r();
+    final /* synthetic */ bp f1480a;
 
-    public int a() {
-        return this.f1426a;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bq(bp bpVar) {
+        this.f1480a = bpVar;
     }
 
-    public int b() {
-        return this.c;
-    }
-
-    public int c() {
-        return this.f;
-    }
-
-    public int d() {
-        return this.g;
-    }
-
-    public r e() {
-        return this.h;
-    }
-
-    public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.h.a(jSONObject.optJSONObject("error"));
-                this.f1426a = jSONObject.optInt("forum_id");
-                this.b = jSONObject.optString("forum_name");
-                this.c = jSONObject.optInt("signed");
-                this.d = jSONObject.optInt("is_on");
-                this.e = jSONObject.optInt("is_filter");
-                this.f = jSONObject.optInt("sign_day_count");
-                this.g = jSONObject.optInt("cur_score");
-            } catch (Exception e) {
-                com.baidu.tieba.util.bg.b(getClass().getName(), "parserJson", e.getMessage());
+    @Override // java.lang.Runnable
+    public void run() {
+        Scroller scroller;
+        ProgressBar progressBar;
+        ProgressBar progressBar2;
+        Scroller scroller2;
+        Scroller scroller3;
+        ProgressBar progressBar3;
+        ProgressBar progressBar4;
+        Runnable runnable;
+        int i;
+        Scroller scroller4;
+        Runnable runnable2;
+        scroller = this.f1480a.i;
+        if (scroller.computeScrollOffset()) {
+            scroller3 = this.f1480a.i;
+            int currX = scroller3.getCurrX();
+            progressBar3 = this.f1480a.d;
+            if (currX >= (progressBar3.getMax() * 9) / 10) {
+                i = this.f1480a.f1479a;
+                if (i != 2) {
+                    scroller4 = this.f1480a.i;
+                    scroller4.forceFinished(true);
+                    bp bpVar = this.f1480a;
+                    runnable2 = this.f1480a.l;
+                    bpVar.postDelayed(runnable2, 2000L);
+                    return;
+                }
             }
+            progressBar4 = this.f1480a.d;
+            progressBar4.setProgress(currX);
+            bp bpVar2 = this.f1480a;
+            runnable = this.f1480a.k;
+            bpVar2.postDelayed(runnable, 16L);
+            return;
+        }
+        progressBar = this.f1480a.d;
+        int progress = progressBar.getProgress();
+        progressBar2 = this.f1480a.d;
+        int max = (progressBar2.getMax() * 9) / 10;
+        if (progress < max) {
+            scroller2 = this.f1480a.i;
+            scroller2.startScroll(progress, 0, max - progress, 0, 5000);
+            this.f1480a.post(this);
         }
     }
 }

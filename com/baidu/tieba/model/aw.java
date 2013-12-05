@@ -7,11 +7,11 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 public class aw extends BdAsyncTask<Object, Integer, Bitmap> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ av f1885a;
+    final /* synthetic */ av f1997a;
     private String b;
 
     public aw(av avVar, String str) {
-        this.f1885a = avVar;
+        this.f1997a = avVar;
         this.b = null;
         this.b = str;
     }
@@ -22,19 +22,19 @@ public class aw extends BdAsyncTask<Object, Integer, Bitmap> {
     /* renamed from: d */
     public Bitmap a(Object... objArr) {
         if (this.b != null && !this.b.equals("tieba_resized_image")) {
-            com.baidu.tieba.util.af.f("photos/" + this.b, "tieba_resized_image");
+            com.baidu.tieba.util.x.e("photos/" + this.b, "tieba_resized_image");
         }
-        return com.baidu.tieba.util.m.a(com.baidu.tieba.util.m.b(com.baidu.tieba.util.af.d(null, "tieba_resized_image_display")), 5.0f);
+        return com.baidu.tieba.util.m.a(com.baidu.tieba.util.m.b(com.baidu.tieba.util.x.c(null, "tieba_resized_image_display")), 5.0f);
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         com.baidu.adp.a.g gVar;
         com.baidu.adp.a.g gVar2;
-        this.f1885a.f1884a = null;
-        gVar = this.f1885a.mLoadDataCallBack;
+        this.f1997a.f1996a = null;
+        gVar = this.f1997a.mLoadDataCallBack;
         if (gVar != null) {
-            gVar2 = this.f1885a.mLoadDataCallBack;
+            gVar2 = this.f1997a.mLoadDataCallBack;
             gVar2.a(null);
         }
         super.cancel(true);
@@ -53,11 +53,11 @@ public class aw extends BdAsyncTask<Object, Integer, Bitmap> {
         com.baidu.adp.a.g gVar;
         com.baidu.adp.a.g gVar2;
         super.a((aw) bitmap);
-        this.f1885a.f1884a = null;
-        com.baidu.tieba.util.bg.a(getClass().getName(), "onPostExecute", "is Null?" + String.valueOf(bitmap == null));
-        gVar = this.f1885a.mLoadDataCallBack;
+        this.f1997a.f1996a = null;
+        com.baidu.tieba.util.bd.a(getClass().getName(), "onPostExecute", "is Null?" + String.valueOf(bitmap == null));
+        gVar = this.f1997a.mLoadDataCallBack;
         if (gVar != null) {
-            gVar2 = this.f1885a.mLoadDataCallBack;
+            gVar2 = this.f1997a.mLoadDataCallBack;
             gVar2.a(bitmap);
         }
     }

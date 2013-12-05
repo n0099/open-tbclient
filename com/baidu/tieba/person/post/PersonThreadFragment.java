@@ -8,25 +8,24 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.ListAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
 import com.baidu.tieba.BaseFragment;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.util.UtilHelper;
 import com.baidu.tieba.view.PbListView;
-import com.baidu.tieba.view.bi;
+import com.baidu.tieba.view.bk;
 import com.slidingmenu.lib.R;
 import java.util.Timer;
 /* loaded from: classes.dex */
 public class PersonThreadFragment extends BaseFragment implements AbsListView.OnScrollListener, r {
 
     /* renamed from: a  reason: collision with root package name */
-    private v f2248a;
+    private v f2366a;
     private q b;
     private boolean c;
     private String d;
     private PbListView e;
     private View f;
-    private bi g;
+    private bk g;
     private int h;
     private boolean i = false;
     private boolean Y = true;
@@ -34,8 +33,8 @@ public class PersonThreadFragment extends BaseFragment implements AbsListView.On
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
     public View a(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.person_thread_fragment, viewGroup, false);
-        this.f2248a = new v(inflate);
-        this.f2248a.b.setText(h().getString("key_empty_view_text"));
+        this.f2366a = new v(inflate);
+        this.f2366a.b.setText(h().getString("key_empty_view_text"));
         return inflate;
     }
 
@@ -43,15 +42,15 @@ public class PersonThreadFragment extends BaseFragment implements AbsListView.On
     public void a(View view, Bundle bundle) {
         this.d = h().getString("key_uid");
         this.b = new q(i(), this.d, h().getString("key_portrait_url"));
-        this.f2248a.f2267a.setAdapter((ListAdapter) this.b);
-        this.g = new bi(i());
+        this.f2366a.f2385a.setAdapter((ListAdapter) this.b);
+        this.g = new bk(i());
         this.g.a(new t(this));
-        this.f2248a.f2267a.setPullRefresh(this.g);
+        this.f2366a.f2385a.setPullRefresh(this.g);
         this.b.a(this);
-        this.f2248a.f2267a.setOnScrollListener(this);
+        this.f2366a.f2385a.setOnScrollListener(this);
         this.e = new PbListView(i());
         this.f = this.e.b().findViewById(R.id.pb_more_view);
-        this.f2248a.f2267a.setNextPage(this.e);
+        this.f2366a.f2385a.setNextPage(this.e);
     }
 
     @Override // com.baidu.tieba.BaseFragment
@@ -59,7 +58,7 @@ public class PersonThreadFragment extends BaseFragment implements AbsListView.On
         super.c(i);
         if (n()) {
             TextView textView = (TextView) this.f.findViewById(R.id.pb_more_text);
-            if (TiebaApplication.g().ap() == 1) {
+            if (TiebaApplication.h().an() == 1) {
                 textView.setTextColor(j().getColor(R.color.person_post_header_uname_1));
             } else {
                 textView.setTextColor(j().getColor(R.color.person_post_header_uname));
@@ -88,7 +87,7 @@ public class PersonThreadFragment extends BaseFragment implements AbsListView.On
 
     public void a() {
         if (!this.c) {
-            this.f2248a.f2267a.setEmptyView(this.f2248a.c);
+            this.f2366a.f2385a.setEmptyView(this.f2366a.c);
             this.b.a(true);
             this.c = true;
         }
@@ -97,23 +96,23 @@ public class PersonThreadFragment extends BaseFragment implements AbsListView.On
     @Override // com.baidu.tieba.person.post.r
     public void a(PersonPostThreadModel personPostThreadModel, boolean z) {
         if (n()) {
-            this.f2248a.f2267a.setEmptyView(null);
-            this.f2248a.c.setVisibility(8);
+            this.f2366a.f2385a.setEmptyView(null);
+            this.f2366a.c.setVisibility(8);
             if (a(personPostThreadModel)) {
-                if (TiebaApplication.g().ap() == 1) {
-                    this.f2248a.b.setTextColor(j().getColor(R.color.person_post_header_uname_1));
+                if (TiebaApplication.h().an() == 1) {
+                    this.f2366a.b.setTextColor(j().getColor(R.color.person_post_header_uname_1));
                 } else {
-                    this.f2248a.b.setTextColor(j().getColor(R.color.person_post_header_uname));
+                    this.f2366a.b.setTextColor(j().getColor(R.color.person_post_header_uname));
                 }
                 if (personPostThreadModel == null || (personPostThreadModel.post_list.size() == 0 && this.Y && (personPostThreadModel.getErrorString() == null || (personPostThreadModel.getErrorString() != null && personPostThreadModel.getErrorString().equals(""))))) {
-                    this.f2248a.f2267a.setEmptyView(this.f2248a.b);
+                    this.f2366a.f2385a.setEmptyView(this.f2366a.b);
                     return;
                 }
                 if (personPostThreadModel.getErrorString() != null && !personPostThreadModel.getErrorString().equals("")) {
                     if (personPostThreadModel.post_list.size() == 0) {
-                        this.f2248a.f2267a.setEmptyView(this.f2248a.b);
+                        this.f2366a.f2385a.setEmptyView(this.f2366a.b);
                     }
-                    UtilHelper.a((Context) i(), personPostThreadModel.getErrorString());
+                    com.baidu.adp.lib.h.g.a((Context) i(), personPostThreadModel.getErrorString());
                 }
                 if (personPostThreadModel.post_list.size() < 20) {
                     if (UtilHelper.b()) {
@@ -125,7 +124,7 @@ public class PersonThreadFragment extends BaseFragment implements AbsListView.On
                     }
                 }
                 this.e.d();
-                this.f2248a.f2267a.a();
+                this.f2366a.f2385a.a();
                 if (z) {
                     this.i = true;
                     this.h = 0;
@@ -140,7 +139,7 @@ public class PersonThreadFragment extends BaseFragment implements AbsListView.On
             return true;
         }
         this.b = null;
-        Toast.makeText(i(), (int) R.string.his_post_not_available, 1).show();
+        com.baidu.adp.lib.h.g.b((Context) i(), (int) R.string.his_post_not_available);
         new Timer().schedule(new u(this), 2000L);
         this.f.setVisibility(4);
         return false;

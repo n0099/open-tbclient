@@ -11,14 +11,14 @@ import android.view.View;
 public class IndicatorView extends View {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f562a;
+    private boolean f566a;
     private int b;
     private int c;
     private float d;
     private float e;
     private Drawable f;
     private Drawable g;
-    private final ak h;
+    private final al h;
 
     /* JADX DEBUG: Marked for inline */
     /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.widget.q.a():void] */
@@ -112,7 +112,7 @@ public class IndicatorView extends View {
             this.g.setBounds(0, 0, this.g.getIntrinsicWidth(), this.g.getIntrinsicHeight());
             Log.d("IndicatorView$IndicatorView", "Selector bound=" + this.g.getBounds());
         }
-        this.f562a = obtainStyledAttributes.getBoolean(3, false);
+        this.f566a = obtainStyledAttributes.getBoolean(3, false);
     }
 
     @Override // android.view.View
@@ -126,7 +126,7 @@ public class IndicatorView extends View {
     }
 
     public void setAutoHide(boolean z) {
-        this.f562a = z;
+        this.f566a = z;
     }
 
     public void setDrawable(Drawable drawable) {

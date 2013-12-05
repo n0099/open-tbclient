@@ -1,27 +1,18 @@
 package com.baidu.tieba.im.messageCenter;
-
-import com.baidu.tieba.im.message.Message;
-import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class q {
+public class q implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ p f1731a;
-    private List<Message> b;
-    private com.baidu.tieba.im.codec.p c;
+    final /* synthetic */ p f1804a;
 
-    public q(p pVar, List<Message> list, com.baidu.tieba.im.codec.p pVar2) {
-        this.f1731a = pVar;
-        this.b = list;
-        this.c = pVar2;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public q(p pVar) {
+        this.f1804a = pVar;
     }
 
-    public List<Message> a() {
-        return this.b;
-    }
-
-    public com.baidu.tieba.im.codec.p b() {
-        return this.c;
+    @Override // java.lang.Runnable
+    public void run() {
+        this.f1804a.q();
     }
 }

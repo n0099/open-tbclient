@@ -1,13 +1,20 @@
 package com.baidu.adp.lib.webSocket;
-
-import java.net.SocketException;
 /* loaded from: classes.dex */
-public class v extends z {
+public class v extends aa {
 
     /* renamed from: a  reason: collision with root package name */
-    public SocketException f544a;
+    public int f547a;
+    public String b;
 
-    public v(SocketException socketException) {
-        this.f544a = socketException;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public v() {
+        this.f547a = -1;
+        this.b = null;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public v(int i, String str) {
+        this.f547a = i;
+        this.b = str;
     }
 }

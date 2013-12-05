@@ -1,66 +1,26 @@
 package com.baidu.tieba.im.validate;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tieba.util.ah;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e extends BaseAdapter {
+public class e implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    ValidateActivity f1799a;
-    com.baidu.tieba.util.i b;
-    List<ValidateItemData> c = new ArrayList();
+    final /* synthetic */ ValidateActivity f1898a;
 
+    /* JADX INFO: Access modifiers changed from: package-private */
     public e(ValidateActivity validateActivity) {
-        this.b = null;
-        this.f1799a = validateActivity;
-        this.b = new com.baidu.tieba.util.i(this.f1799a);
+        this.f1898a = validateActivity;
     }
 
-    public void a() {
-        this.f1799a = null;
-    }
-
-    public void a(List<ValidateItemData> list) {
-        if (list != null) {
-            this.c = list;
-            com.baidu.adp.lib.h.d.d("size:" + this.c.size());
-            notifyDataSetChanged();
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        if (this.c == null) {
-            return 0;
-        }
-        return this.c.size();
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        f fVar = null;
-        if (view != null) {
-            fVar = (f) view.getTag();
-        }
-        f fVar2 = fVar == null ? new f(this.f1799a) : fVar;
-        fVar2.a(this.c.get(i));
-        return fVar2.a();
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        return this.c.get(i);
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        return i;
-    }
-
-    public List<ValidateItemData> b() {
-        return this.c;
+    @Override // java.lang.Runnable
+    public void run() {
+        n nVar;
+        com.baidu.tieba.util.i iVar;
+        nVar = this.f1898a.b;
+        BdListView f = nVar.f();
+        iVar = this.f1898a.h;
+        ah.a(f, iVar, 0, 1);
     }
 }

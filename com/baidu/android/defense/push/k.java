@@ -16,14 +16,14 @@ import org.json.JSONObject;
 public class k implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ j f632a;
+    final /* synthetic */ j f637a;
     private String b;
     private UrlEncodedFormEntity c;
     private int d;
 
     public k(j jVar, String str, UrlEncodedFormEntity urlEncodedFormEntity, int i) {
         Context context;
-        this.f632a = jVar;
+        this.f637a = jVar;
         this.b = str;
         this.c = urlEncodedFormEntity;
         this.d = i;
@@ -40,7 +40,7 @@ public class k implements Runnable {
         try {
             HttpPost httpPost = new HttpPost(this.b);
             httpPost.setEntity(this.c);
-            context = this.f632a.d;
+            context = this.f637a.d;
             proxyHttpClient = new ProxyHttpClient(context);
             try {
                 HttpResponse execute = proxyHttpClient.execute(httpPost);
@@ -97,9 +97,9 @@ public class k implements Runnable {
                     try {
                         String string = new JSONObject(str).getString("access_token");
                         if (!TextUtils.isEmpty(string)) {
-                            context3 = this.f632a.d;
+                            context3 = this.f637a.d;
                             l.a(context3, string);
-                            this.f632a.f();
+                            this.f637a.f();
                             break;
                         }
                     } catch (JSONException e) {
@@ -107,14 +107,14 @@ public class k implements Runnable {
                     }
                     break;
                 case 1:
-                    this.f632a.a(str);
+                    this.f637a.a(str);
                     break;
             }
         }
         if (this.d == 0) {
-            context = this.f632a.d;
+            context = this.f637a.d;
             synchronized (j.a(context)) {
-                context2 = this.f632a.d;
+                context2 = this.f637a.d;
                 j.a(context2).notifyAll();
             }
         }

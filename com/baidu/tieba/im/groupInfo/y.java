@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.groupInfo;
 
-import android.content.DialogInterface;
+import android.view.View;
 /* loaded from: classes.dex */
 public interface y {
-    void a(DialogInterface dialogInterface, int i, Object obj, int i2);
+    void onClick(View view, int i, Object obj, int i2);
 }

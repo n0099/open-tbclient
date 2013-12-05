@@ -1,55 +1,83 @@
 package com.baidu.tieba.im.creategroup;
 
-import android.graphics.Bitmap;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.util.af;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.view.HeadImageView;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class f extends BdAsyncTask<Object, Integer, Bitmap> {
+public class f implements v {
 
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ d f1576a;
+    /* renamed from: a */
+    CreateGroupStepActivity f1623a;
+    View b;
+    HeadImageView c;
+    ImageView d;
+    Button e;
+    private com.baidu.adp.widget.ImageView.e f = null;
+    private h g = null;
 
-    private f(d dVar) {
-        this.f1576a = dVar;
+    public f(CreateGroupStepActivity createGroupStepActivity) {
+        this.f1623a = null;
+        this.b = null;
+        this.c = null;
+        this.d = null;
+        this.e = null;
+        this.f1623a = createGroupStepActivity;
+        this.b = createGroupStepActivity.getLayoutInflater().inflate(R.layout.create_group_step3_view, (ViewGroup) null);
+        this.d = (ImageView) this.b.findViewById(R.id.step3_img_bg);
+        this.c = (HeadImageView) this.b.findViewById(R.id.step3_img_scr);
+        this.e = (Button) this.b.findViewById(R.id.create_group3);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void b() {
-        super.b();
+    @Override // com.baidu.tieba.im.creategroup.v
+    public int b() {
+        return 3;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: d */
-    public Bitmap a(Object... objArr) {
-        return af.d(null, "tieba_group_image");
+    @Override // com.baidu.tieba.im.creategroup.v
+    public int c() {
+        return R.string.group_create_step_tip;
     }
 
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        super.cancel(true);
+    @Override // com.baidu.tieba.im.creategroup.v
+    public int d() {
+        return R.string.group_create_step3;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void c() {
-        super.c();
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(Bitmap bitmap) {
-        com.baidu.adp.widget.ImageView.e eVar;
-        super.a((f) bitmap);
-        if (bitmap != null) {
-            this.f1576a.c.setVisibility(0);
-            this.f1576a.f = new com.baidu.adp.widget.ImageView.e(bitmap, false, null);
-            eVar = this.f1576a.f;
-            eVar.a(this.f1576a.c);
+    public void e() {
+        if (this.g != null) {
+            this.g.cancel();
         }
+        this.f = null;
+        this.g = new h(this);
+        this.g.execute(new Object[0]);
+    }
+
+    public ImageView f() {
+        return this.d;
+    }
+
+    public Button g() {
+        return this.e;
+    }
+
+    @Override // com.baidu.tieba.im.creategroup.v
+    public View a() {
+        return this.b;
+    }
+
+    @Override // com.baidu.tieba.im.creategroup.v
+    public void j() {
+        this.d.setBackgroundDrawable(null);
+    }
+
+    @Override // com.baidu.tieba.im.creategroup.v
+    public void k() {
+        this.f1623a.getLayoutMode().a(TiebaApplication.h().an() == 1);
+        this.f1623a.getLayoutMode().a(this.b);
+        this.c.d();
     }
 }

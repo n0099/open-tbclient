@@ -8,23 +8,23 @@ import android.view.View;
 public class w implements View.OnTouchListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ CarouselRecommendView f2421a;
+    final /* synthetic */ CarouselRecommendView f2538a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(CarouselRecommendView carouselRecommendView) {
-        this.f2421a = carouselRecommendView;
+        this.f2538a = carouselRecommendView;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
         ViewPager viewPager;
-        viewPager = this.f2421a.c;
+        viewPager = this.f2538a.c;
         if (view == viewPager) {
             if (motionEvent.getAction() == 0) {
-                this.f2421a.b();
+                this.f2538a.b();
                 return false;
             } else if (motionEvent.getAction() == 1) {
-                this.f2421a.a();
+                this.f2538a.a();
                 return false;
             } else {
                 return false;

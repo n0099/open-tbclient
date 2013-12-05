@@ -29,9 +29,9 @@ class s {
         try {
             String a4 = a((j) hVar, iVar, ctMethod);
             if (z) {
-                bytecode.d(Bytecode.f2730a, a4, a2);
+                bytecode.d(Bytecode.f2911a, a4, a2);
             } else {
-                bytecode.c(Bytecode.f2730a, a4, a2);
+                bytecode.c(Bytecode.f2911a, a4, a2);
             }
             a(bytecode, hVar2);
             return a3 < i + 2 ? i + 2 : a3;

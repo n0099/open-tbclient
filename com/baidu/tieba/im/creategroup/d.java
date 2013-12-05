@@ -1,83 +1,80 @@
 package com.baidu.tieba.im.creategroup;
 
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.view.HeadImageView;
+import android.widget.TextView;
+import com.baidu.tieba.util.ba;
+import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class d implements q {
+public class d extends com.baidu.adp.a.e {
 
     /* renamed from: a  reason: collision with root package name */
-    CreateGroupStepActivity f1575a;
-    View b;
-    HeadImageView c;
-    ImageView d;
+    NavigationBar f1621a;
+    View c;
+    Button d;
     Button e;
-    private com.baidu.adp.widget.ImageView.e f = null;
-    private f g = null;
+    TextView f;
+    TextView g;
+    CreateGroupMainActivity h;
+    private int i;
 
-    public d(CreateGroupStepActivity createGroupStepActivity) {
-        this.f1575a = null;
-        this.b = null;
-        this.c = null;
-        this.d = null;
-        this.e = null;
-        this.f1575a = createGroupStepActivity;
-        this.b = createGroupStepActivity.getLayoutInflater().inflate(R.layout.create_group_step3_view, (ViewGroup) null);
-        this.d = (ImageView) this.b.findViewById(R.id.step3_img_bg);
-        this.c = (HeadImageView) this.b.findViewById(R.id.step3_img_scr);
-        this.e = (Button) this.b.findViewById(R.id.create_group3);
-    }
-
-    @Override // com.baidu.tieba.im.creategroup.q
-    public int b() {
-        return 3;
-    }
-
-    @Override // com.baidu.tieba.im.creategroup.q
     public int a() {
-        return R.string.group_create_step_done_tip;
+        return this.i;
     }
 
-    @Override // com.baidu.tieba.im.creategroup.q
-    public int c() {
-        return R.string.group_create_step3;
-    }
-
-    public void d() {
-        if (this.g != null) {
-            this.g.cancel();
-        }
-        this.f = null;
-        this.g = new f(this);
-        this.g.execute(new Object[0]);
-    }
-
-    public ImageView e() {
+    public View e() {
         return this.d;
     }
 
-    public Button h() {
+    public View f() {
         return this.e;
     }
 
-    @Override // com.baidu.tieba.im.creategroup.q
-    public View f() {
-        return this.b;
+    public d(CreateGroupMainActivity createGroupMainActivity) {
+        super(createGroupMainActivity);
+        this.f1621a = null;
+        this.c = null;
+        this.d = null;
+        this.e = null;
+        this.f = null;
+        this.g = null;
+        this.h = null;
+        this.i = 0;
+        b(createGroupMainActivity);
+        a(createGroupMainActivity);
     }
 
-    @Override // com.baidu.tieba.im.creategroup.q
-    public void g() {
-        this.d.setBackgroundDrawable(null);
+    private void a(CreateGroupMainActivity createGroupMainActivity) {
+        this.d.setOnClickListener(createGroupMainActivity);
+        this.e.setOnClickListener(createGroupMainActivity);
     }
 
-    @Override // com.baidu.tieba.im.creategroup.q
-    public void i() {
-        this.f1575a.getLayoutMode().a(TiebaApplication.g().ap() == 1);
-        this.f1575a.getLayoutMode().a(this.b);
-        this.c.d();
+    public void a(boolean z, boolean z2, String str, String str2, int i) {
+        this.d.setEnabled(z2);
+        this.e.setEnabled(z);
+        this.f.setText(str2);
+        this.g.setText(str);
+        this.i = i;
+    }
+
+    private void b(CreateGroupMainActivity createGroupMainActivity) {
+        this.h = createGroupMainActivity;
+        createGroupMainActivity.setContentView(R.layout.create_group_main_activity);
+        this.c = createGroupMainActivity.findViewById(R.id.parent);
+        this.d = (Button) createGroupMainActivity.findViewById(R.id.create_group1);
+        this.e = (Button) createGroupMainActivity.findViewById(R.id.create_group2);
+        this.f = (TextView) createGroupMainActivity.findViewById(R.id.create_group1_text);
+        this.g = (TextView) createGroupMainActivity.findViewById(R.id.create_group2_text);
+        this.f1621a = (NavigationBar) createGroupMainActivity.findViewById(R.id.view_navigation_bar);
+        this.f1621a.a(createGroupMainActivity.getResources().getString(R.string.group_create));
+        this.f1621a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+    }
+
+    public void a(int i) {
+        this.h.getLayoutMode().a(i == 1);
+        this.h.getLayoutMode().a(this.c);
+        ba.a(this.c, i);
+        this.f1621a.c(i);
     }
 }

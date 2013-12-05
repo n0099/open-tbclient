@@ -6,7 +6,7 @@ import java.util.LinkedList;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private LinkedList<String> f2593a = new LinkedList<>();
+    private LinkedList<String> f2711a = new LinkedList<>();
     private Context b;
 
     public a(Context context) {
@@ -14,8 +14,8 @@ public class a {
     }
 
     public String a(String str, String str2, c cVar) {
-        if (!this.f2593a.contains(str)) {
-            this.f2593a.add(str);
+        if (!this.f2711a.contains(str)) {
+            this.f2711a.add(str);
         }
         d a2 = f.a().a(this.b, str, str2, new b(this, cVar));
         if (a2 == null) {
@@ -25,18 +25,18 @@ public class a {
     }
 
     public void a() {
-        if (this.f2593a != null) {
+        if (this.f2711a != null) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < this.f2593a.size()) {
-                    String str = this.f2593a.get(i2);
+                if (i2 < this.f2711a.size()) {
+                    String str = this.f2711a.get(i2);
                     if (str != null) {
                         f.a().a(this.b, str);
                     }
                     i = i2 + 1;
                 } else {
-                    this.f2593a.clear();
+                    this.f2711a.clear();
                     return;
                 }
             }

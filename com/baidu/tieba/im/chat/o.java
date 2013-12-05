@@ -1,30 +1,31 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.im.SingleRunnable;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes.dex */
-class o extends SingleRunnable<Void> {
+class o implements com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMessageCenterPojo>> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ GroupSettingActivity f1548a;
+    final /* synthetic */ n f1601a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public o(GroupSettingActivity groupSettingActivity) {
-        this.f1548a = groupSettingActivity;
+    public o(n nVar) {
+        this.f1601a = nVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.SingleRunnable
-    /* renamed from: a */
-    public Void b() {
-        s sVar;
-        s sVar2;
-        String A = TiebaApplication.A();
-        sVar = this.f1548a.b;
-        com.baidu.tieba.im.groupInfo.v.a(A, sVar.c(), false);
-        String A2 = TiebaApplication.A();
-        sVar2 = this.f1548a.b;
-        com.baidu.tieba.im.groupInfo.v.c(A2, sVar2.c(), false);
-        return null;
+    @Override // com.baidu.tieba.im.a
+    public void a(ConcurrentHashMap<String, ImMessageCenterPojo> concurrentHashMap) {
+        u uVar;
+        u uVar2;
+        if (concurrentHashMap != null) {
+            uVar = this.f1601a.f1600a.b;
+            if (uVar != null) {
+                uVar2 = this.f1601a.f1600a.b;
+                ImMessageCenterPojo imMessageCenterPojo = concurrentHashMap.get(uVar2.c());
+                imMessageCenterPojo.setLast_content(" ");
+                imMessageCenterPojo.setLast_user_name(" ");
+            }
+        }
     }
 }

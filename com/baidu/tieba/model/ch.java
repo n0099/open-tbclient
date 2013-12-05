@@ -7,17 +7,17 @@ import org.json.JSONObject;
 public class ch {
 
     /* renamed from: a  reason: collision with root package name */
-    private ArrayList<String> f1914a = new ArrayList<>();
+    private ArrayList<String> f2026a = new ArrayList<>();
 
     public ArrayList<String> a() {
-        return this.f1914a;
+        return this.f2026a;
     }
 
     public void a(String str) {
         try {
             a(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.tieba.util.bg.b("BarlistModel", "parserJson", "error = " + e.getMessage());
+            com.baidu.tieba.util.bd.b("BarlistModel", "parserJson", "error = " + e.getMessage());
         }
     }
 
@@ -26,11 +26,11 @@ public class ch {
             JSONArray optJSONArray = jSONObject.optJSONArray("fname");
             if (optJSONArray != null) {
                 for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.f1914a.add(optJSONArray.getString(i));
+                    this.f2026a.add(optJSONArray.getString(i));
                 }
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.bg.b("BarlistModel", "parserJson", "error = " + e.getMessage());
+            com.baidu.tieba.util.bd.b("BarlistModel", "parserJson", "error = " + e.getMessage());
         }
     }
 }

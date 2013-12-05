@@ -28,7 +28,7 @@ import com.slidingmenu.lib.R;
 public class ForumTopicActivity extends com.baidu.tieba.j implements com.baidu.tieba.view.d {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.tieba.recommend.ad f1383a;
+    private com.baidu.tieba.recommend.ac f1437a;
     private String m;
     private String n;
     private ImageView b = null;
@@ -43,7 +43,7 @@ public class ForumTopicActivity extends com.baidu.tieba.j implements com.baidu.t
     private TextView k = null;
     private boolean l = false;
     private Handler o = new Handler();
-    private Runnable p = new v(this);
+    private Runnable p = new q(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
@@ -100,7 +100,7 @@ public class ForumTopicActivity extends com.baidu.tieba.j implements com.baidu.t
         this.j = (TextView) this.i.findViewById(R.id.webview_fail);
         this.k = (TextView) this.i.findViewById(R.id.webview_crash_tip);
         this.h = (ProgressBar) findViewById(R.id.forum_topic_progress);
-        this.f = new w(this);
+        this.f = new r(this);
         this.b.setOnClickListener(this.f);
         if (e()) {
             this.k.setVisibility(8);
@@ -110,7 +110,7 @@ public class ForumTopicActivity extends com.baidu.tieba.j implements com.baidu.t
     }
 
     public void a() {
-        Token b = com.baidu.tieba.account.a.b(TiebaApplication.D());
+        Token b = com.baidu.tieba.account.a.b(TiebaApplication.E());
         if (b != null) {
             CookieSyncManager.createInstance(this);
             CookieManager cookieManager = CookieManager.getInstance();
@@ -145,7 +145,7 @@ public class ForumTopicActivity extends com.baidu.tieba.j implements com.baidu.t
         boolean z;
         super.onResume();
         String str3 = "";
-        Token b = com.baidu.tieba.account.a.b(TiebaApplication.D());
+        Token b = com.baidu.tieba.account.a.b(TiebaApplication.E());
         if (b != null) {
             if (b.mBduss != null) {
                 str3 = b.mBduss;
@@ -153,13 +153,13 @@ public class ForumTopicActivity extends com.baidu.tieba.j implements com.baidu.t
             if (b.mPtoken != null) {
                 str = str3;
                 str2 = b.mPtoken;
-                com.baidu.tieba.recommend.ad adVar = new com.baidu.tieba.recommend.ad(str, str2);
-                if (this.f1383a == null && (this.f1383a == null || !this.f1383a.equals(adVar))) {
+                com.baidu.tieba.recommend.ac acVar = new com.baidu.tieba.recommend.ac(str, str2);
+                if (this.f1437a == null && (this.f1437a == null || !this.f1437a.equals(acVar))) {
                     z = true;
                 } else {
                     z = false;
                 }
-                this.f1383a = adVar;
+                this.f1437a = acVar;
                 if (this.g == null && z) {
                     a();
                     this.o.postDelayed(this.p, 150L);
@@ -169,11 +169,11 @@ public class ForumTopicActivity extends com.baidu.tieba.j implements com.baidu.t
         }
         str = str3;
         str2 = "";
-        com.baidu.tieba.recommend.ad adVar2 = new com.baidu.tieba.recommend.ad(str, str2);
-        if (this.f1383a == null) {
+        com.baidu.tieba.recommend.ac acVar2 = new com.baidu.tieba.recommend.ac(str, str2);
+        if (this.f1437a == null) {
         }
         z = false;
-        this.f1383a = adVar2;
+        this.f1437a = acVar2;
         if (this.g == null) {
         }
     }
@@ -182,12 +182,12 @@ public class ForumTopicActivity extends com.baidu.tieba.j implements com.baidu.t
     @Override // com.baidu.tieba.j
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        com.baidu.tieba.util.bd.a(this.c, i);
-        com.baidu.tieba.util.bd.d(this.d, i);
-        com.baidu.tieba.util.bd.e(this.e, i);
-        com.baidu.tieba.util.bd.a(this.b, i);
+        com.baidu.tieba.util.ba.a(this.c, i);
+        com.baidu.tieba.util.ba.d(this.d, i);
+        com.baidu.tieba.util.ba.e(this.e, i);
+        com.baidu.tieba.util.ba.a(this.b, i);
         if (this.g != null) {
-            com.baidu.tieba.util.bd.a(this.g, i);
+            com.baidu.tieba.util.ba.a(this.g, i);
         }
     }
 
@@ -205,11 +205,11 @@ public class ForumTopicActivity extends com.baidu.tieba.j implements com.baidu.t
 
     @Override // com.baidu.tieba.view.d
     public boolean a(WebView webView, String str) {
-        if (!com.baidu.tieba.recommend.ac.a(this, str)) {
+        if (!com.baidu.tieba.recommend.ab.a(this, str)) {
             if (str != null && str.contains("jump_tieba_native=1") && str.contains("jumptologin=1")) {
                 LoginActivity.a((Activity) this, "", true, 0);
             } else if (!TextUtils.isEmpty(str)) {
-                UtilHelper.d(this, str);
+                UtilHelper.c(this, str);
             }
         }
         return true;
@@ -219,17 +219,17 @@ public class ForumTopicActivity extends com.baidu.tieba.j implements com.baidu.t
         if (this.g == null) {
             try {
                 this.g = new BaseWebView(this);
-                com.baidu.tieba.util.bd.a(this.g, TiebaApplication.g().ap());
+                com.baidu.tieba.util.ba.a(this.g, TiebaApplication.h().an());
                 this.g.setOnLoadUrlListener(this);
                 this.g.setHorizontalScrollBarEnabled(false);
                 this.g.setHorizontalScrollbarOverlay(false);
                 this.g.setScrollBarStyle(33554432);
                 this.g.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-                this.g.setWebChromeClient(new x(this));
+                this.g.setWebChromeClient(new s(this));
                 this.i.addView(this.g);
                 return true;
             } catch (Exception e) {
-                com.baidu.tieba.util.bg.b(getClass().getName(), "", "ForumTopicActivity.refreshFrs error = " + e.getMessage());
+                com.baidu.tieba.util.bd.b(getClass().getName(), "", "ForumTopicActivity.refreshFrs error = " + e.getMessage());
                 return false;
             }
         }

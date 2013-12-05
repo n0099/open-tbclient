@@ -116,9 +116,9 @@ public class BdCacheService {
                 boolean z = sVar instanceof u;
                 xVar2 = sVar;
                 if (z) {
-                    r<String> a2 = ((u) sVar).a();
+                    r<String> b = ((u) sVar).b();
                     xVar2 = sVar;
-                    if (a2 != rVar) {
+                    if (b != rVar) {
                         throw new IllegalStateException("nameSpace:[" + str + "] is already used for storage:[" + rVar + "]. Make sure to return the old cache before re-use the same namespace.");
                     }
                 }
@@ -130,7 +130,7 @@ public class BdCacheService {
                 xVar = new x(str, rVar);
             }
             this.g.put(str, xVar);
-            xVar.b();
+            xVar.d();
             xVar2 = xVar;
         }
         return xVar2;
@@ -175,9 +175,9 @@ public class BdCacheService {
                 boolean z = sVar instanceof u;
                 xVar2 = sVar;
                 if (z) {
-                    r<byte[]> a2 = ((u) sVar).a();
+                    r<byte[]> b = ((u) sVar).b();
                     xVar2 = sVar;
-                    if (a2 != rVar) {
+                    if (b != rVar) {
                         throw new IllegalStateException("nameSpace:[" + str + "] is already used for storage:[" + rVar + "]. Make sure to return the old cache before re-use the same namespace.");
                     }
                 }
@@ -189,10 +189,21 @@ public class BdCacheService {
                 xVar = new x(str, rVar);
             }
             this.h.put(str, xVar);
-            xVar.b();
+            xVar.d();
             xVar2 = xVar;
         }
         return xVar2;
+    }
+
+    public void a(s<?> sVar) {
+        if (sVar instanceof u) {
+            u uVar = (u) sVar;
+            synchronized (uVar) {
+                String a2 = uVar.a();
+                uVar.c();
+                this.g.remove(a2);
+            }
+        }
     }
 
     public z d() {

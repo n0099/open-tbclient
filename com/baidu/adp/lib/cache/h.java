@@ -8,4 +8,6 @@ public interface h extends f {
     void c();
 
     void d();
+
+    void e();
 }

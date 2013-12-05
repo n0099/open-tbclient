@@ -1,38 +1,40 @@
 package com.baidu.tieba.im.groupCard;
 
-import android.app.AlertDialog;
+import android.content.Context;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import com.baidu.adp.a.e;
-import com.baidu.adp.lib.h.f;
-import com.baidu.tieba.util.bd;
+import com.baidu.adp.lib.h.g;
+import com.baidu.tieba.im.e.f;
+import com.baidu.tieba.util.ba;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class d extends e {
 
     /* renamed from: a  reason: collision with root package name */
-    protected NavigationBar f1665a;
-    protected View c;
-    private GroupCardActivity d;
+    private View f1732a;
+    private GroupCardActivity c;
+    private LinearLayout d;
     private LinearLayout e;
     private LinearLayout f;
     private LinearLayout g;
-    private LinearLayout h;
-    private ImageView i;
-    private ProgressBar j;
-    private AlertDialog k;
-    private View l;
+    private ImageView h;
+    private ProgressBar i;
+    private NavigationBar j;
+    private View k;
+    private ImageView l;
     private ImageView m;
     private ImageView n;
     private ImageView o;
     private ImageView p;
-    private ImageView q;
 
     public d(GroupCardActivity groupCardActivity, View.OnClickListener onClickListener) {
         super(groupCardActivity);
+        this.f1732a = null;
+        this.d = null;
         this.e = null;
         this.f = null;
         this.g = null;
@@ -45,83 +47,81 @@ public class d extends e {
         this.n = null;
         this.o = null;
         this.p = null;
-        this.q = null;
-        this.f1665a = null;
-        this.c = null;
-        this.d = groupCardActivity;
+        this.c = groupCardActivity;
         l();
     }
 
     private void l() {
-        this.d.setContentView(R.layout.group_card_activity);
-        this.c = this.d.findViewById(R.id.parent);
-        this.f1665a = (NavigationBar) this.d.findViewById(R.id.view_navigation_bar);
-        this.f1665a.a(this.d.getResources().getString(R.string.group_card_name));
-        this.i = this.f1665a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.i.setOnClickListener(this.d);
-        this.e = (LinearLayout) this.d.findViewById(R.id.groud_card_save);
-        this.e.setOnClickListener(this.d);
-        this.f = (LinearLayout) this.d.findViewById(R.id.group_card_share);
-        this.f.setOnClickListener(this.d);
-        this.g = (LinearLayout) this.d.findViewById(R.id.group_card_image);
-        this.h = (LinearLayout) this.d.findViewById(R.id.group_card_setting);
-        this.j = (ProgressBar) this.d.findViewById(R.id.progress);
-        this.m = (ImageView) this.d.findViewById(R.id.group_card_inner_image);
-    }
-
-    public void a(int i) {
-        this.d.getLayoutMode().a(false);
-        this.d.getLayoutMode().a(this.c);
-        this.f1665a.c(0);
-        bd.b(this.c, 0);
+        this.c.setContentView(R.layout.group_card_activity);
+        this.f1732a = this.c.findViewById(R.id.parent);
+        this.d = (LinearLayout) this.c.findViewById(R.id.groud_card_save);
+        this.d.setOnClickListener(this.c);
+        this.e = (LinearLayout) this.c.findViewById(R.id.group_card_share);
+        this.e.setOnClickListener(this.c);
+        this.f = (LinearLayout) this.c.findViewById(R.id.group_card_image);
+        this.g = (LinearLayout) this.c.findViewById(R.id.group_card_setting);
+        this.i = (ProgressBar) this.c.findViewById(R.id.progress);
+        this.l = (ImageView) this.c.findViewById(R.id.group_card_inner_image);
+        this.j = (NavigationBar) this.c.findViewById(R.id.group_card_topbar);
+        this.j.setSystemClickable(false);
+        this.j.a(this.c.getResources().getString(R.string.group_card_name));
+        this.h = this.j.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.h.setOnClickListener(this.c);
     }
 
     public void a(com.baidu.adp.widget.ImageView.e eVar) {
         if (eVar != null) {
-            eVar.a(this.m);
+            eVar.a(this.l);
         }
     }
 
     public void a(int i, String str) {
         if (str != null) {
-            f.a(this.d, str);
+            g.a((Context) this.c, str);
             return;
         }
-        String a2 = com.baidu.tieba.im.d.e.a(i);
+        String a2 = f.a(i);
         if (a2 != null && a2.length() > 0) {
-            f.a(this.d, a2);
+            g.a((Context) this.c, a2);
         }
     }
 
     public void a() {
-        this.j.setVisibility(0);
+        this.i.setVisibility(0);
     }
 
     public void e() {
-        this.j.setVisibility(8);
+        this.i.setVisibility(8);
     }
 
     public void f() {
-        this.m.setVisibility(0);
+        this.l.setVisibility(0);
     }
 
     public View g() {
-        return this.e;
+        return this.d;
     }
 
     public View h() {
-        return this.f;
+        return this.e;
     }
 
     public ImageView i() {
-        return this.i;
+        return this.h;
     }
 
     public View j() {
-        return this.f1665a;
+        return this.j;
     }
 
     public LinearLayout k() {
-        return this.h;
+        return this.g;
+    }
+
+    public void a(int i) {
+        this.c.getLayoutMode().a(i == 1);
+        this.c.getLayoutMode().a(this.f1732a);
+        ba.a(this.f1732a, i);
+        this.j.c(i);
     }
 }

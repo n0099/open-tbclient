@@ -72,4 +72,10 @@ public class ab extends c<String> {
     public Cursor b(SQLiteDatabase sQLiteDatabase, String str) {
         return sQLiteDatabase.rawQuery("select * from " + this.b, new String[0]);
     }
+
+    @Override // com.baidu.adp.lib.cache.c
+    protected boolean b(String str) {
+        this.f428a.a(this.f428a.a(), "DROP TABLE IF EXISTS " + this.b);
+        return true;
+    }
 }

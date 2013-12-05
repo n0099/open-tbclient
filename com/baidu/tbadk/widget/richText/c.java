@@ -8,22 +8,22 @@ import java.util.Iterator;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f984a;
+    private int f990a;
     private SpannableStringBuilder b = null;
     private f c = null;
     private ArrayList<e> d = null;
-    private p e = null;
+    private q e = null;
     private d f;
 
     public c(int i) {
-        this.f984a = 0;
+        this.f990a = 0;
         this.f = null;
-        this.f984a = i;
+        this.f990a = i;
         this.f = new d(this);
     }
 
     public int a() {
-        return this.f984a;
+        return this.f990a;
     }
 
     public ArrayList<e> b() {
@@ -56,30 +56,30 @@ public class c {
     }
 
     public void a(CharSequence charSequence) {
-        if ((this.f984a == 1 || this.f984a == 768) && charSequence != null) {
+        if ((this.f990a == 1 || this.f990a == 768) && charSequence != null) {
             if (this.b == null) {
                 this.b = new SpannableStringBuilder("");
             }
             this.b.append(charSequence);
-            this.f.f985a = this.b.length();
+            this.f.f991a = this.b.length();
         }
     }
 
     public void a(String str) {
-        if (this.f984a == 32 && str != null) {
+        if (this.f990a == 32 && str != null) {
             this.b = new SpannableStringBuilder(str);
         }
     }
 
     public f c() {
-        if (this.f984a != 8) {
+        if (this.f990a != 8) {
             return null;
         }
         return this.c;
     }
 
     public void a(f fVar) {
-        if (this.f984a == 8) {
+        if (this.f990a == 8) {
             this.c = fVar;
         }
     }
@@ -88,32 +88,32 @@ public class c {
         return this.b;
     }
 
-    public p e() {
-        if (this.f984a == 512 || this.f984a == 768) {
+    public q e() {
+        if (this.f990a == 512 || this.f990a == 768) {
             return this.e;
         }
         return null;
     }
 
-    public void a(p pVar) {
-        if (this.f984a == 512 || this.f984a == 768) {
-            this.e = pVar;
+    public void a(q qVar) {
+        if (this.f990a == 512 || this.f990a == 768) {
+            this.e = qVar;
         }
     }
 
     public String toString() {
-        if (this.f984a == 1) {
+        if (this.f990a == 1) {
             if (this.b != null) {
                 return this.b.toString();
             }
-        } else if (this.f984a == 8 && this.c != null) {
+        } else if (this.f990a == 8 && this.c != null) {
             return this.c.f();
         }
         return "";
     }
 
     public d f() {
-        if (this.f984a != 1) {
+        if (this.f990a != 1) {
             return null;
         }
         return this.f;

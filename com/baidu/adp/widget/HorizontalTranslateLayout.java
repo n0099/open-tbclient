@@ -14,7 +14,7 @@ import java.util.List;
 public class HorizontalTranslateLayout extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    static final /* synthetic */ boolean f553a;
+    static final /* synthetic */ boolean f557a;
     private i A;
     private int b;
     private int c;
@@ -52,7 +52,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
     }
 
     static {
-        f553a = !HorizontalTranslateLayout.class.desiredAssertionStatus();
+        f557a = !HorizontalTranslateLayout.class.desiredAssertionStatus();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -209,7 +209,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
                         }
                         this.u.b(this.q - x);
                         this.q = x;
-                        this.u.f607a.addMovement(motionEvent);
+                        this.u.f612a.addMovement(motionEvent);
                         return true;
                     }
                     return true;
@@ -247,7 +247,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
         if (this.u.b) {
             this.u.b(this.q - x);
             this.q = x;
-            this.u.f607a.addMovement(motionEvent);
+            this.u.f612a.addMovement(motionEvent);
             return true;
         }
         return true;
@@ -273,10 +273,10 @@ public class HorizontalTranslateLayout extends FrameLayout {
     protected void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
         int i3 = 1073741823 & i;
-        if (!f553a && i3 < this.d) {
+        if (!f557a && i3 < this.d) {
             throw new AssertionError("top offset should not be larger than the view's width");
         }
-        if (!f553a && i3 < this.e) {
+        if (!f557a && i3 < this.e) {
             throw new AssertionError("bottom offset should not be larger than the view's width");
         }
         this.b = getMeasuredWidth();

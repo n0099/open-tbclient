@@ -10,10 +10,10 @@ import java.util.ArrayList;
 public class y implements android.support.v4.view.bq {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ CarouselRecommendView f2423a;
+    final /* synthetic */ CarouselRecommendView f2540a;
 
     private y(CarouselRecommendView carouselRecommendView) {
-        this.f2423a = carouselRecommendView;
+        this.f2540a = carouselRecommendView;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -30,22 +30,22 @@ public class y implements android.support.v4.view.bq {
         IndicatorView indicatorView2;
         IndicatorView indicatorView3;
         IndicatorView indicatorView4;
-        indicatorView = this.f2423a.d;
+        indicatorView = this.f2540a.d;
         if (indicatorView != null) {
-            carouselRecommendPagerAdapter = this.f2423a.e;
+            carouselRecommendPagerAdapter = this.f2540a.e;
             if (carouselRecommendPagerAdapter != null) {
-                arrayList = this.f2423a.m;
+                arrayList = this.f2540a.m;
                 if (arrayList.size() > 1) {
-                    carouselRecommendPagerAdapter2 = this.f2423a.e;
+                    carouselRecommendPagerAdapter2 = this.f2540a.e;
                     int count = carouselRecommendPagerAdapter2.getCount();
                     if (i == 0) {
-                        indicatorView4 = this.f2423a.d;
+                        indicatorView4 = this.f2540a.d;
                         indicatorView4.setPosition((count - 3) + f);
                     } else if (i == count - 1) {
-                        indicatorView3 = this.f2423a.d;
+                        indicatorView3 = this.f2540a.d;
                         indicatorView3.setPosition(f);
                     } else {
-                        indicatorView2 = this.f2423a.d;
+                        indicatorView2 = this.f2540a.d;
                         indicatorView2.setPosition((i - 1) + f);
                     }
                 }
@@ -77,46 +77,46 @@ public class y implements android.support.v4.view.bq {
         ViewPager viewPager7;
         CarouselRecommendView.CarouselRecommendPagerAdapter carouselRecommendPagerAdapter3;
         ViewPager viewPager8;
-        viewPager = this.f2423a.c;
+        viewPager = this.f2540a.c;
         if (viewPager != null) {
-            carouselRecommendPagerAdapter = this.f2423a.e;
+            carouselRecommendPagerAdapter = this.f2540a.e;
             if (carouselRecommendPagerAdapter != null) {
                 if (i == 0) {
-                    arrayList = this.f2423a.m;
+                    arrayList = this.f2540a.m;
                     if (arrayList.size() > 1) {
-                        viewPager4 = this.f2423a.c;
+                        viewPager4 = this.f2540a.c;
                         int currentItem = viewPager4.getCurrentItem();
                         if (currentItem < 1) {
-                            viewPager7 = this.f2423a.c;
-                            carouselRecommendPagerAdapter3 = this.f2423a.e;
+                            viewPager7 = this.f2540a.c;
+                            carouselRecommendPagerAdapter3 = this.f2540a.e;
                             viewPager7.a(carouselRecommendPagerAdapter3.getCount() - 2, false);
-                            viewPager8 = this.f2423a.c;
+                            viewPager8 = this.f2540a.c;
                             viewPager8.invalidate();
                         } else {
-                            carouselRecommendPagerAdapter2 = this.f2423a.e;
+                            carouselRecommendPagerAdapter2 = this.f2540a.e;
                             if (currentItem > carouselRecommendPagerAdapter2.getCount() - 2) {
-                                viewPager5 = this.f2423a.c;
+                                viewPager5 = this.f2540a.c;
                                 viewPager5.a(1, false);
-                                viewPager6 = this.f2423a.c;
+                                viewPager6 = this.f2540a.c;
                                 viewPager6.invalidate();
-                                handler3 = this.f2423a.n;
+                                handler3 = this.f2540a.n;
                                 handler3.removeMessages(0);
-                                handler4 = this.f2423a.n;
+                                handler4 = this.f2540a.n;
                                 i3 = CarouselRecommendView.l;
                                 handler4.sendEmptyMessageDelayed(0, i3);
                             } else {
-                                handler = this.f2423a.n;
+                                handler = this.f2540a.n;
                                 handler.removeMessages(0);
-                                handler2 = this.f2423a.n;
+                                handler2 = this.f2540a.n;
                                 i2 = CarouselRecommendView.l;
                                 handler2.sendEmptyMessageDelayed(0, i2);
                             }
                         }
                     }
-                    viewPager3 = this.f2423a.c;
+                    viewPager3 = this.f2540a.c;
                     viewPager3.requestDisallowInterceptTouchEvent(false);
                 } else if (i == 1) {
-                    viewPager2 = this.f2423a.c;
+                    viewPager2 = this.f2540a.c;
                     viewPager2.requestDisallowInterceptTouchEvent(true);
                 }
             }

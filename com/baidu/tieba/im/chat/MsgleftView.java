@@ -9,30 +9,36 @@ import com.baidu.tieba.im.message.ChatMessage;
 import com.baidu.tieba.view.HeadImageView;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class MsgleftView extends ak {
-    private static final String m = MsgleftView.class.getName();
-    private HeadImageView n;
-    private TextView o;
-    private ImageView p;
+public class MsgleftView extends an {
+    private static final String n = MsgleftView.class.getName();
+    View.OnLongClickListener m;
+    private HeadImageView o;
+    private TextView p;
+    private ImageView q;
+    private final TouchType r;
 
     public MsgleftView(Context context) {
         super(context, R.layout.msg_msgleft_view);
+        this.r = new TouchType();
+        this.m = new au(this);
         e();
-        this.o = (TextView) a(R.id.tex_msgitem_name);
-        this.p = (ImageView) a(R.id.iv_sex);
-        this.n = (HeadImageView) a(R.id.img_msgitem_photo);
-        this.n.setAutoChangeStyle(false);
-        this.n.setOnClickListener(new ap(this));
-        this.n.setLongClickable(true);
-        this.n.setOnLongClickListener(new aq(this));
+        this.p = (TextView) a(R.id.tex_msgitem_name);
+        this.q = (ImageView) a(R.id.iv_sex);
+        this.o = (HeadImageView) a(R.id.img_msgitem_photo);
+        this.o.setAutoChangeStyle(false);
+        this.o.setIsRound(true);
+        this.o.setOnClickListener(new as(this));
+        this.o.setLongClickable(true);
+        this.o.setOnLongClickListener(this.m);
+        this.o.setOnTouchListener(new at(this));
     }
 
-    @Override // com.baidu.tieba.im.chat.ak
-    public void a(View view, ChatMessage chatMessage) {
+    @Override // com.baidu.tieba.im.chat.an
+    public void b(View view, ChatMessage chatMessage) {
         String str = null;
-        super.a(view, chatMessage);
+        super.b(view, chatMessage);
         if (chatMessage == null) {
-            this.o.setText((CharSequence) null);
+            this.p.setText((CharSequence) null);
             this.j.setVisibility(0);
             this.j.setText(null);
             c(8);
@@ -43,36 +49,36 @@ public class MsgleftView extends ak {
         }
         a(chatMessage);
         b(chatMessage);
-        this.o.setText(chatMessage.getUserInfo().getName());
+        this.p.setText(chatMessage.getUserInfo().getName());
         try {
             if (chatMessage.getUserInfo() != null) {
-                this.n.setUserId(chatMessage.getUserInfo().getId());
+                this.o.setUserId(chatMessage.getUserInfo().getId());
                 str = chatMessage.getUserInfo().getPortrait();
             }
             com.baidu.adp.widget.ImageView.e c = this.e.c(str);
             if (c != null) {
-                c.a(this.n);
+                c.a(this.o);
             } else {
-                this.e.b(str, new ar(this));
+                this.e.b(str, new av(this));
             }
             this.j.setVisibility(8);
             c(8);
             this.l.setVisibility(8);
             switch (chatMessage.getMsgType()) {
                 case 1:
-                    a(chatMessage, m);
+                    a(chatMessage, n);
                     return;
                 case 2:
-                    a(view, chatMessage, m);
+                    a(view, chatMessage, n);
                     return;
                 case 3:
-                    b(chatMessage, m);
+                    b(chatMessage, n);
                     return;
                 default:
                     return;
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.h.d.b("MsgleftView", "setData", "error = " + e.getMessage());
+            com.baidu.adp.lib.h.e.b("MsgleftView", "setData", "error = " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -81,15 +87,19 @@ public class MsgleftView extends ak {
         if (chatMessage != null) {
             UserData userInfo = chatMessage.getUserInfo();
             if (userInfo == null) {
-                this.p.setVisibility(8);
+                this.q.setVisibility(8);
                 return;
             }
-            if (userInfo.getSex() == 1) {
-                this.p.setImageResource(R.drawable.cent_icon_boy_n);
+            int sex = userInfo.getSex();
+            if (sex == 1) {
+                this.q.setImageResource(R.drawable.icon_pop_qz_boy);
+                this.q.setVisibility(0);
+            } else if (sex == 2) {
+                this.q.setImageResource(R.drawable.icon_pop_qz_girl);
+                this.q.setVisibility(0);
             } else {
-                this.p.setImageResource(R.drawable.cent_icon_girl_n);
+                this.q.setVisibility(8);
             }
-            this.p.setVisibility(0);
         }
     }
 }

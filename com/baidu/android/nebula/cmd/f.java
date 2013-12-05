@@ -7,11 +7,11 @@ import android.content.IntentFilter;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ScanDownloadFile f670a;
+    final /* synthetic */ ScanDownloadFile f675a;
 
     public f(ScanDownloadFile scanDownloadFile) {
         Context context;
-        this.f670a = scanDownloadFile;
+        this.f675a = scanDownloadFile;
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("android.intent.action.PACKAGE_ADDED");
         intentFilter.addAction("android.intent.action.PACKAGE_REPLACED");
@@ -21,6 +21,6 @@ public class f {
     }
 
     public void a() {
-        new k(this.f670a, "http://wap.baidu.com/static/freeapp/broswer_down_path.cfg?v=1").start();
+        new k(this.f675a, "http://wap.baidu.com/static/freeapp/broswer_down_path.cfg?v=1").start();
     }
 }

@@ -43,7 +43,7 @@ import java.util.List;
 public final class m {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String[] f762a = {"android.permission.INTERNET", "android.permission.READ_PHONE_STATE", "android.permission.ACCESS_NETWORK_STATE", "android.permission.RECEIVE_BOOT_COMPLETED", "android.permission.WRITE_SETTINGS", "android.permission.VIBRATE", "android.permission.WRITE_EXTERNAL_STORAGE", "android.permission.SYSTEM_ALERT_WINDOW", "android.permission.DISABLE_KEYGUARD", "android.permission.ACCESS_COARSE_LOCATION", "android.permission.ACCESS_WIFI_STATE"};
+    private static final String[] f767a = {"android.permission.INTERNET", "android.permission.READ_PHONE_STATE", "android.permission.ACCESS_NETWORK_STATE", "android.permission.RECEIVE_BOOT_COMPLETED", "android.permission.WRITE_SETTINGS", "android.permission.VIBRATE", "android.permission.WRITE_EXTERNAL_STORAGE", "android.permission.SYSTEM_ALERT_WINDOW", "android.permission.DISABLE_KEYGUARD", "android.permission.ACCESS_COARSE_LOCATION", "android.permission.ACCESS_WIFI_STATE"};
 
     public static PackageInfo a(Context context, String str) {
         try {
@@ -381,11 +381,11 @@ public final class m {
             if (strArr != null) {
                 int i = 0;
                 while (true) {
-                    if (i >= f762a.length) {
+                    if (i >= f767a.length) {
                         z = true;
                         break;
-                    } else if (!a(f762a[i], strArr)) {
-                        Log.e("Utility", f762a[i] + " permission Push-SDK need is not exist !");
+                    } else if (!a(f767a[i], strArr)) {
+                        Log.e("Utility", f767a[i] + " permission Push-SDK need is not exist !");
                         break;
                     } else {
                         i++;

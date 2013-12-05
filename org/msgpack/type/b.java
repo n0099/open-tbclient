@@ -1,6 +1,11 @@
 package org.msgpack.type;
 /* loaded from: classes.dex */
 abstract class b extends e implements BooleanValue {
+    @Override // org.msgpack.type.r
+    public ValueType getType() {
+        return ValueType.BOOLEAN;
+    }
+
     @Override // org.msgpack.type.e, org.msgpack.type.r
     public boolean isBooleanValue() {
         return true;

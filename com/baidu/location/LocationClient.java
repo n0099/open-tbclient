@@ -69,7 +69,7 @@ public final class LocationClient {
     private b f69byte = null;
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f902a = false;
+    private boolean f907a = false;
 
     /* renamed from: int  reason: not valid java name */
     private boolean f74int = false;
@@ -99,7 +99,7 @@ public final class LocationClient {
             try {
                 Message obtain = Message.obtain((Handler) null, 11);
                 obtain.replyTo = LocationClient.this.i;
-                obtain.setData(LocationClient.this.m35if());
+                obtain.setData(LocationClient.this.m36if());
                 LocationClient.this.k.send(obtain);
                 LocationClient.this.q = true;
                 LocationClient.this.f74int = true;
@@ -129,25 +129,25 @@ public final class LocationClient {
         public void handleMessage(Message message) {
             switch (message.what) {
                 case 1:
-                    LocationClient.this.m30for();
+                    LocationClient.this.m31for();
                     return;
                 case 2:
-                    LocationClient.this.m40int();
+                    LocationClient.this.m41int();
                     return;
                 case 3:
-                    LocationClient.this.m36if(message);
+                    LocationClient.this.m37if(message);
                     return;
                 case 4:
-                    LocationClient.this.m19byte();
+                    LocationClient.this.m20byte();
                     return;
                 case 5:
-                    LocationClient.this.m31for(message);
+                    LocationClient.this.m32for(message);
                     return;
                 case 6:
                     LocationClient.this.a(message);
                     return;
                 case 7:
-                    LocationClient.this.m24do();
+                    LocationClient.this.m25do();
                     return;
                 case 8:
                     LocationClient.this.onRegisterNotifyLocationListener(message);
@@ -159,10 +159,10 @@ public final class LocationClient {
                     LocationClient.this.onRemoveNotifyEvent(message);
                     return;
                 case 11:
-                    LocationClient.this.m44new();
+                    LocationClient.this.m45new();
                     return;
                 case 12:
-                    LocationClient.this.m46try();
+                    LocationClient.this.m47try();
                     return;
                 case 21:
                     LocationClient.this.a(message, 21);
@@ -171,17 +171,17 @@ public final class LocationClient {
                     LocationClient.this.a(message, 26);
                     return;
                 case DERTags.GENERAL_STRING /* 27 */:
-                    LocationClient.this.m25do(message);
+                    LocationClient.this.m26do(message);
                     return;
                 case 54:
                     if (LocationClient.this.l.f89void) {
-                        LocationClient.this.f902a = true;
+                        LocationClient.this.f907a = true;
                         return;
                     }
                     return;
                 case 55:
                     if (LocationClient.this.l.f89void) {
-                        LocationClient.this.f902a = false;
+                        LocationClient.this.f907a = false;
                         return;
                     }
                     return;
@@ -237,7 +237,7 @@ public final class LocationClient {
             return null;
         }
         Bundle bundle = new Bundle();
-        bundle.putInt("num", this.l.f906a);
+        bundle.putInt("num", this.l.f911a);
         bundle.putFloat("distance", this.l.f80do);
         bundle.putBoolean("extraInfo", this.l.f84if);
         return bundle;
@@ -284,19 +284,19 @@ public final class LocationClient {
     public void a(Message message, int i) {
         String string = message.getData().getString("locStr");
         j.a(f64for, "on receive new location : " + string);
-        j.m256if(f64for, "on receive new location : " + string);
+        j.m257if(f64for, "on receive new location : " + string);
         this.x = new BDLocation(string);
         a(i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: byte  reason: not valid java name */
-    public void m19byte() {
+    public void m20byte() {
         if (this.k == null) {
             j.a(f64for, "server not connected");
             return;
         }
-        if (!this.f902a || !this.l.f89void) {
+        if (!this.f907a || !this.l.f89void) {
             Message obtain = Message.obtain((Handler) null, 22);
             try {
                 obtain.replyTo = this.i;
@@ -321,7 +321,7 @@ public final class LocationClient {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: do  reason: not valid java name */
-    public void m24do() {
+    public void m25do() {
         if (this.k == null) {
             return;
         }
@@ -340,7 +340,7 @@ public final class LocationClient {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: do  reason: not valid java name */
-    public void m25do(Message message) {
+    public void m26do(Message message) {
         BDLocation bDLocation = new BDLocation(message.getData().getString("locStr"));
         if (this.c != null) {
             if (this.l != null && this.l.isDisableCache() && bDLocation.getLocType() == 65) {
@@ -352,11 +352,11 @@ public final class LocationClient {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: for  reason: not valid java name */
-    public void m30for() {
+    public void m31for() {
         if (this.q) {
             return;
         }
-        j.m252for();
+        j.m253for();
         this.A = this.j.getPackageName();
         this.z = this.A + "_bdls_v2.9";
         j.a(f64for, this.z);
@@ -374,7 +374,7 @@ public final class LocationClient {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: for  reason: not valid java name */
-    public void m31for(Message message) {
+    public void m32for(Message message) {
         if (message == null || message.obj == null) {
             return;
         }
@@ -387,7 +387,7 @@ public final class LocationClient {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: if  reason: not valid java name */
-    public Bundle m35if() {
+    public Bundle m36if() {
         if (this.l == null) {
             return null;
         }
@@ -409,7 +409,7 @@ public final class LocationClient {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: if  reason: not valid java name */
-    public void m36if(Message message) {
+    public void m37if(Message message) {
         j.a(f64for, "onSetOption...");
         if (message == null || message.obj == null) {
             j.a(f64for, "setOption, but msg.obj is null");
@@ -446,7 +446,7 @@ public final class LocationClient {
         try {
             Message obtain = Message.obtain((Handler) null, 15);
             obtain.replyTo = this.i;
-            obtain.setData(m35if());
+            obtain.setData(m36if());
             this.k.send(obtain);
             j.a(f64for, "change option ...");
         } catch (RemoteException e2) {
@@ -456,7 +456,7 @@ public final class LocationClient {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: int  reason: not valid java name */
-    public void m40int() {
+    public void m41int() {
         if (!this.q || this.k == null) {
             return;
         }
@@ -477,15 +477,15 @@ public final class LocationClient {
             } catch (Exception e2) {
             }
         }
-        this.f73else.m248if();
+        this.f73else.m249if();
         this.k = null;
-        j.m257int();
+        j.m258int();
         this.q = false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: new  reason: not valid java name */
-    public void m44new() {
+    public void m45new() {
         if (this.k == null) {
             j.a(f64for, "server not connected");
             return;
@@ -501,7 +501,7 @@ public final class LocationClient {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: try  reason: not valid java name */
-    public void m46try() {
+    public void m47try() {
         Message obtain = Message.obtain((Handler) null, 28);
         try {
             obtain.replyTo = this.i;
@@ -531,7 +531,7 @@ public final class LocationClient {
         if (message == null || message.obj == null) {
             return;
         }
-        this.f73else.m247if((BDNotifyListener) message.obj);
+        this.f73else.m248if((BDNotifyListener) message.obj);
     }
 
     public void onRegisterNotifyLocationListener(Message message) {
@@ -545,7 +545,7 @@ public final class LocationClient {
         if (message == null || message.obj == null) {
             return;
         }
-        this.f73else.m246do((BDNotifyListener) message.obj);
+        this.f73else.m247do((BDNotifyListener) message.obj);
     }
 
     public void registerLocationListener(BDLocationListener bDLocationListener) {
@@ -612,7 +612,7 @@ public final class LocationClient {
         if (System.currentTimeMillis() - this.f71char < 6000) {
             return 6;
         }
-        if (this.l.f906a >= 1) {
+        if (this.l.f911a >= 1) {
             j.a(f64for, "request location ...");
             this.f72do.obtainMessage(7).sendToTarget();
             return 0;

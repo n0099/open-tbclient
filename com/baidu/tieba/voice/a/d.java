@@ -6,7 +6,7 @@ import com.slidingmenu.lib.R;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f2595a = null;
+    public String f2713a = null;
     public String b = null;
     public int c = 0;
     public String d = null;

@@ -5,11 +5,11 @@ import android.content.DialogInterface;
 class z implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ EditMarkActivity f2280a;
+    final /* synthetic */ EditMarkActivity f2398a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public z(EditMarkActivity editMarkActivity) {
-        this.f2280a = editMarkActivity;
+        this.f2398a = editMarkActivity;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -17,10 +17,10 @@ class z implements DialogInterface.OnClickListener {
         aa aaVar;
         com.baidu.tieba.model.o oVar;
         com.baidu.tieba.model.o oVar2;
-        aaVar = this.f2280a.b;
-        oVar = this.f2280a.f2185a;
+        aaVar = this.f2398a.b;
+        oVar = this.f2398a.f2292a;
         aaVar.a(oVar.a());
-        oVar2 = this.f2280a.f2185a;
+        oVar2 = this.f2398a.f2292a;
         oVar2.a((Boolean) true);
     }
 }

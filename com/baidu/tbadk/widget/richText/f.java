@@ -5,7 +5,7 @@ import org.json.JSONObject;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f987a;
+    private String f993a;
     private String b;
     private String c;
     private int d;
@@ -13,17 +13,17 @@ public class f {
     private boolean f;
 
     public f(JSONObject jSONObject) {
-        this.f987a = null;
+        this.f993a = null;
         this.b = null;
         this.c = null;
         this.d = 1;
         this.e = 1;
         this.f = false;
         if (jSONObject != null) {
-            this.f987a = jSONObject.optString("src");
+            this.f993a = jSONObject.optString("src");
             this.b = jSONObject.optString("cdn_src", "");
             if (this.b == null || this.b.length() == 0) {
-                this.b = this.f987a;
+                this.b = this.f993a;
             }
             this.c = jSONObject.optString("big_cdn_src", null);
             try {
@@ -31,7 +31,7 @@ public class f {
                 this.d = Integer.valueOf(split[0]).intValue();
                 this.e = Integer.valueOf(split[1]).intValue();
             } catch (Exception e) {
-                com.baidu.adp.lib.h.d.a(e.getMessage());
+                com.baidu.adp.lib.h.e.a(e.getMessage());
             }
             if (this.d <= 0) {
                 this.d = 1;
@@ -62,7 +62,7 @@ public class f {
     }
 
     public String e() {
-        return this.f987a;
+        return this.f993a;
     }
 
     public String f() {

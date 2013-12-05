@@ -9,24 +9,24 @@ import java.util.Map;
 public class af extends w {
 
     /* renamed from: a  reason: collision with root package name */
-    float f2741a;
+    float f2922a;
 
     public af(float f, int i) {
         super(i);
-        this.f2741a = f;
+        this.f2922a = f;
     }
 
     public af(DataInputStream dataInputStream, int i) {
         super(i);
-        this.f2741a = dataInputStream.readFloat();
+        this.f2922a = dataInputStream.readFloat();
     }
 
     public int hashCode() {
-        return Float.floatToIntBits(this.f2741a);
+        return Float.floatToIntBits(this.f2922a);
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof af) && ((af) obj).f2741a == this.f2741a;
+        return (obj instanceof af) && ((af) obj).f2922a == this.f2922a;
     }
 
     @Override // javassist.bytecode.w
@@ -36,18 +36,18 @@ public class af extends w {
 
     @Override // javassist.bytecode.w
     public int a(y yVar, y yVar2, Map map) {
-        return yVar2.a(this.f2741a);
+        return yVar2.a(this.f2922a);
     }
 
     @Override // javassist.bytecode.w
     public void a(DataOutputStream dataOutputStream) {
         dataOutputStream.writeByte(4);
-        dataOutputStream.writeFloat(this.f2741a);
+        dataOutputStream.writeFloat(this.f2922a);
     }
 
     @Override // javassist.bytecode.w
     public void a(PrintWriter printWriter) {
         printWriter.print("Float ");
-        printWriter.println(this.f2741a);
+        printWriter.println(this.f2922a);
     }
 }

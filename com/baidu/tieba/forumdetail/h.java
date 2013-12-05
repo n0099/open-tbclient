@@ -9,7 +9,7 @@ import com.slidingmenu.lib.R;
 public class h extends com.baidu.adp.a.g {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ax f1284a;
+    final /* synthetic */ ax f1331a;
     final /* synthetic */ com.baidu.tieba.j b;
     final /* synthetic */ boolean c;
     final /* synthetic */ ItemFootNavView d;
@@ -17,7 +17,7 @@ public class h extends com.baidu.adp.a.g {
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(ItemFootNavView itemFootNavView, ax axVar, com.baidu.tieba.j jVar, boolean z) {
         this.d = itemFootNavView;
-        this.f1284a = axVar;
+        this.f1331a = axVar;
         this.b = jVar;
         this.c = z;
     }
@@ -25,17 +25,17 @@ public class h extends com.baidu.adp.a.g {
     @Override // com.baidu.adp.a.g
     public void a(Object obj) {
         ForumDetailData forumDetailData;
-        if (this.f1284a.getErrorCode() == 22) {
+        if (this.f1331a.getErrorCode() == 22) {
             this.b.showToast(this.b.getString(R.string.like_success));
             this.d.b(true);
             this.d.a(this.c);
-        } else if (this.f1284a.getErrorCode() != 0) {
-            this.b.showToast(this.f1284a.getErrorString());
+        } else if (this.f1331a.getErrorCode() != 0) {
+            this.b.showToast(this.f1331a.getErrorString());
         } else if (((af) obj) != null) {
             this.b.showToast(this.b.getString(R.string.like_success));
-            TiebaApplication g = TiebaApplication.g();
+            TiebaApplication h = TiebaApplication.h();
             forumDetailData = this.d.f;
-            g.e(forumDetailData.forumInfo.forumName);
+            h.f(forumDetailData.forumInfo.forumName);
             this.d.b(true);
             this.d.a(this.c);
         } else {

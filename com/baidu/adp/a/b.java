@@ -12,6 +12,7 @@ public class b extends Application {
     public void onCreate() {
         f398a = this;
         super.onCreate();
+        com.baidu.adp.lib.h.g.a(this);
         e();
         f();
         d();

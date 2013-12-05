@@ -1,11 +1,10 @@
 package com.baidu.tieba.home;
 
 import android.app.Activity;
-import android.app.ActivityManager;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -20,9 +19,8 @@ import com.baidu.tieba.MainTabActivity;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.AntiData;
 import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.im.data.GroupInfoData;
-import com.baidu.tieba.im.groupInfo.GroupInfoActivity;
-import com.baidu.tieba.im.searchGroup.SearchGroupActivity;
+import com.baidu.tieba.im.mygroup.MyGroupActivity;
+import com.baidu.tieba.im.nearbygroups.NearbyGroupsActivity;
 import com.baidu.tieba.more.AboutActivity;
 import com.baidu.tieba.more.AccountActivity;
 import com.baidu.tieba.square.SquareSearchActivity;
@@ -33,40 +31,35 @@ import com.slidingmenu.lib.R;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class EnterForumActivity extends BaseFragment implements AbsListView.OnScrollListener, com.baidu.tbadk.imageManager.c {
+    private BaseFragmentActivity g;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f1379a = 0;
-    public static boolean b = false;
-    private BaseFragmentActivity i;
-    private o c = null;
-    private m d = null;
-    private com.baidu.tieba.model.t e = null;
-    private com.baidu.tieba.data.ad f = null;
-    private boolean g = true;
-    private Boolean h = false;
-    private com.baidu.tieba.im.messageCenter.h Y = new f(this);
-    private com.baidu.tieba.im.pushNotify.m Z = new g(this);
-    private View.OnClickListener aa = new h(this);
-    private com.baidu.tieba.model.w ab = new j(this);
-    private View.OnKeyListener ac = new k(this);
-    private com.baidu.adp.widget.ListView.b ad = new l(this);
+    private k f1433a = null;
+    private i b = null;
+    private com.baidu.tieba.model.t c = null;
+    private com.baidu.tieba.data.ad d = null;
+    private boolean e = true;
+    private Boolean f = false;
+    private com.baidu.tieba.model.w h = new f(this);
+    private View.OnKeyListener i = new g(this);
+    private com.baidu.adp.widget.ListView.b Y = new h(this);
 
     @Override // com.baidu.tieba.BaseFragment, android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
-        if (dialogInterface == this.c.u() || dialogInterface == this.c.v()) {
+        if (dialogInterface == this.f1433a.s() || dialogInterface == this.f1433a.t()) {
             switch (i) {
                 case 0:
-                    if (this.f != null) {
-                        String b2 = this.f.b();
-                        if (com.baidu.tieba.util.be.b(b2)) {
-                            FrsActivity.a(this.i, b2, "tb_forumlist");
+                    if (this.d != null) {
+                        String b = this.d.b();
+                        if (com.baidu.tieba.util.bb.b(b)) {
+                            FrsActivity.a(this.g, b, "tb_forumlist");
                             return;
                         }
                         return;
                     }
                     return;
                 case 1:
-                    I();
+                    H();
                     return;
                 default:
                     return;
@@ -74,13 +67,19 @@ public class EnterForumActivity extends BaseFragment implements AbsListView.OnSc
         }
     }
 
-    private void I() {
-        if (this.f != null) {
-            if (this.f.e() == 1) {
-                this.c.t();
-            } else if (this.d == null) {
-                this.d = new m(this, this.f);
-                this.d.execute(new com.baidu.tieba.data.ad[0]);
+    @Override // android.support.v4.app.Fragment
+    public void a(int i, int i2, Intent intent) {
+        super.a(i, i2, intent);
+        this.f1433a.a(i, i2, intent);
+    }
+
+    private void H() {
+        if (this.d != null) {
+            if (this.d.e() == 1) {
+                this.f1433a.r();
+            } else if (this.b == null) {
+                this.b = new i(this, this.d);
+                this.b.execute(new com.baidu.tieba.data.ad[0]);
             }
         }
     }
@@ -88,7 +87,7 @@ public class EnterForumActivity extends BaseFragment implements AbsListView.OnSc
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
     public void a(Activity activity) {
         super.a(activity);
-        this.i = (BaseFragmentActivity) activity;
+        this.g = (BaseFragmentActivity) activity;
     }
 
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
@@ -97,83 +96,45 @@ public class EnterForumActivity extends BaseFragment implements AbsListView.OnSc
     }
 
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
-    public void a(Bundle bundle) {
-        super.a(bundle);
-    }
-
-    @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
     public void d(Bundle bundle) {
         super.d(bundle);
+        I();
         J();
-        K();
-        if (bundle != null) {
-            f1379a = bundle.getInt("curent_tab");
-        } else {
-            String stringExtra = this.i.getIntent().getStringExtra("curent_tab");
-            if (stringExtra != null && TextUtils.isDigitsOnly(stringExtra)) {
-                try {
-                    f1379a = Integer.valueOf(stringExtra).intValue();
-                } catch (NumberFormatException e) {
-                    e.printStackTrace();
-                }
-            }
-            this.c.a();
-        }
-        com.baidu.tieba.im.messageCenter.f.a().a(103101, this.Y);
-        com.baidu.tieba.im.messageCenter.f.a().a(103112, this.Y);
-        com.baidu.tieba.im.messageCenter.f.a().a(103102, this.Y);
-        com.baidu.tieba.im.messageCenter.f.a().a(-109, this.Y);
-        com.baidu.tieba.im.pushNotify.n.a().a("apply_join_success", this.Z);
-        com.baidu.tieba.im.pushNotify.n.a().a("kick_out", this.Z);
-        com.baidu.tieba.im.pushNotify.n.a().a("group_intro_change", this.Z);
-        com.baidu.tieba.im.pushNotify.n.a().a("group_name_change", this.Z);
-        com.baidu.tieba.im.pushNotify.n.a().a("group_level_up", this.Z);
     }
 
     private View a(LayoutInflater layoutInflater) {
         return layoutInflater.inflate(R.layout.enter_forum_view, (ViewGroup) null);
     }
 
-    public boolean a() {
-        for (ActivityManager.RunningTaskInfo runningTaskInfo : ((ActivityManager) this.i.getSystemService("activity")).getRunningTasks(10)) {
-            if (runningTaskInfo.topActivity.getClassName().equals(MainTabActivity.class.getName())) {
-                return true;
-            }
-        }
-        return false;
+    private void I() {
+        this.f1433a = new k(this.g, this, this.i);
+        this.f1433a.a(this.Y);
+        this.f1433a.h().setClickStatKey("ef_tb_search");
     }
 
     private void J() {
-        this.c = new o(this.i, this, this.ac);
-        this.c.a(this.ad);
-        this.c.h().setClickStatKey("ef_tb_search");
-        this.c.a(this.aa);
-    }
-
-    private void K() {
-        this.g = true;
-        this.h = false;
-        this.e = new com.baidu.tieba.model.t();
-        this.e.a(this.ab);
+        this.e = true;
+        this.f = false;
+        this.c = new com.baidu.tieba.model.t();
+        this.c.a(this.h);
     }
 
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
     public void c_() {
         super.c_();
-        this.c.j();
     }
 
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
     public void d() {
         super.d();
-        this.c.k();
+        this.f1433a.k();
     }
 
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
     public void r() {
         super.r();
         if (F()) {
-            this.c.l();
+            this.f1433a.j();
             a(false);
         }
     }
@@ -182,14 +143,14 @@ public class EnterForumActivity extends BaseFragment implements AbsListView.OnSc
     public void a(Menu menu) {
         try {
             menu.findItem(1).setVisible(true);
-            if (!TiebaApplication.n()) {
+            if (!TiebaApplication.o()) {
                 menu.findItem(2).setVisible(true);
             }
             menu.findItem(3).setVisible(true);
             menu.findItem(4).setVisible(true);
             menu.findItem(5).setVisible(true);
         } catch (Exception e) {
-            com.baidu.tieba.util.bg.b("HomeActivity", "onPrepareOptionsMenu", "exp: " + e.toString());
+            com.baidu.tieba.util.bd.b("HomeActivity", "onPrepareOptionsMenu", "exp: " + e.toString());
         }
         super.a(menu);
     }
@@ -198,101 +159,75 @@ public class EnterForumActivity extends BaseFragment implements AbsListView.OnSc
     public boolean a(MenuItem menuItem) {
         switch (menuItem.getItemId()) {
             case 1:
-                MainTabActivity.a(this.i, 4);
+                MainTabActivity.a(this.g, 4);
                 break;
             case 2:
-                AccountActivity.a(this.i);
+                AccountActivity.a(this.g);
                 break;
             case 3:
                 AntiData antiData = new AntiData();
                 antiData.setIfpost(1);
-                WriteActivity.a(this.i, com.baidu.tieba.data.h.h(), com.baidu.tieba.data.h.g(), antiData);
+                WriteActivity.a(this.g, com.baidu.tieba.data.h.h(), com.baidu.tieba.data.h.g(), antiData);
                 break;
             case 4:
-                AboutActivity.a((Context) this.i);
+                AboutActivity.a((Context) this.g);
                 break;
             case 5:
-                UtilHelper.a((Activity) this.i);
+                UtilHelper.a((Activity) this.g);
                 break;
         }
         return super.a(menuItem);
     }
 
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
-    public void s() {
-        super.s();
-    }
-
-    @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
     public void t() {
-        this.c.m();
-        H();
-        com.baidu.tieba.im.messageCenter.f.a().a(this.Y);
-        com.baidu.tieba.im.pushNotify.n.a().a(this.Z);
+        G();
         super.t();
     }
 
-    public void G() {
-        this.c.n();
+    public void a() {
+        this.f1433a.l();
     }
 
     @Override // com.baidu.tieba.BaseFragment, android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getId() == R.id.search_bg_layout) {
-            if (f1379a == 0) {
-                if (TiebaApplication.g().s()) {
-                    StatService.onEvent(this.i, "ef_tb_search", "click", 1);
-                }
-                SquareSearchActivity.a(this.i, a(R.string.home));
-                return;
+            SquareSearchActivity.a(this.g, a(R.string.home));
+        } else if (view.getId() == this.f1433a.n() || view.getId() == this.f1433a.o()) {
+            com.baidu.tieba.data.ad adVar = null;
+            if (view.getTag() instanceof com.baidu.tieba.data.ad) {
+                adVar = (com.baidu.tieba.data.ad) view.getTag();
             }
-            if (TiebaApplication.g().s()) {
-                StatService.onEvent(this.i, "cl_search_group", "click", 1);
-            }
-            SearchGroupActivity.a(this.i);
-        } else if (view.getId() == this.c.p() || view.getId() == this.c.q()) {
-            com.baidu.tieba.data.ad adVar = view.getTag() instanceof com.baidu.tieba.data.ad ? (com.baidu.tieba.data.ad) view.getTag() : null;
             if (adVar != null) {
-                String b2 = adVar.b();
-                if (com.baidu.tieba.util.be.b(b2)) {
-                    if (TiebaApplication.g().s()) {
-                        StatService.onEvent(this.i, "ef_recent", "click", 1);
+                String b = adVar.b();
+                if (com.baidu.tieba.util.bb.b(b)) {
+                    if (TiebaApplication.h().t()) {
+                        StatService.onEvent(this.g, "ef_recent", "click", 1);
                     }
-                    FrsActivity.a(this.i, b2, "tb_forumlist");
+                    FrsActivity.a(this.g, b, "tb_forumlist");
                 }
             }
-        } else if (view.getId() == R.id.click_head) {
-            GroupInfoData groupInfoData = view.getTag() instanceof GroupInfoData ? (GroupInfoData) view.getTag() : null;
-            if (groupInfoData != null) {
-                GroupInfoActivity.a(this.i, groupInfoData.getGroupId(), 1);
-            }
-        } else if (view.getId() == R.id.enter_group) {
-            f1379a = 1;
-            if (this.c != null) {
-                this.c.a();
-            }
-        } else if (view.getId() == R.id.enter_forum) {
-            f1379a = 0;
-            if (this.c != null) {
-                this.c.a();
-            }
+        } else if (view.getId() == R.id.mygroup_item) {
+            MyGroupActivity.a(i());
+        } else if (view.getId() == R.id.neargroup_item) {
+            NearbyGroupsActivity.a(i());
         }
     }
 
     @Override // com.baidu.tieba.BaseFragment, android.view.View.OnLongClickListener
     public boolean onLongClick(View view) {
-        if (view.getId() == this.c.p() || view.getId() == this.c.q()) {
-            this.f = null;
+        if (view.getId() == this.f1433a.n() || view.getId() == this.f1433a.o()) {
+            this.d = null;
             com.baidu.tieba.data.ad adVar = view.getTag() instanceof com.baidu.tieba.data.ad ? (com.baidu.tieba.data.ad) view.getTag() : null;
             if (adVar != null) {
-                this.f = adVar;
-                String b2 = adVar.b();
+                this.d = adVar;
+                String b = adVar.b();
                 int e = adVar.e();
-                if (com.baidu.tieba.util.be.b(b2)) {
+                if (com.baidu.tieba.util.bb.b(b)) {
                     if (e == 1) {
-                        this.c.r();
+                        this.f1433a.p();
                     } else {
-                        this.c.s();
+                        this.f1433a.q();
                     }
                 }
             }
@@ -308,63 +243,66 @@ public class EnterForumActivity extends BaseFragment implements AbsListView.OnSc
     @Override // com.baidu.tieba.BaseFragment
     public void c(int i) {
         super.c(i);
-        this.c.b(i);
+        this.f1433a.c(i);
     }
 
-    public void H() {
-        if (this.d != null) {
-            this.d.cancel();
-            this.d = null;
+    public void G() {
+        if (this.b != null) {
+            this.b.cancel();
+            this.b = null;
         }
-        this.e.cancelLoadData();
+        this.c.cancelLoadData();
     }
 
     public void a(boolean z) {
         boolean z2;
         boolean z3;
-        if (this.e != null) {
-            boolean booleanValue = this.h.booleanValue();
-            this.h = Boolean.valueOf((TiebaApplication.A() == null || TiebaApplication.F() == null) ? false : true);
-            if (this.g) {
-                this.g = false;
+        if (this.c != null) {
+            boolean booleanValue = this.f.booleanValue();
+            this.f = Boolean.valueOf((TiebaApplication.B() == null || TiebaApplication.G() == null) ? false : true);
+            if (this.e) {
+                this.e = false;
                 z2 = true;
                 z3 = false;
-            } else if (booleanValue != this.h.booleanValue()) {
+            } else if (booleanValue != this.f.booleanValue()) {
                 z2 = false;
                 z3 = true;
             } else {
                 z2 = false;
                 z3 = false;
             }
-            if (TiebaApplication.g().O()) {
-                TiebaApplication.g().h(false);
+            if (TiebaApplication.h().M()) {
+                TiebaApplication.h().h(false);
                 z3 = true;
             }
             boolean z4 = z ? true : z3;
-            if (TiebaApplication.g().j() > 0) {
-                if (this.e != null && this.e.a() != null && this.e.a().d() != null) {
-                    Iterator<com.baidu.tieba.data.ad> it = this.e.a().d().a().iterator();
+            if (TiebaApplication.h().k() > 0) {
+                if (this.c != null && this.c.a() != null && this.c.a().d() != null) {
+                    Iterator<com.baidu.tieba.data.ad> it = this.c.a().d().a().iterator();
                     while (it.hasNext()) {
                         com.baidu.tieba.data.ad next = it.next();
-                        if (TiebaApplication.g().b(next.b())) {
+                        if (TiebaApplication.h().b(next.b())) {
                             next.a(1);
+                            int d = TiebaApplication.h().d(next.b());
+                            if (d > 0) {
+                                next.b(d);
+                            }
                         }
                     }
                 }
-                TiebaApplication.g().i();
-                String A = TiebaApplication.A();
-                if (A != null && A.length() > 0) {
-                    DatabaseService.h(A);
+                TiebaApplication.h().j();
+                String B = TiebaApplication.B();
+                if (B != null && B.length() > 0) {
+                    DatabaseService.f(B);
                 }
-                this.c.i();
+                this.f1433a.i();
             }
             if (z2 || z4) {
-                H();
+                G();
                 if (z4) {
-                    this.c.e();
+                    this.f1433a.e();
                 } else {
-                    if (this.e.b(this.h.booleanValue())) {
-                    }
+                    this.c.b(this.f.booleanValue());
                 }
             }
         }

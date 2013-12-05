@@ -9,21 +9,21 @@ import com.baidu.tieba.util.UtilHelper;
 public class x implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ au f2422a;
+    final /* synthetic */ au f2539a;
     final /* synthetic */ int b;
     final /* synthetic */ CarouselRecommendView.CarouselRecommendPagerAdapter c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(CarouselRecommendView.CarouselRecommendPagerAdapter carouselRecommendPagerAdapter, au auVar, int i) {
         this.c = carouselRecommendPagerAdapter;
-        this.f2422a = auVar;
+        this.f2539a = auVar;
         this.b = i;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Context context;
-        String b = this.f2422a.b();
+        String b = this.f2539a.b();
         String a2 = SquareActivity.a("carousel_recommend", String.valueOf(this.b));
         context = this.c.f;
         UtilHelper.a(context, b, null, a2);

@@ -12,7 +12,7 @@ import com.baidu.tieba.widget.share.ShareJsBridge;
 public class BaseWebView extends WebView {
 
     /* renamed from: a  reason: collision with root package name */
-    private WebViewClient f2507a;
+    private WebViewClient f2621a;
     private d b;
     private Context c;
     private d d;
@@ -54,8 +54,8 @@ public class BaseWebView extends WebView {
         addJavascriptInterface(new ShareJsBridge(this.c), "ShareJsBridge");
         getSettings().setCacheMode(2);
         UtilHelper.a(getSettings());
-        this.f2507a = new MyWebViewClient();
-        setWebViewClient(this.f2507a);
+        this.f2621a = new MyWebViewClient();
+        setWebViewClient(this.f2621a);
         setOnLongClickListener(new b(this));
     }
 

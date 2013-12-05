@@ -3,15 +3,15 @@ package com.baidu.tieba.service;
 class g implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PerformMonitorService f2328a;
+    final /* synthetic */ PerformMonitorService f2445a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(PerformMonitorService performMonitorService) {
-        this.f2328a = performMonitorService;
+        this.f2445a = performMonitorService;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f2328a.b();
+        this.f2445a.b();
     }
 }

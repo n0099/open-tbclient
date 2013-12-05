@@ -58,7 +58,7 @@ public class JvstCodeGen extends MemberCodeGen {
 
     public void f() {
         if (this.i == 344) {
-            this.f2817a.g(1);
+            this.f2998a.g(1);
             this.i = 307;
             this.j = 0;
             this.k = "java/lang/Object";
@@ -69,13 +69,13 @@ public class JvstCodeGen extends MemberCodeGen {
     public void a(Member member) {
         String str = member.get();
         if (str.equals(this.m)) {
-            a(this.f2817a, this.o, h());
+            a(this.f2998a, this.o, h());
             this.i = 307;
             this.j = 1;
             this.k = "java/lang/Object";
         } else if (str.equals("$sig")) {
-            this.f2817a.c(z.a(this.p, this.o));
-            this.f2817a.d("javassist/runtime/Desc", "getParams", "(Ljava/lang/String;)[Ljava/lang/Class;");
+            this.f2998a.c(z.a(this.p, this.o));
+            this.f2998a.d("javassist/runtime/Desc", "getParams", "(Ljava/lang/String;)[Ljava/lang/Class;");
             this.i = 307;
             this.j = 1;
             this.k = "java/lang/Class";
@@ -83,13 +83,13 @@ public class JvstCodeGen extends MemberCodeGen {
             if (this.B == null) {
                 throw new CompileError("$type is not available");
             }
-            this.f2817a.c(z.b(this.B));
+            this.f2998a.c(z.b(this.B));
             c("getType");
         } else if (str.equals("$class")) {
             if (this.A == null) {
                 throw new CompileError("$class is not available");
             }
-            this.f2817a.c(this.A);
+            this.f2998a.c(this.A);
             c("getClazz");
         } else {
             super.a(member);
@@ -97,7 +97,7 @@ public class JvstCodeGen extends MemberCodeGen {
     }
 
     private void c(String str) {
-        this.f2817a.d("javassist/runtime/Desc", str, "(Ljava/lang/String;)Ljava/lang/Class;");
+        this.f2998a.d("javassist/runtime/Desc", str, "(Ljava/lang/String;)Ljava/lang/Class;");
         this.i = 307;
         this.j = 0;
         this.k = "java/lang/Class";
@@ -113,9 +113,9 @@ public class JvstCodeGen extends MemberCodeGen {
             if (this.j != 1 || this.i != 307) {
                 throw new CompileError("invalid type for " + this.m);
             }
-            a(this.o, this.f2817a);
+            a(this.o, this.f2998a);
             if (!z) {
-                this.f2817a.g(87);
+                this.f2998a.g(87);
                 return;
             }
             return;
@@ -161,7 +161,7 @@ public class JvstCodeGen extends MemberCodeGen {
     protected void b(CastExpr castExpr) {
         castExpr.getOprand().accept(this);
         if (this.i == 344 || d(this.i) || this.j > 0) {
-            a(this.p, this.f2817a);
+            a(this.p, this.f2998a);
         } else if (this.p instanceof CtPrimitiveType) {
             int a2 = MemberResolver.a(((CtPrimitiveType) this.p).y());
             d(this.i, a2);
@@ -180,15 +180,15 @@ public class JvstCodeGen extends MemberCodeGen {
             if (a2 instanceof CtPrimitiveType) {
                 CtPrimitiveType ctPrimitiveType = (CtPrimitiveType) a2;
                 String z = ctPrimitiveType.z();
-                this.f2817a.d(z);
-                this.f2817a.g(89);
+                this.f2998a.d(z);
+                this.f2998a.g(89);
                 if (ctPrimitiveType.D() > 1) {
-                    this.f2817a.g(94);
+                    this.f2998a.g(94);
                 } else {
-                    this.f2817a.g(93);
+                    this.f2998a.g(93);
                 }
-                this.f2817a.g(88);
-                this.f2817a.c(z, MethodDecl.initName, "(" + ctPrimitiveType.y() + ")V");
+                this.f2998a.g(88);
+                this.f2998a.c(z, MethodDecl.initName, "(" + ctPrimitiveType.y() + ")V");
                 this.i = 307;
                 this.j = 0;
                 this.k = "java/lang/Object";
@@ -202,7 +202,7 @@ public class JvstCodeGen extends MemberCodeGen {
         if (oprand1 instanceof Member) {
             String str = ((Member) oprand1).get();
             if (this.s != null && str.equals(this.r)) {
-                this.s.a(this, this.f2817a, (ASTList) callExpr.oprand2());
+                this.s.a(this, this.f2998a, (ASTList) callExpr.oprand2());
                 return;
             } else if (str.equals("$cflow")) {
                 c((ASTList) callExpr.oprand2());
@@ -223,8 +223,8 @@ public class JvstCodeGen extends MemberCodeGen {
         if (b == null) {
             throw new CompileError("no such $cflow: " + stringBuffer2);
         }
-        this.f2817a.b((String) b[0], (String) b[1], "Ljavassist/runtime/Cflow;");
-        this.f2817a.e("javassist.runtime.Cflow", "value", "()I");
+        this.f2998a.b((String) b[0], (String) b[1], "Ljavassist/runtime/Cflow;");
+        this.f2998a.e("javassist.runtime.Cflow", "value", "()I");
         this.i = 324;
         this.j = 0;
         this.k = null;
@@ -281,7 +281,7 @@ public class JvstCodeGen extends MemberCodeGen {
                     int h = h();
                     while (i3 < length) {
                         javassist.h hVar = hVarArr[i3];
-                        h += this.f2817a.a(h, hVar);
+                        h += this.f2998a.a(h, hVar);
                         b(hVar);
                         iArr[i] = this.i;
                         iArr2[i] = this.j;
@@ -310,9 +310,9 @@ public class JvstCodeGen extends MemberCodeGen {
         if (left != null && this.p == javassist.h.l) {
             a(left);
             if (a(this.i, this.j)) {
-                this.f2817a.g(88);
+                this.f2998a.g(88);
             } else if (this.i != 344) {
-                this.f2817a.g(87);
+                this.f2998a.g(87);
             }
             left = null;
         }

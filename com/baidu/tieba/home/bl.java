@@ -1,42 +1,53 @@
 package com.baidu.tieba.home;
 
-import android.content.Context;
-import android.view.View;
-import com.slidingmenu.lib.R;
-import java.util.HashMap;
-/* JADX INFO: Access modifiers changed from: package-private */
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class bl implements View.OnClickListener {
+public class bl {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ z f1421a;
-    final /* synthetic */ bo b;
-    final /* synthetic */ bk c;
+    private int f1476a;
+    private String b;
+    private int c;
+    private int d;
+    private int e;
+    private int f;
+    private int g;
+    private m h = new m();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bl(bk bkVar, z zVar, bo boVar) {
-        this.c = bkVar;
-        this.f1421a = zVar;
-        this.b = boVar;
+    public int a() {
+        return this.f1476a;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        HashMap hashMap;
-        Context context;
-        if (!this.f1421a.k()) {
-            this.b.i.setVisibility(4);
-            this.b.j.setVisibility(0);
-            this.b.k.setText(R.string.signallforum_resigning);
-            this.f1421a.c(true);
-            bz bzVar = new bz();
-            bzVar.a(this.c);
-            String str = this.f1421a.a() + "";
-            hashMap = this.c.g;
-            hashMap.put(str, bzVar);
-            bzVar.a(this.f1421a.b(), str);
-            context = this.c.c;
-            com.baidu.tieba.al.a(context, "signall_resign_click");
+    public int b() {
+        return this.c;
+    }
+
+    public int c() {
+        return this.f;
+    }
+
+    public int d() {
+        return this.g;
+    }
+
+    public m e() {
+        return this.h;
+    }
+
+    public void a(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.h.a(jSONObject.optJSONObject("error"));
+                this.f1476a = jSONObject.optInt("forum_id");
+                this.b = jSONObject.optString("forum_name");
+                this.c = jSONObject.optInt("signed");
+                this.d = jSONObject.optInt("is_on");
+                this.e = jSONObject.optInt("is_filter");
+                this.f = jSONObject.optInt("sign_day_count");
+                this.g = jSONObject.optInt("cur_score");
+            } catch (Exception e) {
+                com.baidu.tieba.util.bd.b(getClass().getName(), "parserJson", e.getMessage());
+            }
         }
     }
 }

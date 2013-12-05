@@ -10,7 +10,7 @@ import java.util.List;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    float f606a;
+    float f611a;
     float b;
     float c;
     float d;
@@ -21,7 +21,7 @@ public class h {
 
     private void e() {
         long uptimeMillis = SystemClock.uptimeMillis();
-        this.f606a = ((((float) (uptimeMillis - this.e)) / 1000.0f) * this.b) + this.f606a;
+        this.f611a = ((((float) (uptimeMillis - this.e)) / 1000.0f) * this.b) + this.f611a;
         this.e = uptimeMillis;
         this.f += 16;
     }
@@ -31,7 +31,7 @@ public class h {
         g gVar;
         j jVar;
         e();
-        if (this.f606a <= this.c) {
+        if (this.f611a <= this.c) {
             jVar = this.h.v;
             if (jVar != null) {
                 jVar.b();
@@ -41,7 +41,7 @@ public class h {
             this.h.a();
             return;
         }
-        this.h.f = (int) (ah.a(this.c, this.f606a, false) + this.d);
+        this.h.f = (int) (ai.a(this.c, this.f611a, false) + this.d);
         this.h.invalidate();
         gVar = this.h.s;
         gVar.sendEmptyMessageAtTime(-100, this.f);
@@ -52,7 +52,7 @@ public class h {
         g gVar;
         m mVar;
         e();
-        if (this.f606a >= this.c) {
+        if (this.f611a >= this.c) {
             mVar = this.h.w;
             if (mVar != null) {
                 mVar.b();
@@ -62,7 +62,7 @@ public class h {
             this.h.a();
             return;
         }
-        this.h.f = (int) (ah.a(this.c, this.f606a, false) + this.d);
+        this.h.f = (int) (ai.a(this.c, this.f611a, false) + this.d);
         this.h.invalidate();
         gVar = this.h.s;
         gVar.sendEmptyMessageAtTime(-101, this.f);
@@ -73,7 +73,7 @@ public class h {
         g gVar;
         List<l> list;
         e();
-        if (this.f606a >= this.c) {
+        if (this.f611a >= this.c) {
             list = this.h.x;
             for (l lVar : list) {
                 if (lVar != null) {
@@ -85,7 +85,7 @@ public class h {
             this.h.a();
             return;
         }
-        this.h.f = (int) (ah.a(this.c, this.f606a, false) + this.d);
+        this.h.f = (int) (ai.a(this.c, this.f611a, false) + this.d);
         this.h.invalidate();
         gVar = this.h.s;
         gVar.sendEmptyMessageAtTime(-104, this.f);
@@ -96,7 +96,7 @@ public class h {
         g gVar;
         List<l> list;
         e();
-        if (this.f606a <= this.c) {
+        if (this.f611a <= this.c) {
             list = this.h.x;
             for (l lVar : list) {
                 if (lVar != null) {
@@ -108,7 +108,7 @@ public class h {
             this.h.a();
             return;
         }
-        this.h.f = (int) (ah.a(this.c, this.f606a, false) + this.d);
+        this.h.f = (int) (ai.a(this.c, this.f611a, false) + this.d);
         this.h.invalidate();
         gVar = this.h.s;
         gVar.sendEmptyMessageAtTime(-105, this.f);
@@ -132,7 +132,7 @@ public class h {
         this.e = uptimeMillis;
         this.f = uptimeMillis + 16;
         this.b = f;
-        this.f606a = 0.0f;
+        this.f611a = 0.0f;
         i = this.h.f;
         this.c = 0 - i;
         i2 = this.h.f;
@@ -163,7 +163,7 @@ public class h {
         this.e = uptimeMillis;
         this.f = uptimeMillis + 16;
         this.b = f;
-        this.f606a = 0.0f;
+        this.f611a = 0.0f;
         i = this.h.f;
         this.c = 0 - i;
         i2 = this.h.f;
@@ -193,7 +193,7 @@ public class h {
         this.e = uptimeMillis;
         this.f = uptimeMillis + 16;
         this.b = f;
-        this.f606a = 0.0f;
+        this.f611a = 0.0f;
         f2 = this.h.d;
         float f3 = (-this.h.getMeasuredWidth()) + f2;
         i = this.h.f;
@@ -225,7 +225,7 @@ public class h {
         this.e = uptimeMillis;
         this.f = uptimeMillis + 16;
         this.b = f;
-        this.f606a = 0.0f;
+        this.f611a = 0.0f;
         f2 = this.h.e;
         float measuredWidth = this.h.getMeasuredWidth() - f2;
         i = this.h.f;

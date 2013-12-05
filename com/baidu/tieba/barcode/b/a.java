@@ -1,0 +1,54 @@
+package com.baidu.tieba.barcode.b;
+
+import android.os.Build;
+import com.baidu.tieba.util.bd;
+import java.lang.reflect.InvocationTargetException;
+import java.util.Collections;
+import java.util.SortedMap;
+import java.util.TreeMap;
+/* loaded from: classes.dex */
+public abstract class a<T> {
+
+    /* renamed from: a  reason: collision with root package name */
+    private final Class<T> f1142a;
+    private final T b;
+    private final SortedMap<Integer, String> c;
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public a(Class<T> cls, T t) {
+        if (!cls.isInterface()) {
+            throw new IllegalArgumentException();
+        }
+        if (!cls.isInstance(t)) {
+            throw new IllegalArgumentException();
+        }
+        this.f1142a = cls;
+        this.b = t;
+        this.c = new TreeMap(Collections.reverseOrder());
+    }
+
+    /* JADX DEBUG: Type inference failed for r3v11. Raw type applied. Possible types: java.lang.Class<T>, java.lang.Class<U> */
+    public T a() {
+        for (Integer num : this.c.keySet()) {
+            if (Build.VERSION.SDK_INT >= num.intValue()) {
+                try {
+                    Class<? extends U> asSubclass = Class.forName(this.c.get(num)).asSubclass((Class<T>) this.f1142a);
+                    bd.a(getClass().getName(), "build", "Using implementation " + asSubclass + " of " + this.f1142a + " for SDK " + num);
+                    return (T) asSubclass.getConstructor(new Class[0]).newInstance(new Object[0]);
+                } catch (ClassNotFoundException e) {
+                    bd.c(getClass().getName(), "build", e.toString());
+                } catch (IllegalAccessException e2) {
+                    bd.c(getClass().getName(), "build", e2.toString());
+                } catch (InstantiationException e3) {
+                    bd.c(getClass().getName(), "build", e3.toString());
+                } catch (NoSuchMethodException e4) {
+                    bd.c(getClass().getName(), "build", e4.toString());
+                } catch (InvocationTargetException e5) {
+                    bd.c(getClass().getName(), "build", e5.toString());
+                }
+            }
+        }
+        bd.a(getClass().getName(), "build", "Using default implementation " + this.b.getClass() + " of " + this.f1142a);
+        return this.b;
+    }
+}

@@ -20,7 +20,7 @@ public class BarFolderFirstDirActivity extends com.baidu.tieba.j {
     private NavigationBar h;
 
     /* renamed from: a  reason: collision with root package name */
-    protected ListView f2346a = null;
+    protected ListView f2463a = null;
     private String g = null;
 
     public static void a(Activity activity, String str) {
@@ -51,12 +51,12 @@ public class BarFolderFirstDirActivity extends com.baidu.tieba.j {
         this.h = (NavigationBar) findViewById(R.id.view_navigation_bar);
         this.h.a(getResources().getString(R.string.bar_first_dir_name));
         this.h.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f2346a = (ListView) findViewById(R.id.list);
+        this.f2463a = (ListView) findViewById(R.id.list);
         this.e = new c(this, new h(), true);
-        this.f2346a.setAdapter((ListAdapter) this.e);
+        this.f2463a.setAdapter((ListAdapter) this.e);
         this.d = (ProgressBar) findViewById(R.id.progress);
         this.b = (ViewGroup) findViewById(R.id.body_container);
-        com.baidu.tieba.util.bl.b(this.b);
+        com.baidu.tieba.util.bj.b(this.b);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -70,7 +70,7 @@ public class BarFolderFirstDirActivity extends com.baidu.tieba.j {
     }
 
     protected void b() {
-        this.f2346a.setOnItemClickListener(new a(this));
+        this.f2463a.setOnItemClickListener(new a(this));
     }
 
     protected void a(Bundle bundle) {
@@ -80,7 +80,7 @@ public class BarFolderFirstDirActivity extends com.baidu.tieba.j {
             this.g = getIntent().getStringExtra(c);
         }
         this.d.setVisibility(0);
-        this.f2346a.setEnabled(false);
+        this.f2463a.setEnabled(false);
         if (this.f != null) {
             this.f.cancel();
         }
@@ -92,7 +92,7 @@ public class BarFolderFirstDirActivity extends com.baidu.tieba.j {
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(h hVar, boolean z) {
         this.d.setVisibility(8);
-        this.f2346a.setEnabled(true);
+        this.f2463a.setEnabled(true);
         this.f = null;
         if (!z) {
             if (hVar.b()) {
@@ -100,9 +100,9 @@ public class BarFolderFirstDirActivity extends com.baidu.tieba.j {
                 return;
             }
             this.e.a(hVar.d());
-            this.f2346a.setVisibility(4);
+            this.f2463a.setVisibility(4);
             this.e.notifyDataSetChanged();
-            this.f2346a.setVisibility(0);
+            this.f2463a.setVisibility(0);
         }
     }
 
@@ -111,12 +111,12 @@ public class BarFolderFirstDirActivity extends com.baidu.tieba.j {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.h.c(i);
-        if (this.f2346a != null) {
-            this.f2346a.invalidateViews();
+        if (this.f2463a != null) {
+            this.f2463a.invalidateViews();
         }
         if (this.b != null) {
-            com.baidu.tieba.util.bl.a(this.b, i);
+            com.baidu.tieba.util.bj.a(this.b, i);
         }
-        com.baidu.tieba.util.bd.b(findViewById(R.id.root_view), i);
+        com.baidu.tieba.util.ba.b(findViewById(R.id.root_view), i);
     }
 }

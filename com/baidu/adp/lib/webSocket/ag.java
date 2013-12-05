@@ -1,4 +1,7 @@
 package com.baidu.adp.lib.webSocket;
 /* loaded from: classes.dex */
-public class ag extends z {
+public class ag extends ah {
+    public ag(d dVar) {
+        super(dVar);
+    }
 }

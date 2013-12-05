@@ -20,7 +20,7 @@ import java.net.URLEncoder;
 public class SquareActivity extends BaseFragment implements AbsListView.OnScrollListener, com.baidu.tbadk.imageManager.c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f2351a = false;
+    public static boolean f2468a = false;
     private BaseFragmentActivity f;
     private bu b = null;
     private av c = null;
@@ -29,7 +29,7 @@ public class SquareActivity extends BaseFragment implements AbsListView.OnScroll
     private Handler g = null;
     private Runnable h = null;
     private aw i = new am(this);
-    private com.baidu.tieba.view.az Y = new an(this);
+    private com.baidu.tieba.view.ba Y = new an(this);
     private View.OnKeyListener Z = new ap(this);
     private com.baidu.adp.widget.ListView.b aa = new aq(this);
 
@@ -104,7 +104,7 @@ public class SquareActivity extends BaseFragment implements AbsListView.OnScroll
 
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
     public void d() {
-        this.b.k();
+        this.b.j();
         super.d();
     }
 
@@ -112,14 +112,14 @@ public class SquareActivity extends BaseFragment implements AbsListView.OnScroll
     public void r() {
         super.r();
         if (F()) {
-            if (f2351a) {
+            if (f2468a) {
                 a(true);
-                f2351a = false;
+                f2468a = false;
             }
             if (this.g != null && !this.e) {
                 this.g.removeCallbacks(this.h);
                 this.g.postDelayed(this.h, 0L);
-                this.b.l();
+                this.b.k();
             }
         }
     }
@@ -130,7 +130,7 @@ public class SquareActivity extends BaseFragment implements AbsListView.OnScroll
         if (this.g != null) {
             this.g.removeCallbacks(this.h);
         }
-        this.b.m();
+        this.b.l();
     }
 
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
@@ -138,18 +138,18 @@ public class SquareActivity extends BaseFragment implements AbsListView.OnScroll
         if (this.g != null) {
             this.g.removeCallbacks(this.h);
         }
-        this.b.n();
+        this.b.m();
         K();
         super.t();
     }
 
     @Override // com.baidu.tieba.BaseFragment, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.b.h()) {
-            if (TiebaApplication.g().s()) {
+        if (view.getId() == R.id.square_all_cat) {
+            if (TiebaApplication.h().t()) {
                 StatService.onEvent(this.f, "sq_icon_category", "click", 1);
             }
-            BarFolderFirstDirActivity.a(this.f, a(bu.f2400a, "all"));
+            BarFolderFirstDirActivity.a(this.f, a(bu.f2517a, "all"));
         }
     }
 

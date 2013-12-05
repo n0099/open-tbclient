@@ -26,13 +26,13 @@ import org.xmlpull.v1.XmlPullParser;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private ProxyHttpClient f793a;
+    private ProxyHttpClient f798a;
     private ArrayList b;
     private Context c;
 
     public d(Context context) {
         this.c = context;
-        this.f793a = new ProxyHttpClient(context);
+        this.f798a = new ProxyHttpClient(context);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

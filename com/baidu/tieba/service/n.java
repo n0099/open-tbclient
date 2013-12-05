@@ -4,8 +4,8 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.aj;
-import com.baidu.tieba.util.ap;
-import com.baidu.tieba.util.bg;
+import com.baidu.tieba.util.am;
+import com.baidu.tieba.util.bd;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n extends BdAsyncTask<String, Integer, aj> {
@@ -13,9 +13,9 @@ public class n extends BdAsyncTask<String, Integer, aj> {
     final /* synthetic */ TiebaMessageService c;
 
     /* renamed from: a  reason: collision with root package name */
-    ap f2335a = null;
-    private TiebaApplication d = TiebaApplication.g();
-    private String e = TiebaApplication.A();
+    am f2452a = null;
+    private TiebaApplication d = TiebaApplication.h();
+    private String e = TiebaApplication.B();
 
     public n(TiebaMessageService tiebaMessageService, int i) {
         this.c = tiebaMessageService;
@@ -40,19 +40,19 @@ public class n extends BdAsyncTask<String, Integer, aj> {
             ajVar = null;
             e = e2;
         }
-        if (this.d.ad() && this.e != null && this.e.length() > 0) {
-            this.f2335a = new ap(com.baidu.tieba.data.h.f1201a + "c/s/msg");
+        if (this.d.ab() && this.e != null && this.e.length() > 0) {
+            this.f2452a = new am(com.baidu.tieba.data.h.f1248a + "c/s/msg");
             if (this.b == 2) {
-                this.f2335a.a("bookmark", SocialConstants.TRUE);
+                this.f2452a.a("bookmark", SocialConstants.TRUE);
             }
-            String l = this.f2335a.l();
-            if (this.f2335a.c()) {
+            String l = this.f2452a.l();
+            if (this.f2452a.c()) {
                 ajVar = new aj();
                 try {
                     ajVar.a(l);
                 } catch (Exception e3) {
                     e = e3;
-                    bg.b(getClass().getName(), "doInBackground", e.getMessage());
+                    bd.b(getClass().getName(), "doInBackground", e.getMessage());
                     return ajVar;
                 }
             } else {
@@ -65,10 +65,10 @@ public class n extends BdAsyncTask<String, Integer, aj> {
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        this.c.f2319a = null;
+        this.c.f2436a = null;
         this.c.b = null;
-        if (this.f2335a != null) {
-            this.f2335a.j();
+        if (this.f2452a != null) {
+            this.f2452a.j();
         }
         super.cancel(true);
     }
@@ -79,7 +79,7 @@ public class n extends BdAsyncTask<String, Integer, aj> {
     public void a(aj ajVar) {
         try {
             super.a((n) ajVar);
-            this.c.f2319a = null;
+            this.c.f2436a = null;
             this.c.b = null;
             if (ajVar != null) {
                 this.c.c = ajVar;
@@ -91,7 +91,7 @@ public class n extends BdAsyncTask<String, Integer, aj> {
                 }
             }
         } catch (Exception e) {
-            bg.b(getClass().getName(), "onPostExecute", e.getMessage());
+            bd.b(getClass().getName(), "onPostExecute", e.getMessage());
         }
     }
 }

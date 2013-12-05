@@ -1,33 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.data.CombineDownload;
+import com.baidu.tieba.data.chat.RecentChatFriendData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bc implements au {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ UpdateDialog f1117a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bc(UpdateDialog updateDialog) {
-        this.f1117a = updateDialog;
-    }
-
-    @Override // com.baidu.tieba.au
-    public void a(boolean z) {
-        CombineDownload combineDownload;
-        if (!z) {
-            this.f1117a.a();
-        } else {
-            UpdateDialog updateDialog = this.f1117a;
-            combineDownload = this.f1117a.b;
-            updateDialog.a(combineDownload.getAppUrl());
-        }
-        this.f1117a.finish();
-    }
-
-    @Override // com.baidu.tieba.au
-    public void a() {
-        this.f1117a.finish();
+public final class bc implements com.baidu.tieba.im.a<Void> {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.a
+    public void a(Void r4) {
+        com.baidu.tieba.im.pushNotify.a.h().f();
+        com.baidu.tieba.im.pushNotify.a.h().b((RecentChatFriendData) null);
+        com.baidu.tieba.im.pushNotify.a.h().c((RecentChatFriendData) null);
+        com.baidu.tieba.im.pushNotify.a.h().b(false, (com.baidu.tieba.im.a<Void>) null);
     }
 }

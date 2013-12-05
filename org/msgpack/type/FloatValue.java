@@ -5,6 +5,7 @@ public abstract class FloatValue extends NumberValue {
 
     public abstract float getFloat();
 
+    @Override // org.msgpack.type.r
     public ValueType getType() {
         return ValueType.FLOAT;
     }

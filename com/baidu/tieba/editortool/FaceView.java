@@ -20,10 +20,10 @@ import java.util.ArrayList;
 public class FaceView extends RelativeLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1223a;
+    private int f1270a;
     private double b;
     private int c;
-    private com.baidu.tieba.im.chat.m d;
+    private com.baidu.tieba.im.chat.k d;
     private ArrayList<View> e;
     private ArrayList<ImageView> f;
     private RelativeLayout g;
@@ -34,7 +34,7 @@ public class FaceView extends RelativeLayout {
 
     public FaceView(Context context) {
         super(context);
-        this.f1223a = 1;
+        this.f1270a = 1;
         this.b = 0.0d;
         this.c = 0;
         this.d = null;
@@ -50,7 +50,7 @@ public class FaceView extends RelativeLayout {
 
     public FaceView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f1223a = 1;
+        this.f1270a = 1;
         this.b = 0.0d;
         this.c = 0;
         this.d = null;
@@ -66,7 +66,7 @@ public class FaceView extends RelativeLayout {
 
     public FaceView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f1223a = 1;
+        this.f1270a = 1;
         this.b = 0.0d;
         this.c = 0;
         this.d = null;
@@ -94,7 +94,7 @@ public class FaceView extends RelativeLayout {
         for (int i = 0; i < ceil; i++) {
             GridView gridView = new GridView(this.j);
             this.c = i * 28;
-            this.d = new com.baidu.tieba.im.chat.m(this.j, 28, this.c - i, i);
+            this.d = new com.baidu.tieba.im.chat.k(this.j, 28, this.c - i, i);
             gridView.setAdapter((ListAdapter) this.d);
             arrayList.add(this.d);
             gridView.setNumColumns(7);

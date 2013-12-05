@@ -18,7 +18,7 @@ import com.baidu.cloudsdk.social.share.ShareContent;
 import com.baidu.mobstat.StatService;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.be;
+import com.baidu.tieba.util.bb;
 import com.baidu.zeus.Headers;
 import com.slidingmenu.lib.R;
 import java.util.HashMap;
@@ -26,7 +26,7 @@ import java.util.HashMap;
 public class b implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private LayoutInflater f2636a;
+    private LayoutInflater f2754a;
     private Context b;
     private View c;
     private TextView d;
@@ -47,8 +47,8 @@ public class b implements View.OnClickListener {
 
     public b(Context context) {
         this.b = context;
-        this.f2636a = (LayoutInflater) context.getSystemService("layout_inflater");
-        this.c = this.f2636a.inflate(R.layout.share_dialog_content, (ViewGroup) null);
+        this.f2754a = (LayoutInflater) context.getSystemService("layout_inflater");
+        this.c = this.f2754a.inflate(R.layout.share_dialog_content, (ViewGroup) null);
         this.d = (TextView) this.c.findViewById(R.id.share_dialog_title);
         this.e = this.c.findViewById(R.id.share_dialog_content);
         this.l = (Button) this.c.findViewById(R.id.btnShareCancel);
@@ -121,7 +121,7 @@ public class b implements View.OnClickListener {
 
     public void a() {
         if (!UtilHelper.b()) {
-            UtilHelper.a(this.b, (int) R.string.share_on_no_network);
+            com.baidu.adp.lib.h.g.a(this.b, (int) R.string.share_on_no_network);
             return;
         }
         this.n = new AlertDialog.Builder(this.b).create();
@@ -151,7 +151,7 @@ public class b implements View.OnClickListener {
                 this.p = true;
                 d dVar = new d(this.b, this.r);
                 switch (view.getId()) {
-                    case R.id.iconWeixinTimeline /* 2131100839 */:
+                    case R.id.iconWeixinTimeline /* 2131100956 */:
                         a("share_to_pyq");
                         b(MediaType.WEIXIN_TIMELINE);
                         ShareContent a2 = a(MediaType.WEIXIN_TIMELINE);
@@ -160,7 +160,7 @@ public class b implements View.OnClickListener {
                             return;
                         }
                         return;
-                    case R.id.iconWeixin /* 2131100840 */:
+                    case R.id.iconWeixin /* 2131100957 */:
                         a("share_to_weixin");
                         b(MediaType.WEIXIN_FRIEND);
                         ShareContent a3 = a(MediaType.WEIXIN_FRIEND);
@@ -169,7 +169,7 @@ public class b implements View.OnClickListener {
                             return;
                         }
                         return;
-                    case R.id.iconQZone /* 2131100841 */:
+                    case R.id.iconQZone /* 2131100958 */:
                         a("share_to_qzone");
                         b(MediaType.QZONE);
                         ShareContent a4 = a(MediaType.QZONE);
@@ -178,7 +178,7 @@ public class b implements View.OnClickListener {
                             return;
                         }
                         return;
-                    case R.id.iconQQWeibo /* 2131100842 */:
+                    case R.id.iconQQWeibo /* 2131100959 */:
                         a("share_to_qweibo");
                         b(MediaType.QQWEIBO);
                         ShareContent a5 = a(MediaType.QQWEIBO);
@@ -187,7 +187,7 @@ public class b implements View.OnClickListener {
                             return;
                         }
                         return;
-                    case R.id.iconSinaWeibo /* 2131100843 */:
+                    case R.id.iconSinaWeibo /* 2131100960 */:
                         a("share_to_sweibo");
                         b(MediaType.SINAWEIBO);
                         ShareContent a6 = a(MediaType.SINAWEIBO);
@@ -196,7 +196,7 @@ public class b implements View.OnClickListener {
                             return;
                         }
                         return;
-                    case R.id.iconRenren /* 2131100844 */:
+                    case R.id.iconRenren /* 2131100961 */:
                         a("share_to_renren");
                         b(MediaType.RENREN);
                         ShareContent a7 = a(MediaType.RENREN);
@@ -205,10 +205,10 @@ public class b implements View.OnClickListener {
                             return;
                         }
                         return;
-                    case R.id.customViewBox /* 2131100845 */:
+                    case R.id.customViewBox /* 2131100962 */:
                     default:
                         return;
-                    case R.id.btnShareCancel /* 2131100846 */:
+                    case R.id.btnShareCancel /* 2131100963 */:
                         a("share_cancel");
                         this.r.b();
                         return;
@@ -232,7 +232,7 @@ public class b implements View.OnClickListener {
             this.p = true;
             if (this.q != null) {
                 String str = this.q.get(mediaType);
-                if (!be.c(str)) {
+                if (!bb.c(str)) {
                     a(str);
                 }
             }
@@ -240,7 +240,7 @@ public class b implements View.OnClickListener {
     }
 
     private void a(String str) {
-        if (TiebaApplication.g().s()) {
+        if (TiebaApplication.h().t()) {
             StatService.onEvent(this.b, str, "click", 1);
         }
     }
@@ -253,7 +253,7 @@ public class b implements View.OnClickListener {
         a(this.j, R.drawable.icon_unite_share_sina, R.color.share_to, R.drawable.icon_unite_share_sina_1, R.color.share_to_1);
         a(this.k, R.drawable.icon_unite_share_renren, R.color.share_to, R.drawable.icon_unite_share_renren_1, R.color.share_to_1);
         int paddingLeft = this.d.getPaddingLeft();
-        if (TiebaApplication.g().ap() == 1) {
+        if (TiebaApplication.h().an() == 1) {
             this.e.setBackgroundResource(R.drawable.bg_unite_popup_share_down_1);
             this.d.setBackgroundResource(R.drawable.bg_unite_popup_share_up_1);
             this.d.setTextColor(this.b.getResources().getColor(R.color.share_to_1));
@@ -270,11 +270,11 @@ public class b implements View.OnClickListener {
     }
 
     private void a(TextView textView, int i, int i2, int i3, int i4) {
-        int ap = TiebaApplication.g().ap();
-        if (ap != 1) {
+        int an = TiebaApplication.h().an();
+        if (an != 1) {
             i3 = i;
         }
-        if (ap != 1) {
+        if (an != 1) {
             i4 = i2;
         }
         Drawable drawable = this.b.getResources().getDrawable(i3);

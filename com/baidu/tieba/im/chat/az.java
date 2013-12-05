@@ -1,24 +1,27 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tieba.im.model.MsglistModel;
+import android.app.Activity;
+import com.baidu.tieba.im.data.GroupData;
+import com.baidu.tieba.im.groupInfo.GroupSettingItemData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class az implements Runnable {
+public final class az implements com.baidu.tieba.im.a<GroupSettingItemData> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f1510a;
-    final /* synthetic */ MsglistActivity b;
+    final /* synthetic */ Activity f1557a;
+    final /* synthetic */ GroupData b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public az(MsglistActivity msglistActivity, String str) {
-        this.b = msglistActivity;
-        this.f1510a = str;
+    public az(Activity activity, GroupData groupData) {
+        this.f1557a = activity;
+        this.b = groupData;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        MsglistModel msglistModel;
-        msglistModel = this.b.g;
-        msglistModel.c(this.f1510a);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.a
+    public void a(GroupSettingItemData groupSettingItemData) {
+        if (groupSettingItemData != null) {
+            MsglistActivity.b(this.f1557a, this.b, groupSettingItemData.isAcceptNotify());
+        }
     }
 }

@@ -9,12 +9,12 @@ import com.baidu.tieba.media.MediaPlayerActivity;
 public class f extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MediaPlayerActivity f1821a;
+    final /* synthetic */ MediaPlayerActivity f1933a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(MediaPlayerActivity mediaPlayerActivity, Looper looper) {
         super(looper);
-        this.f1821a = mediaPlayerActivity;
+        this.f1933a = mediaPlayerActivity;
     }
 
     @Override // android.os.Handler
@@ -36,47 +36,47 @@ public class f extends Handler {
         Object obj2;
         switch (message.what) {
             case 0:
-                obj = this.f1821a.g;
+                obj = this.f1933a.g;
                 synchronized (obj) {
                     while (true) {
                         try {
-                            player_status = this.f1821a.n;
+                            player_status = this.f1933a.n;
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
                         if (player_status != MediaPlayerActivity.PLAYER_STATUS.PLAYER_IDLE) {
-                            obj2 = this.f1821a.g;
+                            obj2 = this.f1933a.g;
                             obj2.wait();
                         } else {
-                            com.baidu.adp.lib.h.d.e("wait player status to idle");
+                            com.baidu.adp.lib.h.e.e("wait player status to idle");
                         }
                     }
                 }
-                cVar = this.f1821a.c;
-                str = this.f1821a.d;
+                cVar = this.f1933a.c;
+                str = this.f1933a.d;
                 if (cVar.b(str)) {
-                    cVar2 = this.f1821a.c;
-                    str3 = this.f1821a.d;
+                    cVar2 = this.f1933a.c;
+                    str3 = this.f1933a.d;
                     cVar2.a(str3);
-                    hVar4 = this.f1821a.b;
+                    hVar4 = this.f1933a.b;
                     StringBuilder append = new StringBuilder().append("p2p://");
-                    cVar3 = this.f1821a.c;
+                    cVar3 = this.f1933a.c;
                     hVar4.a(append.append(cVar3.d()).toString());
                 } else {
-                    hVar = this.f1821a.b;
-                    str2 = this.f1821a.d;
+                    hVar = this.f1933a.b;
+                    str2 = this.f1933a.d;
                     hVar.a(str2);
                 }
-                i = this.f1821a.h;
+                i = this.f1933a.h;
                 if (i > 0) {
-                    hVar3 = this.f1821a.b;
-                    i2 = this.f1821a.h;
+                    hVar3 = this.f1933a.b;
+                    i2 = this.f1933a.h;
                     hVar3.a(i2);
-                    this.f1821a.h = 0;
+                    this.f1933a.h = 0;
                 }
-                hVar2 = this.f1821a.b;
+                hVar2 = this.f1933a.b;
                 hVar2.e();
-                this.f1821a.n = MediaPlayerActivity.PLAYER_STATUS.PLAYER_PREPARING;
+                this.f1933a.n = MediaPlayerActivity.PLAYER_STATUS.PLAYER_PREPARING;
                 return;
             default:
                 return;

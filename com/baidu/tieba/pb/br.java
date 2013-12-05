@@ -7,11 +7,11 @@ import com.baidu.tieba.write.WriteImageActivity;
 public class br implements com.baidu.tieba.editortool.h {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NewPbActivity f2085a;
+    final /* synthetic */ NewPbActivity f2192a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public br(NewPbActivity newPbActivity) {
-        this.f2085a = newPbActivity;
+        this.f2192a = newPbActivity;
     }
 
     @Override // com.baidu.tieba.editortool.h
@@ -36,70 +36,70 @@ public class br implements com.baidu.tieba.editortool.h {
         boolean a5;
         cr crVar11;
         if (i == 0) {
-            a5 = this.f2085a.a(11025);
+            a5 = this.f2192a.a(11025);
             if (a5) {
-                NewPbActivity newPbActivity = this.f2085a;
-                crVar11 = this.f2085a.y;
+                NewPbActivity newPbActivity = this.f2192a;
+                crVar11 = this.f2192a.y;
                 newPbActivity.z = crVar11.ae();
-                AtListActivity.a(this.f2085a, 12004);
+                AtListActivity.a(this.f2192a, 12004);
             }
         } else if (i == 7) {
-            crVar7 = this.f2085a.y;
+            crVar7 = this.f2192a.y;
             if (!crVar7.E()) {
-                crVar10 = this.f2085a.y;
+                crVar10 = this.f2192a.y;
                 crVar10.D();
             } else {
-                NewPbActivity newPbActivity2 = this.f2085a;
-                crVar8 = this.f2085a.y;
+                NewPbActivity newPbActivity2 = this.f2192a;
+                crVar8 = this.f2192a.y;
                 WriteImageActivity.a(newPbActivity2, crVar8.F(), 12003);
             }
-            crVar9 = this.f2085a.y;
+            crVar9 = this.f2192a.y;
             crVar9.e(false);
         } else if (i == 26) {
-            a4 = this.f2085a.a(11026);
+            a4 = this.f2192a.a(11026);
             if (a4) {
-                NewPbActivity newPbActivity3 = this.f2085a;
-                crVar6 = this.f2085a.y;
+                NewPbActivity newPbActivity3 = this.f2192a;
+                crVar6 = this.f2192a.y;
                 newPbActivity3.z = crVar6.ae();
-                AtListActivity.a(this.f2085a, 12005);
+                AtListActivity.a(this.f2192a, 12005);
             }
         } else if (i == 10) {
-            bmVar = this.f2085a.s;
+            bmVar = this.f2192a.s;
             if (bmVar.l() != null) {
-                a3 = this.f2085a.a(11001);
+                a3 = this.f2192a.a(11001);
                 if (a3) {
-                    this.f2085a.a((String) null);
+                    this.f2192a.a((String) null);
                 }
             }
         } else if (i == 27) {
-            a2 = this.f2085a.a(11027);
+            a2 = this.f2192a.a(11027);
             if (a2) {
-                crVar5 = this.f2085a.y;
-                this.f2085a.a(crVar5.L());
+                crVar5 = this.f2192a.y;
+                this.f2192a.a(crVar5.L());
             }
         } else if (i == 4) {
-            str = this.f2085a.l;
+            str = this.f2192a.l;
             if (str != null) {
-                str2 = this.f2085a.l;
+                str2 = this.f2192a.l;
                 if (str2.length() > 0) {
-                    crVar3 = this.f2085a.y;
+                    crVar3 = this.f2192a.y;
                     crVar3.c(false);
-                    crVar4 = this.f2085a.y;
+                    crVar4 = this.f2192a.y;
                     crVar4.d(false);
-                    NewPbActivity newPbActivity4 = this.f2085a;
-                    str3 = this.f2085a.l;
+                    NewPbActivity newPbActivity4 = this.f2192a;
+                    str3 = this.f2192a.l;
                     newPbActivity4.showToast(str3);
                     return;
                 }
             }
-            crVar = this.f2085a.y;
+            crVar = this.f2192a.y;
             crVar.c(true);
-            crVar2 = this.f2085a.y;
+            crVar2 = this.f2192a.y;
             crVar2.d(true);
         } else if (i == 22) {
-            com.baidu.tieba.write.bd.a(this.f2085a);
+            com.baidu.tieba.write.bd.a(this.f2192a);
         } else if (i == 23) {
-            com.baidu.tieba.write.bd.b(this.f2085a);
+            com.baidu.tieba.write.bd.b(this.f2192a);
         }
     }
 }

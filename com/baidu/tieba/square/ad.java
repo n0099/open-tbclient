@@ -7,13 +7,13 @@ import org.json.JSONObject;
 public class ad {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2357a = null;
+    private String f2474a = null;
     private String b = null;
     private String c = "";
     private ArrayList<ad> d = null;
 
     public String a() {
-        return this.f2357a;
+        return this.f2474a;
     }
 
     public String b() {
@@ -40,13 +40,13 @@ public class ad {
                     for (int i = 0; i < jSONArray.length(); i++) {
                         ad adVar = new ad();
                         JSONObject jSONObject = jSONArray.getJSONObject(i);
-                        adVar.f2357a = jSONObject.optString("title", "");
+                        adVar.f2474a = jSONObject.optString("title", "");
                         adVar.b = jSONObject.optString("link", "");
                         this.d.add(adVar);
                     }
                 }
             } catch (Exception e) {
-                com.baidu.tieba.util.bg.b(getClass().getName(), "parseForumListRecommendData", e.toString());
+                com.baidu.tieba.util.bd.b(getClass().getName(), "parseForumListRecommendData", e.toString());
             }
         }
     }

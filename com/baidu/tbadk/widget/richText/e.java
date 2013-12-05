@@ -11,19 +11,19 @@ import android.graphics.drawable.BitmapDrawable;
 public class e extends BitmapDrawable {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f986a;
+    private int f992a;
     private Context b;
     private String d;
     private Rect c = null;
     private Matrix e = null;
 
     public e(Context context, int i) {
-        this.f986a = 0;
+        this.f992a = 0;
         this.b = null;
         this.d = null;
         this.b = context;
-        this.f986a = i;
-        this.d = String.valueOf(this.f986a);
+        this.f992a = i;
+        this.d = String.valueOf(this.f992a);
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -49,11 +49,11 @@ public class e extends BitmapDrawable {
     @Override // android.graphics.drawable.BitmapDrawable, android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
         com.baidu.adp.widget.ImageView.e eVar;
-        if (this.f986a > 0 && this.b != null) {
+        if (this.f992a > 0 && this.b != null) {
             com.baidu.tbadk.imageManager.d a2 = com.baidu.tbadk.imageManager.d.a();
             com.baidu.adp.widget.ImageView.e c = (a2 == null || this.d == null) ? null : a2.c(this.d);
             if (c == null) {
-                Bitmap decodeResource = BitmapFactory.decodeResource(this.b.getResources(), this.f986a);
+                Bitmap decodeResource = BitmapFactory.decodeResource(this.b.getResources(), this.f992a);
                 if (decodeResource != null) {
                     c = new com.baidu.adp.widget.ImageView.e(decodeResource, false, null);
                 }

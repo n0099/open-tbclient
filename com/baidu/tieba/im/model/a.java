@@ -4,10 +4,6 @@ import com.baidu.tieba.im.message.RequestAddGroupMessage;
 import com.baidu.tieba.im.message.ResponseAddGroupMessage;
 /* loaded from: classes.dex */
 public class a extends com.baidu.adp.a.d {
-
-    /* renamed from: a  reason: collision with root package name */
-    private RequestAddGroupMessage f1735a = null;
-    private ResponseAddGroupMessage b = null;
     private int c;
     private String d;
     private String e;
@@ -15,7 +11,14 @@ public class a extends com.baidu.adp.a.d {
     private String g;
     private String h;
     private String i;
-    private int j;
+    private String j;
+    private int k;
+    private int l;
+
+    /* renamed from: a  reason: collision with root package name */
+    private RequestAddGroupMessage f1807a = null;
+    private ResponseAddGroupMessage b = null;
+    private int m = -1;
 
     public void a(int i) {
         this.c = i;
@@ -34,15 +37,27 @@ public class a extends com.baidu.adp.a.d {
     }
 
     public void d(String str) {
-        this.h = str;
+        this.g = str;
     }
 
     public void e(String str) {
+        this.h = str;
+    }
+
+    public void f(String str) {
         this.i = str;
     }
 
+    public void g(String str) {
+        this.j = str;
+    }
+
     public void b(int i) {
-        this.j = i;
+        this.k = i;
+    }
+
+    public void c(int i) {
+        this.l = i;
     }
 
     @Override // com.baidu.adp.a.d
@@ -55,6 +70,10 @@ public class a extends com.baidu.adp.a.d {
         return false;
     }
 
+    public void d(int i) {
+        this.m = i;
+    }
+
     private RequestAddGroupMessage c() {
         RequestAddGroupMessage requestAddGroupMessage = new RequestAddGroupMessage();
         requestAddGroupMessage.setForumId(this.c);
@@ -62,24 +81,43 @@ public class a extends com.baidu.adp.a.d {
         requestAddGroupMessage.setIntro(this.e);
         requestAddGroupMessage.setPortrait(this.f);
         requestAddGroupMessage.setPosition(this.g);
-        requestAddGroupMessage.setLng(this.h);
-        requestAddGroupMessage.setLat(this.i);
-        requestAddGroupMessage.setGroupType(this.j);
+        requestAddGroupMessage.setBusiness(this.h);
+        requestAddGroupMessage.setLng(this.i);
+        requestAddGroupMessage.setLat(this.j);
+        requestAddGroupMessage.setGroupType(this.k);
+        requestAddGroupMessage.setFlag(this.l);
+        switch (this.m) {
+            case 1011:
+                requestAddGroupMessage.setPage_from_dim("neargp");
+                break;
+            case 1012:
+                requestAddGroupMessage.setPage_from_dim("mygp");
+                break;
+            case 1013:
+                requestAddGroupMessage.setPage_from_dim("bargp");
+                break;
+            case 1014:
+                requestAddGroupMessage.setPage_from_dim("");
+                break;
+            default:
+                requestAddGroupMessage.setPage_from_dim("");
+                break;
+        }
         return requestAddGroupMessage;
     }
 
     public void a() {
-        this.f1735a = c();
-        com.baidu.tieba.im.messageCenter.f.a().a(this.f1735a);
+        this.f1807a = c();
+        com.baidu.tieba.im.messageCenter.e.a().a(this.f1807a);
     }
 
     public void b() {
-        if (this.f1735a != null) {
-            com.baidu.tieba.im.messageCenter.f.a().b(this.f1735a);
-            this.f1735a = null;
+        if (this.f1807a != null) {
+            com.baidu.tieba.im.messageCenter.e.a().b(this.f1807a);
+            this.f1807a = null;
         }
         if (this.b != null) {
-            com.baidu.tieba.im.messageCenter.f.a().b(this.b);
+            com.baidu.tieba.im.messageCenter.e.a().b(this.b);
             this.b = null;
         }
     }

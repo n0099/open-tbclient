@@ -6,16 +6,16 @@ import android.view.View;
 public class f implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ e f1074a;
+    final /* synthetic */ e f1085a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar) {
-        this.f1074a = eVar;
+        this.f1085a = eVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.f1074a.b = ((g) view.getTag()).c;
-        this.f1074a.notifyDataSetChanged();
+        this.f1085a.b = ((g) view.getTag()).c;
+        this.f1085a.notifyDataSetChanged();
     }
 }

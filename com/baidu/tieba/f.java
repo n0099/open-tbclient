@@ -8,23 +8,23 @@ import com.baidu.tieba.data.AccountData;
 /* loaded from: classes.dex */
 public class f {
     public static void a(Context context) {
-        AccountData E = TiebaApplication.E();
-        if (E == null) {
-            E = new AccountData();
-            E.setIsActive(1);
-            TiebaApplication.a(E, context);
+        AccountData F = TiebaApplication.F();
+        if (F == null) {
+            F = new AccountData();
+            F.setIsActive(1);
+            TiebaApplication.a(F, context);
         }
         BaiduAccount baiduAccount = BaiduAccount.get(context);
         String currentAccount = baiduAccount.getCurrentAccount();
-        if (currentAccount != null && !currentAccount.equals(E.getAccount())) {
-            b(E.getID());
-            E.setAccount(currentAccount);
-            E.setPortrait(null);
-            E.setID(null);
-            E.setIsActive(1);
-            TiebaApplication.g().Q();
+        if (currentAccount != null && !currentAccount.equals(F.getAccount())) {
+            b(F.getID());
+            F.setAccount(currentAccount);
+            F.setPortrait(null);
+            F.setID(null);
+            F.setIsActive(1);
+            TiebaApplication.h().O();
             com.baidu.tieba.mention.t.a().a(true);
-            TiebaApplication.k((String) null);
+            TiebaApplication.l((String) null);
         }
         baiduAccount.addOnAccountsUpdatedListener(new g());
     }
@@ -45,19 +45,19 @@ public class f {
         new AccountProxy(activity).getTokenAsync(AccountProxy.BAIDUACCOUNT_TYPE, new i(activity, i2, i, z));
     }
 
-    public static AccountData a(com.baidu.tieba.util.ap apVar, String str, String str2) {
+    public static AccountData a(com.baidu.tieba.util.am amVar, String str, String str2) {
         AccountData accountData = null;
-        if (apVar != null) {
+        if (amVar != null) {
             StringBuffer stringBuffer = new StringBuffer(60);
-            stringBuffer.append(com.baidu.tieba.data.h.f1201a);
+            stringBuffer.append(com.baidu.tieba.data.h.f1248a);
             stringBuffer.append("c/s/login");
-            apVar.a(stringBuffer.toString());
-            apVar.a("un", str);
-            apVar.a("bdusstoken", str2);
-            apVar.a("channel_id", TiebaApplication.g().bb());
-            apVar.a("channel_uid", TiebaApplication.g().ba());
-            String l = apVar.l();
-            if (apVar.c() && l != null) {
+            amVar.a(stringBuffer.toString());
+            amVar.a("un", str);
+            amVar.a("bdusstoken", str2);
+            amVar.a("channel_id", TiebaApplication.h().bc());
+            amVar.a("channel_uid", TiebaApplication.h().bb());
+            String l = amVar.l();
+            if (amVar.c() && l != null) {
                 com.baidu.tieba.model.be beVar = new com.baidu.tieba.model.be();
                 beVar.a(l);
                 accountData = new AccountData();

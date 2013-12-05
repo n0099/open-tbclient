@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public final class i {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f798a = i.class.getSimpleName();
+    private static final String f803a = i.class.getSimpleName();
     private static volatile i c = null;
     private final h b;
     private boolean d = false;

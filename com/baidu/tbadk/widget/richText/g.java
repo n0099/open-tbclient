@@ -9,16 +9,16 @@ import com.baidu.zeus.bouncycastle.DERTags;
 public class g extends ClickableSpan {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f988a;
+    private Context f994a;
     private int b;
     private String c;
     private String d;
 
     public g(Context context, int i, String str) {
-        this.f988a = null;
+        this.f994a = null;
         this.b = 0;
         this.c = null;
-        this.f988a = context;
+        this.f994a = context;
         this.c = str;
         this.b = i;
     }
@@ -36,28 +36,28 @@ public class g extends ClickableSpan {
     @Override // android.text.style.ClickableSpan
     public void onClick(View view) {
         i iVar = null;
-        if (this.f988a instanceof i) {
-            iVar = (i) this.f988a;
+        if (this.f994a instanceof i) {
+            iVar = (i) this.f994a;
         }
         if (iVar != null) {
             switch (this.b) {
                 case 2:
-                    iVar.b(this.f988a, this.c);
+                    iVar.b(this.f994a, this.c);
                     return;
                 case 16:
-                    iVar.a(this.f988a, this.c);
+                    iVar.a(this.f994a, this.c);
                     return;
                 case 32:
-                    iVar.c(this.f988a, this.c);
+                    iVar.c(this.f994a, this.c);
                     return;
                 case 64:
-                    iVar.d(this.f988a, this.c);
+                    iVar.d(this.f994a, this.c);
                     return;
                 case DERTags.TAGGED /* 128 */:
-                    iVar.e(this.f988a, this.c);
+                    iVar.e(this.f994a, this.c);
                     return;
                 case 256:
-                    iVar.a(this.f988a, this.c, this.d);
+                    iVar.a(this.f994a, this.c, this.d);
                     return;
                 default:
                     return;

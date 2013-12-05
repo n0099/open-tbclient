@@ -12,14 +12,14 @@ import javassist.h;
 public final class TransformNew extends Transformer {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f2833a;
+    private int f3014a;
     private String b;
     private String c;
     private String d;
 
     @Override // javassist.convert.Transformer
     public void a(y yVar, CodeAttribute codeAttribute) {
-        this.f2833a = 0;
+        this.f3014a = 0;
     }
 
     @Override // javassist.convert.Transformer
@@ -34,7 +34,7 @@ public final class TransformNew extends Transformer {
                 codeIterator.a(0, i + 1);
                 codeIterator.a(0, i + 2);
                 codeIterator.a(0, i + 3);
-                this.f2833a++;
+                this.f3014a++;
                 StackMapTable stackMapTable = (StackMapTable) codeIterator.c().a("StackMapTable");
                 if (stackMapTable != null) {
                     stackMapTable.a(i);
@@ -46,11 +46,11 @@ public final class TransformNew extends Transformer {
             }
         } else if (c == 183) {
             int a2 = yVar.a(this.b, codeIterator.d(i + 1));
-            if (a2 != 0 && this.f2833a > 0) {
+            if (a2 != 0 && this.f3014a > 0) {
                 int a3 = a(a2, yVar);
                 codeIterator.a(184, i);
                 codeIterator.b(a3, i + 1);
-                this.f2833a--;
+                this.f3014a--;
             }
         }
         return i;

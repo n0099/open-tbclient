@@ -8,14 +8,13 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.android.pushservice.PushConstants;
-import com.baidu.tieba.util.UtilHelper;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class AppealActivity extends com.baidu.tieba.j {
 
     /* renamed from: a  reason: collision with root package name */
-    private NavigationBar f1043a;
+    private NavigationBar f1053a;
     private TextView b;
     private TextView c;
     private TextView d;
@@ -39,10 +38,10 @@ public class AppealActivity extends com.baidu.tieba.j {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.account_appeal_activity);
-        this.f1043a = (NavigationBar) findViewById(R.id.view_navigation_bar);
-        this.f1043a.a(getString(R.string.appeal_title));
-        this.f1043a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f1043a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(R.string.appeal_submit_btn), this.j);
+        this.f1053a = (NavigationBar) findViewById(R.id.view_navigation_bar);
+        this.f1053a.a(getString(R.string.appeal_title));
+        this.f1053a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.f1053a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(R.string.appeal_submit_btn), this.j);
         this.b = (TextView) findViewById(R.id.forbid_id);
         this.c = (TextView) findViewById(R.id.forbid_reason);
         this.d = (TextView) findViewById(R.id.appeal_reason);
@@ -51,7 +50,7 @@ public class AppealActivity extends com.baidu.tieba.j {
         this.d.setFocusable(true);
         this.d.setFocusableInTouchMode(true);
         this.d.requestFocus();
-        UtilHelper.b(this, this.d);
+        com.baidu.adp.lib.h.g.b(this, this.d);
         this.d.addTextChangedListener(this.i);
         a();
     }
@@ -80,7 +79,7 @@ public class AppealActivity extends com.baidu.tieba.j {
         boolean z = i == 1;
         getLayoutMode().a(z);
         getLayoutMode().a(findViewById(R.id.root));
-        this.f1043a.c(i);
+        this.f1053a.c(i);
         this.d.setHintTextColor(getResources().getColor(z ? R.color.appeal_hint_1 : R.color.appeal_hint));
     }
 }

@@ -2,40 +2,40 @@ package com.baidu.tieba.a;
 
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.tieba.data.NewErrorData;
-import com.baidu.tieba.util.ap;
+import com.baidu.tieba.util.am;
 /* loaded from: classes.dex */
 public class e {
-    private static final String c = com.baidu.tieba.data.h.f1201a + "c/s/clearmsg";
+    private static final String c = com.baidu.tieba.data.h.f1248a + "c/s/clearmsg";
 
     /* renamed from: a  reason: collision with root package name */
-    private ap f1012a = null;
+    private am f1022a = null;
     private NewErrorData b = null;
 
     public void a(String str, String str2) {
-        this.f1012a = new ap(c);
-        this.f1012a.a(PushConstants.EXTRA_USER_ID, str);
-        this.f1012a.a("com_id", str2);
-        String l = this.f1012a.l();
+        this.f1022a = new am(c);
+        this.f1022a.a(PushConstants.EXTRA_USER_ID, str);
+        this.f1022a.a("com_id", str2);
+        String l = this.f1022a.l();
         this.b = new NewErrorData();
         this.b.parserJson(l);
     }
 
     public void a() {
-        if (this.f1012a != null) {
-            this.f1012a.j();
+        if (this.f1022a != null) {
+            this.f1022a.j();
         }
     }
 
     public boolean b() {
-        if (this.f1012a != null) {
-            return this.f1012a.c();
+        if (this.f1022a != null) {
+            return this.f1022a.c();
         }
         return false;
     }
 
     public String c() {
-        if (this.f1012a != null) {
-            return this.f1012a.i();
+        if (this.f1022a != null) {
+            return this.f1022a.i();
         }
         return null;
     }

@@ -5,15 +5,15 @@ import android.content.DialogInterface;
 class ab implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ aa f1833a;
+    final /* synthetic */ aa f1945a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(aa aaVar) {
-        this.f1833a = aaVar;
+        this.f1945a = aaVar;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
-        this.f1833a.b.c();
+        this.f1945a.b.c();
     }
 }

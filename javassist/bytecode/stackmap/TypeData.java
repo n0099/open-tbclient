@@ -61,11 +61,11 @@ public abstract class TypeData {
     public class BasicType extends TypeData {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f2806a;
+        private String f2987a;
         private int b;
 
         public BasicType(String str, int i) {
-            this.f2806a = str;
+            this.f2987a = str;
             this.b = i;
         }
 
@@ -101,16 +101,16 @@ public abstract class TypeData {
 
         @Override // javassist.bytecode.stackmap.TypeData
         public String g() {
-            return this.f2806a;
+            return this.f2987a;
         }
 
         @Override // javassist.bytecode.stackmap.TypeData
         public void a(String str, javassist.c cVar) {
-            throw new BadBytecode("conflict: " + this.f2806a + " and " + str);
+            throw new BadBytecode("conflict: " + this.f2987a + " and " + str);
         }
 
         public String toString() {
-            return this.f2806a;
+            return this.f2987a;
         }
     }
 
@@ -143,7 +143,7 @@ public abstract class TypeData {
         protected ArrayList c = null;
 
         /* renamed from: a  reason: collision with root package name */
-        protected ArrayList f2808a = new ArrayList(2);
+        protected ArrayList f2989a = new ArrayList(2);
         protected ArrayList b = new ArrayList(2);
 
         public TypeVar(TypeData typeData) {
@@ -153,13 +153,13 @@ public abstract class TypeData {
 
         @Override // javassist.bytecode.stackmap.TypeData
         public String g() {
-            return this.d == null ? ((TypeData) this.f2808a.get(0)).g() : this.d;
+            return this.d == null ? ((TypeData) this.f2989a.get(0)).g() : this.d;
         }
 
         @Override // javassist.bytecode.stackmap.TypeData
         public BasicType c() {
             if (this.d == null) {
-                return ((TypeData) this.f2808a.get(0)).c();
+                return ((TypeData) this.f2989a.get(0)).c();
             }
             return null;
         }
@@ -167,7 +167,7 @@ public abstract class TypeData {
         @Override // javassist.bytecode.stackmap.TypeData
         public boolean d() {
             if (this.d == null) {
-                return ((TypeData) this.f2808a.get(0)).d();
+                return ((TypeData) this.f2989a.get(0)).d();
             }
             return false;
         }
@@ -175,7 +175,7 @@ public abstract class TypeData {
         @Override // javassist.bytecode.stackmap.TypeData
         public boolean e() {
             if (this.d == null) {
-                return ((TypeData) this.f2808a.get(0)).e();
+                return ((TypeData) this.f2989a.get(0)).e();
             }
             return false;
         }
@@ -183,14 +183,14 @@ public abstract class TypeData {
         @Override // javassist.bytecode.stackmap.TypeData
         public boolean f() {
             if (this.d == null) {
-                return ((TypeData) this.f2808a.get(0)).f();
+                return ((TypeData) this.f2989a.get(0)).f();
             }
             return false;
         }
 
         @Override // javassist.bytecode.stackmap.TypeData.AbsTypeVar
         public void b(TypeData typeData) {
-            this.f2808a.add(typeData);
+            this.f2989a.add(typeData);
             if (typeData instanceof TypeVar) {
                 ((TypeVar) typeData).b.add(this);
             }
@@ -198,12 +198,12 @@ public abstract class TypeData {
 
         @Override // javassist.bytecode.stackmap.TypeData.AbsTypeVar, javassist.bytecode.stackmap.TypeData
         public int a() {
-            return this.d == null ? ((TypeData) this.f2808a.get(0)).a() : super.a();
+            return this.d == null ? ((TypeData) this.f2989a.get(0)).a() : super.a();
         }
 
         @Override // javassist.bytecode.stackmap.TypeData.AbsTypeVar, javassist.bytecode.stackmap.TypeData
         public int a(y yVar) {
-            return this.d == null ? ((TypeData) this.f2808a.get(0)).a(yVar) : super.a(yVar);
+            return this.d == null ? ((TypeData) this.f2989a.get(0)).a(yVar) : super.a(yVar);
         }
 
         @Override // javassist.bytecode.stackmap.TypeData
@@ -229,10 +229,10 @@ public abstract class TypeData {
                 this.e = i3;
                 arrayList.add(this);
                 this.g = true;
-                int size = this.f2808a.size();
+                int size = this.f2989a.size();
                 int i4 = 0;
                 while (i4 < size) {
-                    TypeVar h = ((TypeData) this.f2808a.get(i4)).h();
+                    TypeVar h = ((TypeData) this.f2989a.get(i4)).h();
                     if (h != null) {
                         if (h.e == 0) {
                             i2 = h.a(arrayList, i3, cVar);
@@ -280,7 +280,7 @@ public abstract class TypeData {
             BasicType basicType = null;
             boolean z2 = false;
             while (i2 < size) {
-                ArrayList arrayList2 = ((TypeVar) arrayList.get(i2)).f2808a;
+                ArrayList arrayList2 = ((TypeVar) arrayList.get(i2)).f2989a;
                 int size2 = arrayList2.size();
                 int i3 = 0;
                 while (true) {
@@ -323,8 +323,8 @@ public abstract class TypeData {
             if (z2) {
                 while (i < size) {
                     TypeVar typeVar = (TypeVar) arrayList.get(i);
-                    typeVar.f2808a.clear();
-                    typeVar.f2808a.add(basicType);
+                    typeVar.f2989a.clear();
+                    typeVar.f2989a.add(basicType);
                     i++;
                 }
                 return;
@@ -482,10 +482,10 @@ public abstract class TypeData {
     public class ArrayType extends AbsTypeVar {
 
         /* renamed from: a  reason: collision with root package name */
-        private AbsTypeVar f2805a;
+        private AbsTypeVar f2986a;
 
         private ArrayType(AbsTypeVar absTypeVar) {
-            this.f2805a = absTypeVar;
+            this.f2986a = absTypeVar;
         }
 
         static TypeData c(TypeData typeData) {
@@ -505,7 +505,7 @@ public abstract class TypeData {
         public void b(TypeData typeData) {
             try {
                 if (!typeData.e()) {
-                    this.f2805a.b(ArrayElement.c(typeData));
+                    this.f2986a.b(ArrayElement.c(typeData));
                 }
             } catch (BadBytecode e) {
                 throw new RuntimeException("fatal: " + e);
@@ -514,11 +514,11 @@ public abstract class TypeData {
 
         @Override // javassist.bytecode.stackmap.TypeData
         public String g() {
-            return a(this.f2805a.g());
+            return a(this.f2986a.g());
         }
 
         public AbsTypeVar i() {
-            return this.f2805a;
+            return this.f2986a;
         }
 
         @Override // javassist.bytecode.stackmap.TypeData
@@ -537,17 +537,17 @@ public abstract class TypeData {
 
         @Override // javassist.bytecode.stackmap.TypeData
         public void a(String str, javassist.c cVar) {
-            this.f2805a.a(ArrayElement.b(str), cVar);
+            this.f2986a.a(ArrayElement.b(str), cVar);
         }
 
         @Override // javassist.bytecode.stackmap.TypeData
         protected TypeVar h() {
-            return this.f2805a.h();
+            return this.f2986a.h();
         }
 
         @Override // javassist.bytecode.stackmap.TypeData
         public int a(ArrayList arrayList, int i, javassist.c cVar) {
-            return this.f2805a.a(arrayList, i, cVar);
+            return this.f2986a.a(arrayList, i, cVar);
         }
     }
 
@@ -555,10 +555,10 @@ public abstract class TypeData {
     public class ArrayElement extends AbsTypeVar {
 
         /* renamed from: a  reason: collision with root package name */
-        private AbsTypeVar f2804a;
+        private AbsTypeVar f2985a;
 
         private ArrayElement(AbsTypeVar absTypeVar) {
-            this.f2804a = absTypeVar;
+            this.f2985a = absTypeVar;
         }
 
         public static TypeData c(TypeData typeData) {
@@ -578,7 +578,7 @@ public abstract class TypeData {
         public void b(TypeData typeData) {
             try {
                 if (!typeData.e()) {
-                    this.f2804a.b(ArrayType.c(typeData));
+                    this.f2985a.b(ArrayType.c(typeData));
                 }
             } catch (BadBytecode e) {
                 throw new RuntimeException("fatal: " + e);
@@ -587,11 +587,11 @@ public abstract class TypeData {
 
         @Override // javassist.bytecode.stackmap.TypeData
         public String g() {
-            return b(this.f2804a.g());
+            return b(this.f2985a.g());
         }
 
         public AbsTypeVar i() {
-            return this.f2804a;
+            return this.f2985a;
         }
 
         @Override // javassist.bytecode.stackmap.TypeData
@@ -620,17 +620,17 @@ public abstract class TypeData {
 
         @Override // javassist.bytecode.stackmap.TypeData
         public void a(String str, javassist.c cVar) {
-            this.f2804a.a(ArrayType.a(str), cVar);
+            this.f2985a.a(ArrayType.a(str), cVar);
         }
 
         @Override // javassist.bytecode.stackmap.TypeData
         protected TypeVar h() {
-            return this.f2804a.h();
+            return this.f2985a.h();
         }
 
         @Override // javassist.bytecode.stackmap.TypeData
         public int a(ArrayList arrayList, int i, javassist.c cVar) {
-            return this.f2804a.a(arrayList, i, cVar);
+            return this.f2985a.a(arrayList, i, cVar);
         }
     }
 
@@ -638,45 +638,45 @@ public abstract class TypeData {
     public class UninitTypeVar extends AbsTypeVar {
 
         /* renamed from: a  reason: collision with root package name */
-        protected TypeData f2810a;
+        protected TypeData f2991a;
 
         public UninitTypeVar(UninitData uninitData) {
-            this.f2810a = uninitData;
+            this.f2991a = uninitData;
         }
 
         @Override // javassist.bytecode.stackmap.TypeData.AbsTypeVar, javassist.bytecode.stackmap.TypeData
         public int a() {
-            return this.f2810a.a();
+            return this.f2991a.a();
         }
 
         @Override // javassist.bytecode.stackmap.TypeData.AbsTypeVar, javassist.bytecode.stackmap.TypeData
         public int a(y yVar) {
-            return this.f2810a.a(yVar);
+            return this.f2991a.a(yVar);
         }
 
         @Override // javassist.bytecode.stackmap.TypeData
         public BasicType c() {
-            return this.f2810a.c();
+            return this.f2991a.c();
         }
 
         @Override // javassist.bytecode.stackmap.TypeData
         public boolean d() {
-            return this.f2810a.d();
+            return this.f2991a.d();
         }
 
         @Override // javassist.bytecode.stackmap.TypeData
         public boolean f() {
-            return this.f2810a.f();
+            return this.f2991a.f();
         }
 
         @Override // javassist.bytecode.stackmap.TypeData.AbsTypeVar, javassist.bytecode.stackmap.TypeData
         public boolean a(TypeData typeData) {
-            return this.f2810a.a(typeData);
+            return this.f2991a.a(typeData);
         }
 
         @Override // javassist.bytecode.stackmap.TypeData
         public String g() {
-            return this.f2810a.g();
+            return this.f2991a.g();
         }
 
         @Override // javassist.bytecode.stackmap.TypeData
@@ -686,29 +686,29 @@ public abstract class TypeData {
 
         @Override // javassist.bytecode.stackmap.TypeData
         public TypeData b() {
-            return this.f2810a.b();
+            return this.f2991a.b();
         }
 
         @Override // javassist.bytecode.stackmap.TypeData
         public void a(String str, javassist.c cVar) {
-            this.f2810a.a(str, cVar);
+            this.f2991a.a(str, cVar);
         }
 
         @Override // javassist.bytecode.stackmap.TypeData.AbsTypeVar
         public void b(TypeData typeData) {
-            if (!typeData.a(this.f2810a)) {
-                this.f2810a = d.g;
+            if (!typeData.a(this.f2991a)) {
+                this.f2991a = d.g;
             }
         }
 
         @Override // javassist.bytecode.stackmap.TypeData
         public void b(int i) {
-            this.f2810a.b(i);
+            this.f2991a.b(i);
         }
 
         public int i() {
-            if (this.f2810a instanceof UninitData) {
-                return ((UninitData) this.f2810a).f2809a;
+            if (this.f2991a instanceof UninitData) {
+                return ((UninitData) this.f2991a).f2990a;
             }
             throw new RuntimeException("not available");
         }
@@ -718,15 +718,15 @@ public abstract class TypeData {
     public class ClassName extends TypeData {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f2807a;
+        private String f2988a;
 
         public ClassName(String str) {
-            this.f2807a = str;
+            this.f2988a = str;
         }
 
         @Override // javassist.bytecode.stackmap.TypeData
         public String g() {
-            return this.f2807a;
+            return this.f2988a;
         }
 
         @Override // javassist.bytecode.stackmap.TypeData
@@ -751,7 +751,7 @@ public abstract class TypeData {
 
         @Override // javassist.bytecode.stackmap.TypeData
         public boolean a(TypeData typeData) {
-            return this.f2807a.equals(typeData.g());
+            return this.f2988a.equals(typeData.g());
         }
 
         @Override // javassist.bytecode.stackmap.TypeData
@@ -785,18 +785,18 @@ public abstract class TypeData {
     public class UninitData extends ClassName {
 
         /* renamed from: a  reason: collision with root package name */
-        int f2809a;
+        int f2990a;
         boolean b;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public UninitData(int i, String str) {
             super(str);
-            this.f2809a = i;
+            this.f2990a = i;
             this.b = false;
         }
 
         public UninitData i() {
-            return new UninitData(this.f2809a, g());
+            return new UninitData(this.f2990a, g());
         }
 
         @Override // javassist.bytecode.stackmap.TypeData.ClassName, javassist.bytecode.stackmap.TypeData
@@ -806,7 +806,7 @@ public abstract class TypeData {
 
         @Override // javassist.bytecode.stackmap.TypeData.ClassName, javassist.bytecode.stackmap.TypeData
         public int a(y yVar) {
-            return this.f2809a;
+            return this.f2990a;
         }
 
         @Override // javassist.bytecode.stackmap.TypeData
@@ -823,22 +823,22 @@ public abstract class TypeData {
         public boolean a(TypeData typeData) {
             if (typeData instanceof UninitData) {
                 UninitData uninitData = (UninitData) typeData;
-                return this.f2809a == uninitData.f2809a && g().equals(uninitData.g());
+                return this.f2990a == uninitData.f2990a && g().equals(uninitData.g());
             }
             return false;
         }
 
         public String toString() {
-            return "uninit:" + g() + "@" + this.f2809a;
+            return "uninit:" + g() + "@" + this.f2990a;
         }
 
         public int j() {
-            return this.f2809a;
+            return this.f2990a;
         }
 
         @Override // javassist.bytecode.stackmap.TypeData
         public void b(int i) {
-            if (i == this.f2809a) {
+            if (i == this.f2990a) {
                 this.b = true;
             }
         }

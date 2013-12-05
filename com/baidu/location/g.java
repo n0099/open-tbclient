@@ -64,7 +64,7 @@ public class g {
     private static ArrayList e = null;
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f930a = 12000;
+    private static int f935a = 12000;
 
     /* renamed from: if  reason: not valid java name */
     private static Uri f199if = null;
@@ -122,7 +122,7 @@ public class g {
         if (f194char || str == null) {
             return;
         }
-        f201long = Jni.m17if(str);
+        f201long = Jni.m18if(str);
         g = z;
         f194char = true;
         new Thread() { // from class: com.baidu.location.g.4
@@ -131,7 +131,7 @@ public class g {
                 Long valueOf;
                 boolean z2 = true;
                 try {
-                    HttpPost httpPost = new HttpPost(j.m250do());
+                    HttpPost httpPost = new HttpPost(j.m251do());
                     ArrayList arrayList = new ArrayList();
                     if (g.g) {
                         arrayList.add(new BasicNameValuePair("qt", "grid"));
@@ -141,8 +141,8 @@ public class g {
                     arrayList.add(new BasicNameValuePair("req", g.f201long));
                     httpPost.setEntity(new UrlEncodedFormEntity(arrayList, BdUtil.UTF8));
                     DefaultHttpClient defaultHttpClient = new DefaultHttpClient();
-                    defaultHttpClient.getParams().setParameter("http.connection.timeout", Integer.valueOf(g.f930a));
-                    defaultHttpClient.getParams().setParameter("http.socket.timeout", Integer.valueOf(g.f930a));
+                    defaultHttpClient.getParams().setParameter("http.connection.timeout", Integer.valueOf(g.f935a));
+                    defaultHttpClient.getParams().setParameter("http.socket.timeout", Integer.valueOf(g.f935a));
                     j.a(g.f202new, "req config...");
                     HttpResponse execute = defaultHttpClient.execute(httpPost);
                     if (execute.getStatusLine().getStatusCode() == 200) {
@@ -171,12 +171,12 @@ public class g {
                                 }
                             }
                             if (z2) {
-                                g.m217for();
+                                g.m218for();
                             }
                         } else {
                             String entityUtils = EntityUtils.toString(execute.getEntity(), BdUtil.UTF8);
                             j.a(g.f202new, "req config value:" + entityUtils);
-                            if (g.m224if(entityUtils)) {
+                            if (g.m225if(entityUtils)) {
                                 j.a(g.f202new, "Save to config");
                                 g.c();
                             }
@@ -197,7 +197,7 @@ public class g {
         if (context == null) {
             return false;
         }
-        m212do(context);
+        m213do(context);
         return f203try == 3;
     }
 
@@ -208,7 +208,7 @@ public class g {
         }
         i = true;
         j.a(f202new, "bloc : " + k);
-        k = Jni.m17if(str);
+        k = Jni.m18if(str);
         j.a(f202new, "NUMBER_e : " + k.length());
         f200int = handler;
         if (f195do == null) {
@@ -223,7 +223,7 @@ public class g {
                 int i2 = g.f204void;
                 while (i2 > 0) {
                     try {
-                        httpPost = new HttpPost(j.m250do());
+                        httpPost = new HttpPost(j.m251do());
                         ArrayList arrayList = new ArrayList();
                         arrayList.add(new BasicNameValuePair("bloc", g.k));
                         if (g.f195do != null) {
@@ -231,8 +231,8 @@ public class g {
                         }
                         httpPost.setEntity(new UrlEncodedFormEntity(arrayList, BdUtil.UTF8));
                         DefaultHttpClient defaultHttpClient = new DefaultHttpClient();
-                        defaultHttpClient.getParams().setParameter("http.connection.timeout", Integer.valueOf(g.f930a));
-                        defaultHttpClient.getParams().setParameter("http.socket.timeout", Integer.valueOf(g.f930a));
+                        defaultHttpClient.getParams().setParameter("http.connection.timeout", Integer.valueOf(g.f935a));
+                        defaultHttpClient.getParams().setParameter("http.socket.timeout", Integer.valueOf(g.f935a));
                         HttpProtocolParams.setUseExpectContinue(defaultHttpClient.getParams(), false);
                         j.a(g.f202new, "apn type : " + g.f203try);
                         if ((g.f203try == 1 || g.f203try == 4) && (g.f204void - i2) % 2 == 0) {
@@ -272,7 +272,7 @@ public class g {
     }
 
     /* renamed from: byte  reason: not valid java name */
-    public static void m209byte() {
+    public static void m210byte() {
         try {
             File file = new File(f.aa + "/config.dat");
             if (file.exists()) {
@@ -282,7 +282,7 @@ public class g {
                     int readInt = randomAccessFile.readInt();
                     byte[] bArr = new byte[readInt];
                     randomAccessFile.read(bArr, 0, readInt);
-                    m224if(new String(bArr));
+                    m225if(new String(bArr));
                 }
                 randomAccessFile.seek(1L);
                 if (randomAccessFile.readBoolean()) {
@@ -306,7 +306,7 @@ public class g {
 
     public static void c() {
         String str = f.aa + "/config.dat";
-        String format = String.format("{\"ver\":\"%d\",\"gps\":\"%.1f|%.1f|%.1f|%.1f|%d|%d|%d|%d|%d|%d|%d\",\"up\":\"%.1f|%.1f|%.1f|%.1f\",\"wf\":\"%d|%.1f|%d|%.1f\",\"ab\":\"%.2f|%.2f|%d|%d\",\"gpc\":\"%d|%d|%d|%d|%d|%d\"}", Integer.valueOf(j.f236goto), Float.valueOf(j.f231case), Float.valueOf(j.A), Float.valueOf(j.f232char), Float.valueOf(j.C), Integer.valueOf(j.t), Integer.valueOf(j.f936a), Integer.valueOf(j.u), Integer.valueOf(j.f237if), Integer.valueOf(j.f238int), Integer.valueOf(j.k), Integer.valueOf(j.K), Float.valueOf(j.T), Float.valueOf(j.Q), Float.valueOf(j.d), Float.valueOf(j.H), Integer.valueOf(j.F), Float.valueOf(j.f240new), Integer.valueOf(j.h), Float.valueOf(j.D), Float.valueOf(j.S), Float.valueOf(j.P), Integer.valueOf(j.N), Integer.valueOf(j.L), Integer.valueOf(j.m ? 1 : 0), Integer.valueOf(j.G ? 1 : 0), Integer.valueOf(j.i), Integer.valueOf(j.l), Long.valueOf(j.B), Integer.valueOf(j.E));
+        String format = String.format("{\"ver\":\"%d\",\"gps\":\"%.1f|%.1f|%.1f|%.1f|%d|%d|%d|%d|%d|%d|%d\",\"up\":\"%.1f|%.1f|%.1f|%.1f\",\"wf\":\"%d|%.1f|%d|%.1f\",\"ab\":\"%.2f|%.2f|%d|%d\",\"gpc\":\"%d|%d|%d|%d|%d|%d\"}", Integer.valueOf(j.f236goto), Float.valueOf(j.f231case), Float.valueOf(j.A), Float.valueOf(j.f232char), Float.valueOf(j.C), Integer.valueOf(j.t), Integer.valueOf(j.f941a), Integer.valueOf(j.u), Integer.valueOf(j.f237if), Integer.valueOf(j.f238int), Integer.valueOf(j.k), Integer.valueOf(j.K), Float.valueOf(j.T), Float.valueOf(j.Q), Float.valueOf(j.d), Float.valueOf(j.H), Integer.valueOf(j.F), Float.valueOf(j.f240new), Integer.valueOf(j.h), Float.valueOf(j.D), Float.valueOf(j.S), Float.valueOf(j.P), Integer.valueOf(j.N), Integer.valueOf(j.L), Integer.valueOf(j.m ? 1 : 0), Integer.valueOf(j.G ? 1 : 0), Integer.valueOf(j.i), Integer.valueOf(j.l), Long.valueOf(j.B), Integer.valueOf(j.E));
         j.a(f202new, "save2Config : " + format);
         byte[] bytes = format.getBytes();
         try {
@@ -338,8 +338,8 @@ public class g {
     }
 
     /* renamed from: do  reason: not valid java name */
-    public static int m212do(Context context) {
-        f203try = m221if(context);
+    public static int m213do(Context context) {
+        f203try = m222if(context);
         return f203try;
     }
 
@@ -361,12 +361,12 @@ public class g {
                     f198goto = 2;
                     try {
                         if (j.E == 0) {
-                            a2 = f.m191new();
+                            a2 = f.m192new();
                             if (a2 == null) {
                                 a2 = b.e();
                             }
                         } else if (j.E == 1 && (a2 = b.e()) == null) {
-                            a2 = f.m191new();
+                            a2 = f.m192new();
                         }
                     } catch (Exception e2) {
                         a2 = null;
@@ -386,7 +386,7 @@ public class g {
                 @Override // java.lang.Thread, java.lang.Runnable
                 public void run() {
                     try {
-                        HttpPost httpPost = new HttpPost(j.m250do());
+                        HttpPost httpPost = new HttpPost(j.m251do());
                         ArrayList arrayList = new ArrayList();
                         for (int i3 = 0; i3 < g.e.size(); i3++) {
                             if (g.f198goto == 1) {
@@ -397,8 +397,8 @@ public class g {
                         }
                         httpPost.setEntity(new UrlEncodedFormEntity(arrayList, BdUtil.UTF8));
                         DefaultHttpClient defaultHttpClient = new DefaultHttpClient();
-                        defaultHttpClient.getParams().setParameter("http.connection.timeout", Integer.valueOf(g.f930a));
-                        defaultHttpClient.getParams().setParameter("http.socket.timeout", Integer.valueOf(g.f930a));
+                        defaultHttpClient.getParams().setParameter("http.connection.timeout", Integer.valueOf(g.f935a));
+                        defaultHttpClient.getParams().setParameter("http.socket.timeout", Integer.valueOf(g.f935a));
                         if (defaultHttpClient.execute(httpPost).getStatusLine().getStatusCode() == 200) {
                             j.a(g.f202new, "Status ok1...");
                             g.e.clear();
@@ -420,7 +420,7 @@ public class g {
     }
 
     /* renamed from: for  reason: not valid java name */
-    public static void m217for() {
+    public static void m218for() {
         try {
             File file = new File(f.aa + "/config.dat");
             if (!file.exists()) {
@@ -454,16 +454,16 @@ public class g {
     }
 
     /* renamed from: for  reason: not valid java name */
-    public static boolean m218for(Context context) {
+    public static boolean m219for(Context context) {
         if (context == null) {
             return false;
         }
-        m212do(context);
+        m213do(context);
         return f203try == 1;
     }
 
     /* renamed from: if  reason: not valid java name */
-    private static int m221if(Context context) {
+    private static int m222if(Context context) {
         NetworkInfo networkInfo;
         try {
             try {
@@ -529,7 +529,7 @@ public class g {
     }
 
     /* renamed from: if  reason: not valid java name */
-    public static boolean m224if(String str) {
+    public static boolean m225if(String str) {
         if (str != null) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
@@ -556,7 +556,7 @@ public class g {
                                 j.t = Integer.parseInt(split[4]);
                             }
                             if (split[5] != null && !split[5].equals("")) {
-                                j.f936a = Integer.parseInt(split[5]);
+                                j.f941a = Integer.parseInt(split[5]);
                             }
                             if (split[6] != null && !split[6].equals("")) {
                                 j.u = Integer.parseInt(split[6]);
@@ -684,12 +684,12 @@ public class g {
 
     /* JADX WARN: Type inference failed for: r1v4, types: [com.baidu.location.g$2] */
     /* renamed from: if  reason: not valid java name */
-    public static boolean m225if(String str, Handler handler) {
+    public static boolean m226if(String str, Handler handler) {
         if (f196else || str == null) {
             return false;
         }
         f196else = true;
-        d = Jni.m17if(str);
+        d = Jni.m18if(str);
         j.a(f202new, "bloc : " + d);
         l = handler;
         if (f197for == null) {
@@ -704,7 +704,7 @@ public class g {
                 int i2 = g.f204void;
                 while (i2 > 0) {
                     try {
-                        httpPost = new HttpPost(j.m250do());
+                        httpPost = new HttpPost(j.m251do());
                         ArrayList arrayList = new ArrayList();
                         arrayList.add(new BasicNameValuePair("bloc", g.d));
                         if (g.f197for != null) {
@@ -712,8 +712,8 @@ public class g {
                         }
                         httpPost.setEntity(new UrlEncodedFormEntity(arrayList, BdUtil.UTF8));
                         DefaultHttpClient defaultHttpClient = new DefaultHttpClient();
-                        defaultHttpClient.getParams().setParameter("http.connection.timeout", Integer.valueOf(g.f930a));
-                        defaultHttpClient.getParams().setParameter("http.socket.timeout", Integer.valueOf(g.f930a));
+                        defaultHttpClient.getParams().setParameter("http.connection.timeout", Integer.valueOf(g.f935a));
+                        defaultHttpClient.getParams().setParameter("http.socket.timeout", Integer.valueOf(g.f935a));
                         HttpProtocolParams.setUseExpectContinue(defaultHttpClient.getParams(), false);
                         if (g.f203try == 1) {
                             defaultHttpClient.getParams().setParameter("http.route.default-proxy", new HttpHost(g.j, g.f, "http"));

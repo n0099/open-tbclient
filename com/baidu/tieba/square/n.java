@@ -6,7 +6,7 @@ import com.baidu.tieba.view.HeadImageView;
 public class n {
 
     /* renamed from: a  reason: collision with root package name */
-    public HeadImageView f2412a;
+    public HeadImageView f2529a;
     public TextView b;
     public BestStringsFitTextView c;
     public as d;

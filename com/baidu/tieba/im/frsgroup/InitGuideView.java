@@ -15,7 +15,7 @@ import com.slidingmenu.lib.R;
 public class InitGuideView extends RelativeLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private ImageView f1631a;
+    private ImageView f1698a;
     private TextView b;
     private TextView c;
     private Button d;
@@ -41,7 +41,7 @@ public class InitGuideView extends RelativeLayout {
 
     public void a(Context context) {
         addView(((LayoutInflater) context.getSystemService("layout_inflater")).inflate(R.layout.im_frsgroup_guide, (ViewGroup) null));
-        this.f1631a = (ImageView) findViewById(R.id.guide_img);
+        this.f1698a = (ImageView) findViewById(R.id.guide_img);
         this.b = (TextView) findViewById(R.id.guide_tip1);
         this.c = (TextView) findViewById(R.id.guide_tip2);
     }
@@ -76,7 +76,7 @@ public class InitGuideView extends RelativeLayout {
     public void a(int i) {
         if (b(i)) {
             if (i == 1) {
-                this.f1631a.setBackgroundResource(R.drawable.pic_go_ba_1);
+                this.f1698a.setBackgroundResource(R.drawable.pic_go_ba_1);
                 this.b.setTextColor(-8815226);
                 this.c.setTextColor(-8815226);
                 if (this.d != null) {
@@ -86,7 +86,7 @@ public class InitGuideView extends RelativeLayout {
                 }
                 return;
             }
-            this.f1631a.setBackgroundResource(R.drawable.pic_go_ba);
+            this.f1698a.setBackgroundResource(R.drawable.pic_go_ba);
             this.b.setTextColor(-5065030);
             this.c.setTextColor(-5065030);
             if (this.d != null) {
@@ -105,22 +105,24 @@ public class InitGuideView extends RelativeLayout {
         }
     }
 
-    public void d() {
+    public void a(GroupPermData groupPermData) {
         setVisibility(0);
         getTip1().setVisibility(4);
         getTip2().setText(R.string.frsgroup_no_hot_tip);
-        if (this.d != null) {
-            this.d.setVisibility(8);
+        if (groupPermData != null && this.d != null) {
+            this.d.setText(R.string.frsgroup_hot_create_group);
+            this.d.setVisibility(0);
         }
     }
 
-    public void a(GroupPermData groupPermData) {
+    public void b(GroupPermData groupPermData) {
         setVisibility(0);
         if (groupPermData != null && groupPermData.isManager()) {
             getTip1().setVisibility(4);
             getTip2().setVisibility(0);
             getTip2().setText(R.string.frsgroup_office_no_tip1_owner);
             if (this.d != null) {
+                this.d.setText(R.string.frsgroup_official_create_group);
                 this.d.setVisibility(0);
                 return;
             }
@@ -135,7 +137,7 @@ public class InitGuideView extends RelativeLayout {
         }
     }
 
-    public void e() {
+    public void d() {
         setVisibility(0);
         getTip1().setVisibility(4);
         getTip2().setText(R.string.members_no_person);
@@ -160,16 +162,16 @@ public class InitGuideView extends RelativeLayout {
         this.d = button;
     }
 
+    public void e() {
+        a(TiebaApplication.h().an());
+    }
+
     public void f() {
-        a(TiebaApplication.g().ap());
+        e();
     }
 
     public void g() {
-        f();
-    }
-
-    public void h() {
         this.e = -1;
-        this.f1631a.setBackgroundDrawable(null);
+        this.f1698a.setBackgroundDrawable(null);
     }
 }

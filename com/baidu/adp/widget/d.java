@@ -9,13 +9,13 @@ import android.widget.FrameLayout;
 public class d extends FrameLayout.LayoutParams {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f602a;
+    public int f607a;
 
     public d(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f602a = 1;
+        this.f607a = 1;
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.baidu.adp.g.ColumnLayout_Layout);
-        this.f602a = obtainStyledAttributes.getInt(0, 1);
+        this.f607a = obtainStyledAttributes.getInt(0, 1);
         obtainStyledAttributes.recycle();
         if (this.gravity == -1) {
             this.gravity = 51;
@@ -24,12 +24,12 @@ public class d extends FrameLayout.LayoutParams {
 
     public d(int i, int i2, int i3, int i4) {
         super(i, i2, i3);
-        this.f602a = 1;
-        this.f602a = i4;
+        this.f607a = 1;
+        this.f607a = i4;
     }
 
     public d(ViewGroup.LayoutParams layoutParams) {
         super(layoutParams);
-        this.f602a = 1;
+        this.f607a = 1;
     }
 }

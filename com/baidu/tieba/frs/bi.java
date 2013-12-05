@@ -8,11 +8,11 @@ import android.content.Intent;
 public class bi extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsImageActivity f1340a;
+    final /* synthetic */ FrsImageActivity f1391a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bi(FrsImageActivity frsImageActivity) {
-        this.f1340a = frsImageActivity;
+        this.f1391a = frsImageActivity;
     }
 
     @Override // android.content.BroadcastReceiver
@@ -28,18 +28,18 @@ public class bi extends BroadcastReceiver {
         long longExtra2 = intent.getLongExtra("relay", 0L);
         long longExtra3 = intent.getLongExtra("at_me", 0L);
         long longExtra4 = intent.getLongExtra("pletter", 0L);
-        apVar = this.f1340a.n;
+        apVar = this.f1391a.n;
         if (apVar != null) {
-            apVar2 = this.f1340a.n;
+            apVar2 = this.f1391a.n;
             apVar2.a(longExtra);
-            apVar3 = this.f1340a.n;
+            apVar3 = this.f1391a.n;
             apVar3.c(longExtra2);
-            apVar4 = this.f1340a.n;
+            apVar4 = this.f1391a.n;
             apVar4.b(longExtra3);
-            apVar5 = this.f1340a.n;
+            apVar5 = this.f1391a.n;
             apVar5.d(longExtra4);
-            blVar = this.f1340a.l;
-            apVar6 = this.f1340a.n;
+            blVar = this.f1391a.l;
+            apVar6 = this.f1391a.n;
             blVar.a(apVar6);
         }
     }

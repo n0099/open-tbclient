@@ -1,23 +1,27 @@
 package com.baidu.tieba.im.pushNotify;
 
-import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
+import com.baidu.browser.core.util.BdLog;
+import com.baidu.tieba.im.message.Message;
 import java.util.LinkedList;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class q implements com.baidu.tieba.im.a<LinkedList<GroupNewsPojo>> {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ n f1773a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public q(n nVar) {
-        this.f1773a = nVar;
+public class q implements com.baidu.tieba.im.b.n<com.baidu.tieba.im.b.a.d> {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.util.LinkedList, java.lang.Object, com.baidu.tieba.im.b.q, int] */
+    @Override // com.baidu.tieba.im.b.n
+    public /* bridge */ /* synthetic */ void a(LinkedList linkedList, com.baidu.tieba.im.b.a.d dVar, com.baidu.tieba.im.b.q qVar, int i) {
+        a2((LinkedList<Message>) linkedList, dVar, qVar, i);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    public void a(LinkedList<GroupNewsPojo> linkedList) {
-        this.f1773a.a(linkedList);
-        this.f1773a.b(linkedList);
+    /* renamed from: a  reason: avoid collision after fix types in other method */
+    public void a2(LinkedList<Message> linkedList, com.baidu.tieba.im.b.a.d dVar, com.baidu.tieba.im.b.q qVar, int i) {
+        BdLog.d("begin");
+        if (dVar != null && linkedList != null) {
+            PushNotifyMessage pushNotifyMessage = new PushNotifyMessage();
+            pushNotifyMessage.setCmd(i);
+            pushNotifyMessage.setGroupId(dVar.c("groupId"));
+            pushNotifyMessage.setNewestMsgId(dVar.c("msgId"));
+            pushNotifyMessage.setPushTime(dVar.c("pushTime"));
+            linkedList.add(pushNotifyMessage);
+            BdLog.d("end");
+        }
     }
 }

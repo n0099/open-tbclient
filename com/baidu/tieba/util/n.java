@@ -1,21 +1,22 @@
 package com.baidu.tieba.util;
 
+import com.baidu.browser.explorer.share.BdSharer;
 import java.io.RandomAccessFile;
 /* loaded from: classes.dex */
 public class n {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2497a;
+    private String f2610a;
     private String b;
     private com.baidu.tieba.data.e c;
-    private ap d;
+    private am d;
     private boolean e = false;
 
     public n(String str, com.baidu.tieba.data.e eVar, String str2) {
-        this.f2497a = null;
+        this.f2610a = null;
         this.b = null;
         this.c = null;
-        this.f2497a = str;
+        this.f2610a = str;
         this.c = eVar;
         this.b = str2;
     }
@@ -30,29 +31,29 @@ public class n {
     public com.baidu.tieba.data.f b() {
         com.baidu.tieba.data.f fVar = new com.baidu.tieba.data.f();
         long b = this.c.b();
-        long j = b % 102400 == 0 ? b / 102400 : (b / 102400) + 1;
+        long j = b % BdSharer.IMAGE_MIN_SIZE_TO_SHARE == 0 ? b / BdSharer.IMAGE_MIN_SIZE_TO_SHARE : (b / BdSharer.IMAGE_MIN_SIZE_TO_SHARE) + 1;
         int c = this.c.c();
         if (c < j) {
-            RandomAccessFile randomAccessFile = new RandomAccessFile(af.d(this.f2497a), "r");
-            bg.e("ChunkUploadHelper", "uploadChunkFile", String.format("start chunk : %d", Integer.valueOf(c)));
-            if (randomAccessFile.skipBytes(102400 * c) >= 102400 * c) {
+            RandomAccessFile randomAccessFile = new RandomAccessFile(x.d(this.f2610a), "r");
+            bd.e("ChunkUploadHelper", "uploadChunkFile", String.format("start chunk : %d", Integer.valueOf(c)));
+            if (randomAccessFile.skipBytes(c * 10240) >= c * 10240) {
                 while (true) {
                     int i = c;
                     if (i < j) {
-                        int i2 = 102400;
+                        int i2 = 10240;
                         if (i == j - 1) {
-                            i2 = (int) (b - (102400 * (j - 1)));
+                            i2 = (int) (b - (BdSharer.IMAGE_MIN_SIZE_TO_SHARE * (j - 1)));
                         }
                         byte[] bArr = new byte[i2];
                         int read = randomAccessFile.read(bArr, 0, i2);
                         if (read != -1) {
-                            this.d = new ap(this.b);
+                            this.d = new am(this.b);
                             this.d.a("md5", this.c.a());
                             this.d.a("total_length", String.valueOf(b));
                             this.d.a("total_num", String.valueOf(j));
-                            bg.e("ChunkUploadHelper", "uploadChunkFile", String.format("total length : %d, chunk_no : %d", Long.valueOf(b), Integer.valueOf(i)));
+                            bd.e("ChunkUploadHelper", "uploadChunkFile", String.format("total length : %d, chunk_no : %d", Long.valueOf(b), Integer.valueOf(i)));
                             this.d.a("pic_chunk", bArr);
-                            this.d.a("offset", String.valueOf(102400 * i));
+                            this.d.a("offset", String.valueOf(i * 10240));
                             this.d.a("chunk_no", String.valueOf(i + 1));
                             this.d.a("length", String.valueOf(read));
                             boolean z = false;
@@ -60,7 +61,7 @@ public class n {
                                 z = true;
                             } else {
                                 String n = this.d.n();
-                                bg.e("ChunkUploadHelper", "uploadChunkFile", "ret " + n);
+                                bd.e("ChunkUploadHelper", "uploadChunkFile", "ret " + n);
                                 if (n == null || !this.d.c()) {
                                     this.c.a(i);
                                     DatabaseService.a(this.c);

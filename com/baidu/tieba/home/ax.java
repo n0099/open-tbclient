@@ -1,24 +1,14 @@
 package com.baidu.tieba.home;
 
-import android.view.View;
-import android.widget.EditText;
-import com.baidu.tieba.util.UtilHelper;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.TextView;
 /* loaded from: classes.dex */
-public class ax implements View.OnClickListener {
+class ax {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SearchActivity f1408a;
+    TextView f1462a;
+    final /* synthetic */ av b;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ax(SearchActivity searchActivity) {
-        this.f1408a = searchActivity;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        EditText editText;
-        editText = this.f1408a.c;
-        UtilHelper.i(this.f1408a, editText.getText().toString().trim());
+    private ax(av avVar) {
+        this.b = avVar;
     }
 }

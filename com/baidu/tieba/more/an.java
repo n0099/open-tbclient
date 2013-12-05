@@ -7,11 +7,11 @@ import android.widget.Scroller;
 public class an implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ am f1964a;
+    final /* synthetic */ am f2075a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public an(am amVar) {
-        this.f1964a = amVar;
+        this.f2075a = amVar;
     }
 
     @Override // java.lang.Runnable
@@ -26,26 +26,26 @@ public class an implements Runnable {
         View view5;
         View view6;
         View view7;
-        scroller = this.f1964a.b;
+        scroller = this.f2075a.b;
         if (scroller.computeScrollOffset()) {
-            scroller2 = this.f1964a.b;
+            scroller2 = this.f2075a.b;
             int currX = scroller2.getCurrX();
-            view2 = this.f1964a.f1963a;
-            view3 = this.f1964a.f1963a;
+            view2 = this.f2075a.f2074a;
+            view3 = this.f2075a.f2074a;
             int paddingLeft = view3.getPaddingLeft();
-            view4 = this.f1964a.f1963a;
+            view4 = this.f2075a.f2074a;
             int paddingRight = view4.getPaddingRight();
-            view5 = this.f1964a.f1963a;
+            view5 = this.f2075a.f2074a;
             view2.setPadding(paddingLeft, currX, paddingRight, view5.getPaddingBottom());
-            view6 = this.f1964a.f1963a;
+            view6 = this.f2075a.f2074a;
             view6.invalidate();
-            view7 = this.f1964a.f1963a;
+            view7 = this.f2075a.f2074a;
             view7.post(this);
             return;
         }
-        z = this.f1964a.f;
+        z = this.f2075a.f;
         if (!z) {
-            view = this.f1964a.f1963a;
+            view = this.f2075a.f2074a;
             view.setVisibility(8);
         }
     }

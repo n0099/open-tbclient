@@ -97,7 +97,7 @@ public class WebHistoryItem implements Cloneable {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     /* renamed from: clone */
-    public synchronized WebHistoryItem m266clone() {
+    public synchronized WebHistoryItem m267clone() {
         return new WebHistoryItem(this);
     }
 

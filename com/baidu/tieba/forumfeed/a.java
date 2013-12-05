@@ -7,11 +7,11 @@ import com.baidu.tieba.voice.VoiceManager;
 public class a extends com.baidu.adp.a.g {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ForumFeedActivity f1292a;
+    final /* synthetic */ ForumFeedActivity f1341a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(ForumFeedActivity forumFeedActivity) {
-        this.f1292a = forumFeedActivity;
+        this.f1341a = forumFeedActivity;
     }
 
     @Override // com.baidu.adp.a.g
@@ -19,21 +19,21 @@ public class a extends com.baidu.adp.a.g {
         boolean z;
         VoiceManager voiceManager;
         VoiceManager voiceManager2;
-        z = this.f1292a.h;
+        z = this.f1341a.h;
         if (z) {
-            voiceManager = this.f1292a.f1291a;
+            voiceManager = this.f1341a.f1338a;
             if (voiceManager != null) {
-                voiceManager2 = this.f1292a.f1291a;
+                voiceManager2 = this.f1341a.f1338a;
                 voiceManager2.h();
             }
-            this.f1292a.h = false;
+            this.f1341a.h = false;
         }
         if (obj instanceof ac) {
-            this.f1292a.a(obj);
+            this.f1341a.a(obj);
         } else if (obj != null) {
-            this.f1292a.b(obj);
+            this.f1341a.b(obj);
         } else {
-            this.f1292a.M();
+            this.f1341a.M();
         }
     }
 }

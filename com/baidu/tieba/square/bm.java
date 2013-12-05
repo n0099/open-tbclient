@@ -8,11 +8,11 @@ import android.widget.Button;
 public class bm implements TextWatcher {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SquareSearchActivity f2392a;
+    final /* synthetic */ SquareSearchActivity f2509a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bm(SquareSearchActivity squareSearchActivity) {
-        this.f2392a = squareSearchActivity;
+        this.f2509a = squareSearchActivity;
     }
 
     @Override // android.text.TextWatcher
@@ -20,22 +20,22 @@ public class bm implements TextWatcher {
         String str;
         int i4;
         int i5;
-        this.f2392a.B = charSequence.toString();
-        str = this.f2392a.B;
+        this.f2509a.B = charSequence.toString();
+        str = this.f2509a.B;
         if (str.trim().length() > 0) {
-            i5 = this.f2392a.C;
+            i5 = this.f2509a.C;
             if (i5 == 0) {
-                this.f2392a.g();
+                this.f2509a.g();
                 return;
             }
             return;
         }
-        this.f2392a.a();
-        i4 = this.f2392a.C;
+        this.f2509a.a();
+        i4 = this.f2509a.C;
         if (i4 == 0) {
-            this.f2392a.f();
+            this.f2509a.f();
         } else {
-            this.f2392a.h();
+            this.f2509a.h();
         }
     }
 
@@ -48,11 +48,11 @@ public class bm implements TextWatcher {
         Button button;
         Button button2;
         if (editable.toString().trim().length() == 0) {
-            button2 = this.f2392a.d;
+            button2 = this.f2509a.d;
             button2.setVisibility(8);
             return;
         }
-        button = this.f2392a.d;
+        button = this.f2509a.d;
         button.setVisibility(0);
     }
 }

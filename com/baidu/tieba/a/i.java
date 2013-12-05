@@ -1,18 +1,18 @@
 package com.baidu.tieba.a;
 
-import com.baidu.tieba.util.ap;
+import com.baidu.tieba.util.am;
 /* loaded from: classes.dex */
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1014a = com.baidu.tieba.data.h.f1201a + "c/f/pb/floor";
-    private ap b = null;
+    private static final String f1024a = com.baidu.tieba.data.h.f1248a + "c/f/pb/floor";
+    private am b = null;
 
     public String a(String str, String str2, int i, String str3, int i2) {
         if (str == null || str3 == null) {
             return null;
         }
-        this.b = new ap(f1014a);
+        this.b = new am(f1024a);
         this.b.e(true);
         this.b.a("kz", str);
         if (str2 != null) {

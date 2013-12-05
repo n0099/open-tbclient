@@ -4,16 +4,16 @@ package com.baidu.adp.widget.ImageView;
 public class b extends com.baidu.adp.lib.e.b {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f557a;
+    final /* synthetic */ a f561a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.f557a = aVar;
+        this.f561a = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.e.b
     public void a(Object obj, String str, com.baidu.adp.lib.e.f fVar) {
-        this.f557a.invalidate();
+        this.f561a.invalidate();
     }
 }

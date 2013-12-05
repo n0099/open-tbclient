@@ -6,19 +6,19 @@ import com.baidu.tieba.view.HeadImageView;
 public class q implements com.baidu.tbadk.imageManager.c {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ n f1690a;
+    final /* synthetic */ HeadImageView f1757a;
+    final /* synthetic */ m b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public q(n nVar) {
-        this.f1690a = nVar;
+    public q(m mVar, HeadImageView headImageView) {
+        this.b = mVar;
+        this.f1757a = headImageView;
     }
 
     @Override // com.baidu.tbadk.imageManager.c
     public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
-        HeadImageView headImageView;
         if (eVar != null) {
-            headImageView = this.f1690a.q;
-            eVar.a(headImageView);
+            eVar.a(this.f1757a);
         }
     }
 }

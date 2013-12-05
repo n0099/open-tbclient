@@ -71,4 +71,11 @@ class k implements h {
     @Override // com.baidu.adp.lib.cache.h
     public void d() {
     }
+
+    @Override // com.baidu.adp.lib.cache.h
+    public void e() {
+        synchronized (this) {
+            this.b.clear();
+        }
+    }
 }

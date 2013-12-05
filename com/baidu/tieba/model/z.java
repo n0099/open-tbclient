@@ -7,7 +7,7 @@ import com.baidu.tieba.util.UtilHelper;
 public class z {
 
     /* renamed from: a  reason: collision with root package name */
-    private static z f1938a;
+    private static z f2050a;
     private ak b;
     private com.baidu.adp.lib.cache.s<String> c;
 
@@ -21,17 +21,17 @@ public class z {
     public static synchronized z a() {
         z zVar;
         synchronized (z.class) {
-            if (f1938a == null) {
-                f1938a = new z();
+            if (f2050a == null) {
+                f2050a = new z();
             }
-            zVar = f1938a;
+            zVar = f2050a;
         }
         return zVar;
     }
 
     public boolean a(String str) {
         if (this.c != null && str != null) {
-            String a2 = this.c.a(TiebaApplication.A() + str);
+            String a2 = this.c.a(TiebaApplication.B() + str);
             if (a2 != null && a2.length() > 0) {
                 this.b.a(a2);
                 return true;
@@ -42,13 +42,13 @@ public class z {
 
     public void a(String str, String str2) {
         if (str != null && str.length() > 0) {
-            this.c.a(TiebaApplication.A() + str, str2, 604800000L);
+            this.c.a(TiebaApplication.B() + str, str2, 604800000L);
         }
     }
 
     public void b(String str) {
         if (str != null && str.length() > 0) {
-            this.c.c(TiebaApplication.A() + str);
+            this.c.c(TiebaApplication.B() + str);
         }
     }
 
@@ -61,6 +61,6 @@ public class z {
         if (str == null || str.length() <= 0 || (b = this.c.b(str)) == null) {
             return false;
         }
-        return UtilHelper.a(b.b, System.currentTimeMillis());
+        return UtilHelper.a(b.c, System.currentTimeMillis());
     }
 }

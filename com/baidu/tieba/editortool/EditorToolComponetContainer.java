@@ -6,16 +6,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
-import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.view.ao;
+import com.baidu.tieba.view.ap;
 import com.baidu.tieba.voice.RecordVoiceBnt;
 import com.baidu.tieba.voice.VoiceManager;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class EditorToolComponetContainer extends RelativeLayout implements ao {
+public class EditorToolComponetContainer extends RelativeLayout implements ap {
 
     /* renamed from: a  reason: collision with root package name */
-    protected Context f1222a;
+    protected Context f1269a;
     protected FaceView b;
     protected RecordVoiceBnt c;
     protected ImageUploadView d;
@@ -25,19 +24,19 @@ public class EditorToolComponetContainer extends RelativeLayout implements ao {
     public EditorToolComponetContainer(Context context) {
         super(context);
         this.f = false;
-        this.f1222a = context;
+        this.f1269a = context;
         a();
     }
 
     public EditorToolComponetContainer(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.f = false;
-        this.f1222a = context;
+        this.f1269a = context;
         a();
     }
 
     protected void a() {
-        LayoutInflater.from(this.f1222a).inflate(R.layout.editor_tool_container, (ViewGroup) this, true);
+        LayoutInflater.from(this.f1269a).inflate(R.layout.editor_tool_container, (ViewGroup) this, true);
         this.b = (FaceView) findViewById(R.id.face_view);
         this.c = (RecordVoiceBnt) findViewById(R.id.record_voice_view);
         this.d = (ImageUploadView) findViewById(R.id.image_upload_view);
@@ -69,14 +68,14 @@ public class EditorToolComponetContainer extends RelativeLayout implements ao {
 
     public void a(View view) {
         if (view != null) {
-            UtilHelper.b(this.f1222a, view);
+            com.baidu.adp.lib.h.g.b(this.f1269a, view);
             this.f = true;
         }
     }
 
     public void b(View view) {
         if (view != null) {
-            UtilHelper.a(this.f1222a, view);
+            com.baidu.adp.lib.h.g.a(this.f1269a, view);
             this.f = false;
         }
     }
@@ -150,7 +149,7 @@ public class EditorToolComponetContainer extends RelativeLayout implements ao {
         return this.f;
     }
 
-    @Override // com.baidu.tieba.view.ao
+    @Override // com.baidu.tieba.view.ap
     public void a(int i) {
         if (i == 1) {
             this.f = false;

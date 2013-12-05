@@ -6,11 +6,11 @@ import com.slidingmenu.lib.R;
 class b implements com.baidu.adp.widget.ListView.b {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsGroupListFragment f1636a;
+    final /* synthetic */ FrsGroupListFragment f1703a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(FrsGroupListFragment frsGroupListFragment) {
-        this.f1636a = frsGroupListFragment;
+        this.f1703a = frsGroupListFragment;
     }
 
     @Override // com.baidu.adp.widget.ListView.b
@@ -19,21 +19,21 @@ class b implements com.baidu.adp.widget.ListView.b {
         com.baidu.tieba.im.model.b bVar2;
         int i;
         BdListView bdListView;
-        bVar = this.f1636a.b;
+        bVar = this.f1703a.b;
         if (!bVar.h() || !z) {
-            bVar2 = this.f1636a.b;
+            bVar2 = this.f1703a.b;
             if (bVar2.i()) {
-                i = this.f1636a.Y;
-                if (i == com.baidu.tieba.im.d.b.a()) {
-                    bdListView = this.f1636a.d;
+                i = this.f1703a.Y;
+                if (i == com.baidu.tieba.im.e.c.a()) {
+                    bdListView = this.f1703a.d;
                     bdListView.a();
-                    this.f1636a.b(R.string.frsgroup_hot_cannot_refresh_tip);
+                    this.f1703a.b(R.string.frsgroup_hot_cannot_refresh_tip);
                     return;
                 }
             }
-            this.f1636a.J();
+            this.f1703a.J();
             return;
         }
-        this.f1636a.a(false);
+        this.f1703a.a(false);
     }
 }

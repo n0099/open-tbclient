@@ -8,7 +8,9 @@ import android.text.method.LinkMovementMethod;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -20,7 +22,10 @@ import org.json.JSONArray;
 public class TbRichTextView extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f981a = 174;
+    public static int f987a = 174;
+    private Runnable A;
+    private boolean B;
+    private View.OnClickListener C;
     private com.baidu.adp.lib.d.b<ImageView> b;
     private com.baidu.adp.lib.d.b<TextView> c;
     private com.baidu.adp.lib.d.b<View> d;
@@ -39,16 +44,16 @@ public class TbRichTextView extends LinearLayout {
     private ImageView.ScaleType q;
     private int r;
     private int s;
-    private o t;
-    private n u;
+    private p t;
+    private o u;
     private boolean v;
     private int w;
     private LayoutInflater x;
     private boolean y;
-    private View.OnClickListener z;
+    private boolean z;
 
     public boolean a() {
-        return this.y;
+        return this.B;
     }
 
     public static a a(Context context, String str) {
@@ -92,7 +97,10 @@ public class TbRichTextView extends LinearLayout {
         this.v = true;
         this.w = -1;
         this.y = false;
-        this.z = new j(this);
+        this.z = false;
+        this.A = null;
+        this.B = false;
+        this.C = new j(this);
         b();
     }
 
@@ -121,7 +129,10 @@ public class TbRichTextView extends LinearLayout {
         this.v = true;
         this.w = -1;
         this.y = false;
-        this.z = new j(this);
+        this.z = false;
+        this.A = null;
+        this.B = false;
+        this.C = new j(this);
         b();
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.baidu.tbadk.d.TbRichTextView);
         this.i = obtainStyledAttributes.getDimensionPixelSize(0, 0);
@@ -139,15 +150,15 @@ public class TbRichTextView extends LinearLayout {
     }
 
     private void b() {
-        f981a = getContext().getResources().getDimensionPixelSize(com.baidu.tbadk.b.adk_default_image_height);
+        f987a = getContext().getResources().getDimensionPixelSize(com.baidu.tbadk.b.adk_default_image_height);
         if (getContext() instanceof i) {
             i iVar = (i) getContext();
             this.b = iVar.e();
             this.c = iVar.f();
-            this.d = iVar.d_();
+            this.d = iVar.g();
             this.e = iVar.h();
             if (iVar.c() != null && this.t == null) {
-                this.t = new o(iVar.d());
+                this.t = new p(iVar.d());
                 iVar.c().setRecyclerListener(this.t);
             }
         }
@@ -180,8 +191,8 @@ public class TbRichTextView extends LinearLayout {
                     if (cVar.a() == 1) {
                         TextView b = b(getContext());
                         z2 = a(cVar, b, true);
-                        if (z && !this.y && cVar != null && (d = cVar.d()) != null) {
-                            this.y = d.length() >= 200;
+                        if (z && !this.B && cVar != null && (d = cVar.d()) != null) {
+                            this.B = d.length() >= 200;
                         }
                         linearLayout = b;
                     } else if (cVar.a() == 8) {
@@ -268,7 +279,7 @@ public class TbRichTextView extends LinearLayout {
             return false;
         }
         imageView.setTag(c.f());
-        int[] a2 = com.baidu.adp.lib.h.f.a(c.c(), c.b(), i, i2);
+        int[] a2 = com.baidu.adp.lib.h.g.a(c.c(), c.b(), i, i2);
         if (a2 != null) {
             boolean z = !this.v;
             if (z && (imageView instanceof TbImageView)) {
@@ -277,7 +288,7 @@ public class TbRichTextView extends LinearLayout {
             int[] iArr = {a2[0], a2[1]};
             if (!this.v && z) {
                 iArr[0] = i;
-                iArr[1] = f981a;
+                iArr[1] = f987a;
             }
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(iArr[0], iArr[1]);
             if (imageView instanceof TbImageView) {
@@ -296,7 +307,7 @@ public class TbRichTextView extends LinearLayout {
             }
             imageView.setClickable(true);
             imageView.setFocusable(false);
-            imageView.setOnClickListener(this.z);
+            imageView.setOnClickListener(this.C);
             imageView.setLayoutParams(layoutParams);
             return true;
         }
@@ -350,7 +361,7 @@ public class TbRichTextView extends LinearLayout {
     private View getVoiceView() {
         View a2 = this.d != null ? this.d.a() : null;
         if (a2 == null || a2.getParent() != null) {
-            com.baidu.adp.lib.h.d.d("voice view is null");
+            com.baidu.adp.lib.h.e.d("voice view is null");
             if (this.w != -1) {
                 a2 = this.x.inflate(this.w, (ViewGroup) null);
             }
@@ -505,12 +516,12 @@ public class TbRichTextView extends LinearLayout {
         this.r = i;
     }
 
-    public n getOnImageClickListener() {
+    public o getOnImageClickListener() {
         return this.u;
     }
 
-    public void setOnImageClickListener(n nVar) {
-        this.u = nVar;
+    public void setOnImageClickListener(o oVar) {
+        this.u = oVar;
     }
 
     public void a(boolean z, boolean z2) {
@@ -522,6 +533,52 @@ public class TbRichTextView extends LinearLayout {
             if (!this.v && this.b != null) {
                 this.b.b();
             }
+        }
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
+        this.y = false;
+        switch (motionEvent.getAction()) {
+            case 1:
+            case 3:
+                if (!this.z) {
+                    d();
+                    break;
+                } else {
+                    motionEvent.setAction(3);
+                    break;
+                }
+        }
+        boolean dispatchTouchEvent = super.dispatchTouchEvent(motionEvent);
+        switch (motionEvent.getAction()) {
+            case 0:
+                if (!this.y) {
+                    c();
+                    break;
+                }
+                break;
+        }
+        return dispatchTouchEvent;
+    }
+
+    @Override // android.view.View
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        this.y = true;
+        return super.onTouchEvent(motionEvent);
+    }
+
+    private void c() {
+        this.z = false;
+        if (this.A == null) {
+            this.A = new n(this);
+        }
+        postDelayed(this.A, ViewConfiguration.getLongPressTimeout());
+    }
+
+    private void d() {
+        if (this.A != null) {
+            removeCallbacks(this.A);
         }
     }
 

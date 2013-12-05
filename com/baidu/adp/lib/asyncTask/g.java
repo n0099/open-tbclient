@@ -86,17 +86,17 @@ public class g implements Executor {
         int size = this.g.size();
         if (size >= 5) {
             if (b) {
-                com.baidu.adp.lib.h.d.d(a().toString());
+                com.baidu.adp.lib.h.e.d(a().toString());
             }
         } else {
             k peek = this.f.peek();
             if (peek == null) {
                 if (b) {
-                    com.baidu.adp.lib.h.d.d(a().toString());
+                    com.baidu.adp.lib.h.e.d(a().toString());
                 }
             } else if (size >= 4 && peek.d() == 1) {
                 if (b) {
-                    com.baidu.adp.lib.h.d.d(a().toString());
+                    com.baidu.adp.lib.h.e.d(a().toString());
                 }
             } else {
                 l lVar = new l(this, this.g);
@@ -118,7 +118,7 @@ public class g implements Executor {
                     }
                 }
                 if (b) {
-                    com.baidu.adp.lib.h.d.d(a().toString());
+                    com.baidu.adp.lib.h.e.d(a().toString());
                 }
             }
         }
@@ -129,14 +129,14 @@ public class g implements Executor {
         a(this.g, false, str);
         a(this.h, false, str);
         if (b) {
-            com.baidu.adp.lib.h.d.d(a().toString());
+            com.baidu.adp.lib.h.e.d(a().toString());
         }
     }
 
     public synchronized void b(String str) {
         a(this.f, true, str);
         if (b) {
-            com.baidu.adp.lib.h.d.d(a().toString());
+            com.baidu.adp.lib.h.e.d(a().toString());
         }
     }
 
@@ -167,7 +167,7 @@ public class g implements Executor {
             }
         }
         if (b) {
-            com.baidu.adp.lib.h.d.d(a().toString());
+            com.baidu.adp.lib.h.e.d(a().toString());
         }
     }
 

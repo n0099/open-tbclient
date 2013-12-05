@@ -4,13 +4,13 @@ package com.baidu.tieba.pb;
 public class cn implements com.baidu.tieba.editortool.h {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ com.baidu.tieba.editortool.h f2102a;
+    final /* synthetic */ com.baidu.tieba.editortool.h f2209a;
     final /* synthetic */ PbEditorToolView b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cn(PbEditorToolView pbEditorToolView, com.baidu.tieba.editortool.h hVar) {
         this.b = pbEditorToolView;
-        this.f2102a = hVar;
+        this.f2209a = hVar;
     }
 
     @Override // com.baidu.tieba.editortool.h
@@ -36,6 +36,6 @@ public class cn implements com.baidu.tieba.editortool.h {
             this.b.h();
             this.b.c.c();
         }
-        this.f2102a.a(i, obj);
+        this.f2209a.a(i, obj);
     }
 }

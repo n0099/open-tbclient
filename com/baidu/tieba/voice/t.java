@@ -6,11 +6,11 @@ import com.baidu.tieba.voice.VoiceManager;
 public class t implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ VoiceManager f2628a;
+    final /* synthetic */ VoiceManager f2746a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(VoiceManager voiceManager) {
-        this.f2628a = voiceManager;
+        this.f2746a = voiceManager;
     }
 
     @Override // java.lang.Runnable
@@ -18,15 +18,15 @@ public class t implements Runnable {
         VoiceManager.VoiceModel voiceModel;
         ad adVar;
         VoiceManager.VoiceModel voiceModel2;
-        VoiceManager voiceManager = this.f2628a;
-        voiceModel = this.f2628a.w;
+        VoiceManager voiceManager = this.f2746a;
+        voiceModel = this.f2746a.w;
         voiceManager.v = voiceModel;
-        VoiceManager voiceManager2 = this.f2628a;
-        adVar = this.f2628a.x;
+        VoiceManager voiceManager2 = this.f2746a;
+        adVar = this.f2746a.x;
         voiceManager2.y = adVar;
-        this.f2628a.x = null;
-        VoiceManager voiceManager3 = this.f2628a;
-        voiceModel2 = this.f2628a.v;
+        this.f2746a.x = null;
+        VoiceManager voiceManager3 = this.f2746a;
+        voiceModel2 = this.f2746a.v;
         voiceManager3.d(voiceModel2);
     }
 }

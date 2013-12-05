@@ -5,16 +5,16 @@ import android.view.View;
 class aq implements View.OnLongClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MsgleftView f1501a;
+    final /* synthetic */ an f1548a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aq(MsgleftView msgleftView) {
-        this.f1501a = msgleftView;
+    public aq(an anVar) {
+        this.f1548a = anVar;
     }
 
     @Override // android.view.View.OnLongClickListener
     public boolean onLongClick(View view) {
-        this.f1501a.d.b(view, 2, this.f1501a.f, 0L);
+        this.f1548a.d.b(view, 4, this.f1548a.f, 0L);
         return true;
     }
 }

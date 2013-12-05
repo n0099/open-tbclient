@@ -9,14 +9,12 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
-import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.UtilHelper;
 import com.baidu.tieba.view.MultiImageView;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
@@ -28,7 +26,7 @@ public class ImageActivity extends com.baidu.tieba.j {
     private FrameLayout D;
 
     /* renamed from: a  reason: collision with root package name */
-    private ProgressBar f2029a = null;
+    private ProgressBar f2136a = null;
     private int b = 0;
     private ArrayList<String> c = null;
     private int d = -1;
@@ -36,7 +34,7 @@ public class ImageActivity extends com.baidu.tieba.j {
     private boolean f = false;
     private String g = null;
     private j h = null;
-    private Button i = null;
+    private TextView i = null;
     private ImageView j = null;
     private TextView k = null;
     private NavigationBar l = null;
@@ -131,7 +129,7 @@ public class ImageActivity extends com.baidu.tieba.j {
     @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        TiebaApplication.g().a((com.baidu.tieba.j) this);
+        TiebaApplication.h().a((com.baidu.tieba.j) this);
         setContentView(R.layout.image_activity_2);
         a(bundle);
         e();
@@ -160,7 +158,7 @@ public class ImageActivity extends com.baidu.tieba.j {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (i == 1) {
-            this.m.setBackgroundColor(com.baidu.tieba.util.bd.d(i));
+            this.m.setBackgroundColor(com.baidu.tieba.util.ba.d(i));
         } else {
             this.m.setBackgroundColor(-16777216);
         }
@@ -202,7 +200,7 @@ public class ImageActivity extends com.baidu.tieba.j {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j, android.app.Activity
     public void onDestroy() {
-        TiebaApplication.g().b((com.baidu.tieba.j) this);
+        TiebaApplication.h().b((com.baidu.tieba.j) this);
         a(this.d, this.d);
         h();
         this.m.c();
@@ -210,8 +208,8 @@ public class ImageActivity extends com.baidu.tieba.j {
             this.h.cancel();
             this.h = null;
         }
-        if (this.f2029a != null) {
-            this.f2029a.setVisibility(8);
+        if (this.f2136a != null) {
+            this.f2136a.setVisibility(8);
         }
         if (this.B) {
             unregisterReceiver(this.t);
@@ -239,12 +237,12 @@ public class ImageActivity extends com.baidu.tieba.j {
         this.D = (FrameLayout) this.l.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.image_activity_save_button, this.n);
         this.j = this.l.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.k = this.l.a("");
-        this.f2029a = (ProgressBar) findViewById(R.id.progress);
-        this.i = (Button) findViewById(R.id.save);
+        this.f2136a = (ProgressBar) findViewById(R.id.progress);
+        this.i = (TextView) findViewById(R.id.save);
         this.i.setClickable(false);
         this.m = (MultiImageView) findViewById(R.id.viewpager);
         this.m.setIsFromCDN(this.C);
-        this.m.setPageMargin(UtilHelper.a((Context) this, 8.0f));
+        this.m.setPageMargin(com.baidu.adp.lib.h.g.a((Context) this, 8.0f));
         this.m.a(2, com.baidu.tieba.data.h.i() * com.baidu.tieba.data.h.i());
         this.m.setOnPageChangeListener(this.p);
         this.m.setUrlData(this.c);
@@ -344,7 +342,7 @@ public class ImageActivity extends com.baidu.tieba.j {
     @Override // android.app.Activity, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        this.m.a(this.d, true);
+        this.m.a(this.d, false);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -371,7 +369,7 @@ public class ImageActivity extends com.baidu.tieba.j {
                     for (Map.Entry<String, Boolean> entry : this.w.entrySet()) {
                         i = entry.getValue().booleanValue() ? i + 1 : i;
                     }
-                    TiebaApplication.g().a(i, this.w.size(), this.A);
+                    TiebaApplication.h().a(i, this.w.size(), this.A);
                     this.w.clear();
                 }
             }
@@ -381,7 +379,7 @@ public class ImageActivity extends com.baidu.tieba.j {
     private String a(String str) {
         int lastIndexOf;
         int indexOf;
-        String e = com.baidu.tieba.util.be.e(str);
+        String e = com.baidu.tieba.util.bb.e(str);
         if (e != null) {
             if (e.indexOf(".baidu.com") != -1 && (lastIndexOf = e.lastIndexOf("/")) != -1 && (indexOf = e.indexOf(".", lastIndexOf)) != -1) {
                 return e.substring(lastIndexOf + 1, indexOf);

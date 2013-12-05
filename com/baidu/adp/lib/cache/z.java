@@ -3,6 +3,7 @@ package com.baidu.adp.lib.cache;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.util.Log;
 /* loaded from: classes.dex */
 public class z {
 
@@ -22,7 +23,7 @@ public class z {
                 th = th;
                 try {
                     this.f440a.a(th);
-                    com.baidu.adp.lib.h.d.b("BdNameSpaceDBManager", str, th.getMessage());
+                    com.baidu.adp.lib.h.e.b("BdNameSpaceDBManager", str, th.getMessage());
                     com.baidu.adp.lib.f.a.a(cursor);
                     return null;
                 } finally {
@@ -60,7 +61,20 @@ public class z {
             }
         } catch (Throwable th) {
             this.f440a.a(th);
-            com.baidu.adp.lib.h.d.a("BdNameSpaceDBManager", "failed to insert " + nVar.f434a + " to db.", th);
+            com.baidu.adp.lib.h.e.a("BdNameSpaceDBManager", "failed to insert " + nVar.f434a + " to db.", th);
+        }
+    }
+
+    public int b(String str) {
+        try {
+            if (a(str) == null) {
+                return 0;
+            }
+            return this.f440a.a().delete("cache_meta_info", "nameSpace = ?", new String[]{str});
+        } catch (Throwable th) {
+            this.f440a.a(th);
+            Log.e("BdNameSpaceDBManager", "failed to delete " + str + " from db.", th);
+            return 0;
         }
     }
 }

@@ -5,7 +5,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import com.baidu.tieba.editortool.FaceView;
-import com.baidu.tieba.util.UtilHelper;
 import com.baidu.tieba.view.KeyboardLayout;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,14 +12,14 @@ import com.slidingmenu.lib.R;
 public class m implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Handler f2168a;
+    final /* synthetic */ Handler f2275a;
     final /* synthetic */ Runnable b;
     final /* synthetic */ ImagePbActivity c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(ImagePbActivity imagePbActivity, Handler handler, Runnable runnable) {
         this.c = imagePbActivity;
-        this.f2168a = handler;
+        this.f2275a = handler;
         this.b = runnable;
     }
 
@@ -42,7 +41,7 @@ public class m implements View.OnClickListener {
             faceView2.setVisibility(8);
             ImagePbActivity imagePbActivity = this.c;
             editText3 = this.c.l;
-            UtilHelper.b(imagePbActivity, editText3);
+            com.baidu.adp.lib.h.g.b(imagePbActivity, editText3);
             button2 = this.c.n;
             button2.setBackgroundResource(R.drawable.sub_pb_face);
             return;
@@ -51,8 +50,8 @@ public class m implements View.OnClickListener {
         keyboardLayout.setOnkbdStateListener(null);
         ImagePbActivity imagePbActivity2 = this.c;
         editText = this.c.l;
-        UtilHelper.a(imagePbActivity2, editText);
-        this.f2168a.postDelayed(this.b, 200L);
+        com.baidu.adp.lib.h.g.a(imagePbActivity2, editText);
+        this.f2275a.postDelayed(this.b, 200L);
         button = this.c.n;
         button.setBackgroundResource(R.drawable.sub_pb_keyboard);
     }

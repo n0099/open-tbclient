@@ -1,27 +1,19 @@
 package com.baidu.tieba.person;
 
-import com.baidu.mobstat.StatService;
-import com.baidu.tieba.BaseFragmentActivity;
-import com.baidu.tieba.TiebaApplication;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
 /* loaded from: classes.dex */
-public class az implements com.baidu.adp.widget.ScrollView.n {
+class az implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PersonInfoActivity f2216a;
+    final /* synthetic */ PersonImageActivity f2324a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public az(PersonInfoActivity personInfoActivity) {
-        this.f2216a = personInfoActivity;
+    public az(PersonImageActivity personImageActivity) {
+        this.f2324a = personImageActivity;
     }
 
-    @Override // com.baidu.adp.widget.ScrollView.n
-    public void a() {
-        BaseFragmentActivity baseFragmentActivity;
-        if (TiebaApplication.g().s()) {
-            baseFragmentActivity = this.f2216a.g;
-            StatService.onEvent(baseFragmentActivity, "person_info_pull", "infopull", 1);
-        }
-        this.f2216a.a();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.f2324a.finish();
     }
 }

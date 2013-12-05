@@ -1,28 +1,22 @@
 package com.baidu.tieba.home;
 
-import android.content.DialogInterface;
-import com.baidu.tieba.util.DatabaseService;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class am implements DialogInterface.OnClickListener {
+public class am implements View.OnFocusChangeListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ak f1397a;
+    final /* synthetic */ SearchActivity f1452a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public am(ak akVar) {
-        this.f1397a = akVar;
+    public am(SearchActivity searchActivity) {
+        this.f1452a = searchActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        int i2;
-        i2 = this.f1397a.f1395a.B;
-        if (i2 == 0) {
-            DatabaseService.q();
-            this.f1397a.f1395a.f();
-            return;
+    @Override // android.view.View.OnFocusChangeListener
+    public void onFocusChange(View view, boolean z) {
+        if (!z) {
+            com.baidu.adp.lib.h.g.a(this.f1452a, view);
         }
-        DatabaseService.r();
-        this.f1397a.f1395a.h();
     }
 }

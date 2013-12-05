@@ -13,7 +13,7 @@ import com.slidingmenu.lib.R;
 public class PbListView extends com.baidu.adp.widget.ListView.c {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f2530a;
+    private Context f2645a;
     private TextView b;
     private ProgressBar c;
     private View.OnClickListener d;
@@ -30,7 +30,7 @@ public class PbListView extends com.baidu.adp.widget.ListView.c {
     }
 
     public PbListView(Context context) {
-        this.f2530a = null;
+        this.f2645a = null;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -39,7 +39,7 @@ public class PbListView extends com.baidu.adp.widget.ListView.c {
         this.g = null;
         this.h = 0;
         this.i = IconType.ICON_DOWN_WARD;
-        this.f2530a = context;
+        this.f2645a = context;
     }
 
     public PbListView(Context context, IconType iconType) {
@@ -49,7 +49,7 @@ public class PbListView extends com.baidu.adp.widget.ListView.c {
 
     @Override // com.baidu.adp.widget.ListView.c
     public View a() {
-        this.e = LayoutInflater.from(this.f2530a).inflate(R.layout.new_pb_list_more, (ViewGroup) null);
+        this.e = LayoutInflater.from(this.f2645a).inflate(R.layout.new_pb_list_more, (ViewGroup) null);
         this.g = (LinearLayout) this.e.findViewById(R.id.pb_more_view);
         this.b = (TextView) this.e.findViewById(R.id.pb_more_text);
         this.c = (ProgressBar) this.e.findViewById(R.id.progress);
@@ -58,8 +58,8 @@ public class PbListView extends com.baidu.adp.widget.ListView.c {
 
     public void c() {
         this.c.setVisibility(0);
-        this.b.setText(this.f2530a.getText(R.string.loading));
-        d(TiebaApplication.g().ap());
+        this.b.setText(this.f2645a.getText(R.string.loading));
+        d(TiebaApplication.h().an());
     }
 
     public void d() {
@@ -67,9 +67,9 @@ public class PbListView extends com.baidu.adp.widget.ListView.c {
         if (this.f != null) {
             this.b.setText(this.f);
         } else {
-            this.b.setText(this.f2530a.getText(R.string.pb_load_more));
+            this.b.setText(this.f2645a.getText(R.string.pb_load_more));
         }
-        d(TiebaApplication.g().ap());
+        d(TiebaApplication.h().an());
     }
 
     public void a(int i) {
@@ -85,11 +85,11 @@ public class PbListView extends com.baidu.adp.widget.ListView.c {
     public void a(String str) {
         this.f = str;
         this.b.setText(str);
-        d(TiebaApplication.g().ap());
+        d(TiebaApplication.h().an());
     }
 
     public void c(int i) {
-        this.b.setTextColor(this.f2530a.getResources().getColor(i));
+        this.b.setTextColor(this.f2645a.getResources().getColor(i));
     }
 
     public void a(View.OnClickListener onClickListener) {
@@ -107,18 +107,18 @@ public class PbListView extends com.baidu.adp.widget.ListView.c {
         String charSequence = this.b.getText().toString();
         if (this.e != null && charSequence != null) {
             if (i == 1) {
-                if (charSequence.equals(this.f2530a.getText(R.string.pb_load_more))) {
+                if (charSequence.equals(this.f2645a.getText(R.string.pb_load_more))) {
                     c(R.color.pb_more_txt_1);
-                } else if (charSequence.equals(this.f2530a.getText(R.string.loading))) {
+                } else if (charSequence.equals(this.f2645a.getText(R.string.loading))) {
                     c(R.color.pb_more_txt_1);
-                } else if (charSequence.equals(this.f2530a.getText(R.string.no_more_to_load))) {
+                } else if (charSequence.equals(this.f2645a.getText(R.string.no_more_to_load))) {
                     c(R.color.pb_list_morebutton_nomore_text_1);
                 }
-            } else if (charSequence.equals(this.f2530a.getText(R.string.pb_load_more))) {
+            } else if (charSequence.equals(this.f2645a.getText(R.string.pb_load_more))) {
                 c(R.color.pb_more_txt);
-            } else if (charSequence.equals(this.f2530a.getText(R.string.loading))) {
+            } else if (charSequence.equals(this.f2645a.getText(R.string.loading))) {
                 c(R.color.pb_more_txt);
-            } else if (charSequence.equals(this.f2530a.getText(R.string.no_more_to_load))) {
+            } else if (charSequence.equals(this.f2645a.getText(R.string.no_more_to_load))) {
                 c(R.color.pb_list_morebutton_nomore_text);
             }
         }

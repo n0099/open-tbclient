@@ -2,7 +2,7 @@ package com.baidu.tieba.person.post;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.pushservice.PushConstants;
-import com.google.gson.annotations.SerializedName;
+import com.baidu.gson.annotations.SerializedName;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;

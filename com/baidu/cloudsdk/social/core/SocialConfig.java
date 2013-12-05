@@ -18,7 +18,7 @@ public final class SocialConfig extends BaseConfig {
     public static final String TOKEN_URL = "https://openapi.baidu.com/social/oauth/2.0/token";
 
     /* renamed from: a  reason: collision with root package name */
-    private static SocialConfig f849a;
+    private static SocialConfig f854a;
     private Map b;
     private Map c;
     private List d;
@@ -31,11 +31,11 @@ public final class SocialConfig extends BaseConfig {
     }
 
     public static SocialConfig getInstance(Context context) {
-        if (f849a == null) {
-            f849a = new SocialConfig(context);
-            f849a.loadDefaultConfig();
+        if (f854a == null) {
+            f854a = new SocialConfig(context);
+            f854a.loadDefaultConfig();
         }
-        return f849a;
+        return f854a;
     }
 
     public String getClientId(MediaType mediaType) {

@@ -11,7 +11,7 @@ import com.baidu.tieba.TiebaApplication;
 public class TiebaPrepareImageService extends Service {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f2320a = false;
+    public static volatile boolean f2437a = false;
     private int f;
     private int g;
     private int b = 0;
@@ -21,12 +21,12 @@ public class TiebaPrepareImageService extends Service {
     private final Runnable h = new o(this);
 
     public static void a(int i, Uri uri, int i2, int i3) {
-        Intent intent = new Intent(TiebaApplication.g(), TiebaPrepareImageService.class);
+        Intent intent = new Intent(TiebaApplication.h(), TiebaPrepareImageService.class);
         intent.putExtra(SocialConstants.PARAM_REQUEST_CODE, i);
         intent.putExtra("max_size", i2);
         intent.putExtra("display_size", i3);
         intent.setData(uri);
-        TiebaApplication.g().startService(intent);
+        TiebaApplication.h().startService(intent);
     }
 
     public static void a(int i, Uri uri, int i2) {
@@ -34,7 +34,7 @@ public class TiebaPrepareImageService extends Service {
     }
 
     public static void a() {
-        TiebaApplication.g().stopService(new Intent(TiebaApplication.g(), TiebaPrepareImageService.class));
+        TiebaApplication.h().stopService(new Intent(TiebaApplication.h(), TiebaPrepareImageService.class));
     }
 
     @Override // android.app.Service
@@ -73,8 +73,8 @@ public class TiebaPrepareImageService extends Service {
         this.b = intent.getIntExtra(SocialConstants.PARAM_REQUEST_CODE, 0);
         this.f = intent.getIntExtra("max_size", 750);
         this.g = intent.getIntExtra("display_size", 0);
-        TiebaApplication.g().a((com.baidu.tieba.j) null);
-        if (!f2320a) {
+        TiebaApplication.h().a((com.baidu.tieba.j) null);
+        if (!f2437a) {
             this.d = new p(this, this.b, this.c);
             this.d.execute(new Object[0]);
             return;

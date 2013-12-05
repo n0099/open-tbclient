@@ -33,7 +33,7 @@ public class ao implements Weixin.IWXResponseHandler {
             if (TextUtils.isEmpty(str2)) {
                 return;
             }
-            str4 = WeixinShareActivity.f872a;
+            str4 = WeixinShareActivity.f877a;
             Log.e(str4, "no listener for this transaction: " + str2);
         } else if (i != 0) {
             if (i == -2) {
@@ -47,7 +47,7 @@ public class ao implements Weixin.IWXResponseHandler {
                 SocialShareStatisticsManager.getInstance(this.f360a).statistics(MediaType.WEIXIN, b);
                 return;
             }
-            str3 = WeixinShareActivity.f872a;
+            str3 = WeixinShareActivity.f877a;
             Log.e(str3, "no sharecontent get so no statis");
         }
     }

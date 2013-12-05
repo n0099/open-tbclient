@@ -20,7 +20,7 @@ public final class BDLocationManager {
     private static int h = 2000;
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f680a;
+    private Context f685a;
     private c c;
     private String g;
     private Handler n;
@@ -75,7 +75,7 @@ public final class BDLocationManager {
                 if (cVar == null) {
                     cVar = new c();
                 }
-                cVar.f683a = System.currentTimeMillis();
+                cVar.f688a = System.currentTimeMillis();
                 cVar.b = bDLocation.getLongitude();
                 cVar.c = bDLocation.getLatitude();
                 cVar.d = 1000.0d;
@@ -140,9 +140,9 @@ public final class BDLocationManager {
     private BDLocationManager(Context context) {
         this.g = null;
         this.n = null;
-        this.f680a = context.getApplicationContext();
+        this.f685a = context.getApplicationContext();
         this.g = com.baidu.android.moplus.util.b.b(context, context.getPackageName(), "LocServiceName");
-        if (a(this.f680a)) {
+        if (a(this.f685a)) {
             e();
         }
         this.n = new Handler(context.getMainLooper());
@@ -161,7 +161,7 @@ public final class BDLocationManager {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(double d) {
         if (d > 0.0d) {
-            SharedPreferences.Editor edit = PreferenceManager.getDefaultSharedPreferences(this.f680a).edit();
+            SharedPreferences.Editor edit = PreferenceManager.getDefaultSharedPreferences(this.f685a).edit();
             edit.putString("rcd_key_lclong", String.valueOf(d));
             edit.commit();
         }
@@ -189,7 +189,7 @@ public final class BDLocationManager {
             str2 = com.baidu.android.systemmonitor.security.a.a(str);
         } catch (Exception e) {
         }
-        SharedPreferences.Editor edit = PreferenceManager.getDefaultSharedPreferences(this.f680a).edit();
+        SharedPreferences.Editor edit = PreferenceManager.getDefaultSharedPreferences(this.f685a).edit();
         edit.putString("rcd_key_lcaddr", str2);
         edit.commit();
     }
@@ -231,7 +231,7 @@ public final class BDLocationManager {
     /* JADX INFO: Access modifiers changed from: private */
     public void b(double d) {
         if (d > 0.0d) {
-            SharedPreferences.Editor edit = PreferenceManager.getDefaultSharedPreferences(this.f680a).edit();
+            SharedPreferences.Editor edit = PreferenceManager.getDefaultSharedPreferences(this.f685a).edit();
             edit.putString("rcd_key_lclat", String.valueOf(d));
             edit.commit();
         }
@@ -263,7 +263,7 @@ public final class BDLocationManager {
     }
 
     private void e() {
-        this.d = new LocationClient(this.f680a);
+        this.d = new LocationClient(this.f685a);
         this.e = new BaiduLocationListener();
         this.d.registerLocationListener(this.e);
         this.d.setLocOption(f());
@@ -310,7 +310,7 @@ public final class BDLocationManager {
         c cVar = this.c;
         if (cVar != null) {
             long currentTimeMillis = System.currentTimeMillis();
-            j = cVar.f683a;
+            j = cVar.f688a;
             if (currentTimeMillis - j > h) {
                 return null;
             }

@@ -9,13 +9,13 @@ import org.json.JSONArray;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private ArrayList<h> f982a;
+    private ArrayList<h> f988a;
     private int b;
     private ArrayList<c> c;
     private Context d;
 
     public a(Context context, String str) {
-        this.f982a = null;
+        this.f988a = null;
         this.b = 0;
         this.c = null;
         this.d = null;
@@ -23,7 +23,7 @@ public class a {
     }
 
     public a(Context context, JSONArray jSONArray, int i) {
-        this.f982a = null;
+        this.f988a = null;
         this.b = 0;
         this.c = null;
         this.d = null;
@@ -31,7 +31,7 @@ public class a {
     }
 
     public a(Context context, JSONArray jSONArray, boolean z) {
-        this.f982a = null;
+        this.f988a = null;
         this.b = 0;
         this.c = null;
         this.d = null;
@@ -44,7 +44,7 @@ public class a {
     }
 
     public a(Context context, ArrayList<c> arrayList) {
-        this.f982a = null;
+        this.f988a = null;
         this.b = 0;
         this.c = null;
         this.d = null;
@@ -56,25 +56,25 @@ public class a {
         try {
             return new JSONArray(str);
         } catch (Exception e) {
-            com.baidu.adp.lib.h.d.a(e.getMessage());
+            com.baidu.adp.lib.h.e.a(e.getMessage());
             return null;
         }
     }
 
     private void a(JSONArray jSONArray, int i, boolean z) {
         if (jSONArray != null) {
-            this.f982a = new ArrayList<>();
+            this.f988a = new ArrayList<>();
             int length = jSONArray.length();
             for (int i2 = 0; i2 < length; i2++) {
                 h hVar = new h();
                 hVar.a(jSONArray.optJSONObject(i2));
                 if ((hVar.a() & i) != 0) {
-                    this.f982a.add(hVar);
+                    this.f988a.add(hVar);
                 }
             }
             this.c = new ArrayList<>();
             this.b = 0;
-            Iterator<h> it = this.f982a.iterator();
+            Iterator<h> it = this.f988a.iterator();
             c cVar = null;
             while (it.hasNext()) {
                 h next = it.next();
@@ -120,8 +120,8 @@ public class a {
             if (cVar != null) {
                 this.c.add(cVar);
             }
-            this.f982a.clear();
-            this.f982a = null;
+            this.f988a.clear();
+            this.f988a = null;
         }
     }
 

@@ -1,11 +1,12 @@
 package com.baidu.adp.lib.webSocket;
 /* loaded from: classes.dex */
-public class af extends z {
+public class af extends aa {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f525a;
+    public byte[] f526a;
 
-    public af(boolean z) {
-        this.f525a = z;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public af(byte[] bArr) {
+        this.f526a = bArr;
     }
 }

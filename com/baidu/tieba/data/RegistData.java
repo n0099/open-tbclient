@@ -26,7 +26,7 @@ public class RegistData implements Serializable {
 
     public void setPsw(String str) {
         if (str != null) {
-            str = com.baidu.tieba.util.be.b(str.getBytes());
+            str = com.baidu.tieba.util.bb.b(str.getBytes());
         }
         this.psw = str;
     }

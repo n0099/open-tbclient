@@ -1,23 +1,12 @@
 package com.baidu.tieba.im.b;
 
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.tieba.view.HeadImageView;
+import com.baidu.tieba.im.message.Message;
+import java.util.List;
 /* loaded from: classes.dex */
-class b {
+public interface b<T> {
+    List<Message> a(byte[] bArr, boolean z, int i, int i2);
 
-    /* renamed from: a  reason: collision with root package name */
-    LinearLayout f1466a;
-    LinearLayout b;
-    HeadImageView c;
-    TextView d;
-    TextView e;
-    TextView f;
-    TextView g;
-    TextView h;
-    ImageView i;
-    ImageView j;
-    ImageView k;
-    ImageView[] l;
+    void a(int i, n<T> nVar);
+
+    byte[] a(Message message);
 }

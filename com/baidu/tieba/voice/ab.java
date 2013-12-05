@@ -14,11 +14,11 @@ import com.slidingmenu.lib.R;
 public class ab extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ VoiceManager f2599a;
+    final /* synthetic */ VoiceManager f2717a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(VoiceManager voiceManager) {
-        this.f2599a = voiceManager;
+        this.f2717a = voiceManager;
     }
 
     @Override // android.content.BroadcastReceiver
@@ -52,26 +52,26 @@ public class ab extends BroadcastReceiver {
         VoiceManager.VoiceModel voiceModel14;
         Handler handler5;
         Runnable runnable;
-        voiceModel = this.f2599a.v;
+        voiceModel = this.f2717a.v;
         if (voiceModel != null && intent != null) {
             String action = intent.getAction();
             if (action.equals("com.baidu.isPlaying")) {
-                this.f2599a.t();
+                this.f2717a.t();
                 if (intent.getBooleanExtra("com.baidu.msg.isPlaying", false)) {
-                    voiceModel12 = this.f2599a.v;
+                    voiceModel12 = this.f2717a.v;
                     if (voiceModel12 != null) {
-                        handler4 = this.f2599a.p;
+                        handler4 = this.f2717a.p;
                         if (handler4 != null) {
-                            handler5 = this.f2599a.p;
-                            runnable = this.f2599a.O;
+                            handler5 = this.f2717a.p;
+                            runnable = this.f2717a.O;
                             handler5.removeCallbacks(runnable);
                         }
                         try {
-                            voiceModel13 = this.f2599a.v;
+                            voiceModel13 = this.f2717a.v;
                             voiceModel13.voice_status = 3;
-                            m5 = this.f2599a.m();
+                            m5 = this.f2717a.m();
                             if (m5 != null) {
-                                voiceModel14 = this.f2599a.v;
+                                voiceModel14 = this.f2717a.v;
                                 m5.a(voiceModel14);
                             }
                         } catch (Exception e) {
@@ -81,49 +81,49 @@ public class ab extends BroadcastReceiver {
                 }
             } else if (action.equals("com.baidu.playElapsedTime")) {
                 int intExtra = intent.getIntExtra("com.baidu.msg.playElapsedTime", 0);
-                m4 = this.f2599a.m();
+                m4 = this.f2717a.m();
                 if (m4 != null) {
                     m4.c(intExtra);
                 }
-                voiceModel10 = this.f2599a.v;
+                voiceModel10 = this.f2717a.v;
                 if (voiceModel10 != null) {
-                    voiceModel11 = this.f2599a.v;
+                    voiceModel11 = this.f2717a.v;
                     voiceModel11.elapse = intExtra;
                 }
             } else if (action.equals("com.baidu.isStoped")) {
-                m3 = this.f2599a.m();
-                voiceModel8 = this.f2599a.v;
+                m3 = this.f2717a.m();
+                voiceModel8 = this.f2717a.v;
                 if (voiceModel8 != null) {
-                    z = this.f2599a.M;
+                    z = this.f2717a.M;
                     if (!z) {
-                        this.f2599a.q();
-                        VoiceManager voiceManager = this.f2599a;
-                        voiceModel9 = this.f2599a.v;
+                        this.f2717a.q();
+                        VoiceManager voiceManager = this.f2717a;
+                        voiceModel9 = this.f2717a.v;
                         voiceManager.b(voiceModel9);
-                        this.f2599a.y = null;
+                        this.f2717a.y = null;
                     }
-                    this.f2599a.v = null;
-                    z2 = this.f2599a.M;
+                    this.f2717a.v = null;
+                    z2 = this.f2717a.M;
                     if (z2 && m3 != null) {
                         VoiceManager.VoiceModel voiceModel15 = m3.getVoiceModel();
                         if (voiceModel15 != null) {
                             voiceModel15.curr_time = intent.getIntExtra("com.baidu.msg.curr_time", 0);
                         }
-                        handler = this.f2599a.p;
+                        handler = this.f2717a.p;
                         if (handler != null) {
-                            handler2 = this.f2599a.p;
-                            handler2.removeCallbacks(this.f2599a.j);
-                            handler3 = this.f2599a.p;
-                            handler3.postDelayed(this.f2599a.j, 200L);
+                            handler2 = this.f2717a.p;
+                            handler2.removeCallbacks(this.f2717a.j);
+                            handler3 = this.f2717a.p;
+                            handler3.postDelayed(this.f2717a.j, 200L);
                         }
                     }
                 }
             } else if (action.equals("com.baidu.playPrepared")) {
                 int intExtra2 = intent.getIntExtra("com.baidu.playPrepared_err_code", -1);
                 if (intExtra2 == -1) {
-                    voiceModel4 = this.f2599a.v;
+                    voiceModel4 = this.f2717a.v;
                     if (voiceModel4 != null) {
-                        voiceModel7 = this.f2599a.v;
+                        voiceModel7 = this.f2717a.v;
                         j = voiceModel7.duration * LocationClientOption.MIN_SCAN_SPAN;
                     } else {
                         j = 0;
@@ -131,20 +131,20 @@ public class ab extends BroadcastReceiver {
                     long longExtra = intent.getLongExtra("com.baidu.msg.durationTime2", j);
                     Log.d("testVoice", "duration_msec=" + longExtra);
                     if (longExtra > 900) {
-                        voiceModel5 = this.f2599a.v;
+                        voiceModel5 = this.f2717a.v;
                         if (voiceModel5 != null) {
-                            voiceModel6 = this.f2599a.v;
+                            voiceModel6 = this.f2717a.v;
                             voiceModel6.duration2 = (int) longExtra;
                         }
                     }
-                    m2 = this.f2599a.m();
+                    m2 = this.f2717a.m();
                     if (m2 != null) {
                         m2.b();
                     }
                     MediaService.startPlay(context);
                     return;
                 }
-                m = this.f2599a.m();
+                m = this.f2717a.m();
                 if (m != null) {
                     if (intExtra2 == 2) {
                         a2 = ak.a(R.string.voice_err_io);
@@ -153,12 +153,12 @@ public class ab extends BroadcastReceiver {
                     }
                     m.b(5, a2);
                 }
-                voiceModel2 = this.f2599a.v;
+                voiceModel2 = this.f2717a.v;
                 if (voiceModel2 != null) {
-                    VoiceManager voiceManager2 = this.f2599a;
-                    voiceModel3 = this.f2599a.v;
+                    VoiceManager voiceManager2 = this.f2717a;
+                    voiceModel3 = this.f2717a.v;
                     voiceManager2.b(voiceModel3);
-                    this.f2599a.v = null;
+                    this.f2717a.v = null;
                 }
             } else {
                 if (action.equalsIgnoreCase("com.baidu.recognize")) {

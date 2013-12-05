@@ -1,6 +1,5 @@
 package com.baidu.tieba.data;
 
-import com.baidu.tieba.util.bg;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -18,7 +17,7 @@ public class BannerData extends b implements Serializable {
                 this.mUrl = jSONObject.optString("message_url", null);
                 this.mResultUrl = jSONObject.optString("dest_url", null);
             } catch (Exception e) {
-                bg.a(e.getMessage());
+                com.baidu.tieba.util.bd.a(e.getMessage());
             }
         }
     }

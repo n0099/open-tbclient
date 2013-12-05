@@ -1,48 +1,34 @@
 package com.baidu.adp.lib.h;
 
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.util.zip.GZIPInputStream;
-import java.util.zip.GZIPOutputStream;
+import android.content.ActivityNotFoundException;
+import android.content.Context;
+import android.content.Intent;
 /* loaded from: classes.dex */
 public class c {
-    public static void a(InputStream inputStream, OutputStream outputStream) {
-        GZIPInputStream gZIPInputStream = new GZIPInputStream(inputStream);
-        byte[] bArr = new byte[1024];
-        while (true) {
-            int read = gZIPInputStream.read(bArr, 0, 1024);
-            if (read != -1) {
-                outputStream.write(bArr, 0, read);
-            } else {
-                gZIPInputStream.close();
-                return;
-            }
-        }
+
+    /* renamed from: a  reason: collision with root package name */
+    Context f503a;
+
+    public c(Context context) {
+        a(context);
     }
 
-    public static void b(InputStream inputStream, OutputStream outputStream) {
-        GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(outputStream);
-        byte[] bArr = new byte[1024];
-        while (true) {
-            int read = inputStream.read(bArr, 0, 1024);
-            if (read != -1) {
-                gZIPOutputStream.write(bArr, 0, read);
-            } else {
-                gZIPOutputStream.flush();
-                gZIPOutputStream.finish();
-                gZIPOutputStream.close();
-                return;
-            }
-        }
+    private void a(Context context) {
+        this.f503a = context;
     }
 
-    public static void a(byte[] bArr, OutputStream outputStream) {
-        if (bArr != null && bArr.length != 0) {
-            GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(outputStream);
-            gZIPOutputStream.write(bArr, 0, bArr.length);
-            gZIPOutputStream.flush();
-            gZIPOutputStream.finish();
-            gZIPOutputStream.close();
+    public void a() {
+        Intent intent = new Intent();
+        intent.setAction("android.settings.LOCATION_SOURCE_SETTINGS");
+        intent.setFlags(268435456);
+        try {
+            this.f503a.startActivity(intent);
+        } catch (ActivityNotFoundException e) {
+            intent.setAction("android.settings.SETTINGS");
+            try {
+                this.f503a.startActivity(intent);
+            } catch (Exception e2) {
+            }
         }
     }
 }

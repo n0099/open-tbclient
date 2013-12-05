@@ -6,19 +6,17 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tieba.BaseFragmentActivity;
-import com.baidu.tieba.util.UtilHelper;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class NavigationBar extends RelativeLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f2526a;
+    private boolean f2640a;
     private LinearLayout b;
     private LinearLayout c;
     private LinearLayout d;
@@ -49,28 +47,28 @@ public class NavigationBar extends RelativeLayout {
 
     public NavigationBar(Context context) {
         super(context);
-        this.f2526a = true;
+        this.f2640a = true;
         this.i = 0;
         this.j = 0;
-        this.k = new av(this);
+        this.k = new aw(this);
         a(context);
     }
 
     public NavigationBar(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f2526a = true;
+        this.f2640a = true;
         this.i = 0;
         this.j = 0;
-        this.k = new av(this);
+        this.k = new aw(this);
         a(context);
     }
 
     public NavigationBar(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f2526a = true;
+        this.f2640a = true;
         this.i = 0;
         this.j = 0;
-        this.k = new av(this);
+        this.k = new aw(this);
         a(context);
     }
 
@@ -88,7 +86,7 @@ public class NavigationBar extends RelativeLayout {
     }
 
     private void a() {
-        setPadding(UtilHelper.a(this.f, getResources().getDimension(R.dimen.navi_padding_left)), UtilHelper.a(this.f, getResources().getDimension(R.dimen.navi_padding_top)), UtilHelper.a(this.f, getResources().getDimension(R.dimen.navi_padding_right)), UtilHelper.a(this.f, getResources().getDimension(R.dimen.navi_padding_bottom)));
+        setPadding(com.baidu.adp.lib.h.g.a(this.f, getResources().getDimension(R.dimen.navi_padding_left)), com.baidu.adp.lib.h.g.a(this.f, getResources().getDimension(R.dimen.navi_padding_top)), com.baidu.adp.lib.h.g.a(this.f, getResources().getDimension(R.dimen.navi_padding_right)), com.baidu.adp.lib.h.g.a(this.f, getResources().getDimension(R.dimen.navi_padding_bottom)));
     }
 
     @Override // android.widget.RelativeLayout, android.view.View
@@ -154,26 +152,16 @@ public class NavigationBar extends RelativeLayout {
         return a(controlAlign, str, (View.OnClickListener) null);
     }
 
-    public Button b(ControlAlign controlAlign, String str) {
-        Button button = (Button) b(R.layout.widget_nb_item_stepbtn);
-        button.setText(str);
-        if (ControlAlign.HORIZONTAL_RIGHT == controlAlign) {
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -1);
-            int dimension = (int) getResources().getDimension(R.dimen.navi_btn_margin_right);
-            layoutParams.setMargins(0, dimension, dimension, dimension);
-            button.setLayoutParams(layoutParams);
-        }
-        a(controlAlign).addView(button);
-        return button;
-    }
-
     public void setSystemClickable(boolean z) {
-        this.f2526a = z;
+        this.f2640a = z;
     }
 
     public TextView a(ControlAlign controlAlign, String str, View.OnClickListener onClickListener) {
         TextView textView = (TextView) b(R.layout.widget_nb_item_textbtn);
         textView.setText(str);
+        if (str != null && str.length() > 3 && textView.getTextSize() > 2.0f) {
+            textView.setTextSize(0, textView.getTextSize() - 4.0f);
+        }
         if (ControlAlign.HORIZONTAL_RIGHT == controlAlign) {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -1);
             int dimension = (int) getResources().getDimension(R.dimen.navi_btn_margin_right);

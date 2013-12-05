@@ -7,26 +7,26 @@ import com.baidu.tieba.im.message.ResponsedMessage;
 public abstract class d extends SingleRunnable<ResponsedMessage> {
 
     /* renamed from: a  reason: collision with root package name */
-    private Message f1720a = null;
+    private Message f1794a = null;
 
-    public abstract ResponsedMessage b(Message message);
+    public abstract ResponsedMessage a(Message message);
 
     public Message a() {
-        return this.f1720a;
+        return this.f1794a;
     }
 
-    public void a(Message message) {
-        this.f1720a = message;
+    public void b(Message message) {
+        this.f1794a = message;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.SingleRunnable
     /* renamed from: c */
     public ResponsedMessage b() {
-        ResponsedMessage b = b(a());
-        if (b != null) {
-            b.setOrginalMessage(this.f1720a);
+        ResponsedMessage a2 = a(a());
+        if (a2 != null) {
+            a2.setOrginalMessage(this.f1794a);
         }
-        return b;
+        return a2;
     }
 }

@@ -11,7 +11,6 @@ import android.os.Build;
 import android.util.AttributeSet;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.UtilHelper;
 /* loaded from: classes.dex */
 public class HeadImageView extends TbImageView {
     private int b;
@@ -52,12 +51,12 @@ public class HeadImageView extends TbImageView {
         this.p = 0;
         this.q = 0;
         this.r = false;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.baidu.tieba.aq.HeadImageView);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.baidu.tieba.au.HeadImageView);
         this.k = obtainStyledAttributes.getFloat(0, -1.0f);
         obtainStyledAttributes.recycle();
-        this.j = UtilHelper.a(context, 5.0f);
+        this.j = com.baidu.adp.lib.h.g.a(context, 5.0f);
         this.p = this.j;
-        this.q = UtilHelper.a(context, 200.0f);
+        this.q = com.baidu.adp.lib.h.g.a(context, 200.0f);
         this.g = new RectF();
         this.h = new RectF();
         this.i = (int) ((getResources().getDisplayMetrics().density * 1.0f) + 0.5d);
@@ -69,7 +68,7 @@ public class HeadImageView extends TbImageView {
         this.f = new Paint();
         this.f.setColor(1275068416);
         this.f.setAntiAlias(true);
-        TypedArray obtainStyledAttributes2 = context.obtainStyledAttributes(attributeSet, com.baidu.tieba.aq.HeadImageView);
+        TypedArray obtainStyledAttributes2 = context.obtainStyledAttributes(attributeSet, com.baidu.tieba.au.HeadImageView);
         this.n = obtainStyledAttributes2.getBoolean(1, true);
         if (this.n) {
             setIsRound(this.o);
@@ -138,10 +137,10 @@ public class HeadImageView extends TbImageView {
             this.l = false;
             return;
         }
-        if (Build.VERSION.SDK_INT < 11 && getMeasuredWidth() > com.baidu.adp.lib.h.f.a(getContext(), 100.0f)) {
-            setImageDrawable(new com.baidu.adp.widget.v(getResources(), null, this, bitmap, this.j, null));
-        } else {
+        if (Build.VERSION.SDK_INT < 11 && getMeasuredWidth() > com.baidu.adp.lib.h.g.a(getContext(), 100.0f)) {
             setImageDrawable(new com.baidu.adp.widget.w(getResources(), null, this, bitmap, this.j, null));
+        } else {
+            setImageDrawable(new com.baidu.adp.widget.x(getResources(), null, this, bitmap, this.j, null));
         }
         this.l = true;
     }
@@ -156,7 +155,7 @@ public class HeadImageView extends TbImageView {
 
     public void d() {
         if (this.l) {
-            if (this.b != TiebaApplication.g().ap()) {
+            if (this.b != TiebaApplication.h().an()) {
                 invalidate();
             }
         }
@@ -167,14 +166,14 @@ public class HeadImageView extends TbImageView {
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         if (this.l) {
-            int ap = TiebaApplication.g().ap();
+            int an = TiebaApplication.h().an();
             if (e()) {
                 canvas.drawRoundRect(this.g, this.j, this.j, this.e);
-                if (this.r && ap == 1) {
+                if (this.r && an == 1) {
                     canvas.drawRoundRect(this.h, this.j, this.j, this.f);
                 }
             }
-            this.b = ap;
+            this.b = an;
         }
     }
 
@@ -196,8 +195,8 @@ public class HeadImageView extends TbImageView {
             this.j = this.p;
             setRadius(this.j);
         }
-        if (this.l && (drawable = getDrawable()) != null && (drawable instanceof com.baidu.adp.widget.w)) {
-            ((com.baidu.adp.widget.w) drawable).a(this.j);
+        if (this.l && (drawable = getDrawable()) != null && (drawable instanceof com.baidu.adp.widget.x)) {
+            ((com.baidu.adp.widget.x) drawable).a(this.j);
         }
     }
 }

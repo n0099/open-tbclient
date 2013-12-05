@@ -1,27 +1,31 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.TiebaApplication;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.im.message.Message;
+import com.baidu.tieba.im.message.ResponseReportGroupMessage;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class t extends BdAsyncTask<Void, Void, Void> {
+public class t implements com.baidu.tieba.im.messageCenter.g {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ boolean f1553a;
-    final /* synthetic */ s b;
+    final /* synthetic */ GroupSettingActivity f1606a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public t(s sVar, boolean z) {
-        this.b = sVar;
-        this.f1553a = z;
+    public t(GroupSettingActivity groupSettingActivity) {
+        this.f1606a = groupSettingActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public Void a(Void... voidArr) {
-        com.baidu.tieba.im.groupInfo.v.b(TiebaApplication.A(), this.b.c(), this.f1553a);
-        com.baidu.tieba.im.pushNotify.a.g().a(this.b.c());
-        return null;
+    @Override // com.baidu.tieba.im.messageCenter.g
+    public void a(Message message) {
+        if (message != null && message.getCmd() == 103103) {
+            if (!(message instanceof ResponseReportGroupMessage)) {
+                this.f1606a.showToast(R.string.group_report_fail);
+                return;
+            }
+            ResponseReportGroupMessage responseReportGroupMessage = (ResponseReportGroupMessage) message;
+            if (responseReportGroupMessage.hasError()) {
+                this.f1606a.a(responseReportGroupMessage.getErrMsg(), responseReportGroupMessage.getErrNo());
+            } else {
+                this.f1606a.showToast(R.string.group_report_success);
+            }
+        }
     }
 }

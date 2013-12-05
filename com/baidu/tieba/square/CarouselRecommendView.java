@@ -10,16 +10,16 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import com.baidu.adp.widget.IndicatorView;
-import com.baidu.tieba.util.UtilHelper;
 import com.baidu.tieba.view.HeadImageView;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes.dex */
 public class CarouselRecommendView extends FrameLayout {
     private static int l = 5000;
 
     /* renamed from: a  reason: collision with root package name */
-    public View.OnTouchListener f2348a;
+    public View.OnTouchListener f2465a;
     private Context b;
     private ViewPager c;
     private IndicatorView d;
@@ -48,16 +48,16 @@ public class CarouselRecommendView extends FrameLayout {
         this.h = 0.3043478f;
         this.m = new ArrayList<>();
         this.n = new v(this);
-        this.f2348a = new w(this);
+        this.f2465a = new w(this);
         this.b = context;
         ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(R.layout.carousel_topics_recommend, (ViewGroup) this, true);
         this.c = (ViewPager) findViewById(R.id.carousel_pager);
         this.d = (IndicatorView) findViewById(R.id.carousel_indicator);
-        this.c.setOnTouchListener(this.f2348a);
+        this.c.setOnTouchListener(this.f2465a);
         this.j = context.getResources().getDimensionPixelSize(R.dimen.square_caroucel_paddingTop);
         this.i = context.getResources().getDimensionPixelSize(R.dimen.square_caroucel_paddingBottom);
         this.k = context.getResources().getDimensionPixelSize(R.dimen.square_page_padding);
-        this.f = UtilHelper.a(context) - (this.k * 2);
+        this.f = com.baidu.adp.lib.h.g.b(context) - (this.k * 2);
         this.g = (int) (0.5f + (this.f * this.h));
         ViewGroup.LayoutParams layoutParams = this.c.getLayoutParams();
         layoutParams.width = this.f;
@@ -96,6 +96,12 @@ public class CarouselRecommendView extends FrameLayout {
         return true;
     }
 
+    public void a(int i) {
+        if (this.e != null) {
+            this.e.a(i);
+        }
+    }
+
     public void a() {
         this.n.removeMessages(0);
         this.n.sendEmptyMessageDelayed(0, l);
@@ -110,7 +116,7 @@ public class CarouselRecommendView extends FrameLayout {
     }
 
     /* loaded from: classes.dex */
-    public class CarouselRecommendPagerAdapter extends android.support.v4.view.ae implements com.baidu.tbadk.imageManager.c, com.baidu.tieba.view.ah {
+    public class CarouselRecommendPagerAdapter extends android.support.v4.view.ae implements com.baidu.tbadk.imageManager.c, com.baidu.tieba.view.ai {
         private Context f;
         private com.baidu.tieba.util.i g;
         private int h;
@@ -122,7 +128,7 @@ public class CarouselRecommendView extends FrameLayout {
         private ArrayList<View> e = new ArrayList<>();
 
         /* renamed from: a  reason: collision with root package name */
-        public ArrayList<HeadImageView> f2349a = new ArrayList<>();
+        public ArrayList<HeadImageView> f2466a = new ArrayList<>();
         private float j = 0.46875f;
 
         public CarouselRecommendPagerAdapter(Context context) {
@@ -134,7 +140,7 @@ public class CarouselRecommendView extends FrameLayout {
             this.f = context;
             this.k = LayoutInflater.from(context);
             this.g = new com.baidu.tieba.util.i(context);
-            this.h = UtilHelper.a(context);
+            this.h = com.baidu.adp.lib.h.g.b(context);
             this.i = (int) (0.5f + (this.h * this.j));
             this.g.a(this.h, this.i);
         }
@@ -143,7 +149,7 @@ public class CarouselRecommendView extends FrameLayout {
             headImageView.setTag(auVar.a());
             headImageView.setLayoutParams(new ViewGroup.LayoutParams(this.h, this.i));
             headImageView.setOnClickListener(new x(this, auVar, i));
-            this.f2349a.add(headImageView);
+            this.f2466a.add(headImageView);
         }
 
         public void a(ArrayList<au> arrayList) {
@@ -178,6 +184,15 @@ public class CarouselRecommendView extends FrameLayout {
             return view;
         }
 
+        public void a(int i) {
+            if (this.f2466a != null && this.f2466a.size() > 0) {
+                Iterator<HeadImageView> it = this.f2466a.iterator();
+                while (it.hasNext()) {
+                    it.next().invalidate();
+                }
+            }
+        }
+
         @Override // android.support.v4.view.ae
         public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
             viewGroup.removeView((View) obj);
@@ -195,14 +210,14 @@ public class CarouselRecommendView extends FrameLayout {
             notifyDataSetChanged();
         }
 
-        @Override // com.baidu.tieba.view.ah
+        @Override // com.baidu.tieba.view.ai
         public void d() {
             if (this.g != null) {
                 this.g.b();
             }
         }
 
-        @Override // com.baidu.tieba.view.ah
+        @Override // com.baidu.tieba.view.ai
         public void a(View view, int i, int i2) {
             this.l = view;
             if (this.g != null && this.c != null) {

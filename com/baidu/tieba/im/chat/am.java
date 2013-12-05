@@ -1,20 +1,36 @@
 package com.baidu.tieba.im.chat;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
+import android.text.TextUtils;
+import android.text.method.LinkMovementMethod;
+import android.widget.TextView;
+import com.baidu.tieba.im.message.ChatMessage;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class am implements View.OnClickListener {
+public class am extends com.baidu.adp.a.c<ChatMessage> {
+    private TextView c;
 
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ak f1497a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public am(ak akVar) {
-        this.f1497a = akVar;
+    public am(Context context) {
+        super(context, R.layout.msg_msgmid_view);
+        this.c = null;
+        e();
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.f1497a.c.a(view, 4, this.f1497a.f, 0L);
+    private void e() {
+        this.c = (TextView) a(R.id.tex_msgcontent);
+        this.c.setMovementMethod(LinkMovementMethod.getInstance());
+    }
+
+    public void a(ChatMessage chatMessage) {
+        if (chatMessage == null) {
+            this.c.setText((CharSequence) null);
+            return;
+        }
+        String f = com.baidu.tieba.im.e.d.f(chatMessage);
+        if (!TextUtils.isEmpty(f)) {
+            this.c.setText(f);
+        } else {
+            this.c.setText((CharSequence) null);
+        }
     }
 }

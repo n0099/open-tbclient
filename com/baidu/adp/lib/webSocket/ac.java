@@ -1,11 +1,16 @@
 package com.baidu.adp.lib.webSocket;
 /* loaded from: classes.dex */
-public class ac extends z {
+public class ac extends aa {
 
     /* renamed from: a  reason: collision with root package name */
-    public WebSocketException f522a;
+    public byte[] f523a;
 
-    public ac(WebSocketException webSocketException) {
-        this.f522a = webSocketException;
+    ac() {
+        this.f523a = null;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ac(byte[] bArr) {
+        this.f523a = bArr;
     }
 }

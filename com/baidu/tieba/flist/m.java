@@ -8,13 +8,13 @@ import com.slidingmenu.lib.R;
 class m extends com.baidu.adp.a.g {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ForumInfoData[] f1260a;
+    final /* synthetic */ ForumInfoData[] f1307a;
     final /* synthetic */ ForumListActivity b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(ForumListActivity forumListActivity, ForumInfoData[] forumInfoDataArr) {
         this.b = forumListActivity;
-        this.f1260a = forumInfoDataArr;
+        this.f1307a = forumInfoDataArr;
     }
 
     @Override // com.baidu.adp.a.g
@@ -43,20 +43,20 @@ class m extends com.baidu.adp.a.g {
                 if (i == 0) {
                     sVar3 = this.b.D;
                     sVar3.notifyDataSetChanged();
-                    TiebaApplication g = TiebaApplication.g();
-                    ForumInfoData[] forumInfoDataArr = this.f1260a;
+                    TiebaApplication h = TiebaApplication.h();
+                    ForumInfoData[] forumInfoDataArr = this.f1307a;
                     sVar4 = this.b.D;
-                    g.e(forumInfoDataArr[sVar4.f1266a].forum_name);
+                    h.f(forumInfoDataArr[sVar4.f1313a].forum_name);
                     return;
                 }
                 i2 = this.b.p;
                 if (i2 == 1) {
                     sVar = this.b.E;
                     sVar.notifyDataSetChanged();
-                    TiebaApplication g2 = TiebaApplication.g();
-                    ForumInfoData[] forumInfoDataArr2 = this.f1260a;
+                    TiebaApplication h2 = TiebaApplication.h();
+                    ForumInfoData[] forumInfoDataArr2 = this.f1307a;
                     sVar2 = this.b.E;
-                    g2.e(forumInfoDataArr2[sVar2.f1266a].forum_name);
+                    h2.f(forumInfoDataArr2[sVar2.f1313a].forum_name);
                 }
             }
         }

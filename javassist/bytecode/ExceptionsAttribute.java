@@ -25,8 +25,8 @@ public class ExceptionsAttribute extends e {
     }
 
     private void a(ExceptionsAttribute exceptionsAttribute, Map map) {
-        y yVar = exceptionsAttribute.f2795a;
-        y yVar2 = this.f2795a;
+        y yVar = exceptionsAttribute.f2976a;
+        y yVar2 = this.f2976a;
         byte[] bArr = exceptionsAttribute.c;
         int length = bArr.length;
         byte[] bArr2 = new byte[length];
@@ -48,7 +48,7 @@ public class ExceptionsAttribute extends e {
         String[] strArr = new String[(length / 2) - 1];
         int i2 = 0;
         while (i < length) {
-            strArr[i2] = this.f2795a.d((bArr[i + 1] & 255) | ((bArr[i] & 255) << 8));
+            strArr[i2] = this.f2976a.d((bArr[i + 1] & 255) | ((bArr[i] & 255) << 8));
             i += 2;
             i2++;
         }
@@ -60,7 +60,7 @@ public class ExceptionsAttribute extends e {
         byte[] bArr = new byte[(length * 2) + 2];
         g.a(length, bArr, 0);
         for (int i = 0; i < length; i++) {
-            g.a(this.f2795a.a(strArr[i]), bArr, (i * 2) + 2);
+            g.a(this.f2976a.a(strArr[i]), bArr, (i * 2) + 2);
         }
         this.c = bArr;
     }

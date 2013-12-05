@@ -8,11 +8,11 @@ import com.slidingmenu.lib.R;
 public class ae implements RadioGroup.OnCheckedChangeListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MyPostActivity f2195a;
+    final /* synthetic */ MyPostActivity f2303a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ae(MyPostActivity myPostActivity) {
-        this.f2195a = myPostActivity;
+        this.f2303a = myPostActivity;
     }
 
     @Override // android.widget.RadioGroup.OnCheckedChangeListener
@@ -21,19 +21,19 @@ public class ae implements RadioGroup.OnCheckedChangeListener {
         int i2;
         String str2;
         switch (i) {
-            case R.id.all_tab /* 2131100587 */:
-                Intent intent = new Intent(this.f2195a, AllPostActivity.class);
-                str = this.f2195a.i;
+            case R.id.all_tab /* 2131100698 */:
+                Intent intent = new Intent(this.f2303a, AllPostActivity.class);
+                str = this.f2303a.i;
                 if (str != null) {
-                    str2 = this.f2195a.i;
+                    str2 = this.f2303a.i;
                     intent.putExtra("user", str2);
                 }
-                i2 = this.f2195a.j;
+                i2 = this.f2303a.j;
                 intent.putExtra("user_sex", i2);
-                this.f2195a.a("all", intent);
+                this.f2303a.a("all", intent);
                 return;
-            case R.id.thread_tab /* 2131100588 */:
-            case R.id.reply_tab /* 2131100589 */:
+            case R.id.thread_tab /* 2131100699 */:
+            case R.id.reply_tab /* 2131100700 */:
             default:
                 return;
         }

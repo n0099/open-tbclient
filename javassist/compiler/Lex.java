@@ -11,7 +11,7 @@ public class Lex implements j {
     private int h;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f2819a = -1;
+    private int f3000a = -1;
     private StringBuffer b = new StringBuffer();
     private i c = new i();
     private i d = null;
@@ -29,7 +29,7 @@ public class Lex implements j {
         }
         i iVar = this.d;
         this.c = iVar;
-        this.d = this.d.f2829a;
+        this.d = this.d.f3010a;
         return iVar.b;
     }
 
@@ -42,18 +42,18 @@ public class Lex implements j {
         if (iVar == null) {
             iVar = this.c;
             this.d = iVar;
-            iVar.f2829a = null;
+            iVar.f3010a = null;
             a(iVar);
         }
         while (true) {
             int i2 = i - 1;
             if (i > 0) {
-                if (iVar.f2829a == null) {
+                if (iVar.f3010a == null) {
                     i iVar2 = new i();
-                    iVar.f2829a = iVar2;
+                    iVar.f3010a = iVar2;
                     a(iVar2);
                 }
-                iVar = iVar.f2829a;
+                iVar = iVar.f3010a;
                 i = i2;
             } else {
                 this.c = iVar;
@@ -480,7 +480,7 @@ public class Lex implements j {
     }
 
     private void d(int i) {
-        this.f2819a = i;
+        this.f3000a = i;
     }
 
     public String f() {
@@ -496,7 +496,7 @@ public class Lex implements j {
     }
 
     private int i() {
-        if (this.f2819a < 0) {
+        if (this.f3000a < 0) {
             if (this.g < this.h) {
                 String str = this.e;
                 int i = this.g;
@@ -505,8 +505,8 @@ public class Lex implements j {
             }
             return -1;
         }
-        int i2 = this.f2819a;
-        this.f2819a = -1;
+        int i2 = this.f3000a;
+        this.f3000a = -1;
         return i2;
     }
 }

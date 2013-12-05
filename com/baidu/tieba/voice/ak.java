@@ -6,12 +6,12 @@ import com.baidu.tieba.TiebaApplication;
 public class ak {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String[] f2604a = new String[0];
+    private static final String[] f2722a = new String[0];
     private static final String[] b = {"meizu"};
 
     public static String a(int i) {
-        TiebaApplication g = TiebaApplication.g();
-        return g == null ? "" : g.getString(i);
+        TiebaApplication h = TiebaApplication.h();
+        return h == null ? "" : h.getString(i);
     }
 
     public static final boolean a() {
@@ -41,8 +41,8 @@ public class ak {
         if (str == null) {
             return true;
         }
-        for (int i = 0; i < f2604a.length; i++) {
-            if (f2604a[i].equals(str)) {
+        for (int i = 0; i < f2722a.length; i++) {
+            if (f2722a[i].equals(str)) {
                 return false;
             }
         }

@@ -6,13 +6,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import com.baidu.tieba.util.UtilHelper;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class j extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    protected Context f1233a;
+    protected Context f1280a;
     protected EditorToolButton b;
     protected EditorToolButton c;
     protected EditorToolButton d;
@@ -22,19 +21,19 @@ public class j extends a {
 
     public j(Context context) {
         super(context);
-        this.f1233a = context;
+        this.f1280a = context;
         d();
     }
 
     public j(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f1233a = context;
+        this.f1280a = context;
         d();
     }
 
     public j(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f1233a = context;
+        this.f1280a = context;
         d();
     }
 
@@ -43,8 +42,8 @@ public class j extends a {
         super.onLayout(z, i, i2, i3, i4);
         if (this.e.getTip() != null) {
             TextView tip = this.e.getTip();
-            int right = this.e.getRight() - UtilHelper.a(this.f1233a, 14.0f);
-            int top = this.e.getTop() - UtilHelper.a(this.f1233a, 2.0f);
+            int right = this.e.getRight() - com.baidu.adp.lib.h.g.a(this.f1280a, 14.0f);
+            int top = this.e.getTop() - com.baidu.adp.lib.h.g.a(this.f1280a, 2.0f);
             this.e.getTip().layout(right, top, tip.getMeasuredWidth() + right, tip.getMeasuredHeight() + top);
         }
     }
@@ -58,7 +57,7 @@ public class j extends a {
     }
 
     protected void e() {
-        LayoutInflater.from(this.f1233a).inflate(R.layout.editor_tool_button_container, (ViewGroup) this, true);
+        LayoutInflater.from(this.f1280a).inflate(R.layout.editor_tool_button_container, (ViewGroup) this, true);
     }
 
     public void setOnActionListener(h hVar) {

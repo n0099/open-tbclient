@@ -5,8 +5,8 @@ import android.widget.ProgressBar;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tieba.data.an;
 import com.baidu.tieba.model.bv;
-import com.baidu.tieba.util.ap;
-import com.baidu.tieba.util.bg;
+import com.baidu.tieba.util.am;
+import com.baidu.tieba.util.bd;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
@@ -15,17 +15,17 @@ import org.apache.http.message.BasicNameValuePair;
 public class aa extends BdAsyncTask<Object, Integer, an> {
 
     /* renamed from: a  reason: collision with root package name */
-    ArrayList<BasicNameValuePair> f1832a;
+    ArrayList<BasicNameValuePair> f1944a;
     final /* synthetic */ PostActivity b;
-    private ap c = null;
+    private am c = null;
     private String d;
 
     public aa(PostActivity postActivity, String str, ArrayList<BasicNameValuePair> arrayList) {
         this.b = postActivity;
         this.d = null;
-        this.f1832a = null;
+        this.f1944a = null;
         this.d = str;
-        this.f1832a = arrayList;
+        this.f1944a = arrayList;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -43,8 +43,8 @@ public class aa extends BdAsyncTask<Object, Integer, an> {
     public an a(Object... objArr) {
         an anVar = null;
         try {
-            this.c = new ap(this.d);
-            this.c.a(this.f1832a);
+            this.c = new am(this.d);
+            this.c.a(this.f1944a);
             String l = this.c.l();
             if (this.c.c()) {
                 an anVar2 = new an();
@@ -59,7 +59,7 @@ public class aa extends BdAsyncTask<Object, Integer, an> {
                 } catch (Exception e) {
                     anVar = anVar2;
                     e = e;
-                    bg.b("PostAsyncTask", "doInBackground", "error = " + e.getMessage());
+                    bd.b("PostAsyncTask", "doInBackground", "error = " + e.getMessage());
                     return anVar;
                 }
             }

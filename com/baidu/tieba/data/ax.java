@@ -1,6 +1,5 @@
 package com.baidu.tieba.data;
 
-import com.baidu.tieba.util.bg;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -8,7 +7,7 @@ import org.json.JSONObject;
 public class ax {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f1184a = false;
+    private boolean f1231a = false;
     private String b = null;
     private String c = null;
     private long d = 0;
@@ -23,10 +22,10 @@ public class ax {
     public void a(JSONObject jSONObject) {
         try {
             if (jSONObject == null) {
-                this.f1184a = false;
+                this.f1231a = false;
                 return;
             }
-            this.f1184a = true;
+            this.f1231a = true;
             JSONObject optJSONObject = jSONObject.optJSONObject("player_rank_info");
             if (optJSONObject != null) {
                 this.b = optJSONObject.optString("player_id", null);
@@ -52,7 +51,7 @@ public class ax {
                 }
             }
         } catch (Exception e) {
-            bg.b("SupperBoyData", "parserJson", "error = " + e.getMessage());
+            com.baidu.tieba.util.bd.b("SupperBoyData", "parserJson", "error = " + e.getMessage());
         }
     }
 

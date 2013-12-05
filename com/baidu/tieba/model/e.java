@@ -9,17 +9,17 @@ import org.json.JSONObject;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private ArrayList<ForumData> f1919a = new ArrayList<>();
+    private ArrayList<ForumData> f2031a = new ArrayList<>();
     private com.baidu.tieba.data.am b = new com.baidu.tieba.data.am();
     private Date c = null;
     private boolean d = true;
 
     public ArrayList<ForumData> a() {
-        return this.f1919a;
+        return this.f2031a;
     }
 
     public void a(ArrayList<ForumData> arrayList) {
-        this.f1919a = arrayList;
+        this.f2031a = arrayList;
     }
 
     public void a(String str) {
@@ -28,7 +28,7 @@ public class e {
                 a(new JSONObject(str));
             } catch (Exception e) {
                 this.d = false;
-                com.baidu.tieba.util.bg.b("BarlistModel", "parserJson", "error = " + e.getMessage());
+                com.baidu.tieba.util.bd.b("BarlistModel", "parserJson", "error = " + e.getMessage());
             }
         }
     }
@@ -40,7 +40,7 @@ public class e {
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     ForumData forumData = new ForumData();
                     forumData.parserJson(optJSONArray.getJSONObject(i));
-                    this.f1919a.add(forumData);
+                    this.f2031a.add(forumData);
                 }
             }
             this.b.a(jSONObject.optJSONObject("page"));
@@ -52,7 +52,7 @@ public class e {
             }
         } catch (Exception e) {
             this.d = false;
-            com.baidu.tieba.util.bg.b("BarlistModel", "parserJson", "error = " + e.getMessage());
+            com.baidu.tieba.util.bd.b("BarlistModel", "parserJson", "error = " + e.getMessage());
         }
     }
 }

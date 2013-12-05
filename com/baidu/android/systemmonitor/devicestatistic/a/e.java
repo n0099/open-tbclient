@@ -5,23 +5,23 @@ import android.database.Cursor;
 public class e extends c {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f810a;
+    public long f815a;
 
     public e(long j) {
         super(j);
-        this.f810a = 0L;
+        this.f815a = 0L;
         this.h = 1;
     }
 
     public e(Cursor cursor) {
         super(cursor);
-        this.f810a = 0L;
+        this.f815a = 0L;
         this.h = 1;
-        this.f810a = cursor.getLong(cursor.getColumnIndex("stopstamp"));
+        this.f815a = cursor.getLong(cursor.getColumnIndex("stopstamp"));
     }
 
     @Override // com.baidu.android.systemmonitor.devicestatistic.a.c
     public String toString() {
-        return "PowerEvent : startStamp" + this.g + " stopStamp =" + this.f810a;
+        return "PowerEvent : startStamp" + this.g + " stopStamp =" + this.f815a;
     }
 }

@@ -5,14 +5,14 @@ import javassist.bytecode.y;
 public class AnnotationMemberValue extends d {
 
     /* renamed from: a  reason: collision with root package name */
-    a f2759a;
+    a f2940a;
 
     public AnnotationMemberValue(a aVar, y yVar) {
         super('@', yVar);
-        this.f2759a = aVar;
+        this.f2940a = aVar;
     }
 
     public String toString() {
-        return this.f2759a.toString();
+        return this.f2940a.toString();
     }
 }

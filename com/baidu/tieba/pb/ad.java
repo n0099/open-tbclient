@@ -9,10 +9,10 @@ import com.baidu.cloudsdk.social.core.SocialConstants;
 public class ad extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ImagePbActivity f2044a;
+    final /* synthetic */ ImagePbActivity f2151a;
 
     private ad(ImagePbActivity imagePbActivity) {
-        this.f2044a = imagePbActivity;
+        this.f2151a = imagePbActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -25,17 +25,17 @@ public class ad extends BroadcastReceiver {
         ab abVar;
         int intExtra = intent.getIntExtra("index", -1);
         if (intExtra >= 0) {
-            this.f2044a.J = intExtra;
-            if (this.f2044a.G != null && intExtra + 5 >= this.f2044a.G.h().size() && this.f2044a.G.h().size() != this.f2044a.G.k()) {
-                abVar = this.f2044a.b;
+            this.f2151a.J = intExtra;
+            if (this.f2151a.G != null && intExtra + 5 >= this.f2151a.G.h().size() && this.f2151a.G.h().size() != this.f2151a.G.k()) {
+                abVar = this.f2151a.b;
                 if (abVar == null) {
-                    this.f2044a.a(this.f2044a.G.l(), 0, 10, false);
+                    this.f2151a.a(this.f2151a.G.l(), 0, 10, false);
                 }
             }
-        } else if (this.f2044a.J == 0 || (this.f2044a.J >= this.f2044a.G.k() - 1 && this.f2044a.G.h().size() == this.f2044a.G.k())) {
+        } else if (this.f2151a.J == 0 || (this.f2151a.J >= this.f2151a.G.k() - 1 && this.f2151a.G.h().size() == this.f2151a.G.k())) {
             int intExtra2 = intent.getIntExtra(SocialConstants.PARAM_STATE, -1);
-            this.f2044a.a(intExtra2);
-            com.baidu.tieba.util.bg.a(getClass().getName(), "find_bug_onReceive", "state=" + String.valueOf(intExtra2));
+            this.f2151a.a(intExtra2);
+            com.baidu.tieba.util.bd.a(getClass().getName(), "find_bug_onReceive", "state=" + String.valueOf(intExtra2));
         }
     }
 }

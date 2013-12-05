@@ -16,7 +16,7 @@ import java.util.Iterator;
 public class ShutDownValidateTipView extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private static ArrayList<ShutDownValidateTipView> f2533a = new ArrayList<>();
+    private static ArrayList<ShutDownValidateTipView> f2648a = new ArrayList<>();
     private static boolean f;
     private TextView b;
     private ImageView c;
@@ -24,7 +24,7 @@ public class ShutDownValidateTipView extends FrameLayout {
     private TextView e;
     private Context g;
     private boolean h;
-    private ArrayList<bf> i;
+    private ArrayList<bh> i;
 
     public ShutDownValidateTipView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
@@ -63,13 +63,13 @@ public class ShutDownValidateTipView extends FrameLayout {
         if (z != f) {
             f = z;
             if (f) {
-                Iterator<ShutDownValidateTipView> it = f2533a.iterator();
+                Iterator<ShutDownValidateTipView> it = f2648a.iterator();
                 while (it.hasNext()) {
                     it.next().setVisible(false);
                 }
                 return;
             }
-            Iterator<ShutDownValidateTipView> it2 = f2533a.iterator();
+            Iterator<ShutDownValidateTipView> it2 = f2648a.iterator();
             while (it2.hasNext()) {
                 it2.next().setVisible(true);
             }
@@ -83,7 +83,7 @@ public class ShutDownValidateTipView extends FrameLayout {
                 AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
                 alphaAnimation.setFillAfter(true);
                 alphaAnimation.setDuration(500L);
-                alphaAnimation.setAnimationListener(new bd(this));
+                alphaAnimation.setAnimationListener(new bf(this));
                 setVisibility(0);
                 startAnimation(alphaAnimation);
                 for (int i = 0; i < this.i.size(); i++) {
@@ -93,7 +93,7 @@ public class ShutDownValidateTipView extends FrameLayout {
                 AlphaAnimation alphaAnimation2 = new AlphaAnimation(1.0f, 0.0f);
                 alphaAnimation2.setFillAfter(true);
                 alphaAnimation2.setDuration(500L);
-                alphaAnimation2.setAnimationListener(new be(this));
+                alphaAnimation2.setAnimationListener(new bg(this));
                 startAnimation(alphaAnimation2);
                 for (int i2 = 0; i2 < this.i.size(); i2++) {
                     this.i.get(i2).a(true);
@@ -105,13 +105,13 @@ public class ShutDownValidateTipView extends FrameLayout {
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        f2533a.add(this);
+        f2648a.add(this);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        f2533a.remove(this);
+        f2648a.remove(this);
         this.i.clear();
     }
 

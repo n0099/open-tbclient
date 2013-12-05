@@ -1,26 +1,23 @@
 package com.baidu.tieba;
 
-import android.support.v4.view.bq;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class aa implements bq {
+public class aa implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ GuideActivity f1017a;
+    final /* synthetic */ FragmentTabWidget f1027a;
+    private final int b;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public aa(GuideActivity guideActivity) {
-        this.f1017a = guideActivity;
+    private aa(FragmentTabWidget fragmentTabWidget, int i) {
+        this.f1027a = fragmentTabWidget;
+        this.b = i;
     }
 
-    @Override // android.support.v4.view.bq
-    public void onPageSelected(int i) {
-    }
-
-    @Override // android.support.v4.view.bq
-    public void onPageScrollStateChanged(int i) {
-    }
-
-    @Override // android.support.v4.view.bq
-    public void onPageScrolled(int i, float f, int i2) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        z zVar;
+        zVar = this.f1027a.b;
+        zVar.a(this.b, true);
     }
 }

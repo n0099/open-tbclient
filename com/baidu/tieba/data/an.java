@@ -1,7 +1,6 @@
 package com.baidu.tieba.data;
 
 import android.content.Context;
-import com.baidu.tieba.util.bg;
 import com.baidu.zeus.Headers;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -12,7 +11,7 @@ public class an {
     private int i;
 
     /* renamed from: a  reason: collision with root package name */
-    private ForumData f1174a = new ForumData();
+    private ForumData f1221a = new ForumData();
     private az b = new az();
     private ArrayList<ar> c = new ArrayList<>();
     private am d = new am();
@@ -46,7 +45,7 @@ public class an {
     }
 
     public ForumData c() {
-        return this.f1174a;
+        return this.f1221a;
     }
 
     public az d() {
@@ -114,7 +113,7 @@ public class an {
         try {
             a(new JSONObject(str), context);
         } catch (Exception e) {
-            bg.b("PbData", "parserJson", "error = " + e.getMessage());
+            com.baidu.tieba.util.bd.b("PbData", "parserJson", "error = " + e.getMessage());
         }
     }
 
@@ -122,7 +121,7 @@ public class an {
         try {
             a(new JSONObject(str));
         } catch (Exception e) {
-            bg.b("PbData", "parserJson", "error = " + e.getMessage());
+            com.baidu.tieba.util.bd.b("PbData", "parserJson", "error = " + e.getMessage());
         }
     }
 
@@ -134,7 +133,7 @@ public class an {
         if (jSONObject != null) {
             try {
                 a(jSONObject.optInt("is_new_url", 0));
-                this.f1174a.parserJson(jSONObject.optJSONObject("forum"));
+                this.f1221a.parserJson(jSONObject.optJSONObject("forum"));
                 this.b.a(jSONObject.optJSONObject("thread"));
                 JSONArray optJSONArray = jSONObject.optJSONArray("post_list");
                 if (optJSONArray != null) {
@@ -151,7 +150,7 @@ public class an {
                 this.h = jSONObject.optJSONObject("user").optInt("is_manager", 0);
                 this.j.parserJson(jSONObject.optJSONObject("user"));
             } catch (Exception e) {
-                bg.b("PbData", "parserJson", "error = " + e.getMessage());
+                com.baidu.tieba.util.bd.b("PbData", "parserJson", "error = " + e.getMessage());
             }
         }
     }

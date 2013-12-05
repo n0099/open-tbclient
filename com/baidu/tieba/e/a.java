@@ -7,8 +7,8 @@ import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class a {
     private static boolean a(String str) {
-        String[] stringArray = TiebaApplication.g().getResources().getStringArray(R.array.voice_black_frs_list);
-        String string = TiebaApplication.g().getResources().getString(R.string.forum);
+        String[] stringArray = TiebaApplication.h().getResources().getStringArray(R.array.voice_black_frs_list);
+        String string = TiebaApplication.h().getResources().getString(R.string.forum);
         int length = stringArray.length;
         for (int i = 0; i < length; i++) {
             if (stringArray[i].equals(str) || str.equals(stringArray[i] + string)) {

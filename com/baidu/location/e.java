@@ -35,7 +35,7 @@ public class e {
     private final long f160new = 3000;
 
     /* renamed from: a  reason: collision with root package name */
-    private final long f919a = 5000;
+    private final long f924a = 5000;
 
     /* renamed from: void  reason: not valid java name */
     private WifiManager f161void = null;
@@ -76,7 +76,7 @@ public class e {
             if (context == null || e.this.f157if == null) {
                 return;
             }
-            e.this.m136goto();
+            e.this.m137goto();
         }
     }
 
@@ -90,7 +90,7 @@ public class e {
             if (context == null || e.this.f157if == null) {
                 return;
             }
-            e.this.m138if();
+            e.this.m139if();
             e.this.f157if.obtainMessage(41).sendToTarget();
             j.a(e.f150try, "wifi manager receive new wifi...");
         }
@@ -116,12 +116,12 @@ public class e {
             this.f162do = list;
             this.f163for = System.currentTimeMillis();
             a();
-            j.m256if(e.f150try, m151for());
+            j.m257if(e.f150try, m152for());
         }
 
         private void a() {
             boolean z;
-            if (m156new() < 1) {
+            if (m157new() < 1) {
                 return;
             }
             boolean z2 = true;
@@ -145,11 +145,11 @@ public class e {
         public String a(int i) {
             int i2;
             boolean z;
-            if (m156new() < 1) {
+            if (m157new() < 1) {
                 return null;
             }
             StringBuffer stringBuffer = new StringBuffer((int) ImageManager.DEFAULT_MAX_CACHEABLE_SIZE);
-            String m141char = e.this.m141char();
+            String m142char = e.this.m142char();
             int size = this.f162do.size();
             if (size <= i) {
                 i = size;
@@ -172,7 +172,7 @@ public class e {
                     }
                     stringBuffer.append(String.format(";%d;", Integer.valueOf(i6)));
                     i2 = i5 + 1;
-                    i4 = (m141char == null || !m141char.equals(replace)) ? i4 : i2;
+                    i4 = (m142char == null || !m142char.equals(replace)) ? i4 : i2;
                     z = false;
                 } else {
                     stringBuffer.append("|");
@@ -184,7 +184,7 @@ public class e {
                     }
                     stringBuffer.append(String.format(";%d;", Integer.valueOf(i7)));
                     int i8 = i5 + 1;
-                    if (m141char == null || !m141char.equals(replace2)) {
+                    if (m142char == null || !m142char.equals(replace2)) {
                         boolean z3 = z2;
                         i2 = i8;
                         z = z3;
@@ -202,7 +202,7 @@ public class e {
             if (z2) {
                 return null;
             }
-            j.a(e.f150try, m141char + i4);
+            j.a(e.f150try, m142char + i4);
             stringBuffer.append("&wf_n=" + i4);
             stringBuffer.append("&wf_st=");
             stringBuffer.append(this.f164if);
@@ -265,7 +265,7 @@ public class e {
         }
 
         /* renamed from: byte  reason: not valid java name */
-        public String m147byte() {
+        public String m148byte() {
             try {
                 return a(j.F);
             } catch (Exception e) {
@@ -274,11 +274,11 @@ public class e {
         }
 
         /* renamed from: case  reason: not valid java name */
-        public String m148case() {
+        public String m149case() {
             boolean z;
             StringBuffer stringBuffer = new StringBuffer((int) ImageManager.DEFAULT_MAX_CACHEABLE_SIZE);
             stringBuffer.append("wifi info:");
-            if (m156new() < 1) {
+            if (m157new() < 1) {
                 return stringBuffer.toString();
             }
             int size = this.f162do.size();
@@ -308,12 +308,12 @@ public class e {
         }
 
         /* renamed from: do  reason: not valid java name */
-        public boolean m149do() {
+        public boolean m150do() {
             return System.currentTimeMillis() - this.f163for < 3000;
         }
 
         /* renamed from: do  reason: not valid java name */
-        public boolean m150do(c cVar) {
+        public boolean m151do(c cVar) {
             if (this.f162do == null || cVar == null || cVar.f162do == null) {
                 return false;
             }
@@ -331,7 +331,7 @@ public class e {
         }
 
         /* renamed from: for  reason: not valid java name */
-        public String m151for() {
+        public String m152for() {
             StringBuilder sb = new StringBuilder();
             sb.append("wifi=");
             if (this.f162do == null) {
@@ -346,9 +346,9 @@ public class e {
         }
 
         /* renamed from: if  reason: not valid java name */
-        public String m152if(int i) {
+        public String m153if(int i) {
             int i2 = 0;
-            if (i == 0 || m156new() < 1) {
+            if (i == 0 || m157new() < 1) {
                 return null;
             }
             StringBuffer stringBuffer = new StringBuffer(256);
@@ -376,12 +376,12 @@ public class e {
         }
 
         /* renamed from: if  reason: not valid java name */
-        public boolean m153if() {
+        public boolean m154if() {
             return System.currentTimeMillis() - this.f164if < 3000;
         }
 
         /* renamed from: if  reason: not valid java name */
-        public boolean m154if(c cVar) {
+        public boolean m155if(c cVar) {
             if (this.f162do == null || cVar == null || cVar.f162do == null) {
                 return false;
             }
@@ -395,12 +395,12 @@ public class e {
         }
 
         /* renamed from: int  reason: not valid java name */
-        public boolean m155int() {
+        public boolean m156int() {
             return System.currentTimeMillis() - this.f163for < 5000;
         }
 
         /* renamed from: new  reason: not valid java name */
-        public int m156new() {
+        public int m157new() {
             if (this.f162do == null) {
                 return 0;
             }
@@ -408,7 +408,7 @@ public class e {
         }
 
         /* renamed from: try  reason: not valid java name */
-        public String m157try() {
+        public String m158try() {
             try {
                 return a(15);
             } catch (Exception e) {
@@ -443,7 +443,7 @@ public class e {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: goto  reason: not valid java name */
-    public void m136goto() {
+    public void m137goto() {
         NetworkInfo.State state;
         NetworkInfo.State state2 = NetworkInfo.State.UNKNOWN;
         try {
@@ -463,14 +463,14 @@ public class e {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: if  reason: not valid java name */
-    public void m138if() {
+    public void m139if() {
         if (this.f161void == null) {
             return;
         }
         try {
             c cVar = new c(this.f161void.getScanResults(), this.b);
             this.b = 0L;
-            if (this.f151case == null || !cVar.m154if(this.f151case)) {
+            if (this.f151case == null || !cVar.m155if(this.f151case)) {
                 this.f151case = cVar;
             }
         } catch (Exception e) {
@@ -483,12 +483,12 @@ public class e {
             return false;
         }
         this.f159long = currentTimeMillis;
-        return m145new();
+        return m146new();
     }
 
     /* renamed from: byte  reason: not valid java name */
-    public c m139byte() {
-        if ((this.f151case == null || !this.f151case.m155int()) && this.f161void != null) {
+    public c m140byte() {
+        if ((this.f151case == null || !this.f151case.m156int()) && this.f161void != null) {
             try {
                 return new c(this.f161void.getScanResults(), 0L);
             } catch (Exception e) {
@@ -499,7 +499,7 @@ public class e {
     }
 
     /* renamed from: case  reason: not valid java name */
-    public void m140case() {
+    public void m141case() {
         if (this.c == null) {
             this.c = new a();
         }
@@ -510,14 +510,14 @@ public class e {
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
             this.f156goto.registerReceiver(this.c, intentFilter);
-            m136goto();
+            m137goto();
             this.f154else = true;
         } catch (Exception e) {
         }
     }
 
     /* renamed from: char  reason: not valid java name */
-    public String m141char() {
+    public String m142char() {
         WifiInfo connectionInfo = this.f161void.getConnectionInfo();
         if (connectionInfo == null) {
             return null;
@@ -534,7 +534,7 @@ public class e {
     }
 
     /* renamed from: else  reason: not valid java name */
-    public void m142else() {
+    public void m143else() {
         if (this.f158int) {
             try {
                 this.f156goto.unregisterReceiver(this.f152char);
@@ -552,7 +552,7 @@ public class e {
     }
 
     /* renamed from: for  reason: not valid java name */
-    public void m143for() {
+    public void m144for() {
         if (!this.f153do && j.f241try && j.J) {
             this.f157if.postDelayed(new d(), j.h);
             this.f153do = true;
@@ -560,8 +560,8 @@ public class e {
     }
 
     /* renamed from: int  reason: not valid java name */
-    public c m144int() {
-        if ((this.f151case == null || !this.f151case.m149do()) && this.f161void != null) {
+    public c m145int() {
+        if ((this.f151case == null || !this.f151case.m150do()) && this.f161void != null) {
             try {
                 return new c(this.f161void.getScanResults(), 0L);
             } catch (Exception e) {
@@ -572,7 +572,7 @@ public class e {
     }
 
     /* renamed from: new  reason: not valid java name */
-    public boolean m145new() {
+    public boolean m146new() {
         if (this.f161void == null) {
             return false;
         }
@@ -604,7 +604,7 @@ public class e {
     }
 
     /* renamed from: try  reason: not valid java name */
-    public void m146try() {
+    public void m147try() {
         if (this.f158int) {
             return;
         }
@@ -618,7 +618,7 @@ public class e {
                 intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
                 this.f156goto.registerReceiver(this.c, intentFilter);
                 this.f154else = true;
-                m136goto();
+                m137goto();
             }
         } catch (Exception e) {
         }

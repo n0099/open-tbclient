@@ -1,319 +1,325 @@
 package com.baidu.tieba.util;
 
-import android.content.Context;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.TextView;
-import com.baidu.tieba.TiebaApplication;
-import com.slidingmenu.lib.R;
+import android.util.Log;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.util.Date;
 /* loaded from: classes.dex */
 public class bd {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f2482a = "skinType not support";
+    private static int f2598a = 0;
+    private static int b = 0;
+    private static int c = 0;
+    private static int d = 0;
 
-    public static void a(TextView textView, int i) {
-        if (textView != null) {
-            TiebaApplication g = TiebaApplication.g();
-            if (i == 1) {
-                textView.setTextColor(g.getResources().getColor(R.color.skin_1_common_button_color));
-            } else {
-                textView.setTextColor(g.getResources().getColor(R.color.white));
-            }
+    public static int a(String str, String str2, String str3) {
+        if (com.baidu.tieba.data.h.s()) {
+            StringBuilder sb = new StringBuilder(100);
+            sb.append(str);
+            sb.append(":");
+            sb.append(str2);
+            sb.append(":");
+            sb.append(str3);
+            return Log.i("TiebaLog", sb.toString());
         }
+        return 0;
     }
 
-    public static void b(TextView textView, int i) {
-        if (textView != null) {
-            TiebaApplication g = TiebaApplication.g();
-            if (i == 1) {
-                textView.setTextColor(g.getResources().getColor(R.color.skin_1_common_color));
-            } else {
-                textView.setTextColor(g.getResources().getColor(R.color.black));
+    /* JADX WARN: Removed duplicated region for block: B:28:0x008c A[Catch: Exception -> 0x0090, TRY_LEAVE, TryCatch #0 {Exception -> 0x0090, blocks: (B:26:0x0087, B:28:0x008c), top: B:45:0x0087 }] */
+    /* JADX WARN: Removed duplicated region for block: B:45:0x0087 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    private static void d(String str) {
+        BufferedWriter bufferedWriter;
+        FileWriter fileWriter;
+        String str2;
+        String message;
+        FileWriter fileWriter2 = null;
+        long currentTimeMillis = System.currentTimeMillis();
+        File g = x.g("log_" + bb.c(new Date()));
+        if (g != null) {
+            try {
+                fileWriter = new FileWriter(g, true);
+                try {
+                    bufferedWriter = new BufferedWriter(fileWriter);
+                    try {
+                        bufferedWriter.write(bb.a(currentTimeMillis) + "\t\t" + str);
+                        bufferedWriter.newLine();
+                        bufferedWriter.flush();
+                    } catch (Exception e) {
+                        e = e;
+                        fileWriter2 = fileWriter;
+                        try {
+                            Log.d("tieba", e.getMessage());
+                            if (fileWriter2 != null) {
+                                try {
+                                    fileWriter2.close();
+                                } catch (Exception e2) {
+                                    str2 = "tieba";
+                                    message = e2.getMessage();
+                                    Log.d(str2, message);
+                                    return;
+                                }
+                            }
+                            if (bufferedWriter != null) {
+                                bufferedWriter.close();
+                                return;
+                            }
+                            return;
+                        } catch (Throwable th) {
+                            th = th;
+                            fileWriter = fileWriter2;
+                            if (fileWriter != null) {
+                                try {
+                                    fileWriter.close();
+                                } catch (Exception e3) {
+                                    Log.d("tieba", e3.getMessage());
+                                    throw th;
+                                }
+                            }
+                            if (bufferedWriter != null) {
+                                bufferedWriter.close();
+                            }
+                            throw th;
+                        }
+                    } catch (Throwable th2) {
+                        th = th2;
+                        if (fileWriter != null) {
+                        }
+                        if (bufferedWriter != null) {
+                        }
+                        throw th;
+                    }
+                } catch (Exception e4) {
+                    e = e4;
+                    bufferedWriter = null;
+                    fileWriter2 = fileWriter;
+                } catch (Throwable th3) {
+                    th = th3;
+                    bufferedWriter = null;
+                }
+            } catch (Exception e5) {
+                e = e5;
+                bufferedWriter = null;
+            } catch (Throwable th4) {
+                th = th4;
+                bufferedWriter = null;
+                fileWriter = null;
             }
+        } else {
+            bufferedWriter = null;
+            fileWriter = null;
         }
-    }
-
-    public static void c(TextView textView, int i) {
-        if (textView != null) {
-            TiebaApplication g = TiebaApplication.g();
-            if (i == 1) {
-                textView.setTextColor(g.getResources().getColor(R.color.gray_night_1));
-            } else {
-                textView.setTextColor(g.getResources().getColor(R.color.search_text_content));
-            }
-        }
-    }
-
-    public static void d(TextView textView, int i) {
-        if (textView != null) {
-            TiebaApplication g = TiebaApplication.g();
-            if (i == 1) {
-                textView.setTextColor(g.getResources().getColor(R.color.gray_night_2));
-            } else {
-                textView.setTextColor(g.getResources().getColor(R.color.gray_day_2));
-            }
-        }
-    }
-
-    public static void a(View view, int i) {
-        if (view != null) {
-            TiebaApplication g = TiebaApplication.g();
-            if (i == 1) {
-                view.setBackgroundColor(g.getResources().getColor(R.color.skin_1_common_bg));
-            } else {
-                view.setBackgroundColor(g.getResources().getColor(R.color.backgroundcolor));
-            }
-        }
-    }
-
-    public static void b(View view, int i) {
-        if (view != null) {
-            if (i == 1) {
-                view.setBackgroundResource(R.drawable.common_bg_1);
-            } else {
-                view.setBackgroundResource(R.drawable.common_bg);
-            }
-        }
-    }
-
-    public static void c(View view, int i) {
-        if (view != null) {
-            TiebaApplication g = TiebaApplication.g();
-            if (i == 1) {
-                view.setBackgroundColor(g.getResources().getColor(R.color.skin_1_common_bg));
-            } else {
-                view.setBackgroundColor(g.getResources().getColor(R.color.login_bg_color));
-            }
-        }
-    }
-
-    public static void e(TextView textView, int i) {
-        if (textView != null) {
-            TiebaApplication g = TiebaApplication.g();
-            if (i == 1) {
-                textView.setTextColor(g.getResources().getColor(R.color.skin_1_common_color));
-            } else {
-                textView.setTextColor(g.getResources().getColor(R.color.white));
-            }
-        }
-    }
-
-    public static void d(View view, int i) {
-        if (view != null) {
-            int paddingLeft = view.getPaddingLeft();
-            int paddingRight = view.getPaddingRight();
-            int paddingTop = view.getPaddingTop();
-            int paddingBottom = view.getPaddingBottom();
-            if (i == 1) {
-                view.setBackgroundResource(R.drawable.titlebar_bg_1);
-            } else {
-                view.setBackgroundResource(R.drawable.titlebar_bg);
-            }
-            view.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
-        }
-    }
-
-    public static void f(TextView textView, int i) {
-        if (textView != null) {
-            if (i == 1) {
-                e((View) textView, (int) R.drawable.title_comm_1);
-            } else {
-                e((View) textView, (int) R.drawable.title_comm);
-            }
-        }
-        e(textView, i);
-    }
-
-    public static void g(TextView textView, int i) {
-        if (textView != null) {
-            if (i == 1) {
-                e((View) textView, (int) R.drawable.navi_done_text_bg_1);
-            } else {
-                e((View) textView, (int) R.drawable.navi_done_text_bg);
-            }
-        }
-        h(textView, i);
-    }
-
-    public static void h(TextView textView, int i) {
-        if (textView != null) {
-            TiebaApplication g = TiebaApplication.g();
-            if (i == 1) {
-                textView.setTextColor(g.getResources().getColorStateList(R.color.navi_done_text_1));
-            } else {
-                textView.setTextColor(g.getResources().getColorStateList(R.color.navi_done_text));
-            }
-        }
-    }
-
-    public static void i(TextView textView, int i) {
-        if (textView != null) {
-            if (i == 1) {
-                e((View) textView, (int) R.drawable.navi_op_text_bg_1);
-            } else {
-                e((View) textView, (int) R.drawable.navi_op_text_bg);
-            }
-        }
-        j(textView, i);
-    }
-
-    public static void j(TextView textView, int i) {
-        if (textView != null) {
-            TiebaApplication g = TiebaApplication.g();
-            if (i == 1) {
-                textView.setTextColor(g.getResources().getColorStateList(R.color.navi_op_text_1));
-            } else {
-                textView.setTextColor(g.getResources().getColorStateList(R.color.navi_op_text));
-            }
-        }
-    }
-
-    public static void k(TextView textView, int i) {
-        if (textView != null) {
-            if (i == 1) {
-                e((View) textView, (int) R.drawable.navi_del_text_bg_1);
-            } else {
-                e((View) textView, (int) R.drawable.navi_del_text_bg);
-            }
-        }
-        l(textView, i);
-    }
-
-    public static void l(TextView textView, int i) {
-        if (textView != null) {
-            TiebaApplication g = TiebaApplication.g();
-            if (i == 1) {
-                textView.setTextColor(g.getResources().getColorStateList(R.color.navi_del_text_1));
-            } else {
-                textView.setTextColor(g.getResources().getColorStateList(R.color.navi_del_text));
-            }
-        }
-    }
-
-    public static void a(ImageView imageView, int i) {
-        if (imageView != null) {
-            imageView.setScaleType(ImageView.ScaleType.CENTER);
-            if (i == 1) {
-                imageView.setBackgroundResource(R.drawable.title_icon_bg_1);
-                imageView.setImageResource(R.drawable.icon_return_n_1);
+        if (fileWriter != null) {
+            try {
+                fileWriter.close();
+            } catch (Exception e6) {
+                str2 = "tieba";
+                message = e6.getMessage();
+                Log.d(str2, message);
                 return;
             }
-            imageView.setBackgroundResource(R.drawable.title_icon_bg);
-            imageView.setImageResource(R.drawable.icon_return_n);
+        }
+        if (bufferedWriter != null) {
+            bufferedWriter.close();
         }
     }
 
-    public static void b(ImageView imageView, int i) {
-        if (imageView != null) {
-            imageView.setScaleType(ImageView.ScaleType.CENTER);
-            if (i == 1) {
-                imageView.setBackgroundResource(R.drawable.title_icon_bg_1);
-                imageView.setImageResource(R.drawable.icon_refresh_n_1);
-                return;
+    public static int b(String str, String str2, String str3) {
+        if (com.baidu.tieba.data.h.s()) {
+            StringBuilder sb = new StringBuilder(100);
+            sb.append(str);
+            sb.append(":");
+            sb.append(str2);
+            sb.append(":");
+            sb.append(str3);
+            d(sb.toString());
+            return Log.e("TiebaLog", sb.toString());
+        }
+        return 0;
+    }
+
+    public static int c(String str, String str2, String str3) {
+        if (com.baidu.tieba.data.h.s()) {
+            StringBuilder sb = new StringBuilder(100);
+            sb.append(str);
+            sb.append(":");
+            sb.append(str2);
+            sb.append(":");
+            sb.append(str3);
+            return Log.w("TiebaLog", sb.toString());
+        }
+        return 0;
+    }
+
+    public static int d(String str, String str2, String str3) {
+        if (com.baidu.tieba.data.h.s()) {
+            StringBuilder sb = new StringBuilder(100);
+            sb.append(str);
+            sb.append(":");
+            sb.append(str2);
+            sb.append(":");
+            sb.append(str3);
+            return Log.v("TiebaLog", sb.toString());
+        }
+        return 0;
+    }
+
+    public static int e(String str, String str2, String str3) {
+        if (com.baidu.tieba.data.h.s()) {
+            StringBuilder sb = new StringBuilder(100);
+            sb.append(str);
+            sb.append(":");
+            sb.append(str2);
+            sb.append(":");
+            sb.append(str3);
+            return Log.d("TiebaLog", sb.toString());
+        }
+        return 0;
+    }
+
+    public static int a(int i, String str) {
+        if (com.baidu.tieba.data.h.s()) {
+            StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+            if (stackTrace.length < 5) {
+                return -1;
             }
-            imageView.setBackgroundResource(R.drawable.title_icon_bg);
-            imageView.setImageResource(R.drawable.icon_refresh_n);
-        }
-    }
-
-    public static void c(ImageView imageView, int i) {
-        if (imageView != null) {
-            imageView.setScaleType(ImageView.ScaleType.CENTER);
-            if (i == 1) {
-                imageView.setBackgroundResource(R.drawable.title_icon_bg_1);
-                imageView.setImageResource(R.drawable.icon_home_n_1);
-                return;
-            }
-            imageView.setBackgroundResource(R.drawable.title_icon_bg);
-            imageView.setImageResource(R.drawable.icon_home_n);
-        }
-    }
-
-    public static int a(int i) {
-        if (i == 1) {
-            return TiebaApplication.g().getResources().getColor(R.color.skin_1_common_color);
-        }
-        throw new IllegalArgumentException(f2482a);
-    }
-
-    public static int b(int i) {
-        if (i == 1) {
-            return TiebaApplication.g().getResources().getColor(R.color.skin_1_second_common_color);
-        }
-        throw new IllegalArgumentException(f2482a);
-    }
-
-    public static int c(int i) {
-        if (i == 1) {
-            return TiebaApplication.g().getResources().getColor(R.color.skin_1_third_common_color);
-        }
-        throw new IllegalArgumentException(f2482a);
-    }
-
-    public static int d(int i) {
-        TiebaApplication g = TiebaApplication.g();
-        return i == 1 ? g.getResources().getColor(R.color.skin_1_common_bg) : g.getResources().getColor(R.color.backgroundcolor);
-    }
-
-    public static void e(View view, int i) {
-        if (view != null) {
-            int paddingLeft = view.getPaddingLeft();
-            int paddingRight = view.getPaddingRight();
-            int paddingTop = view.getPaddingTop();
-            int paddingBottom = view.getPaddingBottom();
-            view.setBackgroundResource(i);
-            if (paddingLeft != 0 || paddingRight != 0 || paddingTop != 0 || paddingBottom != 0) {
-                view.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
-            }
-        }
-    }
-
-    private static final int a(Context context, int i) {
-        String resourceName;
-        if (i != 0 && (resourceName = context.getResources().getResourceName(i)) != null) {
-            int identifier = context.getResources().getIdentifier(resourceName + "_1", null, null);
-            if (identifier == 0) {
-                com.baidu.adp.lib.h.d.a("cannot find res:" + resourceName + "_1");
-                return i;
-            }
-            return identifier;
-        }
-        return i;
-    }
-
-    public static void f(View view, int i) {
-        if (view != null) {
-            int paddingLeft = view.getPaddingLeft();
-            int paddingRight = view.getPaddingRight();
-            int paddingTop = view.getPaddingTop();
-            int paddingBottom = view.getPaddingBottom();
-            if (TiebaApplication.g().ap() == 1) {
-                view.setBackgroundResource(a(view.getContext(), i));
+            StackTraceElement stackTraceElement = stackTrace[4];
+            String methodName = stackTraceElement.getMethodName();
+            String className = stackTraceElement.getClassName();
+            if (i == 0) {
+                b(className, methodName, str);
+            } else if (i == 1) {
+                c(className, methodName, str);
+            } else if (i == 2) {
+                a(className, methodName, str);
+            } else if (i == 3) {
+                e(className, methodName, str);
             } else {
-                view.setBackgroundResource(i);
+                d(className, methodName, str);
             }
-            if (paddingLeft != 0 || paddingRight != 0 || paddingTop != 0 || paddingBottom != 0) {
-                view.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
-            }
+            return 0;
         }
+        return -1;
     }
 
-    public static void a(ListView listView, int i) {
-        if (listView != null) {
-            TiebaApplication g = TiebaApplication.g();
-            if (i == 1) {
-                listView.setBackgroundColor(g.getResources().getColor(R.color.skin_1_common_bg));
-                listView.setCacheColorHint(g.getResources().getColor(17170445));
-                listView.setDivider(g.getResources().getDrawable(R.drawable.list_divider_1));
-                listView.setSelector(R.drawable.list_selector_1);
-                return;
+    public static int a(String str) {
+        return a(0, str);
+    }
+
+    public static int b(String str) {
+        return a(2, str);
+    }
+
+    public static int c(String str) {
+        return a(3, str);
+    }
+
+    public static void a(int i, String str, String str2, String str3) {
+        FileWriter fileWriter;
+        Throwable th;
+        boolean z = false;
+        FileWriter fileWriter2 = null;
+        switch (i) {
+            case 1:
+                if (f2598a < 10) {
+                    f2598a++;
+                    z = true;
+                    break;
+                }
+                break;
+            case 2:
+                if (b < 10) {
+                    b++;
+                    z = true;
+                    break;
+                }
+                break;
+            case 3:
+                if (c < 10) {
+                    c++;
+                    z = true;
+                    break;
+                }
+                break;
+            case 4:
+                if (d < 10) {
+                    d++;
+                    z = true;
+                    break;
+                }
+                break;
+        }
+        try {
+            if (com.baidu.tieba.data.h.s() || z) {
+                StringBuilder sb = new StringBuilder(100);
+                sb.append(new Date().getTime() / 1000);
+                sb.append("\t");
+                sb.append(i);
+                sb.append("\t");
+                sb.append(str2);
+                if (str3 != null) {
+                    sb.append(":");
+                    sb.append(str3.replace("\n", " ").replace("\t", " "));
+                }
+                sb.append("\t");
+                sb.append(str);
+                sb.append("\t");
+                sb.append(0);
+                sb.append("\n");
+                String sb2 = sb.toString();
+                if (com.baidu.tieba.data.h.s()) {
+                    Log.e("TiebaLog", sb2);
+                }
+                if (z) {
+                    File g = x.g("log_error.log");
+                    if (sb2 != null && g != null && g.length() < 204800) {
+                        fileWriter = new FileWriter(g, true);
+                        try {
+                            fileWriter.append((CharSequence) sb2);
+                            fileWriter.flush();
+                            fileWriter2 = fileWriter;
+                        } catch (Exception e) {
+                            fileWriter2 = fileWriter;
+                            if (fileWriter2 != null) {
+                                try {
+                                    fileWriter2.close();
+                                    return;
+                                } catch (Exception e2) {
+                                    e = e2;
+                                    e.printStackTrace();
+                                }
+                            }
+                            return;
+                        } catch (Throwable th2) {
+                            th = th2;
+                            if (fileWriter != null) {
+                                try {
+                                    fileWriter.close();
+                                } catch (Exception e3) {
+                                    e3.printStackTrace();
+                                }
+                            }
+                            throw th;
+                        }
+                    }
+                }
             }
-            listView.setBackgroundColor(g.getResources().getColor(R.color.backgroundcolor));
-            listView.setCacheColorHint(g.getResources().getColor(17170445));
-            listView.setDivider(g.getResources().getDrawable(R.drawable.list_divider));
-            listView.setSelector(R.drawable.list_selector);
+            if (fileWriter2 != null) {
+                try {
+                    fileWriter2.close();
+                } catch (Exception e4) {
+                    e = e4;
+                    e.printStackTrace();
+                }
+            }
+        } catch (Exception e5) {
+        } catch (Throwable th3) {
+            fileWriter = null;
+            th = th3;
         }
     }
 }

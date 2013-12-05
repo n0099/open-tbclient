@@ -1,40 +1,41 @@
 package com.baidu.tieba.chat;
 
-import android.view.View;
-import android.widget.AdapterView;
 import com.baidu.tieba.data.chat.RecentChatFriendData;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.im.SingleRunnable;
 /* loaded from: classes.dex */
-public class w implements AdapterView.OnItemLongClickListener {
+class w extends SingleRunnable<Void> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ChatListFragment f1154a;
+    final /* synthetic */ RecentChatFriendData f1201a;
+    final /* synthetic */ v b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public w(ChatListFragment chatListFragment) {
-        this.f1154a = chatListFragment;
+    public w(v vVar, RecentChatFriendData recentChatFriendData) {
+        this.b = vVar;
+        this.f1201a = recentChatFriendData;
     }
 
-    @Override // android.widget.AdapterView.OnItemLongClickListener
-    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
-        m mVar;
-        m mVar2;
-        RecentChatFriendData recentChatFriendData;
-        if (i >= 0) {
-            mVar = this.f1154a.aa;
-            long itemId = mVar.getItemId(i);
-            if (itemId != -1 && itemId != -2) {
-                ChatListFragment chatListFragment = this.f1154a;
-                mVar2 = this.f1154a.aa;
-                chatListFragment.h = (RecentChatFriendData) mVar2.getItem(i);
-                ChatListFragment chatListFragment2 = this.f1154a;
-                recentChatFriendData = this.f1154a.h;
-                chatListFragment2.a(recentChatFriendData);
-                if (this.f1154a.f1123a != null) {
-                    this.f1154a.f1123a.show();
-                }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.SingleRunnable
+    /* renamed from: a */
+    public Void b() {
+        if (this.f1201a != null) {
+            this.f1201a.setUnReadCount(0);
+            com.baidu.adp.lib.h.e.d("updates before updates:" + this.f1201a.getUnReadCount() + "ownerName" + this.f1201a.getOwnerName() + " fid" + this.f1201a.getFriendId() + " uid" + this.f1201a.getOwnerId());
+            if (this.f1201a.getOwnerName().equals("2")) {
+                com.baidu.tieba.im.db.l.a().a("apply_join_group");
+                com.baidu.tieba.im.pushNotify.a.h().b(this.f1201a);
+            } else if (this.f1201a.getOwnerName().equals("3")) {
+                com.baidu.tieba.im.pushNotify.a.h().c(this.f1201a);
+                com.baidu.adp.lib.h.e.d("updates data.getOwnerName():" + this.f1201a.getOwnerName());
+                com.baidu.tieba.im.db.l.a().a("group_intro_change");
+                com.baidu.tieba.im.db.l.a().a("group_name_change");
+                com.baidu.tieba.im.db.l.a().a("group_notice_change");
+                com.baidu.tieba.im.db.l.a().a("group_level_up");
+                com.baidu.tieba.im.db.l.a().a("dismiss_group");
+                com.baidu.tieba.im.db.l.a().a("kick_out");
             }
         }
-        return false;
+        return null;
     }
 }

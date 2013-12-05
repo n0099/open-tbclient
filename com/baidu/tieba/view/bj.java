@@ -1,16 +1,29 @@
 package com.baidu.tieba.view;
 
 import android.content.Context;
-import android.view.View;
+import android.graphics.Canvas;
+import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class bj extends bi {
+public class bj extends com.baidu.tbadk.widget.b {
+    private int b;
+
     public bj(Context context) {
         super(context);
+        this.b = -1;
     }
 
-    @Override // com.baidu.adp.widget.ListView.a, com.baidu.adp.widget.ListView.d
-    public View a() {
-        return a(h().getString(R.string.pull_view_pull_more), h().getString(R.string.pull_view_release_more), null);
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.widget.b, com.baidu.tbadk.widget.TbImageView, com.baidu.adp.widget.ImageView.a, android.widget.ImageView, android.view.View
+    public void onDraw(Canvas canvas) {
+        if (TiebaApplication.h().an() == 1) {
+            this.b = getResources().getColor(R.color.pb_default_image_bg_1);
+        } else {
+            this.b = getResources().getColor(R.color.pb_default_image_bg);
+        }
+        if (getImage() == null && this.b != -1) {
+            canvas.drawColor(this.b);
+        }
+        super.onDraw(canvas);
     }
 }

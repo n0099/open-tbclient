@@ -8,18 +8,18 @@ import com.baidu.tieba.data.AntiData;
 final class c implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Context f2490a;
+    final /* synthetic */ Context f2603a;
     final /* synthetic */ AntiData b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(Context context, AntiData antiData) {
-        this.f2490a = context;
+        this.f2603a = context;
         this.b = antiData;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
         dialogInterface.dismiss();
-        AppealActivity.a(this.f2490a, this.b.getBlock_forum_id(), this.b.getUser_id(), this.b.getUser_name());
+        AppealActivity.a(this.f2603a, this.b.getBlock_forum_id(), this.b.getUser_id(), this.b.getUser_name());
     }
 }

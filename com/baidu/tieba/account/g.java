@@ -9,11 +9,11 @@ import com.slidingmenu.lib.R;
 class g implements TextWatcher {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ActivationActivity f1081a;
+    final /* synthetic */ ActivationActivity f1092a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(ActivationActivity activationActivity) {
-        this.f1081a = activationActivity;
+        this.f1092a = activationActivity;
     }
 
     @Override // android.text.TextWatcher
@@ -26,20 +26,20 @@ class g implements TextWatcher {
         int i3;
         RelativeLayout relativeLayout2;
         if (editable.length() == 6) {
-            relativeLayout2 = this.f1081a.j;
+            relativeLayout2 = this.f1092a.j;
             relativeLayout2.setEnabled(true);
         } else {
-            relativeLayout = this.f1081a.j;
+            relativeLayout = this.f1092a.j;
             relativeLayout.setEnabled(false);
         }
-        i = this.f1081a.y;
+        i = this.f1092a.y;
         if (i != 0) {
-            this.f1081a.y = 0;
-            linearLayout = this.f1081a.c;
+            this.f1092a.y = 0;
+            linearLayout = this.f1092a.c;
             linearLayout.setBackgroundResource(R.drawable.pass_input);
-            linearLayout2 = this.f1081a.c;
-            i2 = this.f1081a.w;
-            i3 = this.f1081a.x;
+            linearLayout2 = this.f1092a.c;
+            i2 = this.f1092a.w;
+            i3 = this.f1092a.x;
             linearLayout2.setPadding(i2, 0, i3, 0);
         }
     }

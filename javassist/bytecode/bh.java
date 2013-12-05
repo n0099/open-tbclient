@@ -4,7 +4,7 @@ package javassist.bytecode;
 public class bh extends bk {
 
     /* renamed from: a  reason: collision with root package name */
-    int f2789a;
+    int f2970a;
     int b;
     int c;
     byte[] d;
@@ -14,7 +14,7 @@ public class bh extends bk {
     public bh(StackMapTable stackMapTable, int i, int i2, boolean z) {
         super(stackMapTable);
         this.h = stackMapTable;
-        this.f2789a = i;
+        this.f2970a = i;
         this.b = i2;
         this.c = 0;
         this.d = null;
@@ -43,10 +43,10 @@ public class bh extends bk {
         int i5 = this.c;
         this.c = (i5 == 0 ? 0 : 1) + i5 + i2;
         if (this.e) {
-            if (i5 >= this.f2789a || this.f2789a > this.c) {
+            if (i5 >= this.f2970a || this.f2970a > this.c) {
                 z = false;
             }
-        } else if (i5 > this.f2789a || this.f2789a >= this.c) {
+        } else if (i5 > this.f2970a || this.f2970a >= this.c) {
             z = false;
         }
         if (z) {
@@ -97,10 +97,10 @@ public class bh extends bk {
         int i3 = this.c;
         this.c = (i3 == 0 ? 0 : 1) + i3 + i2;
         if (this.e) {
-            if (i3 >= this.f2789a || this.f2789a > this.c) {
+            if (i3 >= this.f2970a || this.f2970a > this.c) {
                 z = false;
             }
-        } else if (i3 > this.f2789a || this.f2789a >= this.c) {
+        } else if (i3 > this.f2970a || this.f2970a >= this.c) {
             z = false;
         }
         if (z) {

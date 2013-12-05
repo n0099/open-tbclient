@@ -3,15 +3,15 @@ package com.baidu.tieba.square;
 public class au {
 
     /* renamed from: a  reason: collision with root package name */
-    protected String f2374a = null;
+    protected String f2491a = null;
     protected String b = null;
 
     public String a() {
-        return this.f2374a;
+        return this.f2491a;
     }
 
     public void a(String str) {
-        this.f2374a = str;
+        this.f2491a = str;
     }
 
     public String b() {

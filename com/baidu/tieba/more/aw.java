@@ -1,24 +1,52 @@
 package com.baidu.tieba.more;
 
-import android.content.DialogInterface;
-import com.slidingmenu.lib.R;
+import android.text.TextUtils;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.data.chat.RecentChatFriendData;
+import com.baidu.tieba.im.net.TiebaSocketLinkService;
+import com.baidu.tieba.model.MoreModel;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class aw implements DialogInterface.OnClickListener {
+public class aw extends BdAsyncTask<String, Integer, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SystemHelpSettingActivity f1973a;
+    final /* synthetic */ at f2083a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public aw(SystemHelpSettingActivity systemHelpSettingActivity) {
-        this.f1973a = systemHelpSettingActivity;
+    private aw(at atVar) {
+        this.f2083a = atVar;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        ax axVar;
-        this.f1973a.showLoadingDialog(this.f1973a.getString(R.string.deleting));
-        axVar = this.f1973a.b;
-        axVar.b();
-        dialogInterface.cancel();
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(String str) {
+        com.baidu.adp.a.g gVar;
+        com.baidu.adp.a.g gVar2;
+        super.a((aw) str);
+        this.f2083a.b = null;
+        gVar = this.f2083a.mLoadDataCallBack;
+        if (gVar != null) {
+            gVar2 = this.f2083a.mLoadDataCallBack;
+            gVar2.a(MoreModel.TaskType.DO_CLEAR);
+        }
+        com.baidu.tieba.im.db.ad.a().c();
+        com.baidu.tieba.im.pushNotify.a.h().f();
+        com.baidu.tieba.im.pushNotify.a.h().b((RecentChatFriendData) null);
+        com.baidu.tieba.im.pushNotify.a.h().c((RecentChatFriendData) null);
+        com.baidu.tieba.im.pushNotify.a.h().b(false, (com.baidu.tieba.im.a<Void>) null);
+        TiebaSocketLinkService.a(true, "clear cache");
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public String a(String... strArr) {
+        String B = TiebaApplication.B();
+        if (!TextUtils.isEmpty(B)) {
+            com.baidu.tieba.im.db.s.a(B);
+            return null;
+        }
+        return null;
     }
 }

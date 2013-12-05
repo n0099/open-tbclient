@@ -1,37 +1,29 @@
 package com.baidu.tieba.util;
-
-import java.util.concurrent.atomic.AtomicBoolean;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aa implements Runnable {
+public class aa {
+    private com.baidu.tieba.im.model.z c;
+    private ad d;
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f2458a;
-    final /* synthetic */ y b;
+    private double f2575a = 0.0d;
+    private double b = 0.0d;
+    private com.baidu.adp.lib.c.d e = new ab(this);
+    private com.baidu.tieba.im.messageCenter.g f = new ac(this);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public aa(y yVar, String str) {
-        this.b = yVar;
-        this.f2458a = str;
+    public aa(ad adVar) {
+        this.c = null;
+        this.d = null;
+        this.c = new com.baidu.tieba.im.model.z();
+        this.d = adVar;
+        com.baidu.tieba.im.messageCenter.e.a().a(103010, this.f);
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        AtomicBoolean atomicBoolean;
-        AtomicBoolean atomicBoolean2;
-        try {
-            try {
-                this.b.c(this.f2458a);
-                atomicBoolean = this.b.f2503a;
-            } catch (Exception e) {
-                com.baidu.adp.lib.h.d.a("DebugLogger", "write error ", e);
-                atomicBoolean = this.b.f2503a;
-            }
-            atomicBoolean.set(false);
-        } catch (Throwable th) {
-            atomicBoolean2 = this.b.f2503a;
-            atomicBoolean2.set(false);
-            throw th;
-        }
+    public void a() {
+        com.baidu.adp.lib.c.a.a().a(true, this.e);
+    }
+
+    public void b() {
+        this.c.b();
+        com.baidu.tieba.im.messageCenter.e.a().a(this.f);
     }
 }

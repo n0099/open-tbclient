@@ -11,7 +11,7 @@ public class be {
     private int d = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    private UserData f1890a = new UserData();
+    private UserData f2002a = new UserData();
     private AntiData b = new AntiData();
 
     public be() {
@@ -21,7 +21,7 @@ public class be {
     }
 
     public UserData a() {
-        return this.f1890a;
+        return this.f2002a;
     }
 
     public AntiData b() {
@@ -32,13 +32,13 @@ public class be {
         try {
             a(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.tieba.util.bg.b("LoginModel", "parserJson", "error = " + e.getMessage());
+            com.baidu.tieba.util.bd.b("LoginModel", "parserJson", "error = " + e.getMessage());
         }
     }
 
     public void a(JSONObject jSONObject) {
         try {
-            this.f1890a.parserJson(jSONObject.optJSONObject("user"));
+            this.f2002a.parserJson(jSONObject.optJSONObject("user"));
             this.b.parserJson(jSONObject.optJSONObject("anti"));
             JSONArray optJSONArray = jSONObject.optJSONArray("suggnames");
             if (optJSONArray != null) {
@@ -48,7 +48,7 @@ public class be {
             }
             a(jSONObject.optInt("retrytime"));
         } catch (Exception e) {
-            com.baidu.tieba.util.bg.b("LoginModel", "parserJson", "error = " + e.getMessage());
+            com.baidu.tieba.util.bd.b("LoginModel", "parserJson", "error = " + e.getMessage());
         }
     }
 

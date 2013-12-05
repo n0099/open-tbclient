@@ -1,23 +1,21 @@
 package com.baidu.tieba.im.creategroup;
 
-import android.location.Address;
+import android.content.DialogInterface;
+import com.baidu.tieba.im.mygroup.MyGroupActivity;
 /* loaded from: classes.dex */
-class k implements com.baidu.adp.lib.c.d {
+class k implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ j f1581a;
+    final /* synthetic */ i f1627a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public k(j jVar) {
-        this.f1581a = jVar;
+    public k(i iVar) {
+        this.f1627a = iVar;
     }
 
-    @Override // com.baidu.adp.lib.c.d
-    public void a(int i, String str, Address address) {
-        if (i == 0 && address != null) {
-            this.f1581a.h.setLat(String.valueOf(address.getLatitude()));
-            this.f1581a.h.setLng(String.valueOf(address.getLongitude()));
-            this.f1581a.h.setPosition(address.getAddressLine(0));
-        }
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        this.f1627a.f1625a.finish();
+        MyGroupActivity.a(this.f1627a.f1625a);
     }
 }

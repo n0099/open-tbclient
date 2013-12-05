@@ -4,7 +4,7 @@ import android.content.DialogInterface;
 import android.view.View;
 /* loaded from: classes.dex */
 public interface a {
-    int a();
+    void a();
 
     void a(int i);
 
@@ -22,23 +22,21 @@ public interface a {
 
     View e();
 
-    String e_();
+    View e_();
 
-    View f();
+    void f();
 
-    void f_();
+    String f_();
 
     void g();
 
-    void h();
+    int h();
 
-    int i();
+    boolean i();
 
-    boolean j();
+    int j();
 
-    int k();
+    String k();
 
-    String l();
-
-    boolean m();
+    boolean l();
 }

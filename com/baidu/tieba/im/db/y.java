@@ -1,49 +1,23 @@
 package com.baidu.tieba.im.db;
-
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.atomic.AtomicBoolean;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class y implements com.baidu.tieba.im.a<LinkedList<ImMessageCenterPojo>> {
+public class y implements com.baidu.tieba.im.a<Void> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ com.baidu.tieba.im.a f1623a;
-    final /* synthetic */ x b;
+    final /* synthetic */ String f1686a;
+    final /* synthetic */ String b;
+    final /* synthetic */ t c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public y(x xVar, com.baidu.tieba.im.a aVar) {
-        this.b = xVar;
-        this.f1623a = aVar;
+    public y(t tVar, String str, String str2) {
+        this.c = tVar;
+        this.f1686a = str;
+        this.b = str2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.a
-    public void a(LinkedList<ImMessageCenterPojo> linkedList) {
-        AtomicBoolean atomicBoolean;
-        ConcurrentHashMap concurrentHashMap;
-        ConcurrentHashMap concurrentHashMap2;
-        AtomicBoolean atomicBoolean2;
-        ConcurrentHashMap concurrentHashMap3;
-        atomicBoolean = this.b.c;
-        if (!atomicBoolean.get() && linkedList != null) {
-            concurrentHashMap2 = this.b.d;
-            concurrentHashMap2.clear();
-            if (linkedList != null) {
-                Iterator<ImMessageCenterPojo> it = linkedList.iterator();
-                while (it.hasNext()) {
-                    ImMessageCenterPojo next = it.next();
-                    concurrentHashMap3 = this.b.d;
-                    concurrentHashMap3.put(next.getGid(), next);
-                }
-            }
-            atomicBoolean2 = this.b.c;
-            atomicBoolean2.set(true);
-        }
-        com.baidu.tieba.im.a aVar = this.f1623a;
-        concurrentHashMap = this.b.d;
-        aVar.a(concurrentHashMap);
+    public void a(Void r3) {
+        ad.a().a(new z(this));
     }
 }

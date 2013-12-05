@@ -1,16 +1,15 @@
 package com.baidu.tieba.data;
 
-import com.baidu.tieba.util.bg;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ay {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1185a = 0;
+    private int f1232a = 0;
     private String b = null;
 
     public int a() {
-        return this.f1185a;
+        return this.f1232a;
     }
 
     public String b() {
@@ -21,16 +20,16 @@ public class ay {
         try {
             a(new JSONObject(str).optJSONObject("error"));
         } catch (Exception e) {
-            bg.b(getClass().getName(), "parserJson", e.toString());
+            com.baidu.tieba.util.bd.b(getClass().getName(), "parserJson", e.toString());
         }
     }
 
     public void a(JSONObject jSONObject) {
         try {
-            this.f1185a = jSONObject.optInt("errno");
+            this.f1232a = jSONObject.optInt("errno");
             this.b = jSONObject.optString("usermsg");
         } catch (Exception e) {
-            bg.b(getClass().getName(), "parserJson", e.toString());
+            com.baidu.tieba.util.bd.b(getClass().getName(), "parserJson", e.toString());
         }
     }
 }

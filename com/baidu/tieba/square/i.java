@@ -14,19 +14,19 @@ import com.baidu.tieba.view.HeadImageView;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class i extends BaseAdapter implements com.baidu.tieba.view.ah {
+public class i extends BaseAdapter implements com.baidu.tieba.view.ai {
     private final Context b;
     private at c;
     private com.baidu.tieba.util.i d;
     private String e = null;
 
     /* renamed from: a  reason: collision with root package name */
-    View.OnClickListener f2407a = new j(this);
+    View.OnClickListener f2524a = new j(this);
 
     public i(Context context) {
         this.b = context;
         this.d = new com.baidu.tieba.util.i(context);
-        int a2 = UtilHelper.a(context, 45.0f);
+        int a2 = com.baidu.adp.lib.h.g.a(context, 45.0f);
         this.d.a(a2, a2);
     }
 
@@ -52,28 +52,28 @@ public class i extends BaseAdapter implements com.baidu.tieba.view.ah {
         int itemViewType = getItemViewType(i);
         if (view == null) {
             view = a(i, viewGroup, itemViewType);
-            com.baidu.tieba.util.bl.b(view);
+            com.baidu.tieba.util.bj.b(view);
         }
         if (itemViewType == 0) {
             if (this.c != null) {
                 ((TextView) view.findViewById(R.id.title)).setText(this.c.e());
             }
         } else if (itemViewType == 2) {
-            com.baidu.tieba.util.bl.a(view);
+            com.baidu.tieba.util.bj.a(view);
             a(viewGroup, (n) view.getTag(), i, "all");
         } else if (itemViewType == 1) {
-            com.baidu.tieba.util.bl.a(view);
+            com.baidu.tieba.util.bj.a(view);
             a(viewGroup, (n) view.getTag(), i, "normal");
         }
-        int ap = TiebaApplication.g().ap();
+        int an = TiebaApplication.h().an();
         BaseFragmentActivity baseFragmentActivity = (BaseFragmentActivity) this.b;
-        baseFragmentActivity.a().a(ap == 1);
+        baseFragmentActivity.a().a(an == 1);
         baseFragmentActivity.a().a(view);
         if (itemViewType == 0) {
             View findViewById2 = view.findViewById(R.id.post_recommend_line_up);
             View findViewById3 = view.findViewById(R.id.post_recommend_line_down);
             if (findViewById2 != null && findViewById3 != null) {
-                if (ap == 1) {
+                if (an == 1) {
                     findViewById2.setBackgroundColor(this.b.getResources().getColor(R.color.square_dividing_line_1));
                     findViewById3.setBackgroundColor(this.b.getResources().getColor(R.color.square_dividing_line_1));
                 } else {
@@ -82,7 +82,7 @@ public class i extends BaseAdapter implements com.baidu.tieba.view.ah {
                 }
             }
         } else if (itemViewType == 1 && (findViewById = view.findViewById(R.id.bar_folder_item_bottom_line)) != null) {
-            if (ap == 1) {
+            if (an == 1) {
                 findViewById.setBackgroundColor(this.b.getResources().getColor(R.color.square_dividing_line_1));
             } else {
                 findViewById.setBackgroundColor(this.b.getResources().getColor(R.color.square_dividing_line));
@@ -101,20 +101,20 @@ public class i extends BaseAdapter implements com.baidu.tieba.view.ah {
             as asVar = new as();
             asVar.f = SocialConstants.TRUE;
             n nVar = new n();
-            nVar.f2412a = (HeadImageView) inflate.findViewById(R.id.portrait);
+            nVar.f2529a = (HeadImageView) inflate.findViewById(R.id.portrait);
             nVar.b = (TextView) inflate.findViewById(R.id.squre_name);
             nVar.c = (BestStringsFitTextView) inflate.findViewById(R.id.description);
             nVar.d = asVar;
-            inflate.setOnClickListener(this.f2407a);
+            inflate.setOnClickListener(this.f2524a);
             inflate.setTag(nVar);
             return inflate;
         }
         View inflate2 = from.inflate(R.layout.bar_home_first_dir_item, (ViewGroup) null);
-        inflate2.setOnClickListener(this.f2407a);
+        inflate2.setOnClickListener(this.f2524a);
         as asVar2 = new as();
         asVar2.f = SocialConstants.FALSE;
         n nVar2 = new n();
-        nVar2.f2412a = (HeadImageView) inflate2.findViewById(R.id.portrait);
+        nVar2.f2529a = (HeadImageView) inflate2.findViewById(R.id.portrait);
         nVar2.b = (TextView) inflate2.findViewById(R.id.squre_name);
         nVar2.c = (BestStringsFitTextView) inflate2.findViewById(R.id.description);
         nVar2.d = asVar2;
@@ -124,7 +124,7 @@ public class i extends BaseAdapter implements com.baidu.tieba.view.ah {
 
     private void a(ViewGroup viewGroup, n nVar, int i, String str) {
         as asVar = this.c.d().get(i - 1);
-        asVar.f2372a = i - 1;
+        asVar.f2489a = i - 1;
         if (asVar.f.equals(SocialConstants.TRUE) && str.equals("all")) {
             a(viewGroup, nVar, asVar);
         } else if (asVar.f.equals(SocialConstants.FALSE) && str.equals("normal")) {
@@ -142,11 +142,11 @@ public class i extends BaseAdapter implements com.baidu.tieba.view.ah {
             nVar.c.setVisibility(8);
         }
         if (asVar.e != null) {
-            nVar.f2412a.setTag(asVar.e);
+            nVar.f2529a.setTag(asVar.e);
             com.baidu.adp.widget.ImageView.e d = this.d.d(asVar.e);
             if (d != null) {
-                nVar.f2412a.setImageBitmap(d.f());
-                nVar.f2412a.invalidate();
+                nVar.f2529a.setImageBitmap(d.f());
+                nVar.f2529a.invalidate();
                 return;
             }
             this.d.a(asVar.e, new k(this, viewGroup));
@@ -183,12 +183,12 @@ public class i extends BaseAdapter implements com.baidu.tieba.view.ah {
         return this.b;
     }
 
-    @Override // com.baidu.tieba.view.ah
+    @Override // com.baidu.tieba.view.ai
     public void d() {
         this.d.b();
     }
 
-    @Override // com.baidu.tieba.view.ah
+    @Override // com.baidu.tieba.view.ai
     public void a(View view, int i, int i2) {
         while (i <= i2) {
             if (getItemViewType(i) == 1) {

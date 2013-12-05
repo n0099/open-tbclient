@@ -22,41 +22,41 @@ import org.json.JSONObject;
 public abstract class a implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    protected Context f689a;
+    protected Context f694a;
     protected l b;
     protected boolean d = true;
     protected String c = com.baidu.android.pushservice.w.f;
 
     public a(l lVar, Context context) {
         this.b = lVar;
-        this.f689a = context.getApplicationContext();
+        this.f694a = context.getApplicationContext();
     }
 
     private void b(int i, byte[] bArr) {
         Intent intent = new Intent("com.baidu.android.pushservice.action.internal.RECEIVE");
-        intent.putExtra(PushConstants.EXTRA_METHOD, this.b.f691a);
+        intent.putExtra(PushConstants.EXTRA_METHOD, this.b.f696a);
         intent.putExtra("error_msg", i);
         intent.putExtra("content", bArr);
         intent.putExtra("appid", this.b.f);
         intent.setFlags(32);
         a(intent);
         if (com.baidu.android.pushservice.b.a()) {
-            Log.d("BaseBaseApiProcessor", "> sendInternalMethodResult  ,method:" + this.b.f691a + " ,errorCode : " + i + " ,content : " + new String(bArr));
+            Log.d("BaseBaseApiProcessor", "> sendInternalMethodResult  ,method:" + this.b.f696a + " ,errorCode : " + i + " ,content : " + new String(bArr));
         }
-        this.f689a.sendBroadcast(intent);
+        this.f694a.sendBroadcast(intent);
     }
 
     protected void a() {
-        if (this.b == null || TextUtils.isEmpty(this.b.f691a)) {
+        if (this.b == null || TextUtils.isEmpty(this.b.f696a)) {
             return;
         }
-        if (this.b.f691a.equals("com.baidu.android.pushservice.action.UNBIND") || !TextUtils.isEmpty(this.b.e)) {
-            if (!ConnectManager.isNetworkConnected(this.f689a)) {
+        if (this.b.f696a.equals("com.baidu.android.pushservice.action.UNBIND") || !TextUtils.isEmpty(this.b.e)) {
+            if (!ConnectManager.isNetworkConnected(this.f694a)) {
                 if (com.baidu.android.pushservice.b.a()) {
                     Log.e("BaseBaseApiProcessor", "Network is not useful!");
                 }
                 a(PushConstants.ERROR_NETWORK_ERROR);
-                b.a(this.f689a);
+                b.a(this.f694a);
                 if (com.baidu.android.pushservice.b.a()) {
                     Log.i("BaseBaseApiProcessor", "startPushService BaseApiProcess");
                     return;
@@ -66,7 +66,7 @@ public abstract class a implements Runnable {
             com.baidu.android.pushservice.y a2 = com.baidu.android.pushservice.y.a();
             synchronized (a2) {
                 if (this.d && !a2.e()) {
-                    a2.a(this.f689a, false);
+                    a2.a(this.f694a, false);
                     this.d = false;
                     while (!a2.b()) {
                         try {
@@ -101,16 +101,16 @@ public abstract class a implements Runnable {
             return;
         }
         Intent intent = new Intent(PushConstants.ACTION_RECEIVE);
-        intent.putExtra(PushConstants.EXTRA_METHOD, this.b.f691a);
+        intent.putExtra(PushConstants.EXTRA_METHOD, this.b.f696a);
         intent.putExtra("error_msg", i);
         intent.putExtra("content", bArr);
         intent.setFlags(32);
         a(intent);
-        if (this.b.f691a.equals(PushConstants.METHOD_BIND)) {
+        if (this.b.f696a.equals(PushConstants.METHOD_BIND)) {
             com.baidu.android.pushservice.b.a aVar = new com.baidu.android.pushservice.b.a();
             aVar.c("020101");
             aVar.a(System.currentTimeMillis());
-            aVar.d(com.baidu.android.pushservice.b.m.d(this.f689a));
+            aVar.d(com.baidu.android.pushservice.b.m.d(this.f694a));
             com.baidu.android.pushservice.b.b bVar = new com.baidu.android.pushservice.b.b();
             try {
                 JSONObject jSONObject = new JSONObject(new String(bArr));
@@ -119,7 +119,7 @@ public abstract class a implements Runnable {
                     aVar.a(jSONObject.getString("error_msg"));
                 }
                 String string = jSONObject.getJSONObject("response_params").getString("appid");
-                com.baidu.android.pushservice.d b = com.baidu.android.pushservice.a.a(this.f689a).b(string);
+                com.baidu.android.pushservice.d b = com.baidu.android.pushservice.a.a(this.f694a).b(string);
                 aVar.e(string);
                 String string2 = jSONObject.getJSONObject("response_params").getString(PushConstants.EXTRA_USER_ID);
                 aVar.e(string);
@@ -127,24 +127,24 @@ public abstract class a implements Runnable {
                 bVar.c(com.baidu.android.pushservice.util.m.b(string2));
                 bVar.b(string2);
                 if (b != null) {
-                    bVar.d(b.f708a);
-                    bVar = com.baidu.android.pushservice.util.m.a(bVar, this.f689a, b.f708a);
+                    bVar.d(b.f713a);
+                    bVar = com.baidu.android.pushservice.util.m.a(bVar, this.f694a, b.f713a);
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
             }
             aVar.a(i);
-            com.baidu.android.pushservice.b.s.a(this.f689a, aVar);
-            com.baidu.android.pushservice.b.s.a(this.f689a, bVar);
+            com.baidu.android.pushservice.b.s.a(this.f694a, aVar);
+            com.baidu.android.pushservice.b.s.a(this.f694a, bVar);
         }
         if (TextUtils.isEmpty(this.b.e)) {
             return;
         }
         intent.setPackage(this.b.e);
         if (com.baidu.android.pushservice.b.a()) {
-            Log.d("BaseBaseApiProcessor", "> sendResult to " + this.b.e + " ,method:" + this.b.f691a + " ,errorCode : " + i + " ,content : " + new String(bArr));
+            Log.d("BaseBaseApiProcessor", "> sendResult to " + this.b.e + " ,method:" + this.b.f696a + " ,errorCode : " + i + " ,content : " + new String(bArr));
         }
-        this.f689a.sendBroadcast(intent);
+        this.f694a.sendBroadcast(intent);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -204,7 +204,7 @@ public abstract class a implements Runnable {
         if (com.baidu.android.pushservice.b.a()) {
             Log.d("BaseBaseApiProcessor", "Request Url = " + this.c);
         }
-        ProxyHttpClient proxyHttpClient = new ProxyHttpClient(this.f689a);
+        ProxyHttpClient proxyHttpClient = new ProxyHttpClient(this.f694a);
         try {
             try {
                 HttpPost httpPost = new HttpPost(this.c);

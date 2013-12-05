@@ -1,26 +1,26 @@
 package com.baidu.tieba.person;
 
-import android.widget.ImageView;
-import com.baidu.adp.widget.ListView.BdListView;
+import android.content.DialogInterface;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bh implements com.baidu.tbadk.imageManager.c {
+public class bh implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bg f2223a;
+    final /* synthetic */ PersonInfoActivity f2333a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bh(bg bgVar) {
-        this.f2223a = bgVar;
+    public bh(PersonInfoActivity personInfoActivity) {
+        this.f2333a = personInfoActivity;
     }
 
-    @Override // com.baidu.tbadk.imageManager.c
-    public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
-        BdListView bdListView;
-        bdListView = this.f2223a.f2222a.b;
-        ImageView imageView = (ImageView) bdListView.findViewWithTag(str);
-        if (imageView != null && eVar != null) {
-            eVar.a(imageView);
-            imageView.setTag(null);
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        if (i == 0) {
+            this.f2333a.I();
+        } else if (i == 1) {
+            com.baidu.tieba.write.bd.a(this.f2333a.i());
+        } else if (i == 2) {
+            com.baidu.tieba.write.bd.c(this.f2333a.i());
         }
     }
 }

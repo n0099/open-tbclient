@@ -3,12 +3,12 @@ package com.baidu.tieba.account;
 public class k extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1085a;
+    private String f1096a;
     private String b;
     private String c;
 
     public k(String str, String str2, String str3) {
-        this.f1085a = str;
+        this.f1096a = str;
         this.b = str2;
         this.c = str3;
     }
@@ -16,10 +16,10 @@ public class k extends Thread {
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         super.run();
-        com.baidu.tieba.util.ap apVar = new com.baidu.tieba.util.ap(com.baidu.tieba.data.h.f1201a + "c/s/clientcall");
-        apVar.a("tid", this.f1085a);
-        apVar.a("phonenum", this.b);
-        apVar.a("optype", this.c);
-        apVar.l();
+        com.baidu.tieba.util.am amVar = new com.baidu.tieba.util.am(com.baidu.tieba.data.h.f1248a + "c/s/clientcall");
+        amVar.a("tid", this.f1096a);
+        amVar.a("phonenum", this.b);
+        amVar.a("optype", this.c);
+        amVar.l();
     }
 }
