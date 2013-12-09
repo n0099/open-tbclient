@@ -2,8 +2,9 @@ package android.support.v4.view;
 
 import android.graphics.Paint;
 import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ar implements ax {
+public class ar implements ax {
     @Override // android.support.v4.view.ax
     public boolean a(View view, int i) {
         return false;

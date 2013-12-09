@@ -7,19 +7,19 @@ import com.baidu.tieba.util.ah;
 public class e implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsGroupListFragment f1706a;
+    final /* synthetic */ FrsGroupListFragment f1707a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(FrsGroupListFragment frsGroupListFragment) {
-        this.f1706a = frsGroupListFragment;
+        this.f1707a = frsGroupListFragment;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         BdListView bdListView;
         GroupListAdapter groupListAdapter;
-        bdListView = this.f1706a.d;
-        groupListAdapter = this.f1706a.h;
+        bdListView = this.f1707a.d;
+        groupListAdapter = this.f1707a.h;
         ah.a(bdListView, groupListAdapter.b(), 0, -1);
     }
 }

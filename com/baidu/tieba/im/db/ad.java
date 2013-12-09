@@ -30,7 +30,7 @@ public class ad {
     }
 
     public synchronized void a(com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMessageCenterPojo>> aVar) {
-        if (Thread.currentThread().getId() != com.baidu.tieba.im.i.f1785a) {
+        if (Thread.currentThread().getId() != com.baidu.tieba.im.i.f1786a) {
             com.baidu.adp.lib.h.e.a("!!!!!!!!!!!!!!!获取缓存不是在主线程里面执行了！");
             if (com.baidu.tieba.data.h.s()) {
                 new RuntimeException().printStackTrace();

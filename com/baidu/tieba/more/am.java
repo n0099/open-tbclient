@@ -7,7 +7,7 @@ import android.widget.Scroller;
 public class am {
 
     /* renamed from: a  reason: collision with root package name */
-    private View f2074a;
+    private View f2075a;
     private Scroller b;
     private int c;
     private int d;
@@ -16,7 +16,7 @@ public class am {
     private Runnable g = new an(this);
 
     public am(View view, int i) {
-        this.f2074a = view;
+        this.f2075a = view;
         this.b = new Scroller(view.getContext(), new DecelerateInterpolator());
         this.c = view.getPaddingTop();
         this.d = -view.getMeasuredHeight();
@@ -31,19 +31,19 @@ public class am {
     public void a() {
         if (!this.f) {
             this.f = true;
-            int paddingLeft = this.f2074a.getPaddingLeft();
-            int paddingTop = this.f2074a.getPaddingTop() == this.c ? -this.f2074a.getMeasuredHeight() : this.f2074a.getPaddingTop();
-            int paddingRight = this.f2074a.getPaddingRight();
-            int paddingBottom = this.f2074a.getPaddingBottom();
-            this.f2074a.setVisibility(0);
-            this.f2074a.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
+            int paddingLeft = this.f2075a.getPaddingLeft();
+            int paddingTop = this.f2075a.getPaddingTop() == this.c ? -this.f2075a.getMeasuredHeight() : this.f2075a.getPaddingTop();
+            int paddingRight = this.f2075a.getPaddingRight();
+            int paddingBottom = this.f2075a.getPaddingBottom();
+            this.f2075a.setVisibility(0);
+            this.f2075a.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
             if (!this.b.isFinished()) {
                 this.b.forceFinished(true);
-                this.f2074a.removeCallbacks(this.g);
+                this.f2075a.removeCallbacks(this.g);
             }
-            int paddingTop2 = this.f2074a.getPaddingTop();
+            int paddingTop2 = this.f2075a.getPaddingTop();
             this.b.startScroll(paddingTop2, 0, this.c - paddingTop2, 0, this.e);
-            this.f2074a.post(this.g);
+            this.f2075a.post(this.g);
         }
     }
 
@@ -52,11 +52,11 @@ public class am {
             this.f = false;
             if (!this.b.isFinished()) {
                 this.b.forceFinished(true);
-                this.f2074a.removeCallbacks(this.g);
+                this.f2075a.removeCallbacks(this.g);
             }
-            int paddingTop = this.f2074a.getPaddingTop();
+            int paddingTop = this.f2075a.getPaddingTop();
             this.b.startScroll(paddingTop, 0, this.d - paddingTop, 0, this.e);
-            this.f2074a.post(this.g);
+            this.f2075a.post(this.g);
         }
     }
 }

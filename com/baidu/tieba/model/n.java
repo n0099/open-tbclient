@@ -9,11 +9,11 @@ import java.util.List;
 public class n extends BdAsyncTask<Object, Integer, Boolean> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ f f2040a;
+    final /* synthetic */ f f2041a;
     private volatile com.baidu.tieba.util.am b;
 
     private n(f fVar) {
-        this.f2040a = fVar;
+        this.f2041a = fVar;
         this.b = null;
     }
 
@@ -40,23 +40,23 @@ public class n extends BdAsyncTask<Object, Integer, Boolean> {
             this.b = new com.baidu.tieba.util.am(com.baidu.tieba.data.h.f1248a + "c/s/comlist");
             this.b.e(true);
             com.baidu.tieba.util.am amVar = this.b;
-            str = this.f2040a.e;
+            str = this.f2041a.e;
             amVar.a(PushConstants.EXTRA_USER_ID, str);
             com.baidu.tieba.util.am amVar2 = this.b;
-            str2 = this.f2040a.g;
+            str2 = this.f2041a.g;
             amVar2.a("pn", str2);
             com.baidu.tieba.util.am amVar3 = this.b;
-            str3 = this.f2040a.h;
+            str3 = this.f2041a.h;
             amVar3.a("rn", str3);
             String l = this.b.l();
             if (this.b.c() && l != null) {
-                this.f2040a.c(l);
-                if (this.f2040a.d() == 0) {
-                    str4 = this.f2040a.g;
+                this.f2041a.c(l);
+                if (this.f2041a.d() == 0) {
+                    str4 = this.f2041a.g;
                     if (str4.equals(SocialConstants.TRUE)) {
-                        list = this.f2040a.d;
+                        list = this.f2041a.d;
                         if (list != null) {
-                            this.f2040a.g();
+                            this.f2041a.g();
                         }
                     }
                 }
@@ -79,27 +79,27 @@ public class n extends BdAsyncTask<Object, Integer, Boolean> {
         List list3;
         List list4;
         List list5;
-        this.f2040a.l = null;
-        list = this.f2040a.c;
+        this.f2041a.l = null;
+        list = this.f2041a.c;
         if (list != null) {
-            list2 = this.f2040a.d;
+            list2 = this.f2041a.d;
             if (list2 != null) {
-                list3 = this.f2040a.c;
+                list3 = this.f2041a.c;
                 list3.clear();
-                list4 = this.f2040a.c;
-                list5 = this.f2040a.d;
+                list4 = this.f2041a.c;
+                list5 = this.f2041a.d;
                 list4.addAll(list5);
             }
         }
-        this.f2040a.f();
+        this.f2041a.f();
         if (bool.booleanValue()) {
-            gVar = this.f2040a.mLoadDataCallBack;
+            gVar = this.f2041a.mLoadDataCallBack;
             gVar.a(true);
             return;
         }
-        this.f2040a.mErrorCode = this.b.e();
-        this.f2040a.mErrorString = this.b.i();
-        gVar2 = this.f2040a.mLoadDataCallBack;
+        this.f2041a.mErrorCode = this.b.e();
+        this.f2041a.mErrorString = this.b.i();
+        gVar2 = this.f2041a.mLoadDataCallBack;
         gVar2.a(false);
     }
 
@@ -111,7 +111,7 @@ public class n extends BdAsyncTask<Object, Integer, Boolean> {
             this.b.j();
             this.b = null;
         }
-        gVar = this.f2040a.mLoadDataCallBack;
+        gVar = this.f2041a.mLoadDataCallBack;
         gVar.a(false);
     }
 }

@@ -1,15 +1,17 @@
 package com.baidu.adp.lib.f;
+
+import android.content.Context;
+import android.content.Intent;
+import com.baidu.adp.lib.h.e;
 /* loaded from: classes.dex */
 public class c {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static c f483a = new c();
-
-    public static c a() {
-        return f483a;
-    }
-
-    public void a(Runnable runnable) {
-        new Thread(runnable).start();
+    public static boolean a(Context context, Intent intent) {
+        try {
+            context.startService(intent);
+            return true;
+        } catch (Exception e) {
+            e.a(e.getMessage());
+            return false;
+        }
     }
 }

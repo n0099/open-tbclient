@@ -9,7 +9,7 @@ import com.baidu.tieba.view.HeadImageView;
 class a {
 
     /* renamed from: a  reason: collision with root package name */
-    LinearLayout f1781a;
+    LinearLayout f1782a;
     LinearLayout b;
     TextView c;
     ProgressBar d;

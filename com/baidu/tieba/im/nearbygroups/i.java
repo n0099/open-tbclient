@@ -13,7 +13,7 @@ public class i implements a {
     private NearbyGroupsActivity d;
 
     /* renamed from: a  reason: collision with root package name */
-    private LinearLayout f1849a = null;
+    private LinearLayout f1850a = null;
     private TextView b = null;
     private TextView c = null;
     private View e = null;
@@ -40,14 +40,14 @@ public class i implements a {
     public void b() {
         this.e = LayoutInflater.from(this.d).inflate(R.layout.im_group_list_group, (ViewGroup) null);
         this.b = (TextView) this.e.findViewById(R.id.tv_group_line_top);
-        this.f1849a = (LinearLayout) this.e.findViewById(R.id.list_group);
+        this.f1850a = (LinearLayout) this.e.findViewById(R.id.list_group);
         this.c = (TextView) this.e.findViewById(R.id.tv_group_name);
         c();
     }
 
     public void a(int i) {
         this.d.getLayoutMode().a(i == 1);
-        this.d.getLayoutMode().a(this.f1849a);
+        this.d.getLayoutMode().a(this.f1850a);
         if (i == 1) {
             this.c.setTextColor(this.d.getResources().getColor(R.color.common_list_text_1));
             b(R.drawable.icon_list_small_lbs_1);

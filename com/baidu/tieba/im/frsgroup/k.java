@@ -6,13 +6,13 @@ import com.baidu.adp.widget.ListView.BdListView;
 public class k implements com.baidu.adp.widget.ListView.b {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ BdListView f1712a;
+    final /* synthetic */ BdListView f1713a;
     final /* synthetic */ MembersActivity b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(MembersActivity membersActivity, BdListView bdListView) {
         this.b = membersActivity;
-        this.f1712a = bdListView;
+        this.f1713a = bdListView;
     }
 
     @Override // com.baidu.adp.widget.ListView.b
@@ -42,6 +42,6 @@ public class k implements com.baidu.adp.widget.ListView.b {
             this.b.g();
             return;
         }
-        this.f1712a.a();
+        this.f1713a.a();
     }
 }

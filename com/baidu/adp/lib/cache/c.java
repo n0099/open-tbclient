@@ -81,7 +81,7 @@ public abstract class c<T> {
             this.e++;
             if (this.e >= ((int) Math.min(this.d.a() * 0.2d, 5.0d))) {
                 this.e = 0;
-                com.baidu.adp.lib.f.c.a().a(new d(this));
+                com.baidu.adp.lib.f.d.a().a(new d(this));
             }
         }
     }

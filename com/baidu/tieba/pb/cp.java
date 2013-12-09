@@ -7,13 +7,13 @@ import android.text.TextWatcher;
 public class cp implements TextWatcher {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ com.baidu.tieba.editortool.h f2211a;
+    final /* synthetic */ com.baidu.tieba.editortool.h f2212a;
     final /* synthetic */ PbEditorToolView b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cp(PbEditorToolView pbEditorToolView, com.baidu.tieba.editortool.h hVar) {
         this.b = pbEditorToolView;
-        this.f2211a = hVar;
+        this.f2212a = hVar;
     }
 
     @Override // android.text.TextWatcher
@@ -26,6 +26,6 @@ public class cp implements TextWatcher {
 
     @Override // android.text.TextWatcher
     public void afterTextChanged(Editable editable) {
-        this.f2211a.a(18, null);
+        this.f2212a.a(18, null);
     }
 }

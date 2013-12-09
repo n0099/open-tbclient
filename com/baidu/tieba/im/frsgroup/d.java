@@ -5,11 +5,11 @@ import android.view.View;
 class d implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsGroupListFragment f1705a;
+    final /* synthetic */ FrsGroupListFragment f1706a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(FrsGroupListFragment frsGroupListFragment) {
-        this.f1705a = frsGroupListFragment;
+        this.f1706a = frsGroupListFragment;
     }
 
     @Override // android.view.View.OnClickListener
@@ -17,10 +17,10 @@ class d implements View.OnClickListener {
         com.baidu.tieba.im.model.b bVar;
         FrsGroupActivity frsGroupActivity;
         com.baidu.tieba.im.model.b bVar2;
-        bVar = this.f1705a.b;
+        bVar = this.f1706a.b;
         if (bVar.d() != null) {
-            frsGroupActivity = this.f1705a.f1694a;
-            bVar2 = this.f1705a.b;
+            frsGroupActivity = this.f1706a.f1695a;
+            bVar2 = this.f1706a.b;
             frsGroupActivity.a(bVar2.d());
         }
     }

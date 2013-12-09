@@ -13,7 +13,7 @@ import org.json.JSONObject;
 public class m {
 
     /* renamed from: a  reason: collision with root package name */
-    private List<UpdatesItemData> f1775a = new ArrayList();
+    private List<UpdatesItemData> f1776a = new ArrayList();
 
     public static void a(UpdatesItemData updatesItemData, com.baidu.tieba.im.a<Boolean> aVar) {
         if (updatesItemData != null) {
@@ -22,19 +22,19 @@ public class m {
     }
 
     public void a(com.baidu.tieba.im.a<Boolean> aVar) {
-        com.baidu.tieba.im.db.l.a().a(this.f1775a, aVar);
+        com.baidu.tieba.im.db.l.a().a(this.f1776a, aVar);
     }
 
     public String a() {
         String str;
         String str2 = "";
-        if (this.f1775a == null || this.f1775a.size() == 0) {
+        if (this.f1776a == null || this.f1776a.size() == 0) {
             return null;
         }
-        int size = this.f1775a.size();
+        int size = this.f1776a.size();
         int i = 0;
         while (i < size) {
-            UpdatesItemData updatesItemData = this.f1775a.get(i);
+            UpdatesItemData updatesItemData = this.f1776a.get(i);
             if (updatesItemData == null || TextUtils.isEmpty(updatesItemData.getNotice_id()) || !TextUtils.isDigitsOnly(updatesItemData.getNotice_id())) {
                 str = str2;
             } else {
@@ -50,7 +50,7 @@ public class m {
     }
 
     public void b() {
-        this.f1775a.clear();
+        this.f1776a.clear();
     }
 
     public void c() {
@@ -58,15 +58,15 @@ public class m {
     }
 
     public void a(UpdatesItemData updatesItemData) {
-        this.f1775a.add(updatesItemData);
+        this.f1776a.add(updatesItemData);
     }
 
     public void b(UpdatesItemData updatesItemData) {
-        this.f1775a.remove(updatesItemData);
+        this.f1776a.remove(updatesItemData);
     }
 
     public int d() {
-        return this.f1775a.size();
+        return this.f1776a.size();
     }
 
     public static void b(com.baidu.tieba.im.a<LinkedList<GroupNewsPojo>> aVar) {

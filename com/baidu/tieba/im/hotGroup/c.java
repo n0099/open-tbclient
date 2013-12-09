@@ -15,7 +15,7 @@ public class c {
     private int b = g.a((Context) TiebaApplication.a(), 70.0f);
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1783a = g.a((Context) TiebaApplication.a(), 70.0f);
+    private int f1784a = g.a((Context) TiebaApplication.a(), 70.0f);
     private int c = 30;
 
     public void a(int i) {
@@ -50,12 +50,12 @@ public class c {
         if (!c()) {
             c(true);
             if (z) {
-                RequestHotGroupsMessage requestHotGroupsMessage = new RequestHotGroupsMessage(this.b, this.f1783a, this.c, this.d);
+                RequestHotGroupsMessage requestHotGroupsMessage = new RequestHotGroupsMessage(this.b, this.f1784a, this.c, this.d);
                 requestHotGroupsMessage.setCmd(-116);
                 e.a().a(requestHotGroupsMessage);
                 return;
             }
-            e.a().a(new RequestHotGroupsMessage(this.b, this.f1783a, this.c, this.d));
+            e.a().a(new RequestHotGroupsMessage(this.b, this.f1784a, this.c, this.d));
         }
     }
 }

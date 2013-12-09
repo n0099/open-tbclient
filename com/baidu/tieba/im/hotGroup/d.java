@@ -10,7 +10,7 @@ import com.slidingmenu.lib.R;
 public class d extends e {
 
     /* renamed from: a  reason: collision with root package name */
-    private HotGroupActivity f1784a;
+    private HotGroupActivity f1785a;
     private View c;
     private NavigationBar d;
     private NoNetworkView e;
@@ -19,19 +19,19 @@ public class d extends e {
 
     public d(HotGroupActivity hotGroupActivity) {
         super(hotGroupActivity);
-        this.f1784a = hotGroupActivity;
+        this.f1785a = hotGroupActivity;
         hotGroupActivity.setContentView(R.layout.hot_group_activity);
         e();
     }
 
     private void e() {
-        this.c = this.f1784a.findViewById(R.id.parent);
-        this.d = (NavigationBar) this.f1784a.findViewById(R.id.view_navigation_bar);
+        this.c = this.f1785a.findViewById(R.id.parent);
+        this.d = (NavigationBar) this.f1785a.findViewById(R.id.view_navigation_bar);
         this.d.a(R.string.hot_group);
         this.f = this.d.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f.setOnClickListener(this.f1784a);
-        this.g = (HotGroupFragment) this.f1784a.getSupportFragmentManager().a(R.id.hot_group_fragment);
-        this.e = (NoNetworkView) this.f1784a.findViewById(R.id.view_no_network);
+        this.f.setOnClickListener(this.f1785a);
+        this.g = (HotGroupFragment) this.f1785a.getSupportFragmentManager().a(R.id.hot_group_fragment);
+        this.e = (NoNetworkView) this.f1785a.findViewById(R.id.view_no_network);
     }
 
     public ImageView a() {
@@ -39,8 +39,8 @@ public class d extends e {
     }
 
     public void a(int i) {
-        this.f1784a.a().a(i == 1);
-        this.f1784a.a().a(this.c);
+        this.f1785a.a().a(i == 1);
+        this.f1785a.a().a(this.c);
         this.d.c(i);
         this.g.c(i);
         this.e.a(i);

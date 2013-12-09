@@ -10,7 +10,7 @@ import java.security.InvalidParameterException;
 public class p extends com.baidu.adp.lib.webSocket.d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Handler f1803a = new Handler();
+    private static Handler f1804a = new Handler();
     private int b;
     private IMException c;
     private boolean d;
@@ -78,7 +78,7 @@ public class p extends com.baidu.adp.lib.webSocket.d {
     }
 
     public void e() {
-        f1803a.removeCallbacks(t());
+        f1804a.removeCallbacks(t());
     }
 
     public void f() {
@@ -89,18 +89,18 @@ public class p extends com.baidu.adp.lib.webSocket.d {
     @Override // com.baidu.adp.lib.webSocket.aq
     public void c() {
         com.baidu.tieba.log.a.b(com.baidu.tieba.log.i.a(this.e.getCmd(), this.f, "socket", "SenderData: start send", null, 0, null, 0L, b() != null ? b().length : 0, null));
-        f1803a.removeCallbacks(t());
+        f1804a.removeCallbacks(t());
         if (this.b > 0) {
-            f1803a.postDelayed(t(), this.b);
+            f1804a.postDelayed(t(), this.b);
         } else {
-            f1803a.postDelayed(t(), com.baidu.tieba.im.net.f.a().d());
+            f1804a.postDelayed(t(), com.baidu.tieba.im.net.f.a().d());
         }
         s();
     }
 
     @Override // com.baidu.adp.lib.webSocket.aq
     public void a(int i) {
-        f1803a.removeCallbacks(t());
+        f1804a.removeCallbacks(t());
         b(i);
     }
 
@@ -108,7 +108,7 @@ public class p extends com.baidu.adp.lib.webSocket.d {
     public void d() {
         com.baidu.tieba.log.a.b(com.baidu.tieba.log.i.a(this.e.getCmd(), this.f, "socket", "SenderData: finish send", null, 0, null, 0L, b() != null ? b().length : 0, null));
         if (!this.d) {
-            f1803a.removeCallbacks(t());
+            f1804a.removeCallbacks(t());
         }
         r();
     }

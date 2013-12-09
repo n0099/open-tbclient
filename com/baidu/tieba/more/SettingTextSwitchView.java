@@ -16,7 +16,7 @@ import com.slidingmenu.lib.R;
 public class SettingTextSwitchView extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    protected TextView f2059a;
+    protected TextView f2060a;
     private Context b;
     private LinearLayout c;
     private TextView d;
@@ -58,16 +58,16 @@ public class SettingTextSwitchView extends FrameLayout {
         if (i == 1) {
             this.d.setTextColor(this.b.getResources().getColor(R.color.skin_1_common_color));
             this.e.setSwitchStyle(BdSwitchView.SwitchStyle.NIGHT);
-            if (this.f2059a != null) {
-                this.f2059a.setTextColor(this.b.getResources().getColor(R.color.c_FF515865));
+            if (this.f2060a != null) {
+                this.f2060a.setTextColor(this.b.getResources().getColor(R.color.c_FF515865));
                 return;
             }
             return;
         }
         this.d.setTextColor(this.b.getResources().getColor(R.color.more_color));
         this.e.setSwitchStyle(BdSwitchView.SwitchStyle.DAY);
-        if (this.f2059a != null) {
-            this.f2059a.setTextColor(this.b.getResources().getColor(R.color.c_FFB2B6BA));
+        if (this.f2060a != null) {
+            this.f2060a.setTextColor(this.b.getResources().getColor(R.color.c_FFB2B6BA));
         }
     }
 
@@ -100,9 +100,9 @@ public class SettingTextSwitchView extends FrameLayout {
         this.c = (LinearLayout) findViewById(R.id.container);
         this.d = (TextView) findViewById(R.id.text);
         this.e = (BdSwitchView) findViewById(R.id.button);
-        this.f2059a = (TextView) findViewById(R.id.tip);
-        if (this.f2059a != null) {
-            this.f2059a.setVisibility(8);
+        this.f2060a = (TextView) findViewById(R.id.tip);
+        if (this.f2060a != null) {
+            this.f2060a.setVisibility(8);
         }
     }
 
@@ -113,11 +113,11 @@ public class SettingTextSwitchView extends FrameLayout {
         float dimension = obtainStyledAttributes.getDimension(2, -1.0f);
         String string2 = obtainStyledAttributes.getString(3);
         int color2 = obtainStyledAttributes.getColor(4, -1);
-        if (this.f2059a != null && string2 != null) {
-            this.f2059a.setVisibility(0);
-            this.f2059a.setText(string2);
+        if (this.f2060a != null && string2 != null) {
+            this.f2060a.setVisibility(0);
+            this.f2060a.setText(string2);
             if (color2 > -1) {
-                this.f2059a.setTextColor(color2);
+                this.f2060a.setTextColor(color2);
             }
         }
         if (string != null) {
@@ -135,28 +135,28 @@ public class SettingTextSwitchView extends FrameLayout {
     }
 
     public void setTip(String str) {
-        if (str != null && this.f2059a != null) {
+        if (str != null && this.f2060a != null) {
             c();
-            this.f2059a.setText(str);
+            this.f2060a.setText(str);
         }
     }
 
     public void setTip(int i) {
-        if (i != -1 && this.f2059a != null) {
+        if (i != -1 && this.f2060a != null) {
             c();
-            this.f2059a.setText(i);
+            this.f2060a.setText(i);
         }
     }
 
     public void setTipColor(int i) {
-        if (this.f2059a != null) {
-            this.f2059a.setTextColor(i);
+        if (this.f2060a != null) {
+            this.f2060a.setTextColor(i);
         }
     }
 
     public void c() {
-        if (this.f2059a != null) {
-            this.f2059a.setVisibility(8);
+        if (this.f2060a != null) {
+            this.f2060a.setVisibility(8);
         }
     }
 

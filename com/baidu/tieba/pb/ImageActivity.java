@@ -26,7 +26,7 @@ public class ImageActivity extends com.baidu.tieba.j {
     private FrameLayout D;
 
     /* renamed from: a  reason: collision with root package name */
-    private ProgressBar f2136a = null;
+    private ProgressBar f2137a = null;
     private int b = 0;
     private ArrayList<String> c = null;
     private int d = -1;
@@ -208,8 +208,8 @@ public class ImageActivity extends com.baidu.tieba.j {
             this.h.cancel();
             this.h = null;
         }
-        if (this.f2136a != null) {
-            this.f2136a.setVisibility(8);
+        if (this.f2137a != null) {
+            this.f2137a.setVisibility(8);
         }
         if (this.B) {
             unregisterReceiver(this.t);
@@ -237,7 +237,7 @@ public class ImageActivity extends com.baidu.tieba.j {
         this.D = (FrameLayout) this.l.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.image_activity_save_button, this.n);
         this.j = this.l.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.k = this.l.a("");
-        this.f2136a = (ProgressBar) findViewById(R.id.progress);
+        this.f2137a = (ProgressBar) findViewById(R.id.progress);
         this.i = (TextView) findViewById(R.id.save);
         this.i.setClickable(false);
         this.m = (MultiImageView) findViewById(R.id.viewpager);

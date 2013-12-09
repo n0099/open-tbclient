@@ -9,7 +9,6 @@ import com.baidu.tbadk.imageManager.TbFaceManager;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class j {
 
@@ -388,7 +387,7 @@ public class j {
             return null;
         }
         SpannableString spannableString = new SpannableString(str);
-        Matcher matcher = Pattern.compile("(((ht|f)tp(s{0,1}))://){0,1}([\\w-]+\\.)+[\\w-]+(/[\\w- ./?%&+=]*)?", 2).matcher(str);
+        Matcher matcher = com.baidu.tieba.im.e.h.a().matcher(str);
         while (matcher.find()) {
             String group = matcher.group();
             String group2 = matcher.group();

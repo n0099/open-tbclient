@@ -6,15 +6,15 @@ import com.baidu.adp.widget.ListView.q;
 public class l implements q {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ k f1852a;
+    final /* synthetic */ k f1853a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(k kVar) {
-        this.f1852a = kVar;
+        this.f1853a = kVar;
     }
 
     @Override // com.baidu.adp.widget.ListView.q
     public void a(int i, int i2) {
-        this.f1852a.a();
+        this.f1853a.a();
     }
 }

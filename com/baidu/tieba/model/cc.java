@@ -7,7 +7,7 @@ import com.baidu.tieba.util.UtilHelper;
 public class cc {
 
     /* renamed from: a  reason: collision with root package name */
-    private static cc f2022a;
+    private static cc f2023a;
     private com.baidu.adp.lib.d.a<String, String> b;
 
     private cc() {
@@ -18,10 +18,10 @@ public class cc {
     public static synchronized cc a() {
         cc ccVar;
         synchronized (cc.class) {
-            if (f2022a == null) {
-                f2022a = new cc();
+            if (f2023a == null) {
+                f2023a = new cc();
             }
-            ccVar = f2022a;
+            ccVar = f2023a;
         }
         return ccVar;
     }

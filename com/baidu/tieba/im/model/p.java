@@ -6,10 +6,10 @@ import java.util.Comparator;
 class p implements Comparator<ChatMessage> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MsglistModel f1824a;
+    final /* synthetic */ MsglistModel f1825a;
 
     private p(MsglistModel msglistModel) {
-        this.f1824a = msglistModel;
+        this.f1825a = msglistModel;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

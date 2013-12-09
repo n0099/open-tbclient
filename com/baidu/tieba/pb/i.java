@@ -11,10 +11,10 @@ import java.util.ArrayList;
 public class i extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ImageActivity f2271a;
+    final /* synthetic */ ImageActivity f2272a;
 
     private i(ImageActivity imageActivity) {
-        this.f2271a = imageActivity;
+        this.f2272a = imageActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -32,24 +32,24 @@ public class i extends BroadcastReceiver {
         boolean z;
         MultiImageView multiImageView4;
         int g;
-        this.f2271a.f = intent.getBooleanExtra("hasnext", false);
-        this.f2271a.g = intent.getStringExtra("nexttitle");
-        this.f2271a.c = intent.getStringArrayListExtra(SocialConstants.PARAM_URL);
-        this.f2271a.e = intent.getIntExtra("count", -1);
+        this.f2272a.f = intent.getBooleanExtra("hasnext", false);
+        this.f2272a.g = intent.getStringExtra("nexttitle");
+        this.f2272a.c = intent.getStringArrayListExtra(SocialConstants.PARAM_URL);
+        this.f2272a.e = intent.getIntExtra("count", -1);
         int intExtra = intent.getIntExtra("index", -1);
-        multiImageView = this.f2271a.m;
-        arrayList = this.f2271a.c;
+        multiImageView = this.f2272a.m;
+        arrayList = this.f2272a.c;
         multiImageView.setUrlData(arrayList);
-        multiImageView2 = this.f2271a.m;
-        str = this.f2271a.g;
+        multiImageView2 = this.f2272a.m;
+        str = this.f2272a.g;
         multiImageView2.setNextTitle(str);
-        multiImageView3 = this.f2271a.m;
-        z = this.f2271a.f;
+        multiImageView3 = this.f2272a.m;
+        z = this.f2272a.f;
         multiImageView3.setHasNext(z);
         if (intExtra >= 0) {
-            this.f2271a.d = intExtra;
-            multiImageView4 = this.f2271a.m;
-            g = this.f2271a.g();
+            this.f2272a.d = intExtra;
+            multiImageView4 = this.f2272a.m;
+            g = this.f2272a.g();
             multiImageView4.a(g, false);
         }
     }

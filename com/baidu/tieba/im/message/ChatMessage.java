@@ -11,7 +11,7 @@ import java.util.Map;
 public class ChatMessage extends Message implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    private transient MsgCacheData f1790a;
+    private transient MsgCacheData f1791a;
     private String content;
     private String groupId;
     private int height;
@@ -113,11 +113,11 @@ public class ChatMessage extends Message implements c {
     }
 
     public MsgCacheData getCacheData() {
-        return this.f1790a;
+        return this.f1791a;
     }
 
     public void setCacheData(MsgCacheData msgCacheData) {
-        this.f1790a = msgCacheData;
+        this.f1791a = msgCacheData;
     }
 
     public long getTime() {

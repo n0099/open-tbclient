@@ -7,12 +7,12 @@ import com.slidingmenu.lib.R;
 class a implements TextWatcher {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ApplyJoinGroupActivity f1738a;
+    final /* synthetic */ ApplyJoinGroupActivity f1739a;
     private CharSequence b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(ApplyJoinGroupActivity applyJoinGroupActivity) {
-        this.f1738a = applyJoinGroupActivity;
+        this.f1739a = applyJoinGroupActivity;
     }
 
     @Override // android.text.TextWatcher
@@ -27,28 +27,28 @@ class a implements TextWatcher {
     @Override // android.text.TextWatcher
     public void afterTextChanged(Editable editable) {
         if (editable != null) {
-            int selectionStart = this.f1738a.b.getSelectionStart();
-            int selectionEnd = this.f1738a.b.getSelectionEnd();
+            int selectionStart = this.f1739a.b.getSelectionStart();
+            int selectionEnd = this.f1739a.b.getSelectionEnd();
             int length = this.b.length();
             if (30 < length) {
-                this.f1738a.f.setEnabled(false);
+                this.f1739a.f.setEnabled(false);
                 editable.delete(selectionStart - 1, selectionEnd);
                 com.baidu.adp.lib.h.e.d("start:" + selectionStart + " end:" + selectionEnd);
-                this.f1738a.b.setText(editable);
-                this.f1738a.b.setSelection(selectionStart);
+                this.f1739a.b.setText(editable);
+                this.f1739a.b.setSelection(selectionStart);
                 length = 30;
             } else {
-                this.f1738a.c.setTextColor(this.f1738a.getResources().getColor(R.color.edit_normal));
+                this.f1739a.c.setTextColor(this.f1739a.getResources().getColor(R.color.edit_normal));
                 if (editable.length() > 0) {
-                    this.f1738a.f.setEnabled(true);
+                    this.f1739a.f.setEnabled(true);
                 } else {
-                    this.f1738a.f.setEnabled(false);
+                    this.f1739a.f.setEnabled(false);
                 }
             }
             if (30 == length) {
-                this.f1738a.c.setTextColor(this.f1738a.getResources().getColor(R.color.edit_exceed));
+                this.f1739a.c.setTextColor(this.f1739a.getResources().getColor(R.color.edit_exceed));
             }
-            this.f1738a.c.setText(length + "/30");
+            this.f1739a.c.setText(length + "/30");
         }
     }
 }

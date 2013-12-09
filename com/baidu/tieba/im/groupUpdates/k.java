@@ -6,11 +6,11 @@ import android.view.View;
 public class k implements View.OnLongClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ f f1773a;
+    final /* synthetic */ f f1774a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(f fVar) {
-        this.f1773a = fVar;
+        this.f1774a = fVar;
     }
 
     @Override // android.view.View.OnLongClickListener
@@ -18,9 +18,9 @@ public class k implements View.OnLongClickListener {
         UpdatesActivity updatesActivity;
         View view2;
         UpdatesItemData updatesItemData;
-        updatesActivity = this.f1773a.l;
-        view2 = this.f1773a.c;
-        updatesItemData = this.f1773a.m;
+        updatesActivity = this.f1774a.l;
+        view2 = this.f1774a.c;
+        updatesItemData = this.f1774a.m;
         updatesActivity.b(view2, 200, 0, 0L, updatesItemData);
         return true;
     }

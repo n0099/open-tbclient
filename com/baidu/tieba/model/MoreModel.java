@@ -5,7 +5,7 @@ import com.baidu.tieba.data.PersonChangeData;
 public class MoreModel extends com.baidu.adp.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    private PersonChangeData f1972a;
+    private PersonChangeData f1973a;
     private boolean b = false;
 
     /* loaded from: classes.dex */
@@ -14,15 +14,15 @@ public class MoreModel extends com.baidu.adp.a.d {
     }
 
     public MoreModel(PersonChangeData personChangeData) {
-        this.f1972a = null;
-        this.f1972a = personChangeData;
-        if (this.f1972a == null) {
-            this.f1972a = new PersonChangeData();
+        this.f1973a = null;
+        this.f1973a = personChangeData;
+        if (this.f1973a == null) {
+            this.f1973a = new PersonChangeData();
         }
     }
 
     public void a(PersonChangeData personChangeData) {
-        this.f1972a = personChangeData;
+        this.f1973a = personChangeData;
     }
 
     public void a(boolean z) {
@@ -44,6 +44,6 @@ public class MoreModel extends com.baidu.adp.a.d {
     }
 
     public PersonChangeData b() {
-        return this.f1972a;
+        return this.f1973a;
     }
 }

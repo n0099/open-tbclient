@@ -1,8 +1,9 @@
 package com.baidu.tieba.im.chat;
 
 import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ao implements View.OnLongClickListener {
+public class ao implements View.OnLongClickListener {
 
     /* renamed from: a  reason: collision with root package name */
     final /* synthetic */ an f1546a;

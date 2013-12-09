@@ -5,15 +5,15 @@ import android.content.DialogInterface;
 class n implements DialogInterface.OnCancelListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ m f2097a;
+    final /* synthetic */ m f2098a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(m mVar) {
-        this.f2097a = mVar;
+        this.f2098a = mVar;
     }
 
     @Override // android.content.DialogInterface.OnCancelListener
     public void onCancel(DialogInterface dialogInterface) {
-        this.f2097a.f2096a.DeinitWaitingDialog();
+        this.f2098a.f2097a.DeinitWaitingDialog();
     }
 }

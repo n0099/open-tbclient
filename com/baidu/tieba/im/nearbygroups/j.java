@@ -30,7 +30,7 @@ public class j implements a {
     private TextView p;
 
     /* renamed from: a  reason: collision with root package name */
-    private LinearLayout f1850a = null;
+    private LinearLayout f1851a = null;
     private View c = null;
     private DecimalFormat q = new DecimalFormat("#.#");
 
@@ -105,7 +105,7 @@ public class j implements a {
 
     public void b() {
         this.c = LayoutInflater.from(this.b).inflate(R.layout.im_group_list_item, (ViewGroup) null);
-        this.f1850a = (LinearLayout) this.c.findViewById(R.id.list_item);
+        this.f1851a = (LinearLayout) this.c.findViewById(R.id.list_item);
         this.p = (TextView) this.c.findViewById(R.id.isMeizi);
         this.o = (LinearLayout) this.c.findViewById(R.id.list_item_content);
         this.l = (TextView) this.c.findViewById(R.id.tv_im_line_bottom);
@@ -129,7 +129,7 @@ public class j implements a {
 
     public void a(int i) {
         this.b.getLayoutMode().a(i == 1);
-        this.b.getLayoutMode().a(this.f1850a);
+        this.b.getLayoutMode().a(this.f1851a);
     }
 
     public void c() {

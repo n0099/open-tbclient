@@ -10,12 +10,12 @@ import com.baidu.tieba.TiebaApplication;
 public class c extends BdAsyncTask<String, Integer, ci> {
 
     /* renamed from: a  reason: collision with root package name */
-    com.baidu.tieba.util.am f2019a;
+    com.baidu.tieba.util.am f2020a;
     final /* synthetic */ a b;
 
     private c(a aVar) {
         this.b = aVar;
-        this.f2019a = null;
+        this.f2020a = null;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -32,20 +32,20 @@ public class c extends BdAsyncTask<String, Integer, ci> {
         Exception e;
         Context context;
         try {
-            this.f2019a = new com.baidu.tieba.util.am(com.baidu.tieba.data.h.f1248a + "c/s/sync");
-            this.f2019a.a("_os_version", Build.VERSION.RELEASE);
+            this.f2020a = new com.baidu.tieba.util.am(com.baidu.tieba.data.h.f1248a + "c/s/sync");
+            this.f2020a.a("_os_version", Build.VERSION.RELEASE);
             StringBuffer stringBuffer = new StringBuffer(15);
             stringBuffer.append(String.valueOf(com.baidu.adp.lib.h.g.b(TiebaApplication.h())));
             stringBuffer.append(",");
             stringBuffer.append(String.valueOf(com.baidu.adp.lib.h.g.c(TiebaApplication.h())));
-            this.f2019a.a("_phone_screen", stringBuffer.toString());
+            this.f2020a.a("_phone_screen", stringBuffer.toString());
             if (TiebaApplication.h().N() > 0) {
-                this.f2019a.a("_msg_status", SocialConstants.FALSE);
+                this.f2020a.a("_msg_status", SocialConstants.FALSE);
             } else {
-                this.f2019a.a("_msg_status", SocialConstants.TRUE);
+                this.f2020a.a("_msg_status", SocialConstants.TRUE);
             }
-            String l = this.f2019a.l();
-            if (!this.f2019a.c()) {
+            String l = this.f2020a.l();
+            if (!this.f2020a.c()) {
                 return null;
             }
             ciVar = new ci();
@@ -72,8 +72,8 @@ public class c extends BdAsyncTask<String, Integer, ci> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         this.b.b = null;
-        if (this.f2019a != null) {
-            this.f2019a.j();
+        if (this.f2020a != null) {
+            this.f2020a.j();
         }
         super.cancel(true);
     }
@@ -84,6 +84,6 @@ public class c extends BdAsyncTask<String, Integer, ci> {
     public void a(ci ciVar) {
         super.a((c) ciVar);
         this.b.b = null;
-        this.b.f1974a.a(ciVar);
+        this.b.f1975a.a(ciVar);
     }
 }

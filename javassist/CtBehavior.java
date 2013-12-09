@@ -40,7 +40,7 @@ public abstract class CtBehavior extends l {
         this.f2905a.a(javassist.bytecode.a.d(i));
     }
 
-    public h[] i_() {
+    public h[] h_() {
         return z.a(this.f2905a.g(), this.c.a());
     }
 

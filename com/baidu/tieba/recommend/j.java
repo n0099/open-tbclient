@@ -1,6 +1,7 @@
 package com.baidu.tieba.recommend;
 
 import android.support.v4.view.ViewPager;
+import com.baidu.tieba.view.ChildViewPager;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j extends ViewPager.SimpleOnPageChangeListener {
@@ -15,25 +16,56 @@ public class j extends ViewPager.SimpleOnPageChangeListener {
 
     @Override // android.support.v4.view.ViewPager.SimpleOnPageChangeListener, android.support.v4.view.bq
     public void onPageScrollStateChanged(int i) {
+        ChildViewPager childViewPager;
+        ChildViewPager childViewPager2;
+        DailyRecommendBannerPagerAdapter dailyRecommendBannerPagerAdapter;
+        ChildViewPager childViewPager3;
+        ChildViewPager childViewPager4;
+        ChildViewPager childViewPager5;
+        ChildViewPager childViewPager6;
+        DailyRecommendBannerPagerAdapter dailyRecommendBannerPagerAdapter2;
+        ChildViewPager childViewPager7;
         if (i == 0) {
-            int currentItem = this.f2415a.f.getCurrentItem();
+            childViewPager2 = this.f2415a.f;
+            int currentItem = childViewPager2.getCurrentItem();
             if (currentItem < 1) {
-                this.f2415a.f.a(this.f2415a.g.getCount() - 2, false);
-                this.f2415a.f.invalidate();
-            } else if (currentItem > this.f2415a.g.getCount() - 2) {
-                this.f2415a.f.a(1, false);
-                this.f2415a.f.invalidate();
+                childViewPager6 = this.f2415a.f;
+                dailyRecommendBannerPagerAdapter2 = this.f2415a.g;
+                childViewPager6.a(dailyRecommendBannerPagerAdapter2.getCount() - 2, false);
+                childViewPager7 = this.f2415a.f;
+                childViewPager7.invalidate();
+            } else {
+                dailyRecommendBannerPagerAdapter = this.f2415a.g;
+                if (currentItem > dailyRecommendBannerPagerAdapter.getCount() - 2) {
+                    childViewPager3 = this.f2415a.f;
+                    childViewPager3.a(1, false);
+                    childViewPager4 = this.f2415a.f;
+                    childViewPager4.invalidate();
+                }
             }
-            this.f2415a.f.requestDisallowInterceptTouchEvent(false);
+            childViewPager5 = this.f2415a.f;
+            childViewPager5.requestDisallowInterceptTouchEvent(false);
         } else if (i == 1) {
-            this.f2415a.f.requestDisallowInterceptTouchEvent(true);
+            childViewPager = this.f2415a.f;
+            childViewPager.requestDisallowInterceptTouchEvent(true);
         }
     }
 
     @Override // android.support.v4.view.ViewPager.SimpleOnPageChangeListener, android.support.v4.view.bq
     public void onPageSelected(int i) {
-        if (this.f2415a.g != null && this.f2415a.g.f2403a.size() > this.f2415a.f.getCurrentItem()) {
-            this.f2415a.g.f2403a.get(i).invalidate();
+        DailyRecommendBannerPagerAdapter dailyRecommendBannerPagerAdapter;
+        DailyRecommendBannerPagerAdapter dailyRecommendBannerPagerAdapter2;
+        ChildViewPager childViewPager;
+        DailyRecommendBannerPagerAdapter dailyRecommendBannerPagerAdapter3;
+        dailyRecommendBannerPagerAdapter = this.f2415a.g;
+        if (dailyRecommendBannerPagerAdapter != null) {
+            dailyRecommendBannerPagerAdapter2 = this.f2415a.g;
+            int size = dailyRecommendBannerPagerAdapter2.f2403a.size();
+            childViewPager = this.f2415a.f;
+            if (size > childViewPager.getCurrentItem()) {
+                dailyRecommendBannerPagerAdapter3 = this.f2415a.g;
+                dailyRecommendBannerPagerAdapter3.f2403a.get(i).invalidate();
+            }
         }
     }
 }

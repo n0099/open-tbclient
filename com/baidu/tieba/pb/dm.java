@@ -7,11 +7,11 @@ import com.baidu.adp.widget.ListView.BdListView;
 public class dm implements com.baidu.tbadk.imageManager.c {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ cr f2235a;
+    final /* synthetic */ cr f2236a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public dm(cr crVar) {
-        this.f2235a = crVar;
+        this.f2236a = crVar;
     }
 
     @Override // com.baidu.tbadk.imageManager.c
@@ -19,7 +19,7 @@ public class dm implements com.baidu.tbadk.imageManager.c {
         BdListView bdListView;
         ed edVar;
         ed edVar2;
-        bdListView = this.f2235a.i;
+        bdListView = this.f2236a.i;
         ImageView imageView = (ImageView) bdListView.findViewWithTag(str);
         if (eVar == null) {
             if (imageView != null && (imageView instanceof com.baidu.tieba.view.bb)) {
@@ -34,10 +34,10 @@ public class dm implements com.baidu.tbadk.imageManager.c {
             }
             imageView.invalidate();
         }
-        if (this.f2235a.x()) {
-            edVar = this.f2235a.q;
+        if (this.f2236a.x()) {
+            edVar = this.f2236a.q;
             if (edVar != null) {
-                edVar2 = this.f2235a.q;
+                edVar2 = this.f2236a.q;
                 ImageView imageView2 = (ImageView) edVar2.n().findViewWithTag(str);
                 if (imageView2 != null) {
                     imageView2.invalidate();

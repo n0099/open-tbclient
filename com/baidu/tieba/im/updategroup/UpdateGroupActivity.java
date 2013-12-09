@@ -17,7 +17,7 @@ public class UpdateGroupActivity extends com.baidu.tieba.j {
     private d f = null;
 
     /* renamed from: a  reason: collision with root package name */
-    DialogInterface.OnClickListener f1884a = new b(this);
+    DialogInterface.OnClickListener f1885a = new b(this);
     DialogInterface.OnClickListener b = new c(this);
 
     public static void a(Activity activity, int i, int i2, int i3, String str) {
@@ -49,7 +49,7 @@ public class UpdateGroupActivity extends com.baidu.tieba.j {
         this.d = new ab();
         this.c.a(stringExtra);
         this.c.a(this.b);
-        this.c.b(this.f1884a);
+        this.c.b(this.f1885a);
         a();
     }
 

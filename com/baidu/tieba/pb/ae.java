@@ -14,13 +14,13 @@ import org.json.JSONObject;
 public class ae extends BdAsyncTask<Integer, Integer, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ImagePbActivity f2152a;
+    final /* synthetic */ ImagePbActivity f2153a;
     private WriteData b;
     private com.baidu.tieba.util.am c = null;
     private boolean d = false;
 
     public ae(ImagePbActivity imagePbActivity, WriteData writeData) {
-        this.f2152a = imagePbActivity;
+        this.f2153a = imagePbActivity;
         this.b = null;
         this.b = writeData;
     }
@@ -57,10 +57,10 @@ public class ae extends BdAsyncTask<Integer, Integer, String> {
             antiData.setBlock_forum_id(this.b.getForumId());
             antiData.setUser_id(TiebaApplication.B());
             antiData.setUser_name(TiebaApplication.G());
-            AntiHelper.a(this.f2152a, antiData, AntiHelper.OperationType.REPLY, AntiHelper.PageType.IMAGE_PB);
+            AntiHelper.a(this.f2153a, antiData, AntiHelper.OperationType.REPLY, AntiHelper.PageType.IMAGE_PB);
             return;
         }
-        this.f2152a.showToast(str);
+        this.f2153a.showToast(str);
     }
 
     private void a(int i, String str, String str2, AntiData antiData) {
@@ -74,10 +74,10 @@ public class ae extends BdAsyncTask<Integer, Integer, String> {
                 this.b.setVcodeMD5(bdVar.a());
                 this.b.setVcodeUrl(bdVar.b());
                 if (bdVar.c().equals("4")) {
-                    NewVcodeActivity.a(this.f2152a, this.b, 12006);
+                    NewVcodeActivity.a(this.f2153a, this.b, 12006);
                     return;
                 } else {
-                    VcodeActivity.a(this.f2152a, this.b, 12006);
+                    VcodeActivity.a(this.f2153a, this.b, 12006);
                     return;
                 }
             } else {
@@ -94,8 +94,8 @@ public class ae extends BdAsyncTask<Integer, Integer, String> {
     public void a(String str) {
         AntiData antiData;
         super.a((ae) str);
-        this.f2152a.closeLoadingDialog();
-        this.f2152a.u = null;
+        this.f2153a.closeLoadingDialog();
+        this.f2153a.u = null;
         if (this.c != null) {
             try {
                 antiData = new AntiData();
@@ -107,7 +107,7 @@ public class ae extends BdAsyncTask<Integer, Integer, String> {
                 antiData = null;
             }
             if (this.c.c()) {
-                this.f2152a.h();
+                this.f2153a.h();
             } else {
                 a(this.c.e(), this.c.i(), str, antiData);
             }
@@ -116,8 +116,8 @@ public class ae extends BdAsyncTask<Integer, Integer, String> {
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        this.f2152a.u = null;
-        this.f2152a.closeLoadingDialog();
+        this.f2153a.u = null;
+        this.f2153a.closeLoadingDialog();
         this.d = true;
         if (this.c != null) {
             this.c.j();

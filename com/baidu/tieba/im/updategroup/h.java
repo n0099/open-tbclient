@@ -6,16 +6,16 @@ import android.text.TextWatcher;
 class h implements TextWatcher {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ g f1890a;
+    final /* synthetic */ g f1891a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(g gVar) {
-        this.f1890a = gVar;
+        this.f1891a = gVar;
     }
 
     @Override // android.text.TextWatcher
     public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        this.f1890a.g();
+        this.f1891a.g();
     }
 
     @Override // android.text.TextWatcher

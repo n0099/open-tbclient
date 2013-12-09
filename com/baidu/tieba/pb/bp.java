@@ -6,11 +6,11 @@ import android.os.Message;
 class bp implements Handler.Callback {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NewPbActivity f2190a;
+    final /* synthetic */ NewPbActivity f2191a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bp(NewPbActivity newPbActivity) {
-        this.f2190a = newPbActivity;
+        this.f2191a = newPbActivity;
     }
 
     @Override // android.os.Handler.Callback
@@ -20,17 +20,17 @@ class bp implements Handler.Callback {
         cr crVar2;
         switch (message.what) {
             case 0:
-                crVar2 = this.f2190a.y;
+                crVar2 = this.f2191a.y;
                 crVar2.ac();
                 return false;
             case 1:
-                crVar = this.f2190a.y;
+                crVar = this.f2191a.y;
                 crVar.ab();
                 return false;
             case 2:
-                bmVar = this.f2190a.s;
+                bmVar = this.f2191a.s;
                 if (bmVar.t()) {
-                    this.f2190a.r();
+                    this.f2191a.r();
                     return false;
                 }
                 return false;

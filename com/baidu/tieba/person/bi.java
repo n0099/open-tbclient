@@ -11,7 +11,7 @@ import com.baidu.tieba.BaseFragmentActivity;
 import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class bi extends bl {
+public class bi extends bk {
     private int G;
     private int H;
     private ViewGroup I;
@@ -112,11 +112,11 @@ public class bi extends bl {
         this.Z.setOnClickListener(baseFragment);
         this.L.setOnClickListener(baseFragment);
         this.O.setOnClickListener(baseFragment);
-        d(bxVar);
+        e(bxVar);
         g(bxVar);
     }
 
-    @Override // com.baidu.tieba.person.bl
+    @Override // com.baidu.tieba.person.bk
     public void a(com.baidu.tieba.model.bx bxVar) {
         super.a(bxVar);
         this.B = bxVar.d();
@@ -133,7 +133,7 @@ public class bi extends bl {
     public void a(boolean z, com.baidu.tieba.model.bx bxVar, int i) {
         this.u.setVisibility(8);
         if (z) {
-            d(bxVar);
+            e(bxVar);
             g(bxVar);
             f(bxVar);
         }
@@ -145,7 +145,7 @@ public class bi extends bl {
         }
     }
 
-    @Override // com.baidu.tieba.person.bl
+    @Override // com.baidu.tieba.person.bk
     public void b(com.baidu.tieba.model.bx bxVar) {
         super.b(bxVar);
         this.A = bxVar.b();
@@ -253,7 +253,7 @@ public class bi extends bl {
         this.N.setTextColor(this.b.getResources().getColor(R.color.person_attention));
     }
 
-    @Override // com.baidu.tieba.person.bl
+    @Override // com.baidu.tieba.person.bk
     public void a(int i, com.baidu.tieba.model.bx bxVar) {
         super.a(i, bxVar);
         h(bxVar);
@@ -264,7 +264,7 @@ public class bi extends bl {
         }
     }
 
-    @Override // com.baidu.tieba.person.bl
+    @Override // com.baidu.tieba.person.bk
     public void a() {
         super.a();
     }

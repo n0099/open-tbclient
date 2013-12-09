@@ -9,15 +9,15 @@ import com.tencent.mm.sdk.platformtools.Util;
 public class bd extends BdAsyncTask<String, Integer, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    String f2329a;
+    String f2330a;
     byte[] b;
     final /* synthetic */ PersonImageActivity c;
 
     public bd(PersonImageActivity personImageActivity, String str, byte[] bArr) {
         this.c = personImageActivity;
-        this.f2329a = null;
+        this.f2330a = null;
         this.b = null;
-        this.f2329a = str;
+        this.f2330a = str;
         this.b = bArr;
     }
 
@@ -27,13 +27,13 @@ public class bd extends BdAsyncTask<String, Integer, String> {
     public String a(String... strArr) {
         String str;
         try {
-            if (this.f2329a != null && this.f2329a.length() > 0 && this.b != null) {
+            if (this.f2330a != null && this.f2330a.length() > 0 && this.b != null) {
                 if (!com.baidu.adp.lib.h.g.a(this.b)) {
                     str = Util.PHOTO_DEFAULT_EXT;
                 } else {
                     str = ".gif";
                 }
-                String f = com.baidu.tieba.util.bb.f(this.f2329a);
+                String f = com.baidu.tieba.util.bb.f(this.f2330a);
                 if (f == null) {
                     return this.c.getString(R.string.save_error);
                 }
@@ -63,7 +63,7 @@ public class bd extends BdAsyncTask<String, Integer, String> {
         super.a((bd) str);
         this.c.showToast(str);
         this.c.b = null;
-        progressBar = this.c.f2295a;
+        progressBar = this.c.f2296a;
         progressBar.setVisibility(8);
     }
 
@@ -77,7 +77,7 @@ public class bd extends BdAsyncTask<String, Integer, String> {
     public void cancel() {
         ProgressBar progressBar;
         this.c.b = null;
-        progressBar = this.c.f2295a;
+        progressBar = this.c.f2296a;
         progressBar.setVisibility(8);
         super.cancel(true);
     }

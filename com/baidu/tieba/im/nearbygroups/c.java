@@ -5,15 +5,15 @@ import com.baidu.adp.widget.ListView.r;
 class c implements r {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NearbyGroupsActivity f1844a;
+    final /* synthetic */ NearbyGroupsActivity f1845a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(NearbyGroupsActivity nearbyGroupsActivity) {
-        this.f1844a = nearbyGroupsActivity;
+        this.f1845a = nearbyGroupsActivity;
     }
 
     @Override // com.baidu.adp.widget.ListView.r
     public void a() {
-        this.f1844a.a();
+        this.f1845a.a();
     }
 }

@@ -8,11 +8,11 @@ import com.baidu.tieba.im.groupInfo.GroupInfoActivity;
 class c implements AdapterView.OnItemClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsGroupListFragment f1704a;
+    final /* synthetic */ FrsGroupListFragment f1705a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(FrsGroupListFragment frsGroupListFragment) {
-        this.f1704a = frsGroupListFragment;
+        this.f1705a = frsGroupListFragment;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -20,11 +20,11 @@ class c implements AdapterView.OnItemClickListener {
         GroupListAdapter groupListAdapter;
         FrsGroupActivity frsGroupActivity;
         int I;
-        groupListAdapter = this.f1704a.h;
+        groupListAdapter = this.f1705a.h;
         GroupInfoData groupInfoData = (GroupInfoData) groupListAdapter.getItem(i);
         if (groupInfoData != null) {
-            frsGroupActivity = this.f1704a.f1694a;
-            I = this.f1704a.I();
+            frsGroupActivity = this.f1705a.f1695a;
+            I = this.f1705a.I();
             GroupInfoActivity.a(frsGroupActivity, groupInfoData.getGroupId(), I);
         }
     }

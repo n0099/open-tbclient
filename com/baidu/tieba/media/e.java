@@ -6,15 +6,15 @@ import android.content.DialogInterface;
 public class e implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MediaPlayerActivity f1932a;
+    final /* synthetic */ MediaPlayerActivity f1933a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(MediaPlayerActivity mediaPlayerActivity) {
-        this.f1932a = mediaPlayerActivity;
+        this.f1933a = mediaPlayerActivity;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
-        this.f1932a.finish();
+        this.f1933a.finish();
     }
 }

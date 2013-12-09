@@ -11,7 +11,7 @@ import com.slidingmenu.lib.R;
 public class ah extends com.baidu.adp.a.e {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.tieba.j f2069a;
+    private com.baidu.tieba.j f2070a;
     private ac c;
     private com.baidu.tieba.util.i d;
     private NavigationBar e;
@@ -28,9 +28,9 @@ public class ah extends com.baidu.adp.a.e {
 
     public ah(com.baidu.tieba.j jVar, ac acVar) {
         super(jVar);
-        this.f2069a = jVar;
+        this.f2070a = jVar;
         this.c = acVar;
-        this.f2069a.setContentView(R.layout.more_activity);
+        this.f2070a.setContentView(R.layout.more_activity);
         k();
     }
 
@@ -68,7 +68,7 @@ public class ah extends com.baidu.adp.a.e {
             return;
         }
         if (this.d == null) {
-            this.d = new com.baidu.tieba.util.i(this.f2069a);
+            this.d = new com.baidu.tieba.util.i(this.f2070a);
         }
         this.f.b();
         h();
@@ -131,33 +131,33 @@ public class ah extends com.baidu.adp.a.e {
         this.k.a(i);
         this.l.a(i);
         if (i == 1) {
-            this.n.setBackgroundColor(this.f2069a.getResources().getColor(R.color.bg_page_setting_1));
+            this.n.setBackgroundColor(this.f2070a.getResources().getColor(R.color.bg_page_setting_1));
             m();
             return;
         }
-        this.n.setBackgroundColor(this.f2069a.getResources().getColor(R.color.bg_page_setting));
+        this.n.setBackgroundColor(this.f2070a.getResources().getColor(R.color.bg_page_setting));
         l();
     }
 
     private void k() {
         View.OnClickListener n = n();
-        this.n = (RelativeLayout) this.f2069a.findViewById(R.id.parent);
-        this.e = (NavigationBar) this.f2069a.findViewById(R.id.view_navigation_bar);
-        this.e.a(this.f2069a.getString(R.string.setup));
+        this.n = (RelativeLayout) this.f2070a.findViewById(R.id.parent);
+        this.e = (NavigationBar) this.f2070a.findViewById(R.id.view_navigation_bar);
+        this.e.a(this.f2070a.getString(R.string.setup));
         this.o = this.e.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f = (SettingTextImageView) this.f2069a.findViewById(R.id.personInfo);
-        this.g = (SettingTextTipView) this.f2069a.findViewById(R.id.accountManager);
-        this.h = (SettingTextTipView) this.f2069a.findViewById(R.id.browseSetting);
-        this.i = (SettingTextTipView) this.f2069a.findViewById(R.id.messageSetting);
-        this.j = (SettingTextVersionView) this.f2069a.findViewById(R.id.versionInfo);
-        this.k = (SettingTextTipView) this.f2069a.findViewById(R.id.feedBack);
-        this.l = (SettingTextTipView) this.f2069a.findViewById(R.id.recommend);
+        this.f = (SettingTextImageView) this.f2070a.findViewById(R.id.personInfo);
+        this.g = (SettingTextTipView) this.f2070a.findViewById(R.id.accountManager);
+        this.h = (SettingTextTipView) this.f2070a.findViewById(R.id.browseSetting);
+        this.i = (SettingTextTipView) this.f2070a.findViewById(R.id.messageSetting);
+        this.j = (SettingTextVersionView) this.f2070a.findViewById(R.id.versionInfo);
+        this.k = (SettingTextTipView) this.f2070a.findViewById(R.id.feedBack);
+        this.l = (SettingTextTipView) this.f2070a.findViewById(R.id.recommend);
         if (!TiebaApplication.h().y()) {
             this.l.setVisibility(8);
         } else {
             this.l.setVisibility(0);
         }
-        this.m = (SettingTextTipView) this.f2069a.findViewById(R.id.systemhelpsetting);
+        this.m = (SettingTextTipView) this.f2070a.findViewById(R.id.systemhelpsetting);
         i();
         g();
         this.f.a();

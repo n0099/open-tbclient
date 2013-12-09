@@ -8,7 +8,7 @@ import android.widget.TextView;
 class i {
 
     /* renamed from: a  reason: collision with root package name */
-    TextView f1955a;
+    TextView f1956a;
     ProgressBar b;
     h c;
     ImageView d;

@@ -4,18 +4,18 @@ package com.baidu.tieba.more;
 public class ai implements com.baidu.tbadk.imageManager.c {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ah f2070a;
+    final /* synthetic */ ah f2071a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ai(ah ahVar) {
-        this.f2070a = ahVar;
+        this.f2071a = ahVar;
     }
 
     @Override // com.baidu.tbadk.imageManager.c
     public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
         SettingTextImageView settingTextImageView;
         if (eVar != null) {
-            settingTextImageView = this.f2070a.f;
+            settingTextImageView = this.f2071a.f;
             settingTextImageView.setIcon(eVar);
         }
     }

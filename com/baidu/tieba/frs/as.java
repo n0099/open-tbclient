@@ -46,7 +46,7 @@ class as implements bk {
         blVar.a(false);
         this.f1374a.a("done");
         if (jSONObject == null) {
-            if (atVar.f1994a) {
+            if (atVar.f1995a) {
                 this.f1374a.showToast(atVar.d);
                 if (atVar.b && atVar.c == 2000) {
                     TiebaApplication h = TiebaApplication.h();

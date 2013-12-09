@@ -25,7 +25,7 @@ import java.util.HashMap;
 public class GroupCardActivity extends j implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f1728a = "groupid";
+    public static String f1729a = "groupid";
     public static String b = "groupname";
     public static String c = "groupportrait";
     private static String j = h.f1248a + "c/p/groupShareImg?group_id=";
@@ -39,7 +39,7 @@ public class GroupCardActivity extends j implements View.OnClickListener {
     public static void a(Activity activity, long j2, String str, String str2) {
         Intent intent = new Intent(activity, GroupCardActivity.class);
         if (j2 != 0) {
-            intent.putExtra(f1728a, j2);
+            intent.putExtra(f1729a, j2);
             intent.putExtra(b, str);
             intent.putExtra(c, str2);
             activity.startActivity(intent);
@@ -141,7 +141,7 @@ public class GroupCardActivity extends j implements View.OnClickListener {
     private void f() {
         this.d.a();
         Intent intent = getIntent();
-        this.f = intent.getLongExtra(f1728a, 0L);
+        this.f = intent.getLongExtra(f1729a, 0L);
         this.g = intent.getStringExtra(b);
         this.h = intent.getStringExtra(c);
         this.e = new b(this.f, this);

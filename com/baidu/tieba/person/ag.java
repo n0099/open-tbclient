@@ -6,19 +6,19 @@ import com.baidu.tieba.frs.FrsActivity;
 class ag implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ com.baidu.tieba.model.bl f2305a;
+    final /* synthetic */ com.baidu.tieba.model.bl f2306a;
     final /* synthetic */ af b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ag(af afVar, com.baidu.tieba.model.bl blVar) {
         this.b = afVar;
-        this.f2305a = blVar;
+        this.f2306a = blVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.f2305a.f() != null) {
-            FrsActivity.a(this.b.f2304a, this.f2305a.f(), (String) null);
+        if (this.f2306a.f() != null) {
+            FrsActivity.a(this.b.f2305a, this.f2306a.f(), (String) null);
         }
     }
 }

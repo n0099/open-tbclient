@@ -170,63 +170,68 @@ public class ChatListFragment extends BaseFragment implements com.baidu.tbadk.im
     }
 
     public void a() {
-        if (TiebaApplication.C()) {
-            if (this.Z != null) {
-                this.Z.setVisibility(0);
-            }
-            if (this.ag != null) {
-                this.ag.setVisibility(8);
-            }
-            if (this.ad == null) {
-                this.ad = TiebaApplication.B();
-            } else if (!this.ad.equals(TiebaApplication.B())) {
-                this.ad = TiebaApplication.B();
-                com.baidu.tieba.im.pushNotify.a.h().f();
-                this.c.b();
-                com.baidu.adp.lib.h.e.d(" change account");
-            }
-            if (m() != null && !m().p()) {
-                b(this.e, 3);
-                this.g.run();
-            }
-            if (this.al && !this.am) {
-                if (this.af == null) {
-                    this.af = new com.baidu.tieba.view.r(this.d);
+        if (this.d == null) {
+            this.d = i();
+        }
+        if (this.d != null) {
+            if (TiebaApplication.C()) {
+                if (this.Z != null) {
+                    this.Z.setVisibility(0);
                 }
-                this.af.setHeightDip(30);
-                this.Z.addFooterView(this.af);
-                this.am = true;
-                return;
-            }
-            this.am = false;
-            this.al = false;
-            try {
-                if (this.af != null) {
-                    this.Z.removeFooterView(this.af);
-                    this.af = null;
+                if (this.ag != null) {
+                    this.ag.setVisibility(8);
+                }
+                if (this.ad == null) {
+                    this.ad = TiebaApplication.B();
+                } else if (!this.ad.equals(TiebaApplication.B())) {
+                    this.ad = TiebaApplication.B();
+                    com.baidu.tieba.im.pushNotify.a.h().f();
+                    this.c.b();
+                    com.baidu.adp.lib.h.e.d(" change account");
+                }
+                if (m() != null && !m().p()) {
+                    b(this.e, 3);
+                    this.g.run();
+                }
+                if (this.al && !this.am) {
+                    if (this.af == null) {
+                        this.af = new com.baidu.tieba.view.r(this.d);
+                    }
+                    this.af.setHeightDip(30);
+                    this.Z.addFooterView(this.af);
+                    this.am = true;
                     return;
                 }
-                return;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return;
+                this.am = false;
+                this.al = false;
+                try {
+                    if (this.af != null) {
+                        this.Z.removeFooterView(this.af);
+                        this.af = null;
+                        return;
+                    }
+                    return;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return;
+                }
             }
+            if (this.ai == null) {
+                this.ai = new com.baidu.tieba.home.n(this.d, this.d.getString(R.string.login_msg_tab), this.d.getString(R.string.login_msg_form), 3);
+                this.ag.addView(this.ai.e());
+                this.ai.b(TiebaApplication.h().an());
+            } else {
+                ((ViewGroup) this.ai.e().getParent()).removeAllViews();
+                this.ag.addView(this.ai.e());
+                this.ai.b(TiebaApplication.h().an());
+            }
+            this.aa.a(this.c.d(TiebaApplication.B()));
+            if (this.aa.getCount() > 0) {
+                e(false);
+            }
+            this.Z.setVisibility(8);
+            this.ag.setVisibility(0);
         }
-        if (this.ai == null) {
-            this.ai = new com.baidu.tieba.home.n(this.d, this.d.getString(R.string.login_msg_tab), this.d.getString(R.string.login_msg_form), 3);
-            this.ag.addView(this.ai.e());
-            this.ai.b(TiebaApplication.h().an());
-        } else {
-            ((ViewGroup) this.ai.e().getParent()).removeAllViews();
-            this.ag.addView(this.ai.e());
-            this.ai.b(TiebaApplication.h().an());
-        }
-        this.aa.a(this.c.d(TiebaApplication.B()));
-        if (this.aa.getCount() > 0) {
-            e(false);
-        }
-        this.Z.setVisibility(8);
-        this.ag.setVisibility(0);
     }
 
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment

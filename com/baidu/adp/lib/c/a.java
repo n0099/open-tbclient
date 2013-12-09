@@ -134,7 +134,11 @@ public class a {
             this.p.removeMessages(0);
         }
         if (this.k != null) {
-            this.k.removeUpdates(this.q);
+            try {
+                this.k.removeUpdates(this.q);
+            } catch (Exception e) {
+                com.baidu.adp.lib.h.e.a("error : " + e.getMessage());
+            }
         }
         if (this.f != null && this.f.isStarted()) {
             this.f.stop();

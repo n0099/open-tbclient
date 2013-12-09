@@ -7,7 +7,7 @@ import com.baidu.tieba.util.UtilHelper;
 public class z {
 
     /* renamed from: a  reason: collision with root package name */
-    private static z f2050a;
+    private static z f2051a;
     private ak b;
     private com.baidu.adp.lib.cache.s<String> c;
 
@@ -21,10 +21,10 @@ public class z {
     public static synchronized z a() {
         z zVar;
         synchronized (z.class) {
-            if (f2050a == null) {
-                f2050a = new z();
+            if (f2051a == null) {
+                f2051a = new z();
             }
-            zVar = f2050a;
+            zVar = f2051a;
         }
         return zVar;
     }

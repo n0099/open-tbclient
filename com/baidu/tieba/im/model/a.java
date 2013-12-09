@@ -16,7 +16,7 @@ public class a extends com.baidu.adp.a.d {
     private int l;
 
     /* renamed from: a  reason: collision with root package name */
-    private RequestAddGroupMessage f1807a = null;
+    private RequestAddGroupMessage f1808a = null;
     private ResponseAddGroupMessage b = null;
     private int m = -1;
 
@@ -107,14 +107,14 @@ public class a extends com.baidu.adp.a.d {
     }
 
     public void a() {
-        this.f1807a = c();
-        com.baidu.tieba.im.messageCenter.e.a().a(this.f1807a);
+        this.f1808a = c();
+        com.baidu.tieba.im.messageCenter.e.a().a(this.f1808a);
     }
 
     public void b() {
-        if (this.f1807a != null) {
-            com.baidu.tieba.im.messageCenter.e.a().b(this.f1807a);
-            this.f1807a = null;
+        if (this.f1808a != null) {
+            com.baidu.tieba.im.messageCenter.e.a().b(this.f1808a);
+            this.f1808a = null;
         }
         if (this.b != null) {
             com.baidu.tieba.im.messageCenter.e.a().b(this.b);

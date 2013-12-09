@@ -44,7 +44,7 @@ public class MentionActivity extends BaseFragment implements bq {
     private ViewPager ab = null;
 
     /* renamed from: a  reason: collision with root package name */
-    protected int f1939a = -1;
+    protected int f1940a = -1;
     private boolean ae = false;
     private e ah = null;
 
@@ -91,7 +91,7 @@ public class MentionActivity extends BaseFragment implements bq {
 
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
     public void r() {
-        this.f1939a = TiebaApplication.h().an();
+        this.f1940a = TiebaApplication.h().an();
         super.r();
         if (F()) {
             View q = q();
@@ -253,7 +253,7 @@ public class MentionActivity extends BaseFragment implements bq {
                 textView2.setTextColor(j().getColor(R.color.top_msg_num_day));
             }
         }
-        boolean z = this.f1939a == 1;
+        boolean z = this.f1940a == 1;
         while (true) {
             int i3 = i2;
             if (i3 < this.c.length) {
@@ -289,7 +289,7 @@ public class MentionActivity extends BaseFragment implements bq {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(long[] jArr) {
-        boolean z = this.f1939a == 1;
+        boolean z = this.f1940a == 1;
         for (int i = 0; i < jArr.length; i++) {
             TextView textView = this.d[i];
             long j = jArr[i];

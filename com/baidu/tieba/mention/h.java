@@ -7,12 +7,12 @@ import com.baidu.tieba.person.PersonInfoActivity;
 class h implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ f f1954a;
+    final /* synthetic */ f f1955a;
     private String b;
     private String c;
 
     public h(f fVar) {
-        this.f1954a = fVar;
+        this.f1955a = fVar;
         b(null);
         a(null);
     }
@@ -21,7 +21,7 @@ class h implements View.OnClickListener {
     public void onClick(View view) {
         Context context;
         if (this.b != null && this.b.length() > 0) {
-            context = this.f1954a.f1953a;
+            context = this.f1955a.f1954a;
             PersonInfoActivity.a(context, this.b, this.c);
         }
     }

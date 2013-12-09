@@ -11,12 +11,12 @@ import java.util.LinkedHashMap;
 public class LoggerItem extends LinkedHashMap<String, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f1911a = "yyyy-MM-dd kk:mm:ss";
+    private static String f1912a = "yyyy-MM-dd kk:mm:ss";
     private static final long serialVersionUID = 5970126981799423191L;
     private String mType;
 
     public LoggerItem(String str) {
-        this.mType = h.f1919a;
+        this.mType = h.f1920a;
         this.mType = str;
     }
 
@@ -29,7 +29,7 @@ public class LoggerItem extends LinkedHashMap<String, String> {
     public void initBaseData() {
         String B = TiebaApplication.B();
         String j = com.baidu.tieba.data.h.j();
-        String charSequence = DateFormat.format(f1911a, System.currentTimeMillis()).toString();
+        String charSequence = DateFormat.format(f1912a, System.currentTimeMillis()).toString();
         String a2 = com.baidu.tieba.im.i.a();
         String str = Build.MODEL;
         String b = g.b();

@@ -7,11 +7,11 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 public class aw extends BdAsyncTask<Object, Integer, Bitmap> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ av f1997a;
+    final /* synthetic */ av f1998a;
     private String b;
 
     public aw(av avVar, String str) {
-        this.f1997a = avVar;
+        this.f1998a = avVar;
         this.b = null;
         this.b = str;
     }
@@ -31,10 +31,10 @@ public class aw extends BdAsyncTask<Object, Integer, Bitmap> {
     public void cancel() {
         com.baidu.adp.a.g gVar;
         com.baidu.adp.a.g gVar2;
-        this.f1997a.f1996a = null;
-        gVar = this.f1997a.mLoadDataCallBack;
+        this.f1998a.f1997a = null;
+        gVar = this.f1998a.mLoadDataCallBack;
         if (gVar != null) {
-            gVar2 = this.f1997a.mLoadDataCallBack;
+            gVar2 = this.f1998a.mLoadDataCallBack;
             gVar2.a(null);
         }
         super.cancel(true);
@@ -53,11 +53,11 @@ public class aw extends BdAsyncTask<Object, Integer, Bitmap> {
         com.baidu.adp.a.g gVar;
         com.baidu.adp.a.g gVar2;
         super.a((aw) bitmap);
-        this.f1997a.f1996a = null;
+        this.f1998a.f1997a = null;
         com.baidu.tieba.util.bd.a(getClass().getName(), "onPostExecute", "is Null?" + String.valueOf(bitmap == null));
-        gVar = this.f1997a.mLoadDataCallBack;
+        gVar = this.f1998a.mLoadDataCallBack;
         if (gVar != null) {
-            gVar2 = this.f1997a.mLoadDataCallBack;
+            gVar2 = this.f1998a.mLoadDataCallBack;
             gVar2.a(bitmap);
         }
     }

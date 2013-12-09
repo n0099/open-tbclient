@@ -46,7 +46,7 @@ public class MsglistModel extends com.baidu.adp.a.d {
     private boolean g = true;
 
     /* renamed from: a  reason: collision with root package name */
-    com.baidu.adp.a.g f1806a = new k(this);
+    com.baidu.adp.a.g f1807a = new k(this);
     private final HashMap<String, t> k = new HashMap<>();
     private final w m = new i(this);
     private final ac l = new ac();
@@ -65,7 +65,7 @@ public class MsglistModel extends com.baidu.adp.a.d {
         this.o = msglistActivity;
         this.i = new MsgPageData();
         this.j = new q(this, null);
-        this.l.setLoadDataCallBack(this.f1806a);
+        this.l.setLoadDataCallBack(this.f1807a);
         j();
     }
 

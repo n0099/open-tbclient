@@ -18,7 +18,7 @@ public class AccountActivity extends com.baidu.tieba.j {
     private NavigationBar d;
 
     /* renamed from: a  reason: collision with root package name */
-    private ArrayList<AccountData> f2052a = null;
+    private ArrayList<AccountData> f2053a = null;
     private p b = null;
     private ListView c = null;
     private TextView e = null;
@@ -62,7 +62,7 @@ public class AccountActivity extends com.baidu.tieba.j {
     }
 
     private void a() {
-        this.f2052a = DatabaseService.l();
+        this.f2053a = DatabaseService.l();
     }
 
     private void b() {
@@ -73,7 +73,7 @@ public class AccountActivity extends com.baidu.tieba.j {
         this.e = this.d.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(R.string.edit));
         this.e.setOnClickListener(new h(this));
         this.b = new p(this, this.f);
-        this.b.a(this.f2052a);
+        this.b.a(this.f2053a);
         this.c = (ListView) findViewById(R.id.list);
         this.c.setAdapter((ListAdapter) this.b);
         this.c.setOnItemClickListener(new i(this));

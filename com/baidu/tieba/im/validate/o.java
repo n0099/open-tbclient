@@ -6,17 +6,17 @@ import android.view.View;
 public class o implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ n f1906a;
+    final /* synthetic */ n f1907a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(n nVar) {
-        this.f1906a = nVar;
+        this.f1907a = nVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         ValidateActivity validateActivity;
-        validateActivity = this.f1906a.d;
+        validateActivity = this.f1907a.d;
         validateActivity.finish();
     }
 }

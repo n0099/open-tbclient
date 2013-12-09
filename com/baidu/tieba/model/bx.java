@@ -20,7 +20,7 @@ public class bx extends com.baidu.adp.a.d {
     private bz o = null;
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f2017a = true;
+    private boolean f2018a = true;
     private String b = null;
     private UserData k = null;
     private boolean i = false;
@@ -54,11 +54,11 @@ public class bx extends com.baidu.adp.a.d {
     }
 
     public void a(boolean z) {
-        this.f2017a = z;
+        this.f2018a = z;
     }
 
     public boolean c() {
-        return this.f2017a;
+        return this.f2018a;
     }
 
     public void a(UserData userData) {

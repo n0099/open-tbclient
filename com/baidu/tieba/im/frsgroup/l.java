@@ -6,20 +6,20 @@ import com.baidu.tieba.util.ah;
 class l implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MembersActivity f1713a;
+    final /* synthetic */ MembersActivity f1714a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(MembersActivity membersActivity) {
-        this.f1713a = membersActivity;
+        this.f1714a = membersActivity;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         aa aaVar;
         aa aaVar2;
-        aaVar = this.f1713a.b;
+        aaVar = this.f1714a.b;
         BdListView l = aaVar.l();
-        aaVar2 = this.f1713a.b;
+        aaVar2 = this.f1714a.b;
         ah.a(l, aaVar2.i().e(), 1, 0);
     }
 }

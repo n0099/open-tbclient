@@ -7,12 +7,12 @@ import org.json.JSONObject;
 public class as extends BdAsyncTask<Object, Integer, JSONObject> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ar f1993a;
+    final /* synthetic */ ar f1994a;
     private int b;
     private com.baidu.tieba.util.am c = null;
 
     public as(ar arVar, int i) {
-        this.f1993a = arVar;
+        this.f1994a = arVar;
         this.b = 0;
         this.b = i;
         if (this.b < 1) {
@@ -33,14 +33,14 @@ public class as extends BdAsyncTask<Object, Integer, JSONObject> {
         String str3;
         try {
             this.c = new com.baidu.tieba.util.am(com.baidu.tieba.data.h.f1248a + "c/f/frs/photolist");
-            str = this.f1993a.i;
+            str = this.f1994a.i;
             if (str != null) {
                 com.baidu.tieba.util.am amVar = this.c;
-                str3 = this.f1993a.i;
+                str3 = this.f1994a.i;
                 amVar.a("st_type", str3);
             }
             com.baidu.tieba.util.am amVar2 = this.c;
-            str2 = this.f1993a.j;
+            str2 = this.f1994a.j;
             amVar2.a("kw", str2);
             this.c.a("bs", String.valueOf(this.b));
             this.c.a("be", String.valueOf((this.b + 240) - 1));
@@ -49,7 +49,7 @@ public class as extends BdAsyncTask<Object, Integer, JSONObject> {
             jSONObject = new JSONObject(l);
             try {
                 if (this.c.c()) {
-                    this.f1993a.a(l);
+                    this.f1994a.a(l);
                 }
             } catch (Exception e2) {
                 e = e2;
@@ -70,18 +70,18 @@ public class as extends BdAsyncTask<Object, Integer, JSONObject> {
         com.baidu.tieba.frs.bk bkVar;
         com.baidu.tieba.frs.bk bkVar2;
         super.a((as) jSONObject);
-        this.f1993a.k = null;
-        bkVar = this.f1993a.m;
+        this.f1994a.k = null;
+        bkVar = this.f1994a.m;
         if (bkVar != null) {
-            at atVar = new at(this.f1993a);
+            at atVar = new at(this.f1994a);
             if (this.c != null) {
-                atVar.f1994a = true;
+                atVar.f1995a = true;
                 atVar.b = this.c.d();
                 atVar.c = this.c.e();
                 atVar.d = this.c.i();
                 atVar.e = this.c.b();
             }
-            bkVar2 = this.f1993a.m;
+            bkVar2 = this.f1994a.m;
             bkVar2.a(this.b, jSONObject, atVar);
         }
     }
@@ -92,9 +92,9 @@ public class as extends BdAsyncTask<Object, Integer, JSONObject> {
         com.baidu.tieba.frs.bk bkVar;
         com.baidu.tieba.frs.bk bkVar2;
         super.b();
-        bkVar = this.f1993a.m;
+        bkVar = this.f1994a.m;
         if (bkVar != null) {
-            bkVar2 = this.f1993a.m;
+            bkVar2 = this.f1994a.m;
             bkVar2.a(0);
         }
     }
@@ -106,6 +106,6 @@ public class as extends BdAsyncTask<Object, Integer, JSONObject> {
             this.c.j();
             this.c = null;
         }
-        this.f1993a.k = null;
+        this.f1994a.k = null;
     }
 }

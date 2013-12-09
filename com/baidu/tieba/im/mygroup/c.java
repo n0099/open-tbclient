@@ -6,15 +6,15 @@ import com.baidu.tieba.im.pushNotify.k;
 class c implements k {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MyGroupFragment f1835a;
+    final /* synthetic */ MyGroupFragment f1836a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(MyGroupFragment myGroupFragment) {
-        this.f1835a = myGroupFragment;
+        this.f1836a = myGroupFragment;
     }
 
     @Override // com.baidu.tieba.im.pushNotify.k
     public void a(GroupNewsPojo groupNewsPojo) {
-        this.f1835a.b = true;
+        this.f1836a.b = true;
     }
 }

@@ -9,11 +9,11 @@ import org.apache.http.message.BasicNameValuePair;
 public class k extends com.baidu.adp.a.g {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MsglistModel f1819a;
+    final /* synthetic */ MsglistModel f1820a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(MsglistModel msglistModel) {
-        this.f1819a = msglistModel;
+        this.f1820a = msglistModel;
     }
 
     @Override // com.baidu.adp.a.g
@@ -26,7 +26,7 @@ public class k extends com.baidu.adp.a.g {
             String value = basicNameValuePair.getValue();
             com.baidu.adp.lib.h.e.c("----send voice suc, vid : " + value);
             try {
-                a2 = this.f1819a.a(Long.parseLong(name));
+                a2 = this.f1820a.a(Long.parseLong(name));
                 if (a2 != null) {
                     if (value != null && value.length() > 0) {
                         VoiceMsgData e = com.baidu.tieba.im.e.d.e(a2);
@@ -39,7 +39,7 @@ public class k extends com.baidu.adp.a.g {
                         return;
                     }
                     com.baidu.tieba.log.a.b(com.baidu.tieba.log.i.a(a2.getCmd(), 0, "", "", "", -1, "upload voice http fail", System.currentTimeMillis() - a2.getLogTime()));
-                    this.f1819a.c(a2);
+                    this.f1820a.c(a2);
                     com.baidu.tieba.im.db.d.a().a(a2.getGroupId(), String.valueOf(a2.getRecordId()), String.valueOf(a2.getMsgId()), 2, new l(this));
                 }
             } catch (Exception e2) {

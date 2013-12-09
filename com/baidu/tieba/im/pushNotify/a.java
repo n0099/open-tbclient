@@ -29,7 +29,7 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f1857a;
+    private static a f1858a;
     private static Handler l = new Handler();
     private String c;
     private String d;
@@ -492,14 +492,14 @@ public class a {
     }
 
     public static a h() {
-        if (f1857a == null) {
+        if (f1858a == null) {
             synchronized (a.class) {
-                if (f1857a == null) {
-                    f1857a = new a();
+                if (f1858a == null) {
+                    f1858a = new a();
                 }
             }
         }
-        return f1857a;
+        return f1858a;
     }
 
     public void b(long j) {

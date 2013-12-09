@@ -6,13 +6,13 @@ import org.json.JSONObject;
 public class bf {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f2003a;
+    private int f2004a;
     private String b;
     private String c;
 
     public void a(JSONObject jSONObject) {
         if (jSONObject != null && jSONObject != null) {
-            this.f2003a = jSONObject.optInt("offline");
+            this.f2004a = jSONObject.optInt("offline");
             this.b = jSONObject.optString("title");
             this.c = jSONObject.optString("link");
             if (!TextUtils.isEmpty(this.c)) {

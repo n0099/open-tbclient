@@ -20,7 +20,7 @@ import java.util.List;
 public class a extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    private MyGroupFragment f1833a;
+    private MyGroupFragment f1834a;
     private com.baidu.tieba.util.i b;
     private List<GroupInfoData> c = new ArrayList();
 
@@ -33,7 +33,7 @@ public class a extends BaseAdapter {
     }
 
     public a(MyGroupFragment myGroupFragment) {
-        this.f1833a = myGroupFragment;
+        this.f1834a = myGroupFragment;
         this.b = new com.baidu.tieba.util.i(myGroupFragment.i());
         this.b.d(true);
     }
@@ -63,9 +63,9 @@ public class a extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         b bVar;
         if (view == null || view.getTag() == null || !(view.getTag() instanceof b)) {
-            view = LayoutInflater.from(this.f1833a.i()).inflate(R.layout.im_group_list_item, viewGroup, false);
+            view = LayoutInflater.from(this.f1834a.i()).inflate(R.layout.im_group_list_item, viewGroup, false);
             bVar = new b();
-            bVar.f1834a = (LinearLayout) view.findViewById(R.id.click_head);
+            bVar.f1835a = (LinearLayout) view.findViewById(R.id.click_head);
             bVar.b = (LinearLayout) view.findViewById(R.id.list_item_content);
             bVar.c = (HeadImageView) view.findViewById(R.id.item_head);
             bVar.d = (TextView) view.findViewById(R.id.item_group_name);
@@ -89,14 +89,14 @@ public class a extends BaseAdapter {
         bVar.c.setDefaultResource(R.drawable.avatar_poto_defaul140);
         bVar.c.setNightDefaultResource(R.drawable.avatar_poto_defaul140_1);
         bVar.c.setDrawBorder(true);
-        bVar.c.setRadius(com.baidu.adp.lib.h.g.a((Context) this.f1833a.i(), 5.0f));
+        bVar.c.setRadius(com.baidu.adp.lib.h.g.a((Context) this.f1834a.i(), 5.0f));
         if (groupInfoData != null) {
             String portrait = groupInfoData.getPortrait();
             if (!TextUtils.isEmpty(portrait)) {
                 bVar.c.setTag(portrait);
             }
-            bVar.f1834a.setOnClickListener(this.f1833a);
-            bVar.f1834a.setTag(groupInfoData);
+            bVar.f1835a.setOnClickListener(this.f1834a);
+            bVar.f1835a.setTag(groupInfoData);
             bVar.d.setText(groupInfoData.getName());
             bVar.e.setText(groupInfoData.getMemberNum() + "/" + groupInfoData.getMaxMemberNum());
             bVar.f.setText(groupInfoData.getIntro());
@@ -107,8 +107,8 @@ public class a extends BaseAdapter {
             }
             a(bVar.l, groupInfoData.getGrade());
         }
-        ((BaseFragmentActivity) this.f1833a.i()).a().a(TiebaApplication.h().an() == 1);
-        ((BaseFragmentActivity) this.f1833a.i()).a().a(view);
+        ((BaseFragmentActivity) this.f1834a.i()).a().a(TiebaApplication.h().an() == 1);
+        ((BaseFragmentActivity) this.f1834a.i()).a().a(view);
         return view;
     }
 

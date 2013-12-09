@@ -18,7 +18,7 @@ import com.slidingmenu.lib.R;
 public class ReplyMeFragment extends BaseFragment implements com.baidu.adp.widget.ListView.b {
 
     /* renamed from: a  reason: collision with root package name */
-    private j f1942a = null;
+    private j f1943a = null;
     private BdListView b = null;
     private bk c;
     private LinearLayout d;
@@ -36,12 +36,12 @@ public class ReplyMeFragment extends BaseFragment implements com.baidu.adp.widge
         this.f = new aq(inflate, (int) R.drawable.pic_blank_page_search, (int) R.drawable.pic_blank_page_search_1);
         this.b = (BdListView) inflate.findViewById(R.id.replyme_lv);
         this.b.setPullRefresh(this.c);
-        this.f1942a = new j(this, 1, new ad(this));
-        this.f1942a.a(this.b);
-        this.f1942a.a((ViewGroup) inflate.findViewById(R.id.mention_layout_replyme));
-        this.f1942a.a(this.f);
-        this.f1942a.a("c/u/feed/replyme");
-        this.f1942a.c();
+        this.f1943a = new j(this, 1, new ad(this));
+        this.f1943a.a(this.b);
+        this.f1943a.a((ViewGroup) inflate.findViewById(R.id.mention_layout_replyme));
+        this.f1943a.a(this.f);
+        this.f1943a.a("c/u/feed/replyme");
+        this.f1943a.c();
         return inflate;
     }
 
@@ -86,12 +86,12 @@ public class ReplyMeFragment extends BaseFragment implements com.baidu.adp.widge
             this.b.setVisibility(0);
             this.d.setVisibility(8);
             if (t.a().l() > 0) {
-                this.f1942a.a(2);
+                this.f1943a.a(2);
             } else {
-                this.f1942a.a(1);
+                this.f1943a.a(1);
             }
-            this.f1942a.d();
-            this.f1942a.e();
+            this.f1943a.d();
+            this.f1943a.e();
             return;
         }
         if (this.e == null) {
@@ -123,9 +123,9 @@ public class ReplyMeFragment extends BaseFragment implements com.baidu.adp.widge
     public void t() {
         super.t();
         try {
-            if (this.f1942a != null) {
-                this.f1942a.f();
-                this.f1942a.a();
+            if (this.f1943a != null) {
+                this.f1943a.f();
+                this.f1943a.a();
             }
             System.gc();
         } catch (Exception e) {
@@ -134,7 +134,7 @@ public class ReplyMeFragment extends BaseFragment implements com.baidu.adp.widge
     }
 
     public void a() {
-        this.f1942a.b();
+        this.f1943a.b();
     }
 
     @Override // com.baidu.adp.widget.ListView.b

@@ -7,11 +7,11 @@ import com.slidingmenu.lib.R;
 class d implements com.baidu.tieba.im.messageCenter.g {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SearchGroupActivity f1875a;
+    final /* synthetic */ SearchGroupActivity f1876a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(SearchGroupActivity searchGroupActivity) {
-        this.f1875a = searchGroupActivity;
+        this.f1876a = searchGroupActivity;
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
@@ -19,20 +19,20 @@ class d implements com.baidu.tieba.im.messageCenter.g {
         g gVar;
         g gVar2;
         g gVar3;
-        gVar = this.f1875a.b;
+        gVar = this.f1876a.b;
         gVar.b();
         if (message == null) {
-            this.f1875a.showToast(R.string.neterror);
+            this.f1876a.showToast(R.string.neterror);
         } else if (message.getCmd() == 103007) {
             try {
                 if (message instanceof ResponseSearchGroupMessage) {
                     ResponseSearchGroupMessage responseSearchGroupMessage = (ResponseSearchGroupMessage) message;
                     if (!responseSearchGroupMessage.hasError()) {
-                        gVar3 = this.f1875a.b;
+                        gVar3 = this.f1876a.b;
                         gVar3.a(responseSearchGroupMessage);
-                        this.f1875a.a();
+                        this.f1876a.a();
                     }
-                    gVar2 = this.f1875a.b;
+                    gVar2 = this.f1876a.b;
                     gVar2.c();
                 }
             } catch (Exception e) {

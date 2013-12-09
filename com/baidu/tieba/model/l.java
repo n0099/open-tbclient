@@ -8,11 +8,11 @@ import org.json.JSONObject;
 public class l extends BdAsyncTask<Object, Integer, Boolean> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ f f2038a;
+    final /* synthetic */ f f2039a;
     private volatile com.baidu.tieba.util.am b;
 
     private l(f fVar) {
-        this.f2038a = fVar;
+        this.f2039a = fVar;
         this.b = null;
     }
 
@@ -37,20 +37,20 @@ public class l extends BdAsyncTask<Object, Integer, Boolean> {
             this.b = new com.baidu.tieba.util.am(com.baidu.tieba.data.h.f1248a + "c/s/delcom");
             this.b.e(true);
             com.baidu.tieba.util.am amVar = this.b;
-            str = this.f2038a.e;
+            str = this.f2039a.e;
             amVar.a(PushConstants.EXTRA_USER_ID, str);
             com.baidu.tieba.util.am amVar2 = this.b;
-            str2 = this.f2038a.f;
+            str2 = this.f2039a.f;
             amVar2.a("com_id", str2);
             String l = this.b.l();
             if (this.b.c() && l != null && (jSONObject = new JSONObject(l)) != null && jSONObject.optJSONObject("error").optInt("errno") == 0) {
                 com.baidu.tieba.data.chat.c a2 = com.baidu.tieba.data.chat.c.a();
                 com.baidu.tieba.data.chat.c a3 = com.baidu.tieba.data.chat.c.a();
-                str3 = this.f2038a.e;
-                str4 = this.f2038a.f;
+                str3 = this.f2039a.e;
+                str4 = this.f2039a.f;
                 a3.c(str3, str4);
-                str5 = this.f2038a.e;
-                str6 = this.f2038a.f;
+                str5 = this.f2039a.e;
+                str6 = this.f2039a.f;
                 a2.b(str5, str6);
                 return true;
             }
@@ -66,11 +66,11 @@ public class l extends BdAsyncTask<Object, Integer, Boolean> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(Boolean bool) {
         com.baidu.adp.a.g gVar;
-        this.f2038a.m = null;
+        this.f2039a.m = null;
         if (!bool.booleanValue()) {
-            this.f2038a.mErrorCode = this.b.e();
-            this.f2038a.mErrorString = this.b.i();
-            gVar = this.f2038a.mLoadDataCallBack;
+            this.f2039a.mErrorCode = this.b.e();
+            this.f2039a.mErrorString = this.b.i();
+            gVar = this.f2039a.mLoadDataCallBack;
             gVar.a(false);
             return;
         }
@@ -85,7 +85,7 @@ public class l extends BdAsyncTask<Object, Integer, Boolean> {
             this.b.j();
             this.b = null;
         }
-        gVar = this.f2038a.mLoadDataCallBack;
+        gVar = this.f2039a.mLoadDataCallBack;
         gVar.a(false);
     }
 }

@@ -11,11 +11,11 @@ import com.slidingmenu.lib.R;
 public class n implements View.OnTouchListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ImagePbActivity f2276a;
+    final /* synthetic */ ImagePbActivity f2277a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(ImagePbActivity imagePbActivity) {
-        this.f2276a = imagePbActivity;
+        this.f2277a = imagePbActivity;
     }
 
     @Override // android.view.View.OnTouchListener
@@ -25,16 +25,16 @@ public class n implements View.OnTouchListener {
         FaceView faceView2;
         EditText editText2;
         Button button;
-        faceView = this.f2276a.o;
+        faceView = this.f2277a.o;
         if (faceView.getVisibility() == 0) {
-            editText = this.f2276a.l;
+            editText = this.f2277a.l;
             editText.requestFocus();
-            faceView2 = this.f2276a.o;
+            faceView2 = this.f2277a.o;
             faceView2.setVisibility(8);
-            ImagePbActivity imagePbActivity = this.f2276a;
-            editText2 = this.f2276a.l;
+            ImagePbActivity imagePbActivity = this.f2277a;
+            editText2 = this.f2277a.l;
             com.baidu.adp.lib.h.g.b(imagePbActivity, editText2);
-            button = this.f2276a.n;
+            button = this.f2277a.n;
             button.setBackgroundResource(R.drawable.sub_pb_face);
             return true;
         }

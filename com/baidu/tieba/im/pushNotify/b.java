@@ -7,17 +7,17 @@ import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 public final class b implements com.baidu.tieba.im.a<Boolean> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ImMessageCenterPojo f1858a;
+    final /* synthetic */ ImMessageCenterPojo f1859a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(ImMessageCenterPojo imMessageCenterPojo) {
-        this.f1858a = imMessageCenterPojo;
+        this.f1859a = imMessageCenterPojo;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.a
     public void a(Boolean bool) {
-        ag.a().a(this.f1858a);
+        ag.a().a(this.f1859a);
         com.baidu.tieba.im.d.a.a().g();
     }
 }

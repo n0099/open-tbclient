@@ -70,7 +70,9 @@ public class EnterForumActivity extends BaseFragment implements AbsListView.OnSc
     @Override // android.support.v4.app.Fragment
     public void a(int i, int i2, Intent intent) {
         super.a(i, i2, intent);
-        this.f1433a.a(i, i2, intent);
+        if (this.f1433a != null) {
+            this.f1433a.a(i, i2, intent);
+        }
     }
 
     private void H() {

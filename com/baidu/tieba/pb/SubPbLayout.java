@@ -20,7 +20,7 @@ import java.util.Queue;
 public class SubPbLayout extends ViewGroup {
 
     /* renamed from: a  reason: collision with root package name */
-    private View.OnClickListener f2144a;
+    private View.OnClickListener f2145a;
     private View.OnLongClickListener b;
     private View.OnTouchListener c;
     private ca d;
@@ -44,7 +44,7 @@ public class SubPbLayout extends ViewGroup {
     }
 
     public void setChildOnClickListener(View.OnClickListener onClickListener) {
-        this.f2144a = onClickListener;
+        this.f2145a = onClickListener;
     }
 
     public void setChildOnLongClickListener(View.OnLongClickListener onLongClickListener) {
@@ -90,7 +90,7 @@ public class SubPbLayout extends ViewGroup {
             } else {
                 view = childAt;
             }
-            view.setOnClickListener(this.f2144a);
+            view.setOnClickListener(this.f2145a);
             view.setOnLongClickListener(this.b);
             view.setOnTouchListener(this.c);
             view.setClickable(true);
@@ -129,7 +129,7 @@ public class SubPbLayout extends ViewGroup {
             } else {
                 imageView.setBackgroundResource(R.drawable.icon_downward);
             }
-            this.h.setOnClickListener(this.f2144a);
+            this.h.setOnClickListener(this.f2145a);
             SparseArray sparseArray4 = (SparseArray) this.h.getTag();
             if (sparseArray4 == null) {
                 sparseArray4 = new SparseArray();
@@ -153,8 +153,8 @@ public class SubPbLayout extends ViewGroup {
             for (int i6 = 0; i6 < size; i6++) {
                 dz poll = this.g.poll();
                 if (poll.b.getParent() == null) {
-                    com.baidu.tieba.util.bd.e("SubPbLayout", "onLayout", "add to position: " + poll.f2246a);
-                    addViewInLayout(poll.b, poll.f2246a, this.i, true);
+                    com.baidu.tieba.util.bd.e("SubPbLayout", "onLayout", "add to position: " + poll.f2247a);
+                    addViewInLayout(poll.b, poll.f2247a, this.i, true);
                 }
             }
             int paddingLeft = getPaddingLeft();

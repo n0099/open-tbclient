@@ -1,8 +1,7 @@
 package defpackage;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* renamed from: bg  reason: default package */
 /* loaded from: classes.dex */
-public class bg implements Runnable {
+class bg implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
     final /* synthetic */ boolean f376a;

@@ -29,7 +29,7 @@ import java.util.LinkedList;
 public class ChatVoiceView extends LinearLayout implements View.OnClickListener, ad {
 
     /* renamed from: a  reason: collision with root package name */
-    private ImageView f1907a;
+    private ImageView f1908a;
     private ImageView b;
     private TextView c;
     private ImageView d;
@@ -40,7 +40,7 @@ public class ChatVoiceView extends LinearLayout implements View.OnClickListener,
 
     public ChatVoiceView(Context context) {
         super(context);
-        this.f1907a = null;
+        this.f1908a = null;
         this.c = null;
         this.d = null;
         this.e = null;
@@ -50,7 +50,7 @@ public class ChatVoiceView extends LinearLayout implements View.OnClickListener,
 
     public ChatVoiceView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f1907a = null;
+        this.f1908a = null;
         this.c = null;
         this.d = null;
         this.e = null;
@@ -65,7 +65,7 @@ public class ChatVoiceView extends LinearLayout implements View.OnClickListener,
 
     private void c() {
         this.h = (RelativeLayout) findViewById(R.id.lay_bubble);
-        this.f1907a = (ImageView) findViewById(R.id.img_voice_status);
+        this.f1908a = (ImageView) findViewById(R.id.img_voice_status);
         this.b = (ImageView) findViewById(R.id.img_voice_status_anim);
         this.c = (TextView) findViewById(R.id.tex_voice_duration);
         this.d = (ImageView) findViewById(R.id.img_voice_readed);
@@ -73,7 +73,7 @@ public class ChatVoiceView extends LinearLayout implements View.OnClickListener,
     }
 
     private void d() {
-        this.f1907a.setVisibility(8);
+        this.f1908a.setVisibility(8);
         this.b.setVisibility(0);
         ((AnimationDrawable) this.b.getBackground()).start();
     }
@@ -81,7 +81,7 @@ public class ChatVoiceView extends LinearLayout implements View.OnClickListener,
     private void e() {
         ((AnimationDrawable) this.b.getBackground()).stop();
         this.b.clearAnimation();
-        this.f1907a.setVisibility(0);
+        this.f1908a.setVisibility(0);
         this.b.setVisibility(8);
     }
 
@@ -99,8 +99,8 @@ public class ChatVoiceView extends LinearLayout implements View.OnClickListener,
 
     public void b(int i) {
         if (i == 3) {
-            if (this.f1907a != null) {
-                this.f1907a.setVisibility(0);
+            if (this.f1908a != null) {
+                this.f1908a.setVisibility(0);
             }
             this.e.setVisibility(4);
             d();
@@ -117,13 +117,13 @@ public class ChatVoiceView extends LinearLayout implements View.OnClickListener,
         }
         e();
         if (i == 1) {
-            if (this.f1907a != null) {
-                this.f1907a.setVisibility(0);
+            if (this.f1908a != null) {
+                this.f1908a.setVisibility(0);
             }
             this.e.setVisibility(4);
         } else if (i == 2) {
-            if (this.f1907a != null) {
-                this.f1907a.setVisibility(4);
+            if (this.f1908a != null) {
+                this.f1908a.setVisibility(4);
             }
             this.e.setVisibility(0);
         }

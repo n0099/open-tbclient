@@ -7,11 +7,11 @@ import com.baidu.tieba.view.HeadImageView;
 public class i implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ g f1901a;
+    final /* synthetic */ g f1902a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(g gVar) {
-        this.f1901a = gVar;
+        this.f1902a = gVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -19,9 +19,9 @@ public class i implements View.OnClickListener {
         ValidateActivity validateActivity;
         HeadImageView headImageView;
         ValidateItemData validateItemData;
-        validateActivity = this.f1901a.i;
-        headImageView = this.f1901a.d;
-        validateItemData = this.f1901a.j;
+        validateActivity = this.f1902a.i;
+        headImageView = this.f1902a.d;
+        validateItemData = this.f1902a.j;
         validateActivity.a(headImageView, 101, 0, 0L, validateItemData);
     }
 }

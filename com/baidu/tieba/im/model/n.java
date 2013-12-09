@@ -6,7 +6,7 @@ import com.baidu.tieba.im.message.ChatMessage;
 public class n implements com.baidu.tieba.im.a<Boolean> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ChatMessage f1822a;
+    final /* synthetic */ ChatMessage f1823a;
     final /* synthetic */ String b;
     final /* synthetic */ x c;
     final /* synthetic */ MsglistModel d;
@@ -14,7 +14,7 @@ public class n implements com.baidu.tieba.im.a<Boolean> {
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(MsglistModel msglistModel, ChatMessage chatMessage, String str, x xVar) {
         this.d = msglistModel;
-        this.f1822a = chatMessage;
+        this.f1823a = chatMessage;
         this.b = str;
         this.c = xVar;
     }
@@ -22,6 +22,6 @@ public class n implements com.baidu.tieba.im.a<Boolean> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.a
     public void a(Boolean bool) {
-        this.d.a(this.f1822a, this.b, this.c);
+        this.d.a(this.f1823a, this.b, this.c);
     }
 }

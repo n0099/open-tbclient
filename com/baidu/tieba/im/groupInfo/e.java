@@ -6,22 +6,22 @@ import com.baidu.tieba.view.NavigationBar;
 class e implements Animation.AnimationListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ d f1745a;
+    final /* synthetic */ d f1746a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar) {
-        this.f1745a = dVar;
+        this.f1746a = dVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationEnd(Animation animation) {
         boolean z;
         NavigationBar navigationBar;
-        this.f1745a.f1744a.o = true;
-        z = this.f1745a.f1744a.p;
+        this.f1746a.f1745a.o = true;
+        z = this.f1746a.f1745a.p;
         if (z) {
-            this.f1745a.f1744a.p = false;
-            navigationBar = this.f1745a.f1744a.e;
+            this.f1746a.f1745a.p = false;
+            navigationBar = this.f1746a.f1745a.e;
             navigationBar.setVisibility(8);
         }
     }

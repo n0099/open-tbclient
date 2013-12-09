@@ -8,11 +8,11 @@ import com.slidingmenu.lib.R;
 class e implements com.baidu.adp.lib.c.d {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NearbyGroupsActivity f1846a;
+    final /* synthetic */ NearbyGroupsActivity f1847a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(NearbyGroupsActivity nearbyGroupsActivity) {
-        this.f1846a = nearbyGroupsActivity;
+        this.f1847a = nearbyGroupsActivity;
     }
 
     @Override // com.baidu.adp.lib.c.d
@@ -29,38 +29,38 @@ class e implements com.baidu.adp.lib.c.d {
         s sVar3;
         if (i == 0) {
             if (address != null) {
-                kVar7 = this.f1846a.b;
+                kVar7 = this.f1847a.b;
                 kVar7.b(false);
                 String valueOf = String.valueOf(address.getLatitude());
                 String valueOf2 = String.valueOf(address.getLongitude());
                 TiebaApplication.h().y(valueOf);
                 TiebaApplication.h().z(valueOf2);
                 TiebaApplication.h().A(address.getAdminArea());
-                sVar = this.f1846a.c;
+                sVar = this.f1847a.c;
                 sVar.b(valueOf);
-                sVar2 = this.f1846a.c;
+                sVar2 = this.f1847a.c;
                 sVar2.a(valueOf2);
-                sVar3 = this.f1846a.c;
+                sVar3 = this.f1847a.c;
                 sVar3.h();
             }
         } else if (i == 1 || i == 2) {
-            kVar = this.f1846a.b;
+            kVar = this.f1847a.b;
             kVar.a(false);
-            kVar2 = this.f1846a.b;
+            kVar2 = this.f1847a.b;
             kVar2.h();
         } else {
-            kVar3 = this.f1846a.b;
+            kVar3 = this.f1847a.b;
             if (kVar3.j() != null) {
-                kVar6 = this.f1846a.b;
+                kVar6 = this.f1847a.b;
                 if (kVar6.j().size() != 0) {
-                    this.f1846a.showToast(R.string.nearby_group_gps_error);
-                    kVar5 = this.f1846a.b;
+                    this.f1847a.showToast(R.string.nearby_group_gps_error);
+                    kVar5 = this.f1847a.b;
                     kVar5.h();
                 }
             }
-            kVar4 = this.f1846a.b;
+            kVar4 = this.f1847a.b;
             kVar4.b(true);
-            kVar5 = this.f1846a.b;
+            kVar5 = this.f1847a.b;
             kVar5.h();
         }
     }

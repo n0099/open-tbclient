@@ -13,7 +13,7 @@ import java.util.List;
 public class n extends com.baidu.adp.a.e {
 
     /* renamed from: a  reason: collision with root package name */
-    private View f1776a;
+    private View f1777a;
     private ImageView c;
     private UpdatesActivity d;
     private BdListView e;
@@ -34,16 +34,16 @@ public class n extends com.baidu.adp.a.e {
     }
 
     void a() {
-        this.f1776a = View.inflate(this.d, R.layout.updates_activity, null);
-        this.d.setContentView(this.f1776a);
+        this.f1777a = View.inflate(this.d, R.layout.updates_activity, null);
+        this.d.setContentView(this.f1777a);
         this.k = (NavigationBar) this.d.findViewById(R.id.view_navigation_bar);
         this.k.a(this.d.getString(R.string.updates_activity_title));
         View a2 = this.k.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.updates_activity_nav_left, (View.OnClickListener) null);
         View a3 = this.k.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.updates_activity_nav_right, (View.OnClickListener) null);
         this.c = (ImageView) a2.findViewById(R.id.back);
         this.c.setOnClickListener(this.d);
-        this.e = (BdListView) this.f1776a.findViewById(R.id.updates_list);
-        this.g = (ProgressBar) this.f1776a.findViewById(R.id.pro_load);
+        this.e = (BdListView) this.f1777a.findViewById(R.id.updates_list);
+        this.g = (ProgressBar) this.f1777a.findViewById(R.id.pro_load);
         this.h = (Button) a3.findViewById(R.id.btn_edit);
         this.h.setOnClickListener(this.d);
         this.i = (Button) a3.findViewById(R.id.btn_cancel);
@@ -108,7 +108,7 @@ public class n extends com.baidu.adp.a.e {
 
     public void b(int i) {
         this.d.getLayoutMode().a(i == 1);
-        this.d.getLayoutMode().a(this.f1776a);
+        this.d.getLayoutMode().a(this.f1777a);
         this.k.c(i);
     }
 

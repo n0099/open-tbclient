@@ -4,15 +4,15 @@ package com.baidu.tieba.im.messageCenter;
 public class q implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ p f1804a;
+    final /* synthetic */ p f1805a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(p pVar) {
-        this.f1804a = pVar;
+        this.f1805a = pVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f1804a.q();
+        this.f1805a.q();
     }
 }

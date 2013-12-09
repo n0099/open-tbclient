@@ -10,7 +10,7 @@ import com.slidingmenu.lib.R;
 public class ax extends com.baidu.adp.a.e {
 
     /* renamed from: a  reason: collision with root package name */
-    private SystemHelpSettingActivity f2084a;
+    private SystemHelpSettingActivity f2085a;
     private RelativeLayout c;
     private SettingTextSwitchView d;
     private SettingTextTipView e;
@@ -19,25 +19,25 @@ public class ax extends com.baidu.adp.a.e {
 
     public ax(SystemHelpSettingActivity systemHelpSettingActivity) {
         super(systemHelpSettingActivity);
-        this.f2084a = null;
+        this.f2085a = null;
         this.c = null;
         this.d = null;
         this.e = null;
         this.f = null;
-        this.f2084a = systemHelpSettingActivity;
-        this.f2084a.setContentView(R.layout.system_help_activity);
-        this.g = (NavigationBar) this.f2084a.findViewById(R.id.view_navigation_bar);
-        this.g.a(this.f2084a.getString(R.string.systemhelpsetting));
+        this.f2085a = systemHelpSettingActivity;
+        this.f2085a.setContentView(R.layout.system_help_activity);
+        this.g = (NavigationBar) this.f2085a.findViewById(R.id.view_navigation_bar);
+        this.g.a(this.f2085a.getString(R.string.systemhelpsetting));
         this.g.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.d = (SettingTextSwitchView) this.f2084a.findViewById(R.id.sv_earphone);
-        this.e = (SettingTextTipView) this.f2084a.findViewById(R.id.clear_cache);
+        this.d = (SettingTextSwitchView) this.f2085a.findViewById(R.id.sv_earphone);
+        this.e = (SettingTextTipView) this.f2085a.findViewById(R.id.clear_cache);
         this.e.d();
-        this.e.setOnClickListener(this.f2084a);
-        this.f = (SettingTextTipView) this.f2084a.findViewById(R.id.clear_im);
+        this.e.setOnClickListener(this.f2085a);
+        this.f = (SettingTextTipView) this.f2085a.findViewById(R.id.clear_im);
         this.f.d();
-        this.f.setOnClickListener(this.f2084a);
-        this.d.setSwitchStateChangeListener(this.f2084a);
-        this.c = (RelativeLayout) this.f2084a.findViewById(R.id.parent);
+        this.f.setOnClickListener(this.f2085a);
+        this.d.setSwitchStateChangeListener(this.f2085a);
+        this.c = (RelativeLayout) this.f2085a.findViewById(R.id.parent);
         if (TiebaApplication.C()) {
             this.f.setVisibility(0);
         } else {
@@ -69,7 +69,7 @@ public class ax extends com.baidu.adp.a.e {
         }
         this.e.a(i);
         this.f.a(i);
-        this.f2084a.getLayoutMode().a(i == 1);
-        this.f2084a.getLayoutMode().a(this.c);
+        this.f2085a.getLayoutMode().a(i == 1);
+        this.f2085a.getLayoutMode().a(this.c);
     }
 }

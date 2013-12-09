@@ -8,11 +8,11 @@ import java.util.HashMap;
 public class i implements w {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MsglistModel f1817a;
+    final /* synthetic */ MsglistModel f1818a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(MsglistModel msglistModel) {
-        this.f1817a = msglistModel;
+        this.f1818a = msglistModel;
     }
 
     @Override // com.baidu.tieba.im.model.w
@@ -24,12 +24,12 @@ public class i implements w {
         String str3;
         int i2 = 0;
         synchronized (this) {
-            hashMap = this.f1817a.k;
+            hashMap = this.f1818a.k;
             t tVar = (t) hashMap.remove(str);
-            if (tVar != null && (chatMessage = tVar.f1828a) != null) {
+            if (tVar != null && (chatMessage = tVar.f1829a) != null) {
                 if (uploadPicData2 == null || uploadPicData2.error_code != 0 || uploadPicData2.picInfo == null) {
                     com.baidu.tieba.log.a.b(com.baidu.tieba.log.i.a(chatMessage.getCmd(), 0, "", "", "upload pic http fail", uploadPicData2.error_code, uploadPicData2.error_msg, System.currentTimeMillis() - chatMessage.getLogTime()));
-                    this.f1817a.c(chatMessage);
+                    this.f1818a.c(chatMessage);
                     com.baidu.tieba.im.db.d.a().a(chatMessage.getGroupId(), String.valueOf(chatMessage.getRecordId()), String.valueOf(chatMessage.getMsgId()), 2, new j(this));
                 } else {
                     long currentTimeMillis = System.currentTimeMillis() - chatMessage.getLogTime();
@@ -49,7 +49,7 @@ public class i implements w {
                         i = 0;
                         str3 = null;
                     }
-                    chatMessage.setContent(this.f1817a.a(str4, str3, i2, i));
+                    chatMessage.setContent(this.f1818a.a(str4, str3, i2, i));
                     com.baidu.tieba.im.chat.a.b().a(chatMessage);
                 }
             }

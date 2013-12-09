@@ -6,13 +6,13 @@ import android.provider.MediaStore;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f2112a;
+    public int f2113a;
     public String b;
     public int c;
     public Uri d;
 
     public c(int i, String str, int i2) {
-        this.f2112a = i;
+        this.f2113a = i;
         this.b = str;
         this.c = i2;
         this.d = Uri.parse(String.valueOf(MediaStore.Images.Media.EXTERNAL_CONTENT_URI) + "/" + String.valueOf(this.c));

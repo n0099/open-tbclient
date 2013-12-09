@@ -5,16 +5,16 @@ import android.content.DialogInterface;
 class c implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ UpdateGroupActivity f1886a;
+    final /* synthetic */ UpdateGroupActivity f1887a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(UpdateGroupActivity updateGroupActivity) {
-        this.f1886a = updateGroupActivity;
+        this.f1887a = updateGroupActivity;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
-        this.f1886a.setResult(0);
-        this.f1886a.finish();
+        this.f1887a.setResult(0);
+        this.f1887a.finish();
     }
 }

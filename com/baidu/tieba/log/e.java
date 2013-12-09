@@ -14,11 +14,11 @@ import java.io.FileInputStream;
 class e {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f1916a;
+    final /* synthetic */ a f1917a;
     private am b;
 
     private e(a aVar) {
-        this.f1916a = aVar;
+        this.f1917a = aVar;
         this.b = null;
     }
 
@@ -103,7 +103,7 @@ class e {
                             if (TextUtils.isEmpty(x.a("log", name, "logbak", name))) {
                                 bd.b(getClass().getName(), "sendLogFile", "file.move error");
                             }
-                            a aVar = this.f1916a;
+                            a aVar = this.f1917a;
                             str4 = a.d;
                             aVar.g(str4);
                         }

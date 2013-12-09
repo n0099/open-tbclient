@@ -15,7 +15,7 @@ public class o {
     private int g = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    protected com.baidu.tieba.m f2041a = null;
+    protected com.baidu.tieba.m f2042a = null;
     private ArrayList<MarkData> e = new ArrayList<>();
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -207,6 +207,6 @@ public class o {
     }
 
     public void a(com.baidu.tieba.m mVar) {
-        this.f2041a = mVar;
+        this.f2042a = mVar;
     }
 }

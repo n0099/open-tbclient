@@ -5,11 +5,11 @@ import android.view.View;
 class dz {
 
     /* renamed from: a  reason: collision with root package name */
-    int f2246a;
+    int f2247a;
     View b;
 
     private dz(int i, View view) {
-        this.f2246a = i;
+        this.f2247a = i;
         this.b = view;
     }
 }

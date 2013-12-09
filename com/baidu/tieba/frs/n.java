@@ -24,7 +24,7 @@ class n implements af {
         bn bnVar4;
         com.baidu.tieba.model.ak akVar3;
         com.baidu.tieba.model.ak akVar4;
-        if (amVar.f1987a) {
+        if (amVar.f1988a) {
             bnVar3 = this.f1414a.n;
             bnVar3.a(this.f1414a.getString(R.string.add_fan_sucess));
             akVar = this.f1414a.w;

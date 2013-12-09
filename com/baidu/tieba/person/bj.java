@@ -1,6 +1,5 @@
 package com.baidu.tieba.person;
 
-import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +14,7 @@ import com.baidu.tieba.data.AntiData;
 import com.baidu.tieba.util.AntiHelper;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class bj extends bl {
+public class bj extends bk {
     private int G;
     private LinearLayout H;
     private BaseFragmentActivity I;
@@ -49,9 +48,7 @@ public class bj extends bl {
     private ImageView ak;
     private TextView al;
     private TextView am;
-    private bx an;
-    private Handler ao;
-    private Runnable ap;
+    private bw an;
 
     public bj(BaseFragmentActivity baseFragmentActivity, BaseFragment baseFragment, com.baidu.tieba.model.bx bxVar) {
         super(baseFragmentActivity, baseFragment, bxVar);
@@ -87,8 +84,6 @@ public class bj extends bl {
         this.al = null;
         this.am = null;
         this.an = null;
-        this.ao = null;
-        this.ap = null;
         this.I = baseFragmentActivity;
         View q = baseFragment.q();
         this.K = (ViewGroup) LayoutInflater.from(baseFragmentActivity).inflate(R.layout.person_info_activity_host, (ViewGroup) null);
@@ -136,7 +131,7 @@ public class bj extends bl {
         this.aj.setOnClickListener(baseFragment);
         this.M.setOnClickListener(baseFragment);
         this.N.setOnClickListener(baseFragment);
-        d(bxVar);
+        e(bxVar);
     }
 
     private void a(View view, int i, int i2) {
@@ -146,7 +141,7 @@ public class bj extends bl {
         view.setLayoutParams(layoutParams);
     }
 
-    @Override // com.baidu.tieba.person.bl
+    @Override // com.baidu.tieba.person.bk
     public void a(com.baidu.tieba.model.bx bxVar) {
         super.a(bxVar);
         this.A = bxVar.b();
@@ -171,54 +166,45 @@ public class bj extends bl {
     public void a(boolean z, com.baidu.tieba.model.bx bxVar, int i) {
         this.u.setVisibility(8);
         if (z) {
-            d(bxVar);
+            e(bxVar);
             f(bxVar);
         }
+        if (this.c != null && !this.c.p()) {
+            e();
+        }
         if (i == 1) {
-            if (!this.c.p()) {
-                e();
-            }
+            this.k.c();
             if (bxVar.getErrorString() != null) {
-                this.k.c();
                 this.f2335a.b(bxVar.getErrorString());
             }
         }
     }
 
-    public void e() {
-        if (!bx.a()) {
-            if (this.an == null) {
-                this.an = new bx(this.f2335a);
-            }
-            if (this.ap == null) {
-                this.ap = new bk(this);
-            }
-            if (this.ao == null) {
-                this.ao = new Handler();
-            }
-            this.ao.postDelayed(this.ap, 1000L);
-        }
-    }
-
-    @Override // com.baidu.tieba.person.bl
-    public void h_() {
-        super.h_();
-        if (this.ao != null) {
-            this.ao.removeCallbacks(this.ap);
-        }
-    }
-
-    @Override // com.baidu.tieba.person.bl
-    public void a() {
-        super.a();
-        if (this.ao != null) {
-            this.ao.removeCallbacks(this.ap);
-        }
-    }
-
-    @Override // com.baidu.tieba.person.bl
+    @Override // com.baidu.tieba.person.bk
     public void c(com.baidu.tieba.model.bx bxVar) {
-        super.c(bxVar);
+        this.B = bxVar.d();
+        if (this.B == null) {
+            this.u.setVisibility(0);
+        }
+        if (bw.a()) {
+            this.k.setRefreshing(1);
+        }
+    }
+
+    public void e() {
+        if (!bw.a()) {
+            if (this.an == null) {
+                this.an = new bw(this.f2335a);
+            }
+            if (!this.c.p()) {
+                this.an.a(this.n);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.person.bk
+    public void d(com.baidu.tieba.model.bx bxVar) {
+        super.d(bxVar);
         AntiData a2 = bxVar.a();
         if (AntiHelper.a(a2) || AntiHelper.c(a2)) {
             this.N.setVisibility(0);
@@ -227,7 +213,7 @@ public class bj extends bl {
         }
     }
 
-    @Override // com.baidu.tieba.person.bl
+    @Override // com.baidu.tieba.person.bk
     public void b(com.baidu.tieba.model.bx bxVar) {
         super.b(bxVar);
         this.R.setVisibility(4);
@@ -296,7 +282,7 @@ public class bj extends bl {
         this.V.setVisibility(8);
     }
 
-    @Override // com.baidu.tieba.person.bl
+    @Override // com.baidu.tieba.person.bk
     public void a(int i, com.baidu.tieba.model.bx bxVar) {
         super.a(i, bxVar);
         b(i, bxVar);
@@ -307,31 +293,31 @@ public class bj extends bl {
         }
     }
 
-    public LinearLayout g() {
+    public LinearLayout f() {
         return this.S;
     }
 
-    public LinearLayout h() {
+    public LinearLayout g() {
         return this.W;
     }
 
-    public LinearLayout i() {
+    public LinearLayout h() {
         return this.aa;
     }
 
-    public LinearLayout j() {
+    public LinearLayout i() {
         return this.ae;
     }
 
-    public LinearLayout k() {
+    public LinearLayout j() {
         return this.aj;
     }
 
-    public LinearLayout l() {
+    public LinearLayout k() {
         return this.M;
     }
 
-    public TextView m() {
+    public TextView l() {
         return this.N;
     }
 }

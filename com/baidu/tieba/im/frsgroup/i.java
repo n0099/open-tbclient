@@ -12,7 +12,7 @@ import com.slidingmenu.lib.R;
 public class i extends com.baidu.adp.a.e {
 
     /* renamed from: a  reason: collision with root package name */
-    protected NavigationBar f1710a;
+    protected NavigationBar f1711a;
     private GroupLevelActivity c;
     private View d;
     private ImageView e;
@@ -39,7 +39,7 @@ public class i extends com.baidu.adp.a.e {
         this.t = new ImageView[4];
         this.u = new TextView[4];
         this.v = new String[4];
-        this.f1710a = null;
+        this.f1711a = null;
         this.c = groupLevelActivity;
         groupLevelActivity.setContentView(R.layout.im_grouplevel_activity);
         b(groupLevelActivity);
@@ -75,16 +75,16 @@ public class i extends com.baidu.adp.a.e {
         this.u[1] = this.p;
         this.u[2] = this.q;
         this.u[3] = this.r;
-        this.f1710a = (NavigationBar) groupLevelActivity.findViewById(R.id.grouplevel_top_bar);
-        this.f1710a.setSystemClickable(false);
-        this.f1710a.a(this.c.getResources().getString(R.string.grouplevel_title));
-        this.e = this.f1710a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.f1711a = (NavigationBar) groupLevelActivity.findViewById(R.id.grouplevel_top_bar);
+        this.f1711a.setSystemClickable(false);
+        this.f1711a.a(this.c.getResources().getString(R.string.grouplevel_title));
+        this.e = this.f1711a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
     }
 
     public void a(int i) {
         this.c.getLayoutMode().a(i == 1);
         this.c.getLayoutMode().a(this.d);
-        this.f1710a.c(i);
+        this.f1711a.c(i);
     }
 
     public ImageView a() {

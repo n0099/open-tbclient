@@ -5,11 +5,11 @@ import android.content.DialogInterface;
 class ei implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ef f2255a;
+    final /* synthetic */ ef f2256a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ei(ef efVar) {
-        this.f2255a = efVar;
+        this.f2256a = efVar;
     }
 
     @Override // android.content.DialogInterface.OnClickListener

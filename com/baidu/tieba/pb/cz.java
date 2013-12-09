@@ -8,13 +8,13 @@ import android.widget.ImageView;
 public class cz implements Animation.AnimationListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ImageView f2221a;
+    final /* synthetic */ ImageView f2222a;
     final /* synthetic */ cr b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cz(cr crVar, ImageView imageView) {
         this.b = crVar;
-        this.f2221a = imageView;
+        this.f2222a = imageView;
     }
 
     @Override // android.view.animation.Animation.AnimationListener

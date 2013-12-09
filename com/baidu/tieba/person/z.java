@@ -18,9 +18,9 @@ class z implements DialogInterface.OnClickListener {
         com.baidu.tieba.model.o oVar;
         com.baidu.tieba.model.o oVar2;
         aaVar = this.f2398a.b;
-        oVar = this.f2398a.f2292a;
+        oVar = this.f2398a.f2293a;
         aaVar.a(oVar.a());
-        oVar2 = this.f2398a.f2292a;
+        oVar2 = this.f2398a.f2293a;
         oVar2.a((Boolean) true);
     }
 }

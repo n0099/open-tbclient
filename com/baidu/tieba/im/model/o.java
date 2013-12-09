@@ -8,14 +8,14 @@ import java.util.concurrent.ConcurrentHashMap;
 public class o implements com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMessageCenterPojo>> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ChatMessage f1823a;
+    final /* synthetic */ ChatMessage f1824a;
     final /* synthetic */ ChatMessage b;
     final /* synthetic */ MsglistModel c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(MsglistModel msglistModel, ChatMessage chatMessage, ChatMessage chatMessage2) {
         this.c = msglistModel;
-        this.f1823a = chatMessage;
+        this.f1824a = chatMessage;
         this.b = chatMessage2;
     }
 
@@ -23,7 +23,7 @@ public class o implements com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMessa
     @Override // com.baidu.tieba.im.a
     public void a(ConcurrentHashMap<String, ImMessageCenterPojo> concurrentHashMap) {
         ImMessageCenterPojo imMessageCenterPojo;
-        if (concurrentHashMap != null && (imMessageCenterPojo = concurrentHashMap.get(this.f1823a.getGroupId())) != null) {
+        if (concurrentHashMap != null && (imMessageCenterPojo = concurrentHashMap.get(this.f1824a.getGroupId())) != null) {
             if (this.b != null) {
                 imMessageCenterPojo.setLast_content_time(this.b.getTime());
                 imMessageCenterPojo.setLast_content(this.b.getContent());

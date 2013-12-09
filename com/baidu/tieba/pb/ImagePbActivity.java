@@ -52,7 +52,7 @@ public class ImagePbActivity extends com.baidu.tieba.j implements com.baidu.tieb
     private FaceView o;
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Pattern f2137a = Pattern.compile("#\\([^#\\)\\(]+\\)$");
+    private static final Pattern f2138a = Pattern.compile("#\\([^#\\)\\(]+\\)$");
     private static boolean P = true;
     private ab b = null;
     private ImageView c = null;
@@ -795,7 +795,7 @@ public class ImagePbActivity extends com.baidu.tieba.j implements com.baidu.tieb
             }
         } else if (i == 21 && this.l.getSelectionStart() > 0) {
             String substring = this.l.getText().toString().substring(0, this.l.getSelectionStart());
-            Matcher matcher = f2137a.matcher(substring);
+            Matcher matcher = f2138a.matcher(substring);
             if (matcher.find()) {
                 this.l.getText().delete(this.l.getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), this.l.getSelectionStart());
                 return;

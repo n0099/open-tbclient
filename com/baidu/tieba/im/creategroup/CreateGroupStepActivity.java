@@ -102,7 +102,7 @@ public class CreateGroupStepActivity extends com.baidu.tieba.j implements TextWa
                     return;
                 case 12009:
                 case 12010:
-                    this.f1614a.f(intent.getStringExtra(EditHeadActivity.f2291a));
+                    this.f1614a.f(intent.getStringExtra(EditHeadActivity.f2292a));
                     this.f1614a.B();
                     this.f1614a.A();
                     return;

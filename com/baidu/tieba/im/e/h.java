@@ -5,8 +5,17 @@ import android.text.TextUtils;
 import com.baidu.tieba.im.groupInfo.GroupInfoActivity;
 import com.baidu.tieba.pb.NewPbActivity;
 import com.baidu.tieba.util.UtilHelper;
+import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class h {
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final Pattern f1692a = Pattern.compile("(((ht|f)tp(s{0,1}))://)?([\\w-]+\\.)+[a-zA-Z_-]{2,}(/[\\w-./?%&+=#]*)?", 2);
+
+    public static Pattern a() {
+        return f1692a;
+    }
+
     public static void a(Context context, String str, boolean z) {
         String str2;
         String str3;

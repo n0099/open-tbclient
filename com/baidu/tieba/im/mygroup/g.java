@@ -10,11 +10,11 @@ import java.util.List;
 class g implements com.baidu.tieba.im.messageCenter.g {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MyGroupFragment f1839a;
+    final /* synthetic */ MyGroupFragment f1840a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(MyGroupFragment myGroupFragment) {
-        this.f1839a = myGroupFragment;
+        this.f1840a = myGroupFragment;
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
@@ -26,41 +26,41 @@ class g implements com.baidu.tieba.im.messageCenter.g {
         a aVar2;
         EnterForumGuideCenterView enterForumGuideCenterView;
         EnterForumGuideCenterView enterForumGuideCenterView2;
-        if (this.f1839a.i() != null && this.f1839a.f1832a != null) {
-            hVar = this.f1839a.c;
+        if (this.f1840a.i() != null && this.f1840a.f1833a != null) {
+            hVar = this.f1840a.c;
             if (hVar != null) {
                 if (message.getCmd() == 103003) {
-                    this.f1839a.f1832a.a();
+                    this.f1840a.f1833a.a();
                 }
                 ResponseGroupsByUidMessage responseGroupsByUidMessage = (ResponseGroupsByUidMessage) message;
                 if (responseGroupsByUidMessage.hasError()) {
                     if (responseGroupsByUidMessage.getErrNo() > 0 && !TextUtils.isEmpty(responseGroupsByUidMessage.getErrMsg())) {
-                        this.f1839a.a(responseGroupsByUidMessage.getErrMsg());
+                        this.f1840a.a(responseGroupsByUidMessage.getErrMsg());
                         return;
                     }
                     return;
                 }
                 List<GroupInfoData> groups = responseGroupsByUidMessage.getGroups();
                 if (groups != null) {
-                    aVar = this.f1839a.e;
+                    aVar = this.f1840a.e;
                     aVar.a(groups);
-                    aVar2 = this.f1839a.e;
+                    aVar2 = this.f1840a.e;
                     aVar2.notifyDataSetChanged();
                     if (groups.size() > 0) {
-                        enterForumGuideCenterView2 = this.f1839a.f;
+                        enterForumGuideCenterView2 = this.f1840a.f;
                         enterForumGuideCenterView2.setVisibility(8);
-                        this.f1839a.a();
+                        this.f1840a.a();
                     } else {
-                        enterForumGuideCenterView = this.f1839a.f;
+                        enterForumGuideCenterView = this.f1840a.f;
                         enterForumGuideCenterView.setVisibility(0);
                     }
                 }
                 if (message.getCmd() == 103003) {
-                    this.f1839a.b = false;
+                    this.f1840a.b = false;
                 } else if (message.getCmd() == -106) {
-                    hVar2 = this.f1839a.c;
+                    hVar2 = this.f1840a.c;
                     if (hVar2 != null) {
-                        hVar3 = this.f1839a.c;
+                        hVar3 = this.f1840a.c;
                         hVar3.a();
                     }
                 }

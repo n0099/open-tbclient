@@ -24,7 +24,7 @@ public class ea extends ed {
         this.N = null;
         this.O = null;
         this.M = (SubPbLoadPreviousView) this.b.findViewById(R.id.sub_pb_load_previous);
-        this.N = (NavigationBar) this.f2250a.findViewById(R.id.view_navigation_bar);
+        this.N = (NavigationBar) this.f2251a.findViewById(R.id.view_navigation_bar);
         this.O = this.N.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.L = this.N.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, jVar.getResources().getString(R.string.view_subject), onClickListener);
     }
@@ -49,7 +49,7 @@ public class ea extends ed {
 
     @Override // com.baidu.tieba.pb.ed
     protected void b() {
-        this.I = (SubPbEditor) this.f2250a.findViewById(R.id.sub_pb_editor);
+        this.I = (SubPbEditor) this.f2251a.findViewById(R.id.sub_pb_editor);
         this.I.v();
         this.I.f();
         this.q.setEnabled(false);
@@ -67,7 +67,7 @@ public class ea extends ed {
     }
 
     private NavigationBar F() {
-        this.N = (NavigationBar) this.f2250a.findViewById(R.id.view_navigation_bar);
+        this.N = (NavigationBar) this.f2251a.findViewById(R.id.view_navigation_bar);
         return this.N;
     }
 
@@ -115,7 +115,7 @@ public class ea extends ed {
     @Override // com.baidu.tieba.pb.ed
     protected void h() {
         LayoutInflater from = LayoutInflater.from(this.e);
-        this.f2250a = from.inflate(R.layout.new_sub_pb_reply_layout, (ViewGroup) null);
+        this.f2251a = from.inflate(R.layout.new_sub_pb_reply_layout, (ViewGroup) null);
         this.b = from.inflate(R.layout.new_sub_pb_reply_head, (ViewGroup) null);
         G().setOnClickListener(this.v);
     }

@@ -7,12 +7,12 @@ import com.baidu.video.download.JNITaskCreateParam;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f1930a = 0;
+    private static int f1931a = 0;
     private static boolean b = false;
     private long c = -1;
 
     public void a() {
-        f1930a++;
+        f1931a++;
         if (!b) {
             b = true;
             JNIP2P jnip2p = JNIP2P.getInstance();
@@ -44,8 +44,8 @@ public class c {
 
     public void c() {
         b();
-        f1930a--;
-        if (b && f1930a == 0) {
+        f1931a--;
+        if (b && f1931a == 0) {
             b = false;
             JNIP2P.getInstance().uninit();
         }

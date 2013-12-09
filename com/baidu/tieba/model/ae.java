@@ -7,7 +7,7 @@ import com.baidu.cloudsdk.social.core.SocialConstants;
 public class ae extends BdAsyncTask<String, Integer, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ad f1979a;
+    final /* synthetic */ ad f1980a;
     private com.baidu.tieba.util.am b = null;
     private String c;
     private String d;
@@ -18,7 +18,7 @@ public class ae extends BdAsyncTask<String, Integer, String> {
     private boolean i;
 
     public ae(ad adVar, String str, String str2, String str3, String str4, int i, int i2, boolean z) {
-        this.f1979a = adVar;
+        this.f1980a = adVar;
         this.c = str;
         this.d = str2;
         this.e = str3;
@@ -81,9 +81,9 @@ public class ae extends BdAsyncTask<String, Integer, String> {
         if (this.b != null) {
             this.b.j();
         }
-        this.f1979a.f1978a = null;
+        this.f1980a.f1979a = null;
         super.cancel(true);
-        gVar = this.f1979a.mLoadDataCallBack;
+        gVar = this.f1980a.mLoadDataCallBack;
         gVar.a(null);
     }
 
@@ -94,22 +94,22 @@ public class ae extends BdAsyncTask<String, Integer, String> {
         com.baidu.adp.a.g gVar;
         com.baidu.adp.a.g gVar2;
         super.a((ae) str);
-        this.f1979a.f1978a = null;
+        this.f1980a.f1979a = null;
         if (this.b == null) {
-            gVar2 = this.f1979a.mLoadDataCallBack;
+            gVar2 = this.f1980a.mLoadDataCallBack;
             gVar2.a(null);
             return;
         }
-        af afVar = new af(this.f1979a);
+        af afVar = new af(this.f1980a);
         afVar.c = this.g;
         afVar.d = this.f;
         afVar.b = str;
         if (str == null) {
-            afVar.f1980a = true;
+            afVar.f1981a = true;
         } else {
-            afVar.f1980a = false;
+            afVar.f1981a = false;
         }
-        gVar = this.f1979a.mLoadDataCallBack;
+        gVar = this.f1980a.mLoadDataCallBack;
         gVar.a(afVar);
     }
 }

@@ -16,7 +16,7 @@ import java.util.List;
 public class e extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    private Activity f1876a;
+    private Activity f1877a;
     private com.baidu.tieba.util.i b;
     private List<BaseGroupData> c = new ArrayList();
 
@@ -30,7 +30,7 @@ public class e extends BaseAdapter {
     }
 
     public e(Activity activity) {
-        this.f1876a = activity;
+        this.f1877a = activity;
         this.b = new com.baidu.tieba.util.i(activity);
         this.b.d(true);
     }
@@ -64,9 +64,9 @@ public class e extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         f fVar;
         if (view == null || view.getTag() == null) {
-            view = LayoutInflater.from(this.f1876a).inflate(R.layout.im_search_group_list_item, viewGroup, false);
+            view = LayoutInflater.from(this.f1877a).inflate(R.layout.im_search_group_list_item, viewGroup, false);
             fVar = new f();
-            fVar.f1877a = (HeadImageView) view.findViewById(R.id.item_head);
+            fVar.f1878a = (HeadImageView) view.findViewById(R.id.item_head);
             fVar.b = (TextView) view.findViewById(R.id.item_name);
             fVar.c = (TextView) view.findViewById(R.id.item_count);
             view.setTag(fVar);
@@ -74,13 +74,13 @@ public class e extends BaseAdapter {
             fVar = (f) view.getTag();
         }
         BaseGroupData baseGroupData = this.c.get(i);
-        fVar.f1877a.setTag(null);
-        fVar.f1877a.setDefaultResource(R.drawable.avatar_poto_defaul50);
-        fVar.f1877a.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
+        fVar.f1878a.setTag(null);
+        fVar.f1878a.setDefaultResource(R.drawable.avatar_poto_defaul50);
+        fVar.f1878a.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
         if (baseGroupData != null) {
-            fVar.f1877a.setTag(baseGroupData.getPortrait());
+            fVar.f1878a.setTag(baseGroupData.getPortrait());
             fVar.b.setText(baseGroupData.getName());
-            fVar.c.setText(this.f1876a.getResources().getString(R.string.mem_count, String.valueOf(baseGroupData.getMemberNum())));
+            fVar.c.setText(this.f1877a.getResources().getString(R.string.mem_count, String.valueOf(baseGroupData.getMemberNum())));
         }
         return view;
     }

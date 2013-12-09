@@ -10,10 +10,10 @@ import com.baidu.tieba.view.HeadImageView;
 public class ax extends BdAsyncTask<Object, Integer, Bitmap> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PersonChangeActivity f2322a;
+    final /* synthetic */ PersonChangeActivity f2323a;
 
     private ax(PersonChangeActivity personChangeActivity) {
-        this.f2322a = personChangeActivity;
+        this.f2323a = personChangeActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -27,13 +27,13 @@ public class ax extends BdAsyncTask<Object, Integer, Bitmap> {
         ProgressBar progressBar;
         TextView textView;
         HeadImageView headImageView;
-        progressBar = this.f2322a.C;
+        progressBar = this.f2323a.C;
         progressBar.setVisibility(0);
-        textView = this.f2322a.g;
+        textView = this.f2323a.g;
         textView.setEnabled(false);
-        headImageView = this.f2322a.d;
+        headImageView = this.f2323a.d;
         headImageView.setImageBitmap(null);
-        this.f2322a.z = null;
+        this.f2323a.z = null;
         super.b();
     }
 
@@ -49,10 +49,10 @@ public class ax extends BdAsyncTask<Object, Integer, Bitmap> {
     public void cancel() {
         ProgressBar progressBar;
         TextView textView;
-        this.f2322a.A = null;
-        progressBar = this.f2322a.C;
+        this.f2323a.A = null;
+        progressBar = this.f2323a.C;
         progressBar.setVisibility(8);
-        textView = this.f2322a.g;
+        textView = this.f2323a.g;
         textView.setEnabled(true);
         super.cancel(true);
     }
@@ -74,20 +74,20 @@ public class ax extends BdAsyncTask<Object, Integer, Bitmap> {
         com.baidu.tieba.model.bw bwVar;
         com.baidu.adp.widget.ImageView.e eVar2;
         super.a((ax) bitmap);
-        this.f2322a.A = null;
-        textView = this.f2322a.g;
+        this.f2323a.A = null;
+        textView = this.f2323a.g;
         textView.setEnabled(true);
-        progressBar = this.f2322a.C;
+        progressBar = this.f2323a.C;
         progressBar.setVisibility(8);
         if (bitmap != null) {
-            this.f2322a.z = new com.baidu.adp.widget.ImageView.e(bitmap, false, null);
-            eVar = this.f2322a.z;
-            headImageView = this.f2322a.d;
+            this.f2323a.z = new com.baidu.adp.widget.ImageView.e(bitmap, false, null);
+            eVar = this.f2323a.z;
+            headImageView = this.f2323a.d;
             eVar.a(headImageView);
             com.baidu.tbadk.imageManager.d a2 = com.baidu.tbadk.imageManager.d.a();
-            bwVar = this.f2322a.y;
+            bwVar = this.f2323a.y;
             String portrait = bwVar.a().getPortrait();
-            eVar2 = this.f2322a.z;
+            eVar2 = this.f2323a.z;
             a2.a(portrait, eVar2, true);
         }
     }

@@ -6,11 +6,11 @@ import com.baidu.tieba.TiebaApplication;
 public class l extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ AccountActivity f2095a;
+    final /* synthetic */ AccountActivity f2096a;
     private String b;
 
     public l(AccountActivity accountActivity, String str) {
-        this.f2095a = accountActivity;
+        this.f2096a = accountActivity;
         this.b = null;
         this.b = str;
     }

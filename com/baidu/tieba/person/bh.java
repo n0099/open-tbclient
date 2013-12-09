@@ -6,21 +6,21 @@ import android.content.DialogInterface;
 public class bh implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PersonInfoActivity f2333a;
+    final /* synthetic */ PersonInfoActivity f2334a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bh(PersonInfoActivity personInfoActivity) {
-        this.f2333a = personInfoActivity;
+        this.f2334a = personInfoActivity;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
         if (i == 0) {
-            this.f2333a.I();
+            this.f2334a.I();
         } else if (i == 1) {
-            com.baidu.tieba.write.bd.a(this.f2333a.i());
+            com.baidu.tieba.write.bd.a(this.f2334a.i());
         } else if (i == 2) {
-            com.baidu.tieba.write.bd.c(this.f2333a.i());
+            com.baidu.tieba.write.bd.c(this.f2334a.i());
         }
     }
 }

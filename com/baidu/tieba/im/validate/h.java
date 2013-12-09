@@ -7,11 +7,11 @@ import android.widget.Button;
 public class h implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ g f1900a;
+    final /* synthetic */ g f1901a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(g gVar) {
-        this.f1900a = gVar;
+        this.f1901a = gVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -19,9 +19,9 @@ public class h implements View.OnClickListener {
         ValidateActivity validateActivity;
         Button button;
         ValidateItemData validateItemData;
-        validateActivity = this.f1900a.i;
-        button = this.f1900a.h;
-        validateItemData = this.f1900a.j;
+        validateActivity = this.f1901a.i;
+        button = this.f1901a.h;
+        validateItemData = this.f1901a.j;
         validateActivity.a(button, 100, 0, 0L, validateItemData);
     }
 }

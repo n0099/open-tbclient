@@ -13,7 +13,7 @@ import com.slidingmenu.lib.R;
 public class b extends com.baidu.adp.a.e {
 
     /* renamed from: a  reason: collision with root package name */
-    private View f1873a;
+    private View f1874a;
     private NavigationBar c;
     private ImageView d;
     private EditText e;
@@ -24,7 +24,7 @@ public class b extends com.baidu.adp.a.e {
 
     public b(AddGroupActivity addGroupActivity) {
         super(addGroupActivity);
-        this.f1873a = null;
+        this.f1874a = null;
         this.c = null;
         this.d = null;
         this.e = null;
@@ -60,19 +60,19 @@ public class b extends com.baidu.adp.a.e {
 
     public void a(int i) {
         this.i.getLayoutMode().a(i == 1);
-        this.i.getLayoutMode().a(this.f1873a);
-        ba.b(this.f1873a, i);
+        this.i.getLayoutMode().a(this.f1874a);
+        ba.b(this.f1874a, i);
         this.c.c(i);
         if (i == 1) {
-            this.f1873a.setBackgroundResource(R.color.im_add_group_page_backgroundcolor_1);
+            this.f1874a.setBackgroundResource(R.color.im_add_group_page_backgroundcolor_1);
         } else {
-            this.f1873a.setBackgroundResource(R.color.im_add_group_page_backgroundcolor);
+            this.f1874a.setBackgroundResource(R.color.im_add_group_page_backgroundcolor);
         }
     }
 
     private void h() {
         this.i.setContentView(R.layout.im_add_group_activity);
-        this.f1873a = this.i.findViewById(R.id.addgroup_rootlayout);
+        this.f1874a = this.i.findViewById(R.id.addgroup_rootlayout);
         this.c = (NavigationBar) this.i.findViewById(R.id.addgroup_navigationbar);
         this.c.a(this.i.getResources().getString(R.string.add_group_title_main));
         this.d = this.c.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);

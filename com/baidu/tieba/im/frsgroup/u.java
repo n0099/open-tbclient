@@ -7,13 +7,13 @@ import java.util.List;
 public class u implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ List f1722a;
+    final /* synthetic */ List f1723a;
     final /* synthetic */ MembersActivity b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(MembersActivity membersActivity, List list) {
         this.b = membersActivity;
-        this.f1722a = list;
+        this.f1723a = list;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -31,7 +31,7 @@ public class u implements DialogInterface.OnClickListener {
         aaVar3.j();
         MembersActivity membersActivity = this.b;
         hVar = this.b.c;
-        membersActivity.a(hVar.g(), this.f1722a);
+        membersActivity.a(hVar.g(), this.f1723a);
         aaVar4 = this.b.b;
         aaVar4.d(true);
     }

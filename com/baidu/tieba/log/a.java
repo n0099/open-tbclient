@@ -21,7 +21,7 @@ public class a {
     private static boolean r = false;
 
     /* renamed from: a  reason: collision with root package name */
-    private AtomicBoolean f1912a = new AtomicBoolean(false);
+    private AtomicBoolean f1913a = new AtomicBoolean(false);
     private AtomicBoolean b = new AtomicBoolean(false);
     private int f = 0;
     private int g = 0;
@@ -129,10 +129,10 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(boolean z) {
-        if (!this.f1912a.get()) {
+        if (!this.f1913a.get()) {
             this.f++;
         } else if (z) {
-            com.baidu.adp.lib.f.c.a().a(new b(this));
+            com.baidu.adp.lib.f.d.a().a(new b(this));
         }
         if (this.f >= 20 || z) {
             String stringBuffer = this.e.toString();
@@ -147,8 +147,8 @@ public class a {
             if (TiebaApplication.h().b()) {
                 com.baidu.adp.lib.h.e.d(str);
             }
-            this.f1912a.set(true);
-            com.baidu.adp.lib.f.c.a().a(new c(this, str));
+            this.f1913a.set(true);
+            com.baidu.adp.lib.f.d.a().a(new c(this, str));
         }
     }
 

@@ -8,8 +8,8 @@ import java.util.concurrent.TimeUnit;
 public class m {
 
     /* renamed from: a  reason: collision with root package name */
-    private static LinkedBlockingQueue<Runnable> f1789a = new LinkedBlockingQueue<>();
-    private static Executor b = new ThreadPoolExecutor(1, 1, 0, TimeUnit.MILLISECONDS, f1789a, new n());
+    private static LinkedBlockingQueue<Runnable> f1790a = new LinkedBlockingQueue<>();
+    private static Executor b = new ThreadPoolExecutor(1, 1, 0, TimeUnit.MILLISECONDS, f1790a, new n());
 
     public static <T> void a(SingleRunnable<T> singleRunnable, a<T> aVar) {
         if (a() > 5) {
@@ -22,10 +22,10 @@ public class m {
     }
 
     public static int a() {
-        return f1789a.size();
+        return f1790a.size();
     }
 
     public static void b() {
-        f1789a.clear();
+        f1790a.clear();
     }
 }

@@ -8,11 +8,11 @@ import java.util.List;
 class d implements Handler.Callback {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ JigsawAlbumActivity f2113a;
+    final /* synthetic */ JigsawAlbumActivity f2114a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(JigsawAlbumActivity jigsawAlbumActivity) {
-        this.f2113a = jigsawAlbumActivity;
+        this.f2114a = jigsawAlbumActivity;
     }
 
     @Override // android.os.Handler.Callback
@@ -27,23 +27,23 @@ class d implements Handler.Callback {
         Runnable runnable;
         switch (message.what) {
             case 1:
-                jVar3 = this.f2113a.i;
+                jVar3 = this.f2114a.i;
                 jVar3.a((List<c>) null);
-                jVar4 = this.f2113a.i;
+                jVar4 = this.f2114a.i;
                 jVar4.notifyDataSetChanged();
-                runnable = this.f2113a.w;
+                runnable = this.f2114a.w;
                 new Thread(runnable).start();
                 break;
             case 2:
-                this.f2113a.l = new l(this.f2113a);
-                lVar = this.f2113a.l;
+                this.f2114a.l = new l(this.f2114a);
+                lVar = this.f2114a.l;
                 lVar.setDaemon(true);
-                lVar2 = this.f2113a.l;
+                lVar2 = this.f2114a.l;
                 lVar2.start();
-                jVar = this.f2113a.i;
-                arrayList = this.f2113a.f;
+                jVar = this.f2114a.i;
+                arrayList = this.f2114a.f;
                 jVar.a(arrayList);
-                jVar2 = this.f2113a.i;
+                jVar2 = this.f2114a.i;
                 jVar2.notifyDataSetChanged();
                 break;
         }

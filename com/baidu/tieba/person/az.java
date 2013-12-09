@@ -5,15 +5,15 @@ import android.view.View;
 class az implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PersonImageActivity f2324a;
+    final /* synthetic */ PersonImageActivity f2325a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public az(PersonImageActivity personImageActivity) {
-        this.f2324a = personImageActivity;
+        this.f2325a = personImageActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.f2324a.finish();
+        this.f2325a.finish();
     }
 }

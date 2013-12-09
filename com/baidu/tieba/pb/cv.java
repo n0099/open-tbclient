@@ -7,17 +7,17 @@ import android.view.View;
 public class cv implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ cr f2217a;
+    final /* synthetic */ cr f2218a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cv(cr crVar) {
-        this.f2217a = crVar;
+        this.f2218a = crVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Dialog dialog;
-        dialog = this.f2217a.I;
+        dialog = this.f2218a.I;
         dialog.dismiss();
     }
 }

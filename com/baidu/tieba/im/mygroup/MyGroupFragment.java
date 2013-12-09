@@ -30,7 +30,7 @@ public class MyGroupFragment extends BaseFragment implements View.OnClickListene
     private h c;
 
     /* renamed from: a  reason: collision with root package name */
-    public BdListView f1832a = null;
+    public BdListView f1833a = null;
     private bk d = null;
     private a e = null;
     private EnterForumGuideCenterView f = null;
@@ -44,9 +44,9 @@ public class MyGroupFragment extends BaseFragment implements View.OnClickListene
         super.r();
         if (this.c == null) {
             this.c = new h();
-            this.f1832a.b();
+            this.f1833a.b();
         } else if (this.b) {
-            this.f1832a.b();
+            this.f1833a.b();
         }
         a();
     }
@@ -99,22 +99,22 @@ public class MyGroupFragment extends BaseFragment implements View.OnClickListene
     public View a(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(R.layout.my_group_fragment, viewGroup, false);
         this.f = (EnterForumGuideCenterView) inflate.findViewById(R.id.lv_guid_center_root);
-        this.f1832a = (BdListView) inflate.findViewById(R.id.my_group_list);
-        this.f1832a.a(new d(this), 300L);
+        this.f1833a = (BdListView) inflate.findViewById(R.id.my_group_list);
+        this.f1833a.a(new d(this), 300L);
         this.d = new bk(i());
         this.e = new a(this);
         this.d.a(new e(this));
-        this.f1832a.setPullRefresh(this.d);
-        this.f1832a.setAdapter((ListAdapter) this.e);
-        this.f1832a.setOnItemClickListener(this);
+        this.f1833a.setPullRefresh(this.d);
+        this.f1833a.setAdapter((ListAdapter) this.e);
+        this.f1833a.setOnItemClickListener(this);
         this.g = inflate.findViewById(R.id.fragment_parent);
         return inflate;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
-        if (this.f1832a != null && this.e != null) {
-            ah.a(this.f1832a, this.e.a(), 0, -1);
+        if (this.f1833a != null && this.e != null) {
+            ah.a(this.f1833a, this.e.a(), 0, -1);
         }
     }
 

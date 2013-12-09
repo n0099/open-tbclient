@@ -16,7 +16,7 @@ import com.slidingmenu.lib.R;
 public class w extends com.baidu.adp.a.e {
 
     /* renamed from: a  reason: collision with root package name */
-    Handler f2105a;
+    Handler f2106a;
     private BrowseSettingActivity c;
     private RelativeLayout d;
     private NavigationBar e;
@@ -58,7 +58,7 @@ public class w extends com.baidu.adp.a.e {
         this.s = new z(this);
         this.t = new aa(this);
         this.u = new ab(this);
-        this.f2105a = new Handler();
+        this.f2106a = new Handler();
         this.c = browseSettingActivity;
         u();
         n();

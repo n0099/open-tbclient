@@ -15,7 +15,7 @@ import com.slidingmenu.lib.R;
 public class g extends com.baidu.adp.a.e {
 
     /* renamed from: a  reason: collision with root package name */
-    private FrsGroupActivity f1708a;
+    private FrsGroupActivity f1709a;
     private View c;
     private ImageView d;
     private TextView e;
@@ -35,7 +35,7 @@ public class g extends com.baidu.adp.a.e {
 
     public g(FrsGroupActivity frsGroupActivity) {
         super(frsGroupActivity);
-        this.f1708a = frsGroupActivity;
+        this.f1709a = frsGroupActivity;
         frsGroupActivity.setContentView(R.layout.im_frsgroup_activity);
         a(frsGroupActivity);
         b(frsGroupActivity);
@@ -44,9 +44,9 @@ public class g extends com.baidu.adp.a.e {
     private void a(FrsGroupActivity frsGroupActivity) {
         this.c = frsGroupActivity.findViewById(R.id.view_root);
         this.f = (NavigationBar) frsGroupActivity.findViewById(R.id.view_navigation_bar);
-        this.f.a(this.f1708a.getString(R.string.frsgroup_title));
+        this.f.a(this.f1709a.getString(R.string.frsgroup_title));
         this.d = this.f.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.e = this.f.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.f1708a.getString(R.string.frsgroup_create));
+        this.e = this.f.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.f1709a.getString(R.string.frsgroup_create));
         this.d.setOnClickListener(frsGroupActivity);
         this.e.setOnClickListener(frsGroupActivity);
     }
@@ -103,7 +103,7 @@ public class g extends com.baidu.adp.a.e {
     }
 
     public void e() {
-        this.g.setOnCheckedChangeListener(this.f1708a);
+        this.g.setOnCheckedChangeListener(this.f1709a);
     }
 
     public void f() {
@@ -113,8 +113,8 @@ public class g extends com.baidu.adp.a.e {
     }
 
     public void c(int i) {
-        this.f1708a.a().a(i == 1);
-        this.f1708a.a().a(this.c);
+        this.f1709a.a().a(i == 1);
+        this.f1709a.a().a(this.c);
         this.f.c(i);
     }
 
@@ -122,7 +122,7 @@ public class g extends com.baidu.adp.a.e {
     public void c() {
         super.c();
         if (this.n != null) {
-            ae a2 = this.f1708a.getSupportFragmentManager().a();
+            ae a2 = this.f1709a.getSupportFragmentManager().a();
             for (int i = 0; i < this.n.length; i++) {
                 a2.a(this.n[i]);
             }

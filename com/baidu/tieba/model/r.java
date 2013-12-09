@@ -16,7 +16,7 @@ public class r extends BdAsyncTask<Boolean, String, o> {
     private String d = null;
 
     /* renamed from: a  reason: collision with root package name */
-    Boolean f2043a = false;
+    Boolean f2044a = false;
 
     public r(o oVar, int i) {
         this.b = oVar;
@@ -37,9 +37,9 @@ public class r extends BdAsyncTask<Boolean, String, o> {
     public o a(Boolean... boolArr) {
         ArrayList arrayList;
         ArrayList arrayList2;
-        this.f2043a = boolArr[0];
+        this.f2044a = boolArr[0];
         o oVar = new o();
-        if (this.f2043a.booleanValue()) {
+        if (this.f2044a.booleanValue()) {
             com.baidu.adp.lib.cache.s<String> l = com.baidu.tieba.b.a.a().l();
             if (l != null) {
                 c((Object[]) new String[]{l.a(TiebaApplication.B())});
@@ -61,7 +61,7 @@ public class r extends BdAsyncTask<Boolean, String, o> {
         this.f.a(this.d);
         if (this.c.c()) {
             oVar.a(this.d);
-            if (this.e == 0 && this.f2043a.booleanValue()) {
+            if (this.e == 0 && this.f2044a.booleanValue()) {
                 a(this.d);
             }
         }
@@ -87,7 +87,7 @@ public class r extends BdAsyncTask<Boolean, String, o> {
         ArrayList<MarkData> arrayList = new ArrayList<>();
         if (str != null) {
             b = this.b.b(str);
-            if (this.f2043a.booleanValue()) {
+            if (this.f2044a.booleanValue()) {
                 this.b.a(b);
             } else {
                 this.b.b(b);
@@ -95,7 +95,7 @@ public class r extends BdAsyncTask<Boolean, String, o> {
         } else {
             this.b.a(arrayList);
         }
-        this.b.f2041a.a(0, null, true);
+        this.b.f2042a.a(0, null, true);
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -115,7 +115,7 @@ public class r extends BdAsyncTask<Boolean, String, o> {
         this.b.b = null;
         this.b.f = oVar.d();
         ArrayList<MarkData> c = oVar.c();
-        if (this.f2043a.booleanValue()) {
+        if (this.f2044a.booleanValue()) {
             this.b.a(c);
         } else {
             this.b.b(c);
@@ -131,14 +131,14 @@ public class r extends BdAsyncTask<Boolean, String, o> {
             }
             i2 = i;
         }
-        if (this.b.f2041a != null) {
+        if (this.b.f2042a != null) {
             if (this.c.c()) {
                 String b = this.f.b();
                 TiebaApplication.h().a((Boolean) true);
-                this.b.f2041a.a(0, b, false);
+                this.b.f2042a.a(0, b, false);
                 return;
             }
-            this.b.f2041a.a(3, this.c.i());
+            this.b.f2042a.a(3, this.c.i());
         }
     }
 }

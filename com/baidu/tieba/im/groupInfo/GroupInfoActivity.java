@@ -37,7 +37,7 @@ public class GroupInfoActivity extends com.baidu.tieba.j implements View.OnClick
     private k i;
 
     /* renamed from: a  reason: collision with root package name */
-    private final int f1736a = 1;
+    private final int f1737a = 1;
     private final int b = 2;
     private final int c = 3;
     private final int d = 4;

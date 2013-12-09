@@ -12,7 +12,7 @@ import org.json.JSONObject;
 public class ak {
 
     /* renamed from: a  reason: collision with root package name */
-    private ForumData f1985a;
+    private ForumData f1986a;
     private ArrayList<com.baidu.tieba.data.az> b;
     private AntiData c;
     private com.baidu.tieba.data.am d;
@@ -32,7 +32,7 @@ public class ak {
     }
 
     private void k() {
-        this.f1985a = new ForumData();
+        this.f1986a = new ForumData();
         this.b = new ArrayList<>();
         this.d = new com.baidu.tieba.data.am();
         this.e = new com.baidu.tieba.data.y();
@@ -42,19 +42,19 @@ public class ak {
     }
 
     public void a(com.baidu.tieba.data.af afVar) {
-        this.f1985a.setCurScore(afVar.d());
-        this.f1985a.setLevelupScore(afVar.e());
-        this.f1985a.setLike(afVar.b());
-        this.f1985a.setUser_level(afVar.a());
-        this.f1985a.setLevelName(afVar.c());
+        this.f1986a.setCurScore(afVar.d());
+        this.f1986a.setLevelupScore(afVar.e());
+        this.f1986a.setLike(afVar.b());
+        this.f1986a.setUser_level(afVar.a());
+        this.f1986a.setLevelName(afVar.c());
     }
 
     public void a(SignData signData) {
-        this.f1985a.setSignData(signData);
+        this.f1986a.setSignData(signData);
     }
 
     public ForumData a() {
-        return this.f1985a;
+        return this.f1986a;
     }
 
     public ArrayList<com.baidu.tieba.data.az> b() {
@@ -101,7 +101,7 @@ public class ak {
             a(jSONObject.optInt("is_new_url", 0));
             JSONObject optJSONObject = jSONObject.optJSONObject("forum");
             k();
-            this.f1985a.parserJson(optJSONObject);
+            this.f1986a.parserJson(optJSONObject);
             JSONArray optJSONArray = jSONObject.optJSONArray("thread_list");
             if (optJSONArray != null) {
                 for (int i = 0; i < optJSONArray.length(); i++) {

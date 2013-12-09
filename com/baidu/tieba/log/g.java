@@ -5,7 +5,7 @@ import android.text.TextUtils;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f1918a = "";
+    private static String f1919a = "";
 
     public static boolean a(LoggerItem loggerItem) {
         if (loggerItem == null) {
@@ -26,13 +26,13 @@ public class g {
     }
 
     public static void a() {
-        f1918a = com.baidu.adp.lib.g.a.a().c();
+        f1919a = com.baidu.adp.lib.g.a.a().c();
     }
 
     public static String b() {
-        if (TextUtils.isEmpty(f1918a)) {
+        if (TextUtils.isEmpty(f1919a)) {
             a();
         }
-        return f1918a;
+        return f1919a;
     }
 }

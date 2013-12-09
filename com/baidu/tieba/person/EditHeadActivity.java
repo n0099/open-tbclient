@@ -33,7 +33,7 @@ import java.util.Map;
 public class EditHeadActivity extends com.baidu.tieba.j {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f2291a = "resourceid";
+    public static String f2292a = "resourceid";
     public static String b = "pic_info";
     public static String c = "delete";
     public static String d = "change";

@@ -26,7 +26,7 @@ public class NearbyGroupsActivity extends com.baidu.tieba.j implements com.baidu
     private com.baidu.adp.widget.ListView.b e = new d(this);
 
     /* renamed from: a  reason: collision with root package name */
-    com.baidu.adp.lib.c.d f1842a = new e(this);
+    com.baidu.adp.lib.c.d f1843a = new e(this);
 
     public static void a(Activity activity) {
         activity.startActivity(new Intent(activity, NearbyGroupsActivity.class));

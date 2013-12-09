@@ -39,22 +39,26 @@ public abstract class BaseFragment extends Fragment implements DialogInterface.O
     }
 
     public void a(String str) {
-        String name = getClass().getName();
-        String str2 = i().getApplicationContext().getPackageName() + ".chat";
-        if (name.startsWith(i().getApplicationContext().getPackageName() + ".im") || name.startsWith(str2)) {
-            this.b.a(str, 2000);
-        } else {
-            com.baidu.adp.lib.h.g.a((Context) i(), str);
+        if (i() != null) {
+            String name = getClass().getName();
+            String str2 = i().getApplicationContext().getPackageName() + ".chat";
+            if (name.startsWith(i().getApplicationContext().getPackageName() + ".im") || name.startsWith(str2)) {
+                this.b.a(str, 2000);
+            } else {
+                com.baidu.adp.lib.h.g.a((Context) i(), str);
+            }
         }
     }
 
     public void b(int i) {
-        String name = getClass().getName();
-        String str = i().getApplicationContext().getPackageName() + ".chat";
-        if (name.startsWith(i().getApplicationContext().getPackageName() + ".im") || name.startsWith(str)) {
-            this.b.a(i, 2000);
-        } else {
-            com.baidu.adp.lib.h.g.a((Context) i(), i);
+        if (i() != null) {
+            String name = getClass().getName();
+            String str = i().getApplicationContext().getPackageName() + ".chat";
+            if (name.startsWith(i().getApplicationContext().getPackageName() + ".im") || name.startsWith(str)) {
+                this.b.a(i, 2000);
+            } else {
+                com.baidu.adp.lib.h.g.a((Context) i(), i);
+            }
         }
     }
 

@@ -5,7 +5,7 @@ import com.baidu.tieba.data.WriteData;
 public class bs extends com.baidu.adp.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    private bu f2013a = null;
+    private bu f2014a = null;
     private WriteData b = null;
     private bt c = null;
     private boolean d = false;
@@ -30,9 +30,9 @@ public class bs extends com.baidu.adp.a.d {
         if (this.b == null) {
             return false;
         }
-        if (this.f2013a == null) {
-            this.f2013a = new bu(this);
-            this.f2013a.execute(new Integer[0]);
+        if (this.f2014a == null) {
+            this.f2014a = new bu(this);
+            this.f2014a.execute(new Integer[0]);
         }
         return true;
     }

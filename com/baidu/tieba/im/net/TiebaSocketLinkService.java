@@ -17,7 +17,7 @@ public class TiebaSocketLinkService extends Service {
     private static a b;
 
     /* renamed from: a  reason: collision with root package name */
-    private static b f1853a = new b();
+    private static b f1854a = new b();
     private static final Handler c = new d();
     private static r d = new e();
 
@@ -38,7 +38,7 @@ public class TiebaSocketLinkService extends Service {
         ArrayList arrayList = new ArrayList();
         arrayList.add(new BasicNameValuePair("Content-Type", "application/octet-stream"));
         arrayList.add(new BasicNameValuePair(SocialConstants.PARAM_CUID, com.baidu.tieba.im.i.a()));
-        m.a().a(j.f1786a, j.b, null, arrayList);
+        m.a().a(j.f1787a, j.b, null, arrayList);
         m.a().a(d);
     }
 
@@ -79,7 +79,7 @@ public class TiebaSocketLinkService extends Service {
         Intent intent = new Intent(TiebaApplication.h(), TiebaSocketLinkService.class);
         intent.putExtra("reopen", z);
         intent.putExtra("reason", str);
-        TiebaApplication.h().startService(intent);
+        com.baidu.adp.lib.f.c.a(TiebaApplication.h(), intent);
     }
 
     @Override // android.app.Service

@@ -8,11 +8,11 @@ import android.widget.Button;
 public class j implements TextWatcher {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ g f1881a;
+    final /* synthetic */ g f1882a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(g gVar) {
-        this.f1881a = gVar;
+        this.f1882a = gVar;
     }
 
     @Override // android.text.TextWatcher
@@ -29,13 +29,13 @@ public class j implements TextWatcher {
         Button button2;
         Button button3;
         if (editable.toString().trim().length() == 0) {
-            button3 = this.f1881a.f;
+            button3 = this.f1882a.f;
             button3.setVisibility(8);
         } else {
-            button = this.f1881a.f;
+            button = this.f1882a.f;
             button.setVisibility(0);
         }
-        button2 = this.f1881a.g;
+        button2 = this.f1882a.g;
         button2.setTag(editable.toString().trim());
     }
 }

@@ -50,7 +50,7 @@ final class e extends r {
         f.a().c();
         handler = TiebaSocketLinkService.c;
         handler.removeMessages(1);
-        bVar = TiebaSocketLinkService.f1853a;
+        bVar = TiebaSocketLinkService.f1854a;
         bVar.b("ConnectiononOpen");
         aVar = TiebaSocketLinkService.b;
         if (aVar != null) {
@@ -78,7 +78,7 @@ final class e extends r {
             z = aVar2.a(i, str);
         }
         if (!z && UtilHelper.b()) {
-            bVar = TiebaSocketLinkService.f1853a;
+            bVar = TiebaSocketLinkService.f1854a;
             bVar.a("onClose:" + i + ":" + str);
         }
     }

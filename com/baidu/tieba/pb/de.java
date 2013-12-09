@@ -7,7 +7,7 @@ import android.view.animation.Animation;
 public class de implements Animation.AnimationListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ com.baidu.tieba.data.av f2227a;
+    final /* synthetic */ com.baidu.tieba.data.av f2228a;
     final /* synthetic */ boolean b;
     final /* synthetic */ String c;
     final /* synthetic */ String d;
@@ -16,7 +16,7 @@ public class de implements Animation.AnimationListener {
     /* JADX INFO: Access modifiers changed from: package-private */
     public de(cr crVar, com.baidu.tieba.data.av avVar, boolean z, String str, String str2) {
         this.e = crVar;
-        this.f2227a = avVar;
+        this.f2228a = avVar;
         this.b = z;
         this.c = str;
         this.d = str2;

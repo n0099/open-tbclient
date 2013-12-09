@@ -66,7 +66,7 @@ public class NewPbActivity extends com.baidu.tieba.j implements com.baidu.tbadk.
     private int j = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    HashMap<MediaType, String> f2139a = null;
+    HashMap<MediaType, String> f2140a = null;
     private String l = null;
     private com.baidu.adp.lib.d.b<TextView> m = TbRichTextView.a(this, 8);
     private com.baidu.adp.lib.d.b<TbImageView> n = UserIconBox.a(this, 8);
@@ -432,8 +432,8 @@ public class NewPbActivity extends com.baidu.tieba.j implements com.baidu.tbadk.
     public void a(com.baidu.tieba.model.af afVar) {
         boolean z;
         int i = 0;
-        this.y.a(0, afVar.f1980a, afVar.b, true);
-        if (afVar.f1980a) {
+        this.y.a(0, afVar.f1981a, afVar.b, true);
+        if (afVar.f1981a) {
             if (afVar.c == 1) {
                 ArrayList<com.baidu.tieba.data.ar> e = this.s.l().e();
                 int size = e.size();
@@ -510,19 +510,19 @@ public class NewPbActivity extends com.baidu.tieba.j implements com.baidu.tbadk.
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.tieba.model.ah ahVar) {
-        this.y.a(1, ahVar.f1982a, ahVar.b, true);
+        this.y.a(1, ahVar.f1983a, ahVar.b, true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.tieba.model.aj ajVar) {
-        this.y.a(this.x.getLoadDataMode(), ajVar.f1984a, ajVar.b, false);
+        this.y.a(this.x.getLoadDataMode(), ajVar.f1985a, ajVar.b, false);
         this.y.a(ajVar.c);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i, com.baidu.tieba.model.aj ajVar) {
-        this.y.a(this.x.getLoadDataMode(), ajVar.f1984a, ajVar.b, true);
-        if (ajVar.f1984a) {
+        this.y.a(this.x.getLoadDataMode(), ajVar.f1985a, ajVar.b, true);
+        if (ajVar.f1985a) {
             this.A = true;
             if (i == 2) {
                 this.s.l().d().b(1);
@@ -1083,16 +1083,16 @@ public class NewPbActivity extends com.baidu.tieba.j implements com.baidu.tbadk.
     }
 
     private HashMap<MediaType, String> w() {
-        if (this.f2139a == null) {
-            this.f2139a = new HashMap<>(6);
-            this.f2139a.put(MediaType.WEIXIN_TIMELINE, "pb_wx_timeline");
-            this.f2139a.put(MediaType.WEIXIN_FRIEND, "pb_wx_friend");
-            this.f2139a.put(MediaType.QZONE, "pb_qq_zone");
-            this.f2139a.put(MediaType.QQWEIBO, "pb_tencent_weibo");
-            this.f2139a.put(MediaType.SINAWEIBO, "pb_sina_weibo");
-            this.f2139a.put(MediaType.RENREN, "pb_renren");
+        if (this.f2140a == null) {
+            this.f2140a = new HashMap<>(6);
+            this.f2140a.put(MediaType.WEIXIN_TIMELINE, "pb_wx_timeline");
+            this.f2140a.put(MediaType.WEIXIN_FRIEND, "pb_wx_friend");
+            this.f2140a.put(MediaType.QZONE, "pb_qq_zone");
+            this.f2140a.put(MediaType.QQWEIBO, "pb_tencent_weibo");
+            this.f2140a.put(MediaType.SINAWEIBO, "pb_sina_weibo");
+            this.f2140a.put(MediaType.RENREN, "pb_renren");
         }
-        return this.f2139a;
+        return this.f2140a;
     }
 
     private View x() {

@@ -12,7 +12,7 @@ import java.io.FileNotFoundException;
 public class w extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    ImageView f2132a;
+    ImageView f2133a;
     Uri b;
     Context c;
     Bitmap d;
@@ -25,7 +25,7 @@ public class w extends LinearLayout {
 
     private void a() {
         ((LayoutInflater) this.c.getSystemService("layout_inflater")).inflate(R.layout.motu_albums_selected_item, this);
-        this.f2132a = (ImageView) findViewById(R.id.image);
+        this.f2133a = (ImageView) findViewById(R.id.image);
     }
 
     public Uri getUri() {
@@ -51,7 +51,7 @@ public class w extends LinearLayout {
             }
         }
         if (this.d != null) {
-            this.f2132a.setImageBitmap(this.d);
+            this.f2133a.setImageBitmap(this.d);
         } else {
             z = false;
         }

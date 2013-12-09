@@ -14,7 +14,7 @@ public class h implements a {
     private int f;
 
     /* renamed from: a  reason: collision with root package name */
-    private LinearLayout f1848a = null;
+    private LinearLayout f1849a = null;
     private TextView b = null;
     private Button c = null;
     private View e = null;
@@ -37,7 +37,7 @@ public class h implements a {
 
     public void b() {
         this.e = LayoutInflater.from(this.d).inflate(R.layout.nearby_group_guide, (ViewGroup) null);
-        this.f1848a = (LinearLayout) this.e.findViewById(R.id.guide_parent);
+        this.f1849a = (LinearLayout) this.e.findViewById(R.id.guide_parent);
         this.b = (TextView) this.e.findViewById(R.id.guide_tip);
         this.c = (Button) this.e.findViewById(R.id.guide_setting);
         this.c.setOnClickListener(this.d);
@@ -56,7 +56,7 @@ public class h implements a {
 
     public void a(int i) {
         this.d.getLayoutMode().a(i == 1);
-        this.d.getLayoutMode().a(this.f1848a);
+        this.d.getLayoutMode().a(this.f1849a);
     }
 
     public void c() {

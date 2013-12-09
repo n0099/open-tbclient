@@ -14,11 +14,11 @@ import java.util.List;
 public class f implements com.baidu.tieba.im.messageCenter.g {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsGroupListFragment f1707a;
+    final /* synthetic */ FrsGroupListFragment f1708a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(FrsGroupListFragment frsGroupListFragment) {
-        this.f1707a = frsGroupListFragment;
+        this.f1708a = frsGroupListFragment;
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
@@ -48,96 +48,96 @@ public class f implements com.baidu.tieba.im.messageCenter.g {
         GroupListAdapter groupListAdapter12;
         com.baidu.tieba.im.model.b bVar10;
         if (message == null || !(message instanceof ResponseFrsGroupsMessage)) {
-            this.f1707a.b(R.string.neterror);
+            this.f1708a.b(R.string.neterror);
             return;
         }
         ResponseFrsGroupsMessage responseFrsGroupsMessage = (ResponseFrsGroupsMessage) message;
         Message orginalMessage = responseFrsGroupsMessage.getOrginalMessage();
         if (orginalMessage != null && (orginalMessage instanceof RequestFrsGroupsMessage)) {
             String type = ((RequestFrsGroupsMessage) orginalMessage).getType();
-            bVar10 = this.f1707a.b;
+            bVar10 = this.f1708a.b;
             if (!type.equals(String.valueOf(bVar10.g()))) {
                 return;
             }
         }
         if (responseFrsGroupsMessage.getCmd() == -201) {
-            bVar8 = this.f1707a.b;
+            bVar8 = this.f1708a.b;
             if (!bVar8.e() && (groups = responseFrsGroupsMessage.getGroups()) != null && !groups.isEmpty()) {
-                bVar9 = this.f1707a.b;
+                bVar9 = this.f1708a.b;
                 bVar9.a(true);
-                groupListAdapter9 = this.f1707a.h;
+                groupListAdapter9 = this.f1708a.h;
                 groupListAdapter9.b(true);
-                groupListAdapter10 = this.f1707a.h;
+                groupListAdapter10 = this.f1708a.h;
                 groupListAdapter10.a(GroupListAdapter.BOTTOM_TYPE.LINE);
-                groupListAdapter11 = this.f1707a.h;
+                groupListAdapter11 = this.f1708a.h;
                 groupListAdapter11.a(groups);
-                groupListAdapter12 = this.f1707a.h;
+                groupListAdapter12 = this.f1708a.h;
                 groupListAdapter12.notifyDataSetChanged();
-                this.f1707a.O();
+                this.f1708a.O();
             }
-            this.f1707a.a(true);
+            this.f1708a.a(true);
             return;
         }
-        this.f1707a.M();
-        gVar = this.f1707a.c;
+        this.f1708a.M();
+        gVar = this.f1708a.c;
         gVar.b(true);
-        bVar = this.f1707a.b;
-        bVar.a(this.f1707a.g());
+        bVar = this.f1708a.b;
+        bVar.a(this.f1708a.g());
         if (responseFrsGroupsMessage.hasError()) {
             if (responseFrsGroupsMessage.getErrNo() > 0) {
                 if (!TextUtils.isEmpty(responseFrsGroupsMessage.getErrMsg())) {
-                    this.f1707a.a(responseFrsGroupsMessage.getErrMsg());
+                    this.f1708a.a(responseFrsGroupsMessage.getErrMsg());
                     return;
                 }
                 return;
             }
-            this.f1707a.b(R.string.neterror);
+            this.f1708a.b(R.string.neterror);
             return;
         }
         List<GroupInfoData> groups2 = responseFrsGroupsMessage.getGroups();
         GroupPermData groupPerm = responseFrsGroupsMessage.getGroupPerm();
-        bVar2 = this.f1707a.b;
+        bVar2 = this.f1708a.b;
         bVar2.a(groupPerm);
         if (groups2 != null) {
-            bVar3 = this.f1707a.b;
+            bVar3 = this.f1708a.b;
             if (bVar3.h()) {
-                groupListAdapter8 = this.f1707a.h;
+                groupListAdapter8 = this.f1708a.h;
                 groupListAdapter8.a(true);
-                this.f1707a.e(true);
+                this.f1708a.e(true);
             }
-            this.f1707a.Y = com.baidu.tieba.im.e.c.a();
+            this.f1708a.Y = com.baidu.tieba.im.e.c.a();
             int size = groups2.size();
-            bVar4 = this.f1707a.b;
+            bVar4 = this.f1708a.b;
             if (size != bVar4.l()) {
-                bVar7 = this.f1707a.b;
+                bVar7 = this.f1708a.b;
                 if (!bVar7.h()) {
-                    groupListAdapter5 = this.f1707a.h;
+                    groupListAdapter5 = this.f1708a.h;
                     groupListAdapter5.a(GroupListAdapter.BOTTOM_TYPE.NO_MORE);
                 } else if (groups2.size() == 0) {
-                    groupListAdapter7 = this.f1707a.h;
+                    groupListAdapter7 = this.f1708a.h;
                     groupListAdapter7.b(false);
-                    this.f1707a.P();
+                    this.f1708a.P();
                     return;
                 } else {
-                    groupListAdapter6 = this.f1707a.h;
+                    groupListAdapter6 = this.f1708a.h;
                     groupListAdapter6.a(GroupListAdapter.BOTTOM_TYPE.LINE);
                 }
             } else {
-                groupListAdapter = this.f1707a.h;
+                groupListAdapter = this.f1708a.h;
                 groupListAdapter.a(GroupListAdapter.BOTTOM_TYPE.HAVE_MORE);
             }
-            this.f1707a.N();
-            groupListAdapter2 = this.f1707a.h;
+            this.f1708a.N();
+            groupListAdapter2 = this.f1708a.h;
             groupListAdapter2.b(true);
-            bVar5 = this.f1707a.b;
+            bVar5 = this.f1708a.b;
             bVar5.c(groups2.size());
-            bVar6 = this.f1707a.b;
+            bVar6 = this.f1708a.b;
             bVar6.d(20);
-            groupListAdapter3 = this.f1707a.h;
+            groupListAdapter3 = this.f1708a.h;
             groupListAdapter3.a(groups2);
-            groupListAdapter4 = this.f1707a.h;
+            groupListAdapter4 = this.f1708a.h;
             groupListAdapter4.notifyDataSetChanged();
-            this.f1707a.O();
+            this.f1708a.O();
         }
     }
 }

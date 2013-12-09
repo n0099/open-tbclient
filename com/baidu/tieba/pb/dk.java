@@ -7,11 +7,11 @@ import com.baidu.adp.widget.ListView.BdListView;
 public class dk implements com.baidu.tbadk.imageManager.c {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ cr f2233a;
+    final /* synthetic */ cr f2234a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public dk(cr crVar) {
-        this.f2233a = crVar;
+        this.f2234a = crVar;
     }
 
     @Override // com.baidu.tbadk.imageManager.c
@@ -19,12 +19,12 @@ public class dk implements com.baidu.tbadk.imageManager.c {
         BdListView bdListView;
         BdListView bdListView2;
         if (eVar != null) {
-            bdListView = this.f2233a.i;
+            bdListView = this.f2234a.i;
             ImageView imageView = (ImageView) bdListView.findViewWithTag(str);
             while (imageView != null) {
                 imageView.setTag(null);
                 imageView.setImageBitmap(eVar.f());
-                bdListView2 = this.f2233a.i;
+                bdListView2 = this.f2234a.i;
                 imageView = (ImageView) bdListView2.findViewWithTag(str);
             }
         }

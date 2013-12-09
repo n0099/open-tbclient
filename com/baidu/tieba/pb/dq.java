@@ -6,19 +6,19 @@ import com.baidu.adp.widget.ListView.BdListView;
 public class dq implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ boolean f2239a;
+    final /* synthetic */ boolean f2240a;
     final /* synthetic */ cr b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public dq(cr crVar, boolean z) {
         this.b = crVar;
-        this.f2239a = z;
+        this.f2240a = z;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         BdListView bdListView;
         bdListView = this.b.i;
-        bdListView.setEnabled(this.f2239a);
+        bdListView.setEnabled(this.f2240a);
     }
 }

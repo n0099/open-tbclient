@@ -8,11 +8,11 @@ import com.baidu.tieba.TiebaApplication;
 public class ab extends BdAsyncTask<Integer, com.baidu.tieba.data.v, com.baidu.tieba.data.v> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ aa f1976a;
+    final /* synthetic */ aa f1977a;
     private com.baidu.tieba.a.g b = null;
 
     public ab(aa aaVar) {
-        this.f1976a = aaVar;
+        this.f1977a = aaVar;
         setSelfExecute(true);
     }
 
@@ -31,7 +31,7 @@ public class ab extends BdAsyncTask<Integer, com.baidu.tieba.data.v, com.baidu.t
             }
             String num = numArr[0].toString();
             if (numArr.length > 1 ? numArr[1].intValue() == 1 : false) {
-                c((Object[]) new com.baidu.tieba.data.v[]{this.f1976a.h()});
+                c((Object[]) new com.baidu.tieba.data.v[]{this.f1977a.h()});
                 if (numArr[1].intValue() == 1) {
                     return null;
                 }
@@ -47,7 +47,7 @@ public class ab extends BdAsyncTask<Integer, com.baidu.tieba.data.v, com.baidu.t
             }
             return vVar;
         } catch (Exception e) {
-            this.f1976a.g = 0;
+            this.f1977a.g = 0;
             com.baidu.tieba.util.bd.b(aa.class.getName(), "GetForumFeedTask.doInBackground", e.getMessage().toString());
             return null;
         }
@@ -68,10 +68,10 @@ public class ab extends BdAsyncTask<Integer, com.baidu.tieba.data.v, com.baidu.t
     public void b(com.baidu.tieba.data.v... vVarArr) {
         com.baidu.adp.a.g gVar;
         super.b((Object[]) vVarArr);
-        ac acVar = new ac(this.f1976a);
+        ac acVar = new ac(this.f1977a);
         acVar.b = 3;
-        acVar.f1977a = vVarArr.length > 0 ? vVarArr[0] : null;
-        gVar = this.f1976a.mLoadDataCallBack;
+        acVar.f1978a = vVarArr.length > 0 ? vVarArr[0] : null;
+        gVar = this.f1977a.mLoadDataCallBack;
         gVar.a(acVar);
     }
 
@@ -88,43 +88,43 @@ public class ab extends BdAsyncTask<Integer, com.baidu.tieba.data.v, com.baidu.t
         com.baidu.adp.a.g gVar2;
         this.b.a();
         if (b(vVar)) {
-            gVar2 = this.f1976a.mLoadDataCallBack;
+            gVar2 = this.f1977a.mLoadDataCallBack;
             gVar2.a(null);
         } else {
-            i = this.f1976a.f;
+            i = this.f1977a.f;
             if (i != 1) {
-                vVar3 = this.f1976a.d;
+                vVar3 = this.f1977a.d;
                 if (vVar3 != null) {
-                    i2 = this.f1976a.f;
+                    i2 = this.f1977a.f;
                     if (i2 == 2) {
-                        if (this.f1976a.a()) {
-                            this.f1976a.d = vVar;
+                        if (this.f1977a.a()) {
+                            this.f1977a.d = vVar;
                         } else {
-                            vVar4 = this.f1976a.d;
+                            vVar4 = this.f1977a.d;
                             vVar4.a(vVar, true);
                         }
                     }
-                    gVar = this.f1976a.mLoadDataCallBack;
-                    vVar2 = this.f1976a.d;
+                    gVar = this.f1977a.mLoadDataCallBack;
+                    vVar2 = this.f1977a.d;
                     gVar.a(vVar2);
                 }
             }
-            this.f1976a.d = vVar;
-            gVar = this.f1976a.mLoadDataCallBack;
-            vVar2 = this.f1976a.d;
+            this.f1977a.d = vVar;
+            gVar = this.f1977a.mLoadDataCallBack;
+            vVar2 = this.f1977a.d;
             gVar.a(vVar2);
         }
-        this.f1976a.g = 0;
+        this.f1977a.g = 0;
     }
 
     private boolean b(com.baidu.tieba.data.v vVar) {
         if (vVar == null || this.b.e() != 0) {
-            this.f1976a.setErrorCode(this.b.e());
-            this.f1976a.setErrorString(this.b.f());
+            this.f1977a.setErrorCode(this.b.e());
+            this.f1977a.setErrorString(this.b.f());
             return true;
         } else if (vVar != null && vVar.g() != 0) {
-            this.f1976a.setErrorCode(vVar.g());
-            this.f1976a.setErrorString(vVar.h());
+            this.f1977a.setErrorCode(vVar.g());
+            this.f1977a.setErrorString(vVar.h());
             return true;
         } else {
             return false;

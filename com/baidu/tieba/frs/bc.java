@@ -28,7 +28,7 @@ class bc implements bk {
         this.f1385a.d();
         this.f1385a.a(FrsImageActivity.FooterType.NORMAL);
         if (jSONObject == null) {
-            if (atVar != null && atVar.f1994a) {
+            if (atVar != null && atVar.f1995a) {
                 this.f1385a.showToast(atVar.d);
                 return;
             }

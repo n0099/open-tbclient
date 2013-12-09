@@ -134,7 +134,7 @@ public class FrsActivity extends com.baidu.tieba.j implements com.baidu.adp.widg
     public void a(com.baidu.tieba.model.an anVar) {
         if (this.d) {
             if (anVar != null) {
-                if (anVar.f1988a && anVar.b) {
+                if (anVar.f1989a && anVar.b) {
                     if (anVar.c == 3) {
                         this.j = false;
                         this.f = this.f.replace(" ", "");

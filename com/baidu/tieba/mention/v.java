@@ -11,11 +11,11 @@ import com.baidu.tieba.write.WriteActivity;
 public class v implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PostActivity f1967a;
+    final /* synthetic */ PostActivity f1968a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(PostActivity postActivity) {
-        this.f1967a = postActivity;
+        this.f1968a = postActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -24,22 +24,22 @@ public class v implements View.OnClickListener {
         bv bvVar2;
         bv bvVar3;
         bv bvVar4;
-        bvVar = this.f1967a.l;
+        bvVar = this.f1968a.l;
         if (bvVar != null) {
-            bvVar2 = this.f1967a.l;
+            bvVar2 = this.f1968a.l;
             if (bvVar2.a() != null) {
-                bvVar3 = this.f1967a.l;
+                bvVar3 = this.f1968a.l;
                 an a2 = bvVar3.a();
                 ar arVar = a2.e().get(0);
                 if (arVar != null) {
-                    PostActivity postActivity = this.f1967a;
+                    PostActivity postActivity = this.f1968a;
                     String id = a2.c().getId();
                     String name = a2.c().getName();
                     String a3 = a2.d().a();
                     String d = arVar.d();
                     int e = arVar.e();
                     AntiData g = a2.g();
-                    bvVar4 = this.f1967a.l;
+                    bvVar4 = this.f1968a.l;
                     WriteActivity.a(postActivity, id, name, a3, d, e, null, g, bvVar4.a().k());
                 }
             }

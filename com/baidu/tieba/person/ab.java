@@ -7,17 +7,17 @@ import android.content.DialogInterface;
 public class ab implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ aa f2300a;
+    final /* synthetic */ aa f2301a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(aa aaVar) {
-        this.f2300a = aaVar;
+        this.f2301a = aaVar;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
         Dialog dialog;
-        dialog = this.f2300a.j;
+        dialog = this.f2301a.j;
         dialog.dismiss();
     }
 }

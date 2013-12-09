@@ -56,7 +56,7 @@ public class ed implements com.baidu.tieba.view.ap {
     protected View.OnClickListener y;
 
     /* renamed from: a  reason: collision with root package name */
-    protected View f2250a = null;
+    protected View f2251a = null;
     protected View b = null;
     protected ca d = null;
     protected LinearLayout u = null;
@@ -104,12 +104,12 @@ public class ed implements com.baidu.tieba.view.ap {
         this.w = onClickListener3;
         this.y = onClickListener4;
         h();
-        this.f = (ClickableLayout4Frame) this.f2250a.findViewById(R.id.sub_pb_body_layout);
-        this.c = (BdListView) this.f2250a.findViewById(R.id.new_sub_pb_list);
+        this.f = (ClickableLayout4Frame) this.f2251a.findViewById(R.id.sub_pb_body_layout);
+        this.c = (BdListView) this.f2251a.findViewById(R.id.new_sub_pb_list);
         this.b.setOnClickListener(new ee(this));
-        this.q = (LinearLayout) this.f2250a.findViewById(R.id.sub_pb_bottom_layout);
+        this.q = (LinearLayout) this.f2251a.findViewById(R.id.sub_pb_bottom_layout);
         b();
-        this.r = (TextView) this.f2250a.findViewById(R.id.sub_pb_bottom_text);
+        this.r = (TextView) this.f2251a.findViewById(R.id.sub_pb_bottom_text);
         this.g = (HeadImageView) this.b.findViewById(R.id.photo);
         this.g.setIsRound(true);
         this.h = (TextView) this.b.findViewById(R.id.user_name);
@@ -132,13 +132,13 @@ public class ed implements com.baidu.tieba.view.ap {
         this.c.setOnItemClickListener(this.J);
         this.c.setOnItemLongClickListener(this.K);
         this.q.setOnClickListener(this.v);
-        this.G = (ProgressBar) this.f2250a.findViewById(R.id.progress);
+        this.G = (ProgressBar) this.f2251a.findViewById(R.id.progress);
         this.g.setOnClickListener(onClickListener3);
         i();
     }
 
     protected void b() {
-        this.I = (SubPbEditor) this.f2250a.findViewById(R.id.sub_pb_editor);
+        this.I = (SubPbEditor) this.f2251a.findViewById(R.id.sub_pb_editor);
         this.I.v();
     }
 
@@ -150,7 +150,7 @@ public class ed implements com.baidu.tieba.view.ap {
 
     protected void h() {
         LayoutInflater from = LayoutInflater.from(this.e);
-        this.f2250a = from.inflate(R.layout.new_sub_pb_layout, (ViewGroup) null);
+        this.f2251a = from.inflate(R.layout.new_sub_pb_layout, (ViewGroup) null);
         this.b = from.inflate(R.layout.new_sub_pb_head, (ViewGroup) null);
     }
 
@@ -227,7 +227,7 @@ public class ed implements com.baidu.tieba.view.ap {
     }
 
     public View n() {
-        return this.f2250a;
+        return this.f2251a;
     }
 
     public VoiceManager.VoiceModel o() {
@@ -525,7 +525,7 @@ public class ed implements com.baidu.tieba.view.ap {
 
     public void b(int i) {
         this.e.getLayoutMode().a(i == 1);
-        this.e.getLayoutMode().a(this.f2250a);
+        this.e.getLayoutMode().a(this.f2251a);
         this.e.getLayoutMode().a(this.b);
         this.e.getLayoutMode().a(this.s);
         if (i == 1) {

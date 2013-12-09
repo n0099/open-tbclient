@@ -26,7 +26,7 @@ import java.util.List;
 public class ValidateActivity extends com.baidu.tieba.j implements AbsListView.OnScrollListener, r, com.baidu.tieba.im.messageCenter.g, com.baidu.tieba.im.pushNotify.k {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f1893a = false;
+    public static boolean f1894a = false;
     private n b;
     private com.baidu.tieba.im.a<LinkedList<GroupNewsPojo>> c;
     private com.baidu.tieba.im.a<Boolean> d;
@@ -67,7 +67,7 @@ public class ValidateActivity extends com.baidu.tieba.j implements AbsListView.O
     @Override // android.app.Activity
     protected void onRestart() {
         super.onRestart();
-        f1893a = true;
+        f1894a = true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -80,7 +80,7 @@ public class ValidateActivity extends com.baidu.tieba.j implements AbsListView.O
     @Override // android.app.Activity
     protected void onStart() {
         super.onStart();
-        f1893a = true;
+        f1894a = true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -88,7 +88,7 @@ public class ValidateActivity extends com.baidu.tieba.j implements AbsListView.O
     public void onStop() {
         f g;
         super.onStop();
-        f1893a = false;
+        f1894a = false;
         if (this.b != null && (g = this.b.g()) != null) {
             l.a(g.b());
         }

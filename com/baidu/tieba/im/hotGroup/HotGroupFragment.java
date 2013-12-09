@@ -25,7 +25,7 @@ import com.slidingmenu.lib.R;
 public class HotGroupFragment extends BaseFragment implements com.baidu.adp.widget.ListView.b, q, r {
 
     /* renamed from: a  reason: collision with root package name */
-    private BdListView f1780a;
+    private BdListView f1781a;
     private bk b;
     private HotGroupActivity c;
     private View d;
@@ -44,15 +44,15 @@ public class HotGroupFragment extends BaseFragment implements com.baidu.adp.widg
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
     public View a(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(R.layout.hot_group_fragment, (ViewGroup) null);
-        this.f1780a = (BdListView) inflate.findViewById(R.id.hot_group_list);
-        this.f1780a.a(this, 300L);
+        this.f1781a = (BdListView) inflate.findViewById(R.id.hot_group_list);
+        this.f1781a.a(this, 300L);
         this.b = new bk(this.c);
         this.b.a(this);
         this.e = new HotGroupAdapter(this.c);
-        this.f1780a.setAdapter((ListAdapter) this.e);
-        this.f1780a.setPullRefresh(this.b);
-        this.f1780a.setOnItemClickListener(this);
-        this.f1780a.setOnSrollToBottomListener(this);
+        this.f1781a.setAdapter((ListAdapter) this.e);
+        this.f1781a.setPullRefresh(this.b);
+        this.f1781a.setOnItemClickListener(this);
+        this.f1781a.setOnSrollToBottomListener(this);
         this.d = (FrameLayout) inflate.findViewById(R.id.fragment_parent);
         return inflate;
     }
@@ -111,13 +111,13 @@ public class HotGroupFragment extends BaseFragment implements com.baidu.adp.widg
             this.f = new c();
         }
         this.f.b(true);
-        this.f1780a.b();
+        this.f1781a.b();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void I() {
-        if (this.f1780a != null && this.e != null) {
-            ah.a(this.f1780a, this.e.a(), 0, -1);
+        if (this.f1781a != null && this.e != null) {
+            ah.a(this.f1781a, this.e.a(), 0, -1);
         }
     }
 

@@ -30,7 +30,7 @@ import java.util.Observer;
 public class WebBdActivity extends com.baidu.tieba.j implements Browser.BrowserListener, BdExploreViewListener, Observer {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2147a = null;
+    private String f2148a = null;
     private String b = null;
     private String c = null;
     private BdUploadHandler d;
@@ -52,7 +52,7 @@ public class WebBdActivity extends com.baidu.tieba.j implements Browser.BrowserL
     }
 
     private void a(Intent intent, Bundle bundle) {
-        this.f2147a = intent.getStringExtra(SocialConstants.PARAM_URL);
+        this.f2148a = intent.getStringExtra(SocialConstants.PARAM_URL);
         this.b = intent.getStringExtra(SocialConstants.PARAM_BDUSS);
         this.c = intent.getStringExtra("ptoken");
     }
@@ -73,11 +73,11 @@ public class WebBdActivity extends com.baidu.tieba.j implements Browser.BrowserL
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         a(getIntent(), bundle);
-        if (this.f2147a == null) {
+        if (this.f2148a == null) {
             finish();
             return;
         }
-        String guessUrl = URLUtil.guessUrl(this.f2147a);
+        String guessUrl = URLUtil.guessUrl(this.f2148a);
         if (!URLUtil.isNetworkUrl(guessUrl)) {
             finish();
             return;
@@ -108,11 +108,11 @@ public class WebBdActivity extends com.baidu.tieba.j implements Browser.BrowserL
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         a(intent, null);
-        if (this.f2147a == null) {
+        if (this.f2148a == null) {
             finish();
             return;
         }
-        String guessUrl = URLUtil.guessUrl(this.f2147a);
+        String guessUrl = URLUtil.guessUrl(this.f2148a);
         if (!URLUtil.isNetworkUrl(guessUrl)) {
             finish();
             return;

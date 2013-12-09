@@ -10,7 +10,7 @@ import org.json.JSONObject;
 public class ao extends BdAsyncTask<Object, ak, JSONObject> {
 
     /* renamed from: a  reason: collision with root package name */
-    ArrayList<BasicNameValuePair> f1989a;
+    ArrayList<BasicNameValuePair> f1990a;
     an b;
     final /* synthetic */ ak c;
     private com.baidu.tieba.util.am d = null;
@@ -23,11 +23,11 @@ public class ao extends BdAsyncTask<Object, ak, JSONObject> {
         this.e = null;
         this.f = null;
         this.g = 3;
-        this.f1989a = null;
+        this.f1990a = null;
         this.b = new an(this.c);
         this.e = str;
         this.f = str2;
-        this.f1989a = arrayList;
+        this.f1990a = arrayList;
         this.g = i;
         setSelfExecute(true);
     }
@@ -61,7 +61,7 @@ public class ao extends BdAsyncTask<Object, ak, JSONObject> {
                 c((Object[]) new ak[]{z.a().b()});
             }
             this.d = new com.baidu.tieba.util.am(this.e);
-            this.d.a(this.f1989a);
+            this.d.a(this.f1990a);
             String l = this.d.l();
             jSONObject = new JSONObject(l);
             try {
@@ -69,10 +69,10 @@ public class ao extends BdAsyncTask<Object, ak, JSONObject> {
                     this.c.a(l);
                     z2 = this.c.n;
                     if (z2) {
-                        forumData = this.c.f1985a;
+                        forumData = this.c.f1986a;
                         if (forumData != null) {
                             z a2 = z.a();
-                            forumData2 = this.c.f1985a;
+                            forumData2 = this.c.f1986a;
                             a2.a(forumData2.getName(), l);
                         }
                     }
@@ -110,7 +110,7 @@ public class ao extends BdAsyncTask<Object, ak, JSONObject> {
         com.baidu.tieba.frs.ag agVar;
         com.baidu.tieba.frs.ag agVar2;
         if (this.d != null) {
-            this.b.f1988a = true;
+            this.b.f1989a = true;
             this.b.b = this.d.d();
             this.b.c = this.d.e();
             this.b.d = this.d.i();

@@ -22,7 +22,7 @@ public class ca extends BaseAdapter {
     protected View.OnClickListener e;
 
     /* renamed from: a  reason: collision with root package name */
-    protected ArrayList<com.baidu.tieba.data.ar> f2198a = null;
+    protected ArrayList<com.baidu.tieba.data.ar> f2199a = null;
     protected View.OnClickListener d = null;
     protected int f = 0;
     protected boolean g = false;
@@ -40,12 +40,12 @@ public class ca extends BaseAdapter {
     }
 
     public int a(String str) {
-        if (this.f2198a == null) {
+        if (this.f2199a == null) {
             return -1;
         }
-        int size = this.f2198a.size();
+        int size = this.f2199a.size();
         for (int i = 0; i < size; i++) {
-            if (this.f2198a.get(i).d().equals(str)) {
+            if (this.f2199a.get(i).d().equals(str)) {
                 return i;
             }
         }
@@ -57,7 +57,7 @@ public class ca extends BaseAdapter {
     }
 
     public void a(ArrayList<com.baidu.tieba.data.ar> arrayList) {
-        this.f2198a = arrayList;
+        this.f2199a = arrayList;
     }
 
     public void a(View.OnClickListener onClickListener) {
@@ -79,18 +79,18 @@ public class ca extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.f2198a == null) {
+        if (this.f2199a == null) {
             return 0;
         }
-        return this.f2198a.size();
+        return this.f2199a.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.f2198a == null || i < 0 || i >= this.f2198a.size()) {
+        if (this.f2199a == null || i < 0 || i >= this.f2199a.size()) {
             return null;
         }
-        return this.f2198a.get(i);
+        return this.f2199a.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -113,7 +113,7 @@ public class ca extends BaseAdapter {
     public View b() {
         cb cbVar = new cb(this);
         View inflate = LayoutInflater.from(this.b).inflate(R.layout.new_sub_pb_list_item, (ViewGroup) null);
-        cbVar.f2199a = inflate;
+        cbVar.f2200a = inflate;
         cbVar.b = (ColumnLayout) inflate.findViewById(R.id.sub_pb_item_columnlayout);
         cbVar.c = (HeadImageView) inflate.findViewById(R.id.photo);
         cbVar.d = (TextView) inflate.findViewById(R.id.time);
@@ -145,31 +145,31 @@ public class ca extends BaseAdapter {
             int dimensionPixelSize2 = this.b.getResources().getDimensionPixelSize(R.dimen.default_gap_8);
             int dimensionPixelSize3 = this.b.getResources().getDimensionPixelSize(R.dimen.default_gap_8);
             int dimensionPixelSize4 = this.b.getResources().getDimensionPixelSize(R.dimen.default_gap_10);
-            cbVar.f2199a.setBackgroundResource(an == 1 ? R.drawable.subpb_list_item_full_bg_1 : R.drawable.subpb_list_item_full_bg);
-            cbVar.f2199a.setPadding(dimensionPixelSize2, dimensionPixelSize, dimensionPixelSize3, dimensionPixelSize4);
+            cbVar.f2200a.setBackgroundResource(an == 1 ? R.drawable.subpb_list_item_full_bg_1 : R.drawable.subpb_list_item_full_bg);
+            cbVar.f2200a.setPadding(dimensionPixelSize2, dimensionPixelSize, dimensionPixelSize3, dimensionPixelSize4);
         } else if (z2) {
             int dimensionPixelSize5 = this.b.getResources().getDimensionPixelSize(R.dimen.default_size_22);
             int dimensionPixelSize6 = this.b.getResources().getDimensionPixelSize(R.dimen.default_gap_8);
             int dimensionPixelSize7 = this.b.getResources().getDimensionPixelSize(R.dimen.default_gap_8);
             int dimensionPixelSize8 = this.b.getResources().getDimensionPixelSize(R.dimen.default_gap_10);
-            cbVar.f2199a.setBackgroundResource(an == 1 ? R.drawable.subpb_list_item_top_bg_1 : R.drawable.subpb_list_item_top_bg);
-            cbVar.f2199a.setPadding(dimensionPixelSize6, dimensionPixelSize5, dimensionPixelSize7, dimensionPixelSize8);
+            cbVar.f2200a.setBackgroundResource(an == 1 ? R.drawable.subpb_list_item_top_bg_1 : R.drawable.subpb_list_item_top_bg);
+            cbVar.f2200a.setPadding(dimensionPixelSize6, dimensionPixelSize5, dimensionPixelSize7, dimensionPixelSize8);
         } else if (z) {
             int dimensionPixelSize9 = this.b.getResources().getDimensionPixelSize(R.dimen.default_size_10);
             int dimensionPixelSize10 = this.b.getResources().getDimensionPixelSize(R.dimen.default_gap_8);
             int dimensionPixelSize11 = this.b.getResources().getDimensionPixelSize(R.dimen.default_gap_8);
             int dimensionPixelSize12 = this.b.getResources().getDimensionPixelSize(R.dimen.default_gap_10);
-            cbVar.f2199a.setBackgroundResource(an == 1 ? R.drawable.subpb_list_item_middle_bg_1 : R.drawable.subpb_list_item_middle_bg);
-            cbVar.f2199a.setPadding(dimensionPixelSize10, dimensionPixelSize9, dimensionPixelSize11, dimensionPixelSize12);
+            cbVar.f2200a.setBackgroundResource(an == 1 ? R.drawable.subpb_list_item_middle_bg_1 : R.drawable.subpb_list_item_middle_bg);
+            cbVar.f2200a.setPadding(dimensionPixelSize10, dimensionPixelSize9, dimensionPixelSize11, dimensionPixelSize12);
         } else {
             int dimensionPixelSize13 = this.b.getResources().getDimensionPixelSize(R.dimen.default_size_10);
             int dimensionPixelSize14 = this.b.getResources().getDimensionPixelSize(R.dimen.default_gap_8);
             int dimensionPixelSize15 = this.b.getResources().getDimensionPixelSize(R.dimen.default_gap_8);
             int dimensionPixelSize16 = this.b.getResources().getDimensionPixelSize(R.dimen.default_gap_10);
-            cbVar.f2199a.setBackgroundResource(an == 1 ? R.drawable.subpb_list_item_foot_bg_1 : R.drawable.subpb_list_item_foot_bg);
-            cbVar.f2199a.setPadding(dimensionPixelSize14, dimensionPixelSize13, dimensionPixelSize15, dimensionPixelSize16);
+            cbVar.f2200a.setBackgroundResource(an == 1 ? R.drawable.subpb_list_item_foot_bg_1 : R.drawable.subpb_list_item_foot_bg);
+            cbVar.f2200a.setPadding(dimensionPixelSize14, dimensionPixelSize13, dimensionPixelSize15, dimensionPixelSize16);
         }
-        cbVar.f2199a.invalidate();
+        cbVar.f2200a.invalidate();
     }
 
     public void a(cb cbVar, com.baidu.tieba.data.ar arVar, boolean z, boolean z2) {
@@ -183,10 +183,10 @@ public class ca extends BaseAdapter {
             if (arVar.g() != null) {
                 String name = arVar.g().getName();
                 String id = arVar.g().getId();
-                SparseArray sparseArray = (SparseArray) cbVar.f2199a.getTag();
+                SparseArray sparseArray = (SparseArray) cbVar.f2200a.getTag();
                 if (sparseArray == null) {
                     sparseArray = new SparseArray();
-                    cbVar.f2199a.setTag(sparseArray);
+                    cbVar.f2200a.setTag(sparseArray);
                 }
                 sparseArray.put(R.id.tag_photo_username, name);
                 sparseArray.put(R.id.tag_clip_board, arVar);

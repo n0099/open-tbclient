@@ -6,11 +6,11 @@ import com.baidu.tieba.im.message.ResponsedMessage;
 class f implements com.baidu.tieba.im.messageCenter.g {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MyGroupFragment f1838a;
+    final /* synthetic */ MyGroupFragment f1839a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(MyGroupFragment myGroupFragment) {
-        this.f1838a = myGroupFragment;
+        this.f1839a = myGroupFragment;
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
@@ -22,7 +22,7 @@ class f implements com.baidu.tieba.im.messageCenter.g {
             case 103104:
             case 103112:
                 if (!(message instanceof ResponsedMessage) || !((ResponsedMessage) message).hasError()) {
-                    this.f1838a.b = true;
+                    this.f1839a.b = true;
                     return;
                 }
                 return;

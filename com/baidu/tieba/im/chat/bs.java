@@ -4,9 +4,8 @@ import android.view.View;
 import android.widget.AbsListView;
 import com.baidu.tieba.im.widget.chatVoiceView.ChatVoiceView;
 import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bs implements AbsListView.RecyclerListener {
+class bs implements AbsListView.RecyclerListener {
 
     /* renamed from: a  reason: collision with root package name */
     final /* synthetic */ bm f1577a;

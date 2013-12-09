@@ -49,9 +49,9 @@ public class f implements com.baidu.tieba.model.w {
         } else {
             kVar2 = this.f1491a.f1433a;
             kVar2.f();
-            if (uVar.f2046a != null && uVar.f2046a.equals("")) {
+            if (uVar.f2047a != null && uVar.f2047a.equals("")) {
                 baseFragmentActivity2 = this.f1491a.g;
-                baseFragmentActivity2.b(uVar.f2046a);
+                baseFragmentActivity2.b(uVar.f2047a);
             }
         }
         if (uVar.c == 0 && g != UtilHelper.NetworkStateInfo.UNAVAIL) {

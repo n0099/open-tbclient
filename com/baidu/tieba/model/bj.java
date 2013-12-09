@@ -8,7 +8,7 @@ public class bj {
     private com.baidu.tieba.data.aj c = new com.baidu.tieba.data.aj();
 
     /* renamed from: a  reason: collision with root package name */
-    private ArrayList<com.baidu.tieba.data.u> f2006a = new ArrayList<>();
+    private ArrayList<com.baidu.tieba.data.u> f2007a = new ArrayList<>();
     private com.baidu.tieba.data.am b = new com.baidu.tieba.data.am();
     private boolean d = true;
 
@@ -17,11 +17,11 @@ public class bj {
     }
 
     public void a(ArrayList<com.baidu.tieba.data.u> arrayList) {
-        this.f2006a = arrayList;
+        this.f2007a = arrayList;
     }
 
     public ArrayList<com.baidu.tieba.data.u> b() {
-        return this.f2006a;
+        return this.f2007a;
     }
 
     public com.baidu.tieba.data.am c() {
@@ -45,7 +45,7 @@ public class bj {
                 for (int i = 0; i < optJSONArray2.length(); i++) {
                     com.baidu.tieba.data.u uVar = new com.baidu.tieba.data.u();
                     uVar.a(optJSONArray2.optJSONObject(i));
-                    this.f2006a.add(uVar);
+                    this.f2007a.add(uVar);
                 }
             }
             this.c.a(jSONObject.optJSONObject("message"));

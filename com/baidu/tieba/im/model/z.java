@@ -6,7 +6,7 @@ import com.baidu.tieba.im.message.ResponseRequestGroupLocMessage;
 public class z extends com.baidu.adp.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    private RequestQueryGroupLocMessage f1831a = null;
+    private RequestQueryGroupLocMessage f1832a = null;
     private ResponseRequestGroupLocMessage b = null;
     private int c;
     private String d;
@@ -33,14 +33,14 @@ public class z extends com.baidu.adp.a.d {
     }
 
     public void a() {
-        this.f1831a = c();
-        com.baidu.tieba.im.messageCenter.e.a().a(this.f1831a);
+        this.f1832a = c();
+        com.baidu.tieba.im.messageCenter.e.a().a(this.f1832a);
     }
 
     public void b() {
-        if (this.f1831a != null) {
-            com.baidu.tieba.im.messageCenter.e.a().b(this.f1831a);
-            this.f1831a = null;
+        if (this.f1832a != null) {
+            com.baidu.tieba.im.messageCenter.e.a().b(this.f1832a);
+            this.f1832a = null;
         }
         if (this.b != null) {
             com.baidu.tieba.im.messageCenter.e.a().b(this.b);

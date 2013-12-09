@@ -16,7 +16,7 @@ import com.slidingmenu.lib.R;
 public class SearchGroupActivity extends com.baidu.tieba.j implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    protected aa f1871a;
+    protected aa f1872a;
     private g b;
     private com.baidu.tieba.im.messageCenter.g c = new d(this);
 
@@ -25,7 +25,7 @@ public class SearchGroupActivity extends com.baidu.tieba.j implements View.OnCli
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.b = new g(this);
-        this.f1871a = new aa();
+        this.f1872a = new aa();
         com.baidu.tieba.im.messageCenter.e.a().a(103007, this.c);
     }
 
@@ -82,7 +82,7 @@ public class SearchGroupActivity extends com.baidu.tieba.j implements View.OnCli
             try {
                 this.b.d();
                 this.b.a((ResponseSearchGroupMessage) null);
-                this.f1871a.a(Long.parseLong(str));
+                this.f1872a.a(Long.parseLong(str));
                 return;
             } catch (NumberFormatException e) {
                 e.printStackTrace();
@@ -108,7 +108,7 @@ public class SearchGroupActivity extends com.baidu.tieba.j implements View.OnCli
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a() {
         if (this.b != null && this.b.a() != null) {
-            ah.a(this.b.f1878a, this.b.a().a(), 0, -1);
+            ah.a(this.b.f1879a, this.b.a().a(), 0, -1);
         }
     }
 }

@@ -43,7 +43,7 @@ public class v<T> implements u<T> {
 
     @Override // com.baidu.adp.lib.cache.s
     public void b(String str, T t, long j) {
-        com.baidu.adp.lib.f.c.a().a(new w(this, str, t, j));
+        com.baidu.adp.lib.f.d.a().a(new w(this, str, t, j));
     }
 
     @Override // com.baidu.adp.lib.cache.u

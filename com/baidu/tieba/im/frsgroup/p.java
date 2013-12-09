@@ -5,11 +5,11 @@ import android.content.DialogInterface;
 class p implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ n f1717a;
+    final /* synthetic */ n f1718a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(n nVar) {
-        this.f1717a = nVar;
+        this.f1718a = nVar;
     }
 
     @Override // android.content.DialogInterface.OnClickListener

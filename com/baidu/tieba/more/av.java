@@ -10,10 +10,10 @@ import java.io.File;
 public class av extends BdAsyncTask<String, Integer, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ at f2082a;
+    final /* synthetic */ at f2083a;
 
     private av(at atVar) {
-        this.f2082a = atVar;
+        this.f2083a = atVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,10 +23,10 @@ public class av extends BdAsyncTask<String, Integer, String> {
         com.baidu.adp.a.g gVar;
         com.baidu.adp.a.g gVar2;
         super.a((av) str);
-        this.f2082a.f2081a = null;
-        gVar = this.f2082a.mLoadDataCallBack;
+        this.f2083a.f2082a = null;
+        gVar = this.f2083a.mLoadDataCallBack;
         if (gVar != null) {
-            gVar2 = this.f2082a.mLoadDataCallBack;
+            gVar2 = this.f2083a.mLoadDataCallBack;
             gVar2.a(MoreModel.TaskType.DO_CLEAR);
         }
     }

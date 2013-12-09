@@ -5,18 +5,18 @@ import com.baidu.tieba.data.PersonChangeData;
 public class bw extends com.baidu.adp.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    PersonChangeData f2016a;
+    PersonChangeData f2017a;
 
     public bw(PersonChangeData personChangeData) {
-        this.f2016a = null;
-        this.f2016a = personChangeData;
-        if (this.f2016a == null) {
-            this.f2016a = new PersonChangeData();
+        this.f2017a = null;
+        this.f2017a = personChangeData;
+        if (this.f2017a == null) {
+            this.f2017a = new PersonChangeData();
         }
     }
 
     public PersonChangeData a() {
-        return this.f2016a;
+        return this.f2017a;
     }
 
     @Override // com.baidu.adp.a.d

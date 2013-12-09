@@ -5,15 +5,15 @@ import android.view.View;
 class b implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NearbyGroupsActivity f1843a;
+    final /* synthetic */ NearbyGroupsActivity f1844a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(NearbyGroupsActivity nearbyGroupsActivity) {
-        this.f1843a = nearbyGroupsActivity;
+        this.f1844a = nearbyGroupsActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.f1843a.a();
+        this.f1844a.a();
     }
 }

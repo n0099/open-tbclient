@@ -24,7 +24,7 @@ import java.util.List;
 public class HotGroupAdapter extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    private HotGroupActivity f1778a;
+    private HotGroupActivity f1779a;
     private i b;
     private List<GroupInfoData> c = new ArrayList();
     private BOTTOM_TYPE d;
@@ -38,8 +38,8 @@ public class HotGroupAdapter extends BaseAdapter {
     }
 
     public HotGroupAdapter(HotGroupActivity hotGroupActivity) {
-        this.f1778a = hotGroupActivity;
-        this.b = new i(this.f1778a);
+        this.f1779a = hotGroupActivity;
+        this.b = new i(this.f1779a);
         this.b.d(true);
     }
 
@@ -64,7 +64,14 @@ public class HotGroupAdapter extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.c.size();
+        if (this.c == null) {
+            return 0;
+        }
+        int size = this.c.size();
+        if (this.e) {
+            return size + 1;
+        }
+        return size;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -104,9 +111,9 @@ public class HotGroupAdapter extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
         if (view == null || view.getTag() == null || !(view.getTag() instanceof a)) {
-            view = LayoutInflater.from(this.f1778a).inflate(R.layout.hot_group_item_view, viewGroup, false);
+            view = LayoutInflater.from(this.f1779a).inflate(R.layout.hot_group_item_view, viewGroup, false);
             a aVar2 = new a();
-            aVar2.f1781a = (LinearLayout) view.findViewById(R.id.list_more);
+            aVar2.f1782a = (LinearLayout) view.findViewById(R.id.list_more);
             aVar2.c = (TextView) view.findViewById(R.id.list_more_title);
             aVar2.d = (ProgressBar) view.findViewById(R.id.list_more_progress);
             aVar2.e = (ImageView) view.findViewById(R.id.list_more_line);
@@ -133,9 +140,9 @@ public class HotGroupAdapter extends BaseAdapter {
         aVar.h.setDefaultResource(R.drawable.avatar_poto_defaul140);
         aVar.h.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
         aVar.h.setDrawBorder(true);
-        aVar.h.setRadius(g.a((Context) this.f1778a, 5.0f));
+        aVar.h.setRadius(g.a((Context) this.f1779a, 5.0f));
         if (getItemViewType(i) == 1) {
-            aVar.f1781a.setVisibility(0);
+            aVar.f1782a.setVisibility(0);
             aVar.g.setVisibility(8);
             if (this.d == BOTTOM_TYPE.LINE) {
                 aVar.e.setVisibility(0);
@@ -167,8 +174,8 @@ public class HotGroupAdapter extends BaseAdapter {
                 }
                 a(aVar.o, item.getGrade());
             }
-            this.f1778a.a().a(TiebaApplication.h().an() == 1);
-            this.f1778a.a().a(view);
+            this.f1779a.a().a(TiebaApplication.h().an() == 1);
+            this.f1779a.a().a(view);
         }
         return view;
     }

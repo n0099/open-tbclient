@@ -6,10 +6,10 @@ import com.baidu.tieba.im.message.Message;
 public class r implements com.baidu.tieba.im.messageCenter.g {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MsglistModel f1826a;
+    final /* synthetic */ MsglistModel f1827a;
 
     private r(MsglistModel msglistModel) {
-        this.f1826a = msglistModel;
+        this.f1827a = msglistModel;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -22,13 +22,13 @@ public class r implements com.baidu.tieba.im.messageCenter.g {
         if (message == null) {
             com.baidu.adp.lib.h.e.a("msg == null");
         } else if (message.getCmd() == 103112) {
-            this.f1826a.a(message);
+            this.f1827a.a(message);
         } else if (message.getCmd() == 103102) {
-            this.f1826a.c(message);
+            this.f1827a.c(message);
         } else if (message.getCmd() == 202003) {
-            this.f1826a.b(message);
+            this.f1827a.b(message);
         } else if (message.getCmd() == -113) {
-            this.f1826a.l();
+            this.f1827a.l();
         }
     }
 }

@@ -6,12 +6,12 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 public class f extends BdAsyncTask<String, Integer, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f1917a;
+    final /* synthetic */ a f1918a;
     private e b = null;
     private String c;
 
     public f(a aVar, String str) {
-        this.f1917a = aVar;
+        this.f1918a = aVar;
         this.c = "";
         this.c = str;
     }
@@ -20,7 +20,7 @@ public class f extends BdAsyncTask<String, Integer, String> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public String a(String... strArr) {
-        this.b = new e(this.f1917a, null);
+        this.b = new e(this.f1918a, null);
         this.b.a(this.c, "c/s/logupload", true);
         return null;
     }
@@ -30,7 +30,7 @@ public class f extends BdAsyncTask<String, Integer, String> {
         if (this.b != null) {
             this.b.a();
         }
-        this.f1917a.p = null;
+        this.f1918a.p = null;
         super.cancel(true);
     }
 
@@ -39,6 +39,6 @@ public class f extends BdAsyncTask<String, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(String str) {
         super.a((f) str);
-        this.f1917a.p = null;
+        this.f1918a.p = null;
     }
 }

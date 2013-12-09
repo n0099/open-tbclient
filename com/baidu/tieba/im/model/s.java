@@ -17,7 +17,7 @@ public class s extends com.baidu.adp.a.d {
     private GroupsByLocationLocalMessage l;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1827a = 0;
+    private int f1828a = 0;
     private boolean h = false;
     private boolean i = false;
     private int f = com.baidu.adp.lib.h.g.a((Context) TiebaApplication.a(), 70.0f);
@@ -88,15 +88,15 @@ public class s extends com.baidu.adp.a.d {
     }
 
     public void d() {
-        this.f1827a = 0;
+        this.f1828a = 0;
         this.d = 0;
-        this.j = b(this.f1827a);
+        this.j = b(this.f1828a);
         com.baidu.tieba.im.messageCenter.e.a().a(this.j);
     }
 
     public void e() {
         g();
-        this.j = b(this.f1827a);
+        this.j = b(this.f1828a);
         com.baidu.tieba.im.messageCenter.e.a().a(this.j);
     }
 
@@ -112,7 +112,7 @@ public class s extends com.baidu.adp.a.d {
     }
 
     public void g() {
-        this.f1827a++;
+        this.f1828a++;
     }
 
     public boolean h() {

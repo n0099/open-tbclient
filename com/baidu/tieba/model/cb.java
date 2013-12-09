@@ -3,7 +3,7 @@ package com.baidu.tieba.model;
 public class cb {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.tieba.data.ap f2021a = new com.baidu.tieba.data.ap();
+    private com.baidu.tieba.data.ap f2022a = new com.baidu.tieba.data.ap();
     private boolean b = true;
     private String c = null;
     private int d;
@@ -33,7 +33,7 @@ public class cb {
     }
 
     public com.baidu.tieba.data.ap d() {
-        return this.f2021a;
+        return this.f2022a;
     }
 
     public void a(String str, boolean z) {

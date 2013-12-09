@@ -29,7 +29,7 @@ class p implements com.baidu.tieba.im.model.w {
                     photoUrlData.setSmallurl(uploadPicData2.picInfo.smallPic.picUrl);
                 }
             }
-            intent.putExtra(EditHeadActivity.f2291a, String.valueOf(uploadPicData2.picId));
+            intent.putExtra(EditHeadActivity.f2292a, String.valueOf(uploadPicData2.picId));
             intent.putExtra(EditHeadActivity.b, photoUrlData);
         }
         this.f2361a.f2360a.setResult(-1, intent);

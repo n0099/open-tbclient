@@ -1,5 +1,6 @@
 package com.baidu.tieba.recommend;
 
+import android.app.Activity;
 import android.view.View;
 import com.baidu.mobstat.StatService;
 import com.baidu.tieba.util.UtilHelper;
@@ -19,7 +20,11 @@ public class m implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        StatService.onEvent(this.b.i, "recommend_to_pb", "click");
-        UtilHelper.a(this.b.i, this.f2418a.a(), null, null);
+        Activity activity;
+        Activity activity2;
+        activity = this.b.i;
+        StatService.onEvent(activity, "recommend_to_pb", "click");
+        activity2 = this.b.i;
+        UtilHelper.a(activity2, this.f2418a.a(), null, null);
     }
 }

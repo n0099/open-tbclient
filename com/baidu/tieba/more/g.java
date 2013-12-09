@@ -7,13 +7,13 @@ import com.baidu.tieba.data.AccountData;
 class g implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ View f2090a;
+    final /* synthetic */ View f2091a;
     final /* synthetic */ f b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(f fVar, View view) {
         this.b = fVar;
-        this.f2090a = view;
+        this.f2091a = view;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -22,25 +22,25 @@ class g implements DialogInterface.OnClickListener {
         j jVar2;
         j jVar3;
         j jVar4;
-        if (this.f2090a != null) {
-            AccountData accountData = (AccountData) this.f2090a.getTag();
+        if (this.f2091a != null) {
+            AccountData accountData = (AccountData) this.f2091a.getTag();
             switch (i) {
                 case 0:
                     if (accountData != null) {
-                        this.b.f2089a.h = new j(this.b.f2089a, false, accountData);
-                        jVar3 = this.b.f2089a.h;
+                        this.b.f2090a.h = new j(this.b.f2090a, false, accountData);
+                        jVar3 = this.b.f2090a.h;
                         jVar3.setPriority(3);
-                        jVar4 = this.b.f2089a.h;
+                        jVar4 = this.b.f2090a.h;
                         jVar4.execute(new Object[0]);
                     }
                     dialogInterface.cancel();
                     return;
                 case 1:
                     if (accountData != null) {
-                        this.b.f2089a.h = new j(this.b.f2089a, true, accountData);
-                        jVar = this.b.f2089a.h;
+                        this.b.f2090a.h = new j(this.b.f2090a, true, accountData);
+                        jVar = this.b.f2090a.h;
                         jVar.setPriority(3);
-                        jVar2 = this.b.f2089a.h;
+                        jVar2 = this.b.f2090a.h;
                         jVar2.execute(new Object[0]);
                     }
                     dialogInterface.cancel();

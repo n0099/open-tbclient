@@ -5,17 +5,17 @@ import com.baidu.tieba.view.KeyboardEventLayout;
 class dc implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ db f2225a;
+    final /* synthetic */ db f2226a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public dc(db dbVar) {
-        this.f2225a = dbVar;
+        this.f2226a = dbVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         KeyboardEventLayout keyboardEventLayout;
-        keyboardEventLayout = this.f2225a.b.h;
-        keyboardEventLayout.removeView(this.f2225a.f2224a);
+        keyboardEventLayout = this.f2226a.b.h;
+        keyboardEventLayout.removeView(this.f2226a.f2225a);
     }
 }

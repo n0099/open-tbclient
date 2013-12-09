@@ -23,7 +23,7 @@ public class MyPostActivity extends ActivityGroup {
     private RadioGroup g = null;
 
     /* renamed from: a  reason: collision with root package name */
-    protected int f2293a = -1;
+    protected int f2294a = -1;
     private String i = null;
     private int j = 0;
 
@@ -72,9 +72,9 @@ public class MyPostActivity extends ActivityGroup {
     @Override // android.app.ActivityGroup, android.app.Activity
     protected void onResume() {
         super.onResume();
-        if (TiebaApplication.h().an() != this.f2293a) {
-            this.f2293a = TiebaApplication.h().an();
-            a(this.f2293a);
+        if (TiebaApplication.h().an() != this.f2294a) {
+            this.f2294a = TiebaApplication.h().an();
+            a(this.f2294a);
         }
     }
 

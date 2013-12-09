@@ -15,7 +15,7 @@ import org.apache.http.message.BasicNameValuePair;
 public class aa extends BdAsyncTask<Object, Integer, an> {
 
     /* renamed from: a  reason: collision with root package name */
-    ArrayList<BasicNameValuePair> f1944a;
+    ArrayList<BasicNameValuePair> f1945a;
     final /* synthetic */ PostActivity b;
     private am c = null;
     private String d;
@@ -23,9 +23,9 @@ public class aa extends BdAsyncTask<Object, Integer, an> {
     public aa(PostActivity postActivity, String str, ArrayList<BasicNameValuePair> arrayList) {
         this.b = postActivity;
         this.d = null;
-        this.f1944a = null;
+        this.f1945a = null;
         this.d = str;
-        this.f1944a = arrayList;
+        this.f1945a = arrayList;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -44,7 +44,7 @@ public class aa extends BdAsyncTask<Object, Integer, an> {
         an anVar = null;
         try {
             this.c = new am(this.d);
-            this.c.a(this.f1944a);
+            this.c.a(this.f1945a);
             String l = this.c.l();
             if (this.c.c()) {
                 an anVar2 = new an();

@@ -26,7 +26,7 @@ import java.util.Date;
 /* loaded from: classes.dex */
 public class h extends com.baidu.adp.widget.u implements ai {
 
-    /* renamed from: a  reason: collision with root package name */
+    /* renamed from: a */
     int f2413a;
     int b;
     int c;
@@ -351,7 +351,6 @@ public class h extends com.baidu.adp.widget.u implements ai {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: a */
     public q getItem(int i) {

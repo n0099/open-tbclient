@@ -6,17 +6,17 @@ import android.view.View;
 public class av implements View.OnFocusChangeListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PersonChangeActivity f2320a;
+    final /* synthetic */ PersonChangeActivity f2321a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public av(PersonChangeActivity personChangeActivity) {
-        this.f2320a = personChangeActivity;
+        this.f2321a = personChangeActivity;
     }
 
     @Override // android.view.View.OnFocusChangeListener
     public void onFocusChange(View view, boolean z) {
         if (!z) {
-            this.f2320a.a();
+            this.f2321a.a();
         }
     }
 }

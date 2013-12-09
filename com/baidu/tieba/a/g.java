@@ -14,24 +14,24 @@ public class g extends o {
     public String b(String str) {
         a("pn", str);
         a("rn", String.valueOf(20));
-        this.f2134a.e(true);
+        this.f2135a.e(true);
         a(e);
         int b = com.baidu.adp.lib.h.g.b(TiebaApplication.h());
         int c = com.baidu.adp.lib.h.g.c(TiebaApplication.h());
         float f = b / 320.0f;
         int i = bc.a().b() ? 2 : 1;
-        this.f2134a.a("scr_w", String.valueOf(b));
-        this.f2134a.a("scr_h", String.valueOf(c));
-        this.f2134a.a("scr_dip", String.valueOf(f));
-        this.f2134a.a("q_type", String.valueOf(i));
-        String l = this.f2134a.l();
-        if (this.f2134a.c()) {
+        this.f2135a.a("scr_w", String.valueOf(b));
+        this.f2135a.a("scr_h", String.valueOf(c));
+        this.f2135a.a("scr_dip", String.valueOf(f));
+        this.f2135a.a("q_type", String.valueOf(i));
+        String l = this.f2135a.l();
+        if (this.f2135a.c()) {
             this.b = new NewErrorData();
             this.b.parserJson(l);
             return l;
-        } else if (this.f2134a.d()) {
-            this.c = this.f2134a.e();
-            this.d = this.f2134a.i();
+        } else if (this.f2135a.d()) {
+            this.c = this.f2135a.e();
+            this.d = this.f2135a.i();
             return null;
         } else {
             this.c = -1;

@@ -12,10 +12,10 @@ import java.util.ArrayList;
 public class g extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MediaPlayerActivity f1934a;
+    final /* synthetic */ MediaPlayerActivity f1935a;
 
     private g(MediaPlayerActivity mediaPlayerActivity) {
-        this.f1934a = mediaPlayerActivity;
+        this.f1935a = mediaPlayerActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -36,30 +36,30 @@ public class g extends BroadcastReceiver {
         AlertDialog alertDialog2;
         AlertDialog alertDialog3;
         UtilHelper.NetworkStateInfo g = UtilHelper.g(context);
-        arrayList = this.f1934a.m;
+        arrayList = this.f1935a.m;
         if (!arrayList.contains(g)) {
-            alertDialog = this.f1934a.e;
+            alertDialog = this.f1935a.e;
             if (alertDialog != null) {
-                alertDialog2 = this.f1934a.e;
+                alertDialog2 = this.f1935a.e;
                 if (alertDialog2.isShowing()) {
-                    alertDialog3 = this.f1934a.e;
+                    alertDialog3 = this.f1935a.e;
                     alertDialog3.dismiss();
                 }
-                this.f1934a.e = null;
+                this.f1935a.e = null;
             }
             if (g == UtilHelper.NetworkStateInfo.TwoG) {
-                this.f1934a.a();
-                MediaPlayerActivity mediaPlayerActivity = this.f1934a;
-                aVar2 = this.f1934a.f1926a;
-                l2 = this.f1934a.l();
-                m2 = this.f1934a.m();
+                this.f1935a.a();
+                MediaPlayerActivity mediaPlayerActivity = this.f1935a;
+                aVar2 = this.f1935a.f1927a;
+                l2 = this.f1935a.l();
+                m2 = this.f1935a.m();
                 mediaPlayerActivity.e = aVar2.a(l2, m2);
             } else if (g == UtilHelper.NetworkStateInfo.ThreeG) {
-                this.f1934a.a();
-                MediaPlayerActivity mediaPlayerActivity2 = this.f1934a;
-                aVar = this.f1934a.f1926a;
-                l = this.f1934a.l();
-                m = this.f1934a.m();
+                this.f1935a.a();
+                MediaPlayerActivity mediaPlayerActivity2 = this.f1935a;
+                aVar = this.f1935a.f1927a;
+                l = this.f1935a.l();
+                m = this.f1935a.m();
                 mediaPlayerActivity2.e = aVar.b(l, m);
             }
         }

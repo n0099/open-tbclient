@@ -28,7 +28,7 @@ public class GroupImageActivity extends com.baidu.tieba.j {
     private String r;
 
     /* renamed from: a  reason: collision with root package name */
-    private ProgressBar f1735a = null;
+    private ProgressBar f1736a = null;
     private ArrayList<String> b = null;
     private int c = 0;
     private h d = null;
@@ -131,8 +131,8 @@ public class GroupImageActivity extends com.baidu.tieba.j {
             this.d.cancel();
             this.d = null;
         }
-        if (this.f1735a != null) {
-            this.f1735a.setVisibility(8);
+        if (this.f1736a != null) {
+            this.f1736a.setVisibility(8);
         }
         super.onDestroy();
     }
@@ -157,7 +157,7 @@ public class GroupImageActivity extends com.baidu.tieba.j {
         this.g = (FrameLayout) this.e.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.image_activity_save_button, this.k);
         this.h = this.e.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.i = this.e.a("");
-        this.f1735a = (ProgressBar) findViewById(R.id.progress);
+        this.f1736a = (ProgressBar) findViewById(R.id.progress);
         this.f = (TextView) findViewById(R.id.save);
         this.f.setClickable(false);
         this.g.setOnClickListener(this.k);

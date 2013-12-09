@@ -5,11 +5,11 @@ import com.baidu.tieba.switchs.SwitchKey;
 public class cj {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2028a = SwitchKey.BAR_DETAIL_DIR;
+    private String f2029a = SwitchKey.BAR_DETAIL_DIR;
     private ck b;
 
     public void a(String str) {
-        this.f2028a = str;
+        this.f2029a = str;
     }
 
     public void a(ck ckVar) {
@@ -17,6 +17,6 @@ public class cj {
     }
 
     public void a(String str, long j) {
-        new cl(str, j, this.f2028a, this.b).execute(new Integer[0]);
+        new cl(str, j, this.f2029a, this.b).execute(new Integer[0]);
     }
 }

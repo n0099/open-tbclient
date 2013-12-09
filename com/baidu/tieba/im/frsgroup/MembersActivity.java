@@ -21,7 +21,7 @@ import java.util.Set;
 public class MembersActivity extends com.baidu.tieba.j implements View.OnClickListener, AbsListView.OnScrollListener, com.baidu.adp.widget.ListView.r, com.baidu.tieba.im.pushNotify.k {
 
     /* renamed from: a  reason: collision with root package name */
-    private bk f1699a;
+    private bk f1700a;
     private aa b;
     private com.baidu.tieba.im.model.h c;
     private Handler d;
@@ -79,9 +79,9 @@ public class MembersActivity extends com.baidu.tieba.j implements View.OnClickLi
     private void e() {
         this.b = new aa(this);
         BdListView l = this.b.l();
-        this.f1699a = new bk(this);
-        this.f1699a.a(new k(this, l));
-        l.setPullRefresh(this.f1699a);
+        this.f1700a = new bk(this);
+        this.f1700a.a(new k(this, l));
+        l.setPullRefresh(this.f1700a);
         l.setOnScrollListener(this);
         l.setOnSrollToBottomListener(this);
         l.setOnItemClickListener(new m(this));
@@ -183,7 +183,7 @@ public class MembersActivity extends com.baidu.tieba.j implements View.OnClickLi
     @Override // com.baidu.tieba.j
     public void onChangeSkinType(int i) {
         this.b.a(i);
-        this.f1699a.a(i);
+        this.f1700a.a(i);
     }
 
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener

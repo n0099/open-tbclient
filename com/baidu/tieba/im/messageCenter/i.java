@@ -16,7 +16,7 @@ import java.util.Map;
 public class i implements com.baidu.tieba.im.net.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.tieba.im.a<m> f1797a;
+    private com.baidu.tieba.im.a<m> f1798a;
     private e e;
     private LinkedList<p> b = new LinkedList<>();
     private LinkedList<p> c = new LinkedList<>();
@@ -25,11 +25,11 @@ public class i implements com.baidu.tieba.im.net.a {
     private boolean g = true;
 
     public i(e eVar) {
-        this.f1797a = null;
+        this.f1798a = null;
         this.e = null;
         this.e = eVar;
         TiebaSocketLinkService.a(this);
-        this.f1797a = new j(this);
+        this.f1798a = new j(this);
     }
 
     public boolean a(Message message) {
@@ -67,7 +67,7 @@ public class i implements com.baidu.tieba.im.net.a {
         if (message != null && (message instanceof IDuplicateProcess)) {
             int cmd = message.getCmd();
             IDuplicateProcess iDuplicateProcess = (IDuplicateProcess) message;
-            switch (k.f1799a[iDuplicateProcess.getDuplicateRemoveType().ordinal()]) {
+            switch (k.f1800a[iDuplicateProcess.getDuplicateRemoveType().ordinal()]) {
                 case 1:
                     h.b(this.c, iDuplicateProcess, cmd);
                     h.b(this.b, iDuplicateProcess, cmd);
@@ -89,7 +89,7 @@ public class i implements com.baidu.tieba.im.net.a {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(m mVar) {
         if (mVar != null) {
-            List<Message> list = mVar.f1801a;
+            List<Message> list = mVar.f1802a;
             if (mVar.b != null) {
                 a(mVar.b, com.baidu.tieba.im.k.s, TiebaApplication.h().getString(R.string.send_error));
             }
@@ -263,7 +263,7 @@ public class i implements com.baidu.tieba.im.net.a {
                     b();
                 }
                 PingManager.a().c();
-                com.baidu.tieba.im.m.a(new l(a2, a3), this.f1797a);
+                com.baidu.tieba.im.m.a(new l(a2, a3), this.f1798a);
                 if (this.f != null) {
                     this.f.a(bArr);
                 }

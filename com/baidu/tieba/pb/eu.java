@@ -6,15 +6,15 @@ import android.view.View;
 public class eu implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WebActivity f2267a;
+    final /* synthetic */ WebActivity f2268a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public eu(WebActivity webActivity) {
-        this.f2267a = webActivity;
+        this.f2268a = webActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.f2267a.closeActivity();
+        this.f2268a.closeActivity();
     }
 }

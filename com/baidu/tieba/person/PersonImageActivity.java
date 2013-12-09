@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class PersonImageActivity extends com.baidu.tieba.j {
 
     /* renamed from: a  reason: collision with root package name */
-    private ProgressBar f2295a = null;
+    private ProgressBar f2296a = null;
     private bd b = null;
     private MultiImageView c = null;
     private View.OnClickListener d = null;
@@ -90,8 +90,8 @@ public class PersonImageActivity extends com.baidu.tieba.j {
             this.b.cancel();
             this.b = null;
         }
-        if (this.f2295a != null) {
-            this.f2295a.setVisibility(8);
+        if (this.f2296a != null) {
+            this.f2296a.setVisibility(8);
         }
         super.onDestroy();
     }
@@ -110,7 +110,7 @@ public class PersonImageActivity extends com.baidu.tieba.j {
         this.e = new ba(this);
         this.f = new bb(this);
         this.g = new bc(this);
-        this.f2295a = (ProgressBar) findViewById(R.id.progress);
+        this.f2296a = (ProgressBar) findViewById(R.id.progress);
         this.c = (MultiImageView) findViewById(R.id.viewpager);
         this.c.setPageMargin(com.baidu.adp.lib.h.g.a((Context) this, 8.0f));
         this.c.a(2, com.baidu.tieba.data.h.i() * com.baidu.tieba.data.h.i());

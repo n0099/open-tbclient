@@ -1,8 +1,9 @@
 package com.baidu.tieba;
 
 import com.baidu.tieba.util.DatabaseService;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class h extends Thread {
+public final class h extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
     final /* synthetic */ String f1430a;

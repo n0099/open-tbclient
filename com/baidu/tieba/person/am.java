@@ -7,11 +7,11 @@ import android.content.Intent;
 public class am implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PersonChangeActivity f2311a;
+    final /* synthetic */ PersonChangeActivity f2312a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public am(PersonChangeActivity personChangeActivity) {
-        this.f2311a = personChangeActivity;
+        this.f2312a = personChangeActivity;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -20,19 +20,19 @@ public class am implements DialogInterface.OnClickListener {
         Boolean bool;
         com.baidu.tieba.model.bw bwVar2;
         com.baidu.tieba.model.bw bwVar3;
-        bwVar = this.f2311a.y;
+        bwVar = this.f2312a.y;
         if (bwVar.a().getPhotoChanged()) {
             Intent intent = new Intent();
-            bool = this.f2311a.b;
+            bool = this.f2312a.b;
             if (bool.booleanValue()) {
-                bwVar3 = this.f2311a.y;
+                bwVar3 = this.f2312a.y;
                 intent.putExtra("person_change_data", bwVar3.a());
             } else {
-                bwVar2 = this.f2311a.y;
+                bwVar2 = this.f2312a.y;
                 intent.putExtra("data", bwVar2.a());
             }
-            this.f2311a.setResult(-1, intent);
+            this.f2312a.setResult(-1, intent);
         }
-        this.f2311a.finish();
+        this.f2312a.finish();
     }
 }

@@ -9,11 +9,11 @@ import com.baidu.tieba.util.bd;
 public class c extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ b f1855a;
+    final /* synthetic */ b f1856a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.f1855a = bVar;
+        this.f1856a = bVar;
     }
 
     @Override // android.os.Handler
@@ -32,32 +32,32 @@ public class c extends Handler {
         super.handleMessage(message);
         switch (message.what) {
             case 1:
-                handler = this.f1855a.d;
+                handler = this.f1856a.d;
                 handler.removeMessages(1);
                 StringBuilder append = new StringBuilder().append("this is reconn time:");
-                i = this.f1855a.b;
+                i = this.f1856a.b;
                 bd.b(append.append(i).toString());
                 TiebaSocketLinkService.a(true, "time to reconnStragety");
-                b.c(this.f1855a);
-                iArr = this.f1855a.c;
+                b.c(this.f1856a);
+                iArr = this.f1856a.c;
                 if (iArr != null) {
-                    i2 = this.f1855a.b;
-                    iArr2 = this.f1855a.c;
+                    i2 = this.f1856a.b;
+                    iArr2 = this.f1856a.c;
                     if (i2 < iArr2.length) {
                         StringBuilder append2 = new StringBuilder().append("Next will be delay:");
-                        iArr3 = this.f1855a.c;
-                        i3 = this.f1855a.b;
+                        iArr3 = this.f1856a.c;
+                        i3 = this.f1856a.b;
                         bd.b(append2.append(iArr3[i3]).toString());
-                        handler2 = this.f1855a.d;
-                        handler3 = this.f1855a.d;
+                        handler2 = this.f1856a.d;
+                        handler3 = this.f1856a.d;
                         Message obtainMessage = handler3.obtainMessage(1);
-                        iArr4 = this.f1855a.c;
-                        i4 = this.f1855a.b;
+                        iArr4 = this.f1856a.c;
+                        i4 = this.f1856a.b;
                         handler2.sendMessageDelayed(obtainMessage, iArr4[i4] * LocationClientOption.MIN_SCAN_SPAN);
                         return;
                     }
                 }
-                this.f1855a.b("reconnStragety to the end");
+                this.f1856a.b("reconnStragety to the end");
                 return;
             default:
                 return;

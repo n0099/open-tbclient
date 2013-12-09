@@ -25,7 +25,7 @@ public class FrsGroupListFragment extends BaseFragment implements AbsListView.On
     private boolean Z;
 
     /* renamed from: a  reason: collision with root package name */
-    private FrsGroupActivity f1694a;
+    private FrsGroupActivity f1695a;
     private Runnable aa = new e(this);
     private com.baidu.tieba.im.messageCenter.g ab = new f(this);
     private com.baidu.tieba.im.model.b b;
@@ -40,9 +40,9 @@ public class FrsGroupListFragment extends BaseFragment implements AbsListView.On
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
     public void a(Bundle bundle) {
         super.a(bundle);
-        this.f1694a = (FrsGroupActivity) i();
-        this.b = this.f1694a.c();
-        this.c = this.f1694a.d();
+        this.f1695a = (FrsGroupActivity) i();
+        this.b = this.f1695a.c();
+        this.c = this.f1695a.d();
         this.i = new Handler();
         this.b.a(this.ab);
         com.baidu.tieba.im.messageCenter.e.a().a(103104, this);
@@ -75,9 +75,9 @@ public class FrsGroupListFragment extends BaseFragment implements AbsListView.On
         this.g = (InitGuideView) inflate.findViewById(R.id.group_guide);
         this.e = (Button) inflate.findViewById(R.id.guide_create);
         this.d = (BdListView) inflate.findViewById(R.id.group_list);
-        this.f = new bk(this.f1694a);
+        this.f = new bk(this.f1695a);
         this.d.setPullRefresh(this.f);
-        this.h = new GroupListAdapter(this.f1694a);
+        this.h = new GroupListAdapter(this.f1695a);
         this.d.setAdapter((ListAdapter) this.h);
         this.d.setOnScrollListener(this);
         this.d.setOnSrollToBottomListener(this);

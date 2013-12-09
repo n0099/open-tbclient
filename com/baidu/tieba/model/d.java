@@ -3,15 +3,15 @@ package com.baidu.tieba.model;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.tieba.data.x f2030a = null;
+    private com.baidu.tieba.data.x f2031a = null;
     private com.baidu.tieba.data.aw b = null;
 
     public com.baidu.tieba.data.x a() {
-        return this.f2030a;
+        return this.f2031a;
     }
 
     public void a(com.baidu.tieba.data.x xVar) {
-        this.f2030a = xVar;
+        this.f2031a = xVar;
     }
 
     public com.baidu.tieba.data.aw b() {

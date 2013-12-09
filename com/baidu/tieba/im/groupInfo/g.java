@@ -3,11 +3,11 @@ package com.baidu.tieba.im.groupInfo;
 class g implements com.baidu.tieba.view.a {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ GroupImageActivity f1747a;
+    final /* synthetic */ GroupImageActivity f1748a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(GroupImageActivity groupImageActivity) {
-        this.f1747a = groupImageActivity;
+        this.f1748a = groupImageActivity;
     }
 
     @Override // com.baidu.tieba.view.a

@@ -10,19 +10,19 @@ import com.slidingmenu.lib.R;
 public class ay extends BdAsyncTask<String, Integer, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PersonChangeActivity f2323a;
+    final /* synthetic */ PersonChangeActivity f2324a;
     private com.baidu.tieba.util.am b = null;
     private com.baidu.tieba.model.bw c;
 
     public ay(PersonChangeActivity personChangeActivity, com.baidu.tieba.model.bw bwVar) {
-        this.f2323a = personChangeActivity;
+        this.f2324a = personChangeActivity;
         this.c = null;
         this.c = bwVar;
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        this.f2323a.B = null;
+        this.f2324a.B = null;
         if (this.b != null) {
             this.b.j();
         }
@@ -34,22 +34,22 @@ public class ay extends BdAsyncTask<String, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(String str) {
         Boolean bool;
-        this.f2323a.B = null;
-        this.f2323a.closeLoadingDialog();
+        this.f2324a.B = null;
+        this.f2324a.closeLoadingDialog();
         if (this.b != null) {
             if (this.b.c()) {
-                this.f2323a.showToast(this.f2323a.getString(R.string.success));
+                this.f2324a.showToast(this.f2324a.getString(R.string.success));
                 Intent intent = new Intent();
-                bool = this.f2323a.b;
+                bool = this.f2324a.b;
                 if (bool.booleanValue()) {
                     intent.putExtra("person_change_data", this.c.a());
                 } else {
                     intent.putExtra("data", this.c.a());
                 }
-                this.f2323a.setResult(-1, intent);
-                this.f2323a.finish();
+                this.f2324a.setResult(-1, intent);
+                this.f2324a.finish();
             } else {
-                this.f2323a.showToast(this.b.i());
+                this.f2324a.showToast(this.b.i());
             }
         }
         super.a((ay) str);
@@ -59,9 +59,9 @@ public class ay extends BdAsyncTask<String, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void b() {
         DialogInterface.OnCancelListener onCancelListener;
-        PersonChangeActivity personChangeActivity = this.f2323a;
-        String string = this.f2323a.getString(R.string.saving);
-        onCancelListener = this.f2323a.D;
+        PersonChangeActivity personChangeActivity = this.f2324a;
+        String string = this.f2324a.getString(R.string.saving);
+        onCancelListener = this.f2324a.D;
         personChangeActivity.showLoadingDialog(string, onCancelListener);
         super.b();
     }

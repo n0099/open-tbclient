@@ -10,11 +10,11 @@ import java.util.Iterator;
 class av implements com.baidu.tieba.model.bt {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NewPbActivity f2169a;
+    final /* synthetic */ NewPbActivity f2170a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public av(NewPbActivity newPbActivity) {
-        this.f2169a = newPbActivity;
+        this.f2170a = newPbActivity;
     }
 
     @Override // com.baidu.tieba.model.bt
@@ -32,41 +32,41 @@ class av implements com.baidu.tieba.model.bt {
         com.baidu.tieba.model.bm bmVar4;
         cr crVar4;
         com.baidu.tieba.model.bm bmVar5;
-        this.f2169a.u();
-        crVar = this.f2169a.y;
+        this.f2170a.u();
+        crVar = this.f2170a.y;
         crVar.a(z);
         if (z) {
-            crVar2 = this.f2169a.y;
+            crVar2 = this.f2170a.y;
             crVar2.Z();
-            bsVar = this.f2169a.u;
+            bsVar = this.f2170a.u;
             WriteData a2 = bsVar.a();
-            bsVar2 = this.f2169a.u;
+            bsVar2 = this.f2170a.u;
             bsVar2.a((WriteData) null);
-            bsVar3 = this.f2169a.u;
+            bsVar3 = this.f2170a.u;
             bsVar3.a(false);
-            bmVar = this.f2169a.s;
+            bmVar = this.f2170a.s;
             bmVar.v();
-            this.f2169a.a(antiData, str);
-            bmVar2 = this.f2169a.s;
+            this.f2170a.a(antiData, str);
+            bmVar2 = this.f2170a.s;
             if (!bmVar2.i()) {
-                bmVar5 = this.f2169a.s;
+                bmVar5 = this.f2170a.s;
                 PbEditorCacheModel.a(bmVar5.b(), "", null);
             }
             if (a2 != null) {
                 String floor = a2.getFloor();
                 if (a2 == null || a2.getType() != 2) {
-                    bmVar3 = this.f2169a.s;
+                    bmVar3 = this.f2170a.s;
                     if (bmVar3.n()) {
-                        crVar3 = this.f2169a.y;
+                        crVar3 = this.f2170a.y;
                         crVar3.o();
                         return;
                     }
                     return;
                 }
-                bpVar = this.f2169a.w;
+                bpVar = this.f2170a.w;
                 bpVar.i();
                 if (floor != null) {
-                    bmVar4 = this.f2169a.s;
+                    bmVar4 = this.f2170a.s;
                     com.baidu.tieba.data.an l = bmVar4.l();
                     Iterator<com.baidu.tieba.data.ar> it = l.e().iterator();
                     while (true) {
@@ -79,21 +79,21 @@ class av implements com.baidu.tieba.model.bt {
                             break;
                         }
                     }
-                    crVar4 = this.f2169a.y;
+                    crVar4 = this.f2170a.y;
                     crVar4.a(l);
                 }
             }
         } else if (bdVar == null || writeData == null || bdVar.b() == null) {
-            this.f2169a.a(antiData, str);
+            this.f2170a.a(antiData, str);
         } else if (AntiHelper.c(antiData)) {
-            this.f2169a.a(antiData, str);
+            this.f2170a.a(antiData, str);
         } else {
             writeData.setVcodeMD5(bdVar.a());
             writeData.setVcodeUrl(bdVar.b());
             if (bdVar.c().equals("4")) {
-                NewVcodeActivity.a(this.f2169a, writeData, 12006);
+                NewVcodeActivity.a(this.f2170a, writeData, 12006);
             } else {
-                VcodeActivity.a(this.f2169a, writeData, 12006);
+                VcodeActivity.a(this.f2170a, writeData, 12006);
             }
         }
     }

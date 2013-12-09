@@ -38,7 +38,7 @@ public class al extends com.baidu.adp.a.e {
     private am T;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f2073a;
+    public boolean f2074a;
     private LinearLayout c;
     private TextView d;
     private BdSwitchView e;
@@ -74,7 +74,7 @@ public class al extends com.baidu.adp.a.e {
         this.A = null;
         this.B = null;
         this.C = null;
-        this.f2073a = true;
+        this.f2074a = true;
         this.S = msgRemindActivity;
         msgRemindActivity.setContentView(R.layout.msg_remind_activity);
     }
@@ -438,8 +438,8 @@ public class al extends com.baidu.adp.a.e {
     }
 
     public void d(boolean z) {
-        if (this.f2073a != z) {
-            this.f2073a = z;
+        if (this.f2074a != z) {
+            this.f2074a = z;
             if (z) {
                 this.C.setText(R.string.msg_remind);
                 this.E.setVisibility(0);

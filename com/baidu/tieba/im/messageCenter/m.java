@@ -7,7 +7,7 @@ import java.util.List;
 public class m {
 
     /* renamed from: a  reason: collision with root package name */
-    List<Message> f1801a;
+    List<Message> f1802a;
     p b;
     final /* synthetic */ l c;
 

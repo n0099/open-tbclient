@@ -12,7 +12,7 @@ import com.baidu.tieba.im.net.TiebaSocketLinkService;
 public class PingManager extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    private static PingManager f1792a = null;
+    private static PingManager f1793a = null;
     private long b = 0;
     private int c = 180000;
     private int d = 900000;
@@ -21,14 +21,14 @@ public class PingManager extends Handler {
     private g g = null;
 
     public static PingManager a() {
-        if (f1792a == null) {
+        if (f1793a == null) {
             synchronized (PingManager.class) {
-                if (f1792a == null) {
-                    f1792a = new PingManager();
+                if (f1793a == null) {
+                    f1793a = new PingManager();
                 }
             }
         }
-        return f1792a;
+        return f1793a;
     }
 
     @Override // android.os.Handler

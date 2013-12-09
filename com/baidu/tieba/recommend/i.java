@@ -17,12 +17,12 @@ class i implements com.baidu.tieba.view.g {
 
     @Override // com.baidu.tieba.view.g
     public void a() {
-        if (this.f2414a.g != null && this.f2414a.g.f2403a.size() > this.f2414a.f.getCurrentItem()) {
-            String str = (String) this.f2414a.g.f2403a.get(this.f2414a.f.getCurrentItem()).getTag();
+        if (h.a(this.f2414a) != null && h.a(this.f2414a).f2403a.size() > h.b(this.f2414a).getCurrentItem()) {
+            String str = (String) h.a(this.f2414a).f2403a.get(h.b(this.f2414a).getCurrentItem()).getTag();
             if (!TextUtils.isEmpty(str)) {
-                UtilHelper.a(this.f2414a.i, str, null, null);
+                UtilHelper.a(h.c(this.f2414a), str, null, null);
                 if (TiebaApplication.h().t()) {
-                    StatService.onEvent(this.f2414a.i, "recommend_banner", "click");
+                    StatService.onEvent(h.c(this.f2414a), "recommend_banner", "click");
                 }
             }
         }

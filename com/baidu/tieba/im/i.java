@@ -14,7 +14,7 @@ import com.baidu.tieba.mention.t;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f1785a;
+    public static long f1786a;
     private static i b = new i();
 
     private i() {
@@ -34,7 +34,7 @@ public class i {
         ag.a().b();
         TiebaSocketLinkService.a();
         TiebaSocketLinkService.a(false, "TiebaImApplication init");
-        f1785a = Thread.currentThread().getId();
+        f1786a = Thread.currentThread().getId();
         com.baidu.adp.lib.h.e.d("=====uid:" + TiebaApplication.B() + " cuid:" + a());
     }
 

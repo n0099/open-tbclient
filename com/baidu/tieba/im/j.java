@@ -5,7 +5,7 @@ import android.content.Context;
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f1786a = "ws://im.tieba.baidu.com:8000";
+    public static String f1787a = "ws://im.tieba.baidu.com:8000";
     public static String b = "im_version=2.0";
     public static int[] c = {30, 60, 300, 600, 1800, 3600, 7200, 14400};
     public static String d = "post_image";

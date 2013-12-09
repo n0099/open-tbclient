@@ -9,11 +9,11 @@ import org.json.JSONObject;
 public class cf extends BdAsyncTask<Object, Integer, SignData> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ cd f2024a;
+    final /* synthetic */ cd f2025a;
     private volatile com.baidu.tieba.util.am b;
 
     private cf(cd cdVar) {
-        this.f2024a = cdVar;
+        this.f2025a = cdVar;
         this.b = null;
     }
 
@@ -49,10 +49,10 @@ public class cf extends BdAsyncTask<Object, Integer, SignData> {
         try {
             this.b = new com.baidu.tieba.util.am(com.baidu.tieba.data.h.f1248a + "c/c/forum/sign");
             com.baidu.tieba.util.am amVar = this.b;
-            str = this.f2024a.f2023a;
+            str = this.f2025a.f2024a;
             amVar.a("kw", str);
             com.baidu.tieba.util.am amVar2 = this.b;
-            str2 = this.f2024a.b;
+            str2 = this.f2025a.b;
             amVar2.a("fid", str2);
             this.b.e(true);
             l = this.b.l();
@@ -93,9 +93,9 @@ public class cf extends BdAsyncTask<Object, Integer, SignData> {
         if (this.b != null) {
             this.b.j();
         }
-        this.f2024a.c = null;
+        this.f2025a.c = null;
         super.cancel(true);
-        gVar = this.f2024a.mLoadDataCallBack;
+        gVar = this.f2025a.mLoadDataCallBack;
         gVar.a(null);
     }
 
@@ -104,12 +104,12 @@ public class cf extends BdAsyncTask<Object, Integer, SignData> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(SignData signData) {
         com.baidu.adp.a.g gVar;
-        this.f2024a.c = null;
+        this.f2025a.c = null;
         if (signData == null && this.b != null) {
-            this.f2024a.mErrorCode = this.b.e();
-            this.f2024a.mErrorString = this.b.i();
+            this.f2025a.mErrorCode = this.b.e();
+            this.f2025a.mErrorString = this.b.i();
         }
-        gVar = this.f2024a.mLoadDataCallBack;
+        gVar = this.f2025a.mLoadDataCallBack;
         gVar.a(signData);
     }
 }

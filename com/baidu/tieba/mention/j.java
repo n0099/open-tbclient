@@ -34,7 +34,7 @@ public class j {
     private com.baidu.tieba.view.r p = null;
 
     /* renamed from: a  reason: collision with root package name */
-    AlertDialog f1956a = null;
+    AlertDialog f1957a = null;
     private q q = null;
     private Handler r = new Handler();
     private Runnable s = new k(this);

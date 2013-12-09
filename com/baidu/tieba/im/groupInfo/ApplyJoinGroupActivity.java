@@ -22,7 +22,7 @@ import com.slidingmenu.lib.R;
 public class ApplyJoinGroupActivity extends com.baidu.tieba.j implements com.baidu.tieba.im.messageCenter.g {
 
     /* renamed from: a  reason: collision with root package name */
-    View f1733a;
+    View f1734a;
     EditText b;
     TextView c;
     TextView d;
@@ -121,21 +121,21 @@ public class ApplyJoinGroupActivity extends com.baidu.tieba.j implements com.bai
     }
 
     void a() {
-        this.f1733a = View.inflate(this, R.layout.group_apply_activity, null);
-        setContentView(this.f1733a);
+        this.f1734a = View.inflate(this, R.layout.group_apply_activity, null);
+        setContentView(this.f1734a);
         this.n = (NavigationBar) findViewById(R.id.view_navigation_bar);
         this.n.a(R.string.group_apply_join);
         this.e = this.n.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.f = this.n.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(R.string.group_apply_send));
         this.e.setOnClickListener(this.i);
-        this.b = (EditText) this.f1733a.findViewById(R.id.et_content);
-        this.c = (TextView) this.f1733a.findViewById(R.id.tv_word_count);
-        this.d = (TextView) this.f1733a.findViewById(R.id.tv_add_limit);
+        this.b = (EditText) this.f1734a.findViewById(R.id.et_content);
+        this.c = (TextView) this.f1734a.findViewById(R.id.tv_word_count);
+        this.d = (TextView) this.f1734a.findViewById(R.id.tv_add_limit);
         this.d.setVisibility(8);
         this.f.setOnClickListener(this.i);
-        this.g = (Button) this.f1733a.findViewById(R.id.btn_agree);
+        this.g = (Button) this.f1734a.findViewById(R.id.btn_agree);
         this.g.setOnClickListener(this.i);
-        this.h = (Button) this.f1733a.findViewById(R.id.btn_disagree);
+        this.h = (Button) this.f1734a.findViewById(R.id.btn_disagree);
         this.h.setOnClickListener(this.i);
         this.g.setVisibility(8);
         this.h.setVisibility(8);
@@ -148,7 +148,7 @@ public class ApplyJoinGroupActivity extends com.baidu.tieba.j implements com.bai
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         getLayoutMode().a(i == 1);
-        getLayoutMode().a(this.f1733a);
+        getLayoutMode().a(this.f1734a);
         this.n.c(i);
         ba.g(this.f, 0);
     }

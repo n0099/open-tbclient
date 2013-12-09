@@ -16,21 +16,21 @@ import com.slidingmenu.lib.R;
 public class MsgRemindActivity extends com.baidu.tieba.j implements View.OnClickListener, CompoundButton.OnCheckedChangeListener, com.baidu.adp.widget.BdSwitchView.c {
 
     /* renamed from: a  reason: collision with root package name */
-    private al f2056a;
+    private al f2057a;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.f2056a = new al(this);
-        this.f2056a.a(this);
+        this.f2057a = new al(this);
+        this.f2057a.a(this);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.f2056a.a(i);
+        this.f2057a.a(i);
     }
 
     public static void a(Context context) {
@@ -39,44 +39,44 @@ public class MsgRemindActivity extends com.baidu.tieba.j implements View.OnClick
 
     @Override // com.baidu.adp.widget.BdSwitchView.c
     public void a(View view, BdSwitchView.SwitchState switchState) {
-        if (view == this.f2056a.g()) {
+        if (view == this.f2057a.g()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
                 TiebaApplication.h().i(true);
             } else {
                 TiebaApplication.h().i(false);
             }
-        } else if (view == this.f2056a.h()) {
+        } else if (view == this.f2057a.h()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
                 TiebaApplication.h().r(true);
-                this.f2056a.e();
-                this.f2056a.b(true);
+                this.f2057a.e();
+                this.f2057a.b(true);
                 return;
             }
             TiebaApplication.h().r(false);
-            this.f2056a.b(false);
-        } else if (view == this.f2056a.i()) {
+            this.f2057a.b(false);
+        } else if (view == this.f2057a.i()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
                 TiebaApplication.h().b(300);
-                this.f2056a.c(true);
+                this.f2057a.c(true);
                 return;
             }
             TiebaApplication.h().b(0);
-            this.f2056a.c(false);
-        } else if (view == this.f2056a.k()) {
+            this.f2057a.c(false);
+        } else if (view == this.f2057a.k()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
                 TiebaApplication.h().k(true);
-                this.f2056a.a(true);
+                this.f2057a.a(true);
                 return;
             }
             TiebaApplication.h().k(false);
-            this.f2056a.a(false);
-        } else if (view == this.f2056a.o()) {
+            this.f2057a.a(false);
+        } else if (view == this.f2057a.o()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
                 TiebaApplication.h().j(true);
             } else {
                 TiebaApplication.h().j(false);
             }
-        } else if (view == this.f2056a.p()) {
+        } else if (view == this.f2057a.p()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
                 TiebaApplication.h().l(true);
             } else {
@@ -87,25 +87,25 @@ public class MsgRemindActivity extends com.baidu.tieba.j implements View.OnClick
 
     @Override // android.app.Activity
     public void onBackPressed() {
-        this.f2056a.a().performClick();
+        this.f2057a.a().performClick();
     }
 
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.f2056a.a()) {
-            if (this.f2056a.f2073a) {
+        if (view == this.f2057a.a()) {
+            if (this.f2057a.f2074a) {
                 finish();
             } else {
-                this.f2056a.d(true);
+                this.f2057a.d(true);
             }
-        } else if (view == this.f2056a.j()) {
+        } else if (view == this.f2057a.j()) {
             showDialog(R.id.sign_remind);
-        } else if (view == this.f2056a.l()) {
-            this.f2056a.d(false);
-        } else if (view == this.f2056a.m()) {
+        } else if (view == this.f2057a.l()) {
+            this.f2057a.d(false);
+        } else if (view == this.f2057a.m()) {
             showDialog(R.id.no_disturb_start_time);
-        } else if (view == this.f2056a.n()) {
+        } else if (view == this.f2057a.n()) {
             showDialog(R.id.no_disturb_end_time);
         }
     }

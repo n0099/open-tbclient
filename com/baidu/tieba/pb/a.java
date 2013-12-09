@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private ArrayList<String> f2148a;
+    private ArrayList<String> f2149a;
     private String d;
     private String e;
     private String f;
@@ -19,14 +19,14 @@ public class a {
     private c l = null;
 
     public a(ArrayList<String> arrayList, String str, String str2, String str3) {
-        this.f2148a = null;
+        this.f2149a = null;
         this.d = null;
         this.e = null;
         this.f = null;
         this.k = false;
-        this.f2148a = arrayList;
-        if (this.f2148a == null) {
-            this.f2148a = new ArrayList<>();
+        this.f2149a = arrayList;
+        if (this.f2149a == null) {
+            this.f2149a = new ArrayList<>();
         }
         this.d = str2;
         this.e = str;

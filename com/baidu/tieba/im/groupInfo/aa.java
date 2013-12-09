@@ -7,14 +7,14 @@ import com.baidu.tieba.im.data.PhotoUrlData;
 public class aa implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PhotoUrlData f1739a;
+    final /* synthetic */ PhotoUrlData f1740a;
     final /* synthetic */ int b;
     final /* synthetic */ PhotoWallView c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(PhotoWallView photoWallView, PhotoUrlData photoUrlData, int i) {
         this.c = photoWallView;
-        this.f1739a = photoUrlData;
+        this.f1740a = photoUrlData;
         this.b = i;
     }
 
@@ -25,7 +25,7 @@ public class aa implements View.OnClickListener {
         yVar = this.c.k;
         if (yVar != null) {
             yVar2 = this.c.k;
-            yVar2.onClick(view, 1, this.f1739a, this.b);
+            yVar2.onClick(view, 1, this.f1740a, this.b);
         }
     }
 }

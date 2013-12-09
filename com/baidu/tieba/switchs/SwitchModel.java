@@ -4,6 +4,7 @@ import com.baidu.adp.lib.a.d;
 import com.baidu.tieba.switchs.features.BaiduWebviewSwitch;
 import com.baidu.tieba.switchs.features.BarDetailForDirSwitch;
 import com.baidu.tieba.switchs.features.BarDetailForFrsSwitch;
+import com.baidu.tieba.switchs.features.ImgLogSwitch;
 import com.baidu.tieba.switchs.features.LogSwitch;
 import com.baidu.tieba.switchs.features.MotuSwitch;
 import com.baidu.tieba.switchs.features.PushServiceSwitch;
@@ -13,7 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class SwitchModel {
-    public static String[] SWITCH_LIST = {MotuSwitch.class.getName(), BaiduWebviewSwitch.class.getName(), PushServiceSwitch.class.getName(), TencentMMSwitch.class.getName(), VoiceSwitch.class.getName(), BarDetailForDirSwitch.class.getName(), BarDetailForFrsSwitch.class.getName(), LogSwitch.class.getName()};
+    public static String[] SWITCH_LIST = {MotuSwitch.class.getName(), BaiduWebviewSwitch.class.getName(), PushServiceSwitch.class.getName(), TencentMMSwitch.class.getName(), VoiceSwitch.class.getName(), BarDetailForDirSwitch.class.getName(), BarDetailForFrsSwitch.class.getName(), LogSwitch.class.getName(), ImgLogSwitch.class.getName()};
 
     public static void initSwitchManager() {
         for (int i = 0; i < SWITCH_LIST.length; i++) {

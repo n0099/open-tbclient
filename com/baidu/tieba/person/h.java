@@ -71,7 +71,7 @@ public class h extends BdAsyncTask<ForumData, Integer, String> {
         progressBar.setVisibility(8);
         if (this.b != null) {
             if (this.b.c()) {
-                eVar = this.f2354a.f2290a;
+                eVar = this.f2354a.f2291a;
                 ArrayList<ForumData> a2 = eVar.a();
                 if (a2 != null) {
                     i = this.f2354a.i;

@@ -6,7 +6,7 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 public class ag extends BdAsyncTask<String, Integer, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ad f1981a;
+    final /* synthetic */ ad f1982a;
     private com.baidu.tieba.util.am b;
     private String c;
     private String d;
@@ -39,9 +39,9 @@ public class ag extends BdAsyncTask<String, Integer, String> {
         if (this.b != null) {
             this.b.j();
         }
-        this.f1981a.b = null;
+        this.f1982a.b = null;
         super.cancel(true);
-        gVar = this.f1981a.mLoadDataCallBack;
+        gVar = this.f1982a.mLoadDataCallBack;
         gVar.a(null);
     }
 
@@ -52,20 +52,20 @@ public class ag extends BdAsyncTask<String, Integer, String> {
         com.baidu.adp.a.g gVar;
         com.baidu.adp.a.g gVar2;
         super.a((ag) str);
-        this.f1981a.b = null;
+        this.f1982a.b = null;
         if (this.b == null) {
-            gVar2 = this.f1981a.mLoadDataCallBack;
+            gVar2 = this.f1982a.mLoadDataCallBack;
             gVar2.a(null);
             return;
         }
-        ah ahVar = new ah(this.f1981a);
+        ah ahVar = new ah(this.f1982a);
         if (str == null) {
-            ahVar.f1982a = true;
+            ahVar.f1983a = true;
         } else {
-            ahVar.f1982a = false;
+            ahVar.f1983a = false;
             ahVar.b = str;
         }
-        gVar = this.f1981a.mLoadDataCallBack;
+        gVar = this.f1982a.mLoadDataCallBack;
         gVar.a(ahVar);
     }
 }

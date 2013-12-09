@@ -5,18 +5,18 @@ import android.widget.LinearLayout;
 class bh implements com.baidu.adp.lib.d.c<LinearLayout> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NewPbActivity f2182a;
+    final /* synthetic */ NewPbActivity f2183a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bh(NewPbActivity newPbActivity) {
-        this.f2182a = newPbActivity;
+        this.f2183a = newPbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.d.c
     /* renamed from: b */
     public LinearLayout a() {
-        LinearLayout linearLayout = new LinearLayout(this.f2182a);
+        LinearLayout linearLayout = new LinearLayout(this.f2183a);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
         linearLayout.setLayoutParams(layoutParams);
         linearLayout.setGravity(16);

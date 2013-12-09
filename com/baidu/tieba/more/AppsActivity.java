@@ -19,7 +19,7 @@ import com.tencent.mm.sdk.platformtools.Util;
 public class AppsActivity extends com.baidu.tieba.j {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2053a = null;
+    private String f2054a = null;
     private BaseWebView b = null;
     private ImageView c = null;
     private v d = null;
@@ -52,9 +52,9 @@ public class AppsActivity extends com.baidu.tieba.j {
 
     private void a(Bundle bundle) {
         if (bundle != null) {
-            this.f2053a = bundle.getString(SocialConstants.PARAM_URL);
+            this.f2054a = bundle.getString(SocialConstants.PARAM_URL);
         } else {
-            this.f2053a = getIntent().getStringExtra(SocialConstants.PARAM_URL);
+            this.f2054a = getIntent().getStringExtra(SocialConstants.PARAM_URL);
         }
         if (System.currentTimeMillis() - com.baidu.tieba.sharedPref.b.a().a("app_inverval", 0L) > Util.MILLSECONDS_OF_DAY) {
             b();
@@ -68,7 +68,7 @@ public class AppsActivity extends com.baidu.tieba.j {
         if (this.d != null) {
             this.d.cancel();
         }
-        this.d = new v(this, this.f2053a);
+        this.d = new v(this, this.f2054a);
         this.d.setPriority(3);
         this.d.execute(new Object[0]);
     }

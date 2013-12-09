@@ -36,7 +36,7 @@ public class Javac {
         javassist.h hVar;
         boolean z;
         try {
-            a(ctBehavior.i_(), v.d(ctBehavior.b()));
+            a(ctBehavior.h_(), v.d(ctBehavior.b()));
             if (ctBehavior instanceof CtMethod) {
                 this.f2999a.a((CtMethod) ctBehavior);
                 hVar = ((CtMethod) ctBehavior).h();

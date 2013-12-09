@@ -44,7 +44,7 @@ public class cr {
     private View.OnClickListener H;
 
     /* renamed from: a  reason: collision with root package name */
-    NavigationBar f2213a;
+    NavigationBar f2214a;
     private View aj;
     private View ak;
     private View al;
@@ -130,7 +130,7 @@ public class cr {
     public cr(NewPbActivity newPbActivity, View.OnClickListener onClickListener) {
         this.g = null;
         this.h = null;
-        this.f2213a = null;
+        this.f2214a = null;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -154,12 +154,12 @@ public class cr {
         this.g.addContentView(this.h, new FrameLayout.LayoutParams(-2, -2));
         this.j = (NoNetworkView) this.g.findViewById(R.id.view_no_network);
         this.i = (BdListView) this.g.findViewById(R.id.new_pb_list);
-        this.f2213a = (NavigationBar) this.g.findViewById(R.id.view_navigation_bar);
-        this.f2213a.setOnClickListener(new dd(this));
-        this.b = this.f2213a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.z);
-        this.c = this.f2213a.a("");
-        this.d = (ImageView) this.f2213a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.nb_item_floor_host, this.z);
-        this.e = this.f2213a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, NavigationBar.ControlType.MORE_BUTTON, this.z);
+        this.f2214a = (NavigationBar) this.g.findViewById(R.id.view_navigation_bar);
+        this.f2214a.setOnClickListener(new dd(this));
+        this.b = this.f2214a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.z);
+        this.c = this.f2214a.a("");
+        this.d = (ImageView) this.f2214a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.nb_item_floor_host, this.z);
+        this.e = this.f2214a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, NavigationBar.ControlType.MORE_BUTTON, this.z);
         this.an = (PbEditor) this.g.findViewById(R.id.pb_editor_view);
         this.an.setImageFocusable(false);
         C();
@@ -209,15 +209,15 @@ public class cr {
         int i2;
         Bitmap bitmap;
         Bitmap bitmap2 = null;
-        if (this.f2213a != null && this.an != null && view != null) {
-            boolean z = this.f2213a.getVisibility() != 0;
+        if (this.f2214a != null && this.an != null && view != null) {
+            boolean z = this.f2214a.getVisibility() != 0;
             boolean z2 = this.an.getVisibility() != 0;
             if (z || z2) {
-                this.f2213a.postDelayed(new dr(this), 50L);
+                this.f2214a.postDelayed(new dr(this), 50L);
                 return;
             }
             AccelerateInterpolator accelerateInterpolator = new AccelerateInterpolator(1.5f);
-            int measuredHeight = this.f2213a.getMeasuredHeight();
+            int measuredHeight = this.f2214a.getMeasuredHeight();
             if (this.i != null) {
                 i = this.i.getBottom() + measuredHeight;
                 i2 = measuredHeight;
@@ -263,7 +263,7 @@ public class cr {
                 imageView2.setAnimation(translateAnimation2);
                 translateAnimation2.setAnimationListener(new du(this, imageView2));
             }
-            this.f2213a.setVisibility(8);
+            this.f2214a.setVisibility(8);
             this.an.g();
             this.an.setVisibility(8);
         }
@@ -640,7 +640,7 @@ public class cr {
             } else {
                 this.q.d(1);
             }
-            int height = this.f2213a.getHeight();
+            int height = this.f2214a.getHeight();
             if (view == null) {
                 i2 = 0;
                 i3 = 0;
@@ -1077,7 +1077,7 @@ public class cr {
                     textView4.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.icon_recommend_collect_s, 0, 0);
                 }
             }
-            int height = this.f2213a.getHeight();
+            int height = this.f2214a.getHeight();
             WindowManager.LayoutParams attributes = this.n.getWindow().getAttributes();
             attributes.gravity = 53;
             attributes.x = 0;
@@ -1482,7 +1482,7 @@ public class cr {
         this.g.getLayoutMode().a(this.l);
         this.g.getLayoutMode().a(this.v.b());
         this.g.getLayoutMode().a(this.w);
-        this.f2213a.c(i);
+        this.f2214a.c(i);
         d(i);
         c(i);
         if (this.q != null) {
@@ -1532,8 +1532,8 @@ public class cr {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void al() {
-        if (this.f2213a != null) {
-            this.f2213a.setVisibility(8);
+        if (this.f2214a != null) {
+            this.f2214a.setVisibility(8);
         }
         if (this.i != null) {
             this.i.setVisibility(8);
@@ -1544,8 +1544,8 @@ public class cr {
     }
 
     private void am() {
-        if (this.f2213a != null) {
-            this.f2213a.setVisibility(0);
+        if (this.f2214a != null) {
+            this.f2214a.setVisibility(0);
         }
         if (this.i != null) {
             this.i.setVisibility(0);

@@ -7,7 +7,7 @@ import android.widget.TextView;
 class r {
 
     /* renamed from: a  reason: collision with root package name */
-    TextView f2100a;
+    TextView f2101a;
     TextView b;
     ImageView c;
     Button d;

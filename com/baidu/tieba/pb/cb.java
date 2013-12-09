@@ -10,7 +10,7 @@ import com.baidu.tieba.view.HeadImageView;
 public class cb {
 
     /* renamed from: a  reason: collision with root package name */
-    public View f2199a;
+    public View f2200a;
     public ColumnLayout b;
     public HeadImageView c;
     public TextView d;

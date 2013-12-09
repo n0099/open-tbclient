@@ -6,11 +6,11 @@ import android.content.DialogInterface;
 public class c implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ UpdatesActivity f1766a;
+    final /* synthetic */ UpdatesActivity f1767a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(UpdatesActivity updatesActivity) {
-        this.f1766a = updatesActivity;
+        this.f1767a = updatesActivity;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -19,10 +19,10 @@ public class c implements DialogInterface.OnClickListener {
         UpdatesItemData updatesItemData;
         switch (i) {
             case 0:
-                nVar = this.f1766a.b;
+                nVar = this.f1767a.b;
                 nVar.a(true);
-                UpdatesActivity updatesActivity = this.f1766a;
-                updatesItemData = this.f1766a.i;
+                UpdatesActivity updatesActivity = this.f1767a;
+                updatesItemData = this.f1767a.i;
                 updatesActivity.a(updatesItemData);
                 return;
             default:

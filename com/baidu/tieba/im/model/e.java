@@ -3,7 +3,7 @@ package com.baidu.tieba.im.model;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1814a = e.class.getName();
+    private static final String f1815a = e.class.getName();
     private String b = "";
 
     public String a(String str) {
@@ -17,7 +17,7 @@ public class e {
                     return a4;
                 }
             } catch (Exception e) {
-                com.baidu.adp.lib.h.e.b(f1814a, "submitVoiceBinary", "error: " + e.getMessage());
+                com.baidu.adp.lib.h.e.b(f1815a, "submitVoiceBinary", "error: " + e.getMessage());
             }
         }
         return null;

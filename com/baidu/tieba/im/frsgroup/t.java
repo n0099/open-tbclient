@@ -6,11 +6,11 @@ import android.content.DialogInterface;
 public class t implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MembersActivity f1721a;
+    final /* synthetic */ MembersActivity f1722a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(MembersActivity membersActivity) {
-        this.f1721a = membersActivity;
+        this.f1722a = membersActivity;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -26,10 +26,10 @@ public class t implements DialogInterface.OnClickListener {
                 i2 = 2;
                 break;
         }
-        hVar = this.f1721a.c;
+        hVar = this.f1722a.c;
         hVar.a(i2);
-        aaVar = this.f1721a.b;
+        aaVar = this.f1722a.b;
         aaVar.c(i);
-        this.f1721a.g();
+        this.f1722a.g();
     }
 }

@@ -8,7 +8,7 @@ import java.lang.ref.WeakReference;
 class cl extends BdAsyncTask<Integer, Integer, Integer> {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.tieba.util.am f2029a = null;
+    private com.baidu.tieba.util.am f2030a = null;
     private String b;
     private long c;
     private String d;
@@ -31,13 +31,13 @@ class cl extends BdAsyncTask<Integer, Integer, Integer> {
     public Integer a(Integer... numArr) {
         try {
             if (this.c != 0 && this.b != null) {
-                this.f2029a = new com.baidu.tieba.util.am(com.baidu.tieba.data.h.f1248a + "c/c/forum/unfavolike");
-                this.f2029a.a("fid", String.valueOf(this.c));
-                this.f2029a.a("kw", this.b);
-                this.f2029a.a("favo_type", SocialConstants.TRUE);
-                this.f2029a.a("st_type", this.d);
-                this.f2029a.e(true);
-                this.f2029a.l();
+                this.f2030a = new com.baidu.tieba.util.am(com.baidu.tieba.data.h.f1248a + "c/c/forum/unfavolike");
+                this.f2030a.a("fid", String.valueOf(this.c));
+                this.f2030a.a("kw", this.b);
+                this.f2030a.a("favo_type", SocialConstants.TRUE);
+                this.f2030a.a("st_type", this.d);
+                this.f2030a.e(true);
+                this.f2030a.l();
             }
             return 1;
         } catch (Exception e) {
@@ -53,8 +53,8 @@ class cl extends BdAsyncTask<Integer, Integer, Integer> {
         ck ckVar;
         super.a((cl) num);
         if (this.e != null && (ckVar = this.e.get()) != null) {
-            if (this.f2029a != null) {
-                if (this.f2029a.c()) {
+            if (this.f2030a != null) {
+                if (this.f2030a.c()) {
                     if (num.intValue() == 1) {
                         TiebaApplication.h().g(this.b);
                         ckVar.a(this.b, this.c);

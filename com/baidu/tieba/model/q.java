@@ -9,14 +9,14 @@ import java.util.ArrayList;
 public class q extends BdAsyncTask<Boolean, Integer, Boolean> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ o f2042a;
+    final /* synthetic */ o f2043a;
     private com.baidu.tieba.util.am b = null;
     private String c;
     private int d;
     private com.baidu.tieba.data.ay e;
 
     public q(o oVar, String str, int i) {
-        this.f2042a = oVar;
+        this.f2043a = oVar;
         this.c = null;
         this.d = 0;
         this.e = null;
@@ -42,9 +42,9 @@ public class q extends BdAsyncTask<Boolean, Integer, Boolean> {
         if (this.b != null) {
             this.b.j();
         }
-        this.f2042a.d = null;
-        if (this.f2042a.f2041a != null) {
-            this.f2042a.f2041a.a(2, false, null);
+        this.f2043a.d = null;
+        if (this.f2043a.f2042a != null) {
+            this.f2043a.f2042a.a(2, false, null);
         }
     }
 
@@ -55,22 +55,22 @@ public class q extends BdAsyncTask<Boolean, Integer, Boolean> {
         ArrayList arrayList;
         ArrayList arrayList2;
         String str = null;
-        this.f2042a.d = null;
+        this.f2043a.d = null;
         if (bool.booleanValue()) {
             int i = this.d;
-            arrayList = this.f2042a.e;
+            arrayList = this.f2043a.e;
             if (i < arrayList.size()) {
-                arrayList2 = this.f2042a.e;
+                arrayList2 = this.f2043a.e;
                 arrayList2.remove(this.d);
-                o.b(this.f2042a);
+                o.b(this.f2043a);
             }
         } else if (this.b.c()) {
             str = this.e.b();
         } else {
             str = this.b.i();
         }
-        if (this.f2042a.f2041a != null) {
-            this.f2042a.f2041a.a(2, bool, str);
+        if (this.f2043a.f2042a != null) {
+            this.f2043a.f2042a.a(2, bool, str);
         }
     }
 }

@@ -5,11 +5,11 @@ import android.content.DialogInterface;
 class ar implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SystemHelpSettingActivity f2079a;
+    final /* synthetic */ SystemHelpSettingActivity f2080a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ar(SystemHelpSettingActivity systemHelpSettingActivity) {
-        this.f2079a = systemHelpSettingActivity;
+        this.f2080a = systemHelpSettingActivity;
     }
 
     @Override // android.content.DialogInterface.OnClickListener

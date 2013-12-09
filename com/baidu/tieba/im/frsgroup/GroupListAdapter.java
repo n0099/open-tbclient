@@ -22,7 +22,7 @@ import java.util.List;
 public class GroupListAdapter extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    private FrsGroupActivity f1696a;
+    private FrsGroupActivity f1697a;
     private BOTTOM_TYPE b;
     private boolean c;
     private com.baidu.tieba.util.i d;
@@ -55,7 +55,7 @@ public class GroupListAdapter extends BaseAdapter {
     }
 
     public GroupListAdapter(FrsGroupActivity frsGroupActivity) {
-        this.f1696a = frsGroupActivity;
+        this.f1697a = frsGroupActivity;
         this.d = new com.baidu.tieba.util.i(frsGroupActivity);
         this.d.d(true);
     }
@@ -111,13 +111,13 @@ public class GroupListAdapter extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         j jVar;
         if (this.e == null) {
-            return LayoutInflater.from(this.f1696a).inflate(R.layout.im_frsgroup_list_item, viewGroup, false);
+            return LayoutInflater.from(this.f1697a).inflate(R.layout.im_frsgroup_list_item, viewGroup, false);
         }
         if (view == null) {
-            view = LayoutInflater.from(this.f1696a).inflate(R.layout.im_frsgroup_list_item, viewGroup, false);
+            view = LayoutInflater.from(this.f1697a).inflate(R.layout.im_frsgroup_list_item, viewGroup, false);
             jVar = new j();
             jVar.b = (LinearLayout) view.findViewById(R.id.list_item_content);
-            jVar.f1711a = (LinearLayout) view.findViewById(R.id.list_more);
+            jVar.f1712a = (LinearLayout) view.findViewById(R.id.list_more);
             jVar.c = (HeadImageView) view.findViewById(R.id.item_head);
             jVar.d = (TextView) view.findViewById(R.id.item_group_name);
             jVar.e = (TextView) view.findViewById(R.id.item_group_meizi);
@@ -139,7 +139,7 @@ public class GroupListAdapter extends BaseAdapter {
             jVar = (j) view.getTag();
         }
         if (getItemViewType(i) == 1) {
-            jVar.f1711a.setVisibility(0);
+            jVar.f1712a.setVisibility(0);
             jVar.b.setVisibility(8);
             if (this.b == BOTTOM_TYPE.LINE) {
                 jVar.o.setVisibility(0);
@@ -157,12 +157,12 @@ public class GroupListAdapter extends BaseAdapter {
             jVar.n.setVisibility(8);
             return view;
         }
-        jVar.f1711a.setVisibility(8);
+        jVar.f1712a.setVisibility(8);
         jVar.b.setVisibility(0);
         GroupInfoData groupInfoData = (GroupInfoData) getItem(i);
         jVar.c.setTag(null);
         jVar.c.setDrawBorder(true);
-        jVar.c.setRadius(com.baidu.adp.lib.h.g.a((Context) this.f1696a, 5.0f));
+        jVar.c.setRadius(com.baidu.adp.lib.h.g.a((Context) this.f1697a, 5.0f));
         jVar.c.setDefaultResource(R.drawable.avatar_poto_defaul140);
         jVar.c.setNightDefaultResource(R.drawable.avatar_poto_defaul140);
         jVar.c.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
@@ -180,8 +180,8 @@ public class GroupListAdapter extends BaseAdapter {
     }
 
     private void a(View view) {
-        this.f1696a.a().a(TiebaApplication.h().an() == 1);
-        this.f1696a.a().a(view);
+        this.f1697a.a().a(TiebaApplication.h().an() == 1);
+        this.f1697a.a().a(view);
     }
 
     private void a(ImageView[] imageViewArr, int i) {

@@ -18,7 +18,7 @@ import com.slidingmenu.lib.R;
 public abstract class g extends com.baidu.adp.a.e implements a {
 
     /* renamed from: a  reason: collision with root package name */
-    private DialogInterface.OnClickListener f1889a;
+    private DialogInterface.OnClickListener f1890a;
     protected EditText c;
     protected NavigationBar d;
     protected View e;
@@ -36,7 +36,7 @@ public abstract class g extends com.baidu.adp.a.e implements a {
 
     @Override // com.baidu.tieba.im.updategroup.a
     public void a(DialogInterface.OnClickListener onClickListener) {
-        this.f1889a = onClickListener;
+        this.f1890a = onClickListener;
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
@@ -71,7 +71,7 @@ public abstract class g extends com.baidu.adp.a.e implements a {
 
     public g(UpdateGroupActivity updateGroupActivity) {
         super(updateGroupActivity);
-        this.f1889a = null;
+        this.f1890a = null;
         this.p = null;
         this.c = null;
         this.d = null;

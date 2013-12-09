@@ -3,11 +3,11 @@ package com.baidu.tieba;
 public abstract class m {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ j f1923a;
+    final /* synthetic */ j f1924a;
 
     public abstract void a(Object... objArr);
 
     public m(j jVar) {
-        this.f1923a = jVar;
+        this.f1924a = jVar;
     }
 }

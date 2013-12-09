@@ -6,11 +6,11 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 public class az extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.af> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ax f1999a;
+    final /* synthetic */ ax f2000a;
     private volatile com.baidu.tieba.util.am b;
 
     private az(ax axVar) {
-        this.f1999a = axVar;
+        this.f2000a = axVar;
         this.b = null;
     }
 
@@ -27,18 +27,18 @@ public class az extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.af> {
         try {
             this.b = new com.baidu.tieba.util.am(com.baidu.tieba.data.h.f1248a + "c/c/forum/like");
             StringBuilder append = new StringBuilder().append("mForumName:");
-            str = this.f1999a.f1998a;
+            str = this.f2000a.f1999a;
             StringBuilder append2 = append.append(str).append(" mForumid:");
-            str2 = this.f1999a.b;
+            str2 = this.f2000a.b;
             com.baidu.tieba.util.bd.e("LikeModel", "doInBackground", append2.append(str2).toString());
             com.baidu.tieba.util.am amVar = this.b;
-            str3 = this.f1999a.f1998a;
+            str3 = this.f2000a.f1999a;
             amVar.a("kw", str3);
             com.baidu.tieba.util.am amVar2 = this.b;
-            str4 = this.f1999a.b;
+            str4 = this.f2000a.b;
             amVar2.a("fid", str4);
             com.baidu.tieba.util.am amVar3 = this.b;
-            str5 = this.f1999a.d;
+            str5 = this.f2000a.d;
             amVar3.a("st_type", str5);
             this.b.e(true);
             String l = this.b.l();
@@ -61,16 +61,16 @@ public class az extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.af> {
         com.baidu.adp.a.g gVar;
         com.baidu.adp.a.g gVar2;
         String str;
-        this.f1999a.c = null;
+        this.f2000a.c = null;
         if (afVar == null && this.b != null) {
-            this.f1999a.mErrorCode = this.b.e();
-            this.f1999a.mErrorString = this.b.i();
-            str = this.f1999a.mErrorString;
+            this.f2000a.mErrorCode = this.b.e();
+            this.f2000a.mErrorString = this.b.i();
+            str = this.f2000a.mErrorString;
             com.baidu.tieba.util.bd.e("LikeModel", "onPostExecute", str);
         }
-        gVar = this.f1999a.mLoadDataCallBack;
+        gVar = this.f2000a.mLoadDataCallBack;
         if (gVar != null) {
-            gVar2 = this.f1999a.mLoadDataCallBack;
+            gVar2 = this.f2000a.mLoadDataCallBack;
             gVar2.a(afVar);
         }
     }
@@ -82,9 +82,9 @@ public class az extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.af> {
             this.b.j();
             this.b = null;
         }
-        this.f1999a.c = null;
+        this.f2000a.c = null;
         super.cancel(true);
-        gVar = this.f1999a.mLoadDataCallBack;
+        gVar = this.f2000a.mLoadDataCallBack;
         gVar.a(null);
     }
 }

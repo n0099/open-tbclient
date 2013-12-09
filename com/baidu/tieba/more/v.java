@@ -13,12 +13,12 @@ import com.slidingmenu.lib.R;
 public class v extends BdAsyncTask<Object, Integer, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ AppsActivity f2104a;
+    final /* synthetic */ AppsActivity f2105a;
     private com.baidu.tieba.util.am b = null;
     private String c;
 
     public v(AppsActivity appsActivity, String str) {
-        this.f2104a = appsActivity;
+        this.f2105a = appsActivity;
         this.c = null;
         this.c = str;
     }
@@ -29,11 +29,11 @@ public class v extends BdAsyncTask<Object, Integer, String> {
         ProgressBar progressBar;
         LinearLayout linearLayout;
         BaseWebView baseWebView;
-        progressBar = this.f2104a.f;
+        progressBar = this.f2105a.f;
         progressBar.setVisibility(0);
-        linearLayout = this.f2104a.e;
+        linearLayout = this.f2105a.e;
         linearLayout.setVisibility(8);
-        baseWebView = this.f2104a.b;
+        baseWebView = this.f2105a.b;
         baseWebView.setVisibility(0);
     }
 
@@ -57,9 +57,9 @@ public class v extends BdAsyncTask<Object, Integer, String> {
         if (this.b != null) {
             this.b.j();
         }
-        progressBar = this.f2104a.f;
+        progressBar = this.f2105a.f;
         progressBar.setVisibility(8);
-        this.f2104a.d = null;
+        this.f2105a.d = null;
         super.cancel(true);
     }
 
@@ -73,26 +73,26 @@ public class v extends BdAsyncTask<Object, Integer, String> {
         BaseWebView baseWebView2;
         LinearLayout linearLayout;
         BaseWebView baseWebView3;
-        progressBar = this.f2104a.f;
+        progressBar = this.f2105a.f;
         progressBar.setVisibility(8);
         if (this.b == null || !this.b.d() || str == null || str.length() <= 0) {
-            d = this.f2104a.d();
+            d = this.f2105a.d();
             if (!d && str == null) {
-                baseWebView2 = this.f2104a.b;
+                baseWebView2 = this.f2105a.b;
                 baseWebView2.setVisibility(8);
-                linearLayout = this.f2104a.e;
+                linearLayout = this.f2105a.e;
                 linearLayout.setVisibility(0);
-                this.f2104a.showToast(this.f2104a.getString(R.string.system_no_service));
+                this.f2105a.showToast(this.f2105a.getString(R.string.system_no_service));
                 return;
             }
-            String string = this.f2104a.getString(R.string.server_404);
-            baseWebView = this.f2104a.b;
+            String string = this.f2105a.getString(R.string.server_404);
+            baseWebView = this.f2105a.b;
             baseWebView.loadDataWithBaseURL(com.baidu.tieba.data.h.f1248a, string, "text/html", BdUtil.UTF8, "");
             return;
         }
         DatabaseService.a(str, 7);
         com.baidu.tieba.sharedPref.b.a().b("app_inverval", System.currentTimeMillis());
-        baseWebView3 = this.f2104a.b;
+        baseWebView3 = this.f2105a.b;
         baseWebView3.loadDataWithBaseURL(com.baidu.tieba.data.h.f1248a, str, "text/html", BdUtil.UTF8, "");
     }
 }

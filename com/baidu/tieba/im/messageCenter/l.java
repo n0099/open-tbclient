@@ -11,7 +11,7 @@ import java.util.List;
 public class l extends SingleRunnable<m> {
 
     /* renamed from: a  reason: collision with root package name */
-    private LinkedList<Message> f1800a = null;
+    private LinkedList<Message> f1801a = null;
     private com.baidu.tieba.im.b.p b;
     private p c;
 
@@ -23,15 +23,15 @@ public class l extends SingleRunnable<m> {
     }
 
     private List<Message> c() {
-        if (this.f1800a == null) {
+        if (this.f1801a == null) {
             synchronized (l.class) {
-                if (this.f1800a == null) {
-                    this.f1800a = new LinkedList<>();
-                    this.f1800a.addLast(new ResponsedMessage(1003));
+                if (this.f1801a == null) {
+                    this.f1801a = new LinkedList<>();
+                    this.f1801a.addLast(new ResponsedMessage(1003));
                 }
             }
         }
-        return this.f1800a;
+        return this.f1801a;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -74,7 +74,7 @@ public class l extends SingleRunnable<m> {
                         a2 = a(list, i2, this.c);
                         a(list, pVar2);
                         m mVar = new m(this);
-                        mVar.f1801a = list;
+                        mVar.f1802a = list;
                         if (!a2) {
                         }
                         return mVar;
@@ -96,7 +96,7 @@ public class l extends SingleRunnable<m> {
         a2 = a(list, i2, this.c);
         a(list, pVar2);
         m mVar2 = new m(this);
-        mVar2.f1801a = list;
+        mVar2.f1802a = list;
         if (!a2) {
             mVar2.b = this.c;
         }

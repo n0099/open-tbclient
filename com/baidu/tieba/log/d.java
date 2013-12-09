@@ -9,12 +9,12 @@ import java.io.File;
 public class d extends BdAsyncTask<String, Integer, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f1915a;
+    final /* synthetic */ a f1916a;
     private e b = null;
     private String c;
 
     public d(a aVar, String str) {
-        this.f1915a = aVar;
+        this.f1916a = aVar;
         this.c = null;
         this.c = str;
     }
@@ -28,10 +28,10 @@ public class d extends BdAsyncTask<String, Integer, String> {
         String str;
         String str2;
         String str3;
-        this.b = new e(this.f1915a, null);
-        networkStateInfo = this.f1915a.l;
+        this.b = new e(this.f1916a, null);
+        networkStateInfo = this.f1916a.l;
         if (networkStateInfo != UtilHelper.NetworkStateInfo.WIFI) {
-            a aVar = this.f1915a;
+            a aVar = this.f1916a;
             str3 = a.c;
             aVar.g(str3);
             z = false;
@@ -63,7 +63,7 @@ public class d extends BdAsyncTask<String, Integer, String> {
         if (this.b != null) {
             this.b.a();
         }
-        this.f1915a.q = null;
+        this.f1916a.q = null;
         super.cancel(true);
     }
 
@@ -72,6 +72,6 @@ public class d extends BdAsyncTask<String, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(String str) {
         super.a((d) str);
-        this.f1915a.q = null;
+        this.f1916a.q = null;
     }
 }

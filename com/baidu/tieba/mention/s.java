@@ -18,7 +18,7 @@ import org.apache.http.message.BasicNameValuePair;
 public class s extends BdAsyncTask<Object, Integer, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    ArrayList<BasicNameValuePair> f1964a;
+    ArrayList<BasicNameValuePair> f1965a;
     final /* synthetic */ j b;
     private am c = null;
     private String d;
@@ -29,9 +29,9 @@ public class s extends BdAsyncTask<Object, Integer, String> {
         this.b = jVar;
         this.d = null;
         this.e = null;
-        this.f1964a = null;
+        this.f1965a = null;
         this.d = str;
-        this.f1964a = arrayList;
+        this.f1965a = arrayList;
         this.f = i;
         this.e = str2;
     }
@@ -49,7 +49,7 @@ public class s extends BdAsyncTask<Object, Integer, String> {
     public String a(Object... objArr) {
         try {
             this.c = new am(this.d);
-            this.c.a(this.f1964a);
+            this.c.a(this.f1965a);
             return this.c.l();
         } catch (Exception e) {
             bd.b("PostAsyncTask", "doInBackground", "error = " + e.getMessage());

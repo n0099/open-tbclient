@@ -9,19 +9,19 @@ import java.util.Map;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private static f f1856a = null;
+    private static f f1857a = null;
     private UtilHelper.NetworkStateInfo b = null;
     private Map<UtilHelper.NetworkStateInfo, Integer> c = null;
 
     public static f a() {
-        if (f1856a == null) {
+        if (f1857a == null) {
             synchronized (f.class) {
-                if (f1856a == null) {
-                    f1856a = new f();
+                if (f1857a == null) {
+                    f1857a = new f();
                 }
             }
         }
-        return f1856a;
+        return f1857a;
     }
 
     public void b() {

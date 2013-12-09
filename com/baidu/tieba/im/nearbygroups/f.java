@@ -10,7 +10,7 @@ import java.util.Iterator;
 public class f extends u {
 
     /* renamed from: a  reason: collision with root package name */
-    private NearbyGroupsActivity f1847a;
+    private NearbyGroupsActivity f1848a;
     private com.baidu.tieba.util.i d;
     private a f;
     private NearbyGroupsData b = null;
@@ -18,10 +18,10 @@ public class f extends u {
     private boolean e = false;
 
     public f(NearbyGroupsActivity nearbyGroupsActivity) {
-        this.f1847a = null;
+        this.f1848a = null;
         this.d = null;
-        this.f1847a = nearbyGroupsActivity;
-        this.d = new com.baidu.tieba.util.i(this.f1847a);
+        this.f1848a = nearbyGroupsActivity;
+        this.d = new com.baidu.tieba.util.i(this.f1848a);
         this.d.d(true);
     }
 
@@ -129,7 +129,7 @@ public class f extends u {
         a aVar;
         int itemViewType = getItemViewType(i);
         if (view == null) {
-            aVar = g.a(this.f1847a, itemViewType);
+            aVar = g.a(this.f1848a, itemViewType);
             view = aVar.a();
             view.setTag(aVar);
         } else {
@@ -154,7 +154,7 @@ public class f extends u {
     @Override // com.baidu.adp.widget.u
     public View c() {
         if (this.f == null) {
-            this.f = g.a(this.f1847a, 4);
+            this.f = g.a(this.f1848a, 4);
         }
         return this.f.a();
     }

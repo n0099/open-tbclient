@@ -12,7 +12,7 @@ public class b extends com.baidu.adp.a.d {
     private static final Long g = 300000L;
 
     /* renamed from: a  reason: collision with root package name */
-    private long f1730a;
+    private long f1731a;
     private GroupCardActivity b;
     private i c = null;
     private c d = null;
@@ -23,8 +23,8 @@ public class b extends com.baidu.adp.a.d {
     }
 
     public b(long j, GroupCardActivity groupCardActivity) {
-        this.f1730a = j;
-        this.e += this.f1730a;
+        this.f1731a = j;
+        this.e += this.f1731a;
         this.e += "&w=" + LocalViewSize.a().b();
         this.b = groupCardActivity;
     }

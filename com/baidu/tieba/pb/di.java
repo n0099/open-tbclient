@@ -9,11 +9,11 @@ import android.widget.EditText;
 public class di implements DialogInterface.OnKeyListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ cr f2231a;
+    final /* synthetic */ cr f2232a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public di(cr crVar) {
-        this.f2231a = crVar;
+        this.f2232a = crVar;
     }
 
     @Override // android.content.DialogInterface.OnKeyListener
@@ -22,10 +22,10 @@ public class di implements DialogInterface.OnKeyListener {
         EditText editText;
         Dialog dialog;
         if (i == 4) {
-            newPbActivity = this.f2231a.g;
-            editText = this.f2231a.s;
+            newPbActivity = this.f2232a.g;
+            editText = this.f2232a.s;
             com.baidu.adp.lib.h.g.a(newPbActivity, editText);
-            dialog = this.f2231a.o;
+            dialog = this.f2232a.o;
             dialog.dismiss();
             return true;
         }

@@ -7,14 +7,14 @@ import android.widget.TextView;
 class t implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ w f2129a;
+    final /* synthetic */ w f2130a;
     final /* synthetic */ a b;
     final /* synthetic */ s c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(s sVar, w wVar, a aVar) {
         this.c = sVar;
-        this.f2129a = wVar;
+        this.f2130a = wVar;
         this.b = aVar;
     }
 
@@ -22,11 +22,11 @@ class t implements View.OnClickListener {
     public void onClick(View view) {
         LinearLayout linearLayout;
         TextView textView;
-        this.c.b.f2127a.f2110a.b(this.c.b.f2127a, this.f2129a.getUri());
+        this.c.b.f2128a.f2111a.b(this.c.b.f2128a, this.f2130a.getUri());
         this.b.setIsSelected(false);
-        linearLayout = this.c.b.f2127a.m;
+        linearLayout = this.c.b.f2128a.m;
         linearLayout.removeView(view);
-        textView = this.c.b.f2127a.o;
-        textView.setText(this.c.b.f2127a.f2110a.e(this.c.b.f2127a));
+        textView = this.c.b.f2128a.o;
+        textView.setText(this.c.b.f2128a.f2111a.e(this.c.b.f2128a));
     }
 }

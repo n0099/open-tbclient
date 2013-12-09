@@ -32,7 +32,7 @@ public class bx extends BaseAdapter {
     private final boolean t;
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.tieba.data.an f2196a = null;
+    private com.baidu.tieba.data.an f2197a = null;
     private boolean c = true;
     private boolean d = true;
     private int e = 0;
@@ -72,7 +72,7 @@ public class bx extends BaseAdapter {
     }
 
     public void a(com.baidu.tieba.data.an anVar) {
-        this.f2196a = anVar;
+        this.f2197a = anVar;
         if (anVar.d() != null && anVar.d().j() != null) {
             this.f = anVar.d().j().getId();
         }
@@ -112,18 +112,18 @@ public class bx extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.f2196a == null || this.f2196a.e() == null) {
+        if (this.f2197a == null || this.f2197a.e() == null) {
             return 0;
         }
-        return this.f2196a.e().size();
+        return this.f2197a.e().size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.f2196a == null || this.f2196a.e() == null || i < 0 || i >= this.f2196a.e().size()) {
+        if (this.f2197a == null || this.f2197a.e() == null || i < 0 || i >= this.f2197a.e().size()) {
             return null;
         }
-        return this.f2196a.e().get(i);
+        return this.f2197a.e().get(i);
     }
 
     @Override // android.widget.Adapter
@@ -176,7 +176,7 @@ public class bx extends BaseAdapter {
     private View a(ViewGroup viewGroup) {
         bz bzVar = new bz(this);
         View inflate = LayoutInflater.from(this.b).inflate(R.layout.new_pb_list_item, viewGroup, false);
-        bzVar.f2197a = inflate.findViewById(R.id.sub_pb_more);
+        bzVar.f2198a = inflate.findViewById(R.id.sub_pb_more);
         bzVar.b = (HeadImageView) inflate.findViewById(R.id.photo);
         bzVar.b.setIsRound(true);
         bzVar.c = (TextView) inflate.findViewById(R.id.user_name);
@@ -246,8 +246,8 @@ public class bx extends BaseAdapter {
             sparseArray.put(R.id.tag_clip_board, arVar);
             sparseArray.put(R.id.tag_is_subpb, false);
             boolean z3 = false;
-            String j = this.f2196a.j();
-            if (this.f2196a.i() && j != null && j.equals(arVar.d())) {
+            String j = this.f2197a.j();
+            if (this.f2197a.i() && j != null && j.equals(arVar.d())) {
                 z3 = true;
             }
             Resources resources = this.b.getResources();
@@ -280,14 +280,14 @@ public class bx extends BaseAdapter {
             }
             bzVar.e.setText(String.valueOf(arVar.e()) + resources.getString(R.string.floor));
             if (TiebaApplication.h().an() == 1) {
-                bzVar.f2197a.setBackgroundResource(R.drawable.bg_floor_new_middle_1);
+                bzVar.f2198a.setBackgroundResource(R.drawable.bg_floor_new_middle_1);
                 bzVar.j.setVideoImageId(R.drawable.pic_video_1);
                 bzVar.j.setTextColor(this.b.getResources().getColor(R.color.pb_listitem_content_1));
                 bzVar.h.setTextColor(this.b.getResources().getColor(R.color.common_link_text_1));
                 bzVar.h.setCompoundDrawablesWithIntrinsicBounds(R.drawable.btn_comment_n_1, 0, 0, 0);
                 bzVar.j.setLinkTextColor(this.b.getResources().getColor(R.color.common_link_text_1));
             } else {
-                bzVar.f2197a.setBackgroundResource(R.drawable.bg_floor_new_middle);
+                bzVar.f2198a.setBackgroundResource(R.drawable.bg_floor_new_middle);
                 bzVar.j.setVideoImageId(R.drawable.pic_video);
                 bzVar.j.setTextColor(this.b.getResources().getColor(R.color.pb_listitem_content));
                 bzVar.h.setTextColor(this.b.getResources().getColor(R.color.common_link_text));
@@ -306,11 +306,11 @@ public class bx extends BaseAdapter {
                     this.l = new ca(this.b, this.h);
                     this.l.a(this.o);
                     boolean z4 = false;
-                    String id = this.f2196a.d().j().getId();
+                    String id = this.f2197a.d().j().getId();
                     if (id != null && id.equals(TiebaApplication.B())) {
                         z4 = true;
                     }
-                    this.l.a(this.f2196a.l(), z4);
+                    this.l.a(this.f2197a.l(), z4);
                     this.l.a(this.d);
                 }
                 bzVar.l.a(arVar, view);
@@ -386,7 +386,7 @@ public class bx extends BaseAdapter {
                 bzVar.j.a(arVar.h(), true);
             }
             boolean z5 = false;
-            if (this.f2196a.l() != 0) {
+            if (this.f2197a.l() != 0) {
                 boolean z6 = true;
                 z2 = true;
                 String id2 = arVar.g().getId();
@@ -395,7 +395,7 @@ public class bx extends BaseAdapter {
                 }
                 z = (id2 == null || id2.equals(SocialConstants.FALSE) || id2.length() == 0) ? false : false;
             } else {
-                String id3 = this.f2196a.d().j().getId();
+                String id3 = this.f2197a.d().j().getId();
                 if (id3 != null && id3.equals(TiebaApplication.B())) {
                     z = false;
                     z2 = true;
@@ -446,7 +446,7 @@ public class bx extends BaseAdapter {
                 bzVar.i.setTag(sparseArray3);
             }
             if (bzVar.i.getVisibility() == 0) {
-                sparseArray3.put(R.id.tag_manage_user_identity, Integer.valueOf(this.f2196a.l()));
+                sparseArray3.put(R.id.tag_manage_user_identity, Integer.valueOf(this.f2197a.l()));
             }
             if (z2) {
                 sparseArray3.put(R.id.tag_del_post_is_self, Boolean.valueOf(z5));

@@ -1,8 +1,9 @@
 package android.support.v4.widget;
 
 import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class g extends af {
+public class g extends af {
 
     /* renamed from: a  reason: collision with root package name */
     final /* synthetic */ DrawerLayout f355a;

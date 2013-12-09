@@ -18,7 +18,7 @@ import com.slidingmenu.lib.R;
 public class AtMeFragment extends BaseFragment implements com.baidu.adp.widget.ListView.b {
 
     /* renamed from: a  reason: collision with root package name */
-    private j f1938a = null;
+    private j f1939a = null;
     private BdListView b = null;
     private bk c;
     private LinearLayout d;
@@ -36,11 +36,11 @@ public class AtMeFragment extends BaseFragment implements com.baidu.adp.widget.L
         this.b.setPullRefresh(this.c);
         this.d = (LinearLayout) inflate.findViewById(R.id.bodyNotLogin);
         this.f = new aq(inflate, (int) R.drawable.individual_center_news, (int) R.drawable.individual_center_news_1);
-        this.f1938a = new j(this, 2, new a(this));
-        this.f1938a.a(this.b);
-        this.f1938a.a(this.f);
-        this.f1938a.a("c/u/feed/atme");
-        this.f1938a.c();
+        this.f1939a = new j(this, 2, new a(this));
+        this.f1939a.a(this.b);
+        this.f1939a.a(this.f);
+        this.f1939a.a("c/u/feed/atme");
+        this.f1939a.c();
         return inflate;
     }
 
@@ -97,12 +97,12 @@ public class AtMeFragment extends BaseFragment implements com.baidu.adp.widget.L
             this.b.setVisibility(0);
             this.d.setVisibility(8);
             if (t.a().m() > 0) {
-                this.f1938a.a(2);
+                this.f1939a.a(2);
             } else {
-                this.f1938a.a(1);
+                this.f1939a.a(1);
             }
-            this.f1938a.d();
-            this.f1938a.e();
+            this.f1939a.d();
+            this.f1939a.e();
             return;
         }
         if (this.e == null) {
@@ -122,9 +122,9 @@ public class AtMeFragment extends BaseFragment implements com.baidu.adp.widget.L
     public void t() {
         super.t();
         try {
-            if (this.f1938a != null) {
-                this.f1938a.f();
-                this.f1938a.a();
+            if (this.f1939a != null) {
+                this.f1939a.f();
+                this.f1939a.a();
             }
             System.gc();
         } catch (Exception e) {
@@ -133,7 +133,7 @@ public class AtMeFragment extends BaseFragment implements com.baidu.adp.widget.L
     }
 
     public void a() {
-        this.f1938a.b();
+        this.f1939a.b();
     }
 
     @Override // com.baidu.adp.widget.ListView.b

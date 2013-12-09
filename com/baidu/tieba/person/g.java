@@ -95,7 +95,7 @@ public class g extends BdAsyncTask<Object, String, com.baidu.tieba.model.e> {
         String str = strArr[0];
         com.baidu.tieba.model.e eVar2 = new com.baidu.tieba.model.e();
         eVar2.a(str);
-        eVar = this.f2353a.f2290a;
+        eVar = this.f2353a.f2291a;
         eVar.a(eVar2.a());
         iVar = this.f2353a.f;
         if (iVar != null) {
@@ -124,7 +124,7 @@ public class g extends BdAsyncTask<Object, String, com.baidu.tieba.model.e> {
                 this.f2353a.showToast(this.b.i());
                 return;
             }
-            eVar2 = this.f2353a.f2290a;
+            eVar2 = this.f2353a.f2291a;
             eVar2.a(eVar.a());
             iVar = this.f2353a.f;
             if (iVar != null) {

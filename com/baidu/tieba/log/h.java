@@ -5,7 +5,7 @@ import com.baidu.tieba.switchs.SwitchKey;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f1919a = "default";
-    public static String b = "log_upload";
-    public static String c = SwitchKey.LOG;
+    public static String f1920a = "default";
+    public static String b = SwitchKey.LOG;
+    public static String c = SwitchKey.IMG_LOG;
 }

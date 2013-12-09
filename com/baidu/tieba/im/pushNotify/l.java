@@ -25,19 +25,19 @@ import org.json.JSONObject;
 public class l implements com.baidu.tieba.im.messageCenter.g {
 
     /* renamed from: a  reason: collision with root package name */
-    private static l f1865a = null;
+    private static l f1866a = null;
     private Map<String, LinkedList<WeakReference<k>>> b = new HashMap();
     private String c;
 
     public static l a() {
-        if (f1865a == null) {
+        if (f1866a == null) {
             synchronized (l.class) {
-                if (f1865a == null) {
-                    f1865a = new l();
+                if (f1866a == null) {
+                    f1866a = new l();
                 }
             }
         }
-        return f1865a;
+        return f1866a;
     }
 
     public void b() {

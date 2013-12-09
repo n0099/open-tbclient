@@ -8,13 +8,13 @@ import org.apache.http.message.BasicNameValuePair;
 public class ad extends BdAsyncTask<Object, Integer, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ac f1810a;
+    final /* synthetic */ ac f1811a;
     private String b;
     private long c;
     private e d = new e();
 
     public ad(ac acVar, String str, long j) {
-        this.f1810a = acVar;
+        this.f1811a = acVar;
         this.b = str;
         this.c = j;
     }
@@ -28,7 +28,7 @@ public class ad extends BdAsyncTask<Object, Integer, String> {
         try {
             return this.d.a(this.b);
         } catch (Exception e) {
-            str = ac.f1809a;
+            str = ac.f1810a;
             bd.b(str, "doInBackground", "errro: " + e.getMessage());
             return null;
         }
@@ -41,9 +41,9 @@ public class ad extends BdAsyncTask<Object, Integer, String> {
         com.baidu.adp.a.g gVar;
         com.baidu.adp.a.g gVar2;
         super.a((ad) str);
-        gVar = this.f1810a.mLoadDataCallBack;
+        gVar = this.f1811a.mLoadDataCallBack;
         if (gVar != null) {
-            gVar2 = this.f1810a.mLoadDataCallBack;
+            gVar2 = this.f1811a.mLoadDataCallBack;
             gVar2.a(new BasicNameValuePair(String.valueOf(this.c), str));
         }
     }

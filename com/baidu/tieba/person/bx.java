@@ -1,35 +1,44 @@
 package com.baidu.tieba.person;
 
-import android.app.Activity;
+import android.view.LayoutInflater;
 import android.view.View;
-import com.baidu.tieba.TiebaApplication;
+import android.widget.ImageView;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class bx {
+class bx implements com.baidu.adp.lib.guide.b {
 
     /* renamed from: a  reason: collision with root package name */
-    Activity f2346a;
+    final /* synthetic */ bw f2347a;
 
-    public bx(Activity activity) {
-        this.f2346a = activity;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bx(bw bwVar) {
+        this.f2347a = bwVar;
     }
 
-    public static boolean a() {
-        return com.baidu.tieba.sharedPref.b.a().a("is_show_person_photo_cover", false);
+    @Override // com.baidu.adp.lib.guide.b
+    public View a(LayoutInflater layoutInflater) {
+        ImageView imageView = new ImageView(this.f2347a.f2346a);
+        imageView.setBackgroundResource(R.drawable.bg_center_guide_head);
+        return imageView;
     }
 
-    public static void b() {
-        com.baidu.tieba.sharedPref.b.a().b("is_show_person_photo_cover", true);
+    @Override // com.baidu.adp.lib.guide.b
+    public int a() {
+        return 5;
     }
 
-    public void a(View view) {
-        if (!a() && TiebaApplication.C()) {
-            com.baidu.adp.lib.guide.g gVar = new com.baidu.adp.lib.guide.g();
-            gVar.a(view).a(150).b(true);
-            by byVar = new by(this);
-            gVar.a(byVar).a(new bz(this));
-            gVar.a().a(this.f2346a);
-            com.baidu.adp.lib.h.e.e("PersonPhotoCover", "show", "done");
-            b();
-        }
+    @Override // com.baidu.adp.lib.guide.b
+    public int b() {
+        return 16;
+    }
+
+    @Override // com.baidu.adp.lib.guide.b
+    public int c() {
+        return 0;
+    }
+
+    @Override // com.baidu.adp.lib.guide.b
+    public int d() {
+        return 0;
     }
 }

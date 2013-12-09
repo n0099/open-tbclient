@@ -18,7 +18,7 @@ public class SubPbEditor extends PbEditor {
 
     @Override // com.baidu.tieba.pb.PbEditor
     protected void j() {
-        LayoutInflater.from(this.f2140a).inflate(R.layout.sub_pb_editor_view, (ViewGroup) this, true);
+        LayoutInflater.from(this.f2141a).inflate(R.layout.sub_pb_editor_view, (ViewGroup) this, true);
         this.b = (SubPbEditorToolView) findViewById(R.id.pb_editor_tool_button);
         this.c = (EditorToolComponetContainer) findViewById(R.id.pb_editor_tool_group);
     }

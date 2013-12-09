@@ -7,11 +7,11 @@ import android.view.View;
 public class Cdo implements View.OnLongClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ cr f2237a;
+    final /* synthetic */ cr f2238a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public Cdo(cr crVar) {
-        this.f2237a = crVar;
+        this.f2238a = crVar;
     }
 
     @Override // android.view.View.OnLongClickListener

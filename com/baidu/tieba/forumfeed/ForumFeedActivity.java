@@ -194,8 +194,8 @@ public class ForumFeedActivity extends BaseFragment implements bx {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Object obj) {
         ac acVar = (ac) obj;
-        if (acVar != null && acVar.f1977a != null && acVar.f1977a.b() != null && acVar.f1977a.b().size() > 0) {
-            this.c.a(acVar.f1977a);
+        if (acVar != null && acVar.f1978a != null && acVar.f1978a.b() != null && acVar.f1978a.b().size() > 0) {
+            this.c.a(acVar.f1978a);
             this.b.a(true);
         }
         this.c.a();

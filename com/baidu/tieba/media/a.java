@@ -10,15 +10,15 @@ import java.security.InvalidParameterException;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1928a;
+    private Context f1929a;
     private b b = null;
 
     public a(Context context) {
-        this.f1928a = null;
+        this.f1929a = null;
         if (context == null) {
             throw new InvalidParameterException("MediaPlayerDialog context is null");
         }
-        this.f1928a = context;
+        this.f1929a = context;
     }
 
     public AlertDialog a(DialogInterface.OnClickListener onClickListener, DialogInterface.OnClickListener onClickListener2) {
@@ -30,11 +30,11 @@ public class a {
     }
 
     private AlertDialog a(DialogInterface.OnClickListener onClickListener, DialogInterface.OnClickListener onClickListener2, int i) {
-        return a(this.f1928a.getString(R.string.media_play), onClickListener, this.f1928a.getString(R.string.cancel), onClickListener2, this.f1928a.getString(R.string.info_flow), String.format(this.f1928a.getString(R.string.media_play_info), Integer.valueOf(i)));
+        return a(this.f1929a.getString(R.string.media_play), onClickListener, this.f1929a.getString(R.string.cancel), onClickListener2, this.f1929a.getString(R.string.info_flow), String.format(this.f1929a.getString(R.string.media_play_info), Integer.valueOf(i)));
     }
 
     private AlertDialog a(String str, DialogInterface.OnClickListener onClickListener, String str2, DialogInterface.OnClickListener onClickListener2, String str3, String str4) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this.f1928a);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this.f1929a);
         builder.setPositiveButton(str, onClickListener);
         if (str2 != null) {
             builder.setNegativeButton(str2, onClickListener2);

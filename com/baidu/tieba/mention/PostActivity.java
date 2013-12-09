@@ -25,7 +25,7 @@ import org.apache.http.message.BasicNameValuePair;
 public class PostActivity extends com.baidu.tieba.j {
 
     /* renamed from: a  reason: collision with root package name */
-    private LinearLayout f1941a = null;
+    private LinearLayout f1942a = null;
     private LinearLayout b = null;
     private TextView c = null;
     private Button d = null;
@@ -115,7 +115,7 @@ public class PostActivity extends com.baidu.tieba.j {
         this.g = (RelativeLayout) findViewById(R.id.container);
         this.b = (LinearLayout) findViewById(R.id.title);
         this.c = (TextView) findViewById(R.id.title_text);
-        this.f1941a = (LinearLayout) findViewById(R.id.post);
+        this.f1942a = (LinearLayout) findViewById(R.id.post);
         this.e = (ImageView) findViewById(R.id.back);
         this.e.setOnClickListener(new u(this));
         this.d = (Button) findViewById(R.id.reply);

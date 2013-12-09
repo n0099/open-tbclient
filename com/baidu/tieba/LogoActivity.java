@@ -215,7 +215,7 @@ public class LogoActivity extends j {
             TiebaApplication.h().aI();
             TiebaApplication.h().ay();
             com.baidu.tieba.sharedPref.b.a().b("frs_first_in", true);
-            GuideActivity.a(this, 16001, GuideActivity.f1010a);
+            a(2);
             return;
         }
         a(1);

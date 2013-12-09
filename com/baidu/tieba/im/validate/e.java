@@ -7,20 +7,20 @@ import com.baidu.tieba.util.ah;
 public class e implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ValidateActivity f1898a;
+    final /* synthetic */ ValidateActivity f1899a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(ValidateActivity validateActivity) {
-        this.f1898a = validateActivity;
+        this.f1899a = validateActivity;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         n nVar;
         com.baidu.tieba.util.i iVar;
-        nVar = this.f1898a.b;
+        nVar = this.f1899a.b;
         BdListView f = nVar.f();
-        iVar = this.f1898a.h;
+        iVar = this.f1899a.h;
         ah.a(f, iVar, 0, 1);
     }
 }

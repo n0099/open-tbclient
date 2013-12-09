@@ -7,10 +7,10 @@ import org.json.JSONObject;
 public class ch {
 
     /* renamed from: a  reason: collision with root package name */
-    private ArrayList<String> f2026a = new ArrayList<>();
+    private ArrayList<String> f2027a = new ArrayList<>();
 
     public ArrayList<String> a() {
-        return this.f2026a;
+        return this.f2027a;
     }
 
     public void a(String str) {
@@ -26,7 +26,7 @@ public class ch {
             JSONArray optJSONArray = jSONObject.optJSONArray("fname");
             if (optJSONArray != null) {
                 for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.f2026a.add(optJSONArray.getString(i));
+                    this.f2027a.add(optJSONArray.getString(i));
                 }
             }
         } catch (Exception e) {

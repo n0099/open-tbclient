@@ -17,7 +17,7 @@ import com.slidingmenu.lib.R;
 public class k extends com.baidu.adp.a.e {
 
     /* renamed from: a  reason: collision with root package name */
-    private NavigationBar f1851a;
+    private NavigationBar f1852a;
     private NearbyGroupsActivity c;
     private View d;
     private TextView e;
@@ -29,7 +29,7 @@ public class k extends com.baidu.adp.a.e {
 
     public k(NearbyGroupsActivity nearbyGroupsActivity) {
         super(nearbyGroupsActivity);
-        this.f1851a = null;
+        this.f1852a = null;
         this.c = null;
         this.d = null;
         this.e = null;
@@ -48,10 +48,10 @@ public class k extends com.baidu.adp.a.e {
         this.c.setContentView(R.layout.nearby_group_activity);
         this.d = this.c.findViewById(R.id.parent);
         this.g = (PinnedHeaderListView) this.c.findViewById(R.id.nearby_list);
-        this.f1851a = (NavigationBar) this.c.findViewById(R.id.view_navigation_bar);
-        this.f1851a.a(this.c.getResources().getString(R.string.nearby_group_title));
-        this.f1851a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.e = this.f1851a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.c.getString(R.string.nearby_group_create), this.c);
+        this.f1852a = (NavigationBar) this.c.findViewById(R.id.view_navigation_bar);
+        this.f1852a.a(this.c.getResources().getString(R.string.nearby_group_title));
+        this.f1852a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.e = this.f1852a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.c.getString(R.string.nearby_group_create), this.c);
         this.i = (NoNetworkView) this.c.findViewById(R.id.view_no_network);
         this.h = new bk(this.c);
         this.g.setPullRefresh(this.h);
@@ -128,7 +128,7 @@ public class k extends com.baidu.adp.a.e {
         this.c.getLayoutMode().a(i == 1);
         ba.a(this.d, i);
         this.h.a(i);
-        this.f1851a.c(i);
+        this.f1852a.c(i);
         this.i.a(i);
         this.j.a(i);
         this.c.getLayoutMode().a(this.d);

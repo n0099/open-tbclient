@@ -10,11 +10,11 @@ import org.json.JSONObject;
 public class cg {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f2025a;
+    private Context f2026a;
     private com.baidu.tieba.data.av b = new com.baidu.tieba.data.av();
 
     public cg(Context context, String str) {
-        this.f2025a = context;
+        this.f2026a = context;
         a(str);
     }
 
@@ -37,7 +37,7 @@ public class cg {
             this.b.a(forumData);
             com.baidu.tieba.data.ar arVar = new com.baidu.tieba.data.ar();
             arVar.a(optJSONObject);
-            arVar.a(this.f2025a);
+            arVar.a(this.f2026a);
             this.b.a(arVar);
             int length = optJSONArray.length();
             ArrayList<com.baidu.tieba.data.ar> arrayList = new ArrayList<>();
@@ -45,7 +45,7 @@ public class cg {
                 JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                 com.baidu.tieba.data.ar arVar2 = new com.baidu.tieba.data.ar();
                 arVar2.a(jSONObject2);
-                arVar2.a(this.f2025a);
+                arVar2.a(this.f2026a);
                 arrayList.add(arVar2);
             }
             this.b.a(arrayList);

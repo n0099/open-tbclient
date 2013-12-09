@@ -7,10 +7,10 @@ import com.baidu.tieba.im.message.RequestGroupLevelMessage;
 public class d extends com.baidu.adp.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    private long f1813a;
+    private long f1814a;
 
     public long a() {
-        return this.f1813a;
+        return this.f1814a;
     }
 
     @Override // com.baidu.adp.a.d
@@ -24,11 +24,11 @@ public class d extends com.baidu.adp.a.d {
     }
 
     public void a(Intent intent) {
-        this.f1813a = intent.getLongExtra("group_id", 0L);
+        this.f1814a = intent.getLongExtra("group_id", 0L);
     }
 
     public void a(Bundle bundle) {
-        this.f1813a = bundle.getLong("group_id");
+        this.f1814a = bundle.getLong("group_id");
     }
 
     private RequestGroupLevelMessage b(long j) {
@@ -50,6 +50,6 @@ public class d extends com.baidu.adp.a.d {
     }
 
     public void b(Bundle bundle) {
-        bundle.putLong("group_id", this.f1813a);
+        bundle.putLong("group_id", this.f1814a);
     }
 }

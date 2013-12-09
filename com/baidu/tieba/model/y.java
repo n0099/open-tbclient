@@ -10,14 +10,14 @@ import org.apache.http.message.BasicNameValuePair;
 public class y extends BdAsyncTask<Object, com.baidu.tieba.data.t, com.baidu.tieba.data.t> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ x f2049a;
+    final /* synthetic */ x f2050a;
     private com.baidu.tieba.util.am b = null;
     private boolean c;
     private boolean d;
     private boolean e;
 
     public y(x xVar, Boolean bool, Boolean bool2, Boolean bool3) {
-        this.f2049a = xVar;
+        this.f2050a = xVar;
         this.c = false;
         this.d = false;
         this.e = true;
@@ -125,9 +125,9 @@ public class y extends BdAsyncTask<Object, com.baidu.tieba.data.t, com.baidu.tie
     /* renamed from: a */
     public void b(com.baidu.tieba.data.t... tVarArr) {
         com.baidu.adp.a.g gVar;
-        this.f2049a.f2048a = tVarArr[0];
-        this.f2049a.mLoadDataMode = 2;
-        gVar = this.f2049a.mLoadDataCallBack;
+        this.f2050a.f2049a = tVarArr[0];
+        this.f2050a.mLoadDataMode = 2;
+        gVar = this.f2050a.mLoadDataCallBack;
         gVar.a(true);
     }
 
@@ -137,17 +137,17 @@ public class y extends BdAsyncTask<Object, com.baidu.tieba.data.t, com.baidu.tie
     public void a(com.baidu.tieba.data.t tVar) {
         com.baidu.adp.a.g gVar;
         boolean z = true;
-        this.f2049a.mLoadDataMode = 1;
+        this.f2050a.mLoadDataMode = 1;
         if (tVar == null) {
             z = false;
             if (this.b != null) {
-                this.f2049a.mErrorString = this.b.i();
+                this.f2050a.mErrorString = this.b.i();
             }
         } else {
-            this.f2049a.f2048a = tVar;
+            this.f2050a.f2049a = tVar;
         }
-        this.f2049a.b = null;
-        gVar = this.f2049a.mLoadDataCallBack;
+        this.f2050a.b = null;
+        gVar = this.f2050a.mLoadDataCallBack;
         gVar.a(Boolean.valueOf(z));
     }
 
@@ -158,9 +158,9 @@ public class y extends BdAsyncTask<Object, com.baidu.tieba.data.t, com.baidu.tie
             this.b.j();
             this.b = null;
         }
-        this.f2049a.b = null;
+        this.f2050a.b = null;
         super.cancel(true);
-        gVar = this.f2049a.mLoadDataCallBack;
+        gVar = this.f2050a.mLoadDataCallBack;
         gVar.a(false);
     }
 }

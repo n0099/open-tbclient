@@ -3,11 +3,11 @@ package com.baidu.tieba.pb;
 class bq implements cm {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NewPbActivity f2191a;
+    final /* synthetic */ NewPbActivity f2192a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bq(NewPbActivity newPbActivity) {
-        this.f2191a = newPbActivity;
+        this.f2192a = newPbActivity;
     }
 
     @Override // com.baidu.tieba.pb.cm
@@ -15,9 +15,9 @@ class bq implements cm {
         cr crVar;
         cr crVar2;
         if (!com.baidu.tieba.util.bb.c(str)) {
-            crVar = this.f2191a.y;
+            crVar = this.f2192a.y;
             if (com.baidu.tieba.util.bb.c(crVar.J())) {
-                crVar2 = this.f2191a.y;
+                crVar2 = this.f2192a.y;
                 crVar2.d(str);
             }
         }

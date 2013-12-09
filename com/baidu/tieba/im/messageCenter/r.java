@@ -6,18 +6,18 @@ import java.util.Random;
 public class r {
 
     /* renamed from: a  reason: collision with root package name */
-    private static r f1805a = null;
+    private static r f1806a = null;
     private int b = 0;
 
     public static r a() {
-        if (f1805a == null) {
+        if (f1806a == null) {
             synchronized (r.class) {
-                if (f1805a == null) {
-                    f1805a = new r();
+                if (f1806a == null) {
+                    f1806a = new r();
                 }
             }
         }
-        return f1805a;
+        return f1806a;
     }
 
     public synchronized void a(Map<String, String> map) {

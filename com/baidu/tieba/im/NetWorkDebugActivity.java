@@ -30,7 +30,7 @@ public class NetWorkDebugActivity extends Activity implements com.baidu.tieba.im
         this.c = (TextView) findViewById(R.id.tv);
         this.d = new EditText(this);
         this.b.addView(this.d, new LinearLayout.LayoutParams(-2, -2));
-        this.d.setText(j.f1786a);
+        this.d.setText(j.f1787a);
         com.baidu.tieba.im.messageCenter.e.a().a(1001, this);
         com.baidu.tieba.im.messageCenter.e.a().a(202001, this);
         a("closeConnect", new d(this));
