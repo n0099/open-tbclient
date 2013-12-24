@@ -3,16 +3,14 @@ package com.baidu.tieba.square;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class t extends com.baidu.tieba.data.a {
-
-    /* renamed from: a  reason: collision with root package name */
-    private z f2535a;
+    private z a;
 
     public z d() {
-        return this.f2535a;
+        return this.a;
     }
 
     public void a(z zVar) {
-        this.f2535a = zVar;
+        this.a = zVar;
         a((String) null);
     }
 

@@ -7,17 +7,15 @@ import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements View.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ AccountActivity f2090a;
+    final /* synthetic */ AccountActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(AccountActivity accountActivity) {
-        this.f2090a = accountActivity;
+        this.a = accountActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        new AlertDialog.Builder(this.f2090a).setTitle(R.string.alerm_title).setIcon((Drawable) null).setCancelable(true).setItems(R.array.delete_account, new g(this, view)).create().show();
+        new AlertDialog.Builder(this.a).setTitle(R.string.alerm_title).setIcon((Drawable) null).setCancelable(true).setItems(R.array.delete_account, new g(this, view)).create().show();
     }
 }

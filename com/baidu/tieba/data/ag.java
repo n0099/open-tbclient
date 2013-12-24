@@ -4,9 +4,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 /* loaded from: classes.dex */
 public class ag {
-
-    /* renamed from: a  reason: collision with root package name */
-    public String f1214a = null;
+    public String a = null;
     public String b = null;
     public String c = null;
     public Uri d = null;

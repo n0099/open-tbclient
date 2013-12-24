@@ -5,15 +5,13 @@ import java.util.TimerTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j extends TimerTask {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Context f969a;
+    final /* synthetic */ Context a;
     final /* synthetic */ g b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(g gVar, Context context) {
         this.b = gVar;
-        this.f969a = context;
+        this.a = context;
     }
 
     @Override // java.util.TimerTask, java.lang.Runnable
@@ -22,9 +20,9 @@ public class j extends TimerTask {
         if (b.a().c()) {
             return;
         }
-        b a2 = b.a();
-        Context context = this.f969a;
+        b a = b.a();
+        Context context = this.a;
         z = this.b.b;
-        a2.a(context, z);
+        a.a(context, z);
     }
 }

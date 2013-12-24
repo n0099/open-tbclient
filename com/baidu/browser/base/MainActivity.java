@@ -14,7 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.browser.Browser;
-import com.tencent.mm.sdk.platformtools.LocaleUtil;
+import com.baidu.zeus.NotificationProxy;
 /* loaded from: classes.dex */
 public class MainActivity extends BaseActivity {
     private static final int ARG_BROWSER_RESTART = 1;
@@ -104,9 +104,9 @@ public class MainActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void init(Bundle bundle) {
-        getWindow().clearFlags(1024);
+        getWindow().clearFlags(NotificationProxy.MAX_URL_LENGTH);
         setContentView(getResources().getIdentifier("browser_main", "layout", getPackageName()));
-        this.mHomeView = findViewById(getResources().getIdentifier("home_panel", LocaleUtil.INDONESIAN, getPackageName()));
+        this.mHomeView = findViewById(getResources().getIdentifier("home_panel", "id", getPackageName()));
         if (bundle != null) {
             String string = bundle.getString(KEY_FRAGMENT_STATE);
             Message obtainMessage = this.mHandler.obtainMessage();
@@ -345,7 +345,7 @@ public class MainActivity extends BaseActivity {
     }
 
     private void addBrowserView() {
-        ViewGroup viewGroup = (ViewGroup) findViewById(getResources().getIdentifier("MainRoot", LocaleUtil.INDONESIAN, getPackageName()));
+        ViewGroup viewGroup = (ViewGroup) findViewById(getResources().getIdentifier("MainRoot", "id", getPackageName()));
         if (this.mBrowserView.getParent() != viewGroup) {
             viewGroup.addView(this.mBrowserView, this.mHomeView.getLayoutParams());
         }

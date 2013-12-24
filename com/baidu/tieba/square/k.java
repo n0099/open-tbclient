@@ -4,19 +4,17 @@ import android.view.ViewGroup;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements com.baidu.tbadk.imageManager.c {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ViewGroup f2526a;
+    final /* synthetic */ ViewGroup a;
     final /* synthetic */ i b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(i iVar, ViewGroup viewGroup) {
         this.b = iVar;
-        this.f2526a = viewGroup;
+        this.a = viewGroup;
     }
 
     @Override // com.baidu.tbadk.imageManager.c
     public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
-        com.baidu.tieba.util.bj.a(this.f2526a, false, (com.baidu.tieba.util.bl) new l(this, str, eVar));
+        com.baidu.tieba.util.bk.a(this.a, false, (com.baidu.tieba.util.bm) new l(this, str, eVar));
     }
 }

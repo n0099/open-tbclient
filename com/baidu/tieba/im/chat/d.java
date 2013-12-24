@@ -1,30 +1,21 @@
 package com.baidu.tieba.im.chat;
-
-import com.baidu.tieba.im.data.GroupMsgData;
-import com.baidu.tieba.im.db.pojo.GroupMsgPojo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements com.baidu.tieba.im.a<Boolean> {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ GroupMsgData f1591a;
-    final /* synthetic */ String b;
-    final /* synthetic */ GroupMsgPojo c;
-    final /* synthetic */ int d;
-    final /* synthetic */ a e;
+    final /* synthetic */ com.baidu.tieba.im.message.ba a;
+    final /* synthetic */ a b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d(a aVar, GroupMsgData groupMsgData, String str, GroupMsgPojo groupMsgPojo, int i) {
-        this.e = aVar;
-        this.f1591a = groupMsgData;
-        this.b = str;
-        this.c = groupMsgPojo;
-        this.d = i;
+    public d(a aVar, com.baidu.tieba.im.message.ba baVar) {
+        this.b = aVar;
+        this.a = baVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.a
     public void a(Boolean bool) {
-        this.e.a(this.f1591a, this.b, this.c, this.d);
+        if (this.a != null) {
+            this.b.d(this.a);
+        }
     }
 }

@@ -6,15 +6,13 @@ import com.baidu.cloudsdk.social.core.MediaType;
 /* renamed from: at  reason: default package */
 /* loaded from: classes.dex */
 public class at {
-
-    /* renamed from: a  reason: collision with root package name */
-    private MediaType f365a;
+    private MediaType a;
     private boolean b = false;
     private boolean c = false;
     private String d;
 
     private at(Context context, MediaType mediaType) {
-        this.f365a = mediaType;
+        this.a = mediaType;
     }
 
     public static at a(Context context, MediaType mediaType) {
@@ -37,7 +35,7 @@ public class at {
     }
 
     public MediaType a() {
-        return this.f365a;
+        return this.a;
     }
 
     public void a(String str) {

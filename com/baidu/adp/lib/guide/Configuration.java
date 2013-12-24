@@ -3,14 +3,11 @@ package com.baidu.adp.lib.guide;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.view.View;
-import com.tencent.mm.sdk.platformtools.Util;
 /* loaded from: classes.dex */
 class Configuration implements Parcelable {
     public static Parcelable.Creator<Configuration> k = new c();
-
-    /* renamed from: a  reason: collision with root package name */
-    View f494a = null;
-    int b = Util.MASK_8BIT;
+    View a = null;
+    int b = 255;
     int c = -1;
     int d = -1;
     int e = 17170444;

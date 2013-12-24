@@ -4,19 +4,17 @@ import android.view.View;
 import android.view.ViewGroup;
 /* loaded from: classes.dex */
 class p extends android.support.v4.view.ae {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ForumListActivity f1310a;
+    final /* synthetic */ ForumListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(ForumListActivity forumListActivity) {
-        this.f1310a = forumListActivity;
+        this.a = forumListActivity;
     }
 
     @Override // android.support.v4.view.ae
     public int getCount() {
         boolean z;
-        z = this.f1310a.s;
+        z = this.a.s;
         return z ? 1 : 2;
     }
 
@@ -29,11 +27,11 @@ class p extends android.support.v4.view.ae {
     public Object instantiateItem(ViewGroup viewGroup, int i) {
         switch (i) {
             case 0:
-                viewGroup.addView(this.f1310a.c.h);
-                return this.f1310a.c.h;
+                viewGroup.addView(this.a.c.h);
+                return this.a.c.h;
             case 1:
-                viewGroup.addView(this.f1310a.c.i);
-                return this.f1310a.c.i;
+                viewGroup.addView(this.a.c.i);
+                return this.a.c.i;
             default:
                 return null;
         }

@@ -15,7 +15,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.ba;
+import com.baidu.tieba.util.bb;
 import com.baidu.tieba.view.MultiImageView;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
@@ -26,9 +26,7 @@ public class GroupImageActivity extends com.baidu.tieba.j {
     private FrameLayout g;
     private int q;
     private String r;
-
-    /* renamed from: a  reason: collision with root package name */
-    private ProgressBar f1736a = null;
+    private ProgressBar a = null;
     private ArrayList<String> b = null;
     private int c = 0;
     private h d = null;
@@ -95,7 +93,7 @@ public class GroupImageActivity extends com.baidu.tieba.j {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (i == 1) {
-            this.j.setBackgroundColor(ba.d(i));
+            this.j.setBackgroundColor(bb.d(i));
         } else {
             this.j.setBackgroundColor(-16777216);
         }
@@ -131,8 +129,8 @@ public class GroupImageActivity extends com.baidu.tieba.j {
             this.d.cancel();
             this.d = null;
         }
-        if (this.f1736a != null) {
-            this.f1736a.setVisibility(8);
+        if (this.a != null) {
+            this.a.setVisibility(8);
         }
         super.onDestroy();
     }
@@ -157,7 +155,7 @@ public class GroupImageActivity extends com.baidu.tieba.j {
         this.g = (FrameLayout) this.e.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.image_activity_save_button, this.k);
         this.h = this.e.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.i = this.e.a("");
-        this.f1736a = (ProgressBar) findViewById(R.id.progress);
+        this.a = (ProgressBar) findViewById(R.id.progress);
         this.f = (TextView) findViewById(R.id.save);
         this.f.setClickable(false);
         this.g.setOnClickListener(this.k);

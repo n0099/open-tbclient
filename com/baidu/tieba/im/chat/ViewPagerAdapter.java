@@ -5,17 +5,15 @@ import android.view.View;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ViewPagerAdapter extends android.support.v4.view.ae {
-
-    /* renamed from: a  reason: collision with root package name */
-    private List<View> f1535a;
+    private List<View> a;
 
     public ViewPagerAdapter(List<View> list) {
-        this.f1535a = list;
+        this.a = list;
     }
 
     @Override // android.support.v4.view.ae
     public int getCount() {
-        return this.f1535a.size();
+        return this.a.size();
     }
 
     @Override // android.support.v4.view.ae
@@ -30,12 +28,12 @@ public class ViewPagerAdapter extends android.support.v4.view.ae {
 
     @Override // android.support.v4.view.ae
     public void destroyItem(View view, int i, Object obj) {
-        ((ViewPager) view).removeView(this.f1535a.get(i));
+        ((ViewPager) view).removeView(this.a.get(i));
     }
 
     @Override // android.support.v4.view.ae
     public Object instantiateItem(View view, int i) {
-        ((ViewPager) view).addView(this.f1535a.get(i));
-        return this.f1535a.get(i);
+        ((ViewPager) view).addView(this.a.get(i));
+        return this.a.get(i);
     }
 }

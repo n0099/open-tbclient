@@ -6,9 +6,7 @@ import com.baidu.tieba.flist.ForumListActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements View.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ boolean f1336a;
+    final /* synthetic */ boolean a;
     final /* synthetic */ String b;
     final /* synthetic */ String c;
     final /* synthetic */ String d;
@@ -19,7 +17,7 @@ public class m implements View.OnClickListener {
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(ItemInfoView itemInfoView, boolean z, String str, String str2, String str3, String str4, com.baidu.tieba.j jVar) {
         this.g = itemInfoView;
-        this.f1336a = z;
+        this.a = z;
         this.b = str;
         this.c = str2;
         this.d = str3;
@@ -30,8 +28,8 @@ public class m implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Context context;
-        if (!this.f1336a) {
-            context = this.g.f1324a;
+        if (!this.a) {
+            context = this.g.a;
             ForumListActivity.a(context, this.b, this.d, this.c, this.e);
             return;
         }

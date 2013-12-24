@@ -5,13 +5,11 @@ import com.baidu.tieba.im.data.PhotoUrlData;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 class j implements x {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ GroupInfoActivity f1751a;
+    final /* synthetic */ GroupInfoActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(GroupInfoActivity groupInfoActivity) {
-        this.f1751a = groupInfoActivity;
+        this.a = groupInfoActivity;
     }
 
     @Override // com.baidu.tieba.im.groupInfo.x
@@ -19,23 +17,23 @@ class j implements x {
         m mVar;
         if (i == 0) {
             if (i2 == 0) {
-                this.f1751a.showToast(this.f1751a.getString(R.string.has_set_portrait));
+                this.a.showToast(this.a.getString(R.string.has_set_portrait));
                 return;
             }
             dialogInterface.dismiss();
-            this.f1751a.a(obj);
+            this.a.a(obj);
         } else if (i == 1) {
             if (i2 == 0) {
-                this.f1751a.showToast(this.f1751a.getString(R.string.group_portrait_cant_del));
+                this.a.showToast(this.a.getString(R.string.group_portrait_cant_del));
                 return;
             }
             dialogInterface.dismiss();
             if (obj != null && (obj instanceof PhotoUrlData)) {
-                this.f1751a.a((PhotoUrlData) obj);
+                this.a.a((PhotoUrlData) obj);
             }
         } else if (i == 2) {
-            mVar = this.f1751a.f;
-            mVar.u();
+            mVar = this.a.f;
+            mVar.v();
         }
     }
 }

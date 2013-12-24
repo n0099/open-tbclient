@@ -22,9 +22,7 @@ public class i {
     private int n = 10;
     private int o = 10;
     private boolean q = false;
-
-    /* renamed from: a  reason: collision with root package name */
-    private int f1249a = 0;
+    private int a = 0;
     private int b = 0;
     private int c = 1;
     private String d = null;
@@ -46,7 +44,7 @@ public class i {
         if (jSONObject != null) {
             try {
                 this.j.parserJson(jSONObject.optJSONObject("banner"));
-                this.f1249a = jSONObject.optInt("pb_max_floor_total_num", 0);
+                this.a = jSONObject.optInt("pb_max_floor_total_num", 0);
                 this.b = jSONObject.optInt("pb_big_image_width", 0);
                 this.d = jSONObject.optString("big_head_image_host");
                 this.e = jSONObject.optString("small_head_image_host");
@@ -158,16 +156,16 @@ public class i {
                     TiebaApplication.h().a(new int[]{optJSONObject4.optInt("2gTo", 0) * LocationClientOption.MIN_SCAN_SPAN, optJSONObject4.optInt("3gTo", 0) * LocationClientOption.MIN_SCAN_SPAN, optJSONObject4.optInt("wifiTo", 0) * LocationClientOption.MIN_SCAN_SPAN});
                 }
                 PingManager.a().e();
-                com.baidu.tieba.im.d.a.a().b();
+                com.baidu.tieba.im.b.a.b().c();
                 TiebaApplication.h().c(optInt2 == 1);
                 TiebaApplication.h().t(jSONObject.optInt("open_local_popularize", 0) == 1);
-                h.a(this.f1249a);
-                h.e(this.d);
-                h.d(this.e);
+                h.b(this.a);
+                h.f(this.d);
+                h.e(this.e);
                 h.a(this.f, this.g);
-                h.b(this.c);
+                h.c(this.c);
             } catch (Exception e) {
-                com.baidu.tieba.util.bd.b(getClass().getName(), "parserJson", e.getMessage());
+                com.baidu.tieba.util.be.b(getClass().getName(), "parserJson", e.getMessage());
             }
         }
     }

@@ -6,9 +6,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 class ad {
-
-    /* renamed from: a  reason: collision with root package name */
-    ImageView f1443a;
+    ImageView a;
     TextView b;
     LinearLayout c;
     TextView d;

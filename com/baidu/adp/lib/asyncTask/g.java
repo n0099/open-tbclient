@@ -2,7 +2,6 @@ package com.baidu.adp.lib.asyncTask;
 
 import android.os.Handler;
 import android.os.Looper;
-import com.tencent.mm.sdk.platformtools.Util;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.concurrent.BlockingQueue;
@@ -21,9 +20,7 @@ public class g implements Executor {
     private static g c = null;
     private static final ThreadFactory d = new h();
     private static final BlockingQueue<Runnable> e = new SynchronousQueue();
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final Executor f413a = new ThreadPoolExecutor(5, 256, 30, TimeUnit.SECONDS, e, d, new ThreadPoolExecutor.DiscardPolicy());
+    public static final Executor a = new ThreadPoolExecutor(5, 256, 30, TimeUnit.SECONDS, e, d, new ThreadPoolExecutor.DiscardPolicy());
 
     private g() {
     }
@@ -72,8 +69,8 @@ public class g implements Executor {
 
     protected synchronized void a(k kVar) {
         this.g.add(kVar);
-        f413a.execute(kVar);
-        this.i.sendMessageDelayed(this.i.obtainMessage(1, kVar), Util.MILLSECONDS_OF_MINUTE);
+        a.execute(kVar);
+        this.i.sendMessageDelayed(this.i.obtainMessage(1, kVar), 60000L);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -112,7 +109,7 @@ public class g implements Executor {
                     } else {
                         this.g.add(kVar2);
                         this.f.remove(kVar2);
-                        f413a.execute(kVar2);
+                        a.execute(kVar2);
                         this.i.sendMessageDelayed(this.i.obtainMessage(1, kVar2), 120000L);
                         break;
                     }

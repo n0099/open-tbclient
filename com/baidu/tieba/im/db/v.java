@@ -10,27 +10,25 @@ import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class v extends SingleRunnable<Void> {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ LinkedList f1683a;
+    final /* synthetic */ LinkedList a;
     final /* synthetic */ t b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(t tVar, LinkedList linkedList) {
         this.b = tVar;
-        this.f1683a = linkedList;
+        this.a = linkedList;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.SingleRunnable
     /* renamed from: a */
     public Void b() {
-        SQLiteDatabase a2 = s.a();
-        if (a2 != null && this.f1683a != null) {
+        SQLiteDatabase a = s.a();
+        if (a != null && this.a != null) {
             try {
-                if (this.f1683a.size() > 0) {
-                    a2.beginTransaction();
-                    Iterator it = this.f1683a.iterator();
+                if (this.a.size() > 0) {
+                    a.beginTransaction();
+                    Iterator it = this.a.iterator();
                     while (it.hasNext()) {
                         ImMessageCenterPojo imMessageCenterPojo = (ImMessageCenterPojo) it.next();
                         ContentValues contentValues = new ContentValues();
@@ -44,8 +42,8 @@ public class v extends SingleRunnable<Void> {
                         contentValues.put("type", Integer.valueOf(imMessageCenterPojo.getType()));
                         contentValues.put("orderCol", Long.valueOf(imMessageCenterPojo.getOrderCol()));
                         com.baidu.adp.lib.h.e.d(" update recent group chat gid:" + imMessageCenterPojo.getGid());
-                        if (a2.update("tb_message_center", contentValues, "gid=?", new String[]{imMessageCenterPojo.getGid()}) == 0) {
-                            if (a2.insert("tb_message_center", null, contentValues) == 0) {
+                        if (a.update("tb_message_center", contentValues, "gid=?", new String[]{imMessageCenterPojo.getGid()}) == 0) {
+                            if (a.insert("tb_message_center", null, contentValues) == 0) {
                                 com.baidu.adp.lib.h.e.d("表：tb_message_center[insert error] " + imMessageCenterPojo);
                             } else {
                                 com.baidu.adp.lib.h.e.d("表：tb_message_center[insert] " + imMessageCenterPojo);
@@ -54,12 +52,12 @@ public class v extends SingleRunnable<Void> {
                             com.baidu.adp.lib.h.e.d("表：tb_message_center[update] " + imMessageCenterPojo);
                         }
                     }
-                    a2.setTransactionSuccessful();
+                    a.setTransactionSuccessful();
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             } finally {
-                a2.endTransaction();
+                a.endTransaction();
             }
         }
         return null;

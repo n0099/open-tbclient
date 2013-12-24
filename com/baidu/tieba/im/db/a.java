@@ -13,13 +13,12 @@ public class a {
 
     public static c a(String str) {
         c cVar = new c();
-        cVar.f1665a = b(str);
-        cVar.b = c(str);
-        cVar.c = d(str);
+        cVar.a = c(str);
+        cVar.b = d(str);
         return cVar;
     }
 
-    private static boolean b(String str) {
+    private static boolean c(String str) {
         if (com.baidu.tieba.im.groupInfo.u.c(TiebaApplication.B(), str)) {
             com.baidu.tieba.im.groupInfo.u.a(TiebaApplication.B(), str, false);
             com.baidu.tieba.im.groupInfo.u.c(TiebaApplication.B(), str, false);
@@ -28,15 +27,15 @@ public class a {
         return false;
     }
 
-    private static boolean c(String str) {
+    private static boolean d(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
         return true & l.a().a(str, "apply_join_group") & t.a().a(str) & d.a().e(str);
     }
 
-    private static boolean d(String str) {
-        com.baidu.tieba.im.pushNotify.a.h().b((RecentChatFriendData) null);
+    public static boolean b(String str) {
+        com.baidu.tieba.im.c.a.h().b((RecentChatFriendData) null);
         ConcurrentHashMap<String, ImMessageCenterPojo> b = ad.a().b();
         if (b != null && !TextUtils.isEmpty(str) && b.get(str) != null) {
             b.remove(str);

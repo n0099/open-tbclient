@@ -1,60 +1,34 @@
 package com.baidu.android.nebula.cmd;
 
-import android.content.Context;
-import android.os.Process;
-import com.baidu.android.common.logging.Log;
-import com.baidu.android.common.net.ProxyHttpClient;
-import com.baidu.browser.core.util.BdUtil;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.util.EntityUtils;
-import org.json.JSONArray;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.util.Timer;
 /* loaded from: classes.dex */
-public class k extends Thread {
+class k implements com.baidu.android.nebula.util.e {
+    final /* synthetic */ e a;
 
-    /* renamed from: a  reason: collision with root package name */
-    h f680a;
-    final /* synthetic */ ScanDownloadFile b;
-    private CharSequence c;
-
-    public k(ScanDownloadFile scanDownloadFile, CharSequence charSequence) {
-        String str;
-        this.b = scanDownloadFile;
-        StringBuilder sb = new StringBuilder();
-        str = scanDownloadFile.mFileName;
-        setName(sb.append(str).append("_moplus_getdownloadinfo_thread").toString());
-        this.c = charSequence;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public k(e eVar) {
+        this.a = eVar;
     }
 
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
-        Context context;
-        long j;
-        Process.setThreadPriority(19);
-        try {
-            j = this.b.mScanedOneTime;
-            sleep(j);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        context = this.b.mContext;
-        ProxyHttpClient proxyHttpClient = new ProxyHttpClient(context);
-        try {
-            HttpResponse execute = proxyHttpClient.execute(new HttpGet(this.c.toString()));
-            if (execute.getStatusLine().getStatusCode() == 200) {
-                String entityUtils = EntityUtils.toString(execute.getEntity(), BdUtil.UTF8);
-                if (!isInterrupted()) {
-                    this.f680a = new h(this.b, new JSONArray(entityUtils));
-                    this.f680a.start();
-                }
+    @Override // com.baidu.android.nebula.util.e
+    public void a(com.baidu.android.nebula.util.c cVar) {
+        com.baidu.android.nebula.util.c cVar2;
+        Timer timer;
+        Timer timer2;
+        synchronized (this.a.a) {
+            this.a.a.mLocInfo = cVar;
+            cVar2 = this.a.a.mLocInfo;
+            if (cVar2 == null) {
+                this.a.a.mErrcode = 2;
             } else {
-                Log.d("ScanDownloadFile", "request failed  " + execute.getStatusLine());
+                this.a.a.mErrcode = 0;
             }
-        } catch (Exception e2) {
-            Log.w("ScanDownloadFile", "error", e2);
-        } finally {
-            proxyHttpClient.close();
+            timer = this.a.a.mTimeoutTm;
+            if (timer != null) {
+                timer2 = this.a.a.mTimeoutTm;
+                timer2.cancel();
+            }
+            this.a.a.notifyAll();
         }
     }
 }

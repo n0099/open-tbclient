@@ -4,15 +4,13 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class v extends BdAsyncTask<Void, Void, Void> {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f1762a;
+    final /* synthetic */ String a;
     final /* synthetic */ String b;
     final /* synthetic */ boolean c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(String str, String str2, boolean z) {
-        this.f1762a = str;
+        this.a = str;
         this.b = str2;
         this.c = z;
     }
@@ -21,7 +19,7 @@ public final class v extends BdAsyncTask<Void, Void, Void> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public Void a(Void... voidArr) {
-        u.c(this.f1762a, this.b, this.c);
+        u.c(this.a, this.b, this.c);
         return null;
     }
 }

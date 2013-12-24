@@ -6,7 +6,6 @@ import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
@@ -15,9 +14,7 @@ import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class bs extends com.baidu.adp.a.e {
-
-    /* renamed from: a  reason: collision with root package name */
-    private BdSwitchView f1400a;
+    private BdSwitchView a;
     private BdSwitchView c;
     private View d;
     private LinearLayout e;
@@ -29,17 +26,15 @@ public class bs extends com.baidu.adp.a.e {
     private LinearLayout k;
     private LinearLayout l;
     private LinearLayout m;
-    private Button n;
-    private TextView o;
-    private AlertDialog p;
-    private View.OnClickListener q;
-    private boolean r;
-    private com.baidu.adp.widget.BdSwitchView.c s;
-    private final DialogInterface.OnClickListener t;
+    private AlertDialog n;
+    private View.OnClickListener o;
+    private boolean p;
+    private com.baidu.adp.widget.BdSwitchView.c q;
+    private final DialogInterface.OnClickListener r;
 
     public bs(Context context) {
         super(context);
-        this.f1400a = null;
+        this.a = null;
         this.c = null;
         this.d = null;
         this.e = null;
@@ -53,10 +48,8 @@ public class bs extends com.baidu.adp.a.e {
         this.m = null;
         this.n = null;
         this.o = null;
-        this.p = null;
-        this.q = null;
-        this.s = new bt(this);
-        this.t = new bu(this);
+        this.q = new bt(this);
+        this.r = new bu(this);
         k();
     }
 
@@ -74,9 +67,9 @@ public class bs extends com.baidu.adp.a.e {
         this.d = LayoutInflater.from(this.b).inflate(R.layout.frs_sidebar, (ViewGroup) null);
         this.c = (BdSwitchView) this.d.findViewById(R.id.thrift_mode_switch);
         this.c.setSwitchStyle(BdSwitchView.SwitchStyle.SIDE_BAR);
-        this.f1400a = (BdSwitchView) this.d.findViewById(R.id.eyeshield_mode_switch);
-        this.f1400a.setOnSwitchStateChangeListener((com.baidu.adp.widget.BdSwitchView.c) this.b);
-        this.f1400a.setSwitchStyle(BdSwitchView.SwitchStyle.SIDE_BAR);
+        this.a = (BdSwitchView) this.d.findViewById(R.id.eyeshield_mode_switch);
+        this.a.setOnSwitchStateChangeListener((com.baidu.adp.widget.BdSwitchView.c) this.b);
+        this.a.setSwitchStyle(BdSwitchView.SwitchStyle.SIDE_BAR);
         this.g = (TextView) this.d.findViewById(R.id.message_btn);
         this.e = (LinearLayout) this.d.findViewById(R.id.message_layout);
         this.h = (LinearLayout) this.d.findViewById(R.id.like_forum_layout);
@@ -85,8 +78,6 @@ public class bs extends com.baidu.adp.a.e {
         this.k = (LinearLayout) this.d.findViewById(R.id.show_all);
         this.l = (LinearLayout) this.d.findViewById(R.id.show_good);
         this.m = (LinearLayout) this.d.findViewById(R.id.show_image);
-        this.n = (Button) this.d.findViewById(R.id.side_like);
-        this.o = (TextView) this.d.findViewById(R.id.side_like_tv);
     }
 
     public void a(boolean z) {
@@ -117,15 +108,15 @@ public class bs extends com.baidu.adp.a.e {
     }
 
     public BdSwitchView f() {
-        return this.f1400a;
+        return this.a;
     }
 
     public boolean g() {
-        return this.r;
+        return this.p;
     }
 
     public void b(boolean z) {
-        this.r = z;
+        this.p = z;
     }
 
     public void h() {
@@ -133,36 +124,33 @@ public class bs extends com.baidu.adp.a.e {
 
     public void i() {
         if (TiebaApplication.h().an() == 1) {
-            this.f1400a.a();
+            this.a.a();
         } else {
-            this.f1400a.b();
+            this.a.b();
         }
     }
 
     public void j() {
         this.c.setOnSwitchStateChangeListener(null);
         if (com.baidu.tieba.d.a.a().f()) {
-            if (this.c.c()) {
-                this.c.b();
-            }
             this.c.a();
         } else {
             this.c.b();
         }
-        this.c.setOnSwitchStateChangeListener(this.s);
+        this.c.setOnSwitchStateChangeListener(this.q);
     }
 
     public void a(com.baidu.tieba.model.ap apVar) {
-        long a2 = apVar.a() + apVar.b();
+        long a = apVar.a() + apVar.b();
         boolean z = TiebaApplication.h().an() == 1;
-        if (a2 > 0) {
+        if (a > 0) {
             this.g.setVisibility(0);
-            if (a2 < 10) {
-                this.g.setText(String.valueOf(a2));
+            if (a < 10) {
+                this.g.setText(String.valueOf(a));
                 this.g.setBackgroundResource(z ? R.drawable.icon_news_head_prompt_one_1 : R.drawable.icon_news_head_prompt_one);
                 return;
-            } else if (a2 < 100) {
-                this.g.setText(String.valueOf(a2));
+            } else if (a < 100) {
+                this.g.setText(String.valueOf(a));
                 this.g.setBackgroundResource(z ? R.drawable.icon_news_head_prompt_two_1 : R.drawable.icon_news_head_prompt_two);
                 return;
             } else {
@@ -175,13 +163,12 @@ public class bs extends com.baidu.adp.a.e {
     }
 
     public void a(View.OnClickListener onClickListener) {
-        this.q = onClickListener;
-        this.e.setOnClickListener(this.q);
-        this.i.setOnClickListener(this.q);
-        this.k.setOnClickListener(this.q);
-        this.l.setOnClickListener(this.q);
-        this.m.setOnClickListener(this.q);
-        this.n.setOnClickListener(onClickListener);
+        this.o = onClickListener;
+        this.e.setOnClickListener(this.o);
+        this.i.setOnClickListener(this.o);
+        this.k.setOnClickListener(this.o);
+        this.l.setOnClickListener(this.o);
+        this.m.setOnClickListener(this.o);
     }
 
     public void a(boolean z, String str) {
@@ -202,10 +189,10 @@ public class bs extends com.baidu.adp.a.e {
                     LinearLayout linearLayout = (LinearLayout) from.inflate(R.layout.frs_sidebar_item, (ViewGroup) null);
                     layoutMode.a(linearLayout);
                     TextView textView = (TextView) linearLayout.findViewById(R.id.like_forum_name);
-                    String a2 = c.get(i2).a();
-                    textView.setText(a2);
-                    textView.setTag(a2);
-                    textView.setOnClickListener(this.q);
+                    String a = c.get(i2).a();
+                    textView.setText(a);
+                    textView.setTag(a);
+                    textView.setOnClickListener(this.o);
                     this.h.addView(linearLayout);
                 }
             }

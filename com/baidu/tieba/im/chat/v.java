@@ -1,27 +1,20 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.TiebaApplication;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class v extends BdAsyncTask<Void, Void, Void> {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ boolean f1608a;
-    final /* synthetic */ u b;
+class v implements com.baidu.tieba.im.a<Boolean> {
+    final /* synthetic */ t a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public v(u uVar, boolean z) {
-        this.b = uVar;
-        this.f1608a = z;
+    public v(t tVar) {
+        this.a = tVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public Void a(Void... voidArr) {
-        com.baidu.tieba.im.groupInfo.u.b(TiebaApplication.B(), this.b.c(), this.f1608a);
-        com.baidu.tieba.im.pushNotify.a.h().a(this.b.c());
-        return null;
+    @Override // com.baidu.tieba.im.a
+    public void a(Boolean bool) {
+        this.a.a.closeLoadingDialog();
+        com.baidu.tieba.im.messageCenter.e.a().e(new com.baidu.tieba.im.message.e());
+        this.a.a.showToast(R.string.cash_del_suc, false);
     }
 }

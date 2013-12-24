@@ -1,7 +1,25 @@
 package com.baidu.tieba.im.chat;
 
-import java.util.ArrayList;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tieba.TiebaApplication;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public interface ab {
-    void a(ArrayList<String> arrayList);
+public class ab extends BdAsyncTask<Void, Void, Void> {
+    final /* synthetic */ boolean a;
+    final /* synthetic */ aa b;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ab(aa aaVar, boolean z) {
+        this.b = aaVar;
+        this.a = z;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public Void a(Void... voidArr) {
+        com.baidu.tieba.im.groupInfo.u.b(TiebaApplication.B(), this.b.c(), this.a);
+        com.baidu.tieba.im.c.a.h().a(this.b.c());
+        return null;
+    }
 }

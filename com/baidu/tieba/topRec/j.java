@@ -6,13 +6,11 @@ import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements Animation.AnimationListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ h f2553a;
+    final /* synthetic */ h a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(h hVar) {
-        this.f2553a = hVar;
+        this.a = hVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -24,21 +22,21 @@ public class j implements Animation.AnimationListener {
         Button button3;
         TopRecActivity topRecActivity2;
         int i2;
-        i = this.f2553a.k;
+        i = this.a.k;
         if (i < 100) {
-            button3 = this.f2553a.d;
+            button3 = this.a.d;
             StringBuilder sb = new StringBuilder();
-            topRecActivity2 = this.f2553a.j;
+            topRecActivity2 = this.a.j;
             StringBuilder append = sb.append(topRecActivity2.getString(R.string.done)).append("(");
-            i2 = this.f2553a.k;
+            i2 = this.a.k;
             button3.setText(append.append(i2).append(")").toString());
         } else {
-            button = this.f2553a.d;
+            button = this.a.d;
             StringBuilder sb2 = new StringBuilder();
-            topRecActivity = this.f2553a.j;
+            topRecActivity = this.a.j;
             button.setText(sb2.append(topRecActivity.getString(R.string.done)).append("(99+)").toString());
         }
-        button2 = this.f2553a.d;
+        button2 = this.a.d;
         button2.invalidate();
     }
 

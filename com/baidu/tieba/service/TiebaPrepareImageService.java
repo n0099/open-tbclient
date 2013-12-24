@@ -9,9 +9,7 @@ import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tieba.TiebaApplication;
 /* loaded from: classes.dex */
 public class TiebaPrepareImageService extends Service {
-
-    /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f2437a = false;
+    public static volatile boolean a = false;
     private int f;
     private int g;
     private int b = 0;
@@ -74,7 +72,7 @@ public class TiebaPrepareImageService extends Service {
         this.f = intent.getIntExtra("max_size", 750);
         this.g = intent.getIntExtra("display_size", 0);
         TiebaApplication.h().a((com.baidu.tieba.j) null);
-        if (!f2437a) {
+        if (!a) {
             this.d = new p(this, this.b, this.c);
             this.d.execute(new Object[0]);
             return;

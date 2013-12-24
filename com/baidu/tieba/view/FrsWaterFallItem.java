@@ -10,9 +10,7 @@ import android.widget.LinearLayout;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class FrsWaterFallItem extends LinearLayout {
-
-    /* renamed from: a  reason: collision with root package name */
-    private TextPaint f2632a;
+    private TextPaint a;
     private String b;
     private String c;
     private String d;
@@ -32,7 +30,7 @@ public class FrsWaterFallItem extends LinearLayout {
 
     public FrsWaterFallItem(Context context) {
         super(context);
-        this.f2632a = null;
+        this.a = null;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -54,7 +52,7 @@ public class FrsWaterFallItem extends LinearLayout {
 
     public FrsWaterFallItem(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f2632a = null;
+        this.a = null;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -82,7 +80,7 @@ public class FrsWaterFallItem extends LinearLayout {
     }
 
     private void a() {
-        this.f2632a = new TextPaint(1);
+        this.a = new TextPaint(1);
         this.p = new Paint();
         this.p.setAntiAlias(true);
         this.j = com.baidu.adp.lib.h.g.a(getContext(), 5.0f);
@@ -94,20 +92,20 @@ public class FrsWaterFallItem extends LinearLayout {
 
     @Override // android.widget.LinearLayout, android.view.View
     protected void onDraw(Canvas canvas) {
-        Bitmap a2;
+        Bitmap a;
         super.onDraw(canvas);
         try {
             com.baidu.tieba.data.ba baVar = (com.baidu.tieba.data.ba) getTag();
             if (baVar != null) {
                 int height = ((getHeight() - getPaddingBottom()) - this.l) + this.n;
                 int width = (getWidth() - getPaddingRight()) - this.j;
-                this.f2632a.setTextSize(this.h);
+                this.a.setTextSize(this.h);
                 if (this.q == 1) {
-                    this.f2632a.setColor(getContext().getResources().getColor(R.color.listview_item_num_text_1));
+                    this.a.setColor(getContext().getResources().getColor(R.color.listview_item_num_text_1));
                 } else {
-                    this.f2632a.setColor(getContext().getResources().getColor(R.color.listview_item_num_text));
+                    this.a.setColor(getContext().getResources().getColor(R.color.listview_item_num_text));
                 }
-                int ceil = (int) Math.ceil(this.f2632a.getFontMetrics().ascent);
+                int ceil = (int) Math.ceil(this.a.getFontMetrics().ascent);
                 int e = baVar.e();
                 if (e > 0) {
                     if (this.d == null) {
@@ -118,46 +116,46 @@ public class FrsWaterFallItem extends LinearLayout {
                         }
                     }
                     if (this.e == -1) {
-                        this.e = (width - ((int) Math.ceil(com.baidu.adp.lib.h.g.a((Paint) this.f2632a, this.d)))) - this.j;
+                        this.e = (width - ((int) Math.ceil(com.baidu.adp.lib.h.g.a((Paint) this.a, this.d)))) - this.j;
                     }
-                    canvas.drawText(this.d, this.e, height - ceil, this.f2632a);
+                    canvas.drawText(this.d, this.e, height - ceil, this.a);
                     width = this.e;
                 }
                 if (this.e != -1) {
                     if (this.q == 1) {
-                        a2 = com.baidu.tieba.util.m.a((int) R.drawable.icon_little_comment_s_1);
+                        a = com.baidu.tieba.util.m.a((int) R.drawable.icon_little_comment_s_1);
                     } else {
-                        a2 = com.baidu.tieba.util.m.a((int) R.drawable.icon_little_comment_s);
+                        a = com.baidu.tieba.util.m.a((int) R.drawable.icon_little_comment_s);
                     }
-                    this.f = this.e - a2.getWidth();
+                    this.f = this.e - a.getWidth();
                     width = this.f - this.i;
-                    canvas.drawBitmap(a2, width, ((this.h - a2.getHeight()) / 2) + height, this.p);
+                    canvas.drawBitmap(a, width, ((this.h - a.getHeight()) / 2) + height, this.p);
                 }
                 if (this.q == 1) {
-                    this.f2632a.setColor(getContext().getResources().getColor(R.color.listview_item_author_time_text_1));
+                    this.a.setColor(getContext().getResources().getColor(R.color.listview_item_author_time_text_1));
                 } else {
-                    this.f2632a.setColor(getContext().getResources().getColor(R.color.listview_item_author_time_text));
+                    this.a.setColor(getContext().getResources().getColor(R.color.listview_item_author_time_text));
                 }
-                this.c = com.baidu.adp.lib.h.g.a(this.f2632a, baVar.a(), width - (this.j * 2));
-                canvas.drawText(this.c, this.k + this.j, height - ceil, this.f2632a);
+                this.c = com.baidu.adp.lib.h.g.a(this.a, baVar.a(), width - (this.j * 2));
+                canvas.drawText(this.c, this.k + this.j, height - ceil, this.a);
                 if (this.q == 1) {
-                    this.f2632a.setColor(getContext().getResources().getColor(R.color.frs_header_divider_bg_1));
+                    this.a.setColor(getContext().getResources().getColor(R.color.frs_header_divider_bg_1));
                 } else {
-                    this.f2632a.setColor(getContext().getResources().getColor(R.color.frs_header_divider_bg));
+                    this.a.setColor(getContext().getResources().getColor(R.color.frs_header_divider_bg));
                 }
                 int height2 = (getHeight() - getPaddingBottom()) - this.l;
-                canvas.drawRect(this.o, height2, getWidth() - this.o, height2 + 2, this.f2632a);
-                this.f2632a.setTextSize(this.g);
+                canvas.drawRect(this.o, height2, getWidth() - this.o, height2 + 2, this.a);
+                this.a.setTextSize(this.g);
                 if (this.q == 1) {
-                    this.f2632a.setColor(getContext().getResources().getColor(R.color.listview_item_title_text_1));
+                    this.a.setColor(getContext().getResources().getColor(R.color.listview_item_title_text_1));
                 } else {
-                    this.f2632a.setColor(getContext().getResources().getColor(R.color.listview_item_title_text));
+                    this.a.setColor(getContext().getResources().getColor(R.color.listview_item_title_text));
                 }
-                int ceil2 = (int) Math.ceil(this.f2632a.getFontMetrics().ascent);
+                int ceil2 = (int) Math.ceil(this.a.getFontMetrics().ascent);
                 if (this.b == null) {
-                    this.b = com.baidu.adp.lib.h.g.a(this.f2632a, baVar.c(), ((getWidth() - getPaddingLeft()) - getPaddingRight()) - (this.j * 2));
+                    this.b = com.baidu.adp.lib.h.g.a(this.a, baVar.c(), ((getWidth() - getPaddingLeft()) - getPaddingRight()) - (this.j * 2));
                 }
-                canvas.drawText(this.b, this.k + this.j, (((getHeight() - getPaddingBottom()) - (this.l * 2)) + this.m) - ceil2, this.f2632a);
+                canvas.drawText(this.b, this.k + this.j, (((getHeight() - getPaddingBottom()) - (this.l * 2)) + this.m) - ceil2, this.a);
             }
         } catch (Exception e2) {
             e2.printStackTrace();

@@ -94,7 +94,7 @@ public class ViewManager {
     public void requestLayout(ChildView childView) {
         AbsoluteLayout.LayoutParams layoutParams;
         int i;
-        int i2 = 2048;
+        int i2 = MAX_SURFACE_DIMENSION;
         int contentToViewDimension = this.mWebView.contentToViewDimension(childView.width);
         int contentToViewDimension2 = this.mWebView.contentToViewDimension(childView.height);
         int contentToViewX = this.mWebView.contentToViewX(childView.x);
@@ -113,14 +113,14 @@ public class ViewManager {
         if (childView.mView instanceof SurfaceView) {
             final SurfaceView surfaceView = (SurfaceView) childView.mView;
             if (!JniUtil.myIsSurfaceViewFixedSize(surfaceView) || !this.mZoomInProgress) {
-                if (contentToViewDimension <= 2048 && contentToViewDimension2 <= 2048) {
+                if (contentToViewDimension <= MAX_SURFACE_DIMENSION && contentToViewDimension2 <= MAX_SURFACE_DIMENSION) {
                     i = contentToViewDimension2;
                     i2 = contentToViewDimension;
                 } else if (childView.width > childView.height) {
-                    i = (childView.height * 2048) / childView.width;
+                    i = (childView.height * MAX_SURFACE_DIMENSION) / childView.width;
                 } else {
-                    i2 = (childView.width * 2048) / childView.height;
-                    i = 2048;
+                    i2 = (childView.width * MAX_SURFACE_DIMENSION) / childView.height;
+                    i = MAX_SURFACE_DIMENSION;
                 }
                 if (i2 * i > this.MAX_SURFACE_AREA) {
                     float f = this.MAX_SURFACE_AREA;

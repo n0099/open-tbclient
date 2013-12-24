@@ -1,61 +1,69 @@
 package com.baidu.tieba.im.model;
 
-import android.graphics.Bitmap;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.im.model.LocalPicModel;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Intent;
+import android.os.Bundle;
+import com.baidu.android.pushservice.PushConstants;
+import protobuf.CommitInviteMsg.CommitInviteMsgReq;
 /* loaded from: classes.dex */
-public class g extends BdAsyncTask<Object, Integer, LocalPicModel.ResponseData> {
+public class g extends com.baidu.adp.a.d {
+    private i a = null;
+    private com.baidu.tieba.im.message.x b;
+    private int c;
+    private int d;
 
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ LocalPicModel f1816a;
-
-    private g(LocalPicModel localPicModel) {
-        this.f1816a = localPicModel;
+    @Override // com.baidu.adp.a.d
+    protected boolean LoadData() {
+        return false;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: d */
-    public LocalPicModel.ResponseData a(Object... objArr) {
-        String str;
-        String str2;
-        String str3;
-        String str4;
-        String str5 = "im_" + String.valueOf(System.currentTimeMillis());
-        str = this.f1816a.mSPath;
-        str2 = this.f1816a.mSName;
-        String a2 = com.baidu.tieba.util.x.a(str, str2, com.baidu.tieba.im.j.d, str5 + "_send");
-        String str6 = str5 + "_display";
-        str3 = this.f1816a.mDPath;
-        str4 = this.f1816a.mDName;
-        String a3 = com.baidu.tieba.util.x.a(str3, str4, com.baidu.tieba.im.j.d, str6);
-        Bitmap c = com.baidu.tieba.util.x.c(com.baidu.tieba.im.j.d, str6);
-        if (a2 == null || a3 == null || c == null) {
-            return null;
+    @Override // com.baidu.adp.a.d
+    public boolean cancelLoadData() {
+        if (this.a != null) {
+            this.a.cancel();
         }
-        return new LocalPicModel.ResponseData(c, a2, a3);
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        super.cancel(true);
-        this.f1816a.mImageTask = null;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(LocalPicModel.ResponseData responseData) {
-        com.baidu.adp.a.g gVar;
-        com.baidu.adp.a.g gVar2;
-        super.a((g) responseData);
-        this.f1816a.mImageTask = null;
-        gVar = this.f1816a.mLoadDataCallBack;
-        if (gVar != null) {
-            gVar2 = this.f1816a.mLoadDataCallBack;
-            gVar2.a(responseData);
+        if (this.b != null) {
+            com.baidu.tieba.im.messageCenter.e.a().b(this.b);
+            return true;
         }
+        return true;
+    }
+
+    public void a(Intent intent) {
+        if (intent != null) {
+            this.c = intent.getIntExtra(PushConstants.EXTRA_GID, -1);
+            this.d = intent.getIntExtra("groupid", -1);
+        }
+    }
+
+    public void a(Bundle bundle) {
+        if (bundle != null) {
+            this.c = bundle.getInt(PushConstants.EXTRA_GID, -1);
+            this.d = bundle.getInt("groupid", -1);
+        }
+    }
+
+    public void b(Bundle bundle) {
+        bundle.putInt(PushConstants.EXTRA_GID, this.c);
+        bundle.putInt("groupid", this.d);
+    }
+
+    public void a(String str) {
+        if (this.a != null) {
+            this.a.cancel();
+        }
+        this.a = new i(this);
+        this.a.execute(str);
+    }
+
+    public void b(String str) {
+        this.b = a(this.c, this.d, str);
+        com.baidu.tieba.im.messageCenter.e.a().a(this.b);
+    }
+
+    private com.baidu.tieba.im.message.x a(int i, int i2, String str) {
+        CommitInviteMsgReq.DataReq build = CommitInviteMsgReq.DataReq.newBuilder().a(i).b(5).a(str).b("{\"type\":" + String.valueOf(1) + ",\"groupId\":" + String.valueOf(i2) + "}").build();
+        com.baidu.tieba.im.message.x xVar = new com.baidu.tieba.im.message.x();
+        xVar.a(build);
+        return xVar;
     }
 }

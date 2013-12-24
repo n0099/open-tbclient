@@ -14,12 +14,10 @@ import com.baidu.cloudsdk.IBaiduListener;
 /* renamed from: by  reason: default package */
 /* loaded from: classes.dex */
 public class by extends WebViewClient {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bw f391a;
+    final /* synthetic */ bw a;
 
     private by(bw bwVar) {
-        this.f391a = bwVar;
+        this.a = bwVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -33,24 +31,24 @@ public class by extends WebViewClient {
         LinearLayout linearLayout;
         ProgressDialog progressDialog;
         ProgressDialog progressDialog2;
-        boolean a2;
+        boolean a;
         if (Build.VERSION.SDK_INT < 11) {
-            a2 = this.f391a.a(str);
-            if (a2) {
+            a = this.a.a(str);
+            if (a) {
                 return;
             }
         }
         super.onPageFinished(webView, str);
-        if (this.f391a.isShowing()) {
-            progressDialog = this.f391a.g;
+        if (this.a.isShowing()) {
+            progressDialog = this.a.g;
             if (progressDialog.isShowing()) {
-                progressDialog2 = this.f391a.g;
+                progressDialog2 = this.a.g;
                 progressDialog2.dismiss();
             }
         }
-        webView2 = this.f391a.h;
+        webView2 = this.a.h;
         webView2.setVisibility(0);
-        linearLayout = this.f391a.i;
+        linearLayout = this.a.i;
         linearLayout.setBackgroundColor(0);
     }
 
@@ -58,20 +56,20 @@ public class by extends WebViewClient {
     public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
         ProgressDialog progressDialog;
         ProgressDialog progressDialog2;
-        boolean a2;
+        boolean a;
         if (Build.VERSION.SDK_INT < 11) {
-            a2 = this.f391a.a(str);
-            if (a2) {
+            a = this.a.a(str);
+            if (a) {
                 return;
             }
         }
         super.onPageStarted(webView, str, bitmap);
-        if (this.f391a.isShowing()) {
-            progressDialog = this.f391a.g;
+        if (this.a.isShowing()) {
+            progressDialog = this.a.g;
             if (progressDialog.isShowing()) {
                 return;
             }
-            progressDialog2 = this.f391a.g;
+            progressDialog2 = this.a.g;
             progressDialog2.show();
         }
     }
@@ -80,8 +78,8 @@ public class by extends WebViewClient {
     public void onReceivedError(WebView webView, int i, String str, String str2) {
         IBaiduListener iBaiduListener;
         super.onReceivedError(webView, i, str, str2);
-        this.f391a.dismiss();
-        iBaiduListener = this.f391a.f;
+        this.a.dismiss();
+        iBaiduListener = this.a.f;
         iBaiduListener.onError(new BaiduException(str));
     }
 
@@ -92,10 +90,10 @@ public class by extends WebViewClient {
 
     @Override // android.webkit.WebViewClient
     public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-        boolean a2;
+        boolean a;
         if (Build.VERSION.SDK_INT >= 11) {
-            a2 = this.f391a.a(str);
-            return a2;
+            a = this.a.a(str);
+            return a;
         }
         return super.shouldOverrideUrlLoading(webView, str);
     }

@@ -7,20 +7,21 @@ import android.graphics.Bitmap;
 import android.media.ExifInterface;
 import android.net.Uri;
 import com.baidu.tieba.BaseFragmentActivity;
+import com.baidu.tieba.util.be;
 import com.slidingmenu.lib.R;
 import java.io.File;
 /* loaded from: classes.dex */
 public class bd {
     public static void a(Activity activity) {
         try {
-            if (!com.baidu.tieba.util.x.a()) {
+            if (!com.baidu.tieba.util.y.a()) {
                 if (activity instanceof com.baidu.tieba.j) {
-                    ((com.baidu.tieba.j) activity).showToast(com.baidu.tieba.util.x.b());
+                    ((com.baidu.tieba.j) activity).showToast(com.baidu.tieba.util.y.b());
                 } else if (activity instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) activity).b(com.baidu.tieba.util.x.b());
+                    ((BaseFragmentActivity) activity).a(com.baidu.tieba.util.y.b());
                 }
             } else {
-                File f = com.baidu.tieba.util.x.f("camera.jpg");
+                File f = com.baidu.tieba.util.y.f("camera.jpg");
                 if (f != null) {
                     Uri fromFile = Uri.fromFile(f);
                     Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
@@ -29,11 +30,11 @@ public class bd {
                 } else if (activity instanceof com.baidu.tieba.j) {
                     ((com.baidu.tieba.j) activity).showToast(activity.getString(R.string.error_sd_error));
                 } else if (activity instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) activity).b(activity.getString(R.string.error_sd_error));
+                    ((BaseFragmentActivity) activity).a(activity.getString(R.string.error_sd_error));
                 }
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.bd.b("WriteUtil", "takePhoto", "error = " + e.getMessage());
+            be.b("WriteUtil", "takePhoto", "error = " + e.getMessage());
         }
     }
 
@@ -48,7 +49,7 @@ public class bd {
             intent.setAction("android.intent.action.GET_CONTENT");
             activity.startActivityForResult(intent, 12002);
         } catch (Exception e) {
-            com.baidu.tieba.util.bd.b("WriteUtil", "getAlbumImage", "error = " + e.getMessage());
+            be.b("WriteUtil", "getAlbumImage", "error = " + e.getMessage());
         }
     }
 
@@ -76,18 +77,18 @@ public class bd {
     private static Bitmap a(int i) {
         Exception e;
         try {
-            int a2 = a(com.baidu.tieba.util.x.c("camera.jpg"));
-            Bitmap a3 = com.baidu.tieba.util.m.a("camera.jpg", i);
-            if (a2 != 0 && a3 != null) {
+            int a = a(com.baidu.tieba.util.y.c("camera.jpg"));
+            Bitmap a2 = com.baidu.tieba.util.m.a("camera.jpg", i);
+            if (a != 0 && a2 != null) {
                 try {
-                    return com.baidu.tieba.util.m.e(a3, a2);
+                    return com.baidu.tieba.util.m.e(a2, a);
                 } catch (Exception e2) {
                     e = e2;
-                    com.baidu.tieba.util.bd.b("WriteUtil", "photoResult", "error = " + e.getMessage());
+                    be.b("WriteUtil", "photoResult", "error = " + e.getMessage());
                     return null;
                 }
             }
-            return a3;
+            return a2;
         } catch (Exception e3) {
             e = e3;
         }
@@ -97,7 +98,7 @@ public class bd {
         try {
             return com.baidu.tieba.util.m.a(context, uri, i);
         } catch (Exception e) {
-            com.baidu.tieba.util.bd.b("WriteUtil", "AlbumImageResult", "error = " + e.getMessage());
+            be.b("WriteUtil", "AlbumImageResult", "error = " + e.getMessage());
             return null;
         }
     }

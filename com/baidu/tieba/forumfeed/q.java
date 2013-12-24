@@ -11,9 +11,7 @@ import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class q extends com.baidu.adp.a.e {
-
-    /* renamed from: a  reason: collision with root package name */
-    View f1355a;
+    View a;
     private View c;
     private RadioGroup d;
     private RadioButton[] e;
@@ -39,7 +37,7 @@ public class q extends com.baidu.adp.a.e {
         this.g = this.f.a(R.layout.nb_item_home_topview, (View.OnClickListener) null);
         this.d = (RadioGroup) this.g.findViewById(R.id.radioGroup);
         this.e = new RadioButton[]{(RadioButton) this.g.findViewById(R.id.radio_square), (RadioButton) this.g.findViewById(R.id.radio_forumfeed)};
-        this.f1355a = this.f.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.square_nb_item_allcat, (SquareActivity) this.j.a(0));
+        this.a = this.f.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.square_nb_item_allcat, (SquareActivity) this.j.a(0));
         this.i = (ViewPager) this.c.findViewById(R.id.content);
         this.i.setOnPageChangeListener(this.l);
         this.i.setAdapter(this.j);
@@ -55,7 +53,7 @@ public class q extends com.baidu.adp.a.e {
     }
 
     public View a() {
-        return this.f1355a;
+        return this.a;
     }
 
     public RadioGroup e() {

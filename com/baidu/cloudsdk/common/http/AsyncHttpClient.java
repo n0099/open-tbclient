@@ -2,7 +2,6 @@ package com.baidu.cloudsdk.common.http;
 
 import android.content.Context;
 import com.baidu.android.common.net.ConnectManager;
-import com.baidu.cyberplayer.sdk.internal.VersionUtils;
 import java.io.InputStream;
 import java.lang.ref.WeakReference;
 import java.util.LinkedList;
@@ -37,7 +36,7 @@ import org.apache.http.protocol.SyncBasicHttpContext;
 public class AsyncHttpClient extends DefaultHttpClient {
     protected static final ThreadPoolExecutor sThreadPool = (ThreadPoolExecutor) Executors.newCachedThreadPool();
     protected long mLastCheckTime = 0;
-    protected int mNetworkCheckInterval = VersionUtils.CUR_DEVELOPMENT;
+    protected int mNetworkCheckInterval = 10000;
     protected final WeakHashMap mRequestMap;
 
     /* loaded from: classes.dex */

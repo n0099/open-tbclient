@@ -9,16 +9,14 @@ import org.apache.http.protocol.HttpContext;
 /* renamed from: bi  reason: default package */
 /* loaded from: classes.dex */
 public class bi implements Runnable {
-
-    /* renamed from: a  reason: collision with root package name */
-    private AbstractHttpClient f378a;
+    private AbstractHttpClient a;
     private HttpContext b;
     private HttpUriRequest c;
     private HttpResponseHandler d;
     private boolean e;
 
     public bi(AbstractHttpClient abstractHttpClient, HttpContext httpContext, HttpUriRequest httpUriRequest, HttpResponseHandler httpResponseHandler) {
-        this.f378a = abstractHttpClient;
+        this.a = abstractHttpClient;
         this.b = httpContext;
         this.c = httpUriRequest;
         this.d = httpResponseHandler;
@@ -33,7 +31,7 @@ public class bi implements Runnable {
         if (Thread.currentThread().isInterrupted()) {
             return;
         }
-        HttpResponse execute = this.f378a.execute(this.c, this.b);
+        HttpResponse execute = this.a.execute(this.c, this.b);
         if (Thread.currentThread().isInterrupted()) {
             throw new InterruptedException("the request has been cancelled");
         }

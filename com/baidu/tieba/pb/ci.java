@@ -1,19 +1,17 @@
 package com.baidu.tieba.pb;
 /* loaded from: classes.dex */
 class ci implements com.baidu.tieba.editortool.o {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ch f2206a;
+    final /* synthetic */ ch a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ci(ch chVar) {
-        this.f2206a = chVar;
+        this.a = chVar;
     }
 
     @Override // com.baidu.tieba.editortool.o
     public void a() {
-        this.f2206a.b.e = true;
-        this.f2206a.b.b.getEditText().requestFocus();
+        this.a.b.e = true;
+        this.a.b.b.getEditText().requestFocus();
     }
 
     @Override // com.baidu.tieba.editortool.o

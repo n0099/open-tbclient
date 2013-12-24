@@ -4,16 +4,14 @@ import android.content.Context;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class LocalViewSize {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static LocalViewSize f1532a = null;
+    private static LocalViewSize a = null;
     private Context b = null;
 
     public static LocalViewSize a() {
-        if (f1532a == null) {
-            f1532a = new LocalViewSize();
+        if (a == null) {
+            a = new LocalViewSize();
         }
-        return f1532a;
+        return a;
     }
 
     private LocalViewSize() {

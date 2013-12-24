@@ -3,14 +3,12 @@ package com.baidu.tieba.data;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class bc {
-
-    /* renamed from: a  reason: collision with root package name */
-    private int f1236a = 0;
+    private int a = 0;
     private int b = 0;
     private String c = "";
 
     public int a() {
-        return this.f1236a;
+        return this.a;
     }
 
     public int b() {
@@ -24,11 +22,11 @@ public class bc {
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.f1236a = jSONObject.optInt("is_lpost", 0);
+                this.a = jSONObject.optInt("is_lpost", 0);
                 this.b = jSONObject.optInt("topic_type", 0);
                 this.c = jSONObject.optString("link", "");
             } catch (Exception e) {
-                com.baidu.tieba.util.bd.b(getClass().getName(), "parserJson", "error = " + e.getMessage());
+                com.baidu.tieba.util.be.b(getClass().getName(), "parserJson", "error = " + e.getMessage());
             }
         }
     }

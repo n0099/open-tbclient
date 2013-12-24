@@ -5,16 +5,14 @@ import android.content.Intent;
 import android.view.View;
 /* loaded from: classes.dex */
 class o implements View.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ i f1353a;
+    final /* synthetic */ i a;
     final /* synthetic */ Context b;
     final /* synthetic */ n c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(n nVar, i iVar, Context context) {
         this.c = nVar;
-        this.f1353a = iVar;
+        this.a = iVar;
         this.b = context;
     }
 

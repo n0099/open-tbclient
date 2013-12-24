@@ -6,13 +6,11 @@ import com.baidu.tieba.view.NavigationBar;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ap implements View.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WriteImageActivity f2790a;
+    final /* synthetic */ WriteImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ap(WriteImageActivity writeImageActivity) {
-        this.f2790a = writeImageActivity;
+        this.a = writeImageActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -22,17 +20,17 @@ public class ap implements View.OnClickListener {
         LinearLayout linearLayout;
         NavigationBar navigationBar3;
         LinearLayout linearLayout2;
-        navigationBar = this.f2790a.o;
+        navigationBar = this.a.o;
         if (navigationBar.getVisibility() == 0) {
-            navigationBar3 = this.f2790a.o;
+            navigationBar3 = this.a.o;
             navigationBar3.setVisibility(8);
-            linearLayout2 = this.f2790a.m;
+            linearLayout2 = this.a.m;
             linearLayout2.setVisibility(8);
             return;
         }
-        navigationBar2 = this.f2790a.o;
+        navigationBar2 = this.a.o;
         navigationBar2.setVisibility(0);
-        linearLayout = this.f2790a.m;
+        linearLayout = this.a.m;
         linearLayout.setVisibility(0);
     }
 }

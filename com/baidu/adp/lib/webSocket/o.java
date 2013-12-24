@@ -10,9 +10,7 @@ import java.util.List;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class o implements k {
-
-    /* renamed from: a  reason: collision with root package name */
-    protected Handler f542a;
+    protected Handler a;
     protected volatile an b;
     protected volatile WebSocketWriter c;
     protected g d;
@@ -153,13 +151,13 @@ public class o implements k {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(Object obj) {
-        Message obtainMessage = this.f542a.obtainMessage();
+        Message obtainMessage = this.a.obtainMessage();
         obtainMessage.obj = obj;
-        this.f542a.sendMessage(obtainMessage);
+        this.a.sendMessage(obtainMessage);
     }
 
     protected void a() {
-        this.f542a = new p(this);
+        this.a = new p(this);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -170,7 +168,7 @@ public class o implements k {
     public void b() {
         HandlerThread handlerThread = new HandlerThread("WebSocketWriter");
         handlerThread.start();
-        this.c = new WebSocketWriter(handlerThread.getLooper(), this.f542a, this.d, this.e);
+        this.c = new WebSocketWriter(handlerThread.getLooper(), this.a, this.d, this.e);
         if (k()) {
             com.baidu.adp.lib.h.e.d("WS writer created and started");
         }
@@ -178,7 +176,7 @@ public class o implements k {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void c() {
-        this.b = new an(this.f542a, this.d, this.e, "WebSocketReader");
+        this.b = new an(this.a, this.d, this.e, "WebSocketReader");
         this.b.start();
         if (k()) {
             com.baidu.adp.lib.h.e.d("WS reader created and started");

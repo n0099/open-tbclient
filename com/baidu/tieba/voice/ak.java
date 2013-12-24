@@ -4,9 +4,7 @@ import android.os.Build;
 import com.baidu.tieba.TiebaApplication;
 /* loaded from: classes.dex */
 public class ak {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static final String[] f2722a = new String[0];
+    private static final String[] a = new String[0];
     private static final String[] b = {"meizu"};
 
     public static String a(int i) {
@@ -41,8 +39,8 @@ public class ak {
         if (str == null) {
             return true;
         }
-        for (int i = 0; i < f2722a.length; i++) {
-            if (f2722a[i].equals(str)) {
+        for (int i = 0; i < a.length; i++) {
+            if (a[i].equals(str)) {
                 return false;
             }
         }

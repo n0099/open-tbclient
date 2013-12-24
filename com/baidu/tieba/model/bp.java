@@ -8,9 +8,7 @@ import com.baidu.tieba.data.WriteData;
 public class bp extends com.baidu.adp.a.d {
     protected Context e;
     protected com.baidu.tieba.data.av f;
-
-    /* renamed from: a  reason: collision with root package name */
-    protected int f2012a = 0;
+    protected int a = 0;
     protected String b = null;
     protected String c = null;
     protected String d = null;
@@ -94,7 +92,7 @@ public class bp extends com.baidu.adp.a.d {
     }
 
     public int g() {
-        return this.f2012a;
+        return this.a;
     }
 
     @Override // com.baidu.adp.a.d
@@ -111,7 +109,7 @@ public class bp extends com.baidu.adp.a.d {
         if (this.b == null || this.c == null || this.g != null) {
             return false;
         }
-        this.f2012a = 0;
+        this.a = 0;
         a(0);
         return true;
     }
@@ -121,21 +119,21 @@ public class bp extends com.baidu.adp.a.d {
         if (this.b == null || this.c == null || this.f.l() || this.g != null) {
             return false;
         }
-        this.f2012a = 2;
+        this.a = 2;
         a(2);
         return true;
     }
 
     public boolean j() {
         cancelLoadData();
-        this.f2012a = 1;
+        this.a = 1;
         a(1);
         return true;
     }
 
     public boolean k() {
         cancelLoadData();
-        this.f2012a = 3;
+        this.a = 3;
         a(3);
         return true;
     }

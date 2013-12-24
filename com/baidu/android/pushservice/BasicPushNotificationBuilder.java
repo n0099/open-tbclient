@@ -2,68 +2,41 @@ package com.baidu.android.pushservice;
 
 import android.app.Notification;
 import android.content.Context;
-import android.net.Uri;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 /* loaded from: classes.dex */
-public class BasicPushNotificationBuilder extends PushNotificationBuilder {
-    private void readObject(ObjectInputStream objectInputStream) {
-        this.mStatusbarIcon = objectInputStream.readInt();
-        this.mNotificationFlags = objectInputStream.readInt();
-        this.mNotificationDefaults = objectInputStream.readInt();
-        if (objectInputStream.readBoolean()) {
-            this.mNotificationsound = Uri.parse((String) objectInputStream.readObject());
-        }
-        int readInt = objectInputStream.readInt();
-        this.mVibratePattern = new long[readInt];
-        for (int i = 0; i < readInt; i++) {
-            this.mVibratePattern[i] = objectInputStream.readLong();
-        }
-        this.mNotificationTitle = (String) objectInputStream.readObject();
-        this.mNotificationText = (String) objectInputStream.readObject();
+public class BasicPushNotificationBuilder {
+    private com.baidu.android.pushservice.apiproxy.BasicPushNotificationBuilder a;
+
+    public BasicPushNotificationBuilder(Context context, com.baidu.android.pushservice.apiproxy.BasicPushNotificationBuilder basicPushNotificationBuilder) {
+        this.a = basicPushNotificationBuilder;
     }
 
-    private void writeObject(ObjectOutputStream objectOutputStream) {
-        objectOutputStream.writeInt(this.mStatusbarIcon);
-        objectOutputStream.writeInt(this.mNotificationFlags);
-        objectOutputStream.writeInt(this.mNotificationDefaults);
-        if (this.mNotificationsound != null) {
-            objectOutputStream.writeBoolean(true);
-            objectOutputStream.writeObject(this.mNotificationsound.toString());
-        } else {
-            objectOutputStream.writeBoolean(false);
-        }
-        if (this.mVibratePattern != null) {
-            objectOutputStream.writeInt(this.mVibratePattern.length);
-            for (int i = 0; i < this.mVibratePattern.length; i++) {
-                objectOutputStream.writeLong(this.mVibratePattern[i]);
+    public com.baidu.android.pushservice.apiproxy.BasicPushNotificationBuilder getInner() {
+        return this.a;
+    }
+
+    /* JADX WARN: Type inference failed for: r0v0, types: [com.baidu.android.pushservice.BasicPushNotificationBuilder$1] */
+    public BasicPushNotificationBuilder(final Context context) {
+        new Thread() { // from class: com.baidu.android.pushservice.BasicPushNotificationBuilder.1
+            @Override // java.lang.Thread, java.lang.Runnable
+            public void run() {
+                if (LoadExecutor.loadPush(context)) {
+                    BasicPushNotificationBuilder.this.a = new com.baidu.android.pushservice.apiproxy.BasicPushNotificationBuilder();
+                }
             }
-        } else {
-            objectOutputStream.writeInt(0);
-        }
-        objectOutputStream.writeObject(this.mNotificationTitle);
-        objectOutputStream.writeObject(this.mNotificationText);
+        }.start();
     }
 
-    @Override // com.baidu.android.pushservice.PushNotificationBuilder
     public Notification construct(Context context) {
-        Notification notification = new Notification();
-        if (this.mNotificationDefaults != 0) {
-            notification.defaults = this.mNotificationDefaults;
+        if (LoadExecutor.loadPush(context)) {
+            return this.a.construct(context);
         }
-        if (this.mNotificationsound != null) {
-            notification.sound = this.mNotificationsound;
+        return null;
+    }
+
+    private void a(int i) {
+        try {
+            Thread.sleep(i);
+        } catch (Exception e) {
         }
-        if (this.mVibratePattern != null) {
-            notification.vibrate = this.mVibratePattern;
-        }
-        if (this.mStatusbarIcon != 0) {
-            notification.icon = this.mStatusbarIcon;
-        }
-        if (this.mNotificationFlags != 0) {
-            notification.flags = this.mNotificationFlags;
-        }
-        notification.setLatestEventInfo(context, this.mNotificationTitle, this.mNotificationText, null);
-        return notification;
     }
 }

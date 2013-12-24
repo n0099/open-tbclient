@@ -1,17 +1,26 @@
 package com.baidu.tieba.im.chat;
-/* loaded from: classes.dex */
-class by implements Runnable {
 
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bx f1583a;
+import android.widget.EditText;
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes.dex */
+public class by implements Runnable {
+    final /* synthetic */ bu a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public by(bx bxVar) {
-        this.f1583a = bxVar;
+    public by(bu buVar) {
+        this.a = buVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f1583a.f1582a.R();
+        EditText editText;
+        EditText editText2;
+        EditText editText3;
+        editText = this.a.z;
+        editText.requestFocus();
+        editText2 = this.a.z;
+        int length = editText2.getText().toString().length();
+        editText3 = this.a.z;
+        editText3.setSelection(length);
     }
 }

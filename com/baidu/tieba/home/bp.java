@@ -17,9 +17,7 @@ import com.slidingmenu.lib.R;
 import java.util.Random;
 /* loaded from: classes.dex */
 public class bp extends FrameLayout {
-
-    /* renamed from: a  reason: collision with root package name */
-    private int f1479a;
+    private int a;
     private final int b;
     private Context c;
     private ProgressBar d;
@@ -34,7 +32,7 @@ public class bp extends FrameLayout {
 
     public bp(Context context) {
         super(context);
-        this.f1479a = 0;
+        this.a = 0;
         this.b = 180;
         this.j = 2000;
         this.k = new bq(this);
@@ -68,9 +66,9 @@ public class bp extends FrameLayout {
         int measuredWidth = this.d.getMeasuredWidth();
         int measuredHeight = this.d.getMeasuredHeight();
         int i6 = i5 - (measuredWidth / 2);
-        int a2 = com.baidu.adp.lib.h.g.a(this.c, 16.0f);
-        int i7 = measuredHeight + a2;
-        this.d.layout(i6, a2, measuredWidth + i6, i7);
+        int a = com.baidu.adp.lib.h.g.a(this.c, 16.0f);
+        int i7 = measuredHeight + a;
+        this.d.layout(i6, a, measuredWidth + i6, i7);
         int measuredWidth2 = this.e.getMeasuredWidth();
         int measuredHeight2 = this.e.getMeasuredHeight();
         int i8 = i5 - (measuredWidth2 / 2);
@@ -80,14 +78,14 @@ public class bp extends FrameLayout {
         int measuredWidth3 = this.f.getMeasuredWidth();
         int measuredHeight4 = this.f.getMeasuredHeight();
         int i10 = i5 - (measuredWidth3 / 2);
-        int a3 = i9 + com.baidu.adp.lib.h.g.a(this.c, 10.0f);
-        this.f.layout(i10, a3, measuredWidth3 + i10, measuredHeight4 + a3);
+        int a2 = i9 + com.baidu.adp.lib.h.g.a(this.c, 10.0f);
+        this.f.layout(i10, a2, measuredWidth3 + i10, measuredHeight4 + a2);
         int measuredWidth4 = this.g.getMeasuredWidth();
         int measuredHeight5 = this.g.getMeasuredHeight();
         int i11 = i5 - (measuredWidth4 / 2);
-        int a4 = com.baidu.adp.lib.h.g.a(this.c, 125.0f);
-        int i12 = measuredHeight5 + a4;
-        this.g.layout(i11, a4, measuredWidth4 + i11, i12);
+        int a3 = com.baidu.adp.lib.h.g.a(this.c, 125.0f);
+        int i12 = measuredHeight5 + a3;
+        this.g.layout(i11, a3, measuredWidth4 + i11, i12);
         int measuredWidth5 = this.h.getMeasuredWidth();
         int i13 = i5 - (measuredWidth5 / 2);
         this.h.layout(i13, i12, measuredWidth5 + i13, this.h.getMeasuredHeight() + i12);
@@ -101,7 +99,7 @@ public class bp extends FrameLayout {
         removeCallbacks(this.k);
         removeCallbacks(this.l);
         boolean z = TiebaApplication.h().an() == 1;
-        switch (this.f1479a) {
+        switch (this.a) {
             case 0:
                 this.d.setPadding(0, 0, 0, 0);
                 this.d.setClickable(true);
@@ -111,9 +109,9 @@ public class bp extends FrameLayout {
                 this.f.setText(R.string.signallforum_begin);
                 return;
             case 1:
-                int a2 = com.baidu.adp.lib.h.g.a(this.c, 6.0f);
-                this.d.setPadding(a2, a2, a2, a2);
-                this.d.getProgressDrawable().setBounds(0, 0, this.d.getWidth() - (a2 * 2), this.d.getHeight() - (a2 * 2));
+                int a = com.baidu.adp.lib.h.g.a(this.c, 6.0f);
+                this.d.setPadding(a, a, a, a);
+                this.d.getProgressDrawable().setBounds(0, 0, this.d.getWidth() - (a * 2), this.d.getHeight() - (a * 2));
                 this.d.setClickable(false);
                 this.d.setBackgroundResource(R.drawable.bg_all_sign_conduct);
                 this.e.setImageResource(z ? R.drawable.icon_all_sign_d_1 : R.drawable.icon_all_sign_d);
@@ -139,20 +137,20 @@ public class bp extends FrameLayout {
     }
 
     public int getCurrentStatus() {
-        return this.f1479a;
+        return this.a;
     }
 
     public void setSigning(int i) {
-        if (this.f1479a != 1 && this.f1479a == 0) {
+        if (this.a != 1 && this.a == 0) {
             this.d.setProgress(i);
-            this.f1479a = 1;
+            this.a = 1;
             c();
         }
     }
 
     public void a() {
-        if (this.f1479a != 2) {
-            this.f1479a = 2;
+        if (this.a != 2) {
+            this.a = 2;
             c();
         }
     }

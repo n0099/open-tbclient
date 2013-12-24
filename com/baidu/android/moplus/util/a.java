@@ -5,9 +5,7 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes.dex */
 public class a implements ThreadFactory {
-
-    /* renamed from: a  reason: collision with root package name */
-    private final ThreadFactory f643a;
+    private final ThreadFactory a;
     private final String b;
     private final AtomicInteger c;
 
@@ -18,7 +16,7 @@ public class a implements ThreadFactory {
     public a(String str, ThreadFactory threadFactory) {
         this.c = new AtomicInteger(0);
         this.b = str;
-        this.f643a = threadFactory;
+        this.a = threadFactory;
     }
 
     private String a(int i) {
@@ -27,7 +25,7 @@ public class a implements ThreadFactory {
 
     @Override // java.util.concurrent.ThreadFactory
     public Thread newThread(Runnable runnable) {
-        Thread newThread = this.f643a.newThread(runnable);
+        Thread newThread = this.a.newThread(runnable);
         newThread.setName(a(this.c.getAndIncrement()));
         return newThread;
     }

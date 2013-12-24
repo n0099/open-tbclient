@@ -14,25 +14,22 @@ import com.baidu.tieba.BaseFragment;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.im.data.GroupInfoData;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
-import com.baidu.tieba.im.message.Message;
-import com.baidu.tieba.im.message.ResponseDismissGroupMessage;
-import com.baidu.tieba.view.bk;
+import com.baidu.tieba.im.message.bb;
+import com.baidu.tieba.view.bq;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class FrsGroupListFragment extends BaseFragment implements AbsListView.OnScrollListener, com.baidu.adp.widget.ListView.r, com.baidu.tieba.im.messageCenter.g, com.baidu.tieba.im.pushNotify.k {
+public class FrsGroupListFragment extends BaseFragment implements AbsListView.OnScrollListener, com.baidu.adp.widget.ListView.r, com.baidu.tieba.im.c.l, com.baidu.tieba.im.messageCenter.g {
     private int Y;
     private boolean Z;
-
-    /* renamed from: a  reason: collision with root package name */
-    private FrsGroupActivity f1695a;
+    private FrsGroupActivity a;
     private Runnable aa = new e(this);
     private com.baidu.tieba.im.messageCenter.g ab = new f(this);
-    private com.baidu.tieba.im.model.b b;
+    private com.baidu.tieba.im.model.c b;
     private g c;
     private BdListView d;
     private Button e;
-    private bk f;
+    private bq f;
     private InitGuideView g;
     private GroupListAdapter h;
     private Handler i;
@@ -40,13 +37,13 @@ public class FrsGroupListFragment extends BaseFragment implements AbsListView.On
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
     public void a(Bundle bundle) {
         super.a(bundle);
-        this.f1695a = (FrsGroupActivity) i();
-        this.b = this.f1695a.c();
-        this.c = this.f1695a.d();
+        this.a = (FrsGroupActivity) i();
+        this.b = this.a.b();
+        this.c = this.a.c();
         this.i = new Handler();
         this.b.a(this.ab);
         com.baidu.tieba.im.messageCenter.e.a().a(103104, this);
-        com.baidu.tieba.im.pushNotify.l.a().a("dismiss_group", this);
+        com.baidu.tieba.im.c.m.a().a("dismiss_group", this);
     }
 
     private void G() {
@@ -75,9 +72,9 @@ public class FrsGroupListFragment extends BaseFragment implements AbsListView.On
         this.g = (InitGuideView) inflate.findViewById(R.id.group_guide);
         this.e = (Button) inflate.findViewById(R.id.guide_create);
         this.d = (BdListView) inflate.findViewById(R.id.group_list);
-        this.f = new bk(this.f1695a);
+        this.f = new bq(this.a);
         this.d.setPullRefresh(this.f);
-        this.h = new GroupListAdapter(this.f1695a);
+        this.h = new GroupListAdapter(this.a);
         this.d.setAdapter((ListAdapter) this.h);
         this.d.setOnScrollListener(this);
         this.d.setOnSrollToBottomListener(this);
@@ -126,7 +123,7 @@ public class FrsGroupListFragment extends BaseFragment implements AbsListView.On
         super.t();
         this.b.b(this.ab);
         com.baidu.tieba.im.messageCenter.e.a().a(this);
-        com.baidu.tieba.im.pushNotify.l.a().a(this);
+        com.baidu.tieba.im.c.m.a().a(this);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -252,16 +249,16 @@ public class FrsGroupListFragment extends BaseFragment implements AbsListView.On
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(Message message) {
-        if (message instanceof ResponseDismissGroupMessage) {
-            ResponseDismissGroupMessage responseDismissGroupMessage = (ResponseDismissGroupMessage) message;
-            if (!responseDismissGroupMessage.hasError()) {
-                a(responseDismissGroupMessage.getGroupId());
+    public void a(com.baidu.tieba.im.message.n nVar) {
+        if (nVar instanceof bb) {
+            bb bbVar = (bb) nVar;
+            if (!bbVar.i()) {
+                a(bbVar.a());
             }
         }
     }
 
-    @Override // com.baidu.tieba.im.pushNotify.k
+    @Override // com.baidu.tieba.im.c.l
     public void a(GroupNewsPojo groupNewsPojo) {
         if (groupNewsPojo != null) {
             String cmd = groupNewsPojo.getCmd();
@@ -272,11 +269,11 @@ public class FrsGroupListFragment extends BaseFragment implements AbsListView.On
     }
 
     private void a(long j) {
-        ArrayList<GroupInfoData> a2 = this.h.a();
-        if (a2 != null) {
-            int size = a2.size();
+        ArrayList<GroupInfoData> a = this.h.a();
+        if (a != null) {
+            int size = a.size();
             for (int i = 0; i < size; i++) {
-                if (a2.get(i).getGroupId() == j) {
+                if (a.get(i).getGroupId() == j) {
                     if (F()) {
                         J();
                         return;

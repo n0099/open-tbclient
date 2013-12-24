@@ -3,9 +3,7 @@ package com.baidu.adp.lib.network;
 import java.net.HttpURLConnection;
 /* loaded from: classes.dex */
 public class a {
-
-    /* renamed from: a  reason: collision with root package name */
-    private HttpURLConnection f512a;
+    private HttpURLConnection a;
     private boolean b = false;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -22,23 +20,23 @@ public class a {
             }
             return;
         }
-        this.f512a = httpURLConnection;
+        this.a = httpURLConnection;
     }
 
     public void a() {
         this.b = true;
-        if (this.f512a != null) {
+        if (this.a != null) {
             try {
-                this.f512a.disconnect();
+                this.a.disconnect();
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
-        this.f512a = null;
+        this.a = null;
     }
 
     public void b() {
-        this.f512a = null;
+        this.a = null;
     }
 
     public boolean c() {

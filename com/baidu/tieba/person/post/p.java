@@ -12,13 +12,11 @@ import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p implements m {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PersonReplyFragment f2381a;
+    final /* synthetic */ PersonReplyFragment a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(PersonReplyFragment personReplyFragment) {
-        this.f2381a = personReplyFragment;
+        this.a = personReplyFragment;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:18:0x0061, code lost:
@@ -45,19 +43,19 @@ public class p implements m {
         TextView textView6;
         boolean z2;
         TextView textView7;
-        if (this.f2381a.n()) {
-            progressBar = this.f2381a.d;
+        if (this.a.n()) {
+            progressBar = this.a.d;
             progressBar.setVisibility(8);
             if (TiebaApplication.h().an() == 1) {
-                textView7 = this.f2381a.f;
-                textView7.setTextColor(this.f2381a.j().getColor(R.color.person_post_header_uname_1));
+                textView7 = this.a.f;
+                textView7.setTextColor(this.a.j().getColor(R.color.person_post_header_uname_1));
             } else {
-                textView = this.f2381a.f;
-                textView.setTextColor(this.f2381a.j().getColor(R.color.person_post_header_uname));
+                textView = this.a.f;
+                textView.setTextColor(this.a.j().getColor(R.color.person_post_header_uname));
             }
             if (personPostReplyModel != null) {
                 if (PersonPostReplyModel.getRealPostCount(personPostReplyModel.post_list) == 0) {
-                    z2 = this.f2381a.aa;
+                    z2 = this.a.aa;
                     if (z2) {
                         if (personPostReplyModel.getErrorString() != null) {
                             if (personPostReplyModel.getErrorString() != null) {
@@ -67,47 +65,47 @@ public class p implements m {
                 }
                 if (personPostReplyModel.getErrorString() != null && !personPostReplyModel.getErrorString().equals("")) {
                     if (PersonPostReplyModel.getRealPostCount(personPostReplyModel.post_list) == 0) {
-                        bdListView3 = this.f2381a.b;
-                        textView6 = this.f2381a.f;
+                        bdListView3 = this.a.b;
+                        textView6 = this.a.f;
                         bdListView3.setEmptyView(textView6);
                     }
-                    com.baidu.adp.lib.h.g.a((Context) this.f2381a.i(), personPostReplyModel.getErrorString());
+                    com.baidu.adp.lib.h.g.a((Context) this.a.i(), personPostReplyModel.getErrorString());
                 }
-                textView5 = this.f2381a.f;
+                textView5 = this.a.f;
                 textView5.setVisibility(8);
                 if (PersonPostReplyModel.getRealPostCount(personPostReplyModel.post_list) < 20) {
                     if (UtilHelper.b()) {
-                        this.f2381a.Y = false;
-                        pbListView2 = this.f2381a.h;
-                        pbListView2.a(this.f2381a.j().getString(R.string.person_post_reply_no_more));
-                        view2 = this.f2381a.i;
+                        this.a.Y = false;
+                        pbListView2 = this.a.h;
+                        pbListView2.a(this.a.j().getString(R.string.person_post_reply_no_more));
+                        view2 = this.a.i;
                         view2.setVisibility(0);
                     } else {
-                        view = this.f2381a.i;
+                        view = this.a.i;
                         view.setVisibility(8);
                     }
                 }
-                pbListView = this.f2381a.h;
+                pbListView = this.a.h;
                 pbListView.d();
-                bdListView2 = this.f2381a.b;
+                bdListView2 = this.a.b;
                 bdListView2.a();
                 if (z) {
-                    this.f2381a.Y = true;
-                    this.f2381a.Z = 0;
-                    this.f2381a.aa = false;
+                    this.a.Y = true;
+                    this.a.Z = 0;
+                    this.a.aa = false;
                     return;
                 }
                 return;
             }
             if (TiebaApplication.h().an() == 1) {
-                textView4 = this.f2381a.f;
-                textView4.setTextColor(this.f2381a.j().getColor(R.color.person_post_header_uname_1));
+                textView4 = this.a.f;
+                textView4.setTextColor(this.a.j().getColor(R.color.person_post_header_uname_1));
             } else {
-                textView2 = this.f2381a.f;
-                textView2.setTextColor(this.f2381a.j().getColor(R.color.person_post_header_uname));
+                textView2 = this.a.f;
+                textView2.setTextColor(this.a.j().getColor(R.color.person_post_header_uname));
             }
-            bdListView = this.f2381a.b;
-            textView3 = this.f2381a.f;
+            bdListView = this.a.b;
+            textView3 = this.a.f;
             bdListView.setEmptyView(textView3);
         }
     }

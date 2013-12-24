@@ -2,21 +2,24 @@ package com.baidu.android.systemmonitor.devicestatistic.a;
 
 import android.database.Cursor;
 /* loaded from: classes.dex */
-public abstract class c {
-    public long g;
-    public int h = 0;
+public class c extends f {
+    public long a;
 
     public c(long j) {
-        this.g = 0L;
-        this.g = j;
+        super(j);
+        this.a = 0L;
+        this.o = 1;
     }
 
     public c(Cursor cursor) {
-        this.g = 0L;
-        this.g = cursor.getLong(cursor.getColumnIndex("startstamp"));
+        super(cursor);
+        this.a = 0L;
+        this.o = 1;
+        this.a = cursor.getLong(cursor.getColumnIndex("stopstamp"));
     }
 
+    @Override // com.baidu.android.systemmonitor.devicestatistic.a.f
     public String toString() {
-        return super.toString();
+        return "PowerEvent : startStamp" + this.n + " stopStamp =" + this.a;
     }
 }

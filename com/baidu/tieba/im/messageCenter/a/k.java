@@ -1,21 +1,20 @@
 package com.baidu.tieba.im.messageCenter.a;
 
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.im.message.Message;
-import com.baidu.tieba.im.message.RequestHotGroupsMessage;
-import com.baidu.tieba.im.message.ResponseHotGroupsMessage;
+import com.baidu.tieba.im.message.ad;
+import com.baidu.tieba.im.message.bh;
 /* loaded from: classes.dex */
 public class k extends com.baidu.tieba.im.messageCenter.a {
     @Override // com.baidu.tieba.im.messageCenter.a
-    public Message a(Message message, com.baidu.tieba.im.b.p pVar) {
-        if (message != null && (message instanceof ResponseHotGroupsMessage)) {
-            ResponseHotGroupsMessage responseHotGroupsMessage = (ResponseHotGroupsMessage) message;
-            if (!responseHotGroupsMessage.hasError() && (responseHotGroupsMessage.getOrginalMessage() instanceof RequestHotGroupsMessage) && ((RequestHotGroupsMessage) responseHotGroupsMessage.getOrginalMessage()).isFirstPage()) {
+    public com.baidu.tieba.im.message.n a(com.baidu.tieba.im.message.n nVar, com.baidu.tieba.im.coder.d dVar) {
+        if (nVar != null && (nVar instanceof bh)) {
+            bh bhVar = (bh) nVar;
+            if (!bhVar.i() && (bhVar.l() instanceof ad) && ((ad) bhVar.l()).f()) {
                 String str = "";
                 if (TiebaApplication.F() != null) {
                     str = TiebaApplication.F().getID();
                 }
-                com.baidu.tieba.im.b.m.a(com.baidu.tieba.b.a.a().f(), "hot_groups_info" + str, pVar);
+                l.a(com.baidu.tieba.b.a.a().f(), "p_hot_groups_info" + str, dVar);
             }
         }
         return null;

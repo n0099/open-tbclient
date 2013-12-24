@@ -2,9 +2,9 @@ package com.baidu.zeus;
 
 import android.text.format.Time;
 import com.baidu.location.LocationClientOption;
-import com.baidu.zeus.bouncycastle.DERTags;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import protobuf.Im;
 /* loaded from: classes.dex */
 public final class HttpDateTime {
     private static final String HTTP_DATE_RFC_REGEXP = "([0-9]{1,2})[- ]([A-Za-z]{3,3})[- ]([0-9]{2,4})[ ]([0-9]{1,2}:[0-9][0-9]:[0-9][0-9])";
@@ -75,9 +75,9 @@ public final class HttpDateTime {
                 return 1;
             case 22:
                 return 0;
-            case DERTags.VISIBLE_STRING /* 26 */:
+            case 26:
                 return 7;
-            case 29:
+            case Im.GroupInfo.AUTHORISMEIZHI_FIELD_NUMBER /* 29 */:
                 return 2;
             case 32:
                 return 3;

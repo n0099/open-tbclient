@@ -8,9 +8,7 @@ public class g {
     private boolean b;
     private h d;
     private List<b> c = new ArrayList();
-
-    /* renamed from: a  reason: collision with root package name */
-    private Configuration f498a = new Configuration();
+    private Configuration a = new Configuration();
 
     public g a(int i) {
         if (this.b) {
@@ -19,7 +17,7 @@ public class g {
         if (i < 0 || i > 255) {
             throw new BuildException("Illegal alpha value, should between [0-255]");
         }
-        this.f498a.b = i;
+        this.a.b = i;
         return this;
     }
 
@@ -30,7 +28,7 @@ public class g {
         if (view == null) {
             throw new BuildException("Illegal view.");
         }
-        this.f498a.f494a = view;
+        this.a.a = view;
         return this;
     }
 
@@ -41,7 +39,7 @@ public class g {
         if (i <= 0) {
             throw new BuildException("Illegal view id.");
         }
-        this.f498a.d = i;
+        this.a.d = i;
         return this;
     }
 
@@ -49,7 +47,7 @@ public class g {
         if (this.b) {
             throw new BuildException("Already created, rebuild a new one.");
         }
-        this.f498a.f = z;
+        this.a.f = z;
         return this;
     }
 
@@ -57,7 +55,7 @@ public class g {
         if (this.b) {
             throw new BuildException("Already created, rebuild a new one.");
         }
-        this.f498a.g = z;
+        this.a.g = z;
         return this;
     }
 
@@ -72,10 +70,10 @@ public class g {
     public d a() {
         d dVar = new d();
         dVar.a((b[]) this.c.toArray(new b[this.c.size()]));
-        dVar.a(this.f498a);
+        dVar.a(this.a);
         dVar.a(this.d);
         this.c = null;
-        this.f498a = null;
+        this.a = null;
         this.d = null;
         this.b = true;
         return dVar;

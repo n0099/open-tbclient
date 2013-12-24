@@ -3,9 +3,7 @@ package com.baidu.tieba.home;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class u {
-
-    /* renamed from: a  reason: collision with root package name */
-    private int f1506a;
+    private int a;
     private String b;
     private String c;
     private int d;
@@ -22,7 +20,7 @@ public class u {
     private String o;
 
     public int a() {
-        return this.f1506a;
+        return this.a;
     }
 
     public String b() {
@@ -126,7 +124,7 @@ public class u {
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.f1506a = jSONObject.optInt("forum_id");
+                this.a = jSONObject.optInt("forum_id");
                 this.b = jSONObject.optString("forum_name");
                 this.c = jSONObject.optString("avatar");
                 this.d = jSONObject.optInt("is_sign_in");
@@ -139,7 +137,7 @@ public class u {
                     this.k = false;
                 }
             } catch (Exception e) {
-                com.baidu.tieba.util.bd.b(getClass().getName(), "parserJson", e.getMessage());
+                com.baidu.tieba.util.be.b(getClass().getName(), "parserJson", e.getMessage());
             }
         }
     }

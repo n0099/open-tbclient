@@ -1,20 +1,24 @@
 package com.baidu.tieba.person;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.ImageView;
+import com.baidu.adp.widget.ListView.BdListView;
 /* loaded from: classes.dex */
-public class bq implements View.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PersonListActivity f2341a;
+class bq implements com.baidu.tbadk.imageManager.c {
+    final /* synthetic */ bp a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bq(PersonListActivity personListActivity) {
-        this.f2341a = personListActivity;
+    public bq(bp bpVar) {
+        this.a = bpVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.f2341a.a(true);
+    @Override // com.baidu.tbadk.imageManager.c
+    public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
+        BdListView bdListView;
+        bdListView = this.a.a.b;
+        ImageView imageView = (ImageView) bdListView.findViewWithTag(str);
+        if (imageView != null && eVar != null) {
+            eVar.a(imageView);
+            imageView.setTag(null);
+        }
     }
 }

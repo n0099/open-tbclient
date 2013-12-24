@@ -14,9 +14,7 @@ import com.baidu.tieba.view.HeadImageView;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class SettingTextImageView extends FrameLayout {
-
-    /* renamed from: a  reason: collision with root package name */
-    private Context f2059a;
+    private Context a;
     private LinearLayout b;
     private TextView c;
     private HeadImageView d;
@@ -24,7 +22,7 @@ public class SettingTextImageView extends FrameLayout {
 
     public SettingTextImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f2059a = context;
+        this.a = context;
         d();
         a(attributeSet);
         a(TiebaApplication.h().an());
@@ -32,17 +30,17 @@ public class SettingTextImageView extends FrameLayout {
 
     public SettingTextImageView(Context context) {
         super(context);
-        this.f2059a = context;
+        this.a = context;
         d();
         a(TiebaApplication.h().an());
     }
 
     public void a(int i) {
         if (i == 1) {
-            this.c.setTextColor(this.f2059a.getResources().getColor(R.color.skin_1_common_color));
+            this.c.setTextColor(this.a.getResources().getColor(R.color.skin_1_common_color));
             this.e.setImageResource(R.drawable.icon_arrow_right_1);
         } else {
-            this.c.setTextColor(this.f2059a.getResources().getColor(R.color.more_color));
+            this.c.setTextColor(this.a.getResources().getColor(R.color.more_color));
             this.e.setImageResource(R.drawable.icon_arrow_right);
         }
         this.d.invalidate();
@@ -89,7 +87,7 @@ public class SettingTextImageView extends FrameLayout {
     }
 
     private void d() {
-        LayoutInflater.from(this.f2059a).inflate(R.layout.setting_text_image_view, (ViewGroup) this, true);
+        LayoutInflater.from(this.a).inflate(R.layout.setting_text_image_view, (ViewGroup) this, true);
         this.b = (LinearLayout) findViewById(R.id.container);
         this.c = (TextView) findViewById(R.id.text);
         this.d = (HeadImageView) findViewById(R.id.icon);
@@ -97,7 +95,7 @@ public class SettingTextImageView extends FrameLayout {
     }
 
     private void a(AttributeSet attributeSet) {
-        TypedArray obtainStyledAttributes = this.f2059a.obtainStyledAttributes(attributeSet, com.baidu.tieba.au.SettingView);
+        TypedArray obtainStyledAttributes = this.a.obtainStyledAttributes(attributeSet, com.baidu.tieba.at.SettingView);
         String string = obtainStyledAttributes.getString(0);
         int color = obtainStyledAttributes.getColor(1, -1);
         if (string != null) {

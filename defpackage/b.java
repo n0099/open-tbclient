@@ -25,7 +25,7 @@ abstract class b extends cb {
 
     @Override // defpackage.cb
     public void a() {
-        this.e.cancelRequests(this.f395a, true);
+        this.e.cancelRequests(this.a, true);
         super.a();
     }
 
@@ -38,12 +38,12 @@ abstract class b extends cb {
         requestParams.put(SocialConstants.PARAM_MEDIA_TYPE, str3);
         requestParams.put(SocialConstants.PARAM_CLIENT_ID, this.b);
         requestParams.put(SocialConstants.PARAM_CLIENT_TYPE, SocialConstants.ANDROID_CLIENT_TYPE);
-        SocialOAuthStatisticsManager.getInstance(this.f395a).setCommonParams(requestParams);
-        this.e.post(this.f395a, "https://openapi.baidu.com/social/oauth/2.0/token", requestParams, new BaiduAPIResponseHandler("https://openapi.baidu.com/social/oauth/2.0/token", this.d));
+        SocialOAuthStatisticsManager.getInstance(this.a).setCommonParams(requestParams);
+        this.e.post(this.a, "https://openapi.baidu.com/social/oauth/2.0/token", requestParams, new BaiduAPIResponseHandler("https://openapi.baidu.com/social/oauth/2.0/token", this.d));
     }
 
     protected boolean a(Intent intent, String str) {
-        PackageManager packageManager = this.f395a.getPackageManager();
+        PackageManager packageManager = this.a.getPackageManager();
         ResolveInfo resolveActivity = packageManager.resolveActivity(intent, 0);
         if (resolveActivity == null) {
             return false;
@@ -66,8 +66,8 @@ abstract class b extends cb {
         Intent c = c();
         if (a(c, d())) {
             try {
-                this.f395a.startActivityForResult(c, e());
-                this.f395a.a();
+                this.a.startActivityForResult(c, e());
+                this.a.a();
                 return true;
             } catch (ActivityNotFoundException e) {
                 return false;

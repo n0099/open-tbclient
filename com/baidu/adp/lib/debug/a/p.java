@@ -8,21 +8,19 @@ import java.io.InputStreamReader;
 import java.util.List;
 /* loaded from: classes.dex */
 public class p extends a implements Runnable {
-
-    /* renamed from: a  reason: collision with root package name */
-    private ActivityManager f459a;
+    private ActivityManager a;
     private String b;
     private int c;
     private q d;
 
     public p(Context context) {
-        this.f459a = null;
+        this.a = null;
         this.b = null;
         this.c = 0;
         this.d = null;
         this.b = context.getPackageName();
-        this.f459a = (ActivityManager) context.getSystemService("activity");
-        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = this.f459a.getRunningAppProcesses();
+        this.a = (ActivityManager) context.getSystemService("activity");
+        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = this.a.getRunningAppProcesses();
         for (int i = 0; i < runningAppProcesses.size(); i++) {
             ActivityManager.RunningAppProcessInfo runningAppProcessInfo = runningAppProcesses.get(i);
             if (this.b.contains(runningAppProcessInfo.processName)) {
@@ -37,7 +35,7 @@ public class p extends a implements Runnable {
         q qVar = new q(this);
         qVar.b = a("/proc/uid_stat/" + this.c + "/tcp_rcv");
         qVar.c = a("/proc/uid_stat/" + this.c + "/tcp_snd");
-        qVar.f460a = com.baidu.adp.lib.debug.b.a(qVar.b + qVar.c);
+        qVar.a = com.baidu.adp.lib.debug.b.a(qVar.b + qVar.c);
         return qVar;
     }
 
@@ -45,7 +43,7 @@ public class p extends a implements Runnable {
         q d = d();
         this.d.b = com.baidu.adp.lib.debug.b.a(d.b - com.baidu.adp.lib.debug.b.h().b);
         this.d.c = com.baidu.adp.lib.debug.b.a(d.c - com.baidu.adp.lib.debug.b.h().c);
-        this.d.f460a = com.baidu.adp.lib.debug.b.a(d.f460a - com.baidu.adp.lib.debug.b.h().f460a);
+        this.d.a = com.baidu.adp.lib.debug.b.a(d.a - com.baidu.adp.lib.debug.b.h().a);
         return this.d;
     }
 

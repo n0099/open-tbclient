@@ -1,34 +1,26 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tieba.im.message.ChatResponsedMessage;
-import java.lang.ref.WeakReference;
+import android.text.TextUtils;
+import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e implements com.baidu.tieba.im.a<Boolean> {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ChatResponsedMessage f1592a;
-    final /* synthetic */ a b;
+public class e implements com.baidu.tieba.im.a<Void> {
+    final /* synthetic */ String a;
+    final /* synthetic */ CommonMsgPojo b;
+    final /* synthetic */ a c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public e(a aVar, ChatResponsedMessage chatResponsedMessage) {
-        this.b = aVar;
-        this.f1592a = chatResponsedMessage;
+    public e(a aVar, String str, CommonMsgPojo commonMsgPojo) {
+        this.c = aVar;
+        this.a = str;
+        this.b = commonMsgPojo;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.a
-    public void a(Boolean bool) {
-        WeakReference weakReference;
-        WeakReference weakReference2;
-        WeakReference weakReference3;
-        weakReference = this.b.b;
-        if (weakReference != null) {
-            weakReference2 = this.b.b;
-            if (weakReference2.get() != null) {
-                weakReference3 = this.b.b;
-                ((aa) weakReference3.get()).a(this.f1592a);
-            }
+    public void a(Void r3) {
+        if (!TextUtils.isEmpty(this.a) && !TextUtils.isEmpty(com.baidu.tieba.im.c.m.a().d()) && !this.a.equals(com.baidu.tieba.im.c.m.a().d())) {
+            com.baidu.tieba.im.c.m.a().a(this.b);
         }
     }
 }

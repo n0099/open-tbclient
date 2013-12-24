@@ -11,7 +11,7 @@ import com.baidu.browser.webkit.zeus.BdZeusCrashHandler;
 import com.baidu.zeus.WebKitInit;
 import com.baidu.zeus.WebView;
 import com.baidu.zeus.bouncycastle.DERTags;
-import com.tencent.mm.sdk.platformtools.LVBuffer;
+import com.google.protobuf.CodedOutputStream;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
@@ -412,7 +412,7 @@ public final class BdWebViewManager extends Observable {
             getNextEntry(bdZipInputStream);
             while (this.mNextEntry != null) {
                 BdLog.i("Unzip=" + this.mNextEntry);
-                byte[] bArr = new byte[LVBuffer.LENGTH_ALLOC_PER_NEW];
+                byte[] bArr = new byte[CodedOutputStream.DEFAULT_BUFFER_SIZE];
                 String name = this.mNextEntry.getName();
                 File file = new File(String.valueOf(str2) + name);
                 BdLog.e("deleteFile ok=" + context.deleteFile(name));
@@ -420,8 +420,8 @@ public final class BdWebViewManager extends Observable {
                 if (!file2.exists()) {
                     file2.mkdirs();
                 }
-                BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(file), LVBuffer.LENGTH_ALLOC_PER_NEW);
-                for (int read = bdZipInputStream.read(bArr, 0, LVBuffer.LENGTH_ALLOC_PER_NEW); read > 0; read = bdZipInputStream.read(bArr, 0, LVBuffer.LENGTH_ALLOC_PER_NEW)) {
+                BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(file), CodedOutputStream.DEFAULT_BUFFER_SIZE);
+                for (int read = bdZipInputStream.read(bArr, 0, CodedOutputStream.DEFAULT_BUFFER_SIZE); read > 0; read = bdZipInputStream.read(bArr, 0, CodedOutputStream.DEFAULT_BUFFER_SIZE)) {
                     bufferedOutputStream.write(bArr, 0, read);
                 }
                 getNextEntry(bdZipInputStream);

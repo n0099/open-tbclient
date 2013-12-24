@@ -1,60 +1,77 @@
 package com.baidu.android.nebula.cmd;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import com.baidu.android.nebula.util.BDLocationManager;
-import java.util.Timer;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.io.File;
+import java.io.FilenameFilter;
+import java.util.regex.Pattern;
 /* loaded from: classes.dex */
-public class c extends Handler {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ GeoLocation f673a;
+class c implements FilenameFilter {
+    final /* synthetic */ b a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c(GeoLocation geoLocation, Looper looper) {
-        super(looper);
-        this.f673a = geoLocation;
+    public c(b bVar) {
+        this.a = bVar;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        BDLocationManager bDLocationManager;
-        com.baidu.android.nebula.util.c cVar;
-        BDLocationManager bDLocationManager2;
-        boolean z;
-        BDLocationManager bDLocationManager3;
-        com.baidu.android.nebula.util.d dVar;
-        BDLocationManager bDLocationManager4;
-        Timer timer;
-        Timer timer2;
-        this.f673a.mLocMgr = BDLocationManager.b(this.f673a.mContext);
-        synchronized (this.f673a) {
-            GeoLocation geoLocation = this.f673a;
-            bDLocationManager = this.f673a.mLocMgr;
-            geoLocation.mLocInfo = bDLocationManager.b();
-            cVar = this.f673a.mLocInfo;
-            if (cVar != null) {
-                this.f673a.mErrcode = 0;
-                timer = this.f673a.mTimeoutTm;
-                if (timer != null) {
-                    timer2 = this.f673a.mTimeoutTm;
-                    timer2.cancel();
-                }
-                this.f673a.notifyAll();
-                return;
-            }
-            this.f673a.mLocListener = new d(this);
-            bDLocationManager2 = this.f673a.mLocMgr;
-            z = this.f673a.mGpsEnabled;
-            bDLocationManager2.a(z);
-            bDLocationManager3 = this.f673a.mLocMgr;
-            dVar = this.f673a.mLocListener;
-            bDLocationManager3.a(dVar);
-            bDLocationManager4 = this.f673a.mLocMgr;
-            bDLocationManager4.c();
+    @Override // java.io.FilenameFilter
+    public boolean accept(File file, String str) {
+        File file2;
+        String str2;
+        File file3;
+        File file4;
+        File file5;
+        File file6;
+        File file7;
+        String str3;
+        File file8;
+        File file9;
+        File file10;
+        File file11;
+        String lowerCase = str.toLowerCase();
+        if (file.getName().startsWith(".") || lowerCase.startsWith(".") || file.getName().startsWith("image") || lowerCase.startsWith("image") || file.getName().startsWith("cache") || lowerCase.startsWith("cache") || file.getName().startsWith("thumb") || lowerCase.startsWith("thumb") || file.getName().startsWith("ting") || lowerCase.startsWith("ting")) {
+            return false;
         }
+        this.a.b = new File(file, lowerCase);
+        file2 = this.a.f;
+        if (file2 == null) {
+            b bVar = this.a;
+            file11 = this.a.b;
+            bVar.f = file11;
+        }
+        if (file.isDirectory()) {
+            file6 = this.a.b;
+            if (file6.isFile()) {
+                str3 = this.a.e;
+                if (Pattern.compile(str3).matcher(lowerCase).find()) {
+                    file8 = this.a.b;
+                    long lastModified = file8.lastModified();
+                    file9 = this.a.f;
+                    if (lastModified >= file9.lastModified()) {
+                        b bVar2 = this.a;
+                        file10 = this.a.b;
+                        bVar2.f = file10;
+                        return true;
+                    }
+                    return true;
+                }
+            } else {
+                file7 = this.a.b;
+                file7.listFiles(this);
+            }
+        } else {
+            str2 = this.a.e;
+            if (Pattern.compile(str2).matcher(lowerCase).find()) {
+                file3 = this.a.b;
+                long lastModified2 = file3.lastModified();
+                file4 = this.a.f;
+                if (lastModified2 >= file4.lastModified()) {
+                    b bVar3 = this.a;
+                    file5 = this.a.b;
+                    bVar3.f = file5;
+                    return true;
+                }
+                return true;
+            }
+        }
+        return false;
     }
 }

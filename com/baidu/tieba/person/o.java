@@ -7,13 +7,11 @@ import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements View.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ EditHeadActivity f2360a;
+    final /* synthetic */ EditHeadActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(EditHeadActivity editHeadActivity) {
-        this.f2360a = editHeadActivity;
+        this.a = editHeadActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -22,29 +20,29 @@ public class o implements View.OnClickListener {
         EditHeadImageView editHeadImageView;
         int i2;
         int i3;
-        boolean a2;
+        boolean a;
         String str = "tieba_head_image";
-        i = this.f2360a.i;
+        i = this.a.i;
         if (i != 0) {
             str = "tieba_group_image";
         }
-        editHeadImageView = this.f2360a.g;
-        i2 = this.f2360a.i;
-        Bitmap a3 = editHeadImageView.a(i2);
-        if (a3 != null) {
-            a2 = this.f2360a.a(str, a3);
-            if (!a2) {
+        editHeadImageView = this.a.g;
+        i2 = this.a.i;
+        Bitmap a2 = editHeadImageView.a(i2);
+        if (a2 != null) {
+            a = this.a.a(str, a2);
+            if (!a) {
                 return;
             }
         }
-        i3 = this.f2360a.i;
+        i3 = this.a.i;
         if (i3 == 0) {
-            this.f2360a.d();
+            this.a.d();
             return;
         }
-        com.baidu.tieba.im.model.t tVar = new com.baidu.tieba.im.model.t(com.baidu.tieba.util.x.c("tieba_group_image"), 0, 0, 0, 0);
-        tVar.a(new p(this));
-        tVar.a();
-        this.f2360a.showLoadingDialog(this.f2360a.getString(R.string.uploading));
+        com.baidu.tieba.im.model.ae aeVar = new com.baidu.tieba.im.model.ae(com.baidu.tieba.util.y.c("tieba_group_image"), 0, 0, 0, 0);
+        aeVar.a(new p(this));
+        aeVar.a();
+        this.a.showLoadingDialog(this.a.getString(R.string.uploading));
     }
 }

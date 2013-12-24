@@ -1,79 +1,133 @@
 package com.baidu.tieba.util;
 
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.CheckBox;
-import android.widget.ImageView;
-import android.widget.RadioButton;
 import android.widget.TextView;
+import com.baidu.browser.explorer.BdWebErrorView;
 import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.util.LinkedList;
 /* loaded from: classes.dex */
-public final class bk implements bl {
+public class bk {
+    private static int a = -1;
+    private static int b = -1;
+    private static com.baidu.adp.lib.d.a<Integer, Integer> c = new com.baidu.adp.lib.d.a<>(BdWebErrorView.ERROR_CODE_500);
 
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ int f2602a;
-    final /* synthetic */ boolean b;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bk(int i, boolean z) {
-        this.f2602a = i;
-        this.b = z;
+    public static void a(TiebaApplication tiebaApplication) {
+        if (tiebaApplication != null && tiebaApplication.getResources() != null) {
+            a = tiebaApplication.getResources().getColor(R.color.skin_1_common_color);
+            b = tiebaApplication.getResources().getColor(R.color.more_color);
+        }
     }
 
-    @Override // com.baidu.tieba.util.bl
-    public boolean a(View view) {
-        Object tag = view.getTag();
-        if (tag != null) {
-            if ("skin_text_group".equals(tag)) {
-                bj.b((TextView) view, this.f2602a);
-                return false;
-            } else if ("skin_text_content".equals(tag)) {
-                bj.b((TextView) view, this.f2602a);
-                return false;
-            } else if ("skin_text_num".equals(tag)) {
-                bj.a((TextView) view, this.f2602a);
-                return false;
-            } else if ("skin_check_box".equals(tag)) {
-                bj.a((CheckBox) view, this.f2602a);
-                return false;
-            } else if ("skin_sidebar_content".equals(tag)) {
-                ((TextView) view).setTextAppearance(TiebaApplication.h(), this.b ? R.style.sidebar_content_1 : R.style.sidebar_content);
-                return false;
-            } else if ("skin_more_up".equals(tag)) {
-                if (view instanceof RadioButton) {
-                    ((RadioButton) view).setTextColor(this.b ? bj.f2601a : bj.b);
+    public static void a(View view) {
+        if (view instanceof ViewGroup) {
+            a((ViewGroup) view, TiebaApplication.h().an());
+        }
+    }
+
+    public static void b(View view) {
+        if (view != null) {
+            c.b((com.baidu.adp.lib.d.a<Integer, Integer>) Integer.valueOf(System.identityHashCode(view)));
+        }
+    }
+
+    public static void a(ViewGroup viewGroup, int i) {
+        int identityHashCode = System.identityHashCode(viewGroup);
+        Integer a2 = c.a((com.baidu.adp.lib.d.a<Integer, Integer>) Integer.valueOf(identityHashCode));
+        if (a2 == null || i != a2.intValue()) {
+            b(viewGroup, i);
+            c.a(Integer.valueOf(identityHashCode), Integer.valueOf(i));
+        }
+    }
+
+    public static void a(ViewGroup viewGroup, boolean z, bm bmVar) {
+        if (!z || !bmVar.a(viewGroup)) {
+            LinkedList linkedList = new LinkedList();
+            while (true) {
+                int childCount = viewGroup.getChildCount();
+                for (int i = 0; i < childCount; i++) {
+                    View childAt = viewGroup.getChildAt(i);
+                    if (!bmVar.a(childAt)) {
+                        if (childAt instanceof ViewGroup) {
+                            linkedList.addLast((ViewGroup) childAt);
+                        }
+                    } else {
+                        return;
+                    }
                 }
-                ba.e(view, this.b ? R.drawable.more_up_1 : R.drawable.more_up);
-                return false;
-            } else if ("skin_more_middle".equals(tag)) {
-                if (view instanceof RadioButton) {
-                    ((RadioButton) view).setTextColor(this.b ? bj.f2601a : bj.b);
+                if (!linkedList.isEmpty()) {
+                    viewGroup = (ViewGroup) linkedList.removeFirst();
+                } else {
+                    return;
                 }
-                ba.e(view, this.b ? R.drawable.more_middle_1 : R.drawable.more_middle);
-                return false;
-            } else if ("skin_more_down".equals(tag)) {
-                if (view instanceof RadioButton) {
-                    ((RadioButton) view).setTextColor(this.b ? bj.f2601a : bj.b);
-                }
-                ba.e(view, this.b ? R.drawable.more_down_1 : R.drawable.more_down);
-                return false;
-            } else if ("skin_more_all".equals(tag)) {
-                if (view instanceof RadioButton) {
-                    ((RadioButton) view).setTextColor(this.b ? bj.f2601a : bj.b);
-                }
-                ba.e(view, this.b ? R.drawable.more_all_1 : R.drawable.more_all);
-                return false;
-            } else if ("skin_arrow".equals(tag)) {
-                ((ImageView) view).setImageResource(this.b ? R.drawable.icon_ba_top_arrow_big_1 : R.drawable.icon_ba_top_arrow_big);
-                return false;
-            } else if ("skin_list_line".equals(tag)) {
-                bj.a(view, this.f2602a);
-                return false;
-            } else {
-                return false;
             }
         }
-        return false;
+    }
+
+    private static void b(ViewGroup viewGroup, int i) {
+        a(viewGroup, true, (bm) new bl(i, i == 1));
+    }
+
+    public static void a(View view, int i) {
+        if (view != null) {
+            if (i == 1) {
+                view.setBackgroundColor(-14078923);
+            } else {
+                view.setBackgroundColor(-1183760);
+            }
+        }
+    }
+
+    public static void a(View view, int i, int i2) {
+        if (view != null) {
+            view.setBackgroundDrawable(null);
+            if (i2 == 1) {
+                if (i == 0) {
+                    view.setBackgroundResource(R.drawable.auto_skin_list_item_bg_up_1);
+                } else if (i == 2) {
+                    view.setBackgroundResource(R.drawable.auto_skin_list_item_bg_down_1);
+                } else {
+                    view.setBackgroundResource(R.drawable.list_selector_item_1);
+                }
+            } else if (i == 0) {
+                view.setBackgroundResource(R.drawable.auto_skin_list_item_bg_up);
+            } else if (i == 2) {
+                view.setBackgroundResource(R.drawable.auto_skin_list_item_bg_down);
+            } else {
+                view.setBackgroundResource(R.drawable.list_selector_item);
+            }
+        }
+    }
+
+    public static void a(TextView textView, int i) {
+        if (textView != null) {
+            if (i == 1) {
+                textView.setTextColor(-11446171);
+            } else {
+                textView.setTextColor(-5065030);
+            }
+        }
+    }
+
+    public static void b(TextView textView, int i) {
+        if (textView != null) {
+            if (i == 1) {
+                textView.setTextColor(a);
+            } else {
+                textView.setTextColor(b);
+            }
+        }
+    }
+
+    public static void a(CheckBox checkBox, int i) {
+        if (checkBox != null) {
+            if (i == 1) {
+                checkBox.setTextColor(a);
+            } else {
+                checkBox.setTextColor(b);
+            }
+        }
     }
 }

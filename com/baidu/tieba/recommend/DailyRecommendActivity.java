@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import com.baidu.mobstat.StatService;
 import com.baidu.tieba.TiebaApplication;
-import com.tencent.mm.sdk.platformtools.Util;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -18,9 +17,7 @@ public class DailyRecommendActivity extends com.baidu.tieba.j {
     private final String b = DailyRecommendActivity.class.getSimpleName();
     private Handler e = null;
     private Runnable f = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    p f2402a = new c(this);
+    p a = new c(this);
     private com.baidu.adp.widget.ListView.r h = new e(this);
     private com.baidu.adp.widget.ListView.b i = new g(this);
 
@@ -32,7 +29,7 @@ public class DailyRecommendActivity extends com.baidu.tieba.j {
     public void b() {
         try {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
-            a(true, simpleDateFormat.format(new Date(simpleDateFormat.parse(this.g).getTime() - Util.MILLSECONDS_OF_DAY)));
+            a(true, simpleDateFormat.format(new Date(simpleDateFormat.parse(this.g).getTime() - 86400000)));
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -55,7 +52,7 @@ public class DailyRecommendActivity extends com.baidu.tieba.j {
     }
 
     private void d() {
-        this.c = new y(this, this.h, this.f2402a);
+        this.c = new y(this, this.h, this.a);
         this.c.a(this.i);
         this.c.e();
     }
@@ -125,7 +122,7 @@ public class DailyRecommendActivity extends com.baidu.tieba.j {
 
     public static void a(Context context, String str) {
         Intent intent = new Intent(context, DailyRecommendActivity.class);
-        intent.putExtra(v.f2426a, str);
+        intent.putExtra(v.a, str);
         intent.addFlags(268435456);
         context.startActivity(intent);
     }

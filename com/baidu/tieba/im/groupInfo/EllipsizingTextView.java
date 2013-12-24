@@ -11,9 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class EllipsizingTextView extends TextView {
-
-    /* renamed from: a  reason: collision with root package name */
-    private final List<c> f1735a;
+    private final List<c> a;
     private boolean b;
     private boolean c;
     private boolean d;
@@ -24,7 +22,7 @@ public class EllipsizingTextView extends TextView {
 
     public EllipsizingTextView(Context context) {
         super(context);
-        this.f1735a = new ArrayList();
+        this.a = new ArrayList();
         this.f = -1;
         this.g = 1.0f;
         this.h = 0.0f;
@@ -32,7 +30,7 @@ public class EllipsizingTextView extends TextView {
 
     public EllipsizingTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f1735a = new ArrayList();
+        this.a = new ArrayList();
         this.f = -1;
         this.g = 1.0f;
         this.h = 0.0f;
@@ -40,7 +38,7 @@ public class EllipsizingTextView extends TextView {
 
     public EllipsizingTextView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f1735a = new ArrayList();
+        this.a = new ArrayList();
         this.f = -1;
         this.g = 1.0f;
         this.h = 0.0f;
@@ -50,7 +48,7 @@ public class EllipsizingTextView extends TextView {
         if (cVar == null) {
             throw new NullPointerException();
         }
-        this.f1735a.add(cVar);
+        this.a.add(cVar);
     }
 
     @Override // android.widget.TextView
@@ -101,9 +99,9 @@ public class EllipsizingTextView extends TextView {
         int maxLines = getMaxLines();
         String str = this.e;
         if (maxLines != -1) {
-            Layout a2 = a(str);
-            if (a2.getLineCount() > maxLines) {
-                String trim = this.e.substring(0, a2.getLineEnd(maxLines - 1)).trim();
+            Layout a = a(str);
+            if (a.getLineCount() > maxLines) {
+                String trim = this.e.substring(0, a.getLineEnd(maxLines - 1)).trim();
                 while (a(trim + "...").getLineCount() > maxLines) {
                     if (trim.length() > "...".length()) {
                         trim = trim.substring(0, trim.length() - "...".length());
@@ -127,7 +125,7 @@ public class EllipsizingTextView extends TextView {
                 this.c = false;
                 if (z == this.b) {
                     this.b = z;
-                    for (c cVar : this.f1735a) {
+                    for (c cVar : this.a) {
                         cVar.a(z);
                     }
                     return;

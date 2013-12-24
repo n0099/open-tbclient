@@ -6,9 +6,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class a<K, V> {
-
-    /* renamed from: a  reason: collision with root package name */
-    private final LinkedHashMap<K, V> f441a = new LinkedHashMap<>(0, 0.75f, true);
+    private final LinkedHashMap<K, V> a = new LinkedHashMap<>(0, 0.75f, true);
     private int b;
     private int c;
     private int d;
@@ -26,7 +24,7 @@ public class a<K, V> {
         V v = null;
         if (k != null) {
             synchronized (this) {
-                V v2 = this.f441a.get(k);
+                V v2 = this.a.get(k);
                 if (v2 != null) {
                     this.g++;
                     v = v2;
@@ -50,7 +48,7 @@ public class a<K, V> {
                 synchronized (this) {
                     this.e++;
                     this.c += c(k, v);
-                    v2 = this.f441a.put(k, v);
+                    v2 = this.a.put(k, v);
                     if (v2 != null) {
                         this.c -= c(k, v2);
                     }
@@ -89,15 +87,15 @@ public class a<K, V> {
         V value;
         while (true) {
             synchronized (this) {
-                if (this.c < 0 || (this.f441a.isEmpty() && this.c != 0)) {
+                if (this.c < 0 || (this.a.isEmpty() && this.c != 0)) {
                     break;
-                } else if (this.c <= i || this.f441a.isEmpty()) {
+                } else if (this.c <= i || this.a.isEmpty()) {
                     break;
                 } else {
-                    Map.Entry<K, V> next = this.f441a.entrySet().iterator().next();
+                    Map.Entry<K, V> next = this.a.entrySet().iterator().next();
                     key = next.getKey();
                     value = next.getValue();
-                    this.f441a.remove(key);
+                    this.a.remove(key);
                     this.c -= c(key, value);
                     this.f++;
                 }
@@ -112,7 +110,7 @@ public class a<K, V> {
             return null;
         }
         synchronized (this) {
-            remove = this.f441a.remove(k);
+            remove = this.a.remove(k);
             if (remove != null) {
                 this.c -= c(k, remove);
             }

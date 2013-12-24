@@ -10,9 +10,7 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 /* loaded from: classes.dex */
 public class MyAudioRecorder implements h {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static final int[] f2736a = {44100, 22050, 11025, 8000};
+    private static final int[] a = {44100, 22050, 11025, 8000};
     private static Object b = new Object();
     private static AudioRecord e = null;
     private static MediaRecorder f = null;
@@ -49,7 +47,7 @@ public class MyAudioRecorder implements h {
             if (!bool.booleanValue()) {
                 int i = 3;
                 while (true) {
-                    myAudioRecorder = new MyAudioRecorder(true, 1, f2736a[i], 2, 2);
+                    myAudioRecorder = new MyAudioRecorder(true, 1, a[i], 2, 2);
                     int i2 = i - 1;
                     if (!(myAudioRecorder.d() != State.INITIALIZING) || !(i2 >= 0)) {
                         break;
@@ -57,7 +55,7 @@ public class MyAudioRecorder implements h {
                     i = i2;
                 }
             } else {
-                myAudioRecorder = new MyAudioRecorder(false, 1, f2736a[3], 2, 2);
+                myAudioRecorder = new MyAudioRecorder(false, 1, a[3], 2, 2);
             }
         }
         return myAudioRecorder;

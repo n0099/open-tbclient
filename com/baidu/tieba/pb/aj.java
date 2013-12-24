@@ -7,9 +7,7 @@ import com.baidu.tieba.view.ImagePbImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aj {
-
-    /* renamed from: a  reason: collision with root package name */
-    TextView f2158a;
+    TextView a;
     TextView b;
     TextView c;
     LinearLayout d;

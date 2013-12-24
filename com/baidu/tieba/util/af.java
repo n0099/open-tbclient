@@ -1,90 +1,62 @@
 package com.baidu.tieba.util;
 
-import android.content.Context;
-import android.os.Handler;
-import java.util.ArrayList;
-import org.apache.http.message.BasicNameValuePair;
+import com.baidu.zeus.NotificationProxy;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.zip.GZIPInputStream;
+import java.util.zip.GZIPOutputStream;
 /* loaded from: classes.dex */
-public interface af {
-    Boolean a(String str, Handler handler, int i);
+public class af {
+    public static void a(InputStream inputStream, OutputStream outputStream) {
+        GZIPOutputStream gZIPOutputStream;
+        try {
+            gZIPOutputStream = new GZIPOutputStream(outputStream);
+        } catch (Throwable th) {
+            th = th;
+            gZIPOutputStream = null;
+        }
+        try {
+            byte[] bArr = new byte[NotificationProxy.MAX_URL_LENGTH];
+            while (true) {
+                int read = inputStream.read(bArr, 0, NotificationProxy.MAX_URL_LENGTH);
+                if (read != -1) {
+                    gZIPOutputStream.write(bArr, 0, read);
+                } else {
+                    gZIPOutputStream.flush();
+                    o.a((OutputStream) gZIPOutputStream);
+                    return;
+                }
+            }
+        } catch (Throwable th2) {
+            th = th2;
+            o.a((OutputStream) gZIPOutputStream);
+            throw th;
+        }
+    }
 
-    void a(int i);
-
-    void a(Context context);
-
-    void a(Boolean bool);
-
-    void a(String str);
-
-    void a(String str, String str2);
-
-    void a(String str, byte[] bArr);
-
-    void a(ArrayList<BasicNameValuePair> arrayList);
-
-    void a(BasicNameValuePair basicNameValuePair);
-
-    void a(boolean z);
-
-    boolean a();
-
-    long b();
-
-    void b(String str);
-
-    void b(boolean z);
-
-    String c();
-
-    void c(String str);
-
-    void c(boolean z);
-
-    long d();
-
-    void d(boolean z);
-
-    long e();
-
-    long f();
-
-    long g();
-
-    int h();
-
-    long i();
-
-    int j();
-
-    Context k();
-
-    ArrayList<BasicNameValuePair> l();
-
-    int m();
-
-    String n();
-
-    boolean o();
-
-    boolean p();
-
-    String q();
-
-    void r();
-
-    String s();
-
-    void t();
-
-    byte[] u();
-
-    String v();
-
-    String w();
-
-    boolean x();
-
-    int y();
-
-    String z();
+    public static void b(InputStream inputStream, OutputStream outputStream) {
+        GZIPInputStream gZIPInputStream;
+        try {
+            gZIPInputStream = new GZIPInputStream(inputStream);
+        } catch (Throwable th) {
+            th = th;
+            gZIPInputStream = null;
+        }
+        try {
+            byte[] bArr = new byte[NotificationProxy.MAX_URL_LENGTH];
+            while (true) {
+                int read = gZIPInputStream.read(bArr, 0, NotificationProxy.MAX_URL_LENGTH);
+                if (read != -1) {
+                    outputStream.write(bArr, 0, read);
+                } else {
+                    o.a((InputStream) gZIPInputStream);
+                    return;
+                }
+            }
+        } catch (Throwable th2) {
+            th = th2;
+            o.a((InputStream) gZIPInputStream);
+            throw th;
+        }
+    }
 }

@@ -4,9 +4,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class d {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static d f405a = null;
+    private static d a = null;
     private HashMap<String, c> b;
 
     private d() {
@@ -17,10 +15,10 @@ public class d {
     public static synchronized d a() {
         d dVar;
         synchronized (d.class) {
-            if (f405a == null) {
-                f405a = new d();
+            if (a == null) {
+                a = new d();
             }
-            dVar = f405a;
+            dVar = a;
         }
         return dVar;
     }

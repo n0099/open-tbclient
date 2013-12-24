@@ -1,187 +1,43 @@
 package com.baidu.tieba.account;
 
-import android.app.Dialog;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.widget.Button;
-import android.widget.CompoundButton;
-import android.widget.EditText;
-import android.widget.ProgressBar;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
-import android.widget.TextView;
+import android.app.Activity;
+import com.baidu.loginshare.ILoginShareListener;
+import com.baidu.loginshare.LoginShareEvent;
+import com.baidu.loginshare.Token;
+import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.AccountData;
-import com.slidingmenu.lib.R;
-import java.util.ArrayList;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class n {
-    private com.baidu.tieba.j j;
+public class n implements ILoginShareListener {
+    final /* synthetic */ l a;
 
-    /* renamed from: a  reason: collision with root package name */
-    private View f1098a = null;
-    private Dialog b = null;
-    private EditText c = null;
-    private RadioGroup d = null;
-    private CompoundButton.OnCheckedChangeListener e = null;
-    private RadioButton f = null;
-    private RadioButton g = null;
-    private RadioButton h = null;
-    private Button i = null;
-    private Button k = null;
-    private u l = null;
-    private t m = null;
-    private TextView n = null;
-    private Button o = null;
-    private ProgressBar p = null;
-    private ProgressBar q = null;
-    private TextView r = null;
-    private String s = null;
-    private AccountData t = null;
-    private s u = null;
-    private s v = null;
-
-    public n(com.baidu.tieba.j jVar) {
-        this.j = null;
-        this.j = jVar;
+    private n(l lVar) {
+        this.a = lVar;
     }
 
-    public void a(String str) {
-        this.s = str;
-    }
-
-    public void a(AccountData accountData) {
-        this.t = accountData;
-    }
-
-    public void a(s sVar) {
-        this.u = sVar;
-    }
-
-    public void b(s sVar) {
-        this.v = sVar;
-    }
-
-    public void a() {
-        if (this.b == null) {
-            this.f1098a = this.j.getLayoutInflater().inflate(R.layout.main_input_username, (ViewGroup) null);
-            this.c = (EditText) this.f1098a.findViewById(R.id.account);
-            this.c.setHint(this.j.getString(R.string.input_name) + ":");
-            this.i = (Button) this.f1098a.findViewById(R.id.back);
-            this.i.setOnClickListener(new o(this));
-            this.k = (Button) this.f1098a.findViewById(R.id.check_username);
-            this.k.setOnClickListener(new p(this));
-            this.p = (ProgressBar) this.f1098a.findViewById(R.id.check_progress);
-            this.o = (Button) this.f1098a.findViewById(R.id.confirm);
-            this.o.setOnClickListener(new q(this));
-            this.q = (ProgressBar) this.f1098a.findViewById(R.id.confirm_progress);
-            this.n = (TextView) this.f1098a.findViewById(R.id.error_info);
-            this.d = (RadioGroup) this.f1098a.findViewById(R.id.names_group);
-            this.f = (RadioButton) this.f1098a.findViewById(R.id.name1);
-            this.g = (RadioButton) this.f1098a.findViewById(R.id.name2);
-            this.h = (RadioButton) this.f1098a.findViewById(R.id.name3);
-            this.e = new r(this);
-            this.f.setOnCheckedChangeListener(this.e);
-            this.g.setOnCheckedChangeListener(this.e);
-            this.h.setOnCheckedChangeListener(this.e);
-            this.r = (TextView) this.f1098a.findViewById(R.id.phone_info);
-            d();
-            this.b = new Dialog(this.j, R.style.input_username_dialog);
-            this.b.setCanceledOnTouchOutside(false);
-            this.b.getWindow().setSoftInputMode(20);
-            this.b.setCancelable(false);
-            this.b.setCanceledOnTouchOutside(false);
-        }
-        if (!this.b.isShowing()) {
-            this.c.setText((CharSequence) null);
-            d();
-            b((String) null);
-            if (this.s == null || this.s.length() <= 0) {
-                this.r.setText("Hi," + this.j.getString(R.string.bar_friend));
-            } else {
-                this.r.setText("Hi," + this.s);
+    @Override // com.baidu.loginshare.ILoginShareListener
+    public void onLoginShareEvent(Token token) {
+        if (token != null) {
+            TiebaApplication.F();
+            LoginShareEvent loginShareEvent = token.mEvent;
+            String str = token.mUsername;
+            String str2 = token.mBduss;
+            String str3 = token.mPtoken;
+            if (loginShareEvent == LoginShareEvent.VALID) {
+                if (str2 != null && str3 != null) {
+                    com.baidu.tieba.util.be.e(getClass().getName(), "onLoginShareEvent", "login");
+                    this.a.a(true, str2, str3, str);
+                    return;
+                }
+                return;
             }
-            this.b.show();
-            this.b.setContentView(this.f1098a);
-            WindowManager.LayoutParams attributes = this.b.getWindow().getAttributes();
-            attributes.gravity = 51;
-            attributes.x = 0;
-            attributes.y = 0;
-            attributes.width = -1;
-            attributes.height = -1;
-            this.b.getWindow().setAttributes(attributes);
-            this.j.ShowSoftKeyPadDelay(this.c, 150);
-            this.c.requestFocus();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void f() {
-        if (this.v != null) {
-            this.v.a(null);
-        }
-    }
-
-    public void a(ArrayList<String> arrayList) {
-        int size;
-        if (arrayList != null && (size = arrayList.size()) > 0) {
-            this.d.setVisibility(0);
-            if (size > 0 && arrayList.get(0) != null) {
-                this.f.setText(arrayList.get(0));
-                this.f.setVisibility(0);
-            }
-            if (size > 1 && arrayList.get(1) != null) {
-                this.g.setText(arrayList.get(1));
-                this.g.setVisibility(0);
-            }
-            if (size > 2 && arrayList.get(2) != null) {
-                this.h.setText(arrayList.get(2));
-                this.h.setVisibility(0);
+            com.baidu.tieba.util.be.e(getClass().getName(), "onLoginShareEvent", "logout");
+            this.a.a(false, null, null, str);
+            AccountData F = TiebaApplication.F();
+            if (F != null && !com.baidu.tieba.util.bc.c(F.getAccount()) && F.getAccount().equals(token.mUsername)) {
+                a.a().a((Activity) null, true);
+                a.a().b("detect_bduss_logout");
             }
         }
-    }
-
-    public void b() {
-        if (this.l != null) {
-            this.l.cancel();
-            this.l = null;
-        }
-        if (this.m != null) {
-            this.m.cancel();
-            this.m = null;
-        }
-        e();
-    }
-
-    public boolean c() {
-        return this.b != null && this.b.isShowing();
-    }
-
-    public void d() {
-        this.d.setVisibility(8);
-        this.d.clearCheck();
-        this.f.setVisibility(8);
-        this.g.setVisibility(8);
-        this.h.setVisibility(8);
-        this.f.setChecked(false);
-        this.g.setChecked(false);
-        this.h.setChecked(false);
-    }
-
-    public void e() {
-        if (this.b != null && this.b.isShowing()) {
-            this.b.dismiss();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void b(String str) {
-        if (str == null) {
-            this.n.setVisibility(8);
-            this.n.setText((CharSequence) null);
-            return;
-        }
-        this.n.setVisibility(0);
-        this.n.setText(str);
     }
 }

@@ -6,9 +6,7 @@ import android.view.animation.Transformation;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o extends Animation {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ l f2694a;
+    final /* synthetic */ l a;
     private boolean b = false;
     private boolean c = false;
     private long d;
@@ -19,7 +17,7 @@ public class o extends Animation {
     private long i;
 
     public o(l lVar) {
-        this.f2694a = lVar;
+        this.a = lVar;
     }
 
     public void a(float f, float f2) {
@@ -39,10 +37,10 @@ public class o extends Animation {
         this.h = Math.abs((f * 1000.0f) / 2500.0f);
         this.i = Math.abs((f2 * 1000.0f) / 2500.0f);
         setDuration(Math.max(this.h, this.i));
-        interpolator = this.f2694a.M;
+        interpolator = this.a.M;
         setInterpolator(interpolator);
-        this.f = this.f2694a.getScrollX();
-        this.g = this.f2694a.getScrollY();
+        this.f = this.a.getScrollX();
+        this.g = this.a.getScrollY();
         this.b = true;
     }
 
@@ -90,36 +88,36 @@ public class o extends Animation {
         } else {
             i2 = this.g - ((int) (f9 * (((float) this.e) + ((2500.0f * f9) / 2.0f))));
         }
-        f2 = this.f2694a.f;
-        i3 = this.f2694a.I;
+        f2 = this.a.f;
+        i3 = this.a.I;
         float f10 = f2 + i3;
-        i4 = this.f2694a.J;
-        if (f10 + i4 > this.f2694a.getHeight()) {
-            i6 = this.f2694a.K;
+        i4 = this.a.J;
+        if (f10 + i4 > this.a.getHeight()) {
+            i6 = this.a.K;
             if (i2 < (-i6)) {
-                i11 = this.f2694a.K;
+                i11 = this.a.K;
                 i2 = -i11;
             }
-            f6 = this.f2694a.f;
-            i7 = this.f2694a.J;
+            f6 = this.a.f;
+            i7 = this.a.J;
             float f11 = f6 + i7;
-            i8 = this.f2694a.L;
-            if (this.f2694a.getHeight() + i2 > f11 + i8) {
-                f7 = this.f2694a.f;
-                i9 = this.f2694a.J;
-                float height = (f7 - this.f2694a.getHeight()) + i9;
-                i10 = this.f2694a.L;
+            i8 = this.a.L;
+            if (this.a.getHeight() + i2 > f11 + i8) {
+                f7 = this.a.f;
+                i9 = this.a.J;
+                float height = (f7 - this.a.getHeight()) + i9;
+                i10 = this.a.L;
                 i2 = (int) (height + i10);
             }
         } else {
             i2 = 0;
         }
-        f3 = this.f2694a.e;
-        if (f3 > this.f2694a.getWidth()) {
-            f4 = this.f2694a.e;
-            if (this.f2694a.getWidth() + i > f4) {
-                f5 = this.f2694a.e;
-                i5 = (int) (f5 - this.f2694a.getWidth());
+        f3 = this.a.e;
+        if (f3 > this.a.getWidth()) {
+            f4 = this.a.e;
+            if (this.a.getWidth() + i > f4) {
+                f5 = this.a.e;
+                i5 = (int) (f5 - this.a.getWidth());
             } else {
                 i5 = i;
             }
@@ -127,15 +125,15 @@ public class o extends Animation {
                 i12 = i5;
             }
         }
-        this.f2694a.scrollTo(i12, i2);
-        this.f2694a.invalidate();
+        this.a.scrollTo(i12, i2);
+        this.a.invalidate();
     }
 
     @Override // android.view.animation.Animation
     public boolean getTransformation(long j, Transformation transformation) {
         boolean z;
         if (!this.c) {
-            z = this.f2694a.l;
+            z = this.a.l;
             if (z) {
                 this.b = false;
                 return false;

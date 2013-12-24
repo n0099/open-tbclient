@@ -6,13 +6,11 @@ import com.baidu.tieba.util.UtilHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class w extends BdAsyncTask<Object, Integer, t> {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ v f1508a;
+    final /* synthetic */ v a;
     private y b = null;
 
     public w(v vVar) {
-        this.f1508a = vVar;
+        this.a = vVar;
         setPriority(3);
     }
 
@@ -24,18 +22,18 @@ public class w extends BdAsyncTask<Object, Integer, t> {
         t tVar;
         this.b = new y();
         if (UtilHelper.g(TiebaApplication.h().getApplicationContext()) != UtilHelper.NetworkStateInfo.UNAVAIL) {
-            this.f1508a.b = d();
-            tVar = this.f1508a.b;
+            this.a.b = d();
+            tVar = this.a.b;
             return tVar;
         }
         return null;
     }
 
     private t d() {
-        String a2 = this.b.a();
+        String a = this.b.a();
         if (this.b.c()) {
             t tVar = new t();
-            tVar.a(a2);
+            tVar.a(a);
             return tVar;
         }
         return null;
@@ -48,7 +46,7 @@ public class w extends BdAsyncTask<Object, Integer, t> {
             this.b.b();
         }
         this.b = null;
-        this.f1508a.f1507a = null;
+        this.a.a = null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -60,18 +58,18 @@ public class w extends BdAsyncTask<Object, Integer, t> {
         x xVar2;
         x xVar3;
         t tVar3;
-        this.f1508a.f1507a = null;
-        xVar = this.f1508a.c;
+        this.a.a = null;
+        xVar = this.a.c;
         if (xVar != null) {
-            tVar2 = this.f1508a.b;
+            tVar2 = this.a.b;
             if (tVar2 != null) {
-                xVar3 = this.f1508a.c;
-                tVar3 = this.f1508a.b;
+                xVar3 = this.a.c;
+                tVar3 = this.a.b;
                 xVar3.a(tVar3);
                 return;
             }
             String d = this.b != null ? this.b.d() : null;
-            xVar2 = this.f1508a.c;
+            xVar2 = this.a.c;
             xVar2.a(d);
         }
     }

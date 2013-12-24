@@ -5,9 +5,7 @@ import java.util.List;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class m {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static m f540a = null;
+    private static m a = null;
     private String[] d;
     private l h;
     private String b = null;
@@ -19,10 +17,10 @@ public class m {
     public static synchronized m a() {
         m mVar;
         synchronized (m.class) {
-            if (f540a == null) {
-                f540a = new m();
+            if (a == null) {
+                a = new m();
             }
-            mVar = f540a;
+            mVar = a;
         }
         return mVar;
     }

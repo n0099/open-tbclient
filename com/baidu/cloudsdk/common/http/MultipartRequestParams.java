@@ -17,20 +17,18 @@ public class MultipartRequestParams extends RequestParams {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class a {
-
-        /* renamed from: a  reason: collision with root package name */
-        public String f839a;
+        public String a;
         public String b;
         public InputStream c;
 
         public a(InputStream inputStream, String str, String str2) {
             this.c = inputStream;
-            this.f839a = str;
+            this.a = str;
             this.b = str2;
         }
 
         public String a() {
-            return this.f839a != null ? this.f839a : "nofilename";
+            return this.a != null ? this.a : "nofilename";
         }
     }
 

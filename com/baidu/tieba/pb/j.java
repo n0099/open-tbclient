@@ -4,21 +4,18 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.slidingmenu.lib.R;
-import com.tencent.mm.sdk.platformtools.Util;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j extends BdAsyncTask<String, Integer, String> {
-
-    /* renamed from: a  reason: collision with root package name */
-    String f2273a;
+    String a;
     byte[] b;
     final /* synthetic */ ImageActivity c;
 
     public j(ImageActivity imageActivity, String str, byte[] bArr) {
         this.c = imageActivity;
-        this.f2273a = null;
+        this.a = null;
         this.b = null;
-        this.f2273a = str;
+        this.a = str;
         this.b = bArr;
     }
 
@@ -28,30 +25,30 @@ public class j extends BdAsyncTask<String, Integer, String> {
     public String a(String... strArr) {
         String str;
         try {
-            if (this.f2273a != null && this.f2273a.length() > 0 && this.b != null) {
+            if (this.a != null && this.a.length() > 0 && this.b != null) {
                 if (!com.baidu.adp.lib.h.g.a(this.b)) {
-                    str = Util.PHOTO_DEFAULT_EXT;
+                    str = ".jpg";
                 } else {
                     str = ".gif";
                 }
-                String f = com.baidu.tieba.util.bb.f(this.f2273a);
+                String f = com.baidu.tieba.util.bc.f(this.a);
                 if (f == null) {
                     return this.c.getString(R.string.save_error);
                 }
                 String str2 = f + str;
-                for (int i = 0; com.baidu.tieba.util.x.b(str2) && i < 10000; i++) {
+                for (int i = 0; com.baidu.tieba.util.y.b(str2) && i < 10000; i++) {
                     str2 = f + String.valueOf(Math.round(Math.random() * 9.9999999E7d)) + str;
                 }
-                String a2 = com.baidu.tieba.util.x.a(str2, this.b);
-                if (a2 != null) {
-                    new com.baidu.tieba.util.al(this.c).a(a2);
+                String a = com.baidu.tieba.util.y.a(str2, this.b);
+                if (a != null) {
+                    new com.baidu.tieba.util.am(this.c).a(a);
                     return this.c.getString(R.string.save_image_to_album);
                 }
-                return com.baidu.tieba.util.x.b();
+                return com.baidu.tieba.util.y.b();
             }
             return this.c.getString(R.string.save_error);
         } catch (Exception e) {
-            com.baidu.tieba.util.bd.b("SaveImageAsyncTask", "doInBackground", "error" + e.getMessage());
+            com.baidu.tieba.util.be.b("SaveImageAsyncTask", "doInBackground", "error" + e.getMessage());
             return this.c.getString(R.string.save_error);
         }
     }
@@ -67,7 +64,7 @@ public class j extends BdAsyncTask<String, Integer, String> {
         this.c.h = null;
         textView = this.c.i;
         textView.setVisibility(0);
-        progressBar = this.c.f2137a;
+        progressBar = this.c.a;
         progressBar.setVisibility(8);
     }
 
@@ -84,7 +81,7 @@ public class j extends BdAsyncTask<String, Integer, String> {
         this.c.h = null;
         textView = this.c.i;
         textView.setVisibility(0);
-        progressBar = this.c.f2137a;
+        progressBar = this.c.a;
         progressBar.setVisibility(8);
         super.cancel(true);
     }

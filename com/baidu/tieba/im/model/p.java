@@ -1,32 +1,15 @@
 package com.baidu.tieba.im.model;
-
-import com.baidu.tieba.im.message.ChatMessage;
-import java.util.Comparator;
 /* loaded from: classes.dex */
-class p implements Comparator<ChatMessage> {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MsglistModel f1825a;
-
-    private p(MsglistModel msglistModel) {
-        this.f1825a = msglistModel;
-    }
+class p implements com.baidu.tieba.im.a<Boolean> {
+    final /* synthetic */ n a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ p(MsglistModel msglistModel, i iVar) {
-        this(msglistModel);
+    public p(n nVar) {
+        this.a = nVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.util.Comparator
-    /* renamed from: a */
-    public int compare(ChatMessage chatMessage, ChatMessage chatMessage2) {
-        if (chatMessage == null || chatMessage2 == null) {
-            return 0;
-        }
-        if (chatMessage.getRecordId() > chatMessage2.getRecordId()) {
-            return 1;
-        }
-        return chatMessage.getRecordId() < chatMessage2.getRecordId() ? -1 : 0;
+    @Override // com.baidu.tieba.im.a
+    public void a(Boolean bool) {
     }
 }

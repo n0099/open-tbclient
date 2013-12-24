@@ -5,23 +5,21 @@ import android.widget.LinearLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class t implements View.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ImagePbActivity f2283a;
+    final /* synthetic */ ImagePbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(ImagePbActivity imagePbActivity) {
-        this.f2283a = imagePbActivity;
+        this.a = imagePbActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         LinearLayout linearLayout;
-        linearLayout = this.f2283a.q;
+        linearLayout = this.a.q;
         if (linearLayout.getVisibility() == 0) {
-            this.f2283a.b(false);
+            this.a.b(false);
         } else {
-            this.f2283a.finish();
+            this.a.finish();
         }
     }
 }

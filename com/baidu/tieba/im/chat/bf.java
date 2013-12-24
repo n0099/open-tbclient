@@ -1,29 +1,20 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tieba.im.model.MsglistModel;
-import com.baidu.tieba.voice.VoiceManager;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.DialogInterface;
 /* loaded from: classes.dex */
-public class bf implements ca {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MsglistActivity f1564a;
+class bf implements DialogInterface.OnClickListener {
+    final /* synthetic */ int a;
+    final /* synthetic */ bc b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bf(MsglistActivity msglistActivity) {
-        this.f1564a = msglistActivity;
+    public bf(bc bcVar, int i) {
+        this.b = bcVar;
+        this.a = i;
     }
 
-    @Override // com.baidu.tieba.im.chat.ca
-    public void a(VoiceManager.VoiceModel voiceModel) {
-        MsglistModel msglistModel;
-        if (voiceModel != null) {
-            msglistModel = this.f1564a.g;
-            msglistModel.a(voiceModel.voiceId, voiceModel.duration);
-        }
-    }
-
-    @Override // com.baidu.tieba.im.chat.ca
-    public void a() {
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        dialogInterface.dismiss();
+        this.b.a(this.a);
     }
 }

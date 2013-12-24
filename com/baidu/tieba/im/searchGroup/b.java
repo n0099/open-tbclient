@@ -6,14 +6,12 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-import com.baidu.tieba.util.ba;
+import com.baidu.tieba.util.bb;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class b extends com.baidu.adp.a.e {
-
-    /* renamed from: a  reason: collision with root package name */
-    private View f1874a;
+    private View a;
     private NavigationBar c;
     private ImageView d;
     private EditText e;
@@ -24,7 +22,7 @@ public class b extends com.baidu.adp.a.e {
 
     public b(AddGroupActivity addGroupActivity) {
         super(addGroupActivity);
-        this.f1874a = null;
+        this.a = null;
         this.c = null;
         this.d = null;
         this.e = null;
@@ -60,19 +58,19 @@ public class b extends com.baidu.adp.a.e {
 
     public void a(int i) {
         this.i.getLayoutMode().a(i == 1);
-        this.i.getLayoutMode().a(this.f1874a);
-        ba.b(this.f1874a, i);
+        this.i.getLayoutMode().a(this.a);
+        bb.b(this.a, i);
         this.c.c(i);
         if (i == 1) {
-            this.f1874a.setBackgroundResource(R.color.im_add_group_page_backgroundcolor_1);
+            this.a.setBackgroundResource(R.color.im_add_group_page_backgroundcolor_1);
         } else {
-            this.f1874a.setBackgroundResource(R.color.im_add_group_page_backgroundcolor);
+            this.a.setBackgroundResource(R.color.im_add_group_page_backgroundcolor);
         }
     }
 
     private void h() {
         this.i.setContentView(R.layout.im_add_group_activity);
-        this.f1874a = this.i.findViewById(R.id.addgroup_rootlayout);
+        this.a = this.i.findViewById(R.id.addgroup_rootlayout);
         this.c = (NavigationBar) this.i.findViewById(R.id.addgroup_navigationbar);
         this.c.a(this.i.getResources().getString(R.string.add_group_title_main));
         this.d = this.c.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);

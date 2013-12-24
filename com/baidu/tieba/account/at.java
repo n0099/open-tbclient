@@ -1,20 +1,41 @@
 package com.baidu.tieba.account;
 
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tieba.data.AccountData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class at implements s {
+public class at extends BdAsyncTask<Object, Object, AccountData> {
+    private String a;
+    private String b;
+    private as c;
 
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ar f1067a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public at(ar arVar) {
-        this.f1067a = arVar;
+    public at(String str, String str2, as asVar) {
+        this.a = str;
+        this.b = str2;
+        this.c = asVar;
     }
 
-    @Override // com.baidu.tieba.account.s
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: d */
+    public AccountData a(Object... objArr) {
+        AccountData b;
+        b = ar.b(this.a, this.b);
+        return b;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(AccountData accountData) {
-        this.f1067a.f1065a.c();
+        super.a((at) accountData);
+        if (this.c != null) {
+            if (accountData != null) {
+                this.c.a(accountData);
+            } else {
+                this.c.a(this.a);
+            }
+        }
     }
 }

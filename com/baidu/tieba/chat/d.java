@@ -1,20 +1,34 @@
 package com.baidu.tieba.chat;
-/* loaded from: classes.dex */
-class d implements com.baidu.adp.widget.ListView.b {
 
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ChatActivity f1184a;
+import com.baidu.adp.widget.ListView.BdListView;
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes.dex */
+public class d implements com.baidu.tieba.im.a<Void> {
+    final /* synthetic */ ChatListFragment a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d(ChatActivity chatActivity) {
-        this.f1184a = chatActivity;
+    public d(ChatListFragment chatListFragment) {
+        this.a = chatListFragment;
     }
 
-    @Override // com.baidu.adp.widget.ListView.b
-    public void a(boolean z) {
-        ac acVar;
-        acVar = this.f1184a.b;
-        if (acVar.k()) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.a
+    public void a(Void r3) {
+        BdListView bdListView;
+        a aVar;
+        a aVar2;
+        com.baidu.tieba.model.i iVar;
+        BdListView bdListView2;
+        bdListView = this.a.Y;
+        if (bdListView != null) {
+            bdListView2 = this.a.Y;
+            bdListView2.a();
+        }
+        aVar = this.a.Z;
+        if (aVar != null) {
+            aVar2 = this.a.Z;
+            iVar = this.a.b;
+            aVar2.a(iVar.a());
         }
     }
 }

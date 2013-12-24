@@ -8,13 +8,11 @@ import android.widget.EditText;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements TextWatcher {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ AtListActivity f2807a;
+    final /* synthetic */ AtListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(AtListActivity atListActivity) {
-        this.f2807a = atListActivity;
+        this.a = atListActivity;
     }
 
     @Override // android.text.TextWatcher
@@ -28,21 +26,21 @@ public class e implements TextWatcher {
         Runnable runnable2;
         String obj = editable.toString();
         if (obj != null) {
-            str = this.f2807a.j;
+            str = this.a.j;
             if (!obj.equals(str)) {
-                handler = this.f2807a.e;
-                runnable = this.f2807a.r;
+                handler = this.a.e;
+                runnable = this.a.r;
                 handler.removeCallbacks(runnable);
-                handler2 = this.f2807a.e;
-                runnable2 = this.f2807a.r;
+                handler2 = this.a.e;
+                runnable2 = this.a.r;
                 handler2.postDelayed(runnable2, 300L);
             }
             if (obj.length() > 0) {
-                button2 = this.f2807a.c;
+                button2 = this.a.c;
                 button2.setVisibility(0);
                 return;
             }
-            button = this.f2807a.c;
+            button = this.a.c;
             button.setVisibility(8);
         }
     }
@@ -50,8 +48,8 @@ public class e implements TextWatcher {
     @Override // android.text.TextWatcher
     public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
         EditText editText;
-        AtListActivity atListActivity = this.f2807a;
-        editText = this.f2807a.b;
+        AtListActivity atListActivity = this.a;
+        editText = this.a.b;
         atListActivity.j = editText.getText().toString();
     }
 

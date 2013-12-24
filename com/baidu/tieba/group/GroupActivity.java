@@ -13,18 +13,22 @@ import com.baidu.tieba.BaseFragmentActivity;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.account.LoginActivity;
 import com.baidu.tieba.barcode.CaptureActivity;
-import com.baidu.tieba.im.c.e;
+import com.baidu.tieba.im.a.e;
+import com.baidu.tieba.im.creategroup.CreateGroupStepActivity;
+import com.baidu.tieba.im.data.GroupPermData;
 import com.baidu.tieba.im.hotGroup.HotGroupActivity;
+import com.baidu.tieba.im.message.au;
+import com.baidu.tieba.im.message.by;
+import com.baidu.tieba.im.message.n;
+import com.baidu.tieba.im.messageCenter.g;
 import com.baidu.tieba.im.mygroup.MyGroupActivity;
 import com.baidu.tieba.im.nearbygroups.NearbyGroupsActivity;
 import com.baidu.tieba.im.searchGroup.AddGroupActivity;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class GroupActivity extends BaseFragment implements e {
-
-    /* renamed from: a  reason: collision with root package name */
-    private a f1427a;
-    private com.baidu.tieba.im.c.a b;
+public class GroupActivity extends BaseFragment implements e, g {
+    private a a;
+    private com.baidu.tieba.im.a.a b;
 
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
     public void d(Bundle bundle) {
@@ -34,13 +38,13 @@ public class GroupActivity extends BaseFragment implements e {
     }
 
     private void a() {
-        this.b = new com.baidu.tieba.im.c.a();
+        this.b = new com.baidu.tieba.im.a.a();
         this.b.b();
         this.b.a(this);
     }
 
     private void G() {
-        this.f1427a = new a((BaseFragmentActivity) i(), this);
+        this.a = new a((BaseFragmentActivity) i(), this);
     }
 
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
@@ -52,7 +56,13 @@ public class GroupActivity extends BaseFragment implements e {
     public void c(int i) {
         super.c(i);
         ((BaseFragmentActivity) i()).a().a(i == 1);
-        this.f1427a.a(i);
+        this.a.a(i);
+    }
+
+    @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
+    public void s() {
+        super.s();
+        com.baidu.tieba.im.messageCenter.e.a().a(this);
     }
 
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
@@ -66,36 +76,48 @@ public class GroupActivity extends BaseFragment implements e {
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
     public void r() {
         super.r();
-        if (TiebaApplication.C() && com.baidu.tieba.im.c.a.f1527a) {
+        if (com.baidu.tieba.im.a.a.a) {
             this.b.a();
         }
+        com.baidu.tieba.im.messageCenter.e.a().a(this);
+        com.baidu.tieba.im.messageCenter.e.a().a(103008, this);
     }
 
     @Override // com.baidu.tieba.BaseFragment, android.view.View.OnClickListener
     public void onClick(View view) {
+        if (view == this.a.a) {
+            if (!TiebaApplication.C()) {
+                LoginActivity.a((Activity) i(), "", true, 1);
+                return;
+            }
+            au auVar = new au();
+            auVar.a(0L);
+            com.baidu.tieba.im.messageCenter.e.a().a(auVar);
+            return;
+        }
         switch (view.getId()) {
-            case R.id.nearby_widget /* 2131100288 */:
+            case R.id.nearby_widget /* 2131100284 */:
                 if (TiebaApplication.h().t()) {
                     StatService.onEvent(i(), "group_tab_nearby", "onclick");
                 }
-                com.baidu.tieba.im.c.a.f1527a = true;
+                com.baidu.tieba.im.a.a.a = true;
                 NearbyGroupsActivity.a(i());
                 return;
-            case R.id.diver_2 /* 2131100289 */:
-            case R.id.diver_3 /* 2131100291 */:
-            case R.id.diver_4 /* 2131100292 */:
-            case R.id.diver_5 /* 2131100294 */:
-            case R.id.diver_6 /* 2131100296 */:
-            case R.id.diver_7 /* 2131100297 */:
+            case R.id.diver_2 /* 2131100285 */:
+            case R.id.diver_3 /* 2131100287 */:
+            case R.id.diver_4 /* 2131100288 */:
+            case R.id.diver_5 /* 2131100290 */:
+            case R.id.diver_6 /* 2131100292 */:
+            case R.id.diver_7 /* 2131100293 */:
             default:
                 return;
-            case R.id.hot_widget /* 2131100290 */:
+            case R.id.hot_widget /* 2131100286 */:
                 if (TiebaApplication.h().t()) {
                     StatService.onEvent(i(), "group_tab_hotgroup", "onclick");
                 }
                 HotGroupActivity.a(i());
                 return;
-            case R.id.my_widget /* 2131100293 */:
+            case R.id.my_widget /* 2131100289 */:
                 if (TextUtils.isEmpty(TiebaApplication.B())) {
                     LoginActivity.a((Activity) i(), "", true, 1);
                     return;
@@ -105,13 +127,13 @@ public class GroupActivity extends BaseFragment implements e {
                 }
                 MyGroupActivity.a(i());
                 return;
-            case R.id.addgroup_widget /* 2131100295 */:
+            case R.id.addgroup_widget /* 2131100291 */:
                 if (TiebaApplication.h().t()) {
                     StatService.onEvent(i(), "group_tab_addgroup", "onclick");
                 }
                 AddGroupActivity.a(i());
                 return;
-            case R.id.quick_response_widget /* 2131100298 */:
+            case R.id.quick_response_widget /* 2131100294 */:
                 if (TiebaApplication.h().t()) {
                     StatService.onEvent(i(), "group_tab_quickresopnse", "onclick");
                 }
@@ -120,9 +142,9 @@ public class GroupActivity extends BaseFragment implements e {
         }
     }
 
-    @Override // com.baidu.tieba.im.c.e
+    @Override // com.baidu.tieba.im.a.e
     public void a(int i, int i2) {
-        this.f1427a.b(i2);
+        this.a.b(i2);
     }
 
     @Override // android.support.v4.app.Fragment
@@ -137,6 +159,28 @@ public class GroupActivity extends BaseFragment implements e {
                 return;
             default:
                 return;
+        }
+    }
+
+    @Override // com.baidu.tieba.im.messageCenter.g
+    public void a(n nVar) {
+        if (nVar.t() == 103008 && (nVar instanceof by)) {
+            try {
+                by byVar = (by) nVar;
+                if (byVar.i() && byVar.j() > 0) {
+                    a(byVar.k());
+                } else {
+                    GroupPermData a = byVar.a();
+                    if (a != null) {
+                        if (a.isCreatePersonal()) {
+                            CreateGroupStepActivity.a(i(), 2, 0, 1011);
+                        } else if (!TextUtils.isEmpty(a.getCreatePersonalTip())) {
+                            a(a.getCreatePersonalTip());
+                        }
+                    }
+                }
+            } catch (Exception e) {
+            }
         }
     }
 }

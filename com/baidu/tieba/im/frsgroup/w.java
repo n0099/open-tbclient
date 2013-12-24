@@ -11,7 +11,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.im.data.UserData;
-import com.baidu.tieba.util.bb;
+import com.baidu.tieba.util.bc;
 import com.baidu.tieba.view.HeadImageView;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
@@ -22,9 +22,7 @@ import java.util.List;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class w extends BaseAdapter {
-
-    /* renamed from: a  reason: collision with root package name */
-    private MembersActivity f1725a;
+    private MembersActivity a;
     private y b;
     private boolean c;
     private boolean d;
@@ -84,7 +82,7 @@ public class w extends BaseAdapter {
     }
 
     public w(MembersActivity membersActivity) {
-        this.f1725a = membersActivity;
+        this.a = membersActivity;
         this.f = new com.baidu.tieba.util.i(membersActivity);
         this.f.d(false);
         this.d = false;
@@ -166,15 +164,15 @@ public class w extends BaseAdapter {
             if (view == null) {
                 z zVar2 = new z();
                 if (getItemViewType(i) == 1) {
-                    View inflate = LayoutInflater.from(this.f1725a).inflate(R.layout.im_members_list_foot, viewGroup, false);
-                    zVar2.f1727a = (LinearLayout) inflate.findViewById(R.id.list_more);
+                    View inflate = LayoutInflater.from(this.a).inflate(R.layout.im_members_list_foot, viewGroup, false);
+                    zVar2.a = (LinearLayout) inflate.findViewById(R.id.list_more);
                     zVar2.c = (TextView) inflate.findViewById(R.id.more_title);
                     zVar2.d = (ProgressBar) inflate.findViewById(R.id.more_progress);
                     view2 = inflate;
                 } else if (getItemViewType(i) == 2) {
-                    view2 = LayoutInflater.from(this.f1725a).inflate(R.layout.im_list_divide, viewGroup, false);
+                    view2 = LayoutInflater.from(this.a).inflate(R.layout.im_list_divide, viewGroup, false);
                 } else {
-                    View inflate2 = LayoutInflater.from(this.f1725a).inflate(R.layout.im_members_list_item, viewGroup, false);
+                    View inflate2 = LayoutInflater.from(this.a).inflate(R.layout.im_members_list_item, viewGroup, false);
                     zVar2.b = (LinearLayout) inflate2.findViewById(R.id.list_content);
                     zVar2.f = (HeadImageView) inflate2.findViewById(R.id.item_head);
                     zVar2.f.setIsRound(true);
@@ -258,14 +256,14 @@ public class w extends BaseAdapter {
     }
 
     private void a(View view) {
-        this.f1725a.getLayoutMode().a(TiebaApplication.h().an() == 1);
-        this.f1725a.getLayoutMode().a(view);
+        this.a.getLayoutMode().a(TiebaApplication.h().an() == 1);
+        this.a.getLayoutMode().a(view);
     }
 
     private String a(UserData userData) {
         long lastReplyTime;
-        com.baidu.tieba.im.model.h b = this.f1725a.b();
-        switch (b.b()) {
+        com.baidu.tieba.im.model.m b = this.a.b();
+        switch (b.a()) {
             case 0:
                 lastReplyTime = userData.getLoginTime();
                 break;
@@ -280,12 +278,12 @@ public class w extends BaseAdapter {
                 break;
         }
         if (lastReplyTime <= 0) {
-            if (b.b() == 1) {
-                return this.f1725a.getString(R.string.members_no_speak);
+            if (b.a() == 1) {
+                return this.a.getString(R.string.members_no_speak);
             }
             return "";
         }
-        return bb.e(new Date(lastReplyTime * 1000));
+        return bc.e(new Date(lastReplyTime * 1000));
     }
 
     public com.baidu.tieba.util.i e() {

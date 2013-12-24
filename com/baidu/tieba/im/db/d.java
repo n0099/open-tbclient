@@ -5,17 +5,16 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.text.TextUtils;
+import com.baidu.android.pushservice.PushConstants;
 import com.baidu.cloudsdk.social.core.SocialConstants;
-import com.baidu.tieba.im.db.pojo.GroupMsgPojo;
+import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
+import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes.dex */
 public class d {
-
-    /* renamed from: a  reason: collision with root package name */
-    public static String f1666a = "tb_group_msg_";
-    private static d b;
-    private AtomicInteger c = new AtomicInteger(0);
+    private static d a;
+    private AtomicInteger b = new AtomicInteger(0);
 
     private d() {
     }
@@ -23,20 +22,20 @@ public class d {
     public static synchronized d a() {
         d dVar;
         synchronized (d.class) {
-            if (b == null) {
-                b = new d();
+            if (a == null) {
+                a = new d();
             }
-            dVar = b;
+            dVar = a;
         }
         return dVar;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [80=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [83=4] */
     public synchronized int a(String str) {
         int i = 0;
         synchronized (this) {
             if (!TextUtils.isEmpty(str)) {
-                String str2 = f1666a + str;
+                String str2 = "tb_group_msg_" + str;
                 SQLiteDatabase a2 = s.a();
                 Cursor cursor = null;
                 if (a2 != null) {
@@ -68,7 +67,7 @@ public class d {
     public synchronized void b(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
-                String str2 = f1666a + str;
+                String str2 = "tb_group_msg_" + str;
                 SQLiteDatabase a2 = s.a();
                 ContentValues contentValues = new ContentValues();
                 contentValues.put("read_flag", (Integer) 0);
@@ -77,18 +76,18 @@ public class d {
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-                f(str);
+                a(str, 0L);
             }
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [151=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [154=4] */
     public synchronized long c(String str) {
         Cursor cursor = null;
         long j = 0;
         synchronized (this) {
             if (!TextUtils.isEmpty(str)) {
-                String str2 = f1666a + str;
+                String str2 = "tb_group_msg_" + str;
                 SQLiteDatabase a2 = s.a();
                 if (a2 != null) {
                     try {
@@ -108,7 +107,7 @@ public class d {
                         }
                     } catch (SQLiteException e2) {
                         e2.printStackTrace();
-                        f(str);
+                        a(str, 0L);
                         com.baidu.tieba.util.o.a(cursor);
                     }
                 }
@@ -117,12 +116,12 @@ public class d {
         return j;
     }
 
-    public synchronized GroupMsgPojo d(String str) {
+    public synchronized CommonMsgPojo d(String str) {
         Cursor cursor;
-        GroupMsgPojo groupMsgPojo = null;
+        CommonMsgPojo commonMsgPojo = null;
         synchronized (this) {
             if (!TextUtils.isEmpty(str)) {
-                String str2 = f1666a + str;
+                String str2 = "tb_group_msg_" + str;
                 SQLiteDatabase a2 = s.a();
                 try {
                     if (a2 != null) {
@@ -131,36 +130,36 @@ public class d {
                             com.baidu.adp.lib.h.e.d("sql:" + str3);
                             cursor = a2.rawQuery(str3, new String[]{String.valueOf(0)});
                             try {
-                                GroupMsgPojo groupMsgPojo2 = new GroupMsgPojo();
+                                CommonMsgPojo commonMsgPojo2 = new CommonMsgPojo();
                                 if (cursor == null || !cursor.moveToNext()) {
                                     com.baidu.tieba.util.o.a(cursor);
                                 } else {
-                                    groupMsgPojo2.setGid(str);
-                                    groupMsgPojo2.setContent(cursor.getString(cursor.getColumnIndex("content")));
-                                    groupMsgPojo2.setCreate_time(cursor.getLong(cursor.getColumnIndex("create_time")));
-                                    groupMsgPojo2.setExt(cursor.getString(cursor.getColumnIndex("ext")));
-                                    groupMsgPojo2.setMid(cursor.getLong(cursor.getColumnIndex("mid")));
-                                    groupMsgPojo2.setMsg_status(cursor.getInt(cursor.getColumnIndex("msg_status")));
-                                    groupMsgPojo2.setMsg_type(cursor.getInt(cursor.getColumnIndex("msg_type")));
-                                    groupMsgPojo2.setUid(cursor.getString(cursor.getColumnIndex("uid")));
-                                    groupMsgPojo2.setUser_info(cursor.getString(cursor.getColumnIndex("user_info")));
-                                    groupMsgPojo2.setRid(cursor.getLong(cursor.getColumnIndex("rid")));
-                                    groupMsgPojo2.setRead_flag(cursor.getInt(cursor.getColumnIndex("read_flag")));
-                                    groupMsgPojo2.setIs_delete(cursor.getInt(cursor.getColumnIndex("is_delete")));
+                                    commonMsgPojo2.setGid(str);
+                                    commonMsgPojo2.setContent(cursor.getString(cursor.getColumnIndex(PushConstants.EXTRA_CONTENT)));
+                                    commonMsgPojo2.setCreate_time(cursor.getLong(cursor.getColumnIndex("create_time")));
+                                    commonMsgPojo2.setExt(cursor.getString(cursor.getColumnIndex("ext")));
+                                    commonMsgPojo2.setMid(cursor.getLong(cursor.getColumnIndex("mid")));
+                                    commonMsgPojo2.setMsg_status(cursor.getInt(cursor.getColumnIndex("msg_status")));
+                                    commonMsgPojo2.setMsg_type(cursor.getInt(cursor.getColumnIndex("msg_type")));
+                                    commonMsgPojo2.setUid(cursor.getString(cursor.getColumnIndex("uid")));
+                                    commonMsgPojo2.setUser_info(cursor.getString(cursor.getColumnIndex("user_info")));
+                                    commonMsgPojo2.setRid(cursor.getLong(cursor.getColumnIndex("rid")));
+                                    commonMsgPojo2.setRead_flag(cursor.getInt(cursor.getColumnIndex("read_flag")));
+                                    commonMsgPojo2.setIs_delete(cursor.getInt(cursor.getColumnIndex("is_delete")));
                                     com.baidu.tieba.util.o.a(cursor);
-                                    groupMsgPojo = groupMsgPojo2;
+                                    commonMsgPojo = commonMsgPojo2;
                                 }
                             } catch (SQLiteException e) {
                                 e = e;
                                 e.printStackTrace();
-                                f(str);
+                                a(str, 0L);
                                 com.baidu.tieba.util.o.a(cursor);
-                                return groupMsgPojo;
+                                return commonMsgPojo;
                             } catch (Exception e2) {
                                 e = e2;
                                 e.printStackTrace();
                                 com.baidu.tieba.util.o.a(cursor);
-                                return groupMsgPojo;
+                                return commonMsgPojo;
                             }
                         } catch (SQLiteException e3) {
                             e = e3;
@@ -180,30 +179,30 @@ public class d {
                 }
             }
         }
-        return groupMsgPojo;
+        return commonMsgPojo;
     }
 
     public synchronized void a(String str, int i, String str2, int i2, com.baidu.tieba.im.a<LinkedList<String>> aVar) {
         com.baidu.tieba.im.m.a(new e(this, str, i2, str2, i), aVar);
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:45:0x0259 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:45:0x025b */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r2v3, types: [java.lang.String] */
     /* JADX WARN: Type inference failed for: r2v4, types: [android.database.Cursor] */
     /* JADX WARN: Type inference failed for: r2v5 */
-    public synchronized LinkedList<GroupMsgPojo> a(String str, String str2, String str3, int i) {
+    public synchronized LinkedList<CommonMsgPojo> a(String str, String str2, String str3, int i) {
         Cursor cursor;
         Exception e;
         SQLiteException e2;
-        LinkedList<GroupMsgPojo> linkedList = null;
+        LinkedList<CommonMsgPojo> linkedList = null;
         synchronized (this) {
             if (!TextUtils.isEmpty(str)) {
                 if (i <= 0) {
                     i = 20;
                 }
-                LinkedList<GroupMsgPojo> linkedList2 = new LinkedList<>();
-                ?? r2 = f1666a + str;
+                LinkedList<CommonMsgPojo> linkedList2 = new LinkedList<>();
+                ?? r2 = "tb_group_msg_" + str;
                 SQLiteDatabase a2 = s.a();
                 try {
                     if (a2 == null) {
@@ -228,25 +227,25 @@ public class d {
                             if (cursor != null) {
                                 while (cursor.moveToNext()) {
                                     try {
-                                        GroupMsgPojo groupMsgPojo = new GroupMsgPojo();
-                                        groupMsgPojo.setGid(str);
-                                        groupMsgPojo.setContent(cursor.getString(cursor.getColumnIndex("content")));
-                                        groupMsgPojo.setCreate_time(cursor.getLong(cursor.getColumnIndex("create_time")));
-                                        groupMsgPojo.setExt(cursor.getString(cursor.getColumnIndex("ext")));
-                                        groupMsgPojo.setMid(cursor.getLong(cursor.getColumnIndex("mid")));
-                                        groupMsgPojo.setMsg_status(cursor.getInt(cursor.getColumnIndex("msg_status")));
-                                        groupMsgPojo.setMsg_type(cursor.getInt(cursor.getColumnIndex("msg_type")));
-                                        groupMsgPojo.setUid(cursor.getString(cursor.getColumnIndex("uid")));
-                                        groupMsgPojo.setUser_info(cursor.getString(cursor.getColumnIndex("user_info")));
-                                        groupMsgPojo.setRid(cursor.getLong(cursor.getColumnIndex("rid")));
-                                        groupMsgPojo.setRead_flag(cursor.getInt(cursor.getColumnIndex("read_flag")));
-                                        groupMsgPojo.setIs_delete(cursor.getInt(cursor.getColumnIndex("is_delete")));
-                                        groupMsgPojo.checkRidAndSelf();
-                                        linkedList2.add(groupMsgPojo);
+                                        CommonMsgPojo commonMsgPojo = new CommonMsgPojo();
+                                        commonMsgPojo.setGid(str);
+                                        commonMsgPojo.setContent(cursor.getString(cursor.getColumnIndex(PushConstants.EXTRA_CONTENT)));
+                                        commonMsgPojo.setCreate_time(cursor.getLong(cursor.getColumnIndex("create_time")));
+                                        commonMsgPojo.setExt(cursor.getString(cursor.getColumnIndex("ext")));
+                                        commonMsgPojo.setMid(cursor.getLong(cursor.getColumnIndex("mid")));
+                                        commonMsgPojo.setMsg_status(cursor.getInt(cursor.getColumnIndex("msg_status")));
+                                        commonMsgPojo.setMsg_type(cursor.getInt(cursor.getColumnIndex("msg_type")));
+                                        commonMsgPojo.setUid(cursor.getString(cursor.getColumnIndex("uid")));
+                                        commonMsgPojo.setUser_info(cursor.getString(cursor.getColumnIndex("user_info")));
+                                        commonMsgPojo.setRid(cursor.getLong(cursor.getColumnIndex("rid")));
+                                        commonMsgPojo.setRead_flag(cursor.getInt(cursor.getColumnIndex("read_flag")));
+                                        commonMsgPojo.setIs_delete(cursor.getInt(cursor.getColumnIndex("is_delete")));
+                                        commonMsgPojo.checkRidAndSelf();
+                                        linkedList2.add(commonMsgPojo);
                                     } catch (SQLiteException e3) {
                                         e2 = e3;
                                         e2.printStackTrace();
-                                        f(str);
+                                        a(str, 0L);
                                         com.baidu.tieba.util.o.a(cursor);
                                         linkedList = linkedList2;
                                         return linkedList;
@@ -286,15 +285,15 @@ public class d {
         com.baidu.tieba.im.m.a(new f(this, str, str2, str3, i), aVar);
     }
 
-    public synchronized void a(String str, LinkedList<GroupMsgPojo> linkedList, boolean z, com.baidu.tieba.im.a<Boolean> aVar) {
+    public synchronized void a(String str, LinkedList<CommonMsgPojo> linkedList, boolean z, com.baidu.tieba.im.a<Boolean> aVar) {
         if (linkedList != null) {
-            this.c.addAndGet(linkedList.size());
+            this.b.addAndGet(linkedList.size());
             com.baidu.tieba.im.m.a(new g(this, str, linkedList, z), aVar);
         }
     }
 
-    public synchronized void a(LinkedList<String> linkedList, com.baidu.tieba.im.a<Void> aVar) {
-        com.baidu.tieba.im.m.a(new h(this, linkedList), aVar);
+    public synchronized void a(LinkedHashMap<String, Long> linkedHashMap, com.baidu.tieba.im.a<Void> aVar) {
+        com.baidu.tieba.im.m.a(new h(this, linkedHashMap), aVar);
     }
 
     public synchronized void a(String str, String str2, com.baidu.tieba.im.a<Boolean> aVar) {
@@ -315,7 +314,7 @@ public class d {
             if (!TextUtils.isEmpty(str)) {
                 try {
                     SQLiteDatabase a2 = s.a();
-                    String str2 = f1666a + str;
+                    String str2 = "tb_group_msg_" + str;
                     if (a2 != null) {
                         a2.execSQL("DROP TABLE IF EXISTS " + str2);
                         z = true;
@@ -329,15 +328,22 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void f(String str) {
+    public synchronized void a(String str, long j) {
         try {
             if (!TextUtils.isEmpty(str)) {
-                String str2 = f1666a + str;
+                String str2 = "tb_group_msg_" + str;
                 SQLiteDatabase a2 = s.a();
                 if (a2 != null) {
-                    String str3 = "CREATE TABLE IF NOT EXISTS " + str2 + "(mid BIGINT PRIMARY KEY, uid TEXT, user_info blob, create_time BIGINT, msg_type int, msg_status int, content blob, ext blob, read_flag int default 0, is_delete int default 0, rid BIGINT);";
+                    String str3 = "CREATE TABLE IF NOT EXISTS " + str2 + "(mid BIGINT PRIMARY KEY, uid TEXT, user_info blob, create_time BIGINT, msg_type int, msg_status int, " + PushConstants.EXTRA_CONTENT + " blob, ext blob, read_flag int default 0, is_delete int default 0, rid BIGINT);";
                     com.baidu.adp.lib.h.e.d("sql:" + str3);
                     a2.execSQL(str3);
+                    if (j != 0) {
+                        ContentValues contentValues = new ContentValues();
+                        contentValues.put("mid", Long.valueOf(j));
+                        contentValues.put("rid", Long.valueOf(j));
+                        contentValues.put("is_delete", (Integer) 1);
+                        a2.insert(str2, null, contentValues);
+                    }
                 }
             }
         } catch (Exception e) {

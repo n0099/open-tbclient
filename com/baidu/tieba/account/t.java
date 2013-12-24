@@ -1,80 +1,95 @@
 package com.baidu.tieba.account;
 
-import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.slidingmenu.lib.R;
+import com.baidu.tieba.data.RegistData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class t extends BdAsyncTask<String, Integer, com.baidu.tieba.data.d> {
+public class t extends BdAsyncTask<String, Integer, Boolean> {
+    final /* synthetic */ ActivationActivity a;
+    private com.baidu.tieba.util.an b;
 
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ n f1103a;
-    private com.baidu.tieba.util.am b = null;
-    private String c;
-    private String d;
+    private t(ActivationActivity activationActivity) {
+        this.a = activationActivity;
+        this.b = null;
+    }
 
-    public t(n nVar, String str, String str2) {
-        this.f1103a = nVar;
-        this.c = null;
-        this.d = null;
-        this.c = str;
-        this.d = str2;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ t(ActivationActivity activationActivity, o oVar) {
+        this(activationActivity);
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         ProgressBar progressBar;
-        Button button;
-        super.cancel(true);
-        progressBar = this.f1103a.p;
+        EditText editText;
+        RelativeLayout relativeLayout;
+        this.a.l = null;
+        progressBar = this.a.e;
         progressBar.setVisibility(8);
-        button = this.f1103a.k;
-        button.setEnabled(true);
-        this.f1103a.m = null;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public com.baidu.tieba.data.d a(String... strArr) {
-        this.b = new com.baidu.tieba.util.am(this.c);
-        this.b.a("un", this.d);
-        String l = this.b.l();
-        if (!this.b.d() || this.b.e() != 36) {
-            return null;
+        editText = this.a.i;
+        if (editText.length() == 6) {
+            relativeLayout = this.a.j;
+            relativeLayout.setEnabled(true);
         }
-        com.baidu.tieba.data.d dVar = new com.baidu.tieba.data.d();
-        dVar.a(l);
-        return dVar;
+        if (this.b != null) {
+            this.b.j();
+        }
+        super.cancel(true);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(com.baidu.tieba.data.d dVar) {
-        ProgressBar progressBar;
-        Button button;
-        com.baidu.tieba.j jVar;
-        super.a((t) dVar);
-        this.f1103a.m = null;
-        progressBar = this.f1103a.p;
-        progressBar.setVisibility(8);
-        button = this.f1103a.k;
-        button.setEnabled(true);
-        if (!this.b.d()) {
-            this.f1103a.b(this.b.i());
-        } else if (this.b.e() == 0) {
-            n nVar = this.f1103a;
-            jVar = this.f1103a.j;
-            nVar.b(jVar.getString(R.string.name_not_use));
-        } else if (this.b.e() == 36) {
-            this.f1103a.b(this.b.i());
-            if (dVar != null) {
-                this.f1103a.a(dVar.b());
+    public Boolean a(String... strArr) {
+        RegistData registData;
+        boolean z = false;
+        try {
+            this.b = new com.baidu.tieba.util.an(com.baidu.tieba.data.h.a + "c/s/getsmscode");
+            com.baidu.tieba.util.an anVar = this.b;
+            registData = this.a.p;
+            anVar.a("phonenum", registData.getPhone());
+            this.b.l();
+            if (this.b.c()) {
+                z = true;
             }
-        } else {
-            this.f1103a.b(this.b.i());
+        } catch (Exception e) {
+            com.baidu.tieba.util.be.b(getClass().getName(), "doInBackground", e.getMessage());
+        }
+        return Boolean.valueOf(z);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(Boolean bool) {
+        ProgressBar progressBar;
+        EditText editText;
+        TextView textView;
+        TextView textView2;
+        RelativeLayout relativeLayout;
+        super.a((t) bool);
+        this.a.l = null;
+        progressBar = this.a.e;
+        progressBar.setVisibility(8);
+        editText = this.a.i;
+        if (editText.length() == 6) {
+            relativeLayout = this.a.j;
+            relativeLayout.setEnabled(true);
+        }
+        if (bool.booleanValue()) {
+            this.a.a();
+            return;
+        }
+        String i = this.b.i();
+        if (i != null && i.length() > 0) {
+            textView = this.a.h;
+            textView.setVisibility(0);
+            textView2 = this.a.h;
+            textView2.setText(i);
         }
     }
 
@@ -82,13 +97,17 @@ public class t extends BdAsyncTask<String, Integer, com.baidu.tieba.data.d> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void b() {
         ProgressBar progressBar;
-        Button button;
-        progressBar = this.f1103a.p;
+        TextView textView;
+        TextView textView2;
+        RelativeLayout relativeLayout;
+        progressBar = this.a.e;
         progressBar.setVisibility(0);
-        button = this.f1103a.k;
-        button.setEnabled(false);
-        this.f1103a.b((String) null);
-        this.f1103a.d();
+        textView = this.a.h;
+        textView.setVisibility(4);
+        textView2 = this.a.h;
+        textView2.setText((CharSequence) null);
+        relativeLayout = this.a.j;
+        relativeLayout.setEnabled(false);
         super.b();
     }
 }

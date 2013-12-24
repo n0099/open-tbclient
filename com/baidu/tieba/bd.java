@@ -1,40 +1,15 @@
 package com.baidu.tieba;
 
-import android.location.Location;
-import android.location.LocationListener;
-import android.os.Bundle;
+import com.baidu.tieba.data.chat.RecentChatFriendData;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bd implements LocationListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ TiebaApplication f1161a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bd(TiebaApplication tiebaApplication) {
-        this.f1161a = tiebaApplication;
-    }
-
-    @Override // android.location.LocationListener
-    public void onLocationChanged(Location location) {
-        bf bfVar;
-        if (location != null) {
-            this.f1161a.E = 0;
-            this.f1161a.f1014a = System.currentTimeMillis();
-            this.f1161a.H = new bf(this.f1161a, null);
-            bfVar = this.f1161a.H;
-            bfVar.execute(location);
-        }
-    }
-
-    @Override // android.location.LocationListener
-    public void onProviderDisabled(String str) {
-    }
-
-    @Override // android.location.LocationListener
-    public void onProviderEnabled(String str) {
-    }
-
-    @Override // android.location.LocationListener
-    public void onStatusChanged(String str, int i, Bundle bundle) {
+public final class bd implements com.baidu.tieba.im.a<Void> {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.a
+    public void a(Void r4) {
+        com.baidu.tieba.im.c.a.h().f();
+        com.baidu.tieba.im.c.a.h().b((RecentChatFriendData) null);
+        com.baidu.tieba.im.c.a.h().c((RecentChatFriendData) null);
+        com.baidu.tieba.im.c.a.h().b(false, (com.baidu.tieba.im.a<Void>) null);
     }
 }

@@ -6,9 +6,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class av {
-
-    /* renamed from: a  reason: collision with root package name */
-    private ForumData f1229a;
+    private ForumData a;
     private int e;
     private int g;
     private AntiData i;
@@ -115,11 +113,11 @@ public class av {
     }
 
     public void a(ForumData forumData) {
-        this.f1229a = forumData;
+        this.a = forumData;
     }
 
     public ForumData h() {
-        return this.f1229a;
+        return this.a;
     }
 
     public void a(AntiData antiData) {
@@ -189,7 +187,7 @@ public class av {
             c(optInt4);
             b(optInt);
         } catch (Exception e) {
-            com.baidu.tieba.util.bd.b("SubPbModel", "parseJson", "error = " + e.getMessage());
+            com.baidu.tieba.util.be.b("SubPbModel", "parseJson", "error = " + e.getMessage());
         }
     }
 

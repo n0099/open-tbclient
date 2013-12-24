@@ -1,22 +1,20 @@
 package com.baidu.tieba.im.groupUpdates;
 
-import com.baidu.tieba.util.ah;
+import com.baidu.tieba.util.ai;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements Runnable {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ UpdatesActivity f1768a;
+    final /* synthetic */ UpdatesActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(UpdatesActivity updatesActivity) {
-        this.f1768a = updatesActivity;
+        this.a = updatesActivity;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         n nVar;
-        nVar = this.f1768a.b;
-        ah.a(nVar.i(), this.f1768a.a(), 0, -1);
+        nVar = this.a.b;
+        ai.a(nVar.i(), this.a.a(), 0, -1);
     }
 }

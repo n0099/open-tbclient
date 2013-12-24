@@ -1,25 +1,21 @@
 package com.baidu.tieba.im.messageCenter.a;
 
-import com.baidu.tieba.im.message.Message;
-import com.baidu.tieba.im.message.RequestSearchGroupsMessage;
-import com.baidu.tieba.im.message.ResponseSearchGroupMessage;
-import com.baidu.tieba.im.message.ResponsedMessage;
+import com.baidu.tieba.im.message.am;
+import com.baidu.tieba.im.message.bv;
+import com.baidu.tieba.im.message.bz;
+import java.util.List;
 /* loaded from: classes.dex */
 public class t extends com.baidu.tieba.im.messageCenter.d {
     @Override // com.baidu.tieba.im.messageCenter.d
-    public ResponsedMessage a(Message message) {
-        if (message == null || !(message instanceof RequestSearchGroupsMessage)) {
+    public bz a(com.baidu.tieba.im.message.n nVar) {
+        if (nVar == null || !(nVar instanceof am)) {
             return null;
         }
-        long groupId = ((RequestSearchGroupsMessage) message).getGroupId();
-        ResponseSearchGroupMessage responseSearchGroupMessage = new ResponseSearchGroupMessage();
-        responseSearchGroupMessage.setCmd(-204);
-        responseSearchGroupMessage.setOrginalMessage(message);
-        responseSearchGroupMessage.setErrNo(0);
-        responseSearchGroupMessage.setGid(groupId);
-        String str = groupId + "";
-        com.baidu.adp.lib.cache.s<String> h = com.baidu.tieba.b.a.a().h();
-        h.a(str, h.a(str));
-        return responseSearchGroupMessage;
+        List<com.baidu.adp.lib.cache.t<String>> a = com.baidu.adp.lib.h.j.a(com.baidu.tieba.b.a.a().h());
+        bv bvVar = new bv();
+        bvVar.e(-202);
+        bvVar.a(nVar);
+        bvVar.b(a);
+        return bvVar;
     }
 }

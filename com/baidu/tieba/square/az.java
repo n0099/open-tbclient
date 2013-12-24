@@ -4,13 +4,11 @@ import android.view.View;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 class az implements View.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SquareSearchActivity f2495a;
+    final /* synthetic */ SquareSearchActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public az(SquareSearchActivity squareSearchActivity) {
-        this.f2495a = squareSearchActivity;
+        this.a = squareSearchActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -19,21 +17,21 @@ class az implements View.OnClickListener {
         String str2;
         int i;
         String str3;
-        str = this.f2495a.B;
+        str = this.a.B;
         if (str != null) {
-            str2 = this.f2495a.B;
+            str2 = this.a.B;
             if (str2.trim().length() >= 1) {
-                i = this.f2495a.C;
+                i = this.a.C;
                 if (i == 0) {
-                    this.f2495a.d();
+                    this.a.d();
                     return;
                 }
-                SquareSearchActivity squareSearchActivity = this.f2495a;
-                str3 = this.f2495a.B;
+                SquareSearchActivity squareSearchActivity = this.a;
+                str3 = this.a.B;
                 squareSearchActivity.a(1, str3);
                 return;
             }
         }
-        this.f2495a.showToast(this.f2495a.getResources().getString(R.string.write_keyword));
+        this.a.showToast(this.a.getResources().getString(R.string.write_keyword));
     }
 }

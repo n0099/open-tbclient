@@ -13,16 +13,13 @@ import com.baidu.cloudsdk.IBaiduListener;
 import com.baidu.cloudsdk.social.core.MediaType;
 import com.baidu.cloudsdk.social.core.util.MobileQQ;
 import com.baidu.cloudsdk.social.share.ShareContent;
-import com.tencent.mm.sdk.plugin.MMPluginProviderConstants;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class OthersShareHandler extends am {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static final String f870a = OthersShareHandler.class.getSimpleName();
+    private static final String a = OthersShareHandler.class.getSimpleName();
     private static Map b = new HashMap();
 
     static {
@@ -30,7 +27,7 @@ public class OthersShareHandler extends am {
         b.put("com.android.mms", MediaType.SMS);
         b.put("com.sina.weibo", MediaType.SINAWEIBO);
         b.put(MobileQQ.PACKAGE_NAME, MediaType.QQFRIEND);
-        b.put(MMPluginProviderConstants.PluginIntent.APP_PACKAGE_PATTERN, MediaType.WEIXIN);
+        b.put("com.tencent.mm", MediaType.WEIXIN);
         b.put("com.qzone", MediaType.QZONE);
     }
 
@@ -54,7 +51,7 @@ public class OthersShareHandler extends am {
         for (ResolveInfo resolveInfo : queryIntentActivities) {
             ActivityInfo activityInfo = resolveInfo.activityInfo;
             if (Build.DEBUG) {
-                Log.d(f870a, activityInfo.packageName + "   " + activityInfo.name);
+                Log.d(a, activityInfo.packageName + "   " + activityInfo.name);
             }
             if (z) {
                 MediaType mediaType = (MediaType) b.get(activityInfo.packageName);

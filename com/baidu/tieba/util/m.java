@@ -19,9 +19,7 @@ import java.io.InputStream;
 import java.util.Hashtable;
 /* loaded from: classes.dex */
 public class m {
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final Object f2609a = new Object();
+    public static final Object a = new Object();
     private static volatile Hashtable<Integer, Bitmap> b = new Hashtable<>();
 
     public static Bitmap a(int i) {
@@ -49,7 +47,7 @@ public class m {
             options.inPreferredConfig = com.baidu.tieba.data.h.n;
             return BitmapFactory.decodeResource(context.getResources(), i, options);
         } catch (Throwable th) {
-            bd.b("BitmapHelper", "getResBitmap", "error = " + th.getMessage());
+            be.b("BitmapHelper", "getResBitmap", "error = " + th.getMessage());
             return null;
         }
     }
@@ -58,7 +56,7 @@ public class m {
         try {
             return BitmapFactory.decodeResource(context.getResources(), i, new BitmapFactory.Options());
         } catch (Throwable th) {
-            bd.b("BitmapHelper", "getResBitmap", "error = " + th.getMessage());
+            be.b("BitmapHelper", "getResBitmap", "error = " + th.getMessage());
             return null;
         }
     }
@@ -77,7 +75,7 @@ public class m {
             } else {
                 f = i2 / height;
             }
-            synchronized (f2609a) {
+            synchronized (a) {
                 Matrix matrix = new Matrix();
                 matrix.postScale(f, f);
                 createBitmap = Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
@@ -104,7 +102,7 @@ public class m {
             } else {
                 f = i2 / height;
             }
-            synchronized (f2609a) {
+            synchronized (a) {
                 Matrix matrix = new Matrix();
                 matrix.postScale(f, f);
                 matrix.postTranslate((i - (width * f)) / 2.0f, (i2 - (height * f)) / 2.0f);
@@ -131,10 +129,10 @@ public class m {
             return null;
         }
         try {
-            synchronized (f2609a) {
+            synchronized (a) {
                 BitmapFactory.Options options = new BitmapFactory.Options();
                 options.inJustDecodeBounds = true;
-                InputStream h = x.h(str);
+                InputStream h = y.h(str);
                 BitmapFactory.decodeStream(h, null, options);
                 options.inPreferredConfig = com.baidu.tieba.data.h.n;
                 o.a(h);
@@ -144,7 +142,7 @@ public class m {
                     } else {
                         options.inJustDecodeBounds = false;
                         options.inSampleSize = i2;
-                        InputStream h2 = x.h(str);
+                        InputStream h2 = y.h(str);
                         decodeStream = BitmapFactory.decodeStream(h2, null, options);
                         o.a(h2);
                     }
@@ -171,7 +169,7 @@ public class m {
             options.inPreferredConfig = com.baidu.tieba.data.h.n;
             options.inDither = false;
             options.inJustDecodeBounds = true;
-            synchronized (f2609a) {
+            synchronized (a) {
                 BitmapFactory.decodeFileDescriptor(openFileDescriptor.getFileDescriptor(), null, options);
                 while (true) {
                     if (options.outWidth / (i2 + 1) > i || options.outHeight / (i2 + 1) > i) {
@@ -218,7 +216,7 @@ public class m {
     public static Bitmap a(Bitmap bitmap, float f) {
         Bitmap bitmap2 = null;
         try {
-            synchronized (f2609a) {
+            synchronized (a) {
                 try {
                     Bitmap createBitmap = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), Bitmap.Config.ARGB_4444);
                     try {
@@ -255,7 +253,7 @@ public class m {
         if (bitmap == null) {
             return null;
         }
-        synchronized (f2609a) {
+        synchronized (a) {
             if (bitmap.getHeight() < bitmap.getWidth()) {
                 createBitmap = Bitmap.createBitmap(bitmap, (bitmap.getWidth() - bitmap.getHeight()) >> 1, 0, bitmap.getHeight(), bitmap.getHeight());
             } else {
@@ -270,7 +268,7 @@ public class m {
 
     public static byte[] c(Bitmap bitmap, int i) {
         byte[] byteArray;
-        synchronized (f2609a) {
+        synchronized (a) {
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             bitmap.compress(Bitmap.CompressFormat.PNG, i, byteArrayOutputStream);
             byteArray = byteArrayOutputStream.toByteArray();
@@ -287,7 +285,7 @@ public class m {
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inPreferredConfig = com.baidu.tieba.data.h.n;
         try {
-            synchronized (f2609a) {
+            synchronized (a) {
                 try {
                     Bitmap decodeByteArray = BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
                     try {
@@ -324,7 +322,7 @@ public class m {
         Bitmap bitmap2;
         int width = bitmap.getWidth();
         int height = bitmap.getHeight();
-        synchronized (f2609a) {
+        synchronized (a) {
             Matrix matrix = new Matrix();
             if (i == 0) {
                 matrix.postRotate(-90.0f);
@@ -350,7 +348,7 @@ public class m {
         Bitmap bitmap2;
         int width = bitmap.getWidth();
         int height = bitmap.getHeight();
-        synchronized (f2609a) {
+        synchronized (a) {
             Matrix matrix = new Matrix();
             matrix.postRotate(i);
             try {
@@ -378,7 +376,7 @@ public class m {
         } else if (i == 3) {
             matrix.setScale(-1.0f, 1.0f);
         }
-        synchronized (f2609a) {
+        synchronized (a) {
             Bitmap createBitmap2 = Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
             matrix.setRotate(180.0f);
             createBitmap = Bitmap.createBitmap(createBitmap2, 0, 0, createBitmap2.getWidth(), createBitmap2.getHeight(), matrix, true);

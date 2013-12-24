@@ -6,9 +6,7 @@ import android.widget.TextView;
 import com.baidu.tieba.voice.PlayVoiceBnt;
 /* loaded from: classes.dex */
 public class v {
-
-    /* renamed from: a  reason: collision with root package name */
-    public LinearLayout f2699a;
+    public LinearLayout a;
     public RelativeLayout b;
     public TextView c;
     public TextView d;

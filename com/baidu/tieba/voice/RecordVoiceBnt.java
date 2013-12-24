@@ -37,9 +37,7 @@ public class RecordVoiceBnt extends ViewGroup implements View.OnClickListener, a
     private int M;
     private int N;
     private int O;
-
-    /* renamed from: a  reason: collision with root package name */
-    VoiceManager.VoiceModel f2706a;
+    VoiceManager.VoiceModel a;
     private long c;
     private final int[] d;
     private final int e;
@@ -207,8 +205,8 @@ public class RecordVoiceBnt extends ViewGroup implements View.OnClickListener, a
             this.G.show();
         } catch (Exception e) {
             if (getVoiceManager() != null) {
-                getVoiceManager().a(this.f2706a.voiceId);
-                this.f2706a = null;
+                getVoiceManager().a(this.a.voiceId);
+                this.a = null;
             }
         }
     }
@@ -242,8 +240,8 @@ public class RecordVoiceBnt extends ViewGroup implements View.OnClickListener, a
         this.r.setVisibility(0);
         this.w.setVisibility(0);
         this.B.setVisibility(0);
-        if (this.f2706a != null) {
-            this.x.setText(VoiceManager.c(this.f2706a.duration));
+        if (this.a != null) {
+            this.x.setText(VoiceManager.c(this.a.duration));
             this.w.setImageResource(R.drawable.but_posts_record_play_selector);
         }
         this.t.setText(getContext().getString(R.string.voice_play_tip));
@@ -267,11 +265,11 @@ public class RecordVoiceBnt extends ViewGroup implements View.OnClickListener, a
 
     public void a() {
         e();
-        this.f2706a = null;
+        this.a = null;
     }
 
     public void b(VoiceManager.VoiceModel voiceModel) {
-        this.f2706a = voiceModel;
+        this.a = voiceModel;
         this.s.setText("");
         this.s.setVisibility(4);
         d();
@@ -293,7 +291,7 @@ public class RecordVoiceBnt extends ViewGroup implements View.OnClickListener, a
     }
 
     @Override // com.baidu.tieba.voice.ae
-    public void C() {
+    public void D() {
     }
 
     @Override // com.baidu.tieba.voice.ad
@@ -322,7 +320,7 @@ public class RecordVoiceBnt extends ViewGroup implements View.OnClickListener, a
 
     @Override // com.baidu.tieba.voice.ad
     public void b(int i, String str) {
-        if (!com.baidu.adp.lib.h.l.a(str)) {
+        if (!com.baidu.adp.lib.h.m.a(str)) {
             if (i == 3) {
                 postDelayed(new n(this, str), 300L);
             } else if (i == 2) {
@@ -356,7 +354,7 @@ public class RecordVoiceBnt extends ViewGroup implements View.OnClickListener, a
 
     @Override // com.baidu.tieba.voice.ae
     public void b(String str) {
-        this.f2706a = null;
+        this.a = null;
         if (this.F != null) {
             this.F.b();
         }
@@ -402,18 +400,18 @@ public class RecordVoiceBnt extends ViewGroup implements View.OnClickListener, a
 
     @Override // com.baidu.tieba.voice.ad
     public void c(int i) {
-        if (this.f2706a != null && this.x != null) {
+        if (this.a != null && this.x != null) {
             int i2 = i / LocationClientOption.MIN_SCAN_SPAN;
             if (this.O != i2) {
-                this.x.setText(VoiceManager.c(this.f2706a.duration - i2));
+                this.x.setText(VoiceManager.c(this.a.duration - i2));
             }
             this.O = i2;
         }
     }
 
     private void f() {
-        if (this.f2706a != null) {
-            this.D = 360.0f / (this.f2706a.duration2 > 0 ? this.f2706a.duration2 / 1000.0f : this.f2706a.duration);
+        if (this.a != null) {
+            this.D = 360.0f / (this.a.duration2 > 0 ? this.a.duration2 / 1000.0f : this.a.duration);
             this.H = SystemClock.uptimeMillis();
             this.I = this.H + 25;
             this.J.sendEmptyMessageAtTime(1, this.I);
@@ -441,18 +439,18 @@ public class RecordVoiceBnt extends ViewGroup implements View.OnClickListener, a
         VoiceManager voiceManager;
         if (view != null && (voiceManager = getVoiceManager()) != null) {
             switch (view.getId()) {
-                case R.id.play_img /* 2131100935 */:
-                    if (this.f2706a.voice_status.intValue() == 3) {
+                case R.id.play_img /* 2131100962 */:
+                    if (this.a.voice_status.intValue() == 3) {
                         voiceManager.g();
                         return;
-                    } else if (this.f2706a.voice_status.intValue() == 1) {
+                    } else if (this.a.voice_status.intValue() == 1) {
                         voiceManager.b(false);
                         voiceManager.b(this);
                         return;
                     } else {
                         return;
                     }
-                case R.id.restart /* 2131100936 */:
+                case R.id.restart /* 2131100963 */:
                     voiceManager.g();
                     c();
                     return;
@@ -484,7 +482,7 @@ public class RecordVoiceBnt extends ViewGroup implements View.OnClickListener, a
 
     @Override // com.baidu.tieba.voice.ad
     public VoiceManager.VoiceModel getVoiceModel() {
-        return this.f2706a;
+        return this.a;
     }
 
     public void setCallback(p pVar) {

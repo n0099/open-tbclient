@@ -16,9 +16,7 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class l {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static l f1674a;
+    private static l a;
     private StringBuffer b = new StringBuffer();
     private SQLiteStatement c;
 
@@ -28,7 +26,7 @@ public class l {
         this.b.append("(");
         this.b.append("cmd");
         this.b.append(",");
-        this.b.append("content");
+        this.b.append(PushConstants.EXTRA_CONTENT);
         this.b.append(",");
         this.b.append("content_status");
         this.b.append(",");
@@ -46,10 +44,10 @@ public class l {
     public static synchronized l a() {
         l lVar;
         synchronized (l.class) {
-            if (f1674a == null) {
-                f1674a = new l();
+            if (a == null) {
+                a = new l();
             }
-            lVar = f1674a;
+            lVar = a;
         }
         return lVar;
     }
@@ -154,7 +152,7 @@ public class l {
                             GroupNewsPojo next = it.next();
                             ContentValues contentValues = new ContentValues();
                             contentValues.put("cmd", next.getCmd());
-                            contentValues.put("content", next.getContent());
+                            contentValues.put(PushConstants.EXTRA_CONTENT, next.getContent());
                             contentValues.put("content_status", Integer.valueOf(next.getContent_status()));
                             contentValues.put("ext", next.getExt());
                             contentValues.put(PushConstants.EXTRA_GID, next.getGid());
@@ -220,7 +218,7 @@ public class l {
                         while (cursor.moveToNext()) {
                             GroupNewsPojo groupNewsPojo = new GroupNewsPojo();
                             groupNewsPojo.setCmd(cursor.getString(cursor.getColumnIndex("cmd")));
-                            groupNewsPojo.setContent(cursor.getString(cursor.getColumnIndex("content")));
+                            groupNewsPojo.setContent(cursor.getString(cursor.getColumnIndex(PushConstants.EXTRA_CONTENT)));
                             groupNewsPojo.setContent_status(cursor.getInt(cursor.getColumnIndex("content_status")));
                             groupNewsPojo.setExt(cursor.getString(cursor.getColumnIndex("ext")));
                             groupNewsPojo.setGid(cursor.getString(cursor.getColumnIndex(PushConstants.EXTRA_GID)));

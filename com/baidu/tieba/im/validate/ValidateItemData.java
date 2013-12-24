@@ -2,11 +2,11 @@ package com.baidu.tieba.im.validate;
 
 import com.baidu.gson.Gson;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
-import com.baidu.tieba.util.ak;
+import com.baidu.tieba.util.al;
 import java.io.Serializable;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class ValidateItemData implements ak, Serializable {
+public class ValidateItemData implements al, Serializable {
     private static final long serialVersionUID = 3854743775726463617L;
     private String UserId;
     private String applyReason;
@@ -14,14 +14,32 @@ public class ValidateItemData implements ak, Serializable {
     private String ext;
     private String groupId;
     private String groupName;
+    private long inviterUserId;
     private boolean isPass;
     private boolean isShown;
+    private int joinType;
     private String notice_id;
     private String portrait;
     private String userName;
 
     public GroupNewsPojo toGroupNewsPojo() {
         return new GroupNewsPojo(this);
+    }
+
+    public long getInviterUserId() {
+        return this.inviterUserId;
+    }
+
+    public void setInviterUserId(long j) {
+        this.inviterUserId = j;
+    }
+
+    public int getJoinType() {
+        return this.joinType;
+    }
+
+    public void setJoinType(int i) {
+        this.joinType = i;
     }
 
     public String toJsonString() {
@@ -116,21 +134,21 @@ public class ValidateItemData implements ak, Serializable {
         this.ext = str;
     }
 
-    @Override // com.baidu.tieba.util.ak
+    @Override // com.baidu.tieba.util.al
     public LinkedList<String> getImageUrl() {
         LinkedList<String> linkedList = new LinkedList<>();
         linkedList.add(getPortrait());
         return linkedList;
     }
 
-    @Override // com.baidu.tieba.util.ak
+    @Override // com.baidu.tieba.util.al
     public LinkedList<String> getPhotoUrl() {
         LinkedList<String> linkedList = new LinkedList<>();
         linkedList.add(getPortrait());
         return linkedList;
     }
 
-    @Override // com.baidu.tieba.util.ak
+    @Override // com.baidu.tieba.util.al
     public LinkedList<String> getForumPhotoUrl() {
         return null;
     }

@@ -3,54 +3,48 @@ package com.baidu.android.systemmonitor.devicestatistic.a;
 import android.database.Cursor;
 import android.text.TextUtils;
 /* loaded from: classes.dex */
-public final class b extends c {
-
-    /* renamed from: a  reason: collision with root package name */
-    public String f813a;
-    public int b;
-    public int c;
-    public int d;
-    public long e;
-    public int f;
+public final class b extends f {
+    public String a;
+    public String b;
 
     public b(long j) {
         super(j);
-        this.f813a = "";
-        this.b = 0;
-        this.c = 0;
-        this.d = 0;
-        this.e = 0L;
-        this.f = -1;
-        this.h = 2;
+        this.o = 5;
+    }
+
+    public b(long j, String str, String str2) {
+        super(j);
+        this.o = 5;
+        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+            return;
+        }
+        try {
+            this.a = com.baidu.android.systemmonitor.security.a.a(str);
+            this.b = com.baidu.android.systemmonitor.security.a.a(str2);
+        } catch (Exception e) {
+        }
     }
 
     public b(Cursor cursor) {
         super(cursor);
-        this.f813a = "";
-        this.b = 0;
-        this.c = 0;
-        this.d = 0;
-        this.e = 0L;
-        this.f = -1;
-        this.h = 2;
-        this.e = cursor.getLong(cursor.getColumnIndex("stopstamp"));
-        this.f = cursor.getInt(cursor.getColumnIndex("chargetype"));
-        this.b = cursor.getInt(cursor.getColumnIndex("startlevel"));
-        this.c = cursor.getInt(cursor.getColumnIndex("stoplevel"));
-        this.d = cursor.getInt(cursor.getColumnIndex("netype"));
-        String string = cursor.getString(cursor.getColumnIndex("loc"));
-        if (!TextUtils.isEmpty(string)) {
-            try {
-                string = com.baidu.android.systemmonitor.security.a.b(string);
-            } catch (Exception e) {
-                string = "";
+        this.o = 5;
+        String string = cursor.getString(cursor.getColumnIndex("dnpath"));
+        String string2 = cursor.getString(cursor.getColumnIndex("downame"));
+        try {
+            string = TextUtils.isEmpty(string) ? string : com.baidu.android.systemmonitor.security.a.b(string);
+            if (!TextUtils.isEmpty(string2)) {
+                string2 = com.baidu.android.systemmonitor.security.a.b(string2);
             }
+        } catch (Exception e) {
+            string = "";
+            string2 = "";
         }
-        this.f813a = string;
+        this.a = string;
+        this.b = string2;
     }
 
-    @Override // com.baidu.android.systemmonitor.devicestatistic.a.c
+    @Override // com.baidu.android.systemmonitor.devicestatistic.a.f
     public String toString() {
-        return "ChargeEvent : startStamp =" + this.g + " stopStamp =" + this.e + " chargeType =" + this.f + " startBtLevel =" + this.b + " stopBtLevel =" + this.c + " netType =" + this.d + " location =" + this.f813a;
+        return "ApkDownloadEvent : downloadPath =" + this.a + " apkName = " + this.b + " StartStamp = " + this.n;
     }
 }

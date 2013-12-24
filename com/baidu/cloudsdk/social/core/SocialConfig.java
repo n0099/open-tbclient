@@ -16,9 +16,7 @@ public final class SocialConfig extends BaseConfig {
     public static final String RECEIVER_URL = "https://openapi.baidu.com/social/oauth/2.0/receiver";
     public static final String SUCCESS_URL = "http://openapi.baidu.com/social/oauth/2.0/login_success";
     public static final String TOKEN_URL = "https://openapi.baidu.com/social/oauth/2.0/token";
-
-    /* renamed from: a  reason: collision with root package name */
-    private static SocialConfig f854a;
+    private static SocialConfig a;
     private Map b;
     private Map c;
     private List d;
@@ -31,11 +29,11 @@ public final class SocialConfig extends BaseConfig {
     }
 
     public static SocialConfig getInstance(Context context) {
-        if (f854a == null) {
-            f854a = new SocialConfig(context);
-            f854a.loadDefaultConfig();
+        if (a == null) {
+            a = new SocialConfig(context);
+            a.loadDefaultConfig();
         }
-        return f854a;
+        return a;
     }
 
     public String getClientId(MediaType mediaType) {

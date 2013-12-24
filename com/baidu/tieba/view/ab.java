@@ -15,7 +15,6 @@ import android.widget.PopupWindow;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.cyberplayer.sdk.internal.VersionUtils;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.ForumData;
@@ -88,9 +87,7 @@ public class ab implements com.baidu.tbadk.imageManager.c {
     private String J = "?tag=";
     private com.baidu.tieba.data.y K = null;
     private com.baidu.tieba.data.ax L = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    com.baidu.tieba.data.az f2650a = null;
+    com.baidu.tieba.data.az a = null;
     private float Q = 0.36458334f;
     private PopupWindow R = null;
     private LinearLayout T = null;
@@ -229,7 +226,7 @@ public class ab implements com.baidu.tbadk.imageManager.c {
     }
 
     public com.baidu.tieba.data.az b() {
-        return this.f2650a;
+        return this.a;
     }
 
     public void a(int i) {
@@ -247,7 +244,7 @@ public class ab implements com.baidu.tbadk.imageManager.c {
         this.N.invalidate();
         if (i == 1) {
             if (this.ac >= 0 && this.ac < b.length) {
-                com.baidu.tieba.util.ba.e((View) this.ab, c[this.ac]);
+                com.baidu.tieba.util.bb.e((View) this.ab, c[this.ac]);
             }
             this.m.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_like_1, 0, 0, 0);
             this.p.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_sign_1, 0, 0, 0);
@@ -260,7 +257,7 @@ public class ab implements com.baidu.tbadk.imageManager.c {
         }
         this.ax.setImageResource(R.drawable.icon_arrow_right);
         if (this.ac >= 0 && this.ac < b.length) {
-            com.baidu.tieba.util.ba.e((View) this.ab, b[this.ac]);
+            com.baidu.tieba.util.bb.e((View) this.ab, b[this.ac]);
         }
         this.m.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_like, 0, 0, 0);
         this.p.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_sign, 0, 0, 0);
@@ -288,17 +285,17 @@ public class ab implements com.baidu.tbadk.imageManager.c {
             this.B = akVar;
             this.K = akVar.f();
             this.aC = forumData.getBadgeData();
-            this.f2650a = new com.baidu.tieba.data.az();
+            this.a = new com.baidu.tieba.data.az();
             if (this.K != null) {
                 this.L = this.K.j();
                 com.baidu.tieba.data.ai aiVar = new com.baidu.tieba.data.ai();
                 aiVar.a(3);
                 aiVar.a(this.K.b());
-                this.f2650a.p().add(aiVar);
+                this.a.p().add(aiVar);
                 com.baidu.tieba.data.ai aiVar2 = new com.baidu.tieba.data.ai();
                 aiVar2.a(3);
                 aiVar2.a(this.K.c());
-                this.f2650a.p().add(aiVar2);
+                this.a.p().add(aiVar2);
             }
             this.y.setVisibility(0);
             i();
@@ -326,9 +323,9 @@ public class ab implements com.baidu.tbadk.imageManager.c {
                 this.ac = Integer.parseInt(this.ae);
                 if (this.ac >= 0 && this.ac < b.length) {
                     if (TiebaApplication.h().an() == 1) {
-                        com.baidu.tieba.util.ba.e((View) this.ab, c[this.ac]);
+                        com.baidu.tieba.util.bb.e((View) this.ab, c[this.ac]);
                     } else {
-                        com.baidu.tieba.util.ba.e((View) this.ab, b[this.ac]);
+                        com.baidu.tieba.util.bb.e((View) this.ab, b[this.ac]);
                     }
                 }
             }
@@ -392,7 +389,7 @@ public class ab implements com.baidu.tbadk.imageManager.c {
             }
         }
         if (this.az != null && this.aC != null && this.aC.size() > 0) {
-            LinkedList<IconData> linkedList = new LinkedList<>();
+            LinkedList linkedList = new LinkedList();
             for (int i = 0; i < this.aC.size(); i++) {
                 IconData iconData = new IconData();
                 iconData.setIconName(this.aC.get(i).b());
@@ -407,8 +404,8 @@ public class ab implements com.baidu.tbadk.imageManager.c {
     private void b(boolean z) {
         int width;
         float f = 0.0f;
-        Bitmap a2 = com.baidu.tieba.util.m.a((int) R.drawable.bg_frs_signin_bar_down);
-        if (a2 != null && (width = a2.getWidth()) > 0) {
+        Bitmap a = com.baidu.tieba.util.m.a((int) R.drawable.bg_frs_signin_bar_down);
+        if (a != null && (width = a.getWidth()) > 0) {
             if (z) {
                 this.u.setText(R.string.level_up);
                 this.v.setText(String.valueOf(this.ag + 1));
@@ -476,8 +473,8 @@ public class ab implements com.baidu.tbadk.imageManager.c {
         }
         this.V.setVisibility(0);
         if (this.an >= 10000) {
-            if (this.an % VersionUtils.CUR_DEVELOPMENT == 0) {
-                this.V.setText(this.D.getString(R.string.experience_divider) + String.valueOf(this.an / VersionUtils.CUR_DEVELOPMENT) + this.D.getString(R.string.member_count_unit));
+            if (this.an % 10000 == 0) {
+                this.V.setText(this.D.getString(R.string.experience_divider) + String.valueOf(this.an / 10000) + this.D.getString(R.string.member_count_unit));
                 return;
             } else {
                 this.V.setText(this.D.getString(R.string.experience_divider) + String.valueOf(this.an / 10000.0f) + this.D.getString(R.string.member_count_unit));

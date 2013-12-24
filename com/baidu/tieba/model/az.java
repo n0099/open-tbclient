@@ -4,13 +4,11 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class az extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.af> {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ax f2000a;
-    private volatile com.baidu.tieba.util.am b;
+    final /* synthetic */ ax a;
+    private volatile com.baidu.tieba.util.an b;
 
     private az(ax axVar) {
-        this.f2000a = axVar;
+        this.a = axVar;
         this.b = null;
     }
 
@@ -25,31 +23,31 @@ public class az extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.af> {
         String str4;
         String str5;
         try {
-            this.b = new com.baidu.tieba.util.am(com.baidu.tieba.data.h.f1248a + "c/c/forum/like");
+            this.b = new com.baidu.tieba.util.an(com.baidu.tieba.data.h.a + "c/c/forum/like");
             StringBuilder append = new StringBuilder().append("mForumName:");
-            str = this.f2000a.f1999a;
+            str = this.a.a;
             StringBuilder append2 = append.append(str).append(" mForumid:");
-            str2 = this.f2000a.b;
-            com.baidu.tieba.util.bd.e("LikeModel", "doInBackground", append2.append(str2).toString());
-            com.baidu.tieba.util.am amVar = this.b;
-            str3 = this.f2000a.f1999a;
-            amVar.a("kw", str3);
-            com.baidu.tieba.util.am amVar2 = this.b;
-            str4 = this.f2000a.b;
-            amVar2.a("fid", str4);
-            com.baidu.tieba.util.am amVar3 = this.b;
-            str5 = this.f2000a.d;
-            amVar3.a("st_type", str5);
+            str2 = this.a.b;
+            com.baidu.tieba.util.be.e("LikeModel", "doInBackground", append2.append(str2).toString());
+            com.baidu.tieba.util.an anVar = this.b;
+            str3 = this.a.a;
+            anVar.a("kw", str3);
+            com.baidu.tieba.util.an anVar2 = this.b;
+            str4 = this.a.b;
+            anVar2.a("fid", str4);
+            com.baidu.tieba.util.an anVar3 = this.b;
+            str5 = this.a.d;
+            anVar3.a("st_type", str5);
             this.b.e(true);
             String l = this.b.l();
-            com.baidu.tieba.util.bd.e("LikeModel", "doInBackground", "data:" + l);
+            com.baidu.tieba.util.be.e("LikeModel", "doInBackground", "data:" + l);
             if (this.b.c() && l != null) {
                 com.baidu.tieba.data.af afVar = new com.baidu.tieba.data.af();
                 afVar.a(l);
                 return afVar;
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.bd.b(getClass().getName(), "doInBackground", e.getMessage());
+            com.baidu.tieba.util.be.b(getClass().getName(), "doInBackground", e.getMessage());
         }
         return null;
     }
@@ -61,16 +59,16 @@ public class az extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.af> {
         com.baidu.adp.a.g gVar;
         com.baidu.adp.a.g gVar2;
         String str;
-        this.f2000a.c = null;
+        this.a.c = null;
         if (afVar == null && this.b != null) {
-            this.f2000a.mErrorCode = this.b.e();
-            this.f2000a.mErrorString = this.b.i();
-            str = this.f2000a.mErrorString;
-            com.baidu.tieba.util.bd.e("LikeModel", "onPostExecute", str);
+            this.a.mErrorCode = this.b.e();
+            this.a.mErrorString = this.b.i();
+            str = this.a.mErrorString;
+            com.baidu.tieba.util.be.e("LikeModel", "onPostExecute", str);
         }
-        gVar = this.f2000a.mLoadDataCallBack;
+        gVar = this.a.mLoadDataCallBack;
         if (gVar != null) {
-            gVar2 = this.f2000a.mLoadDataCallBack;
+            gVar2 = this.a.mLoadDataCallBack;
             gVar2.a(afVar);
         }
     }
@@ -82,9 +80,9 @@ public class az extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.af> {
             this.b.j();
             this.b = null;
         }
-        this.f2000a.c = null;
+        this.a.c = null;
         super.cancel(true);
-        gVar = this.f2000a.mLoadDataCallBack;
+        gVar = this.a.mLoadDataCallBack;
         gVar.a(null);
     }
 }

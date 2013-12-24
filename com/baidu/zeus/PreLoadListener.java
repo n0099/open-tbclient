@@ -56,7 +56,7 @@ public class PreLoadListener implements EventHandler {
                 CookieManager.getInstance().setCookie(this.mUri, setCookie.get(i2));
                 i = i2 + 1;
             }
-            if ((this.mStatusCode == 200 || this.mStatusCode == 302) && this.mRequestHandle != null) {
+            if ((this.mStatusCode == 200 || this.mStatusCode == HTTP_FOUND) && this.mRequestHandle != null) {
                 this.mOutStream = PreLoadManager.getInstance().createCacheFile(this.mHashCode);
                 if (this.mOutStream == null) {
                     cancel();

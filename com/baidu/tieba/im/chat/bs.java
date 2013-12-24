@@ -1,25 +1,25 @@
 package com.baidu.tieba.im.chat;
 
-import android.view.View;
-import android.widget.AbsListView;
-import com.baidu.tieba.im.widget.chatVoiceView.ChatVoiceView;
 import com.slidingmenu.lib.R;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bs implements AbsListView.RecyclerListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bm f1577a;
+public class bs implements com.baidu.tbadk.imageManager.c {
+    final /* synthetic */ br a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bs(bm bmVar) {
-        this.f1577a = bmVar;
+    public bs(br brVar) {
+        this.a = brVar;
     }
 
-    @Override // android.widget.AbsListView.RecyclerListener
-    public void onMovedToScrapHeap(View view) {
-        View findViewById = view.findViewById(R.id.lay_msgitem_voice);
-        if (findViewById != null && (findViewById instanceof ChatVoiceView)) {
-            ((ChatVoiceView) findViewById).a();
+    @Override // com.baidu.tbadk.imageManager.c
+    public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
+        String a;
+        if (eVar == null) {
+            this.a.a(this.a.c.getString(R.string.save_error));
+            return;
         }
+        br brVar = this.a;
+        a = this.a.a(str, eVar.i());
+        brVar.a(a);
     }
 }

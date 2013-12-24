@@ -1,82 +1,57 @@
 package com.baidu.tieba.im.d;
 
-import com.baidu.tieba.im.db.ad;
-import com.baidu.tieba.im.message.BackgroundSwitchMessage;
-import com.baidu.tieba.im.message.GroupUpdateMessage;
-import com.baidu.tieba.im.message.Message;
-import com.baidu.tieba.im.message.ResponseOnlineMessage;
-import com.baidu.tieba.im.message.ResponsedMessage;
-import com.baidu.tieba.im.pushNotify.l;
-import com.baidu.tieba.log.i;
-import java.util.LinkedList;
-import java.util.Map;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.android.common.security.RSAUtil;
+import java.math.BigInteger;
+import java.nio.charset.Charset;
+import java.security.KeyFactory;
+import java.security.PublicKey;
+import java.security.SecureRandom;
+import java.security.spec.X509EncodedKeySpec;
+import javax.crypto.Cipher;
+import javax.crypto.SecretKey;
+import javax.crypto.SecretKeyFactory;
+import javax.crypto.spec.PBEKeySpec;
 /* loaded from: classes.dex */
-public class e implements com.baidu.tieba.im.messageCenter.g {
+public class e {
+    public static final Charset a = Charset.forName("UTF-8");
+    private static final byte[] b = {-92, 11, -56, 52, -42, -107, -13, 19};
 
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f1643a;
-
-    private e(a aVar) {
-        this.f1643a = aVar;
+    public static PublicKey a(byte[] bArr) {
+        return KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(bArr));
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ e(a aVar, b bVar) {
-        this(aVar);
+    public static byte[] a(PublicKey publicKey, byte[] bArr) {
+        Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+        cipher.init(1, publicKey);
+        return cipher.doFinal(bArr);
     }
 
-    @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(Message message) {
-        Map a2;
-        if (message != null) {
-            if (message.getCmd() == 1003) {
-                if ((message instanceof ResponsedMessage) && !((ResponsedMessage) message).hasError()) {
-                    this.f1643a.j();
-                }
-            } else if (message.getCmd() == 202003) {
-                this.f1643a.j = System.currentTimeMillis();
-                a2 = this.f1643a.a(message);
-                if (a2 == null || a2.size() <= 0) {
-                    this.f1643a.h();
-                } else {
-                    this.f1643a.a(a2);
-                }
-            } else if (message.getCmd() == 1001) {
-                if (!(message instanceof ResponseOnlineMessage)) {
-                    this.f1643a.a(message.getCmd(), -1, (String) null);
-                    return;
-                }
-                ResponseOnlineMessage responseOnlineMessage = (ResponseOnlineMessage) message;
-                if (responseOnlineMessage.hasError()) {
-                    this.f1643a.a(message.getCmd(), responseOnlineMessage.getErrNo(), responseOnlineMessage.getErrMsg());
-                    return;
-                }
-                LinkedList linkedList = new LinkedList();
-                LinkedList<String> linkedList2 = new LinkedList<>();
-                LinkedList linkedList3 = new LinkedList();
-                com.baidu.tieba.log.a.b(i.a(1001, 0, null, "online succ", null, responseOnlineMessage.getErrNo(), responseOnlineMessage.getErrMsg()));
-                if (responseOnlineMessage.getGroupInfos() != null) {
-                    com.baidu.tieba.im.pushNotify.a.h().a(responseOnlineMessage.getGroupInfos());
-                    for (GroupUpdateMessage groupUpdateMessage : responseOnlineMessage.getGroupInfos()) {
-                        if (groupUpdateMessage != null) {
-                            linkedList.add(String.valueOf(groupUpdateMessage.getGroupId()));
-                            linkedList2.add(String.valueOf(groupUpdateMessage.getGroupId()));
-                            if (groupUpdateMessage.getGroupType() == 1) {
-                                l.a().a(String.valueOf(groupUpdateMessage.getGroupId()));
-                            }
-                        }
-                    }
-                    com.baidu.tieba.im.db.d.a().a(linkedList2, (com.baidu.tieba.im.a<Void>) null);
-                }
-                ad.a().a(new f(this, responseOnlineMessage, linkedList3, linkedList));
-            } else if (message.getCmd() == -11 && (message instanceof BackgroundSwitchMessage)) {
-                if (((BackgroundSwitchMessage) message).isBackground()) {
-                    this.f1643a.f();
-                } else {
-                    this.f1643a.e();
-                }
-            }
+    public static SecretKey a(String str) {
+        SecretKeyFactory secretKeyFactory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
+        char[] cArr = new char[str.length()];
+        for (int i = 0; i < cArr.length; i++) {
+            cArr[i] = (char) (((byte) str.charAt(i)) & 255);
         }
+        return secretKeyFactory.generateSecret(new PBEKeySpec(cArr, b, 5, 256));
+    }
+
+    public static byte[] a(SecretKey secretKey, byte[] bArr) {
+        Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
+        cipher.init(1, secretKey);
+        return cipher.doFinal(bArr);
+    }
+
+    public static byte[] a(SecretKey secretKey, byte[] bArr, int i, int i2) {
+        Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
+        cipher.init(2, secretKey);
+        return cipher.doFinal(bArr, i, i2);
+    }
+
+    public static String a(int i) {
+        String bigInteger = new BigInteger(i * 5, new SecureRandom()).toString(36);
+        if (bigInteger.length() > i) {
+            return bigInteger.substring(0, bigInteger.length());
+        }
+        return bigInteger;
     }
 }

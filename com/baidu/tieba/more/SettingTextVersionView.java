@@ -7,9 +7,7 @@ import com.baidu.tieba.data.VersionData;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public final class SettingTextVersionView extends SettingTextTipView {
-
-    /* renamed from: a  reason: collision with root package name */
-    public static String f2061a = "has_shown_funtion_intro";
+    public static String a = "has_shown_funtion_intro";
 
     public SettingTextVersionView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -22,7 +20,7 @@ public final class SettingTextVersionView extends SettingTextTipView {
         if (au == null || au.getHas_new_ver() != 1) {
             z = false;
         }
-        boolean a2 = com.baidu.tieba.sharedPref.b.a().a(f2061a, false);
+        boolean a2 = com.baidu.tieba.sharedPref.b.a().a(a, false);
         if (z || (!z && !a2)) {
             this.e.setText("New");
             this.e.setTextAppearance(this.b, z2 ? R.style.setting_version_prompt_text_1 : R.style.setting_version_prompt_text);

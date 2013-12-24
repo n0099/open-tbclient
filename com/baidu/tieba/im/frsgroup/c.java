@@ -6,13 +6,11 @@ import com.baidu.tieba.im.data.GroupInfoData;
 import com.baidu.tieba.im.groupInfo.GroupInfoActivity;
 /* loaded from: classes.dex */
 class c implements AdapterView.OnItemClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsGroupListFragment f1705a;
+    final /* synthetic */ FrsGroupListFragment a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(FrsGroupListFragment frsGroupListFragment) {
-        this.f1705a = frsGroupListFragment;
+        this.a = frsGroupListFragment;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -20,11 +18,11 @@ class c implements AdapterView.OnItemClickListener {
         GroupListAdapter groupListAdapter;
         FrsGroupActivity frsGroupActivity;
         int I;
-        groupListAdapter = this.f1705a.h;
+        groupListAdapter = this.a.h;
         GroupInfoData groupInfoData = (GroupInfoData) groupListAdapter.getItem(i);
         if (groupInfoData != null) {
-            frsGroupActivity = this.f1705a.f1695a;
-            I = this.f1705a.I();
+            frsGroupActivity = this.a.a;
+            I = this.a.I();
             GroupInfoActivity.a(frsGroupActivity, groupInfoData.getGroupId(), I);
         }
     }

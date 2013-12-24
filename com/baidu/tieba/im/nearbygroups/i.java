@@ -11,9 +11,7 @@ import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class i implements a {
     private NearbyGroupsActivity d;
-
-    /* renamed from: a  reason: collision with root package name */
-    private LinearLayout f1850a = null;
+    private LinearLayout a = null;
     private TextView b = null;
     private TextView c = null;
     private View e = null;
@@ -31,8 +29,8 @@ public class i implements a {
 
     @Override // com.baidu.tieba.im.nearbygroups.a
     public void a(int i, Object obj) {
-        if (obj instanceof com.baidu.tieba.im.data.c) {
-            this.c.setText(((com.baidu.tieba.im.data.c) obj).a());
+        if (obj instanceof com.baidu.tieba.im.data.g) {
+            this.c.setText(((com.baidu.tieba.im.data.g) obj).a());
             this.b.setVisibility(8);
         }
     }
@@ -40,14 +38,14 @@ public class i implements a {
     public void b() {
         this.e = LayoutInflater.from(this.d).inflate(R.layout.im_group_list_group, (ViewGroup) null);
         this.b = (TextView) this.e.findViewById(R.id.tv_group_line_top);
-        this.f1850a = (LinearLayout) this.e.findViewById(R.id.list_group);
+        this.a = (LinearLayout) this.e.findViewById(R.id.list_group);
         this.c = (TextView) this.e.findViewById(R.id.tv_group_name);
         c();
     }
 
     public void a(int i) {
         this.d.getLayoutMode().a(i == 1);
-        this.d.getLayoutMode().a(this.f1850a);
+        this.d.getLayoutMode().a(this.a);
         if (i == 1) {
             this.c.setTextColor(this.d.getResources().getColor(R.color.common_list_text_1));
             b(R.drawable.icon_list_small_lbs_1);

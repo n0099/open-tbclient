@@ -1,178 +1,83 @@
 package com.baidu.tieba.account;
 
-import android.widget.ProgressBar;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.loginshare.Token;
+import android.content.Context;
+import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.AccountData;
-import com.baidu.tieba.model.be;
-import com.baidu.tieba.util.bd;
 import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.util.ArrayList;
+import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
-public class ar extends BdAsyncTask<String, Integer, be> {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ReLoginShareActivity f1065a;
-    private volatile com.baidu.tieba.util.am b;
-
-    private ar(ReLoginShareActivity reLoginShareActivity) {
-        this.f1065a = reLoginShareActivity;
-        this.b = null;
+public class ar {
+    public static void a(String str, String str2, as asVar) {
+        at atVar = new at(str, str2, asVar);
+        atVar.setPriority(3);
+        atVar.execute(new Object[0]);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ar(ReLoginShareActivity reLoginShareActivity, aq aqVar) {
-        this(reLoginShareActivity);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void b() {
-        String str;
-        ReLoginShareActivity reLoginShareActivity = this.f1065a;
-        str = this.f1065a.g;
-        reLoginShareActivity.a(0, str);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public be a(String... strArr) {
-        String str;
-        String str2;
-        String str3;
-        String str4;
-        String str5;
-        String str6;
-        be beVar = null;
-        long nanoTime = System.nanoTime();
-        this.b = new com.baidu.tieba.util.am(com.baidu.tieba.data.h.f1248a + "c/s/login");
-        com.baidu.tieba.util.am amVar = this.b;
-        StringBuilder sb = new StringBuilder();
-        str = this.f1065a.h;
-        StringBuilder append = sb.append(str).append("|");
-        str2 = this.f1065a.i;
-        amVar.a("bdusstoken", append.append(str2).toString());
-        this.b.a("channel_id", TiebaApplication.h().bc());
-        this.b.a("channel_uid", TiebaApplication.h().bb());
-        this.b.c(false);
-        str3 = this.f1065a.h;
-        bd.e("", "mBDUSS = ", str3);
-        str4 = this.f1065a.i;
-        bd.e("", "mPtoken = ", str4);
-        String l = this.b.l();
-        if (this.b.c()) {
-            beVar = new be();
-            beVar.a(l);
-        } else {
-            bd.e(getClass().getName(), "doInBackground", "relogin fail");
-        }
-        if (this.b.d() && this.b.e() == 1) {
-            Token token = new Token();
-            str5 = this.f1065a.h;
-            token.mBduss = str5;
-            str6 = this.f1065a.i;
-            token.mPtoken = str6;
-            a.a().a(token);
-            a.a().d();
-        }
-        long nanoTime2 = 2000 - ((System.nanoTime() - nanoTime) / 1000000);
-        if (nanoTime2 > 0 && nanoTime2 < 2000) {
-            try {
-                Thread.sleep(nanoTime2);
-            } catch (InterruptedException e) {
+    /* JADX INFO: Access modifiers changed from: private */
+    public static AccountData b(String str, String str2) {
+        try {
+            StringBuilder sb = new StringBuilder(32);
+            sb.append(com.baidu.tieba.data.h.a);
+            sb.append("c/s/login");
+            ArrayList<BasicNameValuePair> arrayList = new ArrayList<>();
+            arrayList.add(new BasicNameValuePair("un", str));
+            arrayList.add(new BasicNameValuePair("passwd", str2));
+            arrayList.add(new BasicNameValuePair("isphone", SocialConstants.FALSE));
+            arrayList.add(new BasicNameValuePair("channel_id", TiebaApplication.h().bc()));
+            arrayList.add(new BasicNameValuePair("channel_uid", TiebaApplication.h().bb()));
+            com.baidu.tieba.util.ag a = com.baidu.tieba.util.aw.a().a(new com.baidu.tieba.util.ax());
+            if (a == null) {
+                return null;
             }
-        }
-        return beVar;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(be beVar) {
-        AccountData accountData;
-        AccountData accountData2;
-        AccountData accountData3;
-        AccountData accountData4;
-        AccountData accountData5;
-        AccountData accountData6;
-        AccountData accountData7;
-        n nVar;
-        n nVar2;
-        n nVar3;
-        n nVar4;
-        AccountData accountData8;
-        n nVar5;
-        ProgressBar progressBar;
-        n nVar6;
-        n nVar7;
-        AccountData accountData9;
-        String str;
-        super.a((ar) beVar);
-        this.f1065a.b = null;
-        if (beVar != null) {
-            this.f1065a.j = new AccountData();
-            accountData = this.f1065a.j;
-            accountData.setAccount(beVar.a().getName());
-            accountData2 = this.f1065a.j;
-            accountData2.setPassword("");
-            accountData3 = this.f1065a.j;
-            accountData3.setID(beVar.a().getId());
-            if (beVar.a().getBDUSS() != null) {
-                StringBuilder append = new StringBuilder().append(beVar.a().getBDUSS()).append("|");
-                str = this.f1065a.i;
-                r0 = append.append(str).toString();
+            Context baseContext = TiebaApplication.h().getBaseContext();
+            a.b(sb.toString());
+            a.a(arrayList);
+            a.a((Boolean) true);
+            a.a(baseContext);
+            String s = a.s();
+            if (a.o() && s != null) {
+                com.baidu.tieba.model.be beVar = new com.baidu.tieba.model.be();
+                beVar.a(s);
+                String id = beVar.a().getId();
+                if (id == null || id.length() <= 0) {
+                    a.c(a.k().getString(R.string.neterror));
+                    return null;
+                }
+                AccountData accountData = new AccountData();
+                accountData.setAccount(beVar.a().getName());
+                if (beVar.a().getPassword() != null) {
+                    accountData.setPassword(beVar.a().getPassword());
+                } else {
+                    accountData.setPassword(str2);
+                }
+                accountData.setID(beVar.a().getId());
+                accountData.setBDUSS(beVar.a().getBDUSS());
+                accountData.setPortrait(beVar.a().getPortrait());
+                accountData.setIsActive(1);
+                if (beVar.b() != null) {
+                    accountData.setTbs(beVar.b().getTbs());
+                }
+                return accountData;
+            } else if (a.p()) {
+                switch (a.j()) {
+                    case 1:
+                    case 2:
+                    case 5:
+                        a.t();
+                        return null;
+                    case 3:
+                    case 4:
+                    default:
+                        return null;
+                }
+            } else {
+                return null;
             }
-            accountData4 = this.f1065a.j;
-            accountData4.setBDUSS(r0);
-            accountData5 = this.f1065a.j;
-            accountData5.setPortrait(beVar.a().getPortrait());
-            accountData6 = this.f1065a.j;
-            accountData6.setIsActive(1);
-            if (beVar.b() != null) {
-                accountData9 = this.f1065a.j;
-                accountData9.setTbs(beVar.b().getTbs());
-            }
-            accountData7 = this.f1065a.j;
-            if (accountData7.getAccount() != null) {
-                this.f1065a.e();
-                return;
-            }
-            nVar = this.f1065a.k;
-            if (nVar == null) {
-                this.f1065a.k = new n(this.f1065a);
-                nVar6 = this.f1065a.k;
-                nVar6.a(new as(this));
-                nVar7 = this.f1065a.k;
-                nVar7.b(new at(this));
-            }
-            nVar2 = this.f1065a.k;
-            nVar2.e();
-            nVar3 = this.f1065a.k;
-            nVar3.a("");
-            nVar4 = this.f1065a.k;
-            accountData8 = this.f1065a.j;
-            nVar4.a(accountData8);
-            nVar5 = this.f1065a.k;
-            nVar5.a();
-            progressBar = this.f1065a.f;
-            progressBar.setVisibility(4);
-            return;
+        } catch (Exception e) {
+            com.baidu.tieba.util.be.b("LoginModel".toString(), "login", e.getMessage());
+            return null;
         }
-        r0 = this.b != null ? this.b.i() : null;
-        if (r0 == null) {
-            r0 = this.f1065a.getString(R.string.data_load_error);
-        }
-        this.f1065a.a(1, r0);
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        super.cancel(true);
-        if (this.b != null) {
-            this.b.j();
-        }
-        this.f1065a.b = null;
     }
 }

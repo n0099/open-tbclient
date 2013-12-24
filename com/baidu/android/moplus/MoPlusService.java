@@ -2,75 +2,62 @@ package com.baidu.android.moplus;
 
 import android.app.Service;
 import android.content.Intent;
-import android.net.LocalServerSocket;
+import android.content.IntentFilter;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Process;
-import com.baidu.android.common.util.DeviceId;
+import com.baidu.android.a.j;
 import com.baidu.android.common.util.Util;
-import com.baidu.android.nebula.a.e;
+import com.baidu.android.nebula.cmd.m;
 import com.baidu.android.systemmonitor.StatisticManager;
-import java.io.IOException;
-import java.util.HashSet;
-import java.util.Set;
 /* loaded from: classes.dex */
 public class MoPlusService extends Service {
-
-    /* renamed from: a  reason: collision with root package name */
-    static LocalServerSocket f639a;
-    static Set b = new HashSet();
-    private Handler c = new Handler();
-    private boolean d = false;
-    private Runnable e = new c(this);
-    private Runnable f = new d(this);
-
-    private String a() {
-        return Util.toMd5(("com.baidu.pushservice.singelinstancev1" + DeviceId.getDeviceID(this)).getBytes(), false);
-    }
+    MoPlusReceiver a;
+    private Handler b = new Handler();
+    private boolean c = true;
+    private Runnable d = new a(this);
+    private Runnable e = new b(this);
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Intent intent) {
-        this.c.removeCallbacks(this.e);
-        this.c.removeCallbacks(this.f);
-        if (intent != null && "service_sing_restart".equals(intent.getStringExtra("type"))) {
-            a(true, true, false);
+        this.b.removeCallbacks(this.d);
+        this.b.removeCallbacks(this.e);
+        if (intent != null && "service_sing_restart".equals(intent.getStringExtra("type")) && (intent.getBooleanExtra("restartflag", false) || !getPackageName().equals(com.baidu.android.moplus.util.b.d(getApplicationContext())))) {
+            a(true);
             com.baidu.android.moplus.util.b.a(getApplicationContext(), 1000L);
             return;
         }
-        if (com.baidu.android.moplus.util.b.g(getApplicationContext(), getPackageName())) {
-            com.baidu.android.nebula.c.c.b();
+        if (!j.a(getApplicationContext()).e() || com.baidu.android.moplus.util.b.g(getApplicationContext(), getPackageName())) {
+            com.baidu.android.nebula.d.c.b();
         } else {
-            com.baidu.android.nebula.c.c.a(getApplicationContext(), intent);
+            com.baidu.android.nebula.d.c.a(getApplicationContext(), intent);
         }
-        if (com.baidu.android.moplus.util.b.f(getApplicationContext(), getPackageName())) {
-            e.a();
+        if (!j.a(getApplicationContext()).f() || com.baidu.android.moplus.util.b.f(getApplicationContext(), getPackageName())) {
+            com.baidu.android.nebula.b.c.a();
         } else {
-            e.a(getApplicationContext(), intent);
+            com.baidu.android.nebula.b.c.a(getApplicationContext(), intent);
         }
-        if (com.baidu.android.moplus.util.b.h(getApplicationContext())) {
+        if (!j.a(getApplicationContext()).a() || com.baidu.android.moplus.util.b.h(getApplicationContext())) {
             StatisticManager.destroy();
         } else {
             StatisticManager.handleOnStart(getApplicationContext(), intent);
         }
-        if (com.baidu.android.moplus.util.b.j(getApplicationContext())) {
-            com.baidu.android.defense.a.a(getApplicationContext(), intent);
+        if (j.a(getApplicationContext()).h() && com.baidu.android.moplus.util.b.j(getApplicationContext())) {
+            com.baidu.android.defense.c.a(getApplicationContext(), intent);
         }
+        this.b.postDelayed(new c(this), 30000L);
     }
 
-    private void a(boolean z, boolean z2, boolean z3) {
-        if (z3) {
+    private void a(boolean z) {
+        if (z) {
+            this.e.run();
             return;
         }
-        this.d = z;
-        if (z2) {
-            this.f.run();
-            return;
-        }
-        this.c.removeCallbacks(this.f);
-        this.c.postDelayed(this.f, 1000L);
+        this.b.removeCallbacks(this.e);
+        this.b.postDelayed(this.e, 1000L);
     }
 
-    private boolean b() {
+    private boolean a() {
         return com.baidu.android.moplus.util.b.a((String) null, getApplicationContext());
     }
 
@@ -83,56 +70,50 @@ public class MoPlusService extends Service {
     public void onCreate() {
         super.onCreate();
         com.baidu.android.moplus.util.b.f(getApplicationContext());
-        if (com.baidu.android.moplus.util.b.a(getApplicationContext()) || b()) {
-            a(true, true, false);
-            return;
-        }
-        if (f639a == null) {
-            try {
-                f639a = new LocalServerSocket(a());
-            } catch (Exception e) {
+        if (!j.a(getApplicationContext()).g() && com.baidu.android.moplus.util.b.a(getApplicationContext())) {
+            a(true);
+        } else if (!com.baidu.android.moplus.util.c.a(getApplicationContext()).a() && a()) {
+            a(true);
+            com.baidu.android.moplus.util.b.a(getApplicationContext(), 1000L);
+        } else {
+            this.a = new MoPlusReceiver();
+            registerReceiver(this.a, new IntentFilter("com.baidu.android.moplus.action.RESTART"));
+            com.baidu.android.moplus.util.c.a(getApplicationContext()).b(getApplicationContext());
+            if (!com.baidu.android.moplus.util.c.a(getApplicationContext()).a()) {
+                a(true);
+                return;
             }
+            if (j.a(getApplicationContext()).f() && !com.baidu.android.moplus.util.b.f(getApplicationContext(), getPackageName())) {
+                com.baidu.android.nebula.b.c.c(getApplicationContext());
+            }
+            Intent intent = new Intent("com.baidu.moplus.action.start.SERVICEINFO");
+            intent.putExtra("version", (short) 16);
+            intent.putExtra("priority", com.baidu.android.moplus.util.b.e(getApplicationContext()));
+            intent.putExtra("packagename", getPackageName());
+            intent.putExtra("method_version", "V2");
+            intent.putExtra(StatisticManager.class.getSimpleName() + "_version", StatisticManager.getVersion(getApplicationContext()));
+            intent.putExtra(StatisticManager.class.getSimpleName() + "_priority", StatisticManager.getPriority(getApplicationContext()));
+            sendStickyBroadcast(intent);
+            this.b.postDelayed(this.d, 500L);
         }
-        if (f639a != null) {
-            b.add(f639a);
-        }
-        if (b.size() <= 0) {
-            a(true, true, false);
-            return;
-        }
-        if (!com.baidu.android.moplus.util.b.f(getApplicationContext(), getPackageName())) {
-            e.c(getApplicationContext());
-        }
-        Intent intent = new Intent("com.baidu.moplus.action.start.SERVICEINFO");
-        intent.putExtra("version", (short) 12);
-        intent.putExtra("priority", com.baidu.android.moplus.util.b.e(getApplicationContext()));
-        intent.putExtra("packagename", getPackageName());
-        intent.putExtra("method_version", "V2");
-        intent.putExtra(StatisticManager.class.getSimpleName() + "_version", StatisticManager.getVersion(getApplicationContext()));
-        intent.putExtra(StatisticManager.class.getSimpleName() + "_priority", StatisticManager.getPriority(getApplicationContext()));
-        sendStickyBroadcast(intent);
-        this.c.postDelayed(this.e, 500L);
     }
 
     @Override // android.app.Service
     public void onDestroy() {
         super.onDestroy();
-        try {
-            if (f639a != null) {
-                f639a.close();
-                f639a = null;
-            }
-        } catch (IOException e) {
-        }
-        com.baidu.android.nebula.c.c.b();
-        e.a();
+        com.baidu.android.nebula.d.c.b();
+        com.baidu.android.nebula.b.c.a();
         StatisticManager.destroy();
-        com.baidu.android.defense.a.a();
-        b.clear();
-        if (Util.hasOtherServiceRuninMyPid(getApplicationContext(), getClass().getName())) {
-            this.d = false;
+        com.baidu.android.defense.c.a();
+        if (this.a != null) {
+            unregisterReceiver(this.a);
         }
-        if (this.d) {
+        com.baidu.android.moplus.util.c.a(getApplicationContext()).b();
+        m.d();
+        if (Util.hasOtherServiceRuninMyPid(getApplicationContext(), getClass().getName())) {
+            this.c = false;
+        }
+        if (this.c) {
             Process.killProcess(Process.myPid());
         }
     }
@@ -143,10 +124,10 @@ public class MoPlusService extends Service {
             intent = new Intent();
         }
         super.onStart(intent, i);
-        if (b.size() == 0) {
-            a(true, true, false);
-        } else {
+        if (com.baidu.android.moplus.util.c.a(getApplicationContext()).a()) {
             a(intent);
+        } else {
+            a(true);
         }
     }
 }

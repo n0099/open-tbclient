@@ -2,15 +2,13 @@ package com.baidu.tieba.pb;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class cn implements com.baidu.tieba.editortool.h {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ com.baidu.tieba.editortool.h f2210a;
+    final /* synthetic */ com.baidu.tieba.editortool.h a;
     final /* synthetic */ PbEditorToolView b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cn(PbEditorToolView pbEditorToolView, com.baidu.tieba.editortool.h hVar) {
         this.b = pbEditorToolView;
-        this.f2210a = hVar;
+        this.a = hVar;
     }
 
     @Override // com.baidu.tieba.editortool.h
@@ -36,6 +34,6 @@ public class cn implements com.baidu.tieba.editortool.h {
             this.b.h();
             this.b.c.c();
         }
-        this.f2210a.a(i, obj);
+        this.a.a(i, obj);
     }
 }

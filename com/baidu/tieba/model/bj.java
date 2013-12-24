@@ -1,14 +1,13 @@
 package com.baidu.tieba.model;
 
+import com.baidu.android.pushservice.PushConstants;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class bj {
     private com.baidu.tieba.data.aj c = new com.baidu.tieba.data.aj();
-
-    /* renamed from: a  reason: collision with root package name */
-    private ArrayList<com.baidu.tieba.data.u> f2007a = new ArrayList<>();
+    private ArrayList<com.baidu.tieba.data.u> a = new ArrayList<>();
     private com.baidu.tieba.data.am b = new com.baidu.tieba.data.am();
     private boolean d = true;
 
@@ -17,11 +16,11 @@ public class bj {
     }
 
     public void a(ArrayList<com.baidu.tieba.data.u> arrayList) {
-        this.f2007a = arrayList;
+        this.a = arrayList;
     }
 
     public ArrayList<com.baidu.tieba.data.u> b() {
-        return this.f2007a;
+        return this.a;
     }
 
     public com.baidu.tieba.data.am c() {
@@ -33,7 +32,7 @@ public class bj {
             a(new JSONObject(str));
         } catch (Exception e) {
             this.d = false;
-            com.baidu.tieba.util.bd.b("MentionModel", "parserJson", "error = " + e.getMessage());
+            com.baidu.tieba.util.be.b("MentionModel", "parserJson", "error = " + e.getMessage());
         }
     }
 
@@ -45,14 +44,14 @@ public class bj {
                 for (int i = 0; i < optJSONArray2.length(); i++) {
                     com.baidu.tieba.data.u uVar = new com.baidu.tieba.data.u();
                     uVar.a(optJSONArray2.optJSONObject(i));
-                    this.f2007a.add(uVar);
+                    this.a.add(uVar);
                 }
             }
-            this.c.a(jSONObject.optJSONObject("message"));
+            this.c.a(jSONObject.optJSONObject(PushConstants.EXTRA_PUSH_MESSAGE));
             this.b.a(jSONObject.optJSONObject("page"));
         } catch (Exception e) {
             this.d = false;
-            com.baidu.tieba.util.bd.b("MentionModel", "parserJson", "error = " + e.getMessage());
+            com.baidu.tieba.util.be.b("MentionModel", "parserJson", "error = " + e.getMessage());
         }
     }
 }

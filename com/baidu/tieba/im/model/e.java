@@ -1,25 +1,52 @@
 package com.baidu.tieba.im.model;
+
+import android.content.Intent;
+import android.os.Bundle;
 /* loaded from: classes.dex */
-public class e {
+public class e extends com.baidu.adp.a.d {
+    private long a;
 
-    /* renamed from: a  reason: collision with root package name */
-    private static final String f1815a = e.class.getName();
-    private String b = "";
+    public long a() {
+        return this.a;
+    }
 
-    public String a(String str) {
-        com.baidu.tieba.data.e a2;
-        if (str != null) {
-            try {
-                com.baidu.tieba.data.f a3 = new com.baidu.tieba.a.a("c/c/voice/chunkupload", "c/c/voice/voice_fin_chunk_upload").a(com.baidu.tieba.util.x.a(str, 1));
-                if (a3 != null && a3.b() && (a2 = a3.a()) != null) {
-                    String a4 = a2.a();
-                    com.baidu.tieba.voice.a.e.a(str, a4);
-                    return a4;
-                }
-            } catch (Exception e) {
-                com.baidu.adp.lib.h.e.b(f1815a, "submitVoiceBinary", "error: " + e.getMessage());
-            }
-        }
-        return null;
+    @Override // com.baidu.adp.a.d
+    protected boolean LoadData() {
+        return false;
+    }
+
+    @Override // com.baidu.adp.a.d
+    public boolean cancelLoadData() {
+        return false;
+    }
+
+    public void a(Intent intent) {
+        this.a = intent.getLongExtra("group_id", 0L);
+    }
+
+    public void a(Bundle bundle) {
+        this.a = bundle.getLong("group_id");
+    }
+
+    private com.baidu.tieba.im.message.ac b(long j) {
+        com.baidu.tieba.im.message.ac acVar = new com.baidu.tieba.im.message.ac();
+        acVar.a(j);
+        return acVar;
+    }
+
+    public void a(long j) {
+        com.baidu.tieba.im.messageCenter.e.a().a(b(j));
+    }
+
+    public void a(com.baidu.tieba.im.messageCenter.g gVar) {
+        com.baidu.tieba.im.messageCenter.e.a().a(103006, gVar);
+    }
+
+    public void b(com.baidu.tieba.im.messageCenter.g gVar) {
+        com.baidu.tieba.im.messageCenter.e.a().a(gVar);
+    }
+
+    public void b(Bundle bundle) {
+        bundle.putLong("group_id", this.a);
     }
 }

@@ -1,19 +1,16 @@
 package com.baidu.tieba.chat;
-
-import android.widget.TextView;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
-import com.baidu.tieba.view.HeadImageView;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class l {
+class l implements com.baidu.tieba.im.a<Void> {
+    final /* synthetic */ k a;
 
-    /* renamed from: a  reason: collision with root package name */
-    public HeadImageView f1191a;
-    public TbRichTextView b;
-    public TextView c;
-    final /* synthetic */ j d;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public l(k kVar) {
+        this.a = kVar;
+    }
 
-    private l(j jVar) {
-        this.d = jVar;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.a
+    public void a(Void r2) {
+        this.a.b.K();
     }
 }

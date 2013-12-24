@@ -15,9 +15,7 @@ import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class TiebaSocketLinkService extends Service {
     private static a b;
-
-    /* renamed from: a  reason: collision with root package name */
-    private static b f1854a = new b();
+    private static b a = new b();
     private static final Handler c = new d();
     private static r d = new e();
 
@@ -25,7 +23,8 @@ public class TiebaSocketLinkService extends Service {
         b = aVar;
     }
 
-    private boolean b(String str) {
+    private boolean c(String str) {
+        com.baidu.tieba.im.messageCenter.e.a().a(false);
         com.baidu.tieba.log.a.b(i.a(str, "TiebaSocketLinkService:begin open", null));
         com.baidu.adp.lib.h.e.d("启动连接");
         c.removeMessages(1);
@@ -38,7 +37,7 @@ public class TiebaSocketLinkService extends Service {
         ArrayList arrayList = new ArrayList();
         arrayList.add(new BasicNameValuePair("Content-Type", "application/octet-stream"));
         arrayList.add(new BasicNameValuePair(SocialConstants.PARAM_CUID, com.baidu.tieba.im.i.a()));
-        m.a().a(j.f1787a, j.b, null, arrayList);
+        m.a().a(j.a, "im_version=2.1", null, arrayList);
         m.a().a(d);
     }
 
@@ -87,14 +86,17 @@ public class TiebaSocketLinkService extends Service {
         super.onStart(intent, i);
         if (intent != null) {
             String stringExtra = intent.getStringExtra("reason");
+            if (stringExtra == null) {
+                stringExtra = "--";
+            }
             if (intent.getBooleanExtra("reopen", false)) {
-                com.baidu.adp.lib.h.e.d("进行重连");
+                com.baidu.adp.lib.h.e.d("进行重连" + stringExtra);
                 a(stringExtra);
-                b(stringExtra);
+                c(stringExtra);
             } else if (!m.a().e() && !m.a().f()) {
-                com.baidu.adp.lib.h.e.d("进行连接");
+                com.baidu.adp.lib.h.e.d("进行连接" + stringExtra);
                 a(stringExtra);
-                b(stringExtra);
+                c(stringExtra);
             }
         }
     }
@@ -103,5 +105,11 @@ public class TiebaSocketLinkService extends Service {
     public void onDestroy() {
         super.onDestroy();
         a("service onDestroy");
+    }
+
+    public static void b(String str) {
+        if (a != null) {
+            a.b(str);
+        }
     }
 }

@@ -11,11 +11,11 @@ public enum DecodeHintType {
     ALLOWED_LENGTHS(int[].class),
     ASSUME_CODE_39_CHECK_DIGIT(Void.class),
     ASSUME_GS1(Void.class),
-    NEED_RESULT_POINT_CALLBACK(j.class);
+    NEED_RESULT_POINT_CALLBACK(ResultPointCallback.class);
     
     private final Class<?> valueType;
 
-    /* JADX DEBUG: Replace access to removed values field (a) with 'values()' method */
+    /* JADX DEBUG: Replace access to removed values field (ENUM$VALUES) with 'values()' method */
     /* renamed from: values  reason: to resolve conflict with enum method */
     public static DecodeHintType[] valuesCustom() {
         DecodeHintType[] valuesCustom = values();

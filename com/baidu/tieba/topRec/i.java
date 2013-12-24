@@ -6,13 +6,11 @@ import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements Animation.AnimationListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ h f2552a;
+    final /* synthetic */ h a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(h hVar) {
-        this.f2552a = hVar;
+        this.a = hVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -28,28 +26,28 @@ public class i implements Animation.AnimationListener {
         TextView textView5;
         TopRecActivity topRecActivity2;
         int i2;
-        i = this.f2552a.k;
+        i = this.a.k;
         if (i < 100) {
-            textView5 = this.f2552a.m;
+            textView5 = this.a.m;
             StringBuilder sb = new StringBuilder();
-            topRecActivity2 = this.f2552a.j;
+            topRecActivity2 = this.a.j;
             StringBuilder append = sb.append(topRecActivity2.getString(R.string.done)).append("(");
-            i2 = this.f2552a.k;
+            i2 = this.a.k;
             textView5.setText(append.append(i2).append(")").toString());
         } else {
-            textView = this.f2552a.m;
+            textView = this.a.m;
             StringBuilder sb2 = new StringBuilder();
-            topRecActivity = this.f2552a.j;
+            topRecActivity = this.a.j;
             textView.setText(sb2.append(topRecActivity.getString(R.string.done)).append("(99+)").toString());
         }
-        textView2 = this.f2552a.m;
+        textView2 = this.a.m;
         textView2.invalidate();
-        textView3 = this.f2552a.m;
-        animation2 = this.f2552a.p;
+        textView3 = this.a.m;
+        animation2 = this.a.p;
         textView3.setAnimation(animation2);
-        animation3 = this.f2552a.p;
+        animation3 = this.a.p;
         animation3.start();
-        textView4 = this.f2552a.m;
+        textView4 = this.a.m;
         textView4.setVisibility(4);
     }
 

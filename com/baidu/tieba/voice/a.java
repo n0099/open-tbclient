@@ -6,13 +6,11 @@ public class a {
     private static c b;
     private static String c;
     private static j d;
-
-    /* renamed from: a  reason: collision with root package name */
-    private static int f2710a = 0;
+    private static int a = 0;
     private static Handler e = new Handler(new b());
 
     public static boolean a(String str, j jVar, int i) {
-        if (f2710a == 0) {
+        if (a == 0) {
             if (b == null) {
                 b = new c(e, i);
             } else {
@@ -21,7 +19,7 @@ public class a {
             c = str;
             d = jVar;
             b.a(str);
-            f2710a = 2;
+            a = 2;
             new Thread(b).start();
             return true;
         }
@@ -32,7 +30,7 @@ public class a {
         if (b != null) {
             b.c();
         } else {
-            f2710a = 0;
+            a = 0;
         }
     }
 }

@@ -1,19 +1,33 @@
 package com.baidu.tieba.im.messageCenter.a;
 
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.im.message.Message;
-import com.baidu.tieba.im.message.ResponseGroupsByUidMessage;
+import com.baidu.tieba.im.message.bg;
+import com.baidu.tieba.im.message.bz;
 /* loaded from: classes.dex */
-public class o extends com.baidu.tieba.im.messageCenter.a {
-    @Override // com.baidu.tieba.im.messageCenter.a
-    public Message a(Message message, com.baidu.tieba.im.b.p pVar) {
-        if (message != null && (message instanceof ResponseGroupsByUidMessage) && !((ResponseGroupsByUidMessage) message).hasError()) {
-            String str = "";
-            if (TiebaApplication.F() != null) {
-                str = TiebaApplication.F().getID();
-            }
-            com.baidu.tieba.im.b.m.a(com.baidu.tieba.b.a.a().r(), "group_info" + str, pVar);
+public class o extends com.baidu.tieba.im.messageCenter.d {
+    @Override // com.baidu.tieba.im.messageCenter.d
+    public bz a(com.baidu.tieba.im.message.n nVar) {
+        bg bgVar;
+        if (nVar == null || !(nVar instanceof com.baidu.tieba.im.message.h)) {
+            return null;
         }
-        return null;
+        String str = "";
+        if (TiebaApplication.F() != null) {
+            str = TiebaApplication.F().getID();
+        }
+        byte[] a = com.baidu.tieba.b.a.a().r().a("p_group_info" + str);
+        bg bgVar2 = new bg();
+        if (a != null) {
+            try {
+                bgVar = (bg) l.a(103003, a);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            bgVar.e(-106);
+            return bgVar;
+        }
+        bgVar = bgVar2;
+        bgVar.e(-106);
+        return bgVar;
     }
 }

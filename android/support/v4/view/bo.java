@@ -3,7 +3,7 @@ package android.support.v4.view;
 import android.os.Bundle;
 import android.view.View;
 import android.view.accessibility.AccessibilityEvent;
-import com.tencent.mm.sdk.platformtools.LVBuffer;
+import com.google.protobuf.CodedOutputStream;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bo extends a {
@@ -54,7 +54,7 @@ public class bo extends a {
                 i4 = this.b.i;
                 aeVar5 = this.b.h;
                 if (i4 < aeVar5.getCount() - 1) {
-                    aVar.a(LVBuffer.LENGTH_ALLOC_PER_NEW);
+                    aVar.a(CodedOutputStream.DEFAULT_BUFFER_SIZE);
                 }
             }
         }
@@ -87,7 +87,7 @@ public class bo extends a {
             return true;
         }
         switch (i) {
-            case LVBuffer.LENGTH_ALLOC_PER_NEW /* 4096 */:
+            case CodedOutputStream.DEFAULT_BUFFER_SIZE /* 4096 */:
                 aeVar3 = this.b.h;
                 if (aeVar3 != null) {
                     i5 = this.b.i;

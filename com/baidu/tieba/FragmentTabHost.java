@@ -13,19 +13,17 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
-public class FragmentTabHost extends LinearLayout implements z {
-
-    /* renamed from: a  reason: collision with root package name */
-    private Context f1007a;
+public class FragmentTabHost extends LinearLayout implements y {
+    private Context a;
     private LayoutInflater b;
     private FrameLayout c;
     private FragmentTabWidget d;
     private FrameLayout e;
     private int f;
-    private x g;
+    private w g;
     private android.support.v4.app.t h;
-    private List<x> i;
-    private ArrayList<x> j;
+    private List<w> i;
+    private ArrayList<w> j;
 
     public FragmentTabHost(Context context) {
         super(context);
@@ -42,8 +40,8 @@ public class FragmentTabHost extends LinearLayout implements z {
     }
 
     private void a(Context context) {
-        this.f1007a = context;
-        this.b = (LayoutInflater) this.f1007a.getSystemService("layout_inflater");
+        this.a = context;
+        this.b = (LayoutInflater) this.a.getSystemService("layout_inflater");
         this.b.inflate(R.layout.fragment_tabhost, (ViewGroup) this, true);
         this.f = -1;
         this.g = null;
@@ -61,23 +59,23 @@ public class FragmentTabHost extends LinearLayout implements z {
         this.h = tVar;
     }
 
-    public void a(x xVar) {
-        a(xVar, -1);
+    public void a(w wVar) {
+        a(wVar, -1);
     }
 
-    public void a(x xVar, int i) {
-        if (xVar.f2828a == null) {
+    public void a(w wVar, int i) {
+        if (wVar.a == null) {
             throw new IllegalArgumentException("you must create the tab indicator.");
         }
-        if (xVar.b == null) {
+        if (wVar.b == null) {
             throw new IllegalArgumentException("you must create the tab content");
         }
-        if (!this.i.contains(xVar)) {
-            this.d.addView(xVar.f2828a, i);
+        if (!this.i.contains(wVar)) {
+            this.d.addView(wVar.a, i);
             if (i == -1) {
-                this.i.add(xVar);
+                this.i.add(wVar);
             } else {
-                this.i.add(i, xVar);
+                this.i.add(i, wVar);
             }
             if (this.f != -1 && i <= this.f) {
                 this.f++;
@@ -87,29 +85,29 @@ public class FragmentTabHost extends LinearLayout implements z {
 
     public void setCurrentTab(int i) {
         if (i >= 0 && i < this.i.size() && i != this.f) {
-            android.support.v4.app.ae a2 = this.h.a();
+            android.support.v4.app.ae a = this.h.a();
             if (this.f != -1) {
-                x xVar = this.i.get(this.f);
-                if (xVar.b.q() != null) {
-                    xVar.b.q().clearFocus();
+                w wVar = this.i.get(this.f);
+                if (wVar.b.q() != null) {
+                    wVar.b.q().clearFocus();
                 }
-                a2.b(xVar.b);
+                a.b(wVar.b);
             }
-            x xVar2 = this.i.get(i);
-            if (this.j.contains(xVar2)) {
-                a2.c(xVar2.b);
+            w wVar2 = this.i.get(i);
+            if (this.j.contains(wVar2)) {
+                a.c(wVar2.b);
             } else {
-                a2.a(this.c.getId(), xVar2.b);
-                this.j.add(xVar2);
+                a.a(this.c.getId(), wVar2.b);
+                this.j.add(wVar2);
             }
-            a2.b();
+            a.b();
             this.d.setCurrentTab(i);
             this.f = i;
-            this.g = xVar2;
+            this.g = wVar2;
         }
     }
 
-    @Override // com.baidu.tieba.z
+    @Override // com.baidu.tieba.y
     public void a(int i, boolean z) {
         setCurrentTab(i);
     }
@@ -129,7 +127,7 @@ public class FragmentTabHost extends LinearLayout implements z {
         return null;
     }
 
-    public x a(int i) {
+    public w a(int i) {
         if (i < 0 || i >= this.i.size()) {
             return null;
         }
@@ -144,12 +142,12 @@ public class FragmentTabHost extends LinearLayout implements z {
     }
 
     public void a() {
-        android.support.v4.app.ae a2 = this.h.a();
-        Iterator<x> it = this.j.iterator();
+        android.support.v4.app.ae a = this.h.a();
+        Iterator<w> it = this.j.iterator();
         while (it.hasNext()) {
-            a2.a(it.next().b);
+            a.a(it.next().b);
         }
-        a2.b();
+        a.b();
         this.j.clear();
         this.i.clear();
         this.g = null;
@@ -166,13 +164,13 @@ public class FragmentTabHost extends LinearLayout implements z {
 
     public void c(int i) {
         if (i == 1) {
-            for (x xVar : this.i) {
-                xVar.f2828a.a(i);
+            for (w wVar : this.i) {
+                wVar.a.a(i);
             }
             return;
         }
-        for (x xVar2 : this.i) {
-            xVar2.f2828a.a(i);
+        for (w wVar2 : this.i) {
+            wVar2.a.a(i);
         }
     }
 }

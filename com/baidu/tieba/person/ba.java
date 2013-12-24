@@ -7,13 +7,11 @@ import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ba implements View.OnLongClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PersonImageActivity f2327a;
+    final /* synthetic */ PersonImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ba(PersonImageActivity personImageActivity) {
-        this.f2327a = personImageActivity;
+        this.a = personImageActivity;
     }
 
     @Override // android.view.View.OnLongClickListener
@@ -21,13 +19,13 @@ public class ba implements View.OnLongClickListener {
         Context context;
         Context context2;
         DialogInterface.OnClickListener onClickListener;
-        context = this.f2327a.i;
-        context2 = this.f2327a.i;
+        context = this.a.i;
+        context2 = this.a.i;
         String[] strArr = {context.getString(R.string.save), context2.getString(R.string.cancel)};
-        PersonImageActivity personImageActivity = this.f2327a;
-        onClickListener = this.f2327a.f;
+        PersonImageActivity personImageActivity = this.a;
+        onClickListener = this.a.f;
         personImageActivity.createListMenu(strArr, onClickListener);
-        this.f2327a.showListMenu();
+        this.a.showListMenu();
         return false;
     }
 }

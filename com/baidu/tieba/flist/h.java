@@ -1,16 +1,14 @@
 package com.baidu.tieba.flist;
 
 import android.os.Handler;
-import com.baidu.tieba.util.bd;
+import com.baidu.tieba.util.be;
 /* loaded from: classes.dex */
 class h implements f {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ForumListActivity f1302a;
+    final /* synthetic */ ForumListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(ForumListActivity forumListActivity) {
-        this.f1302a = forumListActivity;
+        this.a = forumListActivity;
     }
 
     @Override // com.baidu.tieba.flist.f
@@ -19,29 +17,29 @@ class h implements f {
         Runnable runnable;
         Handler handler2;
         Runnable runnable2;
-        bd.e("ForumListActivity", "callback", "start");
+        be.e("ForumListActivity", "callback", "start");
         if (!z || i != 0) {
-            bd.e("ForumListActivity", "callback", "dir menu not ok");
+            be.e("ForumListActivity", "callback", "dir menu not ok");
             if (!z2) {
-                this.f1302a.c.d();
+                this.a.c.d();
                 return;
             }
             return;
         }
-        bd.e("ForumListActivity", "callback", "dir menu ok");
+        be.e("ForumListActivity", "callback", "dir menu ok");
         zVar.e.add(0, zVar);
-        if (this.f1302a.c.x != null) {
-            this.f1302a.c.x.a(zVar);
-            this.f1302a.a(String.valueOf(this.f1302a.c.g.getText()));
-            this.f1302a.c.x.notifyDataSetChanged();
+        if (this.a.c.x != null) {
+            this.a.c.x.a(zVar);
+            this.a.a(String.valueOf(this.a.c.g.getText()));
+            this.a.c.x.notifyDataSetChanged();
         }
-        handler = this.f1302a.e;
-        runnable = this.f1302a.P;
+        handler = this.a.e;
+        runnable = this.a.P;
         handler.removeCallbacks(runnable);
-        handler2 = this.f1302a.e;
-        runnable2 = this.f1302a.P;
+        handler2 = this.a.e;
+        runnable2 = this.a.P;
         handler2.post(runnable2);
-        this.f1302a.c.y.setClickable(true);
-        this.f1302a.c.y.setOnClickListener(this.f1302a);
+        this.a.c.y.setClickable(true);
+        this.a.c.y.setOnClickListener(this.a);
     }
 }

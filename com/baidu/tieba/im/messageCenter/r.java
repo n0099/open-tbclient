@@ -4,20 +4,18 @@ import java.util.Map;
 import java.util.Random;
 /* loaded from: classes.dex */
 public class r {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static r f1806a = null;
+    private static r a = null;
     private int b = 0;
 
     public static r a() {
-        if (f1806a == null) {
+        if (a == null) {
             synchronized (r.class) {
-                if (f1806a == null) {
-                    f1806a = new r();
+                if (a == null) {
+                    a = new r();
                 }
             }
         }
-        return f1806a;
+        return a;
     }
 
     public synchronized void a(Map<String, String> map) {

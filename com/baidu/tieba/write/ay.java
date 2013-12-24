@@ -8,16 +8,15 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import cn.jingling.lib.filters.FilterFactory;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tieba.util.be;
 import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ay extends BdAsyncTask<Object, Integer, Bitmap> {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WriteImageActivity f2799a;
+    final /* synthetic */ WriteImageActivity a;
 
     private ay(WriteImageActivity writeImageActivity) {
-        this.f2799a = writeImageActivity;
+        this.a = writeImageActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -39,7 +38,7 @@ public class ay extends BdAsyncTask<Object, Integer, Bitmap> {
         HashMap hashMap2;
         Bitmap bitmap = null;
         try {
-            c = com.baidu.tieba.util.x.c(null, "tieba_resized_image");
+            c = com.baidu.tieba.util.y.c(null, "tieba_resized_image");
         } catch (Exception e) {
             e = e;
         }
@@ -49,43 +48,43 @@ public class ay extends BdAsyncTask<Object, Integer, Bitmap> {
                 return null;
             }
             if (c != null) {
-                int a2 = com.baidu.adp.lib.h.g.a((Context) this.f2799a, 63.5f);
+                int a = com.baidu.adp.lib.h.g.a((Context) this.a, 63.5f);
                 if (Build.VERSION.SDK_INT >= 7) {
-                    z = this.f2799a.u;
+                    z = this.a.u;
                     if (z) {
-                        Bitmap b = com.baidu.tieba.util.m.b(c, a2);
+                        Bitmap b = com.baidu.tieba.util.m.b(c, a);
                         if (b == null) {
                             return null;
                         }
                         if (b.equals(c)) {
                             c = com.baidu.tieba.util.m.a(com.baidu.tieba.util.m.c(c, 100));
                         }
-                        Bitmap a3 = com.baidu.tieba.util.m.a(b, com.baidu.adp.lib.h.g.a((Context) this.f2799a, 5.0f));
-                        if (a3 == null) {
+                        Bitmap a2 = com.baidu.tieba.util.m.a(b, com.baidu.adp.lib.h.g.a((Context) this.a, 5.0f));
+                        if (a2 == null) {
                             return null;
                         }
-                        obj = this.f2799a.E;
+                        obj = this.a.E;
                         synchronized (obj) {
-                            this.f2799a.C = new HashMap();
-                            this.f2799a.D = new HashMap();
-                            hashMap = this.f2799a.C;
-                            hashMap.put("normal", a3);
+                            this.a.C = new HashMap();
+                            this.a.D = new HashMap();
+                            hashMap = this.a.C;
+                            hashMap.put("normal", a2);
                         }
-                        strArr = WriteImageActivity.f2772a;
+                        strArr = WriteImageActivity.a;
                         for (String str : strArr) {
                             String substring = str.substring(0, str.indexOf("|"));
                             if (!substring.equals("normal")) {
-                                Bitmap.Config config = a3.getConfig();
+                                Bitmap.Config config = a2.getConfig();
                                 if (config == null) {
                                     config = com.baidu.tieba.data.h.n;
                                 }
-                                Bitmap apply = FilterFactory.createOneKeyFilter(this.f2799a, substring).apply(this.f2799a, a3.copy(config, true));
+                                Bitmap apply = FilterFactory.createOneKeyFilter(this.a, substring).apply(this.a, a2.copy(config, true));
                                 if (apply == null) {
                                     return null;
                                 }
-                                obj2 = this.f2799a.E;
+                                obj2 = this.a.E;
                                 synchronized (obj2) {
-                                    hashMap2 = this.f2799a.C;
+                                    hashMap2 = this.a.C;
                                     hashMap2.put(substring, apply);
                                 }
                             }
@@ -98,7 +97,7 @@ public class ay extends BdAsyncTask<Object, Integer, Bitmap> {
             bitmap = c;
             e = e2;
             e.printStackTrace();
-            com.baidu.tieba.util.bd.b(getClass().getName(), "GetImageTask", e.toString());
+            be.b(getClass().getName(), "GetImageTask", e.toString());
             return bitmap;
         }
     }
@@ -108,9 +107,9 @@ public class ay extends BdAsyncTask<Object, Integer, Bitmap> {
     public void b() {
         ProgressBar progressBar;
         TextView textView;
-        progressBar = this.f2799a.g;
+        progressBar = this.a.g;
         progressBar.setVisibility(0);
-        textView = this.f2799a.e;
+        textView = this.a.e;
         textView.setClickable(false);
         super.b();
     }
@@ -118,8 +117,8 @@ public class ay extends BdAsyncTask<Object, Integer, Bitmap> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         ProgressBar progressBar;
-        this.f2799a.h = null;
-        progressBar = this.f2799a.g;
+        this.a.h = null;
+        progressBar = this.a.g;
         progressBar.setVisibility(8);
         super.cancel(true);
     }
@@ -134,20 +133,20 @@ public class ay extends BdAsyncTask<Object, Integer, Bitmap> {
         boolean z;
         String[] strArr;
         super.a((ay) bitmap);
-        textView = this.f2799a.e;
+        textView = this.a.e;
         textView.setClickable(true);
-        this.f2799a.h = null;
-        this.f2799a.c = bitmap;
-        progressBar = this.f2799a.g;
+        this.a.h = null;
+        this.a.c = bitmap;
+        progressBar = this.a.g;
         progressBar.setVisibility(8);
         if (bitmap != null && !bitmap.isRecycled() && bitmap != null) {
-            imageView = this.f2799a.b;
+            imageView = this.a.b;
             imageView.setImageBitmap(bitmap);
             if (Build.VERSION.SDK_INT >= 7) {
-                z = this.f2799a.u;
+                z = this.a.u;
                 if (z) {
-                    WriteImageActivity writeImageActivity = this.f2799a;
-                    strArr = WriteImageActivity.f2772a;
+                    WriteImageActivity writeImageActivity = this.a;
+                    strArr = WriteImageActivity.a;
                     writeImageActivity.a(strArr);
                 }
             }

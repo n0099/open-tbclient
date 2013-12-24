@@ -7,9 +7,7 @@ import java.io.PrintWriter;
 import java.util.concurrent.CountDownLatch;
 /* loaded from: classes.dex */
 public abstract class AsyncTaskLoader<D> extends c<D> {
-
-    /* renamed from: a  reason: collision with root package name */
-    volatile AsyncTaskLoader<D>.a f307a;
+    volatile AsyncTaskLoader<D>.a a;
     volatile AsyncTaskLoader<D>.a b;
     long c;
     long d;
@@ -20,9 +18,7 @@ public abstract class AsyncTaskLoader<D> extends c<D> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public final class a extends ModernAsyncTask<Void, Void, D> implements Runnable {
-
-        /* renamed from: a  reason: collision with root package name */
-        D f310a;
+        D a;
         boolean b;
         private CountDownLatch e = new CountDownLatch(1);
 
@@ -33,8 +29,8 @@ public abstract class AsyncTaskLoader<D> extends c<D> {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // android.support.v4.content.ModernAsyncTask
         public D a(Void... voidArr) {
-            this.f310a = (D) AsyncTaskLoader.this.e();
-            return this.f310a;
+            this.a = (D) AsyncTaskLoader.this.e();
+            return this.a;
         }
 
         @Override // android.support.v4.content.ModernAsyncTask
@@ -49,7 +45,7 @@ public abstract class AsyncTaskLoader<D> extends c<D> {
         @Override // android.support.v4.content.ModernAsyncTask
         protected void a() {
             try {
-                AsyncTaskLoader.this.a((AsyncTaskLoader<a>.a) this, (a) this.f310a);
+                AsyncTaskLoader.this.a((AsyncTaskLoader<a>.a) this, (a) this.a);
             } finally {
                 this.e.countDown();
             }
@@ -67,29 +63,29 @@ public abstract class AsyncTaskLoader<D> extends c<D> {
     public void a() {
         super.a();
         b();
-        this.f307a = new a();
+        this.a = new a();
         c();
     }
 
     public boolean b() {
         boolean z = false;
-        if (this.f307a != null) {
+        if (this.a != null) {
             if (this.b != null) {
-                if (this.f307a.b) {
-                    this.f307a.b = false;
-                    this.e.removeCallbacks(this.f307a);
+                if (this.a.b) {
+                    this.a.b = false;
+                    this.e.removeCallbacks(this.a);
                 }
-                this.f307a = null;
-            } else if (this.f307a.b) {
-                this.f307a.b = false;
-                this.e.removeCallbacks(this.f307a);
-                this.f307a = null;
+                this.a = null;
+            } else if (this.a.b) {
+                this.a.b = false;
+                this.e.removeCallbacks(this.a);
+                this.a = null;
             } else {
-                z = this.f307a.a(false);
+                z = this.a.a(false);
                 if (z) {
-                    this.b = this.f307a;
+                    this.b = this.a;
                 }
-                this.f307a = null;
+                this.a = null;
             }
         }
         return z;
@@ -99,17 +95,17 @@ public abstract class AsyncTaskLoader<D> extends c<D> {
     }
 
     void c() {
-        if (this.b == null && this.f307a != null) {
-            if (this.f307a.b) {
-                this.f307a.b = false;
-                this.e.removeCallbacks(this.f307a);
+        if (this.b == null && this.a != null) {
+            if (this.a.b) {
+                this.a.b = false;
+                this.e.removeCallbacks(this.a);
             }
             if (this.c > 0 && SystemClock.uptimeMillis() < this.d + this.c) {
-                this.f307a.b = true;
-                this.e.postAtTime(this.f307a, this.d + this.c);
+                this.a.b = true;
+                this.e.postAtTime(this.a, this.d + this.c);
                 return;
             }
-            this.f307a.a(ModernAsyncTask.d, null);
+            this.a.a(ModernAsyncTask.d, null);
         }
     }
 
@@ -123,13 +119,13 @@ public abstract class AsyncTaskLoader<D> extends c<D> {
     }
 
     void b(AsyncTaskLoader<D>.a aVar, D d) {
-        if (this.f307a != aVar) {
+        if (this.a != aVar) {
             a((AsyncTaskLoader<AsyncTaskLoader<D>.a>.a) aVar, (AsyncTaskLoader<D>.a) d);
         } else if (l()) {
             a((AsyncTaskLoader<D>) d);
         } else {
             this.d = SystemClock.uptimeMillis();
-            this.f307a = null;
+            this.a = null;
             b(d);
         }
     }
@@ -141,12 +137,12 @@ public abstract class AsyncTaskLoader<D> extends c<D> {
     @Override // android.support.v4.content.c
     public void a(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
         super.a(str, fileDescriptor, printWriter, strArr);
-        if (this.f307a != null) {
+        if (this.a != null) {
             printWriter.print(str);
             printWriter.print("mTask=");
-            printWriter.print(this.f307a);
+            printWriter.print(this.a);
             printWriter.print(" waiting=");
-            printWriter.println(this.f307a.b);
+            printWriter.println(this.a.b);
         }
         if (this.b != null) {
             printWriter.print(str);

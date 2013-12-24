@@ -5,9 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class MemoryBitmapCache implements bn {
-
-    /* renamed from: a  reason: collision with root package name */
-    private int f843a;
+    private int a;
     private IEvictPolicy b;
     private Map c;
 
@@ -23,12 +21,10 @@ public class MemoryBitmapCache implements bn {
 
     /* loaded from: classes.dex */
     public class LRUPolicy implements IEvictPolicy {
-
-        /* renamed from: a  reason: collision with root package name */
-        private long f844a;
+        private long a;
 
         public LRUPolicy(long j) {
-            this.f844a = 1000 * j;
+            this.a = 1000 * j;
         }
 
         @Override // com.baidu.cloudsdk.common.imgloader.MemoryBitmapCache.IEvictPolicy
@@ -41,7 +37,7 @@ public class MemoryBitmapCache implements bn {
             a aVar2 = null;
             for (String str3 : map.keySet()) {
                 a aVar3 = (a) map.get(str3);
-                if (System.currentTimeMillis() - aVar3.c < this.f844a) {
+                if (System.currentTimeMillis() - aVar3.c < this.a) {
                     if (z2 && (aVar2 == null || aVar3.b < aVar2.b)) {
                         boolean z3 = z2;
                         aVar = aVar3;
@@ -70,7 +66,7 @@ public class MemoryBitmapCache implements bn {
 
         @Override // com.baidu.cloudsdk.common.imgloader.MemoryBitmapCache.IEvictPolicy
         public void updateCacheItem(a aVar) {
-            if (aVar.c + this.f844a < System.currentTimeMillis()) {
+            if (aVar.c + this.a < System.currentTimeMillis()) {
                 aVar.b = 1;
             } else {
                 aVar.b++;
@@ -107,9 +103,7 @@ public class MemoryBitmapCache implements bn {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class a {
-
-        /* renamed from: a  reason: collision with root package name */
-        public Bitmap f845a;
+        public Bitmap a;
         public int b;
         public long c;
 
@@ -123,7 +117,7 @@ public class MemoryBitmapCache implements bn {
 
     public MemoryBitmapCache(int i, IEvictPolicy iEvictPolicy) {
         this.c = new HashMap();
-        this.f843a = i;
+        this.a = i;
         this.b = iEvictPolicy;
         if (this.b == null) {
             this.b = new OldestPolicy();
@@ -135,7 +129,7 @@ public class MemoryBitmapCache implements bn {
         a aVar = (a) this.c.get(str);
         if (aVar != null) {
             this.b.updateCacheItem(aVar);
-            bitmap = aVar.f845a;
+            bitmap = aVar.a;
         } else {
             bitmap = null;
         }
@@ -143,7 +137,7 @@ public class MemoryBitmapCache implements bn {
     }
 
     public MemoryBitmapCache a(int i) {
-        this.f843a = i;
+        this.a = i;
         return this;
     }
 
@@ -155,21 +149,21 @@ public class MemoryBitmapCache implements bn {
     @Override // defpackage.bn
     public synchronized void a(String str, Bitmap bitmap) {
         if (!c(str)) {
-            if (this.c.size() >= this.f843a) {
+            if (this.c.size() >= this.a) {
                 b(this.b.findItemToDelete(this.c));
             }
             a aVar = new a();
             aVar.b = 1;
             aVar.c = System.currentTimeMillis();
-            aVar.f845a = bitmap;
+            aVar.a = bitmap;
             this.c.put(str, aVar);
         }
     }
 
     public synchronized void b(String str) {
         a aVar = (a) this.c.remove(str);
-        if (aVar != null && aVar.f845a != null) {
-            aVar.f845a.recycle();
+        if (aVar != null && aVar.a != null) {
+            aVar.a.recycle();
         }
     }
 

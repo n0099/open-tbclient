@@ -9,9 +9,7 @@ import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import java.util.List;
 /* loaded from: classes.dex */
 public class GroupAddressEditActivity extends com.baidu.tieba.j implements AdapterView.OnItemClickListener, com.baidu.adp.widget.BdSwitchView.c {
-
-    /* renamed from: a  reason: collision with root package name */
-    n f1616a = null;
+    n a = null;
     private String[] b = null;
     private boolean c = false;
     private int d = -1;
@@ -45,20 +43,20 @@ public class GroupAddressEditActivity extends com.baidu.tieba.j implements Adapt
             this.d = intent.getIntExtra("IntentSelectedIndex", 0);
             this.c = intent.getBooleanExtra("HiddenAddress", false);
         }
-        this.f1616a = new n(this, this.b, this.c);
+        this.a = new n(this, this.b, this.c);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.f1616a.a(i);
+        this.a.a(i);
     }
 
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.f1616a.a() || view == this.f1616a.e()) {
+        if (view == this.a.a() || view == this.a.e()) {
             Intent intent = new Intent();
             if (this.d > -1 && this.d < this.b.length) {
                 intent.putExtra("Selected_Business", this.b[this.d]);
@@ -85,6 +83,6 @@ public class GroupAddressEditActivity extends com.baidu.tieba.j implements Adapt
     @Override // com.baidu.adp.a.a, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         this.d = i;
-        this.f1616a.f();
+        this.a.f();
     }
 }

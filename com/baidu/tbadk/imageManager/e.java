@@ -2,15 +2,13 @@ package com.baidu.tbadk.imageManager;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e extends com.baidu.adp.lib.d.a<String, com.baidu.adp.widget.ImageView.e> {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ d f983a;
+    final /* synthetic */ d a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(d dVar, int i) {
         super(i);
-        this.f983a = dVar;
+        this.a = dVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

@@ -11,12 +11,10 @@ import java.util.Locale;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f extends BdAsyncTask<Location, Void, Address> {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f424a;
+    final /* synthetic */ a a;
 
     private f(a aVar) {
-        this.f424a = aVar;
+        this.a = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -30,7 +28,7 @@ public class f extends BdAsyncTask<Location, Void, Address> {
     public Address a(Location... locationArr) {
         Context context;
         List<Address> list;
-        context = this.f424a.o;
+        context = this.a.o;
         Geocoder geocoder = new Geocoder(context, Locale.getDefault());
         if (locationArr == null || locationArr.length < 1) {
             return null;
@@ -61,7 +59,7 @@ public class f extends BdAsyncTask<Location, Void, Address> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a() {
         super.a();
-        this.f424a.m = null;
+        this.a.m = null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -70,15 +68,15 @@ public class f extends BdAsyncTask<Location, Void, Address> {
     public void a(Address address) {
         int i;
         super.a((f) address);
-        this.f424a.m = null;
+        this.a.m = null;
         if (address != null) {
-            this.f424a.d();
-            this.f424a.j = 0;
-            this.f424a.f420a = System.currentTimeMillis();
-            a aVar = this.f424a;
-            i = this.f424a.j;
+            this.a.d();
+            this.a.j = 0;
+            this.a.a = System.currentTimeMillis();
+            a aVar = this.a;
+            i = this.a.j;
             aVar.a(i, "", address);
-            this.f424a.l = address;
+            this.a.l = address;
         }
     }
 }

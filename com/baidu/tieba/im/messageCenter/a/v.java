@@ -1,23 +1,32 @@
 package com.baidu.tieba.im.messageCenter.a;
 
-import android.text.TextUtils;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.data.AccountData;
-import com.baidu.tieba.im.message.Message;
-import com.baidu.tieba.im.message.SettingsSyncMessage;
-import com.baidu.tieba.util.DatabaseService;
+import com.baidu.tieba.im.data.BaseGroupData;
+import com.baidu.tieba.im.message.am;
+import com.baidu.tieba.im.message.bv;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes.dex */
 public class v extends com.baidu.tieba.im.messageCenter.a {
     @Override // com.baidu.tieba.im.messageCenter.a
-    public Message a(Message message, com.baidu.tieba.im.b.p pVar) {
-        if (message instanceof SettingsSyncMessage) {
-            SettingsSyncMessage settingsSyncMessage = (SettingsSyncMessage) message;
-            AccountData F = TiebaApplication.F();
-            if (F != null && !TextUtils.isEmpty(settingsSyncMessage.getPortrait())) {
-                DatabaseService.c(F.getAccount(), settingsSyncMessage.getPortrait());
-                F.setPortrait(settingsSyncMessage.getPortrait());
-            }
+    public com.baidu.tieba.im.message.n a(com.baidu.tieba.im.message.n nVar, com.baidu.tieba.im.coder.d dVar) {
+        if (nVar == null || !(nVar instanceof bv)) {
+            return null;
         }
-        return null;
+        bv bvVar = (bv) nVar;
+        com.baidu.tieba.im.message.n l = bvVar.l();
+        if (l != null && (l instanceof am) && !bvVar.i()) {
+            String str = ((am) l).b() + "";
+            com.baidu.adp.lib.cache.s<String> h = com.baidu.tieba.b.a.a().h();
+            List<BaseGroupData> a = bvVar.a();
+            if (a != null) {
+                Iterator<BaseGroupData> it = a.iterator();
+                while (it.hasNext()) {
+                    h.a(str, it.next().getName() + "(" + str + ")");
+                }
+                return nVar;
+            }
+            return nVar;
+        }
+        return nVar;
     }
 }

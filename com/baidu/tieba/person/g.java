@@ -5,14 +5,12 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tieba.TiebaApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g extends BdAsyncTask<Object, String, com.baidu.tieba.model.e> {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ EditBarActivity f2353a;
-    private com.baidu.tieba.util.am b;
+public class g extends BdAsyncTask<Object, String, com.baidu.tieba.model.h> {
+    final /* synthetic */ EditBarActivity a;
+    private com.baidu.tieba.util.an b;
 
     private g(EditBarActivity editBarActivity) {
-        this.f2353a = editBarActivity;
+        this.a = editBarActivity;
         this.b = null;
     }
 
@@ -30,8 +28,8 @@ public class g extends BdAsyncTask<Object, String, com.baidu.tieba.model.e> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: d */
-    public com.baidu.tieba.model.e a(Object... objArr) {
-        com.baidu.tieba.model.e eVar;
+    public com.baidu.tieba.model.h a(Object... objArr) {
+        com.baidu.tieba.model.h hVar;
         Exception e;
         String str;
         String str2;
@@ -39,37 +37,37 @@ public class g extends BdAsyncTask<Object, String, com.baidu.tieba.model.e> {
         String str4;
         com.baidu.adp.lib.cache.s<String> n;
         try {
-            str = this.f2353a.o;
+            str = this.a.o;
             if (str == null && (n = com.baidu.tieba.b.a.a().n()) != null) {
                 c((Object[]) new String[]{n.a(TiebaApplication.B())});
             }
-            this.b = new com.baidu.tieba.util.am(com.baidu.tieba.data.h.f1248a + "c/f/forum/like");
-            str2 = this.f2353a.o;
+            this.b = new com.baidu.tieba.util.an(com.baidu.tieba.data.h.a + "c/f/forum/like");
+            str2 = this.a.o;
             if (str2 != null) {
-                com.baidu.tieba.util.am amVar = this.b;
-                str4 = this.f2353a.o;
-                amVar.a("uid", str4);
+                com.baidu.tieba.util.an anVar = this.b;
+                str4 = this.a.o;
+                anVar.a("uid", str4);
             }
             String l = this.b.l();
             if (!this.b.c()) {
                 return null;
             }
-            eVar = new com.baidu.tieba.model.e();
+            hVar = new com.baidu.tieba.model.h();
             try {
-                eVar.a(l);
-                str3 = this.f2353a.o;
+                hVar.a(l);
+                str3 = this.a.o;
                 if (str3 == null) {
                     a(l);
-                    return eVar;
+                    return hVar;
                 }
-                return eVar;
+                return hVar;
             } catch (Exception e2) {
                 e = e2;
-                com.baidu.tieba.util.bd.b(getClass().getName(), "doInBackground", e.getMessage());
-                return eVar;
+                com.baidu.tieba.util.be.b(getClass().getName(), "doInBackground", e.getMessage());
+                return hVar;
             }
         } catch (Exception e3) {
-            eVar = null;
+            hVar = null;
             e = e3;
         }
     }
@@ -87,22 +85,22 @@ public class g extends BdAsyncTask<Object, String, com.baidu.tieba.model.e> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
     public void b(String... strArr) {
-        com.baidu.tieba.model.e eVar;
+        com.baidu.tieba.model.h hVar;
         i iVar;
         i iVar2;
         ProgressBar progressBar;
         super.b((Object[]) strArr);
         String str = strArr[0];
-        com.baidu.tieba.model.e eVar2 = new com.baidu.tieba.model.e();
-        eVar2.a(str);
-        eVar = this.f2353a.f2291a;
-        eVar.a(eVar2.a());
-        iVar = this.f2353a.f;
+        com.baidu.tieba.model.h hVar2 = new com.baidu.tieba.model.h();
+        hVar2.a(str);
+        hVar = this.a.a;
+        hVar.a(hVar2.a());
+        iVar = this.a.f;
         if (iVar != null) {
-            this.f2353a.a(false);
-            iVar2 = this.f2353a.f;
+            this.a.a(false);
+            iVar2 = this.a.f;
             iVar2.notifyDataSetChanged();
-            progressBar = this.f2353a.g;
+            progressBar = this.a.g;
             progressBar.setVisibility(0);
         }
     }
@@ -110,26 +108,26 @@ public class g extends BdAsyncTask<Object, String, com.baidu.tieba.model.e> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(com.baidu.tieba.model.e eVar) {
+    public void a(com.baidu.tieba.model.h hVar) {
         ProgressBar progressBar;
-        com.baidu.tieba.model.e eVar2;
+        com.baidu.tieba.model.h hVar2;
         i iVar;
         i iVar2;
-        progressBar = this.f2353a.g;
+        progressBar = this.a.g;
         progressBar.setVisibility(8);
-        this.f2353a.h = null;
+        this.a.h = null;
         if (this.b != null) {
-            if (!this.b.c() || eVar == null) {
-                this.f2353a.a(true);
-                this.f2353a.showToast(this.b.i());
+            if (!this.b.c() || hVar == null) {
+                this.a.a(true);
+                this.a.showToast(this.b.i());
                 return;
             }
-            eVar2 = this.f2353a.f2291a;
-            eVar2.a(eVar.a());
-            iVar = this.f2353a.f;
+            hVar2 = this.a.a;
+            hVar2.a(hVar.a());
+            iVar = this.a.f;
             if (iVar != null) {
-                this.f2353a.a(true);
-                iVar2 = this.f2353a.f;
+                this.a.a(true);
+                iVar2 = this.a.f;
                 iVar2.notifyDataSetChanged();
             }
         }
@@ -142,9 +140,9 @@ public class g extends BdAsyncTask<Object, String, com.baidu.tieba.model.e> {
             this.b.j();
             this.b = null;
         }
-        progressBar = this.f2353a.g;
+        progressBar = this.a.g;
         progressBar.setVisibility(8);
-        this.f2353a.h = null;
+        this.a.h = null;
         super.cancel(true);
     }
 }

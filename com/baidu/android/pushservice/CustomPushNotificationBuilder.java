@@ -3,109 +3,220 @@ package com.baidu.android.pushservice;
 import android.app.Notification;
 import android.content.Context;
 import android.net.Uri;
-import android.widget.RemoteViews;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 /* loaded from: classes.dex */
 public class CustomPushNotificationBuilder extends PushNotificationBuilder {
-    private int mLayoutIconDrawable;
-    private int mLayoutIconId;
-    private int mLayoutId;
-    private int mLayoutTextId;
-    private int mLayoutTitleId;
+    private boolean a;
 
-    public CustomPushNotificationBuilder(int i, int i2, int i3, int i4) {
-        this.mLayoutId = i;
-        this.mLayoutIconId = i2;
-        this.mLayoutTitleId = i3;
-        this.mLayoutTextId = i4;
+    public CustomPushNotificationBuilder(Context context, com.baidu.android.pushservice.apiproxy.CustomPushNotificationBuilder customPushNotificationBuilder) {
+        super(context);
+        this.a = false;
+        this.mInstance = customPushNotificationBuilder;
     }
 
-    private void readObject(ObjectInputStream objectInputStream) {
-        this.mStatusbarIcon = objectInputStream.readInt();
-        this.mNotificationFlags = objectInputStream.readInt();
-        this.mNotificationDefaults = objectInputStream.readInt();
-        if (objectInputStream.readBoolean()) {
-            this.mNotificationsound = Uri.parse((String) objectInputStream.readObject());
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.android.pushservice.PushNotificationBuilder
+    public com.baidu.android.pushservice.apiproxy.CustomPushNotificationBuilder getInner() {
+        while (this.mInstance == null && !this.a) {
+            a(50);
         }
-        int readInt = objectInputStream.readInt();
-        this.mVibratePattern = new long[readInt];
-        for (int i = 0; i < readInt; i++) {
-            this.mVibratePattern[i] = objectInputStream.readLong();
+        if (this.a) {
+            return null;
         }
-        this.mNotificationTitle = (String) objectInputStream.readObject();
-        this.mNotificationText = (String) objectInputStream.readObject();
-        this.mLayoutId = objectInputStream.readInt();
-        this.mLayoutIconId = objectInputStream.readInt();
-        this.mLayoutTitleId = objectInputStream.readInt();
-        this.mLayoutTextId = objectInputStream.readInt();
-        this.mLayoutIconDrawable = objectInputStream.readInt();
+        return (com.baidu.android.pushservice.apiproxy.CustomPushNotificationBuilder) this.mInstance;
     }
 
-    private void writeObject(ObjectOutputStream objectOutputStream) {
-        objectOutputStream.writeInt(this.mStatusbarIcon);
-        objectOutputStream.writeInt(this.mNotificationFlags);
-        objectOutputStream.writeInt(this.mNotificationDefaults);
-        if (this.mNotificationsound != null) {
-            objectOutputStream.writeBoolean(true);
-            objectOutputStream.writeObject(this.mNotificationsound.toString());
+    /* JADX WARN: Type inference failed for: r0v2, types: [com.baidu.android.pushservice.CustomPushNotificationBuilder$1] */
+    public CustomPushNotificationBuilder(final Context context, final int i, final int i2, final int i3, final int i4) {
+        super(context);
+        this.a = false;
+        if (LoadExecutor.isPushLibLoaded(context)) {
+            this.mInstance = new com.baidu.android.pushservice.apiproxy.CustomPushNotificationBuilder(i, i2, i3, i4);
         } else {
-            objectOutputStream.writeBoolean(false);
+            new Thread() { // from class: com.baidu.android.pushservice.CustomPushNotificationBuilder.1
+                @Override // java.lang.Thread, java.lang.Runnable
+                public void run() {
+                    if (!LoadExecutor.loadPush(context)) {
+                        CustomPushNotificationBuilder.this.a = true;
+                        return;
+                    }
+                    CustomPushNotificationBuilder.this.mInstance = new com.baidu.android.pushservice.apiproxy.CustomPushNotificationBuilder(i, i2, i3, i4);
+                }
+            }.start();
         }
-        if (this.mVibratePattern != null) {
-            objectOutputStream.writeInt(this.mVibratePattern.length);
-            for (int i = 0; i < this.mVibratePattern.length; i++) {
-                objectOutputStream.writeLong(this.mVibratePattern[i]);
-            }
+    }
+
+    /* JADX WARN: Type inference failed for: r0v1, types: [com.baidu.android.pushservice.CustomPushNotificationBuilder$2] */
+    public void setLayoutDrawable(final int i) {
+        if (this.mInstance != null) {
+            ((com.baidu.android.pushservice.apiproxy.CustomPushNotificationBuilder) this.mInstance).setLayoutDrawable(i);
         } else {
-            objectOutputStream.writeInt(0);
+            new Thread() { // from class: com.baidu.android.pushservice.CustomPushNotificationBuilder.2
+                @Override // java.lang.Thread, java.lang.Runnable
+                public void run() {
+                    while (CustomPushNotificationBuilder.this.mInstance == null && !CustomPushNotificationBuilder.this.a) {
+                        CustomPushNotificationBuilder.this.a(50);
+                    }
+                    if (!CustomPushNotificationBuilder.this.a) {
+                        ((com.baidu.android.pushservice.apiproxy.CustomPushNotificationBuilder) CustomPushNotificationBuilder.this.mInstance).setLayoutDrawable(i);
+                    }
+                }
+            }.start();
         }
-        objectOutputStream.writeObject(this.mNotificationTitle);
-        objectOutputStream.writeObject(this.mNotificationText);
-        objectOutputStream.writeInt(this.mLayoutId);
-        objectOutputStream.writeInt(this.mLayoutIconId);
-        objectOutputStream.writeInt(this.mLayoutTitleId);
-        objectOutputStream.writeInt(this.mLayoutTextId);
-        objectOutputStream.writeInt(this.mLayoutIconDrawable);
     }
 
     @Override // com.baidu.android.pushservice.PushNotificationBuilder
     public Notification construct(Context context) {
-        Notification notification = new Notification();
-        if (this.mNotificationDefaults != 0) {
-            notification.defaults = this.mNotificationDefaults;
+        if (LoadExecutor.loadPush(context)) {
+            return this.mInstance.construct(context);
         }
-        if (this.mNotificationsound != null) {
-            notification.sound = this.mNotificationsound;
-        }
-        if (this.mVibratePattern != null) {
-            notification.vibrate = this.mVibratePattern;
-        }
-        if (this.mStatusbarIcon != 0) {
-            notification.icon = this.mStatusbarIcon;
-        }
-        if (this.mNotificationFlags != 0) {
-            notification.flags = this.mNotificationFlags;
-        }
-        if (this.mLayoutId != 0) {
-            RemoteViews remoteViews = new RemoteViews(context.getPackageName(), this.mLayoutId);
-            if (this.mLayoutIconDrawable != 0) {
-                remoteViews.setImageViewResource(this.mLayoutIconId, this.mLayoutIconDrawable);
-            }
-            if (this.mNotificationTitle != null) {
-                remoteViews.setTextViewText(this.mLayoutTitleId, this.mNotificationTitle);
-            }
-            if (this.mNotificationText != null) {
-                remoteViews.setTextViewText(this.mLayoutTextId, this.mNotificationText);
-            }
-            notification.contentView = remoteViews;
-        } else {
-            notification.setLatestEventInfo(context, this.mNotificationTitle, this.mNotificationTitle, null);
-        }
-        return notification;
+        return null;
     }
 
-    public void setLayoutDrawable(int i) {
-        this.mLayoutIconDrawable = i;
+    /* JADX WARN: Type inference failed for: r0v1, types: [com.baidu.android.pushservice.CustomPushNotificationBuilder$3] */
+    @Override // com.baidu.android.pushservice.PushNotificationBuilder
+    public void setStatusbarIcon(final int i) {
+        if (this.mInstance != null) {
+            this.mInstance.setStatusbarIcon(i);
+        } else {
+            new Thread() { // from class: com.baidu.android.pushservice.CustomPushNotificationBuilder.3
+                @Override // java.lang.Thread, java.lang.Runnable
+                public void run() {
+                    while (CustomPushNotificationBuilder.this.mInstance == null && !CustomPushNotificationBuilder.this.a) {
+                        CustomPushNotificationBuilder.this.a(50);
+                    }
+                    if (!CustomPushNotificationBuilder.this.a) {
+                        CustomPushNotificationBuilder.this.mInstance.setStatusbarIcon(i);
+                    }
+                }
+            }.start();
+        }
+    }
+
+    /* JADX WARN: Type inference failed for: r0v1, types: [com.baidu.android.pushservice.CustomPushNotificationBuilder$4] */
+    @Override // com.baidu.android.pushservice.PushNotificationBuilder
+    public void setNotificationTitle(final String str) {
+        if (this.mInstance != null) {
+            this.mInstance.setNotificationTitle(str);
+        } else {
+            new Thread() { // from class: com.baidu.android.pushservice.CustomPushNotificationBuilder.4
+                @Override // java.lang.Thread, java.lang.Runnable
+                public void run() {
+                    while (CustomPushNotificationBuilder.this.mInstance == null && !CustomPushNotificationBuilder.this.a) {
+                        CustomPushNotificationBuilder.this.a(50);
+                    }
+                    if (!CustomPushNotificationBuilder.this.a) {
+                        CustomPushNotificationBuilder.this.mInstance.setNotificationTitle(str);
+                    }
+                }
+            }.start();
+        }
+    }
+
+    /* JADX WARN: Type inference failed for: r0v1, types: [com.baidu.android.pushservice.CustomPushNotificationBuilder$5] */
+    @Override // com.baidu.android.pushservice.PushNotificationBuilder
+    public void setNotificationText(final String str) {
+        if (this.mInstance != null) {
+            this.mInstance.setNotificationText(str);
+        } else {
+            new Thread() { // from class: com.baidu.android.pushservice.CustomPushNotificationBuilder.5
+                @Override // java.lang.Thread, java.lang.Runnable
+                public void run() {
+                    while (CustomPushNotificationBuilder.this.mInstance == null && !CustomPushNotificationBuilder.this.a) {
+                        CustomPushNotificationBuilder.this.a(50);
+                    }
+                    if (!CustomPushNotificationBuilder.this.a) {
+                        CustomPushNotificationBuilder.this.mInstance.setNotificationText(str);
+                    }
+                }
+            }.start();
+        }
+    }
+
+    /* JADX WARN: Type inference failed for: r0v1, types: [com.baidu.android.pushservice.CustomPushNotificationBuilder$6] */
+    @Override // com.baidu.android.pushservice.PushNotificationBuilder
+    public void setNotificationFlags(final int i) {
+        if (this.mInstance != null) {
+            this.mInstance.setNotificationFlags(i);
+        } else {
+            new Thread() { // from class: com.baidu.android.pushservice.CustomPushNotificationBuilder.6
+                @Override // java.lang.Thread, java.lang.Runnable
+                public void run() {
+                    while (CustomPushNotificationBuilder.this.mInstance == null && !CustomPushNotificationBuilder.this.a) {
+                        CustomPushNotificationBuilder.this.a(50);
+                    }
+                    if (!CustomPushNotificationBuilder.this.a) {
+                        CustomPushNotificationBuilder.this.mInstance.setNotificationFlags(i);
+                    }
+                }
+            }.start();
+        }
+    }
+
+    /* JADX WARN: Type inference failed for: r0v1, types: [com.baidu.android.pushservice.CustomPushNotificationBuilder$7] */
+    @Override // com.baidu.android.pushservice.PushNotificationBuilder
+    public void setNotificationDefaults(final int i) {
+        if (this.mInstance != null) {
+            this.mInstance.setNotificationDefaults(i);
+        } else {
+            new Thread() { // from class: com.baidu.android.pushservice.CustomPushNotificationBuilder.7
+                @Override // java.lang.Thread, java.lang.Runnable
+                public void run() {
+                    while (CustomPushNotificationBuilder.this.mInstance == null && !CustomPushNotificationBuilder.this.a) {
+                        CustomPushNotificationBuilder.this.a(50);
+                    }
+                    if (!CustomPushNotificationBuilder.this.a) {
+                        CustomPushNotificationBuilder.this.mInstance.setNotificationDefaults(i);
+                    }
+                }
+            }.start();
+        }
+    }
+
+    /* JADX WARN: Type inference failed for: r0v1, types: [com.baidu.android.pushservice.CustomPushNotificationBuilder$8] */
+    @Override // com.baidu.android.pushservice.PushNotificationBuilder
+    public void setNotificationSound(final Uri uri) {
+        if (this.mInstance != null) {
+            this.mInstance.setNotificationSound(uri);
+        } else {
+            new Thread() { // from class: com.baidu.android.pushservice.CustomPushNotificationBuilder.8
+                @Override // java.lang.Thread, java.lang.Runnable
+                public void run() {
+                    while (CustomPushNotificationBuilder.this.mInstance == null && !CustomPushNotificationBuilder.this.a) {
+                        CustomPushNotificationBuilder.this.a(50);
+                    }
+                    if (!CustomPushNotificationBuilder.this.a) {
+                        CustomPushNotificationBuilder.this.mInstance.setNotificationSound(uri);
+                    }
+                }
+            }.start();
+        }
+    }
+
+    /* JADX WARN: Type inference failed for: r0v1, types: [com.baidu.android.pushservice.CustomPushNotificationBuilder$9] */
+    @Override // com.baidu.android.pushservice.PushNotificationBuilder
+    public void setNotificationVibrate(final long[] jArr) {
+        if (this.mInstance != null) {
+            this.mInstance.setNotificationVibrate(jArr);
+        } else {
+            new Thread() { // from class: com.baidu.android.pushservice.CustomPushNotificationBuilder.9
+                @Override // java.lang.Thread, java.lang.Runnable
+                public void run() {
+                    while (CustomPushNotificationBuilder.this.mInstance == null && !CustomPushNotificationBuilder.this.a) {
+                        CustomPushNotificationBuilder.this.a(50);
+                    }
+                    if (!CustomPushNotificationBuilder.this.a) {
+                        CustomPushNotificationBuilder.this.mInstance.setNotificationVibrate(jArr);
+                    }
+                }
+            }.start();
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(int i) {
+        try {
+            Thread.sleep(i);
+        } catch (Exception e) {
+        }
     }
 }

@@ -9,13 +9,11 @@ import com.baidu.tieba.write.WriteActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class v implements View.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PostActivity f1968a;
+    final /* synthetic */ PostActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(PostActivity postActivity) {
-        this.f1968a = postActivity;
+        this.a = postActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -24,23 +22,23 @@ public class v implements View.OnClickListener {
         bv bvVar2;
         bv bvVar3;
         bv bvVar4;
-        bvVar = this.f1968a.l;
+        bvVar = this.a.l;
         if (bvVar != null) {
-            bvVar2 = this.f1968a.l;
+            bvVar2 = this.a.l;
             if (bvVar2.a() != null) {
-                bvVar3 = this.f1968a.l;
-                an a2 = bvVar3.a();
-                ar arVar = a2.e().get(0);
+                bvVar3 = this.a.l;
+                an a = bvVar3.a();
+                ar arVar = a.e().get(0);
                 if (arVar != null) {
-                    PostActivity postActivity = this.f1968a;
-                    String id = a2.c().getId();
-                    String name = a2.c().getName();
-                    String a3 = a2.d().a();
+                    PostActivity postActivity = this.a;
+                    String id = a.c().getId();
+                    String name = a.c().getName();
+                    String a2 = a.d().a();
                     String d = arVar.d();
                     int e = arVar.e();
-                    AntiData g = a2.g();
-                    bvVar4 = this.f1968a.l;
-                    WriteActivity.a(postActivity, id, name, a3, d, e, null, g, bvVar4.a().k());
+                    AntiData g = a.g();
+                    bvVar4 = this.a.l;
+                    WriteActivity.a(postActivity, id, name, a2, d, e, null, g, bvVar4.a().k());
                 }
             }
         }

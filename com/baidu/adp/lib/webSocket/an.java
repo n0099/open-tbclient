@@ -12,9 +12,7 @@ import java.util.Map;
 /* loaded from: classes.dex */
 public class an extends Thread {
     private static long f = 0;
-
-    /* renamed from: a  reason: collision with root package name */
-    private final Handler f532a;
+    private final Handler a;
     private final g b;
     private final am c;
     private final ByteBuffer d;
@@ -31,7 +29,7 @@ public class an extends Thread {
         this.g = false;
         this.i = false;
         this.l = new j();
-        this.f532a = handler;
+        this.a = handler;
         this.b = gVar;
         this.c = amVar;
         this.d = ByteBuffer.allocateDirect(amVar.b() + 14);
@@ -44,9 +42,9 @@ public class an extends Thread {
     }
 
     protected void a(Object obj) {
-        Message obtainMessage = this.f532a.obtainMessage();
+        Message obtainMessage = this.a.obtainMessage();
         obtainMessage.obj = obj;
-        this.f532a.sendMessage(obtainMessage);
+        this.a.sendMessage(obtainMessage);
     }
 
     private boolean d() {
@@ -126,7 +124,7 @@ public class an extends Thread {
                         throw new WebSocketException("frame payload too large");
                     }
                     this.k = new ap();
-                    this.k.f533a = i5;
+                    this.k.a = i5;
                     this.k.b = z;
                     this.k.c = i4;
                     this.k.e = (int) j;
@@ -157,8 +155,8 @@ public class an extends Thread {
             this.d.position(this.k.f);
             this.d.limit(position);
             this.d.compact();
-            if (this.k.f533a > 7) {
-                if (this.k.f533a == 8) {
+            if (this.k.a > 7) {
+                if (this.k.a == 8) {
                     int i10 = 1005;
                     if (this.k.e >= 2) {
                         i10 = ((bArr[0] & 255) * 256) + (bArr[1] & 255);
@@ -181,9 +179,9 @@ public class an extends Thread {
                     str = null;
                     i = i10;
                     a(i, str);
-                } else if (this.k.f533a == 9) {
+                } else if (this.k.a == 9) {
                     a(bArr);
-                } else if (this.k.f533a == 10) {
+                } else if (this.k.a == 10) {
                     b(bArr);
                 } else {
                     throw new Exception("BdLogic error");
@@ -191,7 +189,7 @@ public class an extends Thread {
             } else {
                 if (!this.i) {
                     this.i = true;
-                    this.j = this.k.f533a;
+                    this.j = this.k.a;
                     if (this.j == 1 && this.c.g()) {
                         this.l.a();
                     }
@@ -381,16 +379,16 @@ public class an extends Thread {
             this.d.clear();
             do {
                 try {
-                    int a2 = this.b.a(this.d);
-                    if (a2 > 0) {
+                    int a = this.b.a(this.d);
+                    if (a > 0) {
                         synchronized (an.class) {
-                            f += a2;
+                            f += a;
                         }
                     }
-                    if (a2 > 0) {
+                    if (a > 0) {
                         do {
                         } while (g());
-                    } else if (a2 < 0) {
+                    } else if (a < 0) {
                         if (h()) {
                             com.baidu.adp.lib.h.e.d("run() : ConnectionLost");
                         }

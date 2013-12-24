@@ -8,5 +8,5 @@ public final class e {
     public static final int adp_detault_footer_layout = 2130903057;
     public static final int adp_pull_refresh_scroll_view = 2130903058;
     public static final int bd_switch_view = 2130903073;
-    public static final int pull_view = 2130903296;
+    public static final int pull_view = 2130903300;
 }

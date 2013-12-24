@@ -17,16 +17,14 @@ import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.view.NavigationBar;
-import com.baidu.tieba.view.bk;
+import com.baidu.tieba.view.bq;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class y {
     ProgressBar A;
     private boolean B;
     private int C = 0;
-
-    /* renamed from: a  reason: collision with root package name */
-    LinearLayout f1317a;
+    LinearLayout a;
     final View b;
     final View c;
     ViewPager d;
@@ -43,8 +41,8 @@ public class y {
     LinearLayout o;
     TextView p;
     ImageView q;
-    bk r;
-    bk s;
+    bq r;
+    bq s;
     PopupWindow t;
     View u;
     ForumListActivity v;
@@ -55,7 +53,7 @@ public class y {
 
     public y(ForumListActivity forumListActivity) {
         this.B = false;
-        this.f1317a = (LinearLayout) forumListActivity.findViewById(R.id.forum_list_root);
+        this.a = (LinearLayout) forumListActivity.findViewById(R.id.forum_list_root);
         this.d = (ViewPager) forumListActivity.findViewById(R.id.view_pager);
         this.d.setOnPageChangeListener(forumListActivity);
         this.e = (LinearLayout) forumListActivity.findViewById(R.id.tab_strip);
@@ -68,8 +66,8 @@ public class y {
         this.j.setOnClickListener(forumListActivity);
         this.k = (TextView) forumListActivity.findViewById(R.id.tab_hot);
         this.k.setOnClickListener(forumListActivity);
-        this.r = new bk(forumListActivity);
-        this.s = new bk(forumListActivity);
+        this.r = new bq(forumListActivity);
+        this.s = new bq(forumListActivity);
         this.l = (LinearLayout) forumListActivity.getLayoutInflater().inflate(R.layout.forum_list_forum_footer, (ViewGroup) null);
         this.b = this.l.findViewById(R.id.footer_background);
         this.m = (TextView) this.l.findViewById(R.id.footer_text);
@@ -105,7 +103,7 @@ public class y {
             if (this.u == null) {
                 this.u = a(0, onItemClickListener);
             }
-            int a2 = (com.baidu.adp.lib.h.g.a((Context) this.v, 160.0f) - this.y.getWidth()) / 2;
+            int a = (com.baidu.adp.lib.h.g.a((Context) this.v, 160.0f) - this.y.getWidth()) / 2;
             if (this.t == null) {
                 this.t = new PopupWindow(this.u, com.baidu.adp.lib.h.g.a((Context) this.v, 160.0f), -2, true);
                 this.t.setBackgroundDrawable(new ColorDrawable(17170445));
@@ -117,7 +115,7 @@ public class y {
             this.t.setFocusable(true);
             this.u.setFocusable(true);
             this.u.setFocusableInTouchMode(true);
-            this.t.showAsDropDown(this.y, 0 - a2, com.baidu.adp.lib.h.g.a((Context) this.v, 0.0f));
+            this.t.showAsDropDown(this.y, 0 - a, com.baidu.adp.lib.h.g.a((Context) this.v, 0.0f));
             this.u.setOnKeyListener(new z(this));
             this.u.setOnTouchListener(new aa(this));
             this.t.setOnDismissListener(new ab(this));

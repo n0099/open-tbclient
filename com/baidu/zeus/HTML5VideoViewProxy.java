@@ -129,7 +129,7 @@ public class HTML5VideoViewProxy extends Handler implements MediaPlayer.OnComple
                 mVideoView.setMediaController(new MediaController(hTML5VideoViewProxy.getContext()));
                 String cookie = CookieManager.getInstance().getCookie(str);
                 if (cookie != null) {
-                    new HashMap().put("Cookie", cookie);
+                    new HashMap().put(HTML5VideoViewProxy.COOKIE, cookie);
                 }
                 mVideoView.setVideoURI(Uri.parse(str));
                 mVideoView.setOnCompletionListener(hTML5VideoViewProxy);

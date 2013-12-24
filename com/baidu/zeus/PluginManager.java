@@ -108,7 +108,7 @@ public class PluginManager {
                                         if (serviceInfo.metaData == null) {
                                             Log.e(LOGTAG, "The plugin '" + serviceInfo.name + "' has no type defined");
                                         } else {
-                                            String string = serviceInfo.metaData.getString("type");
+                                            String string = serviceInfo.metaData.getString(PLUGIN_TYPE);
                                             if (!TYPE_NATIVE.equals(string)) {
                                                 Log.e(LOGTAG, "Unrecognized plugin type: " + string);
                                             } else {

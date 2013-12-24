@@ -6,14 +6,12 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.ba;
+import com.baidu.tieba.util.bb;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class PersonPostView implements bq {
-
-    /* renamed from: a  reason: collision with root package name */
-    public FrameLayout f2364a;
+    public FrameLayout a;
     public ViewPager b;
     public TextView c;
     public TextView d;
@@ -23,20 +21,20 @@ public class PersonPostView implements bq {
 
     public PersonPostView(PersonPostActivity personPostActivity) {
         personPostActivity.setContentView(R.layout.person_post_activity);
-        this.f2364a = (FrameLayout) personPostActivity.findViewById(16908290);
+        this.a = (FrameLayout) personPostActivity.findViewById(16908290);
         this.f = (NavigationBar) personPostActivity.findViewById(R.id.view_navigation_bar);
         this.f.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        View a2 = this.f.a(R.layout.nb_item_person_post, (View.OnClickListener) null);
-        this.c = (TextView) a2.findViewById(R.id.thread);
+        View a = this.f.a(R.layout.nb_item_person_post, (View.OnClickListener) null);
+        this.c = (TextView) a.findViewById(R.id.thread);
         this.c.setOnClickListener(personPostActivity);
-        this.d = (TextView) a2.findViewById(R.id.reply);
+        this.d = (TextView) a.findViewById(R.id.reply);
         this.d.setOnClickListener(personPostActivity);
         this.b = (ViewPager) personPostActivity.findViewById(R.id.pager);
         this.b.setOnPageChangeListener(this);
     }
 
     public void a(int i) {
-        ba.b(this.f2364a, i);
+        bb.b(this.a, i);
         this.f.c(i);
         b(this.e);
     }
@@ -52,8 +50,8 @@ public class PersonPostView implements bq {
                     this.c.setTextColor(this.c.getContext().getResources().getColor(R.color.navi_multiview_text_s));
                     this.d.setTextColor(this.d.getContext().getResources().getColor(R.color.navi_multiview_text_n));
                 }
-                ba.e((View) this.c, z ? R.drawable.btn_jin_ba_s_1 : R.drawable.btn_jin_ba_s);
-                ba.e((View) this.d, z ? R.drawable.btn_jin_qun_n_1 : R.drawable.btn_jin_qun_n);
+                bb.e((View) this.c, z ? R.drawable.btn_jin_ba_s_1 : R.drawable.btn_jin_ba_s);
+                bb.e((View) this.d, z ? R.drawable.btn_jin_qun_n_1 : R.drawable.btn_jin_qun_n);
                 return;
             case 2:
                 if (z) {
@@ -63,8 +61,8 @@ public class PersonPostView implements bq {
                     this.c.setTextColor(this.c.getContext().getResources().getColor(R.color.navi_multiview_text_n));
                     this.d.setTextColor(this.d.getContext().getResources().getColor(R.color.navi_multiview_text_s));
                 }
-                ba.e((View) this.c, z ? R.drawable.btn_jin_ba_n_1 : R.drawable.btn_jin_ba_n);
-                ba.e((View) this.d, z ? R.drawable.btn_jin_qun_s_1 : R.drawable.btn_jin_qun_s);
+                bb.e((View) this.c, z ? R.drawable.btn_jin_ba_n_1 : R.drawable.btn_jin_ba_n);
+                bb.e((View) this.d, z ? R.drawable.btn_jin_qun_s_1 : R.drawable.btn_jin_qun_s);
                 return;
             default:
                 return;

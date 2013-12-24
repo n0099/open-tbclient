@@ -2,13 +2,11 @@ package com.baidu.tieba.im.groupUpdates;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a implements com.baidu.tieba.im.a<Boolean> {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ UpdatesActivity f1765a;
+    final /* synthetic */ UpdatesActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(UpdatesActivity updatesActivity) {
-        this.f1765a = updatesActivity;
+        this.a = updatesActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -19,15 +17,15 @@ public class a implements com.baidu.tieba.im.a<Boolean> {
         n nVar;
         m mVar2;
         n nVar2;
-        aVar = this.f1765a.d;
+        aVar = this.a.d;
         m.b(aVar);
-        mVar = this.f1765a.j;
+        mVar = this.a.j;
         mVar.b();
-        nVar = this.f1765a.b;
-        mVar2 = this.f1765a.j;
+        nVar = this.a.b;
+        mVar2 = this.a.j;
         nVar.a(mVar2.d());
-        nVar2 = this.f1765a.b;
+        nVar2 = this.a.b;
         nVar2.f();
-        this.f1765a.a(false);
+        this.a.a(false);
     }
 }

@@ -1,6 +1,7 @@
 package com.baidu.adp.lib.h;
 
 import android.annotation.SuppressLint;
+import com.baidu.zeus.NotificationProxy;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.security.MessageDigest;
@@ -8,9 +9,7 @@ import java.text.SimpleDateFormat;
 @SuppressLint({"SimpleDateFormat"})
 /* loaded from: classes.dex */
 public class f {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static SimpleDateFormat f505a = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+    private static SimpleDateFormat a = new SimpleDateFormat("yyyy-MM-dd HH:mm");
     private static SimpleDateFormat b = new SimpleDateFormat("yyyy年");
     private static SimpleDateFormat c = new SimpleDateFormat("HH:mm");
     private static SimpleDateFormat d = new SimpleDateFormat("M月d日");
@@ -38,7 +37,7 @@ public class f {
             return null;
         }
         try {
-            byte[] bArr = new byte[1024];
+            byte[] bArr = new byte[NotificationProxy.MAX_URL_LENGTH];
             MessageDigest messageDigest = MessageDigest.getInstance("MD5");
             while (true) {
                 int read = inputStream.read(bArr);

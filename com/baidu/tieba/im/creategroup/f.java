@@ -9,9 +9,7 @@ import com.baidu.tieba.view.HeadImageView;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class f implements v {
-
-    /* renamed from: a */
-    CreateGroupStepActivity f1623a;
+    CreateGroupStepActivity a;
     View b;
     HeadImageView c;
     ImageView d;
@@ -20,12 +18,12 @@ public class f implements v {
     private h g = null;
 
     public f(CreateGroupStepActivity createGroupStepActivity) {
-        this.f1623a = null;
+        this.a = null;
         this.b = null;
         this.c = null;
         this.d = null;
         this.e = null;
-        this.f1623a = createGroupStepActivity;
+        this.a = createGroupStepActivity;
         this.b = createGroupStepActivity.getLayoutInflater().inflate(R.layout.create_group_step3_view, (ViewGroup) null);
         this.d = (ImageView) this.b.findViewById(R.id.step3_img_bg);
         this.c = (HeadImageView) this.b.findViewById(R.id.step3_img_scr);
@@ -76,8 +74,8 @@ public class f implements v {
 
     @Override // com.baidu.tieba.im.creategroup.v
     public void k() {
-        this.f1623a.getLayoutMode().a(TiebaApplication.h().an() == 1);
-        this.f1623a.getLayoutMode().a(this.b);
-        this.c.d();
+        this.a.getLayoutMode().a(TiebaApplication.h().an() == 1);
+        this.a.getLayoutMode().a(this.b);
+        this.c.e();
     }
 }

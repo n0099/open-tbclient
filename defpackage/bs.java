@@ -7,12 +7,10 @@ import com.baidu.cloudsdk.common.util.PositionManager;
 /* renamed from: bs  reason: default package */
 /* loaded from: classes.dex */
 public class bs implements LocationListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PositionManager.a f387a;
+    final /* synthetic */ PositionManager.a a;
 
     public bs(PositionManager.a aVar) {
-        this.f387a = aVar;
+        this.a = aVar;
     }
 
     @Override // android.location.LocationListener

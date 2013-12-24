@@ -1,6 +1,4 @@
 package com.baidu.tieba.im.messageCenter;
-
-import com.baidu.tieba.im.message.Message;
 /* loaded from: classes.dex */
 public interface IDuplicateProcess {
 
@@ -12,7 +10,7 @@ public interface IDuplicateProcess {
         REMOVE_ALL
     }
 
-    RemoveState getDuplicateRemoveType();
+    boolean a(com.baidu.tieba.im.message.n nVar);
 
-    boolean onDuplicateProcess(Message message);
+    RemoveState h();
 }

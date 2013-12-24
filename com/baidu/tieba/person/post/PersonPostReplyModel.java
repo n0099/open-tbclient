@@ -54,7 +54,7 @@ public class PersonPostReplyModel extends com.baidu.adp.a.d implements Serializa
         public String user_portrait = "";
         @SerializedName("abstract")
         public String abs = "";
-        @SerializedName("content")
+        @SerializedName(PushConstants.EXTRA_CONTENT)
         public Content[] content = new Content[0];
         @SerializedName("quote")
         public Quote quote = new Quote();
@@ -116,7 +116,7 @@ public class PersonPostReplyModel extends com.baidu.adp.a.d implements Serializa
         public long user_id = 0;
         @SerializedName("ip")
         public long ip = 0;
-        @SerializedName("content")
+        @SerializedName(PushConstants.EXTRA_CONTENT)
         public String content = "";
 
         public String toString() {

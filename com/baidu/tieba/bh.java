@@ -1,33 +1,29 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.data.CombineDownload;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tieba.util.UtilHelper;
 /* loaded from: classes.dex */
-public class bh implements ay {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ UpdateDialog f1163a;
+class bh extends BdAsyncTask<String, Integer, String> {
+    private bh() {
+    }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bh(UpdateDialog updateDialog) {
-        this.f1163a = updateDialog;
+    public /* synthetic */ bh(ay ayVar) {
+        this();
     }
 
-    @Override // com.baidu.tieba.ay
-    public void a(boolean z) {
-        CombineDownload combineDownload;
-        if (!z) {
-            this.f1163a.a();
-        } else {
-            UpdateDialog updateDialog = this.f1163a;
-            combineDownload = this.f1163a.b;
-            updateDialog.a(combineDownload.getAppUrl());
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public String a(String... strArr) {
+        byte[] bArr;
+        byte[] bArr2;
+        bArr = TiebaApplication.az;
+        synchronized (bArr) {
+            Boolean unused = TiebaApplication.aA = Boolean.valueOf(UtilHelper.a());
+            bArr2 = TiebaApplication.az;
+            bArr2.notifyAll();
         }
-        this.f1163a.finish();
-    }
-
-    @Override // com.baidu.tieba.ay
-    public void a() {
-        this.f1163a.finish();
+        return null;
     }
 }

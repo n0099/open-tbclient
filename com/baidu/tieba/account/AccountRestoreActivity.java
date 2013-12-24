@@ -44,12 +44,12 @@ public class AccountRestoreActivity extends com.baidu.tieba.j {
 
     public void initCookie() {
         try {
-            Token b = a.b(TiebaApplication.E());
+            Token a = a.a(TiebaApplication.E());
             CookieSyncManager.createInstance(this);
             CookieManager cookieManager = CookieManager.getInstance();
             cookieManager.setAcceptCookie(true);
-            cookieManager.setCookie("baidu.com", "BDUSS=" + b.mBduss + "; domain=.baidu.com;");
-            cookieManager.setCookie("baidu.com", "PTOKEN=" + b.mPtoken + "; domain=.baidu.com;");
+            cookieManager.setCookie("baidu.com", "BDUSS=" + a.mBduss + "; domain=.baidu.com;");
+            cookieManager.setCookie("baidu.com", "PTOKEN=" + a.mPtoken + "; domain=.baidu.com;");
             CookieSyncManager.getInstance().sync();
         } catch (Exception e) {
             e.printStackTrace();

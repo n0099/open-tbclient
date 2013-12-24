@@ -6,15 +6,13 @@ import android.support.v4.view.ViewPager;
 import android.view.MotionEvent;
 /* loaded from: classes.dex */
 public class ChildViewPager extends ViewPager {
-
-    /* renamed from: a  reason: collision with root package name */
-    PointF f2623a;
+    PointF a;
     PointF b;
     g c;
 
     public ChildViewPager(Context context) {
         super(context);
-        this.f2623a = new PointF();
+        this.a = new PointF();
         this.b = new PointF();
     }
 
@@ -28,14 +26,14 @@ public class ChildViewPager extends ViewPager {
         this.b.x = motionEvent.getX();
         this.b.y = motionEvent.getY();
         if (motionEvent.getAction() == 0) {
-            this.f2623a.x = motionEvent.getX();
-            this.f2623a.y = motionEvent.getY();
+            this.a.x = motionEvent.getX();
+            this.a.y = motionEvent.getY();
             getParent().requestDisallowInterceptTouchEvent(true);
         }
         if (motionEvent.getAction() == 2) {
             getParent().requestDisallowInterceptTouchEvent(true);
         }
-        if (motionEvent.getAction() != 1 || Math.abs(this.f2623a.x - this.b.x) + Math.abs(this.f2623a.y - this.b.y) >= 3.0f) {
+        if (motionEvent.getAction() != 1 || Math.abs(this.a.x - this.b.x) + Math.abs(this.a.y - this.b.y) >= 3.0f) {
             return super.onTouchEvent(motionEvent);
         }
         g();

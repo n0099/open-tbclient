@@ -10,9 +10,9 @@ import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class CommonImageLayout extends ViewGroup {
     private static com.baidu.tieba.util.i j;
-    public bj b;
-    public bj c;
-    public bj d;
+    public bm b;
+    public bm c;
+    public bm d;
     private com.baidu.tieba.data.ai[] k;
     private int l;
     private boolean m;
@@ -24,25 +24,23 @@ public class CommonImageLayout extends ViewGroup {
     private static int g = 2;
     private static int h = 4;
     private static int i = 0;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static float f2625a = -1.0f;
+    public static float a = -1.0f;
 
     public CommonImageLayout(Context context) {
         this(context, null);
     }
 
     private void b() {
-        if (f2625a < 0.0f) {
-            f2625a = com.baidu.adp.lib.h.g.b(this.o) / 320.0f;
+        if (a < 0.0f) {
+            a = com.baidu.adp.lib.h.g.b(this.o) / 320.0f;
             for (int i2 = 0; i2 < e.length; i2++) {
                 float[] fArr = e;
-                fArr[i2] = fArr[i2] * f2625a;
+                fArr[i2] = fArr[i2] * a;
                 float[] fArr2 = f;
-                fArr2[i2] = fArr2[i2] * f2625a;
+                fArr2[i2] = fArr2[i2] * a;
             }
-            g = (int) (g * f2625a);
-            h = (int) (h * f2625a);
+            g = (int) (g * a);
+            h = (int) (h * a);
         }
     }
 
@@ -54,16 +52,16 @@ public class CommonImageLayout extends ViewGroup {
         this.p = "other";
         this.o = context;
         b();
-        this.b = new bj(context);
-        this.c = new bj(context);
-        this.d = new bj(context);
+        this.b = new bm(context);
+        this.c = new bm(context);
+        this.d = new bm(context);
         this.b.setScaleType(ImageView.ScaleType.CENTER_CROP);
         this.c.setScaleType(ImageView.ScaleType.CENTER_CROP);
         this.d.setScaleType(ImageView.ScaleType.CENTER_CROP);
         addView(this.b);
         addView(this.c);
         addView(this.d);
-        this.l = (int) (this.l * f2625a);
+        this.l = (int) (this.l * a);
     }
 
     public void setShowBig(boolean z) {
@@ -313,13 +311,13 @@ public class CommonImageLayout extends ViewGroup {
 
     public void a() {
         if (this.b != null) {
-            this.b.d();
+            this.b.e();
         }
         if (this.c != null) {
-            this.c.d();
+            this.c.e();
         }
         if (this.d != null) {
-            this.d.d();
+            this.d.e();
         }
     }
 }

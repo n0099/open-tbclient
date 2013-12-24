@@ -6,9 +6,7 @@ import android.widget.TextView;
 import com.baidu.tieba.view.HeadImageView;
 /* loaded from: classes.dex */
 class b {
-
-    /* renamed from: a  reason: collision with root package name */
-    LinearLayout f1835a;
+    LinearLayout a;
     LinearLayout b;
     HeadImageView c;
     TextView d;

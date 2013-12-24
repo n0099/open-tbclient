@@ -11,9 +11,7 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class m {
-
-    /* renamed from: a  reason: collision with root package name */
-    private List<UpdatesItemData> f1776a = new ArrayList();
+    private List<UpdatesItemData> a = new ArrayList();
 
     public static void a(UpdatesItemData updatesItemData, com.baidu.tieba.im.a<Boolean> aVar) {
         if (updatesItemData != null) {
@@ -22,19 +20,19 @@ public class m {
     }
 
     public void a(com.baidu.tieba.im.a<Boolean> aVar) {
-        com.baidu.tieba.im.db.l.a().a(this.f1776a, aVar);
+        com.baidu.tieba.im.db.l.a().a(this.a, aVar);
     }
 
     public String a() {
         String str;
         String str2 = "";
-        if (this.f1776a == null || this.f1776a.size() == 0) {
+        if (this.a == null || this.a.size() == 0) {
             return null;
         }
-        int size = this.f1776a.size();
+        int size = this.a.size();
         int i = 0;
         while (i < size) {
-            UpdatesItemData updatesItemData = this.f1776a.get(i);
+            UpdatesItemData updatesItemData = this.a.get(i);
             if (updatesItemData == null || TextUtils.isEmpty(updatesItemData.getNotice_id()) || !TextUtils.isDigitsOnly(updatesItemData.getNotice_id())) {
                 str = str2;
             } else {
@@ -50,7 +48,7 @@ public class m {
     }
 
     public void b() {
-        this.f1776a.clear();
+        this.a.clear();
     }
 
     public void c() {
@@ -58,19 +56,19 @@ public class m {
     }
 
     public void a(UpdatesItemData updatesItemData) {
-        this.f1776a.add(updatesItemData);
+        this.a.add(updatesItemData);
     }
 
     public void b(UpdatesItemData updatesItemData) {
-        this.f1776a.remove(updatesItemData);
+        this.a.remove(updatesItemData);
     }
 
     public int d() {
-        return this.f1776a.size();
+        return this.a.size();
     }
 
     public static void b(com.baidu.tieba.im.a<LinkedList<GroupNewsPojo>> aVar) {
-        com.baidu.tieba.im.db.l.a().a(0L, Shared.INFINITY, 0, "group_intro_change' , 'group_level_up' , 'group_name_change' , 'group_notice_change' , 'dismiss_group' , 'kick_out", aVar);
+        com.baidu.tieba.im.db.l.a().a(0L, Shared.INFINITY, 0, "group_intro_change' , 'group_level_up' , 'group_name_change' , 'group_notice_change' , 'dismiss_group' , 'kick_out' , 'group_event_info", aVar);
     }
 
     public static List<UpdatesItemData> a(LinkedList<GroupNewsPojo> linkedList) {
@@ -80,9 +78,9 @@ public class m {
         }
         Iterator<GroupNewsPojo> it = linkedList.iterator();
         while (it.hasNext()) {
-            UpdatesItemData a2 = a(it.next());
-            if (a2 != null) {
-                linkedList2.add(a2);
+            UpdatesItemData a = a(it.next());
+            if (a != null) {
+                linkedList2.add(a);
             }
         }
         return linkedList2;
@@ -112,6 +110,7 @@ public class m {
                     updatesItemData.setAuthorName(optJSONObject.optString("authorName"));
                     updatesItemData.setTime(groupNewsPojo.getTime());
                     updatesItemData.setTitle(optJSONObject.optString("title"));
+                    updatesItemData.setEventLink(optJSONObject.optString("eventLink"));
                 }
             } else {
                 updatesItemData = (UpdatesItemData) new GsonBuilder().create().fromJson(content, (Class<Object>) UpdatesItemData.class);

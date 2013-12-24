@@ -18,9 +18,7 @@ import java.io.ByteArrayOutputStream;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes.dex */
 public class e {
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final Object f564a = new Object();
+    public static final Object a = new Object();
     private String c;
     private Bitmap d;
     private boolean e;
@@ -170,7 +168,7 @@ public class e {
         if (this.d == null) {
             return null;
         }
-        synchronized (f564a) {
+        synchronized (a) {
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             this.d.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
             byteArray = byteArrayOutputStream.toByteArray();

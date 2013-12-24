@@ -1,51 +1,48 @@
 package com.baidu.tieba.account;
 
-import android.os.Handler;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.slidingmenu.lib.R;
+import android.app.Activity;
+import com.baidu.tieba.MainTabActivity;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.data.AccountData;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class e implements Runnable {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ActivationActivity f1077a;
+public class e implements as {
+    final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public e(ActivationActivity activationActivity) {
-        this.f1077a = activationActivity;
+    public e(a aVar) {
+        this.a = aVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
+    @Override // com.baidu.tieba.account.as
+    public void a(AccountData accountData) {
+        Activity activity;
+        Activity activity2;
+        Activity activity3;
         int i;
-        int i2;
-        TextView textView;
-        Handler handler;
-        Runnable runnable;
-        TextView textView2;
-        i iVar;
-        RelativeLayout relativeLayout;
-        ActivationActivity.a(this.f1077a);
-        i = this.f1077a.o;
-        if (i <= 0) {
-            this.f1077a.n = true;
-            textView2 = this.f1077a.g;
-            textView2.setText(this.f1077a.getString(R.string.resend_code));
-            iVar = this.f1077a.m;
-            if (iVar == null) {
-                relativeLayout = this.f1077a.k;
-                relativeLayout.setEnabled(true);
-                return;
-            }
-            return;
+        activity = this.a.b;
+        TiebaApplication.a(accountData, activity);
+        l.a().b();
+        activity2 = this.a.b;
+        if (activity2 != null) {
+            activity3 = this.a.b;
+            i = this.a.c;
+            MainTabActivity.b(activity3, i);
         }
-        String string = this.f1077a.getString(R.string.resend_code_second);
-        i2 = this.f1077a.o;
-        String format = String.format(string, Integer.valueOf(i2));
-        textView = this.f1077a.g;
-        textView.setText(format);
-        handler = this.f1077a.q;
-        runnable = this.f1077a.z;
-        handler.postDelayed(runnable, 1000L);
+        new f(this, accountData).execute(new Void[0]);
+    }
+
+    @Override // com.baidu.tieba.account.as
+    public void a(String str) {
+        boolean z;
+        Activity activity;
+        int i;
+        z = this.a.g;
+        if (!z) {
+            a aVar = this.a;
+            activity = this.a.b;
+            i = this.a.c;
+            aVar.a(activity, i);
+        }
     }
 }

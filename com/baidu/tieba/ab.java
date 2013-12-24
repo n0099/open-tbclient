@@ -1,31 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.compatible.CompatibleUtile;
-import com.baidu.tieba.view.BaseViewPager;
-import com.slidingmenu.lib.R;
+import android.view.View;
 /* loaded from: classes.dex */
-class ab implements com.baidu.tieba.view.a {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ GuideActivity f1028a;
+class ab implements View.OnClickListener {
+    final /* synthetic */ GuideActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(GuideActivity guideActivity) {
-        this.f1028a = guideActivity;
+        this.a = guideActivity;
     }
 
-    @Override // com.baidu.tieba.view.a
-    public void a(int i) {
-        BaseViewPager baseViewPager;
-        BaseViewPager baseViewPager2;
-        if (i == 0) {
-            baseViewPager = this.f1028a.i;
-            if (baseViewPager != null) {
-                baseViewPager2 = this.f1028a.i;
-                baseViewPager2.setOnScrollOutListener(null);
-            }
-            this.f1028a.a();
-            CompatibleUtile.setAnim(this.f1028a, 0, R.anim.left);
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.a.a();
+        this.a.closeActivity();
     }
 }

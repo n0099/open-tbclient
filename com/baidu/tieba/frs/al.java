@@ -11,9 +11,7 @@ import com.baidu.tieba.view.UserIconBox;
 import com.baidu.tieba.voice.PlayVoiceBnt;
 /* loaded from: classes.dex */
 class al {
-
-    /* renamed from: a  reason: collision with root package name */
-    LinearLayout f1368a;
+    LinearLayout a;
     LinearLayout b;
     RelativeLayout c;
     TextView d;

@@ -12,9 +12,7 @@ import com.baidu.tieba.voice.VoiceManager;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class EditorToolComponetContainer extends RelativeLayout implements ap {
-
-    /* renamed from: a  reason: collision with root package name */
-    protected Context f1269a;
+    protected Context a;
     protected FaceView b;
     protected RecordVoiceBnt c;
     protected ImageUploadView d;
@@ -24,19 +22,19 @@ public class EditorToolComponetContainer extends RelativeLayout implements ap {
     public EditorToolComponetContainer(Context context) {
         super(context);
         this.f = false;
-        this.f1269a = context;
+        this.a = context;
         a();
     }
 
     public EditorToolComponetContainer(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.f = false;
-        this.f1269a = context;
+        this.a = context;
         a();
     }
 
     protected void a() {
-        LayoutInflater.from(this.f1269a).inflate(R.layout.editor_tool_container, (ViewGroup) this, true);
+        LayoutInflater.from(this.a).inflate(R.layout.editor_tool_container, (ViewGroup) this, true);
         this.b = (FaceView) findViewById(R.id.face_view);
         this.c = (RecordVoiceBnt) findViewById(R.id.record_voice_view);
         this.d = (ImageUploadView) findViewById(R.id.image_upload_view);
@@ -68,14 +66,14 @@ public class EditorToolComponetContainer extends RelativeLayout implements ap {
 
     public void a(View view) {
         if (view != null) {
-            com.baidu.adp.lib.h.g.b(this.f1269a, view);
+            com.baidu.adp.lib.h.g.b(this.a, view);
             this.f = true;
         }
     }
 
     public void b(View view) {
         if (view != null) {
-            com.baidu.adp.lib.h.g.a(this.f1269a, view);
+            com.baidu.adp.lib.h.g.a(this.a, view);
             this.f = false;
         }
     }
@@ -132,7 +130,7 @@ public class EditorToolComponetContainer extends RelativeLayout implements ap {
     }
 
     public void p() {
-        this.c.C();
+        this.c.D();
     }
 
     public void q() {

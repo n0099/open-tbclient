@@ -16,9 +16,7 @@ public class j {
     private static final Pattern j = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
     private int c;
     private int d;
-
-    /* renamed from: a  reason: collision with root package name */
-    private int f1250a = 0;
+    private int a = 0;
     private String b = null;
     private String f = null;
     private String g = null;
@@ -34,11 +32,11 @@ public class j {
     }
 
     public void a(int i2) {
-        this.f1250a = i2;
+        this.a = i2;
     }
 
     public int a() {
-        return this.f1250a;
+        return this.a;
     }
 
     public String b() {
@@ -63,7 +61,7 @@ public class j {
 
     public SpannableString a(Context context) {
         String str;
-        switch (this.f1250a) {
+        switch (this.a) {
             case 0:
                 return new SpannableString(this.b);
             case 1:
@@ -106,7 +104,7 @@ public class j {
 
     public SpannableString a(Context context, int i2, int i3) {
         int b;
-        if (this.f1250a != 2) {
+        if (this.a != 2) {
             return null;
         }
         SpannableString spannableString = new SpannableString(this.b + " ");
@@ -131,8 +129,8 @@ public class j {
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.f1250a = jSONObject.optInt("type", 0);
-                if (this.f1250a == 3) {
+                this.a = jSONObject.optInt("type", 0);
+                if (this.a == 3) {
                     this.f = jSONObject.optString("src");
                     this.b = jSONObject.optString("bsize");
                     this.g = jSONObject.optString("cdn_src", null);
@@ -154,23 +152,23 @@ public class j {
                     if (this.f != null && this.f.indexOf(".baidu.com") != -1) {
                         this.e = true;
                     }
-                } else if (this.f1250a == 4) {
+                } else if (this.a == 4) {
                     this.b = jSONObject.optString("text");
                     this.f = jSONObject.optString("uid");
                 } else {
                     this.b = jSONObject.optString("text");
                     this.f = jSONObject.optString("link");
-                    if (this.f1250a == 2 && TbFaceManager.a().b(this.b) == 0) {
-                        this.f1250a = 0;
+                    if (this.a == 2 && TbFaceManager.a().b(this.b) == 0) {
+                        this.a = 0;
                         this.b = "[" + jSONObject.optString("c") + "]";
                     }
                 }
-                if (this.f1250a != 0) {
+                if (this.a != 0) {
                     this.b = this.b.replaceAll("\n", "");
                     this.f = this.f.replaceAll("\n", "");
                 }
             } catch (Exception e2) {
-                com.baidu.tieba.util.bd.b("ContentData", "parserJson", "error = " + e2.getMessage());
+                com.baidu.tieba.util.be.b("ContentData", "parserJson", "error = " + e2.getMessage());
             }
         }
     }

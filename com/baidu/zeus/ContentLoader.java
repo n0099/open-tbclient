@@ -1,6 +1,7 @@
 package com.baidu.zeus;
 
 import android.net.Uri;
+import com.baidu.browser.webpool.BdWebPoolView;
 import java.io.FileNotFoundException;
 /* loaded from: classes.dex */
 class ContentLoader extends StreamLoader {
@@ -33,7 +34,7 @@ class ContentLoader extends StreamLoader {
         }
         try {
             this.mDataStream = this.mContext.getContentResolver().openInputStream(parse);
-            this.mLoadListener.status(1, 1, 200, "OK");
+            this.mLoadListener.status(1, 1, BdWebPoolView.DELAYED_TIME, "OK");
             return true;
         } catch (FileNotFoundException e) {
             this.mLoadListener.error(-14, errString(e));

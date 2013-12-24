@@ -3,14 +3,12 @@ package com.baidu.tieba.editortool;
 import android.graphics.Bitmap;
 /* loaded from: classes.dex */
 public class g {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FaceView f1278a;
+    final /* synthetic */ FaceView a;
     private String b;
     private Bitmap c;
 
     public g(FaceView faceView) {
-        this.f1278a = faceView;
+        this.a = faceView;
     }
 
     public String a() {

@@ -14,7 +14,7 @@ public class o {
             try {
                 inputStream.close();
             } catch (IOException e) {
-                bd.b("CloseUtil", "error on close the inputstream.", e.getMessage());
+                be.b("CloseUtil", "error on close the inputstream.", e.getMessage());
             }
         }
     }
@@ -24,7 +24,7 @@ public class o {
             try {
                 closeable.close();
             } catch (Throwable th) {
-                bd.b("CloseUtil", "error on close the Closeable.", th.getMessage());
+                be.b("CloseUtil", "error on close the Closeable.", th.getMessage());
             }
         }
     }
@@ -34,7 +34,7 @@ public class o {
             try {
                 outputStream.close();
             } catch (IOException e) {
-                bd.b("CloseUtil", "error on close the outputstream.", e.getMessage());
+                be.b("CloseUtil", "error on close the outputstream.", e.getMessage());
             }
         }
     }
@@ -44,7 +44,7 @@ public class o {
             try {
                 cursor.close();
             } catch (Exception e) {
-                bd.b("CloseUtil", "error on close android.database.Cursor.", e.getMessage());
+                be.b("CloseUtil", "error on close android.database.Cursor.", e.getMessage());
             }
         }
     }
@@ -54,7 +54,7 @@ public class o {
             try {
                 sQLiteDatabase.close();
             } catch (Exception e) {
-                bd.b("CloseUtil", "error on close android.database.SQLiteDatabase.", e.getMessage());
+                be.b("CloseUtil", "error on close android.database.SQLiteDatabase.", e.getMessage());
             }
         }
     }
@@ -64,7 +64,7 @@ public class o {
             try {
                 sQLiteStatement.close();
             } catch (Exception e) {
-                bd.b("CloseUtil", "error on close android.database.SQLiteDatabase.", e.getMessage());
+                be.b("CloseUtil", "error on close android.database.SQLiteDatabase.", e.getMessage());
             }
         }
     }

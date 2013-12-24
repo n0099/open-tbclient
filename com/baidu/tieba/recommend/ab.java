@@ -1,13 +1,13 @@
 package com.baidu.tieba.recommend;
 
 import android.content.Context;
-import com.baidu.tieba.chat.ChatActivity;
 import com.baidu.tieba.chat.ChatListActivity;
 import com.baidu.tieba.frs.FrsActivity;
+import com.baidu.tieba.im.chat.PersonalChatActivity;
 import com.baidu.tieba.pb.NewPbActivity;
 import com.baidu.tieba.person.PersonInfoActivity;
 import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.bd;
+import com.baidu.tieba.util.be;
 import java.net.URLDecoder;
 /* loaded from: classes.dex */
 public class ab {
@@ -19,7 +19,7 @@ public class ab {
                     return true;
                 }
             } catch (Exception e) {
-                bd.b(ab.class.getName(), "jumpTiebaNative", e.getMessage());
+                be.b(ab.class.getName(), "jumpTiebaNative", e.getMessage());
             }
         }
         if (str != null && str.contains("jump=finish_this_page") && (context instanceof com.baidu.tieba.j)) {
@@ -34,25 +34,29 @@ public class ab {
                 PersonInfoActivity.a(context, a(str, "userid="), a(str, "un="));
                 return true;
             } else if (str.contains("jump_chat=1")) {
-                String a2 = a(str, "userid=");
-                String a3 = a(str, "username=");
-                String a4 = a(str, "portrait=");
-                if (a2 != null && a2.length() > 0) {
-                    ChatActivity.a(context, a2, a3, a4, null, "web_bd");
+                String a = a(str, "userid=");
+                String a2 = a(str, "username=");
+                String a3 = a(str, "portrait=");
+                if (a != null && a.length() > 0) {
+                    try {
+                        PersonalChatActivity.a(context, Long.parseLong(a), a2, a3, 0, null);
+                    } catch (Exception e2) {
+                        e2.printStackTrace();
+                    }
                 } else {
                     ChatListActivity.a(context);
                 }
                 return true;
             } else if (str.contains("kz=")) {
-                String a5 = a(str, "kz=");
-                if (a5 != null && a5.length() >= 0) {
-                    NewPbActivity.a(context, a5, null, "allthread");
+                String a4 = a(str, "kz=");
+                if (a4 != null && a4.length() >= 0) {
+                    NewPbActivity.a(context, a4, null, "allthread");
                 }
                 return true;
             } else if (str.contains("kw=")) {
-                String a6 = a(str, "kw=");
-                if (a6 != null && a6.length() >= 0) {
-                    FrsActivity.a(context, a6, "allthread");
+                String a5 = a(str, "kw=");
+                if (a5 != null && a5.length() >= 0) {
+                    FrsActivity.a(context, a5, "allthread");
                 }
                 return true;
             }

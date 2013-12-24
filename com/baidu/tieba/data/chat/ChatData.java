@@ -1,6 +1,7 @@
 package com.baidu.tieba.data.chat;
 
-import com.baidu.tieba.util.bd;
+import com.baidu.android.pushservice.PushConstants;
+import com.baidu.tieba.util.be;
 import java.io.Serializable;
 import java.util.LinkedList;
 import org.json.JSONArray;
@@ -150,7 +151,7 @@ public class ChatData implements Serializable {
         try {
             parserJson(new JSONObject(str));
         } catch (Exception e) {
-            bd.b(getClass().getName(), "parserJson", e.toString());
+            be.b(getClass().getName(), "parserJson", e.toString());
         }
     }
 
@@ -163,7 +164,7 @@ public class ChatData implements Serializable {
             }
             this.friendPortrait = jSONObject.optString("com_portrait");
             this.userPortrait = jSONObject.optString("user_portrait");
-            JSONArray optJSONArray = jSONObject.optJSONArray("message");
+            JSONArray optJSONArray = jSONObject.optJSONArray(PushConstants.EXTRA_PUSH_MESSAGE);
             if (optJSONArray != null) {
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     ChatMessageData chatMessageData = new ChatMessageData();
@@ -174,7 +175,7 @@ public class ChatData implements Serializable {
                 }
             }
         } catch (Exception e) {
-            bd.b(getClass().getName(), "parserJson", e.toString());
+            be.b(getClass().getName(), "parserJson", e.toString());
         }
     }
 

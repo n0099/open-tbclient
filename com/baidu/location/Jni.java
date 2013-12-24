@@ -1,42 +1,42 @@
 package com.baidu.location;
+
+import com.baidu.zeus.NotificationProxy;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class Jni {
 
     /* renamed from: new  reason: not valid java name */
-    private static boolean f62new;
+    private static boolean f26new;
 
     /* renamed from: case  reason: not valid java name */
-    private static int f57case = 0;
+    private static int f21case = 0;
 
     /* renamed from: try  reason: not valid java name */
-    private static int f63try = 1;
+    private static int f27try = 1;
 
     /* renamed from: byte  reason: not valid java name */
-    private static int f56byte = 2;
+    private static int f20byte = 2;
 
     /* renamed from: for  reason: not valid java name */
-    private static int f59for = 11;
+    private static int f23for = 11;
 
     /* renamed from: int  reason: not valid java name */
-    private static int f61int = 12;
+    private static int f25int = 12;
 
     /* renamed from: if  reason: not valid java name */
-    private static int f60if = 13;
-
-    /* renamed from: a  reason: collision with root package name */
-    private static int f906a = 14;
+    private static int f24if = 13;
+    private static int a = 14;
 
     /* renamed from: do  reason: not valid java name */
-    private static int f58do = 1024;
+    private static int f22do = NotificationProxy.MAX_URL_LENGTH;
 
     static {
-        f62new = false;
+        f26new = false;
         try {
             System.loadLibrary("locSDK3");
         } catch (UnsatisfiedLinkError e) {
             e.printStackTrace();
-            f62new = true;
+            f26new = true;
         }
     }
 
@@ -48,12 +48,12 @@ public class Jni {
     private static native String b(double d, double d2, int i, int i2);
 
     /* renamed from: if  reason: not valid java name */
-    public static String m18if(String str) {
-        if (f62new) {
+    public static String m2if(String str) {
+        if (f26new) {
             return "err!";
         }
         byte[] bytes = str.getBytes();
-        byte[] bArr = new byte[f58do];
+        byte[] bArr = new byte[f22do];
         int length = bytes.length;
         int i = length <= 740 ? length : 740;
         int i2 = 0;
@@ -70,24 +70,24 @@ public class Jni {
     }
 
     /* renamed from: if  reason: not valid java name */
-    public static double[] m19if(double d, double d2, String str) {
+    public static double[] m3if(double d, double d2, String str) {
         double[] dArr = {0.0d, 0.0d};
-        if (f62new) {
+        if (f26new) {
             return dArr;
         }
         int i = -1;
         if (str.equals("bd09")) {
-            i = f57case;
+            i = f21case;
         } else if (str.equals("bd09ll")) {
-            i = f63try;
+            i = f27try;
         } else if (str.equals("gcj02")) {
-            i = f56byte;
+            i = f20byte;
         } else if (str.equals("gps2gcj")) {
-            i = f59for;
+            i = f23for;
         } else if (str.equals("bd092gcj")) {
-            i = f61int;
+            i = f25int;
         } else if (str.equals("bd09ll2gcj")) {
-            i = f60if;
+            i = f24if;
         }
         j.a(f.v, "type:" + i);
         try {

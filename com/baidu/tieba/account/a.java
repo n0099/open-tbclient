@@ -1,134 +1,37 @@
 package com.baidu.tieba.account;
 
 import android.app.Activity;
-import android.content.Context;
-import com.baidu.cloudsdk.social.core.SocialConstants;
-import com.baidu.loginshare.LoginShareAssistant;
 import com.baidu.loginshare.Token;
+import com.baidu.mobstat.StatService;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.AccountData;
-import com.baidu.tieba.util.DatabaseService;
-import com.baidu.tieba.util.bd;
+import com.baidu.tieba.util.UtilHelper;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a {
-    private static a b = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    private c f1036a = null;
-    private d c = null;
-
-    public static a a() {
-        if (b == null) {
-            b = new a();
-        }
-        return b;
-    }
+    private static a a = null;
+    private Activity b;
+    private int c;
+    private ArrayList<AccountData> e;
+    private boolean d = false;
+    private int f = 0;
+    private boolean g = false;
+    private be h = new c(this);
+    private as i = new e(this);
+    private as j = new g(this);
+    private be k = new i(this);
 
     private a() {
     }
 
-    public void b() {
-        try {
-            if (!TiebaApplication.o()) {
-                Token token = new Token();
-                String E = TiebaApplication.E();
-                if (E != null) {
-                    d();
-                    String[] split = E.split("[|]");
-                    if (split != null && split.length == 2) {
-                        token.mBduss = split[0];
-                        token.mPtoken = split[1];
-                        if (token.mPtoken != null && token.mPtoken.length() > 0) {
-                            token.mUsername = TiebaApplication.G();
-                            LoginShareAssistant.getInstance().valid(token);
-                        }
-                    }
-                }
-            }
-        } catch (Exception e) {
-            bd.b(getClass().getName(), "valid", e.getMessage());
+    public static a a() {
+        if (a == null) {
+            a = new a();
         }
+        return a;
     }
 
-    public void a(String str) {
-        String[] split;
-        try {
-            if (!TiebaApplication.o()) {
-                Token token = new Token();
-                if (str != null && (split = str.split("[|]")) != null && split.length == 2) {
-                    token.mBduss = split[0];
-                    token.mPtoken = split[1];
-                    if (token.mPtoken != null && token.mPtoken.length() > 0) {
-                        LoginShareAssistant.getInstance().invalid(token);
-                    }
-                }
-            }
-        } catch (Exception e) {
-            bd.b(getClass().getName(), "invalid", e.getMessage());
-        }
-    }
-
-    public void a(Token token) {
-        if (token != null) {
-            try {
-                if (!TiebaApplication.o()) {
-                    LoginShareAssistant.getInstance().invalid(token);
-                }
-            } catch (Exception e) {
-                bd.b(getClass().getName(), "invalid", e.getMessage());
-            }
-        }
-    }
-
-    public void c() {
-        try {
-            if (!TiebaApplication.o()) {
-                LoginShareAssistant.getInstance().onActivityCreate();
-            }
-        } catch (Exception e) {
-            bd.b(getClass().getName(), "onActivityCreate", e.getMessage());
-        }
-    }
-
-    public void a(Context context) {
-        String aN;
-        try {
-            if (!TiebaApplication.o() && (aN = TiebaApplication.h().aN()) != null) {
-                this.f1036a = new c(this);
-                String[] split = aN.split(":");
-                int length = split.length;
-                if (length >= 1) {
-                    if (SocialConstants.TRUE.equals(split[0])) {
-                        this.f1036a.f1075a = true;
-                    } else {
-                        this.f1036a.f1075a = false;
-                    }
-                }
-                if (length >= 2) {
-                    this.f1036a.b = split[1];
-                }
-                if (length >= 3) {
-                    this.f1036a.c = split[2];
-                }
-                if (length >= 4) {
-                    if (split[3] == null || split[3].equalsIgnoreCase("null")) {
-                        this.f1036a.d = null;
-                    } else {
-                        this.f1036a.d = split[3];
-                    }
-                }
-                if (this.f1036a != null && !this.f1036a.f1075a) {
-                    DatabaseService.k();
-                    TiebaApplication.a((AccountData) null, context);
-                    d();
-                }
-            }
-        } catch (Exception e) {
-            bd.b(getClass().getName(), "prepare", e.getMessage());
-        }
-    }
-
-    public static Token b(String str) {
+    public static Token a(String str) {
         Token token;
         Exception e;
         String[] split;
@@ -146,7 +49,7 @@ public class a {
                 return token;
             } catch (Exception e2) {
                 e = e2;
-                bd.b("AccountShareHelper", "parseBDUSS", e.getMessage());
+                com.baidu.tieba.util.be.b("AccountShareHelper", "parseBDUSS", e.getMessage());
                 return token;
             }
         } catch (Exception e3) {
@@ -155,39 +58,84 @@ public class a {
         }
     }
 
-    public void d() {
-        this.f1036a = null;
-        TiebaApplication.h().aM();
-    }
-
-    public void e() {
-        this.f1036a = null;
+    public void a(Activity activity, boolean z) {
+        Token a2;
+        if (UtilHelper.b()) {
+            this.b = activity;
+            this.d = z;
+            AccountData F = TiebaApplication.F();
+            if (F != null && (a2 = a(F.getBDUSS())) != null) {
+                bd.a(F.getAccount(), a2.mBduss, a2.mPtoken, this.h, false);
+            }
+        }
     }
 
     public void a(Activity activity, int i) {
-        String G;
-        if (this.f1036a != null && this.f1036a.f1075a && TiebaApplication.B() == null && ((G = TiebaApplication.G()) == null || !G.equals(this.f1036a.d))) {
-            ReLoginShareActivity.a(activity, this.f1036a.d, this.f1036a.b, this.f1036a.c, i);
+        if (UtilHelper.b() && TiebaApplication.F() == null) {
+            this.g = true;
+            this.b = activity;
+            this.c = i;
+            b bVar = new b(this);
+            bVar.setPriority(3);
+            bVar.execute(new Object[0]);
         }
-        e();
     }
 
-    public void b(Context context) {
+    /* JADX INFO: Access modifiers changed from: private */
+    public boolean b() {
+        if (this.f < this.e.size()) {
+            ArrayList<AccountData> arrayList = this.e;
+            int i = this.f;
+            this.f = i + 1;
+            k a2 = a(arrayList.get(i));
+            if (a2 == null) {
+                return b();
+            }
+            bd.a(a2.c, a2.a, a2.b, this.k, false);
+            return true;
+        }
+        return false;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void c() {
+        k d = l.a().d();
+        if (d != null && this.b != null) {
+            ReLoginShareActivity.a(this.b, d.c, d.a, d.b, this.c);
+        }
+    }
+
+    private k a(AccountData accountData) {
+        Token a2;
+        if (accountData == null || accountData.getAccount().equals(TiebaApplication.G()) || (a2 = a(accountData.getBDUSS())) == null) {
+            return null;
+        }
+        k kVar = new k();
+        kVar.c = accountData.getAccount();
+        kVar.a = a2.mBduss;
+        kVar.b = a2.mPtoken;
+        return kVar;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public AccountData c(String str) {
+        int size = this.e.size();
+        for (int i = 0; i < size; i++) {
+            AccountData accountData = this.e.get(i);
+            if (accountData.getAccount().equals(str)) {
+                return accountData;
+            }
+        }
+        return null;
+    }
+
+    public void b(String str) {
         try {
-            LoginShareAssistant loginShareAssistant = LoginShareAssistant.getInstance();
-            loginShareAssistant.initial(context, "tb", "1536");
-            this.c = new d(this);
-            loginShareAssistant.setLoginShareListener(this.c);
-        } catch (Error e) {
-            bd.b(getClass().getName(), "init", e.getMessage());
+            if (TiebaApplication.h().t()) {
+                StatService.onEvent(TiebaApplication.h(), str, "click", 1);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-    }
-
-    public void a(boolean z, String str, String str2, String str3) {
-        String str4 = "1:";
-        if (!z) {
-            str4 = "2:";
-        }
-        TiebaApplication.h().s(str4 + str + ":" + str2 + ":" + str3);
     }
 }

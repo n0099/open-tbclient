@@ -1,76 +1,58 @@
 package com.baidu.android.nebula.cmd;
 
-import android.content.ActivityNotFoundException;
-import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
-import android.net.Uri;
-import android.text.TextUtils;
+import android.os.Process;
+import com.baidu.android.common.logging.Log;
+import com.baidu.android.common.net.ProxyHttpClient;
 import com.baidu.browser.core.util.BdUtil;
-import java.io.UnsupportedEncodingException;
-import java.net.URISyntaxException;
-import java.net.URLDecoder;
-import java.util.List;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.util.EntityUtils;
+import org.json.JSONArray;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class g extends BroadcastReceiver {
+public class g extends Thread {
+    b a;
+    final /* synthetic */ ScanDownloadFile b;
+    private CharSequence c;
 
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ScanDownloadFile f676a;
-    final /* synthetic */ f b;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public g(f fVar, ScanDownloadFile scanDownloadFile) {
-        this.b = fVar;
-        this.f676a = scanDownloadFile;
+    public g(ScanDownloadFile scanDownloadFile, CharSequence charSequence) {
+        String str;
+        this.b = scanDownloadFile;
+        StringBuilder sb = new StringBuilder();
+        str = scanDownloadFile.mFileName;
+        setName(sb.append(str).append("_moplus_getdownloadinfo_thread").toString());
+        this.c = charSequence;
     }
 
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
-        String str;
-        Context context2;
-        String str2;
-        String str3;
-        Context context3;
-        Context context4;
-        Context context5;
-        String str4;
-        str = this.b.f675a.mFilePackageName;
-        if (TextUtils.equals(str, intent.getData().getSchemeSpecificPart())) {
-            try {
-                ScanDownloadFile scanDownloadFile = this.b.f675a;
-                str4 = this.b.f675a.mIntentStr;
-                scanDownloadFile.mIntentStr = URLDecoder.decode(str4, BdUtil.UTF8);
-            } catch (UnsupportedEncodingException e) {
-            }
-            context2 = this.b.f675a.mContext;
-            PackageManager packageManager = context2.getPackageManager();
-            try {
-                str2 = this.b.f675a.mIntentStr;
-                Intent parseUri = Intent.parseUri(str2, 0);
-                List<ResolveInfo> queryBroadcastReceivers = packageManager.queryBroadcastReceivers(parseUri, 0);
-                List<ResolveInfo> queryIntentActivities = packageManager.queryIntentActivities(parseUri, 0);
-                if (queryBroadcastReceivers != null && queryBroadcastReceivers.size() > 0) {
-                    context5 = this.b.f675a.mContext;
-                    context5.sendBroadcast(parseUri);
-                } else if (queryIntentActivities == null || queryIntentActivities.size() <= 0) {
-                    Intent intent2 = new Intent("android.intent.action.VIEW");
-                    str3 = this.b.f675a.mIntentStr;
-                    intent2.setData(Uri.parse(str3));
-                    intent2.addFlags(268435456);
-                    try {
-                        context3 = this.b.f675a.mContext;
-                        context3.startActivity(intent2);
-                    } catch (ActivityNotFoundException e2) {
-                    }
-                } else {
-                    parseUri.addFlags(268435456);
-                    context4 = this.b.f675a.mContext;
-                    context4.startActivity(parseUri);
+    @Override // java.lang.Thread, java.lang.Runnable
+    public void run() {
+        Context context;
+        long j;
+        Process.setThreadPriority(19);
+        try {
+            j = this.b.mScanedOneTime;
+            sleep(j);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        context = this.b.mContext;
+        ProxyHttpClient proxyHttpClient = new ProxyHttpClient(context);
+        try {
+            HttpResponse execute = proxyHttpClient.execute(new HttpGet(this.c.toString()));
+            if (execute.getStatusLine().getStatusCode() == 200) {
+                String entityUtils = EntityUtils.toString(execute.getEntity(), BdUtil.UTF8);
+                if (!isInterrupted()) {
+                    this.a = new b(this.b, new JSONArray(entityUtils));
+                    this.a.start();
                 }
-            } catch (URISyntaxException e3) {
+            } else {
+                Log.d("ScanDownloadFile", "request failed  " + execute.getStatusLine());
             }
+        } catch (Exception e2) {
+            Log.w("ScanDownloadFile", "error", e2);
+        } finally {
+            proxyHttpClient.close();
         }
     }
 }

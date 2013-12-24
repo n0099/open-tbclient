@@ -1,18 +1,16 @@
 package com.baidu.tieba.pb;
 /* loaded from: classes.dex */
 class eh implements Runnable {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ eg f2255a;
+    final /* synthetic */ eg a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public eh(eg egVar) {
-        this.f2255a = egVar;
+        this.a = egVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f2255a.d.f2253a.c(this.f2255a.f2254a);
-        this.f2255a.d.f2253a.a(this.f2255a.b, this.f2255a.c);
+        this.a.d.a.c(this.a.a);
+        this.a.d.a.a(this.a.b, this.a.c);
     }
 }

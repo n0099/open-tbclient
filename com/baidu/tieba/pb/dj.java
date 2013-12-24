@@ -4,20 +4,18 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class dj implements View.OnFocusChangeListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ cr f2233a;
+    final /* synthetic */ cr a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public dj(cr crVar) {
-        this.f2233a = crVar;
+        this.a = crVar;
     }
 
     @Override // android.view.View.OnFocusChangeListener
     public void onFocusChange(View view, boolean z) {
         NewPbActivity newPbActivity;
         if (!z) {
-            newPbActivity = this.f2233a.g;
+            newPbActivity = this.a.g;
             com.baidu.adp.lib.h.g.a(newPbActivity, view);
         }
     }

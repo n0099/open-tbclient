@@ -29,37 +29,35 @@ public enum MediaType {
     COPYLINK("copylink"),
     OTHERS("others");
     
-
-    /* renamed from: a  reason: collision with root package name */
-    private static HashMap f851a = new HashMap();
+    private static HashMap a = new HashMap();
     private String b;
 
     static {
-        f851a.put(SINAWEIBO.toString(), SINAWEIBO);
-        f851a.put(QQWEIBO.toString(), QQWEIBO);
-        f851a.put(QZONE.toString(), QZONE);
-        f851a.put(QQFRIEND.toString(), QQFRIEND);
-        f851a.put(WEIXIN.toString(), WEIXIN);
-        f851a.put(WEIXIN_FRIEND.toString(), WEIXIN_FRIEND);
-        f851a.put(WEIXIN_TIMELINE.toString(), WEIXIN_TIMELINE);
-        f851a.put(KAIXIN.toString(), KAIXIN);
-        f851a.put(RENREN.toString(), RENREN);
-        f851a.put(BAIDU.toString(), BAIDU);
-        f851a.put(TIEBA.toString(), TIEBA);
-        f851a.put(TAOBAO.toString(), TAOBAO);
-        f851a.put(ZHIFUBAO.toString(), ZHIFUBAO);
-        f851a.put(GOOGLE.toString(), GOOGLE);
-        f851a.put(DOUBAN.toString(), DOUBAN);
-        f851a.put(FEIXIN.toString(), FEIXIN);
-        f851a.put(WANGYI.toString(), WANGYI);
-        f851a.put(YOUDAO_NOTE.toString(), YOUDAO_NOTE);
-        f851a.put(SOHUWEIBO.toString(), SOHUWEIBO);
-        f851a.put(TIANYA.toString(), TIANYA);
-        f851a.put(EMAIL.toString(), EMAIL);
-        f851a.put(SMS.toString(), SMS);
-        f851a.put(BATCHSHARE.toString(), BATCHSHARE);
-        f851a.put(COPYLINK.toString(), COPYLINK);
-        f851a.put(OTHERS.toString(), OTHERS);
+        a.put(SINAWEIBO.toString(), SINAWEIBO);
+        a.put(QQWEIBO.toString(), QQWEIBO);
+        a.put(QZONE.toString(), QZONE);
+        a.put(QQFRIEND.toString(), QQFRIEND);
+        a.put(WEIXIN.toString(), WEIXIN);
+        a.put(WEIXIN_FRIEND.toString(), WEIXIN_FRIEND);
+        a.put(WEIXIN_TIMELINE.toString(), WEIXIN_TIMELINE);
+        a.put(KAIXIN.toString(), KAIXIN);
+        a.put(RENREN.toString(), RENREN);
+        a.put(BAIDU.toString(), BAIDU);
+        a.put(TIEBA.toString(), TIEBA);
+        a.put(TAOBAO.toString(), TAOBAO);
+        a.put(ZHIFUBAO.toString(), ZHIFUBAO);
+        a.put(GOOGLE.toString(), GOOGLE);
+        a.put(DOUBAN.toString(), DOUBAN);
+        a.put(FEIXIN.toString(), FEIXIN);
+        a.put(WANGYI.toString(), WANGYI);
+        a.put(YOUDAO_NOTE.toString(), YOUDAO_NOTE);
+        a.put(SOHUWEIBO.toString(), SOHUWEIBO);
+        a.put(TIANYA.toString(), TIANYA);
+        a.put(EMAIL.toString(), EMAIL);
+        a.put(SMS.toString(), SMS);
+        a.put(BATCHSHARE.toString(), BATCHSHARE);
+        a.put(COPYLINK.toString(), COPYLINK);
+        a.put(OTHERS.toString(), OTHERS);
     }
 
     MediaType(String str) {
@@ -67,8 +65,8 @@ public enum MediaType {
     }
 
     public static MediaType fromString(String str) {
-        if (f851a.containsKey(str)) {
-            return (MediaType) f851a.get(str);
+        if (a.containsKey(str)) {
+            return (MediaType) a.get(str);
         }
         throw new IllegalArgumentException("mediaType invalid");
     }

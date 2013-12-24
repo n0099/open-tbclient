@@ -1,9 +1,7 @@
 package com.baidu.tieba;
 /* loaded from: classes.dex */
 public class d {
-
-    /* renamed from: a  reason: collision with root package name */
-    private String f1205a;
+    private String a;
     private String b;
     private int c;
     private int d;
@@ -21,14 +19,16 @@ public class d {
     private int p;
     private int q;
     private int r;
-    private StringBuffer s = new StringBuffer();
+    private int s;
+    private int t;
+    private StringBuffer u = new StringBuffer();
 
     public String toString() {
-        return "BDLayoutInfo [TAG=" + this.s.toString() + "]";
+        return "BDLayoutInfo [TAG=" + this.u.toString() + "]";
     }
 
     public void a(String str) {
-        this.s.append(str).append(" || ");
+        this.u.append(str).append(" || ");
     }
 
     public int a() {
@@ -80,94 +80,110 @@ public class d {
     }
 
     public String g() {
-        return this.f1205a;
+        return this.a;
+    }
+
+    public int h() {
+        return this.q;
+    }
+
+    public void g(int i) {
+        this.q = i;
+    }
+
+    public int i() {
+        return this.r;
+    }
+
+    public void h(int i) {
+        this.r = i;
     }
 
     public void b(String str) {
-        this.f1205a = str;
+        this.a = str;
     }
 
     public void c(String str) {
         this.b = str;
     }
 
-    public int h() {
+    public int j() {
         return this.c;
     }
 
-    public void g(int i) {
+    public void i(int i) {
         this.c = i;
     }
 
-    public int i() {
+    public int k() {
         return this.d;
     }
 
-    public void h(int i) {
+    public void j(int i) {
         this.d = i;
     }
 
-    public int j() {
+    public int l() {
         return this.e;
     }
 
-    public void i(int i) {
+    public void k(int i) {
         this.e = i;
     }
 
-    public int k() {
+    public int m() {
         return this.f;
     }
 
-    public void j(int i) {
+    public void l(int i) {
         this.f = i;
     }
 
-    public int l() {
+    public int n() {
         return this.h;
     }
 
-    public int m() {
+    public int o() {
         return this.g;
     }
 
-    public void k(int i) {
+    public void m(int i) {
         this.g = i;
     }
 
-    public void l(int i) {
+    public void n(int i) {
         this.h = i;
     }
 
-    public int n() {
+    public int p() {
         return this.j;
     }
 
-    public void m(int i) {
+    public void o(int i) {
         this.j = i;
     }
 
-    public int o() {
+    public int q() {
         return this.i;
     }
 
-    public void n(int i) {
+    public void p(int i) {
         this.i = i;
     }
 
-    public int p() {
-        return this.q;
+    public int r() {
+        return this.s;
     }
 
-    public void o(int i) {
-        this.q = i;
+    public void q(int i) {
+        this.s = i;
     }
 
-    public int q() {
-        return this.r;
+    public int s() {
+        return this.t;
     }
 
-    public void p(int i) {
-        this.r = i;
+    public void r(int i) {
+        this.t = i;
     }
 }

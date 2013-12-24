@@ -1,19 +1,18 @@
 package com.baidu.tieba.im.data;
 
-import com.baidu.tieba.im.b.l;
 import java.io.Serializable;
-import java.util.Map;
 /* loaded from: classes.dex */
 public class GroupMidData implements Serializable {
-    private long groupId;
+    private static final long serialVersionUID = 6961300937590601929L;
+    private int groupId;
     private long lastMsgId;
 
-    public long getGroupId() {
+    public int getGroupId() {
         return this.groupId;
     }
 
-    public void setGroupId(long j) {
-        this.groupId = j;
+    public void setGroupId(int i) {
+        this.groupId = i;
     }
 
     public long getLastMsgId() {
@@ -22,10 +21,6 @@ public class GroupMidData implements Serializable {
 
     public void setLastMsgId(long j) {
         this.lastMsgId = j;
-    }
-
-    public Map toMap() {
-        return l.a().a(this);
     }
 
     public String toString() {

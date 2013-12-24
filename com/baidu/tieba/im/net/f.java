@@ -1,27 +1,24 @@
 package com.baidu.tieba.im.net;
 
-import com.baidu.cyberplayer.sdk.internal.VersionUtils;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.util.UtilHelper;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class f {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static f f1857a = null;
+    private static f a = null;
     private UtilHelper.NetworkStateInfo b = null;
     private Map<UtilHelper.NetworkStateInfo, Integer> c = null;
 
     public static f a() {
-        if (f1857a == null) {
+        if (a == null) {
             synchronized (f.class) {
-                if (f1857a == null) {
-                    f1857a = new f();
+                if (a == null) {
+                    a = new f();
                 }
             }
         }
-        return f1857a;
+        return a;
     }
 
     public void b() {
@@ -46,7 +43,7 @@ public class f {
             i2 = 20000;
         }
         if (i < 5000) {
-            i = VersionUtils.CUR_DEVELOPMENT;
+            i = 10000;
         }
         int i4 = i3 >= 5000 ? i3 : 5000;
         this.c.put(UtilHelper.NetworkStateInfo.TwoG, Integer.valueOf(i2));

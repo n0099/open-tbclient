@@ -9,13 +9,11 @@ import com.baidu.tieba.data.VersionData;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 class t extends Handler {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ TiebaUpdateService f2458a;
+    final /* synthetic */ TiebaUpdateService a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(TiebaUpdateService tiebaUpdateService) {
-        this.f2458a = tiebaUpdateService;
+        this.a = tiebaUpdateService;
     }
 
     @Override // android.os.Handler
@@ -33,35 +31,35 @@ class t extends Handler {
         Notification notification4;
         super.handleMessage(message);
         if (message.what == 900003) {
-            notification = this.f2458a.d;
+            notification = this.a.d;
             if (notification != null && message.arg2 > 0) {
-                notification2 = this.f2458a.d;
+                notification2 = this.a.d;
                 notification2.contentView.setProgressBar(R.id.progress, 100, (int) ((message.arg1 * 100) / message.arg2), false);
                 StringBuffer stringBuffer = new StringBuffer(20);
                 stringBuffer.append(String.valueOf(message.arg1 / LocationClientOption.MIN_SCAN_SPAN));
                 stringBuffer.append("K/");
                 stringBuffer.append(String.valueOf(message.arg2 / LocationClientOption.MIN_SCAN_SPAN));
                 stringBuffer.append("K");
-                notification3 = this.f2458a.d;
+                notification3 = this.a.d;
                 notification3.contentView.setTextViewText(R.id.schedule, stringBuffer);
-                notificationManager = this.f2458a.b;
-                notification4 = this.f2458a.d;
+                notificationManager = this.a.b;
+                notification4 = this.a.d;
                 notificationManager.notify(14, notification4);
             }
         } else if (message.what == 2) {
-            str = this.f2458a.i;
+            str = this.a.i;
             if (str != null) {
-                str2 = this.f2458a.i;
+                str2 = this.a.i;
                 if (str2.length() > 0) {
-                    z = this.f2458a.j;
+                    z = this.a.j;
                     if (z) {
-                        handler = this.f2458a.k;
-                        handler2 = this.f2458a.k;
-                        versionData = this.f2458a.f;
+                        handler = this.a.k;
+                        handler2 = this.a.k;
+                        versionData = this.a.f;
                         handler.sendMessageDelayed(handler2.obtainMessage(1, versionData), 100L);
                         return;
                     }
-                    this.f2458a.j = true;
+                    this.a.j = true;
                 }
             }
         }

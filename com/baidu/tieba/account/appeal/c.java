@@ -6,13 +6,11 @@ import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements View.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ AppealActivity f1056a;
+    final /* synthetic */ AppealActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(AppealActivity appealActivity) {
-        this.f1056a = appealActivity;
+        this.a = appealActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -21,17 +19,17 @@ public class c implements View.OnClickListener {
         String str;
         String str2;
         String str3;
-        textView = this.f1056a.d;
+        textView = this.a.d;
         String charSequence = textView.getText().toString();
         if (charSequence.length() < 20) {
-            this.f1056a.showToast(R.string.appeal_min_size);
+            this.a.showToast(R.string.appeal_min_size);
         } else if (charSequence.length() <= 150) {
-            str = this.f1056a.f;
-            str2 = this.f1056a.g;
-            str3 = this.f1056a.h;
+            str = this.a.f;
+            str2 = this.a.g;
+            str3 = this.a.h;
             f.a(str, str2, str3, charSequence, new d(this));
         } else {
-            this.f1056a.showToast(R.string.appeal_max_size);
+            this.a.showToast(R.string.appeal_max_size);
         }
     }
 }

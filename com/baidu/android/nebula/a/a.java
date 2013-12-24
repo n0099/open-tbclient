@@ -1,110 +1,57 @@
 package com.baidu.android.nebula.a;
 
-import android.content.Context;
-import android.content.pm.PackageInfo;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.browser.core.util.BdUtil;
+import com.baidu.browser.explorer.BdWebErrorView;
+import com.baidu.browser.webpool.BdWebPoolView;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes.dex */
-public class a implements Comparable {
+public class a {
+    private static final Map a = new HashMap();
+    private Map b = new HashMap();
+    private StringBuilder c = new StringBuilder();
+    private int d = BdWebErrorView.ERROR_CODE_404;
+    private String e = "HTTP/1.1";
 
-    /* renamed from: a  reason: collision with root package name */
-    private b f645a;
-    private String b;
-    private String c;
-    private long d;
-    private int e;
+    static {
+        a.put(new Integer((int) BdWebPoolView.DELAYED_TIME), "OK");
+        a.put(new Integer((int) BdWebErrorView.ERROR_CODE_404), "Page Not Found");
+        a.put(new Integer((int) BdWebErrorView.ERROR_CODE_500), "Intenal Error");
+    }
 
     public a() {
-        this.f645a = b.UNKNOWN;
-        this.d = -1L;
+        this.b.put("Content-Type", "text/html");
+        this.b.put("Content-Encoding", BdUtil.UTF8);
     }
 
-    public a(JSONObject jSONObject) {
-        this.f645a = b.UNKNOWN;
-        this.d = -1L;
-        try {
-            this.c = jSONObject.getString("PackageName");
-            this.e = jSONObject.getInt("VersionCode");
-            this.d = jSONObject.getLong("Signmd5");
-        } catch (JSONException e) {
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    /* renamed from: a */
-    public int compareTo(a aVar) {
-        boolean z = this.c != null && this.c.equals(aVar.c);
-        boolean z2 = this.e == aVar.e;
-        boolean z3 = this.d == aVar.d;
-        if (z) {
-            return (z2 && z3) ? 0 : 1;
-        }
-        return -1;
-    }
-
-    public long a(Context context) {
-        PackageInfo a2;
-        if (this.d == -1 && (a2 = k.a(context, this.c)) != null) {
-            this.d = k.a(k.a(a2.signatures[0].toCharsString().getBytes()));
-        }
-        return this.d;
-    }
-
-    public b a() {
-        return this.f645a;
+    public Map a() {
+        return this.b;
     }
 
     public void a(int i) {
-        this.e = i;
-    }
-
-    public void a(long j) {
-        this.d = j;
-    }
-
-    public void a(b bVar) {
-        this.f645a = bVar;
+        this.d = i;
     }
 
     public void a(String str) {
-        this.b = str;
-    }
-
-    public String b() {
-        return this.c;
-    }
-
-    public JSONObject b(Context context) {
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("PackageName", b());
-            jSONObject.put("VersionCode", c());
-            if (context != null) {
-                jSONObject.put("Signmd5", a(context));
-            } else {
-                jSONObject.put("Signmd5", this.d);
-            }
-        } catch (JSONException e) {
-        }
-        return jSONObject;
+        this.b.put("Content-Type", str);
     }
 
     public void b(String str) {
-        this.c = str;
-    }
-
-    public int c() {
-        return this.e;
-    }
-
-    public JSONObject d() {
-        return b((Context) null);
+        this.c.append(str);
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("[").append("[key=").append(this.b).append("]packagename=").append(this.c).append("]mOperationCode=").append(this.f645a).append("]versioncode=").append(this.e).append("]signmd5=").append(this.d).append("]]");
+        String str = (String) a.get(Integer.valueOf(this.d));
+        if (str == null) {
+            str = "Unknown";
+        }
+        sb.append(this.e + " " + this.d + " " + str + "\r\n");
+        this.b.put("Content-Length", String.valueOf(this.c.toString().getBytes().length));
+        for (String str2 : this.b.keySet()) {
+            sb.append(str2 + ": " + ((String) this.b.get(str2)) + "\r\n");
+        }
+        sb.append("\r\n" + this.c.toString());
         return sb.toString();
     }
 }

@@ -5,9 +5,7 @@ import com.baidu.browser.core.util.BdUtil;
 public class e {
     public String b;
     public byte[] d;
-
-    /* renamed from: a  reason: collision with root package name */
-    public int f515a = 0;
+    public int a = 0;
     public f c = new f();
     public String e = BdUtil.UTF8;
 

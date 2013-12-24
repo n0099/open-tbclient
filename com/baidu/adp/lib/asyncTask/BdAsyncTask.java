@@ -5,9 +5,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes.dex */
 public abstract class BdAsyncTask<Params, Progress, Result> {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static final g f406a = g.a();
+    private static final g a = g.a();
     private static e b = new e(null);
     private boolean l;
     private volatile BdAsyncTaskStatus e = BdAsyncTaskStatus.PENDING;
@@ -35,23 +33,23 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
     }
 
     public static void removeAllTask(String str) {
-        f406a.a(str);
+        a.a(str);
     }
 
     public static void removeAllQueueTask(String str) {
-        f406a.b(str);
+        a.b(str);
     }
 
     public static BdAsyncTask<?, ?, ?> searchTask(String str) {
-        return f406a.c(str);
+        return a.c(str);
     }
 
     public static BdAsyncTask<?, ?, ?> searchWaitingTask(String str) {
-        return f406a.d(str);
+        return a.d(str);
     }
 
     public static BdAsyncTask<?, ?, ?> searchActivTask(String str) {
-        return f406a.e(str);
+        return a.e(str);
     }
 
     public int setPriority(int i) {
@@ -155,7 +153,7 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
 
     public final boolean cancel(boolean z) {
         if (!this.j) {
-            f406a.a((BdAsyncTask<?, ?, ?>) this);
+            a.a((BdAsyncTask<?, ?, ?>) this);
         }
         boolean cancel = this.d.cancel(z);
         a();
@@ -171,12 +169,12 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
     }
 
     public final BdAsyncTask<Params, Progress, Result> execute(Params... paramsArr) {
-        return executeOnExecutor(f406a, paramsArr);
+        return executeOnExecutor(a, paramsArr);
     }
 
     public final BdAsyncTask<Params, Progress, Result> executeOnExecutor(Executor executor, Params... paramsArr) {
         if (this.e != BdAsyncTaskStatus.PENDING) {
-            switch (c.f411a[this.e.ordinal()]) {
+            switch (c.a[this.e.ordinal()]) {
                 case 1:
                     throw new IllegalStateException("Cannot execute task: the task is already running.");
                 case 2:

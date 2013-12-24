@@ -11,13 +11,13 @@ public class SinglePersonInfoActivity extends BaseFragmentActivity {
     @Override // com.baidu.tieba.BaseFragmentActivity, android.support.v4.app.n, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        Bundle a2 = a(bundle);
+        Bundle a = a(bundle);
         android.support.v4.app.t supportFragmentManager = getSupportFragmentManager();
         this.b = new PersonInfoActivity();
-        this.b.g(a2);
-        android.support.v4.app.ae a3 = supportFragmentManager.a();
-        a3.a(16908290, this.b);
-        a3.a();
+        this.b.g(a);
+        android.support.v4.app.ae a2 = supportFragmentManager.a();
+        a2.a(16908290, this.b);
+        a2.a();
     }
 
     private Bundle a(Bundle bundle) {

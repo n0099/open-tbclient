@@ -18,9 +18,7 @@ import java.util.Iterator;
 /* loaded from: classes.dex */
 public class ay extends BaseAdapter {
     private Context b;
-
-    /* renamed from: a  reason: collision with root package name */
-    private SearchPostModel f1463a = null;
+    private SearchPostModel a = null;
     private int c = 0;
     private ArrayList<ProgressBar> d = null;
 
@@ -43,29 +41,29 @@ public class ay extends BaseAdapter {
     }
 
     public boolean b() {
-        if (this.f1463a == null) {
+        if (this.a == null) {
             return false;
         }
-        return this.f1463a.hasPre();
+        return this.a.hasPre();
     }
 
     public boolean c() {
-        if (this.f1463a == null) {
+        if (this.a == null) {
             return false;
         }
-        return this.f1463a.hasMore();
+        return this.a.hasMore();
     }
 
     public void a(SearchPostModel searchPostModel) {
-        this.f1463a = searchPostModel;
+        this.a = searchPostModel;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.f1463a == null || this.f1463a.getData() == null) {
+        if (this.a == null || this.a.getData() == null) {
             return 0;
         }
-        int size = this.f1463a.getData().size();
+        int size = this.a.getData().size();
         if (b()) {
             size++;
         }
@@ -78,10 +76,10 @@ public class ay extends BaseAdapter {
     @Override // android.widget.Adapter
     public Object getItem(int i) {
         int itemId;
-        if (this.f1463a == null || this.f1463a.getData() == null || (itemId = (int) getItemId(i)) < 0 || itemId >= this.f1463a.getData().size()) {
+        if (this.a == null || this.a.getData() == null || (itemId = (int) getItemId(i)) < 0 || itemId >= this.a.getData().size()) {
             return null;
         }
-        return this.f1463a.getData().get(itemId);
+        return this.a.getData().get(itemId);
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -91,15 +89,15 @@ public class ay extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public long getItemId(int i) {
-        if (this.f1463a == null || this.f1463a.getData() == null) {
+        if (this.a == null || this.a.getData() == null) {
             return -1L;
         }
         if (b()) {
-            if (i <= this.f1463a.getData().size()) {
+            if (i <= this.a.getData().size()) {
                 return i - 1;
             }
             return -2L;
-        } else if (i < this.f1463a.getData().size()) {
+        } else if (i < this.a.getData().size()) {
             return i;
         } else {
             return -2L;
@@ -116,7 +114,7 @@ public class ay extends BaseAdapter {
         ba baVar;
         bb bbVar;
         View inflate;
-        if (this.f1463a != null) {
+        if (this.a != null) {
             if (view == null) {
                 LayoutInflater from = LayoutInflater.from(this.b);
                 if (getItemViewType(i) == 0) {
@@ -125,14 +123,14 @@ public class ay extends BaseAdapter {
                     bbVar.c = (TextView) inflate.findViewById(R.id.title);
                     bbVar.b = (TextView) inflate.findViewById(R.id.content);
                     bbVar.d = (TextView) inflate.findViewById(R.id.forum);
-                    bbVar.f1466a = (TextView) inflate.findViewById(R.id.time);
+                    bbVar.a = (TextView) inflate.findViewById(R.id.time);
                     bbVar.e = (LinearLayout) inflate.findViewById(R.id.content_layout);
                     inflate.setTag(bbVar);
                     baVar = null;
                 } else {
                     ba baVar2 = new ba(this);
                     inflate = from.inflate(R.layout.page_item, (ViewGroup) null);
-                    baVar2.f1465a = (TextView) inflate.findViewById(R.id.page_text);
+                    baVar2.a = (TextView) inflate.findViewById(R.id.page_text);
                     baVar2.b = (ProgressBar) inflate.findViewById(R.id.progress);
                     if (this.d == null) {
                         this.d = new ArrayList<>();
@@ -155,46 +153,46 @@ public class ay extends BaseAdapter {
                 com.baidu.tieba.data.au auVar = (com.baidu.tieba.data.au) getItem(i);
                 if (auVar != null) {
                     bbVar.d.setText(auVar.d() + this.b.getString(R.string.bar));
-                    bbVar.f1466a.setText(com.baidu.tieba.util.bb.b(auVar.g()));
+                    bbVar.a.setText(com.baidu.tieba.util.bc.b(auVar.g()));
                     if (auVar.f() == null || auVar.f().length() < 1) {
                         bbVar.e.setVisibility(8);
                     } else {
                         bbVar.e.setVisibility(0);
-                        bbVar.b.setText(Html.fromHtml(com.baidu.tieba.util.bb.a(auVar.f(), (Color) null)));
+                        bbVar.b.setText(Html.fromHtml(com.baidu.tieba.util.bc.a(auVar.f(), (Color) null)));
                     }
-                    bbVar.c.setText(Html.fromHtml(com.baidu.tieba.util.bb.a(auVar.e(), (Color) null)));
-                    com.baidu.tieba.util.ba.b(bbVar.b, an);
+                    bbVar.c.setText(Html.fromHtml(com.baidu.tieba.util.bc.a(auVar.e(), (Color) null)));
+                    com.baidu.tieba.util.bb.b(bbVar.b, an);
                     if (an == 0) {
-                        com.baidu.tieba.util.ba.e(bbVar.e, (int) R.drawable.search_replay_back);
+                        com.baidu.tieba.util.bb.e(bbVar.e, (int) R.drawable.search_replay_back);
                         bbVar.d.setTextColor(this.b.getResources().getColor(R.color.search_text_forum));
-                        bbVar.f1466a.setTextColor(this.b.getResources().getColor(R.color.search_text_forum));
+                        bbVar.a.setTextColor(this.b.getResources().getColor(R.color.search_text_forum));
                         bbVar.b.setTextColor(this.b.getResources().getColor(R.color.search_text_content));
                     } else {
-                        com.baidu.tieba.util.ba.e(bbVar.e, (int) R.drawable.search_replay_back_1);
-                        bbVar.d.setTextColor(com.baidu.tieba.util.ba.c(an));
-                        bbVar.f1466a.setTextColor(com.baidu.tieba.util.ba.c(an));
-                        bbVar.b.setTextColor(com.baidu.tieba.util.ba.a(an));
-                        bbVar.c.setTextColor(com.baidu.tieba.util.ba.b(an));
+                        com.baidu.tieba.util.bb.e(bbVar.e, (int) R.drawable.search_replay_back_1);
+                        bbVar.d.setTextColor(com.baidu.tieba.util.bb.c(an));
+                        bbVar.a.setTextColor(com.baidu.tieba.util.bb.c(an));
+                        bbVar.b.setTextColor(com.baidu.tieba.util.bb.a(an));
+                        bbVar.c.setTextColor(com.baidu.tieba.util.bb.b(an));
                     }
                 }
             } else if (getItemId(i) == -1) {
                 if (this.c == 1) {
                     baVar.b.setVisibility(0);
-                    baVar.f1465a.setText(this.b.getString(R.string.loading));
+                    baVar.a.setText(this.b.getString(R.string.loading));
                 } else {
                     baVar.b.setVisibility(8);
-                    baVar.f1465a.setText(this.b.getString(R.string.pre_page));
+                    baVar.a.setText(this.b.getString(R.string.pre_page));
                 }
-                com.baidu.tieba.util.ba.b(baVar.f1465a, an);
+                com.baidu.tieba.util.bb.b(baVar.a, an);
             } else {
                 if (this.c == 2) {
                     baVar.b.setVisibility(0);
-                    baVar.f1465a.setText(this.b.getString(R.string.loading));
+                    baVar.a.setText(this.b.getString(R.string.loading));
                 } else {
                     baVar.b.setVisibility(8);
-                    baVar.f1465a.setText(this.b.getString(R.string.next_page));
+                    baVar.a.setText(this.b.getString(R.string.next_page));
                 }
-                com.baidu.tieba.util.ba.b(baVar.f1465a, an);
+                com.baidu.tieba.util.bb.b(baVar.a, an);
             }
         }
         return view;

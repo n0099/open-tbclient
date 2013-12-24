@@ -7,13 +7,11 @@ import com.baidu.tieba.voice.PlayVoiceBnt;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 class bp implements AbsListView.RecyclerListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bn f1397a;
+    final /* synthetic */ bn a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bp(bn bnVar) {
-        this.f1397a = bnVar;
+        this.a = bnVar;
     }
 
     @Override // android.widget.AbsListView.RecyclerListener

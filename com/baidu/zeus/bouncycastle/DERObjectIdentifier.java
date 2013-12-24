@@ -1,6 +1,5 @@
 package com.baidu.zeus.bouncycastle;
 
-import com.tencent.mm.sdk.contact.RContact;
 import java.io.ByteArrayOutputStream;
 import java.io.OutputStream;
 import java.math.BigInteger;
@@ -35,7 +34,7 @@ public class DERObjectIdentifier extends DERObject {
         while (i != bArr.length) {
             int i2 = bArr[i] & 255;
             if (j < 36028797018963968L) {
-                j = (j * 128) + (i2 & RContact.MM_CONTACTFLAG_ALL);
+                j = (j * 128) + (i2 & 127);
                 if ((i2 & DERTags.TAGGED) == 0) {
                     if (z) {
                         switch (((int) j) / 40) {
@@ -58,7 +57,7 @@ public class DERObjectIdentifier extends DERObject {
                     j = 0;
                 }
             } else {
-                bigInteger = (bigInteger == null ? BigInteger.valueOf(j) : bigInteger).shiftLeft(7).or(BigInteger.valueOf(i2 & RContact.MM_CONTACTFLAG_ALL));
+                bigInteger = (bigInteger == null ? BigInteger.valueOf(j) : bigInteger).shiftLeft(7).or(BigInteger.valueOf(i2 & 127));
                 if ((i2 & DERTags.TAGGED) == 0) {
                     stringBuffer.append('.');
                     stringBuffer.append(bigInteger);
@@ -109,7 +108,7 @@ public class DERObjectIdentifier extends DERObject {
             }
             outputStream.write(((int) (j >> 7)) | DERTags.TAGGED);
         }
-        outputStream.write(((int) j) & RContact.MM_CONTACTFLAG_ALL);
+        outputStream.write(((int) j) & 127);
     }
 
     private void writeField(OutputStream outputStream, BigInteger bigInteger) {
@@ -120,7 +119,7 @@ public class DERObjectIdentifier extends DERObject {
         }
         byte[] bArr = new byte[bitLength];
         for (int i = bitLength - 1; i >= 0; i--) {
-            bArr[i] = (byte) ((bigInteger.intValue() & RContact.MM_CONTACTFLAG_ALL) | DERTags.TAGGED);
+            bArr[i] = (byte) ((bigInteger.intValue() & 127) | DERTags.TAGGED);
             bigInteger = bigInteger.shiftRight(7);
         }
         int i2 = bitLength - 1;

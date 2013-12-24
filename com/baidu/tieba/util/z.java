@@ -1,50 +1,88 @@
 package com.baidu.tieba.util;
 
-import java.util.ArrayList;
-import java.util.Hashtable;
+import com.baidu.tieba.TiebaApplication;
+import java.io.File;
 /* loaded from: classes.dex */
-public class z extends Thread {
+public class z {
+    public static final String a = TiebaApplication.h().getFileStreamPath("").getAbsolutePath();
 
-    /* renamed from: a  reason: collision with root package name */
-    private int f2618a;
-    private String b;
-    private Hashtable<String, Integer> c;
-
-    public z(Hashtable<String, Integer> hashtable) {
-        this.f2618a = 3;
-        this.b = null;
-        this.c = null;
-        this.f2618a = 3;
-        this.c = hashtable;
-    }
-
-    public z(int i, String str) {
-        this.f2618a = 3;
-        this.b = null;
-        this.c = null;
-        this.f2618a = i;
-        this.b = str;
-    }
-
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
-        ArrayList<String> y;
-        super.run();
+    public static boolean a(String str) {
         try {
-            if (this.f2618a == 3) {
-                if (this.c != null && (y = DatabaseService.y()) != null) {
-                    int size = y.size();
-                    for (int i = 0; i < size; i++) {
-                        this.c.put(y.get(i), 1);
+            return new File(new StringBuilder().append(a).append("/").append(str).toString()).exists();
+        } catch (Exception e) {
+            be.b("FileHelper", "checkFile", "error = " + e.getMessage());
+            return false;
+        }
+    }
+
+    public static boolean b(String str) {
+        try {
+            File file = new File(a + "/" + str);
+            if (file.exists()) {
+                return false;
+            }
+            return file.createNewFile();
+        } catch (Exception e) {
+            be.b("FileHelper", "createFile", "error = " + e.getMessage());
+            return false;
+        }
+    }
+
+    public static void a(File file) {
+        try {
+            if (file.exists()) {
+                if (file.isDirectory()) {
+                    File[] listFiles = file.listFiles();
+                    int length = listFiles.length;
+                    for (int i = 0; i < length; i++) {
+                        if (listFiles[i].isFile()) {
+                            listFiles[i].delete();
+                        } else {
+                            a(listFiles[i]);
+                        }
                     }
                 }
-            } else if (this.f2618a == 2) {
-                DatabaseService.q(this.b);
-            } else if (this.f2618a == 1) {
-                DatabaseService.p(this.b);
+                file.delete();
             }
         } catch (Exception e) {
-            bd.b(getClass().getName(), "run", e.getMessage());
+            be.b("FileHelper", "deleteFileOrDir", "error = " + e.getMessage());
         }
+    }
+
+    public static boolean c(String str) {
+        try {
+            File file = new File(a + "/" + str);
+            if (file.exists()) {
+                if (!file.isDirectory()) {
+                    return false;
+                }
+                a(file);
+            }
+            return file.mkdirs();
+        } catch (Exception e) {
+            be.b("FileHelper", "cleanDirectory", "error = " + e.getMessage());
+            return false;
+        }
+    }
+
+    public static String d(String str) {
+        String str2 = null;
+        try {
+            File file = new File(a + "/" + str);
+            if (file.exists() && file.isDirectory()) {
+                File[] listFiles = file.listFiles();
+                int length = listFiles.length;
+                long j = 0;
+                for (int i = 0; i < length; i++) {
+                    if (j > listFiles[i].lastModified()) {
+                        j = listFiles[i].lastModified();
+                        str2 = listFiles[i].getName();
+                    }
+                }
+            }
+        } catch (Exception e) {
+            be.b("FileHelper", "getLatestFileName", "error = " + e.getMessage());
+        }
+        return str2;
     }
 }

@@ -10,9 +10,7 @@ import com.baidu.tieba.util.UtilHelper;
 import com.baidu.tieba.widget.share.ShareJsBridge;
 /* loaded from: classes.dex */
 public class BaseWebView extends WebView {
-
-    /* renamed from: a  reason: collision with root package name */
-    private WebViewClient f2621a;
+    private WebViewClient a;
     private d b;
     private Context c;
     private d d;
@@ -54,8 +52,8 @@ public class BaseWebView extends WebView {
         addJavascriptInterface(new ShareJsBridge(this.c), "ShareJsBridge");
         getSettings().setCacheMode(2);
         UtilHelper.a(getSettings());
-        this.f2621a = new MyWebViewClient();
-        setWebViewClient(this.f2621a);
+        this.a = new MyWebViewClient();
+        setWebViewClient(this.a);
         setOnLongClickListener(new b(this));
     }
 

@@ -11,9 +11,9 @@ class e extends b {
 
     @Override // android.support.v4.view.g, android.support.v4.view.d
     public android.support.v4.view.a.g a(Object obj, View view) {
-        Object a2 = k.a(obj, view);
-        if (a2 != null) {
-            return new android.support.v4.view.a.g(a2);
+        Object a = k.a(obj, view);
+        if (a != null) {
+            return new android.support.v4.view.a.g(a);
         }
         return null;
     }

@@ -9,14 +9,12 @@ import android.text.style.AbsoluteSizeSpan;
 import android.util.TypedValue;
 import android.widget.RelativeLayout;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.ba;
+import com.baidu.tieba.util.bb;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class w extends com.baidu.adp.a.e {
-
-    /* renamed from: a  reason: collision with root package name */
-    Handler f2106a;
+    Handler a;
     private BrowseSettingActivity c;
     private RelativeLayout d;
     private NavigationBar e;
@@ -58,7 +56,7 @@ public class w extends com.baidu.adp.a.e {
         this.s = new z(this);
         this.t = new aa(this);
         this.u = new ab(this);
-        this.f2106a = new Handler();
+        this.a = new Handler();
         this.c = browseSettingActivity;
         u();
         n();
@@ -76,19 +74,19 @@ public class w extends com.baidu.adp.a.e {
         this.k.a(i);
         if (i == 1) {
             this.d.setBackgroundColor(this.c.getResources().getColor(R.color.bg_page_setting_1));
-            ba.e(this.f, (int) R.drawable.more_all_1);
-            ba.e(this.h, (int) R.drawable.more_up_1);
-            ba.e(this.i, (int) R.drawable.more_middle_1);
-            ba.e(this.j, (int) R.drawable.more_down_1);
-            ba.e(this.k, (int) R.drawable.more_all_1);
+            bb.e(this.f, (int) R.drawable.more_all_1);
+            bb.e(this.h, (int) R.drawable.more_up_1);
+            bb.e(this.i, (int) R.drawable.more_middle_1);
+            bb.e(this.j, (int) R.drawable.more_down_1);
+            bb.e(this.k, (int) R.drawable.more_all_1);
             return;
         }
         this.d.setBackgroundColor(this.c.getResources().getColor(R.color.bg_page_setting));
-        ba.e(this.f, (int) R.drawable.more_all);
-        ba.e(this.h, (int) R.drawable.more_up);
-        ba.e(this.i, (int) R.drawable.more_middle);
-        ba.e(this.j, (int) R.drawable.more_down);
-        ba.e(this.k, (int) R.drawable.more_all);
+        bb.e(this.f, (int) R.drawable.more_all);
+        bb.e(this.h, (int) R.drawable.more_up);
+        bb.e(this.i, (int) R.drawable.more_middle);
+        bb.e(this.j, (int) R.drawable.more_down);
+        bb.e(this.k, (int) R.drawable.more_all);
     }
 
     public SettingTextTipView a() {
@@ -221,7 +219,7 @@ public class w extends com.baidu.adp.a.e {
             if (TiebaApplication.h().an() != 1) {
                 TiebaApplication.h().e(i);
                 a(i);
-                new com.baidu.tieba.account.ai("eyeshield").start();
+                new com.baidu.tieba.account.av("eyeshield").start();
             } else {
                 return;
             }

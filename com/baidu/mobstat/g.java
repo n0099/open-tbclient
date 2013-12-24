@@ -11,9 +11,7 @@ import java.util.Timer;
 public class g {
     private static Handler h;
     private Timer e;
-
-    /* renamed from: a  reason: collision with root package name */
-    private static HandlerThread f966a = new HandlerThread("LogSenderThread");
+    private static HandlerThread a = new HandlerThread("LogSenderThread");
     private static g i = new g();
     private boolean b = false;
     private SendStrategyEnum c = SendStrategyEnum.APP_START;
@@ -22,8 +20,8 @@ public class g {
     private boolean g = false;
 
     private g() {
-        f966a.start();
-        h = new Handler(f966a.getLooper());
+        a.start();
+        h = new Handler(a.getLooper());
     }
 
     public static g a() {

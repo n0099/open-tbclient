@@ -11,7 +11,7 @@ public class f extends g {
         d(R.string.group_update_name);
         this.g = (ImageButton) updateGroupActivity.findViewById(R.id.button_del);
         this.g.setOnClickListener(updateGroupActivity);
-        this.c.setFilters(new InputFilter[]{new com.baidu.tieba.im.e.a(20)});
+        this.c.setFilters(new InputFilter[]{new com.baidu.tieba.im.d.a(20)});
     }
 
     @Override // com.baidu.tieba.im.updategroup.g
@@ -26,7 +26,7 @@ public class f extends g {
 
     @Override // com.baidu.tieba.im.updategroup.a
     public void g() {
-        a(this.c.length(), com.baidu.tieba.im.e.g.a(this.c), 2, 20);
+        a(this.c.length(), com.baidu.tieba.im.d.g.a(this.c), 2, 20);
     }
 
     @Override // com.baidu.tieba.im.updategroup.a

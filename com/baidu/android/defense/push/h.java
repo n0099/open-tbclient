@@ -1,57 +1,24 @@
 package com.baidu.android.defense.push;
 
 import android.content.Context;
-import java.util.ArrayList;
 import java.util.Iterator;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class h extends a {
-    protected ArrayList d;
-
     public h(String str, Context context) {
         super(str, context);
-        this.d = null;
-        this.d = new ArrayList();
-        b();
     }
 
-    @Override // com.baidu.android.defense.push.a
-    public boolean a() {
-        if (this.b) {
-            Iterator it = this.d.iterator();
-            while (it.hasNext()) {
-                com.baidu.android.defense.a.c.a().a(new com.baidu.android.defense.a.d(this.c, (com.baidu.android.defense.a.b) it.next()));
+    @Override // com.baidu.android.defense.push.a, com.baidu.android.defense.push.i
+    public boolean b() {
+        if (this.c) {
+            if (this.a != null) {
+                Iterator it = this.a.iterator();
+                while (it.hasNext()) {
+                    com.baidu.android.defense.b.e.a(this.d).a(this.d, ((com.baidu.android.defense.b.c) it.next()).a());
+                }
             }
             return true;
         }
         return false;
-    }
-
-    public void b() {
-        if (this.f634a != null) {
-            try {
-                JSONArray jSONArray = this.f634a.getJSONArray("params");
-                if (jSONArray == null || jSONArray.length() == 0) {
-                    this.b = false;
-                    return;
-                }
-                int length = jSONArray.length();
-                new JSONObject();
-                for (int i = 0; i < length; i++) {
-                    JSONObject jSONObject = (JSONObject) jSONArray.get(i);
-                    if (jSONObject != null) {
-                        com.baidu.android.defense.a.b bVar = new com.baidu.android.defense.a.b();
-                        bVar.f624a = jSONObject.getString("downurl");
-                        bVar.b = jSONObject.getString("savepath");
-                        bVar.c = jSONObject.getInt("filesize");
-                        this.d.add(bVar);
-                    }
-                }
-            } catch (JSONException e) {
-                this.b = false;
-            }
-        }
     }
 }

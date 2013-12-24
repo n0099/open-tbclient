@@ -1,19 +1,28 @@
 package com.baidu.tieba.im.data;
+
+import com.baidu.tieba.im.message.n;
 /* loaded from: classes.dex */
-public class c extends d {
+public class c extends n {
+    private GroupIdTypeData a;
+    private f b;
 
-    /* renamed from: a  reason: collision with root package name */
-    private String f1647a;
-
-    public c() {
-        a(0);
+    public c(int i) {
+        super.e(i);
     }
 
-    public String a() {
-        return this.f1647a;
+    public GroupIdTypeData a() {
+        return this.a;
     }
 
-    public void a(String str) {
-        this.f1647a = str;
+    public void a(GroupIdTypeData groupIdTypeData) {
+        this.a = groupIdTypeData;
+    }
+
+    public f b() {
+        return this.b;
+    }
+
+    public void a(f fVar) {
+        this.b = fVar;
     }
 }

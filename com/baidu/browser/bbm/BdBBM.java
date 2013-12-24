@@ -13,7 +13,6 @@ import com.baidu.browser.core.BdPath;
 import com.baidu.browser.core.util.BdLog;
 import com.baidu.browser.core.util.BdUtil;
 import com.baidu.zeus.PlumCore;
-import com.tencent.mm.sdk.platformtools.Util;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
@@ -236,10 +235,10 @@ public class BdBBM {
     private byte[] PlIdeaEncoderWraper(byte[] bArr) {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         int length = bArr.length;
-        byteArrayOutputStream.write(length & Util.MASK_8BIT);
-        byteArrayOutputStream.write((length >> 8) & Util.MASK_8BIT);
-        byteArrayOutputStream.write((length >> 16) & Util.MASK_8BIT);
-        byteArrayOutputStream.write((length >> 24) & Util.MASK_8BIT);
+        byteArrayOutputStream.write(length & 255);
+        byteArrayOutputStream.write((length >> 8) & 255);
+        byteArrayOutputStream.write((length >> 16) & 255);
+        byteArrayOutputStream.write((length >> 24) & 255);
         for (int i = 1; i <= 16; i++) {
             try {
                 byteArrayOutputStream.write(3);

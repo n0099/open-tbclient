@@ -4,13 +4,11 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements View.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ f f1773a;
+    final /* synthetic */ f a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(f fVar) {
-        this.f1773a = fVar;
+        this.a = fVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -18,9 +16,9 @@ public class j implements View.OnClickListener {
         UpdatesActivity updatesActivity;
         View view2;
         UpdatesItemData updatesItemData;
-        updatesActivity = this.f1773a.l;
-        view2 = this.f1773a.c;
-        updatesItemData = this.f1773a.m;
+        updatesActivity = this.a.l;
+        view2 = this.a.c;
+        updatesItemData = this.a.m;
         updatesActivity.a(view2, 101, 0, 0L, updatesItemData);
     }
 }

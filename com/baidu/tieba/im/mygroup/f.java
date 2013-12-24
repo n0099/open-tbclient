@@ -1,28 +1,26 @@
 package com.baidu.tieba.im.mygroup;
 
-import com.baidu.tieba.im.message.Message;
-import com.baidu.tieba.im.message.ResponsedMessage;
+import com.baidu.tieba.im.message.bz;
+import com.baidu.tieba.im.message.n;
 /* loaded from: classes.dex */
 class f implements com.baidu.tieba.im.messageCenter.g {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MyGroupFragment f1839a;
+    final /* synthetic */ MyGroupFragment a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(MyGroupFragment myGroupFragment) {
-        this.f1839a = myGroupFragment;
+        this.a = myGroupFragment;
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(Message message) {
-        switch (message.getCmd()) {
+    public void a(n nVar) {
+        switch (nVar.t()) {
             case -109:
             case 103101:
             case 103102:
             case 103104:
             case 103112:
-                if (!(message instanceof ResponsedMessage) || !((ResponsedMessage) message).hasError()) {
-                    this.f1839a.b = true;
+                if (!(nVar instanceof bz) || !((bz) nVar).i()) {
+                    this.a.b = true;
                     return;
                 }
                 return;

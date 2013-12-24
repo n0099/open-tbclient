@@ -21,12 +21,12 @@ public class MainSharedPrefProvider extends ContentProvider {
 
     @Override // android.content.ContentProvider
     public String getType(Uri uri) {
-        SharedPreferences a2;
+        SharedPreferences a;
         String lastPathSegment = uri.getLastPathSegment();
-        if (lastPathSegment == null || lastPathSegment.length() <= 0 || (a2 = a()) == null) {
+        if (lastPathSegment == null || lastPathSegment.length() <= 0 || (a = a()) == null) {
             return null;
         }
-        return a2.getString(lastPathSegment, null);
+        return a.getString(lastPathSegment, null);
     }
 
     @Override // android.content.ContentProvider
@@ -34,9 +34,9 @@ public class MainSharedPrefProvider extends ContentProvider {
         if (contentValues != null && contentValues.size() > 0) {
             String lastPathSegment = uri.getLastPathSegment();
             String asString = contentValues.getAsString(lastPathSegment);
-            SharedPreferences a2 = a();
-            if (a2 != null) {
-                SharedPreferences.Editor edit = a2.edit();
+            SharedPreferences a = a();
+            if (a != null) {
+                SharedPreferences.Editor edit = a.edit();
                 edit.putString(lastPathSegment, asString);
                 edit.commit();
                 if (a(lastPathSegment)) {
@@ -52,10 +52,10 @@ public class MainSharedPrefProvider extends ContentProvider {
 
     @Override // android.content.ContentProvider
     public int delete(Uri uri, String str, String[] strArr) {
-        SharedPreferences a2;
+        SharedPreferences a;
         String lastPathSegment = uri.getLastPathSegment();
-        if (lastPathSegment != null && lastPathSegment.length() > 0 && (a2 = a()) != null) {
-            SharedPreferences.Editor edit = a2.edit();
+        if (lastPathSegment != null && lastPathSegment.length() > 0 && (a = a()) != null) {
+            SharedPreferences.Editor edit = a.edit();
             edit.remove(lastPathSegment);
             edit.commit();
             if (a(lastPathSegment)) {

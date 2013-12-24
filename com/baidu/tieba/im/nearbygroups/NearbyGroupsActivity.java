@@ -6,27 +6,26 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.account.LoginActivity;
 import com.baidu.tieba.im.creategroup.CreateGroupStepActivity;
 import com.baidu.tieba.im.data.GroupPermData;
 import com.baidu.tieba.im.data.NearbyGroupsData;
 import com.baidu.tieba.im.groupInfo.GroupInfoActivity;
-import com.baidu.tieba.im.message.Message;
-import com.baidu.tieba.im.message.ResponseNearbyGroupsMessage;
-import com.baidu.tieba.im.message.ResponseUserPermissionMessage;
-import com.baidu.tieba.im.model.s;
+import com.baidu.tieba.im.message.bk;
+import com.baidu.tieba.im.message.by;
+import com.baidu.tieba.im.message.n;
+import com.baidu.tieba.im.model.ad;
 import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.bf;
+import com.baidu.tieba.util.bg;
 import com.slidingmenu.lib.R;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class NearbyGroupsActivity extends com.baidu.tieba.j implements com.baidu.tieba.im.messageCenter.g {
     private k b = null;
-    private s c = null;
+    private ad c = null;
     private com.baidu.adp.lib.h.c d = null;
     private com.baidu.adp.widget.ListView.b e = new d(this);
-
-    /* renamed from: a  reason: collision with root package name */
-    com.baidu.adp.lib.c.d f1843a = new e(this);
+    com.baidu.adp.lib.c.d a = new e(this);
 
     public static void a(Activity activity) {
         activity.startActivity(new Intent(activity, NearbyGroupsActivity.class));
@@ -41,7 +40,7 @@ public class NearbyGroupsActivity extends com.baidu.tieba.j implements com.baidu
         this.b.a(new b(this));
         this.b.a(new c(this));
         this.d = new com.baidu.adp.lib.h.c(this);
-        this.c = new s();
+        this.c = new ad();
         com.baidu.tieba.im.messageCenter.e.a().a(103009, this);
         com.baidu.tieba.im.messageCenter.e.a().a(103008, this);
         com.baidu.tieba.im.messageCenter.e.a().a(-115, this);
@@ -59,7 +58,7 @@ public class NearbyGroupsActivity extends com.baidu.tieba.j implements com.baidu
             return true;
         }
         try {
-            return bf.a(bf.a(), new Date(j)) >= 1;
+            return bg.a(bg.a(), new Date(j)) >= 1;
         } catch (Exception e) {
             return true;
         }
@@ -92,7 +91,11 @@ public class NearbyGroupsActivity extends com.baidu.tieba.j implements com.baidu
         Object tag;
         super.onClick(view);
         if (view.getId() == this.b.i()) {
-            b();
+            if (!TiebaApplication.C()) {
+                LoginActivity.a((Activity) this, "", true, 0);
+            } else {
+                b();
+            }
         } else if (view.getId() == R.id.guide_setting) {
             this.d.a();
         } else if (view.getId() == R.id.list_item_content && (tag = view.getTag()) != null) {
@@ -115,53 +118,55 @@ public class NearbyGroupsActivity extends com.baidu.tieba.j implements com.baidu
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(Message message) {
-        if (message != null) {
-            if (message.getCmd() == 103009 || message.getCmd() == -115) {
+    public void a(n nVar) {
+        if (nVar != null) {
+            if (nVar.t() == 103009 || nVar.t() == -115) {
                 this.c.a(false);
-                if (message instanceof ResponseNearbyGroupsMessage) {
-                    if (message.getCmd() == -115) {
-                        if (UtilHelper.b()) {
-                            if (a(TiebaApplication.h().bd())) {
-                                this.c.h();
-                                return;
-                            }
-                            this.c.g();
-                        }
-                    } else {
-                        TiebaApplication.h().d(System.currentTimeMillis());
-                    }
-                    ResponseNearbyGroupsMessage responseNearbyGroupsMessage = (ResponseNearbyGroupsMessage) message;
-                    if (responseNearbyGroupsMessage.hasError() && responseNearbyGroupsMessage.getErrNo() > 0) {
-                        showToast(responseNearbyGroupsMessage.getErrMsg());
-                    } else {
-                        NearbyGroupsData nearbyGroups = responseNearbyGroupsMessage.getNearbyGroups();
-                        if (nearbyGroups != null) {
-                            this.c.b(nearbyGroups.getHasMore());
-                            this.c.a(nearbyGroups.getGeo());
-                        } else {
-                            nearbyGroups = new NearbyGroupsData();
-                        }
-                        this.b.a(nearbyGroups);
-                        if (nearbyGroups != null && nearbyGroups.size() > 0) {
-                            this.b.a();
-                        }
-                    }
+                if (!(nVar instanceof bk)) {
                     this.b.h();
+                    return;
                 }
-            } else if (message.getCmd() == 103008 && (message instanceof ResponseUserPermissionMessage)) {
+                if (nVar.t() == -115) {
+                    if (UtilHelper.b()) {
+                        if (a(TiebaApplication.h().bd())) {
+                            this.c.h();
+                            return;
+                        }
+                        this.c.g();
+                    }
+                } else {
+                    TiebaApplication.h().d(System.currentTimeMillis());
+                }
+                bk bkVar = (bk) nVar;
+                if (bkVar.i() && bkVar.j() > 0) {
+                    showToast(bkVar.k());
+                } else {
+                    NearbyGroupsData a = bkVar.a();
+                    if (a != null) {
+                        this.c.b(a.getHasMore());
+                        this.c.a(a.getGeo());
+                    } else {
+                        a = new NearbyGroupsData();
+                    }
+                    this.b.a(a);
+                    if (a != null && a.size() > 0) {
+                        this.b.a();
+                    }
+                }
+                this.b.h();
+            } else if (nVar.t() == 103008 && (nVar instanceof by)) {
                 try {
-                    ResponseUserPermissionMessage responseUserPermissionMessage = (ResponseUserPermissionMessage) message;
-                    if (responseUserPermissionMessage.hasError() && responseUserPermissionMessage.getErrNo() > 0) {
-                        showToast(responseUserPermissionMessage.getErrMsg());
+                    by byVar = (by) nVar;
+                    if (byVar.i() && byVar.j() > 0) {
+                        showToast(byVar.k());
                         return;
                     }
-                    GroupPermData groupPermData = responseUserPermissionMessage.getGroupPermData();
-                    if (groupPermData != null) {
-                        if (groupPermData.isCreatePersonal()) {
+                    GroupPermData a2 = byVar.a();
+                    if (a2 != null) {
+                        if (a2.isCreatePersonal()) {
                             CreateGroupStepActivity.a(this, 2, 0, 1011);
-                        } else if (!TextUtils.isEmpty(groupPermData.getCreatePersonalTip())) {
-                            showToast(groupPermData.getCreatePersonalTip());
+                        } else if (!TextUtils.isEmpty(a2.getCreatePersonalTip())) {
+                            showToast(a2.getCreatePersonalTip());
                         }
                     }
                 } catch (Exception e) {

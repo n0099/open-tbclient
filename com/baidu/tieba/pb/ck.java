@@ -6,15 +6,13 @@ import java.util.regex.Pattern;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ck implements com.baidu.tieba.editortool.h {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ com.baidu.tieba.editortool.h f2208a;
+    final /* synthetic */ com.baidu.tieba.editortool.h a;
     final /* synthetic */ PbEditor b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ck(PbEditor pbEditor, com.baidu.tieba.editortool.h hVar) {
         this.b = pbEditor;
-        this.f2208a = hVar;
+        this.a = hVar;
     }
 
     @Override // com.baidu.tieba.editortool.h
@@ -24,8 +22,8 @@ public class ck implements com.baidu.tieba.editortool.h {
             if (obj != null && (obj instanceof com.baidu.tieba.editortool.g)) {
                 com.baidu.tieba.editortool.g gVar = (com.baidu.tieba.editortool.g) obj;
                 if (gVar.a() != null) {
-                    if (com.baidu.tieba.util.bb.g(this.b.b.getEditText().getText().toString()) >= 10 && (this.b.f2141a instanceof com.baidu.tieba.j)) {
-                        ((com.baidu.tieba.j) this.b.f2141a).showToast(this.b.f2141a.getResources().getString(R.string.too_many_face));
+                    if (com.baidu.tieba.util.bc.g(this.b.b.getEditText().getText().toString()) >= 10 && (this.b.a instanceof com.baidu.tieba.j)) {
+                        ((com.baidu.tieba.j) this.b.a).showToast(this.b.a.getResources().getString(R.string.too_many_face));
                         return;
                     } else {
                         this.b.b.getEditText().getText().insert(this.b.b.getEditText().getSelectionStart(), gVar.a());
@@ -63,7 +61,7 @@ public class ck implements com.baidu.tieba.editortool.h {
                 this.b.b.g();
             }
         } else {
-            this.f2208a.a(i, obj);
+            this.a.a(i, obj);
         }
     }
 }

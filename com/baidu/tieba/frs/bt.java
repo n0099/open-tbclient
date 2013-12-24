@@ -5,13 +5,11 @@ import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bt implements com.baidu.adp.widget.BdSwitchView.c {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bs f1401a;
+    final /* synthetic */ bs a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bt(bs bsVar) {
-        this.f1401a = bsVar;
+        this.a = bsVar;
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.c
@@ -22,6 +20,6 @@ public class bt implements com.baidu.adp.widget.BdSwitchView.c {
         } else {
             com.baidu.tieba.d.a.a().a(false);
         }
-        this.f1401a.r = true;
+        this.a.p = true;
     }
 }

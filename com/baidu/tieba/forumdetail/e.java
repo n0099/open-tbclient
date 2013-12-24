@@ -7,9 +7,7 @@ import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class e extends com.baidu.adp.a.e {
-
-    /* renamed from: a  reason: collision with root package name */
-    com.baidu.tieba.j f1328a;
+    com.baidu.tieba.j a;
     private ForumDetailData c;
     private ViewGroup d;
     private ProgressBar e;
@@ -21,10 +19,10 @@ public class e extends com.baidu.adp.a.e {
 
     public e(com.baidu.tieba.j jVar) {
         super(jVar);
-        this.f1328a = null;
+        this.a = null;
         this.c = null;
         this.d = null;
-        this.f1328a = jVar;
+        this.a = jVar;
         e();
     }
 
@@ -38,27 +36,27 @@ public class e extends com.baidu.adp.a.e {
     }
 
     private void e() {
-        this.f1328a.setContentView(R.layout.forum_detail_activity);
-        this.f = (NavigationBar) this.f1328a.findViewById(R.id.view_navigation_bar);
-        this.f.a(this.f1328a.getString(R.string.forum_detail_title));
+        this.a.setContentView(R.layout.forum_detail_activity);
+        this.f = (NavigationBar) this.a.findViewById(R.id.view_navigation_bar);
+        this.f.a(this.a.getString(R.string.forum_detail_title));
         this.f.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.f.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, NavigationBar.ControlType.HOME_BUTTON);
-        this.g = (ItemHeaderView) this.f1328a.findViewById(R.id.item_header);
-        this.h = (ItemInfoView) this.f1328a.findViewById(R.id.item_info);
-        this.i = (ItemHotThreadView) this.f1328a.findViewById(R.id.item_hot_thread);
-        this.j = (ItemFootNavView) this.f1328a.findViewById(R.id.item_foot_nav);
-        this.d = (ViewGroup) this.f1328a.findViewById(R.id.parent);
+        this.g = (ItemHeaderView) this.a.findViewById(R.id.item_header);
+        this.h = (ItemInfoView) this.a.findViewById(R.id.item_info);
+        this.i = (ItemHotThreadView) this.a.findViewById(R.id.item_hot_thread);
+        this.j = (ItemFootNavView) this.a.findViewById(R.id.item_foot_nav);
+        this.d = (ViewGroup) this.a.findViewById(R.id.parent);
         f().setVisibility(0);
     }
 
     private ProgressBar f() {
-        this.e = new ProgressBar(this.f1328a);
+        this.e = new ProgressBar(this.a);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 17;
         this.e.setLayoutParams(layoutParams);
-        this.e.setIndeterminateDrawable(this.f1328a.getResources().getDrawable(R.drawable.progressbar));
+        this.e.setIndeterminateDrawable(this.a.getResources().getDrawable(R.drawable.progressbar));
         this.e.setVisibility(8);
-        ((ViewGroup) this.f1328a.findViewById(16908290)).addView(this.e);
+        ((ViewGroup) this.a.findViewById(16908290)).addView(this.e);
         return this.e;
     }
 
@@ -69,7 +67,7 @@ public class e extends com.baidu.adp.a.e {
     }
 
     private void h() {
-        if (this.h.a(this.c, this.f1328a)) {
+        if (this.h.a(this.c, this.a)) {
             this.h.setVisibility(0);
         }
     }
@@ -81,22 +79,22 @@ public class e extends com.baidu.adp.a.e {
     }
 
     private void j() {
-        if (this.j.a(this.c, this.f1328a)) {
+        if (this.j.a(this.c, this.a)) {
             this.j.setVisibility(0);
         }
     }
 
     public void a(int i) {
-        this.f1328a.getLayoutMode().a(i == 1);
-        this.f1328a.getLayoutMode().a(this.d);
+        this.a.getLayoutMode().a(i == 1);
+        this.a.getLayoutMode().a(this.d);
         this.f.c(i);
-        this.g.a(this.f1328a, i);
-        this.h.a(this.f1328a, i);
-        this.i.a(this.f1328a, i);
-        this.j.a(this.f1328a, i);
+        this.g.a(this.a, i);
+        this.h.a(this.a, i);
+        this.i.a(this.a, i);
+        this.j.a(this.a, i);
     }
 
     public void a() {
-        this.j.a(this.f1328a);
+        this.j.a(this.a);
     }
 }

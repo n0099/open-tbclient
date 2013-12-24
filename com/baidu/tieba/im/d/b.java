@@ -1,38 +1,45 @@
 package com.baidu.tieba.im.d;
 
-import java.util.Map;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class b implements com.baidu.tieba.im.net.a {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f1640a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public b(a aVar) {
-        this.f1640a = aVar;
+public class b {
+    public static AlertDialog a(Activity activity, DialogInterface.OnClickListener onClickListener, DialogInterface.OnClickListener onClickListener2) {
+        AlertDialog create = new AlertDialog.Builder(activity).setTitle(R.string.del_post_tip).setMessage(R.string.members_dialog_remove_one_message).setPositiveButton(R.string.alert_yes_button, onClickListener).setNegativeButton(R.string.alert_no_button, onClickListener2).create();
+        create.show();
+        return create;
     }
 
-    @Override // com.baidu.tieba.im.net.a
-    public boolean a(int i, String str) {
-        this.f1640a.d();
-        return false;
+    public static AlertDialog b(Activity activity, DialogInterface.OnClickListener onClickListener, DialogInterface.OnClickListener onClickListener2) {
+        AlertDialog create = new AlertDialog.Builder(activity).setTitle(R.string.del_post_tip).setMessage(R.string.members_dialog_remove_more_message).setPositiveButton(R.string.alert_yes_button, onClickListener).setNegativeButton(R.string.alert_no_button, onClickListener2).create();
+        create.show();
+        return create;
     }
 
-    @Override // com.baidu.tieba.im.net.a
-    public void a(Map<String, String> map) {
-        this.f1640a.c();
+    public static AlertDialog a(Activity activity, DialogInterface.OnClickListener onClickListener) {
+        AlertDialog create = new AlertDialog.Builder(activity).setTitle(R.string.members_order).setItems(R.array.members_order_by, onClickListener).create();
+        create.show();
+        return create;
     }
 
-    @Override // com.baidu.tieba.im.net.a
-    public void a(byte[] bArr) {
+    public static AlertDialog a(Context context, DialogInterface.OnClickListener onClickListener, DialogInterface.OnClickListener onClickListener2, String str) {
+        AlertDialog create = new AlertDialog.Builder(context).setTitle(R.string.del_post_tip).setMessage(String.format(context.getString(R.string.url_notify), str)).setPositiveButton(R.string.alert_yes_button, onClickListener).setNegativeButton(R.string.alert_no_button, onClickListener2).create();
+        create.show();
+        return create;
     }
 
-    @Override // com.baidu.tieba.im.net.a
-    public void a(com.baidu.adp.lib.webSocket.d dVar) {
+    public static AlertDialog a(Context context, DialogInterface.OnClickListener onClickListener, String str) {
+        AlertDialog create = new AlertDialog.Builder(context).setTitle(R.string.bar_code_result).setMessage(str).setPositiveButton(R.string.alert_yes_button, onClickListener).create();
+        create.show();
+        return create;
     }
 
-    @Override // com.baidu.tieba.im.net.a
-    public void a(String str) {
+    public static AlertDialog a(Context context, DialogInterface.OnClickListener onClickListener) {
+        AlertDialog create = new AlertDialog.Builder(context).setTitle(R.string.anti_title).setMessage(R.string.msg_album_bug).setPositiveButton(R.string.alert_yes_button, onClickListener).create();
+        create.show();
+        return create;
     }
 }

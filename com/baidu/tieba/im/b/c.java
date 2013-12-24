@@ -1,188 +1,145 @@
 package com.baidu.tieba.im.b;
 
+import android.os.Handler;
+import com.baidu.browser.webpool.BdWebPoolView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.im.exception.IMCodecException;
-import com.baidu.tieba.im.exception.IMException;
-import com.baidu.tieba.im.message.Message;
-import com.baidu.tieba.util.ae;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.util.HashMap;
+import com.baidu.tieba.im.chat.ai;
+import com.baidu.tieba.im.data.GroupMidData;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.tieba.im.m;
+import com.baidu.tieba.im.message.o;
+import com.baidu.tieba.log.i;
+import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
-import javax.crypto.SecretKey;
+import java.util.concurrent.ConcurrentHashMap;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class c {
-    private static c b = new c();
+public class c implements com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMessageCenterPojo>> {
+    final /* synthetic */ a a;
 
-    /* renamed from: a  reason: collision with root package name */
-    private HashMap<Integer, b> f1518a = new HashMap<>();
-    private SecretKey c;
-
-    public boolean a() {
-        return this.c != null;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public c(a aVar) {
+        this.a = aVar;
     }
 
-    public void a(SecretKey secretKey) {
-        this.c = secretKey;
-    }
-
-    public static c b() {
-        return b;
-    }
-
-    private c() {
-        c();
-    }
-
-    protected void c() {
-        this.f1518a.put(1, new com.baidu.tieba.im.b.a.b());
-    }
-
-    public byte[] a(Message message, int i, int i2, boolean z) {
-        byte[] bArr;
-        int i3;
-        byte[] a2;
-        if (message.getCmd() == 1001) {
-            z = false;
-        }
-        byte[] a3 = a(1, message);
-        if (i2 == 2) {
-            try {
-                bArr = b(a3, 0, a3.length);
-                i3 = i2;
-            } catch (Exception e) {
-                bArr = a3;
-                i3 = 1;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.a
+    public void a(ConcurrentHashMap<String, ImMessageCenterPojo> concurrentHashMap) {
+        long j;
+        boolean z;
+        LinkedList linkedList;
+        boolean z2;
+        o n;
+        LinkedList linkedList2;
+        LinkedList linkedList3;
+        String str;
+        LinkedList linkedList4;
+        long j2;
+        long j3;
+        int i;
+        int i2;
+        Handler handler;
+        Handler handler2;
+        long j4;
+        long j5;
+        long j6;
+        long j7;
+        long j8;
+        if (concurrentHashMap != null) {
+            j = this.a.t;
+            if (j > 0) {
+                j4 = this.a.u;
+                if (j4 > 0) {
+                    j5 = this.a.u;
+                    long b = ai.b(j5 - 1);
+                    j6 = this.a.t;
+                    ImMessageCenterPojo imMessageCenterPojo = concurrentHashMap.get(String.valueOf(j6));
+                    if (imMessageCenterPojo == null) {
+                        ImMessageCenterPojo imMessageCenterPojo2 = new ImMessageCenterPojo();
+                        j7 = this.a.t;
+                        imMessageCenterPojo2.setGid(String.valueOf(j7));
+                        imMessageCenterPojo2.setPulled_msgId(b);
+                        j8 = this.a.t;
+                        concurrentHashMap.put(String.valueOf(j8), imMessageCenterPojo2);
+                    } else if (0 == imMessageCenterPojo.getPulled_msgId() || imMessageCenterPojo.getIs_delete() == 1) {
+                        imMessageCenterPojo.setPulled_msgId(b);
+                    }
+                }
             }
-        } else {
-            bArr = a3;
-            i3 = i2;
-        }
-        boolean z2 = this.c != null ? z : false;
-        if (z2) {
-            try {
-                a2 = com.baidu.tieba.im.e.e.a(this.c, bArr);
-            } catch (Exception e2) {
-                throw new IMCodecException(com.baidu.tieba.im.k.j, message, e2);
+            if (m.a() > 10) {
+                com.baidu.adp.lib.h.e.c("----pull message, but TiebaIMSingleExecutor.QueueSize too big");
+                handler = this.a.p;
+                handler2 = this.a.p;
+                handler.sendMessageDelayed(handler2.obtainMessage(2), 2000L);
+                return;
             }
-        } else {
-            a2 = bArr;
-        }
-        return o.a(1, z2 ? 2 : 1, i3, message.getCmd(), i, a2);
-    }
-
-    private byte[] a(int i, Message message) {
-        if (message == null) {
-            throw new IMCodecException(com.baidu.tieba.im.k.b, null);
-        }
-        b bVar = this.f1518a.get(Integer.valueOf(i));
-        if (bVar == null) {
-            throw new IMCodecException(com.baidu.tieba.im.k.c, message);
-        }
-        if (message.getCmd() == 0 && TiebaApplication.h().b()) {
-            throw new IMCodecException(com.baidu.tieba.im.k.b, message);
-        }
-        try {
-            return bVar.a(message);
-        } catch (Exception e) {
-            throw new IMCodecException(com.baidu.tieba.im.k.d, message, e);
-        }
-    }
-
-    protected byte[] a(byte[] bArr, int i, int i2) {
-        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr, i, i2);
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        try {
-            ae.b(byteArrayInputStream, byteArrayOutputStream);
-            byteArrayOutputStream.flush();
-            return byteArrayOutputStream.toByteArray();
-        } finally {
-            com.baidu.tieba.util.o.a((OutputStream) byteArrayOutputStream);
-            com.baidu.tieba.util.o.a((InputStream) byteArrayInputStream);
-        }
-    }
-
-    protected byte[] b(byte[] bArr, int i, int i2) {
-        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr, i, i2);
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        try {
-            ae.a(byteArrayInputStream, byteArrayOutputStream);
-            byteArrayOutputStream.flush();
-            return byteArrayOutputStream.toByteArray();
-        } finally {
-            com.baidu.tieba.util.o.a((OutputStream) byteArrayOutputStream);
-            com.baidu.tieba.util.o.a((InputStream) byteArrayInputStream);
-        }
-    }
-
-    public p a(p pVar) {
-        if (pVar == null || pVar.f1524a == null || pVar.b == null) {
-            throw new IMException(com.baidu.tieba.im.k.b);
-        }
-        o oVar = pVar.f1524a;
-        if (oVar.e() == 2) {
-            if (this.c == null) {
-                throw new IMException(com.baidu.tieba.im.k.i);
+            this.a.f = com.baidu.tieba.im.messageCenter.e.a().b(202003);
+            z = this.a.f;
+            if (!z) {
+                if (TiebaApplication.h().aC()) {
+                    long currentTimeMillis = System.currentTimeMillis();
+                    j2 = this.a.l;
+                    if (currentTimeMillis - j2 > 60000) {
+                        j3 = this.a.j;
+                        if (currentTimeMillis - j3 < 180000) {
+                            i = this.a.k;
+                            if (i < 20) {
+                                a.i(this.a);
+                                StringBuilder append = new StringBuilder().append("----background pull skip. no pull count ");
+                                i2 = this.a.k;
+                                com.baidu.adp.lib.h.e.c(append.append(i2).toString());
+                                return;
+                            }
+                        }
+                    }
+                }
+                com.baidu.adp.lib.h.e.c("----real pull msg.");
+                this.a.k = 0;
+                linkedList = this.a.h;
+                linkedList.clear();
+                z2 = this.a.s;
+                if (z2) {
+                    this.a.i = "active";
+                } else {
+                    this.a.i = "passive";
+                }
+                n = this.a.n();
+                this.a.h = new LinkedList();
+                for (String str2 : concurrentHashMap.keySet()) {
+                    ImMessageCenterPojo imMessageCenterPojo3 = concurrentHashMap.get(str2);
+                    if (imMessageCenterPojo3.getIs_delete() == 0) {
+                        long c = ai.c(imMessageCenterPojo3.getPulled_msgId());
+                        com.baidu.adp.lib.h.e.d("see online1 see pull1:" + imMessageCenterPojo3.getGid() + "lastMsgId:" + c);
+                        if (c != 0) {
+                            GroupMidData groupMidData = new GroupMidData();
+                            groupMidData.setGroupId(Integer.parseInt(imMessageCenterPojo3.getGid()));
+                            groupMidData.setLastMsgId(c);
+                            com.baidu.adp.lib.h.e.d("see online1 see pull2:" + groupMidData.getGroupId() + " mid:" + c);
+                            linkedList4 = this.a.h;
+                            linkedList4.add(groupMidData);
+                        }
+                    }
+                }
+                List<GroupMidData> g = n.g();
+                linkedList2 = this.a.h;
+                g.addAll(linkedList2);
+                this.a.g = System.currentTimeMillis();
+                StringBuilder sb = new StringBuilder((int) BdWebPoolView.DELAYED_TIME);
+                linkedList3 = this.a.h;
+                Iterator it = linkedList3.iterator();
+                while (it.hasNext()) {
+                    GroupMidData groupMidData2 = (GroupMidData) it.next();
+                    sb.append(groupMidData2.getGroupId());
+                    sb.append("-");
+                    sb.append(groupMidData2.getLastMsgId());
+                    sb.append("|");
+                }
+                com.baidu.adp.lib.h.e.a("pull msg======" + ((Object) sb));
+                str = this.a.i;
+                com.baidu.tieba.log.a.b(i.a(202003, 0, str, "MessageSync-send-pullmsg", "succ", 0, "", 0L, 0, sb.toString()));
+                com.baidu.tieba.im.messageCenter.e.a().a(n);
             }
-            try {
-                pVar.b = com.baidu.tieba.im.e.e.a(this.c, pVar.b, pVar.c, pVar.d);
-                pVar.c = 0;
-                pVar.d = pVar.b.length;
-            } catch (Exception e) {
-                throw new IMException(com.baidu.tieba.im.k.k);
-            }
-        } else if (oVar.e() != 1) {
-            throw new IMException(com.baidu.tieba.im.k.b);
-        }
-        if (oVar.c() == 2) {
-            try {
-                pVar.b = a(pVar.b, pVar.c, pVar.d);
-                pVar.c = 0;
-                pVar.d = pVar.b.length;
-            } catch (Exception e2) {
-                throw new IMException(com.baidu.tieba.im.k.h, e2);
-            }
-        }
-        return pVar;
-    }
-
-    public p a(byte[] bArr) {
-        int a2 = o.a();
-        if (bArr == null || bArr.length < a2) {
-            throw new IMException(com.baidu.tieba.im.k.b);
-        }
-        o a3 = o.a(bArr);
-        if (a3 == null) {
-            throw new IMException(com.baidu.tieba.im.k.b);
-        }
-        p pVar = new p();
-        pVar.f1524a = a3;
-        pVar.b = bArr;
-        pVar.c = a2;
-        pVar.d = bArr.length - a2;
-        return pVar;
-    }
-
-    public List<Message> a(int i, boolean z, byte[] bArr, int i2, int i3) {
-        b bVar = this.f1518a.get(Integer.valueOf(i));
-        if (bVar == null) {
-            throw new IMException(com.baidu.tieba.im.k.c);
-        }
-        try {
-            return bVar.a(bArr, z, i2, i3);
-        } catch (Exception e) {
-            throw new IMException(com.baidu.tieba.im.k.e, e);
-        }
-    }
-
-    public void a(int i, int i2, n<?> nVar) {
-        b bVar = this.f1518a.get(Integer.valueOf(i2));
-        if (bVar != null) {
-            bVar.a(i, nVar);
-        } else if (TiebaApplication.h().b()) {
-            throw new RuntimeException("unknown packtype:" + i2);
         }
     }
 }

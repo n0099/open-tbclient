@@ -6,18 +6,16 @@ import android.widget.ImageView;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 class r implements com.baidu.adp.lib.guide.b {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ p f2559a;
+    final /* synthetic */ p a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(p pVar) {
-        this.f2559a = pVar;
+        this.a = pVar;
     }
 
     @Override // com.baidu.adp.lib.guide.b
     public View a(LayoutInflater layoutInflater) {
-        ImageView imageView = new ImageView(this.f2559a.f2557a);
+        ImageView imageView = new ImageView(this.a.a);
         imageView.setBackgroundResource(R.drawable.lead_metadata);
         return imageView;
     }

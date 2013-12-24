@@ -10,9 +10,7 @@ import android.util.Log;
 import com.baidu.zeus.Headers;
 /* loaded from: classes.dex */
 public class CoordinateManager {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static final String f846a = CoordinateManager.class.getSimpleName();
+    private static final String a = CoordinateManager.class.getSimpleName();
     private static CoordinateManager f;
     private LocationManager b;
     private Location c;
@@ -102,7 +100,7 @@ public class CoordinateManager {
                     illegalArgumentException = e;
                     z = false;
                     z2 = true;
-                    Log.e(f846a, illegalArgumentException.getMessage());
+                    Log.e(a, illegalArgumentException.getMessage());
                     if (!a(location2)) {
                     }
                     return location2;
@@ -139,7 +137,7 @@ public class CoordinateManager {
                     boolean z7 = z3;
                     location2 = lastKnownLocation;
                     z2 = z7;
-                    Log.e(f846a, illegalArgumentException.getMessage());
+                    Log.e(a, illegalArgumentException.getMessage());
                     if (!a(location2)) {
                     }
                     return location2;

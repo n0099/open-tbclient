@@ -3,38 +3,35 @@ package com.baidu.tieba.flist;
 import android.content.Intent;
 import android.os.Bundle;
 import com.baidu.gson.GsonBuilder;
-import com.baidu.tieba.util.am;
-import com.tencent.mm.sdk.platformtools.LocaleUtil;
+import com.baidu.tieba.util.an;
 /* loaded from: classes.dex */
 public class ai extends com.baidu.adp.a.d {
-
-    /* renamed from: a */
-    private String f1296a;
+    private String a;
     private ak b = null;
     private String c;
 
     public ai(Bundle bundle) {
-        this.f1296a = null;
+        this.a = null;
         this.c = null;
-        this.f1296a = bundle.getString(LocaleUtil.INDONESIAN);
+        this.a = bundle.getString("id");
         this.c = bundle.getString("st_type");
     }
 
     public ai(Intent intent) {
-        this.f1296a = null;
+        this.a = null;
         this.c = null;
-        this.f1296a = intent.getStringExtra(LocaleUtil.INDONESIAN);
+        this.a = intent.getStringExtra("id");
         this.c = intent.getStringExtra("st_type");
     }
 
     public void a(Bundle bundle) {
-        bundle.putString(LocaleUtil.INDONESIAN, this.f1296a);
+        bundle.putString("id", this.a);
         bundle.putString("st_type", this.c);
     }
 
     @Override // com.baidu.adp.a.d
     public boolean LoadData() {
-        if (this.f1296a == null) {
+        if (this.a == null) {
             return false;
         }
         if (this.b == null) {
@@ -54,9 +51,9 @@ public class ai extends com.baidu.adp.a.d {
     }
 
     public ForumRankData a() {
-        am amVar = new am(com.baidu.tieba.data.h.f1248a + "c/f/forum/forumsquarelist");
-        amVar.a("list_id", this.f1296a);
-        amVar.a("st_type", this.c);
-        return (ForumRankData) new GsonBuilder().create().fromJson(amVar.l(), (Class<Object>) ForumRankData.class);
+        an anVar = new an(com.baidu.tieba.data.h.a + "c/f/forum/forumsquarelist");
+        anVar.a("list_id", this.a);
+        anVar.a("st_type", this.c);
+        return (ForumRankData) new GsonBuilder().create().fromJson(anVar.l(), (Class<Object>) ForumRankData.class);
     }
 }

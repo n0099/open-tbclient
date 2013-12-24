@@ -40,7 +40,7 @@ public class TbImageView extends com.baidu.adp.widget.ImageView.a {
         this.j = com.baidu.tbadk.c.pic_image_h_not;
         this.k = com.baidu.tbadk.c.pic_image_h_not_1;
         this.m = true;
-        d();
+        e();
     }
 
     public TbImageView(Context context, AttributeSet attributeSet) {
@@ -53,7 +53,7 @@ public class TbImageView extends com.baidu.adp.widget.ImageView.a {
         this.j = com.baidu.tbadk.c.pic_image_h_not;
         this.k = com.baidu.tbadk.c.pic_image_h_not_1;
         this.m = true;
-        d();
+        e();
     }
 
     public TbImageView(Context context, AttributeSet attributeSet, int i) {
@@ -66,7 +66,7 @@ public class TbImageView extends com.baidu.adp.widget.ImageView.a {
         this.j = com.baidu.tbadk.c.pic_image_h_not;
         this.k = com.baidu.tbadk.c.pic_image_h_not_1;
         this.m = true;
-        d();
+        e();
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.baidu.tbadk.d.TbImageView);
         this.m = obtainStyledAttributes.getBoolean(0, true);
         obtainStyledAttributes.recycle();
@@ -94,7 +94,7 @@ public class TbImageView extends com.baidu.adp.widget.ImageView.a {
         this.f = str;
     }
 
-    private void d() {
+    private void e() {
         if (c == null) {
             c = BitmapFactory.decodeResource(getResources(), com.baidu.tbadk.c.icon_gif);
         }
@@ -106,7 +106,7 @@ public class TbImageView extends com.baidu.adp.widget.ImageView.a {
         }
     }
 
-    private void e() {
+    private void f() {
         if (e == 1) {
             super.setDefaultResource(this.k);
         } else {
@@ -120,22 +120,22 @@ public class TbImageView extends com.baidu.adp.widget.ImageView.a {
         if (this.k == 0) {
             this.k = this.j;
         }
-        e();
+        f();
     }
 
     public void setNightDefaultResource(int i) {
         this.k = i;
-        e();
+        f();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.widget.ImageView, android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        b();
+        c();
     }
 
-    public void b() {
+    public void c() {
         if (getAnimation() != null) {
             setAnimation(null);
         }
@@ -175,11 +175,11 @@ public class TbImageView extends com.baidu.adp.widget.ImageView.a {
     public void onDraw(Canvas canvas) {
         if (this.i != e) {
             this.i = e;
-            e();
+            f();
             if (e == 1) {
                 super.setColorFilterForSkin(b);
             } else {
-                super.a();
+                super.b();
             }
         }
         super.onDraw(canvas);
@@ -204,7 +204,7 @@ public class TbImageView extends com.baidu.adp.widget.ImageView.a {
         return this.o;
     }
 
-    public boolean c() {
+    public boolean d() {
         return getImage() != null;
     }
 }

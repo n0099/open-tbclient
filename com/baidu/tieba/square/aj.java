@@ -14,9 +14,7 @@ import com.baidu.tieba.forumdetail.ForumDetailData;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class aj extends LinearLayout {
-
-    /* renamed from: a  reason: collision with root package name */
-    private Context f2480a;
+    private Context a;
     private FrameLayout b;
     private TextView c;
     private TextView d;
@@ -33,7 +31,7 @@ public class aj extends LinearLayout {
 
     public aj(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f2480a = null;
+        this.a = null;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -43,7 +41,7 @@ public class aj extends LinearLayout {
         this.h = null;
         this.i = null;
         this.j = null;
-        this.f2480a = context;
+        this.a = context;
         ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(R.layout.posts_recommend_layout, (ViewGroup) this, true);
         this.b = (FrameLayout) findViewById(R.id.post_recommend_title);
         this.c = (TextView) findViewById(R.id.post_recommend_title_txt);
@@ -74,7 +72,7 @@ public class aj extends LinearLayout {
             this.j = threadInfoArr;
         }
         setVisibility(0);
-        this.g = new HotThreadPagerAdapter(this.f2480a, this.j);
+        this.g = new HotThreadPagerAdapter(this.a, this.j);
         this.e.setAdapter(this.g);
         this.e.a(this.j.length > 1 ? 1 : 0, false);
         this.e.setOnPageChangeListener(new al(this, null));
@@ -94,21 +92,21 @@ public class aj extends LinearLayout {
             i2 = R.drawable.icon_jingxuantie_n_1;
             i3 = R.drawable.icon_jingxuantie_s_1;
             this.b.setBackgroundResource(R.color.square_header_background_1);
-            this.c.setTextColor(this.f2480a.getResources().getColor(R.color.square_header_title_1));
-            this.d.setTextColor(this.f2480a.getResources().getColor(R.color.square_post_recommend_title_all_1));
+            this.c.setTextColor(this.a.getResources().getColor(R.color.square_header_title_1));
+            this.d.setTextColor(this.a.getResources().getColor(R.color.square_post_recommend_title_all_1));
             this.e.setBackgroundResource(R.color.square_list_middle_bg_n_1);
-            this.h.setBackgroundColor(this.f2480a.getResources().getColor(R.color.square_dividing_line_1));
-            this.i.setBackgroundColor(this.f2480a.getResources().getColor(R.color.square_dividing_line_1));
+            this.h.setBackgroundColor(this.a.getResources().getColor(R.color.square_dividing_line_1));
+            this.i.setBackgroundColor(this.a.getResources().getColor(R.color.square_dividing_line_1));
         } else {
             this.b.setBackgroundResource(R.color.square_header_background);
-            this.c.setTextColor(this.f2480a.getResources().getColor(R.color.square_header_title));
-            this.d.setTextColor(this.f2480a.getResources().getColor(R.color.square_post_recommend_title_all));
+            this.c.setTextColor(this.a.getResources().getColor(R.color.square_header_title));
+            this.d.setTextColor(this.a.getResources().getColor(R.color.square_post_recommend_title_all));
             this.e.setBackgroundResource(R.color.square_list_middle_bg_n);
-            this.h.setBackgroundColor(this.f2480a.getResources().getColor(R.color.square_dividing_line));
-            this.i.setBackgroundColor(this.f2480a.getResources().getColor(R.color.square_dividing_line));
+            this.h.setBackgroundColor(this.a.getResources().getColor(R.color.square_dividing_line));
+            this.i.setBackgroundColor(this.a.getResources().getColor(R.color.square_dividing_line));
         }
-        this.f.setDrawable(this.f2480a.getResources().getDrawable(i2));
-        this.f.setSelector(this.f2480a.getResources().getDrawable(i3));
+        this.f.setDrawable(this.a.getResources().getDrawable(i2));
+        this.f.setSelector(this.a.getResources().getDrawable(i3));
         if (this.g != null) {
             this.g.notifyDataSetChanged();
         }

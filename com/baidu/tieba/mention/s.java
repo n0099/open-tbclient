@@ -4,23 +4,20 @@ import android.app.Activity;
 import android.content.Context;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tieba.data.AntiData;
-import com.baidu.tieba.data.an;
 import com.baidu.tieba.data.ar;
 import com.baidu.tieba.data.av;
-import com.baidu.tieba.model.cg;
-import com.baidu.tieba.util.am;
-import com.baidu.tieba.util.bd;
+import com.baidu.tieba.model.cf;
+import com.baidu.tieba.util.an;
+import com.baidu.tieba.util.be;
 import com.baidu.tieba.write.WriteActivity;
 import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s extends BdAsyncTask<Object, Integer, String> {
-
-    /* renamed from: a  reason: collision with root package name */
-    ArrayList<BasicNameValuePair> f1965a;
+    ArrayList<BasicNameValuePair> a;
     final /* synthetic */ j b;
-    private am c = null;
+    private an c = null;
     private String d;
     private String e;
     private int f;
@@ -29,9 +26,9 @@ public class s extends BdAsyncTask<Object, Integer, String> {
         this.b = jVar;
         this.d = null;
         this.e = null;
-        this.f1965a = null;
+        this.a = null;
         this.d = str;
-        this.f1965a = arrayList;
+        this.a = arrayList;
         this.f = i;
         this.e = str2;
     }
@@ -48,11 +45,11 @@ public class s extends BdAsyncTask<Object, Integer, String> {
     /* renamed from: d */
     public String a(Object... objArr) {
         try {
-            this.c = new am(this.d);
-            this.c.a(this.f1965a);
+            this.c = new an(this.d);
+            this.c.a(this.a);
             return this.c.l();
         } catch (Exception e) {
-            bd.b("PostAsyncTask", "doInBackground", "error = " + e.getMessage());
+            be.b("PostAsyncTask", "doInBackground", "error = " + e.getMessage());
             return null;
         }
     }
@@ -68,7 +65,7 @@ public class s extends BdAsyncTask<Object, Integer, String> {
         try {
             if (this.c != null && this.c.c()) {
                 if (this.f == 1) {
-                    an anVar = new an();
+                    com.baidu.tieba.data.an anVar = new com.baidu.tieba.data.an();
                     anVar.b(str);
                     ar arVar = anVar.e().get(0);
                     if (arVar != null) {
@@ -80,15 +77,15 @@ public class s extends BdAsyncTask<Object, Integer, String> {
                 }
                 if (this.f == 2) {
                     activity2 = this.b.c;
-                    av a2 = new cg(activity2, str).a();
-                    String id = a2.h().getId();
-                    String name = a2.h().getName();
-                    String a3 = a2.m().a();
-                    AntiData i = a2.i();
-                    String d = a2.a().d();
-                    int e = a2.a().e();
+                    av a = new cf(activity2, str).a();
+                    String id = a.h().getId();
+                    String name = a.h().getName();
+                    String a2 = a.m().a();
+                    AntiData i = a.i();
+                    String d = a.a().d();
+                    int e = a.a().e();
                     activity3 = this.b.c;
-                    WriteActivity.a(activity3, id, name, a3, d, e, this.e, i, true);
+                    WriteActivity.a(activity3, id, name, a2, d, e, this.e, i, true);
                 }
             } else if (this.c != null) {
                 activity = this.b.c;

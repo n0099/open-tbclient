@@ -50,7 +50,7 @@ public class bt extends b {
 
     @Override // defpackage.b
     protected Intent c() {
-        String clientId = SocialConfig.getInstance(this.f395a).getClientId(MediaType.QZONE);
+        String clientId = SocialConfig.getInstance(this.a).getClientId(MediaType.QZONE);
         Bundle bundle = new Bundle();
         bundle.putString("need_pay", SocialConstants.TRUE);
         bundle.putString(MobileQQ.PARAM_PF, MobileQQ.DEFAULT_PF);
@@ -76,7 +76,7 @@ public class bt extends b {
 
     @Override // defpackage.cb
     public void f() {
-        if (!SocialConfig.getInstance(this.f395a).getSsoMediaTypes().contains(MediaType.QZONE)) {
+        if (!SocialConfig.getInstance(this.a).getSsoMediaTypes().contains(MediaType.QZONE)) {
             g();
         } else if (b()) {
         } else {

@@ -20,7 +20,7 @@ import com.baidu.tieba.util.UtilHelper;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class j extends com.baidu.adp.a.a {
-    private com.baidu.tieba.util.q customToast;
+    private com.baidu.tieba.util.r customToast;
     private c mLayoutInflateFactory;
     private e mLayoutMode;
     private ProgressBar mProgressBar;
@@ -35,7 +35,7 @@ public class j extends com.baidu.adp.a.a {
     @Override // com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         this.mStaticTime = System.currentTimeMillis();
-        this.customToast = com.baidu.tieba.util.q.a();
+        this.customToast = com.baidu.tieba.util.r.a();
         super.onCreate(bundle);
         this.mLayoutMode = new e();
         this.mLayoutInflateFactory = new c();
@@ -44,14 +44,14 @@ public class j extends com.baidu.adp.a.a {
         if (getGpuSwitch()) {
             CompatibleUtile.getInstance().openGpu(this);
         }
-        com.baidu.tieba.account.a.a().c();
+        com.baidu.tieba.account.l.a().c();
         TiebaApplication.v(true);
         TiebaApplication.h().a(getClass().getName());
         if (TiebaApplication.h().t()) {
             try {
                 StatService.setAppChannel(com.baidu.tieba.data.h.a());
             } catch (Exception e) {
-                com.baidu.tieba.util.bd.b(getClass().getName(), "onCreate", e.getMessage());
+                com.baidu.tieba.util.be.b(getClass().getName(), "onCreate", e.getMessage());
             }
         }
     }
@@ -165,7 +165,7 @@ public class j extends com.baidu.adp.a.a {
                     this.mWaitingDialog.dismiss();
                 }
             } catch (Exception e) {
-                com.baidu.tieba.util.bd.b(getClass().getName(), "closeLoadingDialog", e.getMessage());
+                com.baidu.tieba.util.be.b(getClass().getName(), "closeLoadingDialog", e.getMessage());
             }
             this.mWaitingDialog = null;
         }
@@ -225,7 +225,7 @@ public class j extends com.baidu.adp.a.a {
         try {
             inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 2);
         } catch (Exception e) {
-            com.baidu.tieba.util.bd.b(getClass().getName(), "HidenSoftKeyPad", "error = " + e.getMessage());
+            com.baidu.tieba.util.be.b(getClass().getName(), "HidenSoftKeyPad", "error = " + e.getMessage());
         }
     }
 
@@ -285,7 +285,7 @@ public class j extends com.baidu.adp.a.a {
             try {
                 StatService.onPause(this);
             } catch (Exception e) {
-                com.baidu.tieba.util.bd.b(getClass().getName(), "onPause", e.getMessage());
+                com.baidu.tieba.util.be.b(getClass().getName(), "onPause", e.getMessage());
             }
         }
     }
@@ -308,7 +308,7 @@ public class j extends com.baidu.adp.a.a {
             try {
                 StatService.onResume(this);
             } catch (Exception e) {
-                com.baidu.tieba.util.bd.b(getClass().getName(), "onResume", e.getMessage());
+                com.baidu.tieba.util.be.b(getClass().getName(), "onResume", e.getMessage());
             }
         }
         TiebaApplication.h().aA();
@@ -323,7 +323,7 @@ public class j extends com.baidu.adp.a.a {
                     str = "op_frs_enter";
                 }
                 if (str != null) {
-                    com.baidu.tieba.util.be.a(str, this.mStaticTime, 0L);
+                    com.baidu.tieba.util.bf.a(str, this.mStaticTime, 0L);
                 }
             }
             this.mStaticTime = -1L;

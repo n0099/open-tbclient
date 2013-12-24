@@ -10,9 +10,7 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class PersonPostThreadModel extends com.baidu.adp.a.d implements Serializable {
     public static final int PAGE_SIZE = 20;
-
-    /* renamed from: a  reason: collision with root package name */
-    private static int f2363a = 0;
+    private static int a = 0;
     private static String b = "";
     public static h sFetchThreadAsyncTask;
     @SerializedName("post_list")
@@ -58,7 +56,7 @@ public class PersonPostThreadModel extends com.baidu.adp.a.d implements Serializ
         public String user_portrait = "";
         @SerializedName("abstract")
         public Abs[] abs = new Abs[0];
-        @SerializedName("content")
+        @SerializedName(PushConstants.EXTRA_CONTENT)
         public String content = "";
         @SerializedName("quote")
         public Quote quote = new Quote();
@@ -116,7 +114,7 @@ public class PersonPostThreadModel extends com.baidu.adp.a.d implements Serializ
         public long user_id = 0;
         @SerializedName("ip")
         public long ip = 0;
-        @SerializedName("content")
+        @SerializedName(PushConstants.EXTRA_CONTENT)
         public String content = "";
 
         public String toString() {
@@ -160,10 +158,10 @@ public class PersonPostThreadModel extends com.baidu.adp.a.d implements Serializ
 
     public static void fetchThread(g gVar, boolean z, String str) {
         if (z || !str.equals(b)) {
-            f2363a = 1;
+            a = 1;
             b = str;
         } else {
-            f2363a++;
+            a++;
         }
         if (sFetchThreadAsyncTask != null && sFetchThreadAsyncTask.getStatus() != BdAsyncTask.BdAsyncTaskStatus.FINISHED) {
             sFetchThreadAsyncTask.cancel();

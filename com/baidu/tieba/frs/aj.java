@@ -6,9 +6,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 class aj {
-
-    /* renamed from: a  reason: collision with root package name */
-    FrameLayout f1366a;
+    FrameLayout a;
     LinearLayout b;
     TextView c;
     ProgressBar d;

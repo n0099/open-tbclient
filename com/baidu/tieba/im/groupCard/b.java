@@ -10,21 +10,19 @@ import com.baidu.tieba.util.i;
 public class b extends com.baidu.adp.a.d {
     private static Long f = 0L;
     private static final Long g = 300000L;
-
-    /* renamed from: a  reason: collision with root package name */
-    private long f1731a;
+    private long a;
     private GroupCardActivity b;
     private i c = null;
     private c d = null;
-    private String e = h.f1248a + "c/p/groupShareImg?group_id=";
+    private String e = h.a + "c/p/groupShareImg?group_id=";
 
     public static void a() {
         f = 0L;
     }
 
     public b(long j, GroupCardActivity groupCardActivity) {
-        this.f1731a = j;
-        this.e += this.f1731a;
+        this.a = j;
+        this.e += this.a;
         this.e += "&w=" + LocalViewSize.a().b();
         this.b = groupCardActivity;
     }

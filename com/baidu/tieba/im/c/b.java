@@ -1,44 +1,21 @@
 package com.baidu.tieba.im.c;
 
-import com.baidu.tieba.im.message.Message;
-import com.baidu.tieba.im.message.ResponseQueryGroupCountMessage;
-import com.baidu.tieba.im.messageCenter.g;
+import com.baidu.tieba.im.db.ag;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b implements g {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f1528a;
+public final class b implements com.baidu.tieba.im.a<Boolean> {
+    final /* synthetic */ ImMessageCenterPojo a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public b(a aVar) {
-        this.f1528a = aVar;
+    public b(ImMessageCenterPojo imMessageCenterPojo) {
+        this.a = imMessageCenterPojo;
     }
 
-    @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(Message message) {
-        e eVar;
-        e eVar2;
-        int i;
-        int i2;
-        if (message instanceof ResponseQueryGroupCountMessage) {
-            ResponseQueryGroupCountMessage responseQueryGroupCountMessage = (ResponseQueryGroupCountMessage) message;
-            if (!responseQueryGroupCountMessage.hasError()) {
-                this.f1528a.c = responseQueryGroupCountMessage.getUserGroupCount();
-                this.f1528a.d = responseQueryGroupCountMessage.getLocalGroupCount();
-                if (message.getCmd() == 103011) {
-                    a.f1527a = false;
-                } else if (message.getCmd() == -114) {
-                    this.f1528a.a();
-                }
-                eVar = this.f1528a.e;
-                if (eVar != null) {
-                    eVar2 = this.f1528a.e;
-                    i = this.f1528a.c;
-                    i2 = this.f1528a.d;
-                    eVar2.a(i, i2);
-                }
-            }
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.a
+    public void a(Boolean bool) {
+        ag.a().a(this.a);
+        com.baidu.tieba.im.b.a.b().h();
     }
 }

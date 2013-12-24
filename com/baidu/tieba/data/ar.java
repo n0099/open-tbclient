@@ -6,23 +6,21 @@ import android.graphics.drawable.BitmapDrawable;
 import android.text.ClipboardManager;
 import android.text.SpannableString;
 import android.text.style.ImageSpan;
+import com.baidu.android.pushservice.PushConstants;
 import com.baidu.tbadk.imageManager.TbFaceManager;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.slidingmenu.lib.R;
-import com.tencent.mm.sdk.platformtools.LocaleUtil;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class ar implements com.baidu.tieba.util.ak {
+public class ar implements com.baidu.tieba.util.al {
     private String e;
     private ArrayList<ar> j;
     private com.baidu.tbadk.widget.richText.a k = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    private String f1225a = null;
+    private String a = null;
     private String b = null;
     private int c = 0;
     private long d = 0;
@@ -49,7 +47,7 @@ public class ar implements com.baidu.tieba.util.ak {
     }
 
     public String d() {
-        return this.f1225a;
+        return this.a;
     }
 
     public int e() {
@@ -86,9 +84,9 @@ public class ar implements com.baidu.tieba.util.ak {
             as asVar = new as(this, context, str, str2);
             if (z) {
                 int b = com.baidu.adp.lib.h.g.b(context, 12.0f);
-                Bitmap a2 = com.baidu.tieba.util.m.a((int) R.drawable.icon_floorhost);
-                int width = (a2.getWidth() * b) / a2.getHeight();
-                BitmapDrawable bitmapDrawable = new BitmapDrawable(a2);
+                Bitmap a = com.baidu.tieba.util.m.a((int) R.drawable.icon_floorhost);
+                int width = (a.getWidth() * b) / a.getHeight();
+                BitmapDrawable bitmapDrawable = new BitmapDrawable(a);
                 bitmapDrawable.setBounds(0, 0, width, b);
                 ImageSpan imageSpan = new ImageSpan(bitmapDrawable, 1);
                 if (this.f != null) {
@@ -98,9 +96,9 @@ public class ar implements com.baidu.tieba.util.ak {
                 }
             }
             spannableString.setSpan(asVar, 0, length, 18);
-            ArrayList<com.baidu.tbadk.widget.richText.c> a3 = this.k.a();
-            if (a3 != null && a3.size() > 0) {
-                com.baidu.tbadk.widget.richText.c cVar = a3.get(0);
+            ArrayList<com.baidu.tbadk.widget.richText.c> a2 = this.k.a();
+            if (a2 != null && a2.size() > 0) {
+                com.baidu.tbadk.widget.richText.c cVar = a2.get(0);
                 if (cVar.d() != null) {
                     cVar.d().insert(0, (CharSequence) spannableString);
                     return;
@@ -109,17 +107,17 @@ public class ar implements com.baidu.tieba.util.ak {
                 cVar2.a(spannableString);
                 int i = 0;
                 while (true) {
-                    if (i >= a3.size()) {
+                    if (i >= a2.size()) {
                         break;
-                    } else if (a3.get(i).a() != 512) {
+                    } else if (a2.get(i).a() != 512) {
                         i++;
                     } else {
-                        cVar2.a(a3.get(i).e());
-                        a3.remove(i);
+                        cVar2.a(a2.get(i).e());
+                        a2.remove(i);
                         break;
                     }
                 }
-                a3.add(0, cVar2);
+                a2.add(0, cVar2);
             }
         }
     }
@@ -137,7 +135,7 @@ public class ar implements com.baidu.tieba.util.ak {
     }
 
     public void a(Context context) {
-        int a2;
+        int a;
         int i;
         int i2;
         if (this.g != null) {
@@ -147,7 +145,7 @@ public class ar implements com.baidu.tieba.util.ak {
                 try {
                     i3 = this.h.get(size - 1).a();
                 } catch (Exception e) {
-                    com.baidu.tieba.util.bd.b("PostData", "uniteContentExcepFace", "error = " + e.getMessage());
+                    com.baidu.tieba.util.be.b("PostData", "uniteContentExcepFace", "error = " + e.getMessage());
                     return;
                 }
             }
@@ -162,15 +160,15 @@ public class ar implements com.baidu.tieba.util.ak {
                 } else {
                     if (jVar.a() == 3 || jVar.a() == 2) {
                         this.h.add(jVar);
-                        a2 = jVar.a();
+                        a = jVar.a();
                     } else {
                         j jVar2 = new j();
                         jVar2.a(0);
                         jVar2.a(jVar.a(context));
                         this.h.add(jVar2);
-                        a2 = 0;
+                        a = 0;
                     }
-                    i = a2;
+                    i = a;
                     i2 = size + 1;
                 }
                 i4++;
@@ -191,7 +189,7 @@ public class ar implements com.baidu.tieba.util.ak {
                 try {
                     i4 = this.h.get(size - 1).a();
                 } catch (Exception e) {
-                    com.baidu.tieba.util.bd.b("PostData", "uniteContent", "error = " + e.getMessage());
+                    com.baidu.tieba.util.be.b("PostData", "uniteContent", "error = " + e.getMessage());
                     return;
                 }
             }
@@ -231,7 +229,7 @@ public class ar implements com.baidu.tieba.util.ak {
                 ClipboardManager clipboardManager = (ClipboardManager) context.getSystemService("clipboard");
                 clipboardManager.setText(this.k.toString());
                 if (clipboardManager.getText() != null) {
-                    com.baidu.tieba.util.bd.e(getClass().getName(), "clip_text", clipboardManager.getText().toString());
+                    com.baidu.tieba.util.be.e(getClass().getName(), "clip_text", clipboardManager.getText().toString());
                     return;
                 }
                 return;
@@ -262,11 +260,11 @@ public class ar implements com.baidu.tieba.util.ak {
                 ClipboardManager clipboardManager2 = (ClipboardManager) context.getSystemService("clipboard");
                 clipboardManager2.setText(sb.toString());
                 if (clipboardManager2.getText() != null) {
-                    com.baidu.tieba.util.bd.e("PbActivity", "clip_text", clipboardManager2.getText().toString());
+                    com.baidu.tieba.util.be.e("PbActivity", "clip_text", clipboardManager2.getText().toString());
                 }
             }
         } catch (NullPointerException e) {
-            com.baidu.tieba.util.bd.b("PostData", "setClipString", e.getMessage());
+            com.baidu.tieba.util.be.b("PostData", "setClipString", e.getMessage());
         }
     }
 
@@ -277,13 +275,13 @@ public class ar implements com.baidu.tieba.util.ak {
     public void a(JSONObject jSONObject, Context context) {
         if (jSONObject != null) {
             try {
-                this.f1225a = jSONObject.optString(LocaleUtil.INDONESIAN);
+                this.a = jSONObject.optString("id");
                 this.b = jSONObject.optString("title");
                 this.c = jSONObject.optInt("floor", 0);
                 this.d = jSONObject.optLong("time", 0L) * 1000;
                 this.e = jSONObject.optString("time_ex");
                 this.f.parserJson(jSONObject.optJSONObject("author"));
-                JSONArray optJSONArray = jSONObject.optJSONArray("content");
+                JSONArray optJSONArray = jSONObject.optJSONArray(PushConstants.EXTRA_CONTENT);
                 this.i = jSONObject.optInt("sub_post_number");
                 if (context == null) {
                     if (optJSONArray != null) {
@@ -305,20 +303,20 @@ public class ar implements com.baidu.tieba.util.ak {
                     }
                 }
             } catch (Exception e) {
-                com.baidu.tieba.util.bd.b("PostData", "parserJson", "error = " + e.getMessage());
+                com.baidu.tieba.util.be.b("PostData", "parserJson", "error = " + e.getMessage());
             }
         }
     }
 
-    @Override // com.baidu.tieba.util.ak
+    @Override // com.baidu.tieba.util.al
     public LinkedList<String> getImageUrl() {
         if (this.k == null) {
             return null;
         }
         LinkedList<String> linkedList = new LinkedList<>();
-        ArrayList<com.baidu.tbadk.widget.richText.c> a2 = this.k.a();
-        if (a2 != null) {
-            Iterator<com.baidu.tbadk.widget.richText.c> it = a2.iterator();
+        ArrayList<com.baidu.tbadk.widget.richText.c> a = this.k.a();
+        if (a != null) {
+            Iterator<com.baidu.tbadk.widget.richText.c> it = a.iterator();
             while (it.hasNext()) {
                 com.baidu.tbadk.widget.richText.c next = it.next();
                 if (next.a() == 8) {
@@ -331,12 +329,12 @@ public class ar implements com.baidu.tieba.util.ak {
     }
 
     public String k() {
-        ArrayList<com.baidu.tbadk.widget.richText.c> a2;
-        if (this.k == null || (a2 = this.k.a()) == null) {
+        ArrayList<com.baidu.tbadk.widget.richText.c> a;
+        if (this.k == null || (a = this.k.a()) == null) {
             return null;
         }
         StringBuffer stringBuffer = new StringBuffer();
-        Iterator<com.baidu.tbadk.widget.richText.c> it = a2.iterator();
+        Iterator<com.baidu.tbadk.widget.richText.c> it = a.iterator();
         while (it.hasNext()) {
             com.baidu.tbadk.widget.richText.c next = it.next();
             if (next.a() == 1) {
@@ -346,7 +344,7 @@ public class ar implements com.baidu.tieba.util.ak {
         return stringBuffer.toString();
     }
 
-    @Override // com.baidu.tieba.util.ak
+    @Override // com.baidu.tieba.util.al
     public LinkedList<String> getPhotoUrl() {
         if (this.f == null) {
             return null;
@@ -362,7 +360,7 @@ public class ar implements com.baidu.tieba.util.ak {
         return linkedList;
     }
 
-    @Override // com.baidu.tieba.util.ak
+    @Override // com.baidu.tieba.util.al
     public LinkedList<String> getForumPhotoUrl() {
         return null;
     }

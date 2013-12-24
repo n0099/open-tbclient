@@ -10,16 +10,14 @@ import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements View.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Handler f2276a;
+    final /* synthetic */ Handler a;
     final /* synthetic */ Runnable b;
     final /* synthetic */ ImagePbActivity c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(ImagePbActivity imagePbActivity, Handler handler, Runnable runnable) {
         this.c = imagePbActivity;
-        this.f2276a = handler;
+        this.a = handler;
         this.b = runnable;
     }
 
@@ -51,7 +49,7 @@ public class m implements View.OnClickListener {
         ImagePbActivity imagePbActivity2 = this.c;
         editText = this.c.l;
         com.baidu.adp.lib.h.g.a(imagePbActivity2, editText);
-        this.f2276a.postDelayed(this.b, 200L);
+        this.a.postDelayed(this.b, 200L);
         button = this.c.n;
         button.setBackgroundResource(R.drawable.sub_pb_keyboard);
     }

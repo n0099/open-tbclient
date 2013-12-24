@@ -1,23 +1,29 @@
 package com.baidu.tieba;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.compatible.CompatibleUtile;
+import com.baidu.tieba.view.BaseViewPager;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class aa implements View.OnClickListener {
+class aa implements com.baidu.tieba.view.a {
+    final /* synthetic */ GuideActivity a;
 
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FragmentTabWidget f1027a;
-    private final int b;
-
-    private aa(FragmentTabWidget fragmentTabWidget, int i) {
-        this.f1027a = fragmentTabWidget;
-        this.b = i;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public aa(GuideActivity guideActivity) {
+        this.a = guideActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        z zVar;
-        zVar = this.f1027a.b;
-        zVar.a(this.b, true);
+    @Override // com.baidu.tieba.view.a
+    public void a(int i) {
+        BaseViewPager baseViewPager;
+        BaseViewPager baseViewPager2;
+        if (i == 0) {
+            baseViewPager = this.a.i;
+            if (baseViewPager != null) {
+                baseViewPager2 = this.a.i;
+                baseViewPager2.setOnScrollOutListener(null);
+            }
+            this.a.a();
+            CompatibleUtile.setAnim(this.a, 0, R.anim.left);
+        }
     }
 }

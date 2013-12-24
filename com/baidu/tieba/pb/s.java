@@ -5,13 +5,11 @@ import android.widget.LinearLayout;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 class s implements com.baidu.tieba.view.aq {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ImagePbActivity f2282a;
+    final /* synthetic */ ImagePbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(ImagePbActivity imagePbActivity) {
-        this.f2282a = imagePbActivity;
+        this.a = imagePbActivity;
     }
 
     @Override // com.baidu.tieba.view.aq
@@ -19,10 +17,10 @@ class s implements com.baidu.tieba.view.aq {
         LinearLayout linearLayout;
         Button button;
         if (i == -2) {
-            linearLayout = this.f2282a.q;
+            linearLayout = this.a.q;
             linearLayout.setVisibility(8);
-            this.f2282a.r.setVisibility(0);
-            button = this.f2282a.n;
+            this.a.r.setVisibility(0);
+            button = this.a.n;
             button.setBackgroundResource(R.drawable.sub_pb_face);
         }
     }

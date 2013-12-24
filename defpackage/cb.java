@@ -11,15 +11,13 @@ import java.util.Random;
 /* renamed from: cb  reason: default package */
 /* loaded from: classes.dex */
 public class cb {
-
-    /* renamed from: a  reason: collision with root package name */
-    protected SocialOAuthActivity f395a;
+    protected SocialOAuthActivity a;
     protected String b;
     protected String c;
     protected IBaiduListener d;
 
     public cb(SocialOAuthActivity socialOAuthActivity, String str, String str2, IBaiduListener iBaiduListener) {
-        this.f395a = socialOAuthActivity;
+        this.a = socialOAuthActivity;
         this.b = str;
         this.c = str2;
         this.d = iBaiduListener;
@@ -51,7 +49,7 @@ public class cb {
         requestParams.put(SocialConstants.PARAM_SECURE, SocialConstants.TRUE);
         String b = b();
         requestParams.put(SocialConstants.PARAM_STATE, b);
-        SocialOAuthStatisticsManager.getInstance(this.f395a).setCommonParams(requestParams);
-        new bw(this.f395a, "https://openapi.baidu.com/social/oauth/2.0/authorize?" + requestParams.getQueryString(), b, this.d).show();
+        SocialOAuthStatisticsManager.getInstance(this.a).setCommonParams(requestParams);
+        new bw(this.a, "https://openapi.baidu.com/social/oauth/2.0/authorize?" + requestParams.getQueryString(), b, this.d).show();
     }
 }

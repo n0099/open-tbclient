@@ -1,51 +1,59 @@
 package com.baidu.tieba.im.model;
 
-import com.baidu.gson.Gson;
-import com.baidu.tieba.im.data.VoiceMsgData;
-import com.baidu.tieba.im.message.ChatMessage;
-import org.apache.http.message.BasicNameValuePair;
+import android.graphics.Bitmap;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tieba.im.model.LocalPicModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class k extends com.baidu.adp.a.g {
+public class k extends BdAsyncTask<Object, Integer, LocalPicModel.ResponseData> {
+    final /* synthetic */ LocalPicModel a;
 
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MsglistModel f1820a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public k(MsglistModel msglistModel) {
-        this.f1820a = msglistModel;
+    private k(LocalPicModel localPicModel) {
+        this.a = localPicModel;
     }
 
-    @Override // com.baidu.adp.a.g
-    public void a(Object obj) {
-        BasicNameValuePair basicNameValuePair;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: d */
+    public LocalPicModel.ResponseData a(Object... objArr) {
         String str;
-        ChatMessage a2;
-        if (obj != null && (obj instanceof BasicNameValuePair) && (basicNameValuePair = (BasicNameValuePair) obj) != null && basicNameValuePair.getName() != null && basicNameValuePair.getName().length() > 0) {
-            String name = basicNameValuePair.getName();
-            String value = basicNameValuePair.getValue();
-            com.baidu.adp.lib.h.e.c("----send voice suc, vid : " + value);
-            try {
-                a2 = this.f1820a.a(Long.parseLong(name));
-                if (a2 != null) {
-                    if (value != null && value.length() > 0) {
-                        VoiceMsgData e = com.baidu.tieba.im.e.d.e(a2);
-                        if (e != null) {
-                            e.setVoice_md5(value);
-                            a2.setContent("[" + new Gson().toJson(e) + "]");
-                        }
-                        com.baidu.tieba.log.a.b(com.baidu.tieba.log.i.a(a2.getCmd(), 0, "", "", "upload voice http suc vid = " + value, 0, "upload voice http success ", System.currentTimeMillis() - a2.getLogTime()));
-                        com.baidu.tieba.im.chat.a.b().a(a2);
-                        return;
-                    }
-                    com.baidu.tieba.log.a.b(com.baidu.tieba.log.i.a(a2.getCmd(), 0, "", "", "", -1, "upload voice http fail", System.currentTimeMillis() - a2.getLogTime()));
-                    this.f1820a.c(a2);
-                    com.baidu.tieba.im.db.d.a().a(a2.getGroupId(), String.valueOf(a2.getRecordId()), String.valueOf(a2.getMsgId()), 2, new l(this));
-                }
-            } catch (Exception e2) {
-                str = MsglistModel.b;
-                com.baidu.adp.lib.h.e.b(str, "BdLoadDataCallBack", e2.getMessage());
-            }
+        String str2;
+        String str3;
+        String str4;
+        String str5 = "im_" + String.valueOf(System.currentTimeMillis());
+        str = this.a.mSPath;
+        str2 = this.a.mSName;
+        String a = com.baidu.tieba.util.y.a(str, str2, com.baidu.tieba.im.j.c, str5 + "_send");
+        String str6 = str5 + "_display";
+        str3 = this.a.mDPath;
+        str4 = this.a.mDName;
+        String a2 = com.baidu.tieba.util.y.a(str3, str4, com.baidu.tieba.im.j.c, str6);
+        Bitmap c = com.baidu.tieba.util.y.c(com.baidu.tieba.im.j.c, str6);
+        if (a == null || a2 == null || c == null) {
+            return null;
+        }
+        return new LocalPicModel.ResponseData(c, a, a2);
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        super.cancel(true);
+        this.a.mImageTask = null;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(LocalPicModel.ResponseData responseData) {
+        com.baidu.adp.a.g gVar;
+        com.baidu.adp.a.g gVar2;
+        super.a((k) responseData);
+        this.a.mImageTask = null;
+        gVar = this.a.mLoadDataCallBack;
+        if (gVar != null) {
+            gVar2 = this.a.mLoadDataCallBack;
+            gVar2.a(responseData);
         }
     }
 }

@@ -1,32 +1,29 @@
 package com.baidu.tieba.im.messageCenter;
 
 import com.baidu.tieba.im.SingleRunnable;
-import com.baidu.tieba.im.message.Message;
-import com.baidu.tieba.im.message.ResponsedMessage;
+import com.baidu.tieba.im.message.bz;
 /* loaded from: classes.dex */
-public abstract class d extends SingleRunnable<ResponsedMessage> {
+public abstract class d extends SingleRunnable<bz> {
+    private com.baidu.tieba.im.message.n a = null;
 
-    /* renamed from: a  reason: collision with root package name */
-    private Message f1795a = null;
+    public abstract bz a(com.baidu.tieba.im.message.n nVar);
 
-    public abstract ResponsedMessage a(Message message);
-
-    public Message a() {
-        return this.f1795a;
+    public com.baidu.tieba.im.message.n a() {
+        return this.a;
     }
 
-    public void b(Message message) {
-        this.f1795a = message;
+    public void b(com.baidu.tieba.im.message.n nVar) {
+        this.a = nVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.SingleRunnable
     /* renamed from: c */
-    public ResponsedMessage b() {
-        ResponsedMessage a2 = a(a());
-        if (a2 != null) {
-            a2.setOrginalMessage(this.f1795a);
+    public bz b() {
+        bz a = a(a());
+        if (a != null) {
+            a.a(this.a);
         }
-        return a2;
+        return a;
     }
 }

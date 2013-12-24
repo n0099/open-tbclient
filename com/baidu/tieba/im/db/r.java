@@ -1,5 +1,6 @@
 package com.baidu.tieba.im.db;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -8,20 +9,20 @@ import android.database.sqlite.SQLiteStatement;
 import android.text.TextUtils;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.bd;
+import com.baidu.tieba.util.be;
 import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class r extends SQLiteOpenHelper {
     public r(Context context, String str) {
-        super(context, str, (SQLiteDatabase.CursorFactory) null, 3);
+        super(context, str, (SQLiteDatabase.CursorFactory) null, 4);
     }
 
     private void a(SQLiteDatabase sQLiteDatabase, String str) {
         try {
             sQLiteDatabase.execSQL(str);
         } catch (Exception e) {
-            bd.a(3, getClass().getName(), "ExecSQL", str);
+            be.a(3, getClass().getName(), "ExecSQL", str);
         }
     }
 
@@ -35,9 +36,12 @@ public class r extends SQLiteOpenHelper {
         a(sQLiteDatabase, "CREATE TABLE IF NOT EXISTS tb_group_news(notice_id TEXT NOT NULL UNIQUE, cmd TEXT, gid TEXT, time long, content TEXT, content_status int, ext TEXT);");
         com.baidu.adp.lib.h.e.d("CREATE TABLE IF NOT EXISTS tb_message_center(gid TEXT NOT NULL UNIQUE, group_name TEXT, group_head TEXT, group_type int, group_ext TEXT, unread_count int, last_msgId TEXT, last_user_name TEXT, last_content_time long, orderCol TEXT, last_content TEXT, type int, ext TEXT,is_hidden int,is_delete int);");
         a(sQLiteDatabase, "CREATE TABLE IF NOT EXISTS tb_message_center(gid TEXT NOT NULL UNIQUE, group_name TEXT, group_head TEXT, group_type int, group_ext TEXT, unread_count int, last_msgId TEXT, last_user_name TEXT, last_content_time long, orderCol TEXT, last_content TEXT, type int, ext TEXT,is_hidden int,is_delete int);");
+        com.baidu.adp.lib.h.e.d("CREATE TABLE IF NOT EXISTS tb_personal_id(personal_gid int);");
+        a(sQLiteDatabase, "CREATE TABLE IF NOT EXISTS tb_personal_id(personal_gid int);");
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
+    @SuppressLint({"Override"})
     public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
         try {
             TiebaApplication.h().deleteDatabase(TiebaApplication.B() + ".db");
@@ -52,8 +56,9 @@ public class r extends SQLiteOpenHelper {
         switch (i) {
             case 1:
                 try {
-                    d(sQLiteDatabase);
+                    e(sQLiteDatabase);
                     b(sQLiteDatabase);
+                    c(sQLiteDatabase);
                     return;
                 } catch (Exception e) {
                     com.baidu.adp.lib.h.e.a("im数据库升级失败， 删除数据库。 重新建立数据库");
@@ -63,6 +68,10 @@ public class r extends SQLiteOpenHelper {
                 }
             case 2:
                 b(sQLiteDatabase);
+                c(sQLiteDatabase);
+                return;
+            case 3:
+                c(sQLiteDatabase);
                 return;
             default:
                 return;
@@ -71,15 +80,15 @@ public class r extends SQLiteOpenHelper {
 
     private void b(SQLiteDatabase sQLiteDatabase) {
         if (sQLiteDatabase != null) {
-            LinkedList<String> c = c(sQLiteDatabase);
+            LinkedList<String> d = d(sQLiteDatabase);
             try {
                 sQLiteDatabase.beginTransaction();
-                Iterator<String> it = c.iterator();
+                Iterator<String> it = d.iterator();
                 while (it.hasNext()) {
                     String next = it.next();
                     if (TextUtils.isEmpty(next)) {
                         com.baidu.adp.lib.h.e.a("gid is null");
-                    } else if (next.startsWith(d.f1666a)) {
+                    } else if (next.startsWith("tb_group_msg_")) {
                         try {
                             sQLiteDatabase.execSQL("ALTER TABLE " + next + " ADD rid BIGINT;");
                             sQLiteDatabase.execSQL("ALTER TABLE " + next + " ADD is_delete int default 0;");
@@ -98,7 +107,22 @@ public class r extends SQLiteOpenHelper {
         }
     }
 
-    private LinkedList<String> c(SQLiteDatabase sQLiteDatabase) {
+    private void c(SQLiteDatabase sQLiteDatabase) {
+        try {
+        } catch (Exception e) {
+            com.baidu.adp.lib.h.e.a(e.toString());
+        } finally {
+            sQLiteDatabase.endTransaction();
+        }
+        if (sQLiteDatabase != null) {
+            sQLiteDatabase.beginTransaction();
+            com.baidu.adp.lib.h.e.d("CREATE TABLE IF NOT EXISTS tb_personal_id(personal_gid int);");
+            a(sQLiteDatabase, "CREATE TABLE IF NOT EXISTS tb_personal_id(personal_gid int);");
+            sQLiteDatabase.setTransactionSuccessful();
+        }
+    }
+
+    private LinkedList<String> d(SQLiteDatabase sQLiteDatabase) {
         Cursor cursor = null;
         LinkedList<String> linkedList = new LinkedList<>();
         try {
@@ -119,17 +143,17 @@ public class r extends SQLiteOpenHelper {
         return linkedList;
     }
 
-    private void d(SQLiteDatabase sQLiteDatabase) {
+    private void e(SQLiteDatabase sQLiteDatabase) {
         if (sQLiteDatabase != null) {
-            LinkedList<String> c = c(sQLiteDatabase);
+            LinkedList<String> d = d(sQLiteDatabase);
             try {
                 sQLiteDatabase.beginTransaction();
-                Iterator<String> it = c.iterator();
+                Iterator<String> it = d.iterator();
                 while (it.hasNext()) {
                     String next = it.next();
                     if (TextUtils.isEmpty(next)) {
                         com.baidu.adp.lib.h.e.a("gid is null");
-                    } else if (next.startsWith(d.f1666a)) {
+                    } else if (next.startsWith("tb_group_msg_")) {
                         try {
                             sQLiteDatabase.execSQL("ALTER TABLE " + next + " ADD read_flag int default 0;");
                         } catch (Exception e) {
@@ -154,10 +178,10 @@ public class r extends SQLiteOpenHelper {
     }
 
     public static SQLiteStatement a(String str) {
-        SQLiteDatabase a2 = s.a();
-        if (a2 == null) {
+        SQLiteDatabase a = s.a();
+        if (a == null) {
             return null;
         }
-        return a2.compileStatement(str);
+        return a.compileStatement(str);
     }
 }

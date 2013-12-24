@@ -1,9 +1,7 @@
 package com.baidu.adp.lib.webSocket;
 /* loaded from: classes.dex */
 public class am {
-
-    /* renamed from: a  reason: collision with root package name */
-    private int f531a;
+    private int a;
     private int b;
     private boolean c;
     private boolean d;
@@ -15,7 +13,7 @@ public class am {
 
     public am() {
         this.i = null;
-        this.f531a = 131072;
+        this.a = 131072;
         this.b = 131072;
         this.c = false;
         this.d = true;
@@ -28,7 +26,7 @@ public class am {
 
     public am(am amVar) {
         this.i = null;
-        this.f531a = amVar.f531a;
+        this.a = amVar.a;
         this.b = amVar.b;
         this.c = amVar.c;
         this.d = amVar.d;
@@ -44,7 +42,7 @@ public class am {
     }
 
     public int b() {
-        return this.f531a;
+        return this.a;
     }
 
     public int c() {

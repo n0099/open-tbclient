@@ -30,9 +30,7 @@ import org.json.JSONObject;
 /* renamed from: bw  reason: default package */
 /* loaded from: classes.dex */
 public class bw extends Dialog {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static final String f389a = bw.class.getSimpleName();
+    private static final String a = bw.class.getSimpleName();
     private static final ViewGroup.LayoutParams b = new ViewGroup.LayoutParams(-1, -1);
     private Context c;
     private String d;
@@ -82,7 +80,7 @@ public class bw extends Dialog {
                 return true;
             }
             if (Build.DEBUG) {
-                Log.d(f389a, "scheme: " + parse.toString());
+                Log.d(a, "scheme: " + parse.toString());
             }
             return false;
         }

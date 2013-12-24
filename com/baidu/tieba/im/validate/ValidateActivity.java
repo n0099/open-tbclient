@@ -8,14 +8,12 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.AbsListView;
 import com.baidu.adp.widget.ListView.r;
-import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tieba.data.chat.RecentChatFriendData;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
-import com.baidu.tieba.im.groupInfo.RequestAddGroupUserMessage;
-import com.baidu.tieba.im.groupInfo.RequestDelSystemMessage;
-import com.baidu.tieba.im.groupInfo.ResponseDelSystemMessage;
-import com.baidu.tieba.im.message.Message;
-import com.baidu.tieba.im.message.ResponsedMessage;
+import com.baidu.tieba.im.groupInfo.ae;
+import com.baidu.tieba.im.groupInfo.af;
+import com.baidu.tieba.im.groupInfo.ai;
+import com.baidu.tieba.im.message.bz;
 import com.baidu.tieba.mention.t;
 import com.baidu.tieba.person.PersonInfoActivity;
 import com.baidu.tieba.util.UtilHelper;
@@ -23,10 +21,8 @@ import com.slidingmenu.lib.R;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
-public class ValidateActivity extends com.baidu.tieba.j implements AbsListView.OnScrollListener, r, com.baidu.tieba.im.messageCenter.g, com.baidu.tieba.im.pushNotify.k {
-
-    /* renamed from: a  reason: collision with root package name */
-    public static boolean f1894a = false;
+public class ValidateActivity extends com.baidu.tieba.j implements AbsListView.OnScrollListener, r, com.baidu.tieba.im.c.l, com.baidu.tieba.im.messageCenter.g {
+    public static boolean a = false;
     private n b;
     private com.baidu.tieba.im.a<LinkedList<GroupNewsPojo>> c;
     private com.baidu.tieba.im.a<Boolean> d;
@@ -67,7 +63,7 @@ public class ValidateActivity extends com.baidu.tieba.j implements AbsListView.O
     @Override // android.app.Activity
     protected void onRestart() {
         super.onRestart();
-        f1894a = true;
+        a = true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -80,7 +76,7 @@ public class ValidateActivity extends com.baidu.tieba.j implements AbsListView.O
     @Override // android.app.Activity
     protected void onStart() {
         super.onStart();
-        f1894a = true;
+        a = true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -88,7 +84,7 @@ public class ValidateActivity extends com.baidu.tieba.j implements AbsListView.O
     public void onStop() {
         f g;
         super.onStop();
-        f1894a = false;
+        a = false;
         if (this.b != null && (g = this.b.g()) != null) {
             l.a(g.b());
         }
@@ -106,7 +102,7 @@ public class ValidateActivity extends com.baidu.tieba.j implements AbsListView.O
         this.n = new c(this);
         com.baidu.tieba.im.messageCenter.e.a().a(103111, this);
         com.baidu.tieba.im.messageCenter.e.a().a(202004, this);
-        com.baidu.tieba.im.pushNotify.l.a().a("apply_join_group", this);
+        com.baidu.tieba.im.c.m.a().a("apply_join_group", this);
         this.b.a(true);
         l.a(this.n);
     }
@@ -116,7 +112,7 @@ public class ValidateActivity extends com.baidu.tieba.j implements AbsListView.O
     public void onDestroy() {
         super.onDestroy();
         com.baidu.tieba.im.messageCenter.e.a().a(this);
-        com.baidu.tieba.im.pushNotify.l.a().a(this);
+        com.baidu.tieba.im.c.m.a().a(this);
         if (this.b != null) {
             this.b.c();
         }
@@ -139,7 +135,7 @@ public class ValidateActivity extends com.baidu.tieba.j implements AbsListView.O
         }
     }
 
-    @Override // com.baidu.tieba.im.pushNotify.k
+    @Override // com.baidu.tieba.im.c.l
     public void a(GroupNewsPojo groupNewsPojo) {
         if (groupNewsPojo != null) {
             this.l++;
@@ -191,24 +187,26 @@ public class ValidateActivity extends com.baidu.tieba.j implements AbsListView.O
         } else if (validateItemData != null && !validateItemData.isPass() && !this.i) {
             try {
                 validateItemData.setShown(true);
-                RecentChatFriendData l = com.baidu.tieba.im.pushNotify.a.h().l();
+                RecentChatFriendData l = com.baidu.tieba.im.c.a.h().l();
                 l.setUnReadCount(l.getUnReadCount() - 1);
-                com.baidu.tieba.im.pushNotify.a.h().a(l.getUnReadCount());
+                com.baidu.tieba.im.c.a.h().a(l.getUnReadCount());
                 l.a(this.d, validateItemData);
                 this.b.a(true);
-                RequestAddGroupUserMessage requestAddGroupUserMessage = new RequestAddGroupUserMessage();
-                requestAddGroupUserMessage.setUserIds(validateItemData.getUserId());
-                requestAddGroupUserMessage.setGroupId(Long.parseLong(validateItemData.getGroupId()));
-                requestAddGroupUserMessage.setNotice_id(validateItemData.getNotice_id());
+                ae aeVar = new ae();
+                aeVar.a(validateItemData.getInviterUserId());
+                aeVar.a(validateItemData.getJoinType());
+                aeVar.a(validateItemData.getUserId());
+                aeVar.b(com.baidu.adp.lib.f.b.a(validateItemData.getGroupId(), 0));
+                aeVar.b(validateItemData.getNotice_id());
                 String notice_id = validateItemData.getNotice_id();
-                String d = com.baidu.tieba.im.pushNotify.l.a().d();
+                String d = com.baidu.tieba.im.c.m.a().d();
                 if (!TextUtils.isEmpty(notice_id) && !TextUtils.isEmpty(d) && TextUtils.isDigitsOnly(notice_id) && TextUtils.isDigitsOnly(d)) {
-                    requestAddGroupUserMessage.setSysGroupId(d);
-                    requestAddGroupUserMessage.setSysMsgId(String.valueOf(Long.parseLong(notice_id) / 100));
-                    requestAddGroupUserMessage.setDecision(SocialConstants.TRUE);
-                    com.baidu.adp.lib.h.e.d("pass apply: userid:" + requestAddGroupUserMessage.getUserIds() + "  groupId:" + requestAddGroupUserMessage.getGroupId() + " sysGid" + d + " mid:" + requestAddGroupUserMessage.getSysMsgId());
+                    aeVar.c(com.baidu.adp.lib.f.b.a(d, 0));
+                    aeVar.c(String.valueOf(com.baidu.adp.lib.f.b.a(notice_id, 0L) / 100));
+                    aeVar.d(1);
+                    com.baidu.adp.lib.h.e.d("pass apply: userid:" + aeVar.e() + "  groupId:" + aeVar.d() + " sysGid" + d + " mid:" + aeVar.h());
                     this.i = true;
-                    com.baidu.tieba.im.messageCenter.e.a().a(requestAddGroupUserMessage);
+                    com.baidu.tieba.im.messageCenter.e.a().a(aeVar);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -222,75 +220,75 @@ public class ValidateActivity extends com.baidu.tieba.j implements AbsListView.O
             showToast(R.string.neterror);
         } else if (validateItemData != null) {
             this.b.a(true);
-            RequestDelSystemMessage requestDelSystemMessage = new RequestDelSystemMessage();
-            requestDelSystemMessage.setGroupId(Long.parseLong(com.baidu.tieba.im.pushNotify.l.a().d()));
-            requestDelSystemMessage.setMsgIds("" + (Long.parseLong(validateItemData.getNotice_id()) / 100));
-            com.baidu.adp.lib.h.e.d("del group info request: gid" + validateItemData.getGroupId() + " msgid:" + validateItemData.getNotice_id() + " systemGid:" + requestDelSystemMessage.getGroupId());
+            af afVar = new af();
+            afVar.a(Integer.parseInt(com.baidu.tieba.im.c.m.a().d()));
+            afVar.a("" + (Long.parseLong(validateItemData.getNotice_id()) / 100));
+            com.baidu.adp.lib.h.e.d("del group info request: gid" + validateItemData.getGroupId() + " msgid:" + validateItemData.getNotice_id() + " systemGid:" + afVar.b());
             this.i = true;
-            com.baidu.tieba.im.messageCenter.e.a().a(requestDelSystemMessage);
+            com.baidu.tieba.im.messageCenter.e.a().a(afVar);
         }
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(Message message) {
+    public void a(com.baidu.tieba.im.message.n nVar) {
         this.b.a(false);
         this.i = false;
-        if (message != null && (message instanceof ResponsedMessage)) {
-            int cmd = message.getCmd();
-            if (cmd == 103111) {
-                ResponsedMessage responsedMessage = (ResponsedMessage) message;
-                RequestAddGroupUserMessage requestAddGroupUserMessage = (RequestAddGroupUserMessage) responsedMessage.getOrginalMessage();
-                if (responsedMessage.hasError()) {
-                    if (requestAddGroupUserMessage != null) {
-                        int errNo = responsedMessage.getErrNo();
-                        String errMsg = responsedMessage.getErrMsg();
-                        if (TextUtils.isEmpty(errMsg)) {
+        if (nVar != null && (nVar instanceof bz)) {
+            int t = nVar.t();
+            if (t == 103111) {
+                bz bzVar = (bz) nVar;
+                ae aeVar = (ae) bzVar.l();
+                if (bzVar.i()) {
+                    if (aeVar != null) {
+                        int j = bzVar.j();
+                        String k = bzVar.k();
+                        if (TextUtils.isEmpty(k)) {
                             showToast(R.string.validate_fail);
                         } else {
-                            showToast(errMsg);
+                            showToast(k);
                         }
-                        com.baidu.adp.lib.h.e.d("errCode:" + errNo + "errMsg:" + errMsg);
-                        ValidateItemData a2 = a(requestAddGroupUserMessage.getNotice_id());
+                        com.baidu.adp.lib.h.e.d("errCode:" + j + "errMsg:" + k);
+                        ValidateItemData a2 = a(aeVar.f());
                         if (a2 != null) {
                             a2.setPass(false);
                             a2.setShown(true);
                             l.a(this.d, a2);
                             this.b.g().notifyDataSetChanged();
-                            com.baidu.adp.lib.h.e.d("apply add group" + message.toString() + "err:" + errNo + " " + errMsg);
+                            com.baidu.adp.lib.h.e.d("apply add group" + nVar.toString() + "err:" + j + " " + k);
                             return;
                         }
                         return;
                     }
                     return;
                 }
-                ValidateItemData a3 = a(requestAddGroupUserMessage.getNotice_id());
+                ValidateItemData a3 = a(aeVar.f());
                 if (a3 != null) {
                     a3.setPass(true);
                     a3.setShown(true);
                     l.a(this.d, a3);
-                    if (TextUtils.isEmpty(responsedMessage.getErrMsg())) {
+                    if (TextUtils.isEmpty(bzVar.k())) {
                         showToast(R.string.validate_succ);
                     } else {
-                        showToast(responsedMessage.getErrMsg());
+                        showToast(bzVar.k());
                     }
                     this.b.g().notifyDataSetChanged();
-                    com.baidu.adp.lib.h.e.d("apply add group" + message.toString());
+                    com.baidu.adp.lib.h.e.d("apply add group" + nVar.toString());
                 }
-            } else if (202004 == cmd) {
-                ResponseDelSystemMessage responseDelSystemMessage = (ResponseDelSystemMessage) message;
-                RequestDelSystemMessage requestDelSystemMessage = (RequestDelSystemMessage) responseDelSystemMessage.getOrginalMessage();
-                if (responseDelSystemMessage.hasError()) {
-                    com.baidu.adp.lib.h.e.a("del group info err:" + responseDelSystemMessage.getErrMsg());
+            } else if (202004 == t) {
+                ai aiVar = (ai) nVar;
+                af afVar = (af) aiVar.l();
+                if (aiVar.i()) {
+                    com.baidu.adp.lib.h.e.a("del group info err:" + aiVar.k());
                     return;
                 }
-                com.baidu.adp.lib.h.e.d("del group info: gid" + requestDelSystemMessage.getGroupId() + " msgid:" + requestDelSystemMessage.getMsgIds());
+                com.baidu.adp.lib.h.e.d("del group info: gid" + afVar.b() + " msgid:" + afVar.c());
                 l.a(this.f, this.d);
                 this.l--;
                 this.j--;
                 f g = this.b.g();
                 g.b().remove(this.f);
                 g.notifyDataSetChanged();
-                com.baidu.tieba.im.pushNotify.a.a((com.baidu.tieba.im.a<Void>) null);
+                com.baidu.tieba.im.c.a.a((com.baidu.tieba.im.a<Void>) null);
             }
         }
     }

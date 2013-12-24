@@ -9,9 +9,7 @@ import android.widget.ImageView;
 import java.io.InputStream;
 /* loaded from: classes.dex */
 public class GifView extends ImageView implements a {
-
-    /* renamed from: a  reason: collision with root package name */
-    private b f487a;
+    private b a;
     private Bitmap b;
     private boolean c;
     private boolean d;
@@ -34,19 +32,19 @@ public class GifView extends ImageView implements a {
     }
 
     private void setGifDecoderImage(byte[] bArr) {
-        if (this.f487a == null) {
-            this.f487a = new b(this);
+        if (this.a == null) {
+            this.a = new b(this);
         }
-        this.f487a.a(bArr);
-        this.f487a.start();
+        this.a.a(bArr);
+        this.a.start();
     }
 
     private void setGifDecoderImage(InputStream inputStream) {
-        if (this.f487a == null) {
-            this.f487a = new b(this);
+        if (this.a == null) {
+            this.a = new b(this);
         }
-        this.f487a.a(inputStream);
-        this.f487a.start();
+        this.a.a(inputStream);
+        this.a.start();
     }
 
     public void setAsBackground(View view) {
@@ -56,8 +54,8 @@ public class GifView extends ImageView implements a {
     @Override // android.view.View
     protected Parcelable onSaveInstanceState() {
         super.onSaveInstanceState();
-        if (this.f487a != null) {
-            this.f487a.a();
+        if (this.a != null) {
+            this.a.a();
             return null;
         }
         return null;
@@ -76,7 +74,7 @@ public class GifView extends ImageView implements a {
     }
 
     public void setGifImageType(GifImageType gifImageType) {
-        if (this.f487a == null) {
+        if (this.a == null) {
             this.g = gifImageType;
         }
     }
@@ -84,11 +82,11 @@ public class GifView extends ImageView implements a {
     @Override // com.baidu.adp.lib.gif.a
     public void a(boolean z, int i) {
         if (z) {
-            if (this.f487a != null) {
-                switch (e.f492a[this.g.ordinal()]) {
+            if (this.a != null) {
+                switch (e.a[this.g.ordinal()]) {
                     case 1:
                         if (i == -1) {
-                            if (this.f487a.b() > 1) {
+                            if (this.a.b() > 1) {
                                 new f(this, null).start();
                                 return;
                             } else {
@@ -99,11 +97,11 @@ public class GifView extends ImageView implements a {
                         return;
                     case 2:
                         if (i == 1) {
-                            this.b = this.f487a.c();
+                            this.b = this.a.c();
                             a();
                             return;
                         } else if (i == -1) {
-                            if (this.f487a.b() > 1) {
+                            if (this.a.b() > 1) {
                                 if (this.e == null) {
                                     this.e = new f(this, null);
                                     this.e.start();
@@ -118,7 +116,7 @@ public class GifView extends ImageView implements a {
                         }
                     case 3:
                         if (i == 1) {
-                            this.b = this.f487a.c();
+                            this.b = this.a.c();
                             a();
                             return;
                         } else if (i == -1) {

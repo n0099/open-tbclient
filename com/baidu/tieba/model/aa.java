@@ -8,9 +8,7 @@ public class aa extends com.baidu.adp.a.d {
     private ab e;
     private boolean c = false;
     private int f = 1;
-
-    /* renamed from: a  reason: collision with root package name */
-    protected int f1976a = 0;
+    protected int a = 0;
     protected String b = null;
     private int g = 0;
 
@@ -65,10 +63,10 @@ public class aa extends com.baidu.adp.a.d {
             return null;
         }
         com.baidu.adp.lib.cache.s<String> g = com.baidu.tieba.b.a.a().g();
-        String a2 = g != null ? g.a("home_forumfeed_" + B) : null;
-        if (a2 != null) {
+        String a = g != null ? g.a("home_forumfeed_" + B) : null;
+        if (a != null) {
             com.baidu.tieba.data.v vVar = new com.baidu.tieba.data.v();
-            vVar.a(a2);
+            vVar.a(a);
             this.d = vVar;
             return vVar;
         }
@@ -89,12 +87,12 @@ public class aa extends com.baidu.adp.a.d {
 
     @Override // com.baidu.adp.a.d
     public int getErrorCode() {
-        return this.f1976a;
+        return this.a;
     }
 
     @Override // com.baidu.adp.a.d
     public void setErrorCode(int i) {
-        this.f1976a = i;
+        this.a = i;
     }
 
     @Override // com.baidu.adp.a.d

@@ -1,79 +1,24 @@
 package com.baidu.android.nebula.cmd;
 
-import java.io.File;
-import java.io.FilenameFilter;
-import java.util.regex.Pattern;
+import android.content.Context;
+import android.content.IntentFilter;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class i implements FilenameFilter {
+public class i {
+    final /* synthetic */ ScanDownloadFile a;
 
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ h f678a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public i(h hVar) {
-        this.f678a = hVar;
+    public i(ScanDownloadFile scanDownloadFile) {
+        Context context;
+        this.a = scanDownloadFile;
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction("android.intent.action.PACKAGE_ADDED");
+        intentFilter.addAction("android.intent.action.PACKAGE_REPLACED");
+        intentFilter.addDataScheme("package");
+        context = scanDownloadFile.mContext;
+        context.registerReceiver(new j(this, scanDownloadFile), intentFilter);
     }
 
-    @Override // java.io.FilenameFilter
-    public boolean accept(File file, String str) {
-        File file2;
-        String str2;
-        File file3;
-        File file4;
-        File file5;
-        File file6;
-        File file7;
-        String str3;
-        File file8;
-        File file9;
-        File file10;
-        File file11;
-        String lowerCase = str.toLowerCase();
-        if (file.getName().startsWith(".") || lowerCase.startsWith(".") || file.getName().startsWith("image") || lowerCase.startsWith("image") || file.getName().startsWith("cache") || lowerCase.startsWith("cache") || file.getName().startsWith("thumb") || lowerCase.startsWith("thumb") || file.getName().startsWith("ting") || lowerCase.startsWith("ting")) {
-            return false;
-        }
-        this.f678a.b = new File(file, lowerCase);
-        file2 = this.f678a.f;
-        if (file2 == null) {
-            h hVar = this.f678a;
-            file11 = this.f678a.b;
-            hVar.f = file11;
-        }
-        if (file.isDirectory()) {
-            file6 = this.f678a.b;
-            if (file6.isFile()) {
-                str3 = this.f678a.e;
-                if (Pattern.compile(str3).matcher(lowerCase).find()) {
-                    file8 = this.f678a.b;
-                    long lastModified = file8.lastModified();
-                    file9 = this.f678a.f;
-                    if (lastModified >= file9.lastModified()) {
-                        h hVar2 = this.f678a;
-                        file10 = this.f678a.b;
-                        hVar2.f = file10;
-                        return true;
-                    }
-                    return true;
-                }
-            } else {
-                file7 = this.f678a.b;
-                file7.listFiles(this);
-            }
-        } else {
-            str2 = this.f678a.e;
-            if (Pattern.compile(str2).matcher(lowerCase).find()) {
-                file3 = this.f678a.b;
-                long lastModified2 = file3.lastModified();
-                file4 = this.f678a.f;
-                if (lastModified2 >= file4.lastModified()) {
-                    h hVar3 = this.f678a;
-                    file5 = this.f678a.b;
-                    hVar3.f = file5;
-                    return true;
-                }
-                return true;
-            }
-        }
-        return false;
+    public void a() {
+        new g(this.a, "http://wap.baidu.com/static/freeapp/broswer_down_path.cfg?v=1").start();
     }
 }

@@ -13,12 +13,10 @@ import org.apache.http.params.HttpParams;
 /* renamed from: a  reason: default package */
 /* loaded from: classes.dex */
 public class a implements ClientConnectionManagerFactory {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ AsyncHttpClient f260a;
+    final /* synthetic */ AsyncHttpClient a;
 
     public a(AsyncHttpClient asyncHttpClient) {
-        this.f260a = asyncHttpClient;
+        this.a = asyncHttpClient;
     }
 
     public ClientConnectionManager newInstance(HttpParams httpParams, SchemeRegistry schemeRegistry) {

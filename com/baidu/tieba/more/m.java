@@ -5,18 +5,16 @@ import com.baidu.tieba.MainTabActivity;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.AccountData;
 import com.baidu.tieba.util.DatabaseService;
-import com.baidu.tieba.util.bd;
+import com.baidu.tieba.util.be;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m extends BdAsyncTask<Object, Integer, Boolean> {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ AccountActivity f2097a;
+    final /* synthetic */ AccountActivity a;
     private AccountData b;
 
     public m(AccountActivity accountActivity, AccountData accountData) {
-        this.f2097a = accountActivity;
+        this.a = accountActivity;
         this.b = null;
         this.b = accountData;
     }
@@ -24,7 +22,7 @@ public class m extends BdAsyncTask<Object, Integer, Boolean> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void b() {
-        this.f2097a.showLoadingDialog(this.f2097a.getString(R.string.account_logining), new n(this));
+        this.a.showLoadingDialog(this.a.getString(R.string.account_logining), new n(this));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -36,9 +34,9 @@ public class m extends BdAsyncTask<Object, Integer, Boolean> {
             Thread.sleep(1000L);
             this.b.setIsActive(1);
             DatabaseService.a(this.b);
-            TiebaApplication.a(this.b, this.f2097a.getBaseContext());
+            TiebaApplication.a(this.b, this.a.getBaseContext());
         } catch (Exception e) {
-            bd.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
+            be.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
         }
         return true;
     }
@@ -48,11 +46,11 @@ public class m extends BdAsyncTask<Object, Integer, Boolean> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(Boolean bool) {
         if (this.b != null) {
-            new o(this.f2097a, this.b.getBDUSS()).start();
+            new o(this.a, this.b.getBDUSS()).start();
         }
-        this.f2097a.closeLoadingDialog();
-        MainTabActivity.b(this.f2097a, 1);
-        com.baidu.tieba.account.a.a().b();
-        this.f2097a.g = null;
+        this.a.closeLoadingDialog();
+        MainTabActivity.b(this.a, 1);
+        com.baidu.tieba.account.l.a().b();
+        this.a.g = null;
     }
 }

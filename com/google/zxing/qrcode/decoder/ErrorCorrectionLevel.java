@@ -7,11 +7,9 @@ public enum ErrorCorrectionLevel {
     H(2);
     
     private final int bits;
+    private static final ErrorCorrectionLevel[] FOR_BITS = {M, L, H, Q};
 
-    /* renamed from: a  reason: collision with root package name */
-    private static final ErrorCorrectionLevel[] f2877a = {M, L, H, Q};
-
-    /* JADX DEBUG: Replace access to removed values field (b) with 'values()' method */
+    /* JADX DEBUG: Replace access to removed values field (ENUM$VALUES) with 'values()' method */
     /* renamed from: values  reason: to resolve conflict with enum method */
     public static ErrorCorrectionLevel[] valuesCustom() {
         ErrorCorrectionLevel[] valuesCustom = values();
@@ -30,9 +28,9 @@ public enum ErrorCorrectionLevel {
     }
 
     public static ErrorCorrectionLevel forBits(int i) {
-        if (i < 0 || i >= f2877a.length) {
+        if (i < 0 || i >= FOR_BITS.length) {
             throw new IllegalArgumentException();
         }
-        return f2877a[i];
+        return FOR_BITS[i];
     }
 }

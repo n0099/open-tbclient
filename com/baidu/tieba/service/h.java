@@ -1,20 +1,18 @@
 package com.baidu.tieba.service;
 
 import cn.jingling.lib.file.Shared;
-import com.baidu.tieba.util.bd;
-import com.baidu.tieba.util.x;
+import com.baidu.tieba.util.be;
+import com.baidu.tieba.util.y;
 import java.io.File;
 import java.io.FileWriter;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements Runnable {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PerformMonitorService f2446a;
+    final /* synthetic */ PerformMonitorService a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(PerformMonitorService performMonitorService) {
-        this.f2446a = performMonitorService;
+        this.a = performMonitorService;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:51:0x0003 */
@@ -36,9 +34,9 @@ public class h implements Runnable {
         FileWriter fileWriter = null;
         fileWriter = null;
         try {
-            File g = x.g("performance_sample.log");
+            File g = y.g("performance_sample.log");
             if (g == null || g.length() > 51200) {
-                this.f2446a.b();
+                this.a.b();
             } else {
                 FileWriter fileWriter2 = new FileWriter(g, true);
                 int i5 = Shared.INFINITY;
@@ -49,15 +47,15 @@ public class h implements Runnable {
                     while (z && i4 < 10) {
                         Thread.sleep(1000L);
                         int i8 = i4 + 1;
-                        int a2 = com.baidu.adp.lib.debug.b.a();
-                        if (a2 > 0) {
-                            int i9 = i7 + a2;
-                            int i10 = i5 < a2 ? i5 : a2;
-                            if (i6 > a2) {
-                                a2 = i10;
+                        int a = com.baidu.adp.lib.debug.b.a();
+                        if (a > 0) {
+                            int i9 = i7 + a;
+                            int i10 = i5 < a ? i5 : a;
+                            if (i6 > a) {
+                                a = i10;
                             }
                             i2 = i10;
-                            i3 = a2;
+                            i3 = a;
                             i = i9;
                         } else {
                             i = i7;
@@ -85,7 +83,7 @@ public class h implements Runnable {
                     fileWriter2.append((CharSequence) ("gc:time=" + String.valueOf(currentTimeMillis2) + "\ngc=" + d + "\n"));
                     fileWriter2.flush();
                     fileWriter2.close();
-                    r0 = this.f2446a.h;
+                    r0 = this.a.h;
                     ?? iVar = new i(this);
                     r0.post(iVar);
                     fileWriter = iVar;
@@ -96,11 +94,11 @@ public class h implements Runnable {
                         try {
                             fileWriter.close();
                         } catch (Exception e) {
-                            bd.b(getClass().getName(), "sampleRunnable", th.toString());
+                            be.b(getClass().getName(), "sampleRunnable", th.toString());
                         }
                     }
-                    bd.b(getClass().getName(), "sampleRunnable", th.toString());
-                    this.f2446a.stopSelf();
+                    be.b(getClass().getName(), "sampleRunnable", th.toString());
+                    this.a.stopSelf();
                 }
             }
         } catch (Throwable th2) {

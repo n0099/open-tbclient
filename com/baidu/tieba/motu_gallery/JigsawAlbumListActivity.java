@@ -22,9 +22,7 @@ public class JigsawAlbumListActivity extends com.baidu.tieba.j implements AbsLis
     private static volatile int k = 0;
     private static boolean q = false;
     private static boolean r = true;
-
-    /* renamed from: a  reason: collision with root package name */
-    u f2111a;
+    u a;
     r b;
     q c;
     private GridView i;
@@ -47,7 +45,7 @@ public class JigsawAlbumListActivity extends com.baidu.tieba.j implements AbsLis
     @Override // android.app.Activity
     protected void onStart() {
         super.onStart();
-        if (a() || this.f2111a.b() == 0) {
+        if (a() || this.a.b() == 0) {
             q = false;
             finish();
         }
@@ -64,7 +62,7 @@ public class JigsawAlbumListActivity extends com.baidu.tieba.j implements AbsLis
         this.o = (TextView) findViewById(R.id.jigsaw_selected_text);
         this.e = (int) getResources().getDimension(R.dimen.onedip);
         this.d = (i - (this.e * 16)) / 3;
-        this.f2111a = u.a();
+        this.a = u.a();
         this.b = new r(this, this);
         this.i = (GridView) findViewById(R.id.jigsaw_grid);
         this.i.setAdapter((ListAdapter) this.b);
@@ -74,7 +72,7 @@ public class JigsawAlbumListActivity extends com.baidu.tieba.j implements AbsLis
         ((Button) this.l.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.widget_nb_item_textbtn, new n(this))).setText(R.string.jigsaw_start);
         this.m = (LinearLayout) findViewById(R.id.selected_ll);
         this.n = (HorizontalScrollView) findViewById(R.id.hsv);
-        this.l.a(this.f2111a.d());
+        this.l.a(this.a.d());
     }
 
     @Override // com.baidu.tieba.j, android.app.Activity
@@ -86,7 +84,7 @@ public class JigsawAlbumListActivity extends com.baidu.tieba.j implements AbsLis
         Thread thread = new Thread(this.c);
         thread.setDaemon(true);
         thread.start();
-        this.o.setText(this.f2111a.e(this));
+        this.o.setText(this.a.e(this));
         d();
     }
 
@@ -103,7 +101,7 @@ public class JigsawAlbumListActivity extends com.baidu.tieba.j implements AbsLis
 
     private void d() {
         this.m.removeAllViews();
-        for (Uri uri : this.f2111a.c(this)) {
+        for (Uri uri : this.a.c(this)) {
             w wVar = new w(this);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams((int) getResources().getDimension(R.dimen.jigsawSelectedWidth), (int) getResources().getDimension(R.dimen.jigsawSelectedHeight));
             layoutParams.setMargins(0, 0, 0, 0);
@@ -125,12 +123,12 @@ public class JigsawAlbumListActivity extends com.baidu.tieba.j implements AbsLis
                     this.m.removeView(childAt);
                 }
             }
-            int a2 = this.f2111a.a(uri);
-            if (a2 >= 0 && (aVar = (a) this.h.get((Object) Integer.valueOf(a2))) != null) {
+            int a = this.a.a(uri);
+            if (a >= 0 && (aVar = (a) this.h.get((Object) Integer.valueOf(a))) != null) {
                 aVar.setIsSelected(false);
             }
-            this.f2111a.b(this, uri);
-            this.o.setText(this.f2111a.e(this));
+            this.a.b(this, uri);
+            this.o.setText(this.a.e(this));
         }
     }
 
@@ -160,7 +158,7 @@ public class JigsawAlbumListActivity extends com.baidu.tieba.j implements AbsLis
     }
 
     private void e() {
-        int b = j + 20 > this.f2111a.b() ? this.f2111a.b() - j : 20;
+        int b = j + 20 > this.a.b() ? this.a.b() - j : 20;
         if (this.h.size() != 0) {
             for (int i = j; i < j + b; i++) {
                 if (this.h.containsKey(Integer.valueOf(i))) {

@@ -2,9 +2,8 @@ package com.baidu.tieba.im.messageCenter;
 
 import com.baidu.mobstat.StatService;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.im.exception.IMException;
-import com.baidu.tieba.im.message.Message;
-import com.baidu.tieba.im.message.ResponsedMessage;
+import com.baidu.tieba.im.coder.CoderException;
+import com.baidu.tieba.im.message.bz;
 import com.baidu.tieba.im.net.TiebaSocketLinkService;
 import com.baidu.tieba.util.UtilHelper;
 import com.slidingmenu.lib.R;
@@ -14,28 +13,31 @@ import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements com.baidu.tieba.im.net.a {
-
-    /* renamed from: a  reason: collision with root package name */
-    private com.baidu.tieba.im.a<m> f1798a;
+    private com.baidu.tieba.im.a<m> a;
     private e e;
     private LinkedList<p> b = new LinkedList<>();
     private LinkedList<p> c = new LinkedList<>();
     private LinkedList<p> d = new LinkedList<>();
     private com.baidu.tieba.im.net.a f = null;
     private boolean g = true;
+    private boolean h = false;
+
+    public void a(boolean z) {
+        this.h = z;
+    }
 
     public i(e eVar) {
-        this.f1798a = null;
+        this.a = null;
         this.e = null;
         this.e = eVar;
         TiebaSocketLinkService.a(this);
-        this.f1798a = new j(this);
+        this.a = new j(this);
     }
 
-    public boolean a(Message message) {
-        if (message != null && (message instanceof c)) {
-            c cVar = (c) message;
-            if (h.a(this.c, cVar, message.getCmd()) || h.a(this.b, cVar, message.getCmd()) || h.a(this.d, cVar, message.getCmd())) {
+    public boolean a(com.baidu.tieba.im.message.n nVar) {
+        if (nVar != null && (nVar instanceof c)) {
+            c cVar = (c) nVar;
+            if (h.a(this.c, cVar, nVar.t()) || h.a(this.b, cVar, nVar.t()) || h.a(this.d, cVar, nVar.t())) {
                 return true;
             }
         }
@@ -46,38 +48,43 @@ public class i implements com.baidu.tieba.im.net.a {
         return h.a(this.c, i) || h.a(this.b, i) || h.a(this.d, i);
     }
 
-    public void a(Message message, boolean z, int i, int i2, int i3, boolean z2) {
+    public void a(com.baidu.tieba.im.message.n nVar, boolean z, int i, boolean z2, int i2, boolean z3) {
         com.baidu.adp.lib.h.g.a();
-        if (message != null) {
-            if (c(message)) {
-                com.baidu.tieba.log.a.b(com.baidu.tieba.log.i.a(message.getCmd(), 0, "duplicate remove", "MessageQueue: Message throwed", null, 0, null));
+        if (nVar != null) {
+            if (c(nVar)) {
+                com.baidu.tieba.log.a.b(com.baidu.tieba.log.i.a(nVar.t(), 0, "duplicate remove", "MessageQueue: Message throwed", null, 0, null));
                 return;
             }
-            p pVar = new p(message, z, i, i2, this, i3, z2);
+            p pVar = new p(nVar, z, i, z2, this, i2, z3);
+            if (this.h) {
+                com.baidu.tieba.log.a.b(com.baidu.tieba.log.i.a(nVar.t(), 0, "can't send Message, beacuse of online error", "call onSendError", null, 0, null));
+                pVar.a(1);
+                return;
+            }
             if (TiebaApplication.h().t()) {
                 StatService.onEvent(TiebaApplication.h().getApplicationContext(), "send_msg_time", "send", 1);
             }
-            com.baidu.tieba.log.a.b(com.baidu.tieba.log.i.a(message.getCmd(), 0, null, "MessageQueue: send Message", null, 0, null, 0L, 0, null));
+            com.baidu.tieba.log.a.b(com.baidu.tieba.log.i.a(nVar.t(), 0, null, "MessageQueue: send Message", null, 0, null, 0L, 0, null));
             h.a(pVar, this.c);
             b();
         }
     }
 
-    private boolean c(Message message) {
-        if (message != null && (message instanceof IDuplicateProcess)) {
-            int cmd = message.getCmd();
-            IDuplicateProcess iDuplicateProcess = (IDuplicateProcess) message;
-            switch (k.f1800a[iDuplicateProcess.getDuplicateRemoveType().ordinal()]) {
+    private boolean c(com.baidu.tieba.im.message.n nVar) {
+        if (nVar != null && (nVar instanceof IDuplicateProcess)) {
+            int t = nVar.t();
+            IDuplicateProcess iDuplicateProcess = (IDuplicateProcess) nVar;
+            switch (k.a[iDuplicateProcess.h().ordinal()]) {
                 case 1:
-                    h.b(this.c, iDuplicateProcess, cmd);
-                    h.b(this.b, iDuplicateProcess, cmd);
-                    h.b(this.d, iDuplicateProcess, cmd);
+                    h.b(this.c, iDuplicateProcess, t);
+                    h.b(this.b, iDuplicateProcess, t);
+                    h.b(this.d, iDuplicateProcess, t);
                     break;
                 case 2:
-                    h.b(this.c, iDuplicateProcess, cmd);
+                    h.b(this.c, iDuplicateProcess, t);
                     break;
                 case 3:
-                    if (h.a(this.c, iDuplicateProcess, cmd) || h.a(this.b, iDuplicateProcess, cmd) || h.a(this.d, iDuplicateProcess, cmd)) {
+                    if (h.a(this.c, iDuplicateProcess, t) || h.a(this.b, iDuplicateProcess, t) || h.a(this.d, iDuplicateProcess, t)) {
                         return true;
                     }
                     break;
@@ -89,26 +96,27 @@ public class i implements com.baidu.tieba.im.net.a {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(m mVar) {
         if (mVar != null) {
-            List<Message> list = mVar.f1802a;
+            List<com.baidu.tieba.im.message.n> list = mVar.a;
             if (mVar.b != null) {
                 a(mVar.b, com.baidu.tieba.im.k.s, TiebaApplication.h().getString(R.string.send_error));
+                return;
             }
-            if (list != null && list.size() > 0) {
-                Message message = list.get(0);
-                com.baidu.tieba.log.a.b(com.baidu.tieba.log.i.a(message != null ? message.getCmd() : 0, 0, "unpack succ", "MessageQueue: dispatchMessage", null, 0, null));
-                a(list);
-                if ((message instanceof ResponsedMessage) && ((ResponsedMessage) message).getErrNo() == 110004) {
-                    TiebaSocketLinkService.a(true, "be server kicked off");
-                }
+            com.baidu.tieba.im.message.n nVar = list.get(0);
+            int t = nVar != null ? nVar.t() : 0;
+            com.baidu.adp.lib.h.e.d("onReceiveCmd:" + t);
+            com.baidu.tieba.log.a.b(com.baidu.tieba.log.i.a(t, 0, "unpack succ", "MessageQueue: dispatchMessage", null, 0, null));
+            a(list);
+            if ((nVar instanceof bz) && ((bz) nVar).j() == 110004) {
+                TiebaSocketLinkService.a(true, "be server kicked off");
             }
         }
     }
 
     public void a(p pVar) {
         String string = TiebaApplication.h().getString(R.string.timeout);
-        if (pVar != null && pVar.l() && pVar.o() < 3) {
+        if (pVar != null && pVar.m() && pVar.p() < 3) {
             h.a(this.b, this.d, pVar);
-            PingManager.a().a(true, "timeout seq = " + pVar.k());
+            PingManager.a().a(true, "timeout seq = " + pVar.l());
             return;
         }
         d(pVar);
@@ -142,7 +150,7 @@ public class i implements com.baidu.tieba.im.net.a {
     public void c(p pVar) {
         if (pVar != null) {
             if (pVar.h()) {
-                pVar.p();
+                pVar.q();
                 h.a(this.c, this.b, pVar);
                 return;
             }
@@ -152,7 +160,7 @@ public class i implements com.baidu.tieba.im.net.a {
 
     protected void a(p pVar, int i, String str) {
         if (pVar != null && pVar.j() != null) {
-            com.baidu.tieba.log.a.b(com.baidu.tieba.log.i.a(pVar.j().getCmd(), pVar.k(), "message send  error", "MessageQueue: onMessageSendFail", null, i, str));
+            com.baidu.tieba.log.a.b(com.baidu.tieba.log.i.a(pVar.j().t(), pVar.l(), "message send  error", "MessageQueue: onMessageSendFail", null, i, str));
             a(pVar.j(), i, str);
         }
     }
@@ -168,13 +176,13 @@ public class i implements com.baidu.tieba.im.net.a {
         }
     }
 
-    private void a(Message message, int i, String str) {
-        if (this.e != null && message != null) {
-            this.e.a(message, i, str);
+    private void a(com.baidu.tieba.im.message.n nVar, int i, String str) {
+        if (this.e != null && nVar != null) {
+            this.e.a(nVar, i, str);
         }
     }
 
-    private void a(List<Message> list) {
+    private void a(List<com.baidu.tieba.im.message.n> list) {
         if (this.e != null && list != null) {
             this.e.a(list);
         }
@@ -209,33 +217,32 @@ public class i implements com.baidu.tieba.im.net.a {
 
     @Override // com.baidu.tieba.im.net.a
     public boolean a(int i, String str) {
-        boolean z = false;
-        com.baidu.tieba.log.a.b(com.baidu.tieba.log.i.a(0, 0, null, "MessageQueue: message Queue onClose", null, i, str));
-        PingManager.a().b();
-        if (!UtilHelper.b() || h.e(this.d) || h.e(this.c) || h.e(this.b)) {
-            a();
-        } else {
-            h.f(this.b);
-            h.a(this.c, this.d);
-            h.a(this.c, this.b);
-            while (true) {
-                p b = h.b(this.c);
-                if (b == null) {
-                    break;
-                }
-                b.f();
-                a(b, com.baidu.tieba.im.k.s, TiebaApplication.h().getString(R.string.send_error));
-            }
-            if (h.a(this.c) > 0) {
-                com.baidu.tieba.log.a.b(com.baidu.tieba.log.i.a("have retry message", "MessageQueue:reconnect", null, 0, null));
-                TiebaSocketLinkService.a(false, "have retry message");
-                z = true;
-            }
-        }
         if (this.f != null) {
             this.f.a(i, str);
         }
-        return z;
+        com.baidu.tieba.log.a.b(com.baidu.tieba.log.i.a(0, 0, null, "MessageQueue: message Queue onClose", null, i, str));
+        PingManager.a().b();
+        if (!UtilHelper.b() || h.e(this.d) || h.e(this.c) || h.e(this.b) || this.h) {
+            a();
+            return false;
+        }
+        h.f(this.b);
+        h.a(this.c, this.d);
+        h.a(this.c, this.b);
+        while (true) {
+            p b = h.b(this.c);
+            if (b == null) {
+                break;
+            }
+            b.f();
+            a(b, com.baidu.tieba.im.k.s, TiebaApplication.h().getString(R.string.send_error));
+        }
+        if (h.a(this.c) > 0) {
+            com.baidu.tieba.log.a.b(com.baidu.tieba.log.i.a("have retry message", "MessageQueue:reconnect", null, 0, null));
+            TiebaSocketLinkService.a(false, "have retry message");
+            return true;
+        }
+        return false;
     }
 
     @Override // com.baidu.tieba.im.net.a
@@ -243,7 +250,7 @@ public class i implements com.baidu.tieba.im.net.a {
         com.baidu.tieba.log.a.b(com.baidu.tieba.log.i.a(0, 0, null, "MessageQueue: message Queue onConnected", null, 0, null));
         r.a().a(map);
         PingManager.a().c();
-        a(true);
+        b(true);
         if (this.f != null) {
             this.f.a(map);
         }
@@ -253,36 +260,40 @@ public class i implements com.baidu.tieba.im.net.a {
     public void a(byte[] bArr) {
         if (bArr != null) {
             try {
-                com.baidu.tieba.im.b.p a2 = com.baidu.tieba.im.b.c.b().a(bArr);
-                int d = a2.f1524a.d();
-                int f = a2.f1524a.f();
-                com.baidu.tieba.log.a.b(com.baidu.tieba.log.i.a(d, f, "socket", "MessageQueue: onBinaryMesssage", "succ", 0, null, 0L, bArr.length, null));
-                p a3 = a(d, f);
-                if (a2.f1524a.d() == 1003 && h.a(this.c, this.d)) {
-                    com.baidu.tieba.log.a.b(com.baidu.tieba.log.i.a(a2.f1524a.d(), a2.f1524a.f(), "ping succ", "MessageQueue: retry send", null, 0, null));
+                com.baidu.tieba.im.coder.d a = com.baidu.tieba.im.coder.c.a().a(bArr);
+                int c = a.a.c();
+                int e = a.a.e();
+                com.baidu.tieba.log.a.b(com.baidu.tieba.log.i.a(c, e, "socket", "MessageQueue: onBinaryMesssage", "succ", 0, null, 0L, bArr.length, null));
+                p a2 = a(c, e);
+                if (a.a.c() == 1003 && h.a(this.c, this.d)) {
+                    com.baidu.tieba.log.a.b(com.baidu.tieba.log.i.a(a.a.c(), a.a.e(), "ping succ", "MessageQueue: retry send", null, 0, null));
                     b();
                 }
                 PingManager.a().c();
-                com.baidu.tieba.im.m.a(new l(a2, a3), this.f1798a);
+                if (e == 0 || (a2 != null && a2.k() == c)) {
+                    com.baidu.tieba.im.m.a(new l(a, a2), this.a);
+                } else if (a2 != null) {
+                    a(a2, com.baidu.tieba.im.k.u, TiebaApplication.h().getString(R.string.send_error));
+                }
                 if (this.f != null) {
                     this.f.a(bArr);
                 }
-            } catch (IMException e) {
-                com.baidu.tieba.log.a.b(com.baidu.tieba.log.i.a(0, 0, "socket", "MessageQueue: onBinaryMesssage decodeHeader error", "fail", e.getErrorCode(), null, 0L, bArr.length, null));
+            } catch (CoderException e2) {
+                com.baidu.tieba.log.a.b(com.baidu.tieba.log.i.a(0, 0, "socket", "MessageQueue: onBinaryMesssage decodeHeader error", "fail", e2.getErrorCode(), null, 0L, bArr.length, null));
             }
         }
     }
 
     private p a(int i, int i2) {
         if (i2 != 0) {
-            p a2 = h.a(i2, this.b);
-            if (a2 != null || (a2 = h.a(i2, this.d)) != null || (a2 = h.a(i2, this.c)) != null) {
-                p pVar = a2;
+            p a = h.a(i2, this.b);
+            if (a != null || (a = h.a(i2, this.d)) != null || (a = h.a(i2, this.c)) != null) {
+                p pVar = a;
                 com.baidu.tieba.log.a.b(com.baidu.tieba.log.i.a(i, i2, null, "MessageQueue: receive ack message", null, 0, null));
                 return pVar;
             }
             com.baidu.tieba.log.a.b(com.baidu.tieba.log.i.a(i, i2, "original message removed", "MessageQueue: not dispatchMessage", null, 0, null));
-            return a2;
+            return a;
         }
         return null;
     }
@@ -306,11 +317,11 @@ public class i implements com.baidu.tieba.im.net.a {
         this.f = aVar;
     }
 
-    public void b(Message message) {
-        h.a(message, this.c);
+    public void b(com.baidu.tieba.im.message.n nVar) {
+        h.a(nVar, this.c);
     }
 
-    public void a(boolean z) {
+    public void b(boolean z) {
         boolean z2 = this.g;
         this.g = z;
         if (!this.g && z2) {

@@ -11,14 +11,12 @@ import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.account.LoginActivity;
-import com.baidu.tieba.util.ba;
+import com.baidu.tieba.util.bb;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class ForbidActivity extends com.baidu.tieba.j {
-
-    /* renamed from: a  reason: collision with root package name */
-    private NavigationBar f1079a;
+    private NavigationBar a;
     private RadioGroup b;
     private String c;
     private String d;
@@ -49,10 +47,10 @@ public class ForbidActivity extends com.baidu.tieba.j {
             LoginActivity.a((Activity) this, getString(R.string.login_to_use), true, 11018);
             return;
         }
-        this.f1079a = (NavigationBar) findViewById(R.id.view_navigation_bar);
-        this.f1079a.a(getString(R.string.forbid_page_title));
-        this.f1079a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f1079a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(R.string.forbid_btn_txt), this.k);
+        this.a = (NavigationBar) findViewById(R.id.view_navigation_bar);
+        this.a.a(getString(R.string.forbid_page_title));
+        this.a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(R.string.forbid_btn_txt), this.k);
         this.h = (TextView) findViewById(R.id.forbid_id);
         this.i = (BdListView) findViewById(R.id.listview_forbid_reason);
         this.b = (RadioGroup) findViewById(R.id.forbid_days);
@@ -80,10 +78,10 @@ public class ForbidActivity extends com.baidu.tieba.j {
         for (int i6 = 0; i6 < 3; i6++) {
             RadioButton radioButton = (RadioButton) this.b.getChildAt(i6);
             if (radioButton.getId() == i) {
-                ba.e((View) radioButton, i4);
+                bb.e((View) radioButton, i4);
                 radioButton.setTextColor(getResources().getColor(i5));
             } else {
-                ba.e((View) radioButton, i2);
+                bb.e((View) radioButton, i2);
                 radioButton.setTextColor(getResources().getColor(i3));
             }
         }
@@ -96,7 +94,7 @@ public class ForbidActivity extends com.baidu.tieba.j {
         View findViewById = findViewById(R.id.root);
         getLayoutMode().a(z);
         getLayoutMode().a(findViewById);
-        this.f1079a.c(i);
+        this.a.c(i);
         this.i.setDivider(getResources().getDrawable(z ? R.drawable.forbid_list_divider_1 : R.drawable.forbid_list_divider));
         this.i.setDividerHeight(com.baidu.adp.lib.h.g.a((Context) this, 1.0f));
     }

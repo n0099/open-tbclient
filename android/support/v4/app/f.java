@@ -4,14 +4,12 @@ import android.app.Activity;
 import android.util.Log;
 /* loaded from: classes.dex */
 class f {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static final int[] f291a = {16843531};
+    private static final int[] a = {16843531};
 
     public static Object a(Object obj, Activity activity, int i) {
         Object gVar = obj == null ? new g(activity) : obj;
         g gVar2 = (g) gVar;
-        if (gVar2.f292a != null) {
+        if (gVar2.a != null) {
             try {
                 gVar2.b.invoke(activity.getActionBar(), Integer.valueOf(i));
             } catch (Exception e) {

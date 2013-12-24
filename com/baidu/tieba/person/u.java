@@ -10,16 +10,14 @@ import com.baidu.tieba.view.EditHeadImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class u extends BdAsyncTask<String, Void, Bitmap> {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ EditHeadActivity f2394a;
+    final /* synthetic */ EditHeadActivity a;
     private String b;
     private Bitmap c;
     private Boolean d;
     private Boolean e;
 
     private u(EditHeadActivity editHeadActivity) {
-        this.f2394a = editHeadActivity;
+        this.a = editHeadActivity;
         this.d = false;
         this.e = false;
     }
@@ -34,9 +32,9 @@ public class u extends BdAsyncTask<String, Void, Bitmap> {
     public void b() {
         ProgressBar progressBar;
         TextView textView;
-        progressBar = this.f2394a.o;
+        progressBar = this.a.o;
         progressBar.setVisibility(0);
-        textView = this.f2394a.k;
+        textView = this.a.k;
         textView.setClickable(false);
     }
 
@@ -54,9 +52,9 @@ public class u extends BdAsyncTask<String, Void, Bitmap> {
         Bitmap bitmap8;
         Bitmap bitmap9;
         this.b = strArr[0];
-        bitmap = this.f2394a.h;
+        bitmap = this.a.h;
         if (bitmap == null) {
-            bitmap9 = this.f2394a.x;
+            bitmap9 = this.a.x;
             if (bitmap9 == null) {
                 return null;
             }
@@ -67,19 +65,19 @@ public class u extends BdAsyncTask<String, Void, Bitmap> {
             this.e = true;
         }
         if (this.d.booleanValue() || this.e.booleanValue()) {
-            bitmap2 = this.f2394a.x;
+            bitmap2 = this.a.x;
             if (bitmap2 != null) {
-                bitmap5 = this.f2394a.x;
-                bitmap6 = this.f2394a.x;
+                bitmap5 = this.a.x;
+                bitmap6 = this.a.x;
                 this.c = bitmap5.copy(bitmap6.getConfig(), true);
             } else {
-                bitmap3 = this.f2394a.h;
-                bitmap4 = this.f2394a.h;
+                bitmap3 = this.a.h;
+                bitmap4 = this.a.h;
                 this.c = bitmap3.copy(bitmap4.getConfig(), true);
             }
         } else {
-            bitmap7 = this.f2394a.h;
-            bitmap8 = this.f2394a.h;
+            bitmap7 = this.a.h;
+            bitmap8 = this.a.h;
             this.c = bitmap7.copy(bitmap8.getConfig(), true);
         }
         if (this.d.booleanValue()) {
@@ -87,7 +85,7 @@ public class u extends BdAsyncTask<String, Void, Bitmap> {
         } else if (this.e.booleanValue()) {
             this.c = com.baidu.tieba.util.m.f(this.c, Integer.parseInt(this.b));
         } else {
-            this.c = FilterFactory.createOneKeyFilter(this.f2394a, this.b).apply(this.f2394a, this.c);
+            this.c = FilterFactory.createOneKeyFilter(this.a, this.b).apply(this.a, this.c);
         }
         return this.c;
     }
@@ -98,15 +96,15 @@ public class u extends BdAsyncTask<String, Void, Bitmap> {
         TextView textView;
         Bitmap bitmap;
         if (this.c != null && !this.c.isRecycled()) {
-            bitmap = this.f2394a.x;
+            bitmap = this.a.x;
             if (bitmap != this.c) {
                 this.c.recycle();
             }
         }
         this.c = null;
-        progressBar = this.f2394a.o;
+        progressBar = this.a.o;
         progressBar.setVisibility(8);
-        textView = this.f2394a.k;
+        textView = this.a.k;
         textView.setClickable(true);
         super.cancel(true);
     }
@@ -134,46 +132,46 @@ public class u extends BdAsyncTask<String, Void, Bitmap> {
         Bitmap bitmap8;
         Bitmap bitmap9;
         EditHeadImageView editHeadImageView2;
-        progressBar = this.f2394a.o;
+        progressBar = this.a.o;
         progressBar.setVisibility(8);
-        textView = this.f2394a.k;
+        textView = this.a.k;
         textView.setClickable(true);
-        textView2 = this.f2394a.k;
+        textView2 = this.a.k;
         textView2.setEnabled(true);
         if (bitmap != null && !bitmap.isRecycled()) {
-            this.f2394a.E = true;
+            this.a.E = true;
             if (this.d.booleanValue() || this.e.booleanValue()) {
-                editHeadImageView = this.f2394a.g;
+                editHeadImageView = this.a.g;
                 editHeadImageView.setImageBitmap(bitmap);
-                bitmap2 = this.f2394a.h;
+                bitmap2 = this.a.h;
                 if (bitmap2.getWidth() <= 750) {
-                    bitmap6 = this.f2394a.h;
+                    bitmap6 = this.a.h;
                 }
-                EditHeadActivity editHeadActivity = this.f2394a;
-                bitmap3 = this.f2394a.h;
+                EditHeadActivity editHeadActivity = this.a;
+                bitmap3 = this.a.h;
                 editHeadActivity.h = com.baidu.tieba.util.m.a(bitmap3, 750);
                 if (this.d.booleanValue()) {
-                    EditHeadActivity editHeadActivity2 = this.f2394a;
-                    bitmap5 = this.f2394a.h;
+                    EditHeadActivity editHeadActivity2 = this.a;
+                    bitmap5 = this.a.h;
                     editHeadActivity2.h = com.baidu.tieba.util.m.d(bitmap5, Integer.parseInt(this.b));
                 } else if (this.e.booleanValue()) {
-                    EditHeadActivity editHeadActivity3 = this.f2394a;
-                    bitmap4 = this.f2394a.h;
+                    EditHeadActivity editHeadActivity3 = this.a;
+                    bitmap4 = this.a.h;
                     editHeadActivity3.h = com.baidu.tieba.util.m.f(bitmap4, Integer.parseInt(this.b));
                 }
             } else {
-                editHeadImageView2 = this.f2394a.g;
+                editHeadImageView2 = this.a.g;
                 editHeadImageView2.a(bitmap);
             }
-            bitmap7 = this.f2394a.x;
+            bitmap7 = this.a.x;
             if (bitmap7 != null) {
-                bitmap8 = this.f2394a.x;
+                bitmap8 = this.a.x;
                 if (!bitmap8.isRecycled()) {
-                    bitmap9 = this.f2394a.x;
+                    bitmap9 = this.a.x;
                     bitmap9.recycle();
                 }
             }
-            this.f2394a.x = bitmap;
+            this.a.x = bitmap;
         }
     }
 }

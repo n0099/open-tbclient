@@ -1,33 +1,25 @@
 package com.baidu.tieba.account;
 
-import android.view.View;
-import android.widget.EditText;
-import android.widget.ImageView;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tieba.data.AccountData;
+import com.baidu.tieba.util.DatabaseService;
 /* loaded from: classes.dex */
-class h implements View.OnFocusChangeListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ActivationActivity f1093a;
+class h extends BdAsyncTask<Void, Void, Void> {
+    final /* synthetic */ AccountData a;
+    final /* synthetic */ g b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public h(ActivationActivity activationActivity) {
-        this.f1093a = activationActivity;
+    public h(g gVar, AccountData accountData) {
+        this.b = gVar;
+        this.a = accountData;
     }
 
-    @Override // android.view.View.OnFocusChangeListener
-    public void onFocusChange(View view, boolean z) {
-        EditText editText;
-        ImageView imageView;
-        ImageView imageView2;
-        editText = this.f1093a.i;
-        if (view == editText) {
-            if (z) {
-                imageView2 = this.f1093a.d;
-                imageView2.setVisibility(0);
-                return;
-            }
-            imageView = this.f1093a.d;
-            imageView.setVisibility(8);
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public Void a(Void... voidArr) {
+        DatabaseService.a(this.a);
+        DatabaseService.b(this.a);
+        return null;
     }
 }

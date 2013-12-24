@@ -1,44 +1,58 @@
 package com.baidu.tieba.im.d;
 
-import android.os.Handler;
-import android.os.Message;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.text.Editable;
+import android.text.TextUtils;
+import android.widget.EditText;
 /* loaded from: classes.dex */
-public class g extends Handler {
-    private g() {
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ g(b bVar) {
-        this();
-    }
-
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        Handler handler;
-        Handler handler2;
-        Handler handler3;
-        Handler handler4;
-        int i;
-        super.handleMessage(message);
-        switch (message.what) {
-            case 2:
-                handler = a.a().r;
-                handler.removeMessages(2);
-                a.a().g();
-                return;
-            case 3:
-                handler2 = a.a().r;
-                handler2.removeMessages(3);
-                a.a().g();
-                handler3 = a.a().r;
-                handler4 = a.a().r;
-                Message obtainMessage = handler4.obtainMessage(3);
-                i = a.a().e;
-                handler3.sendMessageDelayed(obtainMessage, i);
-                return;
-            default:
-                return;
+public class g {
+    public static int a(EditText editText) {
+        if (editText == null) {
+            return 0;
         }
+        return a(editText.getText());
+    }
+
+    public static int a(Editable editable) {
+        if (editable == null) {
+            return 0;
+        }
+        return a(editable.toString());
+    }
+
+    public static int a(char c) {
+        if (b(c)) {
+            return 1;
+        }
+        return 2;
+    }
+
+    public static boolean b(char c) {
+        return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || ((c >= '0' && c <= '9') || c == ' ');
+    }
+
+    public static int a(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return 0;
+        }
+        int i = 0;
+        for (int i2 = 0; i2 < str.length(); i2++) {
+            if (b(str.charAt(i2))) {
+                i++;
+            } else {
+                i += 2;
+            }
+        }
+        return i;
+    }
+
+    public static boolean b(EditText editText) {
+        String obj = editText.getText().toString();
+        int length = obj.length();
+        String trim = obj.trim();
+        if (trim.length() < length) {
+            editText.setText(trim);
+            return false;
+        }
+        return true;
     }
 }

@@ -1,52 +1,74 @@
 package com.baidu.tieba.more;
 
-import android.view.View;
-import android.widget.Scroller;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.tieba.view.NavigationBar;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class an implements Runnable {
+public class an extends com.baidu.adp.a.e {
+    private NavigationBar a;
+    private ViewGroup c;
+    private ImageView d;
+    private TextView e;
+    private SettingTextTipView f;
+    private SecretSettingActivity g;
 
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ am f2076a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public an(am amVar) {
-        this.f2076a = amVar;
+    public an(SecretSettingActivity secretSettingActivity) {
+        super(secretSettingActivity);
+        this.a = null;
+        this.g = secretSettingActivity;
+        secretSettingActivity.setContentView(R.layout.secret_setting_activity);
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        Scroller scroller;
-        boolean z;
-        View view;
-        Scroller scroller2;
-        View view2;
-        View view3;
-        View view4;
-        View view5;
-        View view6;
-        View view7;
-        scroller = this.f2076a.b;
-        if (scroller.computeScrollOffset()) {
-            scroller2 = this.f2076a.b;
-            int currX = scroller2.getCurrX();
-            view2 = this.f2076a.f2075a;
-            view3 = this.f2076a.f2075a;
-            int paddingLeft = view3.getPaddingLeft();
-            view4 = this.f2076a.f2075a;
-            int paddingRight = view4.getPaddingRight();
-            view5 = this.f2076a.f2075a;
-            view2.setPadding(paddingLeft, currX, paddingRight, view5.getPaddingBottom());
-            view6 = this.f2076a.f2075a;
-            view6.invalidate();
-            view7 = this.f2076a.f2075a;
-            view7.post(this);
-            return;
-        }
-        z = this.f2076a.f;
-        if (!z) {
-            view = this.f2076a.f2075a;
-            view.setVisibility(8);
-        }
+    public void a(SecretSettingActivity secretSettingActivity) {
+        b(secretSettingActivity);
+    }
+
+    public void a(int i) {
+        this.g.getLayoutMode().a(i == 1);
+        this.g.getLayoutMode().a(this.c);
+        this.a.c(i);
+        this.f.a(i);
+    }
+
+    void b(SecretSettingActivity secretSettingActivity) {
+        this.c = (RelativeLayout) secretSettingActivity.findViewById(R.id.parent);
+        this.a = (NavigationBar) secretSettingActivity.findViewById(R.id.view_navigation_bar);
+        this.a.a(secretSettingActivity.getString(R.string.secretSetting_title));
+        this.d = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, secretSettingActivity);
+        this.e = (TextView) secretSettingActivity.findViewById(R.id.only_send_me);
+        this.e.setOnClickListener(this.g);
+        this.f = (SettingTextTipView) secretSettingActivity.findViewById(R.id.black_address_list);
+        this.f.setOnClickListener(this.g);
+    }
+
+    public void a() {
+        this.g.showLoadingDialog(this.g.getString(R.string.loading));
+    }
+
+    public void e() {
+        this.f.c();
+    }
+
+    public void f() {
+        this.g.showLoadingDialog(this.g.getString(R.string.saving));
+    }
+
+    public void g() {
+        this.g.closeLoadingDialog();
+    }
+
+    public ImageView h() {
+        return this.d;
+    }
+
+    public TextView i() {
+        return this.e;
+    }
+
+    public SettingTextTipView j() {
+        return this.f;
     }
 }

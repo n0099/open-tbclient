@@ -1,29 +1,43 @@
 package com.baidu.tieba.view;
+
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.widget.Button;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bc implements Runnable {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bb f2670a;
+public class bc implements TextWatcher {
+    final /* synthetic */ SearchBar a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bc(bb bbVar) {
-        this.f2670a = bbVar;
+    public bc(SearchBar searchBar) {
+        this.a = searchBar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        int i;
-        int i2;
-        this.f2670a.f = true;
-        bb.a(this.f2670a, 30);
-        i = this.f2670a.i;
-        if (i > 360) {
-            bb bbVar = this.f2670a;
-            i2 = this.f2670a.i;
-            bbVar.i = i2 - 360;
+    @Override // android.text.TextWatcher
+    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    }
+
+    @Override // android.text.TextWatcher
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    }
+
+    @Override // android.text.TextWatcher
+    public void afterTextChanged(Editable editable) {
+        Button button;
+        bf bfVar;
+        bf bfVar2;
+        Button button2;
+        if (this.a.getSearchText().length() > 0) {
+            button2 = this.a.c;
+            button2.setVisibility(0);
+        } else {
+            button = this.a.c;
+            button.setVisibility(8);
         }
-        this.f2670a.invalidate(this.f2670a.getRotateInvalidRect());
-        this.f2670a.postDelayed(this.f2670a.e, 50L);
+        bfVar = this.a.e;
+        if (bfVar != null) {
+            bfVar2 = this.a.e;
+            bfVar2.a(this.a.getSearchText());
+        }
     }
 }

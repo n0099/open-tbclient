@@ -1,6 +1,5 @@
 package com.baidu.tieba.im.messageCenter;
 
-import com.baidu.tieba.im.message.Message;
 import java.util.Iterator;
 import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -43,7 +42,7 @@ public class h {
         Iterator<p> it = linkedList.iterator();
         while (it.hasNext()) {
             p next = it.next();
-            if (next != null && !next.l()) {
+            if (next != null && !next.m()) {
                 it.remove();
                 return next;
             }
@@ -58,14 +57,14 @@ public class h {
         return linkedList.remove(pVar);
     }
 
-    public static p a(Message message, LinkedList<p> linkedList) {
-        if (message == null || linkedList == null) {
+    public static p a(com.baidu.tieba.im.message.n nVar, LinkedList<p> linkedList) {
+        if (nVar == null || linkedList == null) {
             return null;
         }
         Iterator<p> it = linkedList.iterator();
         while (it.hasNext()) {
             p next = it.next();
-            if (next != null && next.j() == message) {
+            if (next != null && next.j() == nVar) {
                 linkedList.remove(next);
                 return next;
             }
@@ -118,8 +117,8 @@ public class h {
         while (it.hasNext()) {
             p next = it.next();
             if (next != null) {
-                next.n();
-                if (next.m() >= 3) {
+                next.o();
+                if (next.n() >= 3) {
                     return true;
                 }
             }
@@ -146,7 +145,7 @@ public class h {
         Iterator<p> it = linkedList.iterator();
         while (it.hasNext()) {
             p next = it.next();
-            if (next != null && next.k() == i) {
+            if (next != null && next.l() == i) {
                 it.remove();
                 next.f();
                 return next;
@@ -156,14 +155,14 @@ public class h {
     }
 
     public static boolean a(LinkedList<p> linkedList, IDuplicateProcess iDuplicateProcess, int i) {
-        Message j;
+        com.baidu.tieba.im.message.n j;
         if (iDuplicateProcess == null) {
             return false;
         }
         Iterator<p> it = linkedList.iterator();
         while (it.hasNext()) {
             p next = it.next();
-            if (next != null && (j = next.j()) != null && j.getCmd() == i && iDuplicateProcess.onDuplicateProcess(j)) {
+            if (next != null && (j = next.j()) != null && j.t() == i && iDuplicateProcess.a(j)) {
                 return true;
             }
         }
@@ -171,28 +170,28 @@ public class h {
     }
 
     public static void b(LinkedList<p> linkedList, IDuplicateProcess iDuplicateProcess, int i) {
-        Message j;
+        com.baidu.tieba.im.message.n j;
         if (iDuplicateProcess != null) {
             Iterator<p> it = linkedList.iterator();
             while (it.hasNext()) {
                 p next = it.next();
-                if (next != null && (j = next.j()) != null && j.getCmd() == i && iDuplicateProcess.onDuplicateProcess(j)) {
+                if (next != null && (j = next.j()) != null && j.t() == i && iDuplicateProcess.a(j)) {
                     it.remove();
-                    com.baidu.tieba.log.a.b(com.baidu.tieba.log.i.a(i, next.k(), "duplicate remove from queue", "MessageQueue: Message throwed", null, 0, null));
+                    com.baidu.tieba.log.a.b(com.baidu.tieba.log.i.a(i, next.l(), "duplicate remove from queue", "MessageQueue: Message throwed", null, 0, null));
                 }
             }
         }
     }
 
     public static boolean a(LinkedList<p> linkedList, c cVar, int i) {
-        Message j;
+        com.baidu.tieba.im.message.n j;
         if (cVar == null) {
             return false;
         }
         Iterator<p> it = linkedList.iterator();
         while (it.hasNext()) {
             p next = it.next();
-            if (next != null && (j = next.j()) != null && j.getCmd() == i && cVar.onFindMessage(j)) {
+            if (next != null && (j = next.j()) != null && j.t() == i && cVar.a(j)) {
                 return true;
             }
         }
@@ -200,11 +199,11 @@ public class h {
     }
 
     public static boolean a(LinkedList<p> linkedList, int i) {
-        Message j;
+        com.baidu.tieba.im.message.n j;
         Iterator<p> it = linkedList.iterator();
         while (it.hasNext()) {
             p next = it.next();
-            if (next != null && (j = next.j()) != null && j.getCmd() == i) {
+            if (next != null && (j = next.j()) != null && j.t() == i) {
                 return true;
             }
         }

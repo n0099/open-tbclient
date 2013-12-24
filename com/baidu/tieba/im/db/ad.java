@@ -1,16 +1,17 @@
 package com.baidu.tieba.im.db;
 
 import android.text.TextUtils;
+import com.baidu.gson.Gson;
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.data.UserData;
+import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import java.util.LinkedList;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes.dex */
 public class ad {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static ad f1653a;
+    private static ad a;
     private volatile String b = "";
     private AtomicBoolean c = new AtomicBoolean(false);
     private ConcurrentHashMap<String, ImMessageCenterPojo> d = new ConcurrentHashMap<>();
@@ -21,18 +22,18 @@ public class ad {
     public static synchronized ad a() {
         ad adVar;
         synchronized (ad.class) {
-            if (f1653a == null) {
-                f1653a = new ad();
+            if (a == null) {
+                a = new ad();
             }
-            adVar = f1653a;
+            adVar = a;
         }
         return adVar;
     }
 
     public synchronized void a(com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMessageCenterPojo>> aVar) {
-        if (Thread.currentThread().getId() != com.baidu.tieba.im.i.f1786a) {
+        if (Thread.currentThread().getId() != com.baidu.tieba.im.i.a) {
             com.baidu.adp.lib.h.e.a("!!!!!!!!!!!!!!!获取缓存不是在主线程里面执行了！");
-            if (com.baidu.tieba.data.h.s()) {
+            if (com.baidu.tieba.data.h.u()) {
                 new RuntimeException().printStackTrace();
             }
         }
@@ -54,6 +55,56 @@ public class ad {
     private void b(com.baidu.tieba.im.a<LinkedList<ImMessageCenterPojo>> aVar) {
         d();
         com.baidu.tieba.im.m.a(new af(this), aVar);
+    }
+
+    public static ImMessageCenterPojo a(CommonMsgPojo commonMsgPojo) {
+        if (commonMsgPojo == null) {
+            com.baidu.adp.lib.h.e.d("see init cmpojo is null");
+            return null;
+        }
+        String B = TiebaApplication.B();
+        if (TextUtils.isEmpty(B)) {
+            com.baidu.adp.lib.h.e.d("see init not login:");
+            return null;
+        }
+        com.baidu.adp.lib.h.e.d("see init private cmpojo:" + commonMsgPojo);
+        String gid = commonMsgPojo.getGid();
+        if (TextUtils.isEmpty(gid)) {
+            com.baidu.adp.lib.h.e.a("see init private uid  is null uid:" + gid);
+            return null;
+        }
+        ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
+        imMessageCenterPojo.setGid(gid);
+        UserData userData = (UserData) new Gson().fromJson(commonMsgPojo.getUser_info(), (Class<Object>) UserData.class);
+        if (userData == null) {
+            com.baidu.adp.lib.h.e.d("see init private userinfo:" + commonMsgPojo.getUser_info());
+            return null;
+        }
+        String toUid = commonMsgPojo.getToUid();
+        if (!TextUtils.isEmpty(toUid) && toUid.equals(gid) && B.equals(gid)) {
+            com.baidu.adp.lib.h.e.a("see init private : send msg to self");
+            return null;
+        }
+        String uid = commonMsgPojo.getUid();
+        if (B.equals(uid)) {
+            UserData userData2 = (UserData) new Gson().fromJson(commonMsgPojo.getToUser_info(), (Class<Object>) UserData.class);
+            if (userData2 != null) {
+                imMessageCenterPojo.setGroup_name(userData2.getName());
+                imMessageCenterPojo.setGroup_head(userData2.getPortrait());
+            }
+        } else {
+            imMessageCenterPojo.setGroup_name(userData.getName());
+            imMessageCenterPojo.setGroup_head(userData.getPortrait());
+        }
+        imMessageCenterPojo.setGroup_type(6);
+        if (B.equals(uid)) {
+            imMessageCenterPojo.setLast_content(com.baidu.tieba.im.d.d.f(commonMsgPojo.toChatMessage()));
+        } else {
+            imMessageCenterPojo.setLast_content(userData.getName() + ":" + com.baidu.tieba.im.d.d.f(commonMsgPojo.toChatMessage()));
+        }
+        imMessageCenterPojo.setLast_content_time(commonMsgPojo.getCreate_time() * 1000);
+        com.baidu.adp.lib.h.e.d("see convert " + imMessageCenterPojo + "ori:" + commonMsgPojo);
+        return imMessageCenterPojo;
     }
 
     private synchronized void d() {

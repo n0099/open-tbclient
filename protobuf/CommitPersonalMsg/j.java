@@ -1,0 +1,150 @@
+package protobuf.CommitPersonalMsg;
+
+import com.google.protobuf.CodedInputStream;
+import com.google.protobuf.ExtensionRegistryLite;
+import com.google.protobuf.GeneratedMessageLite;
+import com.google.protobuf.InvalidProtocolBufferException;
+import protobuf.CommitPersonalMsg.CommitPersonalMsgRes;
+import protobuf.Im;
+/* loaded from: classes.dex */
+public final class j extends GeneratedMessageLite.Builder<CommitPersonalMsgRes.CommitPersonalMsgResIdl, j> implements k {
+    private int a;
+    private Im.Error b = Im.Error.getDefaultInstance();
+    private CommitPersonalMsgRes.DataRes c = CommitPersonalMsgRes.DataRes.getDefaultInstance();
+
+    private j() {
+        g();
+    }
+
+    private void g() {
+    }
+
+    public static j h() {
+        return new j();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
+    /* renamed from: a */
+    public j clear() {
+        super.clear();
+        this.b = Im.Error.getDefaultInstance();
+        this.a &= -2;
+        this.c = CommitPersonalMsgRes.DataRes.getDefaultInstance();
+        this.a &= -3;
+        return this;
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
+    /* renamed from: b */
+    public j clone() {
+        return h().mergeFrom(buildPartial());
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    /* renamed from: c */
+    public CommitPersonalMsgRes.CommitPersonalMsgResIdl getDefaultInstanceForType() {
+        return CommitPersonalMsgRes.CommitPersonalMsgResIdl.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.MessageLite.Builder
+    /* renamed from: d */
+    public CommitPersonalMsgRes.CommitPersonalMsgResIdl build() {
+        CommitPersonalMsgRes.CommitPersonalMsgResIdl buildPartial = buildPartial();
+        if (!buildPartial.isInitialized()) {
+            throw newUninitializedMessageException(buildPartial);
+        }
+        return buildPartial;
+    }
+
+    @Override // com.google.protobuf.MessageLite.Builder
+    /* renamed from: e */
+    public CommitPersonalMsgRes.CommitPersonalMsgResIdl buildPartial() {
+        CommitPersonalMsgRes.CommitPersonalMsgResIdl commitPersonalMsgResIdl = new CommitPersonalMsgRes.CommitPersonalMsgResIdl(this);
+        int i = this.a;
+        int i2 = (i & 1) != 1 ? 0 : 1;
+        commitPersonalMsgResIdl.error_ = this.b;
+        if ((i & 2) == 2) {
+            i2 |= 2;
+        }
+        commitPersonalMsgResIdl.data_ = this.c;
+        commitPersonalMsgResIdl.bitField0_ = i2;
+        return commitPersonalMsgResIdl;
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder
+    /* renamed from: a */
+    public j mergeFrom(CommitPersonalMsgRes.CommitPersonalMsgResIdl commitPersonalMsgResIdl) {
+        if (commitPersonalMsgResIdl != CommitPersonalMsgRes.CommitPersonalMsgResIdl.getDefaultInstance()) {
+            if (commitPersonalMsgResIdl.hasError()) {
+                a(commitPersonalMsgResIdl.getError());
+            }
+            if (commitPersonalMsgResIdl.hasData()) {
+                a(commitPersonalMsgResIdl.getData());
+            }
+        }
+        return this;
+    }
+
+    @Override // com.google.protobuf.MessageLiteOrBuilder
+    public final boolean isInitialized() {
+        return true;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:36:0x001e  */
+    @Override // com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
+    /* renamed from: a */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public j mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
+        CommitPersonalMsgRes.CommitPersonalMsgResIdl commitPersonalMsgResIdl;
+        Throwable th;
+        try {
+            try {
+                CommitPersonalMsgRes.CommitPersonalMsgResIdl parsePartialFrom = CommitPersonalMsgRes.CommitPersonalMsgResIdl.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                if (parsePartialFrom != null) {
+                    mergeFrom(parsePartialFrom);
+                }
+                return this;
+            } catch (Throwable th2) {
+                th = th2;
+                commitPersonalMsgResIdl = null;
+                if (commitPersonalMsgResIdl != null) {
+                    mergeFrom(commitPersonalMsgResIdl);
+                }
+                throw th;
+            }
+        } catch (InvalidProtocolBufferException e) {
+            CommitPersonalMsgRes.CommitPersonalMsgResIdl commitPersonalMsgResIdl2 = (CommitPersonalMsgRes.CommitPersonalMsgResIdl) e.getUnfinishedMessage();
+            try {
+                throw e;
+            } catch (Throwable th3) {
+                commitPersonalMsgResIdl = commitPersonalMsgResIdl2;
+                th = th3;
+                if (commitPersonalMsgResIdl != null) {
+                }
+                throw th;
+            }
+        }
+    }
+
+    public j a(Im.Error error) {
+        if ((this.a & 1) == 1 && this.b != Im.Error.getDefaultInstance()) {
+            this.b = Im.Error.newBuilder(this.b).mergeFrom(error).buildPartial();
+        } else {
+            this.b = error;
+        }
+        this.a |= 1;
+        return this;
+    }
+
+    public j a(CommitPersonalMsgRes.DataRes dataRes) {
+        if ((this.a & 2) == 2 && this.c != CommitPersonalMsgRes.DataRes.getDefaultInstance()) {
+            this.c = CommitPersonalMsgRes.DataRes.newBuilder(this.c).mergeFrom(dataRes).buildPartial();
+        } else {
+            this.c = dataRes;
+        }
+        this.a |= 2;
+        return this;
+    }
+}

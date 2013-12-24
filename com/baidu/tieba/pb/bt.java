@@ -6,13 +6,11 @@ import com.baidu.tieba.util.UtilHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bt implements DialogInterface.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NewPbActivity f2195a;
+    final /* synthetic */ NewPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bt(NewPbActivity newPbActivity) {
-        this.f2195a = newPbActivity;
+        this.a = newPbActivity;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -21,17 +19,17 @@ public class bt implements DialogInterface.OnClickListener {
         String str2;
         com.baidu.tieba.model.bm bmVar;
         String str3;
-        StatService.onEvent(this.f2195a, "pb_phone_sms", "sms");
-        NewPbActivity newPbActivity = this.f2195a;
-        str = this.f2195a.C;
-        newPbActivity.C = str.trim();
-        NewPbActivity newPbActivity2 = this.f2195a;
-        str2 = this.f2195a.C;
+        StatService.onEvent(this.a, "pb_phone_sms", "sms");
+        NewPbActivity newPbActivity = this.a;
+        str = this.a.B;
+        newPbActivity.B = str.trim();
+        NewPbActivity newPbActivity2 = this.a;
+        str2 = this.a.B;
         UtilHelper.g(newPbActivity2, str2);
-        bmVar = this.f2195a.s;
+        bmVar = this.a.r;
         String b = bmVar.b();
-        str3 = this.f2195a.C;
-        new com.baidu.tieba.account.k(b, str3, "2").start();
+        str3 = this.a.B;
+        new com.baidu.tieba.account.u(b, str3, "2").start();
         dialogInterface.cancel();
     }
 }

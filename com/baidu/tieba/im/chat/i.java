@@ -1,25 +1,21 @@
 package com.baidu.tieba.im.chat;
-
-import com.baidu.tieba.im.message.ChatResponsedMessage;
-import com.baidu.tieba.im.message.Message;
-import java.util.LinkedList;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i implements com.baidu.tieba.im.b.n<com.baidu.tieba.im.b.a.d> {
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.util.LinkedList, java.lang.Object, com.baidu.tieba.im.b.q, int] */
-    @Override // com.baidu.tieba.im.b.n
-    public /* bridge */ /* synthetic */ void a(LinkedList linkedList, com.baidu.tieba.im.b.a.d dVar, com.baidu.tieba.im.b.q qVar, int i) {
-        a2((LinkedList<Message>) linkedList, dVar, qVar, i);
+public class i implements com.baidu.tieba.im.a<Boolean> {
+    final /* synthetic */ com.baidu.tieba.im.message.p a;
+    final /* synthetic */ a b;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public i(a aVar, com.baidu.tieba.im.message.p pVar) {
+        this.b = aVar;
+        this.a = pVar;
     }
 
-    /* renamed from: a  reason: avoid collision after fix types in other method */
-    public void a2(LinkedList<Message> linkedList, com.baidu.tieba.im.b.a.d dVar, com.baidu.tieba.im.b.q qVar, int i) {
-        ChatResponsedMessage chatResponsedMessage = new ChatResponsedMessage();
-        chatResponsedMessage.setErrorInfo(qVar);
-        linkedList.add(chatResponsedMessage);
-        if (dVar != null && !chatResponsedMessage.hasError()) {
-            chatResponsedMessage.setMsgId(ac.b(dVar.c("msgId")));
-            chatResponsedMessage.setRecordId(dVar.c("recordId"));
-            chatResponsedMessage.setGroupId(dVar.a("groupId"));
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.a
+    public void a(Boolean bool) {
+        this.a.f(System.currentTimeMillis());
+        com.baidu.tieba.im.messageCenter.e.a().a(this.a);
+        com.baidu.adp.lib.h.e.d("SHANG sendMessage to queue");
     }
 }

@@ -13,9 +13,7 @@ import com.baidu.tieba.BaseFragmentActivity;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class SearchBoxView extends RelativeLayout {
-
-    /* renamed from: a  reason: collision with root package name */
-    private Activity f2647a;
+    private Activity a;
     private String b;
     private LinearLayout c;
     private TextView d;
@@ -32,8 +30,8 @@ public class SearchBoxView extends RelativeLayout {
         this.c = null;
         this.d = null;
         this.e = null;
-        this.f = new bd(this);
-        this.g = new be(this);
+        this.f = new bg(this);
+        this.g = new bh(this);
         a(context);
     }
 
@@ -43,8 +41,8 @@ public class SearchBoxView extends RelativeLayout {
         this.c = null;
         this.d = null;
         this.e = null;
-        this.f = new bd(this);
-        this.g = new be(this);
+        this.f = new bg(this);
+        this.g = new bh(this);
         a(context);
     }
 
@@ -54,13 +52,13 @@ public class SearchBoxView extends RelativeLayout {
         this.c = null;
         this.d = null;
         this.e = null;
-        this.f = new bd(this);
-        this.g = new be(this);
+        this.f = new bg(this);
+        this.g = new bh(this);
         a(context);
     }
 
     private void a(Context context) {
-        this.f2647a = (Activity) context;
+        this.a = (Activity) context;
         ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(R.layout.widget_search_box, this);
         this.c = (LinearLayout) findViewById(R.id.search_bg_layout);
         this.d = (TextView) findViewById(R.id.search_bar_text);
@@ -74,13 +72,13 @@ public class SearchBoxView extends RelativeLayout {
     }
 
     public void a(int i) {
-        if (this.f2647a instanceof com.baidu.tieba.j) {
-            com.baidu.tieba.j jVar = (com.baidu.tieba.j) this.f2647a;
+        if (this.a instanceof com.baidu.tieba.j) {
+            com.baidu.tieba.j jVar = (com.baidu.tieba.j) this.a;
             jVar.getLayoutMode().a(i == 1);
             jVar.getLayoutMode().a(this);
         }
-        if (this.f2647a instanceof BaseFragmentActivity) {
-            BaseFragmentActivity baseFragmentActivity = (BaseFragmentActivity) this.f2647a;
+        if (this.a instanceof BaseFragmentActivity) {
+            BaseFragmentActivity baseFragmentActivity = (BaseFragmentActivity) this.a;
             baseFragmentActivity.a().a(i == 1);
             baseFragmentActivity.a().a(this);
         }

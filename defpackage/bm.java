@@ -2,6 +2,7 @@ package defpackage;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import com.baidu.zeus.NotificationProxy;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -10,16 +11,14 @@ import java.util.Map;
 /* renamed from: bm  reason: default package */
 /* loaded from: classes.dex */
 public class bm implements bn {
-
-    /* renamed from: a  reason: collision with root package name */
-    private String f382a;
+    private String a;
     private bn b;
     private int c;
     private int d;
     private Map e = new HashMap();
 
     public bm(String str, int i, int i2, bn bnVar) {
-        this.f382a = str;
+        this.a = str;
         this.c = i;
         this.d = i2;
         this.b = bnVar;
@@ -27,7 +26,7 @@ public class bm implements bn {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static int a(Bitmap bitmap) {
-        return ((bitmap.getHeight() * bitmap.getWidth()) * 4) / 1024;
+        return ((bitmap.getHeight() * bitmap.getWidth()) * 4) / NotificationProxy.MAX_URL_LENGTH;
     }
 
     public bm a(int i) {
@@ -36,7 +35,7 @@ public class bm implements bn {
     }
 
     public bm a(String str) {
-        this.f382a = str;
+        this.a = str;
         return this;
     }
 
@@ -110,6 +109,6 @@ public class bm implements bn {
     }
 
     public String c(String str) {
-        return this.f382a + "/" + str + ".png";
+        return this.a + "/" + str + ".png";
     }
 }

@@ -11,13 +11,11 @@ import com.baidu.tieba.util.UtilHelper;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 class s extends Handler {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ TiebaUpdateService f2457a;
+    final /* synthetic */ TiebaUpdateService a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(TiebaUpdateService tiebaUpdateService) {
-        this.f2457a = tiebaUpdateService;
+        this.a = tiebaUpdateService;
     }
 
     @Override // android.os.Handler
@@ -31,32 +29,32 @@ class s extends Handler {
         Notification notification4;
         super.handleMessage(message);
         if (message.what == 900002) {
-            notification = this.f2457a.c;
+            notification = this.a.c;
             if (notification != null && message.arg2 > 0) {
-                notification2 = this.f2457a.c;
+                notification2 = this.a.c;
                 notification2.contentView.setProgressBar(R.id.progress, 100, (int) ((message.arg1 * 100) / message.arg2), false);
                 StringBuffer stringBuffer = new StringBuffer(20);
                 stringBuffer.append(String.valueOf(message.arg1 / LocationClientOption.MIN_SCAN_SPAN));
                 stringBuffer.append("K/");
                 stringBuffer.append(String.valueOf(message.arg2 / LocationClientOption.MIN_SCAN_SPAN));
                 stringBuffer.append("K");
-                notification3 = this.f2457a.c;
+                notification3 = this.a.c;
                 notification3.contentView.setTextViewText(R.id.schedule, stringBuffer);
-                notificationManager = this.f2457a.b;
-                notification4 = this.f2457a.c;
+                notificationManager = this.a.b;
+                notification4 = this.a.c;
                 notificationManager.notify(10, notification4);
             }
         } else if (message.what == 1 && (versionData = (VersionData) message.obj) != null) {
-            z = this.f2457a.j;
+            z = this.a.j;
             if (!z) {
-                this.f2457a.j = true;
+                this.a.j = true;
                 return;
             }
             UtilHelper.a(TiebaApplication.h(), versionData.getNew_file());
-            if (this.f2457a.f2439a != null && this.f2457a.f2439a.length() > 4) {
-                TiebaApplication.h().m(this.f2457a.f2439a);
+            if (this.a.a != null && this.a.a.length() > 4) {
+                TiebaApplication.h().m(this.a.a);
             }
-            this.f2457a.stopSelf();
+            this.a.stopSelf();
         }
     }
 }

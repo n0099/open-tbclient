@@ -1,64 +1,60 @@
 package com.baidu.tieba.a;
 
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.data.NewErrorData;
-import com.baidu.tieba.o;
-import com.baidu.tieba.util.bc;
-import com.slidingmenu.lib.R;
+import com.baidu.tieba.util.an;
 /* loaded from: classes.dex */
-public class g extends o {
-    private static final String e = com.baidu.tieba.data.h.f1248a + "c/u/feed/forum";
-    private int c = 0;
-    private String d;
+public class g {
+    private static final String a = com.baidu.tieba.data.h.a + "c/f/pb/floor";
+    private an b = null;
 
-    public String b(String str) {
-        a("pn", str);
-        a("rn", String.valueOf(20));
-        this.f2135a.e(true);
-        a(e);
-        int b = com.baidu.adp.lib.h.g.b(TiebaApplication.h());
-        int c = com.baidu.adp.lib.h.g.c(TiebaApplication.h());
-        float f = b / 320.0f;
-        int i = bc.a().b() ? 2 : 1;
-        this.f2135a.a("scr_w", String.valueOf(b));
-        this.f2135a.a("scr_h", String.valueOf(c));
-        this.f2135a.a("scr_dip", String.valueOf(f));
-        this.f2135a.a("q_type", String.valueOf(i));
-        String l = this.f2135a.l();
-        if (this.f2135a.c()) {
-            this.b = new NewErrorData();
-            this.b.parserJson(l);
-            return l;
-        } else if (this.f2135a.d()) {
-            this.c = this.f2135a.e();
-            this.d = this.f2135a.i();
-            return null;
-        } else {
-            this.c = -1;
-            this.d = TiebaApplication.h().getResources().getString(R.string.neterror);
+    public String a(String str, String str2, int i, String str3, int i2) {
+        if (str == null || str3 == null) {
             return null;
         }
+        this.b = new an(a);
+        this.b.e(true);
+        this.b.a("kz", str);
+        if (str2 != null) {
+            this.b.a("st_type", str2);
+        }
+        switch (i) {
+            case 0:
+            case 2:
+            case 3:
+                this.b.a("pid", str3);
+                this.b.a("pn", String.valueOf(i2));
+                break;
+            case 1:
+                this.b.a("spid", str3);
+                break;
+        }
+        return this.b.l();
     }
 
-    @Override // com.baidu.tieba.o
-    public int e() {
-        if (this.b != null) {
-            return this.b.getErrorNumber();
+    public boolean a() {
+        if (this.b == null) {
+            return false;
         }
-        if (this.c == 0) {
-            return this.c;
-        }
-        return -1;
+        return this.b.c();
     }
 
-    @Override // com.baidu.tieba.o
-    public String f() {
+    public String b() {
+        if (this.b == null) {
+            return null;
+        }
+        return this.b.i();
+    }
+
+    public int c() {
+        if (this.b == null) {
+            return 0;
+        }
+        return this.b.e();
+    }
+
+    public void d() {
         if (this.b != null) {
-            return this.b.getErrorMsg();
+            this.b.j();
         }
-        if (this.d != null) {
-            return this.d;
-        }
-        return "";
+        this.b = null;
     }
 }

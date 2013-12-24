@@ -1,20 +1,64 @@
 package com.baidu.tieba;
 
-import android.content.DialogInterface;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.data.NewErrorData;
 /* loaded from: classes.dex */
-public class n implements DialogInterface.OnCancelListener {
+public class n {
+    protected com.baidu.tieba.util.an a;
+    protected NewErrorData b = null;
 
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ BaseFragmentActivity f2134a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public n(BaseFragmentActivity baseFragmentActivity) {
-        this.f2134a = baseFragmentActivity;
+    public n() {
+        this.a = null;
+        this.a = new com.baidu.tieba.util.an();
     }
 
-    @Override // android.content.DialogInterface.OnCancelListener
-    public void onCancel(DialogInterface dialogInterface) {
-        this.f2134a.f1004a = null;
+    public void a() {
+        if (this.a != null) {
+            this.a.j();
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void a(String str) {
+        this.a.a(str);
+    }
+
+    public void a(String str, String str2) {
+        this.a.a(str, str2);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public String b() {
+        String l = this.a.l();
+        this.b = new NewErrorData();
+        this.b.parserJson(l);
+        return l;
+    }
+
+    public boolean c() {
+        if (this.a != null) {
+            return this.a.c();
+        }
+        return false;
+    }
+
+    public String d() {
+        if (this.a != null) {
+            return this.a.i();
+        }
+        return null;
+    }
+
+    public int e() {
+        if (this.b != null) {
+            return this.b.getErrorNumber();
+        }
+        return -1;
+    }
+
+    public String f() {
+        if (this.b != null) {
+            return this.b.getErrorMsg();
+        }
+        return null;
     }
 }

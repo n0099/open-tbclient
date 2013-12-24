@@ -21,9 +21,7 @@ public class MyPostActivity extends ActivityGroup {
     private ImageView e = null;
     private TextView f = null;
     private RadioGroup g = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    protected int f2294a = -1;
+    protected int a = -1;
     private String i = null;
     private int j = 0;
 
@@ -72,18 +70,18 @@ public class MyPostActivity extends ActivityGroup {
     @Override // android.app.ActivityGroup, android.app.Activity
     protected void onResume() {
         super.onResume();
-        if (TiebaApplication.h().an() != this.f2294a) {
-            this.f2294a = TiebaApplication.h().an();
-            a(this.f2294a);
+        if (TiebaApplication.h().an() != this.a) {
+            this.a = TiebaApplication.h().an();
+            a(this.a);
         }
     }
 
     public void a(int i) {
-        com.baidu.tieba.util.ba.a(this.b, i);
-        com.baidu.tieba.util.ba.d(this.c, i);
-        com.baidu.tieba.util.ba.e(this.f, i);
-        com.baidu.tieba.util.ba.a(this.d, i);
-        com.baidu.tieba.util.ba.b(this.e, i);
+        com.baidu.tieba.util.bb.a(this.b, i);
+        com.baidu.tieba.util.bb.d(this.c, i);
+        com.baidu.tieba.util.bb.e(this.f, i);
+        com.baidu.tieba.util.bb.a(this.d, i);
+        com.baidu.tieba.util.bb.b(this.e, i);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

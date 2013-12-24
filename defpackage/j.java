@@ -9,16 +9,14 @@ import com.baidu.cloudsdk.common.util.Utils;
 /* renamed from: j  reason: default package */
 /* loaded from: classes.dex */
 public class j implements AsyncImageLoader.IAsyncImageLoaderListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Uri f2901a;
+    final /* synthetic */ Uri a;
     final /* synthetic */ String b;
     final /* synthetic */ AsyncImageLoader.IAsyncImageLoaderListener c;
     final /* synthetic */ ImageManager d;
 
     public j(ImageManager imageManager, Uri uri, String str, AsyncImageLoader.IAsyncImageLoaderListener iAsyncImageLoaderListener) {
         this.d = imageManager;
-        this.f2901a = uri;
+        this.a = uri;
         this.b = str;
         this.c = iAsyncImageLoaderListener;
     }
@@ -29,14 +27,14 @@ public class j implements AsyncImageLoader.IAsyncImageLoaderListener {
         MemoryBitmapCache memoryBitmapCache;
         bm bmVar;
         if (bitmap != null) {
-            if (Utils.isUrl(this.f2901a)) {
+            if (Utils.isUrl(this.a)) {
                 bmVar = this.d.b;
                 bmVar.a(this.b, bitmap);
             } else {
-                int a2 = bm.a(bitmap);
+                int a = bm.a(bitmap);
                 i = this.d.c;
-                if (a2 <= i) {
-                    memoryBitmapCache = this.d.f842a;
+                if (a <= i) {
+                    memoryBitmapCache = this.d.a;
                     memoryBitmapCache.a(this.b, bitmap);
                 }
             }

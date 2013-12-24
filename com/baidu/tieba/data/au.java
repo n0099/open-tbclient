@@ -1,13 +1,12 @@
 package com.baidu.tieba.data;
 
 import android.graphics.Color;
+import com.baidu.android.pushservice.PushConstants;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class au {
     private String d;
-
-    /* renamed from: a  reason: collision with root package name */
-    private String f1228a = null;
+    private String a = null;
     private String b = null;
     private String c = null;
     private boolean h = false;
@@ -25,7 +24,7 @@ public class au {
     }
 
     public String c() {
-        return this.f1228a;
+        return this.a;
     }
 
     public String d() {
@@ -47,22 +46,22 @@ public class au {
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.f1228a = jSONObject.optString("tid");
+                this.a = jSONObject.optString("tid");
                 this.c = jSONObject.optString("title");
                 this.b = jSONObject.optString("pid");
                 this.h = jSONObject.optInt("is_floor", 0) != 0;
                 this.e = jSONObject.optLong("time", 0L) * 1000;
                 this.f.parserJson(jSONObject.optJSONObject("author"));
-                this.g = jSONObject.optString("content");
+                this.g = jSONObject.optString(PushConstants.EXTRA_CONTENT);
                 this.d = jSONObject.optString("fname");
-                this.c = com.baidu.tieba.util.bb.a(this.c, (Color) null);
-                String a2 = com.baidu.tieba.util.bb.a(this.g, (Color) null);
-                if (!a2.equals(this.g)) {
-                    this.g = a2;
+                this.c = com.baidu.tieba.util.bc.a(this.c, (Color) null);
+                String a = com.baidu.tieba.util.bc.a(this.g, (Color) null);
+                if (!a.equals(this.g)) {
+                    this.g = a;
                     this.i = false;
                 }
             } catch (Exception e) {
-                com.baidu.tieba.util.bd.b("PostData", "parserJson", "error = " + e.getMessage());
+                com.baidu.tieba.util.be.b("PostData", "parserJson", "error = " + e.getMessage());
             }
         }
     }

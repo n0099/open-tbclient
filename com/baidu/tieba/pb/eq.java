@@ -8,13 +8,11 @@ import android.widget.ProgressBar;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class eq extends WebViewClient {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WebActivity f2264a;
+    final /* synthetic */ WebActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public eq(WebActivity webActivity) {
-        this.f2264a = webActivity;
+        this.a = webActivity;
     }
 
     @Override // android.webkit.WebViewClient
@@ -26,23 +24,23 @@ public class eq extends WebViewClient {
         ImageView imageView4;
         ImageView imageView5;
         super.onPageFinished(webView, str);
-        if (this.f2264a.f2147a.canGoBack()) {
-            imageView5 = this.f2264a.g;
+        if (this.a.a.canGoBack()) {
+            imageView5 = this.a.g;
             imageView5.setEnabled(true);
         } else {
-            imageView = this.f2264a.g;
+            imageView = this.a.g;
             imageView.setEnabled(false);
         }
-        if (this.f2264a.f2147a.canGoForward()) {
-            imageView4 = this.f2264a.h;
+        if (this.a.a.canGoForward()) {
+            imageView4 = this.a.h;
             imageView4.setEnabled(true);
         } else {
-            imageView2 = this.f2264a.h;
+            imageView2 = this.a.h;
             imageView2.setEnabled(false);
         }
-        progressBar = this.f2264a.j;
+        progressBar = this.a.j;
         progressBar.setVisibility(8);
-        imageView3 = this.f2264a.i;
+        imageView3 = this.a.i;
         imageView3.setVisibility(0);
     }
 
@@ -55,29 +53,29 @@ public class eq extends WebViewClient {
         ImageView imageView4;
         ImageView imageView5;
         super.onPageStarted(webView, str, bitmap);
-        if (this.f2264a.f2147a.canGoBack()) {
-            imageView5 = this.f2264a.g;
+        if (this.a.a.canGoBack()) {
+            imageView5 = this.a.g;
             imageView5.setEnabled(true);
         } else {
-            imageView = this.f2264a.g;
+            imageView = this.a.g;
             imageView.setEnabled(false);
         }
-        if (this.f2264a.f2147a.canGoForward()) {
-            imageView4 = this.f2264a.h;
+        if (this.a.a.canGoForward()) {
+            imageView4 = this.a.h;
             imageView4.setEnabled(true);
         } else {
-            imageView2 = this.f2264a.h;
+            imageView2 = this.a.h;
             imageView2.setEnabled(false);
         }
-        progressBar = this.f2264a.j;
+        progressBar = this.a.j;
         progressBar.setVisibility(0);
-        imageView3 = this.f2264a.i;
+        imageView3 = this.a.i;
         imageView3.setVisibility(4);
     }
 
     @Override // android.webkit.WebViewClient
     public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-        if ((this.f2264a.f == null || !this.f2264a.f.a(str)) && !com.baidu.tieba.recommend.ab.a(this.f2264a, str)) {
+        if ((this.a.f == null || !this.a.f.a(str)) && !com.baidu.tieba.recommend.ab.a(this.a, str)) {
             return super.shouldOverrideUrlLoading(webView, str);
         }
         return true;

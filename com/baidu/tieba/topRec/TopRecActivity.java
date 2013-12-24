@@ -13,9 +13,7 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class TopRecActivity extends com.baidu.tieba.j {
-
-    /* renamed from: a  reason: collision with root package name */
-    private h f2543a;
+    private h a;
     private e b;
     private l c;
     private ax d;
@@ -37,19 +35,19 @@ public class TopRecActivity extends com.baidu.tieba.j {
     }
 
     private void a() {
-        this.f2543a = new h(this);
-        this.f2543a.a(true);
+        this.a = new h(this);
+        this.a.a(true);
     }
 
     private void b() {
         this.b = new e(this);
-        this.f2543a.a(this.b);
+        this.a.a(this.b);
         this.c = new l();
         this.c.a(this.k);
         this.c.LoadData();
         this.h = new LinkedList();
         this.i = new LinkedList();
-        this.f2543a.a(this.l);
+        this.a.a(this.l);
     }
 
     public static void a(Context context) {
@@ -62,7 +60,7 @@ public class TopRecActivity extends com.baidu.tieba.j {
             this.f.forum_list[i].is_like = 1;
             this.b.notifyDataSetChanged();
             this.g++;
-            this.f2543a.a(this.g);
+            this.a.a(this.g);
         }
     }
 
@@ -74,7 +72,7 @@ public class TopRecActivity extends com.baidu.tieba.j {
             if (this.g != 0) {
                 this.g--;
             }
-            this.f2543a.a(this.g);
+            this.a.a(this.g);
         }
     }
 
@@ -117,7 +115,7 @@ public class TopRecActivity extends com.baidu.tieba.j {
             if (c != 0) {
                 this.g += c;
                 this.j = c + this.j;
-                this.f2543a.a(this.g);
+                this.a.a(this.g);
             }
             this.b.notifyDataSetChanged();
         }
@@ -127,7 +125,7 @@ public class TopRecActivity extends com.baidu.tieba.j {
     @Override // com.baidu.tieba.j
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.f2543a.b(i);
+        this.a.b(i);
         if (i == 1) {
             this.b.a(R.drawable.btn_add_1, R.drawable.btn_add_end_1);
         } else {
@@ -151,12 +149,12 @@ public class TopRecActivity extends com.baidu.tieba.j {
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.f2543a.a()) {
+        if (view == this.a.a()) {
             this.b.a();
             if (this.b.b()) {
-                this.f2543a.e();
+                this.a.e();
             }
-        } else if (view == this.f2543a.b()) {
+        } else if (view == this.a.b()) {
             if (this.j != 0) {
                 showToast(getString(R.string.top_rec_like_finish_a) + this.j + getString(R.string.top_rec_like_finish_b));
                 if (TiebaApplication.h().t()) {
@@ -170,9 +168,9 @@ public class TopRecActivity extends com.baidu.tieba.j {
         } else if (this.f != null && this.f.forum_list.length != 0) {
             int intValue = ((Integer) view.getTag()).intValue();
             if (this.f.forum_list.length != 0) {
-                int a2 = a(intValue);
-                if (this.f.forum_list[a2].is_like == 1) {
-                    b(a2, intValue);
+                int a = a(intValue);
+                if (this.f.forum_list[a].is_like == 1) {
+                    b(a, intValue);
                     this.e = new d(this, null);
                     this.h.add(this.e);
                     this.e.setPriority(2);
@@ -182,10 +180,10 @@ public class TopRecActivity extends com.baidu.tieba.j {
                 this.d = new ax();
                 if (!this.d.b()) {
                     this.i.add(this.d);
-                    a(a2, intValue);
-                    this.d.setLoadDataCallBack(new c(this, a2, intValue));
+                    a(a, intValue);
+                    this.d.setLoadDataCallBack(new c(this, a, intValue));
                     this.d.a("from_topRec");
-                    this.d.a(this.f.forum_list[a2].forum_name, String.valueOf(this.f.forum_list[a2].forum_id));
+                    this.d.a(this.f.forum_list[a].forum_name, String.valueOf(this.f.forum_list[a].forum_id));
                 }
             }
         }

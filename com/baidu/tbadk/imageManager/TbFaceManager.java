@@ -11,9 +11,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class TbFaceManager {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static TbFaceManager f980a = null;
+    private static TbFaceManager a = null;
     private Context b = null;
     private a c = null;
 
@@ -25,10 +23,10 @@ public class TbFaceManager {
     }
 
     public static TbFaceManager a() {
-        if (f980a == null) {
-            f980a = new TbFaceManager();
+        if (a == null) {
+            a = new TbFaceManager();
         }
-        return f980a;
+        return a;
     }
 
     private TbFaceManager() {

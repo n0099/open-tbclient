@@ -5,13 +5,11 @@ import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a implements com.baidu.tbadk.imageManager.c {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ GroupCardActivity f1730a;
+    final /* synthetic */ GroupCardActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(GroupCardActivity groupCardActivity) {
-        this.f1730a = groupCardActivity;
+        this.a = groupCardActivity;
     }
 
     @Override // com.baidu.tbadk.imageManager.c
@@ -20,17 +18,17 @@ public class a implements com.baidu.tbadk.imageManager.c {
         d dVar2;
         d dVar3;
         d dVar4;
-        dVar = this.f1730a.d;
+        dVar = this.a.d;
         dVar.e();
         if (eVar == null) {
-            dVar4 = this.f1730a.d;
-            dVar4.a(0, this.f1730a.getString(R.string.group_card_error));
+            dVar4 = this.a.d;
+            dVar4.a(0, this.a.getString(R.string.group_card_error));
             return;
         }
-        this.f1730a.i = eVar.f();
-        dVar2 = this.f1730a.d;
+        this.a.i = eVar.f();
+        dVar2 = this.a.d;
         dVar2.a(eVar);
-        dVar3 = this.f1730a.d;
+        dVar3 = this.a.d;
         dVar3.f();
     }
 }

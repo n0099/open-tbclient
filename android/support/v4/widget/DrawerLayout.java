@@ -12,12 +12,9 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
-import com.tencent.mm.sdk.platformtools.Util;
 /* loaded from: classes.dex */
 public class DrawerLayout extends ViewGroup {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static final int[] f346a = {16842931};
+    private static final int[] a = {16842931};
     private int b;
     private int c;
     private float d;
@@ -165,7 +162,7 @@ public class DrawerLayout extends ViewGroup {
     }
 
     int e(View view) {
-        return android.support.v4.view.n.a(((e) view.getLayoutParams()).f354a, aq.e(view));
+        return android.support.v4.view.n.a(((e) view.getLayoutParams()).a, aq.e(view));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -267,7 +264,7 @@ public class DrawerLayout extends ViewGroup {
                     } else {
                         i5 = (i3 - i) - ((int) (measuredWidth * eVar.b));
                     }
-                    switch (eVar.f354a & SocialAPIErrorCodes.ERROR_EXPIRED_SESSION_KEY) {
+                    switch (eVar.a & SocialAPIErrorCodes.ERROR_EXPIRED_SESSION_KEY) {
                         case 16:
                             int i7 = i4 - i2;
                             int i8 = (i7 - measuredHeight) / 2;
@@ -383,12 +380,12 @@ public class DrawerLayout extends ViewGroup {
     }
 
     boolean f(View view) {
-        return ((e) view.getLayoutParams()).f354a == 0;
+        return ((e) view.getLayoutParams()).a == 0;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean g(View view) {
-        return (android.support.v4.view.n.a(((e) view.getLayoutParams()).f354a, aq.e(view)) & 7) != 0;
+        return (android.support.v4.view.n.a(((e) view.getLayoutParams()).a, aq.e(view)) & 7) != 0;
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -436,7 +433,7 @@ public class DrawerLayout extends ViewGroup {
         View a2;
         this.f.b(motionEvent);
         this.g.b(motionEvent);
-        switch (motionEvent.getAction() & Util.MASK_8BIT) {
+        switch (motionEvent.getAction() & 255) {
             case 0:
                 float x = motionEvent.getX();
                 float y = motionEvent.getY();
@@ -621,7 +618,7 @@ public class DrawerLayout extends ViewGroup {
         View a2;
         SavedState savedState = (SavedState) parcelable;
         super.onRestoreInstanceState(savedState.getSuperState());
-        if (savedState.f347a != 0 && (a2 = a(savedState.f347a)) != null) {
+        if (savedState.a != 0 && (a2 = a(savedState.a)) != null) {
             h(a2);
         }
         a(savedState.b, 3);
@@ -641,7 +638,7 @@ public class DrawerLayout extends ViewGroup {
             if (g(childAt)) {
                 e eVar = (e) childAt.getLayoutParams();
                 if (eVar.d) {
-                    savedState.f347a = eVar.f354a;
+                    savedState.a = eVar.a;
                     break;
                 }
             }
@@ -655,23 +652,21 @@ public class DrawerLayout extends ViewGroup {
     /* loaded from: classes.dex */
     public class SavedState extends View.BaseSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new f();
-
-        /* renamed from: a  reason: collision with root package name */
-        int f347a;
+        int a;
         int b;
         int c;
 
         public SavedState(Parcel parcel) {
             super(parcel);
-            this.f347a = 0;
+            this.a = 0;
             this.b = 0;
             this.c = 0;
-            this.f347a = parcel.readInt();
+            this.a = parcel.readInt();
         }
 
         public SavedState(Parcelable parcelable) {
             super(parcelable);
-            this.f347a = 0;
+            this.a = 0;
             this.b = 0;
             this.c = 0;
         }
@@ -679,7 +674,7 @@ public class DrawerLayout extends ViewGroup {
         @Override // android.view.View.BaseSavedState, android.view.AbsSavedState, android.os.Parcelable
         public void writeToParcel(Parcel parcel, int i) {
             super.writeToParcel(parcel, i);
-            parcel.writeInt(this.f347a);
+            parcel.writeInt(this.a);
         }
     }
 }

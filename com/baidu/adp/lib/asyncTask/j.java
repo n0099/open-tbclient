@@ -4,15 +4,13 @@ import android.os.Handler;
 import android.os.Process;
 /* loaded from: classes.dex */
 class j extends k {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ g f416a;
+    final /* synthetic */ g a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public j(g gVar, m mVar) {
         super(mVar);
-        this.f416a = gVar;
+        this.a = gVar;
     }
 
     @Override // java.lang.Runnable
@@ -34,8 +32,8 @@ class j extends k {
             a();
         } finally {
             if (!h()) {
-                handler = this.f416a.i;
-                handler2 = this.f416a.i;
+                handler = this.a.i;
+                handler2 = this.a.i;
                 handler.sendMessageDelayed(handler2.obtainMessage(2, this), 1L);
             }
         }

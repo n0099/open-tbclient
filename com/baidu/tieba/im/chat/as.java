@@ -1,19 +1,35 @@
 package com.baidu.tieba.im.chat;
 
-import android.view.View;
+import android.content.Context;
+import android.text.TextUtils;
+import android.text.method.LinkMovementMethod;
+import android.widget.TextView;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class as implements View.OnClickListener {
+public class as extends com.baidu.adp.a.c<com.baidu.tieba.im.message.b> {
+    private TextView c;
 
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MsgleftView f1550a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public as(MsgleftView msgleftView) {
-        this.f1550a = msgleftView;
+    public as(Context context) {
+        super(context, R.layout.msg_msgmid_view);
+        this.c = null;
+        e();
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.f1550a.c.a(view, 2, this.f1550a.f, 0L);
+    private void e() {
+        this.c = (TextView) a(R.id.tex_msgcontent);
+        this.c.setMovementMethod(LinkMovementMethod.getInstance());
+    }
+
+    public void a(com.baidu.tieba.im.message.b bVar) {
+        if (bVar == null) {
+            this.c.setText((CharSequence) null);
+            return;
+        }
+        String f = com.baidu.tieba.im.d.d.f(bVar);
+        if (!TextUtils.isEmpty(f)) {
+            this.c.setText(f);
+        } else {
+            this.c.setText((CharSequence) null);
+        }
     }
 }

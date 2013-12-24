@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.baidu.browser.webpool.BdWebPoolView;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.IconData;
 import com.baidu.tieba.view.CommonImageLayout;
@@ -25,9 +26,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class ah extends BaseAdapter {
-
-    /* renamed from: a  reason: collision with root package name */
-    private Context f1365a;
+    private Context a;
     private ArrayList<com.baidu.tieba.data.az> b;
     private boolean c;
     private boolean d;
@@ -39,7 +38,7 @@ public class ah extends BaseAdapter {
     private int n;
     private int o;
     private int p;
-    private int i = 200;
+    private int i = BdWebPoolView.DELAYED_TIME;
     private float k = 0.4f;
     private boolean l = false;
     private LinkedList<IconData> m = null;
@@ -66,18 +65,18 @@ public class ah extends BaseAdapter {
     }
 
     public ah(Context context, ArrayList<com.baidu.tieba.data.az> arrayList, int i, boolean z) {
-        this.h = 200;
+        this.h = BdWebPoolView.DELAYED_TIME;
         this.j = false;
-        this.f1365a = context;
+        this.a = context;
         this.b = arrayList;
-        this.g = new com.baidu.tieba.util.i(this.f1365a);
+        this.g = new com.baidu.tieba.util.i(this.a);
         this.g.f("frs");
         this.h = i;
         this.j = z;
         a(z);
         this.p = b(this.b);
-        this.n = this.f1365a.getResources().getDimensionPixelSize(R.dimen.listview_item_margin);
-        this.o = this.f1365a.getResources().getDimensionPixelSize(R.dimen.listview_divider_height);
+        this.n = this.a.getResources().getDimensionPixelSize(R.dimen.listview_item_margin);
+        this.o = this.a.getResources().getDimensionPixelSize(R.dimen.listview_divider_height);
     }
 
     public void a(boolean z) {
@@ -89,16 +88,16 @@ public class ah extends BaseAdapter {
             if (this.i > 480) {
                 this.i = 480;
             }
-            if (this.i > com.baidu.adp.lib.h.g.a(this.f1365a, 320.0f)) {
-                this.i = com.baidu.adp.lib.h.g.a(this.f1365a, 320.0f);
+            if (this.i > com.baidu.adp.lib.h.g.a(this.a, 320.0f)) {
+                this.i = com.baidu.adp.lib.h.g.a(this.a, 320.0f);
             }
             this.g.b("_small");
         } else {
             if (this.i > this.k * 480.0f) {
                 this.i = (int) (this.k * 480.0f);
             }
-            if (this.i > com.baidu.adp.lib.h.g.a(this.f1365a, 320.0f) * this.k) {
-                this.i = (int) (com.baidu.adp.lib.h.g.a(this.f1365a, 320.0f) * this.k);
+            if (this.i > com.baidu.adp.lib.h.g.a(this.a, 320.0f) * this.k) {
+                this.i = (int) (com.baidu.adp.lib.h.g.a(this.a, 320.0f) * this.k);
             }
             this.g.b("_mobile");
         }
@@ -228,52 +227,52 @@ public class ah extends BaseAdapter {
             view3 = view2;
             akVar2 = akVar;
         }
-        ((FrsActivity) this.f1365a).getLayoutMode().a(i2 == 1);
-        ((FrsActivity) this.f1365a).getLayoutMode().a(view3);
+        ((FrsActivity) this.a).getLayoutMode().a(i2 == 1);
+        ((FrsActivity) this.a).getLayoutMode().a(view3);
         com.baidu.tieba.data.az azVar = (com.baidu.tieba.data.az) getItem(i);
         akVar2.b.setText(azVar.c());
-        com.baidu.tieba.util.az aw = TiebaApplication.h().aw();
+        com.baidu.tieba.util.ba aw = TiebaApplication.h().aw();
         if (aw != null && aw.b(azVar.a())) {
-            akVar2.b.setTextColor(this.f1365a.getResources().getColor(R.color.read_thread_color));
+            akVar2.b.setTextColor(this.a.getResources().getColor(R.color.read_thread_color));
         }
         if (i2 == 1) {
             if (azVar.f() == 1) {
-                bitmapDrawable = (BitmapDrawable) this.f1365a.getResources().getDrawable(R.drawable.icon_top_1);
+                bitmapDrawable = (BitmapDrawable) this.a.getResources().getDrawable(R.drawable.icon_top_1);
             } else {
-                bitmapDrawable = azVar.f() == 2 ? (BitmapDrawable) this.f1365a.getResources().getDrawable(R.drawable.icon_notice_1) : null;
+                bitmapDrawable = azVar.f() == 2 ? (BitmapDrawable) this.a.getResources().getDrawable(R.drawable.icon_notice_1) : null;
             }
             if (this.p == 1) {
-                akVar2.f1367a.setBackgroundResource(R.drawable.bg_frs_top_selector_1);
+                akVar2.a.setBackgroundResource(R.drawable.bg_frs_top_selector_1);
                 akVar2.c.setVisibility(8);
             } else if (this.p >= 2) {
                 if (i == 0) {
-                    akVar2.f1367a.setBackgroundResource(R.drawable.bg_frs_top_up_selector_1);
+                    akVar2.a.setBackgroundResource(R.drawable.bg_frs_top_up_selector_1);
                     akVar2.c.setVisibility(0);
                 } else if (i == this.p - 1) {
-                    akVar2.f1367a.setBackgroundResource(R.drawable.bg_frs_top_down_selector_1);
+                    akVar2.a.setBackgroundResource(R.drawable.bg_frs_top_down_selector_1);
                     akVar2.c.setVisibility(8);
                 } else {
-                    akVar2.f1367a.setBackgroundResource(R.drawable.bg_frs_top_middle_selector_1);
+                    akVar2.a.setBackgroundResource(R.drawable.bg_frs_top_middle_selector_1);
                     akVar2.c.setVisibility(0);
                 }
             }
         } else {
             if (azVar.f() == 1) {
-                bitmapDrawable = (BitmapDrawable) this.f1365a.getResources().getDrawable(R.drawable.icon_top);
+                bitmapDrawable = (BitmapDrawable) this.a.getResources().getDrawable(R.drawable.icon_top);
             } else {
-                bitmapDrawable = azVar.f() == 2 ? (BitmapDrawable) this.f1365a.getResources().getDrawable(R.drawable.icon_notice) : null;
+                bitmapDrawable = azVar.f() == 2 ? (BitmapDrawable) this.a.getResources().getDrawable(R.drawable.icon_notice) : null;
             }
             if (this.p == 1) {
-                akVar2.f1367a.setBackgroundResource(R.drawable.bg_frs_top_selector);
+                akVar2.a.setBackgroundResource(R.drawable.bg_frs_top_selector);
                 akVar2.c.setVisibility(8);
             } else if (this.p >= 2) {
                 if (i == 0) {
-                    akVar2.f1367a.setBackgroundResource(R.drawable.bg_frs_top_up_selector);
+                    akVar2.a.setBackgroundResource(R.drawable.bg_frs_top_up_selector);
                 } else if (i == this.p - 1) {
-                    akVar2.f1367a.setBackgroundResource(R.drawable.bg_frs_top_down_selector);
+                    akVar2.a.setBackgroundResource(R.drawable.bg_frs_top_down_selector);
                     akVar2.c.setVisibility(8);
                 } else {
-                    akVar2.f1367a.setBackgroundResource(R.drawable.bg_frs_top_middle_selector);
+                    akVar2.a.setBackgroundResource(R.drawable.bg_frs_top_middle_selector);
                 }
             }
         }
@@ -285,9 +284,9 @@ public class ah extends BaseAdapter {
     }
 
     private View e() {
-        View inflate = LayoutInflater.from(this.f1365a).inflate(R.layout.frs_top_item, (ViewGroup) null);
+        View inflate = LayoutInflater.from(this.a).inflate(R.layout.frs_top_item, (ViewGroup) null);
         ak akVar = new ak(this);
-        akVar.f1367a = (LinearLayout) inflate.findViewById(R.id.frs_top_item);
+        akVar.a = (LinearLayout) inflate.findViewById(R.id.frs_top_item);
         akVar.b = (TextView) inflate.findViewById(R.id.frs_top_title);
         akVar.c = inflate.findViewById(R.id.frs_top_divider);
         inflate.setTag(akVar);
@@ -298,9 +297,9 @@ public class ah extends BaseAdapter {
         al alVar;
         int i3;
         if (view == null) {
-            view = LayoutInflater.from(this.f1365a).inflate(R.layout.frs_item, (ViewGroup) null);
+            view = LayoutInflater.from(this.a).inflate(R.layout.frs_item, (ViewGroup) null);
             al alVar2 = new al(this);
-            alVar2.f1368a = (LinearLayout) view.findViewById(R.id.frs_list);
+            alVar2.a = (LinearLayout) view.findViewById(R.id.frs_list);
             alVar2.b = (LinearLayout) view.findViewById(R.id.frs_list_item_top);
             alVar2.c = (RelativeLayout) view.findViewById(R.id.item_bottom_layout);
             alVar2.g = (TextView) view.findViewById(R.id.frs_lv_reply_num);
@@ -326,10 +325,10 @@ public class ah extends BaseAdapter {
             alVar.b.setBackgroundResource(R.drawable.forumfeed_frs_list_item_top_bg);
             alVar.c.setBackgroundResource(R.drawable.forumfeed_frs_list_item_foot_bg);
         }
-        alVar.f1368a.setPadding(0, i - this.p == 0 ? this.n : this.o, 0, 0);
+        alVar.a.setPadding(0, i - this.p == 0 ? this.n : this.o, 0, 0);
         alVar.l.setVisibility(8);
-        ((FrsActivity) this.f1365a).getLayoutMode().a(i2 == 1);
-        ((FrsActivity) this.f1365a).getLayoutMode().a(view);
+        ((FrsActivity) this.a).getLayoutMode().a(i2 == 1);
+        ((FrsActivity) this.a).getLayoutMode().a(view);
         com.baidu.tieba.data.az azVar = (com.baidu.tieba.data.az) getItem(i);
         int d = azVar.d();
         alVar.k.setVisibility(0);
@@ -343,16 +342,16 @@ public class ah extends BaseAdapter {
         } else {
             alVar.g.setText("999999+");
         }
-        alVar.h.setText(com.baidu.tieba.util.bb.b(azVar.e() * 1000));
+        alVar.h.setText(com.baidu.tieba.util.bc.b(azVar.e() * 1000));
         alVar.i.setText(azVar.r());
-        com.baidu.tieba.util.az aw = TiebaApplication.h().aw();
+        com.baidu.tieba.util.ba aw = TiebaApplication.h().aw();
         if (aw != null && aw.b(azVar.a())) {
-            alVar.i.setTextColor(i2 == 1 ? this.f1365a.getResources().getColor(R.color.listview_item_thread_read_1) : this.f1365a.getResources().getColor(R.color.listview_item_thread_read));
+            alVar.i.setTextColor(i2 == 1 ? this.a.getResources().getColor(R.color.listview_item_thread_read_1) : this.a.getResources().getColor(R.color.listview_item_thread_read));
         }
         alVar.j.setText(azVar.j().getName());
         this.m = azVar.j().getIconInfo();
         if (alVar.n != null) {
-            alVar.n.a(this.m, 3, this.f1365a.getResources().getDimensionPixelSize(R.dimen.frs_icon_width), this.f1365a.getResources().getDimensionPixelSize(R.dimen.frs_icon_height), this.f1365a.getResources().getDimensionPixelSize(R.dimen.frs_icon_margin));
+            alVar.n.a(this.m, 3, this.a.getResources().getDimensionPixelSize(R.dimen.frs_icon_width), this.a.getResources().getDimensionPixelSize(R.dimen.frs_icon_height), this.a.getResources().getDimensionPixelSize(R.dimen.frs_icon_margin));
         }
         alVar.c.setVisibility(0);
         alVar.f.setVisibility(0);
@@ -429,9 +428,9 @@ public class ah extends BaseAdapter {
     private View a(View view, int i) {
         aj ajVar;
         if (view == null) {
-            view = LayoutInflater.from(this.f1365a).inflate(R.layout.frs_item_control, (ViewGroup) null);
+            view = LayoutInflater.from(this.a).inflate(R.layout.frs_item_control, (ViewGroup) null);
             aj ajVar2 = new aj(this);
-            ajVar2.f1366a = (FrameLayout) view.findViewById(R.id.frs_list_control);
+            ajVar2.a = (FrameLayout) view.findViewById(R.id.frs_list_control);
             ajVar2.b = (LinearLayout) view.findViewById(R.id.frs_list_control_in);
             ajVar2.d = (ProgressBar) view.findViewById(R.id.frs_list_control_progress);
             ajVar2.c = (TextView) view.findViewById(R.id.frs_list_control_tv);
@@ -441,8 +440,8 @@ public class ah extends BaseAdapter {
             ajVar = (aj) view.getTag();
         }
         if (this.c) {
-            ajVar.f1366a.setVisibility(0);
-            ajVar.f1366a.setPadding(0, this.n, 0, 0);
+            ajVar.a.setVisibility(0);
+            ajVar.a.setPadding(0, this.n, 0, 0);
             if (this.f) {
                 ajVar.c.setText(R.string.loading);
                 ajVar.d.setVisibility(0);
@@ -455,9 +454,9 @@ public class ah extends BaseAdapter {
             } else {
                 ajVar.b.setBackgroundResource(R.drawable.frs_item_control_bg);
             }
-            com.baidu.tieba.util.ba.b(ajVar.c, i);
+            com.baidu.tieba.util.bb.b(ajVar.c, i);
         } else {
-            ajVar.f1366a.setVisibility(8);
+            ajVar.a.setVisibility(8);
         }
         return view;
     }
@@ -465,9 +464,9 @@ public class ah extends BaseAdapter {
     private View b(View view, int i) {
         aj ajVar;
         if (view == null) {
-            view = LayoutInflater.from(this.f1365a).inflate(R.layout.frs_item_control, (ViewGroup) null);
+            view = LayoutInflater.from(this.a).inflate(R.layout.frs_item_control, (ViewGroup) null);
             aj ajVar2 = new aj(this);
-            ajVar2.f1366a = (FrameLayout) view.findViewById(R.id.frs_list_control);
+            ajVar2.a = (FrameLayout) view.findViewById(R.id.frs_list_control);
             ajVar2.b = (LinearLayout) view.findViewById(R.id.frs_list_control_in);
             ajVar2.d = (ProgressBar) view.findViewById(R.id.frs_list_control_progress);
             ajVar2.c = (TextView) view.findViewById(R.id.frs_list_control_tv);
@@ -477,8 +476,8 @@ public class ah extends BaseAdapter {
             ajVar = (aj) view.getTag();
         }
         if (this.d) {
-            ajVar.f1366a.setVisibility(0);
-            ajVar.f1366a.setPadding(0, this.n, 0, this.n);
+            ajVar.a.setVisibility(0);
+            ajVar.a.setPadding(0, this.n, 0, this.n);
             if (this.e) {
                 ajVar.c.setText(R.string.loading);
                 ajVar.d.setVisibility(0);
@@ -491,9 +490,9 @@ public class ah extends BaseAdapter {
             } else {
                 ajVar.b.setBackgroundResource(R.drawable.frs_item_control_bg);
             }
-            com.baidu.tieba.util.ba.b(ajVar.c, i);
+            com.baidu.tieba.util.bb.b(ajVar.c, i);
         } else {
-            ajVar.f1366a.setVisibility(8);
+            ajVar.a.setVisibility(8);
         }
         return view;
     }

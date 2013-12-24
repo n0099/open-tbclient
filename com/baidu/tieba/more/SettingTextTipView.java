@@ -14,6 +14,7 @@ import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class SettingTextTipView extends FrameLayout {
+    private boolean a;
     protected Context b;
     protected LinearLayout c;
     protected TextView d;
@@ -22,6 +23,7 @@ public class SettingTextTipView extends FrameLayout {
 
     public SettingTextTipView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
+        this.a = true;
         this.b = context;
         e();
         a(attributeSet);
@@ -30,6 +32,7 @@ public class SettingTextTipView extends FrameLayout {
 
     public SettingTextTipView(Context context) {
         super(context);
+        this.a = true;
         this.b = context;
         e();
         a(TiebaApplication.h().an());
@@ -96,7 +99,7 @@ public class SettingTextTipView extends FrameLayout {
     }
 
     protected void a(AttributeSet attributeSet) {
-        TypedArray obtainStyledAttributes = this.b.obtainStyledAttributes(attributeSet, com.baidu.tieba.au.SettingView);
+        TypedArray obtainStyledAttributes = this.b.obtainStyledAttributes(attributeSet, com.baidu.tieba.at.SettingView);
         String string = obtainStyledAttributes.getString(0);
         int color = obtainStyledAttributes.getColor(1, -1);
         String string2 = obtainStyledAttributes.getString(3);
@@ -113,7 +116,12 @@ public class SettingTextTipView extends FrameLayout {
         if (color2 > -1) {
             this.e.setTextColor(color2);
         }
+        this.a = obtainStyledAttributes.getBoolean(5, true);
+        obtainStyledAttributes.recycle();
         this.c.setClickable(false);
         this.c.setFocusable(false);
+        if (!this.a) {
+            this.f.setVisibility(4);
+        }
     }
 }

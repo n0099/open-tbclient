@@ -19,7 +19,7 @@ import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class FrsGroupActivity extends BaseFragmentActivity implements View.OnClickListener, RadioGroup.OnCheckedChangeListener {
     private g b;
-    private com.baidu.tieba.im.model.b c;
+    private com.baidu.tieba.im.model.c c;
     private com.baidu.tieba.im.messageCenter.g d = new a(this);
 
     public static void a(Context context, String str, boolean z) {
@@ -34,7 +34,7 @@ public class FrsGroupActivity extends BaseFragmentActivity implements View.OnCli
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         a(bundle, null);
-        e();
+        d();
         a(bundle);
         a(false);
     }
@@ -80,33 +80,33 @@ public class FrsGroupActivity extends BaseFragmentActivity implements View.OnCli
         if (bundle != null) {
             this.b.b(this.c.g());
         }
-        this.b.a(f());
+        this.b.a(e());
         this.b.e();
     }
 
-    public com.baidu.tieba.im.model.b c() {
+    public com.baidu.tieba.im.model.c b() {
         return this.c;
     }
 
-    public g d() {
+    public g c() {
         return this.b;
     }
 
     public void a(Bundle bundle, Intent intent) {
-        this.c = new com.baidu.tieba.im.model.b();
+        this.c = new com.baidu.tieba.im.model.c();
         if (bundle == null) {
-            com.baidu.tieba.im.model.b bVar = this.c;
+            com.baidu.tieba.im.model.c cVar = this.c;
             if (intent == null) {
                 intent = getIntent();
             }
-            bVar.a(intent);
+            cVar.a(intent);
         } else {
             this.c.a(bundle);
         }
         this.c.a(this);
     }
 
-    protected void e() {
+    protected void d() {
         this.c.c(this.d);
     }
 
@@ -116,65 +116,65 @@ public class FrsGroupActivity extends BaseFragmentActivity implements View.OnCli
     }
 
     private void a(boolean z) {
-        Fragment a2 = getSupportFragmentManager().a(this.b.a()[f()]);
-        if (z || a2 == null) {
-            getSupportFragmentManager().a().a(R.id.fragment, this.b.g()[f()], this.b.a()[f()]).a();
+        Fragment a = getSupportFragmentManager().a(this.b.a()[e()]);
+        if (z || a == null) {
+            getSupportFragmentManager().a().a(R.id.fragment, this.b.g()[e()], this.b.a()[e()]).a();
         } else {
-            getSupportFragmentManager().a().c(this.b.g()[f()]).a();
+            getSupportFragmentManager().a().c(this.b.g()[e()]).a();
         }
     }
 
-    private void g() {
-        if (getSupportFragmentManager().a(this.b.a()[f()]) != null) {
-            getSupportFragmentManager().a().b(this.b.g()[f()]).a();
+    private void f() {
+        if (getSupportFragmentManager().a(this.b.a()[e()]) != null) {
+            getSupportFragmentManager().a().b(this.b.g()[e()]).a();
         }
     }
 
-    public int f() {
+    public int e() {
         return this.c.g() - 1;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this.b.h()) {
-            h();
+            g();
         } else if (view == this.b.i()) {
             StatService.onEvent(this, "create_g_in_frsgroup", "click");
-            j();
+            i();
         }
     }
 
-    private void h() {
+    private void g() {
         finish();
     }
 
-    private void i() {
+    private void h() {
         this.b.d(true);
         this.c.c(this.c.m());
     }
 
-    private void j() {
+    private void i() {
         if (TextUtils.isEmpty(TiebaApplication.B())) {
             LoginActivity.a((Activity) this, "", true, 0);
         } else {
-            i();
+            h();
         }
     }
 
     public void a(GroupPermData groupPermData) {
         if (!groupPermData.isManager()) {
             if (!groupPermData.isCreateNormal()) {
-                b(groupPermData.getCreateNormalTip());
+                a(groupPermData.getCreateNormalTip());
                 return;
             } else {
-                CreateGroupStepActivity.a(this, 3, c(this.c.m()), 1013);
+                CreateGroupStepActivity.a(this, 3, b(this.c.m()), 1013);
                 return;
             }
         }
-        CreateGroupMainActivity.a(this, groupPermData.isCreateOfficial(), groupPermData.isCreateNormal(), groupPermData.getCreateOfficialTip(), groupPermData.getCreateNormalTip(), c(this.c.m()));
+        CreateGroupMainActivity.a(this, groupPermData.isCreateOfficial(), groupPermData.isCreateNormal(), groupPermData.getCreateOfficialTip(), groupPermData.getCreateNormalTip(), b(this.c.m()));
     }
 
-    private int c(String str) {
+    private int b(String str) {
         try {
             return Integer.valueOf(str).intValue();
         } catch (NumberFormatException e) {
@@ -185,19 +185,19 @@ public class FrsGroupActivity extends BaseFragmentActivity implements View.OnCli
 
     @Override // android.widget.RadioGroup.OnCheckedChangeListener
     public void onCheckedChanged(RadioGroup radioGroup, int i) {
-        g();
+        f();
         switch (i) {
-            case R.id.radio_recommend /* 2131100401 */:
+            case R.id.radio_recommend /* 2131100400 */:
                 this.c.a(1);
                 break;
-            case R.id.radio_hot /* 2131100403 */:
+            case R.id.radio_hot /* 2131100402 */:
                 this.c.a(2);
                 break;
-            case R.id.radio_official /* 2131100405 */:
+            case R.id.radio_official /* 2131100404 */:
                 this.c.a(3);
                 break;
         }
-        this.b.a(f());
+        this.b.a(e());
         a(false);
     }
 
@@ -206,7 +206,7 @@ public class FrsGroupActivity extends BaseFragmentActivity implements View.OnCli
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (i == 0) {
-            i();
+            h();
         }
     }
 }

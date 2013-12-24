@@ -1,54 +1,29 @@
 package com.baidu.tieba.account;
 
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import com.slidingmenu.lib.R;
+import android.app.Activity;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.data.AccountData;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class g implements TextWatcher {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ActivationActivity f1092a;
+public class g implements as {
+    final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public g(ActivationActivity activationActivity) {
-        this.f1092a = activationActivity;
+    public g(a aVar) {
+        this.a = aVar;
     }
 
-    @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
-        RelativeLayout relativeLayout;
-        int i;
-        LinearLayout linearLayout;
-        LinearLayout linearLayout2;
-        int i2;
-        int i3;
-        RelativeLayout relativeLayout2;
-        if (editable.length() == 6) {
-            relativeLayout2 = this.f1092a.j;
-            relativeLayout2.setEnabled(true);
-        } else {
-            relativeLayout = this.f1092a.j;
-            relativeLayout.setEnabled(false);
-        }
-        i = this.f1092a.y;
-        if (i != 0) {
-            this.f1092a.y = 0;
-            linearLayout = this.f1092a.c;
-            linearLayout.setBackgroundResource(R.drawable.pass_input);
-            linearLayout2 = this.f1092a.c;
-            i2 = this.f1092a.w;
-            i3 = this.f1092a.x;
-            linearLayout2.setPadding(i2, 0, i3, 0);
-        }
+    @Override // com.baidu.tieba.account.as
+    public void a(AccountData accountData) {
+        Activity activity;
+        activity = this.a.b;
+        TiebaApplication.a(accountData, activity);
+        l.a().b();
+        new h(this, accountData).execute(new Void[0]);
     }
 
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    @Override // com.baidu.tieba.account.as
+    public void a(String str) {
+        this.a.b();
     }
 }

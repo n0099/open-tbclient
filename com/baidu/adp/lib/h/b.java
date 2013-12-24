@@ -7,9 +7,7 @@ import java.io.OutputStream;
 /* loaded from: classes.dex */
 public class b {
     private static String b = "baidu";
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final File f502a = Environment.getExternalStorageDirectory();
+    public static final File a = Environment.getExternalStorageDirectory();
 
     public static boolean a() {
         return Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED);
@@ -17,21 +15,21 @@ public class b {
 
     public static String a(String str) {
         if (str != null) {
-            return f502a + "/" + b + "/" + str + "/";
+            return a + "/" + b + "/" + str + "/";
         }
-        return f502a + "/" + b + "/";
+        return a + "/" + b + "/";
     }
 
     public static String a(String str, String str2) {
         if (str != null) {
-            return f502a + "/" + b + "/" + str + "/" + str2;
+            return a + "/" + b + "/" + str + "/" + str2;
         }
-        return f502a + "/" + b + "/" + str2;
+        return a + "/" + b + "/" + str2;
     }
 
     public static boolean b() {
         try {
-            StatFs statFs = new StatFs(f502a.getPath());
+            StatFs statFs = new StatFs(a.getPath());
             return ((((long) statFs.getAvailableBlocks()) * ((long) statFs.getBlockSize())) / 1024) / 1024 > 2;
         } catch (Exception e) {
             return false;

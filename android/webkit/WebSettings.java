@@ -1,6 +1,7 @@
 package android.webkit;
 
 import com.baidu.browser.core.BdNoProGuard;
+import com.baidu.browser.webpool.BdWebPoolView;
 /* loaded from: classes.dex */
 public class WebSettings implements BdNoProGuard {
     public static final int LOAD_CACHE_ELSE_NETWORK = 1;
@@ -66,7 +67,7 @@ public class WebSettings implements BdNoProGuard {
         SMALLER(75),
         NORMAL(100),
         LARGER(150),
-        LARGEST(200);
+        LARGEST(BdWebPoolView.DELAYED_TIME);
         
         int value;
 

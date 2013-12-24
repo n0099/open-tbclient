@@ -6,9 +6,7 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 /* loaded from: classes.dex */
 public class e {
-
-    /* renamed from: a  reason: collision with root package name */
-    private InputMethodManager f400a = null;
+    private InputMethodManager a = null;
     protected Context b;
 
     public e(Context context) {
@@ -24,20 +22,20 @@ public class e {
     }
 
     public void a(InputMethodManager inputMethodManager) {
-        this.f400a = inputMethodManager;
+        this.a = inputMethodManager;
     }
 
     public InputMethodManager g_() {
-        if (this.f400a == null) {
-            this.f400a = (InputMethodManager) this.b.getSystemService("input_method");
+        if (this.a == null) {
+            this.a = (InputMethodManager) this.b.getSystemService("input_method");
         }
-        return this.f400a;
+        return this.a;
     }
 
     public void a(View view) {
         try {
-            if (this.f400a != null && view != null) {
-                this.f400a.hideSoftInputFromWindow(view.getWindowToken(), 2);
+            if (this.a != null && view != null) {
+                this.a.hideSoftInputFromWindow(view.getWindowToken(), 2);
             }
         } catch (Exception e) {
             com.baidu.adp.lib.h.e.b(getClass().getName(), "HidenSoftKeyPad", "error = " + e.getMessage());

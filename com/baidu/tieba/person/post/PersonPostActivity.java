@@ -70,15 +70,15 @@ public class PersonPostActivity extends BaseFragmentActivity implements View.OnC
         }
     }
 
-    public String c() {
+    public String b() {
         return this.b;
     }
 
-    public String d() {
+    public String c() {
         return this.c;
     }
 
-    public String e() {
+    public String d() {
         return this.d;
     }
 
@@ -106,8 +106,8 @@ public class PersonPostActivity extends BaseFragmentActivity implements View.OnC
         }
     }
 
-    public String f() {
-        return this.f ? getString(R.string.person_post_lv_empty_host) : String.format(getString(R.string.person_post_lv_empty_guest), d());
+    public String e() {
+        return this.f ? getString(R.string.person_post_lv_empty_host) : String.format(getString(R.string.person_post_lv_empty_guest), c());
     }
 
     @Override // android.view.View.OnClickListener
@@ -120,7 +120,7 @@ public class PersonPostActivity extends BaseFragmentActivity implements View.OnC
                 c(2);
                 this.g.b.setCurrentItem(1);
                 return;
-            case R.id.thread /* 2131100721 */:
+            case R.id.thread /* 2131100729 */:
                 if (TiebaApplication.h().t()) {
                     StatService.onEvent(this, this.f ? "pp_my_thread" : "pp_his_thread", "click", 1);
                 }

@@ -6,13 +6,11 @@ import com.baidu.tieba.TiebaApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bg extends com.baidu.adp.a.g {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PersonInfoActivity f2333a;
+    final /* synthetic */ PersonInfoActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bg(PersonInfoActivity personInfoActivity) {
-        this.f2333a = personInfoActivity;
+        this.a = personInfoActivity;
     }
 
     @Override // com.baidu.adp.a.g
@@ -27,40 +25,40 @@ public class bg extends com.baidu.adp.a.g {
         com.baidu.tieba.model.bx bxVar6;
         com.baidu.tieba.model.bx bxVar7;
         com.baidu.tieba.model.bx bxVar8;
-        bxVar = this.f2333a.e;
+        bxVar = this.a.e;
         if (bxVar.getLoadDataMode() != 1) {
-            bxVar6 = this.f2333a.e;
+            bxVar6 = this.a.e;
             if (bxVar6.getLoadDataMode() != 2) {
-                bxVar7 = this.f2333a.e;
-                if (bxVar7.getLoadDataMode() == 3 && this.f2333a.b != null) {
-                    bi biVar = this.f2333a.b;
+                bxVar7 = this.a.e;
+                if (bxVar7.getLoadDataMode() == 3 && this.a.b != null) {
+                    bl blVar = this.a.b;
                     boolean booleanValue = ((Boolean) obj).booleanValue();
-                    bxVar8 = this.f2333a.e;
-                    biVar.a(booleanValue, bxVar8);
+                    bxVar8 = this.a.e;
+                    blVar.a(booleanValue, bxVar8);
                     return;
                 }
                 return;
             }
         }
         if (TiebaApplication.h().t()) {
-            baseFragmentActivity = this.f2333a.g;
+            baseFragmentActivity = this.a.h;
             StatService.onEvent(baseFragmentActivity, "person_info_pv", "infopv", 1);
         }
-        bool = this.f2333a.f;
+        bool = this.a.g;
         if (bool.booleanValue()) {
-            if (this.f2333a.f2297a != null) {
-                bj bjVar = this.f2333a.f2297a;
+            if (this.a.a != null) {
+                bm bmVar = this.a.a;
                 boolean booleanValue2 = ((Boolean) obj).booleanValue();
-                bxVar4 = this.f2333a.e;
-                bxVar5 = this.f2333a.e;
-                bjVar.a(booleanValue2, bxVar4, bxVar5.getLoadDataMode());
+                bxVar4 = this.a.e;
+                bxVar5 = this.a.e;
+                bmVar.a(booleanValue2, bxVar4, bxVar5.getLoadDataMode());
             }
-        } else if (this.f2333a.b != null) {
-            bi biVar2 = this.f2333a.b;
+        } else if (this.a.b != null) {
+            bl blVar2 = this.a.b;
             boolean booleanValue3 = ((Boolean) obj).booleanValue();
-            bxVar2 = this.f2333a.e;
-            bxVar3 = this.f2333a.e;
-            biVar2.a(booleanValue3, bxVar2, bxVar3.getLoadDataMode());
+            bxVar2 = this.a.e;
+            bxVar3 = this.a.e;
+            blVar2.a(booleanValue3, bxVar2, bxVar3.getLoadDataMode());
         }
     }
 }

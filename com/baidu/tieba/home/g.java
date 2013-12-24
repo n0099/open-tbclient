@@ -5,13 +5,11 @@ import android.view.View;
 import android.widget.ListView;
 /* loaded from: classes.dex */
 class g implements View.OnKeyListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ EnterForumActivity f1492a;
+    final /* synthetic */ EnterForumActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(EnterForumActivity enterForumActivity) {
-        this.f1492a = enterForumActivity;
+        this.a = enterForumActivity;
     }
 
     @Override // android.view.View.OnKeyListener

@@ -1,7 +1,6 @@
 package com.baidu.tieba.im.model;
 
-import com.baidu.tieba.im.message.RequestAddGroupMessage;
-import com.baidu.tieba.im.message.ResponseAddGroupMessage;
+import com.baidu.tieba.im.message.av;
 /* loaded from: classes.dex */
 public class a extends com.baidu.adp.a.d {
     private int c;
@@ -14,10 +13,8 @@ public class a extends com.baidu.adp.a.d {
     private String j;
     private int k;
     private int l;
-
-    /* renamed from: a  reason: collision with root package name */
-    private RequestAddGroupMessage f1808a = null;
-    private ResponseAddGroupMessage b = null;
+    private com.baidu.tieba.im.message.v a = null;
+    private av b = null;
     private int m = -1;
 
     public void a(int i) {
@@ -74,47 +71,47 @@ public class a extends com.baidu.adp.a.d {
         this.m = i;
     }
 
-    private RequestAddGroupMessage c() {
-        RequestAddGroupMessage requestAddGroupMessage = new RequestAddGroupMessage();
-        requestAddGroupMessage.setForumId(this.c);
-        requestAddGroupMessage.setName(this.d);
-        requestAddGroupMessage.setIntro(this.e);
-        requestAddGroupMessage.setPortrait(this.f);
-        requestAddGroupMessage.setPosition(this.g);
-        requestAddGroupMessage.setBusiness(this.h);
-        requestAddGroupMessage.setLng(this.i);
-        requestAddGroupMessage.setLat(this.j);
-        requestAddGroupMessage.setGroupType(this.k);
-        requestAddGroupMessage.setFlag(this.l);
+    private com.baidu.tieba.im.message.v c() {
+        com.baidu.tieba.im.message.v vVar = new com.baidu.tieba.im.message.v();
+        vVar.a(this.c);
+        vVar.a(this.d);
+        vVar.b(this.e);
+        vVar.c(this.f);
+        vVar.d(this.g);
+        vVar.e(this.h);
+        vVar.f(this.i);
+        vVar.g(this.j);
+        vVar.b(this.k);
+        vVar.c(this.l);
         switch (this.m) {
             case 1011:
-                requestAddGroupMessage.setPage_from_dim("neargp");
+                vVar.h("neargp");
                 break;
             case 1012:
-                requestAddGroupMessage.setPage_from_dim("mygp");
+                vVar.h("mygp");
                 break;
             case 1013:
-                requestAddGroupMessage.setPage_from_dim("bargp");
+                vVar.h("bargp");
                 break;
             case 1014:
-                requestAddGroupMessage.setPage_from_dim("");
+                vVar.h("");
                 break;
             default:
-                requestAddGroupMessage.setPage_from_dim("");
+                vVar.h("");
                 break;
         }
-        return requestAddGroupMessage;
+        return vVar;
     }
 
     public void a() {
-        this.f1808a = c();
-        com.baidu.tieba.im.messageCenter.e.a().a(this.f1808a);
+        this.a = c();
+        com.baidu.tieba.im.messageCenter.e.a().a(this.a);
     }
 
     public void b() {
-        if (this.f1808a != null) {
-            com.baidu.tieba.im.messageCenter.e.a().b(this.f1808a);
-            this.f1808a = null;
+        if (this.a != null) {
+            com.baidu.tieba.im.messageCenter.e.a().b(this.a);
+            this.a = null;
         }
         if (this.b != null) {
             com.baidu.tieba.im.messageCenter.e.a().b(this.b);

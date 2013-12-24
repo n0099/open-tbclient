@@ -23,27 +23,32 @@ import com.baidu.mobstat.StatService;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.barcode.result.ZxingResult;
 import com.baidu.tieba.service.TiebaPrepareImageService;
-import com.baidu.tieba.util.bc;
 import com.baidu.tieba.util.bd;
-import com.baidu.tieba.util.x;
+import com.baidu.tieba.util.be;
+import com.baidu.tieba.util.y;
 import com.baidu.tieba.view.NavigationBar;
 import com.baidu.zeus.URLUtil;
 import com.baidu.zeus.bouncycastle.DERTags;
 import com.google.zxing.BarcodeFormat;
+import com.google.zxing.BinaryBitmap;
 import com.google.zxing.ChecksumException;
 import com.google.zxing.DecodeHintType;
 import com.google.zxing.FormatException;
 import com.google.zxing.NotFoundException;
+import com.google.zxing.RGBLuminanceSource;
+import com.google.zxing.Result;
+import com.google.zxing.ResultPoint;
+import com.google.zxing.client.result.ResultParser;
+import com.google.zxing.common.HybridBinarizer;
+import com.google.zxing.qrcode.QRCodeReader;
 import com.slidingmenu.lib.R;
 import java.io.IOException;
 import java.util.Hashtable;
 /* loaded from: classes.dex */
 public final class CaptureActivity extends com.baidu.tieba.j implements SurfaceHolder.Callback {
-
-    /* renamed from: a  reason: collision with root package name */
-    private com.baidu.tieba.barcode.a.f f1130a;
+    private com.baidu.tieba.barcode.a.f a;
     private CaptureActivityHandler b;
-    private com.google.zxing.h c;
+    private Result c;
     private ViewfinderView d;
     private boolean e;
     private o f;
@@ -70,7 +75,7 @@ public final class CaptureActivity extends com.baidu.tieba.j implements SurfaceH
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public com.baidu.tieba.barcode.a.f c() {
-        return this.f1130a;
+        return this.a;
     }
 
     @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
@@ -92,7 +97,7 @@ public final class CaptureActivity extends com.baidu.tieba.j implements SurfaceH
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean e() {
-        if (x.a()) {
+        if (y.a()) {
             return true;
         }
         showToast(getString(R.string.voice_error_sdcard));
@@ -103,7 +108,7 @@ public final class CaptureActivity extends com.baidu.tieba.j implements SurfaceH
     protected void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (i2 == -1 && i == 12002 && intent != null && intent.getData() != null) {
-            TiebaPrepareImageService.a(i, intent.getData(), bc.a().e(), com.baidu.adp.lib.h.g.b(this));
+            TiebaPrepareImageService.a(i, intent.getData(), bd.a().e(), com.baidu.adp.lib.h.g.b(this));
         }
     }
 
@@ -126,15 +131,15 @@ public final class CaptureActivity extends com.baidu.tieba.j implements SurfaceH
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str) {
         if (TextUtils.isEmpty(str)) {
-            com.baidu.tieba.im.e.b.a((Context) this, (DialogInterface.OnClickListener) new c(this));
+            com.baidu.tieba.im.d.b.a((Context) this, (DialogInterface.OnClickListener) new c(this));
             return;
         }
         if (TiebaApplication.h().t()) {
             StatService.onEvent(this, "2d_code_scan_suc", "onclick");
         }
         if (URLUtil.isHttpUrl(str) || URLUtil.isHttpsUrl(str)) {
-            if (com.baidu.tieba.im.e.h.a(str)) {
-                com.baidu.tieba.im.e.h.a((Context) this, str, false);
+            if (com.baidu.tieba.im.d.h.a(str)) {
+                com.baidu.tieba.im.d.h.a((Context) this, str, false);
                 Intent intent = new Intent();
                 intent.putExtra("result", str);
                 setResult(-1, intent);
@@ -142,10 +147,10 @@ public final class CaptureActivity extends com.baidu.tieba.j implements SurfaceH
                 finish();
                 return;
             }
-            com.baidu.tieba.im.e.b.a(this, new d(this, str), new e(this), str);
+            com.baidu.tieba.im.d.b.a(this, new d(this, str), new e(this), str);
             return;
         }
-        com.baidu.tieba.im.e.b.a(this, new f(this), str);
+        com.baidu.tieba.im.d.b.a(this, new f(this), str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -157,7 +162,7 @@ public final class CaptureActivity extends com.baidu.tieba.j implements SurfaceH
         int[] iArr = new int[width * height];
         bitmap.getPixels(iArr, 0, width, 0, 0, width, height);
         try {
-            return new com.google.zxing.qrcode.a().a(new com.google.zxing.b(new com.google.zxing.common.h(new com.google.zxing.f(width, height, iArr))), hashtable).a();
+            return new QRCodeReader().decode(new BinaryBitmap(new HybridBinarizer(new RGBLuminanceSource(width, height, iArr))), hashtable).getText();
         } catch (ChecksumException e) {
             e.printStackTrace();
             return null;
@@ -174,9 +179,9 @@ public final class CaptureActivity extends com.baidu.tieba.j implements SurfaceH
     @Override // com.baidu.tieba.j, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.f1130a = new com.baidu.tieba.barcode.a.f(getApplication());
+        this.a = new com.baidu.tieba.barcode.a.f(getApplication());
         this.d = (ViewfinderView) findViewById(R.id.viewfinder_view);
-        this.d.setCameraManager(this.f1130a);
+        this.d.setCameraManager(this.a);
         this.b = null;
         i();
         SurfaceHolder holder = ((SurfaceView) findViewById(R.id.preview_view)).getHolder();
@@ -197,7 +202,7 @@ public final class CaptureActivity extends com.baidu.tieba.j implements SurfaceH
             this.b = null;
         }
         this.f.b();
-        this.f1130a.b();
+        this.a.b();
         if (!this.e) {
             ((SurfaceView) findViewById(R.id.preview_view)).getHolder().removeCallback(this);
         }
@@ -225,7 +230,7 @@ public final class CaptureActivity extends com.baidu.tieba.j implements SurfaceH
     @Override // com.baidu.tieba.j, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         switch (i) {
-            case DERTags.GENERAL_STRING /* 27 */:
+            case 27:
             case com.baidu.loginshare.e.i /* 80 */:
                 return true;
             default:
@@ -233,13 +238,13 @@ public final class CaptureActivity extends com.baidu.tieba.j implements SurfaceH
         }
     }
 
-    private void a(Bitmap bitmap, com.google.zxing.h hVar) {
+    private void a(Bitmap bitmap, Result result) {
         if (this.b == null) {
-            this.c = hVar;
+            this.c = result;
             return;
         }
-        if (hVar != null) {
-            this.c = hVar;
+        if (result != null) {
+            this.c = result;
         }
         if (this.c != null) {
             this.b.sendMessage(Message.obtain(this.b, R.id.decode_succeeded, this.c));
@@ -250,7 +255,7 @@ public final class CaptureActivity extends com.baidu.tieba.j implements SurfaceH
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceCreated(SurfaceHolder surfaceHolder) {
         if (surfaceHolder == null) {
-            bd.b(getClass().getName(), "surfaceCreated", "*** WARNING *** surfaceCreated() gave us a null surface!");
+            be.b(getClass().getName(), "surfaceCreated", "*** WARNING *** surfaceCreated() gave us a null surface!");
         }
         if (!this.e) {
             this.e = true;
@@ -267,45 +272,45 @@ public final class CaptureActivity extends com.baidu.tieba.j implements SurfaceH
     public void surfaceChanged(SurfaceHolder surfaceHolder, int i, int i2, int i3) {
     }
 
-    public void a(com.google.zxing.h hVar, Bitmap bitmap, float f) {
+    public void a(Result result, Bitmap bitmap, float f) {
         this.f.a();
         if (bitmap != null) {
-            a(bitmap, f, hVar);
+            a(bitmap, f, result);
         }
-        a(hVar, bitmap);
+        a(result, bitmap);
     }
 
-    private void a(Bitmap bitmap, float f, com.google.zxing.h hVar) {
-        com.google.zxing.i[] b = hVar.b();
-        if (b != null && b.length > 0) {
+    private void a(Bitmap bitmap, float f, Result result) {
+        ResultPoint[] resultPoints = result.getResultPoints();
+        if (resultPoints != null && resultPoints.length > 0) {
             Canvas canvas = new Canvas(bitmap);
             Paint paint = new Paint();
             paint.setColor(getResources().getColor(R.color.result_points));
-            if (b.length == 2) {
+            if (resultPoints.length == 2) {
                 paint.setStrokeWidth(4.0f);
-                a(canvas, paint, b[0], b[1], f);
-            } else if (b.length == 4 && (hVar.c() == BarcodeFormat.UPC_A || hVar.c() == BarcodeFormat.EAN_13)) {
-                a(canvas, paint, b[0], b[1], f);
-                a(canvas, paint, b[2], b[3], f);
+                a(canvas, paint, resultPoints[0], resultPoints[1], f);
+            } else if (resultPoints.length == 4 && (result.getBarcodeFormat() == BarcodeFormat.UPC_A || result.getBarcodeFormat() == BarcodeFormat.EAN_13)) {
+                a(canvas, paint, resultPoints[0], resultPoints[1], f);
+                a(canvas, paint, resultPoints[2], resultPoints[3], f);
             } else {
                 paint.setStrokeWidth(10.0f);
-                for (com.google.zxing.i iVar : b) {
-                    canvas.drawPoint(iVar.a() * f, iVar.b() * f, paint);
+                for (ResultPoint resultPoint : resultPoints) {
+                    canvas.drawPoint(resultPoint.getX() * f, resultPoint.getY() * f, paint);
                 }
             }
         }
     }
 
-    private static void a(Canvas canvas, Paint paint, com.google.zxing.i iVar, com.google.zxing.i iVar2, float f) {
-        if (iVar != null && iVar2 != null) {
-            canvas.drawLine(f * iVar.a(), f * iVar.b(), f * iVar2.a(), f * iVar2.b(), paint);
+    private static void a(Canvas canvas, Paint paint, ResultPoint resultPoint, ResultPoint resultPoint2, float f) {
+        if (resultPoint != null && resultPoint2 != null) {
+            canvas.drawLine(f * resultPoint.getX(), f * resultPoint.getY(), f * resultPoint2.getX(), f * resultPoint2.getY(), paint);
         }
     }
 
-    private void a(com.google.zxing.h hVar, Bitmap bitmap) {
+    private void a(Result result, Bitmap bitmap) {
         this.d.setVisibility(8);
         ZxingResult zxingResult = new ZxingResult();
-        zxingResult.a(com.google.zxing.client.result.t.d(hVar).a().toString());
+        zxingResult.a(ResultParser.parseResult(result).getDisplayResult().toString());
         if (TiebaApplication.h().t()) {
             StatService.onEvent(this, "2d_code_scan", "onclick");
         }
@@ -317,21 +322,21 @@ public final class CaptureActivity extends com.baidu.tieba.j implements SurfaceH
         if (surfaceHolder == null) {
             throw new IllegalStateException("No SurfaceHolder provided");
         }
-        if (this.f1130a.a()) {
-            bd.c(getClass().getName(), "initCamera", "initCamera() while already open -- late SurfaceView callback?");
+        if (this.a.a()) {
+            be.c(getClass().getName(), "initCamera", "initCamera() while already open -- late SurfaceView callback?");
             return;
         }
         try {
-            this.f1130a.a(surfaceHolder);
+            this.a.a(surfaceHolder);
             if (this.b == null) {
-                this.b = new CaptureActivityHandler(this, null, null, null, this.f1130a);
+                this.b = new CaptureActivityHandler(this, null, null, null, this.a);
             }
-            a((Bitmap) null, (com.google.zxing.h) null);
+            a((Bitmap) null, (Result) null);
         } catch (IOException e) {
-            bd.c(getClass().getName(), "initCamera", e.toString());
+            be.c(getClass().getName(), "initCamera", e.toString());
             h();
         } catch (RuntimeException e2) {
-            bd.c(getClass().getName(), "initCamera", "Unexpected error initializing camera" + e2.toString());
+            be.c(getClass().getName(), "initCamera", "Unexpected error initializing camera" + e2.toString());
             h();
         }
     }

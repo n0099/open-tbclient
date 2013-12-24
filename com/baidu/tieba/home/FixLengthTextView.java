@@ -9,9 +9,7 @@ import android.view.View;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 public class FixLengthTextView extends TextView {
-
-    /* renamed from: a  reason: collision with root package name */
-    private String f1436a;
+    private String a;
 
     public FixLengthTextView(Context context) {
         this(context, null, 0);
@@ -23,15 +21,15 @@ public class FixLengthTextView extends TextView {
 
     public FixLengthTextView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.baidu.tieba.au.fixtextview);
-        this.f1436a = obtainStyledAttributes.getString(obtainStyledAttributes.getIndex(0));
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.baidu.tieba.at.fixtextview);
+        this.a = obtainStyledAttributes.getString(obtainStyledAttributes.getIndex(0));
         obtainStyledAttributes.recycle();
     }
 
     @Override // android.widget.TextView, android.view.View
     protected void onMeasure(int i, int i2) {
-        if (!TextUtils.isEmpty(this.f1436a)) {
-            int desiredWidth = ((int) Layout.getDesiredWidth(this.f1436a, getPaint())) + getPaddingLeft() + getPaddingRight();
+        if (!TextUtils.isEmpty(this.a)) {
+            int desiredWidth = ((int) Layout.getDesiredWidth(this.a, getPaint())) + getPaddingLeft() + getPaddingRight();
             int size = View.MeasureSpec.getSize(i);
             if (View.MeasureSpec.getMode(i) == 1073741824) {
                 desiredWidth = Math.max(desiredWidth, size);
@@ -42,10 +40,10 @@ public class FixLengthTextView extends TextView {
     }
 
     public String getmMeasureText() {
-        return this.f1436a;
+        return this.a;
     }
 
     public void setmMeasureText(String str) {
-        this.f1436a = str;
+        this.a = str;
     }
 }

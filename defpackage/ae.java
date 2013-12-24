@@ -15,14 +15,12 @@ import com.baidu.cloudsdk.social.share.ui.ShareDialog;
 /* renamed from: ae  reason: default package */
 /* loaded from: classes.dex */
 public class ae extends CloudBatchShareHandler {
-
-    /* renamed from: a  reason: collision with root package name */
-    private MediaType f264a;
+    private MediaType a;
 
     public ae(Context context, String str, MediaType mediaType) {
         super(context, str, null);
         this.mClientId = str;
-        this.f264a = mediaType;
+        this.a = mediaType;
     }
 
     private void a(ShareContent shareContent, SessionManager.Session session, IBaiduListener iBaiduListener) {
@@ -46,10 +44,10 @@ public class ae extends CloudBatchShareHandler {
     @Override // com.baidu.cloudsdk.social.share.handler.CloudBatchShareHandler, com.baidu.cloudsdk.social.share.handler.ISocialShareHandler
     public void share(ShareContent shareContent, IBaiduListener iBaiduListener, boolean z) {
         SessionManager sessionManager = SessionManager.getInstance(this.mContext);
-        SessionManager.Session session = sessionManager.get(this.f264a.toString());
+        SessionManager.Session session = sessionManager.get(this.a.toString());
         if (session != null && !session.isExpired()) {
             if (z) {
-                new ShareDialog(this.mContext, shareContent, this.f264a, iBaiduListener).show();
+                new ShareDialog(this.mContext, shareContent, this.a, iBaiduListener).show();
                 return;
             } else {
                 a(shareContent, session, iBaiduListener);
@@ -57,12 +55,12 @@ public class ae extends CloudBatchShareHandler {
             }
         }
         if (session != null) {
-            sessionManager.remove(this.f264a.toString());
+            sessionManager.remove(this.a.toString());
         }
         d dVar = new d(this, iBaiduListener, shareContent, z);
         Bundle bundle = new Bundle();
         bundle.putString(SocialConstants.PARAM_CLIENT_ID, this.mClientId);
-        bundle.putString(SocialConstants.PARAM_MEDIA_TYPE, this.f264a.toString());
+        bundle.putString(SocialConstants.PARAM_MEDIA_TYPE, this.a.toString());
         Intent intent = new Intent(this.mContext, SocialOAuthActivity.class);
         intent.putExtras(bundle);
         SocialOAuthActivity.setListener(dVar);

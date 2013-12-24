@@ -16,9 +16,7 @@ public class CreateBarSuccessActivity extends com.baidu.tieba.j {
     private String d = null;
     private ImageView e = null;
     private TextView f = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    LinearLayout f1432a = null;
+    LinearLayout a = null;
     View b = null;
     TextView c = null;
 
@@ -47,7 +45,7 @@ public class CreateBarSuccessActivity extends com.baidu.tieba.j {
     }
 
     private void b() {
-        this.f1432a = (LinearLayout) findViewById(R.id.container);
+        this.a = (LinearLayout) findViewById(R.id.container);
         this.b = findViewById(R.id.title);
         this.c = (TextView) findViewById(R.id.title_text);
         this.e = (ImageView) findViewById(R.id.back);
@@ -59,9 +57,9 @@ public class CreateBarSuccessActivity extends com.baidu.tieba.j {
     @Override // com.baidu.tieba.j
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        com.baidu.tieba.util.ba.a(this.e, i);
-        com.baidu.tieba.util.ba.a(this.f1432a, i);
-        com.baidu.tieba.util.ba.d(this.b, i);
+        com.baidu.tieba.util.bb.a(this.e, i);
+        com.baidu.tieba.util.bb.a(this.a, i);
+        com.baidu.tieba.util.bb.d(this.b, i);
         String string = getString(R.string.create_bar_info1);
         int length = string.length();
         String str = string + this.d + getString(R.string.create_bar_info2);

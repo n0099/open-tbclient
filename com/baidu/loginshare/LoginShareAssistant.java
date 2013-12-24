@@ -3,9 +3,7 @@ package com.baidu.loginshare;
 import android.content.Context;
 /* loaded from: classes.dex */
 public class LoginShareAssistant {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static LoginShareAssistant f945a = null;
+    private static LoginShareAssistant a = null;
     private b b;
 
     private LoginShareAssistant() {
@@ -16,10 +14,10 @@ public class LoginShareAssistant {
     public static synchronized LoginShareAssistant getInstance() {
         LoginShareAssistant loginShareAssistant;
         synchronized (LoginShareAssistant.class) {
-            if (f945a == null) {
-                f945a = new LoginShareAssistant();
+            if (a == null) {
+                a = new LoginShareAssistant();
             }
-            loginShareAssistant = f945a;
+            loginShareAssistant = a;
         }
         return loginShareAssistant;
     }
@@ -28,7 +26,7 @@ public class LoginShareAssistant {
         if (this.b != null) {
             this.b.b();
         }
-        f945a = null;
+        a = null;
         this.b = null;
     }
 

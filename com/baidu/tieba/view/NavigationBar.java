@@ -14,9 +14,7 @@ import com.baidu.tieba.BaseFragmentActivity;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class NavigationBar extends RelativeLayout {
-
-    /* renamed from: a  reason: collision with root package name */
-    private boolean f2640a;
+    private boolean a;
     private LinearLayout b;
     private LinearLayout c;
     private LinearLayout d;
@@ -47,7 +45,7 @@ public class NavigationBar extends RelativeLayout {
 
     public NavigationBar(Context context) {
         super(context);
-        this.f2640a = true;
+        this.a = true;
         this.i = 0;
         this.j = 0;
         this.k = new aw(this);
@@ -56,7 +54,7 @@ public class NavigationBar extends RelativeLayout {
 
     public NavigationBar(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f2640a = true;
+        this.a = true;
         this.i = 0;
         this.j = 0;
         this.k = new aw(this);
@@ -65,7 +63,7 @@ public class NavigationBar extends RelativeLayout {
 
     public NavigationBar(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f2640a = true;
+        this.a = true;
         this.i = 0;
         this.j = 0;
         this.k = new aw(this);
@@ -152,8 +150,23 @@ public class NavigationBar extends RelativeLayout {
         return a(controlAlign, str, (View.OnClickListener) null);
     }
 
+    public TextView a(ControlAlign controlAlign, View.OnClickListener onClickListener) {
+        TextView textView = (TextView) b(R.layout.widget_nb_item_create_group);
+        if (ControlAlign.HORIZONTAL_RIGHT == controlAlign) {
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -1);
+            int dimension = (int) getResources().getDimension(R.dimen.navi_btn_margin_right);
+            layoutParams.setMargins(0, dimension, dimension, dimension);
+            textView.setLayoutParams(layoutParams);
+        }
+        a(controlAlign).addView(textView);
+        if (onClickListener != null) {
+            textView.setOnClickListener(onClickListener);
+        }
+        return textView;
+    }
+
     public void setSystemClickable(boolean z) {
-        this.f2640a = z;
+        this.a = z;
     }
 
     public TextView a(ControlAlign controlAlign, String str, View.OnClickListener onClickListener) {

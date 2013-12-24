@@ -25,6 +25,7 @@ import android.view.MotionEvent;
 import android.view.SurfaceView;
 import android.view.View;
 import com.baidu.browser.explorer.BdWebErrorView;
+import com.baidu.browser.webpool.BdWebPoolView;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import com.baidu.zeus.GeolocationPermissions;
@@ -33,7 +34,6 @@ import com.baidu.zeus.WebSettings;
 import com.baidu.zeus.WebStorage;
 import com.baidu.zeus.WebView;
 import com.baidu.zeus.bouncycastle.DERTags;
-import com.tencent.mm.sdk.contact.RContact;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -1076,7 +1076,7 @@ public final class WebViewCore {
                         case EventHub.SET_BACKGROUND_COLOR /* 126 */:
                             WebViewCore.this.nativeSetBackgroundColor(message.arg1);
                             return;
-                        case 127:
+                        case EventHub.SET_MOVE_FOCUS /* 127 */:
                             CursorData cursorData = (CursorData) message.obj;
                             WebViewCore.this.nativeMoveFocus(cursorData.mFrame, cursorData.mNode);
                             return;
@@ -1286,14 +1286,14 @@ public final class WebViewCore {
                                 WebViewCore.this.destroyPluginView();
                             }
                             return;
-                        case 301:
+                        case EventHub.GET_TOUCH_HIGHLIGHT_RECTS /* 301 */:
                             TouchHighlightData touchHighlightData = (TouchHighlightData) message.obj;
                             if (touchHighlightData.mNativeLayer != 0) {
                                 WebViewCore.this.nativeScrollLayer(touchHighlightData.mNativeLayer, touchHighlightData.mNativeLayerRect);
                                 return;
                             }
                             return;
-                        case 302:
+                        case EventHub.EXIT_FULLSCREEN_MODE /* 302 */:
                             WebViewCore.this.mBrowserFrame.exitFullScreenMode();
                             return;
                         case 400:
@@ -1516,7 +1516,7 @@ public final class WebViewCore {
             boolean hasMessages = this.mEventHub.hasMessages(SocialAPIErrorCodes.ERROR_MISS_ACCESS_TOKEN);
             boolean hasMessages2 = this.mEventHub.hasMessages(109);
             this.mEventHub.removeMessages();
-            this.mEventHub.sendMessageAtFrontOfQueue(Message.obtain((Handler) null, 200));
+            this.mEventHub.sendMessageAtFrontOfQueue(Message.obtain((Handler) null, (int) BdWebPoolView.DELAYED_TIME));
             if (hasMessages2) {
                 this.mEventHub.sendMessageAtFrontOfQueue(Message.obtain((Handler) null, 109));
             }
@@ -1571,9 +1571,9 @@ public final class WebViewCore {
                 i6 = i;
             } else if (this.mViewportWidth == -1) {
                 if (this.mSettings.getLayoutAlgorithm() == WebSettings.LayoutAlgorithm.NORMAL) {
-                    i6 = 800;
+                    i6 = DEFAULT_VIEWPORT_WIDTH;
                 } else {
-                    i6 = Math.min(WebView.sMaxViewportWidth, Math.max(i, Math.max(800, nativeGetContentMinPrefWidth())));
+                    i6 = Math.min(WebView.sMaxViewportWidth, Math.max(i, Math.max((int) DEFAULT_VIEWPORT_WIDTH, nativeGetContentMinPrefWidth())));
                 }
             } else {
                 i6 = this.mViewportWidth > 0 ? Math.max(i, this.mViewportWidth) : i3;
@@ -1696,7 +1696,7 @@ public final class WebViewCore {
                 drawData.mViewPoint = new Point(this.mCurrentViewWidth, this.mCurrentViewHeight);
                 if (this.mSettings.getUseWideViewPort()) {
                     if (this.mViewportWidth == -1) {
-                        i = 800;
+                        i = DEFAULT_VIEWPORT_WIDTH;
                     } else {
                         i = this.mViewportWidth == 0 ? this.mCurrentViewWidth : this.mViewportWidth;
                     }
@@ -2540,7 +2540,7 @@ public final class WebViewCore {
 
     private void centerFitRect(int i, int i2, int i3, int i4) {
         if (this.mWebView != null) {
-            this.mWebView.mPrivateHandler.obtainMessage(RContact.MM_CONTACTFLAG_ALL, new Rect(i, i2, i + i3, i2 + i4)).sendToTarget();
+            this.mWebView.mPrivateHandler.obtainMessage(127, new Rect(i, i2, i + i3, i2 + i4)).sendToTarget();
         }
     }
 

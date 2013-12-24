@@ -7,7 +7,6 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import com.slidingmenu.lib.R;
-import com.tencent.mm.sdk.contact.RContact;
 /* loaded from: classes.dex */
 public class EditHeadImageView extends l {
     private Paint b;
@@ -53,7 +52,7 @@ public class EditHeadImageView extends l {
     private void r() {
         this.b = new Paint();
         this.b.setColor(-16777216);
-        this.b.setAlpha(RContact.MM_CONTACTIMGFLAG_LOCAL_EXIST);
+        this.b.setAlpha(153);
         this.c = new Paint();
         this.c.setStyle(Paint.Style.STROKE);
         this.c.setColor(-1);
@@ -100,7 +99,7 @@ public class EditHeadImageView extends l {
                 }
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.bd.b(getClass().getName(), "getVisableBitmap", e.toString());
+            com.baidu.tieba.util.be.b(getClass().getName(), "getVisableBitmap", e.toString());
         }
         return bitmap;
     }

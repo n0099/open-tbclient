@@ -5,23 +5,19 @@ import android.content.BroadcastReceiver;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.v4.view.bq;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RadioGroup;
 import com.baidu.tieba.BaseFragment;
 import com.baidu.tieba.BaseFragmentActivity;
-import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class HomeActivity extends BaseFragment implements bq, RadioGroup.OnCheckedChangeListener {
     private BaseFragmentActivity c;
     private q d;
-    private int b = -1;
-
-    /* renamed from: a  reason: collision with root package name */
-    public BroadcastReceiver f1339a = new p(this);
+    private int b = 0;
+    public BroadcastReceiver a = new p(this);
 
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
     public void a(Activity activity) {
@@ -39,7 +35,7 @@ public class HomeActivity extends BaseFragment implements bq, RadioGroup.OnCheck
         super.a(bundle);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("com.baidu.tieba.SHOWSQUARE");
-        this.c.registerReceiver(this.f1339a, intentFilter);
+        this.c.registerReceiver(this.a, intentFilter);
     }
 
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
@@ -56,7 +52,7 @@ public class HomeActivity extends BaseFragment implements bq, RadioGroup.OnCheck
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
     public void t() {
         super.t();
-        this.c.unregisterReceiver(this.f1339a);
+        this.c.unregisterReceiver(this.a);
     }
 
     @Override // android.support.v4.app.Fragment
@@ -71,20 +67,16 @@ public class HomeActivity extends BaseFragment implements bq, RadioGroup.OnCheck
 
     private void c(Bundle bundle) {
         this.d = new q(this.c, this);
-        if (TextUtils.isEmpty(TiebaApplication.B())) {
-            this.d.e().check(R.id.radio_square);
-        } else {
-            this.d.e().check(R.id.radio_forumfeed);
-        }
+        this.d.e().check(R.id.radio_square);
     }
 
     private void d(int i) {
         int i2 = 0;
         switch (i) {
-            case R.id.radio_square /* 2131100711 */:
+            case R.id.radio_square /* 2131100719 */:
                 this.d.a().setVisibility(0);
                 break;
-            case R.id.radio_forumfeed /* 2131100712 */:
+            case R.id.radio_forumfeed /* 2131100720 */:
                 i2 = 1;
                 this.d.a().setVisibility(4);
                 break;

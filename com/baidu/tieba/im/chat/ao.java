@@ -1,21 +1,56 @@
 package com.baidu.tieba.im.chat;
 
-import android.view.View;
+import java.util.ArrayList;
+import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ao implements View.OnLongClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ an f1546a;
+public class ao implements android.support.v4.view.bq {
+    final /* synthetic */ MsgImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ao(an anVar) {
-        this.f1546a = anVar;
+    public ao(MsgImageActivity msgImageActivity) {
+        this.a = msgImageActivity;
     }
 
-    @Override // android.view.View.OnLongClickListener
-    public boolean onLongClick(View view) {
-        this.f1546a.d.b(view, 5, this.f1546a.f, 0L);
-        return true;
+    @Override // android.support.v4.view.bq
+    public void onPageSelected(int i) {
+        int i2;
+        MsgImageActivity msgImageActivity = this.a;
+        i2 = this.a.c;
+        msgImageActivity.a(i2, i);
+        this.a.c = i;
+        this.a.b();
+    }
+
+    @Override // android.support.v4.view.bq
+    public void onPageScrolled(int i, float f, int i2) {
+    }
+
+    @Override // android.support.v4.view.bq
+    public void onPageScrollStateChanged(int i) {
+        long j;
+        ArrayList arrayList;
+        int i2;
+        ArrayList arrayList2;
+        HashMap hashMap;
+        ArrayList arrayList3;
+        int i3;
+        if (i == 1) {
+            long nanoTime = System.nanoTime();
+            j = this.a.t;
+            if (nanoTime - j > 300000000) {
+                arrayList = this.a.b;
+                if (arrayList != null) {
+                    i2 = this.a.c;
+                    arrayList2 = this.a.b;
+                    if (i2 < arrayList2.size()) {
+                        hashMap = this.a.u;
+                        arrayList3 = this.a.b;
+                        i3 = this.a.c;
+                        hashMap.put(arrayList3.get(i3), true);
+                    }
+                }
+            }
+        }
     }
 }

@@ -1,46 +1,24 @@
 package com.baidu.tieba.im.chat;
 
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.widget.Button;
+import android.widget.AbsListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bz implements TextWatcher {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bm f1584a;
+public class bz implements AbsListView.OnScrollListener {
+    final /* synthetic */ bu a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bz(bm bmVar) {
-        this.f1584a = bmVar;
+    public bz(bu buVar) {
+        this.a = buVar;
     }
 
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
     }
 
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
-        Button button;
-        boolean S;
-        Button button2;
-        Button button3;
-        if (editable == null || editable.length() <= 0) {
-            button = this.f1584a.y;
-            button.setEnabled(false);
-            return;
-        }
-        S = this.f1584a.S();
-        if (S) {
-            button3 = this.f1584a.y;
-            button3.setEnabled(true);
-            return;
-        }
-        button2 = this.f1584a.y;
-        button2.setEnabled(false);
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScrollStateChanged(AbsListView absListView, int i) {
+        this.a.K();
+        this.a.L();
+        this.a.M();
     }
 }

@@ -10,14 +10,9 @@ import android.net.Uri;
 import android.os.Bundle;
 import com.baidu.cloudsdk.common.util.Utils;
 import com.baidu.cloudsdk.common.util.Validator;
-import com.tencent.mm.sdk.channel.ConstantsMMessage;
-import com.tencent.mm.sdk.openapi.ConstantsAPI;
-import com.tencent.mm.sdk.plugin.MMPluginProviderConstants;
 /* loaded from: classes.dex */
 public class Weixin {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static final String[] f858a = {"_id", "key", "type", "value"};
+    private static final String[] a = {"_id", "key", "type", "value"};
     private static boolean e = false;
     private Context b;
     private String c;
@@ -81,12 +76,12 @@ public class Weixin {
         if (intent == null || (extras = intent.getExtras()) == null) {
             return false;
         }
-        String string = extras.getString(ConstantsAPI.WX_TOKEN_KEY);
-        String string2 = extras.getString(ConstantsMMessage.CONTENT);
-        String string3 = extras.getString(ConstantsMMessage.APP_PACKAGE);
-        int i = extras.getInt(ConstantsMMessage.SDK_VERSION, 0);
-        byte[] byteArray = extras.getByteArray(ConstantsMMessage.CHECK_SUM);
-        if (ConstantsAPI.WX_TOKEN_VALUE.equals(string) && a(byteArray, a(string2, string3, i))) {
+        String string = extras.getString("wx_token_key");
+        String string2 = extras.getString("_mmessage_content");
+        String string3 = extras.getString("_mmessage_appPackage");
+        int i = extras.getInt("_mmessage_sdkVersion", 0);
+        byte[] byteArray = extras.getByteArray("_mmessage_checksum");
+        if ("com.tencent.mm.openapi.token".equals(string) && a(byteArray, a(string2, string3, i))) {
             switch (extras.getInt("_wxapi_command_type", 0)) {
                 case 2:
                     int i2 = extras.getInt("_wxapi_baseresp_errcode");
@@ -109,7 +104,7 @@ public class Weixin {
             return this.d;
         }
         this.d = 0;
-        Cursor query = this.b.getContentResolver().query(Uri.parse("content://com.tencent.mm.sdk.plugin.provider/sharedpref"), f858a, "key = ?", new String[]{"_build_info_sdk_int_"}, null);
+        Cursor query = this.b.getContentResolver().query(Uri.parse("content://com.tencent.mm.sdk.plugin.provider/sharedpref"), a, "key = ?", new String[]{"_build_info_sdk_int_"}, null);
         if (query == null) {
             return this.d;
         }
@@ -127,7 +122,7 @@ public class Weixin {
 
     public boolean isAppInstalled() {
         try {
-            for (Signature signature : this.b.getPackageManager().getPackageInfo(MMPluginProviderConstants.PluginIntent.APP_PACKAGE_PATTERN, 64).signatures) {
+            for (Signature signature : this.b.getPackageManager().getPackageInfo("com.tencent.mm", 64).signatures) {
                 if ("aaa953dc012b1c3c46aafd140ec024d4".equals(Utils.md5(signature.toCharsString()))) {
                     return true;
                 }
@@ -144,7 +139,7 @@ public class Weixin {
 
     public synchronized void registerApp() {
         if (!e) {
-            sendBroadcast(ConstantsAPI.ACTION_HANDLE_APP_REGISTER, "weixin://registerapp?appid=" + this.c, null);
+            sendBroadcast("com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_REGISTER", "weixin://registerapp?appid=" + this.c, null);
             e = true;
         }
     }
@@ -157,10 +152,10 @@ public class Weixin {
         if (bundle != null) {
             intent.putExtras(bundle);
         }
-        intent.putExtra(ConstantsMMessage.SDK_VERSION, 553844737);
-        intent.putExtra(ConstantsMMessage.APP_PACKAGE, packageName);
-        intent.putExtra(ConstantsMMessage.CONTENT, str2);
-        intent.putExtra(ConstantsMMessage.CHECK_SUM, a(str2, packageName, 553844737));
+        intent.putExtra("_mmessage_sdkVersion", 553844737);
+        intent.putExtra("_mmessage_appPackage", packageName);
+        intent.putExtra("_mmessage_content", str2);
+        intent.putExtra("_mmessage_checksum", a(str2, packageName, 553844737));
         this.b.sendBroadcast(intent, "com.tencent.mm.permission.MM_MESSAGE");
     }
 
@@ -168,14 +163,14 @@ public class Weixin {
         String packageName = this.b.getPackageName();
         String str = "weixin://sendreq?appid=" + this.c;
         Intent intent = new Intent();
-        intent.setClassName(MMPluginProviderConstants.PluginIntent.APP_PACKAGE_PATTERN, "com.tencent.mm.plugin.base.stub.WXEntryActivity");
+        intent.setClassName("com.tencent.mm", "com.tencent.mm.plugin.base.stub.WXEntryActivity");
         if (bundle != null) {
             intent.putExtras(bundle);
         }
-        intent.putExtra(ConstantsMMessage.SDK_VERSION, 553844737);
-        intent.putExtra(ConstantsMMessage.APP_PACKAGE, packageName);
-        intent.putExtra(ConstantsMMessage.CONTENT, str);
-        intent.putExtra(ConstantsMMessage.CHECK_SUM, a(str, packageName, 553844737));
+        intent.putExtra("_mmessage_sdkVersion", 553844737);
+        intent.putExtra("_mmessage_appPackage", packageName);
+        intent.putExtra("_mmessage_content", str);
+        intent.putExtra("_mmessage_checksum", a(str, packageName, 553844737));
         intent.addFlags(402653184);
         try {
             this.b.startActivity(intent);
@@ -187,7 +182,7 @@ public class Weixin {
 
     public synchronized void unregisterApp() {
         if (e) {
-            sendBroadcast(ConstantsAPI.ACTION_HANDLE_APP_UNREGISTER, "weixin://unregisterapp?appid=" + this.c, null);
+            sendBroadcast("com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_UNREGISTER", "weixin://unregisterapp?appid=" + this.c, null);
         }
     }
 }

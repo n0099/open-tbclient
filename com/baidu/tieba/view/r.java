@@ -4,28 +4,26 @@ import android.content.Context;
 import android.view.View;
 /* loaded from: classes.dex */
 public class r extends View {
-
-    /* renamed from: a  reason: collision with root package name */
-    private int f2695a;
+    private int a;
     private int b;
 
     public r(Context context) {
         super(context);
-        this.f2695a = 0;
+        this.a = 0;
         this.b = 0;
     }
 
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
         if (this.b == 0) {
-            setMeasuredDimension(i & 1073741823, this.f2695a);
-        } else if (this.f2695a == 0) {
+            setMeasuredDimension(i & 1073741823, this.a);
+        } else if (this.a == 0) {
             setMeasuredDimension(this.b, 1073741823 & i2);
         }
     }
 
     public void setHeightPx(int i) {
-        this.f2695a = i;
+        this.a = i;
     }
 
     public void setWidthPx(int i) {
@@ -33,7 +31,7 @@ public class r extends View {
     }
 
     public void setHeightDip(int i) {
-        this.f2695a = com.baidu.adp.lib.h.g.a(getContext(), i);
+        this.a = com.baidu.adp.lib.h.g.a(getContext(), i);
     }
 
     public void setWidthDip(int i) {

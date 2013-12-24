@@ -19,9 +19,7 @@ import java.util.List;
 /* renamed from: av  reason: default package */
 /* loaded from: classes.dex */
 public class av extends PopupWindow implements View.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    private ShareContent f367a;
+    private ShareContent a;
     private IBaiduListener b;
     private Context c;
     private SocialShare.Theme d;
@@ -64,7 +62,7 @@ public class av extends PopupWindow implements View.OnClickListener {
     }
 
     public void a(View view, ShareContent shareContent, IBaiduListener iBaiduListener) {
-        this.f367a = shareContent;
+        this.a = shareContent;
         this.b = iBaiduListener;
         showAtLocation(view, 81, 0, 0);
     }
@@ -81,7 +79,7 @@ public class av extends PopupWindow implements View.OnClickListener {
         } else if (str.equalsIgnoreCase("cancel")) {
             dismiss();
         } else {
-            SocialShare.getInstance(this.c).share(this.f367a, str, (IBaiduListener) new ax(this, this.b), true);
+            SocialShare.getInstance(this.c).share(this.a, str, (IBaiduListener) new ax(this, this.b), true);
         }
     }
 }

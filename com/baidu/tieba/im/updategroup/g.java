@@ -11,14 +11,12 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.ba;
+import com.baidu.tieba.util.bb;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public abstract class g extends com.baidu.adp.a.e implements a {
-
-    /* renamed from: a  reason: collision with root package name */
-    private DialogInterface.OnClickListener f1890a;
+    private DialogInterface.OnClickListener a;
     protected EditText c;
     protected NavigationBar d;
     protected View e;
@@ -36,7 +34,7 @@ public abstract class g extends com.baidu.adp.a.e implements a {
 
     @Override // com.baidu.tieba.im.updategroup.a
     public void a(DialogInterface.OnClickListener onClickListener) {
-        this.f1890a = onClickListener;
+        this.a = onClickListener;
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
@@ -71,7 +69,7 @@ public abstract class g extends com.baidu.adp.a.e implements a {
 
     public g(UpdateGroupActivity updateGroupActivity) {
         super(updateGroupActivity);
-        this.f1890a = null;
+        this.a = null;
         this.p = null;
         this.c = null;
         this.d = null;
@@ -137,23 +135,23 @@ public abstract class g extends com.baidu.adp.a.e implements a {
 
     @Override // com.baidu.tieba.im.updategroup.a
     public boolean l() {
-        return com.baidu.tieba.im.e.g.b(this.c) || this.c.length() >= 3;
+        return com.baidu.tieba.im.d.g.b(this.c) || this.c.length() >= 3;
     }
 
     protected void m() {
         if (TiebaApplication.h().an() == 1) {
             if (this.m) {
-                ba.e((View) this.f, (int) R.drawable.navi_done_text_bg_1);
+                bb.e((View) this.f, (int) R.drawable.navi_done_text_bg_1);
                 this.f.setTextColor(this.h.getResources().getColorStateList(R.color.navi_done_text_1));
                 return;
             }
-            ba.e((View) this.f, (int) R.drawable.btn_titlebar_finish_d_1);
+            bb.e((View) this.f, (int) R.drawable.btn_titlebar_finish_d_1);
             this.f.setTextColor(this.h.getResources().getColor(R.color.navi_done_text_d_1));
         } else if (this.m) {
-            ba.e((View) this.f, (int) R.drawable.navi_done_text_bg);
+            bb.e((View) this.f, (int) R.drawable.navi_done_text_bg);
             this.f.setTextColor(this.h.getResources().getColorStateList(R.color.navi_done_text));
         } else {
-            ba.e((View) this.f, (int) R.drawable.btn_titlebar_finish_d);
+            bb.e((View) this.f, (int) R.drawable.btn_titlebar_finish_d);
             this.f.setTextColor(this.h.getResources().getColor(R.color.navi_done_text_d));
         }
     }
@@ -174,8 +172,8 @@ public abstract class g extends com.baidu.adp.a.e implements a {
         this.h.getLayoutMode().a(i == 1);
         this.h.getLayoutMode().a(this.e);
         this.d.c(i);
-        ba.b(this.e, i);
-        ba.h(this.f, i);
+        bb.b(this.e, i);
+        bb.h(this.f, i);
         m();
         if (i == 1) {
             this.c.setHintTextColor(this.h.getResources().getColor(R.color.create_group_input_hintcolor_1));

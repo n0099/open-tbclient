@@ -7,9 +7,7 @@ import android.widget.AdapterView;
 import android.widget.ListAdapter;
 /* loaded from: classes.dex */
 public abstract class u implements ListAdapter {
-
-    /* renamed from: a  reason: collision with root package name */
-    private final DataSetObservable f618a = new DataSetObservable();
+    private final DataSetObservable a = new DataSetObservable();
 
     public abstract void a(View view, AdapterView adapterView, int i);
 
@@ -24,16 +22,16 @@ public abstract class u implements ListAdapter {
 
     @Override // android.widget.Adapter
     public void registerDataSetObserver(DataSetObserver dataSetObserver) {
-        this.f618a.registerObserver(dataSetObserver);
+        this.a.registerObserver(dataSetObserver);
     }
 
     @Override // android.widget.Adapter
     public void unregisterDataSetObserver(DataSetObserver dataSetObserver) {
-        this.f618a.unregisterObserver(dataSetObserver);
+        this.a.unregisterObserver(dataSetObserver);
     }
 
     public void a() {
-        this.f618a.notifyChanged();
+        this.a.notifyChanged();
     }
 
     @Override // android.widget.ListAdapter

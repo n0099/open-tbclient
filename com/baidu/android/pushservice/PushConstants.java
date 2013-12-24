@@ -2,16 +2,23 @@ package com.baidu.android.pushservice;
 
 import android.content.Context;
 import android.content.Intent;
-import com.baidu.android.common.security.Base64;
 import com.baidu.android.common.security.RSAUtil;
+import com.baidu.android.silentupdate.a;
 import com.baidu.browser.core.util.BdUtil;
 import java.io.UnsupportedEncodingException;
+import java.security.KeyFactory;
+import java.security.PublicKey;
+import java.security.spec.X509EncodedKeySpec;
+import javax.crypto.Cipher;
 /* loaded from: classes.dex */
-public final class PushConstants {
+public class PushConstants {
     public static final String ACTION_MESSAGE = "com.baidu.android.pushservice.action.MESSAGE";
     public static final String ACTION_METHOD = "com.baidu.android.pushservice.action.METHOD";
     public static final String ACTION_RECEIVE = "com.baidu.android.pushservice.action.RECEIVE";
     public static final String ACTION_RECEIVER_NOTIFICATION_CLICK = "com.baidu.android.pushservice.action.notification.CLICK";
+    public static final String ACTION_SDK_MESSAGE = "com.baidu.android.pushservice.action.SDK_MESSAGE";
+    public static final String ACTION_SDK_RECEIVE = "com.baidu.android.pushservice.action.sdk.RECEIVE";
+    public static final String ACTION_WEB_RECEIVE = "com.baidu.android.pushservice.action.web.RECEIVE";
     public static final int BIND_STATUS_OFFLINE = 1;
     public static final int BIND_STATUS_ONLINE = 0;
     public static final int ERROR_AUTHENTICATION_FAILED = 30603;
@@ -60,6 +67,7 @@ public final class PushConstants {
     public static final String EXTRA_TAGS_LIST = "tags_list";
     public static final String EXTRA_TIMESTAMP = "time_stamp";
     public static final String EXTRA_USER_ID = "user_id";
+    public static final String EXTRA_WEB_BIND_API_KEY = "com.baidu.pushservice.webapp.apikey";
     public static final int LOGIN_TYPE_ACCESS_TOKEN = 1;
     public static final int LOGIN_TYPE_API_KEY = 0;
     public static final int LOGIN_TYPE_BDUSS = 2;
@@ -87,13 +95,33 @@ public final class PushConstants {
     public static final int OPEN_BY_NOTIFICATION = 1;
     public static final int OPEN_BY_USER = 0;
     public static final String PACKAGE_NAME = "pkg_name";
-    private static final String REG_ERROR_UNKNOWN = "Unknown";
+    private static final int a = 1024;
+    private static final String b = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC/7VlVn9LIrZ71PL2RZMbK/Yxc\r\ndb046w/cXVylxS7ouPY06namZUFVhdbUnNRJzmGUZlzs3jUbvMO3l+4c9cw/n9aQ\r\nrm/brgaRDeZbeSrQYRZv60xzJIimuFFxsRM+ku6/dAyYmXiQXlRbgvFQ0MsVng4j\r\nv+cXhtTis2Kbwb8mQwIDAQAB\r\n";
 
-    private PushConstants() {
+    public static String rsaEncrypt(String str) {
+        try {
+            return a.a(a(str.getBytes(), b, 1024), BdUtil.UTF8);
+        } catch (UnsupportedEncodingException e) {
+            return null;
+        } catch (Exception e2) {
+            return null;
+        }
     }
 
     public static Intent createMethodIntent(Context context) {
-        return com.baidu.android.pushservice.util.m.d(context);
+        return !LoadExecutor.loadPush(context) ? new Intent() : com.baidu.android.pushservice.apiproxy.PushConstants.createMethodIntent(context);
+    }
+
+    public static void restartPushService(Context context) {
+        if (LoadExecutor.loadPush(context)) {
+            com.baidu.android.pushservice.apiproxy.PushConstants.restartPushService(context);
+        }
+    }
+
+    public static void startPushService(Context context) {
+        if (LoadExecutor.loadPush(context)) {
+            com.baidu.android.pushservice.apiproxy.PushConstants.startPushService(context);
+        }
     }
 
     public static String getErrorMsg(int i) {
@@ -127,27 +155,31 @@ public final class PushConstants {
             case ERROR_BIND_OVERLOAD /* 30609 */:
                 return "Bind Number Too Many";
             default:
-                return REG_ERROR_UNKNOWN;
+                return "Unknown";
         }
     }
 
-    public static void restartPushService(Context context) {
-        com.baidu.android.pushservice.util.m.g(context, null);
-    }
-
-    public static String rsaEncrypt(String str) {
-        try {
-            return Base64.encode(RSAUtil.encryptLongByPublicKey(str.getBytes(), "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC/7VlVn9LIrZ71PL2RZMbK/Yxc\r\ndb046w/cXVylxS7ouPY06namZUFVhdbUnNRJzmGUZlzs3jUbvMO3l+4c9cw/n9aQ\r\nrm/brgaRDeZbeSrQYRZv60xzJIimuFFxsRM+ku6/dAyYmXiQXlRbgvFQ0MsVng4j\r\nv+cXhtTis2Kbwb8mQwIDAQAB\r\n", 1024), BdUtil.UTF8);
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-            return null;
-        } catch (Exception e2) {
-            e2.printStackTrace();
-            return null;
+    private static byte[] a(byte[] bArr, String str, int i) {
+        PublicKey generatePublic = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(a.a(str.getBytes())));
+        Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+        cipher.init(1, generatePublic);
+        int i2 = i / 8;
+        int i3 = i2 - 11;
+        int length = bArr.length;
+        byte[] bArr2 = new byte[(((length + i3) - 1) / i3) * i2];
+        int i4 = 0;
+        int i5 = 0;
+        while (i5 < length) {
+            int i6 = length - i5;
+            if (i3 < i6) {
+                i6 = i3;
+            }
+            byte[] bArr3 = new byte[i6];
+            System.arraycopy(bArr, i5, bArr3, 0, i6);
+            i5 += i6;
+            System.arraycopy(cipher.doFinal(bArr3), 0, bArr2, i4, i2);
+            i4 += i2;
         }
-    }
-
-    public static void startPushService(Context context) {
-        com.baidu.android.pushservice.util.m.j(context);
+        return bArr2;
     }
 }

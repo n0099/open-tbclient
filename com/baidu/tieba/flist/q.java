@@ -2,20 +2,19 @@ package com.baidu.tieba.flist;
 
 import android.widget.ImageView;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.browser.webpool.BdWebPoolView;
 import com.baidu.gson.JsonParseException;
 import com.baidu.tieba.flist.ForumListModel;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q extends BdAsyncTask<Void, Void, ForumListModel> {
-
-    /* renamed from: a  reason: collision with root package name */
-    boolean f1311a;
+    boolean a;
     final /* synthetic */ ForumListActivity b;
 
     private q(ForumListActivity forumListActivity) {
         this.b = forumListActivity;
-        this.f1311a = false;
+        this.a = false;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -24,7 +23,7 @@ public class q extends BdAsyncTask<Void, Void, ForumListModel> {
     }
 
     public void a(boolean z) {
-        this.f1311a = z;
+        this.a = z;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -95,7 +94,7 @@ public class q extends BdAsyncTask<Void, Void, ForumListModel> {
             }
         } else {
             this.b.showToast(this.b.getString(R.string.neterror));
-            if (!this.f1311a) {
+            if (!this.a) {
                 i = this.b.o;
                 if (i == 200) {
                     this.b.c.p.setText(this.b.getString(R.string.flist_expand_list));
@@ -114,8 +113,8 @@ public class q extends BdAsyncTask<Void, Void, ForumListModel> {
                 i4 = this.b.l;
                 imageView5.setImageResource(i4);
                 requestParams = this.b.A;
-                requestParams.rn = 200;
-                this.b.o = 200;
+                requestParams.rn = BdWebPoolView.DELAYED_TIME;
+                this.b.o = BdWebPoolView.DELAYED_TIME;
             }
         }
         this.b.c.o.setEnabled(true);

@@ -9,22 +9,20 @@ import android.widget.TextView;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class a extends com.baidu.adp.a.e {
-
-    /* renamed from: a  reason: collision with root package name */
-    private View f1618a;
+    private View a;
     private TextView c;
     private ImageView d;
 
     public a(Context context) {
         super(context);
-        this.f1618a = null;
+        this.a = null;
         this.c = null;
         this.d = null;
         e();
     }
 
     public View a() {
-        return this.f1618a;
+        return this.a;
     }
 
     public void a(String str) {
@@ -36,9 +34,9 @@ public class a extends com.baidu.adp.a.e {
     }
 
     private void e() {
-        this.f1618a = LayoutInflater.from(this.b).inflate(R.layout.address_lbs_item, (ViewGroup) null);
-        this.c = (TextView) this.f1618a.findViewById(R.id.text);
-        this.d = (ImageView) this.f1618a.findViewById(R.id.group_address_list_item_selected);
-        this.f1618a.setTag(this);
+        this.a = LayoutInflater.from(this.b).inflate(R.layout.address_lbs_item, (ViewGroup) null);
+        this.c = (TextView) this.a.findViewById(R.id.text);
+        this.d = (ImageView) this.a.findViewById(R.id.group_address_list_item_selected);
+        this.a.setTag(this);
     }
 }

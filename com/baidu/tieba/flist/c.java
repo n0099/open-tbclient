@@ -3,9 +3,7 @@ package com.baidu.tieba.flist;
 import android.content.Context;
 /* loaded from: classes.dex */
 public class c extends com.baidu.adp.a.d {
-
-    /* renamed from: a  reason: collision with root package name */
-    private e f1299a;
+    private e a;
     private f b;
     private String c;
     private String d;
@@ -22,15 +20,15 @@ public class c extends com.baidu.adp.a.d {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.a.d
     public boolean LoadData() {
-        this.f1299a = new e(this);
-        this.f1299a.execute(new Object[0]);
+        this.a = new e(this);
+        this.a.execute(new Object[0]);
         return true;
     }
 
     @Override // com.baidu.adp.a.d
     public boolean cancelLoadData() {
-        if (this.f1299a != null) {
-            this.f1299a.cancel();
+        if (this.a != null) {
+            this.a.cancel();
             return false;
         }
         return false;

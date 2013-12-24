@@ -6,28 +6,26 @@ import android.view.View;
 import android.widget.LinearLayout;
 /* loaded from: classes.dex */
 public class FragmentTabWidget extends LinearLayout {
-
-    /* renamed from: a  reason: collision with root package name */
-    private int f1009a;
-    private z b;
+    private int a;
+    private y b;
 
     public FragmentTabWidget(Context context) {
         super(context);
-        this.f1009a = -1;
+        this.a = -1;
     }
 
     public FragmentTabWidget(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f1009a = -1;
+        this.a = -1;
     }
 
     public void setCurrentTab(int i) {
-        if (i >= 0 && i < getChildCount() && this.f1009a != i) {
-            if (this.f1009a != -1) {
-                getChildAt(this.f1009a).setSelected(false);
+        if (i >= 0 && i < getChildCount() && this.a != i) {
+            if (this.a != -1) {
+                getChildAt(this.a).setSelected(false);
             }
-            this.f1009a = i;
-            getChildAt(this.f1009a).setSelected(true);
+            this.a = i;
+            getChildAt(this.a).setSelected(true);
         }
     }
 
@@ -35,14 +33,14 @@ public class FragmentTabWidget extends LinearLayout {
     public void addView(View view) {
         a(view);
         super.addView(view);
-        view.setOnClickListener(new aa(this, getChildCount() - 1));
+        view.setOnClickListener(new z(this, getChildCount() - 1));
     }
 
     @Override // android.view.ViewGroup
     public void addView(View view, int i) {
         a(view);
         super.addView(view, i);
-        view.setOnClickListener(new aa(this, getChildCount() - 1));
+        view.setOnClickListener(new z(this, getChildCount() - 1));
     }
 
     private void a(View view) {
@@ -54,12 +52,12 @@ public class FragmentTabWidget extends LinearLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void setTabSelectionListener(z zVar) {
-        this.b = zVar;
+    public void setTabSelectionListener(y yVar) {
+        this.b = yVar;
     }
 
     public void a() {
         removeAllViews();
-        this.f1009a = -1;
+        this.a = -1;
     }
 }

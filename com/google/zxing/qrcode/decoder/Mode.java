@@ -15,7 +15,7 @@ public enum Mode {
     private final int bits;
     private final int[] characterCountBitsForVersions;
 
-    /* JADX DEBUG: Replace access to removed values field (a) with 'values()' method */
+    /* JADX DEBUG: Replace access to removed values field (ENUM$VALUES) with 'values()' method */
     /* renamed from: values  reason: to resolve conflict with enum method */
     public static Mode[] valuesCustom() {
         Mode[] valuesCustom = values();
@@ -61,12 +61,12 @@ public enum Mode {
         }
     }
 
-    public int getCharacterCountBits(o oVar) {
+    public int getCharacterCountBits(Version version) {
         char c;
-        int a2 = oVar.a();
-        if (a2 <= 9) {
+        int versionNumber = version.getVersionNumber();
+        if (versionNumber <= 9) {
             c = 0;
-        } else if (a2 <= 26) {
+        } else if (versionNumber <= 26) {
             c = 1;
         } else {
             c = 2;

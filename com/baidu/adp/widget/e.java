@@ -7,22 +7,20 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 /* loaded from: classes.dex */
 public class e extends LinearLayout.LayoutParams {
-
-    /* renamed from: a  reason: collision with root package name */
-    private int f608a;
+    private int a;
 
     public e(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f608a = 0;
+        this.a = 0;
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.baidu.adp.g.FloatingLayout_Layout);
         String string = obtainStyledAttributes.getString(0);
         if (string != null) {
             if ("before".equals(string)) {
-                this.f608a = 1;
+                this.a = 1;
             } else if ("after".equals(string)) {
-                this.f608a = 2;
+                this.a = 2;
             } else if ("both".equals(string)) {
-                this.f608a = 3;
+                this.a = 3;
             }
         }
         obtainStyledAttributes.recycle();
@@ -30,12 +28,12 @@ public class e extends LinearLayout.LayoutParams {
 
     public e(int i, int i2, int i3) {
         super(i, i2);
-        this.f608a = 0;
-        this.f608a = i3;
+        this.a = 0;
+        this.a = i3;
     }
 
     public e(ViewGroup.LayoutParams layoutParams) {
         super(layoutParams);
-        this.f608a = 0;
+        this.a = 0;
     }
 }

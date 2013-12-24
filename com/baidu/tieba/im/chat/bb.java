@@ -1,25 +1,21 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tieba.im.message.ChatMessage;
+import com.baidu.tieba.view.HeadImageView;
 /* loaded from: classes.dex */
-class bb implements Runnable {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ int f1560a;
-    final /* synthetic */ ChatMessage b;
-    final /* synthetic */ ba c;
+class bb implements com.baidu.tbadk.imageManager.c {
+    final /* synthetic */ MsgleftView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bb(ba baVar, int i, ChatMessage chatMessage) {
-        this.c = baVar;
-        this.f1560a = i;
-        this.b = chatMessage;
+    public bb(MsgleftView msgleftView) {
+        this.a = msgleftView;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        bm bmVar;
-        bmVar = this.c.f1559a.f;
-        bmVar.a(this.f1560a, this.b);
+    @Override // com.baidu.tbadk.imageManager.c
+    public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
+        HeadImageView headImageView;
+        if (eVar != null) {
+            headImageView = this.a.p;
+            eVar.a(headImageView);
+        }
     }
 }

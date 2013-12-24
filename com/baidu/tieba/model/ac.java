@@ -1,9 +1,7 @@
 package com.baidu.tieba.model;
 /* loaded from: classes.dex */
 public class ac {
-
-    /* renamed from: a  reason: collision with root package name */
-    public com.baidu.tieba.data.v f1978a;
+    public com.baidu.tieba.data.v a;
     public int b;
     final /* synthetic */ aa c;
 

@@ -5,13 +5,11 @@ import com.slidingmenu.lib.R;
 import java.text.MessageFormat;
 /* loaded from: classes.dex */
 class ap implements com.baidu.tieba.model.bi {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NewPbActivity f2164a;
+    final /* synthetic */ NewPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ap(NewPbActivity newPbActivity) {
-        this.f2164a = newPbActivity;
+        this.a = newPbActivity;
     }
 
     @Override // com.baidu.tieba.model.bi
@@ -23,35 +21,35 @@ class ap implements com.baidu.tieba.model.bi {
         cr crVar2;
         com.baidu.tieba.model.bm bmVar3;
         com.baidu.tieba.model.bg bgVar2;
-        crVar = this.f2164a.y;
+        crVar = this.a.x;
         crVar.r();
         if (z) {
-            bgVar = this.f2164a.t;
+            bgVar = this.a.s;
             bgVar.a(z2);
-            bmVar = this.f2164a.s;
+            bmVar = this.a.r;
             bmVar.c(z2);
-            bmVar2 = this.f2164a.s;
+            bmVar2 = this.a.r;
             if (bmVar2.t()) {
-                this.f2164a.r();
+                this.a.r();
             } else {
-                crVar2 = this.f2164a.y;
-                bmVar3 = this.f2164a.s;
+                crVar2 = this.a.x;
+                bmVar3 = this.a.r;
                 crVar2.a(bmVar3.l());
             }
             if (z2) {
-                bgVar2 = this.f2164a.t;
+                bgVar2 = this.a.s;
                 MarkData b = bgVar2.b();
                 if (b != null) {
-                    this.f2164a.showToast(MessageFormat.format(this.f2164a.getString(R.string.add_mark_on_pb), Integer.valueOf(b.getFloor())));
+                    this.a.showToast(MessageFormat.format(this.a.getString(R.string.add_mark_on_pb), Integer.valueOf(b.getFloor())));
                     return;
                 } else {
-                    this.f2164a.showToast(this.f2164a.getString(R.string.add_mark));
+                    this.a.showToast(this.a.getString(R.string.add_mark));
                     return;
                 }
             }
-            this.f2164a.showToast(this.f2164a.getString(R.string.remove_mark));
+            this.a.showToast(this.a.getString(R.string.remove_mark));
             return;
         }
-        this.f2164a.showToast(str);
+        this.a.showToast(str);
     }
 }

@@ -14,9 +14,7 @@ import com.baidu.zeus.Headers;
 /* renamed from: m  reason: default package */
 /* loaded from: classes.dex */
 public class m extends RelativeLayout {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static final String f3046a = m.class.getSimpleName();
+    private static final String a = m.class.getSimpleName();
     private ImageView b;
     private ImageView c;
     private TextView d;

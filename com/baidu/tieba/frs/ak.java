@@ -5,9 +5,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 class ak {
-
-    /* renamed from: a  reason: collision with root package name */
-    LinearLayout f1367a;
+    LinearLayout a;
     TextView b;
     View c;
     final /* synthetic */ ah d;

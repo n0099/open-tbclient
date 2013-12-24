@@ -19,7 +19,7 @@ public enum BarcodeFormat {
     UPC_E,
     UPC_EAN_EXTENSION;
 
-    /* JADX DEBUG: Replace access to removed values field (a) with 'values()' method */
+    /* JADX DEBUG: Replace access to removed values field (ENUM$VALUES) with 'values()' method */
     /* renamed from: values  reason: to resolve conflict with enum method */
     public static BarcodeFormat[] valuesCustom() {
         BarcodeFormat[] valuesCustom = values();

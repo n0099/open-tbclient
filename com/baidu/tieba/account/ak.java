@@ -1,27 +1,30 @@
 package com.baidu.tieba.account;
 
-import com.baidu.account.AccountProxy;
-import com.baidu.tieba.BaiduAccount.BaiduAccount;
-import com.baidu.tieba.util.bd;
+import android.text.Editable;
+import android.text.TextWatcher;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ak implements AccountProxy.TokenCallback {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ReLoginActivity f1047a;
+public class ak implements TextWatcher {
+    final /* synthetic */ LoginActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ak(ReLoginActivity reLoginActivity) {
-        this.f1047a = reLoginActivity;
+    public ak(LoginActivity loginActivity) {
+        this.a = loginActivity;
     }
 
-    @Override // com.baidu.account.AccountProxy.TokenCallback
-    public void callBack(String str) {
-        bd.e("BaiduAccountProxy", "getAccountData", "token = " + str);
-        if (str != null) {
-            this.f1047a.a(BaiduAccount.get(this.f1047a).getCurrentAccount(), str);
-            return;
-        }
-        this.f1047a.finish();
+    @Override // android.text.TextWatcher
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+        this.a.n = true;
+        this.a.n();
+        this.a.o();
+    }
+
+    @Override // android.text.TextWatcher
+    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    }
+
+    @Override // android.text.TextWatcher
+    public void afterTextChanged(Editable editable) {
+        this.a.d();
     }
 }

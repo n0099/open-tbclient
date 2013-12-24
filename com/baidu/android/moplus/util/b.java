@@ -13,23 +13,27 @@ import android.content.pm.ResolveInfo;
 import android.content.pm.ServiceInfo;
 import android.os.SystemClock;
 import android.text.TextUtils;
+import com.baidu.android.a.e;
+import com.baidu.android.a.j;
 import com.baidu.android.common.logging.Log;
 import com.baidu.android.moplus.MoPlusReceiver;
 import com.baidu.android.moplus.MoPlusService;
 import com.baidu.android.pushservice.PushConstants;
-import com.baidu.android.systemmonitor.StatisticManager;
+import com.baidu.android.systemmonitor.c.d;
 import com.baidu.zeus.bouncycastle.DERTags;
-import com.tencent.mm.sdk.platformtools.LVBuffer;
+import com.google.protobuf.CodedOutputStream;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public final class b {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static final String[] f644a = {"android.permission.INTERNET", "android.permission.READ_PHONE_STATE", "android.permission.ACCESS_NETWORK_STATE", "android.permission.BROADCAST_STICKY", "android.permission.WRITE_SETTINGS", "android.permission.WRITE_EXTERNAL_STORAGE", "android.permission.SET_ACTIVITY_WATCHER", "android.permission.GET_TASKS"};
+    private static final String[] a = {"android.permission.INTERNET", "android.permission.READ_PHONE_STATE", "android.permission.ACCESS_NETWORK_STATE", "android.permission.BROADCAST_STICKY", "android.permission.WRITE_SETTINGS", "android.permission.WRITE_EXTERNAL_STORAGE", "android.permission.SET_ACTIVITY_WATCHER", "android.permission.GET_TASKS"};
     private static final String[] b = {MoPlusService.class.getName(), MoPlusReceiver.class.getName()};
     private static final String[] c = {"com.baidu.android.moplus.action.START", "android.net.conn.CONNECTIVITY_CHANGE", "com.baidu.android.pushservice.action.BIND_SYNC", "android.intent.action.BOOT_COMPLETED"};
+
+    private b() {
+    }
 
     public static PackageInfo a(Context context, String str) {
         try {
@@ -45,8 +49,9 @@ public final class b {
         if (g == null || g.size() <= 1) {
             return context.getPackageName();
         }
+        long j2 = context.getSharedPreferences(context.getPackageName() + ".push_sync", 1).getLong("priority", 0L);
         String packageName = context.getPackageName();
-        long j2 = 0;
+        long j3 = j2;
         String str3 = packageName;
         for (ResolveInfo resolveInfo : g) {
             String str4 = resolveInfo.activityInfo.packageName;
@@ -56,16 +61,16 @@ public final class b {
             } catch (PackageManager.NameNotFoundException e) {
             }
             if (sharedPreferences != null) {
-                long j3 = sharedPreferences.getLong(str2, 1L);
-                if (j3 > j2) {
-                    j = j3;
+                long j4 = sharedPreferences.getLong(str2, 1L);
+                if (j4 > j3) {
+                    j = j4;
                 } else {
-                    if (j3 == 1) {
+                    if (j4 == 1) {
                     }
                     str4 = str3;
-                    j = j2;
+                    j = j3;
                 }
-                j2 = j;
+                j3 = j;
                 str3 = str4;
             }
         }
@@ -86,6 +91,42 @@ public final class b {
         alarmManager.set(3, SystemClock.elapsedRealtime() + j, broadcast);
     }
 
+    private static void a(Context context, String str, boolean z) {
+        if (b(context, k(context)) && d.a(context)) {
+            new e(context).a();
+            l(context);
+        }
+        e(context, false);
+        if (com.baidu.android.moplus.d.a(context)) {
+            Intent c2 = c(context);
+            c2.setAction(PushConstants.ACTION_METHOD);
+            c2.putExtra(PushConstants.EXTRA_METHOD, "pushservice_restart");
+            c2.setPackage(null);
+            context.sendBroadcast(c2);
+            Intent c3 = c(context);
+            c3.putExtra("type", "service_restart");
+            c3.setPackage(str);
+            context.sendBroadcast(c3);
+            Intent c4 = c(context);
+            c4.putExtra("type", "service_sing_restart");
+            c4.putExtra("restartflag", z);
+            c4.setPackage(str);
+            context.sendBroadcast(c4);
+        } else if (c.a(context).b(context)) {
+            c.a(context).b();
+            Intent c5 = c(context);
+            c5.putExtra("type", "service_sing_restart");
+            c5.putExtra("restartflag", z);
+            c5.setPackage(d(context));
+            context.sendBroadcast(c5);
+        } else {
+            Intent intent = new Intent("com.baidu.android.moplus.action.RESTART");
+            intent.addFlags(32);
+            context.sendBroadcast(intent);
+        }
+        com.baidu.android.moplus.d.a(context, false);
+    }
+
     public static void a(Context context, boolean z) {
         SharedPreferences sharedPreferences = context.getSharedPreferences("pst", 0);
         String str = z ? "enabled" : "disabled";
@@ -99,7 +140,7 @@ public final class b {
     }
 
     public static boolean a(Context context) {
-        String b2 = com.baidu.android.moplus.a.b(context);
+        String b2 = com.baidu.android.moplus.d.b(context);
         if ("enabled".equals(b2)) {
             return false;
         }
@@ -139,7 +180,7 @@ public final class b {
 
     private static boolean a(Context context, String... strArr) {
         try {
-            String[] strArr2 = context.getPackageManager().getPackageInfo(context.getPackageName(), LVBuffer.LENGTH_ALLOC_PER_NEW).requestedPermissions;
+            String[] strArr2 = context.getPackageManager().getPackageInfo(context.getPackageName(), CodedOutputStream.DEFAULT_BUFFER_SIZE).requestedPermissions;
             HashMap hashMap = new HashMap();
             for (String str : strArr2) {
                 hashMap.put(str, str);
@@ -203,18 +244,15 @@ public final class b {
     }
 
     public static void b(Context context) {
-        if (com.baidu.android.moplus.a.a(context)) {
-            h(context, null);
-            return;
-        }
-        String packageName = context.getPackageName();
-        Intent c2 = c(context);
-        c2.setPackage(packageName);
-        context.sendBroadcast(c2);
+        a(context, (String) null, false);
     }
 
     public static void b(Context context, boolean z) {
         c(context, z);
+    }
+
+    public static boolean b(Context context, long j) {
+        return System.currentTimeMillis() - j > j.a(context).j();
     }
 
     public static boolean b(Context context, String str) {
@@ -299,9 +337,12 @@ public final class b {
         if (a(context) == (!z)) {
             return;
         }
-        com.baidu.android.moplus.a.b(context, z);
+        com.baidu.android.moplus.d.b(context, z);
+        if (z) {
+            com.baidu.android.moplus.d.a(context, true);
+        }
         e(context, true);
-        h(context, null);
+        a(context, (String) null, false);
     }
 
     public static boolean d(Context context, String str) {
@@ -335,7 +376,7 @@ public final class b {
         if (b(context, context.getPackageName())) {
             j4++;
         }
-        return j4 | 3377699720527872L;
+        return j4 | 4503599627370496L;
     }
 
     public static void e(Context context, boolean z) {
@@ -348,13 +389,7 @@ public final class b {
             } else {
                 edit.putLong("priority", e(context));
             }
-            edit.putInt("version", 12);
-            if (h(context)) {
-                edit.putLong(StatisticManager.class.getSimpleName() + "priority", 0L);
-            } else {
-                edit.putLong(StatisticManager.class.getSimpleName() + "priority", StatisticManager.getPriority(context));
-            }
-            edit.putInt(StatisticManager.class.getSimpleName() + "priority", StatisticManager.getVersion(context));
+            edit.putInt("version", 16);
             edit.commit();
             SharedPreferences.Editor edit2 = sharedPreferences.edit();
             edit2.putInt("pr_v", c2);
@@ -404,7 +439,12 @@ public final class b {
     }
 
     public static List g(Context context) {
-        return context.getPackageManager().queryBroadcastReceivers(new Intent("com.baidu.android.pushservice.action.BIND_SYNC"), 0);
+        List<ResolveInfo> queryBroadcastReceivers = context.getPackageManager().queryBroadcastReceivers(new Intent("com.baidu.android.moplus.action.START"), 0);
+        HashMap hashMap = new HashMap();
+        for (ResolveInfo resolveInfo : queryBroadcastReceivers) {
+            hashMap.put(resolveInfo.activityInfo.packageName, resolveInfo);
+        }
+        return new ArrayList(hashMap.values());
     }
 
     public static boolean g(Context context, String str) {
@@ -419,20 +459,7 @@ public final class b {
     }
 
     public static void h(Context context, String str) {
-        Intent c2 = c(context);
-        c2.setAction(PushConstants.ACTION_METHOD);
-        c2.putExtra(PushConstants.EXTRA_METHOD, "pushservice_restart");
-        c2.setPackage(null);
-        context.sendBroadcast(c2);
-        Intent c3 = c(context);
-        c3.putExtra("type", "service_restart");
-        c3.setPackage(str);
-        context.sendBroadcast(c3);
-        Intent c4 = c(context);
-        c4.putExtra("type", "service_sing_restart");
-        c4.setPackage(str);
-        context.sendBroadcast(c4);
-        com.baidu.android.moplus.a.a(context, false);
+        a(context, (String) null, true);
     }
 
     public static boolean h(Context context) {
@@ -447,7 +474,7 @@ public final class b {
     }
 
     public static boolean i(Context context) {
-        if (!a(context, f644a)) {
+        if (!a(context, a)) {
             Log.e("Utility", "*** Short of PERMISSIONS!");
             return false;
         } else if (!b(context, b)) {
@@ -472,5 +499,25 @@ public final class b {
         } catch (PackageManager.NameNotFoundException e) {
             return false;
         }
+    }
+
+    public static long k(Context context) {
+        return context.getSharedPreferences("pst", 0).getLong("moplus_config_t", 0L);
+    }
+
+    public static void l(Context context) {
+        SharedPreferences.Editor edit = context.getSharedPreferences("pst", 0).edit();
+        edit.putLong("moplus_config_t", System.currentTimeMillis());
+        edit.commit();
+    }
+
+    public static long m(Context context) {
+        return context.getSharedPreferences("pst", 0).getLong("moplus_pv_t", 0L);
+    }
+
+    public static void n(Context context) {
+        SharedPreferences.Editor edit = context.getSharedPreferences("pst", 0).edit();
+        edit.putLong("moplus_pv_t", System.currentTimeMillis());
+        edit.commit();
     }
 }

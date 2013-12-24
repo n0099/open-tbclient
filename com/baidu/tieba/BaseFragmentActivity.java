@@ -8,12 +8,9 @@ import android.os.Bundle;
 import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.mobstat.StatService;
-import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public abstract class BaseFragmentActivity extends android.support.v4.app.n {
-
-    /* renamed from: a  reason: collision with root package name */
-    protected ProgressDialog f1004a = null;
+    protected ProgressDialog a = null;
     private DialogInterface.OnCancelListener b = null;
     private AlertDialog c = null;
     private int d = -1;
@@ -25,7 +22,7 @@ public abstract class BaseFragmentActivity extends android.support.v4.app.n {
     @Override // android.support.v4.app.n, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        com.baidu.tieba.account.a.a().c();
+        com.baidu.tieba.account.l.a().c();
         TiebaApplication.v(true);
         TiebaApplication.h().a(getClass().getName());
         this.e = new e();
@@ -33,7 +30,7 @@ public abstract class BaseFragmentActivity extends android.support.v4.app.n {
             try {
                 StatService.setAppChannel(com.baidu.tieba.data.h.a());
             } catch (Exception e) {
-                com.baidu.tieba.util.bd.b(getClass().getName(), "onCreate", e.getMessage());
+                com.baidu.tieba.util.be.b(getClass().getName(), "onCreate", e.getMessage());
             }
         }
     }
@@ -50,7 +47,7 @@ public abstract class BaseFragmentActivity extends android.support.v4.app.n {
             try {
                 StatService.onResume(this);
             } catch (Exception e) {
-                com.baidu.tieba.util.bd.b(getClass().getName(), "onResume", e.getMessage());
+                com.baidu.tieba.util.be.b(getClass().getName(), "onResume", e.getMessage());
             }
         }
         TiebaApplication.h().aA();
@@ -66,7 +63,7 @@ public abstract class BaseFragmentActivity extends android.support.v4.app.n {
             try {
                 StatService.onPause(this);
             } catch (Exception e) {
-                com.baidu.tieba.util.bd.b(getClass().getName(), "onPause", e.getMessage());
+                com.baidu.tieba.util.be.b(getClass().getName(), "onPause", e.getMessage());
             }
         }
     }
@@ -85,30 +82,6 @@ public abstract class BaseFragmentActivity extends android.support.v4.app.n {
     }
 
     public void a(String str) {
-        if (this.b == null) {
-            this.b = new n(this);
-        }
-        if (str != null) {
-            this.f1004a = ProgressDialog.show(this, "", str, true, false, this.b);
-        } else {
-            this.f1004a = ProgressDialog.show(this, "", getResources().getString(R.string.Waiting), true, false, this.b);
-        }
-    }
-
-    public void b() {
-        if (this.f1004a != null) {
-            try {
-                if (this.f1004a.isShowing()) {
-                    this.f1004a.dismiss();
-                }
-            } catch (Exception e) {
-                com.baidu.tieba.util.bd.b(getClass().getName(), "closeLoadingDialog", e.getMessage());
-            }
-            this.f1004a = null;
-        }
-    }
-
-    public void b(String str) {
         com.baidu.adp.lib.h.g.a((Context) this, str);
     }
 

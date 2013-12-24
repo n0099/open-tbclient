@@ -11,19 +11,17 @@ import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.BaseFragment;
 import com.baidu.tieba.view.PbListView;
-import com.baidu.tieba.view.bk;
+import com.baidu.tieba.view.bq;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class PersonReplyFragment extends BaseFragment implements AbsListView.OnScrollListener {
     private int Z;
-
-    /* renamed from: a  reason: collision with root package name */
-    private View f2365a;
+    private View a;
     private BdListView b;
     private j c;
     private ProgressBar d;
     private TextView f;
-    private bk g;
+    private bq g;
     private PbListView h;
     private View i;
     private boolean e = false;
@@ -33,17 +31,17 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
 
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
     public View a(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.f2365a = layoutInflater.inflate(R.layout.person_reply_fragment, viewGroup, false);
-        this.b = (BdListView) this.f2365a.findViewById(R.id.listview_reply);
-        this.f = (TextView) this.f2365a.findViewById(R.id.txt_listview_emptyview);
+        this.a = layoutInflater.inflate(R.layout.person_reply_fragment, viewGroup, false);
+        this.b = (BdListView) this.a.findViewById(R.id.listview_reply);
+        this.f = (TextView) this.a.findViewById(R.id.txt_listview_emptyview);
         this.f.setText(h().getString("key_empty_view_text"));
-        this.d = (ProgressBar) this.f2365a.findViewById(R.id.person_post_progress);
-        return this.f2365a;
+        this.d = (ProgressBar) this.a.findViewById(R.id.person_post_progress);
+        return this.a;
     }
 
     @Override // android.support.v4.app.Fragment
     public void a(View view, Bundle bundle) {
-        this.g = new bk(i());
+        this.g = new bq(i());
         this.b.setPullRefresh(this.g);
         this.g.a(new o(this));
         this.b.setOnScrollListener(this);

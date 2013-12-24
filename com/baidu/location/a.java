@@ -5,6 +5,7 @@ import android.os.DeadObjectException;
 import android.os.Handler;
 import android.os.Message;
 import android.os.Messenger;
+import com.baidu.android.pushservice.PushConstants;
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.json.JSONArray;
@@ -15,19 +16,17 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: if  reason: not valid java name */
-    private static String f90if = f.v;
+    private static String f54if = f.v;
 
     /* renamed from: do  reason: not valid java name */
-    private ArrayList f91do;
+    private ArrayList f55do;
 
     /* renamed from: int  reason: not valid java name */
-    private Handler f93int;
+    private Handler f57int;
 
     /* renamed from: for  reason: not valid java name */
-    private boolean f92for = false;
-
-    /* renamed from: a  reason: collision with root package name */
-    private boolean f912a = false;
+    private boolean f56for = false;
+    private boolean a = false;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.location.a$a  reason: collision with other inner class name */
@@ -35,44 +34,44 @@ public class a {
     public class C0000a {
 
         /* renamed from: for  reason: not valid java name */
-        public Messenger f95for;
+        public Messenger f59for;
 
         /* renamed from: int  reason: not valid java name */
-        public String f97int;
+        public String f61int;
 
         /* renamed from: do  reason: not valid java name */
-        public LocationClientOption f94do = new LocationClientOption();
+        public LocationClientOption f58do = new LocationClientOption();
 
         /* renamed from: if  reason: not valid java name */
-        public int f96if = 0;
+        public int f60if = 0;
 
         public C0000a(Message message) {
-            this.f97int = null;
-            this.f95for = null;
-            this.f95for = message.replyTo;
-            this.f97int = message.getData().getString("packName");
-            this.f94do.f87new = message.getData().getString("prodName");
-            this.f94do.f88try = message.getData().getString("coorType");
-            this.f94do.f79char = message.getData().getString("addrType");
-            j.j = this.f94do.f79char;
-            this.f94do.f78case = message.getData().getBoolean("openGPS");
-            this.f94do.f85int = message.getData().getInt("scanSpan");
-            this.f94do.f86long = message.getData().getInt("timeOut");
-            this.f94do.f83goto = message.getData().getInt("priority");
-            this.f94do.f89void = message.getData().getBoolean("location_change_notify");
+            this.f61int = null;
+            this.f59for = null;
+            this.f59for = message.replyTo;
+            this.f61int = message.getData().getString("packName");
+            this.f58do.f51new = message.getData().getString("prodName");
+            this.f58do.f52try = message.getData().getString("coorType");
+            this.f58do.f43char = message.getData().getString("addrType");
+            j.j = this.f58do.f43char;
+            this.f58do.f42case = message.getData().getBoolean("openGPS");
+            this.f58do.f49int = message.getData().getInt("scanSpan");
+            this.f58do.f50long = message.getData().getInt("timeOut");
+            this.f58do.f47goto = message.getData().getInt("priority");
+            this.f58do.f53void = message.getData().getBoolean("location_change_notify");
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void a(int i) {
             Message obtain = Message.obtain((Handler) null, i);
             try {
-                if (this.f95for != null) {
-                    this.f95for.send(obtain);
+                if (this.f59for != null) {
+                    this.f59for.send(obtain);
                 }
-                this.f96if = 0;
+                this.f60if = 0;
             } catch (Exception e) {
                 if (e instanceof DeadObjectException) {
-                    this.f96if++;
+                    this.f60if++;
                 }
             }
         }
@@ -83,13 +82,13 @@ public class a {
             Message obtain = Message.obtain((Handler) null, i);
             obtain.setData(bundle);
             try {
-                if (this.f95for != null) {
-                    this.f95for.send(obtain);
+                if (this.f59for != null) {
+                    this.f59for.send(obtain);
                 }
-                this.f96if = 0;
+                this.f60if = 0;
             } catch (Exception e) {
                 if (e instanceof DeadObjectException) {
-                    this.f96if++;
+                    this.f60if++;
                 }
             }
         }
@@ -99,14 +98,14 @@ public class a {
         }
 
         public void a(String str) {
-            if (this.f94do.f89void) {
-                m61if(str);
+            if (this.f58do.f53void) {
+                m45if(str);
             }
         }
 
         public void a(String str, int i) {
             int i2 = 0;
-            j.a(a.f90if, "decode...");
+            j.a(a.f54if, "decode...");
             if (str == null) {
                 return;
             }
@@ -117,21 +116,21 @@ public class a {
             if (i == 21) {
                 a(27, "locStr", str);
             }
-            if (this.f94do.f88try != null && !this.f94do.f88try.equals("gcj02")) {
-                double m250do = j.m250do(str, "x\":\"", "\"");
-                double m250do2 = j.m250do(str, "y\":\"", "\"");
-                j.a(a.f90if, "decode..." + m250do + ":" + m250do2);
-                if (m250do != Double.MIN_VALUE && m250do2 != Double.MIN_VALUE) {
-                    double[] m19if = Jni.m19if(m250do, m250do2, this.f94do.f88try);
-                    str = j.a(j.a(str, "x\":\"", "\"", m19if[0]), "y\":\"", "\"", m19if[1]);
-                    j.a(a.f90if, "decode2 ..." + m19if[0] + ":" + m19if[1]);
-                    j.a(a.f90if, "decode3 ..." + str);
+            if (this.f58do.f52try != null && !this.f58do.f52try.equals("gcj02")) {
+                double m234do = j.m234do(str, "x\":\"", "\"");
+                double m234do2 = j.m234do(str, "y\":\"", "\"");
+                j.a(a.f54if, "decode..." + m234do + ":" + m234do2);
+                if (m234do != Double.MIN_VALUE && m234do2 != Double.MIN_VALUE) {
+                    double[] m3if = Jni.m3if(m234do, m234do2, this.f58do.f52try);
+                    str = j.a(j.a(str, "x\":\"", "\"", m3if[0]), "y\":\"", "\"", m3if[1]);
+                    j.a(a.f54if, "decode2 ..." + m3if[0] + ":" + m3if[1]);
+                    j.a(a.f54if, "decode3 ..." + str);
                 }
-                if (this.f94do.f81else) {
+                if (this.f58do.f45else) {
                     try {
                         JSONObject jSONObject = new JSONObject(str);
                         JSONObject jSONObject2 = jSONObject.getJSONObject("result");
-                        JSONObject jSONObject3 = jSONObject.getJSONObject("content");
+                        JSONObject jSONObject3 = jSONObject.getJSONObject(PushConstants.EXTRA_CONTENT);
                         if (Integer.parseInt(jSONObject2.getString("error")) == 161) {
                             JSONObject jSONObject4 = jSONObject3.getJSONObject("poi");
                             JSONArray jSONArray = jSONObject4.getJSONArray("p");
@@ -140,16 +139,16 @@ public class a {
                                 double parseDouble = Double.parseDouble(jSONObject5.getString("x"));
                                 double parseDouble2 = Double.parseDouble(jSONObject5.getString("y"));
                                 if (parseDouble != Double.MIN_VALUE && parseDouble2 != Double.MIN_VALUE) {
-                                    double[] m19if2 = Jni.m19if(parseDouble, parseDouble2, this.f94do.f88try);
-                                    jSONObject5.put("x", String.valueOf(m19if2[0]));
-                                    jSONObject5.put("y", String.valueOf(m19if2[1]));
+                                    double[] m3if2 = Jni.m3if(parseDouble, parseDouble2, this.f58do.f52try);
+                                    jSONObject5.put("x", String.valueOf(m3if2[0]));
+                                    jSONObject5.put("y", String.valueOf(m3if2[1]));
                                     jSONArray.put(i2, jSONObject5);
                                     i2++;
                                 }
                             }
                             jSONObject4.put("p", jSONArray);
                             jSONObject3.put("poi", jSONObject4);
-                            jSONObject.put("content", jSONObject3);
+                            jSONObject.put(PushConstants.EXTRA_CONTENT, jSONObject3);
                             str = jSONObject.toString();
                         }
                     } catch (JSONException e) {
@@ -161,8 +160,8 @@ public class a {
         }
 
         /* renamed from: if  reason: not valid java name */
-        public void m60if() {
-            if (this.f94do.f89void) {
+        public void m44if() {
+            if (this.f58do.f53void) {
                 if (j.b) {
                     a(54);
                 } else {
@@ -172,7 +171,7 @@ public class a {
         }
 
         /* renamed from: if  reason: not valid java name */
-        public void m61if(String str) {
+        public void m45if(String str) {
             if (str == null) {
                 return;
             }
@@ -181,13 +180,13 @@ public class a {
                 return;
             }
             a(27, "locStr", str);
-            if (this.f94do.f88try != null && !this.f94do.f88try.equals("gcj02")) {
-                double m250do = j.m250do(str, "x\":\"", "\"");
-                double m250do2 = j.m250do(str, "y\":\"", "\"");
-                if (m250do != Double.MIN_VALUE && m250do2 != Double.MIN_VALUE) {
-                    double[] m19if = Jni.m19if(m250do, m250do2, this.f94do.f88try);
-                    if (m19if[0] > 0.0d || m19if[1] > 0.0d) {
-                        str = j.a(j.a(str, "x\":\"", "\"", m19if[0]), "y\":\"", "\"", m19if[1]);
+            if (this.f58do.f52try != null && !this.f58do.f52try.equals("gcj02")) {
+                double m234do = j.m234do(str, "x\":\"", "\"");
+                double m234do2 = j.m234do(str, "y\":\"", "\"");
+                if (m234do != Double.MIN_VALUE && m234do2 != Double.MIN_VALUE) {
+                    double[] m3if = Jni.m3if(m234do, m234do2, this.f58do.f52try);
+                    if (m3if[0] > 0.0d || m3if[1] > 0.0d) {
+                        str = j.a(j.a(str, "x\":\"", "\"", m3if[0]), "y\":\"", "\"", m3if[1]);
                     }
                 }
             }
@@ -196,20 +195,20 @@ public class a {
     }
 
     public a(Handler handler) {
-        this.f91do = null;
-        this.f93int = null;
-        this.f93int = handler;
-        this.f91do = new ArrayList();
+        this.f55do = null;
+        this.f57int = null;
+        this.f57int = handler;
+        this.f55do = new ArrayList();
     }
 
     private C0000a a(Messenger messenger) {
-        if (this.f91do == null) {
+        if (this.f55do == null) {
             return null;
         }
-        Iterator it = this.f91do.iterator();
+        Iterator it = this.f55do.iterator();
         while (it.hasNext()) {
             C0000a c0000a = (C0000a) it.next();
-            if (c0000a.f95for.equals(messenger)) {
+            if (c0000a.f59for.equals(messenger)) {
                 return c0000a;
             }
         }
@@ -219,17 +218,17 @@ public class a {
     private void a() {
         boolean z;
         boolean z2 = false;
-        Iterator it = this.f91do.iterator();
+        Iterator it = this.f55do.iterator();
         while (true) {
             z = z2;
             if (!it.hasNext()) {
                 break;
             }
-            z2 = ((C0000a) it.next()).f94do.f87new.equals("kuikedefancaiburudashahaochi") ? true : z;
+            z2 = ((C0000a) it.next()).f58do.f51new.equals("kuikedefancaiburudashahaochi") ? true : z;
         }
-        if (this.f912a != z) {
-            this.f912a = z;
-            this.f93int.obtainMessage(81).sendToTarget();
+        if (this.a != z) {
+            this.a = z;
+            this.f57int.obtainMessage(81).sendToTarget();
         }
     }
 
@@ -237,65 +236,65 @@ public class a {
         if (c0000a == null) {
             return;
         }
-        if (a(c0000a.f95for) != null) {
+        if (a(c0000a.f59for) != null) {
             c0000a.a(14);
             return;
         }
-        this.f91do.add(c0000a);
-        j.a(f90if, c0000a.f97int + " registered ");
+        this.f55do.add(c0000a);
+        j.a(f54if, c0000a.f61int + " registered ");
         c0000a.a(13);
     }
 
     /* renamed from: do  reason: not valid java name */
-    private void m48do() {
-        m49int();
+    private void m32do() {
+        m33int();
         a();
-        m59new();
+        m43new();
     }
 
     /* renamed from: int  reason: not valid java name */
-    private void m49int() {
-        Iterator it = this.f91do.iterator();
+    private void m33int() {
+        Iterator it = this.f55do.iterator();
         boolean z = false;
         boolean z2 = false;
         while (it.hasNext()) {
             C0000a c0000a = (C0000a) it.next();
-            if (c0000a.f94do.f78case) {
+            if (c0000a.f58do.f42case) {
                 z2 = true;
             }
-            z = c0000a.f94do.f89void ? true : z;
+            z = c0000a.f58do.f53void ? true : z;
         }
         j.I = z;
-        if (this.f92for != z2) {
-            this.f92for = z2;
-            this.f93int.obtainMessage(52).sendToTarget();
+        if (this.f56for != z2) {
+            this.f56for = z2;
+            this.f57int.obtainMessage(52).sendToTarget();
         }
     }
 
     public String a(Message message) {
         if (message == null || message.replyTo == null) {
-            j.a(f90if, "invalid Poirequest");
+            j.a(f54if, "invalid Poirequest");
             return null;
         }
-        C0000a a2 = a(message.replyTo);
-        if (a2 != null) {
-            a2.f94do.f911a = message.getData().getInt("num", a2.f94do.f911a);
-            a2.f94do.f80do = message.getData().getFloat("distance", a2.f94do.f80do);
-            a2.f94do.f84if = message.getData().getBoolean("extraInfo", a2.f94do.f84if);
-            a2.f94do.f81else = true;
-            String format = String.format("&poi=%.1f|%d", Float.valueOf(a2.f94do.f80do), Integer.valueOf(a2.f94do.f911a));
-            return a2.f94do.f84if ? format + "|1" : format;
+        C0000a a = a(message.replyTo);
+        if (a != null) {
+            a.f58do.a = message.getData().getInt("num", a.f58do.a);
+            a.f58do.f44do = message.getData().getFloat("distance", a.f58do.f44do);
+            a.f58do.f48if = message.getData().getBoolean("extraInfo", a.f58do.f48if);
+            a.f58do.f45else = true;
+            String format = String.format("&poi=%.1f|%d", Float.valueOf(a.f58do.f44do), Integer.valueOf(a.f58do.a));
+            return a.f58do.f48if ? format + "|1" : format;
         }
         return null;
     }
 
     public void a(String str) {
         ArrayList arrayList = new ArrayList();
-        Iterator it = this.f91do.iterator();
+        Iterator it = this.f55do.iterator();
         while (it.hasNext()) {
             C0000a c0000a = (C0000a) it.next();
-            c0000a.m61if(str);
-            if (c0000a.f96if > 4) {
+            c0000a.m45if(str);
+            if (c0000a.f60if > 4) {
                 arrayList.add(c0000a);
             }
         }
@@ -304,18 +303,18 @@ public class a {
         }
         Iterator it2 = arrayList.iterator();
         while (it2.hasNext()) {
-            j.a(f90if, "remove dead object...");
-            this.f91do.remove((C0000a) it2.next());
+            j.a(f54if, "remove dead object...");
+            this.f55do.remove((C0000a) it2.next());
         }
     }
 
     public void a(String str, int i) {
         ArrayList arrayList = new ArrayList();
-        Iterator it = this.f91do.iterator();
+        Iterator it = this.f55do.iterator();
         while (it.hasNext()) {
             C0000a c0000a = (C0000a) it.next();
             c0000a.a(str, i);
-            if (c0000a.f96if > 4) {
+            if (c0000a.f60if > 4) {
                 arrayList.add(c0000a);
             }
         }
@@ -324,8 +323,8 @@ public class a {
         }
         Iterator it2 = arrayList.iterator();
         while (it2.hasNext()) {
-            j.a(f90if, "remove dead object...");
-            this.f91do.remove((C0000a) it2.next());
+            j.a(f54if, "remove dead object...");
+            this.f55do.remove((C0000a) it2.next());
         }
     }
 
@@ -333,27 +332,27 @@ public class a {
         if (str == null || message == null) {
             return;
         }
-        C0000a a2 = a(message.replyTo);
-        if (a2 == null) {
-            j.a(f90if, "not found the client messener...");
+        C0000a a = a(message.replyTo);
+        if (a == null) {
+            j.a(f54if, "not found the client messener...");
             return;
         }
-        a2.m61if(str);
-        if (a2.f96if > 4) {
-            this.f91do.remove(a2);
+        a.m45if(str);
+        if (a.f60if > 4) {
+            this.f55do.remove(a);
         }
     }
 
     /* renamed from: byte  reason: not valid java name */
-    public String m51byte() {
+    public String m35byte() {
         StringBuffer stringBuffer = new StringBuffer(256);
-        C0000a c0000a = (C0000a) this.f91do.get(0);
-        if (c0000a.f94do.f87new != null) {
-            stringBuffer.append(c0000a.f94do.f87new);
+        C0000a c0000a = (C0000a) this.f55do.get(0);
+        if (c0000a.f58do.f51new != null) {
+            stringBuffer.append(c0000a.f58do.f51new);
         }
-        if (c0000a.f97int != null) {
+        if (c0000a.f61int != null) {
             stringBuffer.append(":");
-            stringBuffer.append(c0000a.f97int);
+            stringBuffer.append(c0000a.f61int);
             stringBuffer.append("|");
         }
         String stringBuffer2 = stringBuffer.toString();
@@ -364,98 +363,98 @@ public class a {
     }
 
     /* renamed from: do  reason: not valid java name */
-    public int m52do(Message message) {
-        C0000a a2;
-        if (message == null || message.replyTo == null || (a2 = a(message.replyTo)) == null || a2.f94do == null) {
+    public int m36do(Message message) {
+        C0000a a;
+        if (message == null || message.replyTo == null || (a = a(message.replyTo)) == null || a.f58do == null) {
             return 1;
         }
-        return a2.f94do.f83goto;
+        return a.f58do.f47goto;
     }
 
     /* renamed from: for  reason: not valid java name */
-    public boolean m53for() {
-        return this.f92for;
+    public boolean m37for() {
+        return this.f56for;
     }
 
     /* renamed from: for  reason: not valid java name */
-    public boolean m54for(Message message) {
+    public boolean m38for(Message message) {
         boolean z = true;
-        C0000a a2 = a(message.replyTo);
-        if (a2 == null) {
+        C0000a a = a(message.replyTo);
+        if (a == null) {
             return false;
         }
-        int i = a2.f94do.f85int;
-        a2.f94do.f85int = message.getData().getInt("scanSpan", a2.f94do.f85int);
-        if (a2.f94do.f85int < 1000) {
+        int i = a.f58do.f49int;
+        a.f58do.f49int = message.getData().getInt("scanSpan", a.f58do.f49int);
+        if (a.f58do.f49int < 1000) {
             j.J = false;
         } else {
             j.J = true;
         }
-        if (a2.f94do.f85int <= 999 || i >= 1000) {
+        if (a.f58do.f49int <= 999 || i >= 1000) {
             z = false;
         }
-        a2.f94do.f78case = message.getData().getBoolean("openGPS", a2.f94do.f78case);
+        a.f58do.f42case = message.getData().getBoolean("openGPS", a.f58do.f42case);
         String string = message.getData().getString("coorType");
-        LocationClientOption locationClientOption = a2.f94do;
+        LocationClientOption locationClientOption = a.f58do;
         if (string == null || string.equals("")) {
-            string = a2.f94do.f88try;
+            string = a.f58do.f52try;
         }
-        locationClientOption.f88try = string;
+        locationClientOption.f52try = string;
         String string2 = message.getData().getString("addrType");
-        LocationClientOption locationClientOption2 = a2.f94do;
+        LocationClientOption locationClientOption2 = a.f58do;
         if (string2 == null || string2.equals("")) {
-            string2 = a2.f94do.f79char;
+            string2 = a.f58do.f43char;
         }
-        locationClientOption2.f79char = string2;
-        j.j = a2.f94do.f79char;
-        a2.f94do.f86long = message.getData().getInt("timeOut", a2.f94do.f86long);
-        a2.f94do.f89void = message.getData().getBoolean("location_change_notify", a2.f94do.f89void);
-        a2.f94do.f83goto = message.getData().getInt("priority", a2.f94do.f83goto);
-        m48do();
+        locationClientOption2.f43char = string2;
+        j.j = a.f58do.f43char;
+        a.f58do.f50long = message.getData().getInt("timeOut", a.f58do.f50long);
+        a.f58do.f53void = message.getData().getBoolean("location_change_notify", a.f58do.f53void);
+        a.f58do.f47goto = message.getData().getInt("priority", a.f58do.f47goto);
+        m32do();
         return z;
     }
 
     /* renamed from: if  reason: not valid java name */
-    public void m55if() {
-        Iterator it = this.f91do.iterator();
+    public void m39if() {
+        Iterator it = this.f55do.iterator();
         while (it.hasNext()) {
             ((C0000a) it.next()).a();
         }
     }
 
     /* renamed from: if  reason: not valid java name */
-    public void m56if(Message message) {
-        C0000a a2 = a(message.replyTo);
-        if (a2 != null) {
-            j.a(f90if, a2.f97int + " unregistered");
-            this.f91do.remove(a2);
+    public void m40if(Message message) {
+        C0000a a = a(message.replyTo);
+        if (a != null) {
+            j.a(f54if, a.f61int + " unregistered");
+            this.f55do.remove(a);
         }
-        m48do();
+        m32do();
     }
 
     /* renamed from: if  reason: not valid java name */
-    public void m57if(String str) {
-        Iterator it = this.f91do.iterator();
+    public void m41if(String str) {
+        Iterator it = this.f55do.iterator();
         while (it.hasNext()) {
             ((C0000a) it.next()).a(str);
         }
     }
 
     /* renamed from: int  reason: not valid java name */
-    public void m58int(Message message) {
+    public void m42int(Message message) {
         if (message == null || message.replyTo == null) {
-            j.a(f90if, "invalid regist client");
+            j.a(f54if, "invalid regist client");
             return;
         }
         a(new C0000a(message));
-        m48do();
+        m32do();
     }
 
     /* renamed from: new  reason: not valid java name */
-    public void m59new() {
-        Iterator it = this.f91do.iterator();
+    public void m43new() {
+        Iterator it = this.f55do.iterator();
         while (it.hasNext()) {
-            ((C0000a) it.next()).m60if();
+            ((C0000a) it.next()).m44if();
         }
     }
 }

@@ -4,13 +4,11 @@ import android.view.View;
 import com.baidu.tieba.pb.ImagePbActivity;
 /* loaded from: classes.dex */
 class aw implements View.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsImageActivity f1378a;
+    final /* synthetic */ FrsImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aw(FrsImageActivity frsImageActivity) {
-        this.f1378a = frsImageActivity;
+        this.a = frsImageActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -18,9 +16,9 @@ class aw implements View.OnClickListener {
         String str;
         if (view.getTag() != null && (view.getTag() instanceof com.baidu.tieba.data.ba)) {
             com.baidu.tieba.data.ba baVar = (com.baidu.tieba.data.ba) view.getTag();
-            FrsImageActivity frsImageActivity = this.f1378a;
+            FrsImageActivity frsImageActivity = this.a;
             String d = baVar.d();
-            str = this.f1378a.b;
+            str = this.a.b;
             ImagePbActivity.a(frsImageActivity, d, str, baVar.c());
         }
     }

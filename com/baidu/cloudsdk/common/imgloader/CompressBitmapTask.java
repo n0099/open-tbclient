@@ -2,13 +2,12 @@ package com.baidu.cloudsdk.common.imgloader;
 
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
-import com.tencent.mm.sdk.platformtools.LVBuffer;
+import com.baidu.zeus.NotificationProxy;
+import com.google.protobuf.CodedOutputStream;
 import java.io.ByteArrayOutputStream;
 /* loaded from: classes.dex */
 public class CompressBitmapTask extends AsyncTask {
-
-    /* renamed from: a  reason: collision with root package name */
-    private int f841a;
+    private int a;
     private int b;
     private ICompressBitmapListener c;
 
@@ -18,14 +17,14 @@ public class CompressBitmapTask extends AsyncTask {
     }
 
     public CompressBitmapTask(int i, int i2, ICompressBitmapListener iCompressBitmapListener) {
-        this.f841a = i;
+        this.a = i;
         this.b = i2;
         this.c = iCompressBitmapListener;
     }
 
     public CompressBitmapTask(ICompressBitmapListener iCompressBitmapListener) {
-        this.f841a = LVBuffer.LENGTH_ALLOC_PER_NEW;
-        this.b = 1024;
+        this.a = CodedOutputStream.DEFAULT_BUFFER_SIZE;
+        this.b = NotificationProxy.MAX_URL_LENGTH;
         this.c = iCompressBitmapListener;
     }
 
@@ -49,7 +48,7 @@ public class CompressBitmapTask extends AsyncTask {
     @Override // android.os.AsyncTask
     public ByteArrayOutputStream doInBackground(Bitmap... bitmapArr) {
         Bitmap bitmap = bitmapArr[0];
-        if (((bitmap.getHeight() * bitmap.getWidth()) * 4) / 1024 > this.f841a) {
+        if (((bitmap.getHeight() * bitmap.getWidth()) * 4) / NotificationProxy.MAX_URL_LENGTH > this.a) {
             bitmap = a(bitmap);
         }
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();

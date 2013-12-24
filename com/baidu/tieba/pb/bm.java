@@ -6,13 +6,11 @@ import android.view.View;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 class bm implements View.OnLongClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NewPbActivity f2188a;
+    final /* synthetic */ NewPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bm(NewPbActivity newPbActivity) {
-        this.f2188a = newPbActivity;
+        this.a = newPbActivity;
     }
 
     @Override // android.view.View.OnLongClickListener
@@ -30,24 +28,24 @@ class bm implements View.OnLongClickListener {
             sparseArray = null;
         }
         if (sparseArray != null) {
-            this.f2188a.b = (com.baidu.tieba.data.ar) sparseArray.get(R.id.tag_clip_board);
-            if (this.f2188a.b != null) {
-                bgVar = this.f2188a.t;
-                if (bgVar.a() && this.f2188a.b.d() != null) {
-                    String d = this.f2188a.b.d();
-                    bmVar = this.f2188a.s;
+            this.a.b = (com.baidu.tieba.data.ar) sparseArray.get(R.id.tag_clip_board);
+            if (this.a.b != null) {
+                bgVar = this.a.s;
+                if (bgVar.a() && this.a.b.d() != null) {
+                    String d = this.a.b.d();
+                    bmVar = this.a.r;
                     if (d.equals(bmVar.k())) {
                         z = true;
                         boolean booleanValue = ((Boolean) sparseArray.get(R.id.tag_is_subpb)).booleanValue();
-                        crVar = this.f2188a.y;
-                        onClickListener = this.f2188a.Y;
+                        crVar = this.a.x;
+                        onClickListener = this.a.X;
                         crVar.a(onClickListener, z, booleanValue);
                     }
                 }
                 z = false;
                 boolean booleanValue2 = ((Boolean) sparseArray.get(R.id.tag_is_subpb)).booleanValue();
-                crVar = this.f2188a.y;
-                onClickListener = this.f2188a.Y;
+                crVar = this.a.x;
+                onClickListener = this.a.X;
                 crVar.a(onClickListener, z, booleanValue2);
             }
         }

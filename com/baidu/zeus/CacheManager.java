@@ -6,7 +6,6 @@ import android.util.Log;
 import com.baidu.browser.explorer.BdWebErrorView;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.zeus.WebView;
-import com.tencent.mm.sdk.platformtools.Util;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -53,7 +52,7 @@ public final class CacheManager {
         mClearCacheOnInit = false;
         CACHE_EXPIRE_TIME = 259200000L;
         CACHE_EXPIRE_TIME_ONEWEEK = 604800000L;
-        CACHE_EXPIRE_TIME_ONDDAY = Util.MILLSECONDS_OF_DAY;
+        CACHE_EXPIRE_TIME_ONDDAY = 86400000L;
     }
 
     /* loaded from: classes.dex */
@@ -653,7 +652,7 @@ public final class CacheManager {
                                     }
                                 } catch (NumberFormatException e2) {
                                     if ("1d".equals(substring)) {
-                                        cacheResult.expires = System.currentTimeMillis() + Util.MILLSECONDS_OF_DAY;
+                                        cacheResult.expires = System.currentTimeMillis() + 86400000;
                                     } else {
                                         Log.e(LOGTAG, "exception in parseHeaders for max-age:" + split[i2].substring(indexOf + 1));
                                         cacheResult.expires = 0L;
@@ -682,7 +681,7 @@ public final class CacheManager {
                             }
                         }
                     } else {
-                        long currentTimeMillis = System.currentTimeMillis() + Util.MILLSECONDS_OF_DAY;
+                        long currentTimeMillis = System.currentTimeMillis() + 86400000;
                         try {
                             currentTimeMillis = AndroidHttpClient.parseDate(cacheResult.lastModified);
                         } catch (IllegalArgumentException e3) {

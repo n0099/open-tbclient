@@ -3,15 +3,13 @@ package com.baidu.tieba.util.a;
 import com.baidu.adp.lib.e.g;
 /* loaded from: classes.dex */
 public class f implements com.baidu.adp.lib.e.a {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static f f2574a = null;
+    private static f a = null;
 
     public static f a() {
-        if (f2574a == null) {
-            f2574a = new f();
+        if (a == null) {
+            a = new f();
         }
-        return f2574a;
+        return a;
     }
 
     private f() {

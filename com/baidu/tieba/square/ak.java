@@ -5,19 +5,17 @@ import android.view.View;
 import com.baidu.tieba.recommend.DailyRecommendActivity;
 /* loaded from: classes.dex */
 class ak implements View.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Context f2481a;
+    final /* synthetic */ Context a;
     final /* synthetic */ aj b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ak(aj ajVar, Context context) {
         this.b = ajVar;
-        this.f2481a = context;
+        this.a = context;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        DailyRecommendActivity.a(this.f2481a, SquareActivity.a("post_recommend", "all"));
+        DailyRecommendActivity.a(this.a, SquareActivity.a("post_recommend", "all"));
     }
 }

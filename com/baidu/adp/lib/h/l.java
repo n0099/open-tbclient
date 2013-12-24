@@ -1,15 +1,19 @@
 package com.baidu.adp.lib.h;
+
+import com.baidu.adp.lib.cache.t;
+import java.util.Comparator;
 /* loaded from: classes.dex */
-public class l {
-    private static final String[] b = new String[48];
+class l implements Comparator<t<?>> {
+    private l() {
+    }
 
-    /* renamed from: a  reason: collision with root package name */
-    public static final String f507a = System.getProperty("line.separator");
-
-    public static boolean a(String str) {
-        if (str != null && str.trim().length() != 0) {
-            return false;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.util.Comparator
+    /* renamed from: a */
+    public int compare(t<?> tVar, t<?> tVar2) {
+        if (tVar.c == tVar2.c) {
+            return 0;
         }
-        return true;
+        return tVar.c > tVar2.c ? -1 : 1;
     }
 }

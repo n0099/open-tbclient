@@ -7,14 +7,13 @@ import android.hardware.Camera;
 import android.os.Handler;
 import android.view.SurfaceHolder;
 import com.baidu.tieba.compatible.CompatibleUtile;
-import com.baidu.tieba.util.bd;
+import com.baidu.tieba.util.be;
+import com.google.zxing.PlanarYUVLuminanceSource;
 import com.slidingmenu.lib.R;
 import java.io.IOException;
 /* loaded from: classes.dex */
 public final class f {
-
-    /* renamed from: a  reason: collision with root package name */
-    private final Context f1139a;
+    private final Context a;
     private final d b;
     private Camera c;
     private a d;
@@ -27,7 +26,7 @@ public final class f {
     private final g k;
 
     public f(Context context) {
-        this.f1139a = context;
+        this.a = context;
         this.b = new d(context);
         this.k = new g(this.b);
     }
@@ -57,8 +56,8 @@ public final class f {
         try {
             this.b.a(camera2, false);
         } catch (RuntimeException e) {
-            bd.c(getClass().getName(), "openDriver", "Camera rejected parameters. Setting only minimal safe-mode parameters");
-            bd.a(getClass().getName(), "openDriver", "Resetting to saved camera params: " + flatten);
+            be.c(getClass().getName(), "openDriver", "Camera rejected parameters. Setting only minimal safe-mode parameters");
+            be.a(getClass().getName(), "openDriver", "Resetting to saved camera params: " + flatten);
             if (flatten != null) {
                 Camera.Parameters parameters2 = camera2.getParameters();
                 parameters2.unflatten(flatten);
@@ -66,7 +65,7 @@ public final class f {
                     camera2.setParameters(parameters2);
                     this.b.a(camera2, true);
                 } catch (RuntimeException e2) {
-                    bd.c(getClass().getName(), "openDriver", "Camera rejected even safe-mode parameters! No configuration");
+                    be.c(getClass().getName(), "openDriver", "Camera rejected even safe-mode parameters! No configuration");
                 }
             }
         }
@@ -90,7 +89,7 @@ public final class f {
         if (camera != null && !this.h) {
             camera.startPreview();
             this.h = true;
-            this.d = new a(this.f1139a, this.c);
+            this.d = new a(this.a, this.c);
         }
     }
 
@@ -120,11 +119,11 @@ public final class f {
         synchronized (this) {
             if (this.e == null) {
                 if (this.c != null && (b = this.b.b()) != null) {
-                    int dimensionPixelSize = this.f1139a.getResources().getDimensionPixelSize(R.dimen.bar_code_center_rect_size);
+                    int dimensionPixelSize = this.a.getResources().getDimensionPixelSize(R.dimen.bar_code_center_rect_size);
                     int i = (b.x - dimensionPixelSize) / 2;
                     int i2 = (b.y - dimensionPixelSize) / 2;
                     this.e = new Rect(i, i2, i + dimensionPixelSize, dimensionPixelSize + i2);
-                    bd.e(getClass().getName(), "getFramingRect", "Calculated framing rect: " + this.e);
+                    be.e(getClass().getName(), "getFramingRect", "Calculated framing rect: " + this.e);
                 }
             }
             rect = this.e;
@@ -139,13 +138,13 @@ public final class f {
                 Rect e = e();
                 if (e != null) {
                     Rect rect2 = new Rect(e);
-                    Point a2 = this.b.a();
+                    Point a = this.b.a();
                     Point b = this.b.b();
-                    if (a2 != null && b != null) {
-                        rect2.left = (rect2.left * a2.y) / b.x;
-                        rect2.right = (rect2.right * a2.y) / b.x;
-                        rect2.top = (rect2.top * a2.x) / b.y;
-                        rect2.bottom = (rect2.bottom * a2.x) / b.y;
+                    if (a != null && b != null) {
+                        rect2.left = (rect2.left * a.y) / b.x;
+                        rect2.right = (rect2.right * a.y) / b.x;
+                        rect2.top = (rect2.top * a.x) / b.y;
+                        rect2.bottom = (rect2.bottom * a.x) / b.y;
                         this.f = rect2;
                     }
                 }
@@ -167,7 +166,7 @@ public final class f {
             int i3 = (b.x - i) / 2;
             int i4 = (b.y - i2) / 2;
             this.e = new Rect(i3, i4, i3 + i, i4 + i2);
-            bd.e(getClass().getName(), "setManualFramingRect", "Calculated manual framing rect: " + this.e);
+            be.e(getClass().getName(), "setManualFramingRect", "Calculated manual framing rect: " + this.e);
             this.f = null;
         } else {
             this.i = i;
@@ -175,11 +174,11 @@ public final class f {
         }
     }
 
-    public com.google.zxing.e a(byte[] bArr, int i, int i2) {
+    public PlanarYUVLuminanceSource a(byte[] bArr, int i, int i2) {
         Rect f = f();
         if (f == null) {
             return null;
         }
-        return new com.google.zxing.e(bArr, i, i2, f.left, f.top, f.width(), f.height(), false);
+        return new PlanarYUVLuminanceSource(bArr, i, i2, f.left, f.top, f.width(), f.height(), false);
     }
 }

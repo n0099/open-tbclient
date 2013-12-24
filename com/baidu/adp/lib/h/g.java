@@ -3,6 +3,7 @@ package com.baidu.adp.lib.h;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Paint;
+import android.os.Handler;
 import android.os.Looper;
 import android.text.TextPaint;
 import android.text.TextUtils;
@@ -14,12 +15,14 @@ import android.widget.Toast;
 import java.lang.reflect.Field;
 /* loaded from: classes.dex */
 public class g {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static boolean f506a = false;
     private static float b;
     private static int c;
     private static int d;
+    private static String f;
+    private static boolean a = false;
+    private static Toast e = null;
+    private static Handler g = new Handler();
+    private static Runnable h = new h();
 
     public static void a(Context context) {
         DisplayMetrics displayMetrics;
@@ -28,36 +31,47 @@ public class g {
             c = displayMetrics.widthPixels;
             d = displayMetrics.heightPixels;
         }
-        f506a = true;
+        a = true;
     }
 
-    public static int a(Context context, float f) {
-        if (!f506a) {
+    public static int a(Context context, float f2) {
+        if (!a) {
             a(context);
         }
-        return (int) ((b * f) + 0.5f);
+        return (int) ((b * f2) + 0.5f);
     }
 
     public static int b(Context context) {
-        if (!f506a) {
+        if (!a) {
             a(context);
         }
         return c;
     }
 
     public static int c(Context context) {
-        if (!f506a) {
+        if (!a) {
             a(context);
         }
         return d;
     }
 
-    public static void a(Context context, String str) {
-        if (str != null && str.length() > 0) {
-            Toast makeText = Toast.makeText(com.baidu.adp.a.b.a(), str, 0);
-            makeText.setGravity(17, 0, a(context, 100.0f));
-            makeText.show();
+    public static void a(Context context, String str, int i) {
+        if (!TextUtils.isEmpty(str)) {
+            g.removeCallbacks(h);
+            if (e == null) {
+                e = Toast.makeText(com.baidu.adp.a.b.a(), str, 0);
+                e.setGravity(17, 0, a(context, 100.0f));
+            } else if (!str.equals(f)) {
+                e.setText(str);
+            }
+            f = str;
+            g.postDelayed(h, i);
+            e.show();
         }
+    }
+
+    public static void a(Context context, String str) {
+        a(context, str, 2000);
     }
 
     public static void a(Context context, int i) {
@@ -65,11 +79,7 @@ public class g {
     }
 
     public static void b(Context context, String str) {
-        if (str != null && str.length() > 0) {
-            Toast makeText = Toast.makeText(com.baidu.adp.a.b.a(), str, 1);
-            makeText.setGravity(17, 0, a(context, 100.0f));
-            makeText.show();
-        }
+        a(context, str, 3500);
     }
 
     public static void b(Context context, int i) {
@@ -102,7 +112,7 @@ public class g {
                 Field declaredField = cls.getDeclaredField(str);
                 declaredField.setAccessible(true);
                 return declaredField;
-            } catch (Exception e) {
+            } catch (Exception e2) {
             }
         }
         return null;
@@ -116,7 +126,7 @@ public class g {
                 }
             }
             return false;
-        } catch (Exception e) {
+        } catch (Exception e2) {
             return false;
         }
     }
@@ -136,7 +146,7 @@ public class g {
         return ellipsize.toString();
     }
 
-    public static TextPaint a(Context context, TextPaint textPaint, float f) {
+    public static TextPaint a(Context context, TextPaint textPaint, float f2) {
         Resources resources;
         if (context == null) {
             resources = Resources.getSystem();
@@ -144,14 +154,14 @@ public class g {
             resources = context.getResources();
         }
         if (resources != null) {
-            textPaint.setTextSize(TypedValue.applyDimension(2, f, resources.getDisplayMetrics()));
+            textPaint.setTextSize(TypedValue.applyDimension(2, f2, resources.getDisplayMetrics()));
         }
         return textPaint;
     }
 
-    public static int b(Context context, float f) {
+    public static int b(Context context, float f2) {
         TextPaint textPaint = new TextPaint();
-        a(context, textPaint, f);
+        a(context, textPaint, f2);
         Paint.FontMetrics fontMetrics = textPaint.getFontMetrics();
         return (int) Math.ceil(fontMetrics.descent - fontMetrics.ascent);
     }

@@ -1,17 +1,18 @@
 package com.baidu.tieba.barcode;
-/* loaded from: classes.dex */
-final class s implements com.google.zxing.j {
 
-    /* renamed from: a  reason: collision with root package name */
-    private final ViewfinderView f1159a;
+import com.google.zxing.ResultPoint;
+import com.google.zxing.ResultPointCallback;
+/* loaded from: classes.dex */
+final class s implements ResultPointCallback {
+    private final ViewfinderView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(ViewfinderView viewfinderView) {
-        this.f1159a = viewfinderView;
+        this.a = viewfinderView;
     }
 
-    @Override // com.google.zxing.j
-    public void a(com.google.zxing.i iVar) {
-        this.f1159a.a(iVar);
+    @Override // com.google.zxing.ResultPointCallback
+    public void foundPossibleResultPoint(ResultPoint resultPoint) {
+        this.a.a(resultPoint);
     }
 }

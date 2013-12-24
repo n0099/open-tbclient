@@ -4,13 +4,11 @@ import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n implements c {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ m f1755a;
+    final /* synthetic */ m a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(m mVar) {
-        this.f1755a = mVar;
+        this.a = mVar;
     }
 
     @Override // com.baidu.tieba.im.groupInfo.c
@@ -18,11 +16,11 @@ public class n implements c {
         TextView textView;
         TextView textView2;
         if (z) {
-            textView2 = this.f1755a.S;
+            textView2 = this.a.T;
             textView2.setVisibility(0);
             return;
         }
-        textView = this.f1755a.S;
+        textView = this.a.T;
         textView.setVisibility(8);
     }
 }

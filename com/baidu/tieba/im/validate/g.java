@@ -25,7 +25,7 @@ public class g extends com.baidu.adp.a.c<ValidateItemData> {
     }
 
     void e() {
-        this.c = this.f399a.findViewById(R.id.root_view);
+        this.c = this.a.findViewById(R.id.root_view);
         this.d = (HeadImageView) this.c.findViewById(R.id.iv_head);
         this.d.setIsRound(true);
         this.e = (TextView) this.c.findViewById(R.id.tv_user_name);

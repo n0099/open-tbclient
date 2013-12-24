@@ -9,15 +9,13 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o extends SingleRunnable<Boolean> {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ValidateItemData f1677a;
+    final /* synthetic */ ValidateItemData a;
     final /* synthetic */ l b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(l lVar, ValidateItemData validateItemData) {
         this.b = lVar;
-        this.f1677a = validateItemData;
+        this.a = validateItemData;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,15 +24,15 @@ public class o extends SingleRunnable<Boolean> {
     public Boolean b() {
         int i;
         int i2 = 0;
-        List<ValidateItemData> a2 = com.baidu.tieba.im.validate.l.a(this.b.a(0L, Shared.INFINITY, 0, "apply_join_group"));
-        int size = a2.size();
+        List<ValidateItemData> a = com.baidu.tieba.im.validate.l.a(this.b.a(0L, Shared.INFINITY, 0, "apply_join_group"));
+        int size = a.size();
         LinkedList<GroupNewsPojo> linkedList = new LinkedList<>();
         int i3 = 0;
         while (i2 < size) {
-            ValidateItemData validateItemData = a2.get(i2);
-            if (validateItemData.getGroupId().equals(this.f1677a.getGroupId()) && validateItemData.getUserId().equals(this.f1677a.getUserId()) && this.f1677a.isPass()) {
+            ValidateItemData validateItemData = a.get(i2);
+            if (validateItemData.getGroupId().equals(this.a.getGroupId()) && validateItemData.getUserId().equals(this.a.getUserId()) && this.a.isPass()) {
                 validateItemData.setPass(true);
-                if (this.f1677a.isShown()) {
+                if (this.a.isShown()) {
                     validateItemData.setShown(true);
                 }
                 linkedList.add(validateItemData.toGroupNewsPojo());

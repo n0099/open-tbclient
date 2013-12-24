@@ -1,41 +1,74 @@
 package com.baidu.android.nebula.cmd;
 
+import android.content.ActivityNotFoundException;
+import android.content.BroadcastReceiver;
 import android.content.Context;
-import java.io.File;
-import java.util.Timer;
-import java.util.TimerTask;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
+import android.net.Uri;
+import android.text.TextUtils;
+import com.baidu.browser.core.util.BdUtil;
+import java.io.UnsupportedEncodingException;
+import java.net.URISyntaxException;
+import java.net.URLDecoder;
+import java.util.List;
 /* loaded from: classes.dex */
-public class j extends TimerTask {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ File f679a;
-    final /* synthetic */ String b;
-    final /* synthetic */ h c;
+class j extends BroadcastReceiver {
+    final /* synthetic */ ScanDownloadFile a;
+    final /* synthetic */ i b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public j(h hVar, File file, String str) {
-        this.c = hVar;
-        this.f679a = file;
-        this.b = str;
+    public j(i iVar, ScanDownloadFile scanDownloadFile) {
+        this.b = iVar;
+        this.a = scanDownloadFile;
     }
 
-    @Override // java.util.TimerTask, java.lang.Runnable
-    public void run() {
+    @Override // android.content.BroadcastReceiver
+    public void onReceive(Context context, Intent intent) {
         String str;
-        Timer timer;
-        Context context;
-        cancel();
-        long length = this.f679a.length();
-        str = this.c.f677a.mFileLength;
-        if (length < Integer.parseInt(str)) {
-            this.c.a(this.b);
-            return;
+        Context context2;
+        String str2;
+        String str3;
+        Context context3;
+        Context context4;
+        Context context5;
+        String str4;
+        str = this.b.a.mFilePackageName;
+        if (TextUtils.equals(str, intent.getData().getSchemeSpecificPart())) {
+            try {
+                ScanDownloadFile scanDownloadFile = this.b.a;
+                str4 = this.b.a.mIntentStr;
+                scanDownloadFile.mIntentStr = URLDecoder.decode(str4, BdUtil.UTF8);
+            } catch (UnsupportedEncodingException e) {
+            }
+            context2 = this.b.a.mContext;
+            PackageManager packageManager = context2.getPackageManager();
+            try {
+                str2 = this.b.a.mIntentStr;
+                Intent parseUri = Intent.parseUri(str2, 0);
+                List<ResolveInfo> queryBroadcastReceivers = packageManager.queryBroadcastReceivers(parseUri, 0);
+                List<ResolveInfo> queryIntentActivities = packageManager.queryIntentActivities(parseUri, 0);
+                if (queryBroadcastReceivers != null && queryBroadcastReceivers.size() > 0) {
+                    context5 = this.b.a.mContext;
+                    context5.sendBroadcast(parseUri);
+                } else if (queryIntentActivities == null || queryIntentActivities.size() <= 0) {
+                    Intent intent2 = new Intent("android.intent.action.VIEW");
+                    str3 = this.b.a.mIntentStr;
+                    intent2.setData(Uri.parse(str3));
+                    intent2.addFlags(268435456);
+                    try {
+                        context3 = this.b.a.mContext;
+                        context3.startActivity(intent2);
+                    } catch (ActivityNotFoundException e2) {
+                    }
+                } else {
+                    parseUri.addFlags(268435456);
+                    context4 = this.b.a.mContext;
+                    context4.startActivity(parseUri);
+                }
+            } catch (URISyntaxException e3) {
+            }
         }
-        timer = this.c.c;
-        timer.cancel();
-        h hVar = this.c;
-        context = this.c.f677a.mContext;
-        hVar.a(context, this.f679a);
     }
 }

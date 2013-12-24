@@ -13,12 +13,10 @@ import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class FileDownloader extends Service {
-
-    /* renamed from: a  reason: collision with root package name */
-    private NotificationManager f1006a = null;
+    private NotificationManager a = null;
     private Notification b = null;
-    private w c = null;
-    private Handler d = new v(this);
+    private v c = null;
+    private Handler d = new u(this);
 
     public static void a(Context context, String str, String str2, String str3) {
         Intent intent = new Intent(context, FileDownloader.class);
@@ -36,9 +34,9 @@ public class FileDownloader extends Service {
     @Override // android.app.Service
     public void onCreate() {
         super.onCreate();
-        this.f1006a = (NotificationManager) getSystemService("notification");
+        this.a = (NotificationManager) getSystemService("notification");
         this.b = a();
-        if (this.f1006a == null) {
+        if (this.a == null) {
             stopSelf();
         }
     }
@@ -60,32 +58,32 @@ public class FileDownloader extends Service {
         if (this.c != null) {
             this.c.cancel();
         }
-        if (this.f1006a != null) {
-            this.f1006a.cancel(10);
-            this.f1006a.cancel(14);
+        if (this.a != null) {
+            this.a.cancel(10);
+            this.a.cancel(14);
         }
     }
 
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
-        String a2;
+        String a;
         if (intent != null) {
             String stringExtra = intent.getStringExtra("info");
             String stringExtra2 = intent.getStringExtra(SocialConstants.PARAM_URL);
             this.b.contentView.setTextViewText(R.id.info, stringExtra);
             this.b.contentView.setTextViewText(R.id.schedule, "0/0");
             if (intent.getStringExtra("file") != null) {
-                a2 = intent.getStringExtra("file");
+                a = intent.getStringExtra("file");
             } else {
-                a2 = a(stringExtra2);
+                a = a(stringExtra2);
             }
-            if (com.baidu.tieba.util.x.d(a2) != null) {
-                this.d.sendMessageDelayed(this.d.obtainMessage(1, a2), 100L);
+            if (com.baidu.tieba.util.y.d(a) != null) {
+                this.d.sendMessageDelayed(this.d.obtainMessage(1, a), 100L);
             } else if (this.c == null) {
-                this.c = new w(this, stringExtra2, a2);
+                this.c = new v(this, stringExtra2, a);
                 this.c.execute(new String[0]);
                 this.b.contentView.setProgressBar(R.id.progress, 100, 0, false);
-                this.f1006a.notify(10, this.b);
+                this.a.notify(10, this.b);
             }
         }
         super.onStart(intent, i);

@@ -10,9 +10,7 @@ import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class q extends BaseAdapter {
-
-    /* renamed from: a  reason: collision with root package name */
-    View.OnClickListener f2532a = new r(this);
+    View.OnClickListener a = new r(this);
     private Activity b;
     private final t c;
     private final String d;
@@ -43,9 +41,9 @@ public class q extends BaseAdapter {
         int itemViewType = getItemViewType(i);
         if (view == null) {
             view = a(viewGroup, itemViewType);
-            com.baidu.tieba.util.bj.b(view);
+            com.baidu.tieba.util.bk.b(view);
         }
-        com.baidu.tieba.util.bj.a(view);
+        com.baidu.tieba.util.bk.a(view);
         if (itemViewType != 3) {
             int an = TiebaApplication.h().an();
             View findViewById = view.findViewById(R.id.container);
@@ -61,7 +59,7 @@ public class q extends BaseAdapter {
                 findViewById2.setVisibility(8);
                 findViewById3.setVisibility(8);
             }
-            com.baidu.tieba.util.bj.a(findViewById, itemViewType, an);
+            com.baidu.tieba.util.bk.a(findViewById, itemViewType, an);
             a(viewGroup, (s) view.getTag(), i);
         }
         return view;
@@ -73,9 +71,9 @@ public class q extends BaseAdapter {
             return from.inflate(R.layout.bar_home_list_line, viewGroup, false);
         }
         View inflate = from.inflate(R.layout.bar_folder_second_dir_item, viewGroup, false);
-        inflate.setOnClickListener(this.f2532a);
+        inflate.setOnClickListener(this.a);
         s sVar = new s();
-        sVar.f2534a = (TextView) inflate.findViewById(R.id.name);
+        sVar.a = (TextView) inflate.findViewById(R.id.name);
         inflate.setTag(sVar);
         return inflate;
     }
@@ -83,7 +81,7 @@ public class q extends BaseAdapter {
     private void a(ViewGroup viewGroup, s sVar, int i) {
         z zVar = this.c.d().e.get(i / 2);
         sVar.b = zVar;
-        sVar.f2534a.setText(zVar.b);
+        sVar.a.setText(zVar.b);
     }
 
     @Override // android.widget.Adapter

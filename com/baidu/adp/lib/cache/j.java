@@ -3,18 +3,16 @@ package com.baidu.adp.lib.cache;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 class j implements g {
-
-    /* renamed from: a  reason: collision with root package name */
-    private final int f431a;
+    private final int a;
     private LinkedList<m<?>> b;
 
     public j(int i) {
-        this.f431a = i;
+        this.a = i;
     }
 
     @Override // com.baidu.adp.lib.cache.f
     public int a() {
-        return this.f431a;
+        return this.a;
     }
 
     @Override // com.baidu.adp.lib.cache.g
@@ -29,7 +27,7 @@ class j implements g {
         int i;
         String str2 = null;
         if (mVar.f < System.currentTimeMillis()) {
-            return mVar.f433a;
+            return mVar.a;
         }
         this.b.add(mVar);
         if (this.b.size() > a()) {
@@ -39,7 +37,7 @@ class j implements g {
             while (i2 < this.b.size()) {
                 m<?> mVar2 = this.b.get(i2);
                 if (i3 == -1 || mVar2.e < j2) {
-                    String str3 = mVar2.f433a;
+                    String str3 = mVar2.a;
                     long j3 = mVar2.e;
                     str = str3;
                     j = j3;

@@ -7,17 +7,15 @@ import android.widget.ProgressBar;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.mobstat.StatService;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.bd;
-import com.baidu.tieba.util.x;
+import com.baidu.tieba.util.be;
+import com.baidu.tieba.util.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j extends BdAsyncTask<Object, Integer, Bitmap> {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ CaptureActivity f1150a;
+    final /* synthetic */ CaptureActivity a;
 
     private j(CaptureActivity captureActivity) {
-        this.f1150a = captureActivity;
+        this.a = captureActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -33,21 +31,21 @@ public class j extends BdAsyncTask<Object, Integer, Bitmap> {
         Bitmap c;
         Bitmap bitmap = null;
         try {
-            c = x.c(null, "tieba_resized_image");
+            c = y.c(null, "tieba_resized_image");
         } catch (Exception e) {
             e = e;
         }
         try {
             if (isCancelled() && c != null && !c.isRecycled()) {
                 c.recycle();
-            } else if (c == null || com.baidu.tieba.util.m.b(c, com.baidu.adp.lib.h.g.a((Context) this.f1150a, 63.5f)) != null) {
+            } else if (c == null || com.baidu.tieba.util.m.b(c, com.baidu.adp.lib.h.g.a((Context) this.a, 63.5f)) != null) {
                 bitmap = c;
             }
         } catch (Exception e2) {
             bitmap = c;
             e = e2;
             e.printStackTrace();
-            bd.b(getClass().getName(), "GetImageTask", e.toString());
+            be.b(getClass().getName(), "GetImageTask", e.toString());
             return bitmap;
         }
         return bitmap;
@@ -58,9 +56,9 @@ public class j extends BdAsyncTask<Object, Integer, Bitmap> {
     public void b() {
         ProgressBar progressBar;
         ViewfinderView viewfinderView;
-        progressBar = this.f1150a.k;
+        progressBar = this.a.k;
         progressBar.setVisibility(0);
-        viewfinderView = this.f1150a.d;
+        viewfinderView = this.a.d;
         viewfinderView.a();
         super.b();
     }
@@ -68,8 +66,8 @@ public class j extends BdAsyncTask<Object, Integer, Bitmap> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         ProgressBar progressBar;
-        this.f1150a.j = null;
-        progressBar = this.f1150a.k;
+        this.a.j = null;
+        progressBar = this.a.k;
         progressBar.setVisibility(8);
         super.cancel(true);
     }
@@ -80,24 +78,24 @@ public class j extends BdAsyncTask<Object, Integer, Bitmap> {
     public void a(Bitmap bitmap) {
         ProgressBar progressBar;
         ViewfinderView viewfinderView;
-        String a2;
+        String a;
         super.a((j) bitmap);
-        this.f1150a.j = null;
-        this.f1150a.l = bitmap;
+        this.a.j = null;
+        this.a.l = bitmap;
         if (bitmap != null && !bitmap.isRecycled()) {
             if (bitmap != null) {
-                a2 = this.f1150a.a(bitmap);
-                if (TextUtils.isEmpty(a2) && !bitmap.isRecycled()) {
+                a = this.a.a(bitmap);
+                if (TextUtils.isEmpty(a) && !bitmap.isRecycled()) {
                     bitmap.recycle();
                 }
                 if (TiebaApplication.h().t()) {
-                    StatService.onEvent(this.f1150a, "2d_code_scan_local", "onclick");
+                    StatService.onEvent(this.a, "2d_code_scan_local", "onclick");
                 }
-                this.f1150a.a(a2);
+                this.a.a(a);
             }
-            progressBar = this.f1150a.k;
+            progressBar = this.a.k;
             progressBar.setVisibility(8);
-            viewfinderView = this.f1150a.d;
+            viewfinderView = this.a.d;
             viewfinderView.b();
         }
     }

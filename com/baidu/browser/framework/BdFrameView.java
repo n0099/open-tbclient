@@ -20,7 +20,6 @@ import com.baidu.browser.core.ui.BdPopMenuListener;
 import com.baidu.browser.core.util.BdUtil;
 import com.baidu.browser.framework.BdWindowTabCtrl;
 import com.baidu.browser.webkit.BdValueCallback;
-import com.tencent.mm.sdk.platformtools.LocaleUtil;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
@@ -198,17 +197,17 @@ public class BdFrameView extends FrameLayout implements View.OnTouchListener, Bd
                 }
             }
         };
-        this.exitView = findViewById(getContext().getResources().getIdentifier("browser_exit", LocaleUtil.INDONESIAN, getContext().getPackageName()));
+        this.exitView = findViewById(getContext().getResources().getIdentifier("browser_exit", "id", getContext().getPackageName()));
         this.exitView.setOnClickListener(onClickListener);
-        this.backView = findViewById(getContext().getResources().getIdentifier("browser_back", LocaleUtil.INDONESIAN, getContext().getPackageName()));
+        this.backView = findViewById(getContext().getResources().getIdentifier("browser_back", "id", getContext().getPackageName()));
         this.backView.setOnClickListener(onClickListener);
-        this.forwordView = findViewById(getContext().getResources().getIdentifier("browser_forword", LocaleUtil.INDONESIAN, getContext().getPackageName()));
+        this.forwordView = findViewById(getContext().getResources().getIdentifier("browser_forword", "id", getContext().getPackageName()));
         this.forwordView.setOnClickListener(onClickListener);
-        this.refreshView = findViewById(getContext().getResources().getIdentifier("browser_refresh", LocaleUtil.INDONESIAN, getContext().getPackageName()));
+        this.refreshView = findViewById(getContext().getResources().getIdentifier("browser_refresh", "id", getContext().getPackageName()));
         this.refreshView.setOnClickListener(onClickListener);
-        this.stopView = findViewById(getContext().getResources().getIdentifier("browser_cancel", LocaleUtil.INDONESIAN, getContext().getPackageName()));
+        this.stopView = findViewById(getContext().getResources().getIdentifier("browser_cancel", "id", getContext().getPackageName()));
         this.stopView.setOnClickListener(onClickListener);
-        this.selectView = findViewById(getContext().getResources().getIdentifier("browser_select", LocaleUtil.INDONESIAN, getContext().getPackageName()));
+        this.selectView = findViewById(getContext().getResources().getIdentifier("browser_select", "id", getContext().getPackageName()));
         this.selectView.setOnClickListener(onClickListener);
     }
 
@@ -398,8 +397,8 @@ public class BdFrameView extends FrameLayout implements View.OnTouchListener, Bd
         if (bdWindow.equals(this.mCurrentWindow)) {
             if (this.mCurrentWindow != null) {
                 setLoadingProgress(this.mCurrentWindow.getCurrentPageProgerss());
-                View findViewById = findViewById(getContext().getResources().getIdentifier("browser_refresh", LocaleUtil.INDONESIAN, getContext().getPackageName()));
-                View findViewById2 = findViewById(getContext().getResources().getIdentifier("browser_cancel", LocaleUtil.INDONESIAN, getContext().getPackageName()));
+                View findViewById = findViewById(getContext().getResources().getIdentifier("browser_refresh", "id", getContext().getPackageName()));
+                View findViewById2 = findViewById(getContext().getResources().getIdentifier("browser_cancel", "id", getContext().getPackageName()));
                 if (findViewById != null && findViewById2 != null) {
                     if (this.mCurrentWindow.getCurrentPageProgerss() != 0) {
                         findViewById.setVisibility(8);
@@ -412,12 +411,12 @@ public class BdFrameView extends FrameLayout implements View.OnTouchListener, Bd
             }
             boolean canGoBack = canGoBack();
             boolean canGoForward = canGoForward();
-            View findViewById3 = findViewById(getContext().getResources().getIdentifier("browser_back", LocaleUtil.INDONESIAN, getContext().getPackageName()));
+            View findViewById3 = findViewById(getContext().getResources().getIdentifier("browser_back", "id", getContext().getPackageName()));
             if (findViewById3 != null) {
                 findViewById3.setEnabled(canGoBack);
                 findViewById3.setFocusable(canGoBack);
             }
-            View findViewById4 = findViewById(getContext().getResources().getIdentifier("browser_forword", LocaleUtil.INDONESIAN, getContext().getPackageName()));
+            View findViewById4 = findViewById(getContext().getResources().getIdentifier("browser_forword", "id", getContext().getPackageName()));
             if (findViewById4 != null) {
                 findViewById4.setEnabled(canGoForward);
                 findViewById4.setFocusable(canGoForward);

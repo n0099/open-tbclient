@@ -1,99 +1,24 @@
 package com.baidu.tieba.view;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-import com.baidu.tieba.TiebaApplication;
-import com.slidingmenu.lib.R;
+import android.view.animation.Animation;
 /* loaded from: classes.dex */
-public class bi extends com.baidu.adp.widget.ListView.c {
+class bi implements Animation.AnimationListener {
+    final /* synthetic */ ShutDownValidateTipView a;
 
-    /* renamed from: a  reason: collision with root package name */
-    private Context f2675a;
-    private TextView b = null;
-    private ProgressBar c = null;
-    private ImageView d = null;
-    private View.OnClickListener e = null;
-    private View f = null;
-    private int g = 0;
-
-    public bi(Context context) {
-        this.f2675a = null;
-        this.f2675a = context;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bi(ShutDownValidateTipView shutDownValidateTipView) {
+        this.a = shutDownValidateTipView;
     }
 
-    @Override // com.baidu.adp.widget.ListView.c
-    public View a() {
-        this.f = LayoutInflater.from(this.f2675a).inflate(R.layout.new_sub_pb_list_more, (ViewGroup) null);
-        this.b = (TextView) this.f.findViewById(R.id.sub_pb_more_text);
-        this.d = (ImageView) this.f.findViewById(R.id.image);
-        if (TiebaApplication.h().an() == 1) {
-            this.d.setBackgroundResource(R.drawable.icon_downward_1);
-        } else {
-            this.d.setBackgroundResource(R.drawable.icon_downward);
-        }
-        this.c = (ProgressBar) this.f.findViewById(R.id.progress);
-        return this.f;
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
     }
 
-    public void c() {
-        this.c.setVisibility(0);
-        this.d.setVisibility(8);
-        this.b.setText(this.f2675a.getText(R.string.loading));
-        e();
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
     }
 
-    public void a(int i) {
-        this.g = i;
-        this.c.setVisibility(8);
-        this.d.setVisibility(0);
-        if (i > 0) {
-            com.baidu.tieba.pb.bx.a(this.f2675a, this.b, i);
-        } else {
-            this.b.setText(this.f2675a.getText(R.string.load_more));
-        }
-        e();
-    }
-
-    public void d() {
-        this.c.setVisibility(8);
-        this.d.setVisibility(0);
-        if (this.g > 0) {
-            com.baidu.tieba.pb.bx.a(this.f2675a, this.b, this.g);
-        } else {
-            this.b.setText(this.f2675a.getText(R.string.load_more));
-        }
-        e();
-    }
-
-    public void a(View.OnClickListener onClickListener) {
-        this.e = onClickListener;
-    }
-
-    protected void b(int i) {
-        this.b.setTextColor(this.f2675a.getResources().getColor(i));
-    }
-
-    public void e() {
-        boolean z = TiebaApplication.h().an() == 1;
-        String charSequence = this.b.getText().toString();
-        if (charSequence != null && !charSequence.equals("")) {
-            if (charSequence.equals(this.f2675a.getString(R.string.loading))) {
-                b(z ? R.color.pb_more_txt_1 : R.color.pb_more_txt);
-            } else {
-                b(z ? R.color.sub_pb_more_text_1 : R.color.sub_pb_more_text);
-            }
-        }
-    }
-
-    @Override // com.baidu.adp.widget.ListView.c
-    public void onClick() {
-        if (this.e != null) {
-            this.e.onClick(this.f);
-        }
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
     }
 }

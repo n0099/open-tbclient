@@ -5,16 +5,14 @@ import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class e extends g {
-
-    /* renamed from: a  reason: collision with root package name */
-    protected TextView f1889a;
+    protected TextView a;
 
     public e(UpdateGroupActivity updateGroupActivity) {
         super(updateGroupActivity);
-        this.f1889a = null;
+        this.a = null;
         c(R.layout.update_group_info_activity);
         d(R.string.group_update_info);
-        this.f1889a = (TextView) this.h.findViewById(R.id.edit_count);
+        this.a = (TextView) this.h.findViewById(R.id.edit_count);
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
@@ -22,14 +20,14 @@ public class e extends g {
         int length = this.c.getText().length();
         a(length, length, 15, 300);
         int i = 300 - length;
-        this.f1889a.setText(String.valueOf(i));
+        this.a.setText(String.valueOf(i));
         if (i <= 50) {
-            this.f1889a.setVisibility(0);
+            this.a.setVisibility(0);
         } else {
-            this.f1889a.setVisibility(8);
+            this.a.setVisibility(8);
         }
         if (i == 0) {
-            this.f1889a.setTextColor(this.h.getResources().getColor(R.color.group_create_info_count_color));
+            this.a.setTextColor(this.h.getResources().getColor(R.color.group_create_info_count_color));
         } else {
             n();
         }
@@ -37,7 +35,7 @@ public class e extends g {
 
     private void n() {
         this.h.getLayoutMode().a(TiebaApplication.h().an() == 1);
-        this.h.getLayoutMode().a(this.f1889a);
+        this.h.getLayoutMode().a(this.a);
     }
 
     @Override // com.baidu.tieba.im.updategroup.a

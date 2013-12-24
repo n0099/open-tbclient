@@ -10,13 +10,11 @@ import com.baidu.tieba.util.DatabaseService;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class be implements AdapterView.OnItemClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SquareSearchActivity f2501a;
+    final /* synthetic */ SquareSearchActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public be(SquareSearchActivity squareSearchActivity) {
-        this.f2501a = squareSearchActivity;
+        this.a = squareSearchActivity;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -30,26 +28,26 @@ public class be implements AdapterView.OnItemClickListener {
         com.baidu.tieba.home.av avVar3;
         com.baidu.tieba.home.av avVar4;
         String str = (String) ((ListView) adapterView).getAdapter().getItem(i);
-        i2 = this.f2501a.C;
+        i2 = this.a.C;
         if (i2 == 0) {
-            DatabaseService.k(str);
-            FrsActivity.a(this.f2501a, str, "tb_searchlist");
-            avVar3 = this.f2501a.o;
+            DatabaseService.m(str);
+            FrsActivity.a(this.a, str, "tb_searchlist");
+            avVar3 = this.a.o;
             avVar3.a(i);
-            avVar4 = this.f2501a.o;
+            avVar4 = this.a.o;
             avVar4.notifyDataSetChanged();
-            this.f2501a.finish();
+            this.a.finish();
         } else if (str != null && str.length() > 0) {
-            avVar = this.f2501a.o;
+            avVar = this.a.o;
             avVar.a(i);
-            avVar2 = this.f2501a.o;
+            avVar2 = this.a.o;
             avVar2.notifyDataSetChanged();
-            this.f2501a.a(1, str);
-            editText = this.f2501a.c;
+            this.a.a(1, str);
+            editText = this.a.c;
             editText.setText(str);
-            editText2 = this.f2501a.c;
+            editText2 = this.a.c;
             editText2.requestFocus();
-            editText3 = this.f2501a.c;
+            editText3 = this.a.c;
             Selection.setSelection(editText3.getText(), str.length());
         }
     }

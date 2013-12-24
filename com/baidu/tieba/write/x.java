@@ -4,13 +4,11 @@ import com.baidu.tieba.data.WriteData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class x implements com.baidu.tieba.editortool.h {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WriteActivity f2825a;
+    final /* synthetic */ WriteActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(WriteActivity writeActivity) {
-        this.f2825a = writeActivity;
+        this.a = writeActivity;
     }
 
     @Override // com.baidu.tieba.editortool.h
@@ -20,27 +18,27 @@ public class x implements com.baidu.tieba.editortool.h {
         WriteData writeData;
         WriteData writeData2;
         if (i == 22) {
-            bd.a(this.f2825a);
-            writeData2 = this.f2825a.b;
+            bd.a(this.a);
+            writeData2 = this.a.b;
             writeData2.setPicType(2);
         } else if (i == 23) {
-            bd.c(this.f2825a);
-            writeData = this.f2825a.b;
+            bd.c(this.a);
+            writeData = this.a.b;
             writeData.setPicType(1);
         } else if (i == 20) {
             if (obj instanceof com.baidu.tieba.editortool.g) {
-                this.f2825a.a((com.baidu.tieba.editortool.g) obj);
+                this.a.a((com.baidu.tieba.editortool.g) obj);
             }
         } else if (i == 21) {
-            this.f2825a.l();
+            this.a.l();
         } else if (i == 14) {
-            writeEditorToolButtonContainer2 = this.f2825a.A;
+            writeEditorToolButtonContainer2 = this.a.A;
             writeEditorToolButtonContainer2.j();
-            this.f2825a.t();
+            this.a.t();
         } else if (i == 15) {
-            writeEditorToolButtonContainer = this.f2825a.A;
+            writeEditorToolButtonContainer = this.a.A;
             writeEditorToolButtonContainer.k();
-            this.f2825a.t();
+            this.a.t();
         }
     }
 }

@@ -4,9 +4,7 @@ import com.baidu.cloudsdk.social.core.SocialConstants;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class as {
-
-    /* renamed from: a  reason: collision with root package name */
-    public int f2489a;
+    public int a;
     public String b;
     public String c;
     public String d;

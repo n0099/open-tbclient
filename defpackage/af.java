@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.baidu.browser.webpool.BdWebPoolView;
 import com.baidu.cloudsdk.assets.DrawableUtils;
 import com.baidu.cloudsdk.social.core.MediaType;
 import com.baidu.cloudsdk.social.restapi.SocialRestAPIImpl;
@@ -18,16 +19,14 @@ import java.util.List;
 /* renamed from: af  reason: default package */
 /* loaded from: classes.dex */
 public class af extends ArrayAdapter {
-
-    /* renamed from: a  reason: collision with root package name */
-    private aj f265a;
+    private aj a;
     private SocialShareConfig b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public af(Context context, List list, aj ajVar) {
         super(context, 0, list);
         int i = 0;
-        this.f265a = ajVar;
+        this.a = ajVar;
         this.b = SocialShareConfig.getInstance(context);
         String string = this.b.getString("unbind");
         while (true) {
@@ -52,7 +51,7 @@ public class af extends ArrayAdapter {
         if (z) {
             a(getContext(), atVar);
             if (atVar.a() == MediaType.QZONE) {
-                this.f265a.onCheckStatusChanged(true);
+                this.a.onCheckStatusChanged(true);
             }
         }
         notifyDataSetChanged();
@@ -82,7 +81,7 @@ public class af extends ArrayAdapter {
         RelativeLayout relativeLayout2 = new RelativeLayout(context);
         relativeLayout2.setLayoutParams(new AbsListView.LayoutParams(-1, DrawableUtils.fix720px(context, 96)));
         ImageView imageView = new ImageView(context);
-        imageView.setId(200);
+        imageView.setId(BdWebPoolView.DELAYED_TIME);
         imageView.setImageDrawable(atVar.c() ? mediaIconManager.getNormalIcon(mediaType) : mediaIconManager.getDisabledIcon(mediaType));
         int fix720px = DrawableUtils.fix720px(context, 96);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(fix720px, fix720px);
@@ -96,7 +95,7 @@ public class af extends ArrayAdapter {
         textView.setTextColor(-12829636);
         textView.setTextSize(0, DrawableUtils.fix720px(context, 28));
         RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
-        layoutParams2.addRule(1, 200);
+        layoutParams2.addRule(1, BdWebPoolView.DELAYED_TIME);
         layoutParams2.topMargin = DrawableUtils.fix720px(context, 14);
         relativeLayout2.addView(textView, layoutParams2);
         TextView textView2 = new TextView(context);
@@ -105,7 +104,7 @@ public class af extends ArrayAdapter {
         textView2.setTextColor(-6052957);
         textView2.setTextSize(0, DrawableUtils.fix720px(context, 24));
         RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-2, -2);
-        layoutParams3.addRule(1, 200);
+        layoutParams3.addRule(1, BdWebPoolView.DELAYED_TIME);
         layoutParams3.addRule(3, 201);
         relativeLayout2.addView(textView2, layoutParams3);
         ba baVar = new ba(context);

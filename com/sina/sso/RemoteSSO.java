@@ -26,9 +26,9 @@ public interface RemoteSSO extends IInterface {
             switch (i) {
                 case 1:
                     parcel.enforceInterface("com.sina.sso.RemoteSSO");
-                    String a2 = a();
+                    String a = a();
                     parcel2.writeNoException();
-                    parcel2.writeString(a2);
+                    parcel2.writeString(a);
                     return true;
                 case 2:
                     parcel.enforceInterface("com.sina.sso.RemoteSSO");

@@ -1,41 +1,64 @@
 package com.baidu.android.nebula.d;
 
-import com.tencent.mm.sdk.platformtools.Util;
-import java.nio.ByteBuffer;
+import android.content.Context;
+import android.content.Intent;
+import com.baidu.android.nebula.util.BDLocationManager;
 /* loaded from: classes.dex */
-public abstract class c {
+public class c {
+    private static c a = null;
+    private com.baidu.android.nebula.c.b b = null;
+    private Context c;
 
-    /* renamed from: a  reason: collision with root package name */
-    private boolean f681a = false;
-    private long b = Util.MILLSECONDS_OF_MINUTE;
-    private long c = System.currentTimeMillis();
-
-    public abstract int a(ByteBuffer byteBuffer);
-
-    public void a(long j) {
-        this.b = j;
+    public static synchronized c a() {
+        c cVar;
+        synchronized (c.class) {
+            if (a == null) {
+                a = new c();
+            }
+            cVar = a;
+        }
+        return cVar;
     }
 
-    public abstract int b(ByteBuffer byteBuffer);
+    public static void a(Context context, Intent intent) {
+        a().a(context);
+    }
 
-    public abstract boolean b();
+    public static synchronized void b() {
+        synchronized (c.class) {
+            if (a != null) {
+                a.d();
+                a = null;
+            }
+        }
+    }
 
-    public abstract boolean c();
+    public boolean a(Context context) {
+        if (e()) {
+            return true;
+        }
+        this.b = new com.baidu.android.nebula.c.b(new com.baidu.android.nebula.a.c(), new b());
+        boolean a2 = this.b.a(6259);
+        if (a2) {
+            this.c = context;
+            com.baidu.android.nebula.d.a.a.a(this.c);
+            return a2;
+        }
+        return a2;
+    }
+
+    public Context c() {
+        return this.c;
+    }
 
     public void d() {
-        this.f681a = true;
+        if (e()) {
+            this.b.a();
+        }
+        BDLocationManager.a();
     }
 
     public boolean e() {
-        return this.f681a;
-    }
-
-    public boolean f() {
-        return this.b != 0 && System.currentTimeMillis() - this.c > this.b;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void g() {
-        this.c = System.currentTimeMillis();
+        return this.b != null && this.b.b();
     }
 }

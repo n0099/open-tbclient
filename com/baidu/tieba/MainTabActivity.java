@@ -17,7 +17,6 @@ import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.browser.core.util.BdLog;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tieba.account.LoginActivity;
 import com.baidu.tieba.compatible.CompatibleUtile;
@@ -63,25 +62,25 @@ public class MainTabActivity extends BaseFragmentActivity implements com.baidu.t
     private long u = 2000;
     private long v = 7200000;
     protected int b = -1;
-    private ao y = null;
+    private an y = null;
 
     private void a(Fragment fragment, int i, int i2, int i3) {
-        x xVar = new x();
-        xVar.b = fragment;
+        w wVar = new w();
+        wVar.b = fragment;
         FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) getLayoutInflater().inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
         fragmentTabIndicator.setText(i3);
-        fragmentTabIndicator.f1008a = i;
+        fragmentTabIndicator.a = i;
         fragmentTabIndicator.b = i2;
         fragmentTabIndicator.d = R.drawable.tabs_btn_bg_1;
         fragmentTabIndicator.c = R.drawable.tabs_btn_bg;
         fragmentTabIndicator.f = R.color.main_bottom_button_color_1;
         fragmentTabIndicator.e = R.color.main_bottom_button_color;
         fragmentTabIndicator.a(TiebaApplication.h().an());
-        xVar.f2828a = fragmentTabIndicator;
-        this.x.a(xVar);
+        wVar.a = fragmentTabIndicator;
+        this.x.a(wVar);
     }
 
-    protected void c() {
+    protected void b() {
         a(new HomeActivity(), R.drawable.tabs_recommend, R.drawable.tabs_recommend_1, R.string.homepage);
         a(new EnterForumActivity(), R.drawable.tabs_home, R.drawable.tabs_home_1, R.string.home);
         a(new GroupActivity(), R.drawable.tabs_groups, R.drawable.tabs_groups_1, R.string.groups);
@@ -94,10 +93,10 @@ public class MainTabActivity extends BaseFragmentActivity implements com.baidu.t
         bundle.putString("un", TiebaApplication.B());
         personInfoActivity.g(bundle);
         a(personInfoActivity, R.drawable.tabs_search, R.drawable.tabs_search_1, R.string.person_info);
-        g();
+        f();
     }
 
-    private void g() {
+    private void f() {
         FrameLayout frameLayout = (FrameLayout) getLayoutInflater().inflate(R.layout.maintabs_tips, (ViewGroup) null);
         this.k = (TextView) frameLayout.findViewById(R.id.message_message);
         this.j = (TextView) frameLayout.findViewById(R.id.message_person);
@@ -113,15 +112,18 @@ public class MainTabActivity extends BaseFragmentActivity implements com.baidu.t
     @Override // com.baidu.tieba.BaseFragmentActivity, android.support.v4.app.n, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (d()) {
+        if (c()) {
             CompatibleUtile.getInstance().openGpu(this);
         }
-        com.baidu.tieba.util.bd.a(getClass().toString(), "onCreate", "debug");
+        com.baidu.tieba.util.be.a(getClass().toString(), "onCreate", "debug");
         setContentView(R.layout.maintabs_activity);
+        if (!TiebaApplication.o()) {
+            com.baidu.tieba.account.a.a().a((Activity) this, false);
+        }
         this.x = (FragmentTabHost) findViewById(R.id.tab_host);
         this.x.setup(getSupportFragmentManager());
         this.x.setTabWidgetBackgroundColor(getResources().getColor(R.color.maintab_bg));
-        c();
+        b();
         TiebaApplication.h().a((Boolean) false);
         Intent intent = new Intent();
         intent.putExtras(getIntent());
@@ -129,13 +131,13 @@ public class MainTabActivity extends BaseFragmentActivity implements com.baidu.t
             intent.putExtra("locate_type", bundle.getInt("locate_type", 1));
         }
         a(intent);
-        j();
-        if (TiebaApplication.z() != null && TiebaApplication.z().equals("aishide")) {
-            l();
-        }
-        n();
         i();
-        com.baidu.tieba.mention.t.a().i();
+        if (TiebaApplication.z() != null && TiebaApplication.z().equals("aishide")) {
+            k();
+        }
+        m();
+        h();
+        com.baidu.tieba.mention.t.a().j();
         a(this, TiebaApplication.e());
         String I = TiebaApplication.h().I();
         if (I != null && I.length() > 0) {
@@ -153,7 +155,7 @@ public class MainTabActivity extends BaseFragmentActivity implements com.baidu.t
         if (this.w != null) {
             this.w.b((Activity) this);
         }
-        com.baidu.tieba.mention.t.a().i();
+        com.baidu.tieba.mention.t.a().j();
     }
 
     public static void c(int i) {
@@ -161,7 +163,7 @@ public class MainTabActivity extends BaseFragmentActivity implements com.baidu.t
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void h() {
+    public void g() {
         a(1.0f);
         if (this.q != null) {
             this.q.a(null);
@@ -220,26 +222,26 @@ public class MainTabActivity extends BaseFragmentActivity implements com.baidu.t
         a(context, i, z);
     }
 
-    public boolean d() {
+    public boolean c() {
         return TiebaApplication.h().v();
     }
 
-    private void i() {
+    private void h() {
         try {
             startService(new Intent(this, ClearTempService.class));
         } catch (Throwable th) {
-            BdLog.e(th.getMessage());
+            com.baidu.adp.lib.h.e.a(th.getMessage());
         }
     }
 
     @Override // com.baidu.tieba.BaseFragmentActivity, android.support.v4.app.n, android.app.Activity
     protected void onDestroy() {
-        com.baidu.tieba.util.bd.a(getClass().getName(), "onDestroy", "");
-        k();
-        m();
-        o();
-        com.baidu.tieba.mention.t.a().g();
-        com.baidu.tieba.mention.t.a().k();
+        com.baidu.tieba.util.be.a(getClass().getName(), "onDestroy", "");
+        j();
+        l();
+        n();
+        com.baidu.tieba.mention.t.a().h();
+        com.baidu.tieba.mention.t.a().l();
         com.baidu.tieba.mention.t.a().a(false);
         com.baidu.tbadk.imageManager.d.a().c();
         if (this.o != null) {
@@ -256,7 +258,7 @@ public class MainTabActivity extends BaseFragmentActivity implements com.baidu.t
         if (this.r != null) {
             this.r.a();
         }
-        com.baidu.tieba.util.be.a();
+        com.baidu.tieba.util.bf.a();
         if (this.w != null) {
             this.w.g(this);
         }
@@ -273,19 +275,19 @@ public class MainTabActivity extends BaseFragmentActivity implements com.baidu.t
         }
     }
 
-    private void j() {
+    private void i() {
         startService(new Intent(this, TiebaSyncService.class));
     }
 
-    private void k() {
+    private void j() {
         stopService(new Intent(this, TiebaSyncService.class));
     }
 
-    private void l() {
+    private void k() {
         startService(new Intent(this, TiebaActiveService.class));
     }
 
-    private void m() {
+    private void l() {
         stopService(new Intent(this, TiebaActiveService.class));
     }
 
@@ -294,22 +296,22 @@ public class MainTabActivity extends BaseFragmentActivity implements com.baidu.t
         TiebaApplication.a((Intent) null);
     }
 
-    private void n() {
-        this.y = new ao(this, null);
+    private void m() {
+        this.y = new an(this, null);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("com.baidu.tieba.broadcast.notify");
         intentFilter.addAction("com.baidu.tieba.broadcast.newrecommends");
         registerReceiver(this.y, intentFilter);
     }
 
-    private void o() {
+    private void n() {
         if (this.y != null) {
             unregisterReceiver(this.y);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void p() {
+    public void o() {
         long j = this.e + this.f + this.h;
         long j2 = this.g;
         long j3 = this.i;
@@ -357,7 +359,7 @@ public class MainTabActivity extends BaseFragmentActivity implements com.baidu.t
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void q() {
+    public void p() {
         if (TiebaApplication.aS()) {
             this.l.setVisibility(0);
         } else {
@@ -377,7 +379,7 @@ public class MainTabActivity extends BaseFragmentActivity implements com.baidu.t
     @Override // com.baidu.tieba.BaseFragmentActivity, android.support.v4.app.n, android.app.Activity
     protected void onResume() {
         super.onResume();
-        com.baidu.tieba.util.bd.e("MainTabActivity", "onResume", "onResume");
+        com.baidu.tieba.util.be.e("MainTabActivity", "onResume", "onResume");
         TiebaApplication.h().az();
         TiebaApplication.h().aA();
         if (!TiebaApplication.o() && d != 10) {
@@ -394,21 +396,21 @@ public class MainTabActivity extends BaseFragmentActivity implements com.baidu.t
             d(this.b);
         }
         if (TiebaApplication.B() == null || TiebaApplication.B().length() <= 0) {
-            s();
+            r();
         }
-        p();
-        com.baidu.tieba.im.pushNotify.a.h().b(false, (com.baidu.tieba.im.a<Void>) null);
+        o();
+        com.baidu.tieba.im.c.a.h().b(false, (com.baidu.tieba.im.a<Void>) null);
     }
 
-    private void r() {
+    private void q() {
         try {
             startService(new Intent(this, FatalErrorService.class));
         } catch (Throwable th) {
-            BdLog.e("failed to start FatalErrorService:" + th.getMessage());
+            com.baidu.adp.lib.h.e.a("failed to start FatalErrorService:" + th.getMessage());
         }
     }
 
-    private void s() {
+    private void r() {
         this.e = 0L;
         this.f = 0L;
         this.g = 0L;
@@ -450,14 +452,14 @@ public class MainTabActivity extends BaseFragmentActivity implements com.baidu.t
 
     @Override // android.support.v4.app.n, android.app.Activity
     protected void onNewIntent(Intent intent) {
-        com.baidu.tieba.util.bd.a(getClass().getName(), "onNewIntent", "");
+        com.baidu.tieba.util.be.a(getClass().getName(), "onNewIntent", "");
         super.onNewIntent(intent);
         if (intent.getBooleanExtra("close_dialog", false)) {
-            t();
+            s();
         }
         if (intent.getBooleanExtra("refresh_all", false)) {
             this.x.a();
-            c();
+            b();
             a(intent);
         }
         if (intent.getIntExtra("locate_type", 1) == 200) {
@@ -466,10 +468,10 @@ public class MainTabActivity extends BaseFragmentActivity implements com.baidu.t
         a(this, TiebaApplication.e());
     }
 
-    private void t() {
-        x a2;
+    private void s() {
+        w a;
         EnterForumActivity enterForumActivity;
-        if (this.x.getCurrentTabIndex() != 1 && this.x.b(1) && (a2 = this.x.a(1)) != null && (enterForumActivity = (EnterForumActivity) a2.b) != null) {
+        if (this.x.getCurrentTabIndex() != 1 && this.x.b(1) && (a = this.x.a(1)) != null && (enterForumActivity = (EnterForumActivity) a.b) != null) {
             enterForumActivity.a();
         }
     }
@@ -477,30 +479,30 @@ public class MainTabActivity extends BaseFragmentActivity implements com.baidu.t
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean dispatchKeyEvent(KeyEvent keyEvent) {
         if (keyEvent.getAction() == 0 && keyEvent.getKeyCode() == 4) {
-            com.baidu.tieba.util.bd.e(getClass().getName(), "dispatchKeyEvent", "KEYCODE_BACK");
+            com.baidu.tieba.util.be.e(getClass().getName(), "dispatchKeyEvent", "KEYCODE_BACK");
             if ((TiebaApplication.B() == null && this.x.getCurrentTabIndex() == 0) || (TiebaApplication.B() != null && this.x.getCurrentTabIndex() == 1)) {
                 if (System.currentTimeMillis() - this.s > this.u) {
                     b(R.string.double_back_quit);
                     this.s = System.currentTimeMillis();
                     return false;
                 }
-                com.baidu.tieba.mention.t.a().k();
-                u();
+                com.baidu.tieba.mention.t.a().l();
+                t();
                 moveTaskToBack(true);
                 TiebaApplication.h().aD();
                 com.baidu.tieba.log.a.b();
                 return false;
             } else if (TiebaApplication.B() == null) {
-                x a2 = this.x.a(0);
-                if (a2 != null) {
-                    a2.f2828a.performClick();
+                w a = this.x.a(0);
+                if (a != null) {
+                    a.a.performClick();
                     return false;
                 }
                 return false;
             } else {
-                x a3 = this.x.a(1);
-                if (a3 != null) {
-                    a3.f2828a.performClick();
+                w a2 = this.x.a(1);
+                if (a2 != null) {
+                    a2.a.performClick();
                     return false;
                 }
                 return false;
@@ -556,7 +558,7 @@ public class MainTabActivity extends BaseFragmentActivity implements com.baidu.t
             menu.findItem(4).setVisible(true);
             menu.findItem(5).setVisible(true);
         } catch (Exception e) {
-            com.baidu.tieba.util.bd.b("HomeActivity", "onPrepareOptionsMenu", "exp: " + e.toString());
+            com.baidu.tieba.util.be.b("HomeActivity", "onPrepareOptionsMenu", "exp: " + e.toString());
         }
         return super.onPrepareOptionsMenu(menu);
     }
@@ -587,7 +589,7 @@ public class MainTabActivity extends BaseFragmentActivity implements com.baidu.t
                     LoginActivity.a((Activity) this, getString(R.string.login_feedback), true, 11001);
                     break;
                 } else {
-                    e();
+                    d();
                     break;
                 }
             case 4:
@@ -600,7 +602,7 @@ public class MainTabActivity extends BaseFragmentActivity implements com.baidu.t
         return super.onOptionsItemSelected(menuItem);
     }
 
-    protected void e() {
+    protected void d() {
         AntiData antiData = new AntiData();
         antiData.setIfpost(1);
         WriteActivity.a(this, com.baidu.tieba.data.h.h(), com.baidu.tieba.data.h.g(), antiData);
@@ -616,7 +618,7 @@ public class MainTabActivity extends BaseFragmentActivity implements com.baidu.t
                 this.x.getCurrentFragment().a(i, i2, intent);
             }
         } else if (i == 11001) {
-            e();
+            d();
         } else if (this.x.getCurrentFragment() != null) {
             this.x.getCurrentFragment().a(i, i2, intent);
         }
@@ -639,11 +641,11 @@ public class MainTabActivity extends BaseFragmentActivity implements com.baidu.t
         return null;
     }
 
-    private void u() {
+    private void t() {
         if (System.currentTimeMillis() - this.t >= this.v) {
-            r();
+            q();
+            h();
             i();
-            j();
             this.t = System.currentTimeMillis();
         }
     }

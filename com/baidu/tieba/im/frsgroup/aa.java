@@ -11,9 +11,7 @@ import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class aa extends com.baidu.adp.a.e {
-
-    /* renamed from: a  reason: collision with root package name */
-    private MembersActivity f1702a;
+    private MembersActivity a;
     private w c;
     private ViewGroup d;
     private TextView e;
@@ -30,7 +28,7 @@ public class aa extends com.baidu.adp.a.e {
 
     public aa(MembersActivity membersActivity) {
         super(membersActivity);
-        this.f1702a = membersActivity;
+        this.a = membersActivity;
         membersActivity.setContentView(R.layout.im_members_activity);
         a(membersActivity);
         b(membersActivity);
@@ -38,18 +36,18 @@ public class aa extends com.baidu.adp.a.e {
     }
 
     private void a(MembersActivity membersActivity) {
-        this.d = (ViewGroup) this.f1702a.findViewById(R.id.rootView);
-        this.f = (NavigationBar) this.f1702a.findViewById(R.id.view_navigation_bar);
-        this.f.a(this.f1702a.getString(R.string.members_title));
+        this.d = (ViewGroup) this.a.findViewById(R.id.rootView);
+        this.f = (NavigationBar) this.a.findViewById(R.id.view_navigation_bar);
+        this.f.a(this.a.getString(R.string.members_title));
         this.f.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new ab(this));
-        this.e = this.f.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.f1702a.getString(R.string.members_order));
+        this.e = this.f.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.a.getString(R.string.members_order));
         this.e.setOnClickListener(membersActivity);
     }
 
     private void b(MembersActivity membersActivity) {
         this.g = (BdListView) membersActivity.findViewById(R.id.members_list);
         this.h = (InitGuideView) membersActivity.findViewById(R.id.members_guide);
-        this.c = new w(this.f1702a);
+        this.c = new w(this.a);
         this.g.setAdapter((ListAdapter) this.c);
     }
 
@@ -73,13 +71,13 @@ public class aa extends com.baidu.adp.a.e {
     }
 
     public void a(int i) {
-        this.f1702a.getLayoutMode().a(i == 1);
-        this.f1702a.getLayoutMode().a(this.d);
+        this.a.getLayoutMode().a(i == 1);
+        this.a.getLayoutMode().a(this.d);
         this.f.c(i);
         if (i == 1) {
-            this.n.setCompoundDrawablesWithIntrinsicBounds(this.f1702a.getResources().getDrawable(R.drawable.icon_brief_edit_1), (Drawable) null, (Drawable) null, (Drawable) null);
+            this.n.setCompoundDrawablesWithIntrinsicBounds(this.a.getResources().getDrawable(R.drawable.icon_brief_edit_1), (Drawable) null, (Drawable) null, (Drawable) null);
         } else {
-            this.n.setCompoundDrawablesWithIntrinsicBounds(this.f1702a.getResources().getDrawable(R.drawable.icon_brief_edit), (Drawable) null, (Drawable) null, (Drawable) null);
+            this.n.setCompoundDrawablesWithIntrinsicBounds(this.a.getResources().getDrawable(R.drawable.icon_brief_edit), (Drawable) null, (Drawable) null, (Drawable) null);
         }
     }
 
@@ -92,7 +90,7 @@ public class aa extends com.baidu.adp.a.e {
     }
 
     public void b(int i) {
-        this.m.setText(this.f1702a.getString(R.string.members_delete_num, new Object[]{Integer.valueOf(i)}));
+        this.m.setText(this.a.getString(R.string.members_delete_num, new Object[]{Integer.valueOf(i)}));
     }
 
     public void b(boolean z) {
@@ -140,7 +138,7 @@ public class aa extends com.baidu.adp.a.e {
     }
 
     public void c(int i) {
-        this.e.setText(this.f1702a.getResources().getStringArray(R.array.members_order_by_short)[i]);
+        this.e.setText(this.a.getResources().getStringArray(R.array.members_order_by_short)[i]);
     }
 
     public BdListView l() {

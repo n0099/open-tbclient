@@ -11,9 +11,7 @@ import com.baidu.adp.lib.debug.a.p;
 import java.io.IOException;
 /* loaded from: classes.dex */
 public class j extends View {
-
-    /* renamed from: a  reason: collision with root package name */
-    View f471a;
+    View a;
     View b;
     TextView c;
     com.baidu.adp.lib.debug.a.e d;
@@ -57,30 +55,30 @@ public class j extends View {
         this.i = new com.baidu.adp.lib.debug.a.j();
         this.j = new p(this.k);
         this.h = new com.baidu.adp.lib.debug.a.b(this.k);
-        this.f471a = LayoutInflater.from(this.k).inflate(com.baidu.adp.e.adp_debug_monitor_view, (ViewGroup) null);
-        this.b = this.f471a.findViewById(com.baidu.adp.d.monitor_view);
-        this.c = (TextView) this.f471a.findViewById(com.baidu.adp.d.debug_text);
-        this.l = (ImageButton) this.f471a.findViewById(com.baidu.adp.d.debug_switch);
-        this.m = (ImageButton) this.f471a.findViewById(com.baidu.adp.d.debug_refresh);
-        this.n = (TextView) this.f471a.findViewById(com.baidu.adp.d.debug_fps);
-        this.o = (TextView) this.f471a.findViewById(com.baidu.adp.d.debug_mem);
-        this.p = (TextView) this.f471a.findViewById(com.baidu.adp.d.debug_cpu);
-        this.q = (TextView) this.f471a.findViewById(com.baidu.adp.d.debug_gc);
-        this.r = (TextView) this.f471a.findViewById(com.baidu.adp.d.debug_sm);
-        this.s = (TextView) this.f471a.findViewById(com.baidu.adp.d.debug_bt);
-        this.t = (TextView) this.f471a.findViewById(com.baidu.adp.d.debug_snd);
-        this.u = (TextView) this.f471a.findViewById(com.baidu.adp.d.debug_rcv);
-        this.v = (TextView) this.f471a.findViewById(com.baidu.adp.d.debug_total);
+        this.a = LayoutInflater.from(this.k).inflate(com.baidu.adp.e.adp_debug_monitor_view, (ViewGroup) null);
+        this.b = this.a.findViewById(com.baidu.adp.d.monitor_view);
+        this.c = (TextView) this.a.findViewById(com.baidu.adp.d.debug_text);
+        this.l = (ImageButton) this.a.findViewById(com.baidu.adp.d.debug_switch);
+        this.m = (ImageButton) this.a.findViewById(com.baidu.adp.d.debug_refresh);
+        this.n = (TextView) this.a.findViewById(com.baidu.adp.d.debug_fps);
+        this.o = (TextView) this.a.findViewById(com.baidu.adp.d.debug_mem);
+        this.p = (TextView) this.a.findViewById(com.baidu.adp.d.debug_cpu);
+        this.q = (TextView) this.a.findViewById(com.baidu.adp.d.debug_gc);
+        this.r = (TextView) this.a.findViewById(com.baidu.adp.d.debug_sm);
+        this.s = (TextView) this.a.findViewById(com.baidu.adp.d.debug_bt);
+        this.t = (TextView) this.a.findViewById(com.baidu.adp.d.debug_snd);
+        this.u = (TextView) this.a.findViewById(com.baidu.adp.d.debug_rcv);
+        this.v = (TextView) this.a.findViewById(com.baidu.adp.d.debug_total);
         b();
         this.m.setOnTouchListener(new k(this));
         this.l.setOnTouchListener(new l(this));
-        i.a(this.k, this.f471a);
-        this.f471a.setOnTouchListener(new m(this));
+        i.a(this.k, this.a);
+        this.a.setOnTouchListener(new m(this));
     }
 
     @Override // android.view.View
     public void setVisibility(int i) {
-        this.f471a.setVisibility(i);
+        this.a.setVisibility(i);
     }
 
     public void onClick(View view) {
@@ -111,7 +109,7 @@ public class j extends View {
         if (!this.h.a()) {
             this.h.b();
         }
-        com.baidu.adp.lib.debug.b.f461a = new n(this);
+        com.baidu.adp.lib.debug.b.a = new n(this);
     }
 
     public void c() {

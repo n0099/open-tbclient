@@ -5,9 +5,7 @@ import android.os.Handler;
 import android.view.View;
 /* loaded from: classes.dex */
 public class w {
-
-    /* renamed from: a  reason: collision with root package name */
-    y f582a;
+    y a;
     int b;
     View c;
     private int g;
@@ -24,7 +22,7 @@ public class w {
         if (abs < this.f) {
             this.i = false;
         }
-        this.f582a = new y(this, context);
+        this.a = new y(this, context);
         this.b = i3;
     }
 
@@ -33,9 +31,9 @@ public class w {
     }
 
     public void a(View view) {
-        if (this.i && this.f582a != null) {
+        if (this.i && this.a != null) {
             this.c = view;
-            this.f582a.a(Math.abs(this.g), this.b);
+            this.a.a(Math.abs(this.g), this.b);
             this.d.postDelayed(this.e, this.b);
         }
     }

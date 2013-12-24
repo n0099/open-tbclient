@@ -6,19 +6,17 @@ import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n implements l {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ m f541a;
+    final /* synthetic */ m a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(m mVar) {
-        this.f541a = mVar;
+        this.a = mVar;
     }
 
     @Override // com.baidu.adp.lib.webSocket.l
     public void a(String str) {
         ArrayList arrayList;
-        arrayList = this.f541a.g;
+        arrayList = this.a.g;
         Iterator it = arrayList.iterator();
         while (it.hasNext()) {
             ((l) it.next()).a(str);
@@ -28,7 +26,7 @@ public class n implements l {
     @Override // com.baidu.adp.lib.webSocket.l
     public void a(byte[] bArr) {
         ArrayList arrayList;
-        arrayList = this.f541a.g;
+        arrayList = this.a.g;
         Iterator it = arrayList.iterator();
         while (it.hasNext()) {
             ((l) it.next()).a(bArr);
@@ -38,7 +36,7 @@ public class n implements l {
     @Override // com.baidu.adp.lib.webSocket.l
     public void b(byte[] bArr) {
         ArrayList arrayList;
-        arrayList = this.f541a.g;
+        arrayList = this.a.g;
         Iterator it = arrayList.iterator();
         while (it.hasNext()) {
             ((l) it.next()).b(bArr);
@@ -48,7 +46,7 @@ public class n implements l {
     @Override // com.baidu.adp.lib.webSocket.l
     public void a(Map<String, String> map) {
         ArrayList arrayList;
-        arrayList = this.f541a.g;
+        arrayList = this.a.g;
         Iterator it = arrayList.iterator();
         while (it.hasNext()) {
             ((l) it.next()).a(map);
@@ -58,8 +56,8 @@ public class n implements l {
     @Override // com.baidu.adp.lib.webSocket.l
     public void a(int i, String str) {
         ArrayList arrayList;
-        this.f541a.f = null;
-        arrayList = this.f541a.g;
+        this.a.f = null;
+        arrayList = this.a.g;
         Iterator it = arrayList.iterator();
         while (it.hasNext()) {
             ((l) it.next()).a(i, str);
@@ -69,7 +67,7 @@ public class n implements l {
     @Override // com.baidu.adp.lib.webSocket.l
     public void a(d dVar) {
         ArrayList arrayList;
-        arrayList = this.f541a.g;
+        arrayList = this.a.g;
         Iterator it = arrayList.iterator();
         while (it.hasNext()) {
             ((l) it.next()).a(dVar);
@@ -79,7 +77,7 @@ public class n implements l {
     @Override // com.baidu.adp.lib.webSocket.l
     public void a() {
         ArrayList arrayList;
-        arrayList = this.f541a.g;
+        arrayList = this.a.g;
         Iterator it = arrayList.iterator();
         while (it.hasNext()) {
             ((l) it.next()).a();

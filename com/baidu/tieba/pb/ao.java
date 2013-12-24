@@ -5,13 +5,11 @@ import com.baidu.tieba.data.AntiData;
 import com.baidu.tieba.util.UtilHelper;
 /* loaded from: classes.dex */
 class ao implements com.baidu.tieba.model.bn {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NewPbActivity f2163a;
+    final /* synthetic */ NewPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ao(NewPbActivity newPbActivity) {
-        this.f2163a = newPbActivity;
+        this.a = newPbActivity;
     }
 
     @Override // com.baidu.tieba.model.bn
@@ -31,49 +29,49 @@ class ao implements com.baidu.tieba.model.bn {
         com.baidu.tieba.model.bm bmVar3;
         cr crVar7;
         cr crVar8;
-        crVar = this.f2163a.y;
+        crVar = this.a.x;
         crVar.r();
         if (z && anVar != null) {
-            bgVar = this.f2163a.t;
+            bgVar = this.a.s;
             bgVar.a(anVar.i());
-            crVar4 = this.f2163a.y;
-            bmVar = this.f2163a.s;
+            crVar4 = this.a.x;
+            bmVar = this.a.r;
             crVar4.a(anVar, i2, i3, bmVar.d());
-            crVar5 = this.f2163a.y;
+            crVar5 = this.a.x;
             crVar5.a(anVar, false);
-            crVar6 = this.f2163a.y;
-            bmVar2 = this.f2163a.s;
+            crVar6 = this.a.x;
+            bmVar2 = this.a.r;
             crVar6.f(bmVar2.c());
-            handler = this.f2163a.r;
+            handler = this.a.q;
             handler.removeMessages(0);
-            handler2 = this.f2163a.r;
-            handler3 = this.f2163a.r;
+            handler2 = this.a.q;
+            handler3 = this.a.q;
             handler2.sendMessageDelayed(handler3.obtainMessage(0), 300L);
             AntiData g = anVar.g();
             if (g != null) {
                 Boolean valueOf = Boolean.valueOf(g.isIfvoice());
-                this.f2163a.l = g.getVoice_message();
-                this.f2163a.a(valueOf);
+                this.a.k = g.getVoice_message();
+                this.a.a(valueOf);
             }
-            bmVar3 = this.f2163a.s;
+            bmVar3 = this.a.r;
             if (bmVar3.l().m() == 1) {
-                crVar8 = this.f2163a.y;
+                crVar8 = this.a.x;
                 crVar8.j(true);
                 return;
             }
-            crVar7 = this.f2163a.y;
+            crVar7 = this.a.x;
             crVar7.j(false);
         } else if (str != null) {
             if (UtilHelper.b()) {
-                crVar2 = this.f2163a.y;
+                crVar2 = this.a.x;
                 crVar2.e(str);
             } else {
-                this.f2163a.i();
+                this.a.i();
             }
             if (i == 4 || i == 28) {
-                this.f2163a.finish();
+                this.a.finish();
             }
-            crVar3 = this.f2163a.y;
+            crVar3 = this.a.x;
             crVar3.M();
         }
     }
@@ -81,7 +79,7 @@ class ao implements com.baidu.tieba.model.bn {
     @Override // com.baidu.tieba.model.bn
     public void a(com.baidu.tieba.data.an anVar) {
         cr crVar;
-        crVar = this.f2163a.y;
+        crVar = this.a.x;
         crVar.a(anVar);
     }
 }

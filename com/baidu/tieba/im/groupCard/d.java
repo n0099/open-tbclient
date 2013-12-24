@@ -7,15 +7,13 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import com.baidu.adp.a.e;
 import com.baidu.adp.lib.h.g;
-import com.baidu.tieba.im.e.f;
-import com.baidu.tieba.util.ba;
+import com.baidu.tieba.im.d.f;
+import com.baidu.tieba.util.bb;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class d extends e {
-
-    /* renamed from: a  reason: collision with root package name */
-    private View f1733a;
+    private View a;
     private GroupCardActivity c;
     private LinearLayout d;
     private LinearLayout e;
@@ -33,7 +31,7 @@ public class d extends e {
 
     public d(GroupCardActivity groupCardActivity, View.OnClickListener onClickListener) {
         super(groupCardActivity);
-        this.f1733a = null;
+        this.a = null;
         this.d = null;
         this.e = null;
         this.f = null;
@@ -53,7 +51,7 @@ public class d extends e {
 
     private void l() {
         this.c.setContentView(R.layout.group_card_activity);
-        this.f1733a = this.c.findViewById(R.id.parent);
+        this.a = this.c.findViewById(R.id.parent);
         this.d = (LinearLayout) this.c.findViewById(R.id.groud_card_save);
         this.d.setOnClickListener(this.c);
         this.e = (LinearLayout) this.c.findViewById(R.id.group_card_share);
@@ -80,9 +78,9 @@ public class d extends e {
             g.a((Context) this.c, str);
             return;
         }
-        String a2 = f.a(i);
-        if (a2 != null && a2.length() > 0) {
-            g.a((Context) this.c, a2);
+        String a = f.a(i);
+        if (a != null && a.length() > 0) {
+            g.a((Context) this.c, a);
         }
     }
 
@@ -120,8 +118,8 @@ public class d extends e {
 
     public void a(int i) {
         this.c.getLayoutMode().a(i == 1);
-        this.c.getLayoutMode().a(this.f1733a);
-        ba.a(this.f1733a, i);
+        this.c.getLayoutMode().a(this.a);
+        bb.a(this.a, i);
         this.j.c(i);
     }
 }

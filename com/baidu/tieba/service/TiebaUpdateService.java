@@ -10,15 +10,13 @@ import android.os.IBinder;
 import android.widget.RemoteViews;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.VersionData;
-import com.baidu.tieba.util.bd;
-import com.baidu.tieba.util.x;
+import com.baidu.tieba.util.be;
+import com.baidu.tieba.util.y;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class TiebaUpdateService extends Service {
     private static boolean h = false;
-
-    /* renamed from: a  reason: collision with root package name */
-    protected String f2439a = null;
+    protected String a = null;
     private NotificationManager b = null;
     private Notification c = null;
     private Notification d = null;
@@ -77,7 +75,7 @@ public class TiebaUpdateService extends Service {
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         boolean z;
-        bd.a(getClass().getName(), "onStart", "onStart");
+        be.a(getClass().getName(), "onStart", "onStart");
         if (!h) {
             h = true;
             if (intent != null && intent.getBooleanExtra("update", false)) {
@@ -86,7 +84,7 @@ public class TiebaUpdateService extends Service {
                 if (versionData != null) {
                     this.c.contentView.setTextViewText(R.id.info, String.format(getString(R.string.tieba_downloading), this.f.getNew_version()));
                     this.c.contentView.setTextViewText(R.id.schedule, "0/0");
-                    if (x.d(this.f.getNew_file()) != null) {
+                    if (y.d(this.f.getNew_file()) != null) {
                         this.k.sendMessageDelayed(this.k.obtainMessage(1, this.f), 100L);
                     } else if (this.e == null) {
                         this.e = new u(this, this.f);
@@ -101,15 +99,15 @@ public class TiebaUpdateService extends Service {
                     } else {
                         z = true;
                     }
-                    this.f2439a = a(this.i);
-                    if (this.f2439a == null || this.f2439a.length() < 4) {
+                    this.a = a(this.i);
+                    if (this.a == null || this.a.length() < 4) {
                         this.j = true;
                         z = false;
                     }
                     if (z) {
                         this.d.contentView.setTextViewText(R.id.info, getString(R.string.is_downloading));
                         this.d.contentView.setTextViewText(R.id.schedule, "0/0");
-                        if (x.d(this.f2439a) != null) {
+                        if (y.d(this.a) != null) {
                             this.l.sendMessageDelayed(this.l.obtainMessage(2, this.f), 100L);
                         } else if (this.g == null) {
                             this.g = new v(this, this.i);

@@ -9,17 +9,15 @@ import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class t {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static t f1681a;
+    private static t a;
 
     public static synchronized t a() {
         t tVar;
         synchronized (t.class) {
-            if (f1681a == null) {
-                f1681a = new t();
+            if (a == null) {
+                a = new t();
             }
-            tVar = f1681a;
+            tVar = a;
         }
         return tVar;
     }

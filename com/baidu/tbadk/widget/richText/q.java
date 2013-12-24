@@ -4,9 +4,7 @@ import com.baidu.location.LocationClientOption;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class q {
-
-    /* renamed from: a  reason: collision with root package name */
-    private String f1002a;
+    private String a;
     private int b;
     private int c;
     private Object d;
@@ -16,14 +14,14 @@ public class q {
 
     public q(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.f1002a = jSONObject.optString("voice_md5");
+            this.a = jSONObject.optString("voice_md5");
             this.b = jSONObject.optInt("during_time") / LocationClientOption.MIN_SCAN_SPAN;
             this.c = jSONObject.optInt("is_sub");
         }
     }
 
     public String a() {
-        return this.f1002a;
+        return this.a;
     }
 
     public int b() {

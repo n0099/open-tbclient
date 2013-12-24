@@ -1,105 +1,106 @@
 package com.baidu.android.systemmonitor.devicestatistic;
 
 import android.content.Context;
-import android.net.TrafficStats;
-import android.os.Build;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Handler;
-import com.tencent.mm.sdk.platformtools.Util;
+import com.baidu.android.nebula.util.BDLocationManager;
 /* loaded from: classes.dex */
 public final class f {
-    private static f b = null;
+    private static f a = null;
+    private Context b;
+    private Handler c = new Handler();
+    private com.baidu.android.systemmonitor.devicestatistic.a.e d = null;
+    private Runnable e = new e(this);
 
-    /* renamed from: a  reason: collision with root package name */
-    private boolean f821a;
-    private Context d;
-    private com.baidu.android.systemmonitor.devicestatistic.a.d c = null;
-    private Handler e = new Handler();
-    private int f = 0;
-    private long g = 0;
-    private long h = 0;
-    private Runnable i = new g(this);
-
-    public f(Context context) {
-        this.f821a = false;
-        this.d = null;
-        if (Build.VERSION.SDK_INT < 8) {
-            this.f821a = false;
-            return;
-        }
-        this.f821a = TrafficStats.getTotalRxBytes() != -1;
-        this.d = context.getApplicationContext();
+    private f(Context context) {
+        this.b = null;
+        this.b = context.getApplicationContext();
     }
 
     public static synchronized f a(Context context) {
         f fVar;
         synchronized (f.class) {
-            if (b == null) {
-                b = new f(context);
+            if (a == null) {
+                a = new f(context);
             }
-            fVar = b;
+            fVar = a;
         }
         return fVar;
     }
 
-    public static void c() {
-        if (b != null) {
-            b.d();
-            b = null;
+    public static void f() {
+        if (a != null) {
+            a.e();
+            a = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void e() {
-        if (this.f821a && a() > this.h) {
-            this.h = a();
+    public void g() {
+        if (this.d == null || this.d.e == 0) {
+            return;
         }
+        d.a(this.b).a(this.d);
+        this.d = null;
+        this.c.removeCallbacks(this.e);
     }
 
-    public long a() {
-        if (this.f821a) {
-            return TrafficStats.getTotalRxBytes() + TrafficStats.getTotalTxBytes();
-        }
-        return -1L;
+    public void a() {
+        this.d = new com.baidu.android.systemmonitor.devicestatistic.a.e(System.currentTimeMillis());
+        this.d.a = BDLocationManager.d(this.b.getApplicationContext());
+        this.d.d = com.baidu.android.systemmonitor.c.d.b(this.b);
+        this.d.b = d();
+        this.c.postDelayed(this.e, 60000L);
     }
 
     public void b() {
-        if (this.f821a) {
-            int b2 = com.baidu.android.systemmonitor.d.c.b(this.d);
-            if (b2 == 0) {
-                this.e.removeCallbacks(this.i);
-                if (this.c != null) {
-                    this.c.f814a = System.currentTimeMillis();
-                    this.c.c = this.h - this.g;
-                    d.a(this.d).a(this.c);
-                }
-                this.c = null;
-                this.g = 0L;
-                this.f = 0;
-                this.h = 0L;
-            } else if (this.c == null) {
-                this.f = b2;
-                this.c = new com.baidu.android.systemmonitor.devicestatistic.a.d(System.currentTimeMillis());
-                this.c.b = this.f;
-                this.g = a();
-                this.e.postDelayed(this.i, Util.MILLSECONDS_OF_MINUTE);
-            } else if (b2 != this.f) {
-                this.e.removeCallbacks(this.i);
-                this.c.f814a = System.currentTimeMillis();
-                this.c.c = this.h - this.g;
-                d.a(this.d).a(this.c);
-                this.c = null;
-                this.g = 0L;
-                this.f = 0;
-                this.h = 0L;
-                b();
+        this.c.removeCallbacks(this.e);
+        if (this.d != null) {
+            if (this.d.c == 0) {
+                this.d.c = d();
+                this.d.e = System.currentTimeMillis();
             }
+            g();
         }
     }
 
-    public void d() {
-        if (this.e != null) {
-            this.e.removeCallbacks(this.i);
+    public void c() {
+        Intent registerReceiver = this.b.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
+        int intExtra = registerReceiver.getIntExtra("status", -1);
+        boolean z = intExtra == 2;
+        boolean z2 = intExtra == 5;
+        boolean z3 = registerReceiver.getIntExtra("plugged", -1) == 2;
+        int intExtra2 = registerReceiver.getIntExtra("level", 0);
+        if (this.d == null) {
+            this.c.removeCallbacks(this.e);
+        } else if (z) {
+            if (this.d.f == -1) {
+                this.d.f = z3 ? 0 : 1;
+            }
+        } else if (!z2) {
+            this.c.removeCallbacks(this.e);
+            this.d = null;
+        } else {
+            if (this.d.f == -1) {
+                this.d.f = z3 ? 0 : 1;
+            }
+            this.d.e = System.currentTimeMillis();
+            this.d.c = intExtra2;
         }
-        this.e = null;
+    }
+
+    public int d() {
+        long currentTimeMillis = System.currentTimeMillis();
+        int intExtra = this.b.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED")).getIntExtra("level", 0);
+        long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
+        return intExtra;
+    }
+
+    public void e() {
+        if (this.c != null) {
+            this.c.removeCallbacks(this.e);
+        }
+        this.c = null;
     }
 }

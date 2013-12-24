@@ -1,31 +1,25 @@
 package com.baidu.tieba.im.chat;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.im.SingleRunnable;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b implements com.baidu.tieba.im.a<LinkedList<String>> {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ab f1558a;
-    final /* synthetic */ a b;
+public final class b extends SingleRunnable<Void> {
+    final /* synthetic */ int a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public b(a aVar, ab abVar) {
-        this.b = aVar;
-        this.f1558a = abVar;
+    public b(int i) {
+        this.a = i;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    public void a(LinkedList<String> linkedList) {
-        ArrayList<String> arrayList = new ArrayList<>();
-        while (!linkedList.isEmpty()) {
-            String a2 = com.baidu.tieba.im.e.d.a(linkedList.removeLast(), true);
-            if (a2 != null) {
-                arrayList.add(a2);
-            }
+    @Override // com.baidu.tieba.im.SingleRunnable
+    /* renamed from: a */
+    public Void b() {
+        if (TiebaApplication.G() != null) {
+            com.baidu.tieba.im.db.ar.a().a(this.a);
+            return null;
         }
-        this.f1558a.a(arrayList);
+        return null;
     }
 }

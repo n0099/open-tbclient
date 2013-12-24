@@ -20,24 +20,21 @@ import com.baidu.tieba.data.AccountData;
 import com.baidu.tieba.util.DatabaseService;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
-import com.tencent.mm.sdk.platformtools.Util;
 /* loaded from: classes.dex */
 public class ReLoginShareActivity extends com.baidu.tieba.j {
-    private NavigationBar l;
-    private ar b = null;
+    private NavigationBar k;
+    private Button b = null;
     private Button c = null;
-    private Button d = null;
-    private TextView e = null;
-    private ProgressBar f = null;
+    private TextView d = null;
+    private ProgressBar e = null;
+    private String f = null;
     private String g = null;
     private String h = null;
-    private String i = null;
-    private AccountData j = null;
-    private n k = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    LinearLayout f1034a = null;
-    private View.OnClickListener m = new aq(this);
+    private x i = null;
+    LinearLayout a = null;
+    private boolean j = false;
+    private View.OnClickListener l = new bj(this);
+    private be m = new bk(this);
 
     public static void a(Activity activity, String str, String str2, String str3, int i) {
         Intent intent = new Intent(activity, ReLoginShareActivity.class);
@@ -60,78 +57,78 @@ public class ReLoginShareActivity extends com.baidu.tieba.j {
 
     private void a() {
         Intent intent = getIntent();
-        this.g = intent.getStringExtra("user_name");
-        this.h = intent.getStringExtra(SocialConstants.PARAM_BDUSS);
-        this.i = intent.getStringExtra("ptoken");
+        this.f = intent.getStringExtra("user_name");
+        this.g = intent.getStringExtra(SocialConstants.PARAM_BDUSS);
+        this.h = intent.getStringExtra("ptoken");
     }
 
     @Override // android.app.Activity
     protected void onRestoreInstanceState(Bundle bundle) {
         super.onRestoreInstanceState(bundle);
-        this.g = bundle.getString("user_name");
-        this.h = bundle.getString(SocialConstants.PARAM_BDUSS);
-        this.i = bundle.getString("ptoken");
+        this.f = bundle.getString("user_name");
+        this.g = bundle.getString(SocialConstants.PARAM_BDUSS);
+        this.h = bundle.getString("ptoken");
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putString("user_name", this.g);
-        bundle.putString(SocialConstants.PARAM_BDUSS, this.h);
-        bundle.putString("ptoken", this.i);
+        bundle.putString("user_name", this.f);
+        bundle.putString(SocialConstants.PARAM_BDUSS, this.g);
+        bundle.putString("ptoken", this.h);
     }
 
     private void b() {
-        this.l = (NavigationBar) findViewById(R.id.view_navigation_bar);
-        this.l.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.c = (Button) findViewById(R.id.relogin_retry_button);
-        this.c.setOnClickListener(this.m);
-        this.d = (Button) findViewById(R.id.relogin_cacel_button);
-        this.d.setOnClickListener(this.m);
-        this.f = (ProgressBar) findViewById(R.id.relogin_progressbar);
-        this.e = (TextView) findViewById(R.id.relogin_textview);
-        this.f1034a = (LinearLayout) findViewById(R.id.container);
+        this.k = (NavigationBar) findViewById(R.id.view_navigation_bar);
+        this.k.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.b = (Button) findViewById(R.id.relogin_retry_button);
+        this.b.setOnClickListener(this.l);
+        this.c = (Button) findViewById(R.id.relogin_cacel_button);
+        this.c.setOnClickListener(this.l);
+        this.e = (ProgressBar) findViewById(R.id.relogin_progressbar);
+        this.d = (TextView) findViewById(R.id.relogin_textview);
+        this.a = (LinearLayout) findViewById(R.id.container);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        a(0, this.g);
-        this.l.c(i);
-        com.baidu.tieba.util.ba.a((TextView) this.d, i);
-        com.baidu.tieba.util.ba.a(this.f1034a, i);
-        com.baidu.tieba.util.ba.b(this.e, i);
+        a(0, this.f, null);
+        this.k.c(i);
+        com.baidu.tieba.util.bb.a((TextView) this.c, i);
+        com.baidu.tieba.util.bb.a(this.a, i);
+        com.baidu.tieba.util.bb.b(this.d, i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(int i, String str) {
+    public void a(int i, String str, AccountData accountData) {
         if (str == null) {
             str = "";
         }
         switch (i) {
             case 0:
-                this.c.setVisibility(8);
-                this.f.setVisibility(0);
+                this.b.setVisibility(8);
+                this.e.setVisibility(0);
                 String string = getString(R.string.relogin_statement);
                 int indexOf = string.indexOf(63);
                 String replace = string.replace("?", str);
-                this.e.setTextSize(2, 16.0f);
+                this.d.setTextSize(2, 16.0f);
                 if (str.length() <= 0) {
-                    this.e.setText(replace);
+                    this.d.setText(replace);
                     return;
                 }
                 SpannableString spannableString = new SpannableString(replace);
-                spannableString.setSpan(new ForegroundColorSpan(Color.rgb((int) Util.MASK_8BIT, 47, 47)), indexOf, str.length() + indexOf, 33);
-                this.e.setText(spannableString);
+                spannableString.setSpan(new ForegroundColorSpan(Color.rgb(255, 47, 47)), indexOf, str.length() + indexOf, 33);
+                this.d.setText(spannableString);
                 return;
             case 1:
-                this.c.setVisibility(0);
-                this.f.setVisibility(8);
+                this.b.setVisibility(0);
+                this.e.setVisibility(8);
                 String string2 = getString(R.string.relogin_fail);
-                this.e.setTextSize(2, 16.0f);
+                this.d.setTextSize(2, 16.0f);
                 if (str.length() <= 0) {
-                    this.e.setText(string2);
+                    this.d.setText(string2);
                     return;
                 }
                 String str2 = string2 + "\n\n";
@@ -140,9 +137,21 @@ public class ReLoginShareActivity extends com.baidu.tieba.j {
                 if (this.mSkinType == 1) {
                     spannableString2.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.skin_1_common_color)), 0, length, 33);
                 }
-                spannableString2.setSpan(new ForegroundColorSpan(Color.rgb((int) Util.MASK_8BIT, 47, 47)), length, str.length() + length, 33);
+                spannableString2.setSpan(new ForegroundColorSpan(Color.rgb(255, 47, 47)), length, str.length() + length, 33);
                 spannableString2.setSpan(new RelativeSizeSpan(0.9f), length, str.length() + length, 33);
-                this.e.setText(spannableString2);
+                this.d.setText(spannableString2);
+                return;
+            case 2:
+                if (this.i == null) {
+                    this.i = new x(this);
+                    this.i.a(new bh(this));
+                    this.i.b(new bi(this));
+                }
+                this.i.e();
+                this.i.a("");
+                this.i.a(accountData);
+                this.i.a();
+                this.e.setVisibility(4);
                 return;
             default:
                 return;
@@ -161,31 +170,21 @@ public class ReLoginShareActivity extends com.baidu.tieba.j {
         MainTabActivity.b(this, 0);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, android.app.Activity
-    public void onDestroy() {
-        if (this.b != null) {
-            this.b.cancel();
-        }
-        super.onDestroy();
-    }
-
     /* JADX INFO: Access modifiers changed from: private */
     public void d() {
-        if (this.b == null && this.h != null && this.i != null) {
-            this.b = new ar(this, null);
-            this.b.setPriority(3);
-            this.b.execute(new String[0]);
+        if (this.g != null && this.h != null) {
+            this.j = false;
+            bd.a(this.f, this.g, this.h, this.m, true);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void e() {
-        int intExtra = getIntent().getIntExtra("locate_type", -1);
-        DatabaseService.a(this.j);
-        TiebaApplication.a(this.j, getBaseContext());
-        MainTabActivity.b(this, intExtra);
-        a.a().d();
+    public void a(AccountData accountData) {
+        if (!this.j) {
+            DatabaseService.a(accountData);
+            TiebaApplication.a(accountData, getBaseContext());
+        }
+        MainTabActivity.b(this, getIntent().getIntExtra("locate_type", -1));
         if (TiebaApplication.h().as() && TiebaApplication.h().au() != null) {
             UpdateDialog.a(TiebaApplication.h(), TiebaApplication.h().au(), TiebaApplication.h().at());
         }

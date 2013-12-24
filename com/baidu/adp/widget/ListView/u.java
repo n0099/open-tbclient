@@ -2,7 +2,6 @@ package com.baidu.adp.widget.ListView;
 
 import android.view.MotionEvent;
 import android.view.View;
-import com.baidu.cyberplayer.sdk.BVideoView;
 import java.security.InvalidParameterException;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -12,12 +11,10 @@ public class u {
     private BdListView f;
     private boolean d = false;
     private int e = 0;
-
-    /* renamed from: a  reason: collision with root package name */
-    protected int f580a = 3;
+    protected int a = 3;
     private Boolean g = false;
     private s h = null;
-    private int i = BVideoView.MEDIA_INFO_BAD_INTERLEAVING;
+    private int i = 800;
 
     /* JADX DEBUG: Marked for inline */
     /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.widget.ListView.BdListView.a():void] */
@@ -48,7 +45,7 @@ public class u {
     }
 
     public void b() {
-        this.f580a = 3;
+        this.a = 3;
         this.c.a(0, -this.c.k(), 0, 0);
         this.c.b(true);
         if (this.h != null) {
@@ -57,7 +54,7 @@ public class u {
     }
 
     public void a(boolean z) {
-        this.f580a = 2;
+        this.a = 2;
         this.c.a(0, 0, 0, 0);
         this.c.f();
         this.c.c(z);
@@ -82,9 +79,9 @@ public class u {
         if (a().j()) {
             switch (motionEvent.getAction()) {
                 case 1:
-                    if (this.f580a != 2) {
-                        if (this.f580a == 1) {
-                            this.f580a = 3;
+                    if (this.a != 2) {
+                        if (this.a == 1) {
+                            this.a = 3;
                             this.c.a(0, -this.c.k(), 0, 0);
                             this.c.b(false);
                             if (this.h != null) {
@@ -92,14 +89,14 @@ public class u {
                                 return;
                             }
                             return;
-                        } else if (this.f580a == 0) {
+                        } else if (this.a == 0) {
                             a(false);
                             if (this.h != null) {
                                 this.h.a(true);
                                 return;
                             }
                             return;
-                        } else if (this.f580a == 3 && this.h != null) {
+                        } else if (this.a == 3 && this.h != null) {
                             this.h.a(false);
                             return;
                         } else {
@@ -113,44 +110,44 @@ public class u {
                         this.d = true;
                         this.e = y;
                     }
-                    if (this.f580a != 2 && this.d) {
-                        if (this.f580a == 0) {
+                    if (this.a != 2 && this.d) {
+                        if (this.a == 0) {
                             this.f.setSelection(0);
                             if (((int) ((y - this.e) / b)) < this.c.k() && y - this.e > 0) {
-                                this.f580a = 1;
+                                this.a = 1;
                                 this.c.a(this.g.booleanValue());
                                 this.g = false;
                                 if (this.h != null) {
                                     this.h.a(true);
                                 }
                             } else if (y - this.e <= 0) {
-                                this.f580a = 3;
+                                this.a = 3;
                                 this.c.a(0, -this.c.k(), 0, 0);
                                 this.c.b(false);
                                 if (this.h != null) {
                                     this.h.a(true);
                                 }
                             }
-                        } else if (this.f580a == 1) {
+                        } else if (this.a == 1) {
                             this.f.setSelection(0);
                             if (((int) ((y - this.e) / b)) >= this.c.k()) {
-                                this.f580a = 0;
+                                this.a = 0;
                                 this.g = true;
                                 this.c.e();
                                 if (this.h != null) {
                                     this.h.a(true);
                                 }
                             } else if (y - this.e <= 0) {
-                                this.f580a = 3;
+                                this.a = 3;
                                 this.c.a(0, -this.c.k(), 0, 0);
                                 this.c.b(false);
                                 if (this.h != null) {
                                     this.h.a(true);
                                 }
                             }
-                        } else if (this.f580a == 3) {
+                        } else if (this.a == 3) {
                             if (y - this.e > 0) {
-                                this.f580a = 1;
+                                this.a = 1;
                                 this.c.a(this.g.booleanValue());
                                 this.g = false;
                                 if (this.h != null) {
@@ -160,7 +157,7 @@ public class u {
                                 this.h.a(false);
                             }
                         }
-                        if (this.f580a == 1 || this.f580a == 0) {
+                        if (this.a == 1 || this.a == 0) {
                             this.c.a(0, ((int) ((y - this.e) / b)) - this.c.k(), 0, 0);
                             return;
                         }
@@ -176,9 +173,9 @@ public class u {
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
         View i;
-        d a2 = a();
-        if (a2 != null && (i = a2.i()) != null) {
-            w wVar = new w(i.getContext(), 0, -a2.k(), this.i);
+        d a = a();
+        if (a != null && (i = a.i()) != null) {
+            w wVar = new w(i.getContext(), 0, -a.k(), this.i);
             wVar.a(new v(this));
             wVar.a(i);
         }

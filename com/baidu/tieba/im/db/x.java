@@ -4,13 +4,11 @@ import com.baidu.tieba.im.SingleRunnable;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class x extends SingleRunnable<Void> {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ t f1685a;
+    final /* synthetic */ t a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(t tVar) {
-        this.f1685a = tVar;
+        this.a = tVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

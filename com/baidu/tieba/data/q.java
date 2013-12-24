@@ -6,16 +6,14 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class q {
-
-    /* renamed from: a  reason: collision with root package name */
-    private String f1257a;
+    private String a;
     private String b;
     private String c;
     private boolean d;
     private ArrayList<p> e = new ArrayList<>();
 
     public String a() {
-        return this.f1257a;
+        return this.a;
     }
 
     public String b() {
@@ -37,7 +35,7 @@ public class q {
     public void a(JSONObject jSONObject) {
         try {
             this.b = jSONObject.optString("publish_time");
-            this.f1257a = jSONObject.optString("total");
+            this.a = jSONObject.optString("total");
             this.c = jSONObject.optString("update_time");
             JSONArray optJSONArray = jSONObject.optJSONArray("post_list");
             if (optJSONArray != null) {
@@ -49,7 +47,7 @@ public class q {
                 }
             }
         } catch (JSONException e) {
-            com.baidu.tieba.util.bd.b(getClass().getName(), "parserJson", e.toString());
+            com.baidu.tieba.util.be.b(getClass().getName(), "parserJson", e.toString());
         }
     }
 }

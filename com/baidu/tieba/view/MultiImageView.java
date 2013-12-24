@@ -12,9 +12,7 @@ import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class MultiImageView extends RelativeLayout {
-
-    /* renamed from: a  reason: collision with root package name */
-    private Button f2639a;
+    private Button a;
     private Button b;
     private LinearLayout c;
     private View.OnClickListener d;
@@ -32,7 +30,7 @@ public class MultiImageView extends RelativeLayout {
 
     public MultiImageView(Context context) {
         super(context);
-        this.f2639a = null;
+        this.a = null;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -58,7 +56,7 @@ public class MultiImageView extends RelativeLayout {
 
     public MultiImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f2639a = null;
+        this.a = null;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -78,7 +76,7 @@ public class MultiImageView extends RelativeLayout {
 
     public MultiImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f2639a = null;
+        this.a = null;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -115,14 +113,14 @@ public class MultiImageView extends RelativeLayout {
                 int childCount = this.e.getChildCount();
                 for (int i = 0; i < childCount; i++) {
                     View childAt = this.e.getChildAt(i);
-                    if (childAt != null && (childAt instanceof bo) && ((bo) childAt).getImageView() != this.e.getCurrentView()) {
-                        ((bo) childAt).d();
+                    if (childAt != null && (childAt instanceof bu) && ((bu) childAt).getImageView() != this.e.getCurrentView()) {
+                        ((bu) childAt).d();
                     }
                 }
             }
             View findViewWithTag = this.e.findViewWithTag(String.valueOf(this.e.getCurrentItem()));
-            if (findViewWithTag != null && (findViewWithTag instanceof bo)) {
-                ((bo) findViewWithTag).a(this.o);
+            if (findViewWithTag != null && (findViewWithTag instanceof bu)) {
+                ((bu) findViewWithTag).a(this.o);
             }
             this.e.getCurrentView().e();
         }
@@ -139,8 +137,8 @@ public class MultiImageView extends RelativeLayout {
             int childCount = this.e.getChildCount();
             for (int i = 0; i < childCount; i++) {
                 View childAt = this.e.getChildAt(i);
-                if (childAt != null && (childAt instanceof bo)) {
-                    ((bo) childAt).c();
+                if (childAt != null && (childAt instanceof bu)) {
+                    ((bu) childAt).c();
                 }
             }
         }
@@ -166,12 +164,12 @@ public class MultiImageView extends RelativeLayout {
         this.b.setOnClickListener(this.d);
         this.b.setEnabled(false);
         this.c.addView(this.b);
-        this.f2639a = new Button(getContext());
-        this.f2639a.setBackgroundDrawable(getContext().getResources().getDrawable(R.drawable.image_zoomin));
-        this.f2639a.setLayoutParams(layoutParams2);
-        this.f2639a.setOnClickListener(this.d);
-        this.f2639a.setEnabled(false);
-        this.c.addView(this.f2639a);
+        this.a = new Button(getContext());
+        this.a.setBackgroundDrawable(getContext().getResources().getDrawable(R.drawable.image_zoomin));
+        this.a.setLayoutParams(layoutParams2);
+        this.a.setOnClickListener(this.d);
+        this.a.setEnabled(false);
+        this.c.addView(this.a);
         if (this.m) {
             this.c.setVisibility(8);
         }
@@ -194,9 +192,9 @@ public class MultiImageView extends RelativeLayout {
     public void setZoomButton(l lVar) {
         if (lVar != null) {
             if (lVar.p()) {
-                this.f2639a.setEnabled(true);
+                this.a.setEnabled(true);
             } else {
-                this.f2639a.setEnabled(false);
+                this.a.setEnabled(false);
             }
             if (lVar.q()) {
                 this.b.setEnabled(true);
@@ -207,7 +205,7 @@ public class MultiImageView extends RelativeLayout {
             }
         }
         this.b.setEnabled(false);
-        this.f2639a.setEnabled(false);
+        this.a.setEnabled(false);
     }
 
     public void d() {

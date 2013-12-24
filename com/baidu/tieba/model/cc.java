@@ -1,45 +1,34 @@
 package com.baidu.tieba.model;
-
-import android.text.TextUtils;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.UtilHelper;
 /* loaded from: classes.dex */
-public class cc {
+public class cc extends com.baidu.adp.a.d {
+    private String a = null;
+    private String b = null;
+    private ce c = null;
 
-    /* renamed from: a  reason: collision with root package name */
-    private static cc f2023a;
-    private com.baidu.adp.lib.d.a<String, String> b;
-
-    private cc() {
-        this.b = null;
-        this.b = new com.baidu.adp.lib.d.a<>(256);
+    @Override // com.baidu.adp.a.d
+    protected boolean LoadData() {
+        return false;
     }
 
-    public static synchronized cc a() {
-        cc ccVar;
-        synchronized (cc.class) {
-            if (f2023a == null) {
-                f2023a = new cc();
-            }
-            ccVar = f2023a;
-        }
-        return ccVar;
+    @Override // com.baidu.adp.a.d
+    public boolean cancelLoadData() {
+        return false;
     }
 
-    public void a(String str, Long l) {
-        if (str != null && str.length() > 0) {
-            this.b.a(TiebaApplication.B() + str, String.valueOf(l));
+    public void a() {
+        if (this.c != null) {
+            this.c.cancel();
+            this.c = null;
         }
     }
 
-    public boolean a(String str) {
-        if (str == null || str.length() <= 0) {
-            return false;
+    public void a(String str, String str2) {
+        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.c == null) {
+            this.a = str;
+            this.b = str2;
+            this.c = new ce(this);
+            this.c.setPriority(2);
+            this.c.execute(new Object[0]);
         }
-        String a2 = this.b.a((com.baidu.adp.lib.d.a<String, String>) (TiebaApplication.B() + str));
-        if (TextUtils.isEmpty(a2)) {
-            return false;
-        }
-        return UtilHelper.a(com.baidu.adp.lib.f.b.a(a2, 0L), System.currentTimeMillis());
     }
 }

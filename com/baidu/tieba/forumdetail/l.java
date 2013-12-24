@@ -4,9 +4,7 @@ import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l {
-
-    /* renamed from: a  reason: collision with root package name */
-    TextView f1335a;
+    TextView a;
     TextView b;
     TextView c;
     TextView d;

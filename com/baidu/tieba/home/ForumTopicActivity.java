@@ -26,9 +26,7 @@ import com.baidu.tieba.view.BaseWebView;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class ForumTopicActivity extends com.baidu.tieba.j implements com.baidu.tieba.view.d {
-
-    /* renamed from: a  reason: collision with root package name */
-    private com.baidu.tieba.recommend.ac f1437a;
+    private com.baidu.tieba.recommend.ac a;
     private String m;
     private String n;
     private ImageView b = null;
@@ -110,13 +108,13 @@ public class ForumTopicActivity extends com.baidu.tieba.j implements com.baidu.t
     }
 
     public void a() {
-        Token b = com.baidu.tieba.account.a.b(TiebaApplication.E());
-        if (b != null) {
+        Token a = com.baidu.tieba.account.a.a(TiebaApplication.E());
+        if (a != null) {
             CookieSyncManager.createInstance(this);
             CookieManager cookieManager = CookieManager.getInstance();
             cookieManager.setAcceptCookie(true);
-            cookieManager.setCookie("baidu.com", "BDUSS=" + b.mBduss + "; domain=.baidu.com;");
-            cookieManager.setCookie("baidu.com", "PTOKEN=" + b.mPtoken + "; domain=.baidu.com;");
+            cookieManager.setCookie("baidu.com", "BDUSS=" + a.mBduss + "; domain=.baidu.com;");
+            cookieManager.setCookie("baidu.com", "PTOKEN=" + a.mPtoken + "; domain=.baidu.com;");
             CookieSyncManager.getInstance().sync();
             return;
         }
@@ -145,21 +143,21 @@ public class ForumTopicActivity extends com.baidu.tieba.j implements com.baidu.t
         boolean z;
         super.onResume();
         String str3 = "";
-        Token b = com.baidu.tieba.account.a.b(TiebaApplication.E());
-        if (b != null) {
-            if (b.mBduss != null) {
-                str3 = b.mBduss;
+        Token a = com.baidu.tieba.account.a.a(TiebaApplication.E());
+        if (a != null) {
+            if (a.mBduss != null) {
+                str3 = a.mBduss;
             }
-            if (b.mPtoken != null) {
+            if (a.mPtoken != null) {
                 str = str3;
-                str2 = b.mPtoken;
+                str2 = a.mPtoken;
                 com.baidu.tieba.recommend.ac acVar = new com.baidu.tieba.recommend.ac(str, str2);
-                if (this.f1437a == null && (this.f1437a == null || !this.f1437a.equals(acVar))) {
+                if (this.a == null && (this.a == null || !this.a.equals(acVar))) {
                     z = true;
                 } else {
                     z = false;
                 }
-                this.f1437a = acVar;
+                this.a = acVar;
                 if (this.g == null && z) {
                     a();
                     this.o.postDelayed(this.p, 150L);
@@ -170,10 +168,10 @@ public class ForumTopicActivity extends com.baidu.tieba.j implements com.baidu.t
         str = str3;
         str2 = "";
         com.baidu.tieba.recommend.ac acVar2 = new com.baidu.tieba.recommend.ac(str, str2);
-        if (this.f1437a == null) {
+        if (this.a == null) {
         }
         z = false;
-        this.f1437a = acVar2;
+        this.a = acVar2;
         if (this.g == null) {
         }
     }
@@ -182,12 +180,12 @@ public class ForumTopicActivity extends com.baidu.tieba.j implements com.baidu.t
     @Override // com.baidu.tieba.j
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        com.baidu.tieba.util.ba.a(this.c, i);
-        com.baidu.tieba.util.ba.d(this.d, i);
-        com.baidu.tieba.util.ba.e(this.e, i);
-        com.baidu.tieba.util.ba.a(this.b, i);
+        com.baidu.tieba.util.bb.a(this.c, i);
+        com.baidu.tieba.util.bb.d(this.d, i);
+        com.baidu.tieba.util.bb.e(this.e, i);
+        com.baidu.tieba.util.bb.a(this.b, i);
         if (this.g != null) {
-            com.baidu.tieba.util.ba.a(this.g, i);
+            com.baidu.tieba.util.bb.a(this.g, i);
         }
     }
 
@@ -219,7 +217,7 @@ public class ForumTopicActivity extends com.baidu.tieba.j implements com.baidu.t
         if (this.g == null) {
             try {
                 this.g = new BaseWebView(this);
-                com.baidu.tieba.util.ba.a(this.g, TiebaApplication.h().an());
+                com.baidu.tieba.util.bb.a(this.g, TiebaApplication.h().an());
                 this.g.setOnLoadUrlListener(this);
                 this.g.setHorizontalScrollBarEnabled(false);
                 this.g.setHorizontalScrollbarOverlay(false);
@@ -229,7 +227,7 @@ public class ForumTopicActivity extends com.baidu.tieba.j implements com.baidu.t
                 this.i.addView(this.g);
                 return true;
             } catch (Exception e) {
-                com.baidu.tieba.util.bd.b(getClass().getName(), "", "ForumTopicActivity.refreshFrs error = " + e.getMessage());
+                com.baidu.tieba.util.be.b(getClass().getName(), "", "ForumTopicActivity.refreshFrs error = " + e.getMessage());
                 return false;
             }
         }

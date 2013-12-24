@@ -11,11 +11,10 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
+import com.baidu.browser.webpool.BdWebPoolView;
 /* loaded from: classes.dex */
 public class BdPullRefreshScrollView extends ScrollView {
-
-    /* renamed from: a  reason: collision with root package name */
-    protected View f586a;
+    protected View a;
     private int b;
     private State c;
     private Mode d;
@@ -44,8 +43,8 @@ public class BdPullRefreshScrollView extends ScrollView {
         super(context);
         this.c = State.RESET;
         this.e = Mode.getDefault();
-        this.f = 200;
-        this.g = 200;
+        this.f = BdWebPoolView.DELAYED_TIME;
+        this.g = BdWebPoolView.DELAYED_TIME;
         this.h = -1000.0f;
         this.u = false;
         this.v = false;
@@ -58,8 +57,8 @@ public class BdPullRefreshScrollView extends ScrollView {
         super(context, attributeSet);
         this.c = State.RESET;
         this.e = Mode.getDefault();
-        this.f = 200;
-        this.g = 200;
+        this.f = BdWebPoolView.DELAYED_TIME;
+        this.g = BdWebPoolView.DELAYED_TIME;
         this.h = -1000.0f;
         this.u = false;
         this.v = false;
@@ -72,8 +71,8 @@ public class BdPullRefreshScrollView extends ScrollView {
         super(context);
         this.c = State.RESET;
         this.e = Mode.getDefault();
-        this.f = 200;
-        this.g = 200;
+        this.f = BdWebPoolView.DELAYED_TIME;
+        this.g = BdWebPoolView.DELAYED_TIME;
         this.h = -1000.0f;
         this.u = false;
         this.v = false;
@@ -87,8 +86,8 @@ public class BdPullRefreshScrollView extends ScrollView {
         super(context);
         this.c = State.RESET;
         this.e = Mode.getDefault();
-        this.f = 200;
-        this.g = 200;
+        this.f = BdWebPoolView.DELAYED_TIME;
+        this.g = BdWebPoolView.DELAYED_TIME;
         this.h = -1000.0f;
         this.u = false;
         this.v = false;
@@ -104,8 +103,8 @@ public class BdPullRefreshScrollView extends ScrollView {
             this.e = Mode.mapIntToValue(obtainStyledAttributes.getInteger(0, 0));
         }
         this.b = ViewConfiguration.get(context).getScaledTouchSlop();
-        this.f = obtainStyledAttributes.getInteger(4, 200);
-        this.g = obtainStyledAttributes.getInteger(5, 200);
+        this.f = obtainStyledAttributes.getInteger(4, BdWebPoolView.DELAYED_TIME);
+        this.g = obtainStyledAttributes.getInteger(5, BdWebPoolView.DELAYED_TIME);
         LayoutInflater.from(context).inflate(com.baidu.adp.e.adp_pull_refresh_scroll_view, (ViewGroup) this, true);
         this.j = (FrameLayout) findViewById(com.baidu.adp.d.head_ly);
         this.k = (FrameLayout) findViewById(com.baidu.adp.d.foot_ly);
@@ -227,7 +226,7 @@ public class BdPullRefreshScrollView extends ScrollView {
     public void setContentView(View view) {
         View childAt = getChildAt(0);
         if (childAt != null) {
-            this.f586a = view;
+            this.a = view;
             ((LinearLayout) childAt).addView(view, 1);
         }
     }
@@ -308,7 +307,7 @@ public class BdPullRefreshScrollView extends ScrollView {
     }
 
     private boolean g() {
-        switch (m.f599a[this.e.ordinal()]) {
+        switch (m.a[this.e.ordinal()]) {
             case 1:
                 return h();
             case 2:
@@ -321,7 +320,7 @@ public class BdPullRefreshScrollView extends ScrollView {
     }
 
     private boolean h() {
-        switch (m.f599a[this.e.ordinal()]) {
+        switch (m.a[this.e.ordinal()]) {
             case 1:
                 return getScrollY() <= 0;
             case 2:
@@ -334,14 +333,14 @@ public class BdPullRefreshScrollView extends ScrollView {
     }
 
     private boolean i() {
-        switch (m.f599a[this.e.ordinal()]) {
+        switch (m.a[this.e.ordinal()]) {
             case 1:
             default:
                 return false;
             case 2:
-                return getScrollY() + getHeight() >= this.f586a.getHeight() + this.k.getHeight();
+                return getScrollY() + getHeight() >= this.a.getHeight() + this.k.getHeight();
             case 3:
-                if (getScrollY() + getHeight() < this.f586a.getHeight() + this.k.getHeight() || getHeadViewTopMargin() != this.p) {
+                if (getScrollY() + getHeight() < this.a.getHeight() + this.k.getHeight() || getHeadViewTopMargin() != this.p) {
                     r0 = false;
                 }
                 return r0;

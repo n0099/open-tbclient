@@ -1,24 +1,22 @@
 package com.baidu.adp.lib.cache;
 /* loaded from: classes.dex */
 public class v<T> implements u<T> {
-
-    /* renamed from: a  reason: collision with root package name */
-    protected final r<T> f438a;
+    protected final r<T> a;
     protected final String b;
 
     public v(String str, r<T> rVar) {
         this.b = str;
-        this.f438a = rVar;
+        this.a = rVar;
     }
 
     @Override // com.baidu.adp.lib.cache.s
     public T a(String str) {
-        return this.f438a.c(this.b, str);
+        return this.a.c(this.b, str);
     }
 
     @Override // com.baidu.adp.lib.cache.s
     public t<T> b(String str) {
-        return this.f438a.d(this.b, str);
+        return this.a.d(this.b, str);
     }
 
     @Override // com.baidu.adp.lib.cache.s
@@ -27,7 +25,7 @@ public class v<T> implements u<T> {
         if (currentTimeMillis <= System.currentTimeMillis()) {
             c(str);
         } else {
-            this.f438a.a(this.b, str, t, currentTimeMillis);
+            this.a.a(this.b, str, t, currentTimeMillis);
         }
     }
 
@@ -38,7 +36,7 @@ public class v<T> implements u<T> {
 
     @Override // com.baidu.adp.lib.cache.s
     public void c(String str) {
-        this.f438a.e(this.b, str);
+        this.a.e(this.b, str);
     }
 
     @Override // com.baidu.adp.lib.cache.s
@@ -53,23 +51,23 @@ public class v<T> implements u<T> {
 
     @Override // com.baidu.adp.lib.cache.u
     public r<T> b() {
-        return this.f438a;
+        return this.a;
     }
 
     public void d() {
-        this.f438a.e(this.b);
+        this.a.e(this.b);
     }
 
     protected void e() {
-        f a2 = b().a();
-        if (a2 instanceof h) {
-            ((h) a2).e();
+        f a = b().a();
+        if (a instanceof h) {
+            ((h) a).e();
         }
     }
 
     @Override // com.baidu.adp.lib.cache.u
     public void c() {
-        this.f438a.d(this.b);
+        this.a.d(this.b);
         e();
     }
 }

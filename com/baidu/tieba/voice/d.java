@@ -6,13 +6,11 @@ import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements Runnable {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ c f2724a;
+    final /* synthetic */ c a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar) {
-        this.f2724a = cVar;
+        this.a = cVar;
     }
 
     @Override // java.lang.Runnable
@@ -26,26 +24,26 @@ public class d implements Runnable {
         Handler handler2;
         int i3;
         Handler handler3;
-        audioTrack = this.f2724a.b;
+        audioTrack = this.a.b;
         if (audioTrack != null) {
-            audioTrack2 = this.f2724a.b;
+            audioTrack2 = this.a.b;
             if (audioTrack2.getPlayState() == 3) {
-                int a2 = this.f2724a.a();
-                i = this.f2724a.h;
-                int i4 = a2 + i;
+                int a = this.a.a();
+                i = this.a.h;
+                int i4 = a + i;
                 com.baidu.adp.lib.h.e.a(getClass(), "TestVoice2", "elapsedTime=" + i4);
-                i2 = this.f2724a.i;
+                i2 = this.a.i;
                 if (i4 != i2) {
-                    this.f2724a.i = i4;
-                    handler2 = this.f2724a.f;
+                    this.a.i = i4;
+                    handler2 = this.a.f;
                     Message obtainMessage = handler2.obtainMessage(6);
-                    i3 = this.f2724a.i;
+                    i3 = this.a.i;
                     obtainMessage.arg1 = i3;
-                    handler3 = this.f2724a.f;
+                    handler3 = this.a.f;
                     handler3.sendMessage(obtainMessage);
                 }
-                handler = this.f2724a.j;
-                runnable = this.f2724a.k;
+                handler = this.a.j;
+                runnable = this.a.k;
                 handler.postDelayed(runnable, 100L);
             }
         }

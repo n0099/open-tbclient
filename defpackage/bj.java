@@ -1,6 +1,6 @@
 package defpackage;
 
-import com.tencent.mm.sdk.platformtools.LVBuffer;
+import com.google.protobuf.CodedOutputStream;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -13,9 +13,7 @@ import org.apache.http.message.BasicHeader;
 /* renamed from: bj  reason: default package */
 /* loaded from: classes.dex */
 public class bj implements HttpEntity {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static final char[] f379a = "-_1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
+    private static final char[] a = "-_1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
     private String c;
     private byte[] f;
     private ByteArrayOutputStream b = new ByteArrayOutputStream();
@@ -26,7 +24,7 @@ public class bj implements HttpEntity {
         StringBuilder sb = new StringBuilder();
         Random random = new Random();
         for (int i = 0; i < 30; i++) {
-            sb.append(f379a[random.nextInt(f379a.length)]);
+            sb.append(a[random.nextInt(a.length)]);
         }
         this.c = sb.toString();
         this.f = ("\r\n--" + this.c + "\r\n").getBytes();
@@ -73,7 +71,7 @@ public class bj implements HttpEntity {
                 } else {
                     this.b.write("Content-Type: application/octet-stream\r\n\r\n".getBytes());
                 }
-                byte[] bArr = new byte[LVBuffer.LENGTH_ALLOC_PER_NEW];
+                byte[] bArr = new byte[CodedOutputStream.DEFAULT_BUFFER_SIZE];
                 while (true) {
                     int read = inputStream.read(bArr);
                     if (read == -1) {

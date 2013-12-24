@@ -16,7 +16,7 @@ public class aa extends TbImageView {
     private ViewGroup.LayoutParams f;
     private Rect g;
 
-    public boolean d() {
+    public boolean e() {
         return this.d;
     }
 
@@ -56,27 +56,27 @@ public class aa extends TbImageView {
         float f;
         int i;
         int i2;
-        int a2 = eVar.a();
+        int a = eVar.a();
         int b = eVar.b();
         int width = getWidth();
         int height = getHeight();
-        if (a2 == 0 || b == 0 || width == 0 || height == 0) {
+        if (a == 0 || b == 0 || width == 0 || height == 0) {
             return null;
         }
         if (this.c == 1) {
-            if (a2 < (width * 3) / 10.0d || !this.e) {
+            if (a < (width * 3) / 10.0d || !this.e) {
                 f = 1.0f;
             } else {
-                f = width / a2;
+                f = width / a;
             }
-        } else if (a2 < ((float) ((width * 3) / 10.0d))) {
+        } else if (a < ((float) ((width * 3) / 10.0d))) {
             f = 1.0f;
         } else {
-            f = width / a2;
+            f = width / a;
         }
         Matrix matrix = new Matrix();
         matrix.setScale(f, f);
-        int i3 = ((int) (a2 * f)) - 1;
+        int i3 = ((int) (a * f)) - 1;
         int i4 = ((int) (f * b)) - 1;
         if (i4 <= 1.25d * height) {
             i = 0;

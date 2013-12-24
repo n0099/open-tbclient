@@ -1,16 +1,15 @@
 package com.baidu.tieba.im.groupUpdates;
 
 import android.view.View;
+import com.baidu.browser.webpool.BdWebPoolView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements View.OnLongClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ f f1774a;
+    final /* synthetic */ f a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(f fVar) {
-        this.f1774a = fVar;
+        this.a = fVar;
     }
 
     @Override // android.view.View.OnLongClickListener
@@ -18,10 +17,10 @@ public class k implements View.OnLongClickListener {
         UpdatesActivity updatesActivity;
         View view2;
         UpdatesItemData updatesItemData;
-        updatesActivity = this.f1774a.l;
-        view2 = this.f1774a.c;
-        updatesItemData = this.f1774a.m;
-        updatesActivity.b(view2, 200, 0, 0L, updatesItemData);
+        updatesActivity = this.a.l;
+        view2 = this.a.c;
+        updatesItemData = this.a.m;
+        updatesActivity.b(view2, BdWebPoolView.DELAYED_TIME, 0, 0L, updatesItemData);
         return true;
     }
 }

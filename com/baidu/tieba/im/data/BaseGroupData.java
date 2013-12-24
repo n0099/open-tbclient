@@ -1,13 +1,13 @@
 package com.baidu.tieba.im.data;
 
-import com.baidu.tieba.util.ak;
+import com.baidu.tieba.util.al;
 import java.io.Serializable;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class BaseGroupData implements ak, Serializable {
+public class BaseGroupData implements al, Serializable {
     private static final long serialVersionUID = 5616188082014345808L;
     private String album;
-    private int authorId;
+    private long authorId;
     private String authorName;
     private String business;
     private int createTime;
@@ -130,12 +130,12 @@ public class BaseGroupData implements ak, Serializable {
         this.status = i;
     }
 
-    public int getAuthorId() {
+    public long getAuthorId() {
         return this.authorId;
     }
 
-    public void setAuthorId(int i) {
-        this.authorId = i;
+    public void setAuthorId(long j) {
+        this.authorId = j;
     }
 
     public String getAuthorName() {
@@ -178,19 +178,19 @@ public class BaseGroupData implements ak, Serializable {
         this.groupType = i;
     }
 
-    @Override // com.baidu.tieba.util.ak
+    @Override // com.baidu.tieba.util.al
     public LinkedList<String> getImageUrl() {
         LinkedList<String> linkedList = new LinkedList<>();
         linkedList.add(this.portrait);
         return linkedList;
     }
 
-    @Override // com.baidu.tieba.util.ak
+    @Override // com.baidu.tieba.util.al
     public LinkedList<String> getPhotoUrl() {
         return null;
     }
 
-    @Override // com.baidu.tieba.util.ak
+    @Override // com.baidu.tieba.util.al
     public LinkedList<String> getForumPhotoUrl() {
         return null;
     }

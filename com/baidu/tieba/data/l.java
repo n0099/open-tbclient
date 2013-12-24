@@ -6,19 +6,17 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class l extends com.baidu.tieba.util.ag {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ j f1252a;
+public class l extends com.baidu.tieba.util.ah {
+    final /* synthetic */ j a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public l(j jVar, Context context) {
         super(context);
-        this.f1252a = jVar;
+        this.a = jVar;
     }
 
-    @Override // com.baidu.tieba.util.ag, android.text.style.ClickableSpan
+    @Override // com.baidu.tieba.util.ah, android.text.style.ClickableSpan
     public void onClick(View view) {
         Pattern pattern;
         String str;
@@ -26,7 +24,7 @@ public class l extends com.baidu.tieba.util.ag {
         String str2;
         String str3;
         pattern = j.i;
-        str = this.f1252a.f;
+        str = this.a.f;
         Matcher matcher = pattern.matcher(str);
         if (matcher.find()) {
             try {
@@ -34,11 +32,11 @@ public class l extends com.baidu.tieba.util.ag {
                 b(group.substring(group.lastIndexOf("/") + 1));
                 return;
             } catch (Exception e) {
-                com.baidu.tieba.util.bd.b(getClass().getName(), "onClick", e.toString());
+                com.baidu.tieba.util.be.b(getClass().getName(), "onClick", e.toString());
             }
         }
         pattern2 = j.j;
-        str2 = this.f1252a.f;
+        str2 = this.a.f;
         Matcher matcher2 = pattern2.matcher(str2);
         if (matcher2.find()) {
             try {
@@ -46,10 +44,10 @@ public class l extends com.baidu.tieba.util.ag {
                 b(group2.substring(group2.lastIndexOf("=") + 1));
                 return;
             } catch (Exception e2) {
-                com.baidu.tieba.util.bd.b(getClass().getName(), "onClick", e2.toString());
+                com.baidu.tieba.util.be.b(getClass().getName(), "onClick", e2.toString());
             }
         }
-        str3 = this.f1252a.f;
+        str3 = this.a.f;
         a(str3);
     }
 }

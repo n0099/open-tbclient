@@ -1,58 +1,56 @@
 package com.baidu.tieba.im.model;
 
-import com.baidu.tieba.im.data.UploadPicData2;
-import com.baidu.tieba.im.message.ChatMessage;
-import java.util.HashMap;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i implements w {
+public class i extends BdAsyncTask<String, Integer, com.baidu.tieba.im.data.e> {
+    final /* synthetic */ g a;
+    private com.baidu.tieba.a.e b;
 
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MsglistModel f1818a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public i(MsglistModel msglistModel) {
-        this.f1818a = msglistModel;
+    private i(g gVar) {
+        this.a = gVar;
     }
 
-    @Override // com.baidu.tieba.im.model.w
-    public synchronized void a(String str, UploadPicData2 uploadPicData2) {
-        HashMap hashMap;
-        ChatMessage chatMessage;
-        String str2;
-        int i;
-        String str3;
-        int i2 = 0;
-        synchronized (this) {
-            hashMap = this.f1818a.k;
-            t tVar = (t) hashMap.remove(str);
-            if (tVar != null && (chatMessage = tVar.f1829a) != null) {
-                if (uploadPicData2 == null || uploadPicData2.error_code != 0 || uploadPicData2.picInfo == null) {
-                    com.baidu.tieba.log.a.b(com.baidu.tieba.log.i.a(chatMessage.getCmd(), 0, "", "", "upload pic http fail", uploadPicData2.error_code, uploadPicData2.error_msg, System.currentTimeMillis() - chatMessage.getLogTime()));
-                    this.f1818a.c(chatMessage);
-                    com.baidu.tieba.im.db.d.a().a(chatMessage.getGroupId(), String.valueOf(chatMessage.getRecordId()), String.valueOf(chatMessage.getMsgId()), 2, new j(this));
-                } else {
-                    long currentTimeMillis = System.currentTimeMillis() - chatMessage.getLogTime();
-                    if (uploadPicData2.picInfo.bigPic == null) {
-                        str2 = "";
-                    } else {
-                        str2 = uploadPicData2.picInfo.bigPic.picUrl;
-                    }
-                    com.baidu.tieba.log.a.b(com.baidu.tieba.log.i.a(chatMessage.getCmd(), 0, "", "", "upload pic http suc bigUrl: " + str2, uploadPicData2.error_code, uploadPicData2.error_msg, currentTimeMillis));
-                    String str4 = uploadPicData2.picInfo.bigPic == null ? null : uploadPicData2.picInfo.bigPic.picUrl;
-                    if (uploadPicData2.picInfo.smallPic != null) {
-                        str3 = uploadPicData2.picInfo.smallPic.picUrl;
-                        i2 = uploadPicData2.picInfo.smallPic.width;
-                        i = uploadPicData2.picInfo.smallPic.height;
-                        com.baidu.tieba.util.a.c.a(str3, str, true, true, true);
-                    } else {
-                        i = 0;
-                        str3 = null;
-                    }
-                    chatMessage.setContent(this.f1818a.a(str4, str3, i2, i));
-                    com.baidu.tieba.im.chat.a.b().a(chatMessage);
-                }
-            }
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(com.baidu.tieba.im.data.e eVar) {
+        com.baidu.adp.a.g gVar;
+        com.baidu.adp.a.g gVar2;
+        super.a((i) eVar);
+        gVar = this.a.mLoadDataCallBack;
+        if (gVar != null) {
+            gVar2 = this.a.mLoadDataCallBack;
+            gVar2.a(eVar);
         }
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        if (this.b != null) {
+            this.b.a();
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public com.baidu.tieba.im.data.e a(String... strArr) {
+        int i;
+        com.baidu.tieba.im.data.e eVar = null;
+        if (this.b == null) {
+            this.b = new com.baidu.tieba.a.e();
+        }
+        String str = strArr.length > 0 ? strArr[0] : null;
+        String b = this.b.b(str);
+        this.a.mErrorString = this.b.g();
+        this.a.mErrorCode = this.b.e();
+        i = this.a.mErrorCode;
+        if (i == 0) {
+            eVar = new com.baidu.tieba.im.data.e();
+            eVar.a(b);
+            eVar.a((str == null || str.equals("")) ? false : true);
+        }
+        return eVar;
     }
 }

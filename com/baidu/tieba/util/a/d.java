@@ -3,9 +3,9 @@ package com.baidu.tieba.util.a;
 import com.baidu.tbadk.imageManager.g;
 import com.baidu.tieba.data.h;
 import com.baidu.tieba.util.DatabaseService;
-import com.baidu.tieba.util.am;
-import com.baidu.tieba.util.bc;
+import com.baidu.tieba.util.an;
 import com.baidu.tieba.util.bd;
+import com.baidu.tieba.util.be;
 import com.baidu.tieba.util.i;
 import com.baidu.tieba.util.l;
 import com.baidu.tieba.util.m;
@@ -14,7 +14,7 @@ public class d extends a {
     @Override // com.baidu.tieba.util.a.a
     public Object a(String str, i iVar) {
         com.baidu.adp.widget.ImageView.e b = com.baidu.tbadk.imageManager.d.a().b(str);
-        if (bc.a().b()) {
+        if (bd.a().b()) {
         }
         if (b == null || b.c()) {
         }
@@ -23,19 +23,19 @@ public class d extends a {
 
     @Override // com.baidu.tieba.util.a.a
     public Object a(String str, com.baidu.adp.lib.e.e eVar, i iVar, l lVar) {
-        e a2;
+        e a;
         if (lVar.g) {
             g d = com.baidu.tbadk.imageManager.d.d(str);
             int i = lVar.d;
-            String a3 = iVar.a(d.f985a);
-            synchronized (m.f2609a) {
+            String a2 = iVar.a(d.a);
+            synchronized (m.a) {
                 if (i == 1) {
-                    a2 = DatabaseService.b(a3, d.b);
+                    a = DatabaseService.b(a2, d.b);
                 } else {
-                    a2 = i == 2 ? DatabaseService.a(a3, d.b) : null;
+                    a = i == 2 ? DatabaseService.a(a2, d.b) : null;
                 }
-                if (a2 != null) {
-                    lVar.e = a2.f2573a;
+                if (a != null) {
+                    lVar.e = a.a;
                 }
                 if (eVar.isCancelled()) {
                     return null;
@@ -43,19 +43,19 @@ public class d extends a {
                 if (lVar.e == null) {
                     return null;
                 }
-                if (a2.b == 0) {
-                    String str2 = d.f985a;
+                if (a.b == 0) {
+                    String str2 = d.a;
                 } else {
-                    String str3 = d.f985a + com.baidu.tbadk.imageManager.d.f982a + a2.b;
+                    String str3 = d.a + com.baidu.tbadk.imageManager.d.a + a.b;
                 }
                 lVar.i = new com.baidu.adp.widget.ImageView.e(lVar.e, false, str);
-                lVar.i.b = a2.b;
-                a(d.f985a, lVar.i);
+                lVar.i.b = a.b;
+                a(d.a, lVar.i);
                 if (eVar.isCancelled()) {
                     return null;
                 }
                 if (lVar.i != null) {
-                    if (bc.a().b()) {
+                    if (bd.a().b()) {
                     }
                     if (lVar.i.c()) {
                     }
@@ -73,12 +73,12 @@ public class d extends a {
         int i = lVar.d;
         String str2 = null;
         if (i == 2) {
-            str2 = h.d() + d.f985a;
+            str2 = h.d() + d.a;
         } else if (i == 1) {
-            str2 = h.l() + d.f985a;
+            str2 = h.n() + d.a;
         }
-        lVar.f2608a = new am(iVar.f2605a, str2);
-        lVar.f2608a.a(iVar.d(), 3);
+        lVar.a = new an(iVar.a, str2);
+        lVar.a.a(iVar.d(), 3);
         if (iVar.h != null) {
             int i2 = 0;
             while (true) {
@@ -86,16 +86,16 @@ public class d extends a {
                 if (i3 >= iVar.h.size()) {
                     break;
                 }
-                lVar.f2608a.a(iVar.h.get(i3));
+                lVar.a.a(iVar.h.get(i3));
                 i2 = i3 + 1;
             }
         }
-        byte[] k = lVar.f2608a.k();
-        if (k == null || !lVar.f2608a.c() || lVar.j) {
+        byte[] k = lVar.a.k();
+        if (k == null || !lVar.a.c() || lVar.j) {
             return null;
         }
-        String a2 = iVar.a(d.f985a);
-        synchronized (m.f2609a) {
+        String a = iVar.a(d.a);
+        synchronized (m.a) {
             if (lVar.j) {
                 return null;
             }
@@ -109,10 +109,10 @@ public class d extends a {
             }
             int i4 = 80;
             if (i == 1) {
-                i4 = h.m();
+                i4 = h.o();
             }
             if (lVar.e.getWidth() > i4 || lVar.e.getHeight() > i4) {
-                bd.a(1, getClass().getName(), "doInBackground", "photo_too_big:" + String.valueOf(lVar.e.getWidth() + "*" + String.valueOf(lVar.e.getHeight())));
+                be.a(1, getClass().getName(), "doInBackground", "photo_too_big:" + String.valueOf(lVar.e.getWidth() + "*" + String.valueOf(lVar.e.getHeight())));
                 com.baidu.tbadk.imageManager.d.a().c(m.a(lVar.e) * 2);
                 lVar.e = m.a(lVar.e, i4);
             }
@@ -126,7 +126,7 @@ public class d extends a {
             }
             lVar.i = new com.baidu.adp.widget.ImageView.e(lVar.e, false, str);
             lVar.i.b = d.b;
-            a(d.f985a, lVar.i);
+            a(d.a, lVar.i);
             if (lVar.j) {
                 return null;
             }
@@ -135,10 +135,10 @@ public class d extends a {
                 return null;
             }
             if (i == 1) {
-                DatabaseService.b(a2, lVar.e, d.b);
+                DatabaseService.b(a, lVar.e, d.b);
             } else {
                 if (i == 2) {
-                    DatabaseService.a(a2, lVar.e, d.b);
+                    DatabaseService.a(a, lVar.e, d.b);
                 }
                 return lVar.i;
             }

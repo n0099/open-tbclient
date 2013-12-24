@@ -1,33 +1,26 @@
 package com.baidu.tieba.account;
-
-import android.view.View;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class w implements View.OnClickListener {
+public class w extends Thread {
+    private String a;
+    private String b;
+    private String c;
 
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ LoginActivity f1106a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public w(LoginActivity loginActivity) {
-        this.f1106a = loginActivity;
+    public w(String str, String str2, String str3) {
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        this.a = str;
+        this.b = str2;
+        this.c = str3;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        EditText editText;
-        EditText editText2;
-        this.f1106a.o();
-        LoginActivity loginActivity = this.f1106a;
-        InputMethodManager inputMethodManager = this.f1106a.b;
-        editText = this.f1106a.o;
-        loginActivity.HidenSoftKeyPad(inputMethodManager, editText);
-        LoginActivity loginActivity2 = this.f1106a;
-        InputMethodManager inputMethodManager2 = this.f1106a.b;
-        editText2 = this.f1106a.p;
-        loginActivity2.HidenSoftKeyPad(inputMethodManager2, editText2);
-        Register2Activity.a(this.f1106a, 12007);
+    @Override // java.lang.Thread, java.lang.Runnable
+    public void run() {
+        super.run();
+        com.baidu.tieba.util.an anVar = new com.baidu.tieba.util.an(com.baidu.tieba.data.h.a + "c/s/pv");
+        anVar.a("obj", this.a);
+        anVar.a("obj_tp", this.b);
+        anVar.a("group_id", this.c);
+        anVar.l();
     }
 }

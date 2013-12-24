@@ -14,8 +14,8 @@ public class a extends c<byte[]> {
 
     @Override // com.baidu.adp.lib.cache.c
     public String a(String str) {
-        this.f428a.a(this.f428a.a(), "CREATE TABLE IF NOT EXISTS " + this.g + "(m_key VARCHAR(64) PRIMARY KEY, m_ns varchar(128), saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value blob)");
-        this.f428a.a(this.f428a.a(), "CREATE INDEX if not exists idx_mi_ns ON " + this.g + "(m_ns)");
+        this.a.a(this.a.a(), "CREATE TABLE IF NOT EXISTS " + this.g + "(m_key VARCHAR(64) PRIMARY KEY, m_ns varchar(128), saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value blob)");
+        this.a.a(this.a.a(), "CREATE INDEX if not exists idx_mi_ns ON " + this.g + "(m_ns)");
         return this.g;
     }
 
@@ -43,7 +43,7 @@ public class a extends c<byte[]> {
         try {
             if (cursor.moveToNext()) {
                 mVar = new m<>();
-                mVar.f433a = cursor.getString(0);
+                mVar.a = cursor.getString(0);
                 mVar.c = cursor.getString(1);
                 mVar.d = cursor.getLong(2);
                 mVar.e = cursor.getLong(3);
@@ -64,7 +64,7 @@ public class a extends c<byte[]> {
     @Override // com.baidu.adp.lib.cache.c
     protected ContentValues a(m<byte[]> mVar) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put("m_key", mVar.f433a);
+        contentValues.put("m_key", mVar.a);
         contentValues.put("m_ns", mVar.c);
         contentValues.put("m_value", mVar.b);
         contentValues.put("saveTime", Long.valueOf(mVar.d));
@@ -81,10 +81,10 @@ public class a extends c<byte[]> {
     @Override // com.baidu.adp.lib.cache.c
     protected boolean b(String str) {
         try {
-            this.f428a.a().delete(this.b, "m_ns = ?", new String[]{str});
+            this.a.a().delete(this.b, "m_ns = ?", new String[]{str});
             return true;
         } catch (Throwable th) {
-            this.f428a.a(th);
+            this.a.a(th);
             com.baidu.adp.lib.h.e.a(getClass(), "failed to clear from " + str, th);
             return false;
         }

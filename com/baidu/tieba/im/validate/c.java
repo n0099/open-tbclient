@@ -2,13 +2,11 @@ package com.baidu.tieba.im.validate;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements com.baidu.tieba.im.a<Integer> {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ValidateActivity f1897a;
+    final /* synthetic */ ValidateActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(ValidateActivity validateActivity) {
-        this.f1897a = validateActivity;
+        this.a = validateActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -18,13 +16,13 @@ public class c implements com.baidu.tieba.im.a<Integer> {
         int i2;
         int i3;
         com.baidu.tieba.im.a aVar;
-        this.f1897a.j = num.intValue();
-        i = this.f1897a.j;
+        this.a.j = num.intValue();
+        i = this.a.j;
         if (i > 0) {
-            this.f1897a.m = true;
-            i2 = this.f1897a.k;
-            i3 = this.f1897a.l;
-            aVar = this.f1897a.c;
+            this.a.m = true;
+            i2 = this.a.k;
+            i3 = this.a.l;
+            aVar = this.a.c;
             l.a(i2, i3, aVar);
         }
     }

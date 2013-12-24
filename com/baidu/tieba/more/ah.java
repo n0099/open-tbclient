@@ -4,14 +4,12 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.ba;
+import com.baidu.tieba.util.bb;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class ah extends com.baidu.adp.a.e {
-
-    /* renamed from: a  reason: collision with root package name */
-    private com.baidu.tieba.j f2070a;
+    private com.baidu.tieba.j a;
     private ac c;
     private com.baidu.tieba.util.i d;
     private NavigationBar e;
@@ -19,18 +17,19 @@ public class ah extends com.baidu.adp.a.e {
     private SettingTextTipView g;
     private SettingTextTipView h;
     private SettingTextTipView i;
-    private SettingTextVersionView j;
-    private SettingTextTipView k;
+    private SettingTextTipView j;
+    private SettingTextVersionView k;
     private SettingTextTipView l;
     private SettingTextTipView m;
-    private RelativeLayout n;
-    private ImageView o;
+    private SettingTextTipView n;
+    private RelativeLayout o;
+    private ImageView p;
 
     public ah(com.baidu.tieba.j jVar, ac acVar) {
         super(jVar);
-        this.f2070a = jVar;
+        this.a = jVar;
         this.c = acVar;
-        this.f2070a.setContentView(R.layout.more_activity);
+        this.a.setContentView(R.layout.more_activity);
         k();
     }
 
@@ -68,7 +67,7 @@ public class ah extends com.baidu.adp.a.e {
             return;
         }
         if (this.d == null) {
-            this.d = new com.baidu.tieba.util.i(this.f2070a);
+            this.d = new com.baidu.tieba.util.i(this.a);
         }
         this.f.b();
         h();
@@ -102,8 +101,8 @@ public class ah extends com.baidu.adp.a.e {
     }
 
     public void i() {
-        if (this.j != null) {
-            this.j.a();
+        if (this.k != null) {
+            this.k.a();
         }
     }
 
@@ -115,6 +114,7 @@ public class ah extends com.baidu.adp.a.e {
         this.j.c();
         this.k.c();
         this.l.c();
+        this.m.c();
     }
 
     public void a(int i) {
@@ -130,34 +130,36 @@ public class ah extends com.baidu.adp.a.e {
         this.j.a(i);
         this.k.a(i);
         this.l.a(i);
+        this.m.a(i);
         if (i == 1) {
-            this.n.setBackgroundColor(this.f2070a.getResources().getColor(R.color.bg_page_setting_1));
+            this.o.setBackgroundColor(this.a.getResources().getColor(R.color.bg_page_setting_1));
             m();
             return;
         }
-        this.n.setBackgroundColor(this.f2070a.getResources().getColor(R.color.bg_page_setting));
+        this.o.setBackgroundColor(this.a.getResources().getColor(R.color.bg_page_setting));
         l();
     }
 
     private void k() {
         View.OnClickListener n = n();
-        this.n = (RelativeLayout) this.f2070a.findViewById(R.id.parent);
-        this.e = (NavigationBar) this.f2070a.findViewById(R.id.view_navigation_bar);
-        this.e.a(this.f2070a.getString(R.string.setup));
-        this.o = this.e.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f = (SettingTextImageView) this.f2070a.findViewById(R.id.personInfo);
-        this.g = (SettingTextTipView) this.f2070a.findViewById(R.id.accountManager);
-        this.h = (SettingTextTipView) this.f2070a.findViewById(R.id.browseSetting);
-        this.i = (SettingTextTipView) this.f2070a.findViewById(R.id.messageSetting);
-        this.j = (SettingTextVersionView) this.f2070a.findViewById(R.id.versionInfo);
-        this.k = (SettingTextTipView) this.f2070a.findViewById(R.id.feedBack);
-        this.l = (SettingTextTipView) this.f2070a.findViewById(R.id.recommend);
+        this.o = (RelativeLayout) this.a.findViewById(R.id.parent);
+        this.e = (NavigationBar) this.a.findViewById(R.id.view_navigation_bar);
+        this.e.a(this.a.getString(R.string.setup));
+        this.p = this.e.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.f = (SettingTextImageView) this.a.findViewById(R.id.personInfo);
+        this.g = (SettingTextTipView) this.a.findViewById(R.id.accountManager);
+        this.h = (SettingTextTipView) this.a.findViewById(R.id.browseSetting);
+        this.i = (SettingTextTipView) this.a.findViewById(R.id.messageSetting);
+        this.j = (SettingTextTipView) this.a.findViewById(R.id.secretSetting);
+        this.k = (SettingTextVersionView) this.a.findViewById(R.id.versionInfo);
+        this.l = (SettingTextTipView) this.a.findViewById(R.id.feedBack);
+        this.m = (SettingTextTipView) this.a.findViewById(R.id.recommend);
         if (!TiebaApplication.h().y()) {
-            this.l.setVisibility(8);
+            this.m.setVisibility(8);
         } else {
-            this.l.setVisibility(0);
+            this.m.setVisibility(0);
         }
-        this.m = (SettingTextTipView) this.f2070a.findViewById(R.id.systemhelpsetting);
+        this.n = (SettingTextTipView) this.a.findViewById(R.id.systemhelpsetting);
         i();
         g();
         this.f.a();
@@ -166,48 +168,50 @@ public class ah extends com.baidu.adp.a.e {
     }
 
     private void l() {
-        ba.e(this.f, (int) R.drawable.more_up);
+        bb.e(this.f, (int) R.drawable.more_up);
         if (this.f.getVisibility() == 0) {
-            ba.e(this.g, (int) R.drawable.more_down);
+            bb.e(this.g, (int) R.drawable.more_down);
         } else {
-            ba.e(this.g, (int) R.drawable.more_all);
+            bb.e(this.g, (int) R.drawable.more_all);
         }
-        ba.e(this.h, (int) R.drawable.more_all);
-        ba.e(this.i, (int) R.drawable.more_all);
-        ba.e(this.j, (int) R.drawable.more_up);
-        if (this.l.getVisibility() == 0) {
-            ba.e(this.k, (int) R.drawable.more_middle);
+        bb.e(this.h, (int) R.drawable.more_all);
+        bb.e(this.i, (int) R.drawable.more_all);
+        bb.e(this.j, (int) R.drawable.more_all);
+        bb.e(this.k, (int) R.drawable.more_up);
+        if (this.m.getVisibility() == 0) {
+            bb.e(this.l, (int) R.drawable.more_middle);
         } else {
-            ba.e(this.k, (int) R.drawable.more_down);
+            bb.e(this.l, (int) R.drawable.more_down);
         }
-        ba.e(this.l, (int) R.drawable.more_down);
-        this.m.a(0);
-        ba.e(this.m, (int) R.drawable.more_all);
+        bb.e(this.m, (int) R.drawable.more_down);
+        this.n.a(0);
+        bb.e(this.n, (int) R.drawable.more_all);
     }
 
     private void m() {
-        ba.e(this.f, (int) R.drawable.more_up_1);
+        bb.e(this.f, (int) R.drawable.more_up_1);
         if (this.f.getVisibility() == 0) {
-            ba.e(this.g, (int) R.drawable.more_down_1);
+            bb.e(this.g, (int) R.drawable.more_down_1);
         } else {
-            ba.e(this.g, (int) R.drawable.more_all_1);
+            bb.e(this.g, (int) R.drawable.more_all_1);
         }
-        ba.e(this.h, (int) R.drawable.more_all_1);
-        ba.e(this.i, (int) R.drawable.more_all_1);
-        ba.e(this.j, (int) R.drawable.more_up_1);
-        if (this.l.getVisibility() == 0) {
-            ba.e(this.k, (int) R.drawable.more_middle_1);
+        bb.e(this.h, (int) R.drawable.more_all_1);
+        bb.e(this.i, (int) R.drawable.more_all_1);
+        bb.e(this.j, (int) R.drawable.more_all_1);
+        bb.e(this.k, (int) R.drawable.more_up_1);
+        if (this.m.getVisibility() == 0) {
+            bb.e(this.l, (int) R.drawable.more_middle_1);
         } else {
-            ba.e(this.k, (int) R.drawable.more_down_1);
+            bb.e(this.l, (int) R.drawable.more_down_1);
         }
-        ba.e(this.l, (int) R.drawable.more_down_1);
-        this.m.a(1);
-        ba.e(this.m, (int) R.drawable.more_all_1);
+        bb.e(this.m, (int) R.drawable.more_down_1);
+        this.n.a(1);
+        bb.e(this.n, (int) R.drawable.more_all_1);
         i();
     }
 
     private void a(View.OnClickListener onClickListener) {
-        this.o.setOnClickListener(onClickListener);
+        this.p.setOnClickListener(onClickListener);
         this.f.setOnClickListener(onClickListener);
         this.g.setOnClickListener(onClickListener);
         this.h.setOnClickListener(onClickListener);
@@ -216,6 +220,7 @@ public class ah extends com.baidu.adp.a.e {
         this.k.setOnClickListener(onClickListener);
         this.l.setOnClickListener(onClickListener);
         this.m.setOnClickListener(onClickListener);
+        this.n.setOnClickListener(onClickListener);
     }
 
     private View.OnClickListener n() {

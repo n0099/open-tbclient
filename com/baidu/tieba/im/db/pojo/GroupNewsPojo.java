@@ -5,7 +5,7 @@ import com.baidu.adp.lib.h.e;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.im.groupUpdates.UpdatesItemData;
 import com.baidu.tieba.im.groupUpdates.m;
-import com.baidu.tieba.im.message.ChatMessage;
+import com.baidu.tieba.im.message.b;
 import com.baidu.tieba.im.validate.ValidateItemData;
 import com.baidu.tieba.im.validate.l;
 import java.io.Serializable;
@@ -23,15 +23,15 @@ public class GroupNewsPojo implements Serializable {
     String ext;
     String gid;
     String notice_id;
-    private GroupMsgPojo originalChatMsgPojo;
-    private ChatMessage originalPushMsg;
+    private CommonMsgPojo originalChatMsgPojo;
+    private b originalPushMsg;
     long time;
 
     public GroupNewsPojo() {
     }
 
-    public GroupNewsPojo(ChatMessage chatMessage, String str) {
-        if (chatMessage != null && !TextUtils.isEmpty(str)) {
+    public GroupNewsPojo(b bVar, String str) {
+        if (bVar != null && !TextUtils.isEmpty(str)) {
             String str2 = "000";
             setContent_status(1);
             if (str.equals("001")) {
@@ -56,11 +56,13 @@ public class GroupNewsPojo implements Serializable {
                 str2 = "hide_group_warn";
             } else if (str.equals("122")) {
                 str2 = "hide_group";
+            } else if (str.equals("109")) {
+                str2 = "group_event_info";
             }
             setCmd(str2);
-            setContent(chatMessage.getContent());
-            setTime(chatMessage.getTime() * 1000);
-            setNotice_id(String.valueOf(chatMessage.getMsgId()));
+            setContent(bVar.j());
+            setTime(bVar.o() * 1000);
+            setNotice_id(String.valueOf(bVar.k()));
             a();
             String content = getContent();
             if (!TextUtils.isEmpty(content)) {
@@ -83,11 +85,11 @@ public class GroupNewsPojo implements Serializable {
         e.d("begin");
         if (!TextUtils.isEmpty(getCmd())) {
             if (getCmd().equals("group_intro_change") || getCmd().equals("group_name_change") || getCmd().equals("group_notice_change")) {
-                UpdatesItemData a2 = m.a(this);
-                if (a2 != null) {
+                UpdatesItemData a = m.a(this);
+                if (a != null) {
                     String B = TiebaApplication.B();
                     if (!TextUtils.isEmpty(B)) {
-                        String authorId = a2.getAuthorId();
+                        String authorId = a.getAuthorId();
                         if (!TextUtils.isEmpty(authorId)) {
                             e.d("curUid:" + B + " uid:" + authorId);
                             if (B.equals(authorId)) {
@@ -194,19 +196,19 @@ public class GroupNewsPojo implements Serializable {
         return "GroupNewsPojo [notice_id=" + this.notice_id + ", cmd=" + this.cmd + ", gid=" + this.gid + ", time=" + this.time + ", content=" + this.content + ", content_status=" + this.content_status + ", ext=" + this.ext + "]";
     }
 
-    public ChatMessage getOriginalPushMsg() {
+    public b getOriginalPushMsg() {
         return this.originalPushMsg;
     }
 
-    public void setOriginalPushMsg(ChatMessage chatMessage) {
-        this.originalPushMsg = chatMessage;
+    public void setOriginalPushMsg(b bVar) {
+        this.originalPushMsg = bVar;
     }
 
-    public GroupMsgPojo getOriginalChatMsgPojo() {
+    public CommonMsgPojo getOriginalChatMsgPojo() {
         return this.originalChatMsgPojo;
     }
 
-    public void setOriginalChatMsgPojo(GroupMsgPojo groupMsgPojo) {
-        this.originalChatMsgPojo = groupMsgPojo;
+    public void setOriginalChatMsgPojo(CommonMsgPojo commonMsgPojo) {
+        this.originalChatMsgPojo = commonMsgPojo;
     }
 }

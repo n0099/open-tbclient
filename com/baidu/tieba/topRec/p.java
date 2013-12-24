@@ -3,16 +3,14 @@ package com.baidu.tieba.topRec;
 import android.app.Activity;
 import android.view.View;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.bd;
+import com.baidu.tieba.util.be;
 /* loaded from: classes.dex */
 public class p {
-
-    /* renamed from: a  reason: collision with root package name */
-    Activity f2557a;
+    Activity a;
     int b = 0;
 
     public p(Activity activity) {
-        this.f2557a = activity;
+        this.a = activity;
     }
 
     public static boolean a() {
@@ -29,8 +27,8 @@ public class p {
             gVar.a(view).a(150).b(true);
             q qVar = new q(this);
             gVar.a(qVar).a(new r(this));
-            gVar.a().a(this.f2557a);
-            bd.e("TOPRECTipCover", "show", "done");
+            gVar.a().a(this.a);
+            be.e("TOPRECTipCover", "show", "done");
             b();
         }
     }

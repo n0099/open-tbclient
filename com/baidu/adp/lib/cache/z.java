@@ -6,23 +6,21 @@ import android.database.Cursor;
 import android.util.Log;
 /* loaded from: classes.dex */
 public class z {
-
-    /* renamed from: a  reason: collision with root package name */
-    private final com.baidu.adp.a.h f440a;
+    private final com.baidu.adp.a.h a;
 
     public z(Context context, com.baidu.adp.a.h hVar) {
-        this.f440a = hVar;
+        this.a = hVar;
     }
 
     public n a(String str) {
         Cursor cursor;
         try {
-            cursor = this.f440a.a().rawQuery("SELECT nameSpace, tableName, maxSize, cacheType, cacheVersion, lastActiveTime FROM cache_meta_info where nameSpace = ?", new String[]{str});
+            cursor = this.a.a().rawQuery("SELECT nameSpace, tableName, maxSize, cacheType, cacheVersion, lastActiveTime FROM cache_meta_info where nameSpace = ?", new String[]{str});
             try {
             } catch (Throwable th) {
                 th = th;
                 try {
-                    this.f440a.a(th);
+                    this.a.a(th);
                     com.baidu.adp.lib.h.e.b("BdNameSpaceDBManager", str, th.getMessage());
                     com.baidu.adp.lib.f.a.a(cursor);
                     return null;
@@ -36,7 +34,7 @@ public class z {
         }
         if (cursor.moveToNext()) {
             n nVar = new n();
-            nVar.f434a = cursor.getString(0);
+            nVar.a = cursor.getString(0);
             nVar.b = cursor.getString(1);
             nVar.c = cursor.getInt(2);
             nVar.d = cursor.getString(3);
@@ -50,18 +48,18 @@ public class z {
     public void a(n nVar) {
         try {
             ContentValues contentValues = new ContentValues();
-            contentValues.put("nameSpace", nVar.f434a);
+            contentValues.put("nameSpace", nVar.a);
             contentValues.put("tableName", nVar.b);
             contentValues.put("maxSize", Integer.valueOf(nVar.c));
             contentValues.put("cacheVersion", Integer.valueOf(nVar.e));
             contentValues.put("cacheType", nVar.d);
             contentValues.put("lastActiveTime", Long.valueOf(nVar.f));
-            if (this.f440a.a().update("cache_meta_info", contentValues, "nameSpace = ?", new String[]{nVar.f434a}) == 0) {
-                this.f440a.a().insert("cache_meta_info", null, contentValues);
+            if (this.a.a().update("cache_meta_info", contentValues, "nameSpace = ?", new String[]{nVar.a}) == 0) {
+                this.a.a().insert("cache_meta_info", null, contentValues);
             }
         } catch (Throwable th) {
-            this.f440a.a(th);
-            com.baidu.adp.lib.h.e.a("BdNameSpaceDBManager", "failed to insert " + nVar.f434a + " to db.", th);
+            this.a.a(th);
+            com.baidu.adp.lib.h.e.a("BdNameSpaceDBManager", "failed to insert " + nVar.a + " to db.", th);
         }
     }
 
@@ -70,9 +68,9 @@ public class z {
             if (a(str) == null) {
                 return 0;
             }
-            return this.f440a.a().delete("cache_meta_info", "nameSpace = ?", new String[]{str});
+            return this.a.a().delete("cache_meta_info", "nameSpace = ?", new String[]{str});
         } catch (Throwable th) {
-            this.f440a.a(th);
+            this.a.a(th);
             Log.e("BdNameSpaceDBManager", "failed to delete " + str + " from db.", th);
             return 0;
         }

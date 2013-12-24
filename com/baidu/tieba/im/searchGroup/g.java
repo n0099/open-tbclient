@@ -8,17 +8,15 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.im.data.BaseGroupData;
-import com.baidu.tieba.im.message.ResponseSearchGroupMessage;
-import com.baidu.tieba.util.ba;
+import com.baidu.tieba.im.message.bv;
+import com.baidu.tieba.util.bb;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class g {
-
-    /* renamed from: a  reason: collision with root package name */
-    public BdListView f1879a;
+    public BdListView a;
     private SearchGroupActivity b;
     private View c;
     private NavigationBar d = null;
@@ -51,11 +49,11 @@ public class g {
         this.f = (Button) this.b.findViewById(R.id.home_bt_search_del);
         this.f.setOnClickListener(new i(this));
         this.e.addTextChangedListener(new j(this));
-        this.f1879a = (BdListView) this.b.findViewById(R.id.home_lv_search);
-        this.f1879a.a(new k(this), 300L);
+        this.a = (BdListView) this.b.findViewById(R.id.home_lv_search);
+        this.a.a(new k(this), 300L);
         this.j = new e(this.b);
-        this.f1879a.setOnItemClickListener(this.b);
-        this.f1879a.setAdapter((ListAdapter) this.j);
+        this.a.setOnItemClickListener(this.b);
+        this.a.setAdapter((ListAdapter) this.j);
         this.i = (ProgressBar) this.b.findViewById(R.id.home_progress_search);
         this.i.setVisibility(8);
         this.e.setText("");
@@ -75,7 +73,7 @@ public class g {
     public void a(int i) {
         this.b.getLayoutMode().a(false);
         this.b.getLayoutMode().a(this.c);
-        ba.a(this.c, 0);
+        bb.a(this.c, 0);
         this.d.c(0);
         this.h.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.pic_search_fruitless, 0, 0);
     }
@@ -92,10 +90,10 @@ public class g {
         }
     }
 
-    public void a(ResponseSearchGroupMessage responseSearchGroupMessage) {
+    public void a(bv bvVar) {
         List<BaseGroupData> linkedList = new LinkedList<>();
-        if (responseSearchGroupMessage != null && responseSearchGroupMessage.getSearchResult() != null) {
-            linkedList = responseSearchGroupMessage.getSearchResult();
+        if (bvVar != null && bvVar.a() != null) {
+            linkedList = bvVar.a();
         }
         this.j.a(linkedList);
     }

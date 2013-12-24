@@ -50,9 +50,7 @@ public class PersonChangeActivity extends com.baidu.tieba.j {
     private InputMethodManager w = null;
     private boolean x = false;
     private com.baidu.tieba.model.bw y = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    protected FrameLayout f2295a = null;
+    protected FrameLayout a = null;
     private com.baidu.adp.widget.ImageView.e z = null;
     private ax A = null;
     private ay B = null;
@@ -158,21 +156,21 @@ public class PersonChangeActivity extends com.baidu.tieba.j {
     @Override // com.baidu.tieba.j
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        com.baidu.tieba.util.ba.a(this.h, i);
+        com.baidu.tieba.util.bb.a(this.h, i);
         this.e.c(i);
-        this.d.d();
+        this.d.e();
         if (i == 1) {
-            this.i.setTextColor(com.baidu.tieba.util.ba.a(i));
-            this.j.setTextColor(com.baidu.tieba.util.ba.a(i));
-            this.k.setTextColor(com.baidu.tieba.util.ba.a(i));
-            this.u.setTextColor(com.baidu.tieba.util.ba.a(i));
-            this.v.setTextColor(com.baidu.tieba.util.ba.a(i));
-            this.r.setTextColor(com.baidu.tieba.util.ba.a(i));
-            this.q.setTextColor(com.baidu.tieba.util.ba.a(i));
+            this.i.setTextColor(com.baidu.tieba.util.bb.a(i));
+            this.j.setTextColor(com.baidu.tieba.util.bb.a(i));
+            this.k.setTextColor(com.baidu.tieba.util.bb.a(i));
+            this.u.setTextColor(com.baidu.tieba.util.bb.a(i));
+            this.v.setTextColor(com.baidu.tieba.util.bb.a(i));
+            this.r.setTextColor(com.baidu.tieba.util.bb.a(i));
+            this.q.setTextColor(com.baidu.tieba.util.bb.a(i));
             this.l.setImageResource(R.drawable.list_divider_1);
             this.m.setImageResource(R.drawable.list_divider_1);
             this.n.setImageResource(R.drawable.list_divider_1);
-            this.f2295a.setForeground(getResources().getDrawable(R.drawable.pic_bj_touxiang_n_1));
+            this.a.setForeground(getResources().getDrawable(R.drawable.pic_bj_touxiang_n_1));
             return;
         }
         this.i.setTextColor(-14277082);
@@ -185,7 +183,7 @@ public class PersonChangeActivity extends com.baidu.tieba.j {
         this.l.setImageResource(R.drawable.list_divider);
         this.m.setImageResource(R.drawable.list_divider);
         this.n.setImageResource(R.drawable.list_divider);
-        this.f2295a.setForeground(getResources().getDrawable(R.drawable.pic_bj_touxiang_n));
+        this.a.setForeground(getResources().getDrawable(R.drawable.pic_bj_touxiang_n));
     }
 
     @Override // android.app.Activity
@@ -206,7 +204,7 @@ public class PersonChangeActivity extends com.baidu.tieba.j {
         this.p.setOnClickListener(new aq(this));
         this.d = (HeadImageView) findViewById(R.id.photo);
         d();
-        this.f2295a = (FrameLayout) findViewById(R.id.frame_photo);
+        this.a = (FrameLayout) findViewById(R.id.frame_photo);
         this.z = this.E.c(this.y.a().getPortrait());
         if (this.z != null) {
             this.z.a(this.d);
@@ -259,6 +257,7 @@ public class PersonChangeActivity extends com.baidu.tieba.j {
     @Override // com.baidu.tieba.j, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
+            a();
             this.H.onClick(null);
             return true;
         }

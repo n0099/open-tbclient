@@ -4,23 +4,30 @@ import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bh implements DialogInterface.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PersonInfoActivity f2334a;
+    final /* synthetic */ PersonInfoActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bh(PersonInfoActivity personInfoActivity) {
-        this.f2334a = personInfoActivity;
+        this.a = personInfoActivity;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
-        if (i == 0) {
-            this.f2334a.I();
-        } else if (i == 1) {
-            com.baidu.tieba.write.bd.a(this.f2334a.i());
-        } else if (i == 2) {
-            com.baidu.tieba.write.bd.c(this.f2334a.i());
+        com.baidu.tieba.model.bx bxVar;
+        com.baidu.tieba.im.model.b bVar;
+        com.baidu.tieba.im.model.b bVar2;
+        com.baidu.tieba.im.model.b bVar3;
+        bxVar = this.a.e;
+        int a = com.baidu.adp.lib.f.b.a(bxVar.b(), -1);
+        if (a > 0) {
+            bVar = this.a.f;
+            if (bVar.b() == 1) {
+                bVar3 = this.a.f;
+                bVar3.b(a);
+                return;
+            }
+            bVar2 = this.a.f;
+            bVar2.a(a);
         }
     }
 }

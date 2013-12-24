@@ -1,26 +1,21 @@
 package com.baidu.android.nebula.cmd;
 
-import android.content.Context;
-import android.content.IntentFilter;
+import java.util.TimerTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f {
+public class f extends TimerTask {
+    final /* synthetic */ GeoLocation a;
 
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ScanDownloadFile f675a;
-
-    public f(ScanDownloadFile scanDownloadFile) {
-        Context context;
-        this.f675a = scanDownloadFile;
-        IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction("android.intent.action.PACKAGE_ADDED");
-        intentFilter.addAction("android.intent.action.PACKAGE_REPLACED");
-        intentFilter.addDataScheme("package");
-        context = scanDownloadFile.mContext;
-        context.registerReceiver(new g(this, scanDownloadFile), intentFilter);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public f(GeoLocation geoLocation) {
+        this.a = geoLocation;
     }
 
-    public void a() {
-        new k(this.f675a, "http://wap.baidu.com/static/freeapp/broswer_down_path.cfg?v=1").start();
+    @Override // java.util.TimerTask, java.lang.Runnable
+    public void run() {
+        synchronized (this.a) {
+            this.a.mErrcode = 3;
+            this.a.notifyAll();
+        }
     }
 }

@@ -8,7 +8,6 @@ import android.os.Build;
 import android.os.Environment;
 import android.widget.Toast;
 import com.baidu.browser.webkit.BdValueCallback;
-import com.tencent.mm.sdk.platformtools.Util;
 import java.io.File;
 /* loaded from: classes.dex */
 public class BdUploadHandler {
@@ -145,7 +144,7 @@ public class BdUploadHandler {
         }
         File file = new File(String.valueOf(externalStorageDirectory.getAbsolutePath()) + File.separator + "browser-photos");
         file.mkdirs();
-        this.mCameraFilePath = String.valueOf(file.getAbsolutePath()) + File.separator + System.currentTimeMillis() + Util.PHOTO_DEFAULT_EXT;
+        this.mCameraFilePath = String.valueOf(file.getAbsolutePath()) + File.separator + System.currentTimeMillis() + ".jpg";
         intent.putExtra("output", Uri.fromFile(new File(this.mCameraFilePath)));
         return intent;
     }

@@ -1,16 +1,14 @@
 package com.baidu.tieba.barcode.b;
 
 import android.os.Build;
-import com.baidu.tieba.util.bd;
+import com.baidu.tieba.util.be;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collections;
 import java.util.SortedMap;
 import java.util.TreeMap;
 /* loaded from: classes.dex */
 public abstract class a<T> {
-
-    /* renamed from: a  reason: collision with root package name */
-    private final Class<T> f1142a;
+    private final Class<T> a;
     private final T b;
     private final SortedMap<Integer, String> c;
 
@@ -22,7 +20,7 @@ public abstract class a<T> {
         if (!cls.isInstance(t)) {
             throw new IllegalArgumentException();
         }
-        this.f1142a = cls;
+        this.a = cls;
         this.b = t;
         this.c = new TreeMap(Collections.reverseOrder());
     }
@@ -32,23 +30,23 @@ public abstract class a<T> {
         for (Integer num : this.c.keySet()) {
             if (Build.VERSION.SDK_INT >= num.intValue()) {
                 try {
-                    Class<? extends U> asSubclass = Class.forName(this.c.get(num)).asSubclass((Class<T>) this.f1142a);
-                    bd.a(getClass().getName(), "build", "Using implementation " + asSubclass + " of " + this.f1142a + " for SDK " + num);
+                    Class<? extends U> asSubclass = Class.forName(this.c.get(num)).asSubclass((Class<T>) this.a);
+                    be.a(getClass().getName(), "build", "Using implementation " + asSubclass + " of " + this.a + " for SDK " + num);
                     return (T) asSubclass.getConstructor(new Class[0]).newInstance(new Object[0]);
                 } catch (ClassNotFoundException e) {
-                    bd.c(getClass().getName(), "build", e.toString());
+                    be.c(getClass().getName(), "build", e.toString());
                 } catch (IllegalAccessException e2) {
-                    bd.c(getClass().getName(), "build", e2.toString());
+                    be.c(getClass().getName(), "build", e2.toString());
                 } catch (InstantiationException e3) {
-                    bd.c(getClass().getName(), "build", e3.toString());
+                    be.c(getClass().getName(), "build", e3.toString());
                 } catch (NoSuchMethodException e4) {
-                    bd.c(getClass().getName(), "build", e4.toString());
+                    be.c(getClass().getName(), "build", e4.toString());
                 } catch (InvocationTargetException e5) {
-                    bd.c(getClass().getName(), "build", e5.toString());
+                    be.c(getClass().getName(), "build", e5.toString());
                 }
             }
         }
-        bd.a(getClass().getName(), "build", "Using default implementation " + this.b.getClass() + " of " + this.f1142a);
+        be.a(getClass().getName(), "build", "Using default implementation " + this.b.getClass() + " of " + this.a);
         return this.b;
     }
 }

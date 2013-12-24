@@ -7,9 +7,7 @@ import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r {
-
-    /* renamed from: a  reason: collision with root package name */
-    View f2422a;
+    View a;
     TextView b;
     LinearLayout c;
     RelativeLayout d;

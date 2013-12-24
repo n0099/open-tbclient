@@ -19,16 +19,14 @@ import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.ForumInfoData;
 import com.baidu.tieba.forumdetail.ForumDetailActivity;
 import com.baidu.tieba.model.ax;
-import com.baidu.tieba.util.ba;
+import com.baidu.tieba.util.al;
+import com.baidu.tieba.util.bb;
 import com.baidu.tieba.view.NavigationBar;
-import com.baidu.tieba.view.bk;
+import com.baidu.tieba.view.bq;
 import com.slidingmenu.lib.R;
-import com.tencent.mm.sdk.platformtools.LocaleUtil;
 /* loaded from: classes.dex */
 public class ForumRankActivity extends com.baidu.tieba.j {
-
-    /* renamed from: a  reason: collision with root package name */
-    private BdListView f1286a = null;
+    private BdListView a = null;
     private ai b = null;
     private s c = null;
     private NavigationBar d = null;
@@ -36,21 +34,21 @@ public class ForumRankActivity extends com.baidu.tieba.j {
     private com.baidu.tieba.util.i f = null;
     private ax g = null;
     private LinearLayout h = null;
-    private bk i = null;
+    private bq i = null;
     private FrameLayout j = null;
     private TextView k = null;
     private Handler l = null;
     private String m = null;
     private boolean n = false;
     private com.baidu.adp.a.g o = new ae(this);
-    private com.baidu.tieba.util.ak p = new af(this);
+    private al p = new af(this);
     private AbsListView.OnScrollListener q = new ag(this);
     private Runnable r = new ah(this);
 
     public static void a(Context context, String str, String str2) {
         if (context != null && str != null) {
             Intent intent = new Intent(context, ForumRankActivity.class);
-            intent.putExtra(LocaleUtil.INDONESIAN, str);
+            intent.putExtra("id", str);
             intent.putExtra("st_type", str2);
             if (!(context instanceof Activity)) {
                 intent.addFlags(268435456);
@@ -77,14 +75,14 @@ public class ForumRankActivity extends com.baidu.tieba.j {
         this.f.a(b, b);
         this.d = (NavigationBar) findViewById(R.id.view_navigation_bar);
         this.d.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f1286a = (BdListView) findViewById(R.id.list);
+        this.a = (BdListView) findViewById(R.id.list);
         this.e.setLayoutParams(new AbsListView.LayoutParams(com.baidu.adp.lib.h.g.b(this), (int) (com.baidu.adp.lib.h.g.b(this) * 0.5d)));
-        this.f1286a.setOnScrollListener(this.q);
+        this.a.setOnScrollListener(this.q);
         this.e.setVisibility(8);
         this.h = (LinearLayout) getLayoutInflater().inflate(R.layout.forum_list_forum_footer, (ViewGroup) null);
         this.h.setOnClickListener(new ac(this));
-        this.i = new bk(this);
-        this.f1286a.setPullRefresh(this.i);
+        this.i = new bq(this);
+        this.a.setPullRefresh(this.i);
         this.i.a(new ad(this));
         this.j = (FrameLayout) findViewById(R.id.empty_textview_container);
         this.k = (TextView) findViewById(R.id.empty_textview);
@@ -108,7 +106,7 @@ public class ForumRankActivity extends com.baidu.tieba.j {
         this.c.a(100);
         this.c.a((Boolean) true);
         this.c.a(ForumDetailActivity.FromType.BAR_RANK);
-        this.f1286a.setAdapter((ListAdapter) this.c);
+        this.a.setAdapter((ListAdapter) this.c);
         if (this.b.LoadData()) {
             this.c.a(100);
             showProgressBar();
@@ -118,16 +116,16 @@ public class ForumRankActivity extends com.baidu.tieba.j {
     }
 
     private void b() {
-        ForumInfoData[] a2 = this.c.a();
-        for (int i = 0; i < a2.length; i++) {
-            int e = TiebaApplication.h().e(a2[i].forum_name);
+        ForumInfoData[] a = this.c.a();
+        for (int i = 0; i < a.length; i++) {
+            int e = TiebaApplication.h().e(a[i].forum_name);
             if (e == 1) {
-                a2[i].is_like = 1;
+                a[i].is_like = 1;
             } else if (e == -1) {
-                a2[i].is_like = 0;
+                a[i].is_like = 0;
             }
         }
-        this.c.a(a2);
+        this.c.a(a);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -135,7 +133,7 @@ public class ForumRankActivity extends com.baidu.tieba.j {
     public void onResume() {
         super.onResume();
         b();
-        com.baidu.tieba.util.ah.a(this.f1286a, this.f, 0, -1);
+        com.baidu.tieba.util.ai.a(this.a, this.f, 0, -1);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -158,8 +156,8 @@ public class ForumRankActivity extends com.baidu.tieba.j {
     @Override // com.baidu.tieba.j
     public void onChangeSkinType(int i) {
         this.d.c(i);
-        ba.a((ListView) this.f1286a, i);
-        ba.b(findViewById(R.id.root_view), i);
+        bb.a((ListView) this.a, i);
+        bb.b(findViewById(R.id.root_view), i);
         this.i.a(i);
         if (i == 1) {
             this.c.a(R.drawable.btn_add_end_1, R.drawable.btn_add_1);

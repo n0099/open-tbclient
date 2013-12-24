@@ -7,13 +7,11 @@ import com.baidu.tieba.frs.FrsActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements AdapterView.OnItemClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ EditBarActivity f2351a;
+    final /* synthetic */ EditBarActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(EditBarActivity editBarActivity) {
-        this.f2351a = editBarActivity;
+        this.a = editBarActivity;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -21,15 +19,15 @@ public class e implements AdapterView.OnItemClickListener {
         i iVar;
         h hVar;
         i iVar2;
-        iVar = this.f2351a.f;
+        iVar = this.a.f;
         if (iVar.getItem(i) != null) {
-            hVar = this.f2351a.k;
+            hVar = this.a.k;
             if (hVar == null) {
-                this.f2351a.i = i;
-                iVar2 = this.f2351a.f;
+                this.a.i = i;
+                iVar2 = this.a.f;
                 ForumData forumData = (ForumData) iVar2.getItem(i);
                 if (forumData != null) {
-                    FrsActivity.a(this.f2351a, forumData.getName(), "tb_mytieba");
+                    FrsActivity.a(this.a, forumData.getName(), "tb_mytieba");
                 }
             }
         }

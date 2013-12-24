@@ -3,48 +3,99 @@ package com.baidu.tieba;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.os.Handler;
-import android.os.Message;
-import com.baidu.location.LocationClientOption;
-import com.baidu.tieba.util.UtilHelper;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.slidingmenu.lib.R;
+import java.io.File;
 /* loaded from: classes.dex */
-class v extends Handler {
+class v extends BdAsyncTask<String, Integer, Boolean> {
+    final /* synthetic */ FileDownloader a;
+    private com.baidu.tieba.util.an b = null;
+    private volatile boolean c = false;
+    private String d;
+    private String e;
 
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FileDownloader f2619a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public v(FileDownloader fileDownloader) {
-        this.f2619a = fileDownloader;
+    public v(FileDownloader fileDownloader, String str, String str2) {
+        this.a = fileDownloader;
+        this.d = str;
+        this.e = str2;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public Boolean a(String... strArr) {
+        File e;
+        Handler handler;
+        Boolean bool = false;
+        while (!this.c) {
+            try {
+                this.b = new com.baidu.tieba.util.an(this.d);
+                handler = this.a.d;
+                bool = this.b.a(this.e + ".tmp", handler, 900002);
+                if (bool.booleanValue() || this.b.e() == -2) {
+                    break;
+                } else if (!this.b.o()) {
+                    try {
+                        Thread.sleep(10000L);
+                    } catch (Exception e2) {
+                    }
+                }
+            } catch (Exception e3) {
+            }
+        }
+        if (bool.booleanValue()) {
+            com.baidu.tieba.util.y.j(this.e);
+            File d = com.baidu.tieba.util.y.d(this.e + ".tmp");
+            if (d != null && (e = com.baidu.tieba.util.y.e(this.e)) != null) {
+                if (!d.renameTo(e)) {
+                }
+            }
+        }
+        return bool;
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        super.cancel(true);
+        this.a.c = null;
+        this.c = true;
+        if (this.b != null) {
+            this.b.j();
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(Boolean bool) {
         Notification notification;
         Notification notification2;
         Notification notification3;
         NotificationManager notificationManager;
         Notification notification4;
-        super.handleMessage(message);
-        if (message.what == 900002) {
-            notification = this.f2619a.b;
-            if (notification != null && message.arg2 > 0) {
-                notification2 = this.f2619a.b;
-                notification2.contentView.setProgressBar(R.id.progress, 100, (int) ((message.arg1 * 100) / message.arg2), false);
-                StringBuffer stringBuffer = new StringBuffer(20);
-                stringBuffer.append(String.valueOf(message.arg1 / LocationClientOption.MIN_SCAN_SPAN));
-                stringBuffer.append("K/");
-                stringBuffer.append(String.valueOf(message.arg2 / LocationClientOption.MIN_SCAN_SPAN));
-                stringBuffer.append("K");
-                notification3 = this.f2619a.b;
-                notification3.contentView.setTextViewText(R.id.schedule, stringBuffer);
-                notificationManager = this.f2619a.f1006a;
-                notification4 = this.f2619a.b;
-                notificationManager.notify(10, notification4);
-            }
-        } else if (message.what == 1) {
-            UtilHelper.a(TiebaApplication.h(), (String) message.obj);
-            this.f2619a.stopSelf();
+        NotificationManager notificationManager2;
+        Handler handler;
+        Handler handler2;
+        super.a((v) bool);
+        this.a.c = null;
+        if (bool.booleanValue()) {
+            notificationManager2 = this.a.a;
+            notificationManager2.cancel(10);
+            handler = this.a.d;
+            handler2 = this.a.d;
+            handler.sendMessageDelayed(handler2.obtainMessage(1, this.e), 100L);
+            return;
         }
+        notification = this.a.b;
+        if (notification != null) {
+            notification2 = this.a.b;
+            notification2.contentView.setTextViewText(R.id.info, this.a.getString(R.string.error_sd_error));
+            notification3 = this.a.b;
+            notification3.flags = 16;
+            notificationManager = this.a.a;
+            notification4 = this.a.b;
+            notificationManager.notify(10, notification4);
+        }
+        this.a.stopSelf();
     }
 }

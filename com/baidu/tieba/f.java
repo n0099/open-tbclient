@@ -45,19 +45,19 @@ public class f {
         new AccountProxy(activity).getTokenAsync(AccountProxy.BAIDUACCOUNT_TYPE, new i(activity, i2, i, z));
     }
 
-    public static AccountData a(com.baidu.tieba.util.am amVar, String str, String str2) {
+    public static AccountData a(com.baidu.tieba.util.an anVar, String str, String str2) {
         AccountData accountData = null;
-        if (amVar != null) {
+        if (anVar != null) {
             StringBuffer stringBuffer = new StringBuffer(60);
-            stringBuffer.append(com.baidu.tieba.data.h.f1248a);
+            stringBuffer.append(com.baidu.tieba.data.h.a);
             stringBuffer.append("c/s/login");
-            amVar.a(stringBuffer.toString());
-            amVar.a("un", str);
-            amVar.a("bdusstoken", str2);
-            amVar.a("channel_id", TiebaApplication.h().bc());
-            amVar.a("channel_uid", TiebaApplication.h().bb());
-            String l = amVar.l();
-            if (amVar.c() && l != null) {
+            anVar.a(stringBuffer.toString());
+            anVar.a("un", str);
+            anVar.a("bdusstoken", str2);
+            anVar.a("channel_id", TiebaApplication.h().bc());
+            anVar.a("channel_uid", TiebaApplication.h().bb());
+            String l = anVar.l();
+            if (anVar.c() && l != null) {
                 com.baidu.tieba.model.be beVar = new com.baidu.tieba.model.be();
                 beVar.a(l);
                 accountData = new AccountData();

@@ -5,9 +5,7 @@ import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b {
-
-    /* renamed from: a  reason: collision with root package name */
-    ImageView f1298a;
+    ImageView a;
     TextView b;
     final /* synthetic */ a c;
 

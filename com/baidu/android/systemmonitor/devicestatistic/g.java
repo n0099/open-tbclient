@@ -1,26 +1,32 @@
 package com.baidu.android.systemmonitor.devicestatistic;
 
-import android.os.Handler;
-import com.tencent.mm.sdk.platformtools.Util;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Environment;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g implements Runnable {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ f f822a;
+public class g extends BroadcastReceiver {
+    final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public g(f fVar) {
-        this.f822a = fVar;
+    public g(a aVar) {
+        this.a = aVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        Handler handler;
-        Runnable runnable;
-        this.f822a.e();
-        handler = this.f822a.e;
-        runnable = this.f822a.i;
-        handler.postDelayed(runnable, Util.MILLSECONDS_OF_MINUTE);
+    @Override // android.content.BroadcastReceiver
+    public void onReceive(Context context, Intent intent) {
+        String action = intent.getAction();
+        if (action.equals("com.baidu.moplus.systemmonitor.pathdeleted")) {
+            this.a.a(intent.getStringExtra("path"));
+        } else if ("com.baidu.moplus.systemmonitor.pathrefresh".equals(action)) {
+            this.a.e();
+            this.a.b();
+        } else if (!Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())) {
+            this.a.c();
+        } else {
+            this.a.d();
+            this.a.b();
+        }
     }
 }

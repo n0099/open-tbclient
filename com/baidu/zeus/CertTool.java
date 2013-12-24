@@ -8,7 +8,6 @@ import com.baidu.zeus.bouncycastle.Base64;
 import com.baidu.zeus.bouncycastle.NetscapeCertRequest;
 import com.baidu.zeus.bouncycastle.PKCSObjectIdentifiers;
 import com.baidu.zeus.security.Credentials;
-import com.tencent.mm.sdk.platformtools.LVBuffer;
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
 import java.util.HashMap;
@@ -36,7 +35,7 @@ public class CertTool {
     public static String getSignedPublicKey(Context context, int i, String str) {
         try {
             KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance(RSAUtil.ALGORITHM_RSA);
-            keyPairGenerator.initialize(i == 0 ? LVBuffer.MAX_STRING_LENGTH : 1024);
+            keyPairGenerator.initialize(i == 0 ? 2048 : NotificationProxy.MAX_URL_LENGTH);
             KeyPair genKeyPair = keyPairGenerator.genKeyPair();
             NetscapeCertRequest netscapeCertRequest = new NetscapeCertRequest(str, MD5_WITH_RSA, genKeyPair.getPublic());
             netscapeCertRequest.sign(genKeyPair.getPrivate());

@@ -4,6 +4,7 @@ import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import com.baidu.gson.internal.JsonReaderInternalAccess;
 import com.baidu.gson.internal.bind.JsonTreeReader;
 import com.baidu.location.BDLocation;
+import com.baidu.zeus.NotificationProxy;
 import java.io.Closeable;
 import java.io.EOFException;
 import java.io.IOException;
@@ -44,7 +45,7 @@ public class JsonReader implements Closeable {
     private String peekedString;
     private int stackSize;
     private boolean lenient = false;
-    private final char[] buffer = new char[1024];
+    private final char[] buffer = new char[NotificationProxy.MAX_URL_LENGTH];
     private int pos = 0;
     private int limit = 0;
     private int lineNumber = 0;

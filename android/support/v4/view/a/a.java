@@ -3,18 +3,16 @@ package android.support.v4.view.a;
 import android.os.Build;
 /* loaded from: classes.dex */
 public class a {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static final c f325a;
+    private static final c a;
     private final Object b;
 
     static {
         if (Build.VERSION.SDK_INT >= 16) {
-            f325a = new d();
+            a = new d();
         } else if (Build.VERSION.SDK_INT >= 14) {
-            f325a = new b();
+            a = new b();
         } else {
-            f325a = new e();
+            a = new e();
         }
     }
 
@@ -27,15 +25,15 @@ public class a {
     }
 
     public void a(int i) {
-        f325a.a(this.b, i);
+        a.a(this.b, i);
     }
 
     public void a(boolean z) {
-        f325a.a(this.b, z);
+        a.a(this.b, z);
     }
 
     public void a(CharSequence charSequence) {
-        f325a.a(this.b, charSequence);
+        a.a(this.b, charSequence);
     }
 
     public int hashCode() {

@@ -6,29 +6,27 @@ import android.widget.BaseAdapter;
 import com.baidu.tieba.TiebaApplication;
 /* loaded from: classes.dex */
 public class r extends BaseAdapter {
-
-    /* renamed from: a  reason: collision with root package name */
-    private String[] f1634a;
+    private String[] a;
     private GroupAddressLocateActivity b;
 
     public r(GroupAddressLocateActivity groupAddressLocateActivity, String[] strArr) {
-        this.f1634a = null;
+        this.a = null;
         this.b = null;
         this.b = groupAddressLocateActivity;
-        this.f1634a = strArr;
+        this.a = strArr;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.f1634a != null) {
-            return this.f1634a.length;
+        if (this.a != null) {
+            return this.a.length;
         }
         return 0;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return (this.f1634a == null || i <= -1 || i >= this.f1634a.length) ? "" : this.f1634a[i];
+        return (this.a == null || i <= -1 || i >= this.a.length) ? "" : this.a[i];
     }
 
     @Override // android.widget.Adapter

@@ -6,9 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 /* loaded from: classes.dex */
 public class GroupLevelActivity extends com.baidu.tieba.j {
-
-    /* renamed from: a  reason: collision with root package name */
-    private com.baidu.tieba.im.model.d f1696a;
+    private com.baidu.tieba.im.model.e a;
     private i b;
     private com.baidu.tieba.im.messageCenter.g c = new h(this);
 
@@ -29,13 +27,13 @@ public class GroupLevelActivity extends com.baidu.tieba.j {
 
     private void a() {
         this.b.a(true);
-        this.f1696a.a(this.f1696a.a());
+        this.a.a(this.a.a());
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        this.f1696a.b(bundle);
+        this.a.b(bundle);
     }
 
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
@@ -56,17 +54,17 @@ public class GroupLevelActivity extends com.baidu.tieba.j {
     @Override // com.baidu.tieba.j, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.f1696a.b(this.c);
+        this.a.b(this.c);
     }
 
     public void a(Bundle bundle) {
-        this.f1696a = new com.baidu.tieba.im.model.d();
+        this.a = new com.baidu.tieba.im.model.e();
         if (bundle == null) {
-            this.f1696a.a(getIntent());
+            this.a.a(getIntent());
         } else {
-            this.f1696a.a(bundle);
+            this.a.a(bundle);
         }
-        this.f1696a.a(this.c);
+        this.a.a(this.c);
     }
 
     private void b(Bundle bundle) {

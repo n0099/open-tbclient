@@ -4,10 +4,8 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ag extends BdAsyncTask<String, Integer, String> {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ad f1982a;
-    private com.baidu.tieba.util.am b;
+    final /* synthetic */ ad a;
+    private com.baidu.tieba.util.an b;
     private String c;
     private String d;
     private String e;
@@ -18,7 +16,7 @@ public class ag extends BdAsyncTask<String, Integer, String> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public String a(String... strArr) {
-        this.b = new com.baidu.tieba.util.am(strArr[0]);
+        this.b = new com.baidu.tieba.util.an(strArr[0]);
         this.b.a("day", this.g);
         this.b.a("un", this.f);
         this.b.a("fid", this.c);
@@ -39,9 +37,9 @@ public class ag extends BdAsyncTask<String, Integer, String> {
         if (this.b != null) {
             this.b.j();
         }
-        this.f1982a.b = null;
+        this.a.b = null;
         super.cancel(true);
-        gVar = this.f1982a.mLoadDataCallBack;
+        gVar = this.a.mLoadDataCallBack;
         gVar.a(null);
     }
 
@@ -52,20 +50,20 @@ public class ag extends BdAsyncTask<String, Integer, String> {
         com.baidu.adp.a.g gVar;
         com.baidu.adp.a.g gVar2;
         super.a((ag) str);
-        this.f1982a.b = null;
+        this.a.b = null;
         if (this.b == null) {
-            gVar2 = this.f1982a.mLoadDataCallBack;
+            gVar2 = this.a.mLoadDataCallBack;
             gVar2.a(null);
             return;
         }
-        ah ahVar = new ah(this.f1982a);
+        ah ahVar = new ah(this.a);
         if (str == null) {
-            ahVar.f1983a = true;
+            ahVar.a = true;
         } else {
-            ahVar.f1983a = false;
+            ahVar.a = false;
             ahVar.b = str;
         }
-        gVar = this.f1982a.mLoadDataCallBack;
+        gVar = this.a.mLoadDataCallBack;
         gVar.a(ahVar);
     }
 }

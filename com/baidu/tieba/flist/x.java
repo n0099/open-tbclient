@@ -6,19 +6,17 @@ import com.baidu.gson.GsonBuilder;
 import com.baidu.gson.JsonParseException;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.flist.ForumListModel;
-import com.baidu.tieba.util.bd;
+import com.baidu.tieba.util.be;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class x extends BdAsyncTask<Void, Void, ForumListModel> {
-
-    /* renamed from: a  reason: collision with root package name */
-    ForumListModel f1316a;
+    ForumListModel a;
     final /* synthetic */ u b;
 
     private x(u uVar) {
         this.b = uVar;
-        this.f1316a = new ForumListModel();
+        this.a = new ForumListModel();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -29,11 +27,11 @@ public class x extends BdAsyncTask<Void, Void, ForumListModel> {
         w wVar;
         boolean z;
         super.b((Object[]) voidArr);
-        if (this.f1316a != null) {
+        if (this.a != null) {
             wVar = this.b.c;
-            int errorCode = this.f1316a.getErrorCode();
-            ForumListModel forumListModel = this.f1316a;
-            String errorString = this.f1316a.getErrorString();
+            int errorCode = this.a.getErrorCode();
+            ForumListModel forumListModel = this.a;
+            String errorString = this.a.getErrorString();
             z = this.b.f;
             wVar.a(true, errorCode, forumListModel, errorString, z);
         }
@@ -61,19 +59,19 @@ public class x extends BdAsyncTask<Void, Void, ForumListModel> {
                     str = null;
                 }
                 if (str != null) {
-                    this.f1316a = (ForumListModel) new GsonBuilder().create().fromJson(str, (Class<Object>) ForumListModel.class);
-                    if (this.f1316a != null) {
+                    this.a = (ForumListModel) new GsonBuilder().create().fromJson(str, (Class<Object>) ForumListModel.class);
+                    if (this.a != null) {
                         c((Object[]) new Void[0]);
                     }
                     this.b.f = true;
                 }
             }
             this.b.e = false;
-            context = this.b.f1315a;
+            context = this.b.a;
             requestParams = this.b.b;
             return ForumListModel.new_fetch(context, requestParams);
         } catch (JsonParseException e) {
-            bd.e("ForumListDetailModel", "ForumListTask", e.getMessage());
+            be.e("ForumListDetailModel", "ForumListTask", e.getMessage());
             return null;
         }
     }
@@ -89,7 +87,7 @@ public class x extends BdAsyncTask<Void, Void, ForumListModel> {
         boolean z2;
         if (forumListModel == null || !forumListModel.isOk()) {
             wVar = this.b.c;
-            context = this.b.f1315a;
+            context = this.b.a;
             String string = context.getString(R.string.neterror);
             z = this.b.f;
             wVar.a(false, 0, forumListModel, string, z);

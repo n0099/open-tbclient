@@ -7,7 +7,6 @@ import cn.jingling.lib.filters.Curve;
 import cn.jingling.lib.filters.ImageProcessUtils;
 import cn.jingling.lib.filters.Layer;
 import cn.jingling.lib.filters.OneKeyFilter;
-import com.tencent.mm.sdk.contact.RContact;
 /* loaded from: classes.dex */
 public class Nashiv extends OneKeyFilter {
     @Override // cn.jingling.lib.filters.OneKeyFilter
@@ -19,7 +18,7 @@ public class Nashiv extends OneKeyFilter {
         int[] saturationPs = ImageProcessUtils.saturationPs(iArr, width, height, -15);
         Curve curve = new Curve(context, "curves/nashiv.dat");
         CMTProcessor.curveEffect(saturationPs, curve.getCurveRed(), curve.getCurveGreen(), curve.getCurveBlue(), width, height);
-        CMTProcessor.multiplyEffect(saturationPs, Layer.getLayerPixels(context, "layers/nashiv", width, height, Layer.Type.ROTATABLE, RContact.MM_CONTACTIMGFLAG_LOCAL_EXIST), width, height);
+        CMTProcessor.multiplyEffect(saturationPs, Layer.getLayerPixels(context, "layers/nashiv", width, height, Layer.Type.ROTATABLE, 153), width, height);
         bitmap.setPixels(saturationPs, 0, width, 0, 0, width, height);
         return bitmap;
     }

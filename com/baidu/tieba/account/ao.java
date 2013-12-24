@@ -1,19 +1,22 @@
 package com.baidu.tieba.account;
-
-import com.baidu.tieba.data.AccountData;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ao implements s {
+public class ao {
+    String a;
+    String b;
+    String c;
+    String d;
+    int e;
+    int f;
+    boolean g;
+    final /* synthetic */ LoginActivity h;
 
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ReLoginActivity f1051a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ao(ReLoginActivity reLoginActivity) {
-        this.f1051a = reLoginActivity;
+    private ao(LoginActivity loginActivity) {
+        this.h = loginActivity;
     }
 
-    @Override // com.baidu.tieba.account.s
-    public void a(AccountData accountData) {
-        this.f1051a.finish();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ ao(LoginActivity loginActivity, af afVar) {
+        this(loginActivity);
     }
 }

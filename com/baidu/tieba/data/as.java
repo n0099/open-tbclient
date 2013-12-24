@@ -10,15 +10,13 @@ import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class as extends ClickableSpan {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ar f1226a;
+    final /* synthetic */ ar a;
     private String b;
     private String c;
     private Context d;
 
     public as(ar arVar, Context context, String str, String str2) {
-        this.f1226a = arVar;
+        this.a = arVar;
         this.b = null;
         this.c = null;
         this.d = null;

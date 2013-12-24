@@ -3,9 +3,7 @@ package com.baidu.adp.lib.h;
 import android.util.Log;
 /* loaded from: classes.dex */
 public class e {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static String f504a = null;
+    private static String a = null;
 
     public static boolean a() {
         return com.baidu.adp.a.b.a().b();
@@ -63,7 +61,7 @@ public class e {
 
     private static String f(String str, String str2, String str3) {
         if (com.baidu.adp.a.b.a().b()) {
-            if (f504a == null || str3.startsWith(f504a)) {
+            if (a == null || str3.startsWith(a)) {
                 StringBuffer stringBuffer = new StringBuffer(100);
                 stringBuffer.append(str);
                 stringBuffer.append(":");
@@ -116,9 +114,5 @@ public class e {
 
     public static int d(String str) {
         return a(3, str);
-    }
-
-    public static int e(String str) {
-        return a(4, str);
     }
 }

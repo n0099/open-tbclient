@@ -1,28 +1,38 @@
 package com.baidu.tieba.im.chat;
-
-import android.content.DialogInterface;
-import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class n implements DialogInterface.OnClickListener {
+public class n implements com.baidu.tieba.im.messageCenter.g {
+    final /* synthetic */ a a;
 
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ GroupSettingActivity f1600a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public n(GroupSettingActivity groupSettingActivity) {
-        this.f1600a = groupSettingActivity;
+    private n(a aVar) {
+        this.a = aVar;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        u uVar;
-        com.baidu.tieba.ap.a(this.f1600a, "clear_group_msg_at_gsetting");
-        this.f1600a.showLoadingDialog(this.f1600a.getString(R.string.deleting));
-        com.baidu.tieba.im.db.ad.a().a(new o(this));
-        com.baidu.tieba.im.db.d a2 = com.baidu.tieba.im.db.d.a();
-        uVar = this.f1600a.b;
-        a2.a(uVar.c(), new p(this));
-        dialogInterface.cancel();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ n(a aVar, b bVar) {
+        this(aVar);
+    }
+
+    @Override // com.baidu.tieba.im.messageCenter.g
+    public void a(com.baidu.tieba.im.message.n nVar) {
+        if (nVar == null) {
+            com.baidu.adp.lib.h.e.a("msg == null");
+        } else if (nVar.t() == -100) {
+            this.a.a(nVar);
+        } else if (nVar.t() == 205001) {
+            this.a.c(nVar);
+        } else if (nVar.t() == 202001) {
+            this.a.b(nVar);
+        } else if (nVar.t() == -103) {
+            if (nVar instanceof com.baidu.tieba.im.message.k) {
+                this.a.d(nVar);
+            }
+        } else if (nVar.t() == -105) {
+            if (nVar instanceof com.baidu.tieba.im.message.m) {
+                this.a.d(nVar);
+            }
+        } else {
+            com.baidu.adp.lib.h.e.a("convert error need GroupMsgData");
+        }
     }
 }

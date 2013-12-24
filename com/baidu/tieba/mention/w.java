@@ -7,13 +7,11 @@ import com.baidu.tieba.person.PersonInfoActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class w implements View.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PostActivity f1969a;
+    final /* synthetic */ PostActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(PostActivity postActivity) {
-        this.f1969a = postActivity;
+        this.a = postActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -21,14 +19,14 @@ public class w implements View.OnClickListener {
         bv bvVar;
         bv bvVar2;
         bv bvVar3;
-        bvVar = this.f1969a.l;
+        bvVar = this.a.l;
         if (bvVar != null) {
-            bvVar2 = this.f1969a.l;
+            bvVar2 = this.a.l;
             if (bvVar2.a() != null) {
-                bvVar3 = this.f1969a.l;
+                bvVar3 = this.a.l;
                 ar arVar = bvVar3.a().e().get(0);
                 if (arVar != null) {
-                    PersonInfoActivity.a(this.f1969a, arVar.g().getId(), arVar.g().getName());
+                    PersonInfoActivity.a(this.a, arVar.g().getId(), arVar.g().getName());
                 }
             }
         }

@@ -6,12 +6,10 @@ import android.webkit.WebView;
 /* renamed from: bx  reason: default package */
 /* loaded from: classes.dex */
 public class bx extends WebChromeClient {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bw f390a;
+    final /* synthetic */ bw a;
 
     private bx(bw bwVar) {
-        this.f390a = bwVar;
+        this.a = bwVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -21,6 +19,6 @@ public class bx extends WebChromeClient {
 
     @Override // android.webkit.WebChromeClient
     public void onCloseWindow(WebView webView) {
-        this.f390a.onBackPressed();
+        this.a.onBackPressed();
     }
 }

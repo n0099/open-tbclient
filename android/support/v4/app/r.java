@@ -5,9 +5,7 @@ import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class r {
-
-    /* renamed from: a  reason: collision with root package name */
-    Object f299a;
+    Object a;
     Object b;
     HashMap<String, Object> c;
     ArrayList<Fragment> d;

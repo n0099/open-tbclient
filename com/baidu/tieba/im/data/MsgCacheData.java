@@ -5,9 +5,7 @@ import java.io.Serializable;
 /* loaded from: classes.dex */
 public class MsgCacheData implements Serializable {
     private static final long serialVersionUID = -100392737471140589L;
-
-    /* renamed from: a  reason: collision with root package name */
-    private transient VoiceManager.VoiceModel f1645a;
+    private transient VoiceManager.VoiceModel a;
     private transient com.baidu.tbadk.widget.richText.a b;
     private int is_left;
     private int is_show_time;
@@ -18,11 +16,11 @@ public class MsgCacheData implements Serializable {
     }
 
     public VoiceManager.VoiceModel getVoice_model() {
-        return this.f1645a;
+        return this.a;
     }
 
     public void setVoice_model(VoiceManager.VoiceModel voiceModel) {
-        this.f1645a = voiceModel;
+        this.a = voiceModel;
     }
 
     public void setIs_left(int i) {

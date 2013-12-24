@@ -9,20 +9,18 @@ import android.widget.ListAdapter;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.adp.widget.PinnedHeaderListView;
-import com.baidu.tieba.util.ba;
+import com.baidu.tieba.util.bb;
 import com.baidu.tieba.view.NavigationBar;
 import com.baidu.tieba.view.PbListView;
-import com.baidu.tieba.view.bl;
+import com.baidu.tieba.view.br;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class y extends com.baidu.adp.a.e {
-
-    /* renamed from: a  reason: collision with root package name */
-    private DailyRecommendActivity f2428a;
+    private DailyRecommendActivity a;
     private PinnedHeaderListView c;
     private ProgressBar d;
     private View e;
-    private bl f;
+    private br f;
     private PbListView g;
     private View h;
     private TextView i;
@@ -31,23 +29,23 @@ public class y extends com.baidu.adp.a.e {
 
     public y(DailyRecommendActivity dailyRecommendActivity, com.baidu.adp.widget.ListView.r rVar, p pVar) {
         super(dailyRecommendActivity);
-        this.f2428a = dailyRecommendActivity;
+        this.a = dailyRecommendActivity;
         this.e = LayoutInflater.from(this.b).inflate(R.layout.daily_recommend_view, (ViewGroup) null);
-        this.f2428a.setContentView(this.e);
+        this.a.setContentView(this.e);
         this.c = (PinnedHeaderListView) this.e.findViewById(R.id.pinnedHeaderListview);
         this.j = new h(dailyRecommendActivity, pVar);
         this.i = (TextView) this.e.findViewById(R.id.text_info);
-        this.f = new bl(this.b);
+        this.f = new br(this.b);
         this.c.setPullRefresh(this.f);
         this.c.setAdapter((ListAdapter) this.j);
         this.c.setOnSrollToBottomListener(rVar);
         this.d = (ProgressBar) this.e.findViewById(R.id.progress);
         this.d.setVisibility(8);
-        this.g = new PbListView(this.f2428a);
+        this.g = new PbListView(this.a);
         this.g.a(new z(this));
         this.h = this.g.b().findViewById(R.id.pb_more_view);
-        this.k = (NavigationBar) this.f2428a.findViewById(R.id.view_navigation_bar);
-        this.k.a(this.f2428a.getString(R.string.dailyrecommend_title));
+        this.k = (NavigationBar) this.a.findViewById(R.id.view_navigation_bar);
+        this.k.a(this.a.getString(R.string.dailyrecommend_title));
         this.k.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.k.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, NavigationBar.ControlType.HOME_BUTTON);
     }
@@ -63,7 +61,7 @@ public class y extends com.baidu.adp.a.e {
     public void a(boolean z, String str) {
         this.d.setVisibility(8);
         if (!z && str != null) {
-            this.f2428a.showToast(str);
+            this.a.showToast(str);
         }
     }
 
@@ -104,7 +102,7 @@ public class y extends com.baidu.adp.a.e {
 
     public void a(int i) {
         this.k.c(i);
-        ba.b(this.c, i);
+        bb.b(this.c, i);
         this.f.a(i);
         if (this.g != null) {
             this.g.d(i);

@@ -6,9 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public abstract class c<T> {
-
-    /* renamed from: a  reason: collision with root package name */
-    protected final com.baidu.adp.a.h f428a;
+    protected final com.baidu.adp.a.h a;
     protected String b;
     protected h c;
     protected g d;
@@ -31,7 +29,7 @@ public abstract class c<T> {
     protected abstract boolean b(String str);
 
     public c(com.baidu.adp.a.h hVar) {
-        this.f428a = hVar;
+        this.a = hVar;
     }
 
     public void a(f fVar, String str) {
@@ -46,33 +44,33 @@ public abstract class c<T> {
 
     public m<T> c(String str) {
         try {
-            return a(this.f428a.a(), str);
+            return a(this.a.a(), str);
         } catch (Throwable th) {
-            this.f428a.a(th);
+            this.a.a(th);
             com.baidu.adp.lib.h.e.a(getClass(), str, th);
             return null;
         }
     }
 
     public void b(m<T> mVar) {
-        String a2;
+        String a;
         try {
             synchronized (this.g) {
-                this.f.remove(mVar.f433a);
+                this.f.remove(mVar.a);
             }
-            ContentValues a3 = a(mVar);
-            if (this.f428a.a().update(this.b, a3, "m_key = ?", new String[]{mVar.f433a}) == 0) {
-                this.f428a.a().insert(this.b, null, a3);
+            ContentValues a2 = a(mVar);
+            if (this.a.a().update(this.b, a2, "m_key = ?", new String[]{mVar.a}) == 0) {
+                this.a.a().insert(this.b, null, a2);
                 if (this.d != null) {
                     b();
                 }
             }
-            if (this.c != null && (a2 = this.c.a(mVar)) != null) {
-                d(a2);
+            if (this.c != null && (a = this.c.a(mVar)) != null) {
+                d(a);
             }
         } catch (Throwable th) {
-            this.f428a.a(th);
-            com.baidu.adp.lib.h.e.a(getClass(), "failed to insert " + mVar.f433a + " to db.", th);
+            this.a.a(th);
+            com.baidu.adp.lib.h.e.a(getClass(), "failed to insert " + mVar.a + " to db.", th);
         }
     }
 
@@ -88,9 +86,9 @@ public abstract class c<T> {
 
     public int d(String str) {
         try {
-            return this.f428a.a().delete(this.b, "m_key = ?", new String[]{str});
+            return this.a.a().delete(this.b, "m_key = ?", new String[]{str});
         } catch (Throwable th) {
-            this.f428a.a(th);
+            this.a.a(th);
             com.baidu.adp.lib.h.e.a(getClass(), "failed to delete " + str + " from db.", th);
             return 0;
         }
@@ -122,22 +120,22 @@ public abstract class c<T> {
             Cursor cursor = null;
             try {
                 this.d.c();
-                cursor = b(this.f428a.a(), str);
+                cursor = b(this.a.a(), str);
                 while (cursor.moveToNext()) {
                     m<?> mVar = new m<>();
-                    mVar.f433a = cursor.getString(cursor.getColumnIndex("m_key"));
+                    mVar.a = cursor.getString(cursor.getColumnIndex("m_key"));
                     mVar.d = cursor.getLong(cursor.getColumnIndex("saveTime"));
                     mVar.e = cursor.getLong(cursor.getColumnIndex("lastHitTime"));
                     mVar.f = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
-                    String a2 = this.d.a(mVar);
-                    if (a2 != null) {
-                        a(a2, false);
+                    String a = this.d.a(mVar);
+                    if (a != null) {
+                        a(a, false);
                     }
                 }
                 c();
             } catch (Throwable th) {
                 try {
-                    this.f428a.a(th);
+                    this.a.a(th);
                     com.baidu.adp.lib.h.e.a(getClass(), "performEvict", th);
                 } finally {
                     com.baidu.adp.lib.f.a.a(cursor);
@@ -152,10 +150,10 @@ public abstract class c<T> {
             Cursor cursor = null;
             try {
                 this.c.c();
-                cursor = b(this.f428a.a(), str);
+                cursor = b(this.a.a(), str);
                 while (cursor.moveToNext()) {
                     m<?> mVar = new m<>();
-                    mVar.f433a = cursor.getString(cursor.getColumnIndex("m_key"));
+                    mVar.a = cursor.getString(cursor.getColumnIndex("m_key"));
                     mVar.d = cursor.getLong(cursor.getColumnIndex("saveTime"));
                     mVar.e = cursor.getLong(cursor.getColumnIndex("lastHitTime"));
                     mVar.f = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
@@ -167,7 +165,7 @@ public abstract class c<T> {
                 c();
             } catch (Throwable th) {
                 try {
-                    this.f428a.a(th);
+                    this.a.a(th);
                     com.baidu.adp.lib.h.e.a(getClass(), "performPump", th);
                 } finally {
                     com.baidu.adp.lib.f.a.a(cursor);
@@ -181,26 +179,26 @@ public abstract class c<T> {
     public void c() {
         String removeFirst;
         if (!this.f.isEmpty()) {
-            SQLiteDatabase a2 = this.f428a.a();
-            a2.beginTransaction();
+            SQLiteDatabase a = this.a.a();
+            a.beginTransaction();
             while (true) {
                 try {
                     synchronized (this.g) {
                         if (!this.f.isEmpty()) {
                             removeFirst = this.f.removeFirst();
                         } else {
-                            a2.setTransactionSuccessful();
+                            a.setTransactionSuccessful();
                             this.e = 0;
                             return;
                         }
                     }
-                    a2.delete(this.b, "m_key = ?", new String[]{String.valueOf(removeFirst)});
+                    a.delete(this.b, "m_key = ?", new String[]{String.valueOf(removeFirst)});
                 } catch (Throwable th) {
                     try {
-                        this.f428a.a(th);
+                        this.a.a(th);
                         return;
                     } finally {
-                        a2.endTransaction();
+                        a.endTransaction();
                     }
                 }
             }
@@ -208,6 +206,6 @@ public abstract class c<T> {
     }
 
     public com.baidu.adp.a.h d() {
-        return this.f428a;
+        return this.a;
     }
 }

@@ -8,15 +8,13 @@ import java.util.Timer;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements Runnable {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Context f967a;
+    final /* synthetic */ Context a;
     final /* synthetic */ g b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(g gVar, Context context) {
         this.b = gVar;
-        this.f967a = context;
+        this.a = context;
     }
 
     @Override // java.lang.Runnable
@@ -28,11 +26,11 @@ public class h implements Runnable {
         Handler handler;
         int i;
         Timer timer2;
-        SharedPreferences a2 = this.b.a(this.f967a);
-        this.b.g = a2.getBoolean("exceptionanalysisflag", false);
+        SharedPreferences a = this.b.a(this.a);
+        this.b.g = a.getBoolean("exceptionanalysisflag", false);
         z = this.b.g;
         if (z) {
-            e.a().b(this.f967a);
+            e.a().b(this.a);
         }
         timer = this.b.e;
         if (timer != null) {
@@ -40,16 +38,16 @@ public class h implements Runnable {
             timer2.cancel();
             this.b.e = null;
         }
-        this.b.c = SendStrategyEnum.values()[a2.getInt("sendLogtype", 0)];
-        this.b.d = a2.getInt("timeinterval", 1);
-        this.b.b = a2.getBoolean("onlywifi", false);
+        this.b.c = SendStrategyEnum.values()[a.getInt("sendLogtype", 0)];
+        this.b.d = a.getInt("timeinterval", 1);
+        this.b.b = a.getBoolean("onlywifi", false);
         sendStrategyEnum = this.b.c;
         if (sendStrategyEnum.equals(SendStrategyEnum.SET_TIME_INTERVAL)) {
-            this.b.e(this.f967a);
+            this.b.e(this.a);
         } else {
             sendStrategyEnum2 = this.b.c;
             if (sendStrategyEnum2.equals(SendStrategyEnum.ONCE_A_DAY)) {
-                this.b.e(this.f967a);
+                this.b.e(this.a);
             }
         }
         handler = g.h;

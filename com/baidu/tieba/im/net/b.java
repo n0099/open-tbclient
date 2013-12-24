@@ -6,12 +6,10 @@ import com.baidu.location.LocationClientOption;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.im.j;
 import com.baidu.tieba.log.i;
-import com.baidu.tieba.util.bd;
+import com.baidu.tieba.util.be;
 /* loaded from: classes.dex */
 public class b {
-
-    /* renamed from: a  reason: collision with root package name */
-    private boolean f1855a = false;
+    private boolean a = false;
     private int b = 0;
     private int[] c = new int[0];
     private Handler d = new c(this);
@@ -25,8 +23,8 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(String str) {
-        if (!this.f1855a) {
-            this.f1855a = true;
+        if (!this.a) {
+            this.a = true;
             this.d.removeMessages(1);
             if (m.a().e()) {
                 com.baidu.adp.lib.h.e.d("启动重连策略失败，  WebSocketClient opened");
@@ -37,11 +35,11 @@ public class b {
             com.baidu.adp.lib.h.e.d("启动重连策略");
             this.b = 0;
             if (this.c != null && this.c.length >= 1) {
-                bd.b("start reconnStrategy... the first will be delay" + this.c[0]);
+                be.b("start reconnStrategy... the first will be delay" + this.c[0]);
                 this.d.sendMessageDelayed(this.d.obtainMessage(1), this.c[0] * LocationClientOption.MIN_SCAN_SPAN);
                 return;
             }
-            bd.b("don't have reconnStrategy!");
+            be.b("don't have reconnStrategy!");
             return;
         }
         com.baidu.adp.lib.h.e.d("重连策略正在运行中， 再次启动无效");
@@ -51,18 +49,18 @@ public class b {
     private void a() {
         int[] aY = TiebaApplication.h().aY();
         if (aY == null || aY.length == 0) {
-            aY = j.c;
+            aY = j.b;
         }
         this.c = aY;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void b(String str) {
-        if (this.f1855a) {
+        if (this.a) {
             com.baidu.tieba.log.a.b(i.a(str, "ReConnStrategy:stop", "succ"));
-            this.f1855a = false;
+            this.a = false;
             this.b = 0;
-            bd.b("stop reconnStrategy");
+            be.b("stop reconnStrategy");
             this.d.removeMessages(1);
         }
     }

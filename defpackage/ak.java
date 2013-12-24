@@ -24,9 +24,7 @@ import java.io.IOException;
 /* renamed from: ak  reason: default package */
 /* loaded from: classes.dex */
 public class ak extends ai {
-
-    /* renamed from: a  reason: collision with root package name */
-    private Activity f268a;
+    private Activity a;
     private String b;
     private String c;
 
@@ -34,7 +32,7 @@ public class ak extends ai {
         super(activity, iBaiduListener, i, MediaType.QQFRIEND.toString());
         this.b = str;
         this.c = str2;
-        this.f268a = activity;
+        this.a = activity;
     }
 
     public static IBaiduListener a() {
@@ -170,7 +168,7 @@ public class ak extends ai {
 
     private void b(ShareContent shareContent, IBaiduListener iBaiduListener) {
         try {
-            this.f268a.startActivityForResult(new Intent("android.intent.action.VIEW", Uri.parse(b(shareContent))), this.mRequestCode);
+            this.a.startActivityForResult(new Intent("android.intent.action.VIEW", Uri.parse(b(shareContent))), this.mRequestCode);
         } catch (Exception e) {
             onStartLocalShareFailed("no_valid_mobileqq_tip", iBaiduListener);
         }
@@ -188,16 +186,16 @@ public class ak extends ai {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
-        String a2 = a(this.mShareContent);
+        String a = a(this.mShareContent);
         Bundle bundle = new Bundle();
-        bundle.putString("scheme", a2);
+        bundle.putString("scheme", a);
         bundle.putString("appid", this.b);
-        Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(a2));
+        Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(a));
         intent.putExtra(MobileQQ.KEY_REQUEST_CODE, this.mRequestCode);
         intent.putExtra(MobileQQ.KEY_ACTION, "action_share_qq");
         intent.putExtra(MobileQQ.KEY_PARAMS, bundle);
         try {
-            this.f268a.startActivityForResult(intent, this.mRequestCode);
+            this.a.startActivityForResult(intent, this.mRequestCode);
         } catch (Exception e) {
             b(this.mShareContent, this.mListener);
         }

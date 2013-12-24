@@ -9,17 +9,16 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import com.baidu.tieba.util.bd;
+import com.baidu.tieba.util.be;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.DecodeHintType;
+import com.google.zxing.Result;
 import com.slidingmenu.lib.R;
 import java.util.Collection;
 import java.util.Map;
 /* loaded from: classes.dex */
 public final class CaptureActivityHandler extends Handler {
-
-    /* renamed from: a  reason: collision with root package name */
-    private final CaptureActivity f1131a;
+    private final CaptureActivity a;
     private final n b;
     private State c;
     private final com.baidu.tieba.barcode.a.f d;
@@ -34,7 +33,7 @@ public final class CaptureActivityHandler extends Handler {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public CaptureActivityHandler(CaptureActivity captureActivity, Collection<BarcodeFormat> collection, Map<DecodeHintType, ?> map, String str, com.baidu.tieba.barcode.a.f fVar) {
-        this.f1131a = captureActivity;
+        this.a = captureActivity;
         this.b = new n(captureActivity, collection, map, str, new s(captureActivity.a()));
         this.b.start();
         this.c = State.SUCCESS;
@@ -54,7 +53,7 @@ public final class CaptureActivityHandler extends Handler {
                 this.d.a(this.b.a(), R.id.decode);
                 return;
             case R.id.decode_succeeded /* 2131099701 */:
-                bd.e(getClass().getName(), "handleMessage", "Got decode succeeded message");
+                be.e(getClass().getName(), "handleMessage", "Got decode succeeded message");
                 this.c = State.SUCCESS;
                 Bundle data = message.getData();
                 if (data == null) {
@@ -66,18 +65,18 @@ public final class CaptureActivityHandler extends Handler {
                     f = data.getFloat("barcode_scaled_factor");
                     bitmap = copy;
                 }
-                this.f1131a.a((com.google.zxing.h) message.obj, bitmap, f);
+                this.a.a((Result) message.obj, bitmap, f);
                 return;
             case R.id.launch_product_query /* 2131099702 */:
-                bd.e(getClass().getName(), "handleMessage", "Got product query message");
+                be.e(getClass().getName(), "handleMessage", "Got product query message");
                 String str2 = (String) message.obj;
                 Intent intent = new Intent("android.intent.action.VIEW");
                 intent.addFlags(524288);
                 intent.setData(Uri.parse(str2));
-                ResolveInfo resolveActivity = this.f1131a.getPackageManager().resolveActivity(intent, 65536);
+                ResolveInfo resolveActivity = this.a.getPackageManager().resolveActivity(intent, 65536);
                 if (resolveActivity.activityInfo != null) {
                     str = resolveActivity.activityInfo.packageName;
-                    bd.e(getClass().getName(), "handleMessage", "Using browser in package " + str);
+                    be.e(getClass().getName(), "handleMessage", "Using browser in package " + str);
                 }
                 if ("com.android.browser".equals(str) || "com.android.chrome".equals(str)) {
                     intent.setPackage(str);
@@ -85,23 +84,23 @@ public final class CaptureActivityHandler extends Handler {
                     intent.putExtra("com.android.browser.application_id", str);
                 }
                 try {
-                    this.f1131a.startActivity(intent);
+                    this.a.startActivity(intent);
                     return;
                 } catch (ActivityNotFoundException e) {
-                    bd.e(getClass().getName(), "handleMessage", "Can't find anything to handle VIEW of URI " + str2);
+                    be.e(getClass().getName(), "handleMessage", "Can't find anything to handle VIEW of URI " + str2);
                     return;
                 }
             case R.id.quit /* 2131099703 */:
             default:
                 return;
             case R.id.restart_preview /* 2131099704 */:
-                bd.e(getClass().getName(), "handleMessage", "Got restart preview message");
+                be.e(getClass().getName(), "handleMessage", "Got restart preview message");
                 b();
                 return;
             case R.id.return_scan_result /* 2131099705 */:
-                bd.e(getClass().getName(), "handleMessage", "Got return scan result message");
-                this.f1131a.setResult(-1, (Intent) message.obj);
-                this.f1131a.finish();
+                be.e(getClass().getName(), "handleMessage", "Got return scan result message");
+                this.a.setResult(-1, (Intent) message.obj);
+                this.a.finish();
                 return;
         }
     }
@@ -122,7 +121,7 @@ public final class CaptureActivityHandler extends Handler {
         if (this.c == State.SUCCESS) {
             this.c = State.PREVIEW;
             this.d.a(this.b.a(), R.id.decode);
-            this.f1131a.d();
+            this.a.d();
         }
     }
 }

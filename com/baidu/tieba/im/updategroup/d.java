@@ -1,41 +1,39 @@
 package com.baidu.tieba.im.updategroup;
 
 import android.content.Intent;
-import com.baidu.tieba.im.message.Message;
-import com.baidu.tieba.im.message.ResponseUpdateGroupMessage;
+import com.baidu.tieba.im.message.bw;
+import com.baidu.tieba.im.message.n;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class d implements com.baidu.tieba.im.messageCenter.g {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ UpdateGroupActivity f1888a;
+    final /* synthetic */ UpdateGroupActivity a;
 
     public d(UpdateGroupActivity updateGroupActivity) {
-        this.f1888a = updateGroupActivity;
+        this.a = updateGroupActivity;
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(Message message) {
+    public void a(n nVar) {
         a aVar;
         a aVar2;
-        if (message != null && message.getCmd() == 103102) {
-            aVar = this.f1888a.c;
+        if (nVar != null && nVar.t() == 103102) {
+            aVar = this.a.c;
             aVar.a(false);
-            if (!(message instanceof ResponseUpdateGroupMessage)) {
-                this.f1888a.showToast(R.string.group_update_fail);
+            if (!(nVar instanceof bw)) {
+                this.a.showToast(R.string.group_update_fail);
                 return;
             }
-            ResponseUpdateGroupMessage responseUpdateGroupMessage = (ResponseUpdateGroupMessage) message;
-            if (responseUpdateGroupMessage.hasError()) {
-                this.f1888a.a(responseUpdateGroupMessage.getErrMsg(), responseUpdateGroupMessage.getErrNo());
+            bw bwVar = (bw) nVar;
+            if (bwVar.i()) {
+                this.a.a(bwVar.k(), bwVar.j());
                 return;
             }
-            this.f1888a.showToast(R.string.group_update_success);
-            Intent intent = this.f1888a.getIntent();
-            aVar2 = this.f1888a.c;
+            this.a.showToast(R.string.group_update_success);
+            Intent intent = this.a.getIntent();
+            aVar2 = this.a.c;
             intent.putExtra("group_text", aVar2.k());
-            this.f1888a.setResult(-1, intent);
-            this.f1888a.finish();
+            this.a.setResult(-1, intent);
+            this.a.finish();
         }
     }
 }

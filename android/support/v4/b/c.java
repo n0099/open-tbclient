@@ -1,9 +1,7 @@
 package android.support.v4.b;
 /* loaded from: classes.dex */
 public class c<E> {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static final Object f305a = new Object();
+    private static final Object a = new Object();
     private boolean b;
     private int[] c;
     private Object[] d;
@@ -27,13 +25,13 @@ public class c<E> {
 
     public E a(int i, E e) {
         int a2 = a(this.c, 0, this.e, i);
-        return (a2 < 0 || this.d[a2] == f305a) ? e : (E) this.d[a2];
+        return (a2 < 0 || this.d[a2] == a) ? e : (E) this.d[a2];
     }
 
     public void b(int i) {
         int a2 = a(this.c, 0, this.e, i);
-        if (a2 >= 0 && this.d[a2] != f305a) {
-            this.d[a2] = f305a;
+        if (a2 >= 0 && this.d[a2] != a) {
+            this.d[a2] = a;
             this.b = true;
         }
     }
@@ -49,7 +47,7 @@ public class c<E> {
         int i2 = 0;
         for (int i3 = 0; i3 < i; i3++) {
             Object obj = objArr[i3];
-            if (obj != f305a) {
+            if (obj != a) {
                 if (i3 != i2) {
                     iArr[i2] = iArr[i3];
                     objArr[i2] = obj;
@@ -68,7 +66,7 @@ public class c<E> {
             return;
         }
         int i2 = a2 ^ (-1);
-        if (i2 < this.e && this.d[i2] == f305a) {
+        if (i2 < this.e && this.d[i2] == a) {
             this.c[i2] = i;
             this.d[i2] = e;
             return;

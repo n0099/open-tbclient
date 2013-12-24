@@ -12,9 +12,7 @@ import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class DailyRecommendBannerPagerAdapter extends ae implements ai {
-
-    /* renamed from: a  reason: collision with root package name */
-    ArrayList<View> f2403a = new ArrayList<>();
+    ArrayList<View> a = new ArrayList<>();
     public int b;
     public int c;
     Activity d;
@@ -35,17 +33,17 @@ public class DailyRecommendBannerPagerAdapter extends ae implements ai {
 
     @Override // android.support.v4.view.ae
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
-        viewGroup.removeView(this.f2403a.get(i));
+        viewGroup.removeView(this.a.get(i));
     }
 
     private void a(ArrayList<com.baidu.tieba.data.n> arrayList) {
         this.f = arrayList;
         if (arrayList != null && arrayList.size() > 0) {
-            this.f2403a.add(a(arrayList.get(arrayList.size() - 1)));
+            this.a.add(a(arrayList.get(arrayList.size() - 1)));
             for (int i = 0; i < arrayList.size(); i++) {
-                this.f2403a.add(a(arrayList.get(i)));
+                this.a.add(a(arrayList.get(i)));
             }
-            this.f2403a.add(a(arrayList.get(0)));
+            this.a.add(a(arrayList.get(0)));
             notifyDataSetChanged();
         }
     }
@@ -65,13 +63,13 @@ public class DailyRecommendBannerPagerAdapter extends ae implements ai {
 
     @Override // android.support.v4.view.ae
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        viewGroup.addView(this.f2403a.get(i));
-        return this.f2403a.get(i);
+        viewGroup.addView(this.a.get(i));
+        return this.a.get(i);
     }
 
     @Override // android.support.v4.view.ae
     public int getCount() {
-        return this.f2403a.size();
+        return this.a.size();
     }
 
     @Override // android.support.v4.view.ae

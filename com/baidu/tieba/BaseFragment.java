@@ -12,10 +12,8 @@ import android.widget.AbsListView;
 import android.widget.AdapterView;
 /* loaded from: classes.dex */
 public abstract class BaseFragment extends Fragment implements DialogInterface.OnClickListener, View.OnClickListener, View.OnLongClickListener, AbsListView.OnScrollListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    private int f1003a = -1;
-    private com.baidu.tieba.util.q b;
+    private int a = -1;
+    private com.baidu.tieba.util.r b;
 
     @Override // android.support.v4.app.Fragment
     public void a(Activity activity) {
@@ -29,7 +27,7 @@ public abstract class BaseFragment extends Fragment implements DialogInterface.O
 
     @Override // android.support.v4.app.Fragment
     public void a(Bundle bundle) {
-        this.b = com.baidu.tieba.util.q.a();
+        this.b = com.baidu.tieba.util.r.a();
         super.a(bundle);
     }
 
@@ -74,8 +72,8 @@ public abstract class BaseFragment extends Fragment implements DialogInterface.O
         }
         super.r();
         if (F()) {
-            this.f1003a = TiebaApplication.h().an();
-            c(this.f1003a);
+            this.a = TiebaApplication.h().an();
+            c(this.a);
         }
     }
 

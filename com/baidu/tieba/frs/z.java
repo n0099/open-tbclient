@@ -4,13 +4,11 @@ import android.view.View;
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
 class z implements com.baidu.tbadk.imageManager.c {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsActivity f1426a;
+    final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public z(FrsActivity frsActivity) {
-        this.f1426a = frsActivity;
+        this.a = frsActivity;
     }
 
     @Override // com.baidu.tbadk.imageManager.c
@@ -19,11 +17,11 @@ class z implements com.baidu.tbadk.imageManager.c {
         bn bnVar2;
         bn bnVar3;
         if (eVar != null) {
-            bnVar = this.f1426a.n;
+            bnVar = this.a.n;
             if (bnVar != null) {
-                bnVar2 = this.f1426a.n;
+                bnVar2 = this.a.n;
                 if (bnVar2.C() != null) {
-                    bnVar3 = this.f1426a.n;
+                    bnVar3 = this.a.n;
                     View findViewWithTag = bnVar3.C().findViewWithTag(str);
                     if (findViewWithTag != null) {
                         if (findViewWithTag instanceof TbImageView) {

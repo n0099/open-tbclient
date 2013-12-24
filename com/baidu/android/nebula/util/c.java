@@ -1,9 +1,7 @@
 package com.baidu.android.nebula.util;
 /* loaded from: classes.dex */
 public class c {
-
-    /* renamed from: a  reason: collision with root package name */
-    private long f688a;
+    private long a;
     private double b;
     private double c;
     private double d;
@@ -22,6 +20,6 @@ public class c {
     }
 
     public String toString() {
-        return "LocationInfo [time=" + this.f688a + ", longitude=" + this.b + ", latitude=" + this.c + ", radius=" + this.d + ", addressStr=" + this.e + "]";
+        return "LocationInfo [time=" + this.a + ", longitude=" + this.b + ", latitude=" + this.c + ", radius=" + this.d + ", addressStr=" + this.e + "]";
     }
 }

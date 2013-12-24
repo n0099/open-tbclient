@@ -2,16 +2,14 @@ package com.baidu.tieba.im.db;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class y implements com.baidu.tieba.im.a<Void> {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f1686a;
+    final /* synthetic */ String a;
     final /* synthetic */ String b;
     final /* synthetic */ t c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(t tVar, String str, String str2) {
         this.c = tVar;
-        this.f1686a = str;
+        this.a = str;
         this.b = str2;
     }
 

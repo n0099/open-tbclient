@@ -16,13 +16,10 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import com.tencent.mm.sdk.platformtools.Util;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class SlidingPaneLayout extends ViewGroup {
-
-    /* renamed from: a  reason: collision with root package name */
-    static final z f348a;
+    static final z a;
     private int b;
     private int c;
     private Drawable d;
@@ -50,11 +47,11 @@ public class SlidingPaneLayout extends ViewGroup {
     static {
         int i = Build.VERSION.SDK_INT;
         if (i >= 17) {
-            f348a = new ac();
+            a = new ac();
         } else if (i >= 16) {
-            f348a = new ab();
+            a = new ab();
         } else {
-            f348a = new aa();
+            a = new aa();
         }
     }
 
@@ -216,8 +213,8 @@ public class SlidingPaneLayout extends ViewGroup {
                 i5 = i7;
                 z = z2;
             } else {
-                if (wVar.f359a > 0.0f) {
-                    f2 += wVar.f359a;
+                if (wVar.a > 0.0f) {
+                    f2 += wVar.a;
                     if (wVar.width == 0) {
                         i4 = paddingLeft;
                         f = f2;
@@ -271,10 +268,10 @@ public class SlidingPaneLayout extends ViewGroup {
                 View childAt2 = getChildAt(i11);
                 if (childAt2.getVisibility() != 8) {
                     w wVar2 = (w) childAt2.getLayoutParams();
-                    boolean z5 = wVar2.width == 0 && wVar2.f359a > 0.0f;
+                    boolean z5 = wVar2.width == 0 && wVar2.a > 0.0f;
                     int measuredWidth2 = z5 ? 0 : childAt2.getMeasuredWidth();
                     if (z2 && childAt2 != this.g) {
-                        if (wVar2.width < 0 && (measuredWidth2 > i10 || wVar2.f359a > 0.0f)) {
+                        if (wVar2.width < 0 && (measuredWidth2 > i10 || wVar2.a > 0.0f)) {
                             if (z5) {
                                 if (wVar2.height == -2) {
                                     makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(paddingTop, Integer.MIN_VALUE);
@@ -288,7 +285,7 @@ public class SlidingPaneLayout extends ViewGroup {
                             }
                             childAt2.measure(View.MeasureSpec.makeMeasureSpec(i10, 1073741824), makeMeasureSpec2);
                         }
-                    } else if (wVar2.f359a > 0.0f) {
+                    } else if (wVar2.a > 0.0f) {
                         if (wVar2.width == 0) {
                             if (wVar2.height == -2) {
                                 makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(paddingTop, Integer.MIN_VALUE);
@@ -307,7 +304,7 @@ public class SlidingPaneLayout extends ViewGroup {
                                 childAt2.measure(makeMeasureSpec5, makeMeasureSpec);
                             }
                         } else {
-                            childAt2.measure(View.MeasureSpec.makeMeasureSpec(((int) ((wVar2.f359a * Math.max(0, paddingLeft)) / f2)) + measuredWidth2, 1073741824), makeMeasureSpec);
+                            childAt2.measure(View.MeasureSpec.makeMeasureSpec(((int) ((wVar2.a * Math.max(0, paddingLeft)) / f2)) + measuredWidth2, 1073741824), makeMeasureSpec);
                         }
                     }
                 }
@@ -451,7 +448,7 @@ public class SlidingPaneLayout extends ViewGroup {
             return super.onTouchEvent(motionEvent);
         }
         this.p.b(motionEvent);
-        switch (motionEvent.getAction() & Util.MASK_8BIT) {
+        switch (motionEvent.getAction() & 255) {
             case 0:
                 float x = motionEvent.getX();
                 float y = motionEvent.getY();
@@ -567,7 +564,7 @@ public class SlidingPaneLayout extends ViewGroup {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d(View view) {
-        f348a.a(this, view);
+        a.a(this, view);
     }
 
     boolean a(float f, int i) {
@@ -660,7 +657,7 @@ public class SlidingPaneLayout extends ViewGroup {
     @Override // android.view.View
     protected Parcelable onSaveInstanceState() {
         SavedState savedState = new SavedState(super.onSaveInstanceState());
-        savedState.f349a = e() ? d() : this.q;
+        savedState.a = e() ? d() : this.q;
         return savedState;
     }
 
@@ -668,20 +665,18 @@ public class SlidingPaneLayout extends ViewGroup {
     protected void onRestoreInstanceState(Parcelable parcelable) {
         SavedState savedState = (SavedState) parcelable;
         super.onRestoreInstanceState(savedState.getSuperState());
-        if (savedState.f349a) {
+        if (savedState.a) {
             b();
         } else {
             c();
         }
-        this.q = savedState.f349a;
+        this.q = savedState.a;
     }
 
     /* loaded from: classes.dex */
     class SavedState extends View.BaseSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new y();
-
-        /* renamed from: a  reason: collision with root package name */
-        boolean f349a;
+        boolean a;
 
         SavedState(Parcelable parcelable) {
             super(parcelable);
@@ -689,13 +684,13 @@ public class SlidingPaneLayout extends ViewGroup {
 
         private SavedState(Parcel parcel) {
             super(parcel);
-            this.f349a = parcel.readInt() != 0;
+            this.a = parcel.readInt() != 0;
         }
 
         @Override // android.view.View.BaseSavedState, android.view.AbsSavedState, android.os.Parcelable
         public void writeToParcel(Parcel parcel, int i) {
             super.writeToParcel(parcel, i);
-            parcel.writeInt(this.f349a ? 1 : 0);
+            parcel.writeInt(this.a ? 1 : 0);
         }
     }
 }

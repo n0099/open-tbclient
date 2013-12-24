@@ -9,13 +9,11 @@ import com.baidu.tieba.editortool.EditorToolComponetContainer;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 class ag implements View.OnFocusChangeListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WriteActivity f2781a;
+    final /* synthetic */ WriteActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ag(WriteActivity writeActivity) {
-        this.f2781a = writeActivity;
+        this.a = writeActivity;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:7:0x0017, code lost:
@@ -40,42 +38,42 @@ class ag implements View.OnFocusChangeListener {
         EditText editText6;
         ImageView imageView;
         TextView textView;
-        editText = this.f2781a.f;
+        editText = this.a.f;
         if (view != editText) {
-            imageView = this.f2781a.l;
+            imageView = this.a.l;
             if (view != imageView) {
-                textView = this.f2781a.m;
+                textView = this.a.m;
             }
         }
         if (z) {
-            this.f2781a.G = true;
-            this.f2781a.n();
-            writeEditorToolButtonContainer = this.f2781a.A;
+            this.a.G = true;
+            this.a.n();
+            writeEditorToolButtonContainer = this.a.A;
             writeEditorToolButtonContainer.c();
-            editorToolComponetContainer = this.f2781a.B;
-            editText2 = this.f2781a.f;
+            editorToolComponetContainer = this.a.B;
+            editText2 = this.a.f;
             editorToolComponetContainer.c(editText2);
         }
-        editText3 = this.f2781a.h;
+        editText3 = this.a.h;
         if (view == editText3) {
             if (z) {
-                this.f2781a.G = false;
-                writeData2 = this.f2781a.b;
+                this.a.G = false;
+                writeData2 = this.a.b;
                 if (writeData2.getType() == 0) {
-                    editText6 = this.f2781a.h;
+                    editText6 = this.a.h;
                     editText6.setHint((CharSequence) null);
                 }
-                this.f2781a.n();
-                writeEditorToolButtonContainer2 = this.f2781a.A;
+                this.a.n();
+                writeEditorToolButtonContainer2 = this.a.A;
                 writeEditorToolButtonContainer2.c();
-                editorToolComponetContainer2 = this.f2781a.B;
-                editText5 = this.f2781a.h;
+                editorToolComponetContainer2 = this.a.B;
+                editText5 = this.a.h;
                 editorToolComponetContainer2.c(editText5);
                 return;
             }
-            writeData = this.f2781a.b;
+            writeData = this.a.b;
             if (writeData.getType() == 0) {
-                editText4 = this.f2781a.h;
+                editText4 = this.a.h;
                 editText4.setHint(R.string.content);
             }
         }

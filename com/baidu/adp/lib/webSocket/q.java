@@ -5,12 +5,10 @@ import org.apache.http.message.BasicNameValuePair;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q extends Thread {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ o f544a;
+    final /* synthetic */ o a;
 
     private q(o oVar) {
-        this.f544a = oVar;
+        this.a = oVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -34,47 +32,47 @@ public class q extends Thread {
         Thread.currentThread().setName("WebSocketConnector");
         try {
             f fVar = new f();
-            o oVar = this.f544a;
-            str = this.f544a.h;
-            i = this.f544a.i;
-            oVar.d = fVar.a(str, i, this.f544a.e, false);
-            z = this.f544a.q;
+            o oVar = this.a;
+            str = this.a.h;
+            i = this.a.i;
+            oVar.d = fVar.a(str, i, this.a.e, false);
+            z = this.a.q;
             if (z) {
-                this.f544a.b(new v());
-            } else if (!this.f544a.d.b()) {
-                this.f544a.b(new x());
+                this.a.b(new v());
+            } else if (!this.a.d.b()) {
+                this.a.b(new x());
             } else {
                 try {
-                    this.f544a.c();
-                    this.f544a.b();
+                    this.a.c();
+                    this.a.b();
                     StringBuilder sb = new StringBuilder();
-                    str2 = this.f544a.h;
+                    str2 = this.a.h;
                     StringBuilder append = sb.append(str2).append(":");
-                    i2 = this.f544a.i;
+                    i2 = this.a.i;
                     u uVar = new u(append.append(i2).toString());
-                    str3 = this.f544a.j;
+                    str3 = this.a.j;
                     uVar.b = str3;
-                    str4 = this.f544a.k;
+                    str4 = this.a.k;
                     uVar.c = str4;
-                    strArr = this.f544a.l;
+                    strArr = this.a.l;
                     uVar.e = strArr;
-                    list = this.f544a.m;
+                    list = this.a.m;
                     uVar.f = list;
-                    this.f544a.c.a((Object) uVar);
-                    z2 = this.f544a.q;
+                    this.a.c.a((Object) uVar);
+                    z2 = this.a.q;
                     if (z2) {
-                        this.f544a.b(new v());
+                        this.a.b(new v());
                     }
                 } catch (Throwable th) {
-                    k = this.f544a.k();
+                    k = this.a.k();
                     if (k) {
                         com.baidu.adp.lib.h.e.c("----WebSocketConnector error. e:" + th.getMessage());
                     }
-                    this.f544a.b(new y(new Exception(th)));
+                    this.a.b(new y(new Exception(th)));
                 }
             }
         } catch (Throwable th2) {
-            this.f544a.b(new x());
+            this.a.b(new x());
         }
     }
 }

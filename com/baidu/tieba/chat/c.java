@@ -1,26 +1,37 @@
 package com.baidu.tieba.chat;
 
-import android.content.DialogInterface;
-import com.baidu.tieba.data.chat.ChatMessageData;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import com.baidu.tieba.view.HeadImageView;
 /* loaded from: classes.dex */
-class c implements DialogInterface.OnClickListener {
+class c {
+    ViewGroup a;
+    ViewGroup b;
+    HeadImageView c;
+    TextView d;
+    TextView e;
+    TextView f;
+    TextView g;
+    ViewGroup h;
+    TextView i;
+    ProgressBar j;
+    ImageView k;
+    final /* synthetic */ a l;
 
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ChatActivity f1183a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public c(ChatActivity chatActivity) {
-        this.f1183a = chatActivity;
-    }
-
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        ChatMessageData chatMessageData;
-        ChatMessageData chatMessageData2;
-        chatMessageData = this.f1183a.d;
-        if (chatMessageData != null) {
-            chatMessageData2 = this.f1183a.d;
-            chatMessageData2.setClipString(this.f1183a);
-        }
+    private c(a aVar) {
+        this.l = aVar;
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        this.d = null;
+        this.e = null;
+        this.f = null;
+        this.g = null;
+        this.h = null;
+        this.i = null;
+        this.j = null;
+        this.k = null;
     }
 }

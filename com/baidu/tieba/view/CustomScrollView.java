@@ -11,9 +11,7 @@ import android.widget.Scroller;
 import java.lang.reflect.Field;
 /* loaded from: classes.dex */
 public class CustomScrollView extends ScrollView {
-
-    /* renamed from: a  reason: collision with root package name */
-    protected Field f2627a;
+    protected Field a;
     private GestureDetector b;
     private int c;
     private int d;
@@ -39,17 +37,17 @@ public class CustomScrollView extends ScrollView {
         boolean z = this.c - this.d == i2;
         if (i2 == 0 || z) {
             try {
-                if (this.f2627a == null) {
-                    this.f2627a = com.baidu.adp.lib.h.g.a(this, "mScroller");
+                if (this.a == null) {
+                    this.a = com.baidu.adp.lib.h.g.a(this, "mScroller");
                 }
-                Object obj = this.f2627a.get(this);
+                Object obj = this.a.get(this);
                 if (obj != null && (obj instanceof Scroller)) {
                     ((Scroller) obj).abortAnimation();
                 } else {
                     return;
                 }
             } catch (Exception e) {
-                com.baidu.tieba.util.bd.b(getClass().getName(), "onScrollChanged", e.getMessage());
+                com.baidu.tieba.util.be.b(getClass().getName(), "onScrollChanged", e.getMessage());
             }
         }
         super.onScrollChanged(i, i2, i3, i4);
@@ -57,15 +55,15 @@ public class CustomScrollView extends ScrollView {
 
     private void a() {
         try {
-            if (this.f2627a == null) {
-                this.f2627a = com.baidu.adp.lib.h.g.a(this, "mScroller");
+            if (this.a == null) {
+                this.a = com.baidu.adp.lib.h.g.a(this, "mScroller");
             }
-            Object obj = this.f2627a.get(this);
+            Object obj = this.a.get(this);
             if (obj != null) {
                 obj.getClass().getMethod("abortAnimation", new Class[0]).invoke(obj, new Object[0]);
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.bd.b(getClass().getName(), "stopAnim", e.getMessage());
+            com.baidu.tieba.util.be.b(getClass().getName(), "stopAnim", e.getMessage());
         }
     }
 

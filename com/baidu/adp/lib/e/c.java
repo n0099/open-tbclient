@@ -9,14 +9,12 @@ import java.util.Map;
 /* loaded from: classes.dex */
 public class c {
     private static c c;
-
-    /* renamed from: a */
-    private a f479a = null;
+    private a a = null;
     private SparseArray<g> b = null;
 
     /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.lib.e.e.a(java.lang.String[]):java.lang.Object] */
     public static /* synthetic */ a a(c cVar) {
-        return cVar.f479a;
+        return cVar.a;
     }
 
     /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.lib.e.e.a(java.lang.String[]):java.lang.Object] */
@@ -25,7 +23,7 @@ public class c {
     }
 
     public c a(a aVar) {
-        this.f479a = aVar;
+        this.a = aVar;
         return this;
     }
 
@@ -77,23 +75,23 @@ public class c {
     public Object a(String str, int i, b bVar, Context context, f fVar, BdAsyncTaskType bdAsyncTaskType, int i2) {
         boolean z;
         BdAsyncTask<?, ?, ?> bdAsyncTask;
-        Object a2;
-        if (this.f479a == null) {
+        Object a;
+        if (this.a == null) {
             throw new Exception("BdLoaderCreaterAbstractFactory can not be null");
         }
-        g a3 = a(i);
-        if (a3 == null) {
+        g a2 = a(i);
+        if (a2 == null) {
             throw new Exception("Can't find the ResourceLoaderProc with type " + i);
         }
-        Object a4 = a3.a(str, fVar);
-        if (a4 == null) {
+        Object a3 = a2.a(str, fVar);
+        if (a3 == null) {
             b dVar = bVar == null ? new d(this) : bVar;
             String str2 = str + context.getClass().getName();
             BdAsyncTask<?, ?, ?> searchTask = BdAsyncTask.searchTask(str2);
-            if (fVar == null || (a2 = fVar.a("param_immediatelyExecut")) == null || !(a2 instanceof Boolean)) {
+            if (fVar == null || (a = fVar.a("param_immediatelyExecut")) == null || !(a instanceof Boolean)) {
                 z = false;
             } else {
-                z = ((Boolean) a2).booleanValue();
+                z = ((Boolean) a).booleanValue();
             }
             if (!z || searchTask == null || searchTask.getStatus() == BdAsyncTask.BdAsyncTaskStatus.FINISHED) {
                 bdAsyncTask = searchTask;
@@ -121,7 +119,7 @@ public class c {
             }
             return null;
         }
-        return a4;
+        return a3;
     }
 
     public Object a(String str, int i, b bVar, Context context, f fVar) {
@@ -138,9 +136,9 @@ public class c {
         }
         g gVar = this.b.get(i);
         if (gVar == null) {
-            g a2 = this.f479a.a(i);
-            this.b.put(i, a2);
-            return a2;
+            g a = this.a.a(i);
+            this.b.put(i, a);
+            return a;
         }
         return gVar;
     }

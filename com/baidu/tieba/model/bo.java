@@ -2,21 +2,18 @@ package com.baidu.tieba.model;
 
 import android.content.Context;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.tencent.mm.sdk.platformtools.Util;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bo extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.an> {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bm f2011a;
+    final /* synthetic */ bm a;
     private int c;
-    private com.baidu.tieba.a.h b = null;
+    private com.baidu.tieba.a.f b = null;
     private String d = null;
     private com.baidu.tieba.data.an e = null;
 
     public bo(bm bmVar, int i) {
-        this.f2011a = bmVar;
+        this.a = bmVar;
         this.c = 3;
         this.c = i;
         setSelfExecute(true);
@@ -34,8 +31,8 @@ public class bo extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.an> {
         com.baidu.tieba.data.an anVar4;
         boolean z = false;
         super.b();
-        this.f2011a.z = System.nanoTime();
-        anVar = this.f2011a.u;
+        this.a.z = System.nanoTime();
+        anVar = this.a.u;
         ArrayList<com.baidu.tieba.data.ar> e = anVar.e();
         if (this.c == 1) {
             boolean z2 = false;
@@ -44,12 +41,12 @@ public class bo extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.an> {
                 z2 = true;
             }
             if (z2) {
-                anVar3 = this.f2011a.u;
+                anVar3 = this.a.u;
                 anVar3.f().f(1);
-                bnVar = this.f2011a.y;
+                bnVar = this.a.y;
                 if (bnVar != null) {
-                    bnVar2 = this.f2011a.y;
-                    anVar4 = this.f2011a.u;
+                    bnVar2 = this.a.y;
+                    anVar4 = this.a.u;
                     bnVar2.a(anVar4);
                 }
             }
@@ -59,7 +56,7 @@ public class bo extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.an> {
                 z = true;
             }
             if (z) {
-                anVar2 = this.f2011a.u;
+                anVar2 = this.a.u;
                 anVar2.f().e(1);
             }
         }
@@ -78,17 +75,17 @@ public class bo extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.an> {
                 str = anVar.d().j().getId();
             }
             com.baidu.tieba.data.az d = anVar.d();
-            i = this.f2011a.g;
+            i = this.a.g;
             d.b(i);
-            i2 = this.f2011a.h;
+            i2 = this.a.h;
             d.a(i2);
-            j = this.f2011a.i;
+            j = this.a.i;
             d.a(j);
             for (int i3 = 0; i3 < anVar.e().size(); i3++) {
                 com.baidu.tieba.data.ar arVar = anVar.e().get(i3);
                 for (int i4 = 0; i4 < arVar.a().size(); i4++) {
                     boolean equals = str.equals(arVar.a().get(i4).g().getId());
-                    context = this.f2011a.x;
+                    context = this.a.x;
                     arVar.a().get(i4).a(context, equals);
                 }
             }
@@ -101,19 +98,19 @@ public class bo extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.an> {
         com.baidu.adp.lib.cache.t tVar;
         Context context;
         com.baidu.adp.lib.cache.s sVar2;
-        x = this.f2011a.x();
-        sVar = this.f2011a.B;
+        x = this.a.x();
+        sVar = this.a.B;
         if (sVar == null || x == null) {
             tVar = null;
         } else {
-            sVar2 = this.f2011a.B;
+            sVar2 = this.a.B;
             tVar = sVar2.b(x);
         }
         if (tVar == null || tVar.b == 0) {
             return null;
         }
         com.baidu.tieba.data.an anVar = new com.baidu.tieba.data.an();
-        context = this.f2011a.x;
+        context = this.a.x;
         anVar.a((String) tVar.b, context);
         if (anVar.a()) {
             return anVar;
@@ -128,24 +125,24 @@ public class bo extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.an> {
         Context context;
         String str;
         com.baidu.adp.lib.cache.s sVar2;
-        x = this.f2011a.x();
-        sVar = this.f2011a.A;
+        x = this.a.x();
+        sVar = this.a.A;
         if (sVar == null || x == null) {
             tVar = null;
         } else {
-            sVar2 = this.f2011a.A;
+            sVar2 = this.a.A;
             tVar = sVar2.b(x);
         }
         if (tVar == null || tVar.b == 0) {
             return null;
         }
         com.baidu.tieba.data.an anVar = new com.baidu.tieba.data.an();
-        context = this.f2011a.x;
+        context = this.a.x;
         anVar.a((String) tVar.b, context);
         if (anVar.a()) {
             if (anVar.j() != null) {
                 String j = anVar.j();
-                str = this.f2011a.d;
+                str = this.a.d;
                 if (!j.equals(str)) {
                     return null;
                 }
@@ -183,19 +180,19 @@ public class bo extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.an> {
         com.baidu.tieba.data.ao aoVar4;
         com.baidu.tieba.data.ao aoVar5;
         try {
-            anVar = this.f2011a.u;
+            anVar = this.a.u;
             ArrayList<com.baidu.tieba.data.ar> e = anVar.e();
             switch (this.c) {
                 case 1:
-                    this.f2011a.d = e.get(e.size() - 1).d();
+                    this.a.d = e.get(e.size() - 1).d();
                     d = null;
                     break;
                 case 2:
-                    this.f2011a.d = e.get(0).d();
+                    this.a.d = e.get(0).d();
                     d = null;
                     break;
                 case 3:
-                    z = this.f2011a.q;
+                    z = this.a.q;
                     if (z) {
                         d = e();
                         break;
@@ -215,26 +212,26 @@ public class bo extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.an> {
                 b(this.e);
                 c((Object[]) new Integer[]{0});
             }
-            this.b = new com.baidu.tieba.a.h();
-            com.baidu.tieba.a.h hVar = this.b;
-            str = this.f2011a.c;
-            str2 = this.f2011a.b;
-            str3 = this.f2011a.d;
-            i = this.f2011a.l;
-            i2 = this.f2011a.k;
-            z2 = this.f2011a.f;
-            z3 = this.f2011a.e;
+            this.b = new com.baidu.tieba.a.f();
+            com.baidu.tieba.a.f fVar = this.b;
+            str = this.a.c;
+            str2 = this.a.b;
+            str3 = this.a.d;
+            i = this.a.l;
+            i2 = this.a.k;
+            z2 = this.a.f;
+            z3 = this.a.e;
             int i5 = this.c;
-            i3 = this.f2011a.j;
-            i4 = this.f2011a.m;
-            z4 = this.f2011a.s;
-            j = this.f2011a.r;
-            z5 = this.f2011a.q;
+            i3 = this.a.j;
+            i4 = this.a.m;
+            z4 = this.a.s;
+            j = this.a.r;
+            z5 = this.a.q;
             aoVar = bm.w;
-            this.d = hVar.a(str, str2, str3, i, i2, z2, z3, i5, i3, i4, z4, j, z5, aoVar);
+            this.d = fVar.a(str, str2, str3, i, i2, z2, z3, i5, i3, i4, z4, j, z5, aoVar);
             com.baidu.tieba.data.an anVar2 = new com.baidu.tieba.data.an();
             String str4 = this.d;
-            context = this.f2011a.x;
+            context = this.a.x;
             anVar2.a(str4, context);
             if (!this.b.b()) {
                 anVar2 = null;
@@ -243,13 +240,13 @@ public class bo extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.an> {
                 b(anVar2);
                 return anVar2;
             } else if (this.b != null) {
-                this.f2011a.setErrorString(this.b.e());
-                this.f2011a.setErrorCode(this.b.f());
+                this.a.setErrorString(this.b.e());
+                this.a.setErrorCode(this.b.f());
                 if (this.b.c()) {
                     aoVar3 = bm.w;
                     aoVar3.a();
                     long nanoTime = System.nanoTime();
-                    j2 = this.f2011a.z;
+                    j2 = this.a.z;
                     aoVar4 = bm.w;
                     aoVar4.a((int) ((nanoTime - j2) / 1000000));
                     aoVar5 = bm.w;
@@ -263,7 +260,7 @@ public class bo extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.an> {
                 return anVar2;
             }
         } catch (Exception e2) {
-            com.baidu.tieba.util.bd.b("PbAsyncTask", "doInBackground", "error = " + e2.getMessage());
+            com.baidu.tieba.util.be.b("PbAsyncTask", "doInBackground", "error = " + e2.getMessage());
             return null;
         }
     }
@@ -276,12 +273,12 @@ public class bo extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.an> {
         bn bnVar;
         bn bnVar2;
         String str;
-        bnVar = this.f2011a.y;
+        bnVar = this.a.y;
         if (bnVar != null && this.e != null) {
-            bnVar2 = this.f2011a.y;
+            bnVar2 = this.a.y;
             int i = this.c;
             com.baidu.tieba.data.an anVar = this.e;
-            str = this.f2011a.mErrorString;
+            str = this.a.mErrorString;
             bnVar2.a(true, 0, i, 0, anVar, str);
         }
     }
@@ -310,54 +307,54 @@ public class bo extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.an> {
         bn bnVar3;
         bn bnVar4;
         String str2;
-        this.f2011a.v = null;
+        this.a.v = null;
         if (anVar == null) {
-            bnVar3 = this.f2011a.y;
+            bnVar3 = this.a.y;
             if (bnVar3 != null) {
-                bnVar4 = this.f2011a.y;
-                int errorCode = this.f2011a.getErrorCode();
+                bnVar4 = this.a.y;
+                int errorCode = this.a.getErrorCode();
                 int i2 = this.c;
-                str2 = this.f2011a.mErrorString;
+                str2 = this.a.mErrorString;
                 bnVar4.a(false, errorCode, i2, 0, null, str2);
             }
         } else {
-            this.f2011a.s = false;
-            this.f2011a.e(anVar.f().d());
-            this.f2011a.m = anVar.f().a();
-            bm bmVar = this.f2011a;
-            i = this.f2011a.m;
-            bmVar.m = i < 1 ? 1 : this.f2011a.m;
-            anVar2 = this.f2011a.u;
+            this.a.s = false;
+            this.a.e(anVar.f().d());
+            this.a.m = anVar.f().a();
+            bm bmVar = this.a;
+            i = this.a.m;
+            bmVar.m = i < 1 ? 1 : this.a.m;
+            anVar2 = this.a.u;
             ArrayList<com.baidu.tieba.data.ar> e = anVar2.e();
             switch (this.c) {
                 case 1:
-                    anVar4 = this.f2011a.u;
+                    anVar4 = this.a.u;
                     anVar4.a(anVar.f(), 1);
                     e.addAll(anVar.e());
                     size = 0;
                     break;
                 case 2:
                     size = anVar.e().size() + 1;
-                    anVar3 = this.f2011a.u;
+                    anVar3 = this.a.u;
                     anVar3.a(anVar.f(), 2);
                     e.addAll(0, anVar.e());
                     break;
                 case 3:
-                    z = this.f2011a.f;
+                    z = this.a.f;
                     if (!z) {
                         anVar.f().c(anVar.f().a());
                     }
                     c(anVar);
                     if (this.d != null) {
-                        x2 = this.f2011a.x();
+                        x2 = this.a.x();
                         if (x2 != null) {
-                            z2 = this.f2011a.q;
+                            z2 = this.a.q;
                             if (z2) {
-                                sVar3 = this.f2011a.A;
+                                sVar3 = this.a.A;
                                 sVar3.b(x2, this.d, 604800000L);
                             } else {
-                                sVar2 = this.f2011a.B;
-                                sVar2.b(x2, this.d, Util.MILLSECONDS_OF_DAY);
+                                sVar2 = this.a.B;
+                                sVar2.b(x2, this.d, 86400000L);
                             }
                         }
                         size = 0;
@@ -368,9 +365,9 @@ public class bo extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.an> {
                 case 4:
                     c(anVar);
                     if (this.d != null) {
-                        x = this.f2011a.x();
+                        x = this.a.x();
                         if (x != null) {
-                            sVar = this.f2011a.A;
+                            sVar = this.a.A;
                             sVar.b(x, this.d, 2592000000L);
                         }
                         size = 0;
@@ -390,13 +387,13 @@ public class bo extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.an> {
                     size = 0;
                     break;
             }
-            bnVar = this.f2011a.y;
+            bnVar = this.a.y;
             if (bnVar != null) {
-                bnVar2 = this.f2011a.y;
-                int errorCode2 = this.f2011a.getErrorCode();
+                bnVar2 = this.a.y;
+                int errorCode2 = this.a.getErrorCode();
                 int i3 = this.c;
-                anVar5 = this.f2011a.u;
-                str = this.f2011a.mErrorString;
+                anVar5 = this.a.u;
+                str = this.a.mErrorString;
                 bnVar2.a(true, errorCode2, i3, size, anVar5, str);
             }
         }
@@ -404,8 +401,8 @@ public class bo extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.an> {
     }
 
     private void c(com.baidu.tieba.data.an anVar) {
-        this.f2011a.u = anVar;
-        this.f2011a.d(anVar.f().d());
+        this.a.u = anVar;
+        this.a.d(anVar.f().d());
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -413,16 +410,16 @@ public class bo extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.an> {
         bn bnVar;
         bn bnVar2;
         super.cancel(true);
-        this.f2011a.setErrorString(null);
+        this.a.setErrorString(null);
         if (this.b != null) {
             this.b.a();
         }
-        bnVar = this.f2011a.y;
+        bnVar = this.a.y;
         if (bnVar != null) {
-            bnVar2 = this.f2011a.y;
-            bnVar2.a(false, this.f2011a.getErrorCode(), this.c, 0, null, null);
+            bnVar2 = this.a.y;
+            bnVar2.a(false, this.a.getErrorCode(), this.c, 0, null, null);
         }
-        this.f2011a.v = null;
+        this.a.v = null;
         this.d = null;
     }
 }

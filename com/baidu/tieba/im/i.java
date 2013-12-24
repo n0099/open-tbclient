@@ -6,16 +6,14 @@ import com.baidu.tieba.data.AccountData;
 import com.baidu.tieba.im.chat.LocalViewSize;
 import com.baidu.tieba.im.db.ag;
 import com.baidu.tieba.im.messageCenter.PingManager;
-import com.baidu.tieba.im.messageCenter.o;
 import com.baidu.tieba.im.net.TiebaSocketLinkService;
 import com.baidu.tieba.mention.ae;
 import com.baidu.tieba.mention.t;
 /* loaded from: classes.dex */
 public class i {
-
-    /* renamed from: a  reason: collision with root package name */
-    public static long f1786a;
+    public static long a;
     private static i b = new i();
+    private static String c = null;
 
     private i() {
     }
@@ -27,14 +25,14 @@ public class i {
         com.baidu.tieba.im.net.f.a().b();
         LocalViewSize.a().a(tiebaApplication);
         com.baidu.tieba.im.messageCenter.b.a(tiebaApplication);
-        o.a(tiebaApplication);
-        com.baidu.tieba.im.d.a.a().a(tiebaApplication);
-        com.baidu.tieba.im.pushNotify.l.a().b();
+        com.baidu.tieba.im.messageCenter.o.a(tiebaApplication);
+        com.baidu.tieba.im.b.a.b().a(tiebaApplication);
+        com.baidu.tieba.im.c.m.a().b();
         com.baidu.tieba.im.chat.a.b().a();
         ag.a().b();
         TiebaSocketLinkService.a();
         TiebaSocketLinkService.a(false, "TiebaImApplication init");
-        f1786a = Thread.currentThread().getId();
+        a = Thread.currentThread().getId();
         com.baidu.adp.lib.h.e.d("=====uid:" + TiebaApplication.B() + " cuid:" + a());
     }
 
@@ -43,13 +41,22 @@ public class i {
         t.a().d(0L);
         t.a().b(0L);
         t.a().c(0L);
-        t.a().h();
+        t.a().i();
         com.baidu.tieba.im.db.l.a().b();
         TiebaSocketLinkService.a(true, "change Account");
     }
 
-    public static String a() {
-        return TiebaApplication.h().p() + "|" + Math.abs(TiebaApplication.h().getPackageName().hashCode());
+    public static synchronized String a() {
+        String str;
+        synchronized (i.class) {
+            if (c == null) {
+                String p = TiebaApplication.h().p();
+                String packageName = TiebaApplication.h().getPackageName();
+                c = p + "|" + packageName + com.baidu.tieba.data.h.j();
+            }
+            str = c;
+        }
+        return str;
     }
 
     public static String b() {

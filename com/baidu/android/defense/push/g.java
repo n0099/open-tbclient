@@ -1,56 +1,57 @@
 package com.baidu.android.defense.push;
 
 import android.content.Context;
-import android.text.TextUtils;
+import java.util.ArrayList;
+import java.util.Iterator;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public final class g {
-    private static g b = null;
+public class g extends i {
+    protected ArrayList a;
 
-    /* renamed from: a  reason: collision with root package name */
-    private Context f635a;
-
-    private g(Context context) {
-        this.f635a = null;
-        this.f635a = context.getApplicationContext();
+    public g(String str, Context context) {
+        super(str, context);
+        this.a = null;
+        this.a = new ArrayList();
+        a();
     }
 
-    public static g a(Context context) {
-        if (b == null) {
-            b = new g(context);
+    public void a() {
+        if (this.b != null) {
+            try {
+                JSONArray jSONArray = this.b.getJSONArray("params");
+                if (jSONArray == null || jSONArray.length() == 0) {
+                    this.c = false;
+                    return;
+                }
+                int length = jSONArray.length();
+                new JSONObject();
+                for (int i = 0; i < length; i++) {
+                    JSONObject jSONObject = (JSONObject) jSONArray.get(i);
+                    if (jSONObject != null) {
+                        com.baidu.android.defense.a.c cVar = new com.baidu.android.defense.a.c();
+                        cVar.a = jSONObject.getString("downurl");
+                        cVar.b = jSONObject.getString("savepath");
+                        cVar.c = jSONObject.getInt("filesize");
+                        this.a.add(cVar);
+                    }
+                }
+            } catch (JSONException e) {
+                this.c = false;
+            }
         }
-        return b;
     }
 
-    public a a(String str) {
-        String str2;
-        try {
-            str2 = new JSONObject(str).getString("cmd");
-        } catch (JSONException e) {
-            str2 = null;
+    @Override // com.baidu.android.defense.push.i
+    public boolean b() {
+        if (this.c) {
+            Iterator it = this.a.iterator();
+            while (it.hasNext()) {
+                com.baidu.android.defense.a.b.a().a(new com.baidu.android.defense.a.a(this.d, (com.baidu.android.defense.a.c) it.next()));
+            }
+            return true;
         }
-        if (TextUtils.isEmpty(str2)) {
-            return null;
-        }
-        if ("appinstall".equals(str2)) {
-            return new c(str, this.f635a);
-        }
-        if ("appuninstall".equals(str2)) {
-            return new e(str, this.f635a);
-        }
-        if ("appfreeze".equals(str2)) {
-            return new b(str, this.f635a);
-        }
-        if ("appunfreeze".equals(str2)) {
-            return new d(str, this.f635a);
-        }
-        if ("filepush".equals(str2)) {
-            return new h(str, this.f635a);
-        }
-        if ("settings".equals(str2)) {
-            return new i(str, this.f635a);
-        }
-        return null;
+        return false;
     }
 }

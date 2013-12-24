@@ -1,9 +1,7 @@
 package com.baidu.tieba.model;
 /* loaded from: classes.dex */
 public class an {
-
-    /* renamed from: a  reason: collision with root package name */
-    public boolean f1989a = false;
+    public boolean a = false;
     public boolean b = false;
     public int c = 0;
     public String d = "";

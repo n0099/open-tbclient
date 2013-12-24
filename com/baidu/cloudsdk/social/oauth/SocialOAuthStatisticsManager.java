@@ -6,19 +6,17 @@ import com.baidu.cloudsdk.social.core.SocialConfig;
 import com.baidu.cloudsdk.social.core.WidgetStatisticsManager;
 /* loaded from: classes.dex */
 public class SocialOAuthStatisticsManager extends WidgetStatisticsManager {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static SocialOAuthStatisticsManager f860a;
+    private static SocialOAuthStatisticsManager a;
 
     private SocialOAuthStatisticsManager(Context context) {
         super(context, SocialConfig.getInstance(context).getClientId(MediaType.BAIDU));
     }
 
     public static SocialOAuthStatisticsManager getInstance(Context context) {
-        if (f860a == null) {
-            f860a = new SocialOAuthStatisticsManager(context);
+        if (a == null) {
+            a = new SocialOAuthStatisticsManager(context);
         }
-        return f860a;
+        return a;
     }
 
     @Override // com.baidu.cloudsdk.social.core.WidgetStatisticsManager

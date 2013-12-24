@@ -22,14 +22,12 @@ import com.baidu.tieba.MainTabActivity;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.AccountData;
 import com.baidu.tieba.util.DatabaseService;
-import com.baidu.tieba.util.bd;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
-import com.tencent.mm.sdk.platformtools.Util;
 /* loaded from: classes.dex */
 public class ReLoginActivity extends com.baidu.tieba.j {
     private NavigationBar m;
-    private ap b = null;
+    private bc b = null;
     private Button c = null;
     private Button d = null;
     private TextView e = null;
@@ -37,15 +35,13 @@ public class ReLoginActivity extends com.baidu.tieba.j {
     private boolean g = false;
     private boolean h = false;
     private AccountData i = null;
-    private n j = null;
+    private x j = null;
     private long k = 0;
     private String l = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    LinearLayout f1033a = null;
+    LinearLayout a = null;
     private Handler n = null;
-    private Runnable o = new aj(this);
-    private View.OnClickListener p = new am(this);
+    private Runnable o = new aw(this);
+    private View.OnClickListener p = new az(this);
 
     public static void a(Activity activity, int i, int i2, boolean z, AccountData accountData) {
         Intent intent = new Intent(activity, ReLoginActivity.class);
@@ -73,7 +69,7 @@ public class ReLoginActivity extends com.baidu.tieba.j {
         super.onResume();
         if (this.h) {
             String currentAccount = BaiduAccount.get(this).getCurrentAccount();
-            bd.e(getClass().getName(), "onResume", "account=" + currentAccount);
+            com.baidu.tieba.util.be.e(getClass().getName(), "onResume", "account=" + currentAccount);
             if (currentAccount == null || currentAccount.equals("BaiduUser")) {
                 finish();
             } else {
@@ -97,19 +93,19 @@ public class ReLoginActivity extends com.baidu.tieba.j {
     }
 
     private void a() {
-        new AccountProxy(this).getTokenAsync(AccountProxy.BAIDUACCOUNT_TYPE, new ak(this));
+        new AccountProxy(this).getTokenAsync(AccountProxy.BAIDUACCOUNT_TYPE, new ax(this));
     }
 
     private void b() {
         this.m = (NavigationBar) findViewById(R.id.view_navigation_bar);
         this.m.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.c = (Button) findViewById(R.id.relogin_retry_button);
-        this.c.setOnClickListener(new al(this));
+        this.c.setOnClickListener(new ay(this));
         this.d = (Button) findViewById(R.id.relogin_cacel_button);
         this.d.setOnClickListener(this.p);
         this.f = (ProgressBar) findViewById(R.id.relogin_progressbar);
         this.e = (TextView) findViewById(R.id.relogin_textview);
-        this.f1033a = (LinearLayout) findViewById(R.id.container);
+        this.a = (LinearLayout) findViewById(R.id.container);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -118,9 +114,9 @@ public class ReLoginActivity extends com.baidu.tieba.j {
         super.onChangeSkinType(i);
         a(0, getIntent().getStringExtra("uname"));
         this.m.c(i);
-        com.baidu.tieba.util.ba.a((TextView) this.d, i);
-        com.baidu.tieba.util.ba.a(this.f1033a, i);
-        com.baidu.tieba.util.ba.b(this.e, i);
+        com.baidu.tieba.util.bb.a((TextView) this.d, i);
+        com.baidu.tieba.util.bb.a(this.a, i);
+        com.baidu.tieba.util.bb.b(this.e, i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -136,7 +132,7 @@ public class ReLoginActivity extends com.baidu.tieba.j {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, String str2) {
         if (this.b == null) {
-            this.b = new ap(this, str, str2);
+            this.b = new bc(this, str, str2);
             this.b.setPriority(3);
             this.b.execute(new String[0]);
         }
@@ -183,7 +179,7 @@ public class ReLoginActivity extends com.baidu.tieba.j {
                 if (this.mSkinType == 1) {
                     spannableString.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.skin_1_common_color)), 0, replace.length(), 33);
                 }
-                spannableString.setSpan(new ForegroundColorSpan(Color.rgb((int) Util.MASK_8BIT, 47, 47)), indexOf, str.length() + indexOf, 33);
+                spannableString.setSpan(new ForegroundColorSpan(Color.rgb(255, 47, 47)), indexOf, str.length() + indexOf, 33);
                 this.e.setTextSize(2, 16.0f);
                 this.e.setText(spannableString);
                 return;
@@ -192,7 +188,7 @@ public class ReLoginActivity extends com.baidu.tieba.j {
                 this.f.setVisibility(8);
                 String str2 = getString(R.string.relogin_fail) + "\n";
                 SpannableString spannableString2 = new SpannableString(str2 + str);
-                spannableString2.setSpan(new ForegroundColorSpan(Color.rgb((int) Util.MASK_8BIT, 47, 47)), str2.length(), str2.length() + str.length(), 33);
+                spannableString2.setSpan(new ForegroundColorSpan(Color.rgb(255, 47, 47)), str2.length(), str2.length() + str.length(), 33);
                 this.e.setTextSize(2, 14.0f);
                 this.e.setText(spannableString2);
                 return;
@@ -222,11 +218,11 @@ public class ReLoginActivity extends com.baidu.tieba.j {
             new AccountProxy(this).startFillNameActivity(false);
             this.h = true;
         } catch (ActivityNotFoundException e) {
-            bd.a(getClass().getName(), "fillUserName", e.toString());
+            com.baidu.tieba.util.be.a(getClass().getName(), "fillUserName", e.toString());
             if (this.j == null) {
-                this.j = new n(this);
-                this.j.a(new an(this));
-                this.j.b(new ao(this));
+                this.j = new x(this);
+                this.j.a(new ba(this));
+                this.j.b(new bb(this));
             }
             this.j.e();
             this.j.a(getString(R.string.default_username));

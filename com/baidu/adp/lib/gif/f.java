@@ -5,12 +5,10 @@ import android.os.Handler;
 import android.os.SystemClock;
 /* loaded from: classes.dex */
 class f extends Thread {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ GifView f493a;
+    final /* synthetic */ GifView a;
 
     private f(GifView gifView) {
-        this.f493a = gifView;
+        this.a = gifView;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -32,36 +30,36 @@ class f extends Thread {
         boolean z2;
         b bVar5;
         Handler handler;
-        bVar = this.f493a.f487a;
+        bVar = this.a.a;
         if (bVar == null) {
             return;
         }
         while (z) {
-            bVar2 = this.f493a.f487a;
+            bVar2 = this.a.a;
             if (bVar2.b() == 1) {
-                bVar3 = this.f493a.f487a;
-                this.f493a.b = bVar3.d().f490a;
-                bVar4 = this.f493a.f487a;
+                bVar3 = this.a.a;
+                this.a.b = bVar3.d().a;
+                bVar4 = this.a.a;
                 bVar4.a();
-                this.f493a.a();
+                this.a.a();
                 return;
             }
-            z2 = this.f493a.d;
+            z2 = this.a.d;
             if (!z2) {
-                bVar5 = this.f493a.f487a;
+                bVar5 = this.a.a;
                 c d = bVar5.d();
                 if (d == null) {
                     SystemClock.sleep(50L);
                 } else {
-                    if (d.f490a != null) {
-                        this.f493a.b = d.f490a;
+                    if (d.a != null) {
+                        this.a.b = d.a;
                     } else if (d.c != null) {
-                        this.f493a.b = BitmapFactory.decodeFile(d.c);
+                        this.a.b = BitmapFactory.decodeFile(d.c);
                     }
                     long j = d.b;
-                    handler = this.f493a.h;
+                    handler = this.a.h;
                     if (handler != null) {
-                        this.f493a.a();
+                        this.a.a();
                         SystemClock.sleep(j);
                     } else {
                         return;

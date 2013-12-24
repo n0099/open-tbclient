@@ -45,7 +45,7 @@ public class ed implements com.baidu.tieba.view.ap {
     protected TbRichTextView m;
     protected Button n;
     protected Button o;
-    protected com.baidu.tieba.view.bi p;
+    protected com.baidu.tieba.view.bl p;
     protected LinearLayout q;
     protected TextView r;
     protected View s;
@@ -54,9 +54,7 @@ public class ed implements com.baidu.tieba.view.ap {
     protected View.OnClickListener w;
     protected View.OnClickListener x;
     protected View.OnClickListener y;
-
-    /* renamed from: a  reason: collision with root package name */
-    protected View f2251a = null;
+    protected View a = null;
     protected View b = null;
     protected ca d = null;
     protected LinearLayout u = null;
@@ -104,12 +102,12 @@ public class ed implements com.baidu.tieba.view.ap {
         this.w = onClickListener3;
         this.y = onClickListener4;
         h();
-        this.f = (ClickableLayout4Frame) this.f2251a.findViewById(R.id.sub_pb_body_layout);
-        this.c = (BdListView) this.f2251a.findViewById(R.id.new_sub_pb_list);
+        this.f = (ClickableLayout4Frame) this.a.findViewById(R.id.sub_pb_body_layout);
+        this.c = (BdListView) this.a.findViewById(R.id.new_sub_pb_list);
         this.b.setOnClickListener(new ee(this));
-        this.q = (LinearLayout) this.f2251a.findViewById(R.id.sub_pb_bottom_layout);
+        this.q = (LinearLayout) this.a.findViewById(R.id.sub_pb_bottom_layout);
         b();
-        this.r = (TextView) this.f2251a.findViewById(R.id.sub_pb_bottom_text);
+        this.r = (TextView) this.a.findViewById(R.id.sub_pb_bottom_text);
         this.g = (HeadImageView) this.b.findViewById(R.id.photo);
         this.g.setIsRound(true);
         this.h = (TextView) this.b.findViewById(R.id.user_name);
@@ -121,24 +119,24 @@ public class ed implements com.baidu.tieba.view.ap {
         this.l = (TextView) this.b.findViewById(R.id.time);
         this.t = (UserIconBox) this.b.findViewById(R.id.user_icon_box);
         this.m = (TbRichTextView) this.b.findViewById(R.id.richText);
-        this.m.setTextSize(com.baidu.tieba.data.h.o());
+        this.m.setTextSize(com.baidu.tieba.data.h.q());
         this.m.setVoiceViewRes(R.layout.voice_play_btn);
         this.c.addHeaderView(this.b);
         a(onClickListener3);
-        this.p = new com.baidu.tieba.view.bi(this.e);
+        this.p = new com.baidu.tieba.view.bl(this.e);
         this.s = this.p.b();
         this.c.setNextPage(this.p);
         this.p.a(this.v);
         this.c.setOnItemClickListener(this.J);
         this.c.setOnItemLongClickListener(this.K);
         this.q.setOnClickListener(this.v);
-        this.G = (ProgressBar) this.f2251a.findViewById(R.id.progress);
+        this.G = (ProgressBar) this.a.findViewById(R.id.progress);
         this.g.setOnClickListener(onClickListener3);
         i();
     }
 
     protected void b() {
-        this.I = (SubPbEditor) this.f2251a.findViewById(R.id.sub_pb_editor);
+        this.I = (SubPbEditor) this.a.findViewById(R.id.sub_pb_editor);
         this.I.v();
     }
 
@@ -150,7 +148,7 @@ public class ed implements com.baidu.tieba.view.ap {
 
     protected void h() {
         LayoutInflater from = LayoutInflater.from(this.e);
-        this.f2251a = from.inflate(R.layout.new_sub_pb_layout, (ViewGroup) null);
+        this.a = from.inflate(R.layout.new_sub_pb_layout, (ViewGroup) null);
         this.b = from.inflate(R.layout.new_sub_pb_head, (ViewGroup) null);
     }
 
@@ -174,7 +172,7 @@ public class ed implements com.baidu.tieba.view.ap {
     protected void k() {
         TextView textView = new TextView(this.e);
         textView.setLineSpacing(0.0f, 1.2f);
-        textView.setTextSize(com.baidu.tieba.data.h.o());
+        textView.setTextSize(com.baidu.tieba.data.h.q());
         this.z = new com.baidu.tieba.util.i(this.e);
         this.z.f("pb");
         this.z.a(this.A, (int) (this.A * 1.62f));
@@ -227,7 +225,7 @@ public class ed implements com.baidu.tieba.view.ap {
     }
 
     public View n() {
-        return this.f2251a;
+        return this.a;
     }
 
     public VoiceManager.VoiceModel o() {
@@ -291,12 +289,12 @@ public class ed implements com.baidu.tieba.view.ap {
     }
 
     protected void u() {
-        com.baidu.tieba.util.i a2 = this.d != null ? this.d.a() : null;
-        if (a2 != null) {
+        com.baidu.tieba.util.i a = this.d != null ? this.d.a() : null;
+        if (a != null) {
             Object tag = this.g.getTag();
             String obj = tag != null ? tag.toString() : null;
             if (obj != null) {
-                a2.d(obj, new el(this));
+                a.d(obj, new el(this));
             }
         }
     }
@@ -344,9 +342,9 @@ public class ed implements com.baidu.tieba.view.ap {
     }
 
     public void d(String str) {
-        int a2;
-        if (str != null && !str.equals("") && (a2 = this.d.a(str)) >= 0) {
-            this.c.setSelection(a2 + 1);
+        int a;
+        if (str != null && !str.equals("") && (a = this.d.a(str)) >= 0) {
+            this.c.setSelection(a + 1);
             this.c.invalidate();
         }
     }
@@ -361,7 +359,7 @@ public class ed implements com.baidu.tieba.view.ap {
 
     public void d(boolean z) {
         if (TiebaApplication.h().an() == 1) {
-            com.baidu.tieba.util.ba.e((View) this.j, (int) R.drawable.pb_list_floor_number_1);
+            com.baidu.tieba.util.bb.e((View) this.j, (int) R.drawable.pb_list_floor_number_1);
             if (z) {
                 this.j.setBackgroundResource(R.drawable.icon_collect_s_1);
                 return;
@@ -370,7 +368,7 @@ public class ed implements com.baidu.tieba.view.ap {
                 return;
             }
         }
-        com.baidu.tieba.util.ba.e((View) this.j, (int) R.drawable.pb_list_floor_number);
+        com.baidu.tieba.util.bb.e((View) this.j, (int) R.drawable.pb_list_floor_number);
         if (z) {
             this.j.setBackgroundResource(R.drawable.icon_collect_s);
         } else {
@@ -407,7 +405,7 @@ public class ed implements com.baidu.tieba.view.ap {
             Resources resources = this.e.getResources();
             this.l.setTextColor(this.e.getResources().getColor(an == 1 ? R.color.pb_listitem_post_time_1 : R.color.pb_listitem_post_time));
             this.h.setTextColor(this.e.getResources().getColor(an == 1 ? R.color.pb_user_name_text_1 : R.color.pb_user_name_text));
-            this.l.setText(com.baidu.tieba.util.bb.b(arVar.f()));
+            this.l.setText(com.baidu.tieba.util.bc.b(arVar.f()));
             if (z) {
                 this.k.setVisibility(0);
                 if (an == 1) {
@@ -511,7 +509,7 @@ public class ed implements com.baidu.tieba.view.ap {
                 }
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.bd.b(getClass().getName(), "startLoadImage", "error = " + e.getMessage());
+            com.baidu.tieba.util.be.b(getClass().getName(), "startLoadImage", "error = " + e.getMessage());
         }
     }
 
@@ -525,7 +523,7 @@ public class ed implements com.baidu.tieba.view.ap {
 
     public void b(int i) {
         this.e.getLayoutMode().a(i == 1);
-        this.e.getLayoutMode().a(this.f2251a);
+        this.e.getLayoutMode().a(this.a);
         this.e.getLayoutMode().a(this.b);
         this.e.getLayoutMode().a(this.s);
         if (i == 1) {
@@ -533,14 +531,14 @@ public class ed implements com.baidu.tieba.view.ap {
             this.r.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.icon_upward_footer_1, 0);
             this.m.setTextColor(this.e.getResources().getColor(R.color.gray_night_1));
             this.m.setVideoImageId(R.drawable.pic_video_1);
-            com.baidu.tieba.util.ba.e((View) this.D, (int) R.drawable.btn_post_dl_selector_1);
+            com.baidu.tieba.util.bb.e((View) this.D, (int) R.drawable.btn_post_dl_selector_1);
             this.n.setCompoundDrawablesWithIntrinsicBounds(R.drawable.btn_discuss_dl_selector_1, 0, 0, 0);
         } else {
             this.s.setBackgroundResource(R.drawable.bg_floor_new_foot);
             this.r.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.icon_upward_footer, 0);
             this.m.setTextColor(this.e.getResources().getColor(R.color.search_text_content));
             this.m.setVideoImageId(R.drawable.pic_video);
-            com.baidu.tieba.util.ba.e((View) this.D, (int) R.drawable.btn_post_dl_selector);
+            com.baidu.tieba.util.bb.e((View) this.D, (int) R.drawable.btn_post_dl_selector);
             this.n.setCompoundDrawablesWithIntrinsicBounds(R.drawable.btn_discuss_dl_selector, 0, 0, 0);
         }
         this.I.d(i);
@@ -580,9 +578,9 @@ public class ed implements com.baidu.tieba.view.ap {
     }
 
     public void a(String str) {
-        int a2 = this.d.a(str);
-        if (a2 > -1) {
-            this.c.setSelection(a2 + 1);
+        int a = this.d.a(str);
+        if (a > -1) {
+            this.c.setSelection(a + 1);
             this.c.invalidate();
         }
     }

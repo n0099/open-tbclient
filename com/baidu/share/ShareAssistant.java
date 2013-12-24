@@ -4,9 +4,7 @@ import android.content.Context;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class ShareAssistant {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static ShareAssistant f977a = null;
+    private static ShareAssistant a = null;
     private d b = new d();
     private b c;
 
@@ -21,10 +19,10 @@ public class ShareAssistant {
     public static synchronized ShareAssistant a(Context context) {
         ShareAssistant shareAssistant;
         synchronized (ShareAssistant.class) {
-            if (f977a == null) {
-                f977a = new ShareAssistant(context);
+            if (a == null) {
+                a = new ShareAssistant(context);
             }
-            shareAssistant = f977a;
+            shareAssistant = a;
         }
         return shareAssistant;
     }
@@ -45,7 +43,7 @@ public class ShareAssistant {
             Crypto.a();
         } catch (Throwable th) {
         }
-        f977a = null;
+        a = null;
     }
 
     public boolean registListener(IShareListener iShareListener) {

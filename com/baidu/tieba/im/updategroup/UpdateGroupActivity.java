@@ -7,17 +7,15 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
-import com.baidu.tieba.im.model.ab;
+import com.baidu.tieba.im.model.am;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class UpdateGroupActivity extends com.baidu.tieba.j {
-    private ab d;
+    private am d;
     private a c = null;
     private int e = 1;
     private d f = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    DialogInterface.OnClickListener f1885a = new b(this);
+    DialogInterface.OnClickListener a = new b(this);
     DialogInterface.OnClickListener b = new c(this);
 
     public static void a(Activity activity, int i, int i2, int i3, String str) {
@@ -46,10 +44,10 @@ public class UpdateGroupActivity extends com.baidu.tieba.j {
         int intExtra2 = intent.getIntExtra("group_id", 0);
         String stringExtra = intent.getStringExtra("group_text");
         a(intExtra, intExtra2);
-        this.d = new ab();
+        this.d = new am();
         this.c.a(stringExtra);
         this.c.a(this.b);
-        this.c.b(this.f1885a);
+        this.c.b(this.a);
         a();
     }
 
@@ -113,10 +111,10 @@ public class UpdateGroupActivity extends com.baidu.tieba.j {
         this.d.a(this.c.h());
         if (this.e == 1) {
             this.d.a(this.c.k());
-            this.d.b(2);
+            this.d.c(2);
         } else if (this.e == 2) {
             this.d.b(this.c.k());
-            this.d.b(1);
+            this.d.c(1);
         }
     }
 

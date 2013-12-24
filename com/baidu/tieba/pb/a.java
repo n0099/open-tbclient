@@ -3,9 +3,7 @@ package com.baidu.tieba.pb;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a {
-
-    /* renamed from: a  reason: collision with root package name */
-    private ArrayList<String> f2149a;
+    private ArrayList<String> a;
     private String d;
     private String e;
     private String f;
@@ -19,14 +17,14 @@ public class a {
     private c l = null;
 
     public a(ArrayList<String> arrayList, String str, String str2, String str3) {
-        this.f2149a = null;
+        this.a = null;
         this.d = null;
         this.e = null;
         this.f = null;
         this.k = false;
-        this.f2149a = arrayList;
-        if (this.f2149a == null) {
-            this.f2149a = new ArrayList<>();
+        this.a = arrayList;
+        if (this.a == null) {
+            this.a = new ArrayList<>();
         }
         this.d = str2;
         this.e = str;
@@ -88,7 +86,7 @@ public class a {
             sb.append(String.valueOf(aaVar.g()));
         }
         sb.append("&src=");
-        sb.append(com.baidu.tieba.util.bb.d(aaVar.b()));
+        sb.append(com.baidu.tieba.util.bc.d(aaVar.b()));
         return sb.toString();
     }
 }

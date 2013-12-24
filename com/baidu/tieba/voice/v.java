@@ -4,16 +4,14 @@ import android.os.Handler;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class v implements Runnable {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f2748a;
+    final /* synthetic */ String a;
     final /* synthetic */ int b;
     final /* synthetic */ VoiceManager c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(VoiceManager voiceManager, String str, int i) {
         this.c = voiceManager;
-        this.f2748a = str;
+        this.a = str;
         this.b = i;
     }
 
@@ -23,12 +21,12 @@ public class v implements Runnable {
         Handler handler2;
         Handler handler3;
         Handler handler4;
-        String str = com.baidu.tieba.voice.a.e.a(aj.c(this.f2748a)).f2713a;
+        String str = com.baidu.tieba.voice.a.e.a(aj.c(this.a)).a;
         handler = this.c.p;
         if (handler != null) {
             handler2 = this.c.p;
             handler2.removeCallbacks(this.c.c);
-            if (com.baidu.adp.lib.h.l.a(str)) {
+            if (com.baidu.adp.lib.h.m.a(str)) {
                 handler4 = this.c.p;
                 handler4.post(new w(this));
                 return;

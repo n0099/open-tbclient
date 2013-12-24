@@ -6,13 +6,11 @@ import android.content.Intent;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bf extends BroadcastReceiver {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PersonInfoActivity f2332a;
+    final /* synthetic */ PersonInfoActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bf(PersonInfoActivity personInfoActivity) {
-        this.f2332a = personInfoActivity;
+        this.a = personInfoActivity;
     }
 
     @Override // android.content.BroadcastReceiver
@@ -23,17 +21,17 @@ public class bf extends BroadcastReceiver {
         com.baidu.tieba.model.bx bxVar4;
         long longExtra = intent.getLongExtra("fans", 0L);
         long longExtra2 = intent.getLongExtra("new_bookmark", 0L);
-        bxVar = this.f2332a.e;
+        bxVar = this.a.e;
         if (bxVar != null) {
-            bxVar3 = this.f2332a.e;
+            bxVar3 = this.a.e;
             bxVar3.a(longExtra);
-            bxVar4 = this.f2332a.e;
+            bxVar4 = this.a.e;
             bxVar4.c(longExtra2);
         }
-        if (this.f2332a.f2297a != null) {
-            bj bjVar = this.f2332a.f2297a;
-            bxVar2 = this.f2332a.e;
-            bjVar.e(bxVar2);
+        if (this.a.a != null) {
+            bm bmVar = this.a.a;
+            bxVar2 = this.a.e;
+            bmVar.e(bxVar2);
         }
     }
 }

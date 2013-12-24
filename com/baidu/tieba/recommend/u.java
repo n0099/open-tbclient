@@ -4,21 +4,19 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class u implements com.baidu.tbadk.imageManager.c {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ View f2425a;
+    final /* synthetic */ View a;
     final /* synthetic */ DailyRecommendBannerPagerAdapter b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(DailyRecommendBannerPagerAdapter dailyRecommendBannerPagerAdapter, View view) {
         this.b = dailyRecommendBannerPagerAdapter;
-        this.f2425a = view;
+        this.a = view;
     }
 
     @Override // com.baidu.tbadk.imageManager.c
     public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
         View findViewWithTag;
-        if (this.f2425a != null && (findViewWithTag = this.f2425a.findViewWithTag(str)) != null) {
+        if (this.a != null && (findViewWithTag = this.a.findViewWithTag(str)) != null) {
             findViewWithTag.invalidate();
         }
     }

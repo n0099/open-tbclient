@@ -6,15 +6,13 @@ import com.baidu.tieba.BaseFragment;
 import com.baidu.tieba.chat.ChatListFragment;
 /* loaded from: classes.dex */
 public class MentionPagerAdapter extends FragmentPagerAdapter {
-
-    /* renamed from: a  reason: collision with root package name */
-    private final BaseFragment[] f1941a;
+    private final BaseFragment[] a;
     private final int b;
 
     public MentionPagerAdapter(android.support.v4.app.t tVar) {
         super(tVar);
-        this.f1941a = new BaseFragment[]{new ChatListFragment(), new ReplyMeFragment(), new AtMeFragment()};
-        this.b = this.f1941a.length;
+        this.a = new BaseFragment[]{new ChatListFragment(), new ReplyMeFragment(), new AtMeFragment()};
+        this.b = this.a.length;
     }
 
     @Override // android.support.v4.app.FragmentPagerAdapter
@@ -22,7 +20,7 @@ public class MentionPagerAdapter extends FragmentPagerAdapter {
         if (i < 0 || i >= this.b) {
             return null;
         }
-        return this.f1941a[i];
+        return this.a[i];
     }
 
     @Override // android.support.v4.view.ae

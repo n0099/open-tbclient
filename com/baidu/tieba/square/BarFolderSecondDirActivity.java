@@ -44,7 +44,7 @@ public class BarFolderSecondDirActivity extends com.baidu.tieba.a {
     @Override // com.baidu.tieba.a, com.baidu.tieba.j
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        com.baidu.tieba.util.ba.c(this.k, i);
+        com.baidu.tieba.util.bb.c(this.k, i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

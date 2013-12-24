@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.android.common.security.Base64;
+import com.baidu.android.pushservice.PushConstants;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import java.io.UnsupportedEncodingException;
 import java.net.URI;
@@ -85,7 +86,7 @@ public final class Utils {
         Validator.notNull(activity, "activity");
         Validator.notNull(uri, "uri");
         String scheme = uri.getScheme();
-        if (scheme == null || !scheme.equalsIgnoreCase("content")) {
+        if (scheme == null || !scheme.equalsIgnoreCase(PushConstants.EXTRA_CONTENT)) {
             return uri.getPath();
         }
         Cursor managedQuery = activity.managedQuery(uri, new String[]{"_data"}, null, null, null);

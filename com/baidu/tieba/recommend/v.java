@@ -6,9 +6,7 @@ import android.os.Bundle;
 import com.baidu.tieba.TiebaApplication;
 /* loaded from: classes.dex */
 public class v extends com.baidu.adp.a.d {
-
-    /* renamed from: a  reason: collision with root package name */
-    public static String f2426a = "st_type";
+    public static String a = "st_type";
     private x b;
     private w d;
     private w e;
@@ -20,11 +18,11 @@ public class v extends com.baidu.adp.a.d {
     }
 
     public void a(Intent intent) {
-        this.g = intent.getStringExtra(f2426a);
+        this.g = intent.getStringExtra(a);
     }
 
     public void a(Bundle bundle) {
-        this.g = bundle.getString(f2426a);
+        this.g = bundle.getString(a);
     }
 
     @Override // com.baidu.adp.a.d

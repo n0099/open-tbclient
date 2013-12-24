@@ -6,7 +6,7 @@ import com.baidu.tieba.data.PersonChangeData;
 import com.baidu.tieba.data.UserData;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class bx extends com.baidu.adp.a.d {
+public class bx extends com.baidu.adp.a.d implements com.baidu.tieba.im.messageCenter.g {
     private long c;
     private long d;
     private long e;
@@ -15,12 +15,10 @@ public class bx extends com.baidu.adp.a.d {
     private String h;
     private AntiData l;
     private com.baidu.tieba.util.i m;
+    private e o;
     private Context p;
-    private ca n = null;
-    private bz o = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    private boolean f2018a = true;
+    private bz n = null;
+    private boolean a = true;
     private String b = null;
     private UserData k = null;
     private boolean i = false;
@@ -35,6 +33,7 @@ public class bx extends com.baidu.adp.a.d {
         b(0L);
         c(0L);
         this.m = new com.baidu.tieba.util.i(context);
+        com.baidu.tieba.im.messageCenter.e.a().a(-118, this);
     }
 
     public AntiData a() {
@@ -54,11 +53,11 @@ public class bx extends com.baidu.adp.a.d {
     }
 
     public void a(boolean z) {
-        this.f2018a = z;
+        this.a = z;
     }
 
     public boolean c() {
-        return this.f2018a;
+        return this.a;
     }
 
     public void a(UserData userData) {
@@ -77,21 +76,15 @@ public class bx extends com.baidu.adp.a.d {
 
     public void a(boolean z, boolean z2) {
         if (this.n == null) {
-            this.n = new ca(this);
+            this.n = new bz(this);
             this.n.setPriority(3);
             this.n.execute(Boolean.valueOf(z), Boolean.valueOf(z2));
         }
     }
 
     public void e() {
-        if (d() != null && this.o == null) {
-            this.o = new bz(this);
-            this.o.setPriority(2);
-            if (d().getHave_attention() == 1) {
-                this.o.execute(1);
-            } else {
-                this.o.execute(0);
-            }
+        if (d() != null && this.o != null) {
+            this.o.a(d().getHave_attention() != 1, d().getPortrait(), d().getId());
         }
     }
 
@@ -99,7 +92,7 @@ public class bx extends com.baidu.adp.a.d {
         try {
             a(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.tieba.util.bd.b(getClass().getName(), "parserJson", "error = " + e.getMessage());
+            com.baidu.tieba.util.be.b(getClass().getName(), "parserJson", "error = " + e.getMessage());
         }
     }
 
@@ -111,7 +104,7 @@ public class bx extends com.baidu.adp.a.d {
                 this.l = new AntiData();
                 this.l.parserJson(jSONObject.optJSONObject("anti_stat"));
             } catch (Exception e) {
-                com.baidu.tieba.util.bd.b(getClass().getName(), "parserJson", "error = " + e.getMessage());
+                com.baidu.tieba.util.be.b(getClass().getName(), "parserJson", "error = " + e.getMessage());
             }
         }
     }
@@ -183,14 +176,38 @@ public class bx extends com.baidu.adp.a.d {
     }
 
     public void l() {
+        com.baidu.tieba.im.messageCenter.e.a().a(this);
         if (this.n != null) {
             this.n.cancel();
         }
-        if (this.o != null) {
-            this.o.cancel();
-        }
         if (this.m != null) {
             this.m.b();
+        }
+    }
+
+    @Override // com.baidu.tieba.im.messageCenter.g
+    public void a(com.baidu.tieba.im.message.n nVar) {
+        if (nVar != null) {
+            switch (nVar.t()) {
+                case -118:
+                    if ((nVar instanceof com.baidu.tieba.im.message.cc) && d() != null) {
+                        com.baidu.tieba.im.message.cc ccVar = (com.baidu.tieba.im.message.cc) nVar;
+                        if (d().getId() != null && d().getId().equals(ccVar.c())) {
+                            d().setHave_attention(ccVar.d() ? 1 : 0);
+                            this.mLoadDataMode = 3;
+                            setErrorString(ccVar.b());
+                            if (this.mLoadDataCallBack != null) {
+                                this.mLoadDataCallBack.a(Boolean.valueOf(ccVar.a()));
+                                return;
+                            }
+                            return;
+                        }
+                        return;
+                    }
+                    return;
+                default:
+                    return;
+            }
         }
     }
 }

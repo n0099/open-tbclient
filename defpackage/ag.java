@@ -10,17 +10,15 @@ import com.baidu.cloudsdk.social.share.handler.ISocialShareHandler;
 /* renamed from: ag  reason: default package */
 /* loaded from: classes.dex */
 public class ag implements ISocialShareHandler {
-
-    /* renamed from: a  reason: collision with root package name */
-    private Context f266a;
+    private Context a;
 
     public ag(Context context) {
-        this.f266a = context;
+        this.a = context;
     }
 
     @Override // com.baidu.cloudsdk.social.share.handler.ISocialShareHandler
     public void share(ShareContent shareContent, IBaiduListener iBaiduListener, boolean z) {
-        ((ClipboardManager) this.f266a.getSystemService("clipboard")).setText(shareContent.getLinkUrl());
-        Toast.makeText(this.f266a, SocialShareConfig.getInstance(this.f266a).getString("copy_link_success"), 1).show();
+        ((ClipboardManager) this.a.getSystemService("clipboard")).setText(shareContent.getLinkUrl());
+        Toast.makeText(this.a, SocialShareConfig.getInstance(this.a).getString("copy_link_success"), 1).show();
     }
 }

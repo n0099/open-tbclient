@@ -5,15 +5,13 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class u implements DialogInterface.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ List f1723a;
+    final /* synthetic */ List a;
     final /* synthetic */ MembersActivity b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(MembersActivity membersActivity, List list) {
         this.b = membersActivity;
-        this.f1723a = list;
+        this.a = list;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -21,7 +19,7 @@ public class u implements DialogInterface.OnClickListener {
         aa aaVar;
         aa aaVar2;
         aa aaVar3;
-        com.baidu.tieba.im.model.h hVar;
+        com.baidu.tieba.im.model.m mVar;
         aa aaVar4;
         aaVar = this.b.b;
         aaVar.c(false);
@@ -30,8 +28,8 @@ public class u implements DialogInterface.OnClickListener {
         aaVar3 = this.b.b;
         aaVar3.j();
         MembersActivity membersActivity = this.b;
-        hVar = this.b.c;
-        membersActivity.a(hVar.g(), this.f1723a);
+        mVar = this.b.c;
+        membersActivity.a(mVar.f(), this.a);
         aaVar4 = this.b.b;
         aaVar4.d(true);
     }

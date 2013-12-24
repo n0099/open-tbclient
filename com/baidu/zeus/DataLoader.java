@@ -1,5 +1,6 @@
 package com.baidu.zeus;
 
+import com.baidu.browser.webpool.BdWebPoolView;
 import com.baidu.zeus.util.Base64;
 import java.io.ByteArrayInputStream;
 /* loaded from: classes.dex */
@@ -29,7 +30,7 @@ class DataLoader extends StreamLoader {
     @Override // com.baidu.zeus.StreamLoader
     protected boolean setupStreamAndSendStatus() {
         if (this.mDataStream != null) {
-            this.mLoadListener.status(1, 1, 200, "OK");
+            this.mLoadListener.status(1, 1, BdWebPoolView.DELAYED_TIME, "OK");
             return true;
         }
         this.mLoadListener.error(-1, this.mContext.getString(17039600));

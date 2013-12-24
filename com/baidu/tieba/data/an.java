@@ -9,9 +9,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class an {
     private int i;
-
-    /* renamed from: a  reason: collision with root package name */
-    private ForumData f1221a = new ForumData();
+    private ForumData a = new ForumData();
     private az b = new az();
     private ArrayList<ar> c = new ArrayList<>();
     private am d = new am();
@@ -45,7 +43,7 @@ public class an {
     }
 
     public ForumData c() {
-        return this.f1221a;
+        return this.a;
     }
 
     public az d() {
@@ -113,7 +111,7 @@ public class an {
         try {
             a(new JSONObject(str), context);
         } catch (Exception e) {
-            com.baidu.tieba.util.bd.b("PbData", "parserJson", "error = " + e.getMessage());
+            com.baidu.tieba.util.be.b("PbData", "parserJson", "error = " + e.getMessage());
         }
     }
 
@@ -121,7 +119,7 @@ public class an {
         try {
             a(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.tieba.util.bd.b("PbData", "parserJson", "error = " + e.getMessage());
+            com.baidu.tieba.util.be.b("PbData", "parserJson", "error = " + e.getMessage());
         }
     }
 
@@ -133,7 +131,7 @@ public class an {
         if (jSONObject != null) {
             try {
                 a(jSONObject.optInt("is_new_url", 0));
-                this.f1221a.parserJson(jSONObject.optJSONObject("forum"));
+                this.a.parserJson(jSONObject.optJSONObject("forum"));
                 this.b.a(jSONObject.optJSONObject("thread"));
                 JSONArray optJSONArray = jSONObject.optJSONArray("post_list");
                 if (optJSONArray != null) {
@@ -150,7 +148,7 @@ public class an {
                 this.h = jSONObject.optJSONObject("user").optInt("is_manager", 0);
                 this.j.parserJson(jSONObject.optJSONObject("user"));
             } catch (Exception e) {
-                com.baidu.tieba.util.bd.b("PbData", "parserJson", "error = " + e.getMessage());
+                com.baidu.tieba.util.be.b("PbData", "parserJson", "error = " + e.getMessage());
             }
         }
     }

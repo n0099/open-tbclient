@@ -18,10 +18,10 @@ public class e extends Handler {
         d dVar = (d) message.obj;
         switch (message.what) {
             case 1:
-                dVar.f412a.d(dVar.b[0]);
+                dVar.a.d(dVar.b[0]);
                 return;
             case 2:
-                dVar.f412a.b((Object[]) dVar.b);
+                dVar.a.b((Object[]) dVar.b);
                 return;
             default:
                 return;

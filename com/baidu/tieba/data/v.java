@@ -7,9 +7,7 @@ import org.json.JSONObject;
 public class v {
     private String g;
     private String h;
-
-    /* renamed from: a  reason: collision with root package name */
-    private int f1262a = 0;
+    private int a = 0;
     private String b = "";
     private String c = "";
     private int d = 0;
@@ -21,7 +19,7 @@ public class v {
         try {
             a(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.tieba.util.bd.b("ForumFeedData", "parserJson", "error = " + e.getMessage());
+            com.baidu.tieba.util.be.b("ForumFeedData", "parserJson", "error = " + e.getMessage());
         }
     }
 
@@ -31,7 +29,7 @@ public class v {
                 a(jSONObject.optInt("is_new_url", 0));
                 JSONObject optJSONObject = jSONObject.optJSONObject("error");
                 if (optJSONObject != null) {
-                    this.f1262a = optJSONObject.optInt("errno", 0);
+                    this.a = optJSONObject.optInt("errno", 0);
                     this.b = optJSONObject.optString("errmsg", "");
                     this.c = optJSONObject.optString("usermsg", "");
                 }
@@ -47,7 +45,7 @@ public class v {
                     a(optJSONArray.length() == 0);
                 }
             } catch (Exception e) {
-                com.baidu.tieba.util.bd.b("ForumFeedData", "parserJson", "error = " + e.getMessage());
+                com.baidu.tieba.util.be.b("ForumFeedData", "parserJson", "error = " + e.getMessage());
             }
         }
     }
@@ -111,7 +109,7 @@ public class v {
     }
 
     public int g() {
-        return this.f1262a;
+        return this.a;
     }
 
     public String h() {

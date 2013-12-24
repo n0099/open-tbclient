@@ -7,13 +7,11 @@ import com.baidu.tieba.TiebaApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bu implements DialogInterface.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bs f1402a;
+    final /* synthetic */ bs a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bu(bs bsVar) {
-        this.f1402a = bsVar;
+        this.a = bsVar;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -23,28 +21,28 @@ public class bu implements DialogInterface.OnClickListener {
         switch (i) {
             case 0:
                 if (TiebaApplication.h().al() != 1) {
-                    this.f1402a.r = true;
+                    this.a.p = true;
                 }
                 TiebaApplication.h().d(1);
                 break;
             case 1:
                 if (TiebaApplication.h().al() != 0) {
-                    this.f1402a.r = true;
+                    this.a.p = true;
                 }
                 TiebaApplication.h().d(0);
                 break;
             case 2:
                 if (TiebaApplication.h().al() != 2) {
-                    this.f1402a.r = true;
+                    this.a.p = true;
                 }
                 TiebaApplication.h().d(2);
                 break;
         }
-        z = this.f1402a.r;
+        z = this.a.p;
         if (z && TiebaApplication.h().t()) {
-            context = this.f1402a.b;
+            context = this.a.b;
             StatService.onEvent(context, "frs_abstract", "frsclick", 1);
         }
-        this.f1402a.h();
+        this.a.h();
     }
 }

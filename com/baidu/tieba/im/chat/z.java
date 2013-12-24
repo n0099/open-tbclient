@@ -1,23 +1,27 @@
 package com.baidu.tieba.im.chat;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class z implements DialogInterface.OnClickListener {
+public class z implements com.baidu.tieba.im.messageCenter.g {
+    final /* synthetic */ GroupSettingActivity a;
 
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ x f1612a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public z(x xVar) {
-        this.f1612a = xVar;
+    public z(GroupSettingActivity groupSettingActivity) {
+        this.a = groupSettingActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        AlertDialog alertDialog;
-        alertDialog = this.f1612a.o;
-        alertDialog.dismiss();
+    @Override // com.baidu.tieba.im.messageCenter.g
+    public void a(com.baidu.tieba.im.message.n nVar) {
+        if (nVar != null && nVar.t() == 103103) {
+            if (!(nVar instanceof com.baidu.tieba.im.message.bs)) {
+                this.a.showToast(R.string.group_report_fail);
+                return;
+            }
+            com.baidu.tieba.im.message.bs bsVar = (com.baidu.tieba.im.message.bs) nVar;
+            if (bsVar.i()) {
+                this.a.a(bsVar.k(), bsVar.j());
+            } else {
+                this.a.showToast(R.string.group_report_success);
+            }
+        }
     }
 }

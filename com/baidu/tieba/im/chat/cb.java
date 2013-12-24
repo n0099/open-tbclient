@@ -1,19 +1,23 @@
 package com.baidu.tieba.im.chat;
 
 import android.view.View;
+import android.widget.AbsListView;
+import com.baidu.tieba.im.widget.chatVoiceView.ChatVoiceView;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class cb implements View.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MsgrightView f1586a;
+class cb implements AbsListView.RecyclerListener {
+    final /* synthetic */ bu a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cb(MsgrightView msgrightView) {
-        this.f1586a = msgrightView;
+    public cb(bu buVar) {
+        this.a = buVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.f1586a.c.a(view, 6, this.f1586a.f, 0L);
+    @Override // android.widget.AbsListView.RecyclerListener
+    public void onMovedToScrapHeap(View view) {
+        View findViewById = view.findViewById(R.id.lay_msgitem_voice);
+        if (findViewById != null && (findViewById instanceof ChatVoiceView)) {
+            ((ChatVoiceView) findViewById).a();
+        }
     }
 }

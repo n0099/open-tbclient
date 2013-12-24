@@ -7,6 +7,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.os.Process;
 import android.util.EventLog;
+import com.baidu.browser.webpool.BdWebPoolView;
 import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import java.util.Locale;
 /* loaded from: classes.dex */
@@ -130,7 +131,7 @@ public class WebSettings {
         LARGERLITTLE(SocialAPIErrorCodes.ERROR_INVALID_UPLOAD_FILE),
         LARGER(150),
         LARGERMORE(175),
-        LARGEST(200);
+        LARGEST(BdWebPoolView.DELAYED_TIME);
         
         int value;
 

@@ -1,66 +1,32 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.data.NewErrorData;
+import android.view.View;
+import com.slidingmenu.lib.R;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class o {
+public class o implements View.OnClickListener {
+    final /* synthetic */ CommonWebviewActivity a;
 
-    /* renamed from: a  reason: collision with root package name */
-    protected com.baidu.tieba.util.am f2135a;
-    protected NewErrorData b = null;
-
-    public o() {
-        this.f2135a = null;
-        this.f2135a = new com.baidu.tieba.util.am();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public o(CommonWebviewActivity commonWebviewActivity) {
+        this.a = commonWebviewActivity;
     }
 
-    public void a() {
-        if (this.f2135a != null) {
-            this.f2135a.j();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.back /* 2131099658 */:
+                this.a.finish();
+                return;
+            case R.id.refresh /* 2131099833 */:
+                TiebaApplication.h().g(0);
+                this.a.a();
+                return;
+            case R.id.common_webview_item /* 2131099958 */:
+                this.a.a();
+                return;
+            default:
+                return;
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void a(String str) {
-        this.f2135a.a(str);
-    }
-
-    public void a(String str, String str2) {
-        this.f2135a.a(str, str2);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public String b() {
-        String l = this.f2135a.l();
-        this.b = new NewErrorData();
-        this.b.parserJson(l);
-        return l;
-    }
-
-    public boolean c() {
-        if (this.f2135a != null) {
-            return this.f2135a.c();
-        }
-        return false;
-    }
-
-    public String d() {
-        if (this.f2135a != null) {
-            return this.f2135a.i();
-        }
-        return null;
-    }
-
-    public int e() {
-        if (this.b != null) {
-            return this.b.getErrorNumber();
-        }
-        return -1;
-    }
-
-    public String f() {
-        if (this.b != null) {
-            return this.b.getErrorMsg();
-        }
-        return null;
     }
 }

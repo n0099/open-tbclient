@@ -4,14 +4,12 @@ import android.content.Intent;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class h {
-
-    /* renamed from: a  reason: collision with root package name */
-    final Intent f314a;
+    final Intent a;
     final ArrayList<i> b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(Intent intent, ArrayList<i> arrayList) {
-        this.f314a = intent;
+        this.a = intent;
         this.b = arrayList;
     }
 }

@@ -3,9 +3,7 @@ package com.baidu.tieba.data;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class al {
-
-    /* renamed from: a  reason: collision with root package name */
-    private String f1219a = null;
+    private String a = null;
     private aq b = null;
     private aq c = null;
     private String d = null;
@@ -18,7 +16,7 @@ public class al {
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.f1219a = jSONObject.optString("pk_id", null);
+                this.a = jSONObject.optString("pk_id", null);
                 this.b = new aq();
                 this.b.a(jSONObject.optJSONObject("player1"));
                 this.c = new aq();
@@ -29,7 +27,7 @@ public class al {
                 this.d = jSONObject.optString("title");
                 this.i = jSONObject.optInt("status", 0);
             } catch (Exception e) {
-                com.baidu.tieba.util.bd.b("PKInfoData", "parserJson", "error = " + e.getMessage());
+                com.baidu.tieba.util.be.b("PKInfoData", "parserJson", "error = " + e.getMessage());
             }
         }
     }

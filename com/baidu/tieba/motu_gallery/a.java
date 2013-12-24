@@ -8,9 +8,7 @@ import android.widget.ImageView;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class a extends ImageView {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static int f2112a = -1;
+    private static int a = -1;
     private boolean b;
     private int c;
     private int d;
@@ -39,12 +37,12 @@ public class a extends ImageView {
     private Bitmap getSelectIcon() {
         int i;
         if (this.b) {
-            if (f2112a == 1) {
+            if (a == 1) {
                 i = R.drawable.but_posts_fit_select_s_1;
             } else {
                 i = R.drawable.but_posts_fit_select_s;
             }
-        } else if (f2112a == 1) {
+        } else if (a == 1) {
             i = R.drawable.but_posts_fit_select_n_1;
         } else {
             i = R.drawable.but_posts_fit_select_n;

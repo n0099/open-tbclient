@@ -10,16 +10,14 @@ import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class EnterForumGuideBottomView extends RelativeLayout {
-
-    /* renamed from: a  reason: collision with root package name */
-    private int f1434a;
+    private int a;
     private ImageView b;
     private TextView c;
     private ImageView d;
 
     public EnterForumGuideBottomView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f1434a = -1;
+        this.a = -1;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -28,7 +26,7 @@ public class EnterForumGuideBottomView extends RelativeLayout {
 
     public EnterForumGuideBottomView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f1434a = -1;
+        this.a = -1;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -37,7 +35,7 @@ public class EnterForumGuideBottomView extends RelativeLayout {
 
     public EnterForumGuideBottomView(Context context) {
         super(context);
-        this.f1434a = -1;
+        this.a = -1;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -53,11 +51,11 @@ public class EnterForumGuideBottomView extends RelativeLayout {
     }
 
     private void setSkinType(int i) {
-        this.f1434a = i;
+        this.a = i;
     }
 
     private int getSkinType() {
-        return this.f1434a;
+        return this.a;
     }
 
     private boolean c(int i) {
@@ -103,7 +101,7 @@ public class EnterForumGuideBottomView extends RelativeLayout {
     }
 
     public void c() {
-        this.f1434a = -1;
+        this.a = -1;
         this.b.setBackgroundDrawable(null);
     }
 }

@@ -9,9 +9,7 @@ import android.util.Log;
 import android.view.View;
 /* loaded from: classes.dex */
 public class IndicatorView extends View {
-
-    /* renamed from: a  reason: collision with root package name */
-    private boolean f566a;
+    private boolean a;
     private int b;
     private int c;
     private float d;
@@ -112,7 +110,7 @@ public class IndicatorView extends View {
             this.g.setBounds(0, 0, this.g.getIntrinsicWidth(), this.g.getIntrinsicHeight());
             Log.d("IndicatorView$IndicatorView", "Selector bound=" + this.g.getBounds());
         }
-        this.f566a = obtainStyledAttributes.getBoolean(3, false);
+        this.a = obtainStyledAttributes.getBoolean(3, false);
     }
 
     @Override // android.view.View
@@ -126,7 +124,7 @@ public class IndicatorView extends View {
     }
 
     public void setAutoHide(boolean z) {
-        this.f566a = z;
+        this.a = z;
     }
 
     public void setDrawable(Drawable drawable) {

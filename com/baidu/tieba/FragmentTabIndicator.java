@@ -6,9 +6,7 @@ import android.util.AttributeSet;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 public class FragmentTabIndicator extends TextView {
-
-    /* renamed from: a  reason: collision with root package name */
-    public int f1008a;
+    public int a;
     public int b;
     public int c;
     public int d;
@@ -34,7 +32,7 @@ public class FragmentTabIndicator extends TextView {
             setTextColor(getResources().getColorStateList(this.f));
             return;
         }
-        setCompoundDrawablesWithIntrinsicBounds((Drawable) null, getResources().getDrawable(this.f1008a), (Drawable) null, (Drawable) null);
+        setCompoundDrawablesWithIntrinsicBounds((Drawable) null, getResources().getDrawable(this.a), (Drawable) null, (Drawable) null);
         setBackgroundResource(this.c);
         setTextColor(getResources().getColorStateList(this.e));
     }

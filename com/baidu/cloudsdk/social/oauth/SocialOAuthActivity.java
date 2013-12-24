@@ -8,9 +8,7 @@ import com.baidu.cloudsdk.common.util.Validator;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 /* loaded from: classes.dex */
 public class SocialOAuthActivity extends Activity {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static IBaiduListener f859a;
+    private static IBaiduListener a;
     private String b;
     private String c;
     private cb e;
@@ -20,7 +18,7 @@ public class SocialOAuthActivity extends Activity {
     public static synchronized void setListener(IBaiduListener iBaiduListener) {
         synchronized (SocialOAuthActivity.class) {
             Validator.notNull(iBaiduListener, "listener");
-            f859a = iBaiduListener;
+            a = iBaiduListener;
         }
     }
 

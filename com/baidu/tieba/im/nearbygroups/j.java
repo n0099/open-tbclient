@@ -28,9 +28,7 @@ public class j implements a {
     private TextView n;
     private LinearLayout o;
     private TextView p;
-
-    /* renamed from: a  reason: collision with root package name */
-    private LinearLayout f1851a = null;
+    private LinearLayout a = null;
     private View c = null;
     private DecimalFormat q = new DecimalFormat("#.#");
 
@@ -47,13 +45,13 @@ public class j implements a {
 
     @Override // com.baidu.tieba.im.nearbygroups.a
     public void a(int i, Object obj) {
-        if (obj instanceof com.baidu.tieba.im.data.e) {
-            com.baidu.tieba.im.data.e eVar = (com.baidu.tieba.im.data.e) obj;
-            this.o.setTag(eVar.c());
-            this.e.setText(eVar.d());
-            this.f.setText(eVar.h() + "/" + eVar.g());
-            this.g.setText(eVar.e());
-            String f = eVar.f();
+        if (obj instanceof com.baidu.tieba.im.data.i) {
+            com.baidu.tieba.im.data.i iVar = (com.baidu.tieba.im.data.i) obj;
+            this.o.setTag(iVar.c());
+            this.e.setText(iVar.d());
+            this.f.setText(iVar.h() + "/" + iVar.g());
+            this.g.setText(iVar.e());
+            String f = iVar.f();
             this.d.setTag(null);
             this.d.setDefaultResource(R.drawable.avatar_poto_defaul140);
             this.d.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
@@ -62,11 +60,11 @@ public class j implements a {
             if (!TextUtils.isEmpty(f)) {
                 this.d.setTag(f);
             }
-            a(this.k, eVar.i());
-            String b = b(eVar.j());
+            a(this.k, iVar.i());
+            String b = b(iVar.j());
             this.m.setText(b);
             this.n.setText(b);
-            if (eVar.a()) {
+            if (iVar.a()) {
                 this.p.setVisibility(0);
                 this.m.setVisibility(0);
                 this.n.setVisibility(8);
@@ -105,7 +103,7 @@ public class j implements a {
 
     public void b() {
         this.c = LayoutInflater.from(this.b).inflate(R.layout.im_group_list_item, (ViewGroup) null);
-        this.f1851a = (LinearLayout) this.c.findViewById(R.id.list_item);
+        this.a = (LinearLayout) this.c.findViewById(R.id.list_item);
         this.p = (TextView) this.c.findViewById(R.id.isMeizi);
         this.o = (LinearLayout) this.c.findViewById(R.id.list_item_content);
         this.l = (TextView) this.c.findViewById(R.id.tv_im_line_bottom);
@@ -129,7 +127,7 @@ public class j implements a {
 
     public void a(int i) {
         this.b.getLayoutMode().a(i == 1);
-        this.b.getLayoutMode().a(this.f1851a);
+        this.b.getLayoutMode().a(this.a);
     }
 
     public void c() {

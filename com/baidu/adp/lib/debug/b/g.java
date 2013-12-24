@@ -7,13 +7,11 @@ import android.content.DialogInterface;
 import android.widget.Toast;
 /* loaded from: classes.dex */
 class g implements DialogInterface.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ f f468a;
+    final /* synthetic */ f a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(f fVar) {
-        this.f468a = fVar;
+        this.a = fVar;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -23,16 +21,16 @@ class g implements DialogInterface.OnClickListener {
         Context context3;
         Dialog dialog;
         if (i == -2) {
-            dialog = this.f468a.f467a.l;
+            dialog = this.a.a.l;
             dialog.dismiss();
             return;
         }
-        this.f468a.f467a.d();
-        context = this.f468a.f467a.k;
+        this.a.a.d();
+        context = this.a.a.k;
         ((Activity) context).finish();
-        context2 = this.f468a.f467a.k;
+        context2 = this.a.a.k;
         Context baseContext = ((Activity) context2).getBaseContext();
-        context3 = this.f468a.f467a.k;
+        context3 = this.a.a.k;
         Toast.makeText(baseContext, ((Activity) context3).getText(com.baidu.adp.f.debug_close), 1).show();
     }
 }

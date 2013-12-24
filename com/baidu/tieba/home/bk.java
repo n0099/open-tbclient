@@ -5,9 +5,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class bk {
-
-    /* renamed from: a  reason: collision with root package name */
-    private int f1475a;
+    private int a;
     private String b;
     private int c;
     private String d;
@@ -15,7 +13,7 @@ public class bk {
     private ArrayList<bl> f = new ArrayList<>();
 
     public int a() {
-        return this.f1475a;
+        return this.a;
     }
 
     public String b() {
@@ -43,7 +41,7 @@ public class bk {
             try {
                 a(new JSONObject(str));
             } catch (Exception e) {
-                com.baidu.tieba.util.bd.b(getClass().getName(), "parserJson", e.getMessage());
+                com.baidu.tieba.util.be.b(getClass().getName(), "parserJson", e.getMessage());
             }
         }
     }
@@ -52,7 +50,7 @@ public class bk {
         if (jSONObject != null) {
             try {
                 this.e.a(jSONObject.optJSONObject("error"));
-                this.f1475a = jSONObject.optInt("show_dialog");
+                this.a = jSONObject.optInt("show_dialog");
                 this.b = jSONObject.optString("sign_notice");
                 this.c = jSONObject.optInt("is_timeout");
                 this.d = jSONObject.optString("timeout_notice");
@@ -67,7 +65,7 @@ public class bk {
                     }
                 }
             } catch (Exception e) {
-                com.baidu.tieba.util.bd.b(getClass().getName(), "parserJson", e.getMessage());
+                com.baidu.tieba.util.be.b(getClass().getName(), "parserJson", e.getMessage());
             }
         }
     }

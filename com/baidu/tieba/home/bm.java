@@ -4,9 +4,7 @@ import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class bm extends com.baidu.adp.a.d {
     private static bm f = new bm();
-
-    /* renamed from: a  reason: collision with root package name */
-    public boolean f1477a;
+    public boolean a;
     private bk c;
     private t e;
     private bo b = null;

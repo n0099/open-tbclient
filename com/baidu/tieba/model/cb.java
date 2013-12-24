@@ -1,64 +1,43 @@
 package com.baidu.tieba.model;
+
+import android.text.TextUtils;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.util.UtilHelper;
 /* loaded from: classes.dex */
 public class cb {
+    private static cb a;
+    private com.baidu.adp.lib.d.a<String, String> b;
 
-    /* renamed from: a  reason: collision with root package name */
-    private com.baidu.tieba.data.ap f2022a = new com.baidu.tieba.data.ap();
-    private boolean b = true;
-    private String c = null;
-    private int d;
-
-    public void a(String str) {
-        this.c = str;
+    private cb() {
+        this.b = null;
+        this.b = new com.baidu.adp.lib.d.a<>(256);
     }
 
-    public String a() {
-        return this.c;
-    }
-
-    public void a(int i) {
-        this.d = i;
-    }
-
-    public int b() {
-        return this.d;
-    }
-
-    public void a(boolean z) {
-        this.b = z;
-    }
-
-    public boolean c() {
-        return this.b;
-    }
-
-    public com.baidu.tieba.data.ap d() {
-        return this.f2022a;
-    }
-
-    public void a(String str, boolean z) {
-        if (str != null && this.c != null) {
-            com.baidu.adp.lib.cache.s<String> j = z ? com.baidu.tieba.b.a.a().j() : com.baidu.tieba.b.a.a().k();
-            if (j != null) {
-                j.a((z ? "personal_followme" : "personal_myfollow") + "_" + this.c, str, 604800000L);
+    public static synchronized cb a() {
+        cb cbVar;
+        synchronized (cb.class) {
+            if (a == null) {
+                a = new cb();
             }
+            cbVar = a;
+        }
+        return cbVar;
+    }
+
+    public void a(String str, Long l) {
+        if (str != null && str.length() > 0) {
+            this.b.a(TiebaApplication.B() + str, String.valueOf(l));
         }
     }
 
-    public com.baidu.tieba.data.ap b(boolean z) {
-        if (this.c == null) {
-            return null;
+    public boolean a(String str) {
+        if (str == null || str.length() <= 0) {
+            return false;
         }
-        com.baidu.adp.lib.cache.s<String> j = z ? com.baidu.tieba.b.a.a().j() : com.baidu.tieba.b.a.a().k();
-        if (j != null) {
-            String a2 = j.a((z ? "personal_followme" : "personal_myfollow") + "_" + this.c);
-            if (a2 == null) {
-                return null;
-            }
-            com.baidu.tieba.data.ap apVar = new com.baidu.tieba.data.ap();
-            apVar.a(a2);
-            return apVar;
+        String a2 = this.b.a((com.baidu.adp.lib.d.a<String, String>) (TiebaApplication.B() + str));
+        if (TextUtils.isEmpty(a2)) {
+            return false;
         }
-        return null;
+        return UtilHelper.a(com.baidu.adp.lib.f.b.a(a2, 0L), System.currentTimeMillis());
     }
 }

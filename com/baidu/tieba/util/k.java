@@ -2,9 +2,7 @@ package com.baidu.tieba.util;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k {
-
-    /* renamed from: a  reason: collision with root package name */
-    String f2607a;
+    String a;
     int b;
     com.baidu.tbadk.imageManager.c c;
     boolean d;

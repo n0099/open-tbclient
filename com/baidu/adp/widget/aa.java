@@ -3,14 +3,11 @@ package com.baidu.adp.widget;
 import android.os.SystemClock;
 import android.util.Log;
 import com.baidu.android.pushservice.PushConstants;
-import com.baidu.cyberplayer.sdk.internal.VersionUtils;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aa {
-
-    /* renamed from: a  reason: collision with root package name */
-    float f604a;
+    float a;
     float b;
     float c;
     float d;
@@ -21,7 +18,7 @@ public class aa {
 
     private void e() {
         long uptimeMillis = SystemClock.uptimeMillis();
-        this.f604a = ((((float) (uptimeMillis - this.e)) / 1000.0f) * this.b) + this.f604a;
+        this.a = ((((float) (uptimeMillis - this.e)) / 1000.0f) * this.b) + this.a;
         this.e = uptimeMillis;
         this.f += 16;
     }
@@ -31,17 +28,17 @@ public class aa {
         z zVar;
         ae aeVar;
         e();
-        if (this.f604a <= this.c) {
+        if (this.a <= this.c) {
             aeVar = this.h.x;
             if (aeVar != null) {
                 aeVar.b();
             }
             this.g = false;
-            this.h.m = VersionUtils.CUR_DEVELOPMENT;
+            this.h.m = 10000;
             this.h.a();
             return;
         }
-        this.h.h = (int) (a.a(this.c, this.f604a, false) + this.d);
+        this.h.h = (int) (a.a(this.c, this.a, false) + this.d);
         this.h.invalidate();
         zVar = this.h.u;
         zVar.sendEmptyMessageAtTime(-100, this.f);
@@ -52,7 +49,7 @@ public class aa {
         z zVar;
         ab abVar;
         e();
-        if (this.f604a >= this.c) {
+        if (this.a >= this.c) {
             abVar = this.h.y;
             if (abVar != null) {
                 abVar.b();
@@ -62,7 +59,7 @@ public class aa {
             this.h.a();
             return;
         }
-        this.h.h = (int) (a.a(this.c, this.f604a, false) + this.d);
+        this.h.h = (int) (a.a(this.c, this.a, false) + this.d);
         this.h.invalidate();
         zVar = this.h.u;
         zVar.sendEmptyMessageAtTime(-101, this.f);
@@ -73,7 +70,7 @@ public class aa {
         z zVar;
         List<ad> list;
         e();
-        if (this.f604a >= this.c) {
+        if (this.a >= this.c) {
             list = this.h.z;
             for (ad adVar : list) {
                 if (adVar != null) {
@@ -85,7 +82,7 @@ public class aa {
             this.h.a();
             return;
         }
-        this.h.h = (int) (a.a(this.c, this.f604a, false) + this.d);
+        this.h.h = (int) (a.a(this.c, this.a, false) + this.d);
         this.h.invalidate();
         zVar = this.h.u;
         zVar.sendEmptyMessageAtTime(-104, this.f);
@@ -96,7 +93,7 @@ public class aa {
         z zVar;
         List<ad> list;
         e();
-        if (this.f604a <= this.c) {
+        if (this.a <= this.c) {
             list = this.h.z;
             for (ad adVar : list) {
                 if (adVar != null) {
@@ -108,7 +105,7 @@ public class aa {
             this.h.a();
             return;
         }
-        this.h.h = (int) (a.a(this.c, this.f604a, false) + this.d);
+        this.h.h = (int) (a.a(this.c, this.a, false) + this.d);
         this.h.invalidate();
         zVar = this.h.u;
         zVar.sendEmptyMessageAtTime(-105, this.f);
@@ -132,7 +129,7 @@ public class aa {
         this.e = uptimeMillis;
         this.f = uptimeMillis + 16;
         this.b = f;
-        this.f604a = 0.0f;
+        this.a = 0.0f;
         i = this.h.h;
         this.c = 0 - i;
         i2 = this.h.h;
@@ -163,7 +160,7 @@ public class aa {
         this.e = uptimeMillis;
         this.f = uptimeMillis + 16;
         this.b = f;
-        this.f604a = 0.0f;
+        this.a = 0.0f;
         i = this.h.h;
         this.c = 0 - i;
         i2 = this.h.h;
@@ -194,7 +191,7 @@ public class aa {
         this.e = uptimeMillis;
         this.f = uptimeMillis + 16;
         this.b = f;
-        this.f604a = 0.0f;
+        this.a = 0.0f;
         i = this.h.c;
         f2 = this.h.d;
         float f3 = (-i) + f2;
@@ -228,7 +225,7 @@ public class aa {
         this.e = uptimeMillis;
         this.f = uptimeMillis + 16;
         this.b = f;
-        this.f604a = 0.0f;
+        this.a = 0.0f;
         i = this.h.c;
         f2 = this.h.f;
         float f3 = i - f2;

@@ -5,18 +5,16 @@ import com.baidu.mobstat.StatService;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bs implements DialogInterface.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NewPbActivity f2194a;
+    final /* synthetic */ NewPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bs(NewPbActivity newPbActivity) {
-        this.f2194a = newPbActivity;
+        this.a = newPbActivity;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
-        StatService.onEvent(this.f2194a, "pb_close_phonedialog", "close");
+        StatService.onEvent(this.a, "pb_close_phonedialog", "close");
         dialogInterface.cancel();
     }
 }

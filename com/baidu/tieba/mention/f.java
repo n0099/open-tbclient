@@ -13,16 +13,14 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.ba;
 import com.baidu.tieba.util.bb;
-import com.baidu.tieba.util.bd;
+import com.baidu.tieba.util.bc;
+import com.baidu.tieba.util.be;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class f extends BaseAdapter {
-
-    /* renamed from: a  reason: collision with root package name */
-    private Context f1954a;
+    private Context a;
     private ArrayList<com.baidu.tieba.data.u> b;
     private com.baidu.tieba.util.i c;
     private String d;
@@ -35,10 +33,10 @@ public class f extends BaseAdapter {
     private int i = 3;
 
     public f(Context context, ArrayList<com.baidu.tieba.data.u> arrayList) {
-        this.f1954a = context;
+        this.a = context;
         this.b = arrayList;
-        this.d = this.f1954a.getText(R.string.forum).toString();
-        this.c = new com.baidu.tieba.util.i(this.f1954a);
+        this.d = this.a.getText(R.string.forum).toString();
+        this.c = new com.baidu.tieba.util.i(this.a);
     }
 
     public void a() {
@@ -50,7 +48,7 @@ public class f extends BaseAdapter {
                     try {
                         this.j.get(i2).setVisibility(8);
                     } catch (Exception e) {
-                        bd.b(getClass().getName(), "releaseProgressBar", e.getMessage());
+                        be.b(getClass().getName(), "releaseProgressBar", e.getMessage());
                     }
                     i = i2 + 1;
                 } else {
@@ -163,7 +161,7 @@ public class f extends BaseAdapter {
         int an = TiebaApplication.h().an();
         try {
             if (view == null) {
-                LayoutInflater from = LayoutInflater.from(this.f1954a);
+                LayoutInflater from = LayoutInflater.from(this.a);
                 if (getItemViewType(i) == 0) {
                     if (this.h == 1) {
                         view4 = from.inflate(R.layout.mention_replyme_item, (ViewGroup) null);
@@ -188,7 +186,7 @@ public class f extends BaseAdapter {
                 } else {
                     view4 = from.inflate(R.layout.page_item, (ViewGroup) null);
                     i iVar4 = new i(this);
-                    iVar4.f1956a = (TextView) view4.findViewById(R.id.page_text);
+                    iVar4.a = (TextView) view4.findViewById(R.id.page_text);
                     iVar4.b = (ProgressBar) view4.findViewById(R.id.progress);
                     this.j.add(iVar4.b);
                     iVar2 = iVar4;
@@ -202,7 +200,7 @@ public class f extends BaseAdapter {
         } catch (Exception e2) {
             view2 = view3;
             exc = e2;
-            bd.b(getClass().getName(), "", "ReplymeAdapter.getView error = " + exc.getMessage());
+            be.b(getClass().getName(), "", "ReplymeAdapter.getView error = " + exc.getMessage());
             return view2;
         }
         if (getItemViewType(i) == 1) {
@@ -210,53 +208,53 @@ public class f extends BaseAdapter {
             if (itemId == -1) {
                 if (this.f) {
                     iVar.b.setVisibility(0);
-                    iVar.f1956a.setText(R.string.loading);
+                    iVar.a.setText(R.string.loading);
                 } else {
                     iVar.b.setVisibility(8);
-                    iVar.f1956a.setText(R.string.refresh);
+                    iVar.a.setText(R.string.refresh);
                 }
             } else if (itemId == -2) {
                 if (this.g) {
                     iVar.b.setVisibility(0);
-                    iVar.f1956a.setText(R.string.loading);
+                    iVar.a.setText(R.string.loading);
                 } else {
                     iVar.b.setVisibility(8);
-                    iVar.f1956a.setText(R.string.more);
+                    iVar.a.setText(R.string.more);
                 }
             }
             if (an == 1) {
-                if (iVar.f1956a != null) {
-                    ba.e((View) iVar.f1956a, (int) R.drawable.btn_w_square_1);
-                    iVar.f1956a.setTextColor(-8682095);
+                if (iVar.a != null) {
+                    bb.e((View) iVar.a, (int) R.drawable.btn_w_square_1);
+                    iVar.a.setTextColor(-8682095);
                     return view4;
                 }
                 return view4;
             }
-            ba.e((View) iVar.f1956a, (int) R.drawable.btn_w_square);
-            iVar.f1956a.setTextColor(-14277082);
+            bb.e((View) iVar.a, (int) R.drawable.btn_w_square);
+            iVar.a.setTextColor(-14277082);
             return view4;
         }
         if (an == 1) {
-            ba.e(view4, (int) R.drawable.list_selector_1);
+            bb.e(view4, (int) R.drawable.list_selector_1);
         } else {
-            ba.e(view4, (int) R.drawable.list_selector);
+            bb.e(view4, (int) R.drawable.list_selector);
         }
         com.baidu.tieba.data.u uVar = (com.baidu.tieba.data.u) getItem(i);
         if (uVar != null) {
             iVar.e.setText(uVar.i().getName_show());
-            iVar.f.setText(bb.b(uVar.b()));
+            iVar.f.setText(bc.b(uVar.b()));
             iVar.g.setText(uVar.e());
             if (this.h == 1) {
                 if (uVar.a() == 1) {
-                    iVar.j.setText(this.f1954a.getString(R.string.mention_replyme_post));
+                    iVar.j.setText(this.a.getString(R.string.mention_replyme_post));
                     iVar.h.setText(uVar.f());
                 } else {
-                    iVar.j.setText(this.f1954a.getString(R.string.mention_replyme_thread));
+                    iVar.j.setText(this.a.getString(R.string.mention_replyme_thread));
                     iVar.h.setText(uVar.c());
                 }
                 if (uVar.d() != null && uVar.d().length() > 0) {
                     iVar.i.setVisibility(0);
-                    iVar.i.setText(this.f1954a.getString(R.string.reply_from) + bb.a(uVar.d(), 12).concat(this.d));
+                    iVar.i.setText(this.a.getString(R.string.reply_from) + bc.a(uVar.d(), 12).concat(this.d));
                 } else {
                     iVar.i.setVisibility(8);
                 }
@@ -283,46 +281,46 @@ public class f extends BaseAdapter {
                     iVar.k.setBackgroundResource(R.drawable.nearby_reply_bg_pressed_1);
                 }
                 if (iVar.h != null) {
-                    iVar.h.setTextColor(this.f1954a.getResources().getColor(R.color.c_5f6c7a));
+                    iVar.h.setTextColor(this.a.getResources().getColor(R.color.c_5f6c7a));
                 }
                 if (iVar.i != null) {
-                    iVar.i.setTextColor(this.f1954a.getResources().getColor(R.color.c_515865));
+                    iVar.i.setTextColor(this.a.getResources().getColor(R.color.c_515865));
                 }
                 if (iVar.f != null) {
-                    iVar.f.setTextColor(this.f1954a.getResources().getColor(R.color.c_515865));
-                    iVar.f.setCompoundDrawablesWithIntrinsicBounds(new BitmapDrawable(this.f1954a.getResources(), BitmapFactory.decodeResource(this.f1954a.getResources(), R.drawable.icon_little_time_1)), (Drawable) null, (Drawable) null, (Drawable) null);
+                    iVar.f.setTextColor(this.a.getResources().getColor(R.color.c_515865));
+                    iVar.f.setCompoundDrawablesWithIntrinsicBounds(new BitmapDrawable(this.a.getResources(), BitmapFactory.decodeResource(this.a.getResources(), R.drawable.icon_little_time_1)), (Drawable) null, (Drawable) null, (Drawable) null);
                 }
                 if (iVar.g != null) {
-                    iVar.g.setTextColor(this.f1954a.getResources().getColor(R.color.c_7b8591));
+                    iVar.g.setTextColor(this.a.getResources().getColor(R.color.c_7b8591));
                 }
                 if (iVar.j != null) {
-                    iVar.j.setTextColor(this.f1954a.getResources().getColor(R.color.c_5f6c7a));
+                    iVar.j.setTextColor(this.a.getResources().getColor(R.color.c_5f6c7a));
                 }
                 if (iVar.e != null) {
-                    iVar.e.setTextColor(this.f1954a.getResources().getColor(R.color.c_515865));
+                    iVar.e.setTextColor(this.a.getResources().getColor(R.color.c_515865));
                 }
             } else {
                 if (iVar.k != null) {
                     iVar.k.setBackgroundResource(R.drawable.search_preycotbj);
                 }
                 if (iVar.i != null) {
-                    iVar.i.setTextColor(this.f1954a.getResources().getColor(R.color.c_b2b6ba));
+                    iVar.i.setTextColor(this.a.getResources().getColor(R.color.c_b2b6ba));
                 }
                 if (iVar.f != null) {
-                    iVar.f.setTextColor(this.f1954a.getResources().getColor(R.color.c_b2b6ba));
-                    iVar.f.setCompoundDrawablesWithIntrinsicBounds(new BitmapDrawable(this.f1954a.getResources(), BitmapFactory.decodeResource(this.f1954a.getResources(), R.drawable.icon_little_time)), (Drawable) null, (Drawable) null, (Drawable) null);
+                    iVar.f.setTextColor(this.a.getResources().getColor(R.color.c_b2b6ba));
+                    iVar.f.setCompoundDrawablesWithIntrinsicBounds(new BitmapDrawable(this.a.getResources(), BitmapFactory.decodeResource(this.a.getResources(), R.drawable.icon_little_time)), (Drawable) null, (Drawable) null, (Drawable) null);
                 }
                 if (iVar.h != null) {
-                    iVar.h.setTextColor(this.f1954a.getResources().getColor(R.color.search_text_title));
+                    iVar.h.setTextColor(this.a.getResources().getColor(R.color.search_text_title));
                 }
                 if (iVar.g != null) {
-                    iVar.g.setTextColor(this.f1954a.getResources().getColor(R.color.c_262626));
+                    iVar.g.setTextColor(this.a.getResources().getColor(R.color.c_262626));
                 }
                 if (iVar.j != null) {
-                    iVar.j.setTextColor(this.f1954a.getResources().getColor(R.color.search_text_title));
+                    iVar.j.setTextColor(this.a.getResources().getColor(R.color.search_text_title));
                 }
                 if (iVar.e != null) {
-                    iVar.e.setTextColor(this.f1954a.getResources().getColor(R.color.search_text_title));
+                    iVar.e.setTextColor(this.a.getResources().getColor(R.color.search_text_title));
                 }
             }
             view2 = view4;

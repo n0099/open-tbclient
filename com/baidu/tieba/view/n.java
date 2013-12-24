@@ -6,13 +6,11 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n extends GestureDetector.SimpleOnGestureListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ l f2693a;
+    final /* synthetic */ l a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(l lVar) {
-        this.f2693a = lVar;
+        this.a = lVar;
     }
 
     @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
@@ -20,10 +18,10 @@ public class n extends GestureDetector.SimpleOnGestureListener {
         o oVar;
         o oVar2;
         if (Math.abs(f) > 200.0f || Math.abs(f2) > 200.0f) {
-            oVar = this.f2693a.u;
+            oVar = this.a.u;
             oVar.a(f, f2);
-            l lVar = this.f2693a;
-            oVar2 = this.f2693a.u;
+            l lVar = this.a;
+            oVar2 = this.a.u;
             lVar.startAnimation(oVar2);
         }
         return super.onFling(motionEvent, motionEvent2, f, f2);
@@ -34,12 +32,12 @@ public class n extends GestureDetector.SimpleOnGestureListener {
         View.OnClickListener onClickListener;
         boolean z;
         View.OnClickListener onClickListener2;
-        onClickListener = this.f2693a.r;
+        onClickListener = this.a.r;
         if (onClickListener != null) {
-            z = this.f2693a.z;
+            z = this.a.z;
             if (!z) {
-                onClickListener2 = this.f2693a.r;
-                onClickListener2.onClick(this.f2693a);
+                onClickListener2 = this.a.r;
+                onClickListener2.onClick(this.a);
             }
         }
         return super.onSingleTapUp(motionEvent);
@@ -72,73 +70,73 @@ public class n extends GestureDetector.SimpleOnGestureListener {
         float f8;
         float f9;
         boolean z;
-        this.f2693a.z = true;
-        i = this.f2693a.p;
+        this.a.z = true;
+        i = this.a.p;
         if (i == 0) {
-            z = this.f2693a.A;
+            z = this.a.A;
             if (z) {
                 return false;
             }
         }
-        int scrollX = this.f2693a.getScrollX();
-        f3 = this.f2693a.e;
-        if (f3 >= this.f2693a.getWidth()) {
+        int scrollX = this.a.getScrollX();
+        f3 = this.a.e;
+        if (f3 >= this.a.getWidth()) {
             scrollX = (int) (scrollX + f);
-            i12 = this.f2693a.p;
+            i12 = this.a.p;
             if (i12 == 0) {
                 i2 = scrollX >= 0 ? scrollX : 0;
-                f8 = this.f2693a.e;
-                if (this.f2693a.getWidth() + i2 > f8) {
-                    f9 = this.f2693a.e;
-                    i2 = (int) (f9 - this.f2693a.getWidth());
+                f8 = this.a.e;
+                if (this.a.getWidth() + i2 > f8) {
+                    f9 = this.a.e;
+                    i2 = (int) (f9 - this.a.getWidth());
                 }
-                scrollY = this.f2693a.getScrollY();
-                f4 = this.f2693a.f;
-                i3 = this.f2693a.I;
+                scrollY = this.a.getScrollY();
+                f4 = this.a.f;
+                i3 = this.a.I;
                 f5 = f4 + i3;
-                i4 = this.f2693a.J;
-                if (f5 + i4 >= this.f2693a.getHeight()) {
+                i4 = this.a.J;
+                if (f5 + i4 >= this.a.getHeight()) {
                     scrollY = (int) (scrollY + f2);
-                    i5 = this.f2693a.p;
+                    i5 = this.a.p;
                     if (i5 == 0) {
-                        i6 = this.f2693a.K;
+                        i6 = this.a.K;
                         if (scrollY < (-i6)) {
-                            i11 = this.f2693a.K;
+                            i11 = this.a.K;
                             scrollY = -i11;
                         }
-                        f6 = this.f2693a.f;
-                        i7 = this.f2693a.J;
+                        f6 = this.a.f;
+                        i7 = this.a.J;
                         float f10 = f6 + i7;
-                        i8 = this.f2693a.L;
-                        if (this.f2693a.getHeight() + scrollY > f10 + i8) {
-                            f7 = this.f2693a.f;
-                            float height = f7 - this.f2693a.getHeight();
-                            i9 = this.f2693a.J;
+                        i8 = this.a.L;
+                        if (this.a.getHeight() + scrollY > f10 + i8) {
+                            f7 = this.a.f;
+                            float height = f7 - this.a.getHeight();
+                            i9 = this.a.J;
                             float f11 = height + i9;
-                            i10 = this.f2693a.L;
+                            i10 = this.a.L;
                             scrollY = (int) (f11 + i10);
                         }
                     }
                 }
-                if (i2 == this.f2693a.getScrollX() || scrollY != this.f2693a.getScrollY()) {
-                    this.f2693a.scrollTo(i2, scrollY);
-                    this.f2693a.invalidate();
+                if (i2 == this.a.getScrollX() || scrollY != this.a.getScrollY()) {
+                    this.a.scrollTo(i2, scrollY);
+                    this.a.invalidate();
                 }
                 return true;
             }
         }
         i2 = scrollX;
-        scrollY = this.f2693a.getScrollY();
-        f4 = this.f2693a.f;
-        i3 = this.f2693a.I;
+        scrollY = this.a.getScrollY();
+        f4 = this.a.f;
+        i3 = this.a.I;
         f5 = f4 + i3;
-        i4 = this.f2693a.J;
-        if (f5 + i4 >= this.f2693a.getHeight()) {
+        i4 = this.a.J;
+        if (f5 + i4 >= this.a.getHeight()) {
         }
-        if (i2 == this.f2693a.getScrollX()) {
+        if (i2 == this.a.getScrollX()) {
         }
-        this.f2693a.scrollTo(i2, scrollY);
-        this.f2693a.invalidate();
+        this.a.scrollTo(i2, scrollY);
+        this.a.invalidate();
         return true;
     }
 
@@ -147,12 +145,12 @@ public class n extends GestureDetector.SimpleOnGestureListener {
         View.OnLongClickListener onLongClickListener;
         boolean z;
         View.OnLongClickListener onLongClickListener2;
-        onLongClickListener = this.f2693a.s;
+        onLongClickListener = this.a.s;
         if (onLongClickListener != null) {
-            z = this.f2693a.z;
+            z = this.a.z;
             if (!z) {
-                onLongClickListener2 = this.f2693a.s;
-                onLongClickListener2.onLongClick(this.f2693a);
+                onLongClickListener2 = this.a.s;
+                onLongClickListener2.onLongClick(this.a);
             }
         }
         super.onLongPress(motionEvent);

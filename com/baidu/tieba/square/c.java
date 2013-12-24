@@ -17,16 +17,14 @@ public class c extends BaseAdapter {
     private ArrayList<z> c;
     private com.baidu.tieba.util.i d;
     private float e = 0.0f;
-
-    /* renamed from: a  reason: collision with root package name */
-    View.OnClickListener f2518a = new f(this);
+    View.OnClickListener a = new f(this);
 
     public c(Activity activity, h hVar, boolean z) {
         this.b = activity;
         this.c = hVar.d();
         this.d = new com.baidu.tieba.util.i(activity);
-        int a2 = com.baidu.adp.lib.h.g.a((Context) activity, 45.0f);
-        this.d.a(a2, a2);
+        int a = com.baidu.adp.lib.h.g.a((Context) activity, 45.0f);
+        this.d.a(a, a);
     }
 
     public ArrayList<z> a() {
@@ -50,13 +48,13 @@ public class c extends BaseAdapter {
         int itemViewType = getItemViewType(i);
         if (view == null) {
             view = a(viewGroup, itemViewType);
-            com.baidu.tieba.util.bj.b(view);
+            com.baidu.tieba.util.bk.b(view);
         }
-        com.baidu.tieba.util.bj.a(view);
+        com.baidu.tieba.util.bk.a(view);
         if (itemViewType != 3) {
             int an = TiebaApplication.h().an();
             View findViewById = view.findViewById(R.id.container);
-            com.baidu.tieba.util.bj.a(findViewById, 1, an);
+            com.baidu.tieba.util.bk.a(findViewById, 1, an);
             if (itemViewType == 2) {
                 if (getCount() > 1) {
                     findViewById.setVisibility(0);
@@ -77,9 +75,9 @@ public class c extends BaseAdapter {
             return from.inflate(R.layout.bar_folder_first_dir_bottom_item, viewGroup, false);
         }
         View inflate = from.inflate(R.layout.bar_folder_first_dir_item, viewGroup, false);
-        inflate.setOnClickListener(this.f2518a);
+        inflate.setOnClickListener(this.a);
         g gVar = new g();
-        gVar.f2522a = (HeadImageView) inflate.findViewById(R.id.portrait);
+        gVar.a = (HeadImageView) inflate.findViewById(R.id.portrait);
         gVar.b = (TextView) inflate.findViewById(R.id.name);
         gVar.c = (BestStringsFitTextView) inflate.findViewById(R.id.description);
         inflate.setTag(gVar);
@@ -107,12 +105,12 @@ public class c extends BaseAdapter {
             gVar.c.setVisibility(8);
         }
         if (zVar.d != null) {
-            gVar.f2522a.setImageBitmap(null);
-            gVar.f2522a.setTag(zVar.d);
+            gVar.a.setImageBitmap(null);
+            gVar.a.setTag(zVar.d);
             com.baidu.adp.widget.ImageView.e d = this.d.d(zVar.d);
             if (d != null) {
-                gVar.f2522a.setImageBitmap(d.f());
-                gVar.f2522a.invalidate();
+                gVar.a.setImageBitmap(d.f());
+                gVar.a.invalidate();
                 return;
             }
             this.d.a(zVar.d, new d(this, viewGroup));

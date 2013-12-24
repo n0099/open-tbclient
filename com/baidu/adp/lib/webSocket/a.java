@@ -1,6 +1,5 @@
 package com.baidu.adp.lib.webSocket;
 
-import com.tencent.mm.sdk.platformtools.LVBuffer;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -9,9 +8,7 @@ import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
 /* loaded from: classes.dex */
 public class a {
-
-    /* renamed from: a  reason: collision with root package name */
-    static final /* synthetic */ boolean f521a;
+    static final /* synthetic */ boolean a;
     private static final byte[] b;
     private static final byte[] c;
     private static final byte[] d;
@@ -20,7 +17,7 @@ public class a {
     private static final byte[] g;
 
     static {
-        f521a = !a.class.desiredAssertionStatus();
+        a = !a.class.desiredAssertionStatus();
         b = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, 47};
         c = new byte[]{-9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -5, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, 62, -9, -9, -9, 63, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -9, -9, -9, -1, -9, -9, -9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -9, -9, -9, -9, -9, -9, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9};
         d = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 45, 95};
@@ -90,11 +87,11 @@ public class a {
         try {
             str = a(bArr, 0, bArr.length, 0);
         } catch (IOException e2) {
-            if (!f521a) {
+            if (!a) {
                 throw new AssertionError(e2.getMessage());
             }
         }
-        if (f521a || str != null) {
+        if (a || str != null) {
             return str;
         }
         throw new AssertionError();
@@ -359,7 +356,7 @@ public class a {
         byte[] c2 = c(bytes, 0, bytes.length, i);
         boolean z = (i & 4) != 0;
         if (c2 != null && c2.length >= 4 && !z && 35615 == ((c2[0] & 255) | ((c2[1] << 8) & 65280))) {
-            byte[] bArr = new byte[LVBuffer.MAX_STRING_LENGTH];
+            byte[] bArr = new byte[2048];
             try {
                 byteArrayOutputStream = new ByteArrayOutputStream();
                 try {

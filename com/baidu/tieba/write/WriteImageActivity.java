@@ -28,15 +28,14 @@ import com.baidu.tieba.frs.FrsImageActivity;
 import com.baidu.tieba.pb.ImagePbActivity;
 import com.baidu.tieba.service.TiebaPrepareImageService;
 import com.baidu.tieba.switchs.SwitchKey;
+import com.baidu.tieba.util.be;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class WriteImageActivity extends com.baidu.tieba.j {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static String[] f2772a = null;
+    private static String[] a = null;
     private String A;
     private String B;
     private HashMap<String, Bitmap> C;
@@ -125,23 +124,23 @@ public class WriteImageActivity extends com.baidu.tieba.j {
         this.t = intent.getIntExtra("display_size", 0);
         this.A = intent.getStringExtra("finish_text");
         this.B = intent.getStringExtra("cancel_text");
-        com.baidu.tieba.util.bd.e("WriteImageActivity", "onCreate", this.A);
+        be.e("WriteImageActivity", "onCreate", this.A);
         if (intent.getStringExtra("from") != null && intent.getStringExtra("from").equals("frs")) {
             this.y = true;
         }
         if (this.z == 12002 || this.z == 12001) {
             d();
             if (intent.getData() != null) {
-                TiebaPrepareImageService.a(this.z, intent.getData(), com.baidu.tieba.util.bc.a().e(), this.t);
+                TiebaPrepareImageService.a(this.z, intent.getData(), com.baidu.tieba.util.bd.a().e(), this.t);
             } else {
-                TiebaPrepareImageService.a(this.z, null, com.baidu.tieba.util.bc.a().e(), this.t);
+                TiebaPrepareImageService.a(this.z, null, com.baidu.tieba.util.bd.a().e(), this.t);
             }
             e();
         } else {
             d();
             c();
         }
-        f2772a = getResources().getStringArray(R.array.fiter_name);
+        a = getResources().getStringArray(R.array.fiter_name);
         if (com.baidu.adp.lib.a.d.a().b(SwitchKey.MOTU) == 1) {
             this.u = false;
         } else {
@@ -257,10 +256,10 @@ public class WriteImageActivity extends com.baidu.tieba.j {
         if (TextUtils.isEmpty(this.A)) {
             if (this.y || this.z != 12003) {
                 this.e.setText(getString(R.string.done));
-                com.baidu.tieba.util.ba.h(this.e, TiebaApplication.h().an());
+                com.baidu.tieba.util.bb.h(this.e, TiebaApplication.h().an());
             } else {
                 this.e.setText(getString(R.string.delete));
-                com.baidu.tieba.util.ba.l(this.e, TiebaApplication.h().an());
+                com.baidu.tieba.util.bb.l(this.e, TiebaApplication.h().an());
             }
         } else {
             this.e.setText(this.A);
@@ -306,19 +305,19 @@ public class WriteImageActivity extends com.baidu.tieba.j {
     /* JADX INFO: Access modifiers changed from: private */
     public boolean b(String str) {
         try {
-            com.baidu.tieba.util.x.a("photos", str, this.p, 90);
+            com.baidu.tieba.util.y.a("photos", str, this.p, 90);
             this.b.setImageBitmap(null);
             int i = 100;
             if (this.t > 0) {
                 i = this.t;
             }
             Bitmap a2 = com.baidu.tieba.util.m.a(this.p, i);
-            if (a2 != null && com.baidu.tieba.util.x.a((String) null, "tieba_resized_image_display", a2, 80) != null) {
-                new com.baidu.tieba.account.ai("motu_pic", String.valueOf(this.s)).start();
+            if (a2 != null && com.baidu.tieba.util.y.a((String) null, "tieba_resized_image_display", a2, 80) != null) {
+                new com.baidu.tieba.account.av("motu_pic", String.valueOf(this.s)).start();
                 return true;
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.bd.b(getClass().getName(), "saveFile", e.toString());
+            be.b(getClass().getName(), "saveFile", e.toString());
         }
         return false;
     }

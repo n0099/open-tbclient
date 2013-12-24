@@ -5,16 +5,14 @@ import android.view.View;
 import com.baidu.tieba.person.PersonInfoActivity;
 /* loaded from: classes.dex */
 class ai implements View.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f2157a;
+    final /* synthetic */ String a;
     final /* synthetic */ String b;
     final /* synthetic */ ag c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ai(ag agVar, String str, String str2) {
         this.c = agVar;
-        this.f2157a = str;
+        this.a = str;
         this.b = str2;
     }
 
@@ -22,6 +20,6 @@ class ai implements View.OnClickListener {
     public void onClick(View view) {
         Context context;
         context = this.c.c;
-        PersonInfoActivity.a(context, this.f2157a, this.b);
+        PersonInfoActivity.a(context, this.a, this.b);
     }
 }

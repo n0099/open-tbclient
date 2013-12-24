@@ -6,13 +6,11 @@ import com.baidu.adp.widget.ListView.BdListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements AdapterView.OnItemClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ j f1960a;
+    final /* synthetic */ j a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(j jVar) {
-        this.f1960a = jVar;
+        this.a = jVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -20,15 +18,15 @@ public class m implements AdapterView.OnItemClickListener {
         f fVar = (f) ((BdListView) adapterView).getWrappedAdapter();
         long itemId = fVar.getItemId(i);
         if (itemId == -1) {
-            this.f1960a.b();
+            this.a.b();
         } else if (itemId == -2) {
-            j.e(this.f1960a);
-            this.f1960a.n = 4;
-            this.f1960a.d();
+            j.e(this.a);
+            this.a.n = 4;
+            this.a.d();
         } else {
             com.baidu.tieba.data.u uVar = (com.baidu.tieba.data.u) fVar.getItem(i);
             if (uVar != null) {
-                this.f1960a.a(uVar);
+                this.a.a(uVar);
             }
         }
     }

@@ -13,18 +13,16 @@ import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class ap extends BaseAdapter {
-
-    /* renamed from: a  reason: collision with root package name */
-    private Context f1372a;
+    private Context a;
     private ArrayList<com.baidu.tieba.data.z> b;
     private String c;
     private int d = 0;
     private int e = 0;
 
     public ap(Context context, ArrayList<com.baidu.tieba.data.z> arrayList) {
-        this.f1372a = context;
+        this.a = context;
         this.b = arrayList;
-        this.c = this.f1372a.getText(R.string.frs_good).toString();
+        this.c = this.a.getText(R.string.frs_good).toString();
         a();
     }
 
@@ -95,10 +93,10 @@ public class ap extends BaseAdapter {
         View view3;
         try {
             if (view == null) {
-                view3 = LayoutInflater.from(this.f1372a).inflate(R.layout.dialog_good_item, (ViewGroup) null);
+                view3 = LayoutInflater.from(this.a).inflate(R.layout.dialog_good_item, (ViewGroup) null);
                 try {
                     arVar = new ar(this);
-                    arVar.f1373a = (TextView) view3.findViewById(R.id.frs_dia_good_text);
+                    arVar.a = (TextView) view3.findViewById(R.id.frs_dia_good_text);
                     arVar.b = (ImageView) view3.findViewById(R.id.frs_dia_divider);
                     arVar.c = (ImageView) view3.findViewById(R.id.frs_btm_divider);
                     arVar.d = (ImageView) view3.findViewById(R.id.frs_btm_divider_s);
@@ -106,7 +104,7 @@ public class ap extends BaseAdapter {
                 } catch (Exception e) {
                     view2 = view3;
                     exc = e;
-                    com.baidu.tieba.util.bd.b(getClass().getName(), "", "DialogGoodAdapter.getView error = " + exc.getMessage());
+                    com.baidu.tieba.util.be.b(getClass().getName(), "", "DialogGoodAdapter.getView error = " + exc.getMessage());
                     return view2;
                 }
             } else {
@@ -117,22 +115,22 @@ public class ap extends BaseAdapter {
                 arVar.b.setBackgroundResource(R.color.frs_goodheader_line_1);
                 arVar.c.setBackgroundResource(R.color.frs_goodheader_line_1);
                 if (this.e == i) {
-                    arVar.f1373a.setTextColor(this.f1372a.getResources().getColor(R.color.frs_goodheader_text_S_1));
+                    arVar.a.setTextColor(this.a.getResources().getColor(R.color.frs_goodheader_text_S_1));
                     arVar.d.setVisibility(0);
                     arVar.d.setBackgroundResource(R.color.frs_goodheader_line_S_1);
                 } else {
-                    arVar.f1373a.setTextColor(this.f1372a.getResources().getColor(R.color.frs_goodheader_text_1));
+                    arVar.a.setTextColor(this.a.getResources().getColor(R.color.frs_goodheader_text_1));
                     arVar.d.setVisibility(8);
                 }
             } else {
                 arVar.b.setBackgroundResource(R.color.frs_goodheader_line);
                 arVar.c.setBackgroundResource(R.color.frs_goodheader_line);
                 if (this.e == i) {
-                    arVar.f1373a.setTextColor(this.f1372a.getResources().getColor(R.color.frs_goodheader_text_S));
+                    arVar.a.setTextColor(this.a.getResources().getColor(R.color.frs_goodheader_text_S));
                     arVar.d.setVisibility(0);
                     arVar.d.setBackgroundResource(R.color.frs_goodheader_line_S);
                 } else {
-                    arVar.f1373a.setTextColor(this.f1372a.getResources().getColor(R.color.frs_goodheader_text));
+                    arVar.a.setTextColor(this.a.getResources().getColor(R.color.frs_goodheader_text));
                     arVar.d.setVisibility(8);
                 }
             }
@@ -150,7 +148,7 @@ public class ap extends BaseAdapter {
             if (item == null) {
                 return view3;
             }
-            arVar.f1373a.setText(((com.baidu.tieba.data.z) item).a());
+            arVar.a.setText(((com.baidu.tieba.data.z) item).a());
             return view3;
         } catch (Exception e2) {
             exc = e2;

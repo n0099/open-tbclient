@@ -5,15 +5,13 @@ import com.baidu.tieba.TiebaApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class cy implements com.baidu.tieba.editortool.h {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ com.baidu.tieba.editortool.h f2221a;
+    final /* synthetic */ com.baidu.tieba.editortool.h a;
     final /* synthetic */ cr b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cy(cr crVar, com.baidu.tieba.editortool.h hVar) {
         this.b = crVar;
-        this.f2221a = hVar;
+        this.a = hVar;
     }
 
     @Override // com.baidu.tieba.editortool.h
@@ -31,6 +29,6 @@ public class cy implements com.baidu.tieba.editortool.h {
                 }
             }
         }
-        this.f2221a.a(i, obj);
+        this.a.a(i, obj);
     }
 }

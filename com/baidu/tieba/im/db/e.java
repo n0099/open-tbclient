@@ -4,14 +4,13 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.text.TextUtils;
+import com.baidu.android.pushservice.PushConstants;
 import com.baidu.tieba.im.SingleRunnable;
 import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e extends SingleRunnable<LinkedList<String>> {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f1667a;
+    final /* synthetic */ String a;
     final /* synthetic */ int b;
     final /* synthetic */ String c;
     final /* synthetic */ int e;
@@ -20,7 +19,7 @@ public class e extends SingleRunnable<LinkedList<String>> {
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar, String str, int i, String str2, int i2) {
         this.f = dVar;
-        this.f1667a = str;
+        this.a = str;
         this.b = i;
         this.c = str2;
         this.e = i2;
@@ -31,7 +30,7 @@ public class e extends SingleRunnable<LinkedList<String>> {
     /* renamed from: a */
     public LinkedList<String> b() {
         Cursor cursor = null;
-        if (TextUtils.isEmpty(this.f1667a)) {
+        if (TextUtils.isEmpty(this.a)) {
             return null;
         }
         int i = this.b;
@@ -39,32 +38,31 @@ public class e extends SingleRunnable<LinkedList<String>> {
             i = 20;
         }
         LinkedList<String> linkedList = new LinkedList<>();
-        String str = d.f1666a + this.f1667a;
-        SQLiteDatabase a2 = s.a();
+        String str = "tb_group_msg_" + this.a;
+        SQLiteDatabase a = s.a();
         try {
-        } catch (Exception e) {
+        } catch (SQLiteException e) {
             e.printStackTrace();
-        } catch (SQLiteException e2) {
+        } catch (Exception e2) {
             e2.printStackTrace();
-            this.f.f(this.f1667a);
         } finally {
             com.baidu.tieba.util.o.a(cursor);
         }
-        if (a2 == null) {
+        if (a == null) {
             return linkedList;
         }
         if (TextUtils.isEmpty(this.c)) {
             String str2 = "select * from " + str + " WHERE msg_type=? AND is_delete=? ORDER BY rid DESC LIMIT " + i;
             com.baidu.adp.lib.h.e.d("sql:" + str2);
-            cursor = a2.rawQuery(str2, new String[]{String.valueOf(this.e), String.valueOf(0)});
+            cursor = a.rawQuery(str2, new String[]{String.valueOf(this.e), String.valueOf(0)});
         } else {
             String str3 = "select * from " + str + " WHERE mid <=? AND msg_type=? AND is_delete=? ORDER BY rid DESC LIMIT " + i;
             com.baidu.adp.lib.h.e.d("sql:" + str3);
-            cursor = a2.rawQuery(str3, new String[]{this.c, String.valueOf(this.e), String.valueOf(0)});
+            cursor = a.rawQuery(str3, new String[]{this.c, String.valueOf(this.e), String.valueOf(0)});
         }
         if (cursor != null) {
             while (cursor.moveToNext()) {
-                linkedList.add(cursor.getString(cursor.getColumnIndex("content")));
+                linkedList.add(cursor.getString(cursor.getColumnIndex(PushConstants.EXTRA_CONTENT)));
             }
         }
         return linkedList;

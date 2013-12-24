@@ -5,9 +5,7 @@ import android.content.SharedPreferences;
 import com.baidu.cloudsdk.common.util.Validator;
 /* loaded from: classes.dex */
 public class WidgetPreferenceManager {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static WidgetPreferenceManager f856a;
+    private static WidgetPreferenceManager a;
     private SharedPreferences b;
 
     private WidgetPreferenceManager(Context context) {
@@ -16,10 +14,10 @@ public class WidgetPreferenceManager {
     }
 
     public static WidgetPreferenceManager getInstance(Context context) {
-        if (f856a == null) {
-            f856a = new WidgetPreferenceManager(context);
+        if (a == null) {
+            a = new WidgetPreferenceManager(context);
         }
-        return f856a;
+        return a;
     }
 
     public boolean isWidgetActivated(String str) {

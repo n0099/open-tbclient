@@ -3,7 +3,6 @@ package com.baidu.tieba.data;
 import android.content.Context;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.cloudsdk.social.core.SocialConstants;
-import com.tencent.mm.sdk.platformtools.LocaleUtil;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -12,9 +11,7 @@ public class aa {
     private ar e;
     private ArrayList<j> f;
     private Context n;
-
-    /* renamed from: a  reason: collision with root package name */
-    private String f1208a = null;
+    private String a = null;
     private String b = null;
     private String c = null;
     private String d = null;
@@ -44,7 +41,7 @@ public class aa {
     }
 
     public String c() {
-        return this.f1208a;
+        return this.a;
     }
 
     public String d() {
@@ -85,7 +82,7 @@ public class aa {
             JSONObject optJSONObject2 = jSONObject.optJSONObject("img");
             this.m = jSONObject.optInt("index", -1);
             if (optJSONObject2 != null && (optJSONObject = optJSONObject2.optJSONObject("original")) != null) {
-                this.f1208a = optJSONObject.optString(LocaleUtil.INDONESIAN);
+                this.a = optJSONObject.optString("id");
                 this.b = optJSONObject.optString(SocialConstants.PARAM_URL);
                 this.g = optJSONObject.optInt("width", 0);
                 this.h = optJSONObject.optInt("height", 0);
@@ -108,7 +105,7 @@ public class aa {
                 this.e.b(this.n);
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.bd.b(getClass().getName(), "paserJson", e.toString());
+            com.baidu.tieba.util.be.b(getClass().getName(), "paserJson", e.toString());
         }
     }
 }

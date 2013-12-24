@@ -4,21 +4,19 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 /* loaded from: classes.dex */
 final class m implements Animation.AnimationListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ o f1282a;
+    final /* synthetic */ o a;
     final /* synthetic */ ViewGroup b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(o oVar, ViewGroup viewGroup) {
-        this.f1282a = oVar;
+        this.a = oVar;
         this.b = viewGroup;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationEnd(Animation animation) {
-        if (this.f1282a != null) {
-            this.f1282a.a();
+        if (this.a != null) {
+            this.a.a();
         }
         this.b.setVisibility(0);
     }
@@ -30,8 +28,8 @@ final class m implements Animation.AnimationListener {
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationStart(Animation animation) {
         this.b.setVisibility(8);
-        if (this.f1282a != null) {
-            this.f1282a.b();
+        if (this.a != null) {
+            this.a.b();
         }
     }
 }

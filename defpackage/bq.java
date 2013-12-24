@@ -7,17 +7,15 @@ import com.baidu.cloudsdk.common.util.CoordinateManager;
 /* renamed from: bq  reason: default package */
 /* loaded from: classes.dex */
 public class bq implements LocationListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ CoordinateManager.a f385a;
+    final /* synthetic */ CoordinateManager.a a;
 
     public bq(CoordinateManager.a aVar) {
-        this.f385a = aVar;
+        this.a = aVar;
     }
 
     @Override // android.location.LocationListener
     public void onLocationChanged(Location location) {
-        CoordinateManager.this.c = this.f385a.c = location;
+        CoordinateManager.this.c = this.a.c = location;
     }
 
     @Override // android.location.LocationListener

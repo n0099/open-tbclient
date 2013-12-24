@@ -8,9 +8,7 @@ import com.baidu.tbadk.widget.TbImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o {
-
-    /* renamed from: a  reason: collision with root package name */
-    View f2420a;
+    View a;
     LinearLayout b;
     RelativeLayout c;
     TextView d;

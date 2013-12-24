@@ -5,14 +5,12 @@ import android.os.Handler;
 import android.os.Message;
 /* loaded from: classes.dex */
 public class q implements Runnable {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ JigsawAlbumListActivity f2127a;
+    final /* synthetic */ JigsawAlbumListActivity a;
     private volatile boolean b;
     private Thread c;
 
     public q(JigsawAlbumListActivity jigsawAlbumListActivity) {
-        this.f2127a = jigsawAlbumListActivity;
+        this.a = jigsawAlbumListActivity;
     }
 
     /* JADX WARN: Incorrect condition in loop: B:12:0x0046 */
@@ -39,14 +37,14 @@ public class q implements Runnable {
         this.b = false;
         while (!this.b) {
             i = JigsawAlbumListActivity.j;
-            if (i + 20 > this.f2127a.f2111a.b()) {
-                int b = this.f2127a.f2111a.b();
+            if (i + 20 > this.a.a.b()) {
+                int b = this.a.a.b();
                 i10 = JigsawAlbumListActivity.j;
                 i2 = b - i10;
             } else {
                 i2 = 20;
             }
-            viewphotoLinkedHashMap = this.f2127a.h;
+            viewphotoLinkedHashMap = this.a.h;
             if (viewphotoLinkedHashMap.size() != 0) {
                 i3 = JigsawAlbumListActivity.j;
                 int unused = JigsawAlbumListActivity.k = i3;
@@ -57,18 +55,18 @@ public class q implements Runnable {
                         break;
                     }
                     try {
-                        viewphotoLinkedHashMap2 = this.f2127a.h;
+                        viewphotoLinkedHashMap2 = this.a.h;
                         if (viewphotoLinkedHashMap2.containsKey(Integer.valueOf(i4))) {
-                            viewphotoLinkedHashMap3 = this.f2127a.h;
+                            viewphotoLinkedHashMap3 = this.a.h;
                             if (!viewphotoLinkedHashMap3.get((Object) Integer.valueOf(i4)).getTag().toString().equals("bitmap")) {
                                 try {
-                                    Bitmap a2 = this.f2127a.f2111a.a(this.f2127a, this.f2127a.f2111a.a(i4), this.f2127a.d);
-                                    if (a2 != null) {
+                                    Bitmap a = this.a.a.a(this.a, this.a.a.a(i4), this.a.d);
+                                    if (a != null) {
                                         Message message = new Message();
-                                        message.obj = a2;
+                                        message.obj = a;
                                         message.arg1 = i4;
                                         message.what = 0;
-                                        handler = this.f2127a.s;
+                                        handler = this.a.s;
                                         handler.sendMessage(message);
                                     }
                                 } catch (Exception e) {

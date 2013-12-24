@@ -32,7 +32,7 @@ public class IconData implements Serializable {
                 this.icon = jSONObject.optString("icon");
                 this.name = jSONObject.optString(SocialConstants.PARAM_MEDIA_UNAME);
             } catch (Exception e) {
-                com.baidu.tieba.util.bd.b(getClass().getName(), "parserJson", "error=" + e.toString());
+                com.baidu.tieba.util.be.b(getClass().getName(), "parserJson", "error=" + e.toString());
             }
         }
     }

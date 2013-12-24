@@ -3,14 +3,12 @@ package com.baidu.adp.a;
 import android.app.Application;
 /* loaded from: classes.dex */
 public class b extends Application {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static b f398a = null;
+    private static b a = null;
     private boolean b = false;
 
     @Override // android.app.Application
     public void onCreate() {
-        f398a = this;
+        a = this;
         super.onCreate();
         com.baidu.adp.lib.h.g.a(this);
         e();
@@ -23,7 +21,7 @@ public class b extends Application {
     }
 
     public static b a() {
-        return f398a;
+        return a;
     }
 
     private void e() {

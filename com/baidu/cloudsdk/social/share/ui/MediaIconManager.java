@@ -11,15 +11,12 @@ import android.graphics.drawable.Drawable;
 import com.baidu.cloudsdk.assets.DrawableUtils;
 import com.baidu.cloudsdk.common.util.Validator;
 import com.baidu.cloudsdk.social.share.SocialShareConfig;
-import com.tencent.mm.sdk.platformtools.Util;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class MediaIconManager {
     private static MediaIconManager h;
-
-    /* renamed from: a  reason: collision with root package name */
-    private Map f879a = new HashMap();
+    private Map a = new HashMap();
     private Map b = new HashMap();
     private Map c = new HashMap();
     private Map d = new HashMap();
@@ -62,7 +59,7 @@ public class MediaIconManager {
             for (int i = 0; i < copy.getWidth(); i++) {
                 for (int i2 = 0; i2 < copy.getHeight(); i2++) {
                     int pixel2 = 2097152000 & copy.getPixel(i, i2);
-                    int i3 = (int) ((((65280 & pixel) >> 8) * 0.59d) + (((16711680 & pixel) >> 16) * 0.3d) + ((pixel & Util.MASK_8BIT) * 0.11d));
+                    int i3 = (int) ((((65280 & pixel) >> 8) * 0.59d) + (((16711680 & pixel) >> 16) * 0.3d) + ((pixel & 255) * 0.11d));
                     copy.setPixel(i, i2, i3 | pixel2 | (i3 << 16) | (i3 << 8));
                 }
             }
@@ -76,9 +73,9 @@ public class MediaIconManager {
     public Drawable getNightModeIcon(String str) {
         Drawable drawable = (Drawable) this.b.get(str);
         if (drawable == null) {
-            Drawable a2 = a(getNormalIcon(str), 1275068416, PorterDuff.Mode.SRC_ATOP);
-            this.b.put(str, a2);
-            return a2;
+            Drawable a = a(getNormalIcon(str), 1275068416, PorterDuff.Mode.SRC_ATOP);
+            this.b.put(str, a);
+            return a;
         }
         return drawable;
     }
@@ -86,18 +83,18 @@ public class MediaIconManager {
     public Drawable getNightModePressedIcon(String str) {
         Drawable drawable = (Drawable) this.b.get(str);
         if (drawable == null) {
-            Drawable a2 = a(getNormalIcon(str), 2130706432, PorterDuff.Mode.SRC_ATOP);
-            this.d.put(str, a2);
-            return a2;
+            Drawable a = a(getNormalIcon(str), 2130706432, PorterDuff.Mode.SRC_ATOP);
+            this.d.put(str, a);
+            return a;
         }
         return drawable;
     }
 
     public Drawable getNormalIcon(String str) {
-        Drawable drawable = (Drawable) this.f879a.get(str);
+        Drawable drawable = (Drawable) this.a.get(str);
         if (drawable == null) {
             Drawable drawable2 = DrawableUtils.getDrawable(this.f, this.g.getAssetFileName(str));
-            this.f879a.put(str, drawable2);
+            this.a.put(str, drawable2);
             return drawable2;
         }
         return drawable;
@@ -106,9 +103,9 @@ public class MediaIconManager {
     public Drawable getNormalPressedIcon(String str) {
         Drawable drawable = (Drawable) this.c.get(str);
         if (drawable == null) {
-            Drawable a2 = a(getNormalIcon(str), 855638016, PorterDuff.Mode.SRC_ATOP);
-            this.c.put(str, a2);
-            return a2;
+            Drawable a = a(getNormalIcon(str), 855638016, PorterDuff.Mode.SRC_ATOP);
+            this.c.put(str, a);
+            return a;
         }
         return drawable;
     }

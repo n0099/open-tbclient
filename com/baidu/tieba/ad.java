@@ -1,19 +1,27 @@
 package com.baidu.tieba;
 
 import android.view.View;
+import com.baidu.tieba.view.BaseViewPager;
 /* loaded from: classes.dex */
 class ad implements View.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ GuideActivity f1110a;
+    final /* synthetic */ GuideActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ad(GuideActivity guideActivity) {
-        this.f1110a = guideActivity;
+        this.a = guideActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.f1110a.a();
+        BaseViewPager baseViewPager;
+        int[] iArr;
+        BaseViewPager baseViewPager2;
+        baseViewPager = this.a.i;
+        int currentItem = baseViewPager.getCurrentItem();
+        iArr = this.a.f;
+        if (currentItem != iArr.length) {
+            baseViewPager2 = this.a.i;
+            baseViewPager2.a(currentItem + 1, true);
+        }
     }
 }

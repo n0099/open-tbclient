@@ -14,9 +14,7 @@ import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class n extends com.baidu.adp.a.e {
-
-    /* renamed from: a  reason: collision with root package name */
-    private Activity f1499a;
+    private Activity a;
     private View c;
     private LinearLayout d;
     private TextView e;
@@ -36,7 +34,7 @@ public class n extends com.baidu.adp.a.e {
     public n(Activity activity, String str, String str2, int i) {
         super(activity);
         this.i = -1;
-        this.f1499a = activity;
+        this.a = activity;
         this.c = LayoutInflater.from(activity).inflate(R.layout.enter_forum_login, (ViewGroup) null);
         this.d = (LinearLayout) this.c;
         this.e = (TextView) this.c.findViewById(R.id.tip);
@@ -48,14 +46,14 @@ public class n extends com.baidu.adp.a.e {
         this.g.setOnClickListener(new o(this, activity, i, str2));
         this.h = (Button) this.c.findViewById(R.id.reg_btn);
         this.h.setOnClickListener(new p(this, activity));
-        int a2 = com.baidu.adp.lib.h.g.a((Context) activity, 7.0f);
-        int a3 = com.baidu.adp.lib.h.g.a((Context) activity, 5.0f);
-        this.d.setPadding(a2, a3, a2, a3);
+        int a = com.baidu.adp.lib.h.g.a((Context) activity, 7.0f);
+        int a2 = com.baidu.adp.lib.h.g.a((Context) activity, 5.0f);
+        this.d.setPadding(a, a2, a, a2);
     }
 
     public View e() {
         if (TiebaApplication.h().t()) {
-            StatService.onEvent(this.f1499a, "home_login_show", "loginshow", 1);
+            StatService.onEvent(this.a, "home_login_show", "loginshow", 1);
         }
         return this.c;
     }

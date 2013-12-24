@@ -7,20 +7,18 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class f extends BaseAdapter {
-
-    /* renamed from: a  reason: collision with root package name */
-    ValidateActivity f1900a;
+    ValidateActivity a;
     com.baidu.tieba.util.i b;
     List<ValidateItemData> c = new ArrayList();
 
     public f(ValidateActivity validateActivity) {
         this.b = null;
-        this.f1900a = validateActivity;
-        this.b = new com.baidu.tieba.util.i(this.f1900a);
+        this.a = validateActivity;
+        this.b = new com.baidu.tieba.util.i(this.a);
     }
 
     public void a() {
-        this.f1900a = null;
+        this.a = null;
     }
 
     public void a(List<ValidateItemData> list) {
@@ -45,7 +43,7 @@ public class f extends BaseAdapter {
         if (view != null) {
             gVar = (g) view.getTag();
         }
-        g gVar2 = gVar == null ? new g(this.f1900a) : gVar;
+        g gVar2 = gVar == null ? new g(this.a) : gVar;
         gVar2.a(this.c.get(i));
         return gVar2.a();
     }

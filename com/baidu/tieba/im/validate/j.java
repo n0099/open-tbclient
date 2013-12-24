@@ -1,16 +1,15 @@
 package com.baidu.tieba.im.validate;
 
 import android.view.View;
+import com.baidu.browser.webpool.BdWebPoolView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements View.OnLongClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ g f1903a;
+    final /* synthetic */ g a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(g gVar) {
-        this.f1903a = gVar;
+        this.a = gVar;
     }
 
     @Override // android.view.View.OnLongClickListener
@@ -18,10 +17,10 @@ public class j implements View.OnLongClickListener {
         ValidateActivity validateActivity;
         View view2;
         ValidateItemData validateItemData;
-        validateActivity = this.f1903a.i;
-        view2 = this.f1903a.c;
-        validateItemData = this.f1903a.j;
-        validateActivity.b(view2, 200, 0, 0L, validateItemData);
+        validateActivity = this.a.i;
+        view2 = this.a.c;
+        validateItemData = this.a.j;
+        validateActivity.b(view2, BdWebPoolView.DELAYED_TIME, 0, 0L, validateItemData);
         return true;
     }
 }

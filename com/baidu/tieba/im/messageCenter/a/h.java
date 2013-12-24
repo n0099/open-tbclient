@@ -1,23 +1,22 @@
 package com.baidu.tieba.im.messageCenter.a;
 
-import com.baidu.tieba.im.message.Message;
-import com.baidu.tieba.im.message.RequestFrsGroupsMessage;
-import com.baidu.tieba.im.message.ResponseFrsGroupsMessage;
-import com.baidu.tieba.im.message.ResponsedMessage;
+import com.baidu.tieba.im.message.bc;
+import com.baidu.tieba.im.message.bz;
+import com.baidu.tieba.im.message.z;
 /* loaded from: classes.dex */
 public class h extends com.baidu.tieba.im.messageCenter.d {
     @Override // com.baidu.tieba.im.messageCenter.d
-    public ResponsedMessage a(Message message) {
-        if (message == null || !(message instanceof RequestFrsGroupsMessage)) {
+    public bz a(com.baidu.tieba.im.message.n nVar) {
+        if (nVar == null || !(nVar instanceof z)) {
             return null;
         }
-        RequestFrsGroupsMessage requestFrsGroupsMessage = (RequestFrsGroupsMessage) message;
-        ResponsedMessage a2 = com.baidu.tieba.im.b.m.a(com.baidu.tieba.b.a.a().e().a(requestFrsGroupsMessage.getType() + "_" + requestFrsGroupsMessage.getForumId()));
-        if (a2 == null) {
-            a2 = new ResponseFrsGroupsMessage();
+        z zVar = (z) nVar;
+        bz a = l.a(103002, com.baidu.tieba.b.a.a().e().a("pb_" + zVar.e() + "_" + zVar.d()));
+        if (a == null) {
+            a = new bc();
         }
-        a2.setCmd(-201);
-        a2.setOrginalMessage(message);
-        return a2;
+        a.e(-201);
+        a.a(nVar);
+        return a;
     }
 }

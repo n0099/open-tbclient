@@ -8,9 +8,7 @@ import java.util.List;
 public class c {
     private static c b;
     private long c = 0;
-
-    /* renamed from: a  reason: collision with root package name */
-    private final a f1242a = new a();
+    private final a a = new a();
 
     private c() {
     }
@@ -22,36 +20,8 @@ public class c {
         return b;
     }
 
-    protected long b() {
-        long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis <= this.c) {
-            this.c++;
-            return this.c;
-        }
-        return currentTimeMillis;
-    }
-
-    public void a(List<ChatMessageData> list) {
-        for (ChatMessageData chatMessageData : list) {
-            chatMessageData.setLocalTime(b());
-            this.f1242a.a(chatMessageData);
-        }
-    }
-
-    public List<ChatMessageData> a(String str, String str2) {
-        return this.f1242a.a(str, str2, 20);
-    }
-
-    public void b(String str, String str2) {
-        this.f1242a.a(str, str2);
-    }
-
-    public void a(String str, List<RecentChatFriendData> list) {
-        this.f1242a.a(str, list);
-    }
-
     public void a(RecentChatFriendData recentChatFriendData) {
-        this.f1242a.a(recentChatFriendData);
+        this.a.a(recentChatFriendData);
     }
 
     public void a(String str, int i, com.baidu.tieba.im.a<Void> aVar) {
@@ -67,18 +37,18 @@ public class c {
     }
 
     public List<RecentChatFriendData> a(String str) {
-        return this.f1242a.a(str, 20);
+        return this.a.a(str, 20);
     }
 
     public RecentChatFriendData b(String str) {
-        LinkedList<RecentChatFriendData> a2 = this.f1242a.a(1, str);
-        if (a2 == null || a2.isEmpty()) {
+        LinkedList<RecentChatFriendData> a = this.a.a(1, str);
+        if (a == null || a.isEmpty()) {
             return null;
         }
-        return a2.get(0);
+        return a.get(0);
     }
 
-    public void c(String str, String str2) {
-        this.f1242a.b(str, str2);
+    public void a(String str, String str2) {
+        this.a.a(str, str2);
     }
 }

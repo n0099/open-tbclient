@@ -5,16 +5,14 @@ import android.view.View;
 import android.view.ViewGroup;
 /* loaded from: classes.dex */
 public abstract class FragmentPagerAdapter extends android.support.v4.view.ae {
-
-    /* renamed from: a  reason: collision with root package name */
-    private final t f278a;
+    private final t a;
     private ae b = null;
     private Fragment c = null;
 
     public abstract Fragment a(int i);
 
     public FragmentPagerAdapter(t tVar) {
-        this.f278a = tVar;
+        this.a = tVar;
     }
 
     @Override // android.support.v4.view.ae
@@ -24,27 +22,27 @@ public abstract class FragmentPagerAdapter extends android.support.v4.view.ae {
     @Override // android.support.v4.view.ae
     public Object instantiateItem(ViewGroup viewGroup, int i) {
         if (this.b == null) {
-            this.b = this.f278a.a();
+            this.b = this.a.a();
         }
         long b = b(i);
-        Fragment a2 = this.f278a.a(a(viewGroup.getId(), b));
-        if (a2 != null) {
-            this.b.e(a2);
+        Fragment a = this.a.a(a(viewGroup.getId(), b));
+        if (a != null) {
+            this.b.e(a);
         } else {
-            a2 = a(i);
-            this.b.a(viewGroup.getId(), a2, a(viewGroup.getId(), b));
+            a = a(i);
+            this.b.a(viewGroup.getId(), a, a(viewGroup.getId(), b));
         }
-        if (a2 != this.c) {
-            a2.c(false);
-            a2.d(false);
+        if (a != this.c) {
+            a.c(false);
+            a.d(false);
         }
-        return a2;
+        return a;
     }
 
     @Override // android.support.v4.view.ae
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
         if (this.b == null) {
-            this.b = this.f278a.a();
+            this.b = this.a.a();
         }
         this.b.d((Fragment) obj);
     }
@@ -70,7 +68,7 @@ public abstract class FragmentPagerAdapter extends android.support.v4.view.ae {
         if (this.b != null) {
             this.b.b();
             this.b = null;
-            this.f278a.b();
+            this.a.b();
         }
     }
 

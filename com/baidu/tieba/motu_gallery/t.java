@@ -5,16 +5,14 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 class t implements View.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ w f2130a;
+    final /* synthetic */ w a;
     final /* synthetic */ a b;
     final /* synthetic */ s c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(s sVar, w wVar, a aVar) {
         this.c = sVar;
-        this.f2130a = wVar;
+        this.a = wVar;
         this.b = aVar;
     }
 
@@ -22,11 +20,11 @@ class t implements View.OnClickListener {
     public void onClick(View view) {
         LinearLayout linearLayout;
         TextView textView;
-        this.c.b.f2128a.f2111a.b(this.c.b.f2128a, this.f2130a.getUri());
+        this.c.b.a.a.b(this.c.b.a, this.a.getUri());
         this.b.setIsSelected(false);
-        linearLayout = this.c.b.f2128a.m;
+        linearLayout = this.c.b.a.m;
         linearLayout.removeView(view);
-        textView = this.c.b.f2128a.o;
-        textView.setText(this.c.b.f2128a.f2111a.e(this.c.b.f2128a));
+        textView = this.c.b.a.o;
+        textView.setText(this.c.b.a.a.e(this.c.b.a));
     }
 }

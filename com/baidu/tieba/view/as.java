@@ -5,22 +5,20 @@ import com.baidu.tieba.util.UtilHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class as implements android.support.v4.view.bq {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MultiImageView f2663a;
+    final /* synthetic */ MultiImageView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public as(MultiImageView multiImageView) {
-        this.f2663a = multiImageView;
+        this.a = multiImageView;
     }
 
     @Override // android.support.v4.view.bq
     public void onPageScrollStateChanged(int i) {
         android.support.v4.view.bq bqVar;
         android.support.v4.view.bq bqVar2;
-        bqVar = this.f2663a.g;
+        bqVar = this.a.g;
         if (bqVar != null) {
-            bqVar2 = this.f2663a.g;
+            bqVar2 = this.a.g;
             bqVar2.onPageScrollStateChanged(i);
         }
     }
@@ -29,9 +27,9 @@ public class as implements android.support.v4.view.bq {
     public void onPageScrolled(int i, float f, int i2) {
         android.support.v4.view.bq bqVar;
         android.support.v4.view.bq bqVar2;
-        bqVar = this.f2663a.g;
+        bqVar = this.a.g;
         if (bqVar != null) {
-            bqVar2 = this.f2663a.g;
+            bqVar2 = this.a.g;
             bqVar2.onPageScrolled(i, f, i2);
         }
     }
@@ -48,38 +46,38 @@ public class as implements android.support.v4.view.bq {
         GalleryViewPager galleryViewPager4;
         l imageView;
         GalleryViewPager galleryViewPager5;
-        com.baidu.tieba.util.bd.e(getClass().getName(), "onPageSelected", "postion = " + String.valueOf(i));
-        galleryViewPager = this.f2663a.e;
+        com.baidu.tieba.util.be.e(getClass().getName(), "onPageSelected", "postion = " + String.valueOf(i));
+        galleryViewPager = this.a.e;
         View findViewWithTag = galleryViewPager.findViewWithTag(String.valueOf(i));
-        if (findViewWithTag != null && (findViewWithTag instanceof bo) && (imageView = ((bo) findViewWithTag).getImageView()) != null) {
-            galleryViewPager5 = this.f2663a.e;
+        if (findViewWithTag != null && (findViewWithTag instanceof bu) && (imageView = ((bu) findViewWithTag).getImageView()) != null) {
+            galleryViewPager5 = this.a.e;
             galleryViewPager5.setSelectedView(imageView);
             imageView.o();
         }
-        galleryViewPager2 = this.f2663a.e;
+        galleryViewPager2 = this.a.e;
         int childCount = galleryViewPager2.getChildCount();
         for (int i2 = 0; i2 < childCount; i2++) {
-            galleryViewPager4 = this.f2663a.e;
+            galleryViewPager4 = this.a.e;
             View childAt = galleryViewPager4.getChildAt(i2);
-            if (childAt != null && (childAt instanceof bo)) {
-                ((bo) childAt).e();
+            if (childAt != null && (childAt instanceof bu)) {
+                ((bu) childAt).e();
             }
         }
-        UtilHelper.NetworkStateInfo g = UtilHelper.g(this.f2663a.getContext());
-        z = this.f2663a.l;
+        UtilHelper.NetworkStateInfo g = UtilHelper.g(this.a.getContext());
+        z = this.a.l;
         if (z && (g == UtilHelper.NetworkStateInfo.WIFI || g == UtilHelper.NetworkStateInfo.ThreeG)) {
             for (int i3 = 0; i3 < childCount; i3++) {
-                galleryViewPager3 = this.f2663a.e;
+                galleryViewPager3 = this.a.e;
                 View childAt2 = galleryViewPager3.getChildAt(i3);
-                if (childAt2 != null && (childAt2 instanceof bo)) {
-                    z2 = this.f2663a.o;
-                    ((bo) childAt2).a(z2);
+                if (childAt2 != null && (childAt2 instanceof bu)) {
+                    z2 = this.a.o;
+                    ((bu) childAt2).a(z2);
                 }
             }
         }
-        bqVar = this.f2663a.g;
+        bqVar = this.a.g;
         if (bqVar != null) {
-            bqVar2 = this.f2663a.g;
+            bqVar2 = this.a.g;
             bqVar2.onPageSelected(i);
         }
     }

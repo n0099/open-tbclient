@@ -1,24 +1,19 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.im.SingleRunnable;
-import com.baidu.tieba.im.groupInfo.GroupSettingItemData;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class aw extends SingleRunnable<GroupSettingItemData> {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ int f1554a;
+public class aw implements View.OnLongClickListener {
+    final /* synthetic */ at a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aw(int i) {
-        this.f1554a = i;
+    public aw(at atVar) {
+        this.a = atVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.SingleRunnable
-    /* renamed from: a */
-    public GroupSettingItemData b() {
-        return com.baidu.tieba.im.groupInfo.u.a(TiebaApplication.B(), String.valueOf(this.f1554a));
+    @Override // android.view.View.OnLongClickListener
+    public boolean onLongClick(View view) {
+        this.a.d.b(view, 4, this.a.f, 0L);
+        return true;
     }
 }

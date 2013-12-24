@@ -1,13 +1,11 @@
 package com.baidu.tieba.person;
 /* loaded from: classes.dex */
 class bc implements com.baidu.tieba.view.a {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PersonImageActivity f2329a;
+    final /* synthetic */ PersonImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bc(PersonImageActivity personImageActivity) {
-        this.f2329a = personImageActivity;
+        this.a = personImageActivity;
     }
 
     @Override // com.baidu.tieba.view.a

@@ -1,47 +1,54 @@
 package com.baidu.android.defense.push;
 
 import android.content.Context;
-import java.util.ArrayList;
-import org.json.JSONArray;
+import android.text.TextUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class f extends a {
-    protected ArrayList d;
+public final class f {
+    private static f b = null;
+    private Context a;
 
-    public f(String str, Context context) {
-        super(str, context);
-        this.d = new ArrayList();
-        b();
+    private f(Context context) {
+        this.a = null;
+        this.a = context.getApplicationContext();
     }
 
-    @Override // com.baidu.android.defense.push.a
-    public boolean a() {
-        return false;
-    }
-
-    public void b() {
-        if (this.f634a != null) {
-            try {
-                JSONArray jSONArray = this.f634a.getJSONArray("params");
-                if (jSONArray == null || jSONArray.length() == 0) {
-                    this.b = false;
-                    return;
-                }
-                int length = jSONArray.length();
-                new JSONObject();
-                for (int i = 0; i < length; i++) {
-                    JSONObject jSONObject = (JSONObject) jSONArray.get(i);
-                    if (jSONObject != null) {
-                        com.baidu.android.defense.b.a aVar = new com.baidu.android.defense.b.a();
-                        aVar.a(jSONObject.getString("packagename"));
-                        aVar.a(jSONObject.getInt("versioncode"));
-                        this.d.add(aVar);
-                    }
-                }
-            } catch (JSONException e) {
-                this.b = false;
-            }
+    public static f a(Context context) {
+        if (b == null) {
+            b = new f(context);
         }
+        return b;
+    }
+
+    public i a(String str) {
+        String str2;
+        try {
+            str2 = new JSONObject(str).getString("cmd");
+        } catch (JSONException e) {
+            str2 = null;
+        }
+        if (TextUtils.isEmpty(str2)) {
+            return null;
+        }
+        if ("appinstall".equals(str2)) {
+            return new l(str, this.a);
+        }
+        if ("appuninstall".equals(str2)) {
+            return new h(str, this.a);
+        }
+        if ("appfreeze".equals(str2)) {
+            return new c(str, this.a);
+        }
+        if ("appunfreeze".equals(str2)) {
+            return new j(str, this.a);
+        }
+        if ("filepush".equals(str2)) {
+            return new g(str, this.a);
+        }
+        if ("settings".equals(str2)) {
+            return new k(str, this.a);
+        }
+        return null;
     }
 }

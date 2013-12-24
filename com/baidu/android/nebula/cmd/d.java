@@ -1,36 +1,39 @@
 package com.baidu.android.nebula.cmd;
 
+import android.content.Context;
+import java.io.File;
 import java.util.Timer;
+import java.util.TimerTask;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class d implements com.baidu.android.nebula.util.d {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ c f674a;
+public class d extends TimerTask {
+    final /* synthetic */ File a;
+    final /* synthetic */ String b;
+    final /* synthetic */ b c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d(c cVar) {
-        this.f674a = cVar;
+    public d(b bVar, File file, String str) {
+        this.c = bVar;
+        this.a = file;
+        this.b = str;
     }
 
-    @Override // com.baidu.android.nebula.util.d
-    public void a(com.baidu.android.nebula.util.c cVar) {
-        com.baidu.android.nebula.util.c cVar2;
+    @Override // java.util.TimerTask, java.lang.Runnable
+    public void run() {
+        String str;
         Timer timer;
-        Timer timer2;
-        synchronized (this.f674a.f673a) {
-            this.f674a.f673a.mLocInfo = cVar;
-            cVar2 = this.f674a.f673a.mLocInfo;
-            if (cVar2 == null) {
-                this.f674a.f673a.mErrcode = 2;
-            } else {
-                this.f674a.f673a.mErrcode = 0;
-            }
-            timer = this.f674a.f673a.mTimeoutTm;
-            if (timer != null) {
-                timer2 = this.f674a.f673a.mTimeoutTm;
-                timer2.cancel();
-            }
-            this.f674a.f673a.notifyAll();
+        Context context;
+        cancel();
+        long length = this.a.length();
+        str = this.c.a.mFileLength;
+        if (length < Integer.parseInt(str)) {
+            this.c.a(this.b);
+            return;
         }
+        timer = this.c.c;
+        timer.cancel();
+        b bVar = this.c;
+        context = this.c.a.mContext;
+        bVar.a(context, this.a);
     }
 }

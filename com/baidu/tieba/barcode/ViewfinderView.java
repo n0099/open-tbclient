@@ -11,15 +11,13 @@ import android.os.Handler;
 import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.zeus.bouncycastle.DERTags;
+import com.google.zxing.ResultPoint;
 import com.slidingmenu.lib.R;
-import com.tencent.mm.sdk.platformtools.Util;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public final class ViewfinderView extends View {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static final int[] f1133a = {0, 64, DERTags.TAGGED, 192, Util.MASK_8BIT, 192, DERTags.TAGGED, 64};
+    private static final int[] a = {0, 64, DERTags.TAGGED, 192, 255, 192, DERTags.TAGGED, 64};
     private com.baidu.tieba.barcode.a.f b;
     private final Paint c;
     private Bitmap d;
@@ -29,8 +27,8 @@ public final class ViewfinderView extends View {
     private final int h;
     private final int i;
     private int j;
-    private List<com.google.zxing.i> k;
-    private List<com.google.zxing.i> l;
+    private List<ResultPoint> k;
+    private List<ResultPoint> l;
     private Bitmap m;
     private Rect n;
     private Bitmap o;
@@ -108,8 +106,8 @@ public final class ViewfinderView extends View {
                 return;
             }
             this.c.setColor(this.g);
-            this.c.setAlpha(f1133a[this.j]);
-            this.j = (this.j + 1) % f1133a.length;
+            this.c.setAlpha(a[this.j]);
+            this.j = (this.j + 1) % a.length;
             if (!this.v) {
                 if (this.p < e.top) {
                     this.p = e.top;
@@ -123,8 +121,8 @@ public final class ViewfinderView extends View {
             Rect f = this.b.f();
             float width2 = e.width() / f.width();
             float height2 = e.height() / f.height();
-            List<com.google.zxing.i> list = this.k;
-            List<com.google.zxing.i> list2 = this.l;
+            List<ResultPoint> list = this.k;
+            List<ResultPoint> list2 = this.l;
             int i = e.left;
             int i2 = e.top;
             if (list.isEmpty()) {
@@ -135,8 +133,8 @@ public final class ViewfinderView extends View {
                 this.c.setAlpha(160);
                 this.c.setColor(this.h);
                 synchronized (list) {
-                    for (com.google.zxing.i iVar : list) {
-                        canvas.drawCircle(((int) (iVar.a() * width2)) + i, ((int) (iVar.b() * height2)) + i2, 6.0f, this.c);
+                    for (ResultPoint resultPoint : list) {
+                        canvas.drawCircle(((int) (resultPoint.getX() * width2)) + i, ((int) (resultPoint.getY() * height2)) + i2, 6.0f, this.c);
                     }
                 }
             }
@@ -144,8 +142,8 @@ public final class ViewfinderView extends View {
                 this.c.setAlpha(80);
                 this.c.setColor(this.h);
                 synchronized (list2) {
-                    for (com.google.zxing.i iVar2 : list2) {
-                        canvas.drawCircle(((int) (iVar2.a() * width2)) + i, ((int) (iVar2.b() * height2)) + i2, 3.0f, this.c);
+                    for (ResultPoint resultPoint2 : list2) {
+                        canvas.drawCircle(((int) (resultPoint2.getX() * width2)) + i, ((int) (resultPoint2.getY() * height2)) + i2, 3.0f, this.c);
                     }
                 }
             }
@@ -162,10 +160,10 @@ public final class ViewfinderView extends View {
         invalidate();
     }
 
-    public void a(com.google.zxing.i iVar) {
-        List<com.google.zxing.i> list = this.k;
+    public void a(ResultPoint resultPoint) {
+        List<ResultPoint> list = this.k;
         synchronized (list) {
-            list.add(iVar);
+            list.add(resultPoint);
             int size = list.size();
             if (size > 20) {
                 list.subList(0, size - 10).clear();

@@ -3,19 +3,17 @@ package com.baidu.tieba.barcode.a;
 import android.graphics.Point;
 import android.hardware.Camera;
 import android.os.Handler;
-import com.baidu.tieba.util.bd;
+import com.baidu.tieba.util.be;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class g implements Camera.PreviewCallback {
-
-    /* renamed from: a  reason: collision with root package name */
-    private final d f1140a;
+    private final d a;
     private Handler b;
     private int c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(d dVar) {
-        this.f1140a = dVar;
+        this.a = dVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -26,13 +24,13 @@ public final class g implements Camera.PreviewCallback {
 
     @Override // android.hardware.Camera.PreviewCallback
     public void onPreviewFrame(byte[] bArr, Camera camera) {
-        Point a2 = this.f1140a.a();
+        Point a = this.a.a();
         Handler handler = this.b;
-        if (a2 != null && handler != null) {
-            handler.obtainMessage(this.c, a2.x, a2.y, bArr).sendToTarget();
+        if (a != null && handler != null) {
+            handler.obtainMessage(this.c, a.x, a.y, bArr).sendToTarget();
             this.b = null;
             return;
         }
-        bd.e(getClass().getName(), "onPreviewFrame", "Got preview callback, but no handler or resolution available");
+        be.e(getClass().getName(), "onPreviewFrame", "Got preview callback, but no handler or resolution available");
     }
 }

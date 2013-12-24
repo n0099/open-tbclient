@@ -6,9 +6,7 @@ import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ac {
-
-    /* renamed from: a  reason: collision with root package name */
-    TextView f2473a;
+    TextView a;
     TextView b;
     View c;
     LinearLayout d;

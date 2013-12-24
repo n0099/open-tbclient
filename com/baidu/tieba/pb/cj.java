@@ -2,15 +2,13 @@ package com.baidu.tieba.pb;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class cj implements com.baidu.tieba.editortool.h {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ com.baidu.tieba.editortool.h f2207a;
+    final /* synthetic */ com.baidu.tieba.editortool.h a;
     final /* synthetic */ PbEditor b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cj(PbEditor pbEditor, com.baidu.tieba.editortool.h hVar) {
         this.b = pbEditor;
-        this.f2207a = hVar;
+        this.a = hVar;
     }
 
     @Override // com.baidu.tieba.editortool.h
@@ -35,11 +33,11 @@ public class cj implements com.baidu.tieba.editortool.h {
                     this.b.b.g();
                 }
             } else if (i == 12) {
-                this.f2207a.a(33, obj);
+                this.a.a(33, obj);
                 this.b.b.l();
                 this.b.c.c(this.b.b.getEditText());
             }
         }
-        this.f2207a.a(i, obj);
+        this.a.a(i, obj);
     }
 }

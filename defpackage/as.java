@@ -6,20 +6,18 @@ import org.json.JSONObject;
 /* renamed from: as  reason: default package */
 /* loaded from: classes.dex */
 public class as extends DefaultBaiduListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ at f364a;
+    final /* synthetic */ at a;
     final /* synthetic */ af b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public as(af afVar, at atVar) {
         this.b = afVar;
-        this.f364a = atVar;
+        this.a = atVar;
     }
 
     @Override // com.baidu.cloudsdk.DefaultBaiduListener, com.baidu.cloudsdk.IBaiduListener
     public void onComplete(JSONObject jSONObject) {
-        this.f364a.a(jSONObject.optString("username"));
+        this.a.a(jSONObject.optString("username"));
         this.b.notifyDataSetChanged();
     }
 }

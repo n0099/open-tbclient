@@ -1,20 +1,21 @@
 package com.baidu.tieba.im.c;
 
-import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
-import com.baidu.tieba.im.pushNotify.k;
+import com.baidu.tieba.im.SingleRunnable;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class c implements k {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f1529a;
+public final class c extends SingleRunnable<Void> {
+    final /* synthetic */ boolean a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public c(a aVar) {
-        this.f1529a = aVar;
+    public c(boolean z) {
+        this.a = z;
     }
 
-    @Override // com.baidu.tieba.im.pushNotify.k
-    public void a(GroupNewsPojo groupNewsPojo) {
-        a.f1527a = true;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.SingleRunnable
+    /* renamed from: a */
+    public Void b() {
+        a.a(this.a);
+        return null;
     }
 }

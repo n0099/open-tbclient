@@ -3,9 +3,7 @@ package com.baidu.tieba.log;
 import android.text.TextUtils;
 /* loaded from: classes.dex */
 public class i {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static LoggerItem f1921a = new LoggerItem(h.b);
+    private static LoggerItem a = new LoggerItem(h.b);
 
     public static synchronized String a(String str, String str2, String str3) {
         String a2;
@@ -42,48 +40,48 @@ public class i {
     public static synchronized String a(int i, int i2, String str, String str2, String str3, int i3, String str4, long j, int i4, String str5) {
         String loggerItem;
         synchronized (i.class) {
-            if (!g.a(f1921a)) {
+            if (!g.a(a)) {
                 loggerItem = null;
             } else {
-                f1921a.clear();
-                f1921a.put("cmd", String.valueOf(i));
+                a.clear();
+                a.put("cmd", String.valueOf(i));
                 String a2 = j.a(i);
-                LoggerItem loggerItem2 = f1921a;
+                LoggerItem loggerItem2 = a;
                 if (TextUtils.isEmpty(a2)) {
                     a2 = "";
                 }
                 loggerItem2.put("cmdRemark", a2);
-                f1921a.put("seqID", String.valueOf(i2));
-                LoggerItem loggerItem3 = f1921a;
+                a.put("seqID", String.valueOf(i2));
+                LoggerItem loggerItem3 = a;
                 if (TextUtils.isEmpty(str)) {
                     str = "";
                 }
                 loggerItem3.put("reason", str);
-                LoggerItem loggerItem4 = f1921a;
+                LoggerItem loggerItem4 = a;
                 if (TextUtils.isEmpty(str2)) {
                     str2 = "";
                 }
                 loggerItem4.put("action", str2);
-                LoggerItem loggerItem5 = f1921a;
+                LoggerItem loggerItem5 = a;
                 if (TextUtils.isEmpty(str3)) {
                     str3 = "";
                 }
                 loggerItem5.put("result", str3);
-                f1921a.put("errorCode", String.valueOf(i3));
-                LoggerItem loggerItem6 = f1921a;
+                a.put("errorCode", String.valueOf(i3));
+                LoggerItem loggerItem6 = a;
                 if (TextUtils.isEmpty(str4)) {
                     str4 = "";
                 }
                 loggerItem6.put("errorMsg", str4);
-                f1921a.put("costTime", String.valueOf(j));
-                f1921a.put("size", String.valueOf(i4));
-                LoggerItem loggerItem7 = f1921a;
+                a.put("costTime", String.valueOf(j));
+                a.put("size", String.valueOf(i4));
+                LoggerItem loggerItem7 = a;
                 if (TextUtils.isEmpty(str5)) {
                     str5 = "";
                 }
                 loggerItem7.put("comment", str5);
-                f1921a.initBaseData();
-                loggerItem = f1921a.toString();
+                a.initBaseData();
+                loggerItem = a.toString();
             }
         }
         return loggerItem;

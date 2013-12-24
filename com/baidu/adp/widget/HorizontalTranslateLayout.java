@@ -7,14 +7,10 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.widget.FrameLayout;
 import com.baidu.android.pushservice.PushConstants;
-import com.baidu.cyberplayer.sdk.internal.VersionUtils;
-import com.tencent.mm.sdk.platformtools.Util;
 import java.util.List;
 /* loaded from: classes.dex */
 public class HorizontalTranslateLayout extends FrameLayout {
-
-    /* renamed from: a  reason: collision with root package name */
-    static final /* synthetic */ boolean f557a;
+    static final /* synthetic */ boolean a;
     private i A;
     private int b;
     private int c;
@@ -52,7 +48,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
     }
 
     static {
-        f557a = !HorizontalTranslateLayout.class.desiredAssertionStatus();
+        a = !HorizontalTranslateLayout.class.desiredAssertionStatus();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -79,7 +75,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
                 this.k = 10004;
             } else if (f == -1.0f) {
                 this.d -= getMeasuredWidth();
-                this.k = VersionUtils.CUR_DEVELOPMENT;
+                this.k = 10000;
             } else if (f == 1.0f) {
                 this.d = getMeasuredWidth() - this.e;
                 this.k = PushConstants.ERROR_NETWORK_ERROR;
@@ -147,7 +143,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
         if (this.j == TrackDirection.none) {
             return false;
         }
-        int action = motionEvent.getAction() & Util.MASK_8BIT;
+        int action = motionEvent.getAction() & 255;
         int x = (int) motionEvent.getX();
         int y = (int) motionEvent.getY();
         if (this.k == 10004) {
@@ -182,7 +178,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         int x = (int) motionEvent.getX();
         int y = (int) motionEvent.getY();
-        int action = motionEvent.getAction() & Util.MASK_8BIT;
+        int action = motionEvent.getAction() & 255;
         if (this.k == 10004) {
             switch (action) {
                 case 1:
@@ -209,7 +205,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
                         }
                         this.u.b(this.q - x);
                         this.q = x;
-                        this.u.f612a.addMovement(motionEvent);
+                        this.u.a.addMovement(motionEvent);
                         return true;
                     }
                     return true;
@@ -247,7 +243,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
         if (this.u.b) {
             this.u.b(this.q - x);
             this.q = x;
-            this.u.f612a.addMovement(motionEvent);
+            this.u.a.addMovement(motionEvent);
             return true;
         }
         return true;
@@ -273,10 +269,10 @@ public class HorizontalTranslateLayout extends FrameLayout {
     protected void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
         int i3 = 1073741823 & i;
-        if (!f557a && i3 < this.d) {
+        if (!a && i3 < this.d) {
             throw new AssertionError("top offset should not be larger than the view's width");
         }
-        if (!f557a && i3 < this.e) {
+        if (!a && i3 < this.e) {
             throw new AssertionError("bottom offset should not be larger than the view's width");
         }
         this.b = getMeasuredWidth();
@@ -286,7 +282,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
         switch (this.k) {
-            case VersionUtils.CUR_DEVELOPMENT /* 10000 */:
+            case 10000:
                 this.f = (int) (this.d - getMeasuredWidth());
                 invalidate();
                 return;

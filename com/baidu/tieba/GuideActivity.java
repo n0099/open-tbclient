@@ -23,36 +23,34 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class GuideActivity extends j {
-
-    /* renamed from: a  reason: collision with root package name */
-    public static String f1010a = "from_logo_page";
+    public static String a = "from_logo_page";
     public static String b = "from_about_page";
     private static String n = "from_page";
     private ArrayList<View> g;
-    private ah h;
+    private ag h;
     private BaseViewPager i;
     private List<Bitmap> k;
-    private int[] f = {R.drawable.image_bootpage01, R.drawable.image_bootpage02, R.drawable.image_bootpage03};
+    private int[] f = {R.drawable.image_bootpage01};
     private Button j = null;
-    private ag l = null;
+    private af l = null;
     private String m = null;
-    private com.baidu.tieba.view.a o = new ab(this);
-    public View.OnClickListener c = new ac(this);
-    public View.OnClickListener d = new ad(this);
-    public View.OnClickListener e = new ae(this);
-    private final bq p = new af(this);
+    private com.baidu.tieba.view.a o = new aa(this);
+    public View.OnClickListener c = new ab(this);
+    public View.OnClickListener d = new ac(this);
+    public View.OnClickListener e = new ad(this);
+    private final bq p = new ae(this);
 
-    public static void a(Activity activity, int i, String str) {
+    public static void a(Activity activity, String str) {
         Intent intent = new Intent(activity, GuideActivity.class);
         intent.putExtra(n, str);
-        activity.startActivityForResult(intent, i);
+        activity.startActivity(intent);
     }
 
     @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.guide_activity);
-        this.h = new ah(this, null);
+        this.h = new ag(this, null);
         this.i = (BaseViewPager) findViewById(R.id.guide_pager);
         this.i.setAdapter(this.h);
         this.i.setOnScrollOutListener(this.o);
@@ -77,7 +75,7 @@ public class GuideActivity extends j {
             try {
                 StatService.setAppChannel(com.baidu.tieba.data.h.a());
             } catch (Exception e) {
-                com.baidu.tieba.util.bd.b(getClass().getName(), "onCreate", e.getMessage());
+                com.baidu.tieba.util.be.b(getClass().getName(), "onCreate", e.getMessage());
             }
         }
         if (bundle != null) {
@@ -85,8 +83,8 @@ public class GuideActivity extends j {
         } else {
             this.m = getIntent().getStringExtra(n);
         }
-        if (this.m.equals(f1010a)) {
-            this.l = new ag(this, null);
+        if (this.m.equals(a)) {
+            this.l = new af(this, null);
             this.l.setSelfExecute(true);
             this.l.execute(new String[0]);
             return;
@@ -129,7 +127,7 @@ public class GuideActivity extends j {
             try {
                 StatService.onResume(this);
             } catch (Exception e) {
-                com.baidu.tieba.util.bd.b(getClass().getName(), "onResume", e.getMessage());
+                com.baidu.tieba.util.be.b(getClass().getName(), "onResume", e.getMessage());
             }
         }
     }
@@ -141,7 +139,7 @@ public class GuideActivity extends j {
             try {
                 StatService.onPause(this);
             } catch (Exception e) {
-                com.baidu.tieba.util.bd.b(getClass().getName(), "onPause", e.getMessage());
+                com.baidu.tieba.util.be.b(getClass().getName(), "onPause", e.getMessage());
             }
         }
     }
@@ -159,7 +157,21 @@ public class GuideActivity extends j {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
-        setResult(-1);
+        String B = TiebaApplication.B();
+        boolean aH = TiebaApplication.h().aH();
+        if (B != null && B.length() > 0 && !aH) {
+            MainTabActivity.a(this, 1);
+        } else {
+            MainTabActivity.c(1);
+            MainTabActivity.a(this, 2);
+            if (aH) {
+                TiebaApplication.h().aI();
+            }
+            if ((B == null || B.length() <= 0) && TiebaApplication.o() && f.a((Activity) this)) {
+                TiebaApplication.h().ay();
+                f.a(this, 0, 1, false);
+            }
+        }
         finish();
     }
 
@@ -195,7 +207,7 @@ public class GuideActivity extends j {
                 }
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.bd.a(getClass().getName(), "checkShortCut", e.toString());
+            com.baidu.tieba.util.be.a(getClass().getName(), "checkShortCut", e.toString());
         }
         return false;
     }

@@ -4,9 +4,7 @@ import android.widget.TextView;
 import com.baidu.tieba.view.HeadImageView;
 /* loaded from: classes.dex */
 class t {
-
-    /* renamed from: a  reason: collision with root package name */
-    HeadImageView f1314a;
+    HeadImageView a;
     TextView b;
     TextView c;
     TextView d;

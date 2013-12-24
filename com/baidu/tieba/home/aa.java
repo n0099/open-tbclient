@@ -17,9 +17,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class aa extends BaseAdapter {
-
-    /* renamed from: a  reason: collision with root package name */
-    private Context f1441a;
+    private Context a;
     private ArrayList<MarkData> b;
     private int c;
     private boolean d;
@@ -31,7 +29,7 @@ public class aa extends BaseAdapter {
     private boolean j = true;
 
     public aa(Context context) {
-        this.f1441a = context;
+        this.a = context;
         c(true);
         b();
     }
@@ -121,7 +119,7 @@ public class aa extends BaseAdapter {
         ad adVar2 = null;
         try {
             if (view == null) {
-                LayoutInflater from = LayoutInflater.from(this.f1441a);
+                LayoutInflater from = LayoutInflater.from(this.a);
                 if (getItemViewType(i) == 0) {
                     view = from.inflate(R.layout.home_mark_item, (ViewGroup) null);
                     ad adVar3 = new ad(this);
@@ -131,7 +129,7 @@ public class aa extends BaseAdapter {
                     adVar3.f = (TextView) view.findViewById(R.id.home_lv_markitem_author);
                     adVar3.h = (ImageButton) view.findViewById(R.id.home_lv_markitem_delete);
                     adVar3.e = (ImageView) view.findViewById(R.id.mark_author_icon);
-                    adVar3.f1443a = (ImageView) view.findViewById(R.id.mark_comment_icon);
+                    adVar3.a = (ImageView) view.findViewById(R.id.mark_comment_icon);
                     adVar3.g = (ImageView) view.findViewById(R.id.new_mark_mention);
                     view.setTag(adVar3);
                     acVar = null;
@@ -139,7 +137,7 @@ public class aa extends BaseAdapter {
                 } else if (getItemViewType(i) == 1) {
                     ac acVar2 = new ac(this);
                     view = from.inflate(R.layout.page_item, (ViewGroup) null);
-                    acVar2.f1442a = (TextView) view.findViewById(R.id.page_text);
+                    acVar2.a = (TextView) view.findViewById(R.id.page_text);
                     acVar2.b = (ProgressBar) view.findViewById(R.id.progress);
                     if (this.g == null) {
                         this.g = new ArrayList<>();
@@ -170,15 +168,15 @@ public class aa extends BaseAdapter {
                 if (getItemViewType(i) == 1) {
                     if (this.i) {
                         acVar.b.setVisibility(0);
-                        acVar.f1442a.setText(this.f1441a.getString(R.string.loading));
+                        acVar.a.setText(this.a.getString(R.string.loading));
                     } else if (!this.j) {
                         acVar.b.setVisibility(8);
-                        acVar.f1442a.setText(this.f1441a.getString(R.string.no_more_mark));
+                        acVar.a.setText(this.a.getString(R.string.no_more_mark));
                     } else {
                         acVar.b.setVisibility(8);
-                        acVar.f1442a.setText(this.f1441a.getString(R.string.load_more));
+                        acVar.a.setText(this.a.getString(R.string.load_more));
                     }
-                    com.baidu.tieba.util.ba.b(acVar.f1442a, an);
+                    com.baidu.tieba.util.bb.b(acVar.a, an);
                 } else {
                     if (this.d) {
                         adVar.b.setVisibility(8);
@@ -196,16 +194,16 @@ public class aa extends BaseAdapter {
                     }
                     if (TiebaApplication.h().an() == 1) {
                         adVar.b.setTextColor(-11446171);
-                        adVar.d.setTextColor(com.baidu.tieba.util.ba.a(1));
+                        adVar.d.setTextColor(com.baidu.tieba.util.bb.a(1));
                         adVar.f.setTextColor(-11446171);
-                        adVar.f1443a.setBackgroundResource(R.drawable.icon_little_comment_1);
+                        adVar.a.setBackgroundResource(R.drawable.icon_little_comment_1);
                         adVar.e.setBackgroundResource(R.drawable.icon_little_people_1);
                         adVar.g.setBackgroundResource(R.drawable.icon_new_tip_1);
                     } else {
                         adVar.b.setTextColor(-5065030);
                         adVar.d.setTextColor(-14277082);
                         adVar.f.setTextColor(-5065030);
-                        adVar.f1443a.setBackgroundResource(R.drawable.icon_little_comment_grey);
+                        adVar.a.setBackgroundResource(R.drawable.icon_little_comment_grey);
                         adVar.e.setBackgroundResource(R.drawable.icon_little_people);
                         adVar.g.setBackgroundResource(R.drawable.icon_new_tip);
                     }
@@ -222,9 +220,9 @@ public class aa extends BaseAdapter {
                     int replyNum = markData.getReplyNum();
                     if (replyNum == 0) {
                         adVar.b.setVisibility(8);
-                        adVar.f1443a.setVisibility(8);
+                        adVar.a.setVisibility(8);
                     } else {
-                        adVar.f1443a.setVisibility(0);
+                        adVar.a.setVisibility(0);
                         adVar.b.setVisibility(0);
                         adVar.b.setText(String.valueOf(replyNum));
                     }
@@ -238,7 +236,7 @@ public class aa extends BaseAdapter {
             } catch (Exception e) {
                 view2 = view3;
                 exc = e;
-                com.baidu.tieba.util.bd.b(getClass().getName(), "", "MarkAdapter.getView error = " + exc.getMessage());
+                com.baidu.tieba.util.be.b(getClass().getName(), "", "MarkAdapter.getView error = " + exc.getMessage());
                 return view2;
             }
         } catch (Exception e2) {

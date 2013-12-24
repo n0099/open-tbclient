@@ -1,88 +1,69 @@
 package com.baidu.tieba.im.d;
 
-import com.baidu.browser.core.util.BdLog;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.data.UserData;
-import com.baidu.tieba.im.b.n;
-import com.baidu.tieba.im.b.q;
-import com.baidu.tieba.im.chat.ac;
-import com.baidu.tieba.im.data.GroupIdTypeData;
-import com.baidu.tieba.im.data.GroupMsgData;
-import com.baidu.tieba.im.message.ChatMessage;
-import com.baidu.tieba.im.message.Message;
-import com.baidu.tieba.im.message.ResponsePullMessage;
-import com.tencent.mm.sdk.conversation.RConversation;
-import com.tencent.mm.sdk.message.RMsgInfo;
-import java.util.LinkedList;
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.tieba.im.groupInfo.GroupInfoActivity;
+import com.baidu.tieba.pb.NewPbActivity;
+import com.baidu.tieba.util.UtilHelper;
+import java.util.regex.Pattern;
 /* loaded from: classes.dex */
-public class h implements n<com.baidu.tieba.im.b.a.d> {
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.util.LinkedList, java.lang.Object, com.baidu.tieba.im.b.q, int] */
-    @Override // com.baidu.tieba.im.b.n
-    public /* bridge */ /* synthetic */ void a(LinkedList linkedList, com.baidu.tieba.im.b.a.d dVar, q qVar, int i) {
-        a2((LinkedList<Message>) linkedList, dVar, qVar, i);
+public class h {
+    private static final Pattern a = Pattern.compile("(((ht|f)tp(s{0,1}))://)?([\\w-]+\\.)+[a-zA-Z_-]{2,}(/[\\w-./?%&+=#]*)?", 2);
+
+    public static Pattern a() {
+        return a;
     }
 
-    /* renamed from: a  reason: avoid collision after fix types in other method */
-    public void a2(LinkedList<Message> linkedList, com.baidu.tieba.im.b.a.d dVar, q qVar, int i) {
-        com.baidu.tieba.im.b.a.a e;
-        int a2;
-        ResponsePullMessage responsePullMessage = new ResponsePullMessage();
-        responsePullMessage.setGroupMsg(new LinkedList());
-        responsePullMessage.setErrorInfo(qVar);
-        linkedList.add(responsePullMessage);
-        if (dVar != null && !responsePullMessage.hasError() && (e = dVar.e("groupMsg")) != null && e.a() != 0) {
-            BdLog.i("----begin messync transformCommand");
-            int a3 = e.a();
-            for (int i2 = 0; i2 < a3; i2++) {
-                GroupMsgData groupMsgData = new GroupMsgData(-100);
-                linkedList.add(groupMsgData);
-                responsePullMessage.getGroupMsg().add(groupMsgData);
-                com.baidu.tieba.im.data.b bVar = new com.baidu.tieba.im.data.b();
-                bVar.a(new LinkedList());
-                groupMsgData.setListMessageData(bVar);
-                com.baidu.tieba.im.b.a.d a4 = e.a(i2);
-                com.baidu.tieba.im.b.a.d f = a4.f("groupInfo");
-                GroupIdTypeData groupIdTypeData = new GroupIdTypeData();
-                groupMsgData.setGroupInfo(groupIdTypeData);
-                groupIdTypeData.setGroupId(f.c("groupId"));
-                groupIdTypeData.setGroupType(f.b("groupType"));
-                com.baidu.tieba.im.b.a.a e2 = a4.e("msgList");
-                if (e2 != null && (a2 = e2.a()) > 0) {
-                    BdLog.i("----transform list size:" + a2);
-                    for (int i3 = 0; i3 < a2; i3++) {
-                        try {
-                            com.baidu.tieba.im.b.a.d a5 = e2.a(i3);
-                            ChatMessage chatMessage = new ChatMessage();
-                            long b = ac.b(a5.c("msgId"));
-                            chatMessage.setMsgId(b);
-                            chatMessage.setGroupId(a5.a("groupId"));
-                            chatMessage.setMsgType(a5.b(RConversation.COL_MSGTYPE));
-                            BdLog.d("msgType:" + chatMessage.getMsgType());
-                            long c = a5.c("userId");
-                            chatMessage.setUserId(c);
-                            if (TiebaApplication.C() && String.valueOf(c).equals(TiebaApplication.B())) {
-                                chatMessage.setRecordId(a5.c("recordId"));
-                            } else {
-                                chatMessage.setRecordId(b);
-                            }
-                            chatMessage.setUserInfo(new UserData());
-                            com.baidu.tieba.im.b.a.d f2 = a5.f("userInfo");
-                            chatMessage.getUserInfo().setId(f2.a("userId"));
-                            chatMessage.getUserInfo().setName(f2.a("userName"));
-                            chatMessage.getUserInfo().setPortrait(f2.a("portrait"));
-                            chatMessage.getUserInfo().setSex(f2.b("sex"));
-                            chatMessage.setContent(a5.a("content"));
-                            chatMessage.setTime(a5.b(RMsgInfo.COL_CREATE_TIME));
-                            bVar.a().add(chatMessage);
-                            com.baidu.tieba.im.e.d.e(chatMessage);
-                        } catch (Exception e3) {
-                            e3.printStackTrace();
-                            BdLog.i("----transform error!");
-                        }
-                    }
-                }
+    public static void a(Context context, String str, boolean z) {
+        String str2;
+        String str3;
+        if (!TextUtils.isEmpty(str)) {
+            String lowerCase = str.toLowerCase();
+            if (lowerCase.startsWith(com.baidu.loginshare.e.f) || lowerCase.startsWith(com.baidu.loginshare.e.g) || lowerCase.startsWith("ftp://") || lowerCase.startsWith("mailto:")) {
+                str2 = lowerCase;
+                str3 = str;
+            } else {
+                str2 = com.baidu.loginshare.e.f + lowerCase;
+                str3 = com.baidu.loginshare.e.f + str;
             }
-            BdLog.i("----end messync transformCommand");
+            if (!z || a(str2)) {
+                b(context, str2, str3);
+            } else {
+                b.a(context, new i(context, str2, str3), new j(), str);
+            }
         }
+    }
+
+    public static void a(Context context, String str) {
+        a(context, str, false);
+    }
+
+    public static boolean a(String str) {
+        return str.startsWith("http://tieba.baidu.com/group/index?id=") || str.startsWith("http://tieba.baidu.com/p/");
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public static boolean b(Context context, String str, String str2) {
+        if (str.startsWith("http://tieba.baidu.com/group/index?id=")) {
+            int length = "http://tieba.baidu.com/group/index?id=".length() + str2.indexOf("http://tieba.baidu.com/group/index?id=");
+            int lastIndexOf = str2.lastIndexOf(38);
+            if (lastIndexOf == -1 || lastIndexOf < length) {
+                lastIndexOf = str2.length();
+            }
+            long a2 = com.baidu.adp.lib.f.b.a(str2.substring(length, lastIndexOf), 0L);
+            if (a2 <= 0) {
+                return false;
+            }
+            GroupInfoActivity.a(context, a2, 0);
+        } else if (str.startsWith("http://tieba.baidu.com/p/")) {
+            String substring = str2.substring(str2.indexOf("http://tieba.baidu.com/p/") + "http://tieba.baidu.com/p/".length());
+            if (TextUtils.isEmpty(substring)) {
+                return false;
+            }
+            NewPbActivity.a(context, substring, null, "allthread");
+        } else {
+            UtilHelper.b(context, str2);
+        }
+        return true;
     }
 }

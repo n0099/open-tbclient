@@ -3,9 +3,7 @@ package com.baidu.tieba.voice.a;
 import android.content.Context;
 /* loaded from: classes.dex */
 public class f {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static f f2714a;
+    private static f a;
     private com.baidu.adp.lib.e.c b = com.baidu.adp.lib.e.c.a();
 
     private f() {
@@ -15,10 +13,10 @@ public class f {
     public static synchronized f a() {
         f fVar;
         synchronized (f.class) {
-            if (f2714a == null) {
-                f2714a = new f();
+            if (a == null) {
+                a = new f();
             }
-            fVar = f2714a;
+            fVar = a;
         }
         return fVar;
     }

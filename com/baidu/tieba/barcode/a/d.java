@@ -7,7 +7,7 @@ import android.os.Build;
 import android.view.Display;
 import android.view.WindowManager;
 import com.baidu.tieba.compatible.CompatibleUtile;
-import com.baidu.tieba.util.bd;
+import com.baidu.tieba.util.be;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -15,21 +15,19 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class d {
-
-    /* renamed from: a  reason: collision with root package name */
-    private final Context f1137a;
+    private final Context a;
     private Point b;
     private Point c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(Context context) {
-        this.f1137a = context;
+        this.a = context;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(Camera camera) {
         Camera.Parameters parameters = camera.getParameters();
-        Display defaultDisplay = ((WindowManager) this.f1137a.getSystemService("window")).getDefaultDisplay();
+        Display defaultDisplay = ((WindowManager) this.a.getSystemService("window")).getDefaultDisplay();
         int width = defaultDisplay.getWidth();
         int height = defaultDisplay.getHeight();
         if (width <= height) {
@@ -51,19 +49,19 @@ public final class d {
     public void a(Camera camera, boolean z) {
         Camera.Parameters parameters = camera.getParameters();
         if (parameters == null) {
-            bd.c(getClass().getName(), "setDesiredCameraParameters", "Device error: no camera parameters are available. Proceeding without configuration.");
+            be.c(getClass().getName(), "setDesiredCameraParameters", "Device error: no camera parameters are available. Proceeding without configuration.");
             return;
         }
-        bd.a(getClass().getName(), "setDesiredCameraParameters", "Initial camera parameters: " + parameters.flatten());
+        be.a(getClass().getName(), "setDesiredCameraParameters", "Initial camera parameters: " + parameters.flatten());
         if (z) {
-            bd.c(getClass().getName(), "setDesiredCameraParameters", "In camera config safe mode -- most settings will not be honored");
+            be.c(getClass().getName(), "setDesiredCameraParameters", "In camera config safe mode -- most settings will not be honored");
         }
-        String a2 = a(parameters.getSupportedFocusModes(), "auto");
-        if (!z && a2 == null) {
-            a2 = a(parameters.getSupportedFocusModes(), "macro", "edof");
+        String a = a(parameters.getSupportedFocusModes(), "auto");
+        if (!z && a == null) {
+            a = a(parameters.getSupportedFocusModes(), "macro", "edof");
         }
-        if (a2 != null) {
-            parameters.setFocusMode(a2);
+        if (a != null) {
+            parameters.setFocusMode(a);
         }
         parameters.setPreviewSize(this.c.x, this.c.y);
         if (Build.VERSION.SDK_INT >= 8) {
@@ -89,7 +87,7 @@ public final class d {
         Point point2;
         List<Camera.Size> supportedPreviewSizes = parameters.getSupportedPreviewSizes();
         if (supportedPreviewSizes == null) {
-            bd.c(getClass().getName(), "findBestPreviewSizeValue", "Device returned no supported preview sizes; using default");
+            be.c(getClass().getName(), "findBestPreviewSizeValue", "Device returned no supported preview sizes; using default");
             Camera.Size previewSize = parameters.getPreviewSize();
             return new Point(previewSize.width, previewSize.height);
         }
@@ -108,7 +106,7 @@ public final class d {
                 int i5 = z ? i : i2;
                 if (i4 == point.x && i5 == point.y) {
                     Point point4 = new Point(i, i2);
-                    bd.a(getClass().getName(), "sort", "Found preview size exactly matching screen size: " + point4);
+                    be.a(getClass().getName(), "sort", "Found preview size exactly matching screen size: " + point4);
                     return point4;
                 }
                 float abs = Math.abs((i4 / i5) - f);
@@ -125,15 +123,15 @@ public final class d {
         if (point3 == null) {
             Camera.Size previewSize2 = parameters.getPreviewSize();
             point3 = new Point(previewSize2.width, previewSize2.height);
-            bd.a(getClass().getName(), "sort", "No suitable preview sizes, using default: " + point3);
+            be.a(getClass().getName(), "sort", "No suitable preview sizes, using default: " + point3);
         }
-        bd.a(getClass().getName(), "sort", "Found best approximate preview size: " + point3);
+        be.a(getClass().getName(), "sort", "Found best approximate preview size: " + point3);
         return point3;
     }
 
     private static String a(Collection<String> collection, String... strArr) {
         String str;
-        bd.a("CameraConfiguration", "findSettableValue", "Supported values: " + collection);
+        be.a("CameraConfiguration", "findSettableValue", "Supported values: " + collection);
         if (collection != null) {
             int length = strArr.length;
             for (int i = 0; i < length; i++) {
@@ -144,7 +142,7 @@ public final class d {
             }
         }
         str = null;
-        bd.a("CameraConfiguration", "findSettableValue", "Settable value: " + str);
+        be.a("CameraConfiguration", "findSettableValue", "Settable value: " + str);
         return str;
     }
 }

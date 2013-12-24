@@ -1,29 +1,75 @@
 package com.baidu.tieba;
 
+import android.location.Address;
+import android.location.Geocoder;
+import android.location.Location;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.util.UtilHelper;
+import java.io.IOException;
+import java.util.List;
+import java.util.Locale;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bg extends BdAsyncTask<String, Integer, String> {
-    private bg() {
+public class bg extends BdAsyncTask<Location, Void, Address> {
+    final /* synthetic */ TiebaApplication a;
+
+    private bg(TiebaApplication tiebaApplication) {
+        this.a = tiebaApplication;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ bg(az azVar) {
-        this();
+    public /* synthetic */ bg(TiebaApplication tiebaApplication, ay ayVar) {
+        this(tiebaApplication);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public String a(String... strArr) {
-        byte[] bArr;
-        byte[] bArr2;
-        bArr = TiebaApplication.az;
-        synchronized (bArr) {
-            Boolean unused = TiebaApplication.aA = Boolean.valueOf(UtilHelper.a());
-            bArr2 = TiebaApplication.az;
-            bArr2.notifyAll();
+    public Address a(Location... locationArr) {
+        List<Address> list;
+        Geocoder geocoder = new Geocoder(TiebaApplication.h(), Locale.getDefault());
+        if (locationArr == null || locationArr.length < 1) {
+            return null;
         }
-        return null;
+        Location location = locationArr[0];
+        try {
+            list = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
+        } catch (IOException e) {
+            com.baidu.tieba.util.be.b(getClass().getName(), "ReverseGeocodingTask_doInBackground", e.toString());
+            list = null;
+        } catch (IllegalArgumentException e2) {
+            com.baidu.tieba.util.be.b(getClass().getName(), "ReverseGeocodingTask_doInBackground", e2.toString());
+            list = null;
+        }
+        if (list == null || list.size() <= 0) {
+            return null;
+        }
+        Address address = list.get(0);
+        StringBuffer stringBuffer = new StringBuffer();
+        if (address.getSubLocality() == null || address.getThoroughfare() == null) {
+            stringBuffer.append(address.getLocality());
+        }
+        stringBuffer.append(address.getSubLocality());
+        stringBuffer.append(address.getThoroughfare());
+        address.setAddressLine(0, stringBuffer.toString());
+        return address;
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        cancel(true);
+        this.a.H = null;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(Address address) {
+        super.a((bg) address);
+        if (address != null) {
+            this.a.aP();
+            this.a.a(0, "", address);
+            this.a.G = address;
+        }
+        this.a.H = null;
     }
 }

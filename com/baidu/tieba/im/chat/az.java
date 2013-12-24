@@ -1,27 +1,27 @@
 package com.baidu.tieba.im.chat;
 
-import android.app.Activity;
-import com.baidu.tieba.im.data.GroupData;
-import com.baidu.tieba.im.groupInfo.GroupSettingItemData;
+import android.view.MotionEvent;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class az implements com.baidu.tieba.im.a<GroupSettingItemData> {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Activity f1557a;
-    final /* synthetic */ GroupData b;
+public class az implements View.OnTouchListener {
+    final /* synthetic */ MsgleftView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public az(Activity activity, GroupData groupData) {
-        this.f1557a = activity;
-        this.b = groupData;
+    public az(MsgleftView msgleftView) {
+        this.a = msgleftView;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    public void a(GroupSettingItemData groupSettingItemData) {
-        if (groupSettingItemData != null) {
-            MsglistActivity.b(this.f1557a, this.b, groupSettingItemData.isAcceptNotify());
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        TouchType touchType;
+        TouchType touchType2;
+        touchType = this.a.t;
+        if (touchType.get() && motionEvent.getAction() == 1) {
+            this.a.d.b(view, 2, this.a.f, 0L);
+            touchType2 = this.a.t;
+            touchType2.set(false);
         }
+        return false;
     }
 }

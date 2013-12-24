@@ -9,9 +9,7 @@ public class r {
     private int e;
     private String f;
     private long c = 0;
-
-    /* renamed from: a  reason: collision with root package name */
-    private ae f1258a = new ae();
+    private ae a = new ae();
 
     public r() {
         this.b = true;
@@ -40,7 +38,7 @@ public class r {
             this.b = true;
         } catch (Exception e) {
             this.b = false;
-            com.baidu.tieba.util.bd.b(getClass().getName(), "parserJson", e.toString());
+            com.baidu.tieba.util.be.b(getClass().getName(), "parserJson", e.toString());
         }
     }
 
@@ -50,17 +48,17 @@ public class r {
             this.e = jSONObject.optInt("msign_level");
             this.f = jSONObject.optString("msign_text");
             JSONArray optJSONArray = jSONObject.optJSONArray("like_forum");
-            this.f1258a.a(this.e);
-            this.f1258a.a(optJSONArray);
+            this.a.a(this.e);
+            this.a.a(optJSONArray);
             this.c = jSONObject.optLong("time");
         } catch (Exception e) {
             this.b = false;
-            com.baidu.tieba.util.bd.b(getClass().getName(), "parserJson", e.toString());
+            com.baidu.tieba.util.be.b(getClass().getName(), "parserJson", e.toString());
         }
     }
 
     public ae d() {
-        return this.f1258a;
+        return this.a;
     }
 
     public void a(boolean z) {
@@ -76,8 +74,8 @@ public class r {
     }
 
     public boolean g() {
-        if (this.f1258a != null) {
-            return this.f1258a.b();
+        if (this.a != null) {
+            return this.a.b();
         }
         return false;
     }

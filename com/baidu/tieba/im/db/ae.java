@@ -8,15 +8,13 @@ import java.util.concurrent.atomic.AtomicBoolean;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ae implements com.baidu.tieba.im.a<LinkedList<ImMessageCenterPojo>> {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ com.baidu.tieba.im.a f1654a;
+    final /* synthetic */ com.baidu.tieba.im.a a;
     final /* synthetic */ ad b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ae(ad adVar, com.baidu.tieba.im.a aVar) {
         this.b = adVar;
-        this.f1654a = aVar;
+        this.a = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -42,7 +40,7 @@ public class ae implements com.baidu.tieba.im.a<LinkedList<ImMessageCenterPojo>>
             atomicBoolean2 = this.b.c;
             atomicBoolean2.set(true);
         }
-        com.baidu.tieba.im.a aVar = this.f1654a;
+        com.baidu.tieba.im.a aVar = this.a;
         concurrentHashMap = this.b.d;
         aVar.a(concurrentHashMap);
     }

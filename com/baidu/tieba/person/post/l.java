@@ -8,13 +8,11 @@ import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements c {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ j f2379a;
+    final /* synthetic */ j a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(j jVar) {
-        this.f2379a = jVar;
+        this.a = jVar;
     }
 
     @Override // com.baidu.tieba.person.post.c
@@ -23,11 +21,11 @@ public class l implements c {
         Activity activity2;
         switch (view.getId()) {
             case R.id.portrait /* 2131099857 */:
-                activity2 = this.f2379a.e;
+                activity2 = this.a.e;
                 activity2.finish();
                 return;
-            case R.id.item_header /* 2131100079 */:
-            case R.id.original_post_title /* 2131100900 */:
+            case R.id.item_header /* 2131100076 */:
+            case R.id.original_post_title /* 2131100927 */:
                 String[] strArr = (String[]) view.getTag();
                 if (strArr != null) {
                     if (SocialConstants.FALSE.equals(strArr[2]) || strArr[1] == null) {
@@ -39,8 +37,8 @@ public class l implements c {
                     }
                 }
                 return;
-            case R.id.username /* 2131100904 */:
-                activity = this.f2379a.e;
+            case R.id.username /* 2131100931 */:
+                activity = this.a.e;
                 activity.finish();
                 return;
             default:

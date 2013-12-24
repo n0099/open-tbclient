@@ -7,9 +7,7 @@ import com.baidu.cloudsdk.common.http.RequestParams;
 import com.baidu.cloudsdk.common.util.Validator;
 /* loaded from: classes.dex */
 public abstract class SocialWidget {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static final String f855a = SocialWidget.class.getName();
+    private static final String a = SocialWidget.class.getName();
     protected String mClientId;
     public Context mContext;
 

@@ -6,25 +6,23 @@ import android.util.Log;
 import java.util.List;
 /* loaded from: classes.dex */
 public class l extends a implements Runnable {
-
-    /* renamed from: a  reason: collision with root package name */
-    private ActivityManager f455a;
+    private ActivityManager a;
     private String b;
 
     public l(Context context) {
-        this.f455a = null;
+        this.a = null;
         this.b = null;
         this.b = context.getPackageName();
-        this.f455a = (ActivityManager) context.getSystemService("activity");
+        this.a = (ActivityManager) context.getSystemService("activity");
     }
 
     public String d() {
-        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = this.f455a.getRunningAppProcesses();
+        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = this.a.getRunningAppProcesses();
         for (int i = 0; i < runningAppProcesses.size(); i++) {
             ActivityManager.RunningAppProcessInfo runningAppProcessInfo = runningAppProcesses.get(i);
             int i2 = runningAppProcessInfo.pid;
             String str = runningAppProcessInfo.processName;
-            int i3 = this.f455a.getProcessMemoryInfo(new int[]{i2})[0].dalvikPrivateDirty;
+            int i3 = this.a.getProcessMemoryInfo(new int[]{i2})[0].dalvikPrivateDirty;
             if (this.b.contains(str)) {
                 Log.i("processInfo", "" + runningAppProcessInfo.importance);
                 return i3 + "kb";

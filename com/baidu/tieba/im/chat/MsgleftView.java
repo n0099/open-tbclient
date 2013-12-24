@@ -2,79 +2,91 @@ package com.baidu.tieba.im.chat;
 
 import android.content.Context;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tieba.data.UserData;
-import com.baidu.tieba.im.message.ChatMessage;
 import com.baidu.tieba.view.HeadImageView;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class MsgleftView extends an {
-    private static final String n = MsgleftView.class.getName();
-    View.OnLongClickListener m;
-    private HeadImageView o;
-    private TextView p;
-    private ImageView q;
-    private final TouchType r;
+public class MsgleftView extends at {
+    private static final String o = MsgleftView.class.getName();
+    View.OnLongClickListener n;
+    private HeadImageView p;
+    private TextView q;
+    private ImageView r;
+    private ViewGroup s;
+    private final TouchType t;
+    private int u;
 
-    public MsgleftView(Context context) {
+    public MsgleftView(Context context, int i) {
         super(context, R.layout.msg_msgleft_view);
-        this.r = new TouchType();
-        this.m = new au(this);
+        this.t = new TouchType();
+        this.u = 0;
+        this.n = new ba(this);
         e();
-        this.p = (TextView) a(R.id.tex_msgitem_name);
-        this.q = (ImageView) a(R.id.iv_sex);
-        this.o = (HeadImageView) a(R.id.img_msgitem_photo);
-        this.o.setAutoChangeStyle(false);
-        this.o.setIsRound(true);
-        this.o.setOnClickListener(new as(this));
-        this.o.setLongClickable(true);
-        this.o.setOnLongClickListener(this.m);
-        this.o.setOnTouchListener(new at(this));
+        this.q = (TextView) a(R.id.tex_msgitem_name);
+        this.r = (ImageView) a(R.id.iv_sex);
+        this.s = (ViewGroup) a(R.id.box_msgitem_bubble);
+        this.p = (HeadImageView) a(R.id.img_msgitem_photo);
+        this.p.setAutoChangeStyle(false);
+        this.p.setOnClickListener(new ay(this));
+        this.p.setLongClickable(true);
+        this.p.setOnLongClickListener(this.n);
+        this.p.setOnTouchListener(new az(this));
+        d(i);
     }
 
-    @Override // com.baidu.tieba.im.chat.an
-    public void b(View view, ChatMessage chatMessage) {
+    @Override // com.baidu.tieba.im.chat.at
+    public void b(View view, com.baidu.tieba.im.message.b bVar) {
         String str = null;
-        super.b(view, chatMessage);
-        if (chatMessage == null) {
-            this.p.setText((CharSequence) null);
+        super.b(view, bVar);
+        if (bVar == null) {
+            this.q.setText((CharSequence) null);
             this.j.setVisibility(0);
             this.j.setText(null);
             c(8);
             this.k.setTag(null);
             this.l.setVisibility(8);
             this.l.setTag(null);
+            this.m.setVisibility(8);
+            this.m.setTag(null);
             return;
         }
-        a(chatMessage);
-        b(chatMessage);
-        this.p.setText(chatMessage.getUserInfo().getName());
+        a(bVar);
+        b(bVar);
+        this.q.setText("");
         try {
-            if (chatMessage.getUserInfo() != null) {
-                this.o.setUserId(chatMessage.getUserInfo().getId());
-                str = chatMessage.getUserInfo().getPortrait();
+            if (bVar.f() != null) {
+                this.q.setText(bVar.f().getName());
+                this.p.setUserId(bVar.f().getId());
+                str = bVar.f().getPortrait();
             }
             com.baidu.adp.widget.ImageView.e c = this.e.c(str);
             if (c != null) {
-                c.a(this.o);
+                c.a(this.p);
             } else {
-                this.e.b(str, new av(this));
+                this.e.b(str, new bb(this));
             }
             this.j.setVisibility(8);
             c(8);
             this.l.setVisibility(8);
-            switch (chatMessage.getMsgType()) {
+            this.m.setVisibility(8);
+            switch (bVar.h()) {
                 case 1:
-                    a(chatMessage, n);
+                    a(bVar, o);
                     return;
                 case 2:
-                    a(view, chatMessage, n);
+                    a(view, bVar, o);
                     return;
                 case 3:
-                    b(chatMessage, n);
+                    b(bVar, o);
                     return;
+                case 4:
                 default:
+                    return;
+                case 5:
+                    b(view, bVar, o);
                     return;
             }
         } catch (Exception e) {
@@ -83,23 +95,42 @@ public class MsgleftView extends an {
         }
     }
 
-    private void b(ChatMessage chatMessage) {
-        if (chatMessage != null) {
-            UserData userInfo = chatMessage.getUserInfo();
-            if (userInfo == null) {
-                this.q.setVisibility(8);
+    private void b(com.baidu.tieba.im.message.b bVar) {
+        if (bVar != null) {
+            if (this.u != 0) {
+                this.r.setVisibility(8);
                 return;
             }
-            int sex = userInfo.getSex();
+            this.r.setVisibility(0);
+            UserData f = bVar.f();
+            if (f == null) {
+                this.r.setVisibility(8);
+                return;
+            }
+            int sex = f.getSex();
             if (sex == 1) {
-                this.q.setImageResource(R.drawable.icon_pop_qz_boy);
-                this.q.setVisibility(0);
+                this.r.setImageResource(R.drawable.icon_pop_qz_boy);
+                this.r.setVisibility(0);
             } else if (sex == 2) {
-                this.q.setImageResource(R.drawable.icon_pop_qz_girl);
-                this.q.setVisibility(0);
+                this.r.setImageResource(R.drawable.icon_pop_qz_girl);
+                this.r.setVisibility(0);
             } else {
-                this.q.setVisibility(8);
+                this.r.setVisibility(8);
             }
         }
+    }
+
+    public void d(int i) {
+        this.u = i;
+        if (this.u != 0) {
+            this.r.setVisibility(8);
+            this.q.setVisibility(8);
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.s.getLayoutParams();
+            marginLayoutParams.topMargin = 0;
+            this.s.setLayoutParams(marginLayoutParams);
+            return;
+        }
+        this.q.setVisibility(0);
+        this.r.setVisibility(0);
     }
 }

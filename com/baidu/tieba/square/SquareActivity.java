@@ -18,9 +18,7 @@ import com.slidingmenu.lib.R;
 import java.net.URLEncoder;
 /* loaded from: classes.dex */
 public class SquareActivity extends BaseFragment implements AbsListView.OnScrollListener, com.baidu.tbadk.imageManager.c {
-
-    /* renamed from: a  reason: collision with root package name */
-    public static boolean f2468a = false;
+    public static boolean a = false;
     private BaseFragmentActivity f;
     private bu b = null;
     private av c = null;
@@ -29,7 +27,7 @@ public class SquareActivity extends BaseFragment implements AbsListView.OnScroll
     private Handler g = null;
     private Runnable h = null;
     private aw i = new am(this);
-    private com.baidu.tieba.view.ba Y = new an(this);
+    private com.baidu.tieba.view.az Y = new an(this);
     private View.OnKeyListener Z = new ap(this);
     private com.baidu.adp.widget.ListView.b aa = new aq(this);
 
@@ -112,9 +110,9 @@ public class SquareActivity extends BaseFragment implements AbsListView.OnScroll
     public void r() {
         super.r();
         if (F()) {
-            if (f2468a) {
+            if (a) {
                 a(true);
-                f2468a = false;
+                a = false;
             }
             if (this.g != null && !this.e) {
                 this.g.removeCallbacks(this.h);
@@ -149,7 +147,7 @@ public class SquareActivity extends BaseFragment implements AbsListView.OnScroll
             if (TiebaApplication.h().t()) {
                 StatService.onEvent(this.f, "sq_icon_category", "click", 1);
             }
-            BarFolderFirstDirActivity.a(this.f, a(bu.f2517a, "all"));
+            BarFolderFirstDirActivity.a(this.f, a(bu.a, "all"));
         }
     }
 

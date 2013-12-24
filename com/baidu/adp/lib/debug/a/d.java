@@ -6,13 +6,11 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 /* loaded from: classes.dex */
 public class d extends a implements Runnable {
-
-    /* renamed from: a  reason: collision with root package name */
-    private String f447a;
+    private String a;
 
     public d(Context context) {
-        this.f447a = null;
-        this.f447a = context.getPackageName();
+        this.a = null;
+        this.a = context.getPackageName();
     }
 
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:25:0x0091 -> B:14:0x0074). Please submit an issue!!! */
@@ -23,7 +21,7 @@ public class d extends a implements Runnable {
                 String readLine = bufferedReader.readLine();
                 if (readLine == null) {
                     break;
-                } else if (readLine.contains(this.f447a) && !readLine.contains(this.f447a + ":remote") && !readLine.contains(this.f447a + ":debug")) {
+                } else if (readLine.contains(this.a) && !readLine.contains(this.a + ":remote") && !readLine.contains(this.a + ":debug")) {
                     String[] split = readLine.split("\\s+");
                     if (split[2].contains("%")) {
                         return split[2].trim();

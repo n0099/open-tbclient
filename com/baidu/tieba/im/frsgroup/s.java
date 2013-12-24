@@ -1,53 +1,50 @@
 package com.baidu.tieba.im.frsgroup;
 
 import android.text.TextUtils;
-import com.baidu.tieba.im.message.Message;
-import com.baidu.tieba.im.message.ResponseRemoveMembersMessage;
+import com.baidu.tieba.im.message.br;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 class s implements com.baidu.tieba.im.messageCenter.g {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MembersActivity f1721a;
+    final /* synthetic */ MembersActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(MembersActivity membersActivity) {
-        this.f1721a = membersActivity;
+        this.a = membersActivity;
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(Message message) {
+    public void a(com.baidu.tieba.im.message.n nVar) {
         aa aaVar;
         aa aaVar2;
-        com.baidu.tieba.im.model.h hVar;
+        com.baidu.tieba.im.model.m mVar;
         aa aaVar3;
         aa aaVar4;
-        aaVar = this.f1721a.b;
+        aaVar = this.a.b;
         aaVar.a(false);
-        if (message == null || !(message instanceof ResponseRemoveMembersMessage)) {
-            this.f1721a.showToast(R.string.neterror);
+        if (nVar == null || !(nVar instanceof br)) {
+            this.a.showToast(R.string.neterror);
             return;
         }
-        ResponseRemoveMembersMessage responseRemoveMembersMessage = (ResponseRemoveMembersMessage) message;
-        if (responseRemoveMembersMessage.hasError()) {
-            if (responseRemoveMembersMessage.getErrNo() > 0) {
-                if (!TextUtils.isEmpty(responseRemoveMembersMessage.getErrMsg())) {
-                    this.f1721a.showToast(responseRemoveMembersMessage.getErrMsg());
+        br brVar = (br) nVar;
+        if (brVar.i()) {
+            if (brVar.j() > 0) {
+                if (!TextUtils.isEmpty(brVar.k())) {
+                    this.a.showToast(brVar.k());
                     return;
                 }
                 return;
             }
-            this.f1721a.showToast(R.string.neterror);
+            this.a.showToast(R.string.neterror);
             return;
         }
-        this.f1721a.showToast(R.string.members_delete_success);
-        aaVar2 = this.f1721a.b;
+        this.a.showToast(R.string.members_delete_success);
+        aaVar2 = this.a.b;
         w i = aaVar2.i();
-        hVar = this.f1721a.c;
-        i.b(hVar.d());
-        aaVar3 = this.f1721a.b;
+        mVar = this.a.c;
+        i.b(mVar.c());
+        aaVar3 = this.a.b;
         aaVar3.j();
-        aaVar4 = this.f1721a.b;
+        aaVar4 = this.a.b;
         aaVar4.i().a();
     }
 }

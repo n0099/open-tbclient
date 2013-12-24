@@ -6,13 +6,11 @@ import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements Handler.Callback {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f421a;
+    final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.f421a = aVar;
+        this.a = aVar;
     }
 
     @Override // android.os.Handler.Callback
@@ -21,9 +19,9 @@ public class b implements Handler.Callback {
         int i2;
         switch (message.what) {
             case 0:
-                this.f421a.d();
+                this.a.d();
                 String str = "";
-                i = this.f421a.j;
+                i = this.a.j;
                 switch (i) {
                     case 1:
                         str = "糟糕！检测不到地理位置信息哦亲，请在手机设置中开启GPS功能";
@@ -38,8 +36,8 @@ public class b implements Handler.Callback {
                         str = "糟糕！定位失败，请稍后再试";
                         break;
                 }
-                a aVar = this.f421a;
-                i2 = this.f421a.j;
+                a aVar = this.a;
+                i2 = this.a.j;
                 aVar.a(i2, str, (Address) null);
                 return false;
             default:

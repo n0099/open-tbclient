@@ -6,14 +6,12 @@ import android.widget.ListAdapter;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.more.SettingTextSwitchView;
-import com.baidu.tieba.util.ba;
+import com.baidu.tieba.util.bb;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class n extends com.baidu.adp.a.e {
-
-    /* renamed from: a  reason: collision with root package name */
-    NavigationBar f1630a;
+    NavigationBar a;
     View c;
     GroupAddressEditActivity d;
     TextView e;
@@ -34,7 +32,7 @@ public class n extends com.baidu.adp.a.e {
 
     public n(GroupAddressEditActivity groupAddressEditActivity, String[] strArr, boolean z) {
         super(groupAddressEditActivity);
-        this.f1630a = null;
+        this.a = null;
         this.c = null;
         this.d = null;
         this.e = null;
@@ -75,11 +73,11 @@ public class n extends com.baidu.adp.a.e {
         } else {
             settingTextSwitchView.a();
         }
-        this.f1630a = (NavigationBar) groupAddressEditActivity.findViewById(R.id.view_navigation_bar);
-        this.f1630a.a(groupAddressEditActivity.getResources().getString(R.string.group_address_edit));
-        this.f1630a.setSystemClickable(false);
-        this.h = this.f1630a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.e = this.f1630a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, groupAddressEditActivity.getResources().getString(R.string.save));
+        this.a = (NavigationBar) groupAddressEditActivity.findViewById(R.id.view_navigation_bar);
+        this.a.a(groupAddressEditActivity.getResources().getString(R.string.group_address_edit));
+        this.a.setSystemClickable(false);
+        this.h = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.e = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, groupAddressEditActivity.getResources().getString(R.string.save));
     }
 
     public void f() {
@@ -89,8 +87,8 @@ public class n extends com.baidu.adp.a.e {
     public void a(int i) {
         this.d.getLayoutMode().a(i == 1);
         this.d.getLayoutMode().a(this.c);
-        ba.b(this.c, i);
-        this.f1630a.c(i);
+        bb.b(this.c, i);
+        this.a.c(i);
         if (i == 1) {
             this.c.setBackgroundResource(R.color.group_info_bg_1);
         } else {

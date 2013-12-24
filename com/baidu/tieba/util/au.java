@@ -1,27 +1,23 @@
 package com.baidu.tieba.util;
 
-import java.util.TimerTask;
+import com.baidu.tieba.util.UtilHelper;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class au extends TimerTask {
+public /* synthetic */ class au {
+    static final /* synthetic */ int[] a = new int[UtilHelper.NetworkStateInfo.values().length];
 
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NetWorkCoreByBdHttp f2589a;
-
-    private au(NetWorkCoreByBdHttp netWorkCoreByBdHttp) {
-        this.f2589a = netWorkCoreByBdHttp;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ au(NetWorkCoreByBdHttp netWorkCoreByBdHttp, ar arVar) {
-        this(netWorkCoreByBdHttp);
-    }
-
-    @Override // java.util.TimerTask, java.lang.Runnable
-    public void run() {
+    static {
         try {
-            this.f2589a.r();
-        } catch (Exception e) {
-            bd.b(getClass().getName(), "initNetWorkCore", e.getMessage());
+            a[UtilHelper.NetworkStateInfo.WIFI.ordinal()] = 1;
+        } catch (NoSuchFieldError e) {
+        }
+        try {
+            a[UtilHelper.NetworkStateInfo.TwoG.ordinal()] = 2;
+        } catch (NoSuchFieldError e2) {
+        }
+        try {
+            a[UtilHelper.NetworkStateInfo.ThreeG.ordinal()] = 3;
+        } catch (NoSuchFieldError e3) {
         }
     }
 }

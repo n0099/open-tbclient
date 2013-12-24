@@ -24,7 +24,6 @@ import android.widget.Scroller;
 import com.baidu.location.BDLocation;
 import com.baidu.location.LocationClientOption;
 import com.slidingmenu.lib.SlidingMenu;
-import com.tencent.mm.sdk.platformtools.Util;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
@@ -451,17 +450,17 @@ public class CustomViewAbove extends ViewGroup {
     }
 
     private int getPointerIndex(MotionEvent motionEvent, int i) {
-        int a2 = z.a(motionEvent, i);
-        if (a2 == -1) {
+        int a = z.a(motionEvent, i);
+        if (a == -1) {
             this.mActivePointerId = -1;
         }
-        return a2;
+        return a;
     }
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         if (this.mEnabled) {
-            int action = motionEvent.getAction() & Util.MASK_8BIT;
+            int action = motionEvent.getAction() & 255;
             if (action == 3 || action == 1 || (action != 0 && this.mIsUnableToDrag)) {
                 endDrag();
                 return false;
@@ -515,7 +514,7 @@ public class CustomViewAbove extends ViewGroup {
                     this.mVelocityTracker = VelocityTracker.obtain();
                 }
                 this.mVelocityTracker.addMovement(motionEvent);
-                switch (action & Util.MASK_8BIT) {
+                switch (action & 255) {
                     case 0:
                         this.mCurrentTime = System.currentTimeMillis();
                         completeScroll();
@@ -537,13 +536,13 @@ public class CustomViewAbove extends ViewGroup {
                         } else if (this.mIsBeingDragged) {
                             VelocityTracker velocityTracker = this.mVelocityTracker;
                             velocityTracker.computeCurrentVelocity(LocationClientOption.MIN_SCAN_SPAN, this.mMaximumVelocity);
-                            int a2 = (int) al.a(velocityTracker, this.mActivePointerId);
+                            int a = (int) al.a(velocityTracker, this.mActivePointerId);
                             float scrollX = (getScrollX() - getDestScrollX(this.mCurItem)) / getBehindWidth();
                             int pointerIndex = getPointerIndex(motionEvent, this.mActivePointerId);
                             if (this.mActivePointerId != -1) {
-                                setCurrentItemInternal(determineTargetPage(scrollX, a2, (int) (z.c(motionEvent, pointerIndex) - this.mInitialMotionX)), true, true, a2);
+                                setCurrentItemInternal(determineTargetPage(scrollX, a, (int) (z.c(motionEvent, pointerIndex) - this.mInitialMotionX)), true, true, a);
                             } else {
-                                setCurrentItemInternal(this.mCurItem, true, true, a2);
+                                setCurrentItemInternal(this.mCurItem, true, true, a);
                             }
                             this.mActivePointerId = -1;
                             endDrag();

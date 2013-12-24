@@ -11,17 +11,15 @@ import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class av extends BaseAdapter {
-
-    /* renamed from: a  reason: collision with root package name */
-    private Context f1461a;
+    private Context a;
     private ArrayList<String> b;
     private String c;
     private boolean d = true;
 
     public av(Context context, ArrayList<String> arrayList) {
-        this.f1461a = context;
+        this.a = context;
         this.b = arrayList;
-        this.c = this.f1461a.getText(R.string.forum).toString();
+        this.c = this.a.getText(R.string.forum).toString();
     }
 
     public void a(ArrayList<String> arrayList) {
@@ -67,15 +65,15 @@ public class av extends BaseAdapter {
         View view3;
         try {
             if (view == null) {
-                view3 = LayoutInflater.from(this.f1461a).inflate(R.layout.home_dialog_search_item, (ViewGroup) null);
+                view3 = LayoutInflater.from(this.a).inflate(R.layout.home_dialog_search_item, (ViewGroup) null);
                 try {
                     axVar = new ax(this);
-                    axVar.f1462a = (TextView) view3.findViewById(R.id.home_lv_search_forum);
+                    axVar.a = (TextView) view3.findViewById(R.id.home_lv_search_forum);
                     view3.setTag(axVar);
                 } catch (Exception e) {
                     view2 = view3;
                     exc = e;
-                    com.baidu.tieba.util.bd.b(getClass().getName(), "", "SearchAdapter.getView error = " + exc.getMessage());
+                    com.baidu.tieba.util.be.b(getClass().getName(), "", "SearchAdapter.getView error = " + exc.getMessage());
                     return view2;
                 }
             } else {
@@ -86,12 +84,12 @@ public class av extends BaseAdapter {
             if (item == null) {
                 return view3;
             }
-            com.baidu.tieba.util.ba.b(axVar.f1462a, TiebaApplication.h().an());
+            com.baidu.tieba.util.bb.b(axVar.a, TiebaApplication.h().an());
             String str = (String) item;
             if (this.d) {
-                axVar.f1462a.setText(str.concat(this.c));
+                axVar.a.setText(str.concat(this.c));
             } else {
-                axVar.f1462a.setText(str);
+                axVar.a.setText(str);
             }
             return view3;
         } catch (Exception e2) {

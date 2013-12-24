@@ -1,7 +1,7 @@
 package com.baidu.tieba.voice;
 /* loaded from: classes.dex */
 public interface ae {
-    void C();
+    void D();
 
     void a(String str, int i);
 

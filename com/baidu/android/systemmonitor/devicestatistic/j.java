@@ -1,39 +1,14 @@
 package com.baidu.android.systemmonitor.devicestatistic;
 
-import android.content.Context;
-import android.content.Intent;
-import android.os.FileObserver;
+import android.provider.BaseColumns;
 /* loaded from: classes.dex */
-public class j extends FileObserver {
+public final class j implements BaseColumns {
+    public static final String[] a = {"_id", "startstamp", "stopstamp"};
+    public static final String[] b = {"_id", "startstamp", "stopstamp", "chargetype", "startlevel", "stoplevel", "loc", "netype"};
+    public static final String[] c = {"_id", "startstamp", "stopstamp", "flow", "netype"};
+    public static final String[] d = {"_id", "startstamp", "pconum", "sconum", "msnum", "msinfo", "calognum", "caloginfo", "sdfall", "pfall", "pphnum", "sphnum", "pmpnum", "smpnum", "stvnum"};
+    public static final String[] e = {"_id", "startstamp", "dnpath", "downame"};
 
-    /* renamed from: a  reason: collision with root package name */
-    private Context f825a;
-    private com.baidu.android.systemmonitor.devicestatistic.a.a b;
-    private String c;
-
-    public j(String str, Context context) {
-        super(str, 1280);
-        this.f825a = null;
-        this.b = null;
-        this.c = null;
-        this.f825a = context.getApplicationContext();
-        this.c = str;
-    }
-
-    @Override // android.os.FileObserver
-    public void onEvent(int i, String str) {
-        switch (i & 4095) {
-            case 256:
-                this.b = new com.baidu.android.systemmonitor.devicestatistic.a.a(System.currentTimeMillis(), this.c, str);
-                d.a(this.f825a).a(this.b);
-                return;
-            case 1024:
-                Intent intent = new Intent("com.baidu.moplus.systemmonitor.pathdeleted");
-                intent.putExtra("path", this.c);
-                this.f825a.sendBroadcast(intent);
-                return;
-            default:
-                return;
-        }
+    private j() {
     }
 }

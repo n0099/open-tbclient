@@ -7,6 +7,7 @@ public class ImMessageCenterPojo implements Serializable {
     public static final int HIDDEN = 1;
     public static final int SHOW = 0;
     public static final int UN_DELETE = 0;
+    private static final long serialVersionUID = -8887966163420052407L;
     String ext;
     String gid;
     String group_ext;

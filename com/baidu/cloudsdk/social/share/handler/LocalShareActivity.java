@@ -9,9 +9,7 @@ import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.cloudsdk.social.share.ShareContent;
 /* loaded from: classes.dex */
 public class LocalShareActivity extends Activity {
-
-    /* renamed from: a  reason: collision with root package name */
-    private String f867a;
+    private String a;
     private int b;
     private ShareContent c;
     private ai d;
@@ -38,16 +36,16 @@ public class LocalShareActivity extends Activity {
             finish();
             return;
         }
-        this.f867a = bundle.getString(SocialConstants.PARAM_MEDIA_TYPE);
+        this.a = bundle.getString(SocialConstants.PARAM_MEDIA_TYPE);
         this.b = bundle.getInt(SocialConstants.PARAM_REQUEST_CODE);
         this.c = (ShareContent) bundle.getParcelable(ai.PARAM_SHARE_CONTENT);
-        if (this.f867a == null || this.b == 0 || this.c == null) {
+        if (this.a == null || this.b == 0 || this.c == null) {
             finish();
             return;
         }
         this.e = ai.a(this.b);
         ProxyActivityListener proxyActivityListener = new ProxyActivityListener(this, this.e);
-        this.d = new LocalShareHandlerFactory(this).newInstance(this.f867a, this.b, proxyActivityListener);
+        this.d = new LocalShareHandlerFactory(this).newInstance(this.a, this.b, proxyActivityListener);
         this.d.share(this.c, proxyActivityListener, false);
     }
 
@@ -60,7 +58,7 @@ public class LocalShareActivity extends Activity {
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putString(SocialConstants.PARAM_MEDIA_TYPE, this.f867a);
+        bundle.putString(SocialConstants.PARAM_MEDIA_TYPE, this.a);
         bundle.putInt(SocialConstants.PARAM_REQUEST_CODE, this.b);
         bundle.putParcelable(ai.PARAM_SHARE_CONTENT, this.c);
         ai.a(this.b, this.e);

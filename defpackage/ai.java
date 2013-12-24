@@ -19,9 +19,7 @@ import com.baidu.cloudsdk.social.share.handler.SocialShareStatisticsManager;
 /* loaded from: classes.dex */
 public class ai implements ISocialShareHandler {
     public static final String PARAM_SHARE_CONTENT = "share_content";
-
-    /* renamed from: a  reason: collision with root package name */
-    private static SparseArray f267a = new SparseArray();
+    private static SparseArray a = new SparseArray();
     protected Context mContext;
     protected IBaiduListener mListener;
     protected String mMediaType;
@@ -46,17 +44,17 @@ public class ai implements ISocialShareHandler {
     public static synchronized IBaiduListener a(int i) {
         IBaiduListener iBaiduListener;
         synchronized (ai.class) {
-            iBaiduListener = (IBaiduListener) f267a.get(i);
-            f267a.delete(i);
+            iBaiduListener = (IBaiduListener) a.get(i);
+            a.delete(i);
         }
         return iBaiduListener;
     }
 
     public static void a(int i, IBaiduListener iBaiduListener) {
         IBaiduListener iBaiduListener2;
-        synchronized (f267a) {
-            iBaiduListener2 = (IBaiduListener) f267a.get(i);
-            f267a.put(i, iBaiduListener);
+        synchronized (a) {
+            iBaiduListener2 = (IBaiduListener) a.get(i);
+            a.put(i, iBaiduListener);
         }
         if (iBaiduListener2 != null) {
             iBaiduListener2.onCancel();

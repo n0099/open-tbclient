@@ -13,7 +13,6 @@ import android.os.Build;
 import android.util.Log;
 import android.widget.RemoteViews;
 import com.baidu.android.pushservice.PushConstants;
-import com.tencent.mm.sdk.platformtools.LocaleUtil;
 /* loaded from: classes.dex */
 public class NotificationProxy extends Notification {
     public static final int EVENT_TYPE_CLEAN = 20;
@@ -96,7 +95,7 @@ public class NotificationProxy extends Notification {
     }
 
     public boolean webNotificationInit(String str) {
-        if (!checkLength(str, 1024)) {
+        if (!checkLength(str, MAX_URL_LENGTH)) {
             Log.e(TAG, "HtmlNotification url is invalid");
             dispatchEvent(1);
             cancelFromJs();
@@ -152,9 +151,9 @@ public class NotificationProxy extends Notification {
         Bitmap decodeByteArray;
         int i = 25;
         int sDKVersion = getSDKVersion();
-        int identifier = this.mContext.getResources().getIdentifier("notification_icon", LocaleUtil.INDONESIAN, this.mPkgName);
-        int identifier2 = this.mContext.getResources().getIdentifier(PushConstants.EXTRA_NOTIFICATION_TITLE, LocaleUtil.INDONESIAN, this.mPkgName);
-        int identifier3 = this.mContext.getResources().getIdentifier("notification_text", LocaleUtil.INDONESIAN, this.mPkgName);
+        int identifier = this.mContext.getResources().getIdentifier("notification_icon", "id", this.mPkgName);
+        int identifier2 = this.mContext.getResources().getIdentifier(PushConstants.EXTRA_NOTIFICATION_TITLE, "id", this.mPkgName);
+        int identifier3 = this.mContext.getResources().getIdentifier("notification_text", "id", this.mPkgName);
         Log.i(TAG, "enter creatRemoteViews imageId=" + identifier + " titleId=" + identifier2 + " textId=" + identifier3);
         switch (sDKVersion) {
             case 7:

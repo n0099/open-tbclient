@@ -5,16 +5,14 @@ import com.baidu.tieba.im.data.PhotoUrlData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ab implements View.OnLongClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PhotoUrlData f1741a;
+    final /* synthetic */ PhotoUrlData a;
     final /* synthetic */ int b;
     final /* synthetic */ PhotoWallView c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(PhotoWallView photoWallView, PhotoUrlData photoUrlData, int i) {
         this.c = photoWallView;
-        this.f1741a = photoUrlData;
+        this.a = photoUrlData;
         this.b = i;
     }
 
@@ -25,7 +23,7 @@ public class ab implements View.OnLongClickListener {
         zVar = this.c.l;
         if (zVar != null) {
             zVar2 = this.c.l;
-            zVar2.a(view, this.f1741a, this.b);
+            zVar2.a(view, this.a, this.b);
             return true;
         }
         return true;

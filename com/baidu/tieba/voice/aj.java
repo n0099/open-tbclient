@@ -1,22 +1,22 @@
 package com.baidu.tieba.voice;
 
-import com.baidu.tieba.util.bd;
+import com.baidu.tieba.util.be;
 import java.io.File;
 /* loaded from: classes.dex */
 public class aj {
     public static String a() {
-        return com.baidu.adp.lib.h.h.a();
+        return com.baidu.adp.lib.h.i.a();
     }
 
     public static String a(String str) {
-        if (com.baidu.adp.lib.h.l.a(str)) {
+        if (com.baidu.adp.lib.h.m.a(str)) {
             return null;
         }
         return "tb/voice/" + str;
     }
 
     public static String b(String str) {
-        return com.baidu.tieba.util.x.a(str, 1);
+        return com.baidu.tieba.util.y.a(str, 1);
     }
 
     public static String c(String str) {
@@ -24,7 +24,7 @@ public class aj {
     }
 
     public static boolean d(String str) {
-        if (com.baidu.adp.lib.h.l.a(str)) {
+        if (com.baidu.adp.lib.h.m.a(str)) {
             return false;
         }
         File file = new File(str);
@@ -34,7 +34,7 @@ public class aj {
             }
             return false;
         } catch (Throwable th) {
-            bd.b("FileHelper", "DelFile", "error = " + th.getMessage());
+            be.b("FileHelper", "DelFile", "error = " + th.getMessage());
             return false;
         }
     }

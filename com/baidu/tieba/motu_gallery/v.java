@@ -10,9 +10,7 @@ import java.io.IOException;
 /* loaded from: classes.dex */
 public class v {
     private static final String[] b = {"image/jpeg", "image/png", "image/gif"};
-
-    /* renamed from: a  reason: collision with root package name */
-    static final String[] f2132a = {"_id", "datetaken", "date_added", "orientation", "_data"};
+    static final String[] a = {"_id", "datetaken", "date_added", "orientation", "_data"};
 
     protected static String a() {
         return "(mime_type in (?, ?, ?))";
@@ -32,9 +30,9 @@ public class v {
             if (uri.getScheme().startsWith("file")) {
                 String[] strArr = {""};
                 strArr[0] = uri.getPath();
-                query = MediaStore.Images.Media.query(contentResolver, MediaStore.Images.Media.EXTERNAL_CONTENT_URI, f2132a, "(_data=?)", strArr, c());
+                query = MediaStore.Images.Media.query(contentResolver, MediaStore.Images.Media.EXTERNAL_CONTENT_URI, a, "(_data=?)", strArr, c());
             } else {
-                query = MediaStore.Images.Media.query(contentResolver, uri, f2132a, a(), b(), c());
+                query = MediaStore.Images.Media.query(contentResolver, uri, a, a(), b(), c());
             }
             return query;
         } catch (Exception e) {

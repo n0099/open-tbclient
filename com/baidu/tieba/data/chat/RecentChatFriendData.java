@@ -1,6 +1,6 @@
 package com.baidu.tieba.data.chat;
 
-import com.baidu.tieba.im.groupInfo.GroupSettingItemData;
+import com.baidu.tieba.im.c.k;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class RecentChatFriendData implements Serializable {
@@ -8,7 +8,7 @@ public class RecentChatFriendData implements Serializable {
     protected String friendId;
     protected String friendName;
     protected String friendPortrait;
-    private GroupSettingItemData groupSetting;
+    private k groupSetting;
     private String lastMsgUserName;
     protected long localTime;
     protected String msgContent;
@@ -16,7 +16,9 @@ public class RecentChatFriendData implements Serializable {
     protected String ownerName;
     protected long serverTime;
     protected int status;
+    private String title;
     protected int unReadCount;
+    protected int unReadCountExtra;
 
     public String getPK() {
         return this.ownerId + "@" + this.friendId;
@@ -110,11 +112,27 @@ public class RecentChatFriendData implements Serializable {
         this.lastMsgUserName = str;
     }
 
-    public GroupSettingItemData getGroupSetting() {
+    public k getGroupSetting() {
         return this.groupSetting;
     }
 
-    public void setGroupSetting(GroupSettingItemData groupSettingItemData) {
-        this.groupSetting = groupSettingItemData;
+    public void setGroupSetting(k kVar) {
+        this.groupSetting = kVar;
+    }
+
+    public int getUnReadCountExtra() {
+        return this.unReadCountExtra;
+    }
+
+    public void setUnReadCountExtra(int i) {
+        this.unReadCountExtra = i;
+    }
+
+    public String getTitle() {
+        return this.title;
+    }
+
+    public void setTitle(String str) {
+        this.title = str;
     }
 }

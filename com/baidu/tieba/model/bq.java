@@ -3,9 +3,7 @@ package com.baidu.tieba.model;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* loaded from: classes.dex */
 public class bq extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.av> {
-
-    /* renamed from: a  reason: collision with root package name */
-    protected com.baidu.tieba.a.i f2013a = null;
+    protected com.baidu.tieba.a.g a = null;
     protected int b;
     final /* synthetic */ bp c;
 
@@ -20,14 +18,14 @@ public class bq extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.av> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: d */
     public com.baidu.tieba.data.av a(Object... objArr) {
-        this.f2013a = new com.baidu.tieba.a.i();
+        this.a = new com.baidu.tieba.a.g();
         try {
-            String a2 = this.f2013a.a(this.c.b, this.c.d, this.b, this.c.c, d());
-            if (!this.f2013a.a()) {
+            String a = this.a.a(this.c.b, this.c.d, this.b, this.c.c, d());
+            if (!this.a.a()) {
                 return null;
             }
             com.baidu.tieba.data.av avVar = new com.baidu.tieba.data.av();
-            avVar.a(a2, this.c.e);
+            avVar.a(a, this.c.e);
             String id = (avVar.m() == null || avVar.m().j() == null) ? null : avVar.m().j().getId();
             int i = 0;
             while (true) {
@@ -39,7 +37,7 @@ public class bq extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.av> {
                 i = i2 + 1;
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.bd.b(getClass().getName(), "doInBackground", e.toString());
+            com.baidu.tieba.util.be.b(getClass().getName(), "doInBackground", e.toString());
             return null;
         }
     }
@@ -65,8 +63,8 @@ public class bq extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.av> {
     public void cancel() {
         super.cancel(true);
         this.c.g = null;
-        if (this.f2013a != null) {
-            this.f2013a.d();
+        if (this.a != null) {
+            this.a.d();
         }
     }
 
@@ -77,7 +75,7 @@ public class bq extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.av> {
         this.c.g = null;
         if (avVar == null) {
             if (this.c.h != null) {
-                this.c.h.a(false, this.f2013a.c(), this.f2013a.b(), null);
+                this.c.h.a(false, this.a.c(), this.a.b(), null);
                 return;
             }
             return;
@@ -98,8 +96,8 @@ public class bq extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.av> {
             this.c.f.b(avVar, false);
         }
         if (this.c.h != null) {
-            this.c.h.a(true, this.f2013a.c(), this.f2013a.b(), this.c.f);
+            this.c.h.a(true, this.a.c(), this.a.b(), this.c.f);
         }
-        this.f2013a = null;
+        this.a = null;
     }
 }

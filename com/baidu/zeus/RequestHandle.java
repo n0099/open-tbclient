@@ -1,7 +1,6 @@
 package com.baidu.zeus;
 
 import cn.jingling.lib.file.Shared;
-import com.baidu.cyberplayer.sdk.internal.HttpUtils;
 import com.baidu.zeus.security.Md5MessageDigest;
 import java.io.IOException;
 import java.io.InputStream;
@@ -84,7 +83,7 @@ public class RequestHandle {
             return false;
         }
         if (this.mUrl.startsWith("https:") && str.startsWith("http:")) {
-            this.mHeaders.remove(HttpUtils.HEADER_NAME_REFERER);
+            this.mHeaders.remove("Referer");
         }
         this.mUrl = str;
         try {
@@ -92,11 +91,11 @@ public class RequestHandle {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        this.mHeaders.remove(HttpUtils.HEADER_NAME_COOKIE);
+        this.mHeaders.remove("Cookie");
         try {
             String cookie = CookieManager.getInstance().getCookie(this.mUri);
             if (cookie != null && cookie.length() > 0) {
-                this.mHeaders.put(HttpUtils.HEADER_NAME_COOKIE, cookie);
+                this.mHeaders.put("Cookie", cookie);
             }
         } catch (IllegalStateException e2) {
         }

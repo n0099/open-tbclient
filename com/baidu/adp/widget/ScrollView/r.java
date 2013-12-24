@@ -7,9 +7,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 public class r extends com.baidu.adp.widget.ListView.a implements b {
-
-    /* renamed from: a  reason: collision with root package name */
-    private boolean f600a;
+    private boolean a;
 
     public r(Context context) {
         super(context);
@@ -17,35 +15,35 @@ public class r extends com.baidu.adp.widget.ListView.a implements b {
 
     @Override // com.baidu.adp.widget.ScrollView.b
     public void a_() {
-        a(this.f600a);
-        if (this.f600a) {
-            this.f600a = false;
+        a(this.a);
+        if (this.a) {
+            this.a = false;
         }
     }
 
     @Override // com.baidu.adp.widget.ListView.a, com.baidu.adp.widget.ListView.d
     public void e() {
-        this.f600a = true;
+        this.a = true;
         super.e();
     }
 
     @Override // com.baidu.adp.widget.ListView.a, com.baidu.adp.widget.ListView.d
     public void f() {
-        this.f600a = false;
+        this.a = false;
         super.f();
     }
 
     @Override // com.baidu.adp.widget.ScrollView.b
     public void b_() {
-        this.f600a = false;
+        this.a = false;
         super.b(true);
     }
 
     @Override // com.baidu.adp.widget.ListView.a
     public View a(String str, String str2, String str3) {
-        View a2 = super.a(str, str2, str3);
+        View a = super.a(str, str2, str3);
         l();
-        return a2;
+        return a;
     }
 
     @Override // com.baidu.adp.widget.ScrollView.b

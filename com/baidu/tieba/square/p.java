@@ -4,13 +4,11 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p extends BdAsyncTask<Object, Integer, t> {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ BarFolderSecondDirActivity f2531a;
-    private com.baidu.tieba.util.am b;
+    final /* synthetic */ BarFolderSecondDirActivity a;
+    private com.baidu.tieba.util.an b;
 
     private p(BarFolderSecondDirActivity barFolderSecondDirActivity) {
-        this.f2531a = barFolderSecondDirActivity;
+        this.a = barFolderSecondDirActivity;
         this.b = null;
     }
 
@@ -28,37 +26,37 @@ public class p extends BdAsyncTask<Object, Integer, t> {
         String str;
         String str2;
         String str3;
-        qVar = this.f2531a.i;
-        t a2 = qVar.a();
+        qVar = this.a.i;
+        t a = qVar.a();
         try {
-            this.b = new com.baidu.tieba.util.am(com.baidu.tieba.data.h.f1248a + "c/f/forum/seconddir");
-            com.baidu.tieba.util.am amVar = this.b;
-            str = this.f2531a.l;
-            amVar.a("menu_name", str);
-            com.baidu.tieba.util.am amVar2 = this.b;
-            str2 = this.f2531a.m;
-            amVar2.a("menu_type", str2);
-            com.baidu.tieba.util.am amVar3 = this.b;
-            str3 = this.f2531a.n;
-            amVar3.a("menu_id", str3);
+            this.b = new com.baidu.tieba.util.an(com.baidu.tieba.data.h.a + "c/f/forum/seconddir");
+            com.baidu.tieba.util.an anVar = this.b;
+            str = this.a.l;
+            anVar.a("menu_name", str);
+            com.baidu.tieba.util.an anVar2 = this.b;
+            str2 = this.a.m;
+            anVar2.a("menu_type", str2);
+            com.baidu.tieba.util.an anVar3 = this.b;
+            str3 = this.a.n;
+            anVar3.a("menu_id", str3);
             String l = this.b.l();
             if (this.b.c()) {
-                a2.b(l);
+                a.b(l);
             } else {
-                a2.a(this.b.i());
+                a.a(this.b.i());
             }
         } catch (Exception e) {
-            a2.a(e.getMessage());
-            com.baidu.tieba.util.bd.b(getClass().getName(), "doInBackground", e.getMessage());
+            a.a(e.getMessage());
+            com.baidu.tieba.util.be.b(getClass().getName(), "doInBackground", e.getMessage());
         }
-        return a2;
+        return a;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(t tVar) {
-        this.f2531a.a(tVar, false);
+        this.a.a(tVar, false);
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -68,6 +66,6 @@ public class p extends BdAsyncTask<Object, Integer, t> {
             this.b.j();
             this.b = null;
         }
-        this.f2531a.a(null, true);
+        this.a.a(null, true);
     }
 }

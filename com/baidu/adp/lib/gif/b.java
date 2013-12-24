@@ -2,8 +2,7 @@ package com.baidu.adp.lib.gif;
 
 import android.graphics.Bitmap;
 import com.baidu.zeus.bouncycastle.DERTags;
-import com.tencent.mm.sdk.platformtools.LVBuffer;
-import com.tencent.mm.sdk.platformtools.Util;
+import com.google.protobuf.CodedOutputStream;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -19,9 +18,7 @@ public class b extends Thread {
     private c O;
     private int P;
     private a Q;
-
-    /* renamed from: a  reason: collision with root package name */
-    public int f489a;
+    public int a;
     public int b;
     private InputStream c;
     private int d;
@@ -140,10 +137,10 @@ public class b extends Thread {
         c cVar = this.O;
         if (!this.T) {
             while (cVar != null) {
-                if (cVar.f490a != null && !cVar.f490a.isRecycled()) {
-                    cVar.f490a.recycle();
+                if (cVar.a != null && !cVar.a.isRecycled()) {
+                    cVar.a.recycle();
                 }
-                cVar.f490a = null;
+                cVar.a = null;
                 this.O = this.O.d;
                 cVar = this.O;
             }
@@ -172,7 +169,7 @@ public class b extends Thread {
 
     private void f() {
         int i;
-        int[] iArr = new int[this.f489a * this.b];
+        int[] iArr = new int[this.a * this.b];
         if (this.G > 0) {
             if (this.G == 3) {
                 int i2 = this.P - 2;
@@ -183,11 +180,11 @@ public class b extends Thread {
                 }
             }
             if (this.A != null) {
-                this.A.getPixels(iArr, 0, this.f489a, 0, 0, this.f489a, this.b);
+                this.A.getPixels(iArr, 0, this.a, 0, 0, this.a, this.b);
                 if (this.G == 2) {
                     int i3 = !this.H ? this.m : 0;
                     for (int i4 = 0; i4 < this.y; i4++) {
-                        int i5 = ((this.w + i4) * this.f489a) + this.v;
+                        int i5 = ((this.w + i4) * this.a) + this.v;
                         int i6 = this.x + i5;
                         while (i5 < i6) {
                             iArr[i5] = i3;
@@ -226,11 +223,11 @@ public class b extends Thread {
             }
             int i12 = i + this.s;
             if (i12 < this.b) {
-                int i13 = this.f489a * i12;
+                int i13 = this.a * i12;
                 int i14 = i13 + this.r;
                 int i15 = this.t + i14;
-                if (this.f489a + i13 < i15) {
-                    i15 = this.f489a + i13;
+                if (this.a + i13 < i15) {
+                    i15 = this.a + i13;
                 }
                 int i16 = this.t * i10;
                 int i17 = i14;
@@ -245,7 +242,7 @@ public class b extends Thread {
                 }
             }
         }
-        this.z = Bitmap.createBitmap(iArr, this.f489a, this.b, Bitmap.Config.ARGB_4444);
+        this.z = Bitmap.createBitmap(iArr, this.a, this.b, Bitmap.Config.ARGB_4444);
     }
 
     public Bitmap a(int i) {
@@ -253,7 +250,7 @@ public class b extends Thread {
         if (b == null) {
             return null;
         }
-        return b.f490a;
+        return b.a;
     }
 
     public c b(int i) {
@@ -340,10 +337,10 @@ public class b extends Thread {
             this.N = new byte[i10];
         }
         if (this.K == null) {
-            this.K = new short[LVBuffer.LENGTH_ALLOC_PER_NEW];
+            this.K = new short[CodedOutputStream.DEFAULT_BUFFER_SIZE];
         }
         if (this.L == null) {
-            this.L = new byte[LVBuffer.LENGTH_ALLOC_PER_NEW];
+            this.L = new byte[CodedOutputStream.DEFAULT_BUFFER_SIZE];
         }
         if (this.M == null) {
             this.M = new byte[4097];
@@ -540,7 +537,7 @@ public class b extends Thread {
                         case 249:
                             o();
                             continue;
-                        case Util.MASK_8BIT /* 255 */:
+                        case 255:
                             m();
                             String str = "";
                             for (int i = 0; i < 11; i++) {
@@ -631,7 +628,7 @@ public class b extends Thread {
             v();
             if (!j()) {
                 this.P++;
-                this.z = Bitmap.createBitmap(this.f489a, this.b, Bitmap.Config.ARGB_4444);
+                this.z = Bitmap.createBitmap(this.a, this.b, Bitmap.Config.ARGB_4444);
                 f();
                 if (this.O == null) {
                     if (this.T) {
@@ -665,7 +662,7 @@ public class b extends Thread {
     }
 
     private void r() {
-        this.f489a = t();
+        this.a = t();
         this.b = t();
         int l = l();
         this.e = (l & DERTags.TAGGED) != 0;

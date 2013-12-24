@@ -10,22 +10,20 @@ import android.widget.ListAdapter;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class w {
-
-    /* renamed from: a  reason: collision with root package name */
-    private View f2700a;
+    private View a;
     private GoodGridView b;
     private ImageView c;
     private Activity d;
 
     public w(Activity activity) {
-        this.f2700a = null;
+        this.a = null;
         this.b = null;
         this.c = null;
         this.d = null;
         this.d = activity;
-        this.f2700a = LayoutInflater.from(activity).inflate(R.layout.dialog_good, (ViewGroup) null);
-        this.b = (GoodGridView) this.f2700a.findViewById(R.id.good_gridview);
-        this.c = (ImageView) this.f2700a.findViewById(R.id.divider_line);
+        this.a = LayoutInflater.from(activity).inflate(R.layout.dialog_good, (ViewGroup) null);
+        this.b = (GoodGridView) this.a.findViewById(R.id.good_gridview);
+        this.c = (ImageView) this.a.findViewById(R.id.divider_line);
     }
 
     public void a(com.baidu.tieba.frs.ap apVar) {
@@ -37,7 +35,7 @@ public class w {
     }
 
     public View a() {
-        return this.f2700a;
+        return this.a;
     }
 
     public void a(int i) {

@@ -6,8 +6,8 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.util.Log;
+import com.baidu.android.pushservice.PushConstants;
 import com.baidu.zeus.bouncycastle.DERTags;
-import com.tencent.mm.sdk.platformtools.Util;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FilterInputStream;
@@ -16,9 +16,7 @@ import java.io.InputStream;
 import java.net.URL;
 /* loaded from: classes.dex */
 public class AsyncImageLoader extends AsyncTask {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static final String f840a = AsyncImageLoader.class.getSimpleName();
+    private static final String a = AsyncImageLoader.class.getSimpleName();
     private Context b;
     private IAsyncImageLoaderListener c;
 
@@ -73,7 +71,7 @@ public class AsyncImageLoader extends AsyncTask {
     private InputStream a(Uri uri) {
         try {
         } catch (IOException e) {
-            Log.e(f840a, "IOexception");
+            Log.e(a, "IOexception");
             e.printStackTrace();
         }
         if (uri.getScheme() == null) {
@@ -82,7 +80,7 @@ public class AsyncImageLoader extends AsyncTask {
         if (uri.getScheme().equalsIgnoreCase("http") || uri.getScheme().equalsIgnoreCase("https")) {
             return new URL(uri.toString()).openStream();
         }
-        if ((uri.getScheme().equalsIgnoreCase("content") || uri.getScheme().equalsIgnoreCase("file")) && this.b != null) {
+        if ((uri.getScheme().equalsIgnoreCase(PushConstants.EXTRA_CONTENT) || uri.getScheme().equalsIgnoreCase("file")) && this.b != null) {
             return this.b.getContentResolver().openInputStream(uri);
         }
         return null;
@@ -112,7 +110,7 @@ public class AsyncImageLoader extends AsyncTask {
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inJustDecodeBounds = true;
         BitmapFactory.decodeStream(a2, null, options);
-        options.inSampleSize = computeSampleSize(options, -1, Util.BYTE_OF_MB);
+        options.inSampleSize = computeSampleSize(options, -1, 1048576);
         options.inJustDecodeBounds = false;
         InputStream a3 = a(uri);
         if (a3 != null) {
@@ -121,12 +119,12 @@ public class AsyncImageLoader extends AsyncTask {
                 try {
                     a3.close();
                 } catch (IOException e) {
-                    Log.e(f840a, "IO exception");
+                    Log.e(a, "IO exception");
                     e.printStackTrace();
                 }
                 return decodeStream;
             } catch (OutOfMemoryError e2) {
-                Log.e(f840a, "out of memory err no bitmap found");
+                Log.e(a, "out of memory err no bitmap found");
                 e2.printStackTrace();
                 return null;
             }

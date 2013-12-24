@@ -1,27 +1,23 @@
 package com.baidu.tieba.im.messageCenter;
 
-import com.baidu.tieba.im.message.BackgroundSwitchMessage;
-import com.baidu.tieba.im.message.Message;
-import com.baidu.tieba.im.message.ResponsedMessage;
+import com.baidu.tieba.im.message.bz;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n implements g {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PingManager f1803a;
+    final /* synthetic */ PingManager a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(PingManager pingManager) {
-        this.f1803a = pingManager;
+        this.a = pingManager;
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(Message message) {
-        if (message != null) {
-            if (message.getCmd() == -11 && (message instanceof BackgroundSwitchMessage)) {
-                this.f1803a.a((BackgroundSwitchMessage) message);
-            } else if (message.getCmd() == 1003 && (message instanceof ResponsedMessage)) {
-                this.f1803a.a((ResponsedMessage) message);
+    public void a(com.baidu.tieba.im.message.n nVar) {
+        if (nVar != null) {
+            if (nVar.t() == -11 && (nVar instanceof com.baidu.tieba.im.message.a)) {
+                this.a.a((com.baidu.tieba.im.message.a) nVar);
+            } else if (nVar.t() == 1003 && (nVar instanceof bz)) {
+                this.a.a((bz) nVar);
             }
         }
     }

@@ -5,21 +5,19 @@ import android.os.Bundle;
 import java.util.List;
 /* loaded from: classes.dex */
 public class g {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static final h f326a;
+    private static final h a;
     private final Object b;
 
     static {
         if (Build.VERSION.SDK_INT >= 16) {
-            f326a = new i();
+            a = new i();
         } else {
-            f326a = new k();
+            a = new k();
         }
     }
 
     public g() {
-        this.b = f326a.a(this);
+        this.b = a.a(this);
     }
 
     public g(Object obj) {

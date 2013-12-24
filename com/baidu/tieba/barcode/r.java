@@ -5,21 +5,19 @@ import android.content.Context;
 import android.content.Intent;
 /* loaded from: classes.dex */
 final class r extends BroadcastReceiver {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ o f1157a;
+    final /* synthetic */ o a;
 
     private r(o oVar) {
-        this.f1157a = oVar;
+        this.a = oVar;
     }
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
         if ("android.intent.action.BATTERY_CHANGED".equals(intent.getAction())) {
             if (intent.getIntExtra("plugged", -1) <= 0) {
-                this.f1157a.a();
+                this.a.a();
             } else {
-                o.a(this.f1157a);
+                o.a(this.a);
             }
         }
     }

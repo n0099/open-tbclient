@@ -8,7 +8,7 @@ public class GroupInfosData implements Serializable {
     private int cmd;
     private Data data;
     private int isAck;
-    private a msgTag;
+    private b msgTag;
 
     public int getIsAck() {
         return this.isAck;
@@ -26,12 +26,12 @@ public class GroupInfosData implements Serializable {
         this.cmd = i;
     }
 
-    public a getMsgTag() {
+    public b getMsgTag() {
         return this.msgTag;
     }
 
-    public void setMsgTag(a aVar) {
-        this.msgTag = aVar;
+    public void setMsgTag(b bVar) {
+        this.msgTag = bVar;
     }
 
     public Data getData() {

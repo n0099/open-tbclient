@@ -1,37 +1,27 @@
 package com.baidu.tieba.model;
 
-import com.baidu.tieba.data.chat.RecentChatFriendData;
-import java.util.LinkedList;
-import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes.dex */
-public class j implements com.baidu.tieba.im.a<Void> {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ com.baidu.tieba.im.a f2037a;
-    final /* synthetic */ f b;
+class j implements com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMessageCenterPojo>> {
+    final /* synthetic */ String a;
+    final /* synthetic */ com.baidu.tieba.im.a b;
+    final /* synthetic */ i c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public j(f fVar, com.baidu.tieba.im.a aVar) {
-        this.b = fVar;
-        this.f2037a = aVar;
+    public j(i iVar, String str, com.baidu.tieba.im.a aVar) {
+        this.c = iVar;
+        this.a = str;
+        this.b = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.a
-    public void a(Void r3) {
-        List list;
-        List list2;
-        LinkedList<RecentChatFriendData> k = com.baidu.tieba.im.pushNotify.a.h().k();
-        if (k != null) {
-            list = this.b.b;
-            list.clear();
-            list2 = this.b.b;
-            list2.addAll(k);
-            this.b.f();
-            if (this.f2037a != null) {
-                this.f2037a.a(null);
-            }
+    public void a(ConcurrentHashMap<String, ImMessageCenterPojo> concurrentHashMap) {
+        ImMessageCenterPojo imMessageCenterPojo = concurrentHashMap.get(this.a);
+        if (imMessageCenterPojo != null) {
+            imMessageCenterPojo.setIs_hidden(1);
         }
+        com.baidu.tieba.im.m.a(new k(this), new l(this));
     }
 }

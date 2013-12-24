@@ -7,13 +7,11 @@ import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements View.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ g f1881a;
+    final /* synthetic */ g a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(g gVar) {
-        this.f1881a = gVar;
+        this.a = gVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -21,11 +19,11 @@ public class i implements View.OnClickListener {
         EditText editText;
         e eVar;
         TextView textView;
-        editText = this.f1881a.e;
+        editText = this.a.e;
         editText.setText("");
-        eVar = this.f1881a.j;
+        eVar = this.a.j;
         eVar.a(new LinkedList());
-        textView = this.f1881a.h;
+        textView = this.a.h;
         textView.setVisibility(8);
     }
 }

@@ -25,7 +25,7 @@ public class bu extends b {
     }
 
     private boolean h() {
-        Context applicationContext = this.f395a.getApplicationContext();
+        Context applicationContext = this.a.getApplicationContext();
         Intent intent = new Intent("com.sina.weibo.remotessoservice");
         if (applicationContext.getPackageManager().resolveService(intent, 0) != null) {
             return applicationContext.getApplicationContext().bindService(intent, this.g, 1);
@@ -65,7 +65,7 @@ public class bu extends b {
 
     @Override // defpackage.b
     protected Intent c() {
-        String clientId = SocialConfig.getInstance(this.f395a).getClientId(MediaType.SINAWEIBO);
+        String clientId = SocialConfig.getInstance(this.a).getClientId(MediaType.SINAWEIBO);
         Intent intent = new Intent();
         intent.setClassName(this.e, this.f);
         intent.putExtra("appKey", clientId);
@@ -86,7 +86,7 @@ public class bu extends b {
 
     @Override // defpackage.cb
     public void f() {
-        if (!SocialConfig.getInstance(this.f395a).getSsoMediaTypes().contains(MediaType.SINAWEIBO)) {
+        if (!SocialConfig.getInstance(this.a).getSsoMediaTypes().contains(MediaType.SINAWEIBO)) {
             g();
         } else if (h()) {
         } else {

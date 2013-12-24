@@ -1,0 +1,157 @@
+package protobuf.QueryGroupLocation;
+
+import com.google.protobuf.CodedInputStream;
+import com.google.protobuf.ExtensionRegistryLite;
+import com.google.protobuf.GeneratedMessageLite;
+import com.google.protobuf.InvalidProtocolBufferException;
+import protobuf.QueryGroupLocation.QueryGroupLocationReq;
+/* loaded from: classes.dex */
+public final class c extends GeneratedMessageLite.Builder<QueryGroupLocationReq.DataReq, c> implements d {
+    private int a;
+    private int b;
+    private double c;
+    private double d;
+
+    private c() {
+        g();
+    }
+
+    private void g() {
+    }
+
+    public static c h() {
+        return new c();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
+    /* renamed from: a */
+    public c clear() {
+        super.clear();
+        this.b = 0;
+        this.a &= -2;
+        this.c = 0.0d;
+        this.a &= -3;
+        this.d = 0.0d;
+        this.a &= -5;
+        return this;
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
+    /* renamed from: b */
+    public c clone() {
+        return h().mergeFrom(buildPartial());
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    /* renamed from: c */
+    public QueryGroupLocationReq.DataReq getDefaultInstanceForType() {
+        return QueryGroupLocationReq.DataReq.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.MessageLite.Builder
+    /* renamed from: d */
+    public QueryGroupLocationReq.DataReq build() {
+        QueryGroupLocationReq.DataReq buildPartial = buildPartial();
+        if (!buildPartial.isInitialized()) {
+            throw newUninitializedMessageException(buildPartial);
+        }
+        return buildPartial;
+    }
+
+    @Override // com.google.protobuf.MessageLite.Builder
+    /* renamed from: e */
+    public QueryGroupLocationReq.DataReq buildPartial() {
+        QueryGroupLocationReq.DataReq dataReq = new QueryGroupLocationReq.DataReq(this);
+        int i = this.a;
+        int i2 = (i & 1) != 1 ? 0 : 1;
+        dataReq.groupId_ = this.b;
+        if ((i & 2) == 2) {
+            i2 |= 2;
+        }
+        dataReq.lng_ = this.c;
+        if ((i & 4) == 4) {
+            i2 |= 4;
+        }
+        dataReq.lat_ = this.d;
+        dataReq.bitField0_ = i2;
+        return dataReq;
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder
+    /* renamed from: a */
+    public c mergeFrom(QueryGroupLocationReq.DataReq dataReq) {
+        if (dataReq != QueryGroupLocationReq.DataReq.getDefaultInstance()) {
+            if (dataReq.hasGroupId()) {
+                a(dataReq.getGroupId());
+            }
+            if (dataReq.hasLng()) {
+                a(dataReq.getLng());
+            }
+            if (dataReq.hasLat()) {
+                b(dataReq.getLat());
+            }
+        }
+        return this;
+    }
+
+    @Override // com.google.protobuf.MessageLiteOrBuilder
+    public final boolean isInitialized() {
+        return true;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:36:0x001e  */
+    @Override // com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
+    /* renamed from: a */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public c mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
+        QueryGroupLocationReq.DataReq dataReq;
+        Throwable th;
+        try {
+            try {
+                QueryGroupLocationReq.DataReq parsePartialFrom = QueryGroupLocationReq.DataReq.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                if (parsePartialFrom != null) {
+                    mergeFrom(parsePartialFrom);
+                }
+                return this;
+            } catch (Throwable th2) {
+                th = th2;
+                dataReq = null;
+                if (dataReq != null) {
+                    mergeFrom(dataReq);
+                }
+                throw th;
+            }
+        } catch (InvalidProtocolBufferException e) {
+            QueryGroupLocationReq.DataReq dataReq2 = (QueryGroupLocationReq.DataReq) e.getUnfinishedMessage();
+            try {
+                throw e;
+            } catch (Throwable th3) {
+                dataReq = dataReq2;
+                th = th3;
+                if (dataReq != null) {
+                }
+                throw th;
+            }
+        }
+    }
+
+    public c a(int i) {
+        this.a |= 1;
+        this.b = i;
+        return this;
+    }
+
+    public c a(double d) {
+        this.a |= 2;
+        this.c = d;
+        return this;
+    }
+
+    public c b(double d) {
+        this.a |= 4;
+        this.d = d;
+        return this;
+    }
+}

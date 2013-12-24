@@ -1,18 +1,16 @@
 package com.baidu.adp.lib.e;
 /* loaded from: classes.dex */
 public abstract class b<T> {
-
-    /* renamed from: a  reason: collision with root package name */
-    private boolean f478a;
+    private boolean a;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void a() {
-        this.f478a = true;
+        this.a = true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final boolean b() {
-        return this.f478a;
+        return this.a;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

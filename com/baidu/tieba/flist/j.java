@@ -1,16 +1,15 @@
 package com.baidu.tieba.flist;
 
+import com.baidu.browser.webpool.BdWebPoolView;
 import com.baidu.tieba.flist.ForumListModel;
-import com.baidu.tieba.util.bd;
+import com.baidu.tieba.util.be;
 /* loaded from: classes.dex */
 class j implements com.baidu.adp.widget.ListView.b {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ForumListActivity f1304a;
+    final /* synthetic */ ForumListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(ForumListActivity forumListActivity) {
-        this.f1304a = forumListActivity;
+        this.a = forumListActivity;
     }
 
     @Override // com.baidu.adp.widget.ListView.b
@@ -25,40 +24,40 @@ class j implements com.baidu.adp.widget.ListView.b {
         u uVar;
         ForumListModel.RequestParams requestParams3;
         u uVar2;
-        sVar = this.f1304a.D;
+        sVar = this.a.D;
         if (!sVar.c()) {
-            sVar2 = this.f1304a.E;
+            sVar2 = this.a.E;
             if (!sVar2.c()) {
-                z2 = this.f1304a.x;
+                z2 = this.a.x;
                 if (z2) {
-                    requestParams = this.f1304a.A;
+                    requestParams = this.a.A;
                     requestParams.recommend_type = 0;
-                    requestParams2 = this.f1304a.A;
-                    requestParams2.rn = 200;
-                    uVar = this.f1304a.G;
-                    requestParams3 = this.f1304a.A;
+                    requestParams2 = this.a.A;
+                    requestParams2.rn = BdWebPoolView.DELAYED_TIME;
+                    uVar = this.a.G;
+                    requestParams3 = this.a.A;
                     uVar.a(requestParams3);
-                    uVar2 = this.f1304a.G;
+                    uVar2 = this.a.G;
                     uVar2.LoadData();
-                    this.f1304a.x = false;
-                } else if (this.f1304a.c.d.getCurrentItem() == 0) {
-                    z4 = this.f1304a.B;
+                    this.a.x = false;
+                } else if (this.a.c.d.getCurrentItem() == 0) {
+                    z4 = this.a.B;
                     if (z4) {
-                        this.f1304a.n = 50;
+                        this.a.n = 50;
                     } else {
-                        this.f1304a.n = 200;
+                        this.a.n = BdWebPoolView.DELAYED_TIME;
                     }
-                    bd.e("ForumListActivity", "pull down", "left refresh");
-                    new r(this.f1304a, null).execute(new Void[0]);
-                } else if (this.f1304a.c.d.getCurrentItem() == 1) {
-                    z3 = this.f1304a.C;
+                    be.e("ForumListActivity", "pull down", "left refresh");
+                    new r(this.a, null).execute(new Void[0]);
+                } else if (this.a.c.d.getCurrentItem() == 1) {
+                    z3 = this.a.C;
                     if (z3) {
-                        this.f1304a.o = 50;
+                        this.a.o = 50;
                     } else {
-                        this.f1304a.o = 200;
+                        this.a.o = BdWebPoolView.DELAYED_TIME;
                     }
-                    bd.e("ForumListActivity", "pull down", "right refresh");
-                    new q(this.f1304a, null).execute(new Void[0]);
+                    be.e("ForumListActivity", "pull down", "right refresh");
+                    new q(this.a, null).execute(new Void[0]);
                 }
             }
         }

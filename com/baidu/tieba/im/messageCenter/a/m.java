@@ -1,22 +1,33 @@
 package com.baidu.tieba.im.messageCenter.a;
 
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.im.message.Message;
-import com.baidu.tieba.im.message.ResponseNearbyGroupsMessage;
+import com.baidu.tieba.im.message.bk;
+import com.baidu.tieba.im.message.bz;
 /* loaded from: classes.dex */
-public class m extends com.baidu.tieba.im.messageCenter.a {
-    @Override // com.baidu.tieba.im.messageCenter.a
-    public Message a(Message message, com.baidu.tieba.im.b.p pVar) {
-        if (message != null && (message instanceof ResponseNearbyGroupsMessage)) {
-            ResponseNearbyGroupsMessage responseNearbyGroupsMessage = (ResponseNearbyGroupsMessage) message;
-            if (!responseNearbyGroupsMessage.hasError() && (responseNearbyGroupsMessage.getNearbyGroups() == null || responseNearbyGroupsMessage.getNearbyGroups().getOffset() == 0)) {
-                String str = "";
-                if (TiebaApplication.F() != null) {
-                    str = TiebaApplication.F().getID();
-                }
-                com.baidu.tieba.im.b.m.a(com.baidu.tieba.b.a.a().r(), "nearby_group_info" + str, pVar);
-            }
+public class m extends com.baidu.tieba.im.messageCenter.d {
+    @Override // com.baidu.tieba.im.messageCenter.d
+    public bz a(com.baidu.tieba.im.message.n nVar) {
+        bk bkVar;
+        if (nVar == null || !(nVar instanceof com.baidu.tieba.im.message.g)) {
+            return null;
         }
-        return null;
+        String str = "";
+        if (TiebaApplication.F() != null) {
+            str = TiebaApplication.F().getID();
+        }
+        byte[] a = com.baidu.tieba.b.a.a().r().a("p_nearby_group_info" + str);
+        bk bkVar2 = new bk();
+        if (a != null) {
+            try {
+                bkVar = (bk) l.a(103009, a);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            bkVar.e(-115);
+            return bkVar;
+        }
+        bkVar = bkVar2;
+        bkVar.e(-115);
+        return bkVar;
     }
 }

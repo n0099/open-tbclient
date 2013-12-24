@@ -3,16 +3,14 @@ package com.baidu.tieba.data.chat;
 import com.baidu.tieba.im.SingleRunnable;
 /* loaded from: classes.dex */
 class d extends SingleRunnable<Void> {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f1243a;
+    final /* synthetic */ String a;
     final /* synthetic */ int b;
     final /* synthetic */ c c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar, String str, int i) {
         this.c = cVar;
-        this.f1243a = str;
+        this.a = str;
         this.b = i;
     }
 
@@ -20,7 +18,7 @@ class d extends SingleRunnable<Void> {
     @Override // com.baidu.tieba.im.SingleRunnable
     /* renamed from: a */
     public Void b() {
-        this.c.a(this.f1243a, this.b);
+        this.c.a(this.a, this.b);
         return null;
     }
 }

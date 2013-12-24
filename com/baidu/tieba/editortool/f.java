@@ -7,29 +7,27 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements bq {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FaceView f1277a;
+    final /* synthetic */ FaceView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(FaceView faceView) {
-        this.f1277a = faceView;
+        this.a = faceView;
     }
 
     @Override // android.support.v4.view.bq
     public void onPageSelected(int i) {
         ArrayList arrayList;
         ArrayList arrayList2;
-        this.f1277a.f1270a = i;
-        this.f1277a.a(i);
-        arrayList = this.f1277a.e;
+        this.a.a = i;
+        this.a.a(i);
+        arrayList = this.a.e;
         if (i == arrayList.size() - 1 || i == 0) {
             if (i == 0) {
-                this.f1277a.setCurrentItem(1);
+                this.a.setCurrentItem(1);
                 return;
             }
-            this.f1277a.setCurrentItem(i - 1);
-            arrayList2 = this.f1277a.f;
+            this.a.setCurrentItem(i - 1);
+            arrayList2 = this.a.f;
             ((ImageView) arrayList2.get(i - 1)).setBackgroundResource(R.drawable.dot_pb_expression_s);
         }
     }

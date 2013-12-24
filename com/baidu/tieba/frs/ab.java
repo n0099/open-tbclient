@@ -6,13 +6,11 @@ import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ab extends com.baidu.adp.a.g {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsActivity f1361a;
+    final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(FrsActivity frsActivity) {
-        this.f1361a = frsActivity;
+        this.a = frsActivity;
     }
 
     @Override // com.baidu.adp.a.g
@@ -33,44 +31,44 @@ public class ab extends com.baidu.adp.a.g {
         com.baidu.tieba.model.ak akVar5;
         boolean z = false;
         if (obj != null && (obj instanceof com.baidu.tieba.data.af)) {
-            com.baidu.tieba.model.z a2 = com.baidu.tieba.model.z.a();
-            str4 = this.f1361a.f;
-            a2.b(str4);
+            com.baidu.tieba.model.z a = com.baidu.tieba.model.z.a();
+            str4 = this.a.f;
+            a.b(str4);
             ((com.baidu.tieba.data.af) obj).b(1);
-            akVar5 = this.f1361a.w;
+            akVar5 = this.a.w;
             akVar5.a((com.baidu.tieba.data.af) obj);
             z = true;
         }
         if (z) {
-            str = this.f1361a.C;
+            str = this.a.C;
             if (str.equals("normal_page")) {
-                bnVar4 = this.f1361a.n;
-                akVar3 = this.f1361a.w;
-                ForumData a3 = akVar3.a();
-                akVar4 = this.f1361a.w;
-                bnVar4.b(1, a3, akVar4, true);
+                bnVar4 = this.a.n;
+                akVar3 = this.a.w;
+                ForumData a2 = akVar3.a();
+                akVar4 = this.a.w;
+                bnVar4.b(1, a2, akVar4, true);
             } else {
-                str2 = this.f1361a.C;
+                str2 = this.a.C;
                 if (str2.equals("frs_page")) {
-                    bnVar2 = this.f1361a.n;
-                    akVar = this.f1361a.w;
-                    ForumData a4 = akVar.a();
-                    akVar2 = this.f1361a.w;
-                    bnVar2.a(1, a4, akVar2, true);
+                    bnVar2 = this.a.n;
+                    akVar = this.a.w;
+                    ForumData a3 = akVar.a();
+                    akVar2 = this.a.w;
+                    bnVar2.a(1, a3, akVar2, true);
                 }
             }
-            bnVar3 = this.f1361a.n;
-            bnVar3.a(this.f1361a.getString(R.string.like_success));
+            bnVar3 = this.a.n;
+            bnVar3.a(this.a.getString(R.string.like_success));
             TiebaApplication h = TiebaApplication.h();
-            str3 = this.f1361a.f;
+            str3 = this.a.f;
             h.f(str3);
             return;
         }
-        axVar = this.f1361a.x;
+        axVar = this.a.x;
         if (axVar.getErrorCode() == 22) {
         }
-        bnVar = this.f1361a.n;
-        bnVar.a(this.f1361a.getString(R.string.had_liked_forum));
-        this.f1361a.A();
+        bnVar = this.a.n;
+        bnVar.a(this.a.getString(R.string.had_liked_forum));
+        this.a.A();
     }
 }

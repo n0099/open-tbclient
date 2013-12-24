@@ -68,9 +68,9 @@ import android.widget.ZoomButtonsController;
 import android.widget.ZoomControls;
 import com.baidu.browser.core.util.BdUtil;
 import com.baidu.browser.explorer.BdWebErrorView;
+import com.baidu.browser.webpool.BdWebPoolView;
 import com.baidu.cloudsdk.common.imgloader.ImageManager;
 import com.baidu.cloudsdk.social.core.SocialConstants;
-import com.baidu.cyberplayer.sdk.BVideoView;
 import com.baidu.location.BDLocation;
 import com.baidu.location.LocationClientOption;
 import com.baidu.zeus.ViewManager;
@@ -78,7 +78,6 @@ import com.baidu.zeus.WebSettings;
 import com.baidu.zeus.WebTextView;
 import com.baidu.zeus.WebViewCore;
 import com.baidu.zeus.bouncycastle.DERTags;
-import com.tencent.mm.sdk.platformtools.Util;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -93,6 +92,7 @@ import java.util.Set;
 import java.util.TimerTask;
 import java.util.Vector;
 import junit.framework.Assert;
+import protobuf.Im;
 /* loaded from: classes.dex */
 public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChangeListener, ViewTreeObserver.OnGlobalFocusChangeListener {
     private static final boolean AUTO_REDRAW_HACK = false;
@@ -103,7 +103,6 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
     private static float DEFAULT_MAX_ZOOM_SCALE = 0.0f;
     private static float DEFAULT_MIN_ZOOM_SCALE = 0.0f;
     static int DEFAULT_SCALE_PERCENT = 0;
-    static final int DEFAULT_VIEWPORT_WIDTH = 800;
     static final int DOM_FOCUS_CHANGED = 122;
     private static final boolean DOUBLE_DELAY_DEBUG = false;
     static final int DO_MOTION_UP = 119;
@@ -541,7 +540,8 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
     private static float PREVIEW_SCALE_INCREMENT = 0.01f;
     static final String[] HandlerPrivateDebugString = {"REMEMBER_PASSWORD", "NEVER_REMEMBER_PASSWORD", "SWITCH_TO_SHORTPRESS", "SWITCH_TO_LONGPRESS", "RELEASE_SINGLE_TAP", "REQUEST_FORM_DATA", "RESUME_WEBCORE_PRIORITY", "DRAG_HELD_MOTIONLESS", "AWAKEN_SCROLL_BARS", "PREVENT_DEFAULT_TIMEOUT", "DO_REAL_SETENDSCALE", "DO_REAL_SHOWSOFTKB", "DO_REAL_SPLITCONTENT", "EDIT_TEXT_DELAY_SEND_TO_WEBCORE", "SCROLL_SELECT_TEXT", "PRECESS_SINGLE_TAP"};
     static final String[] HandlerPackageDebugString = {"SCROLL_TO_MSG_ID", "SCROLL_BY_MSG_ID", "SPAWN_SCROLL_TO_MSG_ID", "SYNC_SCROLL_TO_MSG_ID", "NEW_PICTURE_MSG_ID", "UPDATE_TEXT_ENTRY_MSG_ID", "WEBCORE_INITIALIZED_MSG_ID", "UPDATE_TEXTFIELD_TEXT_MSG_ID", "UPDATE_ZOOM_RANGE", "MOVE_OUT_OF_PLUGIN", "CLEAR_TEXT_ENTRY", "UPDATE_TEXT_SELECTION_MSG_ID", "SHOW_RECT_MSG_ID", "LONG_PRESS_CENTER", "PREVENT_TOUCH_ID", "WEBCORE_NEED_TOUCH_EVENTS", "INVAL_RECT_MSG_ID", "REQUEST_KEYBOARD", "DO_MOTION_UP", "SHOW_FULLSCREEN", "HIDE_FULLSCREEN", "DOM_FOCUS_CHANGED", "IMMEDIATE_REPAINT_MSG_ID", "SET_ROOT_LAYER_MSG_ID", "RETURN_LABEL", "FIND_AGAIN", "CENTER_FIT_RECT", "REQUEST_KEYBOARD_WITH_SELECTION_MSG_ID", "SET_SCROLLBAR_MODES", "FIRST_LAYOUT_MSG_ID", "FOCUSED_INPUT_BOUNDS_CHANGED", "SEND_CAPTURE_SCALE_PIC", "REQUEST_KEYBOARD_WITH_SELECTION_EXT", "SET_TOUCH_HIGHLIGHT_RECTS"};
-    static int sMaxViewportWidth = 800;
+    static final int DEFAULT_VIEWPORT_WIDTH = 800;
+    static int sMaxViewportWidth = DEFAULT_VIEWPORT_WIDTH;
     private static float fakeMaxZoomScale = 3.0f;
     private static float MINIMUM_SCALE_INCREMENT = 0.04f;
     static boolean mLogEvent = true;
@@ -558,10 +558,10 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
     private static boolean notifyCient = true;
     private static int mSubjectClickDrawableId = 0;
     private static final int SUBJECT_RING_COLOR = Color.argb(117, 182, 198, 216);
-    private static final int SUBJECT_RING_COLOR_CLICK_DAY = Color.argb((int) Util.MASK_8BIT, 182, 198, 216);
+    private static final int SUBJECT_RING_COLOR_CLICK_DAY = Color.argb(255, 182, 198, 216);
     private static final int SUBJECT_RING_COLOR_CLICK_NIGHT = Color.argb(176, 182, 198, 216);
-    private static final int SUBJECT_SHADOW_COLOR_NORMAL = Color.argb((int) Util.MASK_8BIT, (int) Util.MASK_8BIT, 202, 0);
-    private static final int SUBJECT_SHADOW_COLOR_CLICK = Color.argb((int) Util.MASK_8BIT, (int) Util.MASK_8BIT, 86, 0);
+    private static final int SUBJECT_SHADOW_COLOR_NORMAL = Color.argb(255, 255, 202, 0);
+    private static final int SUBJECT_SHADOW_COLOR_CLICK = Color.argb(255, 255, 86, 0);
     private static final int SUBJECT_SHADLE_COLOR = Color.argb(160, 55, 58, 62);
     private static int mLastSubjectClickIndex = -1;
 
@@ -1177,7 +1177,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
         this.mMinZoomScaleFixed = true;
         this.mInitialScaleInPercent = 0;
         this.mInZoomOverview = false;
-        this.mZoomOverviewWidth = 800;
+        this.mZoomOverviewWidth = DEFAULT_VIEWPORT_WIDTH;
         this.mZoomState = ZoomState.ZoomDefault;
         this.mPreviewZoomOnly = false;
         this.mFirstAnimateOut = false;
@@ -1341,7 +1341,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
                         str = "10.0.0.172";
                         i2 = 80;
                     } else if (lowerCase.startsWith("ctwap")) {
-                        str = "10.0.0.200";
+                        str = PROXY_HOST_CTWAP;
                         i2 = 80;
                     } else if (lowerCase.startsWith("cmnet") || lowerCase.startsWith("uninet") || lowerCase.startsWith("ctnet") || lowerCase.startsWith("3gnet")) {
                         str = null;
@@ -1361,9 +1361,9 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
                                 if ("10.0.0.172".equals(string2.trim())) {
                                     i = 80;
                                     str2 = "10.0.0.172";
-                                } else if ("10.0.0.200".equals(string2.trim())) {
+                                } else if (PROXY_HOST_CTWAP.equals(string2.trim())) {
                                     i = 80;
-                                    str2 = "10.0.0.200";
+                                    str2 = PROXY_HOST_CTWAP;
                                 }
                                 query.close();
                             } else if (string != null && string.length() > 0) {
@@ -1373,7 +1373,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
                                     str2 = "10.0.0.172";
                                 } else if (upperCase.equals("CTWAP")) {
                                     i = 80;
-                                    str2 = "10.0.0.200";
+                                    str2 = PROXY_HOST_CTWAP;
                                 } else if (string3 != null && string3.toUpperCase().startsWith("CMWAP")) {
                                     i = 80;
                                     str2 = "10.0.0.172";
@@ -2292,7 +2292,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
                 this.m_ExitFullScreen = true;
                 onPause();
             }
-            this.mWebViewCore.sendMessage(BVideoView.MEDIA_ERROR_INVALID_INPUTFILE);
+            this.mWebViewCore.sendMessage(302);
         }
     }
 
@@ -2907,7 +2907,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
     }
 
     public WebBackForwardList copyBackForwardList() {
-        return this.mCallbackProxy.getBackForwardList().m266clone();
+        return this.mCallbackProxy.getBackForwardList().m250clone();
     }
 
     public void findNext(boolean z) {
@@ -3717,7 +3717,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
     }
 
     private void removeTouchHighlight() {
-        this.mWebViewCore.removeMessages(BVideoView.MEDIA_ERROR_NO_INPUTFILE);
+        this.mWebViewCore.removeMessages(301);
         this.mPrivateHandler.removeMessages(SET_TOUCH_HIGHLIGHT_RECTS);
         setTouchHighlightRects(null);
     }
@@ -5352,7 +5352,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
             this.mXY[0] = this.mCurrStretchX;
             this.mXY[1] = this.mCurrStretchY;
             this.mInterp.setKeyFrame(0, uptimeMillis, this.mXY, new float[]{0.0f, 0.5f, 0.75f, 1.0f});
-            this.mInterp.setKeyFrame(1, uptimeMillis + 200, new float[]{0.0f, 0.0f}, null);
+            this.mInterp.setKeyFrame(1, uptimeMillis + BdWebPoolView.DELAYED_TIME, new float[]{0.0f, 0.0f}, null);
             this.mState = 1;
         }
 
@@ -5640,7 +5640,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
                     }
                     x = this.mScaleDetector.getFocusX();
                     y = this.mScaleDetector.getFocusY();
-                    int action = motionEvent.getAction() & Util.MASK_8BIT;
+                    int action = motionEvent.getAction() & 255;
                     if (action == 5) {
                         cancelTouch();
                         i = 0;
@@ -6519,7 +6519,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
         int i;
         int i2 = (int) (this.mTrackballLastTime - this.mTrackballFirstTime);
         if (i2 == 0) {
-            i2 = 200;
+            i2 = BdWebPoolView.DELAYED_TIME;
         }
         float f = (this.mTrackballRemainsX * 1000.0f) / i2;
         float f2 = (this.mTrackballRemainsY * 1000.0f) / i2;
@@ -7548,7 +7548,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
 
         private void handleQueuedMotionEvent(MotionEvent motionEvent) {
             this.mLastEventTime = motionEvent.getEventTime();
-            int action = motionEvent.getAction() & Util.MASK_8BIT;
+            int action = motionEvent.getAction() & 255;
             if (motionEvent.getPointerCount() <= 1) {
                 ScaleGestureDetector scaleGestureDetector = WebView.this.mScaleDetector;
                 if (scaleGestureDetector != null && WebView.this.mPreventDefault != 3) {
@@ -7848,15 +7848,15 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
                     case 20:
                     case 21:
                     case 22:
-                    case DERTags.UTC_TIME /* 23 */:
+                    case 23:
                     case 24:
-                    case DERTags.GRAPHIC_STRING /* 25 */:
-                    case DERTags.VISIBLE_STRING /* 26 */:
-                    case DERTags.GENERAL_STRING /* 27 */:
-                    case DERTags.UNIVERSAL_STRING /* 28 */:
-                    case 29:
-                    case DERTags.BMP_STRING /* 30 */:
-                    case 31:
+                    case 25:
+                    case 26:
+                    case 27:
+                    case 28:
+                    case Im.GroupInfo.AUTHORISMEIZHI_FIELD_NUMBER /* 29 */:
+                    case 30:
+                    case Im.GroupInfo.FORUMSHOWNAME_FIELD_NUMBER /* 31 */:
                     case 32:
                     case 33:
                     case 34:
@@ -7889,7 +7889,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
                     case BDLocation.TypeGpsLocation /* 61 */:
                     case BDLocation.TypeCriteriaException /* 62 */:
                     case BDLocation.TypeNetWorkException /* 63 */:
-                    case 64:
+                    case DERTags.APPLICATION /* 64 */:
                     case BDLocation.TypeCacheLocation /* 65 */:
                     case BDLocation.TypeOffLineLocation /* 66 */:
                     case BDLocation.TypeOffLineLocationFail /* 67 */:
@@ -8246,7 +8246,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
                             return;
                         }
                         return;
-                    case 127:
+                    case WebView.CENTER_FIT_RECT /* 127 */:
                         Rect rect2 = (Rect) message.obj;
                         WebView.this.mInZoomOverview = false;
                         WebView.this.centerFitRect(rect2.left, rect2.top, rect2.width(), rect2.height());
@@ -9037,7 +9037,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
                 });
             }
             AlertDialog create = inverseBackgroundForced.create();
-            create.getWindow().setFlags(1024, 1024);
+            create.getWindow().setFlags(NotificationProxy.MAX_URL_LENGTH, NotificationProxy.MAX_URL_LENGTH);
             create.setOnCancelListener(new DialogInterface.OnCancelListener() { // from class: com.baidu.zeus.WebView.InvokeListBox.9
                 @Override // android.content.DialogInterface.OnCancelListener
                 public void onCancel(DialogInterface dialogInterface) {
@@ -9175,7 +9175,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
     }
 
     private void sendMoveFocus(int i, int i2) {
-        this.mWebViewCore.sendMessage(127, new WebViewCore.CursorData(i, i2, 0, 0));
+        this.mWebViewCore.sendMessage(CENTER_FIT_RECT, new WebViewCore.CursorData(i, i2, 0, 0));
     }
 
     private void sendMoveMouse(int i, int i2, int i3, int i4) {

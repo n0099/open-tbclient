@@ -1,36 +1,66 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import android.support.v4.view.ViewPager;
+import android.view.View;
+import android.view.ViewGroup;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
-class ag extends BdAsyncTask<String, Integer, Boolean> {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ GuideActivity f1113a;
+class ag extends android.support.v4.view.ae {
+    final /* synthetic */ GuideActivity a;
 
     private ag(GuideActivity guideActivity) {
-        this.f1113a = guideActivity;
+        this.a = guideActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ag(GuideActivity guideActivity, ab abVar) {
+    public /* synthetic */ ag(GuideActivity guideActivity, aa aaVar) {
         this(guideActivity);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public Boolean a(String... strArr) {
-        boolean c;
-        c = this.f1113a.c();
-        return Boolean.valueOf(c);
+    @Override // android.support.v4.view.ae
+    public int getCount() {
+        int[] iArr;
+        iArr = this.a.f;
+        return iArr.length + 1;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(Boolean bool) {
-        if (!bool.booleanValue()) {
-            this.f1113a.b();
+    @Override // android.support.v4.view.ae
+    public Object instantiateItem(View view, int i) {
+        ArrayList arrayList;
+        ArrayList arrayList2;
+        ArrayList arrayList3;
+        ArrayList arrayList4;
+        ArrayList arrayList5;
+        arrayList = this.a.g;
+        if (i < arrayList.size()) {
+            arrayList2 = this.a.g;
+            ((ViewPager) view).addView((View) arrayList2.get(i), 0);
+            arrayList3 = this.a.g;
+            if (i == arrayList3.size() - 1) {
+                arrayList5 = this.a.g;
+                ((View) arrayList5.get(i)).setOnClickListener(this.a.d);
+            }
+            arrayList4 = this.a.g;
+            return arrayList4.get(i);
         }
+        View view2 = new View(this.a);
+        view2.setBackgroundColor(-1);
+        ((ViewPager) view).addView(view2, 0);
+        return view2;
+    }
+
+    @Override // android.support.v4.view.ae
+    public void destroyItem(View view, int i, Object obj) {
+        ((ViewPager) view).removeView((View) obj);
+    }
+
+    @Override // android.support.v4.view.ae
+    public boolean isViewFromObject(View view, Object obj) {
+        return view == obj;
+    }
+
+    @Override // android.support.v4.view.ae
+    public void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
+        super.setPrimaryItem(viewGroup, i, obj);
     }
 }

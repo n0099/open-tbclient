@@ -51,7 +51,7 @@ public class HeadImageView extends TbImageView {
         this.p = 0;
         this.q = 0;
         this.r = false;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.baidu.tieba.au.HeadImageView);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.baidu.tieba.at.HeadImageView);
         this.k = obtainStyledAttributes.getFloat(0, -1.0f);
         obtainStyledAttributes.recycle();
         this.j = com.baidu.adp.lib.h.g.a(context, 5.0f);
@@ -68,7 +68,7 @@ public class HeadImageView extends TbImageView {
         this.f = new Paint();
         this.f.setColor(1275068416);
         this.f.setAntiAlias(true);
-        TypedArray obtainStyledAttributes2 = context.obtainStyledAttributes(attributeSet, com.baidu.tieba.au.HeadImageView);
+        TypedArray obtainStyledAttributes2 = context.obtainStyledAttributes(attributeSet, com.baidu.tieba.at.HeadImageView);
         this.n = obtainStyledAttributes2.getBoolean(1, true);
         if (this.n) {
             setIsRound(this.o);
@@ -153,7 +153,7 @@ public class HeadImageView extends TbImageView {
         }
     }
 
-    public void d() {
+    public void e() {
         if (this.l) {
             if (this.b != TiebaApplication.h().an()) {
                 invalidate();
@@ -167,7 +167,7 @@ public class HeadImageView extends TbImageView {
         super.onDraw(canvas);
         if (this.l) {
             int an = TiebaApplication.h().an();
-            if (e()) {
+            if (f()) {
                 canvas.drawRoundRect(this.g, this.j, this.j, this.e);
                 if (this.r && an == 1) {
                     canvas.drawRoundRect(this.h, this.j, this.j, this.f);
@@ -177,7 +177,7 @@ public class HeadImageView extends TbImageView {
         }
     }
 
-    public boolean e() {
+    public boolean f() {
         return this.m;
     }
 

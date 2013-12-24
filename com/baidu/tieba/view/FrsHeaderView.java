@@ -15,7 +15,6 @@ import android.widget.PopupWindow;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.cyberplayer.sdk.internal.VersionUtils;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.ForumData;
 import com.baidu.tieba.data.IconData;
@@ -80,9 +79,7 @@ public class FrsHeaderView {
     private String M = null;
     private com.baidu.tieba.model.ak N = null;
     private boolean O = false;
-
-    /* renamed from: a  reason: collision with root package name */
-    com.baidu.tieba.data.az f2630a = null;
+    com.baidu.tieba.data.az a = null;
     private float W = 0.0f;
     private float X = 0.0f;
     private boolean Y = false;
@@ -191,7 +188,7 @@ public class FrsHeaderView {
     }
 
     public com.baidu.tieba.data.az b() {
-        return this.f2630a;
+        return this.a;
     }
 
     public void a(int i) {
@@ -209,24 +206,24 @@ public class FrsHeaderView {
         if (i == 1) {
             this.w.setBackgroundColor(this.E.getResources().getColor(R.color.frs_header_bg_1));
             if (this.J >= 0 && this.J < b.length) {
-                com.baidu.tieba.util.ba.e((View) this.R, c[this.J]);
+                com.baidu.tieba.util.bb.e((View) this.R, c[this.J]);
             }
             this.j.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_like_1, 0, 0, 0);
             this.m.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_sign_1, 0, 0, 0);
             this.j.setShadowLayer(1.0f, 0.0f, 1.0f, this.E.getResources().getColor(R.color.frs_like_shadow_1));
             this.m.setShadowLayer(1.0f, 0.0f, 1.0f, this.E.getResources().getColor(R.color.frs_sign_shadow_1));
-            com.baidu.tieba.util.ba.e(this.ag, (int) R.drawable.icon_arrow_right_1);
+            com.baidu.tieba.util.bb.e(this.ag, (int) R.drawable.icon_arrow_right_1);
             return;
         }
         this.w.setBackgroundColor(this.E.getResources().getColor(R.color.frs_header_bg));
         if (this.J >= 0 && this.J < b.length) {
-            com.baidu.tieba.util.ba.e((View) this.R, b[this.J]);
+            com.baidu.tieba.util.bb.e((View) this.R, b[this.J]);
         }
         this.j.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_like, 0, 0, 0);
         this.m.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_sign, 0, 0, 0);
         this.j.setShadowLayer(1.0f, 0.0f, 1.0f, this.E.getResources().getColor(R.color.frs_like_shadow));
         this.m.setShadowLayer(1.0f, 0.0f, 1.0f, this.E.getResources().getColor(R.color.frs_sign_shadow));
-        com.baidu.tieba.util.ba.e(this.ag, (int) R.drawable.icon_arrow_right);
+        com.baidu.tieba.util.bb.e(this.ag, (int) R.drawable.icon_arrow_right);
     }
 
     public View c() {
@@ -249,11 +246,11 @@ public class FrsHeaderView {
         this.ak = forumData.getBadgeData();
         this.N = akVar;
         this.v.setVisibility(0);
-        this.f2630a = new com.baidu.tieba.data.az();
+        this.a = new com.baidu.tieba.data.az();
         com.baidu.tieba.data.ai aiVar = new com.baidu.tieba.data.ai();
         aiVar.a(3);
         aiVar.a(this.M);
-        this.f2630a.p().add(aiVar);
+        this.a.p().add(aiVar);
         i();
     }
 
@@ -279,9 +276,9 @@ public class FrsHeaderView {
                 this.J = Integer.parseInt(this.L);
                 if (this.J >= 0 && this.J < b.length) {
                     if (TiebaApplication.h().an() == 1) {
-                        com.baidu.tieba.util.ba.e((View) this.R, c[this.J]);
+                        com.baidu.tieba.util.bb.e((View) this.R, c[this.J]);
                     } else {
-                        com.baidu.tieba.util.ba.e((View) this.R, b[this.J]);
+                        com.baidu.tieba.util.bb.e((View) this.R, b[this.J]);
                     }
                 }
             }
@@ -313,7 +310,7 @@ public class FrsHeaderView {
         this.P.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
         this.P.setTag(this.M);
         if (this.ah != null && this.ak != null && this.ak.size() > 0) {
-            LinkedList<IconData> linkedList = new LinkedList<>();
+            LinkedList linkedList = new LinkedList();
             while (true) {
                 int i2 = i;
                 if (i2 < this.ak.size()) {
@@ -363,8 +360,8 @@ public class FrsHeaderView {
         }
         this.D.setVisibility(0);
         if (this.V >= 10000) {
-            if (this.V % VersionUtils.CUR_DEVELOPMENT == 0) {
-                this.D.setText(this.E.getString(R.string.experience_divider) + String.valueOf(this.V / VersionUtils.CUR_DEVELOPMENT) + this.E.getString(R.string.member_count_unit));
+            if (this.V % 10000 == 0) {
+                this.D.setText(this.E.getString(R.string.experience_divider) + String.valueOf(this.V / 10000) + this.E.getString(R.string.member_count_unit));
                 return;
             } else {
                 this.D.setText(this.E.getString(R.string.experience_divider) + String.valueOf(this.V / 10000.0f) + this.E.getString(R.string.member_count_unit));
@@ -407,8 +404,8 @@ public class FrsHeaderView {
     private void b(boolean z) {
         int width;
         float f = 0.0f;
-        Bitmap a2 = com.baidu.tieba.util.m.a((int) R.drawable.bg_frs_signin_bar_down);
-        if (a2 != null && (width = a2.getWidth()) > 0) {
+        Bitmap a = com.baidu.tieba.util.m.a((int) R.drawable.bg_frs_signin_bar_down);
+        if (a != null && (width = a.getWidth()) > 0) {
             if (z) {
                 this.r.setText(R.string.level_up);
                 this.s.setText(String.valueOf(this.T + 1));

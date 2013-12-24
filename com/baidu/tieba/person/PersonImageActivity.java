@@ -14,9 +14,7 @@ import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class PersonImageActivity extends com.baidu.tieba.j {
-
-    /* renamed from: a  reason: collision with root package name */
-    private ProgressBar f2296a = null;
+    private ProgressBar a = null;
     private bd b = null;
     private MultiImageView c = null;
     private View.OnClickListener d = null;
@@ -56,7 +54,7 @@ public class PersonImageActivity extends com.baidu.tieba.j {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (i == 1) {
-            this.c.setBackgroundColor(com.baidu.tieba.util.ba.d(i));
+            this.c.setBackgroundColor(com.baidu.tieba.util.bb.d(i));
         } else {
             this.c.setBackgroundColor(-16777216);
         }
@@ -90,8 +88,8 @@ public class PersonImageActivity extends com.baidu.tieba.j {
             this.b.cancel();
             this.b = null;
         }
-        if (this.f2296a != null) {
-            this.f2296a.setVisibility(8);
+        if (this.a != null) {
+            this.a.setVisibility(8);
         }
         super.onDestroy();
     }
@@ -110,7 +108,7 @@ public class PersonImageActivity extends com.baidu.tieba.j {
         this.e = new ba(this);
         this.f = new bb(this);
         this.g = new bc(this);
-        this.f2296a = (ProgressBar) findViewById(R.id.progress);
+        this.a = (ProgressBar) findViewById(R.id.progress);
         this.c = (MultiImageView) findViewById(R.id.viewpager);
         this.c.setPageMargin(com.baidu.adp.lib.h.g.a((Context) this, 8.0f));
         this.c.a(2, com.baidu.tieba.data.h.i() * com.baidu.tieba.data.h.i());

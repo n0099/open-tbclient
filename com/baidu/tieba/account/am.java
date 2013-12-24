@@ -1,19 +1,18 @@
 package com.baidu.tieba.account;
 
 import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class am implements View.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ReLoginActivity f1049a;
+public class am implements View.OnClickListener {
+    final /* synthetic */ LoginActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public am(ReLoginActivity reLoginActivity) {
-        this.f1049a = reLoginActivity;
+    public am(LoginActivity loginActivity) {
+        this.a = loginActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.f1049a.finish();
+        this.a.g();
     }
 }

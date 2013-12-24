@@ -7,13 +7,10 @@ import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.os.Handler;
 import com.baidu.zeus.Headers;
-import com.tencent.mm.sdk.platformtools.Util;
 /* loaded from: classes.dex */
 public class PositionManager {
     public static PositionManager mInstance;
-
-    /* renamed from: a  reason: collision with root package name */
-    private LocationManager f848a;
+    private LocationManager a;
     private Location b;
     private a c;
     private boolean d;
@@ -54,7 +51,7 @@ public class PositionManager {
         public void onPostExecute(Boolean bool) {
             PositionManager.this.d = false;
             if (this.d != null) {
-                PositionManager.this.f848a.removeUpdates(this.d);
+                PositionManager.this.a.removeUpdates(this.d);
             }
             if (this.c != null) {
                 if (PositionManager.b(PositionManager.this.b)) {
@@ -69,7 +66,7 @@ public class PositionManager {
         protected void onCancelled() {
             PositionManager.this.d = false;
             if (this.d != null) {
-                PositionManager.this.f848a.removeUpdates(this.d);
+                PositionManager.this.a.removeUpdates(this.d);
             }
             if (this.c != null) {
                 this.c.onFailed();
@@ -79,18 +76,18 @@ public class PositionManager {
         @Override // android.os.AsyncTask
         protected void onPreExecute() {
             PositionManager.this.d = true;
-            PositionManager.this.f848a.requestLocationUpdates(this.b, 10000L, 0.0f, this.d);
+            PositionManager.this.a.requestLocationUpdates(this.b, 10000L, 0.0f, this.d);
         }
     }
 
     private PositionManager(Context context) {
         Validator.notNull(context, "context");
-        this.f848a = (LocationManager) context.getSystemService(Headers.LOCATION);
+        this.a = (LocationManager) context.getSystemService(Headers.LOCATION);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static boolean b(Location location) {
-        return location != null && System.currentTimeMillis() - location.getTime() < Util.MILLSECONDS_OF_MINUTE;
+        return location != null && System.currentTimeMillis() - location.getTime() < 60000;
     }
 
     public static PositionManager getInstance(Context context) {
@@ -110,18 +107,18 @@ public class PositionManager {
         Location location2;
         boolean z2;
         Location location3 = this.b;
-        if (b(location3) || !this.f848a.isProviderEnabled("network")) {
+        if (b(location3) || !this.a.isProviderEnabled("network")) {
             location = location3;
             z = false;
         } else {
-            location = this.f848a.getLastKnownLocation("network");
+            location = this.a.getLastKnownLocation("network");
             z = true;
         }
-        if (b(location) || !this.f848a.isProviderEnabled("gps")) {
+        if (b(location) || !this.a.isProviderEnabled("gps")) {
             location2 = location;
             z2 = false;
         } else {
-            location2 = this.f848a.getLastKnownLocation("gps");
+            location2 = this.a.getLastKnownLocation("gps");
             z2 = true;
         }
         if (b(location2)) {

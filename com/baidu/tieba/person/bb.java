@@ -8,13 +8,11 @@ import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bb implements DialogInterface.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PersonImageActivity f2328a;
+    final /* synthetic */ PersonImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bb(PersonImageActivity personImageActivity) {
-        this.f2328a = personImageActivity;
+        this.a = personImageActivity;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -24,23 +22,23 @@ public class bb implements DialogInterface.OnClickListener {
         MultiImageView multiImageView2;
         bd bdVar;
         ProgressBar progressBar;
-        listMenu = this.f2328a.getListMenu();
+        listMenu = this.a.getListMenu();
         if (dialogInterface == listMenu) {
             switch (i) {
                 case 0:
                     try {
-                        multiImageView = this.f2328a.c;
+                        multiImageView = this.a.c;
                         byte[] currentImageData = multiImageView.getCurrentImageData();
                         if (currentImageData != null) {
-                            multiImageView2 = this.f2328a.c;
+                            multiImageView2 = this.a.c;
                             String currentImageUrl = multiImageView2.getCurrentImageUrl();
-                            this.f2328a.b = new bd(this.f2328a, currentImageUrl, currentImageData);
-                            bdVar = this.f2328a.b;
+                            this.a.b = new bd(this.a, currentImageUrl, currentImageData);
+                            bdVar = this.a.b;
                             bdVar.execute(new String[0]);
-                            progressBar = this.f2328a.f2296a;
+                            progressBar = this.a.a;
                             progressBar.setVisibility(0);
                         } else {
-                            this.f2328a.showToast(this.f2328a.getString(R.string.no_data));
+                            this.a.showToast(this.a.getString(R.string.no_data));
                         }
                         return;
                     } catch (Exception e) {

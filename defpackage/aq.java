@@ -22,9 +22,7 @@ import java.util.Map;
 /* renamed from: aq  reason: default package */
 /* loaded from: classes.dex */
 public class aq implements ISocialShareHandler {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static final String f362a = aq.class.getSimpleName();
+    private static final String a = aq.class.getSimpleName();
     private static Map b = new HashMap();
     private static Map c = new HashMap();
     private Context d;
@@ -65,12 +63,12 @@ public class aq implements ISocialShareHandler {
     }
 
     private void a(Bundle bundle) {
-        Log.d(f362a, "sendMessage to weixin");
+        Log.d(a, "sendMessage to weixin");
         Weixin.addBaseRequestParams(bundle, this.h, this.f);
         if (this.g.sendRequest(bundle)) {
             return;
         }
-        Log.e(f362a, "sendMessage error");
+        Log.e(a, "sendMessage error");
         IBaiduListener a2 = a(this.h);
         b(this.h);
         a2.onError(new BaiduException("failed to start weixin app"));

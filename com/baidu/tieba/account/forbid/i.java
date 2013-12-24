@@ -2,17 +2,14 @@ package com.baidu.tieba.account.forbid;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.gson.GsonBuilder;
-import com.baidu.tieba.util.am;
-import com.baidu.tieba.util.bb;
-import com.baidu.tieba.util.bd;
-import com.tencent.mm.sdk.platformtools.LBSManager;
+import com.baidu.tieba.util.an;
+import com.baidu.tieba.util.bc;
+import com.baidu.tieba.util.be;
 import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i extends BdAsyncTask<String, Object, ForbidResultData> {
-
-    /* renamed from: a  reason: collision with root package name */
-    private String f1088a;
+    private String a;
     private String b;
     private String c;
     private String d;
@@ -21,7 +18,7 @@ public class i extends BdAsyncTask<String, Object, ForbidResultData> {
     private WeakReference<j> g;
 
     public i(String str, String str2, String str3, String str4, String str5, String str6, j jVar) {
-        this.f1088a = str;
+        this.a = str;
         this.b = str2;
         this.c = str3;
         this.d = str4;
@@ -36,30 +33,30 @@ public class i extends BdAsyncTask<String, Object, ForbidResultData> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public ForbidResultData a(String... strArr) {
         String str;
-        str = h.f1087a;
-        am amVar = new am(str);
-        amVar.a("day", this.e);
-        amVar.a("un", this.d);
-        amVar.a("fid", this.f1088a);
-        amVar.a("word", this.b);
-        amVar.a("z", this.c);
-        amVar.a("reason", this.f);
-        amVar.a("ntn", "banid");
-        amVar.e(true);
-        String l = amVar.l();
-        if (amVar.c()) {
+        str = h.a;
+        an anVar = new an(str);
+        anVar.a("day", this.e);
+        anVar.a("un", this.d);
+        anVar.a("fid", this.a);
+        anVar.a("word", this.b);
+        anVar.a("z", this.c);
+        anVar.a("reason", this.f);
+        anVar.a("ntn", "banid");
+        anVar.e(true);
+        String l = anVar.l();
+        if (anVar.c()) {
             try {
                 return (ForbidResultData) new GsonBuilder().create().fromJson(l, (Class<Object>) ForbidResultData.class);
             } catch (Exception e) {
-                bd.b("ForbidPostModel", "doInBackground", e.getMessage());
+                be.b("ForbidPostModel", "doInBackground", e.getMessage());
                 ForbidResultData forbidResultData = new ForbidResultData();
-                forbidResultData.errNo = LBSManager.INVALID_ACC;
+                forbidResultData.errNo = -1000;
                 return forbidResultData;
             }
         }
         ForbidResultData forbidResultData2 = new ForbidResultData();
-        forbidResultData2.errNo = amVar.e();
-        forbidResultData2.errMsg = amVar.i();
+        forbidResultData2.errNo = anVar.e();
+        forbidResultData2.errMsg = anVar.i();
         return forbidResultData2;
     }
 
@@ -70,7 +67,7 @@ public class i extends BdAsyncTask<String, Object, ForbidResultData> {
         super.a((i) forbidResultData);
         j jVar = this.g.get();
         if (jVar != null) {
-            if (forbidResultData.errNo == 0 && bb.c(forbidResultData.errMsg)) {
+            if (forbidResultData.errNo == 0 && bc.c(forbidResultData.errMsg)) {
                 jVar.a(forbidResultData);
             } else {
                 jVar.b(forbidResultData);

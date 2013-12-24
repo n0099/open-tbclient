@@ -2,9 +2,10 @@ package com.baidu.tieba.data.chat;
 
 import android.content.Context;
 import android.text.ClipboardManager;
+import com.baidu.android.pushservice.PushConstants;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.bd;
+import com.baidu.tieba.util.be;
 import java.io.Serializable;
 import java.util.ArrayList;
 import org.json.JSONObject;
@@ -114,7 +115,7 @@ public class ChatMessageData implements Serializable {
         try {
             parserJson(new JSONObject(str));
         } catch (Exception e) {
-            bd.b(getClass().getName(), "parserJson", e.toString());
+            be.b(getClass().getName(), "parserJson", e.toString());
         }
     }
 
@@ -125,35 +126,35 @@ public class ChatMessageData implements Serializable {
             } else {
                 this.status = 1;
             }
-            this.msgContent = jSONObject.optJSONArray("content").toString();
+            this.msgContent = jSONObject.optJSONArray(PushConstants.EXTRA_CONTENT).toString();
             this.serverTime = jSONObject.getLong("time");
             try {
                 this.msgId = jSONObject.optLong("msg_id");
             } catch (Exception e) {
             }
         } catch (Exception e2) {
-            bd.b(getClass().getName(), "parserJson", e2.toString());
+            be.b(getClass().getName(), "parserJson", e2.toString());
         }
     }
 
     public void setClipString(Context context) {
         ClipboardManager clipboardManager = (ClipboardManager) context.getSystemService("clipboard");
-        ArrayList<com.baidu.tbadk.widget.richText.c> a2 = this.mRichText.a();
+        ArrayList<com.baidu.tbadk.widget.richText.c> a = this.mRichText.a();
         StringBuilder sb = new StringBuilder();
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= a2.size()) {
+            if (i2 >= a.size()) {
                 break;
             }
-            if (a2.get(i2).a() == 1) {
-                sb.append((CharSequence) a2.get(i2).d());
+            if (a.get(i2).a() == 1) {
+                sb.append((CharSequence) a.get(i2).d());
             }
             i = i2 + 1;
         }
         clipboardManager.setText(sb);
         if (clipboardManager.getText() != null) {
-            bd.e("ChatMessageActivity", "clip_text", clipboardManager.getText().toString());
+            be.e("ChatMessageActivity", "clip_text", clipboardManager.getText().toString());
         }
     }
 }

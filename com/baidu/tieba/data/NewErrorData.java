@@ -22,7 +22,7 @@ public class NewErrorData implements Serializable {
             try {
                 parserJson(new JSONObject(str).optJSONObject("error"));
             } catch (Exception e) {
-                com.baidu.tieba.util.bd.b(getClass().getName(), "parserJson", e.getMessage());
+                com.baidu.tieba.util.be.b(getClass().getName(), "parserJson", e.getMessage());
             }
         }
     }
@@ -33,7 +33,7 @@ public class NewErrorData implements Serializable {
                 this.errno = jSONObject.optInt("errno");
                 this.errmsg = jSONObject.optString("usermsg");
             } catch (Exception e) {
-                com.baidu.tieba.util.bd.b(getClass().getName(), "parserJson", e.getMessage());
+                com.baidu.tieba.util.be.b(getClass().getName(), "parserJson", e.getMessage());
             }
         }
     }

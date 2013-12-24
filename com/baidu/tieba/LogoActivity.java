@@ -13,13 +13,12 @@ import com.baidu.adp.lib.debug.service.SwitchDebugService;
 import com.baidu.android.moplus.MoPlusConstants;
 import com.baidu.tieba.service.FatalErrorService;
 import com.baidu.tieba.util.UtilHelper;
+import com.baidu.zeus.NotificationProxy;
 import com.slidingmenu.lib.R;
 import java.io.File;
 /* loaded from: classes.dex */
 public class LogoActivity extends j {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static boolean f1011a = true;
+    private static boolean a = true;
     private boolean b = false;
     private boolean c = false;
     private ImageView d = null;
@@ -27,16 +26,16 @@ public class LogoActivity extends j {
     private AlphaAnimation f = null;
     private boolean g = false;
     private boolean h = false;
-    private Handler i = new ai(this);
-    private Runnable j = new al(this);
-    private Runnable k = new am(this);
+    private Handler i = new ah(this);
+    private Runnable j = new ak(this);
+    private Runnable k = new al(this);
 
     public static void a(boolean z) {
-        f1011a = z;
+        a = z;
     }
 
     public static void a(Context context, Intent intent) {
-        f1011a = true;
+        a = true;
         Intent intent2 = new Intent(context, LogoActivity.class);
         if (!(context instanceof Activity)) {
             intent2.setFlags(268435456);
@@ -70,7 +69,7 @@ public class LogoActivity extends j {
         super.onNewIntent(intent);
         a(intent);
         a(getBaseContext());
-        f1011a = true;
+        a = true;
     }
 
     @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
@@ -78,20 +77,20 @@ public class LogoActivity extends j {
         super.onCreate(bundle);
         TiebaApplication.h().ax();
         a(getIntent());
-        com.baidu.tieba.util.bd.a(getClass().getName(), "onCreate", null);
-        getWindow().setFlags(1024, 1024);
+        com.baidu.tieba.util.be.a(getClass().getName(), "onCreate", null);
+        getWindow().setFlags(NotificationProxy.MAX_URL_LENGTH, NotificationProxy.MAX_URL_LENGTH);
         setContentView(R.layout.logo_activity);
         this.d = (ImageView) findViewById(R.id.logo);
         if (bundle != null) {
-            f1011a = bundle.getBoolean("is_first", true);
+            a = bundle.getBoolean("is_first", true);
         } else {
-            f1011a = true;
+            a = true;
         }
         this.f = new AlphaAnimation(1.0f, 1.0f);
         this.f.setDuration(500L);
-        this.f.setAnimationListener(new aj(this));
+        this.f.setAnimationListener(new ai(this));
         this.i.post(this.j);
-        new ak(this).start();
+        new aj(this).start();
         b();
         if (TiebaApplication.h().x()) {
             UtilHelper.e(getBaseContext());
@@ -102,12 +101,12 @@ public class LogoActivity extends j {
             if (TiebaApplication.h().w()) {
                 MoPlusConstants.startService(getApplicationContext());
             } else {
-                com.baidu.tieba.util.bd.b(getClass().getName(), "onCreate", "moplus close！！！");
+                com.baidu.tieba.util.be.b(getClass().getName(), "onCreate", "moplus close！！！");
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.bd.b(getClass().getName(), "onCreate_init_moplus", e.toString());
+            com.baidu.tieba.util.be.b(getClass().getName(), "onCreate_init_moplus", e.toString());
         }
-        if (com.baidu.tieba.data.h.s()) {
+        if (com.baidu.tieba.data.h.u()) {
             a();
         }
     }
@@ -119,7 +118,7 @@ public class LogoActivity extends j {
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putBoolean("is_first", f1011a);
+        bundle.putBoolean("is_first", a);
     }
 
     private void b() {
@@ -132,7 +131,7 @@ public class LogoActivity extends j {
 
     @Override // com.baidu.tieba.j, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4 && f1011a) {
+        if (i == 4 && a) {
             return true;
         }
         return super.onKeyDown(i, keyEvent);
@@ -152,8 +151,8 @@ public class LogoActivity extends j {
     @Override // com.baidu.tieba.j, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (!f1011a) {
-            f1011a = true;
+        if (!a) {
+            a = true;
             finish();
             return;
         }
@@ -172,15 +171,15 @@ public class LogoActivity extends j {
                             if (listFiles[i].isDirectory()) {
                                 a(listFiles[i]);
                             } else if (!listFiles[i].delete()) {
-                                com.baidu.tieba.util.bd.b(getClass().getName(), "deleteAllfile", "list[i].delete error");
+                                com.baidu.tieba.util.be.b(getClass().getName(), "deleteAllfile", "list[i].delete error");
                             }
                         }
                     }
                 } else if (!file.delete()) {
-                    com.baidu.tieba.util.bd.b(getClass().getName(), "deleteAllfile", "file.delete error");
+                    com.baidu.tieba.util.be.b(getClass().getName(), "deleteAllfile", "file.delete error");
                 }
             } catch (Exception e) {
-                com.baidu.tieba.util.bd.b(getClass().getName(), "deleteAllfile", e.getMessage());
+                com.baidu.tieba.util.be.b(getClass().getName(), "deleteAllfile", e.getMessage());
             }
         }
     }
@@ -190,7 +189,7 @@ public class LogoActivity extends j {
     public void onDestroy() {
         super.onDestroy();
         c();
-        f1011a = true;
+        a = true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -204,7 +203,6 @@ public class LogoActivity extends j {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context) {
         this.i.removeCallbacks(this.k);
-        com.baidu.tieba.account.a.a().a(context);
         if (TiebaApplication.h().u()) {
             TiebaApplication.h().aO();
         }
@@ -215,14 +213,14 @@ public class LogoActivity extends j {
             TiebaApplication.h().aI();
             TiebaApplication.h().ay();
             com.baidu.tieba.sharedPref.b.a().b("frs_first_in", true);
-            a(2);
+            GuideActivity.a(this, GuideActivity.a);
             return;
         }
         a(1);
     }
 
     private void a(int i) {
-        f1011a = false;
+        a = false;
         String B = TiebaApplication.B();
         this.g = TiebaApplication.h().aH();
         this.h = true;

@@ -4,24 +4,22 @@ import android.text.TextUtils;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.im.data.GroupInfoData;
 import com.baidu.tieba.im.hotGroup.HotGroupAdapter;
-import com.baidu.tieba.im.message.Message;
-import com.baidu.tieba.im.message.RequestHotGroupsMessage;
-import com.baidu.tieba.im.message.ResponseHotGroupsMessage;
+import com.baidu.tieba.im.message.ad;
+import com.baidu.tieba.im.message.bh;
+import com.baidu.tieba.im.message.n;
 import com.baidu.tieba.im.messageCenter.g;
 import java.util.List;
 /* loaded from: classes.dex */
 class b implements g {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ HotGroupFragment f1783a;
+    final /* synthetic */ HotGroupFragment a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(HotGroupFragment hotGroupFragment) {
-        this.f1783a = hotGroupFragment;
+        this.a = hotGroupFragment;
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(Message message) {
+    public void a(n nVar) {
         HotGroupActivity hotGroupActivity;
         BdListView bdListView;
         c cVar;
@@ -44,78 +42,78 @@ class b implements g {
         HotGroupAdapter hotGroupAdapter11;
         HotGroupAdapter hotGroupAdapter12;
         BdListView bdListView3;
-        hotGroupActivity = this.f1783a.c;
+        hotGroupActivity = this.a.c;
         if (hotGroupActivity != null) {
-            bdListView = this.f1783a.f1781a;
+            bdListView = this.a.a;
             if (bdListView != null) {
-                cVar = this.f1783a.f;
+                cVar = this.a.f;
                 if (cVar != null) {
-                    if (!(message instanceof ResponseHotGroupsMessage)) {
-                        bdListView3 = this.f1783a.f1781a;
+                    if (!(nVar instanceof bh)) {
+                        bdListView3 = this.a.a;
                         bdListView3.a();
                         return;
                     }
-                    ResponseHotGroupsMessage responseHotGroupsMessage = (ResponseHotGroupsMessage) message;
-                    cVar2 = this.f1783a.f;
+                    bh bhVar = (bh) nVar;
+                    cVar2 = this.a.f;
                     cVar2.c(false);
-                    if (message.getCmd() == 103012) {
-                        bdListView2 = this.f1783a.f1781a;
+                    if (nVar.t() == 103012) {
+                        bdListView2 = this.a.a;
                         bdListView2.a();
-                        if (responseHotGroupsMessage.hasError()) {
-                            if (responseHotGroupsMessage.getErrNo() > 0 && !TextUtils.isEmpty(responseHotGroupsMessage.getErrMsg())) {
-                                this.f1783a.a(responseHotGroupsMessage.getErrMsg());
+                        if (bhVar.i()) {
+                            if (bhVar.j() > 0 && !TextUtils.isEmpty(bhVar.k())) {
+                                this.a.a(bhVar.k());
                             }
-                        } else if (responseHotGroupsMessage.getOrginalMessage() instanceof RequestHotGroupsMessage) {
-                            RequestHotGroupsMessage requestHotGroupsMessage = (RequestHotGroupsMessage) responseHotGroupsMessage.getOrginalMessage();
-                            List<GroupInfoData> groups = responseHotGroupsMessage.getGroups();
-                            if (groups != null) {
-                                if (requestHotGroupsMessage.isFirstPage()) {
-                                    hotGroupAdapter12 = this.f1783a.e;
+                        } else if (bhVar.l() instanceof ad) {
+                            ad adVar = (ad) bhVar.l();
+                            List<GroupInfoData> a = bhVar.a();
+                            if (a != null) {
+                                if (adVar.f()) {
+                                    hotGroupAdapter12 = this.a.e;
                                     hotGroupAdapter12.b();
                                 }
-                                cVar5 = this.f1783a.f;
-                                cVar5.a(responseHotGroupsMessage.getHasMore());
-                                cVar6 = this.f1783a.f;
+                                cVar5 = this.a.f;
+                                cVar5.a(bhVar.b());
+                                cVar6 = this.a.f;
                                 if (cVar6.a()) {
-                                    hotGroupAdapter11 = this.f1783a.e;
+                                    hotGroupAdapter11 = this.a.e;
                                     hotGroupAdapter11.a(HotGroupAdapter.BOTTOM_TYPE.HAVE_MORE);
-                                } else if (!requestHotGroupsMessage.isFirstPage()) {
-                                    hotGroupAdapter5 = this.f1783a.e;
+                                } else if (!adVar.f()) {
+                                    hotGroupAdapter5 = this.a.e;
                                     hotGroupAdapter5.a(HotGroupAdapter.BOTTOM_TYPE.NO_MORE);
-                                } else if (groups.size() == 0) {
-                                    hotGroupAdapter7 = this.f1783a.e;
+                                } else if (a.size() == 0) {
+                                    hotGroupAdapter7 = this.a.e;
                                     hotGroupAdapter7.a(false);
                                     return;
                                 } else {
-                                    hotGroupAdapter6 = this.f1783a.e;
+                                    hotGroupAdapter6 = this.a.e;
                                     hotGroupAdapter6.a(HotGroupAdapter.BOTTOM_TYPE.LINE);
                                 }
-                                if (groups.size() > 0) {
-                                    hotGroupAdapter8 = this.f1783a.e;
-                                    hotGroupAdapter8.a(groups);
-                                    hotGroupAdapter9 = this.f1783a.e;
+                                if (a.size() > 0) {
+                                    hotGroupAdapter8 = this.a.e;
+                                    hotGroupAdapter8.a(a);
+                                    hotGroupAdapter9 = this.a.e;
                                     hotGroupAdapter9.notifyDataSetChanged();
-                                    this.f1783a.I();
-                                    hotGroupAdapter10 = this.f1783a.e;
+                                    this.a.I();
+                                    hotGroupAdapter10 = this.a.e;
                                     hotGroupAdapter10.a(true);
                                 }
                             }
                         }
-                    } else if (message.getCmd() == -116) {
-                        List<GroupInfoData> groups2 = responseHotGroupsMessage.getGroups();
-                        if (groups2 != null) {
-                            hotGroupAdapter = this.f1783a.e;
-                            hotGroupAdapter.a(groups2);
-                            hotGroupAdapter2 = this.f1783a.e;
+                    } else if (nVar.t() == -116) {
+                        List<GroupInfoData> a2 = bhVar.a();
+                        if (a2 != null) {
+                            hotGroupAdapter = this.a.e;
+                            hotGroupAdapter.a(a2);
+                            hotGroupAdapter2 = this.a.e;
                             hotGroupAdapter2.notifyDataSetChanged();
-                            hotGroupAdapter3 = this.f1783a.e;
+                            hotGroupAdapter3 = this.a.e;
                             hotGroupAdapter3.a(true);
-                            hotGroupAdapter4 = this.f1783a.e;
+                            hotGroupAdapter4 = this.a.e;
                             hotGroupAdapter4.a(HotGroupAdapter.BOTTOM_TYPE.LINE);
-                            cVar4 = this.f1783a.f;
+                            cVar4 = this.a.f;
                             cVar4.a(false);
                         }
-                        cVar3 = this.f1783a.f;
+                        cVar3 = this.a.f;
                         cVar3.d(false);
                     }
                 }

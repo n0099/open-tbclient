@@ -14,19 +14,17 @@ import org.apache.http.message.BasicNameValuePair;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class at extends BdAsyncTask<Object, Integer, SearchPostModel> {
-
-    /* renamed from: a  reason: collision with root package name */
-    ArrayList<BasicNameValuePair> f1459a;
+    ArrayList<BasicNameValuePair> a;
     final /* synthetic */ SearchActivity b;
-    private com.baidu.tieba.util.am c = null;
+    private com.baidu.tieba.util.an c = null;
     private String d;
 
     public at(SearchActivity searchActivity, String str, ArrayList<BasicNameValuePair> arrayList) {
         this.b = searchActivity;
         this.d = null;
-        this.f1459a = null;
+        this.a = null;
         this.d = str;
-        this.f1459a = arrayList;
+        this.a = arrayList;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -57,8 +55,8 @@ public class at extends BdAsyncTask<Object, Integer, SearchPostModel> {
         Exception e;
         String str;
         try {
-            this.c = new com.baidu.tieba.util.am(this.d);
-            Iterator<BasicNameValuePair> it = this.f1459a.iterator();
+            this.c = new com.baidu.tieba.util.an(this.d);
+            Iterator<BasicNameValuePair> it = this.a.iterator();
             while (it.hasNext()) {
                 this.c.a(it.next());
             }
@@ -70,11 +68,11 @@ public class at extends BdAsyncTask<Object, Integer, SearchPostModel> {
             try {
                 searchPostModel.parserJson(l);
                 str = this.b.A;
-                DatabaseService.l(str);
+                DatabaseService.n(str);
                 return searchPostModel;
             } catch (Exception e2) {
                 e = e2;
-                com.baidu.tieba.util.bd.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
+                com.baidu.tieba.util.be.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
                 return searchPostModel;
             }
         } catch (Exception e3) {

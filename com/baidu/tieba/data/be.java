@@ -1,12 +1,9 @@
 package com.baidu.tieba.data;
 
-import com.tencent.mm.sdk.platformtools.LocaleUtil;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class be {
-
-    /* renamed from: a  reason: collision with root package name */
-    private String f1238a = null;
+    private String a = null;
     private int b = 0;
     private int d = 0;
     private int e = 0;
@@ -21,7 +18,7 @@ public class be {
     }
 
     public String c() {
-        return this.f1238a;
+        return this.a;
     }
 
     public int d() {
@@ -43,11 +40,11 @@ public class be {
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.f1238a = jSONObject.optString(LocaleUtil.INDONESIAN);
+                this.a = jSONObject.optString("id");
                 this.d = jSONObject.optInt("width", 0);
                 this.e = jSONObject.optInt("height", 0);
             } catch (Exception e) {
-                com.baidu.tieba.util.bd.b(getClass().getName(), "parserJson", "error = " + e.getMessage());
+                com.baidu.tieba.util.be.b(getClass().getName(), "parserJson", "error = " + e.getMessage());
             }
         }
     }

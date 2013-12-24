@@ -11,7 +11,7 @@ final class d extends Handler {
             case 1:
                 com.baidu.adp.lib.h.e.d("tcp建立和握手超时");
                 TiebaSocketLinkService.a("tcp or websocket handshake timeout");
-                bVar = TiebaSocketLinkService.f1854a;
+                bVar = TiebaSocketLinkService.a;
                 bVar.a("tcp or websocket handshake timeout");
                 return;
             default:

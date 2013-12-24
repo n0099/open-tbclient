@@ -2,7 +2,7 @@ package com.baidu.tieba.im.groupInfo;
 
 import java.io.Serializable;
 /* loaded from: classes.dex */
-public class GroupSettingItemData implements Serializable {
+public class GroupSettingItemData implements com.baidu.tieba.im.c.k, Serializable {
     private static final long serialVersionUID = -3083517174627940892L;
     private String draft;
     private String gid;
@@ -46,6 +46,7 @@ public class GroupSettingItemData implements Serializable {
         this.isUseHeadSet = z;
     }
 
+    @Override // com.baidu.tieba.im.c.k
     public boolean isAcceptNotify() {
         return this.isAcceptNotify;
     }

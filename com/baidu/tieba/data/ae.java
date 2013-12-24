@@ -5,14 +5,12 @@ import java.util.Iterator;
 import org.json.JSONArray;
 /* loaded from: classes.dex */
 public class ae {
-
-    /* renamed from: a  reason: collision with root package name */
-    private ArrayList<ad> f1212a = new ArrayList<>();
+    private ArrayList<ad> a = new ArrayList<>();
     private boolean b;
     private int c;
 
     public ArrayList<ad> a() {
-        return this.f1212a;
+        return this.a;
     }
 
     public void a(int i) {
@@ -24,7 +22,7 @@ public class ae {
     }
 
     public void c() {
-        Iterator<ad> it = this.f1212a.iterator();
+        Iterator<ad> it = this.a.iterator();
         while (it.hasNext()) {
             it.next().a(0);
         }
@@ -39,9 +37,9 @@ public class ae {
                     if (adVar.d() >= this.c) {
                         this.b = true;
                     }
-                    this.f1212a.add(adVar);
+                    this.a.add(adVar);
                 } catch (Exception e) {
-                    com.baidu.tieba.util.bd.b("LikeForumListData", "parserJson", "error = " + e.getMessage());
+                    com.baidu.tieba.util.be.b("LikeForumListData", "parserJson", "error = " + e.getMessage());
                     return;
                 }
             }

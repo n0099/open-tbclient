@@ -1,36 +1,36 @@
 package com.baidu.tieba.im.exception;
 
-import com.baidu.tieba.im.message.Message;
+import com.baidu.tieba.im.message.n;
 /* loaded from: classes.dex */
 public class IMCodecException extends IMException {
     private static final long serialVersionUID = 4336990170393344032L;
-    private Message data;
+    private n data;
 
-    public IMCodecException(int i, Message message) {
+    public IMCodecException(int i, n nVar) {
         super(i);
-        this.data = message;
+        this.data = nVar;
     }
 
-    public IMCodecException(int i, String str, Message message) {
+    public IMCodecException(int i, String str, n nVar) {
         super(i, str);
-        this.data = message;
+        this.data = nVar;
     }
 
-    public IMCodecException(int i, Message message, Throwable th) {
+    public IMCodecException(int i, n nVar, Throwable th) {
         super(i, th);
-        this.data = message;
+        this.data = nVar;
     }
 
-    public IMCodecException(int i, String str, Message message, Throwable th) {
+    public IMCodecException(int i, String str, n nVar, Throwable th) {
         super(i, str, th);
-        this.data = message;
+        this.data = nVar;
     }
 
-    public Message getData() {
+    public n getData() {
         return this.data;
     }
 
-    public void setData(Message message) {
-        this.data = message;
+    public void setData(n nVar) {
+        this.data = nVar;
     }
 }

@@ -7,9 +7,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class t {
-
-    /* renamed from: a  reason: collision with root package name */
-    private int f1505a;
+    private int a;
     private String b;
     private String c;
     private String d;
@@ -83,7 +81,7 @@ public class t {
             try {
                 a(new JSONObject(str));
             } catch (Exception e) {
-                com.baidu.tieba.util.bd.b(getClass().getName(), "parserJson", e.getMessage());
+                com.baidu.tieba.util.be.b(getClass().getName(), "parserJson", e.getMessage());
             }
         }
     }
@@ -125,7 +123,7 @@ public class t {
         if (jSONObject != null) {
             try {
                 this.o.a(jSONObject.optJSONObject("error"));
-                this.f1505a = jSONObject.optInt("level");
+                this.a = jSONObject.optInt("level");
                 this.b = jSONObject.optString("title");
                 this.c = jSONObject.optString("text_pre");
                 this.d = jSONObject.optString("text_color");
@@ -136,10 +134,10 @@ public class t {
                 this.i = jSONObject.optString("sign_notice");
                 this.j = jSONObject.optInt("valid");
                 this.p = jSONObject.optInt("sign_max_num");
-                bs.f1482a = this.p;
+                bs.a = this.p;
                 JSONArray optJSONArray = jSONObject.optJSONArray("forum_info");
                 if (optJSONArray != null) {
-                    int min = Math.min(optJSONArray.length(), bs.f1482a);
+                    int min = Math.min(optJSONArray.length(), bs.a);
                     for (int i = 0; i < min; i++) {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         if (jSONObject2 != null) {
@@ -160,7 +158,7 @@ public class t {
                     }
                 }
             } catch (Exception e) {
-                com.baidu.tieba.util.bd.b(getClass().getName(), "parserJson", e.getMessage());
+                com.baidu.tieba.util.be.b(getClass().getName(), "parserJson", e.getMessage());
             }
         }
     }

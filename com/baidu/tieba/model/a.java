@@ -3,16 +3,14 @@ package com.baidu.tieba.model;
 import android.content.Context;
 /* loaded from: classes.dex */
 public class a extends com.baidu.adp.a.d {
-
-    /* renamed from: a  reason: collision with root package name */
-    protected com.baidu.adp.a.g f1975a;
+    protected com.baidu.adp.a.g a;
     private c b;
     private Context c;
 
     public a(Context context, com.baidu.adp.a.g gVar) {
-        this.f1975a = null;
+        this.a = null;
         this.c = context;
-        this.f1975a = gVar;
+        this.a = gVar;
     }
 
     @Override // com.baidu.adp.a.d

@@ -5,13 +5,11 @@ import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tieba.pb.NewPbActivity;
 /* loaded from: classes.dex */
 class w implements View.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ReplyLinearLayout f2386a;
+    final /* synthetic */ ReplyLinearLayout a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(ReplyLinearLayout replyLinearLayout) {
-        this.f2386a = replyLinearLayout;
+        this.a = replyLinearLayout;
     }
 
     @Override // android.view.View.OnClickListener
@@ -19,9 +17,9 @@ class w implements View.OnClickListener {
         String[] strArr = (String[]) view.getTag();
         if (strArr != null) {
             if (SocialConstants.FALSE.equals(strArr[3])) {
-                NewPbActivity.a(this.f2386a.getContext(), strArr[1], strArr[2], "person_post_reply");
+                NewPbActivity.a(this.a.getContext(), strArr[1], strArr[2], "person_post_reply");
             } else {
-                NewPbActivity.b(this.f2386a.getContext(), strArr[1], strArr[2], "person_post_reply");
+                NewPbActivity.b(this.a.getContext(), strArr[1], strArr[2], "person_post_reply");
             }
         }
     }

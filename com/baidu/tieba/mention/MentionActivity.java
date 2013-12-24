@@ -18,35 +18,31 @@ import com.baidu.mobstat.StatService;
 import com.baidu.tieba.BaseFragment;
 import com.baidu.tieba.BaseFragmentActivity;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.chat.ChatActivity;
 import com.baidu.tieba.chat.ChatListFragment;
-import com.baidu.tieba.util.ba;
+import com.baidu.tieba.im.chat.PersonalChatActivity;
+import com.baidu.tieba.util.bb;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
-import com.tencent.mm.sdk.platformtools.LocaleUtil;
 /* loaded from: classes.dex */
 public class MentionActivity extends BaseFragment implements bq {
     public static boolean b;
-    private android.support.v4.app.t ac;
-    private MentionPagerAdapter ad;
-    private boolean af;
-    private BaseFragmentActivity ag;
+    private android.support.v4.app.t ab;
+    private MentionPagerAdapter ac;
+    private boolean ae;
+    private BaseFragmentActivity af;
     private TextView[] c;
     private TextView[] d;
-    private int g;
-    private NavigationBar i;
+    private int f;
+    private NavigationBar h;
     private int e = -1;
-    private int f = -1;
-    private View.OnClickListener h = null;
+    private View.OnClickListener g = null;
+    private ImageView i = null;
     private ImageView Y = null;
-    private ImageView Z = null;
-    private View aa = null;
-    private ViewPager ab = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    protected int f1940a = -1;
-    private boolean ae = false;
-    private e ah = null;
+    private View Z = null;
+    private ViewPager aa = null;
+    protected int a = -1;
+    private boolean ad = false;
+    private e ag = null;
 
     public static void a(Activity activity, int i) {
         Intent intent = new Intent(activity, SingleMentionActivity.class);
@@ -66,7 +62,7 @@ public class MentionActivity extends BaseFragment implements bq {
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
     public void a(Activity activity) {
         super.a(activity);
-        this.ag = (BaseFragmentActivity) activity;
+        this.af = (BaseFragmentActivity) activity;
     }
 
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
@@ -78,7 +74,7 @@ public class MentionActivity extends BaseFragment implements bq {
     public void a(Bundle bundle) {
         super.a(bundle);
         if (h() != null) {
-            this.af = h().getBoolean("showBack", false);
+            this.ae = h().getBoolean("showBack", false);
         }
     }
 
@@ -91,7 +87,7 @@ public class MentionActivity extends BaseFragment implements bq {
 
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
     public void r() {
-        this.f1940a = TiebaApplication.h().an();
+        this.a = TiebaApplication.h().an();
         super.r();
         if (F()) {
             View q = q();
@@ -100,23 +96,43 @@ public class MentionActivity extends BaseFragment implements bq {
                 q.requestFocusFromTouch();
             }
             if (this.e == 0) {
-                Fragment a2 = this.ad.a(this.e);
-                if (a2 instanceof ChatListFragment) {
-                    ((ChatListFragment) a2).a();
+                Fragment a = this.ac.a(this.e);
+                if (a instanceof ChatListFragment) {
+                    ((ChatListFragment) a).a();
                 }
             }
-            if (this.ae) {
-                this.ae = false;
+            if (this.ad) {
+                this.ad = false;
                 d(0);
             } else if (b) {
                 b = false;
-                if (t.a().p() > 0) {
+                if (t.a().q() > 0) {
                     d(0);
-                } else if (t.a().l() > 0) {
-                    d(1);
                 } else if (t.a().m() > 0) {
+                    d(1);
+                } else if (t.a().n() > 0) {
                     d(2);
                 }
+            } else {
+                e(this.e);
+            }
+        }
+    }
+
+    private void e(int i) {
+        if (i == 1) {
+            Fragment a = this.ac.a(this.e);
+            if (a instanceof ReplyMeFragment) {
+                ((ReplyMeFragment) a).a();
+            } else {
+                com.baidu.adp.lib.h.e.a("ReplyMeFragment selected error, can not update data.");
+            }
+        } else if (i == 2) {
+            Fragment a2 = this.ac.a(this.e);
+            if (a2 instanceof AtMeFragment) {
+                ((AtMeFragment) a2).a();
+            } else {
+                com.baidu.adp.lib.h.e.a("AtMeFragment selected error, can not update data.");
             }
         }
     }
@@ -144,13 +160,17 @@ public class MentionActivity extends BaseFragment implements bq {
             switch (i) {
                 case 12011:
                     Bundle extras = intent.getExtras();
-                    String string = extras.getString(LocaleUtil.INDONESIAN);
+                    String string = extras.getString("id");
                     String string2 = extras.getString(SocialConstants.PARAM_MEDIA_UNAME);
                     String string3 = extras.getString("portrait");
                     if (string2 != null && string != null) {
-                        this.ae = true;
-                        ChatActivity.a(this.ag, string, string2, string3, null, null);
-                        return;
+                        try {
+                            PersonalChatActivity.a(this.af, Long.parseLong(string), string2, string3, 0, null);
+                            return;
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            return;
+                        }
                     }
                     return;
                 default:
@@ -161,27 +181,27 @@ public class MentionActivity extends BaseFragment implements bq {
 
     private void c(Bundle bundle) {
         int i = 0;
-        this.h = new b(this);
+        this.g = new b(this);
         View q = q();
-        this.i = (NavigationBar) q.findViewById(R.id.view_navigation_bar);
-        this.Z = this.i.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, NavigationBar.ControlType.ADD_CHAT, this.h);
-        this.aa = this.i.a(R.layout.nb_item_msg_titleview, (View.OnClickListener) null);
-        this.Y = this.i.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, (View.OnClickListener) null);
-        if (this.af) {
-            this.Y.setOnClickListener(new c(this));
-            this.Y.setVisibility(0);
+        this.h = (NavigationBar) q.findViewById(R.id.view_navigation_bar);
+        this.Y = this.h.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, NavigationBar.ControlType.ADD_CHAT, this.g);
+        this.Z = this.h.a(R.layout.nb_item_msg_titleview, (View.OnClickListener) null);
+        this.i = this.h.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, (View.OnClickListener) null);
+        if (this.ae) {
+            this.i.setOnClickListener(new c(this));
+            this.i.setVisibility(0);
         } else {
-            this.Y.setVisibility(8);
+            this.i.setVisibility(8);
         }
-        this.ac = l();
-        this.ad = new MentionPagerAdapter(this.ac);
-        this.ab = (ViewPager) q.findViewById(R.id.content);
-        this.ab.setOnPageChangeListener(this);
-        this.ab.setAdapter(this.ad);
-        this.c = new TextView[]{(TextView) this.aa.findViewById(R.id.chatme_tab), (TextView) this.aa.findViewById(R.id.replyme_tab), (TextView) this.aa.findViewById(R.id.atme_tab)};
-        this.g = this.c.length;
-        this.ab.setOffscreenPageLimit(this.g - 1);
-        this.d = new TextView[]{(TextView) this.aa.findViewById(R.id.chatme_msg_num), (TextView) this.aa.findViewById(R.id.replyme_msg_num), (TextView) this.aa.findViewById(R.id.atme_msg_num)};
+        this.ab = l();
+        this.ac = new MentionPagerAdapter(this.ab);
+        this.aa = (ViewPager) q.findViewById(R.id.content);
+        this.aa.setOnPageChangeListener(this);
+        this.aa.setAdapter(this.ac);
+        this.c = new TextView[]{(TextView) this.Z.findViewById(R.id.chatme_tab), (TextView) this.Z.findViewById(R.id.replyme_tab), (TextView) this.Z.findViewById(R.id.atme_tab)};
+        this.f = this.c.length;
+        this.aa.setOffscreenPageLimit(this.f - 1);
+        this.d = new TextView[]{(TextView) this.Z.findViewById(R.id.chatme_msg_num), (TextView) this.Z.findViewById(R.id.replyme_msg_num), (TextView) this.Z.findViewById(R.id.atme_msg_num)};
         d dVar = new d(this);
         for (int i2 = 0; i2 < this.c.length; i2++) {
             this.c[i2].setOnClickListener(dVar);
@@ -208,10 +228,10 @@ public class MentionActivity extends BaseFragment implements bq {
     }
 
     protected void d(int i) {
-        if (i >= 0 && i < this.g && this.e != i) {
-            this.f = this.e;
+        if (i >= 0 && i < this.f && this.e != i) {
             this.e = i;
-            this.ab.setCurrentItem(i);
+            e(i);
+            this.aa.setCurrentItem(i);
             String str = null;
             if (i == 0) {
                 str = "msg_chat_tab_click";
@@ -221,7 +241,7 @@ public class MentionActivity extends BaseFragment implements bq {
                 str = "msg_atme_tab_click";
             }
             if (str != null && TiebaApplication.h().t()) {
-                StatService.onEvent(this.ag, str, "click", 1);
+                StatService.onEvent(this.af, str, "click", 1);
             }
             a();
             a(i, true);
@@ -233,17 +253,17 @@ public class MentionActivity extends BaseFragment implements bq {
         int i2 = 0;
         if (i == 1) {
             if (TiebaApplication.C()) {
-                this.ab.setBackgroundColor(-14538444);
+                this.aa.setBackgroundColor(-14538444);
             } else {
-                this.ab.setBackgroundColor(this.ag.getResources().getColor(R.color.bg_page_setting_1));
+                this.aa.setBackgroundColor(this.af.getResources().getColor(R.color.bg_page_setting_1));
             }
         } else if (TiebaApplication.C()) {
-            this.ab.setBackgroundColor(this.ag.getResources().getColor(R.color.backgroundcolor));
+            this.aa.setBackgroundColor(this.af.getResources().getColor(R.color.backgroundcolor));
         } else {
-            this.ab.setBackgroundColor(this.ag.getResources().getColor(R.color.bg_page_setting));
+            this.aa.setBackgroundColor(this.af.getResources().getColor(R.color.bg_page_setting));
         }
-        ba.a(this.Y, i);
-        this.i.c(i);
+        bb.a(this.i, i);
+        this.h.c(i);
         if (i == 1) {
             for (TextView textView : this.d) {
                 textView.setTextColor(j().getColor(R.color.top_msg_num_night));
@@ -253,7 +273,7 @@ public class MentionActivity extends BaseFragment implements bq {
                 textView2.setTextColor(j().getColor(R.color.top_msg_num_day));
             }
         }
-        boolean z = this.f1940a == 1;
+        boolean z = this.a == 1;
         while (true) {
             int i3 = i2;
             if (i3 < this.c.length) {
@@ -289,11 +309,11 @@ public class MentionActivity extends BaseFragment implements bq {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(long[] jArr) {
-        boolean z = this.f1940a == 1;
+        boolean z = this.a == 1;
         for (int i = 0; i < jArr.length; i++) {
             TextView textView = this.d[i];
             long j = jArr[i];
-            if (!e(i)) {
+            if (!f(i)) {
                 textView.setVisibility(8);
             } else if (j <= 0) {
                 textView.setVisibility(8);
@@ -313,15 +333,15 @@ public class MentionActivity extends BaseFragment implements bq {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:16:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:18:? A[RETURN, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:4:0x0004 A[ORIG_RETURN, RETURN] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private boolean e(int i) {
+    private boolean f(int i) {
         switch (i) {
             case 0:
-                return TiebaApplication.h().Z();
+                return TiebaApplication.h().Z() || TiebaApplication.h().aa();
             case 1:
                 if (!TiebaApplication.h().Y()) {
                     return false;
@@ -338,32 +358,32 @@ public class MentionActivity extends BaseFragment implements bq {
     }
 
     public void a(int i, boolean z) {
-        long l = t.a().l();
         long m = t.a().m();
+        long n = t.a().n();
         long[] jArr = new long[3];
-        jArr[0] = t.a().p();
-        jArr[1] = l;
-        jArr[2] = m;
+        jArr[0] = t.a().q();
+        jArr[1] = m;
+        jArr[2] = n;
         if (z && i < jArr.length && i > -1 && i != 0 && this.e != 0) {
             jArr[i] = 0;
         }
         a(jArr);
         if (i != 0 && z) {
-            t.a().a(jArr[1], jArr[2], t.a().n(), jArr[0] - t.a().s());
+            t.a().a(jArr[1], jArr[2], t.a().o(), jArr[0] - t.a().t());
         }
     }
 
     private void G() {
-        this.ah = new e(this, null);
+        this.ag = new e(this, null);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("com.baidu.tieba.broadcast.notify");
-        this.ag.registerReceiver(this.ah, intentFilter);
+        this.af.registerReceiver(this.ag, intentFilter);
     }
 
     private void H() {
-        if (this.ah != null) {
-            this.ag.unregisterReceiver(this.ah);
-            this.ah = null;
+        if (this.ag != null) {
+            this.af.unregisterReceiver(this.ag);
+            this.ag = null;
         }
     }
 
@@ -373,9 +393,9 @@ public class MentionActivity extends BaseFragment implements bq {
 
     @Override // android.support.v4.view.bq
     public void onPageSelected(int i) {
-        if (i >= 0 && i < this.g && i != this.e) {
-            this.f = this.e;
+        if (i >= 0 && i < this.f && i != this.e) {
             this.e = i;
+            e(this.e);
             String str = null;
             if (i == 0) {
                 str = "msg_chat_tab_click";
@@ -385,7 +405,7 @@ public class MentionActivity extends BaseFragment implements bq {
                 str = "msg_atme_tab_click";
             }
             if (str != null && TiebaApplication.h().t()) {
-                StatService.onEvent(this.ag, str, "click", 1);
+                StatService.onEvent(this.af, str, "click", 1);
             }
             a();
             a(i, true);

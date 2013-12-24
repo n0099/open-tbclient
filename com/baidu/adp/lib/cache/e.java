@@ -1,9 +1,7 @@
 package com.baidu.adp.lib.cache;
 /* loaded from: classes.dex */
 public abstract class e<T> implements r<T> {
-
-    /* renamed from: a  reason: collision with root package name */
-    protected final boolean f430a;
+    protected final boolean a;
     protected final f b;
 
     public abstract m<T> a(String str);
@@ -16,41 +14,41 @@ public abstract class e<T> implements r<T> {
 
     public e(f fVar, boolean z) {
         this.b = fVar;
-        this.f430a = z;
+        this.a = z;
     }
 
     protected String a(String str, String str2) {
-        if (this.f430a) {
+        if (this.a) {
             return str + "@" + str2;
         }
         return str2;
     }
 
     protected m<T> b(String str, String str2) {
-        String a2 = a(str, str2);
-        m<T> a3 = a(a2);
-        if (a3 == null) {
+        String a = a(str, str2);
+        m<T> a2 = a(a);
+        if (a2 == null) {
             if (com.baidu.adp.lib.h.e.a()) {
-                com.baidu.adp.lib.h.e.e("cache", "get", "cache miss:" + a2);
+                com.baidu.adp.lib.h.e.e("cache", "get", "cache miss:" + a);
                 return null;
             }
             return null;
-        } else if (a3.f < System.currentTimeMillis()) {
-            c(a2);
+        } else if (a2.f < System.currentTimeMillis()) {
+            c(a);
             if (com.baidu.adp.lib.h.e.a()) {
-                com.baidu.adp.lib.h.e.e("cache", "get", "cache miss on expired:" + a2);
+                com.baidu.adp.lib.h.e.e("cache", "get", "cache miss on expired:" + a);
                 return null;
             }
             return null;
         } else {
             if (this.b.b()) {
-                a3.e = System.currentTimeMillis();
-                a(a3);
+                a2.e = System.currentTimeMillis();
+                a(a2);
             }
             if (com.baidu.adp.lib.h.e.a()) {
-                com.baidu.adp.lib.h.e.e("cache", "get", "cache hit:" + a2);
+                com.baidu.adp.lib.h.e.e("cache", "get", "cache hit:" + a);
             }
-            return a3;
+            return a2;
         }
     }
 
@@ -70,7 +68,7 @@ public abstract class e<T> implements r<T> {
             return null;
         }
         t<T> tVar = new t<>();
-        tVar.f437a = str2;
+        tVar.a = str2;
         tVar.b = b.b;
         tVar.d = b.f;
         tVar.c = b.d;
@@ -80,7 +78,7 @@ public abstract class e<T> implements r<T> {
     @Override // com.baidu.adp.lib.cache.r
     public void a(String str, String str2, T t, long j) {
         m<T> mVar = new m<>();
-        mVar.f433a = a(str, str2);
+        mVar.a = a(str, str2);
         mVar.c = str;
         mVar.f = j;
         mVar.b = t;

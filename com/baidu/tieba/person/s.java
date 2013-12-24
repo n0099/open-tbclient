@@ -7,16 +7,14 @@ import com.baidu.tieba.view.EditHeadImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s implements View.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f2392a;
+    final /* synthetic */ String a;
     final /* synthetic */ int b;
     final /* synthetic */ EditHeadActivity c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(EditHeadActivity editHeadActivity, String str, int i) {
         this.c = editHeadActivity;
-        this.f2392a = str;
+        this.a = str;
         this.b = i;
     }
 
@@ -31,7 +29,7 @@ public class s implements View.OnClickListener {
             bitmap = this.c.h;
             editHeadImageView.a(bitmap);
             this.c.E = false;
-            this.c.b(this.f2392a);
+            this.c.b(this.a);
             this.c.A = this.b;
         }
     }

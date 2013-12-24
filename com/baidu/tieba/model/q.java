@@ -7,16 +7,14 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q extends BdAsyncTask<Boolean, Integer, Boolean> {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ o f2043a;
-    private com.baidu.tieba.util.am b = null;
+    final /* synthetic */ o a;
+    private com.baidu.tieba.util.an b = null;
     private String c;
     private int d;
     private com.baidu.tieba.data.ay e;
 
     public q(o oVar, String str, int i) {
-        this.f2043a = oVar;
+        this.a = oVar;
         this.c = null;
         this.d = 0;
         this.e = null;
@@ -29,7 +27,7 @@ public class q extends BdAsyncTask<Boolean, Integer, Boolean> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public Boolean a(Boolean... boolArr) {
-        this.b = new com.baidu.tieba.util.am(com.baidu.tieba.data.h.f1248a + "c/c/post/rmstore");
+        this.b = new com.baidu.tieba.util.an(com.baidu.tieba.data.h.a + "c/c/post/rmstore");
         this.b.a(PushConstants.EXTRA_USER_ID, TiebaApplication.B());
         this.b.a("tid", this.c);
         this.e.a(this.b.l());
@@ -42,9 +40,9 @@ public class q extends BdAsyncTask<Boolean, Integer, Boolean> {
         if (this.b != null) {
             this.b.j();
         }
-        this.f2043a.d = null;
-        if (this.f2043a.f2042a != null) {
-            this.f2043a.f2042a.a(2, false, null);
+        this.a.d = null;
+        if (this.a.a != null) {
+            this.a.a.a(2, false, null);
         }
     }
 
@@ -55,22 +53,22 @@ public class q extends BdAsyncTask<Boolean, Integer, Boolean> {
         ArrayList arrayList;
         ArrayList arrayList2;
         String str = null;
-        this.f2043a.d = null;
+        this.a.d = null;
         if (bool.booleanValue()) {
             int i = this.d;
-            arrayList = this.f2043a.e;
+            arrayList = this.a.e;
             if (i < arrayList.size()) {
-                arrayList2 = this.f2043a.e;
+                arrayList2 = this.a.e;
                 arrayList2.remove(this.d);
-                o.b(this.f2043a);
+                o.b(this.a);
             }
         } else if (this.b.c()) {
             str = this.e.b();
         } else {
             str = this.b.i();
         }
-        if (this.f2043a.f2042a != null) {
-            this.f2043a.f2042a.a(2, bool, str);
+        if (this.a.a != null) {
+            this.a.a.a(2, bool, str);
         }
     }
 }

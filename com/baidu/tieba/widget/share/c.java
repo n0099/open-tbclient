@@ -5,19 +5,17 @@ import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements a {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ b f2755a;
+    final /* synthetic */ b a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.f2755a = bVar;
+        this.a = bVar;
     }
 
     @Override // com.baidu.tieba.widget.share.a
     public void a() {
         Context context;
-        context = this.f2755a.b;
+        context = this.a.b;
         com.baidu.adp.lib.h.g.a(context, (int) R.string.auth_account_success);
     }
 
@@ -28,7 +26,7 @@ public class c implements a {
     @Override // com.baidu.tieba.widget.share.a
     public void c() {
         Context context;
-        context = this.f2755a.b;
+        context = this.a.b;
         com.baidu.adp.lib.h.g.a(context, (int) R.string.share_success);
     }
 

@@ -137,7 +137,7 @@ final class g implements Handler.Callback {
                 }
                 break;
         }
-        int unused9 = f.f2726a = 0;
+        int unused9 = f.a = 0;
         return false;
     }
 }

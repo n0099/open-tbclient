@@ -1,18 +1,13 @@
 package com.baidu.tieba;
+
+import android.content.DialogInterface;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class am implements Runnable {
+public class am implements DialogInterface.OnDismissListener {
+    final /* synthetic */ MainTabActivity a;
 
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ LogoActivity f1119a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public am(LogoActivity logoActivity) {
-        this.f1119a = logoActivity;
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        this.f1119a.releaseResouce();
-        this.f1119a.a(this.f1119a.getBaseContext());
+    @Override // android.content.DialogInterface.OnDismissListener
+    public void onDismiss(DialogInterface dialogInterface) {
+        this.a.g();
     }
 }

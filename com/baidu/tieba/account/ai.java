@@ -1,42 +1,30 @@
 package com.baidu.tieba.account;
+
+import android.view.KeyEvent;
+import android.view.View;
+import android.widget.TextView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ai extends Thread {
+public class ai implements TextView.OnEditorActionListener {
+    final /* synthetic */ LoginActivity a;
 
-    /* renamed from: a  reason: collision with root package name */
-    private String f1045a;
-    private String b;
-    private boolean c;
-
-    public ai(String str) {
-        this.f1045a = null;
-        this.b = null;
-        this.c = false;
-        this.f1045a = str;
-        this.c = false;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ai(LoginActivity loginActivity) {
+        this.a = loginActivity;
     }
 
-    public ai(String str, String str2) {
-        this.f1045a = null;
-        this.b = null;
-        this.c = false;
-        this.f1045a = str;
-        this.b = str2;
-    }
-
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
-        String str;
-        super.run();
-        if (this.c) {
-            str = "c/s/inpv";
-        } else {
-            str = "c/s/pv";
+    @Override // android.widget.TextView.OnEditorActionListener
+    public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+        View view;
+        View view2;
+        view = this.a.B;
+        if (view.getVisibility() != 8 || i != 4) {
+            view2 = this.a.B;
+            if (view2.getVisibility() != 0 || i != 6) {
+                return false;
+            }
         }
-        com.baidu.tieba.util.am amVar = new com.baidu.tieba.util.am(com.baidu.tieba.data.h.f1248a + str);
-        amVar.a("st_type", this.f1045a);
-        if (this.b != null) {
-            amVar.a("st_param", this.b);
-        }
-        amVar.l();
+        this.a.g();
+        return true;
     }
 }

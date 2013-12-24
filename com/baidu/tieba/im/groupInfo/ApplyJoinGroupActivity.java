@@ -14,15 +14,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.browser.explorer.BdWebErrorView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.im.message.Message;
-import com.baidu.tieba.util.ba;
+import com.baidu.tieba.util.bb;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class ApplyJoinGroupActivity extends com.baidu.tieba.j implements com.baidu.tieba.im.messageCenter.g {
-
-    /* renamed from: a  reason: collision with root package name */
-    View f1734a;
+    public static int p = 0;
+    public static int q = 1;
+    View a;
     EditText b;
     TextView c;
     TextView d;
@@ -35,7 +34,10 @@ public class ApplyJoinGroupActivity extends com.baidu.tieba.j implements com.bai
     String k;
     int l;
     int m;
-    private NavigationBar n = null;
+    long n;
+    String o;
+    int r;
+    private NavigationBar s = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
@@ -63,14 +65,14 @@ public class ApplyJoinGroupActivity extends com.baidu.tieba.j implements com.bai
         String string3 = getString(R.string.group_join_limit_str5);
         int i = f() ? R.color.edit_exceed_1 : R.color.edit_exceed;
         int i2 = f() ? R.color.edit_normal_1 : R.color.edit_normal;
-        SpannableString a2 = a(valueOf, getResources().getColor(i));
-        SpannableString a3 = a(valueOf2, getResources().getColor(i));
+        SpannableString a = a(valueOf, getResources().getColor(i));
+        SpannableString a2 = a(valueOf2, getResources().getColor(i));
         this.d.setTextColor(getResources().getColor(i2));
         this.d.setText("");
         this.d.append(string);
-        this.d.append(a2);
+        this.d.append(a);
         this.d.append(string2);
-        this.d.append(a3);
+        this.d.append(a2);
         this.d.append(string3);
         this.d.setVisibility(0);
     }
@@ -120,22 +122,54 @@ public class ApplyJoinGroupActivity extends com.baidu.tieba.j implements com.bai
         }
     }
 
+    public static void a(Context context, String str, int i, int i2, long j, String str2) {
+        if (context != null) {
+            Intent intent = new Intent(context, ApplyJoinGroupActivity.class);
+            intent.putExtra("groupID", str);
+            intent.putExtra("alreadJoinCount", i);
+            intent.putExtra("canJoinCount", i2);
+            intent.putExtra("inviteUserId", j);
+            intent.putExtra("defaultUserMsg", str2);
+            intent.putExtra("joinType", q);
+            com.baidu.adp.lib.h.e.d("get intent groupID:" + str);
+            context.startActivity(intent);
+        }
+    }
+
+    public static void a(Context context, String str, long j, String str2) {
+        if (context != null) {
+            Intent intent = new Intent(context, ApplyJoinGroupActivity.class);
+            intent.putExtra("groupID", str);
+            intent.putExtra("inviteUserId", j);
+            intent.putExtra("defaultUserMsg", str2);
+            intent.putExtra("joinType", q);
+            com.baidu.adp.lib.h.e.d("get intent groupID:" + str);
+            context.startActivity(intent);
+        }
+    }
+
     void a() {
-        this.f1734a = View.inflate(this, R.layout.group_apply_activity, null);
-        setContentView(this.f1734a);
-        this.n = (NavigationBar) findViewById(R.id.view_navigation_bar);
-        this.n.a(R.string.group_apply_join);
-        this.e = this.n.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f = this.n.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(R.string.group_apply_send));
+        this.a = View.inflate(this, R.layout.group_apply_activity, null);
+        setContentView(this.a);
+        this.s = (NavigationBar) findViewById(R.id.view_navigation_bar);
+        this.s.a(R.string.group_apply_join);
+        this.e = this.s.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.f = this.s.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(R.string.group_apply_send));
         this.e.setOnClickListener(this.i);
-        this.b = (EditText) this.f1734a.findViewById(R.id.et_content);
-        this.c = (TextView) this.f1734a.findViewById(R.id.tv_word_count);
-        this.d = (TextView) this.f1734a.findViewById(R.id.tv_add_limit);
+        this.b = (EditText) this.a.findViewById(R.id.et_content);
+        this.b.setText(this.o);
+        this.c = (TextView) this.a.findViewById(R.id.tv_word_count);
+        int length = 30 - this.o.length();
+        if (length < 0) {
+            length = 0;
+        }
+        this.c.setText(length + "/30");
+        this.d = (TextView) this.a.findViewById(R.id.tv_add_limit);
         this.d.setVisibility(8);
         this.f.setOnClickListener(this.i);
-        this.g = (Button) this.f1734a.findViewById(R.id.btn_agree);
+        this.g = (Button) this.a.findViewById(R.id.btn_agree);
         this.g.setOnClickListener(this.i);
-        this.h = (Button) this.f1734a.findViewById(R.id.btn_disagree);
+        this.h = (Button) this.a.findViewById(R.id.btn_disagree);
         this.h.setOnClickListener(this.i);
         this.g.setVisibility(8);
         this.h.setVisibility(8);
@@ -148,9 +182,9 @@ public class ApplyJoinGroupActivity extends com.baidu.tieba.j implements com.bai
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         getLayoutMode().a(i == 1);
-        getLayoutMode().a(this.f1734a);
-        this.n.c(i);
-        ba.g(this.f, 0);
+        getLayoutMode().a(this.a);
+        this.s.c(i);
+        bb.g(this.f, 0);
     }
 
     private boolean f() {
@@ -163,6 +197,12 @@ public class ApplyJoinGroupActivity extends com.baidu.tieba.j implements com.bai
             this.k = intent.getStringExtra("groupID");
             this.l = intent.getIntExtra("alreadJoinCount", 0);
             this.m = intent.getIntExtra("canJoinCount", 0);
+            this.n = intent.getLongExtra("inviteUserId", 0L);
+            this.o = intent.getStringExtra("defaultUserMsg");
+            this.r = intent.getIntExtra("joinType", p);
+        }
+        if (this.o == null) {
+            this.o = "";
         }
     }
 
@@ -172,23 +212,23 @@ public class ApplyJoinGroupActivity extends com.baidu.tieba.j implements com.bai
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(Message message) {
-        if (message != null && (message instanceof ResponseJoinGroupMessage)) {
-            ResponseJoinGroupMessage responseJoinGroupMessage = (ResponseJoinGroupMessage) message;
-            int errNo = responseJoinGroupMessage.getErrNo();
-            String errMsg = responseJoinGroupMessage.getErrMsg();
-            if (responseJoinGroupMessage.hasError()) {
-                String string = TextUtils.isEmpty(errMsg) ? getString(R.string.group_apply_fail) : errMsg;
-                com.baidu.adp.lib.h.e.d("apply add group" + message.toString() + "err:" + errNo + " errMsg" + string);
+    public void a(com.baidu.tieba.im.message.n nVar) {
+        if (nVar != null && (nVar instanceof aj)) {
+            aj ajVar = (aj) nVar;
+            int j = ajVar.j();
+            String k = ajVar.k();
+            if (ajVar.i()) {
+                String string = TextUtils.isEmpty(k) ? getString(R.string.group_apply_fail) : k;
+                com.baidu.adp.lib.h.e.d("apply add group" + nVar.toString() + "err:" + j + " errMsg" + string);
                 this.f.setEnabled(true);
                 showToast(string);
                 return;
             }
-            if (TextUtils.isEmpty(errMsg)) {
-                errMsg = getString(R.string.group_apply_succ);
+            if (TextUtils.isEmpty(k)) {
+                k = getString(R.string.group_apply_succ);
             }
-            showToast(errMsg);
-            if (errNo == 0) {
+            showToast(k, false);
+            if (j == 0) {
                 u.a(TiebaApplication.B(), this.k, true);
                 finish();
             }

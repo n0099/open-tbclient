@@ -7,14 +7,14 @@ import android.view.View;
 class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static View a(LayoutInflater layoutInflater, b bVar) {
-        View a2 = bVar.a(layoutInflater);
+        View a = bVar.a(layoutInflater);
         j jVar = new j(-2, -2);
         jVar.c = bVar.c();
         jVar.d = bVar.d();
-        jVar.f500a = bVar.a();
+        jVar.a = bVar.a();
         jVar.b = bVar.b();
-        a2.setLayoutParams(jVar);
-        return a2;
+        a.setLayoutParams(jVar);
+        return a;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

@@ -10,13 +10,11 @@ import com.baidu.tieba.util.UtilHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements View.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ i f2525a;
+    final /* synthetic */ i a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(i iVar) {
-        this.f2525a = iVar;
+        this.a = iVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -28,22 +26,22 @@ public class j implements View.OnClickListener {
         Context context2;
         Object tag = view.getTag();
         if ((tag instanceof n) && (asVar = ((n) tag).d) != null) {
-            int i = asVar.f2489a;
+            int i = asVar.a;
             if (!asVar.f.equals(SocialConstants.TRUE)) {
-                this.f2525a.e = SquareActivity.a("forum_browse", String.valueOf(i));
-                context = this.f2525a.b;
+                this.a.e = SquareActivity.a("forum_browse", String.valueOf(i));
+                context = this.a.b;
                 String str3 = asVar.d;
-                str = this.f2525a.e;
+                str = this.a.e;
                 UtilHelper.a(context, str3, null, str);
                 return;
             }
             if (TiebaApplication.h().t()) {
-                context2 = this.f2525a.b;
+                context2 = this.a.b;
                 StatService.onEvent(context2, "sq_all_category", "click", 1);
             }
-            this.f2525a.e = SquareActivity.a("forum_browse", "all");
-            str2 = this.f2525a.e;
-            BarFolderFirstDirActivity.a((Activity) this.f2525a.a(), str2);
+            this.a.e = SquareActivity.a("forum_browse", "all");
+            str2 = this.a.e;
+            BarFolderFirstDirActivity.a((Activity) this.a.a(), str2);
         }
     }
 }

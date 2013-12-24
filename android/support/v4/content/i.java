@@ -5,15 +5,13 @@ import android.content.IntentFilter;
 import com.baidu.zeus.bouncycastle.DERTags;
 /* loaded from: classes.dex */
 class i {
-
-    /* renamed from: a  reason: collision with root package name */
-    final IntentFilter f315a;
+    final IntentFilter a;
     final BroadcastReceiver b;
     boolean c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(IntentFilter intentFilter, BroadcastReceiver broadcastReceiver) {
-        this.f315a = intentFilter;
+        this.a = intentFilter;
         this.b = broadcastReceiver;
     }
 
@@ -22,7 +20,7 @@ class i {
         sb.append("Receiver{");
         sb.append(this.b);
         sb.append(" filter=");
-        sb.append(this.f315a);
+        sb.append(this.a);
         sb.append("}");
         return sb.toString();
     }

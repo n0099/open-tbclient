@@ -12,9 +12,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.widget.ImageView;
 /* loaded from: classes.dex */
 public class w extends BitmapDrawable implements v {
-
-    /* renamed from: a  reason: collision with root package name */
-    private int f619a;
+    private int a;
     private int b;
     private int c;
     private final Paint d;
@@ -23,7 +21,7 @@ public class w extends BitmapDrawable implements v {
 
     public w(Resources resources, Matrix matrix, ImageView imageView, Bitmap bitmap, int i, ColorFilter colorFilter) {
         super(resources, bitmap);
-        this.f619a = 0;
+        this.a = 0;
         this.b = 0;
         this.e = new Path();
         this.f = imageView;
@@ -41,14 +39,14 @@ public class w extends BitmapDrawable implements v {
         super.setBounds(i, i2, i3, i4);
         int i5 = i3 - i;
         int i6 = i4 - i2;
-        this.f619a = this.f.getMeasuredWidth();
+        this.a = this.f.getMeasuredWidth();
         this.b = this.f.getMeasuredHeight();
         this.e.moveTo(0.0f, this.c);
         this.e.quadTo(0.0f, 0.0f, this.c, 0.0f);
-        this.e.lineTo(this.f619a - this.c, 0.0f);
-        this.e.quadTo(this.f619a, 0.0f, this.f619a, this.c);
-        this.e.lineTo(this.f619a, this.b - this.c);
-        this.e.quadTo(this.f619a, this.b, this.f619a - this.c, this.b);
+        this.e.lineTo(this.a - this.c, 0.0f);
+        this.e.quadTo(this.a, 0.0f, this.a, this.c);
+        this.e.lineTo(this.a, this.b - this.c);
+        this.e.quadTo(this.a, this.b, this.a - this.c, this.b);
         this.e.lineTo(this.c, this.b);
         this.e.quadTo(0.0f, this.b, 0.0f, this.b - this.c);
         this.e.lineTo(0.0f, this.c);
@@ -57,7 +55,7 @@ public class w extends BitmapDrawable implements v {
 
     @Override // android.graphics.drawable.BitmapDrawable, android.graphics.drawable.Drawable, com.baidu.adp.widget.v
     public void draw(Canvas canvas) {
-        if (this.f619a != 0 && this.b != 0) {
+        if (this.a != 0 && this.b != 0) {
             canvas.save();
             canvas.clipPath(this.e, Region.Op.INTERSECT);
             super.draw(canvas);

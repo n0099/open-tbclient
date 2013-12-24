@@ -5,9 +5,7 @@ import android.content.Context;
 import android.content.IntentFilter;
 /* loaded from: classes.dex */
 public class b extends a {
-
-    /* renamed from: a  reason: collision with root package name */
-    BroadcastReceiver f445a = null;
+    BroadcastReceiver a = null;
     Context b;
 
     public b(Context context) {
@@ -18,8 +16,8 @@ public class b extends a {
     @Override // com.baidu.adp.lib.debug.a.a
     public void b() {
         super.b();
-        this.f445a = new c(this);
-        this.b.registerReceiver(this.f445a, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
+        this.a = new c(this);
+        this.b.registerReceiver(this.a, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
     }
 
     @Override // com.baidu.adp.lib.debug.a.a

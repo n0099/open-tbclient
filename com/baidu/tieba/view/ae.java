@@ -7,21 +7,19 @@ import com.baidu.tieba.flist.ForumListActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ae implements View.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ab f2653a;
+    final /* synthetic */ ab a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ae(ab abVar) {
-        this.f2653a = abVar;
+        this.a = abVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Activity activity;
         String str;
-        activity = this.f2653a.D;
-        str = this.f2653a.ad;
+        activity = this.a.D;
+        str = this.a.ad;
         ForumListActivity.a(activity, str, "2", SocialConstants.TRUE);
     }
 }

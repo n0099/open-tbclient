@@ -11,14 +11,12 @@ import java.util.Iterator;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i extends BdAsyncTask<String, Integer, com.baidu.tieba.data.aw> {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ AtListActivity f2811a;
-    private com.baidu.tieba.util.am b;
+    final /* synthetic */ AtListActivity a;
+    private com.baidu.tieba.util.an b;
     private String c;
 
     private i(AtListActivity atListActivity) {
-        this.f2811a = atListActivity;
+        this.a = atListActivity;
         this.b = null;
         this.c = null;
     }
@@ -32,7 +30,7 @@ public class i extends BdAsyncTask<String, Integer, com.baidu.tieba.data.aw> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void b() {
         ProgressBar progressBar;
-        progressBar = this.f2811a.k;
+        progressBar = this.a.k;
         progressBar.setVisibility(0);
         super.b();
     }
@@ -40,9 +38,9 @@ public class i extends BdAsyncTask<String, Integer, com.baidu.tieba.data.aw> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         ProgressBar progressBar;
-        this.f2811a.f = null;
+        this.a.f = null;
         this.c = null;
-        progressBar = this.f2811a.k;
+        progressBar = this.a.k;
         progressBar.setVisibility(8);
         super.cancel(true);
     }
@@ -53,28 +51,28 @@ public class i extends BdAsyncTask<String, Integer, com.baidu.tieba.data.aw> {
     public com.baidu.tieba.data.aw a(String... strArr) {
         com.baidu.tieba.model.d dVar;
         this.c = strArr[0];
-        this.b = new com.baidu.tieba.util.am();
+        this.b = new com.baidu.tieba.util.an();
         if (this.c == null || this.c.length() <= 0) {
             return null;
         }
-        this.b.a(com.baidu.tieba.data.h.f1248a + "c/u/follow/sug");
+        this.b.a(com.baidu.tieba.data.h.a + "c/u/follow/sug");
         this.b.a("uid", TiebaApplication.B());
         this.b.a("q", this.c);
         String l = this.b.l();
         if (this.b.c()) {
             com.baidu.tieba.data.aw awVar = new com.baidu.tieba.data.aw();
-            dVar = this.f2811a.h;
-            com.baidu.tieba.data.x a2 = dVar.a();
-            if (a2 != null) {
-                awVar.a(l, a2.b());
+            dVar = this.a.h;
+            com.baidu.tieba.data.x a = dVar.a();
+            if (a != null) {
+                awVar.a(l, a.b());
             } else {
                 awVar.a(l, (HashMap<String, String>) null);
             }
-            if (AtListActivity.f2759a != null && AtListActivity.f2759a.size() > 0) {
+            if (AtListActivity.a != null && AtListActivity.a.size() > 0) {
                 Iterator<MetaData> it = awVar.a().iterator();
                 while (it.hasNext()) {
                     MetaData next = it.next();
-                    Iterator<MetaData> it2 = AtListActivity.f2759a.iterator();
+                    Iterator<MetaData> it2 = AtListActivity.a.iterator();
                     while (true) {
                         if (it2.hasNext()) {
                             MetaData next2 = it2.next();
@@ -102,26 +100,26 @@ public class i extends BdAsyncTask<String, Integer, com.baidu.tieba.data.aw> {
         k kVar;
         k kVar2;
         ListView listView;
-        progressBar = this.f2811a.k;
+        progressBar = this.a.k;
         progressBar.setVisibility(8);
         if (this.b.c() && this.c != null) {
-            editText = this.f2811a.b;
+            editText = this.a.b;
             if (editText.getText().toString().equals(this.c)) {
                 if (!awVar.a().isEmpty()) {
-                    this.f2811a.a(false);
+                    this.a.a(false);
                 }
-                dVar = this.f2811a.h;
+                dVar = this.a.h;
                 dVar.a(awVar);
-                kVar = this.f2811a.i;
+                kVar = this.a.i;
                 kVar.a(awVar.a());
-                kVar2 = this.f2811a.i;
+                kVar2 = this.a.i;
                 kVar2.notifyDataSetInvalidated();
-                listView = this.f2811a.d;
+                listView = this.a.d;
                 listView.setSelection(0);
                 super.a((i) awVar);
             }
         }
-        this.f2811a.showToast(this.b.i());
+        this.a.showToast(this.b.i());
         super.a((i) awVar);
     }
 }

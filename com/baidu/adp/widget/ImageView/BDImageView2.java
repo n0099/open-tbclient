@@ -9,9 +9,7 @@ import android.util.AttributeSet;
 import android.widget.ImageView;
 /* loaded from: classes.dex */
 public class BDImageView2 extends ImageView {
-
-    /* renamed from: a  reason: collision with root package name */
-    private int f559a;
+    private int a;
     private Paint b;
     private Matrix c;
     private Matrix d;
@@ -20,7 +18,7 @@ public class BDImageView2 extends ImageView {
 
     public BDImageView2(Context context) {
         super(context);
-        this.f559a = 0;
+        this.a = 0;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -31,7 +29,7 @@ public class BDImageView2 extends ImageView {
 
     public BDImageView2(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f559a = 0;
+        this.a = 0;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -42,7 +40,7 @@ public class BDImageView2 extends ImageView {
 
     public BDImageView2(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f559a = 0;
+        this.a = 0;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -76,7 +74,7 @@ public class BDImageView2 extends ImageView {
         this.c = null;
         this.d = null;
         this.e = null;
-        this.f559a = i;
+        this.a = i;
     }
 
     public void a() {
@@ -100,12 +98,12 @@ public class BDImageView2 extends ImageView {
         int paddingTop = getPaddingTop();
         int paddingBottom = getPaddingBottom();
         int b = eVar.b();
-        int a2 = eVar.a();
+        int a = eVar.a();
         int height = (getHeight() - paddingTop) - paddingBottom;
         int width = (getWidth() - paddingLeft) - paddingRight;
-        float f4 = width / a2;
+        float f4 = width / a;
         float f5 = height / b;
-        switch (d.f563a[scaleType.ordinal()]) {
+        switch (d.a[scaleType.ordinal()]) {
             case 1:
                 r0 = f5;
                 f2 = f4;
@@ -118,32 +116,32 @@ public class BDImageView2 extends ImageView {
                 break;
             case 3:
                 r0 = Math.min(f4, f5);
-                f3 = (width - (a2 * r0)) / 2.0f;
+                f3 = (width - (a * r0)) / 2.0f;
                 f = (height - (b * r0)) / 2.0f;
                 f2 = r0;
                 break;
             case 4:
                 r0 = Math.min(f4, f5);
-                f3 = width - (a2 * r0);
+                f3 = width - (a * r0);
                 f = height - (b * r0);
                 f2 = r0;
                 break;
             case 5:
-                f3 = (width - a2) / 2;
+                f3 = (width - a) / 2;
                 f = (height - b) / 2;
                 f2 = 1.0f;
                 break;
             case 6:
                 float max = Math.max(f4, f5);
                 r0 = Math.max(max, f5);
-                f3 = (width - (a2 * max)) / 2.0f;
+                f3 = (width - (a * max)) / 2.0f;
                 f = (height - (b * r0)) / 2.0f;
                 f2 = max;
                 break;
             case 7:
                 float min = Math.min(f4, f5);
                 r0 = min <= 1.0f ? min : 1.0f;
-                f3 = (width - (a2 * r0)) / 2.0f;
+                f3 = (width - (a * r0)) / 2.0f;
                 f = (height - (b * r0)) / 2.0f;
                 f2 = r0;
                 break;
@@ -168,9 +166,9 @@ public class BDImageView2 extends ImageView {
     private e getImage() {
         if (this.e != null) {
             try {
-                Object a2 = com.baidu.adp.lib.e.c.a().a(this.e, this.f, null, getContext(), null, 1);
-                if (a2 != null && (a2 instanceof e)) {
-                    return (e) a2;
+                Object a = com.baidu.adp.lib.e.c.a().a(this.e, this.f, null, getContext(), null, 1);
+                if (a != null && (a instanceof e)) {
+                    return (e) a;
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -190,7 +188,7 @@ public class BDImageView2 extends ImageView {
             }
             matrix = this.d;
         } else {
-            image = new e(com.baidu.adp.lib.h.a.a().a(this.f559a), false, null);
+            image = new e(com.baidu.adp.lib.h.a.a().a(this.a), false, null);
             if (this.c == null) {
                 this.c = a(image);
             }

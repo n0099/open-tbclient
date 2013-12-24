@@ -14,19 +14,17 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class u {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static u f2131a = null;
+    private static u a = null;
     private List<c> b = new ArrayList();
     private List<Uri> c;
     private String d;
     private boolean e;
 
     public static u a() {
-        if (f2131a == null) {
-            f2131a = new u();
+        if (a == null) {
+            a = new u();
         }
-        return f2131a;
+        return a;
     }
 
     private u() {

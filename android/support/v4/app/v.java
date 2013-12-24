@@ -33,9 +33,7 @@ public final class v extends t {
     static final Interpolator A;
     static final Interpolator B;
     static final Interpolator C;
-
-    /* renamed from: a  reason: collision with root package name */
-    static boolean f300a = false;
+    static boolean a = false;
     static final boolean b;
     static final Interpolator z;
     ArrayList<Runnable> c;
@@ -369,7 +367,7 @@ public final class v extends t {
                 }
                 switch (fragment.j) {
                     case 0:
-                        if (f300a) {
+                        if (a) {
                             Log.v("FragmentManager", "moveto CREATED: " + fragment);
                         }
                         if (fragment.m != null) {
@@ -416,7 +414,7 @@ public final class v extends t {
                         }
                     case 1:
                         if (i > 1) {
-                            if (f300a) {
+                            if (a) {
                                 Log.v("FragmentManager", "moveto ACTIVITY_CREATED: " + fragment);
                             }
                             if (!fragment.x) {
@@ -458,14 +456,14 @@ public final class v extends t {
                     case 2:
                     case 3:
                         if (i > 3) {
-                            if (f300a) {
+                            if (a) {
                                 Log.v("FragmentManager", "moveto STARTED: " + fragment);
                             }
                             fragment.x();
                         }
                     case 4:
                         if (i > 4) {
-                            if (f300a) {
+                            if (a) {
                                 Log.v("FragmentManager", "moveto RESUMED: " + fragment);
                             }
                             fragment.w = true;
@@ -493,7 +491,7 @@ public final class v extends t {
                             i = 1;
                             break;
                         } else {
-                            if (f300a) {
+                            if (a) {
                                 Log.v("FragmentManager", "movefrom CREATED: " + fragment);
                             }
                             if (!fragment.L) {
@@ -519,7 +517,7 @@ public final class v extends t {
                     break;
                 case 2:
                     if (i < 2) {
-                        if (f300a) {
+                        if (a) {
                             Log.v("FragmentManager", "movefrom ACTIVITY_CREATED: " + fragment);
                         }
                         if (fragment.R != null && !this.o.isFinishing() && fragment.n == null) {
@@ -545,7 +543,7 @@ public final class v extends t {
                     break;
                 case 3:
                     if (i < 3) {
-                        if (f300a) {
+                        if (a) {
                             Log.v("FragmentManager", "movefrom STOPPED: " + fragment);
                         }
                         fragment.C();
@@ -557,7 +555,7 @@ public final class v extends t {
                     break;
                 case 4:
                     if (i < 4) {
-                        if (f300a) {
+                        if (a) {
                             Log.v("FragmentManager", "movefrom STARTED: " + fragment);
                         }
                         fragment.B();
@@ -571,7 +569,7 @@ public final class v extends t {
                     break;
                 case 5:
                     if (i < 5) {
-                        if (f300a) {
+                        if (a) {
                             Log.v("FragmentManager", "movefrom RESUMED: " + fragment);
                         }
                         fragment.A();
@@ -663,7 +661,7 @@ public final class v extends t {
                 fragment.a(this.h.remove(this.h.size() - 1).intValue(), this.q);
                 this.f.set(fragment.o, fragment);
             }
-            if (f300a) {
+            if (a) {
                 Log.v("FragmentManager", "Allocated fragment index " + fragment);
             }
         }
@@ -671,7 +669,7 @@ public final class v extends t {
 
     void d(Fragment fragment) {
         if (fragment.o >= 0) {
-            if (f300a) {
+            if (a) {
                 Log.v("FragmentManager", "Freeing fragment index " + fragment);
             }
             this.f.set(fragment.o, null);
@@ -688,7 +686,7 @@ public final class v extends t {
         if (this.g == null) {
             this.g = new ArrayList<>();
         }
-        if (f300a) {
+        if (a) {
             Log.v("FragmentManager", "add: " + fragment);
         }
         c(fragment);
@@ -709,7 +707,7 @@ public final class v extends t {
     }
 
     public void a(Fragment fragment, int i, int i2) {
-        if (f300a) {
+        if (a) {
             Log.v("FragmentManager", "remove: " + fragment + " nesting=" + fragment.A);
         }
         boolean z2 = !fragment.f();
@@ -727,7 +725,7 @@ public final class v extends t {
     }
 
     public void b(Fragment fragment, int i, int i2) {
-        if (f300a) {
+        if (a) {
             Log.v("FragmentManager", "hide: " + fragment);
         }
         if (!fragment.I) {
@@ -747,7 +745,7 @@ public final class v extends t {
     }
 
     public void c(Fragment fragment, int i, int i2) {
-        if (f300a) {
+        if (a) {
             Log.v("FragmentManager", "show: " + fragment);
         }
         if (fragment.I) {
@@ -767,14 +765,14 @@ public final class v extends t {
     }
 
     public void d(Fragment fragment, int i, int i2) {
-        if (f300a) {
+        if (a) {
             Log.v("FragmentManager", "detach: " + fragment);
         }
         if (!fragment.J) {
             fragment.J = true;
             if (fragment.u) {
                 if (this.g != null) {
-                    if (f300a) {
+                    if (a) {
                         Log.v("FragmentManager", "remove from detach: " + fragment);
                     }
                     this.g.remove(fragment);
@@ -789,7 +787,7 @@ public final class v extends t {
     }
 
     public void e(Fragment fragment, int i, int i2) {
-        if (f300a) {
+        if (a) {
             Log.v("FragmentManager", "attach: " + fragment);
         }
         if (fragment.J) {
@@ -801,7 +799,7 @@ public final class v extends t {
                 if (this.g.contains(fragment)) {
                     throw new IllegalStateException("Fragment already added: " + fragment);
                 }
-                if (f300a) {
+                if (a) {
                     Log.v("FragmentManager", "add from attach: " + fragment);
                 }
                 this.g.add(fragment);
@@ -892,13 +890,13 @@ public final class v extends t {
                     this.k = new ArrayList<>();
                 }
                 size = this.k.size();
-                if (f300a) {
+                if (a) {
                     Log.v("FragmentManager", "Setting back stack index " + size + " to " + iVar);
                 }
                 this.k.add(iVar);
             } else {
                 size = this.l.remove(this.l.size() - 1).intValue();
-                if (f300a) {
+                if (a) {
                     Log.v("FragmentManager", "Adding back stack index " + size + " with " + iVar);
                 }
                 this.k.set(size, iVar);
@@ -914,7 +912,7 @@ public final class v extends t {
             }
             int size = this.k.size();
             if (i < size) {
-                if (f300a) {
+                if (a) {
                     Log.v("FragmentManager", "Setting back stack index " + i + " to " + iVar);
                 }
                 this.k.set(i, iVar);
@@ -924,13 +922,13 @@ public final class v extends t {
                     if (this.l == null) {
                         this.l = new ArrayList<>();
                     }
-                    if (f300a) {
+                    if (a) {
                         Log.v("FragmentManager", "Adding available back stack index " + size);
                     }
                     this.l.add(Integer.valueOf(size));
                     size++;
                 }
-                if (f300a) {
+                if (a) {
                     Log.v("FragmentManager", "Adding back stack index " + i + " with " + iVar);
                 }
                 this.k.add(iVar);
@@ -944,7 +942,7 @@ public final class v extends t {
             if (this.l == null) {
                 this.l = new ArrayList<>();
             }
-            if (f300a) {
+            if (a) {
                 Log.v("FragmentManager", "Freeing back stack index " + i);
             }
             this.l.add(Integer.valueOf(i));
@@ -1078,7 +1076,7 @@ public final class v extends t {
             int size4 = arrayList.size() - 1;
             int i4 = 0;
             while (i4 <= size4) {
-                if (f300a) {
+                if (a) {
                     Log.v("FragmentManager", "Popping back stack state: " + arrayList.get(i4));
                 }
                 ((i) arrayList.get(i4)).b(i4 == size4);
@@ -1107,7 +1105,7 @@ public final class v extends t {
                     arrayList.add(fragment);
                     fragment.L = true;
                     fragment.s = fragment.r != null ? fragment.r.o : -1;
-                    if (f300a) {
+                    if (a) {
                         Log.v("FragmentManager", "retainNonConfig: keeping retained " + fragment);
                     }
                 }
@@ -1205,7 +1203,7 @@ public final class v extends t {
                 } else {
                     fragmentState.j = fragment.m;
                 }
-                if (f300a) {
+                if (a) {
                     Log.v("FragmentManager", "Saved state of " + fragment + ": " + fragmentState.j);
                 }
                 z2 = true;
@@ -1216,7 +1214,7 @@ public final class v extends t {
             z3 = z2;
         }
         if (!z3) {
-            if (f300a) {
+            if (a) {
                 Log.v("FragmentManager", "saveAllState: no fragments!");
                 return null;
             }
@@ -1231,7 +1229,7 @@ public final class v extends t {
                 if (iArr[i2] < 0) {
                     a(new IllegalStateException("Failure saving state: active " + this.g.get(i2) + " has cleared index: " + iArr[i2]));
                 }
-                if (f300a) {
+                if (a) {
                     Log.v("FragmentManager", "saveAllState: adding fragment #" + i2 + ": " + this.g.get(i2));
                 }
             }
@@ -1240,13 +1238,13 @@ public final class v extends t {
             backStackStateArr = new BackStackState[size];
             for (int i3 = 0; i3 < size; i3++) {
                 backStackStateArr[i3] = new BackStackState(this, this.i.get(i3));
-                if (f300a) {
+                if (a) {
                     Log.v("FragmentManager", "saveAllState: adding back stack #" + i3 + ": " + this.i.get(i3));
                 }
             }
         }
         FragmentManagerState fragmentManagerState = new FragmentManagerState();
-        fragmentManagerState.f277a = fragmentStateArr;
+        fragmentManagerState.a = fragmentStateArr;
         fragmentManagerState.b = iArr;
         fragmentManagerState.c = backStackStateArr;
         return fragmentManagerState;
@@ -1256,14 +1254,14 @@ public final class v extends t {
     public void a(Parcelable parcelable, ArrayList<Fragment> arrayList) {
         if (parcelable != null) {
             FragmentManagerState fragmentManagerState = (FragmentManagerState) parcelable;
-            if (fragmentManagerState.f277a != null) {
+            if (fragmentManagerState.a != null) {
                 if (arrayList != null) {
                     for (int i = 0; i < arrayList.size(); i++) {
                         Fragment fragment = arrayList.get(i);
-                        if (f300a) {
+                        if (a) {
                             Log.v("FragmentManager", "restoreAllState: re-attaching retained " + fragment);
                         }
-                        FragmentState fragmentState = fragmentManagerState.f277a[fragment.o];
+                        FragmentState fragmentState = fragmentManagerState.a[fragment.o];
                         fragmentState.k = fragment;
                         fragment.n = null;
                         fragment.A = 0;
@@ -1276,15 +1274,15 @@ public final class v extends t {
                         }
                     }
                 }
-                this.f = new ArrayList<>(fragmentManagerState.f277a.length);
+                this.f = new ArrayList<>(fragmentManagerState.a.length);
                 if (this.h != null) {
                     this.h.clear();
                 }
-                for (int i2 = 0; i2 < fragmentManagerState.f277a.length; i2++) {
-                    FragmentState fragmentState2 = fragmentManagerState.f277a[i2];
+                for (int i2 = 0; i2 < fragmentManagerState.a.length; i2++) {
+                    FragmentState fragmentState2 = fragmentManagerState.a[i2];
                     if (fragmentState2 != null) {
                         Fragment a2 = fragmentState2.a(this.o, this.q);
-                        if (f300a) {
+                        if (a) {
                             Log.v("FragmentManager", "restoreAllState: active #" + i2 + ": " + a2);
                         }
                         this.f.add(a2);
@@ -1294,7 +1292,7 @@ public final class v extends t {
                         if (this.h == null) {
                             this.h = new ArrayList<>();
                         }
-                        if (f300a) {
+                        if (a) {
                             Log.v("FragmentManager", "restoreAllState: avail #" + i2);
                         }
                         this.h.add(Integer.valueOf(i2));
@@ -1321,7 +1319,7 @@ public final class v extends t {
                             a(new IllegalStateException("No instantiated fragment for index #" + fragmentManagerState.b[i4]));
                         }
                         fragment3.u = true;
-                        if (f300a) {
+                        if (a) {
                             Log.v("FragmentManager", "restoreAllState: added #" + i4 + ": " + fragment3);
                         }
                         if (this.g.contains(fragment3)) {
@@ -1336,7 +1334,7 @@ public final class v extends t {
                     this.i = new ArrayList<>(fragmentManagerState.c.length);
                     for (int i5 = 0; i5 < fragmentManagerState.c.length; i5++) {
                         i a3 = fragmentManagerState.c[i5].a(this);
-                        if (f300a) {
+                        if (a) {
                             Log.v("FragmentManager", "restoreAllState: back stack #" + i5 + " (index " + a3.o + "): " + a3);
                             a3.a("  ", new PrintWriter(new android.support.v4.b.b("FragmentManager")), false);
                         }

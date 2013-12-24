@@ -6,13 +6,11 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 class d implements Handler.Callback {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ JigsawAlbumActivity f2114a;
+    final /* synthetic */ JigsawAlbumActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(JigsawAlbumActivity jigsawAlbumActivity) {
-        this.f2114a = jigsawAlbumActivity;
+        this.a = jigsawAlbumActivity;
     }
 
     @Override // android.os.Handler.Callback
@@ -27,23 +25,23 @@ class d implements Handler.Callback {
         Runnable runnable;
         switch (message.what) {
             case 1:
-                jVar3 = this.f2114a.i;
+                jVar3 = this.a.i;
                 jVar3.a((List<c>) null);
-                jVar4 = this.f2114a.i;
+                jVar4 = this.a.i;
                 jVar4.notifyDataSetChanged();
-                runnable = this.f2114a.w;
+                runnable = this.a.w;
                 new Thread(runnable).start();
                 break;
             case 2:
-                this.f2114a.l = new l(this.f2114a);
-                lVar = this.f2114a.l;
+                this.a.l = new l(this.a);
+                lVar = this.a.l;
                 lVar.setDaemon(true);
-                lVar2 = this.f2114a.l;
+                lVar2 = this.a.l;
                 lVar2.start();
-                jVar = this.f2114a.i;
-                arrayList = this.f2114a.f;
+                jVar = this.a.i;
+                arrayList = this.a.f;
                 jVar.a(arrayList);
-                jVar2 = this.f2114a.i;
+                jVar2 = this.a.i;
                 jVar2.notifyDataSetChanged();
                 break;
         }

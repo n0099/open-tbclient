@@ -15,9 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class PhotoWallView extends FrameLayout {
-
-    /* renamed from: a  reason: collision with root package name */
-    private final int f1738a;
+    private final int a;
     private com.baidu.adp.widget.ImageView.a[] b;
     private Context c;
     private LinearLayout d;
@@ -34,7 +32,7 @@ public class PhotoWallView extends FrameLayout {
 
     public PhotoWallView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f1738a = 8;
+        this.a = 8;
         this.b = new com.baidu.adp.widget.ImageView.a[8];
         this.d = null;
         this.e = null;
@@ -48,7 +46,7 @@ public class PhotoWallView extends FrameLayout {
 
     public PhotoWallView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f1738a = 8;
+        this.a = 8;
         this.b = new com.baidu.adp.widget.ImageView.a[8];
         this.d = null;
         this.e = null;
@@ -62,7 +60,7 @@ public class PhotoWallView extends FrameLayout {
 
     public PhotoWallView(Context context) {
         super(context);
-        this.f1738a = 8;
+        this.a = 8;
         this.b = new com.baidu.adp.widget.ImageView.a[8];
         this.d = null;
         this.e = null;
@@ -121,9 +119,9 @@ public class PhotoWallView extends FrameLayout {
         }
         this.e.removeAllViews();
         this.f.removeAllViews();
-        LinearLayout.LayoutParams a2 = a(0);
-        LinearLayout.LayoutParams a3 = a(1);
-        LinearLayout.LayoutParams a4 = a(2);
+        LinearLayout.LayoutParams a = a(0);
+        LinearLayout.LayoutParams a2 = a(1);
+        LinearLayout.LayoutParams a3 = a(2);
         if (list != null && list.size() > 0) {
             int size2 = list.size();
             for (int i2 = 0; i2 < size2 && i2 < 8; i2++) {
@@ -151,18 +149,18 @@ public class PhotoWallView extends FrameLayout {
                 }
                 if (i2 < 4) {
                     if (i2 == 0) {
-                        this.e.addView(aVar, a3);
-                    } else if (i2 == 3) {
-                        this.e.addView(aVar, a4);
-                    } else {
                         this.e.addView(aVar, a2);
+                    } else if (i2 == 3) {
+                        this.e.addView(aVar, a3);
+                    } else {
+                        this.e.addView(aVar, a);
                     }
                 } else if (i2 == 4) {
-                    this.f.addView(aVar, a3);
-                } else if (i2 == 7) {
-                    this.f.addView(aVar, a4);
-                } else {
                     this.f.addView(aVar, a2);
+                } else if (i2 == 7) {
+                    this.f.addView(aVar, a3);
+                } else {
+                    this.f.addView(aVar, a);
                 }
             }
         }
@@ -191,18 +189,18 @@ public class PhotoWallView extends FrameLayout {
             aVar4.setOnLongClickListener(null);
             if (size3 < 4) {
                 if (size3 == 0) {
-                    this.e.addView(aVar4, a3);
-                } else if (size3 == 3) {
-                    this.e.addView(aVar4, a4);
-                } else {
                     this.e.addView(aVar4, a2);
+                } else if (size3 == 3) {
+                    this.e.addView(aVar4, a3);
+                } else {
+                    this.e.addView(aVar4, a);
                 }
             } else if (size3 == 4) {
-                this.f.addView(aVar4, a3);
-            } else if (size3 == 7) {
-                this.f.addView(aVar4, a4);
-            } else {
                 this.f.addView(aVar4, a2);
+            } else if (size3 == 7) {
+                this.f.addView(aVar4, a3);
+            } else {
+                this.f.addView(aVar4, a);
             }
         }
         if (this.e.getChildCount() + this.f.getChildCount() > 4) {
@@ -219,11 +217,11 @@ public class PhotoWallView extends FrameLayout {
             this.j = new com.baidu.tieba.util.i(this.c);
         }
         this.j.d(true);
-        com.baidu.adp.widget.ImageView.e a2 = this.j.a(str, new ad(this, aVar));
-        if (a2 != null) {
+        com.baidu.adp.widget.ImageView.e a = this.j.a(str, new ad(this, aVar));
+        if (a != null) {
             aVar.setBackgroundDrawable(null);
             aVar.setImageBitmap(null);
-            a2.a(aVar);
+            a.a(aVar);
         }
     }
 

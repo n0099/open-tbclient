@@ -1,58 +1,53 @@
 package com.baidu.tieba.util;
 
-import com.baidu.tieba.im.message.Message;
-import com.baidu.tieba.im.message.ResponseRequestGroupLocMessage;
-import java.util.ArrayList;
-import java.util.Iterator;
+import android.location.Address;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ac implements com.baidu.tieba.im.messageCenter.g {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ aa f2577a;
+public class ac implements com.baidu.adp.lib.c.d {
+    final /* synthetic */ ab a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ac(aa aaVar) {
-        this.f2577a = aaVar;
+    public ac(ab abVar) {
+        this.a = abVar;
     }
 
-    @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(Message message) {
-        ad adVar;
-        ad adVar2;
-        ad adVar3;
-        double d;
-        double d2;
-        ad adVar4;
-        ad adVar5;
-        if (message == null || message.getCmd() != 103010) {
-            adVar = this.f2577a.d;
-            adVar.a();
-        } else if (!(message instanceof ResponseRequestGroupLocMessage)) {
-            adVar5 = this.f2577a.d;
-            adVar5.a();
-        } else {
-            ResponseRequestGroupLocMessage responseRequestGroupLocMessage = (ResponseRequestGroupLocMessage) message;
-            if (responseRequestGroupLocMessage.hasError()) {
-                adVar4 = this.f2577a.d;
-                adVar4.a();
+    @Override // com.baidu.adp.lib.c.d
+    public void a(int i, String str, Address address) {
+        ae aeVar;
+        ae aeVar2;
+        com.baidu.tieba.im.model.ak akVar;
+        com.baidu.tieba.im.model.ak akVar2;
+        com.baidu.tieba.im.model.ak akVar3;
+        com.baidu.tieba.im.model.ak akVar4;
+        switch (i) {
+            case 0:
+                if (address != null) {
+                    this.a.b = address.getLatitude();
+                    this.a.a = address.getLongitude();
+                    akVar = this.a.c;
+                    akVar.b(String.valueOf(address.getLatitude()));
+                    akVar2 = this.a.c;
+                    akVar2.a(String.valueOf(address.getLongitude()));
+                    akVar3 = this.a.c;
+                    akVar3.a(0);
+                    akVar4 = this.a.c;
+                    akVar4.a();
+                    return;
+                }
                 return;
-            }
-            Iterator<String> iteraotrOfBusinessAreaList = responseRequestGroupLocMessage.getIteraotrOfBusinessAreaList();
-            ArrayList arrayList = new ArrayList();
-            while (iteraotrOfBusinessAreaList.hasNext()) {
-                arrayList.add(iteraotrOfBusinessAreaList.next());
-            }
-            String position = responseRequestGroupLocMessage.getPosition();
-            if ((position == null || position.equals("")) && arrayList.size() < 1) {
-                adVar2 = this.f2577a.d;
-                adVar2.a();
+            case 1:
+            case 2:
+            case 3:
+                aeVar2 = this.a.d;
+                aeVar2.b();
                 return;
-            }
-            adVar3 = this.f2577a.d;
-            d = this.f2577a.b;
-            d2 = this.f2577a.f2575a;
-            adVar3.a(position, arrayList, d, d2);
+            case 4:
+            case 5:
+                aeVar = this.a.d;
+                aeVar.a();
+                return;
+            default:
+                return;
         }
     }
 }

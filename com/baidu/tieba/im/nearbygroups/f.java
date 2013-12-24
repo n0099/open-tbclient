@@ -8,9 +8,7 @@ import com.baidu.tieba.im.data.NearbyGroupsData;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class f extends u {
-
-    /* renamed from: a  reason: collision with root package name */
-    private NearbyGroupsActivity f1848a;
+    private NearbyGroupsActivity a;
     private com.baidu.tieba.util.i d;
     private a f;
     private NearbyGroupsData b = null;
@@ -18,10 +16,10 @@ public class f extends u {
     private boolean e = false;
 
     public f(NearbyGroupsActivity nearbyGroupsActivity) {
-        this.f1848a = null;
+        this.a = null;
         this.d = null;
-        this.f1848a = nearbyGroupsActivity;
-        this.d = new com.baidu.tieba.util.i(this.f1848a);
+        this.a = nearbyGroupsActivity;
+        this.d = new com.baidu.tieba.util.i(this.a);
         this.d.d(true);
     }
 
@@ -55,18 +53,18 @@ public class f extends u {
             z = true;
         }
         if (z) {
-            com.baidu.tieba.im.data.c lastGroup = this.b.getLastGroup();
-            com.baidu.tieba.im.data.c firstGroup = nearbyGroupsData.getFirstGroup();
+            com.baidu.tieba.im.data.g lastGroup = this.b.getLastGroup();
+            com.baidu.tieba.im.data.g firstGroup = nearbyGroupsData.getFirstGroup();
             if (lastGroup != null && firstGroup != null && lastGroup.a() != null && lastGroup.a().equals(firstGroup.a())) {
                 nearbyGroupsData.remove(firstGroup);
             }
             Iterator it = nearbyGroupsData.iterator();
             while (it.hasNext()) {
-                com.baidu.tieba.im.data.d dVar = (com.baidu.tieba.im.data.d) it.next();
-                if ((dVar instanceof com.baidu.tieba.im.data.e) && this.b.findItemByGroupId(((com.baidu.tieba.im.data.e) dVar).c()) != null) {
+                com.baidu.tieba.im.data.h hVar = (com.baidu.tieba.im.data.h) it.next();
+                if ((hVar instanceof com.baidu.tieba.im.data.i) && this.b.findItemByGroupId(((com.baidu.tieba.im.data.i) hVar).c()) != null) {
                     break;
                 }
-                this.b.add(dVar);
+                this.b.add(hVar);
             }
         } else {
             this.b = nearbyGroupsData;
@@ -129,7 +127,7 @@ public class f extends u {
         a aVar;
         int itemViewType = getItemViewType(i);
         if (view == null) {
-            aVar = g.a(this.f1848a, itemViewType);
+            aVar = g.a(this.a, itemViewType);
             view = aVar.a();
             view.setTag(aVar);
         } else {
@@ -154,7 +152,7 @@ public class f extends u {
     @Override // com.baidu.adp.widget.u
     public View c() {
         if (this.f == null) {
-            this.f = g.a(this.f1848a, 4);
+            this.f = g.a(this.a, 4);
         }
         return this.f.a();
     }

@@ -12,9 +12,7 @@ import com.slidingmenu.lib.R;
 public class h implements a {
     private NearbyGroupsActivity d;
     private int f;
-
-    /* renamed from: a  reason: collision with root package name */
-    private LinearLayout f1849a = null;
+    private LinearLayout a = null;
     private TextView b = null;
     private Button c = null;
     private View e = null;
@@ -37,7 +35,7 @@ public class h implements a {
 
     public void b() {
         this.e = LayoutInflater.from(this.d).inflate(R.layout.nearby_group_guide, (ViewGroup) null);
-        this.f1849a = (LinearLayout) this.e.findViewById(R.id.guide_parent);
+        this.a = (LinearLayout) this.e.findViewById(R.id.guide_parent);
         this.b = (TextView) this.e.findViewById(R.id.guide_tip);
         this.c = (Button) this.e.findViewById(R.id.guide_setting);
         this.c.setOnClickListener(this.d);
@@ -56,7 +54,7 @@ public class h implements a {
 
     public void a(int i) {
         this.d.getLayoutMode().a(i == 1);
-        this.d.getLayoutMode().a(this.f1849a);
+        this.d.getLayoutMode().a(this.a);
     }
 
     public void c() {

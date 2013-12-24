@@ -16,10 +16,8 @@ public class ImageManager {
     public static final String DEFAULT_STORAGE_PATH = Environment.getExternalStorageDirectory().getPath() + "/baidu/.imagecache/";
     private static ImageManager d;
     private int c = DEFAULT_MAX_CACHEABLE_SIZE;
-
-    /* renamed from: a  reason: collision with root package name */
-    private MemoryBitmapCache f842a = new MemoryBitmapCache(20);
-    private bm b = new bm(DEFAULT_STORAGE_PATH, 1, this.c, this.f842a);
+    private MemoryBitmapCache a = new MemoryBitmapCache(20);
+    private bm b = new bm(DEFAULT_STORAGE_PATH, 1, this.c, this.a);
 
     private ImageManager() {
     }
@@ -41,12 +39,12 @@ public class ImageManager {
         Validator.notNull(uri, "uri");
         Validator.notNull(iAsyncImageLoaderListener, "listener");
         String md5 = Utils.md5(uri.toString());
-        Bitmap a2 = this.f842a.a(md5);
-        if (a2 == null && Utils.isUrl(uri)) {
-            a2 = this.b.b(md5);
+        Bitmap a = this.a.a(md5);
+        if (a == null && Utils.isUrl(uri)) {
+            a = this.b.b(md5);
         }
-        if (a2 != null) {
-            iAsyncImageLoaderListener.onComplete(a2);
+        if (a != null) {
+            iAsyncImageLoaderListener.onComplete(a);
         } else {
             new AsyncImageLoader(context, new j(this, uri, md5, iAsyncImageLoaderListener)).execute(uri);
         }
@@ -64,12 +62,12 @@ public class ImageManager {
     }
 
     public ImageManager setMaxMemCacheSize(int i) {
-        this.f842a.a(i);
+        this.a.a(i);
         return this;
     }
 
     public ImageManager setMemCacheEvictPolicy(MemoryBitmapCache.IEvictPolicy iEvictPolicy) {
-        this.f842a.a(iEvictPolicy);
+        this.a.a(iEvictPolicy);
         return this;
     }
 

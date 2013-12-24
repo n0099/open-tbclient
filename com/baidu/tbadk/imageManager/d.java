@@ -6,9 +6,7 @@ public class d {
     private com.baidu.adp.lib.d.a<String, com.baidu.adp.widget.ImageView.e> c;
     private com.baidu.adp.lib.d.a<String, com.baidu.adp.widget.ImageView.e> d;
     private static d b = new d();
-
-    /* renamed from: a  reason: collision with root package name */
-    public static String f982a = "?t=";
+    public static String a = "?t=";
 
     public static d a() {
         return b;
@@ -46,7 +44,7 @@ public class d {
 
     public void a(String str, com.baidu.adp.widget.ImageView.e eVar, boolean z) {
         if (z) {
-            str = d(str).f985a;
+            str = d(str).a;
         }
         a(str, eVar);
     }
@@ -71,16 +69,16 @@ public class d {
     public void a(String str) {
         this.c.b((com.baidu.adp.lib.d.a<String, com.baidu.adp.widget.ImageView.e>) str);
         g d = d(str);
-        if (!TextUtils.isEmpty(d.f985a) && !d.f985a.equals(str)) {
-            this.c.b((com.baidu.adp.lib.d.a<String, com.baidu.adp.widget.ImageView.e>) d.f985a);
+        if (!TextUtils.isEmpty(d.a) && !d.a.equals(str)) {
+            this.c.b((com.baidu.adp.lib.d.a<String, com.baidu.adp.widget.ImageView.e>) d.a);
         }
     }
 
     public com.baidu.adp.widget.ImageView.e b(String str) {
         g d = d(str);
-        com.baidu.adp.widget.ImageView.e a2 = this.c.a((com.baidu.adp.lib.d.a<String, com.baidu.adp.widget.ImageView.e>) d.f985a);
+        com.baidu.adp.widget.ImageView.e a2 = this.c.a((com.baidu.adp.lib.d.a<String, com.baidu.adp.widget.ImageView.e>) d.a);
         if (a2 != null && a2.b < d.b) {
-            this.c.b((com.baidu.adp.lib.d.a<String, com.baidu.adp.widget.ImageView.e>) d.f985a);
+            this.c.b((com.baidu.adp.lib.d.a<String, com.baidu.adp.widget.ImageView.e>) d.a);
             return null;
         }
         return a2;
@@ -104,10 +102,10 @@ public class d {
         if (str != null) {
             int indexOf = str.indexOf("?");
             gVar.b = 0L;
-            gVar.f985a = str;
-            if (indexOf != -1 && str.length() > f982a.length() + indexOf) {
-                gVar.b = com.baidu.adp.lib.f.b.a(str.substring(f982a.length() + indexOf), 0L);
-                gVar.f985a = str.substring(0, indexOf);
+            gVar.a = str;
+            if (indexOf != -1 && str.length() > a.length() + indexOf) {
+                gVar.b = com.baidu.adp.lib.f.b.a(str.substring(a.length() + indexOf), 0L);
+                gVar.a = str.substring(0, indexOf);
             }
         }
         return gVar;

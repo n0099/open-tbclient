@@ -14,13 +14,11 @@ import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class am implements View.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NewPbActivity f2161a;
+    final /* synthetic */ NewPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public am(NewPbActivity newPbActivity) {
-        this.f2161a = newPbActivity;
+        this.a = newPbActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -83,7 +81,7 @@ public class am implements View.OnClickListener {
         cr crVar32;
         cr crVar33;
         cr crVar34;
-        boolean a2;
+        boolean a;
         com.baidu.tieba.model.bm bmVar17;
         cr crVar35;
         cr crVar36;
@@ -129,45 +127,45 @@ public class am implements View.OnClickListener {
         com.baidu.tieba.model.bm bmVar29;
         cr crVar49;
         int i = 0;
-        crVar = this.f2161a.y;
+        crVar = this.a.x;
         if (view == crVar.N()) {
-            bmVar29 = this.f2161a.s;
+            bmVar29 = this.a.r;
             if (bmVar29.a(true)) {
-                crVar49 = this.f2161a.y;
+                crVar49 = this.a.x;
                 crVar49.q();
                 return;
             }
             return;
         }
-        crVar2 = this.f2161a.y;
+        crVar2 = this.a.x;
         if (view != crVar2.R()) {
-            crVar11 = this.f2161a.y;
+            crVar11 = this.a.x;
             if (view != crVar11.S()) {
-                crVar12 = this.f2161a.y;
+                crVar12 = this.a.x;
                 if (view != crVar12.T()) {
-                    crVar13 = this.f2161a.y;
+                    crVar13 = this.a.x;
                     if (view != crVar13.U()) {
-                        crVar14 = this.f2161a.y;
+                        crVar14 = this.a.x;
                         if (view != crVar14.l()) {
-                            crVar15 = this.f2161a.y;
+                            crVar15 = this.a.x;
                             if (view == crVar15.ag()) {
-                                bmVar27 = this.f2161a.s;
+                                bmVar27 = this.a.r;
                                 if (bmVar27 != null) {
-                                    bmVar28 = this.f2161a.s;
-                                    UtilHelper.b(this.f2161a, bmVar28.l().d().i().c());
+                                    bmVar28 = this.a.r;
+                                    UtilHelper.b(this.a, bmVar28.l().d().i().c());
                                     return;
                                 }
                                 return;
                             }
-                            crVar16 = this.f2161a.y;
+                            crVar16 = this.a.x;
                             if (view == crVar16.k()) {
-                                crVar47 = this.f2161a.y;
+                                crVar47 = this.a.x;
                                 crVar47.aa();
                                 String B = TiebaApplication.B();
                                 if (B != null && B.length() > 0) {
-                                    adVar3 = this.f2161a.x;
+                                    adVar3 = this.a.w;
                                     if (!adVar3.b()) {
-                                        crVar48 = this.f2161a.y;
+                                        crVar48 = this.a.x;
                                         crVar48.j();
                                         SparseArray sparseArray = (SparseArray) view.getTag();
                                         if (sparseArray != null) {
@@ -175,22 +173,22 @@ public class am implements View.OnClickListener {
                                             int intValue = ((Integer) sparseArray.get(R.id.tag_manage_user_identity)).intValue();
                                             boolean booleanValue = ((Boolean) sparseArray.get(R.id.tag_del_post_is_self)).booleanValue();
                                             int intValue2 = ((Integer) sparseArray.get(R.id.tag_del_post_type)).intValue();
-                                            bmVar23 = this.f2161a.s;
+                                            bmVar23 = this.a.r;
                                             if (bmVar23.i()) {
-                                                bpVar11 = this.f2161a.w;
+                                                bpVar11 = this.a.v;
                                                 if (bpVar11 != null) {
-                                                    bpVar12 = this.f2161a.w;
+                                                    bpVar12 = this.a.v;
                                                     if (bpVar12.e() != null) {
-                                                        bpVar13 = this.f2161a.w;
+                                                        bpVar13 = this.a.v;
                                                         if (bpVar13.e().h() != null) {
-                                                            bpVar14 = this.f2161a.w;
+                                                            bpVar14 = this.a.v;
                                                             if (bpVar14.e().m() != null) {
-                                                                adVar5 = this.f2161a.x;
-                                                                bpVar15 = this.f2161a.w;
+                                                                adVar5 = this.a.w;
+                                                                bpVar15 = this.a.v;
                                                                 String id = bpVar15.e().h().getId();
-                                                                bpVar16 = this.f2161a.w;
+                                                                bpVar16 = this.a.v;
                                                                 String name = bpVar16.e().h().getName();
-                                                                bpVar17 = this.f2161a.w;
+                                                                bpVar17 = this.a.v;
                                                                 adVar5.a(id, name, bpVar17.e().m().a(), str, intValue2, intValue, booleanValue);
                                                                 return;
                                                             }
@@ -202,12 +200,12 @@ public class am implements View.OnClickListener {
                                                 }
                                                 return;
                                             }
-                                            adVar4 = this.f2161a.x;
-                                            bmVar24 = this.f2161a.s;
+                                            adVar4 = this.a.w;
+                                            bmVar24 = this.a.r;
                                             String id2 = bmVar24.l().c().getId();
-                                            bmVar25 = this.f2161a.s;
+                                            bmVar25 = this.a.r;
                                             String name2 = bmVar25.l().c().getName();
-                                            bmVar26 = this.f2161a.s;
+                                            bmVar26 = this.a.r;
                                             adVar4.a(id2, name2, bmVar26.l().d().a(), str, intValue2, intValue, booleanValue);
                                             return;
                                         }
@@ -215,33 +213,33 @@ public class am implements View.OnClickListener {
                                     }
                                     return;
                                 }
-                                LoginActivity.a((Activity) this.f2161a, this.f2161a.getString(R.string.login_to_use), true, 11017);
+                                LoginActivity.a((Activity) this.a, this.a.getString(R.string.login_to_use), true, 11017);
                                 return;
                             }
-                            crVar17 = this.f2161a.y;
+                            crVar17 = this.a.x;
                             if (view == crVar17.V()) {
-                                crVar46 = this.f2161a.y;
+                                crVar46 = this.a.x;
                                 crVar46.b(true);
                                 return;
                             }
-                            crVar18 = this.f2161a.y;
+                            crVar18 = this.a.x;
                             if (view == crVar18.n()) {
-                                bpVar10 = this.f2161a.w;
+                                bpVar10 = this.a.v;
                                 if (bpVar10.h()) {
-                                    crVar45 = this.f2161a.y;
+                                    crVar45 = this.a.x;
                                     crVar45.v();
                                     return;
                                 }
                                 return;
                             }
-                            crVar19 = this.f2161a.y;
+                            crVar19 = this.a.x;
                             if (view == crVar19.h()) {
-                                bpVar7 = this.f2161a.w;
+                                bpVar7 = this.a.v;
                                 if (bpVar7 != null) {
-                                    bpVar8 = this.f2161a.w;
+                                    bpVar8 = this.a.v;
                                     if (bpVar8.a() != null) {
-                                        NewPbActivity newPbActivity = this.f2161a;
-                                        bpVar9 = this.f2161a.w;
+                                        NewPbActivity newPbActivity = this.a;
+                                        bpVar9 = this.a.v;
                                         NewPbActivity.a(newPbActivity, bpVar9.a(), null, null);
                                         return;
                                     }
@@ -249,106 +247,106 @@ public class am implements View.OnClickListener {
                                 }
                                 return;
                             }
-                            crVar20 = this.f2161a.y;
+                            crVar20 = this.a.x;
                             if (view != crVar20.b) {
-                                crVar21 = this.f2161a.y;
+                                crVar21 = this.a.x;
                                 if (view == crVar21.c) {
-                                    crVar44 = this.f2161a.y;
+                                    crVar44 = this.a.x;
                                     crVar44.a(0);
                                     if (TiebaApplication.h().t()) {
-                                        StatService.onEvent(this.f2161a, "pb_header_forum_name", "pbclick", 1);
+                                        StatService.onEvent(this.a, "pb_header_forum_name", "pbclick", 1);
                                         return;
                                     }
                                     return;
                                 }
-                                crVar22 = this.f2161a.y;
+                                crVar22 = this.a.x;
                                 if (view == crVar22.e) {
-                                    crVar43 = this.f2161a.y;
-                                    bmVar22 = this.f2161a.s;
+                                    crVar43 = this.a.x;
+                                    bmVar22 = this.a.r;
                                     boolean d = bmVar22.d();
-                                    bgVar = this.f2161a.t;
+                                    bgVar = this.a.s;
                                     crVar43.a(d, bgVar.a());
                                     return;
                                 }
-                                crVar23 = this.f2161a.y;
+                                crVar23 = this.a.x;
                                 if (view == crVar23.d) {
-                                    this.f2161a.u();
-                                    bmVar21 = this.f2161a.s;
+                                    this.a.u();
+                                    bmVar21 = this.a.r;
                                     bmVar21.q();
-                                    crVar42 = this.f2161a.y;
+                                    crVar42 = this.a.x;
                                     crVar42.o();
                                     if (TiebaApplication.h().t()) {
-                                        StatService.onEvent(this.f2161a, "pb_set_host", "pbclick", 1);
+                                        StatService.onEvent(this.a, "pb_set_host", "pbclick", 1);
                                         return;
                                     }
                                     return;
                                 }
                                 switch (view.getId()) {
                                     case R.id.sub_post_load_more /* 2131099670 */:
-                                        bpVar6 = this.f2161a.w;
+                                        bpVar6 = this.a.v;
                                         if (bpVar6.h()) {
-                                            crVar41 = this.f2161a.y;
+                                            crVar41 = this.a.x;
                                             crVar41.v();
                                             return;
                                         }
                                         return;
                                     case R.id.dialog_button_cancel /* 2131099954 */:
-                                        crVar29 = this.f2161a.y;
+                                        crVar29 = this.a.x;
                                         crVar29.Z();
                                         return;
                                     case R.id.dialog_button_ok /* 2131099955 */:
-                                        crVar30 = this.f2161a.y;
+                                        crVar30 = this.a.x;
                                         crVar30.Z();
-                                        crVar31 = this.f2161a.y;
+                                        crVar31 = this.a.x;
                                         if (crVar31.I() >= 0) {
-                                            this.f2161a.u();
-                                            bmVar16 = this.f2161a.s;
-                                            crVar32 = this.f2161a.y;
+                                            this.a.u();
+                                            bmVar16 = this.a.r;
+                                            crVar32 = this.a.x;
                                             bmVar16.c(crVar32.I());
-                                            crVar33 = this.f2161a.y;
+                                            crVar33 = this.a.x;
                                             crVar33.o();
                                             return;
                                         }
                                         return;
                                     case R.id.reply /* 2131100550 */:
-                                    case R.id.sub_pb_item /* 2131100786 */:
-                                    case R.id.sub_pb_more /* 2131100788 */:
+                                    case R.id.sub_pb_item /* 2131100796 */:
+                                    case R.id.sub_pb_more /* 2131100798 */:
                                         try {
-                                            bmVar4 = this.f2161a.s;
+                                            bmVar4 = this.a.r;
                                             if (bmVar4.l() != null) {
-                                                crVar24 = this.f2161a.y;
+                                                crVar24 = this.a.x;
                                                 crVar24.Z();
                                                 SparseArray sparseArray2 = (SparseArray) view.getTag();
                                                 com.baidu.tieba.data.ar arVar = (com.baidu.tieba.data.ar) sparseArray2.get(R.id.tag_load_sub_data);
                                                 View view2 = (View) sparseArray2.get(R.id.tag_load_sub_view);
                                                 if (arVar != null && view2 != null) {
-                                                    bmVar5 = this.f2161a.s;
-                                                    com.baidu.tieba.data.av a3 = bmVar5.a(arVar);
-                                                    bpVar = this.f2161a.w;
-                                                    bmVar6 = this.f2161a.s;
+                                                    bmVar5 = this.a.r;
+                                                    com.baidu.tieba.data.av a2 = bmVar5.a(arVar);
+                                                    bpVar = this.a.v;
+                                                    bmVar6 = this.a.r;
                                                     bpVar.a(bmVar6.b());
-                                                    bpVar2 = this.f2161a.w;
+                                                    bpVar2 = this.a.v;
                                                     bpVar2.b(arVar.d());
-                                                    bpVar3 = this.f2161a.w;
+                                                    bpVar3 = this.a.v;
                                                     bpVar3.d();
-                                                    this.f2161a.u();
+                                                    this.a.u();
                                                     if (view.getId() == R.id.reply) {
-                                                        crVar26 = this.f2161a.y;
-                                                        bmVar8 = this.f2161a.s;
-                                                        crVar26.a(true, a3, false, null, null, view2, bmVar8.l().l());
+                                                        crVar26 = this.a.x;
+                                                        bmVar8 = this.a.r;
+                                                        crVar26.a(true, a2, false, null, null, view2, bmVar8.l().l());
                                                         return;
                                                     } else if (view.getId() != R.id.sub_pb_item) {
-                                                        handler = this.f2161a.r;
-                                                        handler.post(new an(this, a3, view2));
+                                                        handler = this.a.q;
+                                                        handler.post(new an(this, a2, view2));
                                                         return;
                                                     } else {
                                                         SparseArray sparseArray3 = (SparseArray) view.getTag();
                                                         String str2 = (String) sparseArray3.get(R.id.tag_photo_username);
                                                         com.baidu.tieba.data.ar arVar2 = (com.baidu.tieba.data.ar) sparseArray3.get(R.id.tag_clip_board);
                                                         String d2 = arVar2 != null ? arVar2.d() : null;
-                                                        crVar25 = this.f2161a.y;
-                                                        bmVar7 = this.f2161a.s;
-                                                        crVar25.a(true, a3, false, str2, d2, view2, bmVar7.l().l());
+                                                        crVar25 = this.a.x;
+                                                        bmVar7 = this.a.r;
+                                                        crVar25.a(true, a2, false, str2, d2, view2, bmVar7.l().l());
                                                         return;
                                                     }
                                                 }
@@ -356,34 +354,34 @@ public class am implements View.OnClickListener {
                                             }
                                             return;
                                         } catch (Exception e) {
-                                            com.baidu.tieba.util.bd.b(getClass().getName(), "onClick", e.toString());
+                                            com.baidu.tieba.util.be.b(getClass().getName(), "onClick", e.toString());
                                             return;
                                         }
                                     case R.id.btn_image_upload_camera /* 2131100565 */:
-                                        com.baidu.tieba.write.bd.a(this.f2161a);
+                                        com.baidu.tieba.write.bd.a(this.a);
                                         return;
                                     case R.id.btn_image_upload_album /* 2131100566 */:
-                                        com.baidu.tieba.write.bd.b(this.f2161a);
+                                        com.baidu.tieba.write.bd.b(this.a);
                                         return;
-                                    case R.id.pb_list_header_bar /* 2131100738 */:
-                                        bmVar10 = this.f2161a.s;
+                                    case R.id.pb_list_header_bar /* 2131100748 */:
+                                        bmVar10 = this.a.r;
                                         if (bmVar10 != null) {
-                                            bmVar11 = this.f2161a.s;
+                                            bmVar11 = this.a.r;
                                             if (bmVar11.l() != null) {
-                                                bmVar12 = this.f2161a.s;
+                                                bmVar12 = this.a.r;
                                                 if (bmVar12.l().c() != null) {
-                                                    bmVar13 = this.f2161a.s;
+                                                    bmVar13 = this.a.r;
                                                     String name3 = bmVar13.l().c().getName();
                                                     if (name3 != null && name3.length() > 0) {
-                                                        bmVar14 = this.f2161a.s;
+                                                        bmVar14 = this.a.r;
                                                         if (name3.equals(bmVar14.a())) {
-                                                            bmVar15 = this.f2161a.s;
+                                                            bmVar15 = this.a.r;
                                                             if (bmVar15.e()) {
-                                                                this.f2161a.closeActivity();
+                                                                this.a.closeActivity();
                                                                 return;
                                                             }
                                                         }
-                                                        FrsActivity.a(this.f2161a, name3, (String) null);
+                                                        FrsActivity.a(this.a, name3, (String) null);
                                                         return;
                                                     }
                                                     return;
@@ -393,72 +391,72 @@ public class am implements View.OnClickListener {
                                             return;
                                         }
                                         return;
-                                    case R.id.floor /* 2131100760 */:
-                                        this.f2161a.a(view);
+                                    case R.id.floor /* 2131100770 */:
+                                        this.a.a(view);
                                         return;
-                                    case R.id.mark_txt /* 2131100771 */:
-                                        crVar34 = this.f2161a.y;
+                                    case R.id.mark_txt /* 2131100781 */:
+                                        crVar34 = this.a.x;
                                         crVar34.Z();
-                                        a2 = this.f2161a.a(11009);
-                                        if (a2) {
-                                            bmVar17 = this.f2161a.s;
-                                            crVar35 = this.f2161a.y;
+                                        a = this.a.a(11009);
+                                        if (a) {
+                                            bmVar17 = this.a.r;
+                                            crVar35 = this.a.x;
                                             if (bmVar17.f(crVar35.H()) != null) {
-                                                this.f2161a.q();
+                                                this.a.q();
                                                 return;
                                             }
                                             return;
                                         }
                                         return;
-                                    case R.id.share_txt /* 2131100773 */:
-                                        this.f2161a.u();
-                                        crVar40 = this.f2161a.y;
+                                    case R.id.share_txt /* 2131100783 */:
+                                        this.a.u();
+                                        crVar40 = this.a.x;
                                         crVar40.Z();
-                                        this.f2161a.v();
+                                        this.a.v();
                                         return;
-                                    case R.id.skip_txt /* 2131100775 */:
-                                        crVar38 = this.f2161a.y;
+                                    case R.id.skip_txt /* 2131100785 */:
+                                        crVar38 = this.a.x;
                                         crVar38.Z();
-                                        bmVar19 = this.f2161a.s;
+                                        bmVar19 = this.a.r;
                                         if (bmVar19.m() != null) {
-                                            crVar39 = this.f2161a.y;
-                                            bmVar20 = this.f2161a.s;
+                                            crVar39 = this.a.x;
+                                            bmVar20 = this.a.r;
                                             crVar39.a(bmVar20.m());
                                         }
                                         if (TiebaApplication.h().t()) {
-                                            StatService.onEvent(this.f2161a, "pb_skip_page", "pbclick", 1);
+                                            StatService.onEvent(this.a, "pb_skip_page", "pbclick", 1);
                                             return;
                                         }
                                         return;
-                                    case R.id.reverse_txt /* 2131100777 */:
-                                        this.f2161a.u();
-                                        crVar36 = this.f2161a.y;
+                                    case R.id.reverse_txt /* 2131100787 */:
+                                        this.a.u();
+                                        crVar36 = this.a.x;
                                         crVar36.Z();
-                                        bmVar18 = this.f2161a.s;
+                                        bmVar18 = this.a.r;
                                         bmVar18.r();
-                                        crVar37 = this.f2161a.y;
+                                        crVar37 = this.a.x;
                                         crVar37.o();
                                         if (TiebaApplication.h().t()) {
-                                            StatService.onEvent(this.f2161a, "pb_set_desc", "pbclick", 1);
+                                            StatService.onEvent(this.a, "pb_set_desc", "pbclick", 1);
                                             return;
                                         }
                                         return;
-                                    case R.id.sub_pb_bottom_layout /* 2131100781 */:
-                                        bmVar9 = this.f2161a.s;
+                                    case R.id.sub_pb_bottom_layout /* 2131100791 */:
+                                        bmVar9 = this.a.r;
                                         if (!bmVar9.i()) {
-                                            this.f2161a.u();
-                                            crVar28 = this.f2161a.y;
+                                            this.a.u();
+                                            crVar28 = this.a.x;
                                             crVar28.y();
-                                            bpVar5 = this.f2161a.w;
+                                            bpVar5 = this.a.v;
                                             bpVar5.cancelLoadData();
                                             return;
                                         }
-                                        this.f2161a.closeActivity();
+                                        this.a.closeActivity();
                                         return;
-                                    case R.id.btn_loadprevious /* 2131100995 */:
-                                        bpVar4 = this.f2161a.w;
+                                    case R.id.btn_loadprevious /* 2131101026 */:
+                                        bpVar4 = this.a.v;
                                         if (bpVar4.k()) {
-                                            crVar27 = this.f2161a.y;
+                                            crVar27 = this.a.x;
                                             crVar27.w();
                                             return;
                                         }
@@ -467,30 +465,30 @@ public class am implements View.OnClickListener {
                                         return;
                                 }
                             }
-                            this.f2161a.closeActivity();
+                            this.a.closeActivity();
                             return;
                         }
                     }
                 }
             }
         }
-        crVar3 = this.f2161a.y;
+        crVar3 = this.a.x;
         crVar3.aa();
-        bmVar = this.f2161a.s;
+        bmVar = this.a.r;
         if (bmVar.l().l() == 1) {
-            adVar = this.f2161a.x;
+            adVar = this.a.w;
             if (!adVar.b()) {
-                crVar4 = this.f2161a.y;
+                crVar4 = this.a.x;
                 crVar4.j();
-                crVar5 = this.f2161a.y;
+                crVar5 = this.a.x;
                 if (view != crVar5.R()) {
-                    crVar6 = this.f2161a.y;
+                    crVar6 = this.a.x;
                     if (view != crVar6.S()) {
-                        crVar7 = this.f2161a.y;
+                        crVar7 = this.a.x;
                         if (view != crVar7.T()) {
-                            crVar8 = this.f2161a.y;
+                            crVar8 = this.a.x;
                             if (view != crVar8.U()) {
-                                crVar9 = this.f2161a.y;
+                                crVar9 = this.a.x;
                                 if (view == crVar9.l()) {
                                     i = 2;
                                 }
@@ -506,15 +504,15 @@ public class am implements View.OnClickListener {
                 } else {
                     i = 6;
                 }
-                bmVar2 = this.f2161a.s;
+                bmVar2 = this.a.r;
                 ForumData c = bmVar2.l().c();
                 String name4 = c.getName();
                 String id3 = c.getId();
-                bmVar3 = this.f2161a.s;
-                String a4 = bmVar3.l().d().a();
-                adVar2 = this.f2161a.x;
-                crVar10 = this.f2161a.y;
-                adVar2.a(id3, name4, a4, i, crVar10.m());
+                bmVar3 = this.a.r;
+                String a3 = bmVar3.l().d().a();
+                adVar2 = this.a.w;
+                crVar10 = this.a.x;
+                adVar2.a(id3, name4, a3, i, crVar10.m());
             }
         }
     }

@@ -20,140 +20,138 @@ import java.util.List;
 public class c {
 
     /* renamed from: do  reason: not valid java name */
-    private Handler f135do;
+    private Handler f99do;
 
     /* renamed from: if  reason: not valid java name */
-    private Context f137if;
+    private Context f101if;
 
     /* renamed from: byte  reason: not valid java name */
-    private static String f128byte = null;
+    private static String f92byte = null;
 
     /* renamed from: goto  reason: not valid java name */
-    private static String f132goto = null;
+    private static String f96goto = null;
 
     /* renamed from: long  reason: not valid java name */
-    private static Method f133long = null;
+    private static Method f97long = null;
 
     /* renamed from: case  reason: not valid java name */
-    private static Method f129case = null;
+    private static Method f93case = null;
 
     /* renamed from: for  reason: not valid java name */
-    private static Method f131for = null;
+    private static Method f95for = null;
     private static Class d = null;
 
     /* renamed from: void  reason: not valid java name */
-    private static long f134void = 3000;
+    private static long f98void = 3000;
     private static int c = 3;
 
     /* renamed from: char  reason: not valid java name */
-    private static boolean f130char = false;
+    private static boolean f94char = false;
 
     /* renamed from: else  reason: not valid java name */
-    private final String f136else = f.v;
+    private final String f100else = f.v;
 
     /* renamed from: try  reason: not valid java name */
-    private TelephonyManager f140try = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    private a f920a = new a();
+    private TelephonyManager f104try = null;
+    private a a = new a();
 
     /* renamed from: new  reason: not valid java name */
-    private List f139new = null;
+    private List f103new = null;
 
     /* renamed from: int  reason: not valid java name */
-    private b f138int = null;
+    private b f102int = null;
     private boolean b = false;
 
     /* loaded from: classes.dex */
     public class a {
 
         /* renamed from: byte  reason: not valid java name */
-        public long f141byte;
+        public long f105byte;
 
         /* renamed from: do  reason: not valid java name */
-        public int f142do;
+        public int f106do;
 
         /* renamed from: for  reason: not valid java name */
-        public int f143for;
+        public int f107for;
 
         /* renamed from: if  reason: not valid java name */
-        public int f144if;
+        public int f108if;
 
         /* renamed from: int  reason: not valid java name */
-        public int f145int;
+        public int f109int;
 
         /* renamed from: new  reason: not valid java name */
-        public char f146new;
+        public char f110new;
 
         /* renamed from: try  reason: not valid java name */
-        public int f147try;
+        public int f111try;
 
         public a() {
-            this.f143for = -1;
-            this.f147try = -1;
-            this.f142do = -1;
-            this.f144if = -1;
-            this.f141byte = 0L;
-            this.f145int = -1;
-            this.f146new = (char) 0;
-            this.f141byte = System.currentTimeMillis();
+            this.f107for = -1;
+            this.f111try = -1;
+            this.f106do = -1;
+            this.f108if = -1;
+            this.f105byte = 0L;
+            this.f109int = -1;
+            this.f110new = (char) 0;
+            this.f105byte = System.currentTimeMillis();
         }
 
         public a(int i, int i2, int i3, int i4, char c) {
-            this.f143for = -1;
-            this.f147try = -1;
-            this.f142do = -1;
-            this.f144if = -1;
-            this.f141byte = 0L;
-            this.f145int = -1;
-            this.f146new = (char) 0;
-            this.f143for = i;
-            this.f147try = i2;
-            this.f142do = i3;
-            this.f144if = i4;
-            this.f146new = c;
-            this.f141byte = System.currentTimeMillis() / 1000;
+            this.f107for = -1;
+            this.f111try = -1;
+            this.f106do = -1;
+            this.f108if = -1;
+            this.f105byte = 0L;
+            this.f109int = -1;
+            this.f110new = (char) 0;
+            this.f107for = i;
+            this.f111try = i2;
+            this.f106do = i3;
+            this.f108if = i4;
+            this.f110new = c;
+            this.f105byte = System.currentTimeMillis() / 1000;
         }
 
         public String a() {
             StringBuffer stringBuffer = new StringBuffer((int) DERTags.TAGGED);
-            stringBuffer.append(this.f147try + 23);
+            stringBuffer.append(this.f111try + 23);
             stringBuffer.append("H");
-            stringBuffer.append(this.f143for + 45);
+            stringBuffer.append(this.f107for + 45);
             stringBuffer.append("K");
-            stringBuffer.append(this.f144if + 54);
+            stringBuffer.append(this.f108if + 54);
             stringBuffer.append("Q");
-            stringBuffer.append(this.f142do + 203);
+            stringBuffer.append(this.f106do + 203);
             return stringBuffer.toString();
         }
 
         public boolean a(a aVar) {
-            return this.f143for == aVar.f143for && this.f147try == aVar.f147try && this.f144if == aVar.f144if;
+            return this.f107for == aVar.f107for && this.f111try == aVar.f111try && this.f108if == aVar.f108if;
         }
 
         /* renamed from: do  reason: not valid java name */
-        public boolean m129do() {
-            return System.currentTimeMillis() - this.f141byte < c.f134void;
+        public boolean m113do() {
+            return System.currentTimeMillis() - this.f105byte < c.f98void;
         }
 
         /* renamed from: for  reason: not valid java name */
-        public boolean m130for() {
-            return this.f143for > -1 && this.f147try > 0;
+        public boolean m114for() {
+            return this.f107for > -1 && this.f111try > 0;
         }
 
         /* renamed from: if  reason: not valid java name */
-        public String m131if() {
+        public String m115if() {
             StringBuffer stringBuffer = new StringBuffer(64);
-            stringBuffer.append(String.format("cell=%d|%d|%d|%d:%d", Integer.valueOf(this.f142do), Integer.valueOf(this.f144if), Integer.valueOf(this.f143for), Integer.valueOf(this.f147try), Integer.valueOf(this.f145int)));
+            stringBuffer.append(String.format("cell=%d|%d|%d|%d:%d", Integer.valueOf(this.f106do), Integer.valueOf(this.f108if), Integer.valueOf(this.f107for), Integer.valueOf(this.f111try), Integer.valueOf(this.f109int)));
             return stringBuffer.toString();
         }
 
         /* renamed from: int  reason: not valid java name */
-        public String m132int() {
+        public String m116int() {
             String str;
             String str2;
             try {
-                List<NeighboringCellInfo> neighboringCellInfo = c.this.f140try.getNeighboringCellInfo();
+                List<NeighboringCellInfo> neighboringCellInfo = c.this.f104try.getNeighboringCellInfo();
                 if (neighboringCellInfo == null || neighboringCellInfo.isEmpty()) {
                     str = null;
                 } else {
@@ -164,9 +162,9 @@ public class c {
                             if (i >= 8) {
                                 break;
                             }
-                            str2 = neighboringCellInfo2.getLac() != this.f143for ? str3 + ";" + neighboringCellInfo2.getLac() + "|" + neighboringCellInfo2.getCid() + "|" + neighboringCellInfo2.getRssi() : str3 + ";|" + neighboringCellInfo2.getCid() + "|" + neighboringCellInfo2.getRssi();
+                            str2 = neighboringCellInfo2.getLac() != this.f107for ? str3 + ";" + neighboringCellInfo2.getLac() + "|" + neighboringCellInfo2.getCid() + "|" + neighboringCellInfo2.getRssi() : str3 + ";|" + neighboringCellInfo2.getCid() + "|" + neighboringCellInfo2.getRssi();
                         } else {
-                            str2 = neighboringCellInfo2.getLac() != this.f143for ? str3 + neighboringCellInfo2.getLac() + "|" + neighboringCellInfo2.getCid() + "|" + neighboringCellInfo2.getRssi() : str3 + "|" + neighboringCellInfo2.getCid() + "|" + neighboringCellInfo2.getRssi();
+                            str2 = neighboringCellInfo2.getLac() != this.f107for ? str3 + neighboringCellInfo2.getLac() + "|" + neighboringCellInfo2.getCid() + "|" + neighboringCellInfo2.getRssi() : str3 + "|" + neighboringCellInfo2.getCid() + "|" + neighboringCellInfo2.getRssi();
                         }
                         i++;
                         str3 = str2;
@@ -183,35 +181,35 @@ public class c {
         public String toString() {
             StringBuffer stringBuffer = new StringBuffer((int) DERTags.TAGGED);
             stringBuffer.append("&nw=");
-            stringBuffer.append(c.this.f920a.f146new);
-            stringBuffer.append(String.format("&cl=%d|%d|%d|%d&cl_s=%d", Integer.valueOf(this.f142do), Integer.valueOf(this.f144if), Integer.valueOf(this.f143for), Integer.valueOf(this.f147try), Integer.valueOf(this.f145int)));
+            stringBuffer.append(c.this.a.f110new);
+            stringBuffer.append(String.format("&cl=%d|%d|%d|%d&cl_s=%d", Integer.valueOf(this.f106do), Integer.valueOf(this.f108if), Integer.valueOf(this.f107for), Integer.valueOf(this.f111try), Integer.valueOf(this.f109int)));
             stringBuffer.append("&cl_t=");
-            stringBuffer.append(this.f141byte);
-            if (c.this.f139new != null && c.this.f139new.size() > 0) {
-                int size = c.this.f139new.size();
+            stringBuffer.append(this.f105byte);
+            if (c.this.f103new != null && c.this.f103new.size() > 0) {
+                int size = c.this.f103new.size();
                 stringBuffer.append("&clt=");
                 for (int i = 0; i < size; i++) {
-                    a aVar = (a) c.this.f139new.get(i);
-                    if (aVar.f142do != this.f142do) {
-                        stringBuffer.append(aVar.f142do);
+                    a aVar = (a) c.this.f103new.get(i);
+                    if (aVar.f106do != this.f106do) {
+                        stringBuffer.append(aVar.f106do);
                     }
                     stringBuffer.append("|");
-                    if (aVar.f144if != this.f144if) {
-                        stringBuffer.append(aVar.f144if);
+                    if (aVar.f108if != this.f108if) {
+                        stringBuffer.append(aVar.f108if);
                     }
                     stringBuffer.append("|");
-                    if (aVar.f143for != this.f143for) {
-                        stringBuffer.append(aVar.f143for);
+                    if (aVar.f107for != this.f107for) {
+                        stringBuffer.append(aVar.f107for);
                     }
                     stringBuffer.append("|");
-                    if (aVar.f147try != this.f147try) {
-                        stringBuffer.append(aVar.f147try);
+                    if (aVar.f111try != this.f111try) {
+                        stringBuffer.append(aVar.f111try);
                     }
                     stringBuffer.append("|");
                     if (i != size - 1) {
-                        stringBuffer.append(aVar.f141byte / 1000);
+                        stringBuffer.append(aVar.f105byte / 1000);
                     } else {
-                        stringBuffer.append((System.currentTimeMillis() - aVar.f141byte) / 1000);
+                        stringBuffer.append((System.currentTimeMillis() - aVar.f105byte) / 1000);
                     }
                     stringBuffer.append(";");
                 }
@@ -231,39 +229,39 @@ public class c {
                 return;
             }
             try {
-                c.this.a(c.this.f140try.getCellLocation());
+                c.this.a(c.this.f104try.getCellLocation());
             } catch (Exception e) {
             }
         }
 
         @Override // android.telephony.PhoneStateListener
         public void onSignalStrengthsChanged(SignalStrength signalStrength) {
-            if (c.this.f920a != null) {
-                if (c.this.f920a.f146new == 'g') {
-                    c.this.f920a.f145int = signalStrength.getGsmSignalStrength();
-                } else if (c.this.f920a.f146new == 'c') {
-                    c.this.f920a.f145int = signalStrength.getCdmaDbm();
+            if (c.this.a != null) {
+                if (c.this.a.f110new == 'g') {
+                    c.this.a.f109int = signalStrength.getGsmSignalStrength();
+                } else if (c.this.a.f110new == 'c') {
+                    c.this.a.f109int = signalStrength.getCdmaDbm();
                 }
-                j.a("cell strength", "===== cell singal strength changed : " + c.this.f920a.f145int);
-                if (c.this.f135do != null) {
-                    c.this.f135do.obtainMessage(31).sendToTarget();
+                j.a("cell strength", "===== cell singal strength changed : " + c.this.a.f109int);
+                if (c.this.f99do != null) {
+                    c.this.f99do.obtainMessage(31).sendToTarget();
                 }
             }
         }
     }
 
     public c(Context context, Handler handler) {
-        this.f137if = null;
-        this.f135do = null;
-        this.f137if = context;
-        this.f135do = handler;
+        this.f101if = null;
+        this.f99do = null;
+        this.f101if = context;
+        this.f99do = handler;
     }
 
     public static String a(boolean z) {
         StringBuffer stringBuffer = new StringBuffer(256);
         stringBuffer.append("&sdk=");
         stringBuffer.append(3.1f);
-        if (!j.f241try && !j.v && z && j.j.equals("all")) {
+        if (!j.f205try && !j.v && z && j.j.equals("all")) {
             stringBuffer.append("&addr=all");
         }
         if (z) {
@@ -273,17 +271,17 @@ public class c {
                 stringBuffer.append("&coor=gcj02");
             }
         }
-        if (f132goto == null) {
+        if (f96goto == null) {
             stringBuffer.append("&im=");
-            stringBuffer.append(f128byte);
+            stringBuffer.append(f92byte);
         } else {
             stringBuffer.append("&cu=");
-            stringBuffer.append(f132goto);
+            stringBuffer.append(f96goto);
         }
         stringBuffer.append("&mb=");
         stringBuffer.append(Build.MODEL);
         stringBuffer.append("&resid=");
-        if (j.f241try) {
+        if (j.f205try) {
             stringBuffer.append("13");
         } else if (j.v) {
             stringBuffer.append("11");
@@ -306,25 +304,25 @@ public class c {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(CellLocation cellLocation) {
         int i;
-        if (cellLocation == null || this.f140try == null) {
+        if (cellLocation == null || this.f104try == null) {
             return;
         }
-        if (!f130char) {
-            f128byte = this.f140try.getDeviceId();
-            f130char = m122if();
+        if (!f94char) {
+            f92byte = this.f104try.getDeviceId();
+            f94char = m106if();
         }
         j.a(f.v, "set cell info..");
         a aVar = new a();
-        aVar.f141byte = System.currentTimeMillis();
-        String networkOperator = this.f140try.getNetworkOperator();
+        aVar.f105byte = System.currentTimeMillis();
+        String networkOperator = this.f104try.getNetworkOperator();
         if (networkOperator != null && networkOperator.length() > 0) {
             try {
                 if (networkOperator.length() >= 3) {
                     int intValue = Integer.valueOf(networkOperator.substring(0, 3)).intValue();
                     if (intValue < 0) {
-                        intValue = this.f920a.f142do;
+                        intValue = this.a.f106do;
                     }
-                    aVar.f142do = intValue;
+                    aVar.f106do = intValue;
                 }
                 String substring = networkOperator.substring(3);
                 if (substring != null) {
@@ -338,28 +336,28 @@ public class c {
                 }
                 int intValue2 = Integer.valueOf(substring.substring(0, i)).intValue();
                 if (intValue2 < 0) {
-                    intValue2 = this.f920a.f144if;
+                    intValue2 = this.a.f108if;
                 }
-                aVar.f144if = intValue2;
+                aVar.f108if = intValue2;
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
         if (cellLocation instanceof GsmCellLocation) {
-            aVar.f143for = ((GsmCellLocation) cellLocation).getLac();
-            aVar.f147try = ((GsmCellLocation) cellLocation).getCid();
-            aVar.f146new = 'g';
+            aVar.f107for = ((GsmCellLocation) cellLocation).getLac();
+            aVar.f111try = ((GsmCellLocation) cellLocation).getCid();
+            aVar.f110new = 'g';
         } else if (cellLocation instanceof CdmaCellLocation) {
-            aVar.f146new = 'c';
+            aVar.f110new = 'c';
             if (Integer.parseInt(Build.VERSION.SDK) < 5) {
                 return;
             }
             if (d == null) {
                 try {
                     d = Class.forName("android.telephony.cdma.CdmaCellLocation");
-                    f133long = d.getMethod("getBaseStationId", new Class[0]);
-                    f129case = d.getMethod("getNetworkId", new Class[0]);
-                    f131for = d.getMethod("getSystemId", new Class[0]);
+                    f97long = d.getMethod("getBaseStationId", new Class[0]);
+                    f93case = d.getMethod("getNetworkId", new Class[0]);
+                    f95for = d.getMethod("getSystemId", new Class[0]);
                 } catch (Exception e2) {
                     d = null;
                     e2.printStackTrace();
@@ -368,56 +366,56 @@ public class c {
             }
             if (d != null && d.isInstance(cellLocation)) {
                 try {
-                    int intValue3 = ((Integer) f131for.invoke(cellLocation, new Object[0])).intValue();
+                    int intValue3 = ((Integer) f95for.invoke(cellLocation, new Object[0])).intValue();
                     if (intValue3 < 0) {
-                        intValue3 = this.f920a.f144if;
+                        intValue3 = this.a.f108if;
                     }
-                    aVar.f144if = intValue3;
-                    aVar.f147try = ((Integer) f133long.invoke(cellLocation, new Object[0])).intValue();
-                    aVar.f143for = ((Integer) f129case.invoke(cellLocation, new Object[0])).intValue();
+                    aVar.f108if = intValue3;
+                    aVar.f111try = ((Integer) f97long.invoke(cellLocation, new Object[0])).intValue();
+                    aVar.f107for = ((Integer) f93case.invoke(cellLocation, new Object[0])).intValue();
                 } catch (Exception e3) {
                     e3.printStackTrace();
                     return;
                 }
             }
         }
-        if (aVar.m130for()) {
-            if (this.f920a == null || !this.f920a.a(aVar)) {
-                this.f920a = aVar;
-                this.f135do.obtainMessage(31).sendToTarget();
-                if (!aVar.m130for()) {
-                    if (this.f139new != null) {
-                        this.f139new.clear();
+        if (aVar.m114for()) {
+            if (this.a == null || !this.a.a(aVar)) {
+                this.a = aVar;
+                this.f99do.obtainMessage(31).sendToTarget();
+                if (!aVar.m114for()) {
+                    if (this.f103new != null) {
+                        this.f103new.clear();
                         return;
                     }
                     return;
                 }
-                if (this.f139new == null) {
-                    this.f139new = new LinkedList();
+                if (this.f103new == null) {
+                    this.f103new = new LinkedList();
                 }
-                int size = this.f139new.size();
-                a aVar2 = size == 0 ? null : (a) this.f139new.get(size - 1);
-                if (aVar2 != null && aVar2.f147try == this.f920a.f147try && aVar2.f143for == this.f920a.f143for) {
+                int size = this.f103new.size();
+                a aVar2 = size == 0 ? null : (a) this.f103new.get(size - 1);
+                if (aVar2 != null && aVar2.f111try == this.a.f111try && aVar2.f107for == this.a.f107for) {
                     return;
                 }
                 if (aVar2 != null) {
-                    aVar2.f141byte = this.f920a.f141byte - aVar2.f141byte;
+                    aVar2.f105byte = this.a.f105byte - aVar2.f105byte;
                 }
-                this.f139new.add(this.f920a);
-                if (this.f139new.size() > c) {
-                    this.f139new.remove(0);
+                this.f103new.add(this.a);
+                if (this.f103new.size() > c) {
+                    this.f103new.remove(0);
                 }
             }
         }
     }
 
     /* renamed from: if  reason: not valid java name */
-    private boolean m122if() {
-        if (f128byte == null || f128byte.length() < 10) {
+    private boolean m106if() {
+        if (f92byte == null || f92byte.length() < 10) {
             return false;
         }
         try {
-            char[] charArray = f128byte.toCharArray();
+            char[] charArray = f92byte.toCharArray();
             for (int i = 0; i < 10; i++) {
                 if (charArray[i] > '9' || charArray[i] < '0') {
                     return false;
@@ -430,85 +428,85 @@ public class c {
     }
 
     public a a() {
-        if ((this.f920a == null || !this.f920a.m129do() || !this.f920a.m130for()) && this.f140try != null) {
+        if ((this.a == null || !this.a.m113do() || !this.a.m114for()) && this.f104try != null) {
             try {
-                a(this.f140try.getCellLocation());
+                a(this.f104try.getCellLocation());
             } catch (Exception e) {
             }
         }
-        return this.f920a;
+        return this.a;
     }
 
     /* renamed from: byte  reason: not valid java name */
-    public void m124byte() {
+    public void m108byte() {
         if (this.b) {
-            if (this.f138int != null && this.f140try != null) {
-                this.f140try.listen(this.f138int, 0);
+            if (this.f102int != null && this.f104try != null) {
+                this.f104try.listen(this.f102int, 0);
             }
-            this.f138int = null;
-            this.f140try = null;
-            this.f139new.clear();
-            this.f139new = null;
+            this.f102int = null;
+            this.f104try = null;
+            this.f103new.clear();
+            this.f103new = null;
             j.a(f.v, "cell manager stop ...");
             this.b = false;
         }
     }
 
     /* renamed from: do  reason: not valid java name */
-    public void m125do() {
+    public void m109do() {
         if (this.b) {
             return;
         }
-        this.f140try = (TelephonyManager) this.f137if.getSystemService("phone");
-        this.f139new = new LinkedList();
-        this.f138int = new b();
-        if (this.f140try == null || this.f138int == null) {
+        this.f104try = (TelephonyManager) this.f101if.getSystemService("phone");
+        this.f103new = new LinkedList();
+        this.f102int = new b();
+        if (this.f104try == null || this.f102int == null) {
             return;
         }
         try {
-            this.f140try.listen(this.f138int, 272);
-            f128byte = this.f140try.getDeviceId();
-            j.f = f128byte + "|" + Build.MODEL;
+            this.f104try.listen(this.f102int, 272);
+            f92byte = this.f104try.getDeviceId();
+            j.f = f92byte + "|" + Build.MODEL;
         } catch (Exception e) {
         }
         try {
-            f132goto = j.a.m259if(this.f137if);
-            j.a(f.v, "CUID:" + f132goto);
+            f96goto = j.a.m243if(this.f101if);
+            j.a(f.v, "CUID:" + f96goto);
         } catch (Exception e2) {
-            f132goto = null;
+            f96goto = null;
         }
         try {
-            if (f132goto != null) {
-                j.f = "v3.1|" + f132goto + "|" + Build.MODEL;
+            if (f96goto != null) {
+                j.f = "v3.1|" + f96goto + "|" + Build.MODEL;
             }
             j.a(f.v, "CUID:" + j.f);
         } catch (Exception e3) {
         }
-        f130char = m122if();
-        j.m257if(f.v, "i:" + f128byte);
+        f94char = m106if();
+        j.m241if(f.v, "i:" + f92byte);
         j.a(f.v, "cell manager start...");
         this.b = true;
     }
 
     /* renamed from: for  reason: not valid java name */
-    public String m126for() {
-        if (this.f140try == null) {
-            this.f140try = (TelephonyManager) this.f137if.getSystemService("phone");
+    public String m110for() {
+        if (this.f104try == null) {
+            this.f104try = (TelephonyManager) this.f101if.getSystemService("phone");
         }
         try {
-            a(this.f140try.getCellLocation());
+            a(this.f104try.getCellLocation());
         } catch (Exception e) {
         }
-        return this.f920a.toString();
+        return this.a.toString();
     }
 
     /* renamed from: int  reason: not valid java name */
-    public String m127int() {
-        return f128byte;
+    public String m111int() {
+        return f92byte;
     }
 
     /* renamed from: new  reason: not valid java name */
-    public int m128new() {
-        return this.f140try.getNetworkType();
+    public int m112new() {
+        return this.f104try.getNetworkType();
     }
 }

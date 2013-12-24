@@ -4,15 +4,13 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class RequestCodeManager {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static Map f857a = new HashMap();
+    private static Map a = new HashMap();
     private static int b = 5655;
 
     public static synchronized int getLatestRequestCode(String str) {
         int intValue;
         synchronized (RequestCodeManager.class) {
-            Integer num = (Integer) f857a.get(str);
+            Integer num = (Integer) a.get(str);
             intValue = num != null ? num.intValue() : 0;
         }
         return intValue;
@@ -25,7 +23,7 @@ public class RequestCodeManager {
             if (b == 6656) {
                 b = 5656;
             }
-            f857a.put(str, Integer.valueOf(b));
+            a.put(str, Integer.valueOf(b));
             i = b;
         }
         return i;

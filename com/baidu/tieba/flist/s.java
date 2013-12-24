@@ -4,7 +4,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-import com.baidu.cyberplayer.sdk.internal.VersionUtils;
 import com.baidu.mobstat.StatService;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.ForumInfoData;
@@ -12,7 +11,7 @@ import com.baidu.tieba.forumdetail.ForumDetailActivity;
 import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.model.ax;
 import com.baidu.tieba.switchs.SwitchKey;
-import com.baidu.tieba.util.bd;
+import com.baidu.tieba.util.be;
 import com.baidu.tieba.view.HeadImageView;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -23,9 +22,7 @@ public class s extends BaseAdapter implements View.OnClickListener {
     private int d;
     private ax e;
     private int g;
-
-    /* renamed from: a  reason: collision with root package name */
-    public int f1313a = -1;
+    public int a = -1;
     private int f = 0;
     private boolean h = true;
     private ForumDetailActivity.FromType i = ForumDetailActivity.FromType.BAR_DIR;
@@ -117,8 +114,8 @@ public class s extends BaseAdapter implements View.OnClickListener {
         if (view == null || view.getTag() == null) {
             view = View.inflate(this.b, R.layout.forum_list_forum_item, null);
             t tVar = new t(this);
-            tVar.f1314a = (HeadImageView) view.findViewById(R.id.forum_avatar);
-            tVar.f1314a.setGifIconSupport(false);
+            tVar.a = (HeadImageView) view.findViewById(R.id.forum_avatar);
+            tVar.a.setGifIconSupport(false);
             tVar.d = (TextView) view.findViewById(R.id.name);
             tVar.e = (TextView) view.findViewById(R.id.member_count);
             tVar.f = (TextView) view.findViewById(R.id.thread_count);
@@ -133,11 +130,11 @@ public class s extends BaseAdapter implements View.OnClickListener {
         this.b.getLayoutMode().a(an == 1);
         this.b.getLayoutMode().a(view);
         ForumInfoData forumInfoData = this.j[i];
-        bd.e("ForumListAdapter", "getView", "forum name:" + this.j[i].forum_name + "forum avatar:" + this.j[i].avatar);
+        be.e("ForumListAdapter", "getView", "forum name:" + this.j[i].forum_name + "forum avatar:" + this.j[i].avatar);
         String str = this.j[i].avatar;
-        HeadImageView headImageView = tVar2.f1314a;
-        tVar2.f1314a.setTag(str);
-        tVar2.f1314a.invalidate();
+        HeadImageView headImageView = tVar2.a;
+        tVar2.a.setTag(str);
+        tVar2.a.invalidate();
         tVar2.d.setText(forumInfoData.forum_name);
         tVar2.d.setTag(Integer.valueOf(forumInfoData.forum_id));
         tVar2.h.setTag(forumInfoData.forum_name);
@@ -187,7 +184,7 @@ public class s extends BaseAdapter implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.like /* 2131100163 */:
+            case R.id.like /* 2131100159 */:
                 if (TiebaApplication.h().t()) {
                     StatService.onEvent(this.b, "forumlist_to_frs", "tofrsclick", 1);
                 }
@@ -209,7 +206,7 @@ public class s extends BaseAdapter implements View.OnClickListener {
 
     public String b(int i) {
         if (i >= 100000) {
-            return String.valueOf(i / VersionUtils.CUR_DEVELOPMENT) + this.b.getString(R.string.member_count_unit);
+            return String.valueOf(i / 10000) + this.b.getString(R.string.member_count_unit);
         }
         return String.valueOf(i);
     }

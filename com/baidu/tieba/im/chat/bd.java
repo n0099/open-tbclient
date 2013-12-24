@@ -1,27 +1,16 @@
 package com.baidu.tieba.im.chat;
-
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.im.SingleRunnable;
-import com.baidu.tieba.im.model.MsglistModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bd extends SingleRunnable<Boolean> {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MsglistActivity f1562a;
+public class bd implements com.baidu.tieba.im.model.ai {
+    final /* synthetic */ bc a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bd(MsglistActivity msglistActivity) {
-        this.f1562a = msglistActivity;
+    public bd(bc bcVar) {
+        this.a = bcVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.SingleRunnable
-    /* renamed from: a */
-    public Boolean b() {
-        MsglistModel msglistModel;
-        String B = TiebaApplication.B();
-        msglistModel = this.f1562a.g;
-        return Boolean.valueOf(com.baidu.tieba.im.groupInfo.u.b(B, String.valueOf(msglistModel.a().getGroupId())));
+    @Override // com.baidu.tieba.im.model.ai
+    public void a(int i, com.baidu.tieba.im.message.b bVar) {
+        this.a.e.post(new be(this, i, bVar));
     }
 }

@@ -6,12 +6,10 @@ import android.content.Intent;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ag extends BroadcastReceiver {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MoreActivity f2069a;
+    final /* synthetic */ MoreActivity a;
 
     private ag(MoreActivity moreActivity) {
-        this.f2069a = moreActivity;
+        this.a = moreActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -22,7 +20,7 @@ public class ag extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
         ah ahVar;
-        ahVar = this.f2069a.f2056a;
+        ahVar = this.a.a;
         ahVar.i();
     }
 }

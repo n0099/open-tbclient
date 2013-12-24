@@ -4,19 +4,17 @@ import java.util.TimerTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class u extends TimerTask {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PersonThreadFragment f2384a;
+    final /* synthetic */ PersonThreadFragment a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(PersonThreadFragment personThreadFragment) {
-        this.f2384a = personThreadFragment;
+        this.a = personThreadFragment;
     }
 
     @Override // java.util.TimerTask, java.lang.Runnable
     public void run() {
-        if (this.f2384a.i() != null && !this.f2384a.i().isFinishing()) {
-            this.f2384a.i().finish();
+        if (this.a.i() != null && !this.a.i().isFinishing()) {
+            this.a.i().finish();
         }
     }
 }

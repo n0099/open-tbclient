@@ -9,19 +9,17 @@ import org.apache.http.message.BasicNameValuePair;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bp extends BdAsyncTask<Object, Integer, BarSuggestModel> {
-
-    /* renamed from: a  reason: collision with root package name */
-    BasicNameValuePair f2512a;
+    BasicNameValuePair a;
     final /* synthetic */ SquareSearchActivity b;
-    private com.baidu.tieba.util.am c = null;
+    private com.baidu.tieba.util.an c = null;
     private String d;
 
     public bp(SquareSearchActivity squareSearchActivity, String str, BasicNameValuePair basicNameValuePair, boolean z) {
         this.b = squareSearchActivity;
         this.d = null;
-        this.f2512a = null;
+        this.a = null;
         this.d = str;
-        this.f2512a = basicNameValuePair;
+        this.a = basicNameValuePair;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -44,15 +42,15 @@ public class bp extends BdAsyncTask<Object, Integer, BarSuggestModel> {
     /* renamed from: d */
     public BarSuggestModel a(Object... objArr) {
         try {
-            this.c = new com.baidu.tieba.util.am(this.d);
-            this.c.a(this.f2512a);
+            this.c = new com.baidu.tieba.util.an(this.d);
+            this.c.a(this.a);
             String l = this.c.l();
             if (l == null) {
                 return null;
             }
             return BarSuggestModel.parserJson(l);
         } catch (Exception e) {
-            com.baidu.tieba.util.bd.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
+            com.baidu.tieba.util.be.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
             return null;
         }
     }

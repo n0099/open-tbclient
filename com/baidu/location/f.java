@@ -20,12 +20,11 @@ import android.os.Message;
 import android.os.Messenger;
 import android.os.Process;
 import android.util.Log;
+import com.baidu.android.pushservice.PushConstants;
 import com.baidu.browser.core.util.BdUtil;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.location.c;
 import com.baidu.location.e;
-import com.baidu.zeus.bouncycastle.DERTags;
-import com.tencent.mm.sdk.platformtools.LocaleUtil;
 import java.io.File;
 import java.io.PrintWriter;
 import java.io.RandomAccessFile;
@@ -64,44 +63,42 @@ public final class f extends Service {
     static final int b = 63;
 
     /* renamed from: byte  reason: not valid java name */
-    private static final int f165byte = 24;
+    private static final int f129byte = 24;
     static final int c = 12;
 
     /* renamed from: case  reason: not valid java name */
-    static final int f166case = 42;
+    static final int f130case = 42;
 
     /* renamed from: do  reason: not valid java name */
-    static final int f167do = 28;
+    static final int f131do = 28;
     static final int e = 65;
 
     /* renamed from: else  reason: not valid java name */
-    static final int f168else = 2000;
+    static final int f132else = 2000;
 
     /* renamed from: for  reason: not valid java name */
-    static final int f169for = 22;
+    static final int f133for = 22;
     static final int g = 15;
     static final int i = 55;
 
     /* renamed from: int  reason: not valid java name */
-    static final int f170int = 31;
+    static final int f134int = 31;
     static final int l = 11;
 
     /* renamed from: long  reason: not valid java name */
-    static final int f171long = 13;
+    static final int f135long = 13;
     static final int p = 41;
     static final int s = 23;
     static final int t = 91;
     public static final String v = "baidu_location_service";
 
     /* renamed from: void  reason: not valid java name */
-    static final int f172void = 71;
+    static final int f136void = 71;
     static final int w = 24;
     static final int x = 3000;
     static final int z = 51;
     static String aa = Environment.getExternalStorageDirectory().getPath() + "/baidu/tempdata";
-
-    /* renamed from: a  reason: collision with root package name */
-    private static String f929a = aa + "/glb.dat";
+    private static String a = aa + "/glb.dat";
     private static File j = null;
     private static File k = null;
     private String m = aa + "/vm.dat";
@@ -114,18 +111,18 @@ public final class f extends Service {
     private e.c B = null;
 
     /* renamed from: char  reason: not valid java name */
-    private e.c f173char = null;
+    private e.c f137char = null;
     private e.c ac = null;
 
     /* renamed from: try  reason: not valid java name */
-    private c.a f177try = null;
+    private c.a f141try = null;
     private c.a aj = null;
     private c.a u = null;
     private Location f = null;
     private String h = null;
 
     /* renamed from: new  reason: not valid java name */
-    private String f176new = null;
+    private String f140new = null;
     private String G = null;
     private boolean ab = false;
     private boolean W = true;
@@ -137,13 +134,13 @@ public final class f extends Service {
     private SQLiteDatabase R = null;
 
     /* renamed from: if  reason: not valid java name */
-    private String f175if = "bdcltb09";
+    private String f139if = "bdcltb09";
     private String A = null;
     private String aq = null;
     private boolean O = false;
 
     /* renamed from: goto  reason: not valid java name */
-    private boolean f174goto = false;
+    private boolean f138goto = false;
     private String V = null;
     private int X = 0;
     private boolean I = true;
@@ -157,10 +154,10 @@ public final class f extends Service {
     public class a implements Thread.UncaughtExceptionHandler {
 
         /* renamed from: if  reason: not valid java name */
-        private Context f178if;
+        private Context f142if;
 
         a(Context context) {
-            this.f178if = context;
+            this.f142if = context;
             a();
         }
 
@@ -235,9 +232,9 @@ public final class f extends Service {
         }
 
         boolean a(String str, String str2) {
-            if (g.a(this.f178if)) {
+            if (g.a(this.f142if)) {
                 try {
-                    HttpPost httpPost = new HttpPost(j.f233do);
+                    HttpPost httpPost = new HttpPost(j.f197do);
                     ArrayList arrayList = new ArrayList();
                     arrayList.add(new BasicNameValuePair("e0", str));
                     arrayList.add(new BasicNameValuePair("e1", str2));
@@ -274,11 +271,11 @@ public final class f extends Service {
                 try {
                     j.a(f.v, str2);
                     com.baidu.location.c unused = f.this.r;
-                    String a2 = com.baidu.location.c.a(false);
+                    String a = com.baidu.location.c.a(false);
                     if (f.this.as != null) {
-                        a2 = a2 + f.this.as.m51byte();
+                        a = a + f.this.as.m35byte();
                     }
-                    str3 = a2 != null ? Jni.m18if(a2) : null;
+                    str3 = a != null ? Jni.m2if(a) : null;
                 } catch (Exception e) {
                     str = str2;
                     str2 = str;
@@ -324,7 +321,7 @@ public final class f extends Service {
         public void run() {
             if (f.this.ah) {
                 f.this.ah = false;
-                f.this.m159byte();
+                f.this.m143byte();
             }
         }
     }
@@ -333,48 +330,46 @@ public final class f extends Service {
     public class c {
 
         /* renamed from: for  reason: not valid java name */
-        public static final String f179for = "com.baidu.locTest.LocationServer";
+        public static final String f143for = "com.baidu.locTest.LocationServer";
 
         /* renamed from: case  reason: not valid java name */
-        private a f181case;
+        private a f145case;
         private PendingIntent d;
 
         /* renamed from: goto  reason: not valid java name */
-        private Context f185goto;
+        private Context f149goto;
 
         /* renamed from: try  reason: not valid java name */
-        private AlarmManager f190try;
+        private AlarmManager f154try;
 
         /* renamed from: void  reason: not valid java name */
-        private long f191void;
+        private long f155void;
 
         /* renamed from: new  reason: not valid java name */
-        private final long f189new = 86100000;
+        private final long f153new = 86100000;
 
         /* renamed from: char  reason: not valid java name */
-        private final int f182char = 200;
-
-        /* renamed from: a  reason: collision with root package name */
-        private long[] f932a = new long[20];
+        private final int f146char = 200;
+        private long[] a = new long[20];
 
         /* renamed from: int  reason: not valid java name */
-        private int f187int = 0;
+        private int f151int = 0;
         private c.a b = null;
 
         /* renamed from: long  reason: not valid java name */
-        private String f188long = null;
+        private String f152long = null;
 
         /* renamed from: byte  reason: not valid java name */
-        private int f180byte = 1;
+        private int f144byte = 1;
 
         /* renamed from: do  reason: not valid java name */
-        private boolean f183do = false;
+        private boolean f147do = false;
 
         /* renamed from: if  reason: not valid java name */
-        private boolean f186if = false;
+        private boolean f150if = false;
 
         /* renamed from: else  reason: not valid java name */
-        private boolean f184else = false;
+        private boolean f148else = false;
         private String c = null;
 
         /* loaded from: classes.dex */
@@ -385,7 +380,7 @@ public final class f extends Service {
             @Override // android.content.BroadcastReceiver
             public void onReceive(Context context, Intent intent) {
                 String action = intent.getAction();
-                if (action.equals(c.f179for)) {
+                if (action.equals(c.f143for)) {
                     f.this.P.obtainMessage(101).sendToTarget();
                     return;
                 }
@@ -423,23 +418,23 @@ public final class f extends Service {
         }
 
         public c(Context context) {
-            this.f190try = null;
-            this.f181case = null;
+            this.f154try = null;
+            this.f145case = null;
             this.d = null;
-            this.f185goto = null;
-            this.f191void = 0L;
-            this.f185goto = context;
-            this.f191void = System.currentTimeMillis();
-            this.f190try = (AlarmManager) context.getSystemService("alarm");
-            this.f181case = new a();
-            context.registerReceiver(this.f181case, new IntentFilter(f179for));
-            this.d = PendingIntent.getBroadcast(context, 0, new Intent(f179for), 134217728);
-            this.f190try.setRepeating(2, j.z, j.z, this.d);
-            f.this.registerReceiver(this.f181case, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
+            this.f149goto = null;
+            this.f155void = 0L;
+            this.f149goto = context;
+            this.f155void = System.currentTimeMillis();
+            this.f154try = (AlarmManager) context.getSystemService("alarm");
+            this.f145case = new a();
+            context.registerReceiver(this.f145case, new IntentFilter(f143for));
+            this.d = PendingIntent.getBroadcast(context, 0, new Intent(f143for), 134217728);
+            this.f154try.setRepeating(2, j.z, j.z, this.d);
+            f.this.registerReceiver(this.f145case, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
         }
 
         public void a() {
-            m206if();
+            m190if();
             if (f.j == null) {
                 return;
             }
@@ -455,28 +450,28 @@ public final class f extends Service {
                 randomAccessFile.writeInt(readInt + 1);
                 randomAccessFile.seek((readInt * 200) + 4);
                 randomAccessFile.writeLong(System.currentTimeMillis());
-                randomAccessFile.writeInt(this.f180byte);
+                randomAccessFile.writeInt(this.f144byte);
                 randomAccessFile.writeInt(0);
-                randomAccessFile.writeInt(this.f187int);
-                randomAccessFile.writeInt(this.b.f142do);
-                randomAccessFile.writeInt(this.b.f144if);
-                randomAccessFile.writeInt(this.b.f143for);
-                randomAccessFile.writeInt(this.b.f147try);
+                randomAccessFile.writeInt(this.f151int);
+                randomAccessFile.writeInt(this.b.f106do);
+                randomAccessFile.writeInt(this.b.f108if);
+                randomAccessFile.writeInt(this.b.f107for);
+                randomAccessFile.writeInt(this.b.f111try);
                 byte[] bArr = new byte[160];
-                for (int i = 0; i < this.f187int; i++) {
-                    bArr[(i * 8) + 7] = (byte) this.f932a[i];
-                    bArr[(i * 8) + 6] = (byte) (this.f932a[i] >> 8);
-                    bArr[(i * 8) + 5] = (byte) (this.f932a[i] >> 16);
-                    bArr[(i * 8) + 4] = (byte) (this.f932a[i] >> 24);
-                    bArr[(i * 8) + 3] = (byte) (this.f932a[i] >> 32);
-                    bArr[(i * 8) + 2] = (byte) (this.f932a[i] >> 40);
-                    bArr[(i * 8) + 1] = (byte) (this.f932a[i] >> 48);
-                    bArr[(i * 8) + 0] = (byte) (this.f932a[i] >> 56);
+                for (int i = 0; i < this.f151int; i++) {
+                    bArr[(i * 8) + 7] = (byte) this.a[i];
+                    bArr[(i * 8) + 6] = (byte) (this.a[i] >> 8);
+                    bArr[(i * 8) + 5] = (byte) (this.a[i] >> 16);
+                    bArr[(i * 8) + 4] = (byte) (this.a[i] >> 24);
+                    bArr[(i * 8) + 3] = (byte) (this.a[i] >> 32);
+                    bArr[(i * 8) + 2] = (byte) (this.a[i] >> 40);
+                    bArr[(i * 8) + 1] = (byte) (this.a[i] >> 48);
+                    bArr[(i * 8) + 0] = (byte) (this.a[i] >> 56);
                 }
-                if (this.f187int > 0) {
-                    randomAccessFile.write(bArr, 0, this.f187int * 8);
+                if (this.f151int > 0) {
+                    randomAccessFile.write(bArr, 0, this.f151int * 8);
                 }
-                randomAccessFile.writeInt(this.f187int);
+                randomAccessFile.writeInt(this.f151int);
                 randomAccessFile.close();
             } catch (Exception e) {
                 e.printStackTrace();
@@ -484,26 +479,26 @@ public final class f extends Service {
         }
 
         /* renamed from: byte  reason: not valid java name */
-        public void m202byte() {
-            if (this.f183do) {
-                this.f180byte = 1;
+        public void m186byte() {
+            if (this.f147do) {
+                this.f144byte = 1;
                 j.z = j.B * 1000 * 60;
                 j.q = j.z >> 2;
                 Calendar calendar = Calendar.getInstance();
                 int i = calendar.get(5);
                 int i2 = calendar.get(1);
-                String str = (i2 > f.f168else ? i2 - 2000 : 0) + "," + (calendar.get(2) + 1) + "," + i + "," + calendar.get(11) + "," + calendar.get(12) + "," + j.B;
-                if (this.f186if) {
-                    this.f188long = "&tr=" + j.f + "," + str;
+                String str = (i2 > f.f132else ? i2 - 2000 : 0) + "," + (calendar.get(2) + 1) + "," + i + "," + calendar.get(11) + "," + calendar.get(12) + "," + j.B;
+                if (this.f150if) {
+                    this.f152long = "&tr=" + j.f + "," + str;
                 } else {
-                    this.f188long += "|T" + str;
+                    this.f152long += "|T" + str;
                 }
-                j.a(f.v, "trace begin:" + this.f188long);
+                j.a(f.v, "trace begin:" + this.f152long);
                 try {
                     RandomAccessFile randomAccessFile = new RandomAccessFile(f.k, "rw");
                     randomAccessFile.seek(12L);
                     randomAccessFile.writeLong(System.currentTimeMillis());
-                    randomAccessFile.writeInt(this.f180byte);
+                    randomAccessFile.writeInt(this.f144byte);
                     randomAccessFile.close();
                     RandomAccessFile randomAccessFile2 = new RandomAccessFile(f.j, "rw");
                     randomAccessFile2.seek(0L);
@@ -515,9 +510,9 @@ public final class f extends Service {
         }
 
         /* renamed from: case  reason: not valid java name */
-        public void m203case() {
+        public void m187case() {
             int i;
-            f.m177goto();
+            f.m161goto();
             if (f.k == null) {
                 return;
             }
@@ -531,7 +526,7 @@ public final class f extends Service {
                 int readInt = randomAccessFile.readInt();
                 int readInt2 = randomAccessFile.readInt();
                 int readInt3 = randomAccessFile.readInt();
-                if (this.f183do && this.f186if) {
+                if (this.f147do && this.f150if) {
                     j.a(f.v, "trace new info:" + readInt + ":" + readInt2 + ":" + readInt3);
                     int i2 = (readInt2 + 1) % 200;
                     randomAccessFile.seek(4L);
@@ -545,12 +540,12 @@ public final class f extends Service {
                         randomAccessFile.writeInt(readInt3);
                     }
                     j.a(f.v, "trace new info:" + readInt + ":" + readInt2 + ":" + readInt3);
-                    i = (i2 * 800) + 24;
+                    i = (i2 * f.ar) + 24;
                 } else {
-                    i = (readInt2 * 800) + 24;
+                    i = (readInt2 * f.ar) + 24;
                 }
                 randomAccessFile.seek(i + 4);
-                byte[] bytes = this.f188long.getBytes();
+                byte[] bytes = this.f152long.getBytes();
                 for (int i3 = 0; i3 < bytes.length; i3++) {
                     bytes[i3] = (byte) (bytes[i3] ^ 90);
                 }
@@ -558,7 +553,7 @@ public final class f extends Service {
                 randomAccessFile.writeInt(bytes.length);
                 randomAccessFile.seek(i);
                 randomAccessFile.writeInt(bytes.length);
-                if (this.f183do && this.f186if) {
+                if (this.f147do && this.f150if) {
                     randomAccessFile.seek(0L);
                     randomAccessFile.writeInt(readInt);
                 }
@@ -568,25 +563,25 @@ public final class f extends Service {
         }
 
         /* renamed from: do  reason: not valid java name */
-        public void m204do() {
-            e.c m140byte;
+        public void m188do() {
+            e.c m124byte;
             int i;
             int i2 = 0;
             try {
                 j.a(f.v, "regular expire...");
-                m208new();
-                if (this.f184else) {
-                    this.f184else = false;
+                m192new();
+                if (this.f148else) {
+                    this.f148else = false;
                     return;
                 }
-                m202byte();
-                this.f187int = 0;
+                m186byte();
+                this.f151int = 0;
                 this.b = null;
                 if (f.this.E != null) {
-                    f.this.E.m146new();
+                    f.this.E.m130new();
                 }
-                if (f.this.E != null && (m140byte = f.this.E.m140byte()) != null && m140byte.f162do != null) {
-                    int size = m140byte.f162do.size();
+                if (f.this.E != null && (m124byte = f.this.E.m124byte()) != null && m124byte.f126do != null) {
+                    int size = m124byte.f126do.size();
                     if (size > 20) {
                         size = 20;
                     }
@@ -595,7 +590,7 @@ public final class f extends Service {
                         try {
                             i = i2 + 1;
                             try {
-                                this.f932a[i2] = Long.parseLong(((ScanResult) m140byte.f162do.get(i3)).BSSID.replace(":", ""), 16);
+                                this.a[i2] = Long.parseLong(((ScanResult) m124byte.f126do.get(i3)).BSSID.replace(":", ""), 16);
                             } catch (Exception e) {
                             }
                         } catch (Exception e2) {
@@ -604,13 +599,13 @@ public final class f extends Service {
                         i3++;
                         i2 = i;
                     }
-                    this.f187int = i2;
+                    this.f151int = i2;
                 }
                 if (f.this.r != null) {
                     this.b = f.this.r.a();
                 }
                 if (this.b != null) {
-                    m205for();
+                    m189for();
                 }
             } catch (Exception e3) {
             }
@@ -622,19 +617,19 @@ public final class f extends Service {
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public void m205for() {
+        public void m189for() {
             String str;
             boolean z;
             String str2;
-            String m142char;
-            m206if();
-            j.a(f.v, "trace1:" + this.f188long);
+            String m126char;
+            m190if();
+            j.a(f.v, "trace1:" + this.f152long);
             try {
-                str = f.this.m201char() ? "y2" : "y1";
+                str = f.this.m185char() ? "y2" : "y1";
             } catch (Exception e) {
                 str = "y";
             }
-            if (!this.f183do) {
+            if (!this.f147do) {
                 try {
                     RandomAccessFile randomAccessFile = new RandomAccessFile(f.j, "rw");
                     if (randomAccessFile.length() < 1) {
@@ -654,81 +649,81 @@ public final class f extends Service {
                         int i3 = (bArr[7] & 255) | ((bArr[6] << 8) & 65280) | ((bArr[5] << 16) & 16711680) | ((bArr[4] << 24) & (-16777216));
                         int i4 = (bArr[11] & 255) | ((bArr[10] << 8) & 65280) | ((bArr[9] << 16) & 16711680) | ((bArr[8] << 24) & (-16777216));
                         int i5 = (bArr[15] & 255) | ((bArr[14] << 8) & 65280) | ((bArr[13] << 16) & 16711680) | ((bArr[12] << 24) & (-16777216));
-                        if (this.b.f142do == i2 && this.b.f144if == i3 && this.b.f143for == i4 && this.b.f147try == i5) {
+                        if (this.b.f106do == i2 && this.b.f108if == i3 && this.b.f107for == i4 && this.b.f111try == i5) {
                             long[] jArr = new long[readInt4];
                             for (int i6 = 0; i6 < readInt4; i6++) {
                                 jArr[i6] = ((bArr[(i6 * 8) + 16] & 255) << 56) | ((bArr[((i6 * 8) + 16) + 1] & 255) << 48) | ((bArr[((i6 * 8) + 16) + 2] & 255) << 40) | ((bArr[((i6 * 8) + 16) + 3] & 255) << 32) | ((bArr[((i6 * 8) + 16) + 4] & 255) << 24) | ((bArr[((i6 * 8) + 16) + 5] & 255) << 16) | ((bArr[((i6 * 8) + 16) + 6] & 255) << 8) | (bArr[(i6 * 8) + 16 + 7] & 255);
                             }
                             int i7 = 0;
                             int i8 = 0;
-                            while (i8 < this.f187int) {
+                            while (i8 < this.f151int) {
                                 int i9 = i7;
                                 for (int i10 = 0; i10 < readInt4; i10++) {
-                                    if (this.f932a[i8] == jArr[i10]) {
+                                    if (this.a[i8] == jArr[i10]) {
                                         i9++;
                                     }
                                 }
                                 i8++;
                                 i7 = i9;
                             }
-                            if (i7 > 5 || i7 * 8 > this.f187int + readInt4 || ((readInt4 == 0 && this.f187int == 0) || ((readInt4 == 1 && this.f187int == 1 && this.f932a[0] == jArr[0]) || (readInt4 > 1 && this.f187int > 1 && this.f932a[0] == jArr[0] && this.f932a[1] == jArr[1])))) {
+                            if (i7 > 5 || i7 * 8 > this.f151int + readInt4 || ((readInt4 == 0 && this.f151int == 0) || ((readInt4 == 1 && this.f151int == 1 && this.a[0] == jArr[0]) || (readInt4 > 1 && this.f151int > 1 && this.a[0] == jArr[0] && this.a[1] == jArr[1])))) {
                                 z = true;
                                 randomAccessFile.seek((i * 200) + 16);
                                 randomAccessFile.writeInt(readInt3 + 1);
-                                if (this.f188long != null) {
-                                    this.f188long += "|" + readInt2 + str;
+                                if (this.f152long != null) {
+                                    this.f152long += "|" + readInt2 + str;
                                     if (this.c != null) {
-                                        this.f188long += this.c;
+                                        this.f152long += this.c;
                                     }
                                 }
                                 j.a(f.v, "daily info:is same");
                                 if (!z) {
-                                    String str3 = (this.b.f142do == 460 ? "|x," : "|x460,") + this.b.f144if + "," + this.b.f143for + "," + this.b.f147try;
+                                    String str3 = (this.b.f106do == 460 ? "|x," : "|x460,") + this.b.f108if + "," + this.b.f107for + "," + this.b.f111try;
                                     long j = 0;
-                                    if (f.this.E != null && (m142char = f.this.E.m142char()) != null) {
+                                    if (f.this.E != null && (m126char = f.this.E.m126char()) != null) {
                                         try {
-                                            j = Long.parseLong(m142char, 16);
+                                            j = Long.parseLong(m126char, 16);
                                         } catch (Exception e2) {
                                         }
                                     }
-                                    if (this.f187int == 1) {
-                                        str3 = str3 + "w" + Long.toHexString(this.f932a[0]) + "k";
-                                        if (this.f932a[0] == j) {
+                                    if (this.f151int == 1) {
+                                        str3 = str3 + "w" + Long.toHexString(this.a[0]) + "k";
+                                        if (this.a[0] == j) {
                                             str2 = str3 + "k";
-                                            this.f188long += str2 + str;
+                                            this.f152long += str2 + str;
                                             if (this.c != null) {
-                                                this.f188long += this.c;
+                                                this.f152long += this.c;
                                             }
                                             a();
                                         }
                                         str2 = str3;
-                                        this.f188long += str2 + str;
+                                        this.f152long += str2 + str;
                                         if (this.c != null) {
                                         }
                                         a();
                                     } else {
-                                        if (this.f187int > 1) {
-                                            String str4 = str3 + "w" + Long.toHexString(this.f932a[0]);
-                                            if (this.f932a[0] == j) {
+                                        if (this.f151int > 1) {
+                                            String str4 = str3 + "w" + Long.toHexString(this.a[0]);
+                                            if (this.a[0] == j) {
                                                 str4 = str4 + "k";
                                                 j = 0;
                                             }
-                                            str2 = j > 0 ? str4 + "," + Long.toHexString(j) + "k" : str4 + "," + Long.toHexString(this.f932a[1]);
-                                            this.f188long += str2 + str;
+                                            str2 = j > 0 ? str4 + "," + Long.toHexString(j) + "k" : str4 + "," + Long.toHexString(this.a[1]);
+                                            this.f152long += str2 + str;
                                             if (this.c != null) {
                                             }
                                             a();
                                         }
                                         str2 = str3;
-                                        this.f188long += str2 + str;
+                                        this.f152long += str2 + str;
                                         if (this.c != null) {
                                         }
                                         a();
                                     }
                                 }
-                                j.a(f.v, "trace2:" + this.f188long);
-                                m203case();
-                                this.f188long = null;
+                                j.a(f.v, "trace2:" + this.f152long);
+                                m187case();
+                                this.f152long = null;
                             }
                         }
                     }
@@ -739,13 +734,13 @@ public final class f extends Service {
             z = false;
             if (!z) {
             }
-            j.a(f.v, "trace2:" + this.f188long);
-            m203case();
-            this.f188long = null;
+            j.a(f.v, "trace2:" + this.f152long);
+            m187case();
+            this.f152long = null;
         }
 
         /* renamed from: if  reason: not valid java name */
-        public void m206if() {
+        public void m190if() {
             try {
                 if (f.this.m == null) {
                     File unused = f.j = null;
@@ -771,15 +766,15 @@ public final class f extends Service {
         }
 
         /* renamed from: int  reason: not valid java name */
-        public void m207int() {
+        public void m191int() {
         }
 
         /* renamed from: new  reason: not valid java name */
-        public void m208new() {
-            this.f183do = false;
-            this.f186if = false;
-            m206if();
-            f.m177goto();
+        public void m192new() {
+            this.f147do = false;
+            this.f150if = false;
+            m190if();
+            f.m161goto();
             try {
                 RandomAccessFile randomAccessFile = new RandomAccessFile(f.k, "rw");
                 randomAccessFile.seek(0L);
@@ -789,55 +784,55 @@ public final class f extends Service {
                 long readLong = randomAccessFile.readLong();
                 int readInt3 = randomAccessFile.readInt();
                 if (readInt < 0) {
-                    this.f183do = true;
-                    this.f186if = true;
+                    this.f147do = true;
+                    this.f150if = true;
                     randomAccessFile.close();
                     return;
                 }
-                randomAccessFile.seek((readInt2 * 800) + 24);
+                randomAccessFile.seek((readInt2 * f.ar) + 24);
                 int readInt4 = randomAccessFile.readInt();
                 if (readInt4 > 680) {
-                    this.f183do = true;
-                    this.f186if = true;
+                    this.f147do = true;
+                    this.f150if = true;
                     randomAccessFile.close();
                     return;
                 }
-                byte[] bArr = new byte[800];
+                byte[] bArr = new byte[f.ar];
                 randomAccessFile.read(bArr, 0, readInt4);
                 if (readInt4 != randomAccessFile.readInt()) {
                     j.a(f.v, "trace true check fail");
-                    this.f183do = true;
-                    this.f186if = true;
+                    this.f147do = true;
+                    this.f150if = true;
                     randomAccessFile.close();
                     return;
                 }
                 for (int i = 0; i < bArr.length; i++) {
                     bArr[i] = (byte) (bArr[i] ^ 90);
                 }
-                this.f188long = new String(bArr, 0, readInt4);
-                if (!this.f188long.contains("&tr=")) {
-                    this.f183do = true;
-                    this.f186if = true;
+                this.f152long = new String(bArr, 0, readInt4);
+                if (!this.f152long.contains("&tr=")) {
+                    this.f147do = true;
+                    this.f150if = true;
                     randomAccessFile.close();
                     return;
                 }
                 long currentTimeMillis = System.currentTimeMillis();
                 long j = currentTimeMillis - readLong;
                 if (j > (j.z * 3) - j.q) {
-                    this.f183do = true;
+                    this.f147do = true;
                 } else if (j > (j.z * 2) - j.q) {
-                    this.f188long += "|" + readInt3;
-                    this.f180byte = readInt3 + 2;
+                    this.f152long += "|" + readInt3;
+                    this.f144byte = readInt3 + 2;
                 } else if (j <= j.z - j.q) {
-                    this.f184else = true;
+                    this.f148else = true;
                     randomAccessFile.close();
                     return;
                 } else {
-                    this.f180byte = readInt3 + 1;
+                    this.f144byte = readInt3 + 1;
                 }
                 randomAccessFile.seek(12L);
                 randomAccessFile.writeLong(currentTimeMillis);
-                randomAccessFile.writeInt(this.f180byte);
+                randomAccessFile.writeInt(this.f144byte);
                 randomAccessFile.close();
                 RandomAccessFile randomAccessFile2 = new RandomAccessFile(f.j, "rw");
                 randomAccessFile2.seek(0L);
@@ -845,21 +840,21 @@ public final class f extends Service {
                     randomAccessFile2.close();
                     return;
                 }
-                this.f183do = true;
+                this.f147do = true;
                 randomAccessFile2.close();
                 j.a(f.v, "Day file number 0");
             } catch (Exception e) {
                 e.printStackTrace();
                 j.a(f.v, "exception!!!");
-                this.f183do = true;
-                this.f186if = true;
+                this.f147do = true;
+                this.f150if = true;
             }
         }
 
         /* renamed from: try  reason: not valid java name */
-        public void m209try() {
-            this.f185goto.unregisterReceiver(this.f181case);
-            this.f190try.cancel(this.d);
+        public void m193try() {
+            this.f149goto.unregisterReceiver(this.f145case);
+            this.f154try.cancel(this.d);
             File unused = f.j = null;
         }
     }
@@ -874,49 +869,49 @@ public final class f extends Service {
             if (f.this.ab) {
                 switch (message.what) {
                     case 11:
-                        f.this.m167do(message);
+                        f.this.m151do(message);
                         break;
                     case 12:
-                        f.this.m196try(message);
+                        f.this.m180try(message);
                         break;
                     case 15:
-                        f.this.m160byte(message);
+                        f.this.m144byte(message);
                         break;
                     case 21:
                         f.this.a(message, 21);
                         break;
                     case 22:
-                        f.this.m193new(message);
+                        f.this.m177new(message);
                         break;
-                    case DERTags.GENERALIZED_TIME /* 24 */:
+                    case 24:
                         f.this.a(message);
                         break;
                     case 25:
-                        f.this.m174for(message);
+                        f.this.m158for(message);
                         break;
                     case 26:
                         f.this.a(message, 26);
                         break;
                     case 28:
-                        f.this.m186int(message);
+                        f.this.m170int(message);
                         break;
-                    case f.f170int /* 31 */:
-                        f.this.m171else();
+                    case 31:
+                        f.this.m155else();
                         break;
                     case f.p /* 41 */:
-                        f.this.m166do();
+                        f.this.m150do();
                         break;
                     case f.z /* 51 */:
-                        f.this.m180if();
+                        f.this.m164if();
                         break;
                     case f.F /* 52 */:
-                        f.this.m200void();
+                        f.this.m184void();
                         break;
                     case f.ap /* 53 */:
                         f.this.b();
                         break;
                     case f.C /* 57 */:
-                        f.this.m181if(message);
+                        f.this.m165if(message);
                         break;
                     case 62:
                     case 63:
@@ -927,14 +922,14 @@ public final class f extends Service {
                         f.this.a(26);
                         break;
                     case f.T /* 81 */:
-                        f.this.m195try();
+                        f.this.m179try();
                         break;
                     case f.t /* 91 */:
-                        f.this.m185int();
+                        f.this.m169int();
                         break;
                     case 101:
-                        if (j.f241try && f.this.y != null) {
-                            f.this.y.m204do();
+                        if (j.f205try && f.this.y != null) {
+                            f.this.y.m188do();
                             break;
                         }
                         break;
@@ -946,59 +941,59 @@ public final class f extends Service {
 
     private String a(String str) {
         j.a(v, "generate locdata ...");
-        if ((this.f177try == null || !this.f177try.m129do()) && this.r != null) {
-            this.f177try = this.r.a();
+        if ((this.f141try == null || !this.f141try.m113do()) && this.r != null) {
+            this.f141try = this.r.a();
         }
-        this.A = this.f177try.a();
-        if (this.f177try != null) {
-            j.m257if(v, this.f177try.m131if());
+        this.A = this.f141try.a();
+        if (this.f141try != null) {
+            j.m241if(v, this.f141try.m115if());
         } else {
-            j.m257if(v, "cellInfo null...");
+            j.m241if(v, "cellInfo null...");
         }
-        if ((this.B == null || !this.B.m150do()) && this.E != null) {
-            this.B = this.E.m140byte();
+        if ((this.B == null || !this.B.m134do()) && this.E != null) {
+            this.B = this.E.m124byte();
         }
         if (this.B != null) {
-            j.m257if(v, this.B.m149case());
+            j.m241if(v, this.B.m133case());
         } else {
-            j.m257if(v, "wifi list null");
+            j.m241if(v, "wifi list null");
         }
-        if (this.Z == null || !this.Z.m95for()) {
+        if (this.Z == null || !this.Z.m79for()) {
             this.f = null;
         } else {
-            this.f = this.Z.m96int();
+            this.f = this.Z.m80int();
         }
-        String m51byte = this.as != null ? this.as.m51byte() : null;
-        String format = 3 == g.m213do(this) ? "&cn=32" : String.format("&cn=%d", Integer.valueOf(this.r.m128new()));
+        String m35byte = this.as != null ? this.as.m35byte() : null;
+        String format = 3 == g.m197do(this) ? "&cn=32" : String.format("&cn=%d", Integer.valueOf(this.r.m112new()));
         if (this.W) {
             format = format + "&rq=1";
         }
-        String str2 = format + m51byte;
+        String str2 = format + m35byte;
         if (str != null) {
             str2 = str + str2;
         }
-        return j.a(this.f177try, this.B, this.f, str2, 0);
+        return j.a(this.f141try, this.B, this.f, str2, 0);
     }
 
     private String a(boolean z2) {
-        if ((this.f177try == null || !this.f177try.m129do()) && this.r != null) {
-            this.f177try = this.r.a();
+        if ((this.f141try == null || !this.f141try.m113do()) && this.r != null) {
+            this.f141try = this.r.a();
         }
-        m169do(this.f177try.a());
-        return m179if(z2);
+        m153do(this.f141try.a());
+        return m163if(z2);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i2) {
         j.a(v, "on network exception");
-        j.m257if(v, "on network exception");
-        this.f176new = null;
-        this.f173char = null;
+        j.m241if(v, "on network exception");
+        this.f140new = null;
+        this.f137char = null;
         if (this.as != null) {
             this.as.a(a(false), i2);
         }
         if (i2 == 21) {
-            m164case();
+            m148case();
         }
     }
 
@@ -1009,15 +1004,15 @@ public final class f extends Service {
         double d3 = message.getData().getDouble("y");
         String string = message.getData().getString("addr");
         if (this.r != null && this.E != null && this.as != null) {
-            k.a(this.r.a(), this.E.m145int(), this.as.m51byte(), d2, d3, string);
+            k.a(this.r.a(), this.E.m129int(), this.as.m35byte(), d2, d3, string);
         }
-        m159byte();
+        m143byte();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Message message, int i2) {
         j.a(v, "on network success");
-        j.m257if(v, "on network success");
+        j.m241if(v, "on network success");
         String str = (String) message.obj;
         j.a(v, "network:" + str);
         if (this.as != null) {
@@ -1025,33 +1020,33 @@ public final class f extends Service {
         }
         if (j.a(str)) {
             if (i2 == 21) {
-                this.f176new = str;
+                this.f140new = str;
             } else {
                 this.G = str;
             }
         } else if (i2 == 21) {
-            this.f176new = null;
+            this.f140new = null;
         } else {
             this.G = null;
         }
-        int m254if = j.m254if(str, "ssid\":\"", "\"");
-        if (m254if == Integer.MIN_VALUE || this.f173char == null) {
+        int m238if = j.m238if(str, "ssid\":\"", "\"");
+        if (m238if == Integer.MIN_VALUE || this.f137char == null) {
             this.h = null;
         } else {
-            this.h = this.f173char.m153if(m254if);
+            this.h = this.f137char.m137if(m238if);
         }
-        m183if(str);
-        double m250do = j.m250do(str, "a\":\"", "\"");
-        if (m250do != Double.MIN_VALUE) {
-            k.a(m250do, j.m250do(str, "b\":\"", "\""), j.m250do(str, "c\":\"", "\""), j.m250do(str, "b\":\"", "\""));
+        m167if(str);
+        double m234do = j.m234do(str, "a\":\"", "\"");
+        if (m234do != Double.MIN_VALUE) {
+            k.a(m234do, j.m234do(str, "b\":\"", "\""), j.m234do(str, "c\":\"", "\""), j.m234do(str, "b\":\"", "\""));
         }
-        int m254if2 = j.m254if(str, "rWifiN\":\"", "\"");
-        if (m254if2 > 15) {
-            j.F = m254if2;
+        int m238if2 = j.m238if(str, "rWifiN\":\"", "\"");
+        if (m238if2 > 15) {
+            j.F = m238if2;
         }
-        int m254if3 = j.m254if(str, "rWifiT\":\"", "\"");
-        if (m254if3 > 500) {
-            j.h = m254if3;
+        int m238if3 = j.m238if(str, "rWifiT\":\"", "\"");
+        if (m238if3 > 500) {
+            j.h = m238if3;
         }
         float a2 = j.a(str, "hSpeedDis\":\"", "\"");
         if (a2 > 5.0f) {
@@ -1063,10 +1058,10 @@ public final class f extends Service {
         }
         float a4 = j.a(str, "mWifiR\":\"", "\"");
         if (a4 < 1.0f && a4 > 0.2d) {
-            j.f240new = a4;
+            j.f204new = a4;
         }
         if (i2 == 21) {
-            m164case();
+            m148case();
         }
     }
 
@@ -1074,12 +1069,12 @@ public final class f extends Service {
         if (this.r == null) {
             return false;
         }
-        this.f177try = this.r.a();
-        if (this.f177try != aVar) {
-            if (this.f177try == null || aVar == null) {
+        this.f141try = this.r.a();
+        if (this.f141try != aVar) {
+            if (this.f141try == null || aVar == null) {
                 return true;
             }
-            return aVar.a(this.f177try) ? false : true;
+            return aVar.a(this.f141try) ? false : true;
         }
         return false;
     }
@@ -1088,7 +1083,7 @@ public final class f extends Service {
         if (this.E == null) {
             return false;
         }
-        this.B = this.E.m140byte();
+        this.B = this.E.m124byte();
         if (cVar != this.B) {
             if (this.B == null || cVar == null) {
                 return true;
@@ -1101,37 +1096,37 @@ public final class f extends Service {
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
         if (this.as != null) {
-            this.as.m59new();
+            this.as.m43new();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: byte  reason: not valid java name */
-    public void m159byte() {
+    public void m143byte() {
         if (this.M) {
             return;
         }
         if (System.currentTimeMillis() - this.N < 1000) {
             j.a(v, "request too frequency ...");
-            if (this.f176new != null) {
-                this.as.a(this.f176new);
-                m164case();
+            if (this.f140new != null) {
+                this.as.a(this.f140new);
+                m148case();
                 return;
             }
         }
         j.a(v, "start network locating ...");
-        j.m257if(v, "start network locating ...");
+        j.m241if(v, "start network locating ...");
         this.M = true;
         this.I = a(this.aj);
-        if (!a(this.f173char) && !this.I && this.f176new != null) {
-            this.as.a(this.f176new);
-            m164case();
+        if (!a(this.f137char) && !this.I && this.f140new != null) {
+            this.as.a(this.f140new);
+            m148case();
             return;
         }
         String a2 = a((String) null);
         if (a2 == null) {
             this.as.a("{\"result\":{\"time\":\"" + j.a() + "\",\"error\":\"62\"}}");
-            m164case();
+            m148case();
             return;
         }
         if (this.h != null) {
@@ -1139,8 +1134,8 @@ public final class f extends Service {
             this.h = null;
         }
         if (g.a(a2, this.P)) {
-            this.aj = this.f177try;
-            this.f173char = this.B;
+            this.aj = this.f141try;
+            this.f137char = this.B;
         } else {
             j.a(v, "request error ..");
         }
@@ -1152,11 +1147,11 @@ public final class f extends Service {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: byte  reason: not valid java name */
-    public void m160byte(Message message) {
-        if (this.as != null && this.as.m54for(message) && this.E != null) {
-            this.E.m144for();
+    public void m144byte(Message message) {
+        if (this.as != null && this.as.m38for(message) && this.E != null) {
+            this.E.m128for();
         }
-        this.f176new = null;
+        this.f140new = null;
     }
 
     private void c() {
@@ -1173,40 +1168,40 @@ public final class f extends Service {
         }
         try {
             this.R = SQLiteDatabase.openOrCreateDatabase(file2, (SQLiteDatabase.CursorFactory) null);
-            this.R.execSQL("CREATE TABLE " + this.f175if + "(id CHAR(40) PRIMARY KEY,time DOUBLE,tag DOUBLE, type DOUBLE , ac INT);");
+            this.R.execSQL("CREATE TABLE " + this.f139if + "(id CHAR(40) PRIMARY KEY,time DOUBLE,tag DOUBLE, type DOUBLE , ac INT);");
         } catch (Exception e3) {
         }
     }
 
     /* renamed from: case  reason: not valid java name */
-    private void m164case() {
+    private void m148case() {
         this.M = false;
-        m190long();
+        m174long();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: do  reason: not valid java name */
-    public void m166do() {
+    public void m150do() {
         j.a(v, "on new wifi ...");
         if (this.ah) {
-            m159byte();
+            m143byte();
             this.ah = false;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: do  reason: not valid java name */
-    public void m167do(Message message) {
+    public void m151do(Message message) {
         if (this.as != null) {
-            this.as.m58int(message);
+            this.as.m42int(message);
         }
         if (this.E != null) {
-            this.E.m141case();
+            this.E.m125case();
         }
     }
 
     /* renamed from: do  reason: not valid java name */
-    private void m169do(String str) {
+    private void m153do(String str) {
         if (this.R == null || str == null) {
             j.a(v, "db is null...");
             this.O = false;
@@ -1218,7 +1213,7 @@ public final class f extends Service {
         }
         this.O = false;
         try {
-            Cursor rawQuery = this.R.rawQuery("select * from " + this.f175if + " where id = \"" + str + "\";", null);
+            Cursor rawQuery = this.R.rawQuery("select * from " + this.f139if + " where id = \"" + str + "\";", null);
             this.aq = str;
             this.D = System.currentTimeMillis();
             if (rawQuery != null) {
@@ -1239,13 +1234,13 @@ public final class f extends Service {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: else  reason: not valid java name */
-    public void m171else() {
+    public void m155else() {
         j.a(v, "on new cell ...");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: for  reason: not valid java name */
-    public void m174for(Message message) {
+    public void m158for(Message message) {
         if (System.currentTimeMillis() - this.d < 3000) {
             j.a(v, "request too frequency ...");
             if (this.G != null) {
@@ -1259,9 +1254,9 @@ public final class f extends Service {
                 a2 = a2 + this.h;
                 this.h = null;
             }
-            g.m213do(this);
-            if (g.m226if(a2, this.P)) {
-                this.u = this.f177try;
+            g.m197do(this);
+            if (g.m210if(a2, this.P)) {
+                this.u = this.f141try;
                 this.ac = this.B;
             } else {
                 j.a(v, "request poi error ..");
@@ -1271,13 +1266,13 @@ public final class f extends Service {
     }
 
     /* renamed from: goto  reason: not valid java name */
-    public static void m177goto() {
+    public static void m161goto() {
         try {
-            if (f929a == null) {
+            if (a == null) {
                 k = null;
                 return;
             }
-            k = new File(f929a);
+            k = new File(a);
             if (k.exists()) {
                 return;
             }
@@ -1302,33 +1297,33 @@ public final class f extends Service {
     }
 
     /* renamed from: if  reason: not valid java name */
-    private String m179if(boolean z2) {
+    private String m163if(boolean z2) {
         return this.O ? z2 ? String.format("{\"result\":{\"time\":\"" + j.a() + "\",\"error\":\"66\"},\"content\":{\"point\":{\"x\":\"%f\",\"y\":\"%f\"},\"radius\":\"%f\",\"isCellChanged\":\"%b\"}}", Double.valueOf(this.o), Double.valueOf(this.n), Double.valueOf(this.q), true) : String.format("{\"result\":{\"time\":\"" + j.a() + "\",\"error\":\"68\"},\"content\":{\"point\":{\"x\":\"%f\",\"y\":\"%f\"},\"radius\":\"%f\",\"isCellChanged\":\"%b\"}}", Double.valueOf(this.o), Double.valueOf(this.n), Double.valueOf(this.q), Boolean.valueOf(this.I)) : z2 ? "{\"result\":{\"time\":\"" + j.a() + "\",\"error\":\"67\"}}" : "{\"result\":{\"time\":\"" + j.a() + "\",\"error\":\"63\"}}";
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: if  reason: not valid java name */
-    public void m180if() {
+    public void m164if() {
         if (this.Z == null) {
             return;
         }
         j.a(v, "on new gps...");
-        Location m96int = this.Z.m96int();
-        if (this.Z.m95for() && k.a(m96int, true) && this.r != null && this.E != null && this.as != null) {
+        Location m80int = this.Z.m80int();
+        if (this.Z.m79for() && k.a(m80int, true) && this.r != null && this.E != null && this.as != null) {
             if (this.E != null) {
                 this.E.a();
             }
-            k.a(this.r.a(), this.E.m145int(), m96int, this.as.m51byte());
+            k.a(this.r.a(), this.E.m129int(), m80int, this.as.m35byte());
         }
-        if (this.as == null || !this.Z.m95for()) {
+        if (this.as == null || !this.Z.m79for()) {
             return;
         }
-        this.as.m57if(this.Z.m94do());
+        this.as.m41if(this.Z.m78do());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: if  reason: not valid java name */
-    public void m181if(Message message) {
+    public void m165if(Message message) {
         if (message == null || message.obj == null) {
             j.a(v, "Gps updateloation is null");
             return;
@@ -1339,7 +1334,7 @@ public final class f extends Service {
             if (!k.a(location, true) || this.r == null || this.E == null || this.as == null || !j.v) {
                 return;
             }
-            k.a(this.r.a(), this.E.m145int(), location, this.as.m51byte());
+            k.a(this.r.a(), this.E.m129int(), location, this.as.m35byte());
         }
     }
 
@@ -1349,7 +1344,7 @@ public final class f extends Service {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void m183if(String str) {
+    private void m167if(String str) {
         float f;
         double d2;
         double d3;
@@ -1362,7 +1357,7 @@ public final class f extends Service {
             JSONObject jSONObject = new JSONObject(str);
             int parseInt = Integer.parseInt(jSONObject.getJSONObject("result").getString("error"));
             if (parseInt == 161) {
-                JSONObject jSONObject2 = jSONObject.getJSONObject("content");
+                JSONObject jSONObject2 = jSONObject.getJSONObject(PushConstants.EXTRA_CONTENT);
                 if (jSONObject2.has("clf")) {
                     String string = jSONObject2.getString("clf");
                     if (string.equals(SocialConstants.FALSE)) {
@@ -1384,9 +1379,9 @@ public final class f extends Service {
                         contentValues.put("tag", Float.valueOf(f2));
                         contentValues.put("type", Double.valueOf(d3 + 2367.3217d));
                         try {
-                            if (this.R.update(this.f175if, contentValues, "id = \"" + this.A + "\"", null) <= 0) {
-                                contentValues.put(LocaleUtil.INDONESIAN, this.A);
-                                this.R.insert(this.f175if, null, contentValues);
+                            if (this.R.update(this.f139if, contentValues, "id = \"" + this.A + "\"", null) <= 0) {
+                                contentValues.put("id", this.A);
+                                this.R.insert(this.f139if, null, contentValues);
                                 j.a(v, "insert DB success!");
                                 return;
                             }
@@ -1398,7 +1393,7 @@ public final class f extends Service {
                     return;
                 }
             } else if (parseInt == 167) {
-                this.R.delete(this.f175if, "id = \"" + this.A + "\"", null);
+                this.R.delete(this.f139if, "id = \"" + this.A + "\"", null);
                 return;
             }
             z2 = true;
@@ -1414,7 +1409,7 @@ public final class f extends Service {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: int  reason: not valid java name */
-    public void m185int() {
+    public void m169int() {
         if (g.a(this)) {
             g.f();
         }
@@ -1422,7 +1417,7 @@ public final class f extends Service {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: int  reason: not valid java name */
-    public void m186int(Message message) {
+    public void m170int(Message message) {
         if (this.as == null) {
             return;
         }
@@ -1430,17 +1425,17 @@ public final class f extends Service {
     }
 
     /* renamed from: long  reason: not valid java name */
-    private void m190long() {
-        if (this.f176new == null || !g.a(this)) {
+    private void m174long() {
+        if (this.f140new == null || !g.a(this)) {
             return;
         }
         g.f();
     }
 
     /* renamed from: new  reason: not valid java name */
-    public static String m192new() {
+    public static String m176new() {
         j.a(v, "read trace log1..");
-        m177goto();
+        m161goto();
         try {
             if (k != null) {
                 RandomAccessFile randomAccessFile = new RandomAccessFile(k, "rw");
@@ -1449,9 +1444,9 @@ public final class f extends Service {
                 int readInt2 = randomAccessFile.readInt();
                 j.a(v, "read trace log.." + readInt2);
                 if (readInt > 0) {
-                    randomAccessFile.seek((readInt2 * 800) + 24);
+                    randomAccessFile.seek((readInt2 * ar) + 24);
                     int readInt3 = randomAccessFile.readInt();
-                    byte[] bArr = new byte[800];
+                    byte[] bArr = new byte[ar];
                     randomAccessFile.read(bArr, 0, readInt3);
                     int readInt4 = randomAccessFile.readInt();
                     randomAccessFile.seek(0L);
@@ -1465,9 +1460,9 @@ public final class f extends Service {
                     for (int i2 = 0; i2 < bArr.length; i2++) {
                         bArr[i2] = (byte) (bArr[i2] ^ 90);
                     }
-                    String m18if = Jni.m18if(new String(bArr, 0, readInt3));
+                    String m2if = Jni.m2if(new String(bArr, 0, readInt3));
                     randomAccessFile.close();
-                    return m18if;
+                    return m2if;
                 }
                 randomAccessFile.close();
             }
@@ -1479,21 +1474,21 @@ public final class f extends Service {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: new  reason: not valid java name */
-    public void m193new(Message message) {
+    public void m177new(Message message) {
         j.a(v, "on request location ...");
-        j.m257if(v, "on request location ...");
+        j.m241if(v, "on request location ...");
         if (this.as == null) {
             return;
         }
-        if (this.as.m52do(message) == 1 && this.Z != null && this.Z.m95for()) {
+        if (this.as.m36do(message) == 1 && this.Z != null && this.Z.m79for()) {
             j.a(v, "send gps location to client ...");
-            this.as.a(this.Z.m94do(), message);
+            this.as.a(this.Z.m78do(), message);
         } else if (this.W) {
-            m159byte();
+            m143byte();
         } else if (this.M) {
         } else {
-            if (this.E == null || !this.E.m146new()) {
-                m159byte();
+            if (this.E == null || !this.E.m130new()) {
+                m143byte();
                 return;
             }
             this.ah = true;
@@ -1503,25 +1498,25 @@ public final class f extends Service {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: try  reason: not valid java name */
-    public void m195try() {
+    public void m179try() {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: try  reason: not valid java name */
-    public void m196try(Message message) {
+    public void m180try(Message message) {
         if (this.as != null) {
-            this.as.m56if(message);
+            this.as.m40if(message);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: void  reason: not valid java name */
-    public void m200void() {
+    public void m184void() {
         j.a(v, "on switch gps ...");
         if (this.as == null) {
             return;
         }
-        if (this.as.m53for()) {
+        if (this.as.m37for()) {
             if (this.Z == null) {
                 this.Z = new com.baidu.location.b(this, this.P);
             }
@@ -1533,7 +1528,7 @@ public final class f extends Service {
     }
 
     /* renamed from: char  reason: not valid java name */
-    public boolean m201char() {
+    public boolean m185char() {
         return ((KeyguardManager) getSystemService("keyguard")).inKeyguardRestrictedInputMode();
     }
 
@@ -1548,18 +1543,18 @@ public final class f extends Service {
         this.r = new com.baidu.location.c(this, this.P);
         this.E = new e(this, this.P);
         this.as = new com.baidu.location.a(this.P);
-        this.r.m125do();
-        this.E.m147try();
+        this.r.m109do();
+        this.E.m131try();
         this.ab = true;
         this.M = false;
         this.ah = false;
-        g.m210byte();
+        g.m194byte();
         try {
             c();
         } catch (Exception e2) {
         }
         try {
-            if (j.f241try && j.M) {
+            if (j.f205try && j.M) {
                 this.y = new c(this);
             }
         } catch (Exception e3) {
@@ -1571,27 +1566,27 @@ public final class f extends Service {
     @Override // android.app.Service
     public void onDestroy() {
         if (this.r != null) {
-            this.r.m124byte();
+            this.r.m108byte();
         }
         if (this.E != null) {
-            this.E.m143else();
+            this.E.m127else();
         }
         if (this.Z != null) {
             this.Z.j();
         }
-        k.m264if();
+        k.m248if();
         this.M = false;
         this.ah = false;
         this.ab = false;
         if (this.y != null) {
-            this.y.m209try();
+            this.y.m193try();
         }
         if (this.R != null) {
             this.R.close();
         }
         j.a(v, "onDestroy");
         Log.d(v, "baidu location service stop ...");
-        if (j.f241try) {
+        if (j.f205try) {
             Process.killProcess(Process.myPid());
         }
     }

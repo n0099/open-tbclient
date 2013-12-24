@@ -11,8 +11,8 @@ public class bu implements Comparator<View> {
     public int compare(View view, View view2) {
         bn bnVar = (bn) view.getLayoutParams();
         bn bnVar2 = (bn) view2.getLayoutParams();
-        if (bnVar.f336a != bnVar2.f336a) {
-            return bnVar.f336a ? 1 : -1;
+        if (bnVar.a != bnVar2.a) {
+            return bnVar.a ? 1 : -1;
         }
         return bnVar.e - bnVar2.e;
     }

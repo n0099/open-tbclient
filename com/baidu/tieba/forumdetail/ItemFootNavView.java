@@ -14,14 +14,12 @@ import com.baidu.tieba.account.LoginActivity;
 import com.baidu.tieba.forumdetail.ForumDetailActivity;
 import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.model.ax;
-import com.baidu.tieba.model.cj;
+import com.baidu.tieba.model.ci;
 import com.baidu.tieba.switchs.SwitchKey;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class ItemFootNavView extends LinearLayout {
-
-    /* renamed from: a  reason: collision with root package name */
-    private Context f1321a;
+    private Context a;
     private ViewGroup b;
     private TextView c;
     private ImageView d;
@@ -42,7 +40,7 @@ public class ItemFootNavView extends LinearLayout {
     }
 
     public void a(Context context) {
-        this.f1321a = context;
+        this.a = context;
         ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(R.layout.forum_detail_foot_nav, (ViewGroup) this, true);
         this.b = (ViewGroup) findViewById(R.id.fn_care_box);
         this.c = (TextView) findViewById(R.id.fn_care_btn);
@@ -81,7 +79,7 @@ public class ItemFootNavView extends LinearLayout {
             a(jVar, this.g);
         }
         if (TiebaApplication.h().t()) {
-            StatService.onEvent(this.f1321a, intValue == 1 ? "detail_care_add" : "detail_care_cancel", "click", 1);
+            StatService.onEvent(this.a, intValue == 1 ? "detail_care_add" : "detail_care_cancel", "click", 1);
         }
     }
 
@@ -95,15 +93,15 @@ public class ItemFootNavView extends LinearLayout {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(boolean z) {
         if (z) {
-            FrsActivity.f1356a = !FrsActivity.f1356a;
+            FrsActivity.a = !FrsActivity.a;
         }
     }
 
     private void b(com.baidu.tieba.j jVar, boolean z) {
-        cj cjVar = new cj();
-        cjVar.a(SwitchKey.BAR_DETAIL_DIR);
-        cjVar.a(new i(this, jVar, z));
-        cjVar.a(this.f.forumInfo.forumName, this.f.forumInfo.forumID);
+        ci ciVar = new ci();
+        ciVar.a(SwitchKey.BAR_DETAIL_DIR);
+        ciVar.a(new i(this, jVar, z));
+        ciVar.a(this.f.forumInfo.forumName, this.f.forumInfo.forumID);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -133,7 +131,7 @@ public class ItemFootNavView extends LinearLayout {
             i3 = R.string.forum_detail_fans;
         }
         this.d.setImageResource(i2);
-        this.c.setText(this.f1321a.getResources().getString(i3));
+        this.c.setText(this.a.getResources().getString(i3));
     }
 
     public void a(com.baidu.tieba.j jVar, int i) {

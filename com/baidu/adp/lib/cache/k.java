@@ -4,18 +4,16 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 class k implements h {
-
-    /* renamed from: a  reason: collision with root package name */
-    private final int f432a;
+    private final int a;
     private HashMap<String, Long> b = new HashMap<>();
 
     public k(int i) {
-        this.f432a = i;
+        this.a = i;
     }
 
     @Override // com.baidu.adp.lib.cache.f
     public int a() {
-        return this.f432a;
+        return this.a;
     }
 
     @Override // com.baidu.adp.lib.cache.f
@@ -27,7 +25,7 @@ class k implements h {
         String key;
         long j;
         String str2 = null;
-        if (!this.b.containsKey(str) && this.b.size() >= this.f432a) {
+        if (!this.b.containsKey(str) && this.b.size() >= this.a) {
             synchronized (this) {
                 long j2 = -1;
                 for (Map.Entry<String, Long> entry : this.b.entrySet()) {
@@ -52,11 +50,11 @@ class k implements h {
 
     @Override // com.baidu.adp.lib.cache.h
     public String a(m<?> mVar) {
-        String a2 = a(mVar.f433a);
+        String a = a(mVar.a);
         synchronized (this) {
-            this.b.put(mVar.f433a, Long.valueOf(mVar.e));
+            this.b.put(mVar.a, Long.valueOf(mVar.e));
         }
-        return a2;
+        return a;
     }
 
     @Override // com.baidu.adp.lib.cache.h
@@ -65,7 +63,7 @@ class k implements h {
 
     @Override // com.baidu.adp.lib.cache.h
     public String b(m<?> mVar) {
-        return mVar.f < System.currentTimeMillis() ? mVar.f433a : a(mVar);
+        return mVar.f < System.currentTimeMillis() ? mVar.a : a(mVar);
     }
 
     @Override // com.baidu.adp.lib.cache.h

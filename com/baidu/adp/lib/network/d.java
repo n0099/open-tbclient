@@ -2,30 +2,30 @@ package com.baidu.adp.lib.network;
 
 import android.content.Context;
 import android.os.Build;
+import com.baidu.browser.webpool.BdWebPoolView;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class d {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static d f514a;
+    private static d a;
     private Context b;
 
     public static synchronized d a() {
         d dVar;
         synchronized (d.class) {
-            if (f514a == null) {
-                f514a = new d();
+            if (a == null) {
+                a = new d();
             }
-            dVar = f514a;
+            dVar = a;
         }
         return dVar;
     }
 
     public void a(Context context, boolean z) {
         this.b = context;
-        b.f513a = z;
+        b.a = z;
         if (Integer.parseInt(Build.VERSION.SDK) < 8) {
             System.setProperty("http.keepAlive", "false");
         }
@@ -43,18 +43,18 @@ public class d {
         b.d = str;
     }
 
-    public e a(String str, boolean z, int i, c cVar, a aVar) {
-        e a2 = b.a(str, z, i, cVar, aVar);
-        if (a2 != null && a2.f515a == 206) {
+    public e a(String str, boolean z, int i, c cVar, a aVar, LinkedList<BasicNameValuePair> linkedList) {
+        e a2 = b.a(str, z, i, cVar, aVar, linkedList);
+        if (a2 != null && a2.a == 206) {
             int length = a2.d.length;
             int length2 = a2.d.length;
             ArrayList arrayList = new ArrayList();
             arrayList.add(a2.d);
-            a2.d = b.a(str, length, length2, arrayList, i, cVar, aVar);
-            a2.f515a = 200;
-        } else if (a2 != null && a2.f515a == 413) {
-            a2.d = b.a(str, 0L, g.d(), new ArrayList(), i, cVar, aVar);
-            a2.f515a = a2.d != null ? 200 : a2.f515a;
+            a2.d = b.a(str, length, length2, arrayList, i, cVar, aVar, linkedList);
+            a2.a = BdWebPoolView.DELAYED_TIME;
+        } else if (a2 != null && a2.a == 413) {
+            a2.d = b.a(str, 0L, g.d(), new ArrayList(), i, cVar, aVar, linkedList);
+            a2.a = a2.d != null ? BdWebPoolView.DELAYED_TIME : a2.a;
         }
         if (cVar != null) {
             cVar.a(a2);
@@ -62,24 +62,24 @@ public class d {
         return a2;
     }
 
-    public e a(String str, byte[] bArr, boolean z, int i, c cVar, a aVar) {
-        return b.a(z, str, bArr, i, cVar, aVar);
+    public e a(String str, byte[] bArr, boolean z, int i, c cVar, a aVar, LinkedList<BasicNameValuePair> linkedList) {
+        return b.a(z, str, bArr, i, cVar, aVar, linkedList);
     }
 
-    public e a(String str, boolean z, ArrayList<BasicNameValuePair> arrayList, HashMap<String, byte[]> hashMap, int i, c cVar, a aVar, f fVar) {
-        return b.a(str, z, arrayList, hashMap, i, cVar, aVar, null);
+    public e a(String str, boolean z, ArrayList<BasicNameValuePair> arrayList, HashMap<String, byte[]> hashMap, int i, c cVar, a aVar, f fVar, LinkedList<BasicNameValuePair> linkedList) {
+        return b.a(str, z, arrayList, hashMap, i, cVar, aVar, null, linkedList);
     }
 
-    public e a(String str, ArrayList<BasicNameValuePair> arrayList, String str2, byte[] bArr, int i, c cVar, a aVar) {
+    public e a(String str, ArrayList<BasicNameValuePair> arrayList, String str2, byte[] bArr, int i, c cVar, a aVar, LinkedList<BasicNameValuePair> linkedList) {
         HashMap<String, byte[]> hashMap = new HashMap<>();
         if (str2 != null) {
             hashMap.put(str2, bArr);
         }
-        return a(str, false, arrayList, hashMap, i, cVar, aVar, null);
+        return a(str, false, arrayList, hashMap, i, cVar, aVar, null, linkedList);
     }
 
-    public boolean a(String str, String str2, boolean z, int i, c cVar, a aVar) {
-        return b.a(str, str2, z, i, cVar, aVar);
+    public boolean a(String str, String str2, boolean z, int i, c cVar, a aVar, LinkedList<BasicNameValuePair> linkedList) {
+        return b.a(str, str2, z, i, cVar, aVar, linkedList);
     }
 
     public Context b() {

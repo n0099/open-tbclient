@@ -13,9 +13,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.widget.ImageView;
 /* loaded from: classes.dex */
 public class x extends BitmapDrawable implements v {
-
-    /* renamed from: a  reason: collision with root package name */
-    private int f620a;
+    private int a;
     private int b;
     private int c;
     private Paint d;
@@ -26,7 +24,7 @@ public class x extends BitmapDrawable implements v {
 
     public x(Resources resources, Matrix matrix, ImageView imageView, Bitmap bitmap, int i, ColorFilter colorFilter) {
         super(resources, bitmap);
-        this.f620a = 0;
+        this.a = 0;
         this.b = 0;
         this.e = new RectF();
         this.g = imageView;
@@ -56,24 +54,24 @@ public class x extends BitmapDrawable implements v {
         super.setBounds(i, i2, i3, i4);
         int i5 = i3 - i;
         int i6 = i4 - i2;
-        this.f620a = this.g.getMeasuredWidth();
+        this.a = this.g.getMeasuredWidth();
         this.b = this.g.getMeasuredHeight();
-        if (this.b * i5 > this.f620a * i6) {
+        if (this.b * i5 > this.a * i6) {
             this.h = i6 / this.b;
-            f2 = (i5 - (this.f620a * this.h)) * 0.5f;
+            f2 = (i5 - (this.a * this.h)) * 0.5f;
             f = 0.0f;
         } else {
-            this.h = i5 / this.f620a;
+            this.h = i5 / this.a;
             f = (i6 - (this.b * this.h)) * 0.5f;
             f2 = 0.0f;
         }
-        this.e.set(0.0f, 0.0f, this.f620a * this.h, this.b * this.h);
+        this.e.set(0.0f, 0.0f, this.a * this.h, this.b * this.h);
         this.e.offset(f2, f);
     }
 
     @Override // android.graphics.drawable.BitmapDrawable, android.graphics.drawable.Drawable, com.baidu.adp.widget.v
     public void draw(Canvas canvas) {
-        if (this.f620a != 0 && this.b != 0) {
+        if (this.a != 0 && this.b != 0) {
             canvas.drawRoundRect(this.e, (int) ((this.c * this.h) + 0.5f), (int) ((this.c * this.h) + 0.5f), this.d);
         }
     }

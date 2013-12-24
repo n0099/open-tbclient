@@ -28,9 +28,7 @@ public class VcodeActivity extends com.baidu.tieba.j {
     private DialogInterface.OnCancelListener k = null;
     private RelativeLayout l = null;
     private TextView m = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    protected NavigationBar f2770a = null;
+    protected NavigationBar a = null;
     private View.OnClickListener n = new o(this);
     private View.OnClickListener o = new p(this);
 
@@ -97,11 +95,11 @@ public class VcodeActivity extends com.baidu.tieba.j {
     public void onChangeSkinType(int i) {
         int i2;
         super.onChangeSkinType(i);
-        com.baidu.tieba.util.ba.a(this.l, i);
-        this.f2770a.c(i);
-        com.baidu.tieba.util.ba.h(this.d, i);
+        com.baidu.tieba.util.bb.a(this.l, i);
+        this.a.c(i);
+        com.baidu.tieba.util.bb.h(this.d, i);
         if (i == 1) {
-            i2 = com.baidu.tieba.util.ba.a(i);
+            i2 = com.baidu.tieba.util.bb.a(i);
         } else {
             i2 = -12895429;
         }
@@ -110,10 +108,10 @@ public class VcodeActivity extends com.baidu.tieba.j {
 
     private void a() {
         this.l = (RelativeLayout) findViewById(R.id.parent);
-        this.f2770a = (NavigationBar) findViewById(R.id.view_navigation_bar);
+        this.a = (NavigationBar) findViewById(R.id.view_navigation_bar);
         this.m = (TextView) findViewById(R.id.info);
-        this.c = this.f2770a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.n);
-        this.d = this.f2770a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(R.string.send), this.o);
+        this.c = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.n);
+        this.d = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(R.string.send), this.o);
         this.f = (EditText) findViewById(R.id.input);
         this.e = (ImageView) findViewById(R.id.vcode_image);
         this.e.setImageBitmap(null);

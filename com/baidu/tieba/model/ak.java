@@ -10,9 +10,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ak {
-
-    /* renamed from: a  reason: collision with root package name */
-    private ForumData f1986a;
+    private ForumData a;
     private ArrayList<com.baidu.tieba.data.az> b;
     private AntiData c;
     private com.baidu.tieba.data.am d;
@@ -32,7 +30,7 @@ public class ak {
     }
 
     private void k() {
-        this.f1986a = new ForumData();
+        this.a = new ForumData();
         this.b = new ArrayList<>();
         this.d = new com.baidu.tieba.data.am();
         this.e = new com.baidu.tieba.data.y();
@@ -42,19 +40,19 @@ public class ak {
     }
 
     public void a(com.baidu.tieba.data.af afVar) {
-        this.f1986a.setCurScore(afVar.d());
-        this.f1986a.setLevelupScore(afVar.e());
-        this.f1986a.setLike(afVar.b());
-        this.f1986a.setUser_level(afVar.a());
-        this.f1986a.setLevelName(afVar.c());
+        this.a.setCurScore(afVar.d());
+        this.a.setLevelupScore(afVar.e());
+        this.a.setLike(afVar.b());
+        this.a.setUser_level(afVar.a());
+        this.a.setLevelName(afVar.c());
     }
 
     public void a(SignData signData) {
-        this.f1986a.setSignData(signData);
+        this.a.setSignData(signData);
     }
 
     public ForumData a() {
-        return this.f1986a;
+        return this.a;
     }
 
     public ArrayList<com.baidu.tieba.data.az> b() {
@@ -101,7 +99,7 @@ public class ak {
             a(jSONObject.optInt("is_new_url", 0));
             JSONObject optJSONObject = jSONObject.optJSONObject("forum");
             k();
-            this.f1986a.parserJson(optJSONObject);
+            this.a.parserJson(optJSONObject);
             JSONArray optJSONArray = jSONObject.optJSONArray("thread_list");
             if (optJSONArray != null) {
                 for (int i = 0; i < optJSONArray.length(); i++) {
@@ -137,10 +135,10 @@ public class ak {
             this.m.cancel();
             this.m = null;
         }
-        ForumData a2 = a();
-        this.m = new al(this, a2.getId(), a2.getName(), str);
+        ForumData a = a();
+        this.m = new al(this, a.getId(), a.getName(), str);
         this.m.setPriority(2);
-        this.m.execute(com.baidu.tieba.data.h.f1248a + "c/c/user/fansno");
+        this.m.execute(com.baidu.tieba.data.h.a + "c/c/user/fansno");
     }
 
     public void h() {

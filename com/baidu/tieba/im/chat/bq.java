@@ -1,26 +1,21 @@
 package com.baidu.tieba.im.chat;
-
-import android.widget.AbsListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bq implements AbsListView.OnScrollListener {
+public class bq implements com.baidu.tieba.im.a<Void> {
+    final /* synthetic */ bc a;
 
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bm f1575a;
+    private bq(bc bcVar) {
+        this.a = bcVar;
+    }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bq(bm bmVar) {
-        this.f1575a = bmVar;
+    public /* synthetic */ bq(bc bcVar, bd bdVar) {
+        this(bcVar);
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
-        this.f1575a.J();
-        this.f1575a.K();
-        this.f1575a.L();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.a
+    public void a(Void r4) {
+        com.baidu.tieba.im.c.a.h().b(false, (com.baidu.tieba.im.a<Void>) null);
     }
 }

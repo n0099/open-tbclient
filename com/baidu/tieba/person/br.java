@@ -1,34 +1,33 @@
 package com.baidu.tieba.person;
 
-import android.os.Handler;
-import android.widget.AbsListView;
+import android.view.View;
+import com.baidu.tieba.data.UserData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class br implements AbsListView.OnScrollListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PersonListActivity f2342a;
+public class br implements View.OnClickListener {
+    final /* synthetic */ PersonListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public br(PersonListActivity personListActivity) {
-        this.f2342a = personListActivity;
+        this.a = personListActivity;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-        Handler handler;
-        Runnable runnable;
-        Handler handler2;
-        Runnable runnable2;
-        handler = this.f2342a.f;
-        runnable = this.f2342a.n;
-        handler.removeCallbacks(runnable);
-        handler2 = this.f2342a.f;
-        runnable2 = this.f2342a.n;
-        handler2.postDelayed(runnable2, 300L);
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        bw bwVar;
+        bw bwVar2;
+        bw bwVar3;
+        int intValue = ((Integer) view.getTag()).intValue();
+        bwVar = this.a.e;
+        if (bwVar != null) {
+            bwVar2 = this.a.e;
+            if (bwVar2.getItemViewType(intValue) == 0) {
+                bwVar3 = this.a.e;
+                UserData userData = (UserData) bwVar3.getItem(intValue);
+                if (userData != null && userData.getId() != null) {
+                    PersonInfoActivity.a(this.a, userData.getId(), userData.getName_show());
+                }
+            }
+        }
     }
 }

@@ -4,20 +4,18 @@ import android.view.View;
 import android.widget.ImageView;
 /* loaded from: classes.dex */
 class m implements com.baidu.tbadk.imageManager.c {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ View f2528a;
+    final /* synthetic */ View a;
     final /* synthetic */ i b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(i iVar, View view) {
         this.b = iVar;
-        this.f2528a = view;
+        this.a = view;
     }
 
     @Override // com.baidu.tbadk.imageManager.c
     public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
-        View findViewWithTag = this.f2528a.findViewWithTag(str);
+        View findViewWithTag = this.a.findViewWithTag(str);
         if (findViewWithTag instanceof ImageView) {
             ImageView imageView = (ImageView) findViewWithTag;
             imageView.setImageBitmap(eVar.f());

@@ -1,14 +1,11 @@
 package com.baidu.adp.lib.webSocket;
 
-import com.tencent.mm.sdk.contact.RContact;
 import java.io.FilterOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 /* loaded from: classes.dex */
 public class b extends FilterOutputStream {
-
-    /* renamed from: a  reason: collision with root package name */
-    private boolean f534a;
+    private boolean a;
     private int b;
     private byte[] c;
     private int d;
@@ -23,8 +20,8 @@ public class b extends FilterOutputStream {
         super(outputStream);
         byte[] c;
         this.f = (i & 8) != 0;
-        this.f534a = (i & 1) != 0;
-        this.d = this.f534a ? 3 : 4;
+        this.a = (i & 1) != 0;
+        this.d = this.a ? 3 : 4;
         this.c = new byte[this.d];
         this.b = 0;
         this.e = 0;
@@ -41,7 +38,7 @@ public class b extends FilterOutputStream {
         byte[] b2;
         if (this.h) {
             this.out.write(i);
-        } else if (this.f534a) {
+        } else if (this.a) {
             byte[] bArr = this.c;
             int i2 = this.b;
             this.b = i2 + 1;
@@ -57,7 +54,7 @@ public class b extends FilterOutputStream {
                 }
                 this.b = 0;
             }
-        } else if (this.j[i & RContact.MM_CONTACTFLAG_ALL] > -5) {
+        } else if (this.j[i & 127] > -5) {
             byte[] bArr2 = this.c;
             int i3 = this.b;
             this.b = i3 + 1;
@@ -67,7 +64,7 @@ public class b extends FilterOutputStream {
                 this.out.write(this.g, 0, b);
                 this.b = 0;
             }
-        } else if (this.j[i & RContact.MM_CONTACTFLAG_ALL] != -5) {
+        } else if (this.j[i & 127] != -5) {
             throw new IOException("Invalid character in Base64 data.");
         }
     }
@@ -86,7 +83,7 @@ public class b extends FilterOutputStream {
     public void a() {
         byte[] b;
         if (this.b > 0) {
-            if (this.f534a) {
+            if (this.a) {
                 OutputStream outputStream = this.out;
                 b = a.b(this.g, this.c, this.b, this.i);
                 outputStream.write(b);

@@ -12,9 +12,7 @@ import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m extends com.baidu.adp.widget.ListView.c {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ i f1351a;
+    final /* synthetic */ i a;
     private BaseFragmentActivity b;
     private TextView c = null;
     private ProgressBar d = null;
@@ -23,7 +21,7 @@ public class m extends com.baidu.adp.widget.ListView.c {
     private View g;
 
     public m(i iVar, BaseFragmentActivity baseFragmentActivity) {
-        this.f1351a = iVar;
+        this.a = iVar;
         this.b = null;
         this.b = baseFragmentActivity;
     }
@@ -44,7 +42,7 @@ public class m extends com.baidu.adp.widget.ListView.c {
     public void a(int i) {
         n nVar;
         this.b.a().a(this.g);
-        nVar = this.f1351a.m;
+        nVar = this.a.m;
         nVar.a(i);
     }
 

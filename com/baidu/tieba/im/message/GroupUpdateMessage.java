@@ -3,11 +3,6 @@ package com.baidu.tieba.im.message;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class GroupUpdateMessage implements Serializable {
-    public static final int GROUP_TYPE_ADS_GROUP = 4;
-    public static final int GROUP_TYPE_NORMAL_GROUP = 1;
-    public static final int GROUP_TYPE_PRIVATE_CHAT = 0;
-    public static final int GROUP_TYPE_TIEBA_GROUP = 2;
-    public static final int GROUP_TYPE_TIEBA_OFFICIAL_GROUP = 3;
     private static final long serialVersionUID = 1071062952403340773L;
     private String authorId;
     private String authorName;

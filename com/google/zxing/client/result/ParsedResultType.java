@@ -13,7 +13,7 @@ public enum ParsedResultType {
     WIFI,
     ISBN;
 
-    /* JADX DEBUG: Replace access to removed values field (a) with 'values()' method */
+    /* JADX DEBUG: Replace access to removed values field (ENUM$VALUES) with 'values()' method */
     /* renamed from: values  reason: to resolve conflict with enum method */
     public static ParsedResultType[] valuesCustom() {
         ParsedResultType[] valuesCustom = values();

@@ -5,9 +5,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ax {
-
-    /* renamed from: a  reason: collision with root package name */
-    private boolean f1231a = false;
+    private boolean a = false;
     private String b = null;
     private String c = null;
     private long d = 0;
@@ -22,10 +20,10 @@ public class ax {
     public void a(JSONObject jSONObject) {
         try {
             if (jSONObject == null) {
-                this.f1231a = false;
+                this.a = false;
                 return;
             }
-            this.f1231a = true;
+            this.a = true;
             JSONObject optJSONObject = jSONObject.optJSONObject("player_rank_info");
             if (optJSONObject != null) {
                 this.b = optJSONObject.optString("player_id", null);
@@ -51,7 +49,7 @@ public class ax {
                 }
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.bd.b("SupperBoyData", "parserJson", "error = " + e.getMessage());
+            com.baidu.tieba.util.be.b("SupperBoyData", "parserJson", "error = " + e.getMessage());
         }
     }
 

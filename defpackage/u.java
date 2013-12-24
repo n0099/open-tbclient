@@ -9,22 +9,20 @@ import org.json.JSONObject;
 /* renamed from: u  reason: default package */
 /* loaded from: classes.dex */
 public class u implements IBaiduListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SocialOAuthActivity f3153a;
+    final /* synthetic */ SocialOAuthActivity a;
 
     public u(SocialOAuthActivity socialOAuthActivity) {
-        this.f3153a = socialOAuthActivity;
+        this.a = socialOAuthActivity;
     }
 
     @Override // com.baidu.cloudsdk.IBaiduListener
     public void onCancel() {
         IBaiduListener iBaiduListener;
         IBaiduListener iBaiduListener2;
-        this.f3153a.finish();
-        iBaiduListener = SocialOAuthActivity.f859a;
+        this.a.finish();
+        iBaiduListener = SocialOAuthActivity.a;
         if (iBaiduListener != null) {
-            iBaiduListener2 = SocialOAuthActivity.f859a;
+            iBaiduListener2 = SocialOAuthActivity.a;
             iBaiduListener2.onCancel();
         }
     }
@@ -33,10 +31,10 @@ public class u implements IBaiduListener {
     public void onComplete() {
         IBaiduListener iBaiduListener;
         IBaiduListener iBaiduListener2;
-        this.f3153a.finish();
-        iBaiduListener = SocialOAuthActivity.f859a;
+        this.a.finish();
+        iBaiduListener = SocialOAuthActivity.a;
         if (iBaiduListener != null) {
-            iBaiduListener2 = SocialOAuthActivity.f859a;
+            iBaiduListener2 = SocialOAuthActivity.a;
             iBaiduListener2.onComplete();
         }
     }
@@ -45,10 +43,10 @@ public class u implements IBaiduListener {
     public void onComplete(JSONArray jSONArray) {
         IBaiduListener iBaiduListener;
         IBaiduListener iBaiduListener2;
-        this.f3153a.finish();
-        iBaiduListener = SocialOAuthActivity.f859a;
+        this.a.finish();
+        iBaiduListener = SocialOAuthActivity.a;
         if (iBaiduListener != null) {
-            iBaiduListener2 = SocialOAuthActivity.f859a;
+            iBaiduListener2 = SocialOAuthActivity.a;
             iBaiduListener2.onComplete(jSONArray);
         }
     }
@@ -57,14 +55,14 @@ public class u implements IBaiduListener {
     public void onComplete(JSONObject jSONObject) {
         IBaiduListener iBaiduListener;
         IBaiduListener iBaiduListener2;
-        if (!SessionManager.getInstance(this.f3153a).save(jSONObject)) {
+        if (!SessionManager.getInstance(this.a).save(jSONObject)) {
             onError(new BaiduException("failed to save social session, it may be an error content"));
             return;
         }
-        this.f3153a.finish();
-        iBaiduListener = SocialOAuthActivity.f859a;
+        this.a.finish();
+        iBaiduListener = SocialOAuthActivity.a;
         if (iBaiduListener != null) {
-            iBaiduListener2 = SocialOAuthActivity.f859a;
+            iBaiduListener2 = SocialOAuthActivity.a;
             iBaiduListener2.onComplete();
         }
     }
@@ -73,10 +71,10 @@ public class u implements IBaiduListener {
     public void onError(BaiduException baiduException) {
         IBaiduListener iBaiduListener;
         IBaiduListener iBaiduListener2;
-        this.f3153a.finish();
-        iBaiduListener = SocialOAuthActivity.f859a;
+        this.a.finish();
+        iBaiduListener = SocialOAuthActivity.a;
         if (iBaiduListener != null) {
-            iBaiduListener2 = SocialOAuthActivity.f859a;
+            iBaiduListener2 = SocialOAuthActivity.a;
             iBaiduListener2.onError(baiduException);
         }
     }

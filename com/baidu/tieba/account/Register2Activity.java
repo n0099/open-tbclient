@@ -21,8 +21,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.location.LocationClientOption;
 import com.baidu.tieba.data.RegistData;
-import com.baidu.tieba.model.be;
-import com.baidu.tieba.util.bd;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
@@ -65,17 +63,15 @@ public class Register2Activity extends com.baidu.tieba.j {
     private boolean J = true;
     private int K = -1;
     private String L = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    RelativeLayout f1035a = null;
+    RelativeLayout a = null;
     TextView b = null;
-    private az N = null;
-    private ba O = null;
-    private be P = null;
-    private View.OnClickListener Q = new au(this);
-    private TextWatcher R = new av(this);
-    private View.OnFocusChangeListener S = new aw(this);
-    private RadioGroup.OnCheckedChangeListener T = new ax(this);
+    private bq N = null;
+    private br O = null;
+    private com.baidu.tieba.model.be P = null;
+    private View.OnClickListener Q = new bl(this);
+    private TextWatcher R = new bm(this);
+    private View.OnFocusChangeListener S = new bn(this);
+    private RadioGroup.OnCheckedChangeListener T = new bo(this);
 
     public static void a(Activity activity, int i) {
         activity.startActivityForResult(new Intent(activity, Register2Activity.class), i);
@@ -87,7 +83,7 @@ public class Register2Activity extends com.baidu.tieba.j {
         super.onCreate(bundle);
         setContentView(R.layout.account_register2_activity);
         h();
-        new ai("reg").start();
+        new av("reg").start();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -116,11 +112,11 @@ public class Register2Activity extends com.baidu.tieba.j {
         if (this.N != null) {
             this.N.cancel();
         }
-        bd.a("Register2Activity", "onDestroy", "onDestroy");
+        com.baidu.tieba.util.be.a("Register2Activity", "onDestroy", "onDestroy");
     }
 
     private void h() {
-        this.f1035a = (RelativeLayout) findViewById(R.id.container);
+        this.a = (RelativeLayout) findViewById(R.id.container);
         this.M = (NavigationBar) findViewById(R.id.view_navigation_bar);
         this.h = this.M.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.Q);
         this.M.a(getString(R.string.account_regedit_baidu));
@@ -174,8 +170,8 @@ public class Register2Activity extends com.baidu.tieba.j {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.M.c(i);
-        com.baidu.tieba.util.ba.a(this.b, i);
-        com.baidu.tieba.util.ba.c(this.f1035a, i);
+        com.baidu.tieba.util.bb.a(this.b, i);
+        com.baidu.tieba.util.bb.c(this.a, i);
         n();
         k();
     }
@@ -264,7 +260,7 @@ public class Register2Activity extends com.baidu.tieba.j {
                 this.N.cancel();
             }
             if (this.P != null) {
-                this.N = new az(this, this.P.b().getVcode_pic_url());
+                this.N = new bq(this, this.P.b().getVcode_pic_url());
                 this.N.setPriority(3);
                 this.N.execute(new String[0]);
             }
@@ -345,7 +341,7 @@ public class Register2Activity extends com.baidu.tieba.j {
         String str = string + getString(R.string.user_server_agreement);
         int length2 = str.length();
         SpannableString spannableString = new SpannableString(str);
-        spannableString.setSpan(new ay(this, this), length, length2, 33);
+        spannableString.setSpan(new bp(this, this), length, length2, 33);
         if (this.mSkinType == 1) {
             spannableString.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.skin_1_common_color)), 0, length, 33);
         }
@@ -357,7 +353,7 @@ public class Register2Activity extends com.baidu.tieba.j {
     protected void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (i == c && i2 == -1) {
-            bd.a("Register2Activity", "onActivityResult", "onActivityResult");
+            com.baidu.tieba.util.be.a("Register2Activity", "onActivityResult", "onActivityResult");
             setResult(-1);
             finish();
         }

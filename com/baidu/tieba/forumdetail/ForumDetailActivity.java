@@ -8,9 +8,7 @@ import com.baidu.mobstat.StatService;
 import com.baidu.tieba.TiebaApplication;
 /* loaded from: classes.dex */
 public class ForumDetailActivity extends com.baidu.tieba.j {
-
-    /* renamed from: a  reason: collision with root package name */
-    private e f1319a = null;
+    private e a = null;
     private String b = SocialConstants.FALSE;
     private String c = SocialConstants.FALSE;
     private d d = new a(this);
@@ -44,11 +42,11 @@ public class ForumDetailActivity extends com.baidu.tieba.j {
     @Override // com.baidu.tieba.j, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.f1319a.a();
+        this.a.a();
     }
 
     private void a() {
-        this.f1319a = new e(this);
+        this.a = new e(this);
     }
 
     private void b() {
@@ -61,6 +59,6 @@ public class ForumDetailActivity extends com.baidu.tieba.j {
     @Override // com.baidu.tieba.j
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.f1319a.a(i);
+        this.a.a(i);
     }
 }

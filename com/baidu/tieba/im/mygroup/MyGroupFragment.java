@@ -12,30 +12,28 @@ import com.baidu.tieba.BaseFragment;
 import com.baidu.tieba.BaseFragmentActivity;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.home.EnterForumGuideCenterView;
-import com.baidu.tieba.im.chat.MsglistActivity;
+import com.baidu.tieba.im.c.l;
+import com.baidu.tieba.im.c.m;
+import com.baidu.tieba.im.chat.GroupChatActivity;
 import com.baidu.tieba.im.data.GroupInfoData;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.groupInfo.GroupInfoActivity;
-import com.baidu.tieba.im.pushNotify.k;
-import com.baidu.tieba.im.pushNotify.l;
 import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.ah;
-import com.baidu.tieba.view.bk;
+import com.baidu.tieba.util.ai;
+import com.baidu.tieba.view.bq;
 import com.slidingmenu.lib.R;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class MyGroupFragment extends BaseFragment implements View.OnClickListener, AdapterView.OnItemClickListener, k {
+public class MyGroupFragment extends BaseFragment implements View.OnClickListener, AdapterView.OnItemClickListener, l {
     public boolean b;
     private h c;
-
-    /* renamed from: a  reason: collision with root package name */
-    public BdListView f1833a = null;
-    private bk d = null;
+    public BdListView a = null;
+    private bq d = null;
     private a e = null;
     private EnterForumGuideCenterView f = null;
     private View g = null;
-    private k h = new c(this);
+    private l h = new c(this);
     private com.baidu.tieba.im.messageCenter.g i = new f(this);
     private com.baidu.tieba.im.messageCenter.g Y = new g(this);
 
@@ -44,9 +42,9 @@ public class MyGroupFragment extends BaseFragment implements View.OnClickListene
         super.r();
         if (this.c == null) {
             this.c = new h();
-            this.f1833a.b();
+            this.a.b();
         } else if (this.b) {
-            this.f1833a.b();
+            this.a.b();
         }
         a();
     }
@@ -55,8 +53,8 @@ public class MyGroupFragment extends BaseFragment implements View.OnClickListene
     public void e() {
         com.baidu.tieba.im.messageCenter.e.a().a(this.Y);
         com.baidu.tieba.im.messageCenter.e.a().a(this.i);
-        l.a().a(this.h);
-        l.a().a(this);
+        m.a().a(this.h);
+        m.a().a(this);
         super.e();
     }
 
@@ -70,13 +68,13 @@ public class MyGroupFragment extends BaseFragment implements View.OnClickListene
         com.baidu.tieba.im.messageCenter.e.a().a(103102, this.i);
         com.baidu.tieba.im.messageCenter.e.a().a(-109, this.i);
         com.baidu.tieba.im.messageCenter.e.a().a(103104, this.i);
-        l.a().a("apply_join_success", this.h);
-        l.a().a("kick_out", this.h);
-        l.a().a("group_intro_change", this.h);
-        l.a().a("group_name_change", this.h);
-        l.a().a("group_level_up", this.h);
-        l.a().a("group_head_change", this.h);
-        l.a().a("dismiss_group", this);
+        m.a().a("apply_join_success", this.h);
+        m.a().a("kick_out", this.h);
+        m.a().a("group_intro_change", this.h);
+        m.a().a("group_name_change", this.h);
+        m.a().a("group_level_up", this.h);
+        m.a().a("group_head_change", this.h);
+        m.a().a("dismiss_group", this);
     }
 
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
@@ -99,22 +97,22 @@ public class MyGroupFragment extends BaseFragment implements View.OnClickListene
     public View a(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(R.layout.my_group_fragment, viewGroup, false);
         this.f = (EnterForumGuideCenterView) inflate.findViewById(R.id.lv_guid_center_root);
-        this.f1833a = (BdListView) inflate.findViewById(R.id.my_group_list);
-        this.f1833a.a(new d(this), 300L);
-        this.d = new bk(i());
+        this.a = (BdListView) inflate.findViewById(R.id.my_group_list);
+        this.a.a(new d(this), 300L);
+        this.d = new bq(i());
         this.e = new a(this);
         this.d.a(new e(this));
-        this.f1833a.setPullRefresh(this.d);
-        this.f1833a.setAdapter((ListAdapter) this.e);
-        this.f1833a.setOnItemClickListener(this);
+        this.a.setPullRefresh(this.d);
+        this.a.setAdapter((ListAdapter) this.e);
+        this.a.setOnItemClickListener(this);
         this.g = inflate.findViewById(R.id.fragment_parent);
         return inflate;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
-        if (this.f1833a != null && this.e != null) {
-            ah.a(this.f1833a, this.e.a(), 0, -1);
+        if (this.a != null && this.e != null) {
+            ai.a(this.a, this.e.a(), 0, -1);
         }
     }
 
@@ -125,7 +123,7 @@ public class MyGroupFragment extends BaseFragment implements View.OnClickListene
             if (TiebaApplication.h().t()) {
                 StatService.onEvent(i(), "my_group_item", "click", 1);
             }
-            MsglistActivity.a(i(), item.getGroupId(), item.getName(), item.getAuthorId(), "group_lstb");
+            GroupChatActivity.a(i(), item.getGroupId(), item.getName(), item.getAuthorId(), "group_lstb");
         }
     }
 
@@ -133,7 +131,7 @@ public class MyGroupFragment extends BaseFragment implements View.OnClickListene
     public void onClick(View view) {
         super.onClick(view);
         switch (view.getId()) {
-            case R.id.click_head /* 2131100380 */:
+            case R.id.click_head /* 2131100376 */:
                 GroupInfoData groupInfoData = null;
                 if (view.getTag() instanceof GroupInfoData) {
                     groupInfoData = (GroupInfoData) view.getTag();
@@ -155,7 +153,7 @@ public class MyGroupFragment extends BaseFragment implements View.OnClickListene
         this.d.a(i);
     }
 
-    @Override // com.baidu.tieba.im.pushNotify.k
+    @Override // com.baidu.tieba.im.c.l
     public void a(GroupNewsPojo groupNewsPojo) {
         if (groupNewsPojo != null && "dismiss_group".equals(groupNewsPojo.getCmd())) {
             b(groupNewsPojo);

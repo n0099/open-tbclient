@@ -1,5 +1,6 @@
 package com.baidu.adp.lib.h;
 
+import com.baidu.zeus.NotificationProxy;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.zip.GZIPInputStream;
@@ -8,9 +9,9 @@ import java.util.zip.GZIPOutputStream;
 public class d {
     public static void a(InputStream inputStream, OutputStream outputStream) {
         GZIPInputStream gZIPInputStream = new GZIPInputStream(inputStream);
-        byte[] bArr = new byte[1024];
+        byte[] bArr = new byte[NotificationProxy.MAX_URL_LENGTH];
         while (true) {
-            int read = gZIPInputStream.read(bArr, 0, 1024);
+            int read = gZIPInputStream.read(bArr, 0, NotificationProxy.MAX_URL_LENGTH);
             if (read != -1) {
                 outputStream.write(bArr, 0, read);
             } else {
@@ -22,9 +23,9 @@ public class d {
 
     public static void b(InputStream inputStream, OutputStream outputStream) {
         GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(outputStream);
-        byte[] bArr = new byte[1024];
+        byte[] bArr = new byte[NotificationProxy.MAX_URL_LENGTH];
         while (true) {
-            int read = inputStream.read(bArr, 0, 1024);
+            int read = inputStream.read(bArr, 0, NotificationProxy.MAX_URL_LENGTH);
             if (read != -1) {
                 gZIPOutputStream.write(bArr, 0, read);
             } else {

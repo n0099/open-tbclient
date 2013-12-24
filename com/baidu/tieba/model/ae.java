@@ -5,10 +5,8 @@ import com.baidu.cloudsdk.social.core.SocialConstants;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ae extends BdAsyncTask<String, Integer, String> {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ad f1980a;
-    private com.baidu.tieba.util.am b = null;
+    final /* synthetic */ ad a;
+    private com.baidu.tieba.util.an b = null;
     private String c;
     private String d;
     private String e;
@@ -18,7 +16,7 @@ public class ae extends BdAsyncTask<String, Integer, String> {
     private boolean i;
 
     public ae(ad adVar, String str, String str2, String str3, String str4, int i, int i2, boolean z) {
-        this.f1980a = adVar;
+        this.a = adVar;
         this.c = str;
         this.d = str2;
         this.e = str3;
@@ -33,13 +31,13 @@ public class ae extends BdAsyncTask<String, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public String a(String... strArr) {
         String str;
-        String str2 = com.baidu.tieba.data.h.f1248a;
+        String str2 = com.baidu.tieba.data.h.a;
         if (this.g == 0) {
             str = str2 + "c/c/bawu/delthread";
         } else {
             str = str2 + "c/c/bawu/delpost";
         }
-        this.b = new com.baidu.tieba.util.am(str);
+        this.b = new com.baidu.tieba.util.an(str);
         this.b.a("fid", this.c);
         this.b.a("word", this.d);
         this.b.a("z", this.e);
@@ -81,9 +79,9 @@ public class ae extends BdAsyncTask<String, Integer, String> {
         if (this.b != null) {
             this.b.j();
         }
-        this.f1980a.f1979a = null;
+        this.a.a = null;
         super.cancel(true);
-        gVar = this.f1980a.mLoadDataCallBack;
+        gVar = this.a.mLoadDataCallBack;
         gVar.a(null);
     }
 
@@ -94,22 +92,22 @@ public class ae extends BdAsyncTask<String, Integer, String> {
         com.baidu.adp.a.g gVar;
         com.baidu.adp.a.g gVar2;
         super.a((ae) str);
-        this.f1980a.f1979a = null;
+        this.a.a = null;
         if (this.b == null) {
-            gVar2 = this.f1980a.mLoadDataCallBack;
+            gVar2 = this.a.mLoadDataCallBack;
             gVar2.a(null);
             return;
         }
-        af afVar = new af(this.f1980a);
+        af afVar = new af(this.a);
         afVar.c = this.g;
         afVar.d = this.f;
         afVar.b = str;
         if (str == null) {
-            afVar.f1981a = true;
+            afVar.a = true;
         } else {
-            afVar.f1981a = false;
+            afVar.a = false;
         }
-        gVar = this.f1980a.mLoadDataCallBack;
+        gVar = this.a.mLoadDataCallBack;
         gVar.a(afVar);
     }
 }

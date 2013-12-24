@@ -11,9 +11,7 @@ import com.slidingmenu.lib.R;
 import java.util.List;
 /* loaded from: classes.dex */
 public class n extends com.baidu.adp.a.e {
-
-    /* renamed from: a  reason: collision with root package name */
-    private View f1906a;
+    private View a;
     private ImageView c;
     private ValidateActivity d;
     private BdListView e;
@@ -32,13 +30,13 @@ public class n extends com.baidu.adp.a.e {
     }
 
     void a() {
-        this.f1906a = View.inflate(this.d, R.layout.validate_activity, null);
-        this.d.setContentView(this.f1906a);
+        this.a = View.inflate(this.d, R.layout.validate_activity, null);
+        this.d.setContentView(this.a);
         this.h = (NavigationBar) this.d.findViewById(R.id.view_navigation_bar);
         this.h.a(this.d.getString(R.string.group_apply_join));
         this.h.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new o(this));
-        this.e = (BdListView) this.f1906a.findViewById(R.id.validate_list);
-        this.g = (ProgressBar) this.f1906a.findViewById(R.id.pro_load);
+        this.e = (BdListView) this.a.findViewById(R.id.validate_list);
+        this.g = (ProgressBar) this.a.findViewById(R.id.pro_load);
         a(false);
     }
 
@@ -64,7 +62,7 @@ public class n extends com.baidu.adp.a.e {
 
     public void a(int i) {
         this.d.getLayoutMode().a(i == 1);
-        this.d.getLayoutMode().a(this.f1906a);
+        this.d.getLayoutMode().a(this.a);
         this.h.c(i);
         if (i == 1) {
             this.e.setDivider(new ColorDrawable(this.d.getResources().getColor(R.color.night_divider)));

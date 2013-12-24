@@ -5,14 +5,12 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s extends BdAsyncTask<o, Integer, Boolean> {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ o f2045a;
-    private com.baidu.tieba.util.am b;
+    final /* synthetic */ o a;
+    private com.baidu.tieba.util.an b;
     private com.baidu.tieba.data.ay c;
 
     private s(o oVar) {
-        this.f2045a = oVar;
+        this.a = oVar;
         this.b = null;
         this.c = null;
     }
@@ -30,29 +28,29 @@ public class s extends BdAsyncTask<o, Integer, Boolean> {
         o oVar = new o();
         try {
             oVar.f();
-            this.b = new com.baidu.tieba.util.am();
-            this.b.a(com.baidu.tieba.data.h.f1248a + "c/c/post/addstore");
-            int h = this.f2045a.h();
+            this.b = new com.baidu.tieba.util.an();
+            this.b.a(com.baidu.tieba.data.h.a + "c/c/post/addstore");
+            int h = this.a.h();
             if (oVar.d() - 1 <= h) {
                 h = oVar.d() - 1;
             }
             while (h >= 0) {
-                String a2 = oVar.a(h, 20);
+                String a = oVar.a(h, 20);
                 this.b.a(new ArrayList<>());
-                this.b.a("data", a2);
+                this.b.a("data", a);
                 this.c.a(this.b.l());
                 if (!this.b.c() || this.c.a() != 0) {
                     break;
                 }
                 h -= 20;
             }
-            this.f2045a.c(h);
+            this.a.c(h);
             if (h >= 0) {
                 return false;
             }
             return true;
         } catch (Exception e) {
-            com.baidu.tieba.util.bd.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
+            com.baidu.tieba.util.be.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
             return false;
         }
     }
@@ -63,9 +61,9 @@ public class s extends BdAsyncTask<o, Integer, Boolean> {
         if (this.b != null) {
             this.b.j();
         }
-        this.f2045a.c = null;
-        if (this.f2045a.f2042a != null) {
-            this.f2045a.f2042a.a(1, false, null, false);
+        this.a.c = null;
+        if (this.a.a != null) {
+            this.a.a.a(1, false, null, false);
         }
     }
 
@@ -76,9 +74,9 @@ public class s extends BdAsyncTask<o, Integer, Boolean> {
         String str;
         boolean z;
         ArrayList arrayList;
-        this.f2045a.c = null;
+        this.a.c = null;
         if (bool.booleanValue()) {
-            arrayList = this.f2045a.e;
+            arrayList = this.a.e;
             arrayList.clear();
             str = null;
             z = false;
@@ -89,8 +87,8 @@ public class s extends BdAsyncTask<o, Integer, Boolean> {
             str = null;
             z = true;
         }
-        if (this.f2045a.f2042a != null) {
-            this.f2045a.f2042a.a(1, bool, str, Boolean.valueOf(z));
+        if (this.a.a != null) {
+            this.a.a.a(1, bool, str, Boolean.valueOf(z));
         }
     }
 }

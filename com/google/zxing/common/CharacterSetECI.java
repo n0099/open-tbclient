@@ -30,17 +30,15 @@ public enum CharacterSetECI {
     UTF8(26, "UTF-8"),
     ASCII(new int[]{27, 170}, "US-ASCII"),
     Big5(28),
-    GB18030(29, "GB2312", "EUC_CN", "GBK"),
+    GB18030(29, StringUtils.GB2312, "EUC_CN", "GBK"),
     EUC_KR(30, "EUC-KR");
     
-
-    /* renamed from: a  reason: collision with root package name */
-    private static final Map<Integer, CharacterSetECI> f2858a = new HashMap();
-    private static final Map<String, CharacterSetECI> b = new HashMap();
     private final String[] otherEncodingNames;
     private final int[] values;
+    private static final Map<Integer, CharacterSetECI> VALUE_TO_ECI = new HashMap();
+    private static final Map<String, CharacterSetECI> NAME_TO_ECI = new HashMap();
 
-    /* JADX DEBUG: Replace access to removed values field (c) with 'values()' method */
+    /* JADX DEBUG: Replace access to removed values field (ENUM$VALUES) with 'values()' method */
     /* renamed from: values  reason: to resolve conflict with enum method */
     public static CharacterSetECI[] valuesCustom() {
         CharacterSetECI[] valuesCustom = values();
@@ -54,11 +52,11 @@ public enum CharacterSetECI {
         CharacterSetECI[] valuesCustom;
         for (CharacterSetECI characterSetECI : valuesCustom()) {
             for (int i : characterSetECI.values) {
-                f2858a.put(Integer.valueOf(i), characterSetECI);
+                VALUE_TO_ECI.put(Integer.valueOf(i), characterSetECI);
             }
-            b.put(characterSetECI.name(), characterSetECI);
+            NAME_TO_ECI.put(characterSetECI.name(), characterSetECI);
             for (String str : characterSetECI.otherEncodingNames) {
-                b.put(str, characterSetECI);
+                NAME_TO_ECI.put(str, characterSetECI);
             }
         }
     }
@@ -85,10 +83,10 @@ public enum CharacterSetECI {
         if (i < 0 || i >= 900) {
             throw FormatException.getFormatInstance();
         }
-        return f2858a.get(Integer.valueOf(i));
+        return VALUE_TO_ECI.get(Integer.valueOf(i));
     }
 
     public static CharacterSetECI getCharacterSetECIByName(String str) {
-        return b.get(str);
+        return NAME_TO_ECI.get(str);
     }
 }

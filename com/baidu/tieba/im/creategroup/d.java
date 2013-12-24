@@ -3,14 +3,12 @@ package com.baidu.tieba.im.creategroup;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import com.baidu.tieba.util.ba;
+import com.baidu.tieba.util.bb;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class d extends com.baidu.adp.a.e {
-
-    /* renamed from: a  reason: collision with root package name */
-    NavigationBar f1621a;
+    NavigationBar a;
     View c;
     Button d;
     Button e;
@@ -33,7 +31,7 @@ public class d extends com.baidu.adp.a.e {
 
     public d(CreateGroupMainActivity createGroupMainActivity) {
         super(createGroupMainActivity);
-        this.f1621a = null;
+        this.a = null;
         this.c = null;
         this.d = null;
         this.e = null;
@@ -66,15 +64,15 @@ public class d extends com.baidu.adp.a.e {
         this.e = (Button) createGroupMainActivity.findViewById(R.id.create_group2);
         this.f = (TextView) createGroupMainActivity.findViewById(R.id.create_group1_text);
         this.g = (TextView) createGroupMainActivity.findViewById(R.id.create_group2_text);
-        this.f1621a = (NavigationBar) createGroupMainActivity.findViewById(R.id.view_navigation_bar);
-        this.f1621a.a(createGroupMainActivity.getResources().getString(R.string.group_create));
-        this.f1621a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.a = (NavigationBar) createGroupMainActivity.findViewById(R.id.view_navigation_bar);
+        this.a.a(createGroupMainActivity.getResources().getString(R.string.group_create));
+        this.a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
     }
 
     public void a(int i) {
         this.h.getLayoutMode().a(i == 1);
         this.h.getLayoutMode().a(this.c);
-        ba.a(this.c, i);
-        this.f1621a.c(i);
+        bb.a(this.c, i);
+        this.a.c(i);
     }
 }

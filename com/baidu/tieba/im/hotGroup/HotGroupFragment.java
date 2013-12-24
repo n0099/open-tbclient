@@ -18,15 +18,13 @@ import com.baidu.tieba.im.data.GroupInfoData;
 import com.baidu.tieba.im.groupInfo.GroupInfoActivity;
 import com.baidu.tieba.im.messageCenter.e;
 import com.baidu.tieba.im.messageCenter.g;
-import com.baidu.tieba.util.ah;
-import com.baidu.tieba.view.bk;
+import com.baidu.tieba.util.ai;
+import com.baidu.tieba.view.bq;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class HotGroupFragment extends BaseFragment implements com.baidu.adp.widget.ListView.b, q, r {
-
-    /* renamed from: a  reason: collision with root package name */
-    private BdListView f1781a;
-    private bk b;
+    private BdListView a;
+    private bq b;
     private HotGroupActivity c;
     private View d;
     private HotGroupAdapter e;
@@ -44,15 +42,15 @@ public class HotGroupFragment extends BaseFragment implements com.baidu.adp.widg
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
     public View a(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(R.layout.hot_group_fragment, (ViewGroup) null);
-        this.f1781a = (BdListView) inflate.findViewById(R.id.hot_group_list);
-        this.f1781a.a(this, 300L);
-        this.b = new bk(this.c);
+        this.a = (BdListView) inflate.findViewById(R.id.hot_group_list);
+        this.a.a(this, 300L);
+        this.b = new bq(this.c);
         this.b.a(this);
         this.e = new HotGroupAdapter(this.c);
-        this.f1781a.setAdapter((ListAdapter) this.e);
-        this.f1781a.setPullRefresh(this.b);
-        this.f1781a.setOnItemClickListener(this);
-        this.f1781a.setOnSrollToBottomListener(this);
+        this.a.setAdapter((ListAdapter) this.e);
+        this.a.setPullRefresh(this.b);
+        this.a.setOnItemClickListener(this);
+        this.a.setOnSrollToBottomListener(this);
         this.d = (FrameLayout) inflate.findViewById(R.id.fragment_parent);
         return inflate;
     }
@@ -111,13 +109,13 @@ public class HotGroupFragment extends BaseFragment implements com.baidu.adp.widg
             this.f = new c();
         }
         this.f.b(true);
-        this.f1781a.b();
+        this.a.b();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void I() {
-        if (this.f1781a != null && this.e != null) {
-            ah.a(this.f1781a, this.e.a(), 0, -1);
+        if (this.a != null && this.e != null) {
+            ai.a(this.a, this.e.a(), 0, -1);
         }
     }
 

@@ -1,48 +1,46 @@
 package com.baidu.tieba.account;
 
-import android.text.Editable;
-import android.text.TextWatcher;
-import com.baidu.tieba.util.bb;
+import android.view.View;
+import android.widget.EditText;
+import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class z implements TextWatcher {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ LoginActivity f1109a;
+public class z implements View.OnClickListener {
+    final /* synthetic */ x a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public z(LoginActivity loginActivity) {
-        this.f1109a = loginActivity;
+    public z(x xVar) {
+        this.a = xVar;
     }
 
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        boolean z;
-        z = this.f1109a.m;
-        if (z) {
-            this.f1109a.k();
-        }
-        this.f1109a.n = true;
-        this.f1109a.n();
-        this.f1109a.o();
-    }
-
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
-        String str;
-        String str2;
-        this.f1109a.d();
-        str = this.f1109a.f;
-        if (!bb.c(str)) {
-            String obj = editable.toString();
-            str2 = this.f1109a.f;
-            if (obj.equals(str2)) {
-                this.f1109a.j();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        EditText editText;
+        com.baidu.tieba.j jVar;
+        ae aeVar;
+        ad adVar;
+        ad adVar2;
+        ad adVar3;
+        editText = this.a.c;
+        String obj = editText.getText().toString();
+        if (obj != null && obj.length() > 0) {
+            aeVar = this.a.l;
+            if (aeVar == null) {
+                adVar = this.a.m;
+                if (adVar == null) {
+                    this.a.m = new ad(this.a, com.baidu.tieba.data.h.a + "c/s/detectuname", obj);
+                    adVar2 = this.a.m;
+                    adVar2.setPriority(3);
+                    adVar3 = this.a.m;
+                    adVar3.execute(new String[0]);
+                    return;
+                }
+                return;
             }
+            return;
         }
+        x xVar = this.a;
+        jVar = this.a.j;
+        xVar.b(jVar.getString(R.string.input_name));
     }
 }

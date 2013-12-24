@@ -12,12 +12,10 @@ import com.baidu.cloudsdk.social.share.handler.WeixinShareActivity;
 /* renamed from: ao  reason: default package */
 /* loaded from: classes.dex */
 public class ao implements Weixin.IWXResponseHandler {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WeixinShareActivity f360a;
+    final /* synthetic */ WeixinShareActivity a;
 
     public ao(WeixinShareActivity weixinShareActivity) {
-        this.f360a = weixinShareActivity;
+        this.a = weixinShareActivity;
     }
 
     @Override // com.baidu.cloudsdk.social.core.util.Weixin.IWXResponseHandler
@@ -27,27 +25,27 @@ public class ao implements Weixin.IWXResponseHandler {
         if (TextUtils.isEmpty(str2)) {
             return;
         }
-        IBaiduListener a2 = aq.a(str2);
+        IBaiduListener a = aq.a(str2);
         ShareContent b = aq.b(str2);
-        if (a2 == null) {
+        if (a == null) {
             if (TextUtils.isEmpty(str2)) {
                 return;
             }
-            str4 = WeixinShareActivity.f877a;
+            str4 = WeixinShareActivity.a;
             Log.e(str4, "no listener for this transaction: " + str2);
         } else if (i != 0) {
             if (i == -2) {
-                a2.onCancel();
+                a.onCancel();
             } else {
-                a2.onError(new BaiduException("send share message to weixin failed, errcode: " + i + ", errmsg: " + str));
+                a.onError(new BaiduException("send share message to weixin failed, errcode: " + i + ", errmsg: " + str));
             }
         } else {
-            a2.onComplete();
+            a.onComplete();
             if (b != null) {
-                SocialShareStatisticsManager.getInstance(this.f360a).statistics(MediaType.WEIXIN, b);
+                SocialShareStatisticsManager.getInstance(this.a).statistics(MediaType.WEIXIN, b);
                 return;
             }
-            str3 = WeixinShareActivity.f877a;
+            str3 = WeixinShareActivity.a;
             Log.e(str3, "no sharecontent get so no statis");
         }
     }

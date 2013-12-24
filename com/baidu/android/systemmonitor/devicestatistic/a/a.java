@@ -1,47 +1,55 @@
 package com.baidu.android.systemmonitor.devicestatistic.a;
 
 import android.database.Cursor;
-import android.text.TextUtils;
 /* loaded from: classes.dex */
-public final class a extends c {
+public class a extends f {
+    public int a;
+    public int b;
+    public int c;
+    public String d;
+    public int e;
+    public String f;
+    public String g;
+    public String h;
+    public int i;
+    public int j;
+    public int k;
+    public int l;
+    public int m;
 
-    /* renamed from: a  reason: collision with root package name */
-    public String f812a;
-    public String b;
-
-    public a(long j, String str, String str2) {
+    public a(long j) {
         super(j);
-        this.h = 5;
-        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-            return;
-        }
-        try {
-            this.f812a = com.baidu.android.systemmonitor.security.a.a(str);
-            this.b = com.baidu.android.systemmonitor.security.a.a(str2);
-        } catch (Exception e) {
-        }
+        this.a = 0;
+        this.b = 0;
+        this.c = 0;
+        this.e = 0;
+        this.o = 4;
     }
 
     public a(Cursor cursor) {
         super(cursor);
-        this.h = 5;
-        String string = cursor.getString(cursor.getColumnIndex("dnpath"));
-        String string2 = cursor.getString(cursor.getColumnIndex("downame"));
-        try {
-            string = TextUtils.isEmpty(string) ? string : com.baidu.android.systemmonitor.security.a.b(string);
-            if (!TextUtils.isEmpty(string2)) {
-                string2 = com.baidu.android.systemmonitor.security.a.b(string2);
-            }
-        } catch (Exception e) {
-            string = "";
-            string2 = "";
-        }
-        this.f812a = string;
-        this.b = string2;
+        this.a = 0;
+        this.b = 0;
+        this.c = 0;
+        this.e = 0;
+        this.o = 4;
+        this.a = cursor.getInt(cursor.getColumnIndex("pconum"));
+        this.b = cursor.getInt(cursor.getColumnIndex("sconum"));
+        this.c = cursor.getInt(cursor.getColumnIndex("msnum"));
+        this.d = cursor.getString(cursor.getColumnIndex("msinfo"));
+        this.e = cursor.getInt(cursor.getColumnIndex("calognum"));
+        this.f = cursor.getString(cursor.getColumnIndex("caloginfo"));
+        this.g = cursor.getString(cursor.getColumnIndex("sdfall"));
+        this.h = cursor.getString(cursor.getColumnIndex("pfall"));
+        this.i = cursor.getInt(cursor.getColumnIndex("pphnum"));
+        this.j = cursor.getInt(cursor.getColumnIndex("sphnum"));
+        this.k = cursor.getInt(cursor.getColumnIndex("pmpnum"));
+        this.l = cursor.getInt(cursor.getColumnIndex("smpnum"));
+        this.m = cursor.getInt(cursor.getColumnIndex("stvnum"));
     }
 
-    @Override // com.baidu.android.systemmonitor.devicestatistic.a.c
+    @Override // com.baidu.android.systemmonitor.devicestatistic.a.f
     public String toString() {
-        return "ApkDownloadEvent : downloadPath =" + this.f812a + " apkName = " + this.b + " StartStamp = " + this.g;
+        return "StoreInfomation :startStamp = " + this.n + "  phoneContactsNum =" + this.a + " simContactsNum = " + this.b + " smsNum = " + this.c + "\r\n smsInfo =" + this.d + "\r\n calllogNum = " + this.e + " calllogInfo = " + this.f + "\r\n sdcardFreeAll = " + this.g + " phoneFreeAll =" + this.h + " phonePhotoNum =" + this.i + " sdcardPhotoNum =" + this.j + " phoneMp3Num = " + this.k + " sdcardMp3Num =" + this.l + " sdcardTvNum =" + this.m;
     }
 }

@@ -1,33 +1,92 @@
 package com.baidu.tieba.util;
 
 import android.content.Context;
-import android.text.style.ClickableSpan;
-import android.view.View;
-import com.baidu.tieba.pb.NewPbActivity;
+import android.os.Handler;
+import java.util.ArrayList;
+import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
-public class ag extends ClickableSpan {
+public interface ag {
+    String A();
 
-    /* renamed from: a  reason: collision with root package name */
-    private Context f2578a;
+    Boolean a(String str, Handler handler, int i);
 
-    public ag(Context context) {
-        this.f2578a = null;
-        this.f2578a = context;
-    }
+    void a(int i);
 
-    @Override // android.text.style.ClickableSpan
-    public void onClick(View view) {
-    }
+    void a(Context context);
 
-    public Context a() {
-        return this.f2578a;
-    }
+    void a(Boolean bool);
 
-    public void a(String str) {
-        UtilHelper.b(this.f2578a, str);
-    }
+    void a(String str);
 
-    public void b(String str) {
-        NewPbActivity.a(this.f2578a, str, null, null);
-    }
+    void a(String str, String str2);
+
+    void a(String str, byte[] bArr);
+
+    void a(ArrayList<BasicNameValuePair> arrayList);
+
+    void a(BasicNameValuePair basicNameValuePair);
+
+    void a(boolean z);
+
+    boolean a();
+
+    long b();
+
+    void b(String str);
+
+    void b(boolean z);
+
+    String c();
+
+    void c(String str);
+
+    void c(boolean z);
+
+    long d();
+
+    void d(boolean z);
+
+    long e();
+
+    long f();
+
+    long g();
+
+    int h();
+
+    long i();
+
+    int j();
+
+    Context k();
+
+    ArrayList<BasicNameValuePair> l();
+
+    int m();
+
+    String n();
+
+    boolean o();
+
+    boolean p();
+
+    String q();
+
+    void r();
+
+    String s();
+
+    void t();
+
+    byte[] u();
+
+    String v();
+
+    String w();
+
+    boolean x();
+
+    int y();
+
+    String z();
 }

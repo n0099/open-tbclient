@@ -1,15 +1,14 @@
 package com.baidu.tieba.view;
 
 import android.view.animation.Animation;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ay implements Animation.AnimationListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NoNetworkView f2667a;
+public class ay implements Animation.AnimationListener {
+    final /* synthetic */ NoNetworkView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ay(NoNetworkView noNetworkView) {
-        this.f2667a = noNetworkView;
+        this.a = noNetworkView;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -22,5 +21,6 @@ class ay implements Animation.AnimationListener {
 
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationEnd(Animation animation) {
+        this.a.setVisibility(8);
     }
 }

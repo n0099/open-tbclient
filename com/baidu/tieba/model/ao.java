@@ -8,12 +8,10 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ao extends BdAsyncTask<Object, ak, JSONObject> {
-
-    /* renamed from: a  reason: collision with root package name */
-    ArrayList<BasicNameValuePair> f1990a;
+    ArrayList<BasicNameValuePair> a;
     an b;
     final /* synthetic */ ak c;
-    private com.baidu.tieba.util.am d = null;
+    private com.baidu.tieba.util.an d = null;
     private String e;
     private String f;
     private int g;
@@ -23,11 +21,11 @@ public class ao extends BdAsyncTask<Object, ak, JSONObject> {
         this.e = null;
         this.f = null;
         this.g = 3;
-        this.f1990a = null;
+        this.a = null;
         this.b = new an(this.c);
         this.e = str;
         this.f = str2;
-        this.f1990a = arrayList;
+        this.a = arrayList;
         this.g = i;
         setSelfExecute(true);
     }
@@ -60,8 +58,8 @@ public class ao extends BdAsyncTask<Object, ak, JSONObject> {
             if (z && z.a().a(this.f)) {
                 c((Object[]) new ak[]{z.a().b()});
             }
-            this.d = new com.baidu.tieba.util.am(this.e);
-            this.d.a(this.f1990a);
+            this.d = new com.baidu.tieba.util.an(this.e);
+            this.d.a(this.a);
             String l = this.d.l();
             jSONObject = new JSONObject(l);
             try {
@@ -69,17 +67,17 @@ public class ao extends BdAsyncTask<Object, ak, JSONObject> {
                     this.c.a(l);
                     z2 = this.c.n;
                     if (z2) {
-                        forumData = this.c.f1986a;
+                        forumData = this.c.a;
                         if (forumData != null) {
-                            z a2 = z.a();
-                            forumData2 = this.c.f1986a;
-                            a2.a(forumData2.getName(), l);
+                            z a = z.a();
+                            forumData2 = this.c.a;
+                            a.a(forumData2.getName(), l);
                         }
                     }
                 }
             } catch (Exception e2) {
                 e = e2;
-                com.baidu.tieba.util.bd.b(getClass().getName(), "", "FrsAsyncTask.doInBackground error = " + e.getMessage());
+                com.baidu.tieba.util.be.b(getClass().getName(), "", "FrsAsyncTask.doInBackground error = " + e.getMessage());
                 return jSONObject;
             }
         } catch (Exception e3) {
@@ -110,7 +108,7 @@ public class ao extends BdAsyncTask<Object, ak, JSONObject> {
         com.baidu.tieba.frs.ag agVar;
         com.baidu.tieba.frs.ag agVar2;
         if (this.d != null) {
-            this.b.f1989a = true;
+            this.b.a = true;
             this.b.b = this.d.d();
             this.b.c = this.d.e();
             this.b.d = this.d.i();

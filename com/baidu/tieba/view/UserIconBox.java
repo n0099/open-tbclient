@@ -6,14 +6,12 @@ import android.view.View;
 import android.widget.LinearLayout;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.data.IconData;
-import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes.dex */
 public class UserIconBox extends LinearLayout {
-
-    /* renamed from: a  reason: collision with root package name */
-    com.baidu.tbadk.imageManager.c f2649a;
+    com.baidu.tbadk.imageManager.c a;
     private com.baidu.adp.lib.d.b<TbImageView> b;
-    private bw c;
+    private cc c;
     private Context d;
     private com.baidu.tieba.util.i e;
     private LinearLayout.LayoutParams f;
@@ -24,7 +22,7 @@ public class UserIconBox extends LinearLayout {
         this.b = null;
         this.c = null;
         this.g = null;
-        this.f2649a = new bu(this);
+        this.a = new ca(this);
         a(context);
     }
 
@@ -33,7 +31,7 @@ public class UserIconBox extends LinearLayout {
         this.b = null;
         this.c = null;
         this.g = null;
-        this.f2649a = new bu(this);
+        this.a = new ca(this);
         a(context);
     }
 
@@ -42,15 +40,15 @@ public class UserIconBox extends LinearLayout {
         setOrientation(0);
         setGravity(16);
         this.e = new com.baidu.tieba.util.i(this.d);
-        if (this.d instanceof bx) {
-            bx bxVar = (bx) this.d;
-            this.b = bxVar.G();
-            if (bxVar.c() != null && this.c == null) {
-                this.c = new bw(bxVar.a());
-                bxVar.c().setRecyclerListener(this.c);
+        if (this.d instanceof cd) {
+            cd cdVar = (cd) this.d;
+            this.b = cdVar.G();
+            if (cdVar.c() != null && this.c == null) {
+                this.c = new cc(cdVar.a());
+                cdVar.c().setRecyclerListener(this.c);
             }
         }
-        setOnHierarchyChangeListener(new bt(this));
+        setOnHierarchyChangeListener(new bz(this));
     }
 
     public LinearLayout.LayoutParams a(int i, int i2, int i3) {
@@ -63,19 +61,19 @@ public class UserIconBox extends LinearLayout {
         this.g = onClickListener;
     }
 
-    public void a(LinkedList<IconData> linkedList, int i, int i2, int i3, int i4) {
+    public void a(List<IconData> list, int i, int i2, int i3, int i4) {
         removeAllViews();
-        if (linkedList != null && linkedList.size() > 0) {
+        if (list != null && list.size() > 0) {
             this.e.a(i2, i3);
-            LinearLayout.LayoutParams a2 = a(i2, i3, i4);
+            LinearLayout.LayoutParams a = a(i2, i3, i4);
             setVisibility(0);
-            for (int i5 = 0; i5 < i && i5 < linkedList.size(); i5++) {
+            for (int i5 = 0; i5 < i && i5 < list.size(); i5++) {
                 TbImageView b = b(this.d);
                 if (b != null) {
-                    b.setLayoutParams(a2);
-                    b.setTag(linkedList.get(i5).getIconUrl());
+                    b.setLayoutParams(a);
+                    b.setTag(list.get(i5).getIconUrl());
                     b.setClickable(false);
-                    this.e.e(linkedList.get(i5).getIconUrl(), this.f2649a);
+                    this.e.e(list.get(i5).getIconUrl(), this.a);
                     addView(b);
                 }
             }
@@ -96,6 +94,6 @@ public class UserIconBox extends LinearLayout {
     }
 
     public static com.baidu.adp.lib.d.b<TbImageView> a(Context context, int i) {
-        return new com.baidu.adp.lib.d.b<>(new bv(context), i, 0);
+        return new com.baidu.adp.lib.d.b<>(new cb(context), i, 0);
     }
 }

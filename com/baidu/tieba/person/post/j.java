@@ -8,15 +8,13 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.person.post.PersonPostReplyModel;
-import com.baidu.tieba.util.bb;
+import com.baidu.tieba.util.bc;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class j extends BaseAdapter {
-
-    /* renamed from: a  reason: collision with root package name */
-    private m f2377a;
+    private m a;
     private PersonPostReplyModel b;
     private String c;
     private String d;
@@ -30,7 +28,7 @@ public class j extends BaseAdapter {
     }
 
     public void a(m mVar) {
-        this.f2377a = mVar;
+        this.a = mVar;
     }
 
     public void a(boolean z) {
@@ -72,9 +70,9 @@ public class j extends BaseAdapter {
             nVar = (n) view.getTag();
         }
         if (i == 0) {
-            nVar.f2369a.setVisibility(0);
+            nVar.a.setVisibility(0);
         } else {
-            nVar.f2369a.setVisibility(8);
+            nVar.a.setVisibility(8);
         }
         a(i, nVar, viewGroup);
         return view;
@@ -85,33 +83,33 @@ public class j extends BaseAdapter {
     }
 
     private void a(int i, n nVar, ViewGroup viewGroup) {
-        PersonPostReplyModel.Post a2 = a(i);
+        PersonPostReplyModel.Post a = a(i);
         if (this.d == null) {
-            this.d = a2.user_portrait;
+            this.d = a.user_portrait;
         }
-        nVar.a(a2, this.d);
+        nVar.a(a, this.d);
         ArrayList<String[]> arrayList = new ArrayList<>();
-        int length = a2.content.length;
+        int length = a.content.length;
         for (int i2 = 0; i2 < length; i2++) {
-            if (a2.content[i2].post_content.length != 0) {
+            if (a.content[i2].post_content.length != 0) {
                 StringBuffer stringBuffer = new StringBuffer();
-                if (!a2.content[i2].post_content[0].text.startsWith("回复 ")) {
+                if (!a.content[i2].post_content[0].text.startsWith("回复 ")) {
                     stringBuffer.append("回复：");
                 }
-                int length2 = a2.content[i2].post_content.length;
+                int length2 = a.content[i2].post_content.length;
                 for (int i3 = 0; i3 < length2; i3++) {
-                    stringBuffer.append(a2.content[i2].post_content[i3].text);
+                    stringBuffer.append(a.content[i2].post_content[i3].text);
                 }
-                arrayList.add(new String[]{stringBuffer.toString(), String.valueOf(a2.thread_id), String.valueOf(a2.content[i2].post_id), String.valueOf(a2.content[i2].post_type), bb.b(a2.content[i2].create_time * 1000)});
+                arrayList.add(new String[]{stringBuffer.toString(), String.valueOf(a.thread_id), String.valueOf(a.content[i2].post_id), String.valueOf(a.content[i2].post_type), bc.b(a.content[i2].create_time * 1000)});
             }
         }
         nVar.g.setContent(arrayList);
-        if (Pattern.compile("^回复：").matcher(a2.title).find()) {
-            nVar.h.setText(a2.title.replaceFirst("回复：", "原贴："));
+        if (Pattern.compile("^回复：").matcher(a.title).find()) {
+            nVar.h.setText(a.title.replaceFirst("回复：", "原贴："));
         } else {
-            nVar.h.setText(a2.title);
+            nVar.h.setText(a.title);
         }
-        nVar.h.setTag(new String[]{String.valueOf(a2.thread_id), null, null});
+        nVar.h.setTag(new String[]{String.valueOf(a.thread_id), null, null});
         if (TiebaApplication.h().an() == 1) {
             nVar.h.setTextColor(viewGroup.getResources().getColor(R.color.person_post_content_ori_1));
             nVar.h.setBackgroundResource(R.drawable.person_post_line_1);

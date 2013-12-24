@@ -9,16 +9,14 @@ import android.widget.ListView;
 import android.widget.TextView;
 import com.baidu.tieba.data.AccountData;
 import com.baidu.tieba.util.DatabaseService;
-import com.baidu.tieba.util.ba;
+import com.baidu.tieba.util.bb;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class AccountActivity extends com.baidu.tieba.j {
     private NavigationBar d;
-
-    /* renamed from: a  reason: collision with root package name */
-    private ArrayList<AccountData> f2053a = null;
+    private ArrayList<AccountData> a = null;
     private p b = null;
     private ListView c = null;
     private TextView e = null;
@@ -50,7 +48,7 @@ public class AccountActivity extends com.baidu.tieba.j {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.d.c(i);
-        ba.a((View) this.c, i);
+        bb.a((View) this.c, i);
         this.b.notifyDataSetChanged();
         if (i == 1) {
             this.c.setDivider(getResources().getDrawable(R.drawable.list_divider_1));
@@ -62,7 +60,7 @@ public class AccountActivity extends com.baidu.tieba.j {
     }
 
     private void a() {
-        this.f2053a = DatabaseService.l();
+        this.a = DatabaseService.l();
     }
 
     private void b() {
@@ -73,7 +71,7 @@ public class AccountActivity extends com.baidu.tieba.j {
         this.e = this.d.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(R.string.edit));
         this.e.setOnClickListener(new h(this));
         this.b = new p(this, this.f);
-        this.b.a(this.f2053a);
+        this.b.a(this.a);
         this.c = (ListView) findViewById(R.id.list);
         this.c.setAdapter((ListAdapter) this.b);
         this.c.setOnItemClickListener(new i(this));

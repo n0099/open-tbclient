@@ -3,9 +3,7 @@ package com.baidu.tieba.data;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class af {
-
-    /* renamed from: a  reason: collision with root package name */
-    private int f1213a;
+    private int a;
     private int b;
     private int c;
     private int d;
@@ -37,7 +35,7 @@ public class af {
         try {
             a(new JSONObject(str).optJSONObject("info"));
         } catch (Exception e) {
-            com.baidu.tieba.util.bd.b("LikeReturnData", "parserJson", "error = " + e.getMessage());
+            com.baidu.tieba.util.be.b("LikeReturnData", "parserJson", "error = " + e.getMessage());
         }
     }
 
@@ -52,17 +50,17 @@ public class af {
                 f(jSONObject.optInt("levelup_score", 0));
                 e(jSONObject.optInt("cur_score", 0));
             } catch (Exception e) {
-                com.baidu.tieba.util.bd.b("LikeReturnData", "parserJson", "error = " + e.getMessage());
+                com.baidu.tieba.util.be.b("LikeReturnData", "parserJson", "error = " + e.getMessage());
             }
         }
     }
 
     public void b(int i) {
-        this.f1213a = i;
+        this.a = i;
     }
 
     public int b() {
-        return this.f1213a;
+        return this.a;
     }
 
     public void c(int i) {

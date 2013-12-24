@@ -15,14 +15,13 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.baidu.browser.webpool.BdWebPoolView;
 import com.baidu.tbadk.widget.TbImageView;
 import java.util.ArrayList;
 import org.json.JSONArray;
 /* loaded from: classes.dex */
 public class TbRichTextView extends LinearLayout {
-
-    /* renamed from: a  reason: collision with root package name */
-    public static int f987a = 174;
+    public static int a = 174;
     private Runnable A;
     private boolean B;
     private View.OnClickListener C;
@@ -87,8 +86,8 @@ public class TbRichTextView extends LinearLayout {
         this.l = -1;
         this.m = -16777216;
         this.n = -9989158;
-        this.o = 200;
-        this.p = 200;
+        this.o = BdWebPoolView.DELAYED_TIME;
+        this.p = BdWebPoolView.DELAYED_TIME;
         this.q = null;
         this.r = 0;
         this.s = 0;
@@ -119,8 +118,8 @@ public class TbRichTextView extends LinearLayout {
         this.l = -1;
         this.m = -16777216;
         this.n = -9989158;
-        this.o = 200;
-        this.p = 200;
+        this.o = BdWebPoolView.DELAYED_TIME;
+        this.p = BdWebPoolView.DELAYED_TIME;
         this.q = null;
         this.r = 0;
         this.s = 0;
@@ -150,7 +149,7 @@ public class TbRichTextView extends LinearLayout {
     }
 
     private void b() {
-        f987a = getContext().getResources().getDimensionPixelSize(com.baidu.tbadk.b.adk_default_image_height);
+        a = getContext().getResources().getDimensionPixelSize(com.baidu.tbadk.b.adk_default_image_height);
         if (getContext() instanceof i) {
             i iVar = (i) getContext();
             this.b = iVar.e();
@@ -283,12 +282,12 @@ public class TbRichTextView extends LinearLayout {
         if (a2 != null) {
             boolean z = !this.v;
             if (z && (imageView instanceof TbImageView)) {
-                z = !((TbImageView) imageView).c();
+                z = !((TbImageView) imageView).d();
             }
             int[] iArr = {a2[0], a2[1]};
             if (!this.v && z) {
                 iArr[0] = i;
-                iArr[1] = f987a;
+                iArr[1] = a;
             }
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(iArr[0], iArr[1]);
             if (imageView instanceof TbImageView) {

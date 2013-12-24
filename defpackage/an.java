@@ -14,9 +14,7 @@ import com.baidu.cloudsdk.social.share.ui.MediaIconManager;
 /* renamed from: an  reason: default package */
 /* loaded from: classes.dex */
 public class an implements CompoundButton.OnCheckedChangeListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ at f269a;
+    final /* synthetic */ at a;
     final /* synthetic */ MediaIconManager b;
     final /* synthetic */ String c;
     final /* synthetic */ ImageView d;
@@ -27,7 +25,7 @@ public class an implements CompoundButton.OnCheckedChangeListener {
     /* JADX INFO: Access modifiers changed from: package-private */
     public an(af afVar, at atVar, MediaIconManager mediaIconManager, String str, ImageView imageView, Context context, ba baVar) {
         this.g = afVar;
-        this.f269a = atVar;
+        this.a = atVar;
         this.b = mediaIconManager;
         this.c = str;
         this.d = imageView;
@@ -38,14 +36,14 @@ public class an implements CompoundButton.OnCheckedChangeListener {
     @Override // android.widget.CompoundButton.OnCheckedChangeListener
     public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
         aj ajVar;
-        if (this.f269a.d()) {
-            this.f269a.a(z);
-            this.d.setImageDrawable(this.f269a.c() ? this.b.getNormalIcon(this.c) : this.b.getDisabledIcon(this.c));
-            if (this.f269a.a() == MediaType.QZONE) {
-                ajVar = this.g.f265a;
+        if (this.a.d()) {
+            this.a.a(z);
+            this.d.setImageDrawable(this.a.c() ? this.b.getNormalIcon(this.c) : this.b.getDisabledIcon(this.c));
+            if (this.a.a() == MediaType.QZONE) {
+                ajVar = this.g.a;
                 ajVar.onCheckStatusChanged(z);
             }
-        } else if (this.f269a.d() || !z) {
+        } else if (this.a.d() || !z) {
         } else {
             Bundle bundle = new Bundle();
             bundle.putString(SocialConstants.PARAM_CLIENT_ID, SocialShare.getInstance(this.g.getContext()).getClientId());

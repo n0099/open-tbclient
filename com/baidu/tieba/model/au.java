@@ -5,14 +5,12 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class au extends BdAsyncTask<Object, Integer, JSONObject> {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ar f1996a;
+    final /* synthetic */ ar a;
     private int b;
-    private com.baidu.tieba.util.am c = null;
+    private com.baidu.tieba.util.an c = null;
 
     public au(ar arVar, int i) {
-        this.f1996a = arVar;
+        this.a = arVar;
         this.b = 0;
         this.b = i;
         if (this.b < 0) {
@@ -27,11 +25,11 @@ public class au extends BdAsyncTask<Object, Integer, JSONObject> {
     public JSONObject a(Object... objArr) {
         String str;
         try {
-            this.c = new com.baidu.tieba.util.am(com.baidu.tieba.data.h.f1248a + "c/f/frs/photo");
+            this.c = new com.baidu.tieba.util.an(com.baidu.tieba.data.h.a + "c/f/frs/photo");
             StringBuilder sb = new StringBuilder();
-            int size = this.f1996a.c().size();
+            int size = this.a.c().size();
             for (int i = this.b; i < size && i < this.b + 30; i++) {
-                sb.append(this.f1996a.c().get(i));
+                sb.append(this.a.c().get(i));
                 sb.append(",");
             }
             int length = sb.length();
@@ -39,12 +37,12 @@ public class au extends BdAsyncTask<Object, Integer, JSONObject> {
                 sb.deleteCharAt(length - 1);
             }
             this.c.a("alb_ids", sb.toString());
-            com.baidu.tieba.util.am amVar = this.c;
-            str = this.f1996a.j;
-            amVar.a("kw", str);
+            com.baidu.tieba.util.an anVar = this.c;
+            str = this.a.j;
+            anVar.a("kw", str);
             return new JSONObject(this.c.l());
         } catch (Exception e) {
-            com.baidu.tieba.util.bd.b(getClass().getName(), "doInBackground", e.getMessage());
+            com.baidu.tieba.util.be.b(getClass().getName(), "doInBackground", e.getMessage());
             return null;
         }
     }
@@ -56,18 +54,18 @@ public class au extends BdAsyncTask<Object, Integer, JSONObject> {
         com.baidu.tieba.frs.bk bkVar;
         com.baidu.tieba.frs.bk bkVar2;
         super.a((au) jSONObject);
-        this.f1996a.l = null;
-        bkVar = this.f1996a.n;
+        this.a.l = null;
+        bkVar = this.a.n;
         if (bkVar != null) {
-            at atVar = new at(this.f1996a);
+            at atVar = new at(this.a);
             if (this.c != null) {
-                atVar.f1995a = true;
+                atVar.a = true;
                 atVar.b = this.c.d();
                 atVar.c = this.c.e();
                 atVar.d = this.c.i();
                 atVar.e = this.c.b();
             }
-            bkVar2 = this.f1996a.n;
+            bkVar2 = this.a.n;
             bkVar2.a(this.b, jSONObject, atVar);
         }
     }
@@ -78,9 +76,9 @@ public class au extends BdAsyncTask<Object, Integer, JSONObject> {
         com.baidu.tieba.frs.bk bkVar;
         com.baidu.tieba.frs.bk bkVar2;
         super.b();
-        bkVar = this.f1996a.n;
+        bkVar = this.a.n;
         if (bkVar != null) {
-            bkVar2 = this.f1996a.n;
+            bkVar2 = this.a.n;
             bkVar2.a(0);
         }
     }
@@ -92,6 +90,6 @@ public class au extends BdAsyncTask<Object, Integer, JSONObject> {
             this.c.j();
             this.c = null;
         }
-        this.f1996a.l = null;
+        this.a.l = null;
     }
 }

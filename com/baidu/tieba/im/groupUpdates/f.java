@@ -6,7 +6,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.bb;
+import com.baidu.tieba.util.bc;
 import com.baidu.tieba.view.HeadImageView;
 import com.slidingmenu.lib.R;
 import java.util.Date;
@@ -31,7 +31,7 @@ public class f extends com.baidu.adp.a.c<UpdatesItemData> {
     }
 
     void e() {
-        this.c = this.f399a.findViewById(R.id.root_view);
+        this.c = this.a.findViewById(R.id.root_view);
         this.d = (HeadImageView) this.c.findViewById(R.id.iv_head);
         this.e = (TextView) this.c.findViewById(R.id.tv_group_name);
         this.f = (TextView) this.c.findViewById(R.id.tv_content);
@@ -56,7 +56,7 @@ public class f extends com.baidu.adp.a.c<UpdatesItemData> {
         if (this.m != null) {
             boolean z = TiebaApplication.h().an() == 1;
             this.l.getLayoutMode().a(z);
-            this.l.getLayoutMode().a(this.f399a);
+            this.l.getLayoutMode().a(this.a);
             if (this.l.b()) {
                 this.i.setVisibility(0);
             } else {
@@ -75,7 +75,7 @@ public class f extends com.baidu.adp.a.c<UpdatesItemData> {
             }
             Date date = new Date();
             date.setTime(this.m.getTime());
-            this.h.setText(bb.e(date));
+            this.h.setText(bc.e(date));
             if (!TextUtils.isEmpty(this.m.getContent())) {
                 this.f.setText(this.m.getContent());
             }

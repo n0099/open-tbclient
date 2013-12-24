@@ -5,13 +5,11 @@ import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements com.baidu.tieba.im.a<LinkedList<GroupNewsPojo>> {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ValidateActivity f1896a;
+    final /* synthetic */ ValidateActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(ValidateActivity validateActivity) {
-        this.f1896a = validateActivity;
+        this.a = validateActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,17 +18,17 @@ public class b implements com.baidu.tieba.im.a<LinkedList<GroupNewsPojo>> {
         n nVar;
         boolean z;
         n nVar2;
-        nVar = this.f1896a.b;
+        nVar = this.a.b;
         nVar.a(l.a(linkedList));
         if (linkedList != null) {
-            ValidateActivity.a(this.f1896a, linkedList.size());
+            ValidateActivity.a(this.a, linkedList.size());
         }
-        z = this.f1896a.i;
+        z = this.a.i;
         if (!z) {
-            nVar2 = this.f1896a.b;
+            nVar2 = this.a.b;
             nVar2.a(false);
         }
-        this.f1896a.e();
-        this.f1896a.m = false;
+        this.a.e();
+        this.a.m = false;
     }
 }

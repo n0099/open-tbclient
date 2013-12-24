@@ -25,12 +25,10 @@ public class MsgImageActivity extends com.baidu.tieba.j {
     private int q;
     private String r;
     private String s;
-
-    /* renamed from: a  reason: collision with root package name */
-    private ProgressBar f1533a = null;
+    private ProgressBar a = null;
     private ArrayList<String> b = null;
     private int c = 0;
-    private al d = null;
+    private ar d = null;
     private TextView e = null;
     private ImageView f = null;
     private TextView h = null;
@@ -44,12 +42,24 @@ public class MsgImageActivity extends com.baidu.tieba.j {
     private boolean p = false;
     private long t = 0;
     private HashMap<String, Boolean> u = null;
+    private int v = 0;
 
     public static void a(Context context, String str, long j) {
         if (j != 0 && context != null) {
             Intent intent = new Intent(context, MsgImageActivity.class);
-            intent.putExtra("curImgUrl", str);
-            intent.putExtra("groupId", String.valueOf(j));
+            intent.putExtra("current_url", str);
+            intent.putExtra("id", String.valueOf(j));
+            intent.putExtra("chat_mode", 0);
+            context.startActivity(intent);
+        }
+    }
+
+    public static void b(Context context, String str, long j) {
+        if (j != 0 && context != null) {
+            Intent intent = new Intent(context, MsgImageActivity.class);
+            intent.putExtra("current_url", str);
+            intent.putExtra("id", String.valueOf(j));
+            intent.putExtra("chat_mode", 1);
             context.startActivity(intent);
         }
     }
@@ -77,7 +87,7 @@ public class MsgImageActivity extends com.baidu.tieba.j {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (i == 1) {
-            this.j.setBackgroundColor(com.baidu.tieba.util.ba.d(i));
+            this.j.setBackgroundColor(com.baidu.tieba.util.bb.d(i));
         } else {
             this.j.setBackgroundColor(-16777216);
         }
@@ -113,8 +123,8 @@ public class MsgImageActivity extends com.baidu.tieba.j {
             this.d.cancel();
             this.d = null;
         }
-        if (this.f1533a != null) {
-            this.f1533a.setVisibility(8);
+        if (this.a != null) {
+            this.a.setVisibility(8);
         }
     }
 
@@ -138,12 +148,12 @@ public class MsgImageActivity extends com.baidu.tieba.j {
     }
 
     private void a() {
-        this.k = new ag(this);
-        this.m = new ai(this);
-        this.l = new aj(this);
+        this.k = new am(this);
+        this.m = new ao(this);
+        this.l = new ap(this);
         this.i = (NavigationBar) findViewById(R.id.navigation_bar);
         this.g = (FrameLayout) this.i.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.image_activity_save_button, this.k);
-        this.f1533a = (ProgressBar) findViewById(R.id.progress);
+        this.a = (ProgressBar) findViewById(R.id.progress);
         this.e = (TextView) findViewById(R.id.save);
         this.f = this.i.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.k);
         this.h = this.i.a("");
@@ -198,17 +208,19 @@ public class MsgImageActivity extends com.baidu.tieba.j {
     private void a(Bundle bundle) {
         Intent intent = getIntent();
         if (intent != null) {
-            this.r = intent.getStringExtra("curImgUrl");
-            this.s = intent.getStringExtra("groupId");
+            this.r = intent.getStringExtra("current_url");
+            this.s = intent.getStringExtra("id");
             this.b = new ArrayList<>();
             this.b.add(this.r);
+            this.v = intent.getIntExtra("chat_mode", 0);
             this.c = 0;
             com.baidu.adp.lib.h.e.d("curImgUrl:" + this.r + " groupId:" + this.s);
         } else if (bundle != null) {
             com.baidu.adp.lib.h.e.d(" have savedInstanceState");
             this.b = bundle.getStringArrayList(SocialConstants.PARAM_URL);
             this.c = bundle.getInt("index", -1);
-            this.s = bundle.getString("groupId");
+            this.s = bundle.getString("id");
+            this.v = bundle.getInt("chat_mode", 0);
         } else {
             com.baidu.adp.lib.h.e.d(" not have savedInstanceState");
         }
@@ -219,7 +231,12 @@ public class MsgImageActivity extends com.baidu.tieba.j {
         if (TextUtils.isEmpty(this.s)) {
             finish();
         }
-        a.b().a(this.s, new ak(this));
+        aq aqVar = new aq(this);
+        if (this.v == 0) {
+            a.b().a(this.s, aqVar);
+        } else {
+            a.b().b(this.s, aqVar);
+        }
     }
 
     @Override // android.app.Activity
@@ -227,7 +244,8 @@ public class MsgImageActivity extends com.baidu.tieba.j {
         super.onSaveInstanceState(bundle);
         bundle.putStringArrayList(SocialConstants.PARAM_URL, this.b);
         bundle.putInt("index", this.c);
-        bundle.putString("groupId", this.s);
+        bundle.putString("id", this.s);
+        bundle.putInt("chat_mode", this.v);
     }
 
     @Override // android.app.Activity, android.content.ComponentCallbacks

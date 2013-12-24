@@ -7,13 +7,11 @@ import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements n {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ForbidActivity f1081a;
+    final /* synthetic */ ForbidActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(ForbidActivity forbidActivity) {
-        this.f1081a = forbidActivity;
+        this.a = forbidActivity;
     }
 
     @Override // com.baidu.tieba.account.forbid.n
@@ -22,21 +20,21 @@ public class b implements n {
         String str;
         BdListView bdListView;
         e eVar;
-        textView = this.f1081a.h;
-        str = this.f1081a.g;
+        textView = this.a.h;
+        str = this.a.g;
         textView.setText(str);
         if (forbidTplData.type == 1) {
-            this.f1081a.findViewById(R.id.radio_forbid_3).setVisibility(0);
-            this.f1081a.findViewById(R.id.radio_forbid_10).setVisibility(0);
+            this.a.findViewById(R.id.radio_forbid_3).setVisibility(0);
+            this.a.findViewById(R.id.radio_forbid_10).setVisibility(0);
         }
-        this.f1081a.j = new e(forbidTplData.reason);
-        bdListView = this.f1081a.i;
-        eVar = this.f1081a.j;
+        this.a.j = new e(forbidTplData.reason);
+        bdListView = this.a.i;
+        eVar = this.a.j;
         bdListView.setAdapter((ListAdapter) eVar);
     }
 
     @Override // com.baidu.tieba.account.forbid.n
     public void b(ForbidTplData forbidTplData) {
-        this.f1081a.showToast(forbidTplData.error.b);
+        this.a.showToast(forbidTplData.error.b);
     }
 }

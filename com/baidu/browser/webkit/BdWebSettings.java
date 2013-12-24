@@ -5,6 +5,7 @@ import android.webkit.WebSettings;
 import com.baidu.browser.core.BdNoProGuard;
 import com.baidu.browser.webkit.sys.BdSysWebSettings;
 import com.baidu.browser.webkit.zeus.BdZeusWebSettings;
+import com.baidu.browser.webpool.BdWebPoolView;
 import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import com.baidu.zeus.WebSettings;
 import java.util.Observable;
@@ -474,7 +475,7 @@ public class BdWebSettings extends Observable implements BdNoProGuard, Cloneable
         LARGERLITTLE(SocialAPIErrorCodes.ERROR_INVALID_UPLOAD_FILE),
         LARGER(150),
         LARGERMORE(175),
-        LARGEST(200);
+        LARGEST(BdWebPoolView.DELAYED_TIME);
         
         int value;
 
@@ -1236,7 +1237,7 @@ public class BdWebSettings extends Observable implements BdNoProGuard, Cloneable
         } else {
             this.mSysWebSettings.setDatabasePath(str);
         }
-        notifyObservers(MSG_setDatabasePath, str);
+        notifyObservers(29, str);
     }
 
     public synchronized void setGeolocationDatabasePath(String str) {
@@ -1258,7 +1259,7 @@ public class BdWebSettings extends Observable implements BdNoProGuard, Cloneable
             this.mSysWebSettings.setAppCacheEnabled(z);
         }
         this.mAppCacheEnabled = z;
-        notifyObservers(MSG_setAppCacheEnabled, Boolean.valueOf(z));
+        notifyObservers(31, Boolean.valueOf(z));
     }
 
     public synchronized void setAppCachePath(String str) {
@@ -1852,13 +1853,13 @@ public class BdWebSettings extends Observable implements BdNoProGuard, Cloneable
             case 28:
                 setPluginState((PluginState) message.obj);
                 return;
-            case MSG_setDatabasePath /* 29 */:
+            case 29:
                 setDatabasePath((String) message.obj);
                 return;
             case 30:
                 setGeolocationDatabasePath((String) message.obj);
                 return;
-            case MSG_setAppCacheEnabled /* 31 */:
+            case 31:
                 setAppCacheEnabled(((Boolean) message.obj).booleanValue());
                 return;
             case 32:

@@ -1,23 +1,31 @@
 package com.baidu.tieba;
 
-import android.content.DialogInterface;
+import com.baidu.tieba.data.CombineDownload;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bi implements DialogInterface.OnCancelListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ UpdateDialog f1164a;
+public class bi implements ax {
+    final /* synthetic */ UpdateDialog a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bi(UpdateDialog updateDialog) {
-        this.f1164a = updateDialog;
+        this.a = updateDialog;
     }
 
-    @Override // android.content.DialogInterface.OnCancelListener
-    public void onCancel(DialogInterface dialogInterface) {
-        av avVar;
-        avVar = this.f1164a.c;
-        avVar.dismiss();
-        this.f1164a.finish();
+    @Override // com.baidu.tieba.ax
+    public void a(boolean z) {
+        CombineDownload combineDownload;
+        if (!z) {
+            this.a.a();
+        } else {
+            UpdateDialog updateDialog = this.a;
+            combineDownload = this.a.b;
+            updateDialog.a(combineDownload.getAppUrl());
+        }
+        this.a.finish();
+    }
+
+    @Override // com.baidu.tieba.ax
+    public void a() {
+        this.a.finish();
     }
 }

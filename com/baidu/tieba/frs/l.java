@@ -4,13 +4,11 @@ import android.view.View;
 import android.widget.AdapterView;
 /* loaded from: classes.dex */
 class l implements AdapterView.OnItemLongClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsActivity f1412a;
+    final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(FrsActivity frsActivity) {
-        this.f1412a = frsActivity;
+        this.a = frsActivity;
     }
 
     @Override // android.widget.AdapterView.OnItemLongClickListener
@@ -22,26 +20,26 @@ class l implements AdapterView.OnItemLongClickListener {
         com.baidu.tieba.data.az azVar3;
         bn bnVar3;
         if (i >= 0) {
-            bnVar = this.f1412a.n;
+            bnVar = this.a.n;
             long itemId = bnVar.m().getItemId(i);
             if (itemId != -1 && itemId != -2) {
-                FrsActivity frsActivity = this.f1412a;
-                bnVar2 = this.f1412a.n;
+                FrsActivity frsActivity = this.a;
+                bnVar2 = this.a.n;
                 frsActivity.H = (com.baidu.tieba.data.az) bnVar2.m().getItem(i);
-                FrsActivity frsActivity2 = this.f1412a;
-                azVar = this.f1412a.H;
+                FrsActivity frsActivity2 = this.a;
+                azVar = this.a.H;
                 frsActivity2.l = azVar.a();
-                azVar2 = this.f1412a.H;
+                azVar2 = this.a.H;
                 String l = azVar2.l();
                 if (l == null || l.equals("")) {
-                    this.f1412a.m = false;
+                    this.a.m = false;
                 } else {
-                    this.f1412a.m = true;
+                    this.a.m = true;
                 }
-                FrsActivity frsActivity3 = this.f1412a;
-                azVar3 = this.f1412a.H;
+                FrsActivity frsActivity3 = this.a;
+                azVar3 = this.a.H;
                 frsActivity3.b(azVar3);
-                bnVar3 = this.f1412a.n;
+                bnVar3 = this.a.n;
                 bnVar3.k();
             }
         }

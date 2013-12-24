@@ -1,19 +1,19 @@
 package com.baidu.tieba.im.chat;
-
-import android.content.DialogInterface;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class m implements DialogInterface.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ GroupSettingActivity f1599a;
+public class m implements com.baidu.tieba.im.a<Boolean> {
+    final /* synthetic */ com.baidu.tieba.im.message.bz a;
+    final /* synthetic */ a b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(GroupSettingActivity groupSettingActivity) {
-        this.f1599a = groupSettingActivity;
+    public m(a aVar, com.baidu.tieba.im.message.bz bzVar) {
+        this.b = aVar;
+        this.a = bzVar;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        dialogInterface.cancel();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.a
+    public void a(Boolean bool) {
+        this.b.d(this.a);
     }
 }

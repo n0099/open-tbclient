@@ -2,6 +2,7 @@ package com.baidu.zeus;
 
 import android.util.Log;
 import android.util.TypedValue;
+import com.baidu.browser.webpool.BdWebPoolView;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -93,7 +94,7 @@ class FileLoader extends StreamLoader {
                     this.mDataStream = new FileInputStream(this.mPath);
                     this.mContentLength = new File(this.mPath).length();
                 }
-                this.mLoadListener.status(1, 1, 200, "OK");
+                this.mLoadListener.status(1, 1, BdWebPoolView.DELAYED_TIME, "OK");
                 return true;
             } catch (FileNotFoundException e7) {
                 this.mLoadListener.error(-14, errString(e7));

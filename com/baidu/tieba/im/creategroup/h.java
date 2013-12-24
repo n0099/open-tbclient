@@ -2,15 +2,13 @@ package com.baidu.tieba.im.creategroup;
 
 import android.graphics.Bitmap;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.util.x;
+import com.baidu.tieba.util.y;
 /* loaded from: classes.dex */
 class h extends BdAsyncTask<Object, Integer, Bitmap> {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ f f1624a;
+    final /* synthetic */ f a;
 
     private h(f fVar) {
-        this.f1624a = fVar;
+        this.a = fVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -24,7 +22,7 @@ class h extends BdAsyncTask<Object, Integer, Bitmap> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: d */
     public Bitmap a(Object... objArr) {
-        return x.c(null, "tieba_group_image");
+        return y.c(null, "tieba_group_image");
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -44,9 +42,9 @@ class h extends BdAsyncTask<Object, Integer, Bitmap> {
     public void a(Bitmap bitmap) {
         super.a((h) bitmap);
         if (bitmap != null) {
-            this.f1624a.c.setVisibility(0);
-            f.a(this.f1624a, new com.baidu.adp.widget.ImageView.e(bitmap, false, null));
-            f.a(this.f1624a).a(this.f1624a.c);
+            this.a.c.setVisibility(0);
+            f.a(this.a, new com.baidu.adp.widget.ImageView.e(bitmap, false, null));
+            f.a(this.a).a(this.a.c);
         }
     }
 }

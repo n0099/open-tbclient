@@ -5,13 +5,11 @@ import android.os.Parcel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a implements RemoteSSO {
-
-    /* renamed from: a  reason: collision with root package name */
-    private IBinder f2894a;
+    private IBinder a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(IBinder iBinder) {
-        this.f2894a = iBinder;
+        this.a = iBinder;
     }
 
     @Override // com.sina.sso.RemoteSSO
@@ -20,7 +18,7 @@ public class a implements RemoteSSO {
         Parcel obtain2 = Parcel.obtain();
         try {
             obtain.writeInterfaceToken("com.sina.sso.RemoteSSO");
-            this.f2894a.transact(1, obtain, obtain2, 0);
+            this.a.transact(1, obtain, obtain2, 0);
             obtain2.readException();
             return obtain2.readString();
         } finally {
@@ -31,7 +29,7 @@ public class a implements RemoteSSO {
 
     @Override // android.os.IInterface
     public IBinder asBinder() {
-        return this.f2894a;
+        return this.a;
     }
 
     @Override // com.sina.sso.RemoteSSO
@@ -40,7 +38,7 @@ public class a implements RemoteSSO {
         Parcel obtain2 = Parcel.obtain();
         try {
             obtain.writeInterfaceToken("com.sina.sso.RemoteSSO");
-            this.f2894a.transact(2, obtain, obtain2, 0);
+            this.a.transact(2, obtain, obtain2, 0);
             obtain2.readException();
             return obtain2.readString();
         } finally {

@@ -12,13 +12,14 @@ import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.browser.webpool.BdWebPoolView;
 import com.baidu.mobstat.StatService;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.ForumInfoData;
 import com.baidu.tieba.flist.ForumListModel;
 import com.baidu.tieba.model.ax;
-import com.baidu.tieba.util.bb;
-import com.baidu.tieba.util.bd;
+import com.baidu.tieba.util.bc;
+import com.baidu.tieba.util.be;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
@@ -28,9 +29,7 @@ public class ForumListActivity extends com.baidu.tieba.j implements bq {
     private s E;
     private c F;
     private u G;
-
-    /* renamed from: a  reason: collision with root package name */
-    public ForumListModel.List f1284a;
+    public ForumListModel.List a;
     public ForumListModel.List b;
     public y c;
     private int f;
@@ -47,8 +46,8 @@ public class ForumListActivity extends com.baidu.tieba.j implements bq {
     private static String N = "";
     private static String O = "";
     private Handler e = null;
-    private int n = 200;
-    private int o = 200;
+    private int n = BdWebPoolView.DELAYED_TIME;
+    private int o = BdWebPoolView.DELAYED_TIME;
     private int p = 0;
     private ax q = new ax();
     private com.baidu.tieba.util.i r = null;
@@ -56,7 +55,7 @@ public class ForumListActivity extends com.baidu.tieba.j implements bq {
     private int t = 0;
     private boolean u = false;
     private int v = 0;
-    private int w = 200;
+    private int w = BdWebPoolView.DELAYED_TIME;
     private boolean x = true;
     private boolean y = true;
     private int z = 0;
@@ -71,9 +70,9 @@ public class ForumListActivity extends com.baidu.tieba.j implements bq {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str) {
-        com.baidu.tieba.square.z a2 = this.c.x.a();
-        if (a2 != null) {
-            ArrayList<com.baidu.tieba.square.z> arrayList = a2.e;
+        com.baidu.tieba.square.z a = this.c.x.a();
+        if (a != null) {
+            ArrayList<com.baidu.tieba.square.z> arrayList = a.e;
             int size = arrayList.size();
             for (int i = 0; i < size; i++) {
                 if (arrayList.get(i).b.equals(str)) {
@@ -95,14 +94,14 @@ public class ForumListActivity extends com.baidu.tieba.j implements bq {
             this.A.parent_menu_name = getIntent().getStringExtra("parent_menu_name");
             this.A.offset = 0;
             this.A.rn = 10;
-            bd.e("ForumListActivity", "onCreate", this.A.toString());
+            be.e("ForumListActivity", "onCreate", this.A.toString());
         } catch (NullPointerException e) {
             finish();
         }
         this.v = this.A.recommend_type;
         this.w = this.A.rn;
         this.A.recommend_type = 0;
-        this.A.rn = 200;
+        this.A.rn = BdWebPoolView.DELAYED_TIME;
         this.u = true;
         this.G.a(this.A);
         this.G.LoadData();
@@ -155,7 +154,7 @@ public class ForumListActivity extends com.baidu.tieba.j implements bq {
 
     private void b(String str, String str2, String str3, String str4) {
         this.e = new Handler();
-        if (bb.c(str4)) {
+        if (bc.c(str4)) {
             str4 = str;
         }
         this.c.g.setText(str4);
@@ -169,7 +168,7 @@ public class ForumListActivity extends com.baidu.tieba.j implements bq {
             this.A.parent_menu_name = str;
             this.A.offset = 0;
             this.A.rn = 10;
-            bd.e("ForumListActivity", "onCreate", this.A.toString());
+            be.e("ForumListActivity", "onCreate", this.A.toString());
         } catch (NullPointerException e) {
             finish();
         }
@@ -184,16 +183,16 @@ public class ForumListActivity extends com.baidu.tieba.j implements bq {
             this.D.a(Boolean.valueOf(this.y));
             this.c.a();
         }
-        this.f1284a = new ForumListModel.List();
+        this.a = new ForumListModel.List();
         this.b = new ForumListModel.List();
-        this.f1284a.forum_list = new ForumInfoData[50];
+        this.a.forum_list = new ForumInfoData[50];
         this.b.forum_list = new ForumInfoData[50];
         this.c.h.setPullRefresh(this.c.r);
         this.c.i.setPullRefresh(this.c.s);
         this.c.r.a(this.K);
         this.c.s.a(this.K);
         if (str3.equals("2")) {
-            bd.e("ForumListActivity", "OnCreate", "from frs");
+            be.e("ForumListActivity", "OnCreate", "from frs");
             this.c.z.setVisibility(8);
             this.c.d();
         } else {
@@ -273,7 +272,7 @@ public class ForumListActivity extends com.baidu.tieba.j implements bq {
     @Override // com.baidu.tieba.j
     public void onChangeSkinType(int i) {
         getLayoutMode().a(i == 1);
-        getLayoutMode().a(this.c.f1317a);
+        getLayoutMode().a(this.c.a);
         this.c.f.c(i);
         if (TiebaApplication.h().an() == 1) {
             this.c.h.setDivider(new ColorDrawable(-13881543));
@@ -369,7 +368,7 @@ public class ForumListActivity extends com.baidu.tieba.j implements bq {
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.tab_recommends /* 2131100147 */:
+            case R.id.tab_recommends /* 2131100143 */:
                 this.c.d.setCurrentItem(0);
                 this.p = 0;
                 if (TiebaApplication.h().t()) {
@@ -377,7 +376,7 @@ public class ForumListActivity extends com.baidu.tieba.j implements bq {
                     return;
                 }
                 return;
-            case R.id.tab_hot /* 2131100148 */:
+            case R.id.tab_hot /* 2131100144 */:
                 this.c.d.setCurrentItem(1);
                 this.p = 1;
                 if (TiebaApplication.h().t()) {
@@ -385,7 +384,7 @@ public class ForumListActivity extends com.baidu.tieba.j implements bq {
                     return;
                 }
                 return;
-            case R.id.title_menu /* 2131100705 */:
+            case R.id.title_menu /* 2131100713 */:
                 this.c.a(this.J);
                 return;
             default:
@@ -402,8 +401,8 @@ public class ForumListActivity extends com.baidu.tieba.j implements bq {
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
         if (this.B) {
-            int min = Math.min(this.D.getCount(), 200);
-            this.n = 200;
+            int min = Math.min(this.D.getCount(), (int) BdWebPoolView.DELAYED_TIME);
+            this.n = BdWebPoolView.DELAYED_TIME;
             ForumInfoData[] forumInfoDataArr = new ForumInfoData[min];
             System.arraycopy(this.D.a(), 0, forumInfoDataArr, 0, min);
             this.D.a(min);
@@ -428,8 +427,8 @@ public class ForumListActivity extends com.baidu.tieba.j implements bq {
     /* JADX INFO: Access modifiers changed from: private */
     public void d() {
         if (this.C) {
-            int min = Math.min(this.E.getCount(), 200);
-            this.o = 200;
+            int min = Math.min(this.E.getCount(), (int) BdWebPoolView.DELAYED_TIME);
+            this.o = BdWebPoolView.DELAYED_TIME;
             ForumInfoData[] forumInfoDataArr = new ForumInfoData[min];
             System.arraycopy(this.E.a(), 0, forumInfoDataArr, 0, min);
             this.E.a(min);
@@ -498,19 +497,19 @@ public class ForumListActivity extends com.baidu.tieba.j implements bq {
 
     @Override // android.app.Activity
     protected void onActivityResult(int i, int i2, Intent intent) {
-        ForumInfoData[] a2;
+        ForumInfoData[] a;
         if (i == 11002 && i2 == -1) {
             this.G.LoadData();
             if (this.p == 0) {
-                a2 = this.D.a();
+                a = this.D.a();
             } else {
-                a2 = this.E.a();
+                a = this.E.a();
             }
-            this.q.setLoadDataCallBack(new m(this, a2));
+            this.q.setLoadDataCallBack(new m(this, a));
             if (this.p == 0) {
-                this.q.a(a2[this.D.f1313a].forum_name, String.valueOf(a2[this.D.f1313a].forum_id));
+                this.q.a(a[this.D.a].forum_name, String.valueOf(a[this.D.a].forum_id));
             } else {
-                this.q.a(a2[this.E.f1313a].forum_name, String.valueOf(a2[this.E.f1313a].forum_id));
+                this.q.a(a[this.E.a].forum_name, String.valueOf(a[this.E.a].forum_id));
             }
         }
     }

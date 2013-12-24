@@ -1,40 +1,38 @@
 package com.baidu.android.nebula.c;
 
-import com.baidu.browser.explorer.BdWebErrorView;
+import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
-public class d implements com.baidu.android.nebula.d.a {
-    @Override // com.baidu.android.nebula.d.a
-    public void a(com.baidu.android.nebula.d.c cVar) {
-        cVar.a(0L);
+public abstract class d {
+    private boolean a = false;
+    private long b = 60000;
+    private long c = System.currentTimeMillis();
+
+    public abstract int a(ByteBuffer byteBuffer);
+
+    public void a(long j) {
+        this.b = j;
     }
 
-    @Override // com.baidu.android.nebula.d.a
-    public void a(com.baidu.android.nebula.d.c cVar, Exception exc) {
-        com.baidu.android.nebula.b.b bVar = new com.baidu.android.nebula.b.b();
-        bVar.a(BdWebErrorView.ERROR_CODE_500);
-        ((com.baidu.android.nebula.b.c) cVar).a(bVar);
+    public abstract int b(ByteBuffer byteBuffer);
+
+    public abstract boolean b();
+
+    public abstract boolean c();
+
+    public void d() {
+        this.a = true;
     }
 
-    @Override // com.baidu.android.nebula.d.a
-    public void b(com.baidu.android.nebula.d.c cVar) {
-        com.baidu.android.nebula.b.c cVar2 = (com.baidu.android.nebula.b.c) cVar;
-        com.baidu.android.nebula.b.b bVar = new com.baidu.android.nebula.b.b();
-        com.baidu.android.nebula.b.a a2 = cVar2.a();
-        if (a2 == null) {
-            cVar2.a(bVar);
-            return;
-        }
-        String a3 = a2.a("URI");
-        if (a3 == null) {
-            cVar2.a(bVar);
-            return;
-        }
-        int indexOf = a3.indexOf("?");
-        String substring = indexOf == -1 ? a3.substring(0, a3.length()) : a3.substring(1, indexOf);
-        bVar.a("text/plain");
-        new com.baidu.android.nebula.cmd.a().a(substring, a2, bVar);
-        if (bVar != null) {
-            cVar2.a(bVar);
-        }
+    public boolean e() {
+        return this.a;
+    }
+
+    public boolean f() {
+        return this.b != 0 && System.currentTimeMillis() - this.c > this.b;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void g() {
+        this.c = System.currentTimeMillis();
     }
 }

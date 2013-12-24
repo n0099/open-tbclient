@@ -6,13 +6,11 @@ import android.widget.ListAdapter;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements AdapterView.OnItemLongClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ BdListView f577a;
+    final /* synthetic */ BdListView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(BdListView bdListView) {
-        this.f577a = bdListView;
+        this.a = bdListView;
     }
 
     @Override // android.widget.AdapterView.OnItemLongClickListener
@@ -21,20 +19,20 @@ public class k implements AdapterView.OnItemLongClickListener {
         e eVar2;
         AdapterView.OnItemLongClickListener onItemLongClickListener;
         AdapterView.OnItemLongClickListener onItemLongClickListener2;
-        eVar = this.f577a.f567a;
+        eVar = this.a.a;
         int c = eVar.c();
         if (i < c) {
             return true;
         }
         int i2 = i - c;
-        eVar2 = this.f577a.f567a;
+        eVar2 = this.a.a;
         ListAdapter b = eVar2.b();
         if (b == null || i2 >= b.getCount()) {
             return true;
         }
-        onItemLongClickListener = this.f577a.c;
+        onItemLongClickListener = this.a.c;
         if (onItemLongClickListener != null) {
-            onItemLongClickListener2 = this.f577a.c;
+            onItemLongClickListener2 = this.a.c;
             return onItemLongClickListener2.onItemLongClick(adapterView, view, i2, j);
         }
         return false;

@@ -1,27 +1,46 @@
 package com.baidu.tieba.im.chat;
 
-import com.slidingmenu.lib.R;
+import android.text.TextUtils;
+import com.baidu.tieba.im.model.MsglistModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bk implements com.baidu.tbadk.imageManager.c {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bj f1569a;
+public class bk implements com.baidu.tieba.im.a<Boolean> {
+    final /* synthetic */ bc a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bk(bj bjVar) {
-        this.f1569a = bjVar;
+    public bk(bc bcVar) {
+        this.a = bcVar;
     }
 
-    @Override // com.baidu.tbadk.imageManager.c
-    public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
-        String a2;
-        if (eVar == null) {
-            this.f1569a.a(this.f1569a.c.getString(R.string.save_error));
-            return;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.a
+    public void a(Boolean bool) {
+        bu buVar;
+        MsglistModel msglistModel;
+        MsglistModel msglistModel2;
+        MsglistModel msglistModel3;
+        bu buVar2;
+        bu buVar3;
+        if (bool != null) {
+            if (bool.booleanValue()) {
+                buVar3 = this.a.g;
+                buVar3.G();
+            } else {
+                buVar = this.a.g;
+                buVar.H();
+            }
+            msglistModel = this.a.h;
+            if (msglistModel != null) {
+                msglistModel2 = this.a.h;
+                if (msglistModel2.a() != null) {
+                    msglistModel3 = this.a.h;
+                    String name = msglistModel3.a().getName();
+                    if (!TextUtils.isEmpty(name)) {
+                        buVar2 = this.a.g;
+                        buVar2.a(name, true);
+                    }
+                }
+            }
         }
-        bj bjVar = this.f1569a;
-        a2 = this.f1569a.a(str, eVar.i());
-        bjVar.a(a2);
     }
 }

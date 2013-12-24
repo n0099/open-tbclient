@@ -18,10 +18,10 @@ public class o extends Handler {
         n nVar = (n) message.obj;
         switch (message.what) {
             case 1:
-                nVar.f320a.e(nVar.b[0]);
+                nVar.a.e(nVar.b[0]);
                 return;
             case 2:
-                nVar.f320a.b((Object[]) nVar.b);
+                nVar.a.b((Object[]) nVar.b);
                 return;
             default:
                 return;

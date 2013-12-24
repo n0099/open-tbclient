@@ -34,9 +34,7 @@ public class l extends ImageView {
     private int K;
     private int L;
     private Interpolator M;
-
-    /* renamed from: a  reason: collision with root package name */
-    public volatile int f2691a;
+    public volatile int a;
     private Matrix b;
     private int c;
     private int d;
@@ -82,7 +80,7 @@ public class l extends ImageView {
         this.y = 0;
         this.z = false;
         this.A = false;
-        this.f2691a = 0;
+        this.a = 0;
         this.B = 0;
         this.C = null;
         this.D = null;
@@ -117,7 +115,7 @@ public class l extends ImageView {
         this.y = 0;
         this.z = false;
         this.A = false;
-        this.f2691a = 0;
+        this.a = 0;
         this.B = 0;
         this.C = null;
         this.D = null;
@@ -152,7 +150,7 @@ public class l extends ImageView {
         this.y = 0;
         this.z = false;
         this.A = false;
-        this.f2691a = 0;
+        this.a = 0;
         this.B = 0;
         this.C = null;
         this.D = null;
@@ -236,14 +234,14 @@ public class l extends ImageView {
                         this.z = true;
                         this.A = true;
                         if (this.x != 1 && this.x != 2) {
-                            float a2 = a(motionEvent);
-                            if (a2 >= 0.0f && Math.abs(this.w - a2) >= 10.0f) {
-                                if (Math.abs(this.w - a2) > 100.0f) {
-                                    this.w = a2;
+                            float a = a(motionEvent);
+                            if (a >= 0.0f && Math.abs(this.w - a) >= 10.0f) {
+                                if (Math.abs(this.w - a) > 100.0f) {
+                                    this.w = a;
                                     break;
                                 } else {
-                                    float f = a2 / this.w;
-                                    this.w = a2;
+                                    float f = a / this.w;
+                                    this.w = a;
                                     this.k = this.j;
                                     this.j *= f;
                                     if (this.j > this.i) {
@@ -357,7 +355,7 @@ public class l extends ImageView {
         c();
         this.E = 0;
         if (this.m != null) {
-            this.f2691a = 1;
+            this.a = 1;
             invalidate();
             new m(this).start();
         }
@@ -404,7 +402,7 @@ public class l extends ImageView {
             }
             canvas.clipRect(i, i2, width + i, height + i2);
             canvas.drawColor(-1);
-            if (this.f2691a == 2 && this.B == 1 && this.H && this.C != null) {
+            if (this.a == 2 && this.B == 1 && this.H && this.C != null) {
                 if (this.F + this.C.a(this.E) < System.currentTimeMillis()) {
                     this.F += this.C.a(this.E);
                     t();
@@ -437,7 +435,7 @@ public class l extends ImageView {
 
     public void e() {
         if (this.x == 1) {
-            if (this.f2691a == 0) {
+            if (this.a == 0) {
                 d();
             } else {
                 this.F = System.currentTimeMillis();
@@ -449,7 +447,7 @@ public class l extends ImageView {
 
     public void f() {
         if (this.x == 1) {
-            com.baidu.tieba.util.bd.e(getClass().getName(), "pause", null);
+            com.baidu.tieba.util.be.e(getClass().getName(), "pause", null);
             this.H = false;
             invalidate();
         }
@@ -460,7 +458,7 @@ public class l extends ImageView {
             super.setImageBitmap(null);
             this.H = false;
             c();
-            this.f2691a = 0;
+            this.a = 0;
             this.E = 0;
             invalidate();
         }
@@ -575,7 +573,7 @@ public class l extends ImageView {
         c();
         r();
         this.x = 1;
-        this.f2691a = 0;
+        this.a = 0;
         this.D = bitmap;
         this.m = bArr;
         if (this.t != null) {
@@ -590,7 +588,7 @@ public class l extends ImageView {
         super.setImageBitmap(null);
         c();
         this.m = null;
-        this.f2691a = 0;
+        this.a = 0;
         this.D = null;
         this.H = false;
     }
@@ -601,7 +599,7 @@ public class l extends ImageView {
         }
         super.setImageBitmap(null);
         c();
-        this.f2691a = 0;
+        this.a = 0;
         this.D = null;
         this.H = false;
     }
@@ -742,7 +740,7 @@ public class l extends ImageView {
                 scrollTo(scrollX, scrollY);
                 setImageMatrix(this.b);
             } catch (Exception e) {
-                com.baidu.tieba.util.bd.b("DragImageView", "resizeBitmap", "error = " + e.getMessage());
+                com.baidu.tieba.util.be.b("DragImageView", "resizeBitmap", "error = " + e.getMessage());
             }
         }
     }

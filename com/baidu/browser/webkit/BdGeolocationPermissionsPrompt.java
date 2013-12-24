@@ -9,9 +9,9 @@ import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.baidu.android.pushservice.PushConstants;
 import com.baidu.browser.webkit.BdGeolocationPermissions;
 import com.baidu.loginshare.e;
-import com.tencent.mm.sdk.platformtools.LocaleUtil;
 /* loaded from: classes.dex */
 public class BdGeolocationPermissionsPrompt extends LinearLayout {
     private BdGeolocationPermissions.BdCallback mCallback;
@@ -31,11 +31,11 @@ public class BdGeolocationPermissionsPrompt extends LinearLayout {
     }
 
     public void init() {
-        this.mInner = (LinearLayout) findViewById(getContext().getResources().getIdentifier("inner", LocaleUtil.INDONESIAN, getContext().getPackageName()));
-        this.mMessage = (TextView) findViewById(getContext().getResources().getIdentifier("message", LocaleUtil.INDONESIAN, getContext().getPackageName()));
-        this.mShareButton = (Button) findViewById(getContext().getResources().getIdentifier("share_button", LocaleUtil.INDONESIAN, getContext().getPackageName()));
-        this.mDontShareButton = (Button) findViewById(getContext().getResources().getIdentifier("dont_share_button", LocaleUtil.INDONESIAN, getContext().getPackageName()));
-        this.mRemember = (CheckBox) findViewById(getContext().getResources().getIdentifier("remember", LocaleUtil.INDONESIAN, getContext().getPackageName()));
+        this.mInner = (LinearLayout) findViewById(getContext().getResources().getIdentifier("inner", "id", getContext().getPackageName()));
+        this.mMessage = (TextView) findViewById(getContext().getResources().getIdentifier(PushConstants.EXTRA_PUSH_MESSAGE, "id", getContext().getPackageName()));
+        this.mShareButton = (Button) findViewById(getContext().getResources().getIdentifier("share_button", "id", getContext().getPackageName()));
+        this.mDontShareButton = (Button) findViewById(getContext().getResources().getIdentifier("dont_share_button", "id", getContext().getPackageName()));
+        this.mRemember = (CheckBox) findViewById(getContext().getResources().getIdentifier("remember", "id", getContext().getPackageName()));
         this.mShareButton.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.browser.webkit.BdGeolocationPermissionsPrompt.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {

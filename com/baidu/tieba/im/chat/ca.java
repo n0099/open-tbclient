@@ -1,9 +1,22 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tieba.voice.VoiceManager;
+import android.view.MotionEvent;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public interface ca {
-    void a();
+public class ca implements View.OnTouchListener {
+    final /* synthetic */ bu a;
 
-    void a(VoiceManager.VoiceModel voiceModel);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ca(bu buVar) {
+        this.a = buVar;
+    }
+
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        this.a.K();
+        this.a.L();
+        this.a.M();
+        return false;
+    }
 }

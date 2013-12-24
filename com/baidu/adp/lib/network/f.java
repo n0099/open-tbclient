@@ -1,9 +1,7 @@
 package com.baidu.adp.lib.network;
 /* loaded from: classes.dex */
 public class f {
-
-    /* renamed from: a  reason: collision with root package name */
-    public int f516a = 0;
+    public int a = 0;
     public int b = 0;
     public long c = 0;
     public long d = 0;

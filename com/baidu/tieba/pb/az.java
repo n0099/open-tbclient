@@ -4,25 +4,23 @@ import com.baidu.mobstat.StatService;
 import com.baidu.tieba.TiebaApplication;
 /* loaded from: classes.dex */
 class az implements com.baidu.adp.widget.ListView.b {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NewPbActivity f2174a;
+    final /* synthetic */ NewPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public az(NewPbActivity newPbActivity) {
-        this.f2174a = newPbActivity;
+        this.a = newPbActivity;
     }
 
     @Override // com.baidu.adp.widget.ListView.b
     public void a(boolean z) {
         com.baidu.tieba.model.bm bmVar;
         cr crVar;
-        bmVar = this.f2174a.s;
+        bmVar = this.a.r;
         if (!bmVar.b(true)) {
-            crVar = this.f2174a.y;
+            crVar = this.a.x;
             crVar.s();
         } else if (TiebaApplication.h().t()) {
-            StatService.onEvent(this.f2174a, "pb_pulldown", "pbclick", 1);
+            StatService.onEvent(this.a, "pb_pulldown", "pbclick", 1);
         }
     }
 }

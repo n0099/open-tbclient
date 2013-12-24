@@ -5,23 +5,21 @@ import com.baidu.tieba.frs.FrsImageActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bd implements View.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsImageActivity f1386a;
+    final /* synthetic */ FrsImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bd(FrsImageActivity frsImageActivity) {
-        this.f1386a = frsImageActivity;
+        this.a = frsImageActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         FrsImageActivity.FooterType footerType;
         int i;
-        footerType = this.f1386a.g;
+        footerType = this.a.g;
         if (footerType == FrsImageActivity.FooterType.NEXT) {
-            FrsImageActivity frsImageActivity = this.f1386a;
-            i = this.f1386a.i;
+            FrsImageActivity frsImageActivity = this.a;
+            i = this.a.i;
             frsImageActivity.c(i + 240);
         }
     }

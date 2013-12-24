@@ -3,13 +3,11 @@ package com.baidu.tieba.im;
 import android.view.View;
 /* loaded from: classes.dex */
 class d implements View.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NetWorkDebugActivity f1638a;
+    final /* synthetic */ NetWorkDebugActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(NetWorkDebugActivity netWorkDebugActivity) {
-        this.f1638a = netWorkDebugActivity;
+        this.a = netWorkDebugActivity;
     }
 
     @Override // android.view.View.OnClickListener

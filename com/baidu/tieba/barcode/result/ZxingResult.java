@@ -4,16 +4,14 @@ import android.os.Parcel;
 import android.os.Parcelable;
 /* loaded from: classes.dex */
 public class ZxingResult implements Parcelable {
-
-    /* renamed from: a  reason: collision with root package name */
-    private String f1158a;
+    private String a;
 
     public String a() {
-        return this.f1158a;
+        return this.a;
     }
 
     public void a(String str) {
-        this.f1158a = str;
+        this.a = str;
     }
 
     @Override // android.os.Parcelable

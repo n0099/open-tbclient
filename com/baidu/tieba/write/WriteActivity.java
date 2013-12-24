@@ -34,6 +34,7 @@ import com.baidu.tieba.editortool.EditorToolComponetContainer;
 import com.baidu.tieba.service.TiebaPrepareImageService;
 import com.baidu.tieba.util.DatabaseService;
 import com.baidu.tieba.util.UtilHelper;
+import com.baidu.tieba.util.be;
 import com.baidu.tieba.view.NavigationBar;
 import com.baidu.tieba.voice.VoiceManager;
 import com.slidingmenu.lib.R;
@@ -50,9 +51,7 @@ public class WriteActivity extends com.baidu.tieba.j implements com.baidu.tieba.
     private EditText h = null;
     private AlertDialog i = null;
     private com.baidu.tieba.model.ba j = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    final KeyEvent f2771a = new KeyEvent(0, 67);
+    final KeyEvent a = new KeyEvent(0, 67);
     private NavigationBar k = null;
     private ImageView l = null;
     private TextView m = null;
@@ -256,7 +255,7 @@ public class WriteActivity extends com.baidu.tieba.j implements com.baidu.tieba.
         getLayoutMode().a(i == 1);
         getLayoutMode().a(this.w);
         this.k.c(i);
-        com.baidu.tieba.util.ba.h(this.m, i);
+        com.baidu.tieba.util.bb.h(this.m, i);
         n();
         if (i == 1) {
             this.f.setBackgroundColor(getResources().getColor(R.color.write_title_bg_1));
@@ -300,7 +299,7 @@ public class WriteActivity extends com.baidu.tieba.j implements com.baidu.tieba.
         this.w = (RelativeLayout) findViewById(R.id.parent);
         a();
         this.g = (FrameLayout) findViewById(R.id.interval_view);
-        e();
+        f();
         this.s.postDelayed(this.E, 200L);
         g();
         this.l.setOnFocusChangeListener(this.H);
@@ -355,7 +354,7 @@ public class WriteActivity extends com.baidu.tieba.j implements com.baidu.tieba.
         this.q = builder.create();
     }
 
-    protected void e() {
+    protected void f() {
         this.f = (EditText) findViewById(R.id.post_title);
         this.f.setOnClickListener(this.F);
         this.f.setOnFocusChangeListener(this.H);
@@ -472,10 +471,10 @@ public class WriteActivity extends com.baidu.tieba.j implements com.baidu.tieba.
             this.y.show();
             return;
         }
-        String a2 = gVar.a();
-        if (a2 != null) {
+        String a = gVar.a();
+        if (a != null) {
             int selectionStart = this.h.getSelectionStart();
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(a2);
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(a);
             Bitmap b = gVar.b();
             if (b != null) {
                 com.baidu.tieba.view.av avVar = new com.baidu.tieba.view.av(b);
@@ -489,7 +488,7 @@ public class WriteActivity extends com.baidu.tieba.j implements com.baidu.tieba.
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void l() {
-        this.h.onKeyDown(67, this.f2771a);
+        this.h.onKeyDown(67, this.a);
     }
 
     private void a(Boolean bool) {
@@ -514,7 +513,7 @@ public class WriteActivity extends com.baidu.tieba.j implements com.baidu.tieba.
                 this.q.dismiss();
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.bd.b(getClass().getName(), "closeDialog", e.getMessage());
+            be.b(getClass().getName(), "closeDialog", e.getMessage());
         }
     }
 
@@ -586,9 +585,9 @@ public class WriteActivity extends com.baidu.tieba.j implements com.baidu.tieba.
             this.u = intent.getBooleanExtra("reply_sub_pb", false);
             this.v = intent.getStringExtra("sub_user_name");
         }
-        WriteData a2 = DatabaseService.a(this.b.getType(), this.b.getForumId(), this.b.getThreadId(), this.b.getFloor());
-        if (a2 != null) {
-            this.b = a2;
+        WriteData a = DatabaseService.a(this.b.getType(), this.b.getForumId(), this.b.getThreadId(), this.b.getFloor());
+        if (a != null) {
+            this.b = a;
             this.b.setFloorNum(intExtra);
             this.b.setHaveDraft(true);
         }
@@ -670,9 +669,9 @@ public class WriteActivity extends com.baidu.tieba.j implements com.baidu.tieba.
                 t();
                 ShowSoftKeyPadDelay(this.h, 300);
             } else if (i == 12004) {
-                String a2 = AtListActivity.a(intent);
-                if (a2 != null) {
-                    this.h.getText().insert(this.h.getSelectionStart(), "@" + a2 + " ");
+                String a = AtListActivity.a(intent);
+                if (a != null) {
+                    this.h.getText().insert(this.h.getSelectionStart(), "@" + a + " ");
                 }
             } else if (i == 12006) {
                 DatabaseService.a(this.b);

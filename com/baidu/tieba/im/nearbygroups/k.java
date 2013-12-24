@@ -6,30 +6,28 @@ import android.widget.TextView;
 import com.baidu.adp.widget.ListView.r;
 import com.baidu.adp.widget.PinnedHeaderListView;
 import com.baidu.tieba.im.data.NearbyGroupsData;
-import com.baidu.tieba.util.ah;
-import com.baidu.tieba.util.ba;
+import com.baidu.tieba.util.ai;
+import com.baidu.tieba.util.bb;
 import com.baidu.tieba.view.NavigationBar;
 import com.baidu.tieba.view.NoNetworkView;
-import com.baidu.tieba.view.bk;
-import com.baidu.tieba.view.bm;
+import com.baidu.tieba.view.bq;
+import com.baidu.tieba.view.bs;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class k extends com.baidu.adp.a.e {
-
-    /* renamed from: a  reason: collision with root package name */
-    private NavigationBar f1852a;
+    private NavigationBar a;
     private NearbyGroupsActivity c;
     private View d;
     private TextView e;
     private f f;
     private PinnedHeaderListView g;
-    private bk h;
+    private bq h;
     private NoNetworkView i;
-    private bm j;
+    private bs j;
 
     public k(NearbyGroupsActivity nearbyGroupsActivity) {
         super(nearbyGroupsActivity);
-        this.f1852a = null;
+        this.a = null;
         this.c = null;
         this.d = null;
         this.e = null;
@@ -44,16 +42,16 @@ public class k extends com.baidu.adp.a.e {
 
     private void k() {
         this.f = new f(this.c);
-        this.j = new bm(this.c);
+        this.j = new bs(this.c);
         this.c.setContentView(R.layout.nearby_group_activity);
         this.d = this.c.findViewById(R.id.parent);
         this.g = (PinnedHeaderListView) this.c.findViewById(R.id.nearby_list);
-        this.f1852a = (NavigationBar) this.c.findViewById(R.id.view_navigation_bar);
-        this.f1852a.a(this.c.getResources().getString(R.string.nearby_group_title));
-        this.f1852a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.e = this.f1852a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.c.getString(R.string.nearby_group_create), this.c);
+        this.a = (NavigationBar) this.c.findViewById(R.id.view_navigation_bar);
+        this.a.a(this.c.getResources().getString(R.string.nearby_group_title));
+        this.a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.e = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.c);
         this.i = (NoNetworkView) this.c.findViewById(R.id.view_no_network);
-        this.h = new bk(this.c);
+        this.h = new bq(this.c);
         this.g.setPullRefresh(this.h);
         this.g.setAdapter((ListAdapter) this.f);
         this.g.setNextPage(this.j);
@@ -61,7 +59,7 @@ public class k extends com.baidu.adp.a.e {
     }
 
     public void a() {
-        ah.a(this.g, this.f.e(), 0, -1);
+        ai.a(this.g, this.f.e(), 0, -1);
     }
 
     public void e() {
@@ -126,9 +124,9 @@ public class k extends com.baidu.adp.a.e {
 
     public void a(int i) {
         this.c.getLayoutMode().a(i == 1);
-        ba.a(this.d, i);
+        bb.a(this.d, i);
         this.h.a(i);
-        this.f1852a.c(i);
+        this.a.c(i);
         this.i.a(i);
         this.j.a(i);
         this.c.getLayoutMode().a(this.d);

@@ -4,9 +4,7 @@ import com.baidu.adp.lib.cache.BdCacheService;
 import com.baidu.adp.lib.cache.s;
 /* loaded from: classes.dex */
 public class a {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static a f1128a = null;
+    private static a a = null;
     private s<String> b = null;
     private s<String> c = null;
     private s<String> d = null;
@@ -24,13 +22,14 @@ public class a {
     private s<byte[]> p = null;
     private s<String> q = null;
     private s<String> r = null;
-    private s<byte[]> s = null;
+    private s<String> s = null;
+    private s<byte[]> t = null;
 
     public static a a() {
-        if (f1128a == null) {
-            f1128a = new a();
+        if (a == null) {
+            a = new a();
         }
-        return f1128a;
+        return a;
     }
 
     private a() {
@@ -65,10 +64,10 @@ public class a {
     }
 
     public s<byte[]> f() {
-        if (this.s == null) {
-            this.s = BdCacheService.c().b("tb.im_hotgroup", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 30);
+        if (this.t == null) {
+            this.t = BdCacheService.c().b("tb.im_hotgroup", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 30);
         }
-        return this.s;
+        return this.t;
     }
 
     public s<String> g() {
@@ -171,8 +170,15 @@ public class a {
 
     public s<String> u() {
         if (this.r == null) {
-            this.r = BdCacheService.c().a("tb.pic_gif", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 50);
+            this.r = BdCacheService.c().a("tb.im_personal_chat_setting", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.NO_EVICT, 3);
         }
         return this.r;
+    }
+
+    public s<String> v() {
+        if (this.s == null) {
+            this.s = BdCacheService.c().a("tb.pic_gif", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 50);
+        }
+        return this.s;
     }
 }

@@ -1,25 +1,31 @@
 package com.baidu.tieba.account;
 
-import android.widget.CompoundButton;
+import android.view.View;
 import android.widget.EditText;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.ImageView;
 /* loaded from: classes.dex */
-public class r implements CompoundButton.OnCheckedChangeListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ n f1102a;
+class r implements View.OnFocusChangeListener {
+    final /* synthetic */ ActivationActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public r(n nVar) {
-        this.f1102a = nVar;
+    public r(ActivationActivity activationActivity) {
+        this.a = activationActivity;
     }
 
-    @Override // android.widget.CompoundButton.OnCheckedChangeListener
-    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
+    @Override // android.view.View.OnFocusChangeListener
+    public void onFocusChange(View view, boolean z) {
         EditText editText;
-        if (z) {
-            editText = this.f1102a.c;
-            editText.setText(compoundButton.getText());
+        ImageView imageView;
+        ImageView imageView2;
+        editText = this.a.i;
+        if (view == editText) {
+            if (z) {
+                imageView2 = this.a.d;
+                imageView2.setVisibility(0);
+                return;
+            }
+            imageView = this.a.d;
+            imageView.setVisibility(8);
         }
     }
 }

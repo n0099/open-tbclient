@@ -11,9 +11,7 @@ import java.util.ArrayList;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class bm extends com.baidu.adp.a.d {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static final int f2010a = com.baidu.tieba.data.h.c() / 30;
+    private static final int a = com.baidu.tieba.data.h.c() / 30;
     private static com.baidu.tieba.data.ao w = new com.baidu.tieba.data.ao();
     private com.baidu.adp.lib.cache.s<String> A;
     private com.baidu.adp.lib.cache.s<String> B;
@@ -194,14 +192,14 @@ public class bm extends com.baidu.adp.a.d {
     public void e(int i) {
         if (this.k < i) {
             this.k = i;
-            if (this.k - this.l >= f2010a) {
-                this.l = (this.k - f2010a) + 1;
+            if (this.k - this.l >= a) {
+                this.l = (this.k - a) + 1;
             }
         }
         if (this.l > i) {
             this.l = i;
-            if (this.k - this.l >= f2010a) {
-                this.k = (this.l + f2010a) - 1;
+            if (this.k - this.l >= a) {
+                this.k = (this.l + a) - 1;
             }
         }
     }

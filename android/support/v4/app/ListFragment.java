@@ -15,9 +15,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 public class ListFragment extends Fragment {
-
-    /* renamed from: a  reason: collision with root package name */
-    ListAdapter f282a;
+    ListAdapter a;
     ListView b;
     View c;
     TextView d;
@@ -77,8 +75,8 @@ public class ListFragment extends Fragment {
     }
 
     public void a(ListAdapter listAdapter) {
-        boolean z = this.f282a != null;
-        this.f282a = listAdapter;
+        boolean z = this.a != null;
+        this.a = listAdapter;
         if (this.b != null) {
             this.b.setAdapter(listAdapter);
             if (!this.h && !z) {
@@ -152,9 +150,9 @@ public class ListFragment extends Fragment {
             }
             this.h = true;
             this.b.setOnItemClickListener(this.Z);
-            if (this.f282a != null) {
-                ListAdapter listAdapter = this.f282a;
-                this.f282a = null;
+            if (this.a != null) {
+                ListAdapter listAdapter = this.a;
+                this.a = null;
                 a(listAdapter);
             } else if (this.e != null) {
                 a(false, false);

@@ -7,14 +7,12 @@ import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i extends BdAsyncTask<com.baidu.tieba.data.ad, Integer, String> {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ EnterForumActivity f1494a;
-    private com.baidu.tieba.util.am b = null;
+    final /* synthetic */ EnterForumActivity a;
+    private com.baidu.tieba.util.an b = null;
     private com.baidu.tieba.data.ad c;
 
     public i(EnterForumActivity enterForumActivity, com.baidu.tieba.data.ad adVar) {
-        this.f1494a = enterForumActivity;
+        this.a = enterForumActivity;
         this.c = null;
         this.c = adVar;
     }
@@ -27,7 +25,7 @@ public class i extends BdAsyncTask<com.baidu.tieba.data.ad, Integer, String> {
         if (adVar != null) {
             try {
                 if (adVar.a() != null && adVar.b() != null) {
-                    this.b = new com.baidu.tieba.util.am(com.baidu.tieba.data.h.f1248a + "c/c/forum/unfavo");
+                    this.b = new com.baidu.tieba.util.an(com.baidu.tieba.data.h.a + "c/c/forum/unfavo");
                     this.b.a("fid", adVar.a());
                     this.b.a("kw", adVar.b());
                     this.b.e(true);
@@ -36,7 +34,7 @@ public class i extends BdAsyncTask<com.baidu.tieba.data.ad, Integer, String> {
                 }
                 return null;
             } catch (Exception e) {
-                com.baidu.tieba.util.bd.b(getClass().getName(), "doInBackground", e.getMessage());
+                com.baidu.tieba.util.be.b(getClass().getName(), "doInBackground", e.getMessage());
                 return null;
             }
         }
@@ -51,18 +49,18 @@ public class i extends BdAsyncTask<com.baidu.tieba.data.ad, Integer, String> {
         BaseFragmentActivity baseFragmentActivity2;
         k kVar;
         super.a((i) str);
-        this.f1494a.b = null;
+        this.a.b = null;
         if (this.b != null) {
             if (this.b.c()) {
-                baseFragmentActivity2 = this.f1494a.g;
-                baseFragmentActivity2.b(this.f1494a.a(R.string.success));
+                baseFragmentActivity2 = this.a.g;
+                baseFragmentActivity2.a(this.a.a(R.string.success));
                 TiebaApplication.h().h(true);
-                kVar = this.f1494a.f1433a;
+                kVar = this.a.a;
                 kVar.e();
                 return;
             }
-            baseFragmentActivity = this.f1494a.g;
-            baseFragmentActivity.b(this.b.i());
+            baseFragmentActivity = this.a.g;
+            baseFragmentActivity.a(this.b.i());
         }
     }
 
@@ -77,7 +75,7 @@ public class i extends BdAsyncTask<com.baidu.tieba.data.ad, Integer, String> {
             this.b.j();
             this.b = null;
         }
-        this.f1494a.b = null;
+        this.a.b = null;
         super.cancel(true);
     }
 }

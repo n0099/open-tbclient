@@ -5,9 +5,7 @@ import android.view.VelocityTracker;
 import com.baidu.adp.widget.VerticalTranslateLayout;
 /* loaded from: classes.dex */
 public class ah {
-
-    /* renamed from: a */
-    VelocityTracker f605a;
+    VelocityTracker a;
     boolean b;
     final int c;
     final int d;
@@ -21,7 +19,7 @@ public class ah {
         int i3;
         int i4;
         int i5;
-        int[] iArr = y.f621a;
+        int[] iArr = y.a;
         trackDirection = this.e.l;
         switch (iArr[trackDirection.ordinal()]) {
             case 1:
@@ -51,7 +49,7 @@ public class ah {
                 }
                 break;
         }
-        this.f605a = VelocityTracker.obtain();
+        this.a = VelocityTracker.obtain();
         this.b = true;
         return true;
     }
@@ -74,7 +72,7 @@ public class ah {
         if (this.b) {
             i2 = this.e.h;
             int i7 = i2 - i;
-            int[] iArr = y.f621a;
+            int[] iArr = y.a;
             trackDirection = this.e.l;
             switch (iArr[trackDirection.ordinal()]) {
                 case 1:
@@ -121,15 +119,15 @@ public class ah {
     public void b() {
         float max;
         VerticalTranslateLayout.TrackDirection trackDirection;
-        this.f605a.computeCurrentVelocity(this.c);
-        float yVelocity = this.f605a.getYVelocity();
+        this.a.computeCurrentVelocity(this.c);
+        float yVelocity = this.a.getYVelocity();
         Log.d("VerticalTranslateLayout", "@fling y " + yVelocity);
         if (yVelocity < 0.0f) {
             max = Math.min(yVelocity, -this.d);
         } else {
             max = Math.max(yVelocity, this.d);
         }
-        int[] iArr = y.f621a;
+        int[] iArr = y.a;
         trackDirection = this.e.l;
         switch (iArr[trackDirection.ordinal()]) {
             case 1:
@@ -142,8 +140,8 @@ public class ah {
                 a(max);
                 break;
         }
-        this.f605a.recycle();
-        this.f605a = null;
+        this.a.recycle();
+        this.a = null;
     }
 
     private void a(float f) {

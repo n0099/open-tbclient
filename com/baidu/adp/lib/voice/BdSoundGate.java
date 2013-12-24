@@ -2,9 +2,7 @@ package com.baidu.adp.lib.voice;
 /* loaded from: classes.dex */
 public class BdSoundGate {
     private static BdSoundGate c;
-
-    /* renamed from: a  reason: collision with root package name */
-    private int f518a = -1;
+    private int a = -1;
     private int b;
 
     private native void close(int i);
@@ -33,7 +31,7 @@ public class BdSoundGate {
 
     public void a(int i, float f, float f2, float f3) {
         this.b = i;
-        this.f518a = getChanger(i, f, f2, f3);
+        this.a = getChanger(i, f, f2, f3);
     }
 
     public int b() {
@@ -41,13 +39,13 @@ public class BdSoundGate {
     }
 
     public void c() {
-        if (this.f518a > 0) {
-            close(this.f518a);
-            this.f518a = -1;
+        if (this.a > 0) {
+            close(this.a);
+            this.a = -1;
         }
     }
 
     public void a(short[] sArr, short[] sArr2) {
-        throughMono(this.f518a, sArr, sArr2);
+        throughMono(this.a, sArr, sArr2);
     }
 }

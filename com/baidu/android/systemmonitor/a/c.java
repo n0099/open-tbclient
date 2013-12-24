@@ -1,29 +1,46 @@
 package com.baidu.android.systemmonitor.a;
 
-import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
+import com.baidu.android.a.n;
 /* loaded from: classes.dex */
-public class c extends b {
-    public c(Context context) {
-        super(context, "devinfo.db", null, 1);
-    }
+/* synthetic */ class c {
+    static final /* synthetic */ int[] a = new int[n.values().length];
 
-    @Override // com.baidu.android.systemmonitor.a.b
-    public void a(SQLiteDatabase sQLiteDatabase) {
-        sQLiteDatabase.execSQL("CREATE TABLE power (_id INTEGER,startstamp LONG,stopstamp LONG);");
-        sQLiteDatabase.execSQL("CREATE TABLE charge (_id INTEGER,startstamp LONG,stopstamp LONG,chargetype INTEGER,startlevel INTEGER,stoplevel INTEGER,netype INTEGER,loc TEXT);");
-        sQLiteDatabase.execSQL("CREATE TABLE network (_id INTEGER,startstamp LONG,stopstamp LONG,netype INTEGER,flow LONG);");
-        sQLiteDatabase.execSQL("CREATE TABLE stinfo (_id INTEGER,startstamp LONG,pconum INTEGER,sconum INTEGER,msnum INTEGER,msinfo TEXT,calognum INTEGER,caloginfo TEXT,sdfall TEXT,pfall TEXT,pphnum INTEGER,sphnum INTEGER,pmpnum INTEGER,smpnum INTEGER,stvnum INTEGER);");
-        sQLiteDatabase.execSQL("CREATE TABLE apkdn (_id INTEGER,startstamp LONG,dnpath TEXT,downame TEXT);");
-    }
-
-    @Override // com.baidu.android.systemmonitor.a.b
-    public void a(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        sQLiteDatabase.execSQL("DROP TABLE IF EXISTS power");
-        sQLiteDatabase.execSQL("DROP TABLE IF EXISTS CREATE TABLE charge (_id INTEGER,startstamp LONG,stopstamp LONG,chargetype INTEGER,startlevel INTEGER,stoplevel INTEGER,netype INTEGER,loc TEXT);");
-        sQLiteDatabase.execSQL("DROP TABLE IF EXISTS CREATE TABLE network (_id INTEGER,startstamp LONG,stopstamp LONG,netype INTEGER,flow LONG);");
-        sQLiteDatabase.execSQL("DROP TABLE IF EXISTS CREATE TABLE stinfo (_id INTEGER,startstamp LONG,pconum INTEGER,sconum INTEGER,msnum INTEGER,msinfo TEXT,calognum INTEGER,caloginfo TEXT,sdfall TEXT,pfall TEXT,pphnum INTEGER,sphnum INTEGER,pmpnum INTEGER,smpnum INTEGER,stvnum INTEGER);");
-        sQLiteDatabase.execSQL("DROP TABLE IF EXISTS CREATE TABLE apkdn (_id INTEGER,startstamp LONG,dnpath TEXT,downame TEXT);");
-        a(sQLiteDatabase);
+    static {
+        try {
+            a[n.FREQ_STATISTIC.ordinal()] = 1;
+        } catch (NoSuchFieldError e) {
+        }
+        try {
+            a[n.APPCHANGE_STATISTIC.ordinal()] = 2;
+        } catch (NoSuchFieldError e2) {
+        }
+        try {
+            a[n.ACTIVE_EVENT.ordinal()] = 3;
+        } catch (NoSuchFieldError e3) {
+        }
+        try {
+            a[n.POWER_EVENT.ordinal()] = 4;
+        } catch (NoSuchFieldError e4) {
+        }
+        try {
+            a[n.CHARGE_EVENT.ordinal()] = 5;
+        } catch (NoSuchFieldError e5) {
+        }
+        try {
+            a[n.STORE_INFORMATION.ordinal()] = 6;
+        } catch (NoSuchFieldError e6) {
+        }
+        try {
+            a[n.NETWORK_EVENT.ordinal()] = 7;
+        } catch (NoSuchFieldError e7) {
+        }
+        try {
+            a[n.APKDOWNLOAD_EVENT.ordinal()] = 8;
+        } catch (NoSuchFieldError e8) {
+        }
+        try {
+            a[n.PV_EVENT.ordinal()] = 9;
+        } catch (NoSuchFieldError e9) {
+        }
     }
 }

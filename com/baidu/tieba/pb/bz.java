@@ -11,9 +11,7 @@ import com.baidu.tieba.view.HeadImageView;
 import com.baidu.tieba.view.UserIconBox;
 /* loaded from: classes.dex */
 class bz {
-
-    /* renamed from: a  reason: collision with root package name */
-    public View f2198a;
+    public View a;
     public HeadImageView b;
     public TextView c;
     public TextView d;

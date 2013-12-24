@@ -17,9 +17,7 @@ import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class PbEditor extends LinearLayout implements com.baidu.tieba.view.ap {
     private static final Pattern f = Pattern.compile("#\\([^#\\)\\(]+\\)$");
-
-    /* renamed from: a  reason: collision with root package name */
-    protected Context f2141a;
+    protected Context a;
     protected PbEditorToolView b;
     protected EditorToolComponetContainer c;
     protected com.baidu.tieba.editortool.h d;
@@ -28,14 +26,14 @@ public class PbEditor extends LinearLayout implements com.baidu.tieba.view.ap {
     public PbEditor(Context context) {
         super(context);
         this.e = true;
-        this.f2141a = context;
+        this.a = context;
         j();
     }
 
     public PbEditor(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.e = true;
-        this.f2141a = context;
+        this.a = context;
         j();
     }
 
@@ -94,7 +92,7 @@ public class PbEditor extends LinearLayout implements com.baidu.tieba.view.ap {
 
     public void h() {
         if (this.c.h()) {
-            com.baidu.tieba.editortool.l.a(this, this.f2141a, new cd(this));
+            com.baidu.tieba.editortool.l.a(this, this.a, new cd(this));
         } else {
             f();
         }
@@ -105,7 +103,7 @@ public class PbEditor extends LinearLayout implements com.baidu.tieba.view.ap {
     }
 
     protected void j() {
-        LayoutInflater.from(this.f2141a).inflate(R.layout.pb_editor_view, (ViewGroup) this, true);
+        LayoutInflater.from(this.a).inflate(R.layout.pb_editor_view, (ViewGroup) this, true);
         this.b = (PbEditorToolView) findViewById(R.id.pb_editor_tool_button);
         this.c = (EditorToolComponetContainer) findViewById(R.id.pb_editor_tool_group);
     }
@@ -123,7 +121,7 @@ public class PbEditor extends LinearLayout implements com.baidu.tieba.view.ap {
     }
 
     public void l() {
-        com.baidu.tieba.editortool.l.a(this, this.f2141a, new ce(this));
+        com.baidu.tieba.editortool.l.a(this, this.a, new ce(this));
     }
 
     @Override // com.baidu.tieba.view.ap
@@ -140,9 +138,9 @@ public class PbEditor extends LinearLayout implements com.baidu.tieba.view.ap {
         this.c.b(this.b.getEditText());
         b(i);
         if (oVar != null) {
-            com.baidu.tieba.editortool.l.b(this, this.f2141a, oVar);
+            com.baidu.tieba.editortool.l.b(this, this.a, oVar);
         } else {
-            com.baidu.tieba.editortool.l.a(this, this.f2141a);
+            com.baidu.tieba.editortool.l.a(this, this.a);
         }
     }
 
@@ -159,7 +157,7 @@ public class PbEditor extends LinearLayout implements com.baidu.tieba.view.ap {
     /* JADX INFO: Access modifiers changed from: protected */
     public void c(int i) {
         if (this.c.h()) {
-            com.baidu.tieba.editortool.l.a(this, this.f2141a, new cg(this, i));
+            com.baidu.tieba.editortool.l.a(this, this.a, new cg(this, i));
             return;
         }
         this.c.b(this.b.getEditText());

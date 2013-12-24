@@ -12,9 +12,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class af extends ViewGroup implements com.baidu.tbadk.imageManager.c, com.baidu.tieba.view.ai {
-
-    /* renamed from: a  reason: collision with root package name */
-    private Context f2476a;
+    private Context a;
     private LayoutInflater b;
     private final int c;
     private final int d;
@@ -35,7 +33,7 @@ public class af extends ViewGroup implements com.baidu.tbadk.imageManager.c, com
 
     public af(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f2476a = null;
+        this.a = null;
         this.b = null;
         this.g = new ArrayList<>(4);
         this.h = 0;
@@ -45,7 +43,7 @@ public class af extends ViewGroup implements com.baidu.tbadk.imageManager.c, com
         this.l = null;
         this.m = null;
         this.n = null;
-        this.f2476a = context;
+        this.a = context;
         this.e = com.baidu.adp.lib.h.g.b(context);
         this.c = context.getResources().getDimensionPixelSize(R.dimen.square_page_padding);
         this.d = context.getResources().getDimensionPixelSize(R.dimen.square_forum_topic_margin);
@@ -170,14 +168,14 @@ public class af extends ViewGroup implements com.baidu.tbadk.imageManager.c, com
                     while (true) {
                         int i4 = i3;
                         if (i4 < this.l.size()) {
-                            String a2 = this.l.get(i4).a();
-                            if (a2 != null && a2.length() > 0) {
+                            String a = this.l.get(i4).a();
+                            if (a != null && a.length() > 0) {
                                 if (view != null) {
-                                    ((HeadImageView) this.n.findViewWithTag(a2)).setDefaultScaleType(ImageView.ScaleType.CENTER);
+                                    ((HeadImageView) this.n.findViewWithTag(a)).setDefaultScaleType(ImageView.ScaleType.CENTER);
                                 }
-                                com.baidu.adp.widget.ImageView.e a3 = this.m.a(a2, this);
-                                if (a3 != null) {
-                                    a(a3.h());
+                                com.baidu.adp.widget.ImageView.e a2 = this.m.a(a, this);
+                                if (a2 != null) {
+                                    a(a2.h());
                                 }
                             }
                             i3 = i4 + 1;
@@ -188,7 +186,7 @@ public class af extends ViewGroup implements com.baidu.tbadk.imageManager.c, com
                 }
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.bd.b("ForumsTopicsRecommendView", "mGetImageRunnble.run", "error = " + e.getMessage());
+            com.baidu.tieba.util.be.b("ForumsTopicsRecommendView", "mGetImageRunnble.run", "error = " + e.getMessage());
         }
     }
 

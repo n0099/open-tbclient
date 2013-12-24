@@ -17,8 +17,6 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import com.baidu.cloudsdk.assets.DrawableUtils;
 import com.baidu.cloudsdk.social.share.SocialShareConfig;
-import com.tencent.mm.sdk.contact.RContact;
-import com.tencent.mm.sdk.platformtools.Util;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* renamed from: ba  reason: default package */
 /* loaded from: classes.dex */
@@ -32,9 +30,7 @@ public class ba extends CheckBox {
     private float G;
     private float H;
     private SocialShareConfig I;
-
-    /* renamed from: a  reason: collision with root package name */
-    private Paint f371a;
+    private Paint a;
     private ViewParent b;
     private Bitmap c;
     private Bitmap d;
@@ -71,8 +67,8 @@ public class ba extends CheckBox {
 
     public ba(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.v = Util.MASK_8BIT;
-        this.w = Util.MASK_8BIT;
+        this.v = 255;
+        this.w = 255;
         this.x = false;
         this.E = 350.0f;
         a(context);
@@ -90,8 +86,8 @@ public class ba extends CheckBox {
     }
 
     private void a(Context context) {
-        this.f371a = new Paint();
-        this.f371a.setColor(-1);
+        this.a = new Paint();
+        this.a.setColor(-1);
         this.I = SocialShareConfig.getInstance(context);
         this.t = ViewConfiguration.getPressedStateDuration() + ViewConfiguration.getTapTimeout();
         this.u = ViewConfiguration.get(context).getScaledTouchSlop();
@@ -158,12 +154,12 @@ public class ba extends CheckBox {
     @Override // android.widget.CompoundButton, android.widget.TextView, android.view.View
     protected void onDraw(Canvas canvas) {
         canvas.saveLayerAlpha(this.i, this.w, 31);
-        canvas.drawBitmap(this.g, 0.0f, 0.0f, this.f371a);
-        this.f371a.setXfermode(this.j);
-        canvas.drawBitmap(this.c, this.m, 0.0f, this.f371a);
-        this.f371a.setXfermode(null);
-        canvas.drawBitmap(this.h, 0.0f, 0.0f, this.f371a);
-        canvas.drawBitmap(this.d, this.m, 0.0f, this.f371a);
+        canvas.drawBitmap(this.g, 0.0f, 0.0f, this.a);
+        this.a.setXfermode(this.j);
+        canvas.drawBitmap(this.c, this.m, 0.0f, this.a);
+        this.a.setXfermode(null);
+        canvas.drawBitmap(this.h, 0.0f, 0.0f, this.a);
+        canvas.drawBitmap(this.d, this.m, 0.0f, this.a);
         canvas.restore();
     }
 
@@ -249,7 +245,7 @@ public class ba extends CheckBox {
 
     @Override // android.widget.TextView, android.view.View
     public void setEnabled(boolean z) {
-        this.w = z ? Util.MASK_8BIT : RContact.MM_CONTACTFLAG_ALL;
+        this.w = z ? 255 : 127;
         super.setEnabled(z);
     }
 

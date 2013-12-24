@@ -1,7 +1,6 @@
 package com.baidu.zeus.bouncycastle;
 
 import cn.jingling.lib.file.Shared;
-import com.tencent.mm.sdk.contact.RContact;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.EOFException;
@@ -9,6 +8,7 @@ import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Vector;
+import protobuf.Im;
 /* loaded from: classes.dex */
 public class ASN1InputStream extends FilterInputStream implements DERTags {
     private DERObject END_OF_STREAM;
@@ -76,7 +76,7 @@ public class ASN1InputStream extends FilterInputStream implements DERTags {
             return -1;
         }
         if (read > 127) {
-            int i2 = read & RContact.MM_CONTACTFLAG_ALL;
+            int i2 = read & 127;
             if (i2 > 4) {
                 throw new IOException("DER length more than 4 bytes");
             }
@@ -147,9 +147,9 @@ public class ASN1InputStream extends FilterInputStream implements DERTags {
             case 16:
             case 17:
             case 21:
-            case DERTags.GRAPHIC_STRING /* 25 */:
-            case 29:
-            case 31:
+            case 25:
+            case Im.GroupInfo.AUTHORISMEIZHI_FIELD_NUMBER /* 29 */:
+            case Im.GroupInfo.FORUMSHOWNAME_FIELD_NUMBER /* 31 */:
             case 32:
             case 33:
             case 34:
@@ -200,17 +200,17 @@ public class ASN1InputStream extends FilterInputStream implements DERTags {
                 return new DERT61String(bArr);
             case 22:
                 return new DERIA5String(bArr);
-            case DERTags.UTC_TIME /* 23 */:
+            case 23:
                 return new DERUTCTime(bArr);
-            case DERTags.GENERALIZED_TIME /* 24 */:
+            case 24:
                 return new DERGeneralizedTime(bArr);
-            case DERTags.VISIBLE_STRING /* 26 */:
+            case 26:
                 return new DERVisibleString(bArr);
-            case DERTags.GENERAL_STRING /* 27 */:
+            case 27:
                 return new DERGeneralString(bArr);
-            case DERTags.UNIVERSAL_STRING /* 28 */:
+            case 28:
                 return new DERUniversalString(bArr);
-            case DERTags.BMP_STRING /* 30 */:
+            case 30:
                 return new DERBMPString(bArr);
             case 36:
                 return buildDerConstructedOctetString(bArr);
@@ -345,14 +345,14 @@ public class ASN1InputStream extends FilterInputStream implements DERTags {
             int read = read();
             int i3 = 0;
             while (read >= 0 && (read & DERTags.TAGGED) != 0) {
-                i3 = ((read & RContact.MM_CONTACTFLAG_ALL) | i3) << 7;
+                i3 = ((read & 127) | i3) << 7;
                 read = read();
             }
             if (read < 0) {
                 this.eofFound = true;
                 throw new EOFException("EOF found inside tag value.");
             }
-            return (read & RContact.MM_CONTACTFLAG_ALL) | i3;
+            return (read & 127) | i3;
         }
         return i2;
     }

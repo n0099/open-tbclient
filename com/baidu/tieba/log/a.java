@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import android.text.format.DateFormat;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.x;
+import com.baidu.tieba.util.y;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -15,13 +15,11 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class a {
     private static a n;
     private StringBuffer e;
-    private static final String c = x.f2616a + "/tieba/log";
-    private static final String d = x.f2616a + "/tieba/logbak";
+    private static final String c = y.a + "/tieba/log";
+    private static final String d = y.a + "/tieba/logbak";
     private static boolean o = false;
     private static boolean r = false;
-
-    /* renamed from: a  reason: collision with root package name */
-    private AtomicBoolean f1913a = new AtomicBoolean(false);
+    private AtomicBoolean a = new AtomicBoolean(false);
     private AtomicBoolean b = new AtomicBoolean(false);
     private int f = 0;
     private int g = 0;
@@ -129,7 +127,7 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(boolean z) {
-        if (!this.f1913a.get()) {
+        if (!this.a.get()) {
             this.f++;
         } else if (z) {
             com.baidu.adp.lib.f.d.a().a(new b(this));
@@ -147,7 +145,7 @@ public class a {
             if (TiebaApplication.h().b()) {
                 com.baidu.adp.lib.h.e.d(str);
             }
-            this.f1913a.set(true);
+            this.a.set(true);
             com.baidu.adp.lib.f.d.a().a(new c(this, str));
         }
     }
@@ -164,7 +162,7 @@ public class a {
     }
 
     private boolean e(String str) {
-        if (x.g("log", str) > 102400) {
+        if (y.g("log", str) > 102400) {
             if (this.l == UtilHelper.NetworkStateInfo.WIFI) {
                 this.p = new f(this, c + "/" + str);
                 this.p.execute(new String[0]);
@@ -186,7 +184,7 @@ public class a {
                 this.h = new File(c + "/" + c(e));
             }
             if (!this.h.exists()) {
-                x.k(c);
+                y.k(c);
                 this.h.createNewFile();
                 if (this.l != UtilHelper.NetworkStateInfo.WIFI) {
                     g(c);
@@ -235,8 +233,8 @@ public class a {
                 long j2 = 0;
                 for (File file : listFiles) {
                     if (file.isFile()) {
-                        long b = x.b(file);
-                        if (x.c(file)) {
+                        long b = y.b(file);
+                        if (y.c(file)) {
                             j2 += b;
                             if (j2 >= j && j > 0) {
                                 return;
@@ -254,7 +252,7 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void g(String str) {
-        if (x.a(str, true) > 26214400) {
+        if (y.a(str, true) > 26214400) {
             a(str, 10485760L);
         }
     }

@@ -6,26 +6,24 @@ import java.util.concurrent.ExecutionException;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends m<Result> {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ BdAsyncTask f410a;
+    final /* synthetic */ BdAsyncTask a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(BdAsyncTask bdAsyncTask, Callable callable, BdAsyncTask bdAsyncTask2) {
         super(callable, bdAsyncTask2);
-        this.f410a = bdAsyncTask;
+        this.a = bdAsyncTask;
     }
 
     @Override // java.util.concurrent.FutureTask
     protected void done() {
         try {
-            this.f410a.c((BdAsyncTask) get());
+            this.a.c((BdAsyncTask) get());
         } catch (InterruptedException e) {
         } catch (CancellationException e2) {
-            this.f410a.c((BdAsyncTask) null);
+            this.a.c((BdAsyncTask) null);
         } catch (ExecutionException e3) {
-            this.f410a.c((BdAsyncTask) null);
+            this.a.c((BdAsyncTask) null);
         } catch (Throwable th) {
             throw new RuntimeException("An error occured while executing doInBackground()", th);
         }
@@ -34,6 +32,6 @@ public class b extends m<Result> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.m
     public void a() {
-        this.f410a.cancel();
+        this.a.cancel();
     }
 }

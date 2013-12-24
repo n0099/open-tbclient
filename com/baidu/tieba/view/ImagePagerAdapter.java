@@ -12,9 +12,7 @@ import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class ImagePagerAdapter extends android.support.v4.view.ae {
-
-    /* renamed from: a  reason: collision with root package name */
-    private Context f2634a;
+    private Context a;
     private ArrayList<String> b;
     private p f;
     private View.OnClickListener c = null;
@@ -28,10 +26,10 @@ public class ImagePagerAdapter extends android.support.v4.view.ae {
     private boolean l = false;
 
     public ImagePagerAdapter(Context context, ArrayList<String> arrayList, p pVar) {
-        this.f2634a = null;
+        this.a = null;
         this.b = null;
         this.f = null;
-        this.f2634a = context;
+        this.a = context;
         this.b = arrayList;
         this.f = pVar;
     }
@@ -95,42 +93,42 @@ public class ImagePagerAdapter extends android.support.v4.view.ae {
     @Override // android.support.v4.view.ae
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
         ((ViewPager) viewGroup).removeView((View) obj);
-        if (obj instanceof bo) {
-            ((bo) obj).c();
+        if (obj instanceof bu) {
+            ((bu) obj).c();
         }
     }
 
     @Override // android.support.v4.view.ae
     public Object instantiateItem(ViewGroup viewGroup, int i) {
         if (i == this.b.size()) {
-            View inflate = LayoutInflater.from(this.f2634a).inflate(R.layout.big_image_next, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.big_image_next, (ViewGroup) null);
             ((TextView) inflate.findViewById(R.id.thread_name)).setText(this.i);
             viewGroup.addView(inflate);
             inflate.setOnClickListener(this.c);
             inflate.setOnLongClickListener(this.d);
             return inflate;
         }
-        bo boVar = new bo(this.f2634a);
+        bu buVar = new bu(this.a);
         String str = i < this.b.size() ? this.b.get(i) : null;
-        boVar.setLayoutParams(new Gallery.LayoutParams(-1, -1));
-        boVar.setImageOnClickListener(this.c);
-        boVar.setImageOnLongClickListener(this.d);
-        boVar.setIsCdn(this.k);
-        boVar.setOnSizeChangedListener(this.e);
-        ((ViewPager) viewGroup).addView(boVar, 0);
-        boVar.a(str, this.l);
-        boVar.setGifMaxUseableMem(this.g);
-        boVar.setTag(String.valueOf(i));
-        boVar.setGifSetListener(this.f);
-        return boVar;
+        buVar.setLayoutParams(new Gallery.LayoutParams(-1, -1));
+        buVar.setImageOnClickListener(this.c);
+        buVar.setImageOnLongClickListener(this.d);
+        buVar.setIsCdn(this.k);
+        buVar.setOnSizeChangedListener(this.e);
+        ((ViewPager) viewGroup).addView(buVar, 0);
+        buVar.a(str, this.l);
+        buVar.setGifMaxUseableMem(this.g);
+        buVar.setTag(String.valueOf(i));
+        buVar.setGifSetListener(this.f);
+        return buVar;
     }
 
     @Override // android.support.v4.view.ae
     public void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
         super.setPrimaryItem(viewGroup, i, obj);
-        if (obj instanceof bo) {
+        if (obj instanceof bu) {
             GalleryViewPager galleryViewPager = (GalleryViewPager) viewGroup;
-            l imageView = ((bo) obj).getImageView();
+            l imageView = ((bu) obj).getImageView();
             if (galleryViewPager.getSelectedView() == null) {
                 galleryViewPager.setSelectedView(imageView);
                 ViewParent parent = galleryViewPager.getParent();
@@ -143,9 +141,9 @@ public class ImagePagerAdapter extends android.support.v4.view.ae {
                 if (currentView != null) {
                     currentView.o();
                 }
-                ((bo) obj).a(this.l);
+                ((bu) obj).a(this.l);
                 galleryViewPager.setCurrentView(imageView);
-                if (((bo) obj).getImageType() == 1) {
+                if (((bu) obj).getImageType() == 1) {
                     this.f.a(imageView);
                 }
             }

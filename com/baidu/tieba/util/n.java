@@ -4,19 +4,17 @@ import com.baidu.browser.explorer.share.BdSharer;
 import java.io.RandomAccessFile;
 /* loaded from: classes.dex */
 public class n {
-
-    /* renamed from: a  reason: collision with root package name */
-    private String f2610a;
+    private String a;
     private String b;
     private com.baidu.tieba.data.e c;
-    private am d;
+    private an d;
     private boolean e = false;
 
     public n(String str, com.baidu.tieba.data.e eVar, String str2) {
-        this.f2610a = null;
+        this.a = null;
         this.b = null;
         this.c = null;
-        this.f2610a = str;
+        this.a = str;
         this.c = eVar;
         this.b = str2;
     }
@@ -34,8 +32,8 @@ public class n {
         long j = b % BdSharer.IMAGE_MIN_SIZE_TO_SHARE == 0 ? b / BdSharer.IMAGE_MIN_SIZE_TO_SHARE : (b / BdSharer.IMAGE_MIN_SIZE_TO_SHARE) + 1;
         int c = this.c.c();
         if (c < j) {
-            RandomAccessFile randomAccessFile = new RandomAccessFile(x.d(this.f2610a), "r");
-            bd.e("ChunkUploadHelper", "uploadChunkFile", String.format("start chunk : %d", Integer.valueOf(c)));
+            RandomAccessFile randomAccessFile = new RandomAccessFile(y.d(this.a), "r");
+            be.e("ChunkUploadHelper", "uploadChunkFile", String.format("start chunk : %d", Integer.valueOf(c)));
             if (randomAccessFile.skipBytes(c * 10240) >= c * 10240) {
                 while (true) {
                     int i = c;
@@ -47,11 +45,11 @@ public class n {
                         byte[] bArr = new byte[i2];
                         int read = randomAccessFile.read(bArr, 0, i2);
                         if (read != -1) {
-                            this.d = new am(this.b);
+                            this.d = new an(this.b);
                             this.d.a("md5", this.c.a());
                             this.d.a("total_length", String.valueOf(b));
                             this.d.a("total_num", String.valueOf(j));
-                            bd.e("ChunkUploadHelper", "uploadChunkFile", String.format("total length : %d, chunk_no : %d", Long.valueOf(b), Integer.valueOf(i)));
+                            be.e("ChunkUploadHelper", "uploadChunkFile", String.format("total length : %d, chunk_no : %d", Long.valueOf(b), Integer.valueOf(i)));
                             this.d.a("pic_chunk", bArr);
                             this.d.a("offset", String.valueOf(i * 10240));
                             this.d.a("chunk_no", String.valueOf(i + 1));
@@ -61,7 +59,7 @@ public class n {
                                 z = true;
                             } else {
                                 String n = this.d.n();
-                                bd.e("ChunkUploadHelper", "uploadChunkFile", "ret " + n);
+                                be.e("ChunkUploadHelper", "uploadChunkFile", "ret " + n);
                                 if (n == null || !this.d.c()) {
                                     this.c.a(i);
                                     DatabaseService.a(this.c);

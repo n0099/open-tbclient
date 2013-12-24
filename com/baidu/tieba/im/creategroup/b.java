@@ -9,9 +9,7 @@ import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class b implements v {
-
-    /* renamed from: a  reason: collision with root package name */
-    CreateGroupStepActivity f1619a;
+    CreateGroupStepActivity a;
     View b;
     ImageView c;
     TextView d;
@@ -20,12 +18,12 @@ public class b implements v {
     private boolean g = false;
 
     public b(CreateGroupStepActivity createGroupStepActivity) {
-        this.f1619a = null;
+        this.a = null;
         this.b = null;
         this.c = null;
         this.d = null;
         this.f = null;
-        this.f1619a = createGroupStepActivity;
+        this.a = createGroupStepActivity;
         this.b = createGroupStepActivity.getLayoutInflater().inflate(R.layout.create_group_step4_view, (ViewGroup) null);
         this.c = (ImageView) this.b.findViewById(R.id.step4_img_bg);
         this.d = (TextView) this.b.findViewById(R.id.txt_tip_view);
@@ -107,34 +105,34 @@ public class b implements v {
 
     @Override // com.baidu.tieba.im.creategroup.v
     public void k() {
-        this.f1619a.getLayoutMode().a(TiebaApplication.h().an() == 1);
-        this.f1619a.getLayoutMode().a(this.b);
+        this.a.getLayoutMode().a(TiebaApplication.h().an() == 1);
+        this.a.getLayoutMode().a(this.b);
         l();
     }
 
     private void l() {
         if (TiebaApplication.h().an() == 1) {
             if (this.g) {
-                Drawable drawable = this.f1619a.getResources().getDrawable(R.drawable.icon_jq_lbs_s_1);
+                Drawable drawable = this.a.getResources().getDrawable(R.drawable.icon_jq_lbs_s_1);
                 drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
                 this.d.setCompoundDrawables(drawable, null, null, null);
-                this.d.setTextColor(this.f1619a.getResources().getColorStateList(R.color.name_text_color_1));
+                this.d.setTextColor(this.a.getResources().getColorStateList(R.color.name_text_color_1));
                 return;
             }
-            Drawable drawable2 = this.f1619a.getResources().getDrawable(R.drawable.icon_jq_lbs_n_1);
+            Drawable drawable2 = this.a.getResources().getDrawable(R.drawable.icon_jq_lbs_n_1);
             drawable2.setBounds(0, 0, drawable2.getMinimumWidth(), drawable2.getMinimumHeight());
             this.d.setCompoundDrawables(drawable2, null, null, null);
-            this.d.setTextColor(this.f1619a.getResources().getColorStateList(R.color.listview_item_author_time_text_1));
+            this.d.setTextColor(this.a.getResources().getColorStateList(R.color.listview_item_author_time_text_1));
         } else if (this.g) {
-            Drawable drawable3 = this.f1619a.getResources().getDrawable(R.drawable.icon_jq_lbs_s);
+            Drawable drawable3 = this.a.getResources().getDrawable(R.drawable.icon_jq_lbs_s);
             drawable3.setBounds(0, 0, drawable3.getMinimumWidth(), drawable3.getMinimumHeight());
             this.d.setCompoundDrawables(drawable3, null, null, null);
-            this.d.setTextColor(this.f1619a.getResources().getColorStateList(R.color.name_text_color));
+            this.d.setTextColor(this.a.getResources().getColorStateList(R.color.name_text_color));
         } else {
-            Drawable drawable4 = this.f1619a.getResources().getDrawable(R.drawable.icon_jq_lbs_n);
+            Drawable drawable4 = this.a.getResources().getDrawable(R.drawable.icon_jq_lbs_n);
             drawable4.setBounds(0, 0, drawable4.getMinimumWidth(), drawable4.getMinimumHeight());
             this.d.setCompoundDrawables(drawable4, null, null, null);
-            this.d.setTextColor(this.f1619a.getResources().getColorStateList(R.color.listview_item_author_time_text));
+            this.d.setTextColor(this.a.getResources().getColorStateList(R.color.listview_item_author_time_text));
         }
     }
 }

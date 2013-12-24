@@ -22,4 +22,15 @@ public abstract class b {
         }
         return j;
     }
+
+    public static double a(String str, double d) {
+        if (str != null) {
+            try {
+                return Double.parseDouble(str);
+            } catch (Exception e) {
+                return d;
+            }
+        }
+        return d;
+    }
 }

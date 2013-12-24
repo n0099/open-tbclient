@@ -27,9 +27,7 @@ public class SwitchDebugService extends Service implements SensorEventListener {
     private static int d = LocationClientOption.MIN_SCAN_SPAN;
     private static int e = 4;
     private static int f = BdWebErrorView.ERROR_CODE_500;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static Properties f477a = null;
+    public static Properties a = null;
     private SensorManager g = null;
     private Vibrator h = null;
     private long i = 0;
@@ -58,14 +56,14 @@ public class SwitchDebugService extends Service implements SensorEventListener {
     }
 
     private static void a(AssetManager assetManager) {
-        if (f477a == null) {
+        if (a == null) {
             synchronized (SwitchDebugService.class) {
-                if (f477a == null) {
-                    f477a = new Properties();
+                if (a == null) {
+                    a = new Properties();
                     try {
-                        f477a.load(assetManager.open("debug/debug_ascii.conf"));
+                        a.load(assetManager.open("debug/debug_ascii.conf"));
                     } catch (IOException e2) {
-                        f477a = null;
+                        a = null;
                         e2.printStackTrace();
                     }
                 }

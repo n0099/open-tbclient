@@ -13,9 +13,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class QQFriendShareReceiverActivity extends Activity {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static final String f871a = QQFriendShareReceiverActivity.class.getSimpleName();
+    private static final String a = QQFriendShareReceiverActivity.class.getSimpleName();
     private IBaiduListener b;
 
     private Bundle a(String str) {
@@ -69,7 +67,7 @@ public class QQFriendShareReceiverActivity extends Activity {
                     JSONObject jSONObject = new JSONObject(string2);
                     if (this.b != null) {
                         if (Build.DEBUG) {
-                            Log.d(f871a, "execShareToQQCallback onComplete ");
+                            Log.d(a, "execShareToQQCallback onComplete ");
                         }
                         this.b.onComplete(jSONObject);
                     }

@@ -10,9 +10,7 @@ import com.baidu.tieba.view.HeadImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bj {
-
-    /* renamed from: a  reason: collision with root package name */
-    public HeadImageView f1474a;
+    public HeadImageView a;
     public LinearLayout b;
     public TextView c;
     public TextView d;

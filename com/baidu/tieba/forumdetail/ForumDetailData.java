@@ -1,7 +1,7 @@
 package com.baidu.tieba.forumdetail;
 
+import com.baidu.android.pushservice.PushConstants;
 import com.baidu.gson.annotations.SerializedName;
-import com.tencent.mm.sdk.platformtools.LocaleUtil;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class ForumDetailData implements Serializable {
@@ -71,7 +71,7 @@ public class ForumDetailData implements Serializable {
         public String avatar = "";
         @SerializedName("slogan")
         public String slogan = "";
-        @SerializedName("content")
+        @SerializedName(PushConstants.EXTRA_CONTENT)
         public ForumContent[] contents = new ForumContent[0];
     }
 
@@ -85,7 +85,7 @@ public class ForumDetailData implements Serializable {
 
     /* loaded from: classes.dex */
     public class ThreadInfo implements Serializable {
-        @SerializedName(LocaleUtil.INDONESIAN)
+        @SerializedName("id")
         public long id = 0;
         @SerializedName("tid")
         public long tId = 0;

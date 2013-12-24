@@ -5,27 +5,24 @@ import android.widget.ProgressBar;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tieba.data.an;
 import com.baidu.tieba.model.bv;
-import com.baidu.tieba.util.am;
-import com.baidu.tieba.util.bd;
+import com.baidu.tieba.util.be;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aa extends BdAsyncTask<Object, Integer, an> {
-
-    /* renamed from: a  reason: collision with root package name */
-    ArrayList<BasicNameValuePair> f1945a;
+    ArrayList<BasicNameValuePair> a;
     final /* synthetic */ PostActivity b;
-    private am c = null;
+    private com.baidu.tieba.util.an c = null;
     private String d;
 
     public aa(PostActivity postActivity, String str, ArrayList<BasicNameValuePair> arrayList) {
         this.b = postActivity;
         this.d = null;
-        this.f1945a = null;
+        this.a = null;
         this.d = str;
-        this.f1945a = arrayList;
+        this.a = arrayList;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -43,8 +40,8 @@ public class aa extends BdAsyncTask<Object, Integer, an> {
     public an a(Object... objArr) {
         an anVar = null;
         try {
-            this.c = new am(this.d);
-            this.c.a(this.f1945a);
+            this.c = new com.baidu.tieba.util.an(this.d);
+            this.c.a(this.a);
             String l = this.c.l();
             if (this.c.c()) {
                 an anVar2 = new an();
@@ -59,7 +56,7 @@ public class aa extends BdAsyncTask<Object, Integer, an> {
                 } catch (Exception e) {
                     anVar = anVar2;
                     e = e;
-                    bd.b("PostAsyncTask", "doInBackground", "error = " + e.getMessage());
+                    be.b("PostAsyncTask", "doInBackground", "error = " + e.getMessage());
                     return anVar;
                 }
             }

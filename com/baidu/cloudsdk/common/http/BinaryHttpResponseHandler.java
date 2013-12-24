@@ -10,17 +10,15 @@ import org.apache.http.client.HttpResponseException;
 import org.apache.http.util.EntityUtils;
 /* loaded from: classes.dex */
 public class BinaryHttpResponseHandler extends HttpResponseHandler {
-
-    /* renamed from: a  reason: collision with root package name */
-    private String[] f838a;
+    private String[] a;
 
     public BinaryHttpResponseHandler() {
-        this.f838a = new String[]{"image/jpeg", "image/png"};
+        this.a = new String[]{"image/jpeg", "image/png"};
     }
 
     public BinaryHttpResponseHandler(String[] strArr) {
-        this.f838a = new String[]{"image/jpeg", "image/png"};
-        this.f838a = strArr;
+        this.a = new String[]{"image/jpeg", "image/png"};
+        this.a = strArr;
     }
 
     protected void handleFailureMessage(Throwable th, byte[] bArr) {
@@ -68,7 +66,7 @@ public class BinaryHttpResponseHandler extends HttpResponseHandler {
             return;
         }
         Header header = headers[0];
-        String[] strArr = this.f838a;
+        String[] strArr = this.a;
         int length = strArr.length;
         int i = 0;
         while (true) {

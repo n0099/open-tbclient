@@ -11,15 +11,12 @@ import android.widget.TextView;
 import com.baidu.browser.core.util.BdUtil;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tieba.util.DatabaseService;
-import com.baidu.tieba.util.ba;
+import com.baidu.tieba.util.bb;
 import com.baidu.tieba.view.BaseWebView;
 import com.slidingmenu.lib.R;
-import com.tencent.mm.sdk.platformtools.Util;
 /* loaded from: classes.dex */
 public class AppsActivity extends com.baidu.tieba.j {
-
-    /* renamed from: a  reason: collision with root package name */
-    private String f2054a = null;
+    private String a = null;
     private BaseWebView b = null;
     private ImageView c = null;
     private v d = null;
@@ -52,11 +49,11 @@ public class AppsActivity extends com.baidu.tieba.j {
 
     private void a(Bundle bundle) {
         if (bundle != null) {
-            this.f2054a = bundle.getString(SocialConstants.PARAM_URL);
+            this.a = bundle.getString(SocialConstants.PARAM_URL);
         } else {
-            this.f2054a = getIntent().getStringExtra(SocialConstants.PARAM_URL);
+            this.a = getIntent().getStringExtra(SocialConstants.PARAM_URL);
         }
-        if (System.currentTimeMillis() - com.baidu.tieba.sharedPref.b.a().a("app_inverval", 0L) > Util.MILLSECONDS_OF_DAY) {
+        if (System.currentTimeMillis() - com.baidu.tieba.sharedPref.b.a().a("app_inverval", 0L) > 86400000) {
             b();
         } else if (!d()) {
             b();
@@ -68,7 +65,7 @@ public class AppsActivity extends com.baidu.tieba.j {
         if (this.d != null) {
             this.d.cancel();
         }
-        this.d = new v(this, this.f2054a);
+        this.d = new v(this, this.a);
         this.d.setPriority(3);
         this.d.execute(new Object[0]);
     }
@@ -77,12 +74,12 @@ public class AppsActivity extends com.baidu.tieba.j {
     @Override // com.baidu.tieba.j
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        ba.a(this.h, i);
-        ba.a(this.b, i);
-        ba.d(this.i, i);
-        ba.a(this.c, i);
-        ba.e(this.j, i);
-        ba.b(this.g, i);
+        bb.a(this.h, i);
+        bb.a(this.b, i);
+        bb.d(this.i, i);
+        bb.a(this.c, i);
+        bb.e(this.j, i);
+        bb.b(this.g, i);
     }
 
     private void c() {
@@ -107,7 +104,7 @@ public class AppsActivity extends com.baidu.tieba.j {
             return false;
         }
         this.f.setVisibility(8);
-        this.b.loadDataWithBaseURL(com.baidu.tieba.data.h.f1248a, b, "text/html", BdUtil.UTF8, "");
+        this.b.loadDataWithBaseURL(com.baidu.tieba.data.h.a, b, "text/html", BdUtil.UTF8, "");
         return true;
     }
 }

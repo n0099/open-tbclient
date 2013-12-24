@@ -10,27 +10,25 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class PartSwipeableViewPager extends ViewPager {
-
-    /* renamed from: a  reason: collision with root package name */
-    private ArrayList<View> f2644a;
+    private ArrayList<View> a;
     private boolean b;
     private boolean c;
 
     public PartSwipeableViewPager(Context context) {
         super(context);
-        this.f2644a = new ArrayList<>();
+        this.a = new ArrayList<>();
     }
 
     public PartSwipeableViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f2644a = new ArrayList<>();
+        this.a = new ArrayList<>();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.support.v4.view.ViewPager, android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        this.f2644a.clear();
+        this.a.clear();
         a((ViewGroup) this);
     }
 
@@ -43,7 +41,7 @@ public class PartSwipeableViewPager extends ViewPager {
                 Object tag = childAt.getTag();
                 if (tag instanceof String) {
                     if ("scroll".equals((String) tag)) {
-                        this.f2644a.add(childAt);
+                        this.a.add(childAt);
                     } else {
                         a(viewGroup2);
                     }
@@ -53,14 +51,14 @@ public class PartSwipeableViewPager extends ViewPager {
             } else {
                 Object tag2 = childAt.getTag();
                 if ((tag2 instanceof String) && "scroll".equals((String) tag2)) {
-                    this.f2644a.add(childAt);
+                    this.a.add(childAt);
                 }
             }
         }
     }
 
     private boolean a(MotionEvent motionEvent) {
-        Iterator<View> it = this.f2644a.iterator();
+        Iterator<View> it = this.a.iterator();
         while (it.hasNext()) {
             View next = it.next();
             int[] iArr = new int[2];

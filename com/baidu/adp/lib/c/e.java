@@ -7,12 +7,10 @@ import java.util.Locale;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements BDLocationListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f423a;
+    final /* synthetic */ a a;
 
     private e(a aVar) {
-        this.f423a = aVar;
+        this.a = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -29,16 +27,16 @@ public class e implements BDLocationListener {
         Address address4;
         Address address5;
         if (bDLocation != null && bDLocation.getLocType() != 62 && bDLocation.getLocType() != 63 && bDLocation.getLocType() != 67 && bDLocation.getLocType() != 68 && bDLocation.getLocType() <= 161) {
-            this.f423a.j = 0;
-            this.f423a.d();
-            this.f423a.l = new Address(Locale.getDefault());
-            address = this.f423a.l;
+            this.a.j = 0;
+            this.a.d();
+            this.a.l = new Address(Locale.getDefault());
+            address = this.a.l;
             address.setLatitude(bDLocation.getLatitude());
-            address2 = this.f423a.l;
+            address2 = this.a.l;
             address2.setLongitude(bDLocation.getLongitude());
-            address3 = this.f423a.l;
+            address3 = this.a.l;
             address3.setLocality(bDLocation.getCity());
-            this.f423a.f420a = System.currentTimeMillis();
+            this.a.a = System.currentTimeMillis();
             StringBuffer stringBuffer = new StringBuffer();
             if (bDLocation.getDistrict() == null || bDLocation.getStreet() == null) {
                 stringBuffer.append(bDLocation.getCity());
@@ -46,12 +44,12 @@ public class e implements BDLocationListener {
             stringBuffer.append(bDLocation.getDistrict());
             stringBuffer.append(bDLocation.getStreet());
             if (bDLocation.getAddrStr() != null) {
-                address5 = this.f423a.l;
+                address5 = this.a.l;
                 address5.setAddressLine(0, stringBuffer.toString());
             }
-            a aVar = this.f423a;
-            i = this.f423a.j;
-            address4 = this.f423a.l;
+            a aVar = this.a;
+            i = this.a.j;
+            address4 = this.a.l;
             aVar.a(i, "", address4);
         }
     }

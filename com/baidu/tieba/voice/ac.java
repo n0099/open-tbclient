@@ -1,17 +1,16 @@
 package com.baidu.tieba.voice;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.zeus.NotificationProxy;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ac extends BdAsyncTask<Void, Void, Void> {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ VoiceManager f2718a;
+    final /* synthetic */ VoiceManager a;
 
     private ac(VoiceManager voiceManager) {
-        this.f2718a = voiceManager;
+        this.a = voiceManager;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -36,10 +35,10 @@ public class ac extends BdAsyncTask<Void, Void, Void> {
             th = th;
         }
         try {
-            char[] cArr = new char[1024];
-            this.f2718a.l = Integer.valueOf(new String(cArr, 0, fileReader.read(cArr, 0, 1024)).trim()).intValue() != 0;
-            if (this.f2718a.l) {
-                this.f2718a.d(false);
+            char[] cArr = new char[NotificationProxy.MAX_URL_LENGTH];
+            this.a.l = Integer.valueOf(new String(cArr, 0, fileReader.read(cArr, 0, NotificationProxy.MAX_URL_LENGTH)).trim()).intValue() != 0;
+            if (this.a.l) {
+                this.a.d(false);
             }
             if (fileReader != null) {
                 try {

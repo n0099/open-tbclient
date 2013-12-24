@@ -1,29 +1,48 @@
 package com.baidu.tieba.util;
+
+import java.util.ArrayList;
+import java.util.Hashtable;
 /* loaded from: classes.dex */
-public class aa {
-    private com.baidu.tieba.im.model.z c;
-    private ad d;
+public class aa extends Thread {
+    private int a;
+    private String b;
+    private Hashtable<String, Integer> c;
 
-    /* renamed from: a  reason: collision with root package name */
-    private double f2575a = 0.0d;
-    private double b = 0.0d;
-    private com.baidu.adp.lib.c.d e = new ab(this);
-    private com.baidu.tieba.im.messageCenter.g f = new ac(this);
-
-    public aa(ad adVar) {
+    public aa(Hashtable<String, Integer> hashtable) {
+        this.a = 3;
+        this.b = null;
         this.c = null;
-        this.d = null;
-        this.c = new com.baidu.tieba.im.model.z();
-        this.d = adVar;
-        com.baidu.tieba.im.messageCenter.e.a().a(103010, this.f);
+        this.a = 3;
+        this.c = hashtable;
     }
 
-    public void a() {
-        com.baidu.adp.lib.c.a.a().a(true, this.e);
+    public aa(int i, String str) {
+        this.a = 3;
+        this.b = null;
+        this.c = null;
+        this.a = i;
+        this.b = str;
     }
 
-    public void b() {
-        this.c.b();
-        com.baidu.tieba.im.messageCenter.e.a().a(this.f);
+    @Override // java.lang.Thread, java.lang.Runnable
+    public void run() {
+        ArrayList<String> y;
+        super.run();
+        try {
+            if (this.a == 3) {
+                if (this.c != null && (y = DatabaseService.y()) != null) {
+                    int size = y.size();
+                    for (int i = 0; i < size; i++) {
+                        this.c.put(y.get(i), 1);
+                    }
+                }
+            } else if (this.a == 2) {
+                DatabaseService.s(this.b);
+            } else if (this.a == 1) {
+                DatabaseService.r(this.b);
+            }
+        } catch (Exception e) {
+            be.b(getClass().getName(), "run", e.getMessage());
+        }
     }
 }

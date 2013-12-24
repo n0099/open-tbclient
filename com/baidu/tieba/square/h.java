@@ -5,16 +5,14 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class h extends com.baidu.tieba.data.a {
-
-    /* renamed from: a  reason: collision with root package name */
-    private ArrayList<z> f2523a = new ArrayList<>();
+    private ArrayList<z> a = new ArrayList<>();
 
     public ArrayList<z> d() {
-        return this.f2523a;
+        return this.a;
     }
 
     public void a(ArrayList<z> arrayList) {
-        this.f2523a = arrayList;
+        this.a = arrayList;
         a((String) null);
     }
 

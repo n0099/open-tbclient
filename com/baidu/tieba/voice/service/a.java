@@ -2,16 +2,13 @@ package com.baidu.tieba.voice.service;
 
 import android.media.AudioRecord;
 import android.util.Log;
-import com.tencent.mm.sdk.platformtools.LVBuffer;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 /* loaded from: classes.dex */
 public class a implements h {
-
-    /* renamed from: a  reason: collision with root package name */
-    public static int f2739a = 8000;
+    public static int a = 8000;
     public static int b = 2;
     public static int c = 2;
     public static int d = 1;
@@ -29,7 +26,7 @@ public class a implements h {
     private File j = null;
 
     public boolean a(int i, int i2, int i3, int i4, String str) {
-        this.e = AudioRecord.getMinBufferSize(i2, i3, i4) + LVBuffer.MAX_STRING_LENGTH;
+        this.e = AudioRecord.getMinBufferSize(i2, i3, i4) + 2048;
         this.l = i2;
         this.m = i3;
         this.n = i4;
@@ -71,7 +68,7 @@ public class a implements h {
 
     @Override // com.baidu.tieba.voice.service.h
     public boolean a(String str) {
-        return a(d, f2739a, b, c, str);
+        return a(d, a, b, c, str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

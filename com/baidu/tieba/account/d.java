@@ -1,40 +1,50 @@
 package com.baidu.tieba.account;
 
-import com.baidu.loginshare.ILoginShareListener;
-import com.baidu.loginshare.LoginShareEvent;
-import com.baidu.loginshare.Token;
-import com.baidu.tieba.util.bd;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.app.Activity;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tieba.data.AccountData;
+import com.baidu.tieba.util.DatabaseService;
 /* loaded from: classes.dex */
-public class d implements ILoginShareListener {
+class d extends BdAsyncTask<Void, Void, AccountData> {
+    final /* synthetic */ String a;
+    final /* synthetic */ c b;
 
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f1076a;
-
-    private d(a aVar) {
-        this.f1076a = aVar;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public d(c cVar, String str) {
+        this.b = cVar;
+        this.a = str;
     }
 
-    @Override // com.baidu.loginshare.ILoginShareListener
-    public void onLoginShareEvent(Token token) {
-        if (token != null) {
-            LoginShareEvent loginShareEvent = token.mEvent;
-            String str = token.mUsername;
-            String str2 = token.mBduss;
-            String str3 = token.mPtoken;
-            bd.e(getClass().getName(), "onLoginShareEvent", "bduss = " + str2);
-            bd.e(getClass().getName(), "onLoginShareEvent", "username = " + str);
-            bd.e(getClass().getName(), "onLoginShareEvent", "ptoken = " + str3);
-            if (loginShareEvent == LoginShareEvent.VALID) {
-                if (str2 != null && str3 != null) {
-                    bd.e(getClass().getName(), "onLoginShareEvent", "login");
-                    this.f1076a.a(true, str2, str3, str);
-                    return;
-                }
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public AccountData a(Void... voidArr) {
+        return DatabaseService.l(this.a);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(AccountData accountData) {
+        boolean z;
+        Activity activity;
+        int i;
+        as asVar;
+        super.a((d) accountData);
+        if (accountData == null || com.baidu.tieba.util.bc.c(accountData.getPassword())) {
+            z = this.b.a.g;
+            if (!z) {
+                a aVar = this.b.a;
+                activity = this.b.a.b;
+                i = this.b.a.c;
+                aVar.a(activity, i);
                 return;
             }
-            bd.e(getClass().getName(), "onLoginShareEvent", "logout");
-            this.f1076a.a(false, null, null, null);
+            return;
         }
+        String account = accountData.getAccount();
+        String password = accountData.getPassword();
+        asVar = this.b.a.j;
+        ar.a(account, password, asVar);
     }
 }

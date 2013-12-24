@@ -6,17 +6,15 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
-import com.baidu.tieba.ap;
+import com.baidu.tieba.ao;
 import com.baidu.tieba.im.data.BaseGroupData;
 import com.baidu.tieba.im.groupInfo.GroupInfoActivity;
-import com.baidu.tieba.im.model.aa;
+import com.baidu.tieba.im.model.al;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class AddGroupActivity extends com.baidu.tieba.j {
-
-    /* renamed from: a  reason: collision with root package name */
-    private b f1871a = null;
-    private aa b = null;
+    private b a = null;
+    private al b = null;
     private com.baidu.tieba.im.messageCenter.g c = new a(this);
 
     public static void a(Activity activity) {
@@ -29,8 +27,8 @@ public class AddGroupActivity extends com.baidu.tieba.j {
         super.onCreate(bundle);
         if (getIntent() != null) {
         }
-        this.f1871a = new b(this);
-        this.b = new aa();
+        this.a = new b(this);
+        this.b = new al();
         com.baidu.tieba.im.messageCenter.e.a().a(103007, this.c);
     }
 
@@ -38,21 +36,21 @@ public class AddGroupActivity extends com.baidu.tieba.j {
     @Override // com.baidu.tieba.j
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.f1871a.a(i);
+        this.a.a(i);
     }
 
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.f1871a.f()) {
+        if (view == this.a.f()) {
             finish();
-        } else if (view == this.f1871a.e()) {
-            ap.a(this, "add_group_searchbtn_click");
+        } else if (view == this.a.e()) {
+            ao.a(this, "add_group_searchbtn_click");
             if (view.getTag() instanceof String) {
                 a((String) view.getTag());
             }
-        } else if (view == this.f1871a.a()) {
-            this.f1871a.g();
+        } else if (view == this.a.a()) {
+            this.a.g();
         }
     }
 
@@ -78,12 +76,12 @@ public class AddGroupActivity extends com.baidu.tieba.j {
     public void a(String str) {
         if (!TextUtils.isEmpty(str) && TextUtils.isDigitsOnly(str)) {
             try {
-                this.f1871a.a(true);
-                this.b.a(Long.parseLong(str));
+                this.a.a(true);
+                this.b.a(Integer.parseInt(str));
                 return;
             } catch (NumberFormatException e) {
                 e.printStackTrace();
-                this.f1871a.a(false);
+                this.a.a(false);
                 showToast(R.string.groupid_error);
                 return;
             }

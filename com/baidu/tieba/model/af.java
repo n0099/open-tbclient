@@ -1,9 +1,7 @@
 package com.baidu.tieba.model;
 /* loaded from: classes.dex */
 public class af {
-
-    /* renamed from: a  reason: collision with root package name */
-    public boolean f1981a;
+    public boolean a;
     public String b;
     public int c;
     public String d;

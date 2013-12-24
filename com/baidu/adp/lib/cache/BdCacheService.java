@@ -4,9 +4,7 @@ import android.content.Context;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class BdCacheService {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static BdCacheService f425a;
+    private static BdCacheService a;
     private z b;
     private Context c;
     private com.baidu.adp.a.h d;
@@ -44,10 +42,10 @@ public class BdCacheService {
     }
 
     public static BdCacheService c() {
-        if (f425a == null) {
-            f425a = new BdCacheService("baidu_adp.db");
+        if (a == null) {
+            a = new BdCacheService("baidu_adp.db");
         }
-        return f425a;
+        return a;
     }
 
     public synchronized String a(c<?> cVar, String str, String str2, int i) {
@@ -57,7 +55,7 @@ public class BdCacheService {
         a2 = d.a(str);
         if (a2 == null) {
             a2 = new n();
-            a2.f434a = str;
+            a2.a = str;
             a2.e = a3;
             a2.d = str2;
             a2.c = i;

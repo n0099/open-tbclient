@@ -9,23 +9,21 @@ import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class a extends RelativeLayout {
-
-    /* renamed from: a  reason: collision with root package name */
-    private Context f1272a;
+    private Context a;
 
     public a(Context context) {
         super(context);
-        this.f1272a = context;
+        this.a = context;
     }
 
     public a(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f1272a = context;
+        this.a = context;
     }
 
     public a(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f1272a = context;
+        this.a = context;
     }
 
     private boolean d() {
@@ -33,9 +31,9 @@ public class a extends RelativeLayout {
     }
 
     public TextView a(EditorToolButton editorToolButton, boolean z) {
-        TextView textView = new TextView(this.f1272a);
+        TextView textView = new TextView(this.a);
         textView.setTextSize(10.0f);
-        textView.setTextColor(this.f1272a.getResources().getColor(d() ? R.color.top_msg_num_night : R.color.top_msg_num_day));
+        textView.setTextColor(this.a.getResources().getColor(d() ? R.color.top_msg_num_night : R.color.top_msg_num_day));
         textView.setGravity(17);
         if (z) {
             textView.setBackgroundResource(d() ? R.drawable.icon_news_prompt_1 : R.drawable.icon_news_prompt);

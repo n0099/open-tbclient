@@ -5,19 +5,17 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aa implements View.OnTouchListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ y f1288a;
+    final /* synthetic */ y a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(y yVar) {
-        this.f1288a = yVar;
+        this.a = yVar;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        if (this.f1288a.t.isShowing()) {
-            this.f1288a.t.dismiss();
+        if (this.a.t.isShowing()) {
+            this.a.t.dismiss();
             return false;
         }
         return false;

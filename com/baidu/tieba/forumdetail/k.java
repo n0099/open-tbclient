@@ -8,15 +8,13 @@ import com.baidu.tieba.pb.NewPbActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements View.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f1334a;
+    final /* synthetic */ String a;
     final /* synthetic */ ItemHotThreadView b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(ItemHotThreadView itemHotThreadView, String str) {
         this.b = itemHotThreadView;
-        this.f1334a = str;
+        this.a = str;
     }
 
     @Override // android.view.View.OnClickListener
@@ -24,10 +22,10 @@ public class k implements View.OnClickListener {
         Context context;
         Context context2;
         if (TiebaApplication.h().t()) {
-            context2 = this.b.f1323a;
+            context2 = this.b.a;
             StatService.onEvent(context2, "detail_hot_thread", "click", 1);
         }
-        context = this.b.f1323a;
-        NewPbActivity.a(context, this.f1334a, "", "");
+        context = this.b.a;
+        NewPbActivity.a(context, this.a, "", "");
     }
 }

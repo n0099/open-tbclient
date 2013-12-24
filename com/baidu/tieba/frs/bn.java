@@ -28,7 +28,6 @@ import com.baidu.tieba.view.NoNetworkView;
 import com.baidu.zeus.bouncycastle.DERTags;
 import com.slidingmenu.lib.R;
 import com.slidingmenu.lib.SlidingMenu;
-import com.tencent.mm.sdk.platformtools.Util;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class bn {
@@ -61,17 +60,15 @@ public class bn {
     private TextView w = null;
     private View x = null;
     private int y = 0;
-    private com.baidu.tieba.view.bk z = null;
+    private com.baidu.tieba.view.bq z = null;
     private bs A = null;
     private com.baidu.tieba.view.an B = null;
     private SlidingMenu C = null;
     private String D = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    AlertDialog f1395a = null;
+    AlertDialog a = null;
     Animation b = null;
     private DialogInterface.OnClickListener F = null;
-    private com.baidu.tieba.view.ba G = null;
+    private com.baidu.tieba.view.az G = null;
     private View.OnTouchListener M = new bq(this);
 
     public bn(FrsActivity frsActivity, View.OnClickListener onClickListener) {
@@ -99,10 +96,10 @@ public class bn {
         this.g = this.L.a("");
         this.f = this.L.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.E);
         this.h = this.L.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, NavigationBar.ControlType.EDIT_BUTTON, this.E);
-        View a2 = this.L.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.nb_item_frs_more, (View.OnClickListener) null);
-        this.x = a2.findViewById(R.id.frs_top_more);
+        View a = this.L.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.nb_item_frs_more, (View.OnClickListener) null);
+        this.x = a.findViewById(R.id.frs_top_more);
         this.x.setOnClickListener(this.E);
-        this.w = (TextView) a2.findViewById(R.id.frs_more_mes_text);
+        this.w = (TextView) a.findViewById(R.id.frs_more_mes_text);
         this.j = (FrameLayout) this.d.findViewById(R.id.refresh_layout);
         this.k = (ImageView) this.d.findViewById(R.id.refresh_bg);
         this.l = (ImageView) this.d.findViewById(R.id.refresh_icon);
@@ -115,7 +112,7 @@ public class bn {
             this.r.setCanceledOnTouchOutside(true);
         }
         this.m = (BdListView) this.d.findViewById(R.id.frs_lv_thread);
-        this.z = new com.baidu.tieba.view.bk(this.d);
+        this.z = new com.baidu.tieba.view.bq(this.d);
         this.m.setPullRefresh(this.z);
         this.m.setDivider(null);
         this.m.setDividerHeight(0);
@@ -123,7 +120,7 @@ public class bn {
         this.s = new FrsHeaderView(this.d, FrsHeaderView.PAGE.FRS_LIST, null, null);
         this.t = new com.baidu.tieba.view.ab(this.d, null, null);
         this.u = new com.baidu.tieba.view.w(this.d);
-        this.n = new ah(this.d, null, com.baidu.adp.lib.h.g.b(this.d), com.baidu.tieba.util.bc.a().b());
+        this.n = new ah(this.d, null, com.baidu.adp.lib.h.g.b(this.d), com.baidu.tieba.util.bd.a().b());
         this.b = AnimationUtils.loadAnimation(this.d, R.anim.refresh_rotate);
         this.b.setInterpolator(new LinearInterpolator());
         this.b.setFillAfter(true);
@@ -173,8 +170,8 @@ public class bn {
         return false;
     }
 
-    public void a(com.baidu.tieba.view.ba baVar) {
-        this.G = baVar;
+    public void a(com.baidu.tieba.view.az azVar) {
+        this.G = azVar;
         if (this.K != null) {
             this.K.a(this.G);
         }
@@ -223,8 +220,8 @@ public class bn {
         } else {
             builder.setItems(new String[]{string, string2, string3}, this.F);
         }
-        this.f1395a = builder.create();
-        this.f1395a.setCanceledOnTouchOutside(true);
+        this.a = builder.create();
+        this.a.setCanceledOnTouchOutside(true);
     }
 
     public void a(com.baidu.adp.widget.ListView.b bVar) {
@@ -256,8 +253,8 @@ public class bn {
     }
 
     public void k() {
-        if (this.f1395a != null) {
-            this.f1395a.show();
+        if (this.a != null) {
+            this.a.show();
         }
     }
 
@@ -659,16 +656,16 @@ public class bn {
 
     public void a(com.baidu.tieba.model.ap apVar) {
         this.A.a(apVar);
-        long a2 = apVar.a() + apVar.b();
+        long a = apVar.a() + apVar.b();
         boolean z = TiebaApplication.h().an() == 1;
-        if (a2 > 0 && this.x.getVisibility() == 0) {
+        if (a > 0 && this.x.getVisibility() == 0) {
             this.w.setVisibility(0);
-            if (a2 < 10) {
-                this.w.setText(String.valueOf(a2));
+            if (a < 10) {
+                this.w.setText(String.valueOf(a));
                 this.w.setBackgroundResource(z ? R.drawable.icon_news_head_prompt_one_1 : R.drawable.icon_news_head_prompt_one);
                 return;
-            } else if (a2 < 100) {
-                this.w.setText(String.valueOf(a2));
+            } else if (a < 100) {
+                this.w.setText(String.valueOf(a));
                 this.w.setBackgroundResource(z ? R.drawable.icon_news_head_prompt_two_1 : R.drawable.icon_news_head_prompt_two);
                 return;
             } else {
@@ -696,7 +693,7 @@ public class bn {
         this.u.a(i);
         this.A.b(i);
         this.s.a(i);
-        ((FrsActivity) this.d).e();
+        ((FrsActivity) this.d).f();
         this.d.getLayoutMode().a(i == 1);
         this.d.getLayoutMode().a(this.e);
         this.L.c(i);
@@ -708,8 +705,8 @@ public class bn {
             this.l.setAlpha(DERTags.TAGGED);
             return;
         }
-        this.k.setAlpha(Util.MASK_8BIT);
-        this.l.setAlpha(Util.MASK_8BIT);
+        this.k.setAlpha(255);
+        this.l.setAlpha(255);
     }
 
     public void J() {

@@ -6,14 +6,12 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 class g implements IBaiduListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    private a f2758a;
+    private a a;
     private boolean b = true;
     private f c;
 
     public g(a aVar) {
-        this.f2758a = aVar;
+        this.a = aVar;
     }
 
     public void a(boolean z) {
@@ -26,11 +24,11 @@ class g implements IBaiduListener {
 
     private void a() {
         if (this.b) {
-            this.f2758a.a();
+            this.a.a();
             this.c.a();
             return;
         }
-        this.f2758a.c();
+        this.a.c();
     }
 
     @Override // com.baidu.cloudsdk.IBaiduListener
@@ -50,15 +48,15 @@ class g implements IBaiduListener {
 
     @Override // com.baidu.cloudsdk.IBaiduListener
     public void onCancel() {
-        this.f2758a.b();
+        this.a.b();
     }
 
     @Override // com.baidu.cloudsdk.IBaiduListener
     public void onError(BaiduException baiduException) {
         if (this.b) {
-            this.f2758a.d();
+            this.a.d();
         } else {
-            this.f2758a.d();
+            this.a.d();
         }
     }
 }

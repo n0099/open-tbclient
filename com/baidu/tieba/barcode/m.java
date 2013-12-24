@@ -5,24 +5,27 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-import com.baidu.tieba.util.bd;
+import com.baidu.tieba.util.be;
+import com.google.zxing.BinaryBitmap;
 import com.google.zxing.DecodeHintType;
+import com.google.zxing.MultiFormatReader;
+import com.google.zxing.PlanarYUVLuminanceSource;
 import com.google.zxing.ReaderException;
+import com.google.zxing.Result;
+import com.google.zxing.common.HybridBinarizer;
 import com.slidingmenu.lib.R;
 import java.io.ByteArrayOutputStream;
 import java.util.Map;
 /* loaded from: classes.dex */
 final class m extends Handler {
-
-    /* renamed from: a  reason: collision with root package name */
-    private final CaptureActivity f1153a;
+    private final CaptureActivity a;
     private boolean c = true;
-    private final com.google.zxing.d b = new com.google.zxing.d();
+    private final MultiFormatReader b = new MultiFormatReader();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(CaptureActivity captureActivity, Map<DecodeHintType, Object> map) {
-        this.b.a(map);
-        this.f1153a = captureActivity;
+        this.b.setHints(map);
+        this.a = captureActivity;
     }
 
     @Override // android.os.Handler
@@ -44,29 +47,29 @@ final class m extends Handler {
 
     private void a(byte[] bArr, int i, int i2) {
         long currentTimeMillis = System.currentTimeMillis();
-        com.google.zxing.h hVar = null;
+        Result result = null;
         byte[] bArr2 = new byte[bArr.length];
         for (int i3 = 0; i3 < i2; i3++) {
             for (int i4 = 0; i4 < i; i4++) {
                 bArr2[(((i4 * i2) + i2) - i3) - 1] = bArr[(i3 * i) + i4];
             }
         }
-        com.google.zxing.e a2 = this.f1153a.c().a(bArr2, i2, i);
-        if (a2 != null) {
+        PlanarYUVLuminanceSource a = this.a.c().a(bArr2, i2, i);
+        if (a != null) {
             try {
-                hVar = this.b.a(new com.google.zxing.b(new com.google.zxing.common.h(a2)));
+                result = this.b.decodeWithState(new BinaryBitmap(new HybridBinarizer(a)));
             } catch (ReaderException e) {
             } finally {
-                this.b.a();
+                this.b.reset();
             }
         }
-        Handler b = this.f1153a.b();
-        if (hVar != null) {
-            bd.e(getClass().getName(), "decode", "Found barcode in " + (System.currentTimeMillis() - currentTimeMillis) + " ms");
+        Handler b = this.a.b();
+        if (result != null) {
+            be.e(getClass().getName(), "decode", "Found barcode in " + (System.currentTimeMillis() - currentTimeMillis) + " ms");
             if (b != null) {
-                Message obtain = Message.obtain(b, R.id.decode_succeeded, hVar);
+                Message obtain = Message.obtain(b, R.id.decode_succeeded, result);
                 Bundle bundle = new Bundle();
-                a(a2, bundle);
+                a(a, bundle);
                 obtain.setData(bundle);
                 obtain.sendToTarget();
             }
@@ -75,13 +78,13 @@ final class m extends Handler {
         }
     }
 
-    private static void a(com.google.zxing.e eVar, Bundle bundle) {
-        int[] d = eVar.d();
-        int e = eVar.e();
-        Bitmap createBitmap = Bitmap.createBitmap(d, 0, e, e, eVar.f(), Bitmap.Config.ARGB_8888);
+    private static void a(PlanarYUVLuminanceSource planarYUVLuminanceSource, Bundle bundle) {
+        int[] renderThumbnail = planarYUVLuminanceSource.renderThumbnail();
+        int thumbnailWidth = planarYUVLuminanceSource.getThumbnailWidth();
+        Bitmap createBitmap = Bitmap.createBitmap(renderThumbnail, 0, thumbnailWidth, thumbnailWidth, planarYUVLuminanceSource.getThumbnailHeight(), Bitmap.Config.ARGB_8888);
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         createBitmap.compress(Bitmap.CompressFormat.JPEG, 50, byteArrayOutputStream);
         bundle.putByteArray("barcode_bitmap", byteArrayOutputStream.toByteArray());
-        bundle.putFloat("barcode_scaled_factor", e / eVar.b());
+        bundle.putFloat("barcode_scaled_factor", thumbnailWidth / planarYUVLuminanceSource.getWidth());
     }
 }

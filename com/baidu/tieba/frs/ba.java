@@ -4,22 +4,20 @@ import com.baidu.mobstat.StatService;
 import com.baidu.tieba.TiebaApplication;
 /* loaded from: classes.dex */
 class ba implements com.baidu.adp.widget.ScrollView.n {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsImageActivity f1383a;
+    final /* synthetic */ FrsImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ba(FrsImageActivity frsImageActivity) {
-        this.f1383a = frsImageActivity;
+        this.a = frsImageActivity;
     }
 
     @Override // com.baidu.adp.widget.ScrollView.n
     public void a() {
         if (TiebaApplication.h().t()) {
-            StatService.onEvent(this.f1383a, "frs_pulldown", "frsclick", 1);
+            StatService.onEvent(this.a, "frs_pulldown", "frsclick", 1);
         }
-        this.f1383a.r = null;
-        this.f1383a.q = true;
-        this.f1383a.c(1);
+        this.a.r = null;
+        this.a.q = true;
+        this.a.c(1);
     }
 }

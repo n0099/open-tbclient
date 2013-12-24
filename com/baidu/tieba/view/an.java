@@ -13,9 +13,7 @@ import android.widget.ProgressBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class an extends Dialog {
-
-    /* renamed from: a  reason: collision with root package name */
-    private Window f2660a;
+    private Window a;
     private ImageView b;
     private View c;
     private ProgressBar d;
@@ -31,7 +29,7 @@ public class an extends Dialog {
 
     public an(Context context, int i, int i2) {
         super(context, R.style.big_image_dialog);
-        this.f2660a = null;
+        this.a = null;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -128,14 +126,14 @@ public class an extends Dialog {
     }
 
     public void b() {
-        this.f2660a = getWindow();
-        this.f2660a.setWindowAnimations(R.style.big_image_dialog_anim);
-        WindowManager.LayoutParams attributes = this.f2660a.getAttributes();
+        this.a = getWindow();
+        this.a.setWindowAnimations(R.style.big_image_dialog_anim);
+        WindowManager.LayoutParams attributes = this.a.getAttributes();
         attributes.x = this.j;
         attributes.y = this.k;
         attributes.horizontalMargin = 0.0f;
         attributes.verticalMargin = 0.0f;
         attributes.gravity = 51;
-        this.f2660a.setAttributes(attributes);
+        this.a.setAttributes(attributes);
     }
 }

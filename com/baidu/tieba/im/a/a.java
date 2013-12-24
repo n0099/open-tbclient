@@ -1,47 +1,78 @@
 package com.baidu.tieba.im.a;
 
-import com.baidu.cloudsdk.social.core.SocialConstants;
-import com.baidu.tieba.im.b.q;
-import com.baidu.tieba.im.data.AddGroupInfoData;
-import com.baidu.tieba.im.message.Message;
-import com.baidu.tieba.im.message.ResponseAddGroupMessage;
-import com.tencent.mm.sdk.message.RMsgInfo;
-import java.util.LinkedList;
+import android.text.TextUtils;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.im.c.l;
+import com.baidu.tieba.im.c.m;
+import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
+import com.baidu.tieba.im.message.t;
+import com.baidu.tieba.im.message.u;
+import com.baidu.tieba.im.messageCenter.g;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class a implements com.baidu.tieba.im.b.n<com.baidu.tieba.im.b.a.d> {
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.util.LinkedList, java.lang.Object, com.baidu.tieba.im.b.q, int] */
-    @Override // com.baidu.tieba.im.b.n
-    public /* bridge */ /* synthetic */ void a(LinkedList linkedList, com.baidu.tieba.im.b.a.d dVar, q qVar, int i) {
-        a2((LinkedList<Message>) linkedList, dVar, qVar, i);
+public class a implements l {
+    public static boolean a = true;
+    private int c;
+    private int d;
+    private e e;
+    private boolean b = false;
+    private g f = new b(this);
+    private l g = new c(this);
+    private g h = new d(this);
+
+    public void a(e eVar) {
+        this.e = eVar;
     }
 
-    /* renamed from: a  reason: avoid collision after fix types in other method */
-    public void a2(LinkedList<Message> linkedList, com.baidu.tieba.im.b.a.d dVar, q qVar, int i) {
-        ResponseAddGroupMessage responseAddGroupMessage = new ResponseAddGroupMessage(103101);
-        responseAddGroupMessage.setErrorInfo(qVar);
-        responseAddGroupMessage.setCmd(i);
-        linkedList.add(responseAddGroupMessage);
-        if (dVar != null && !responseAddGroupMessage.hasError()) {
-            AddGroupInfoData addGroupInfoData = new AddGroupInfoData();
-            com.baidu.tieba.im.b.a.d f = dVar.f("group");
-            addGroupInfoData.setGroupId(f.b("groupId"));
-            addGroupInfoData.setForumId(f.b("forumId"));
-            addGroupInfoData.setName(f.a(SocialConstants.PARAM_MEDIA_UNAME));
-            addGroupInfoData.setIntro(f.a("intro"));
-            addGroupInfoData.setPortrait(f.a("portrait"));
-            addGroupInfoData.setPosition(f.a("position"));
-            addGroupInfoData.setLng(f.a("lng"));
-            addGroupInfoData.setLat(f.a("lat"));
-            addGroupInfoData.setNotice(f.a("notice"));
-            addGroupInfoData.setAlbum(f.a("album"));
-            addGroupInfoData.setStatus(f.b("status"));
-            addGroupInfoData.setAuthorId(f.b("authorId"));
-            addGroupInfoData.setAuthorName(f.a("authorName"));
-            addGroupInfoData.setCreateTime(f.b(RMsgInfo.COL_CREATE_TIME));
-            addGroupInfoData.setMaxMemberNum(f.b("maxMemberNum"));
-            addGroupInfoData.setMemberNum(f.b("memberNum"));
-            addGroupInfoData.setGroupType(f.b("groupType"));
-            responseAddGroupMessage.setAddGroupInfo(addGroupInfoData);
+    public void a() {
+        if (this.b) {
+            u uVar = new u();
+            uVar.b(TiebaApplication.h().be());
+            uVar.a(TiebaApplication.h().bf());
+            com.baidu.tieba.im.messageCenter.e.a().a(uVar);
+            return;
         }
+        this.b = true;
+        com.baidu.tieba.im.messageCenter.e.a().a(new t());
+    }
+
+    @Override // com.baidu.tieba.im.c.l
+    public void a(GroupNewsPojo groupNewsPojo) {
+        if (groupNewsPojo != null) {
+            String cmd = groupNewsPojo.getCmd();
+            if (!TextUtils.isEmpty(cmd) && cmd.equals("dismiss_group")) {
+                b(groupNewsPojo);
+            }
+        }
+    }
+
+    private void b(GroupNewsPojo groupNewsPojo) {
+        if (groupNewsPojo != null) {
+            try {
+                if (new JSONObject(groupNewsPojo.getContent()).getString("eventId").equals("107")) {
+                    a = true;
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void b() {
+        com.baidu.tieba.im.messageCenter.e.a().a(103011, this.f);
+        com.baidu.tieba.im.messageCenter.e.a().a(-114, this.f);
+        com.baidu.tieba.im.messageCenter.e.a().a(103101, this.h);
+        com.baidu.tieba.im.messageCenter.e.a().a(103112, this.h);
+        com.baidu.tieba.im.messageCenter.e.a().a(103102, this.h);
+        com.baidu.tieba.im.messageCenter.e.a().a(103104, this.h);
+        m.a().a("apply_join_success", this.g);
+        m.a().a("kick_out", this.g);
+        m.a().a("dismiss_group", this.g);
+    }
+
+    public void c() {
+        com.baidu.tieba.im.messageCenter.e.a().a(this.f);
+        com.baidu.tieba.im.messageCenter.e.a().a(this.h);
+        m.a().a(this.g);
     }
 }

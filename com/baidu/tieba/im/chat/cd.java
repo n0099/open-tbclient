@@ -1,19 +1,15 @@
 package com.baidu.tieba.im.chat;
-
-import android.view.View;
 /* loaded from: classes.dex */
-class cd implements View.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MsgrightView f1588a;
+class cd implements Runnable {
+    final /* synthetic */ cc a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cd(MsgrightView msgrightView) {
-        this.f1588a = msgrightView;
+    public cd(cc ccVar) {
+        this.a = ccVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.f1588a.c.a(view, 1, this.f1588a.f, 0L);
+    @Override // java.lang.Runnable
+    public void run() {
+        this.a.a.P();
     }
 }

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.VersionData;
+import com.baidu.tieba.util.bc;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public final class SettingTextTestNewView extends SettingTextTipView {
@@ -12,11 +13,11 @@ public final class SettingTextTestNewView extends SettingTextTipView {
     }
 
     public void a() {
-        boolean z = true;
+        boolean z = false;
         boolean z2 = TiebaApplication.h().an() == 1;
         VersionData au = TiebaApplication.h().au();
-        if (au == null || au.getHas_new_ver() != 1) {
-            z = false;
+        if (au != null && au.getHas_new_ver() == 1) {
+            z = true;
         }
         if (z) {
             this.e.setText("New");
@@ -24,7 +25,8 @@ public final class SettingTextTestNewView extends SettingTextTipView {
             this.e.setBackgroundResource(z2 ? R.drawable.icon_news_text_prompt_1 : R.drawable.icon_news_text_prompt);
             return;
         }
-        this.e.setText(com.baidu.tieba.data.h.j());
+        String j = com.baidu.tieba.data.h.j();
+        this.e.setText((com.baidu.tieba.data.h.l() != 1 || bc.c(com.baidu.tieba.data.h.k())) ? j : j + "." + com.baidu.tieba.data.h.k());
         this.e.setBackgroundDrawable(null);
         this.e.setTextAppearance(this.b, z2 ? R.style.setting_version_text_1 : R.style.setting_version_text);
     }

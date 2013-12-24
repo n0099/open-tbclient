@@ -10,14 +10,12 @@ import com.baidu.browser.explorer.BdWebErrorView;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.topRec.TRForumListData;
-import com.baidu.tieba.util.ba;
-import com.baidu.tieba.util.bd;
+import com.baidu.tieba.util.bb;
+import com.baidu.tieba.util.be;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class e extends BaseAdapter implements View.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    private TRForumListData f2548a;
+    private TRForumListData a;
     private TopRecActivity c;
     private com.baidu.tieba.util.i d;
     private boolean b = false;
@@ -33,8 +31,8 @@ public class e extends BaseAdapter implements View.OnClickListener {
     }
 
     public void a(TRForumListData tRForumListData) {
-        this.f2548a = tRForumListData;
-        if (this.h && this.f2548a.forum_list.length >= 20) {
+        this.a = tRForumListData;
+        if (this.h && this.a.forum_list.length >= 20) {
             this.g = 20;
             this.h = false;
         }
@@ -42,12 +40,12 @@ public class e extends BaseAdapter implements View.OnClickListener {
     }
 
     public void a() {
-        if (this.f2548a != null) {
-            if (this.f2548a.forum_list.length - this.g > 20) {
+        if (this.a != null) {
+            if (this.a.forum_list.length - this.g > 20) {
                 this.g += 20;
                 this.b = false;
             } else {
-                this.g = this.f2548a.forum_list.length;
+                this.g = this.a.forum_list.length;
                 this.b = true;
             }
             notifyDataSetChanged();
@@ -66,23 +64,23 @@ public class e extends BaseAdapter implements View.OnClickListener {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.f2548a == null) {
+        if (this.a == null) {
             return 0;
         }
-        return this.g < this.f2548a.forum_list.length ? this.g : this.f2548a.forum_list.length;
+        return this.g < this.a.forum_list.length ? this.g : this.a.forum_list.length;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (i < this.f2548a.forum_list.length) {
-            return this.f2548a.forum_list[i];
+        if (i < this.a.forum_list.length) {
+            return this.a.forum_list[i];
         }
         return null;
     }
 
     @Override // android.widget.Adapter
     public long getItemId(int i) {
-        if (i < this.f2548a.forum_list.length) {
+        if (i < this.a.forum_list.length) {
             return i;
         }
         return 0L;
@@ -93,7 +91,7 @@ public class e extends BaseAdapter implements View.OnClickListener {
         if (view == null || view.getTag() == null) {
             view = View.inflate(this.c, R.layout.top_recommended_list_item, null);
             g gVar = new g(this);
-            gVar.f2550a = (ImageView) view.findViewById(R.id.forum_avatar);
+            gVar.a = (ImageView) view.findViewById(R.id.forum_avatar);
             gVar.b = (TextView) view.findViewById(R.id.name);
             gVar.c = (TextView) view.findViewById(R.id.member_count);
             gVar.d = (TextView) view.findViewById(R.id.thread_count);
@@ -104,11 +102,11 @@ public class e extends BaseAdapter implements View.OnClickListener {
         }
         g gVar2 = (g) view.getTag();
         int an = TiebaApplication.h().an();
-        ba.c(gVar2.b, an);
-        ba.c(gVar2.c, an);
-        ba.c(gVar2.d, an);
-        ba.c(gVar2.e, an);
-        ba.c(gVar2.f, an);
+        bb.c(gVar2.b, an);
+        bb.c(gVar2.c, an);
+        bb.c(gVar2.d, an);
+        bb.c(gVar2.e, an);
+        bb.c(gVar2.f, an);
         if (an != 1) {
             gVar2.b.setTextColor(-14277082);
             gVar2.c.setTextColor(-6775644);
@@ -120,11 +118,11 @@ public class e extends BaseAdapter implements View.OnClickListener {
         } else {
             view.setBackgroundColor(this.c.getResources().getColor(R.color.flist_item_color_even_day));
         }
-        TRForumListData.TRForum tRForum = this.f2548a.forum_list[i];
-        bd.e("ForumListAdapter", "getView", "forum name:" + this.f2548a.forum_list[i].forum_name + "forum avatar:" + this.f2548a.forum_list[i].avatar);
+        TRForumListData.TRForum tRForum = this.a.forum_list[i];
+        be.e("ForumListAdapter", "getView", "forum name:" + this.a.forum_list[i].forum_name + "forum avatar:" + this.a.forum_list[i].avatar);
         String str = tRForum.avatar;
-        this.d.f(str, new f(this, str, gVar2.f2550a));
-        gVar2.f2550a.setTag(str);
+        this.d.f(str, new f(this, str, gVar2.a));
+        gVar2.a.setTag(str);
         gVar2.b.setText(tRForum.forum_name);
         gVar2.c.setText(this.c.getString(R.string.forum_list_attention_tv) + " " + String.valueOf(tRForum.member_count));
         gVar2.d.setText(this.c.getString(R.string.forum_list_thread_tv) + " " + String.valueOf(tRForum.thread_count));
@@ -158,19 +156,19 @@ public class e extends BaseAdapter implements View.OnClickListener {
     }
 
     public int c() {
-        if (this.f2548a == null || this.f2548a.forum_list == null) {
+        if (this.a == null || this.a.forum_list == null) {
             return 0;
         }
         int i = 0;
-        for (int i2 = 0; i2 < this.f2548a.forum_list.length; i2++) {
-            int e = TiebaApplication.h().e(this.f2548a.forum_list[i2].forum_name);
+        for (int i2 = 0; i2 < this.a.forum_list.length; i2++) {
+            int e = TiebaApplication.h().e(this.a.forum_list[i2].forum_name);
             if (e == 1) {
-                if (this.f2548a.forum_list[i2].is_like == 0) {
-                    this.f2548a.forum_list[i2].is_like = 1;
+                if (this.a.forum_list[i2].is_like == 0) {
+                    this.a.forum_list[i2].is_like = 1;
                     i++;
                 }
-            } else if (e == -1 && this.f2548a.forum_list[i2].is_like == 1) {
-                this.f2548a.forum_list[i2].is_like = 0;
+            } else if (e == -1 && this.a.forum_list[i2].is_like == 1) {
+                this.a.forum_list[i2].is_like = 0;
                 i--;
             }
         }

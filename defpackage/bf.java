@@ -3,12 +3,10 @@ package defpackage;
 /* renamed from: bf  reason: default package */
 /* loaded from: classes.dex */
 public final class bf implements Runnable {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ba f375a;
+    final /* synthetic */ ba a;
 
     private bf(ba baVar) {
-        this.f375a = baVar;
+        this.a = baVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -19,9 +17,9 @@ public final class bf implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
         boolean z;
-        z = this.f375a.D;
+        z = this.a.D;
         if (z) {
-            this.f375a.c();
+            this.a.c();
             bb.a(this);
         }
     }

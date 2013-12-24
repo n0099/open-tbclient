@@ -8,9 +8,7 @@ import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class j extends a implements Runnable {
-
-    /* renamed from: a  reason: collision with root package name */
-    public static String f453a = "logcat ";
+    public static String a = "logcat ";
     private static Map<String, com.baidu.adp.lib.debug.a> f = new HashMap();
     private Process b;
     private InputStream c;
@@ -19,7 +17,7 @@ public class j extends a implements Runnable {
 
     public static void a(String str, com.baidu.adp.lib.debug.a aVar) {
         f.put(str, aVar);
-        f453a += " -s " + str;
+        a += " -s " + str;
     }
 
     public void a(String str) {
@@ -50,7 +48,7 @@ public class j extends a implements Runnable {
         super.b();
         try {
             Runtime.getRuntime().exec("logcat -c");
-            this.b = Runtime.getRuntime().exec(f453a);
+            this.b = Runtime.getRuntime().exec(a);
             this.d = this.b.getOutputStream();
             this.c = this.b.getInputStream();
             d();

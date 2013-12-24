@@ -7,17 +7,15 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class e extends BaseAdapter {
-
-    /* renamed from: a  reason: collision with root package name */
-    private UpdatesActivity f1769a;
+    private UpdatesActivity a;
     private List<UpdatesItemData> b = new ArrayList();
 
     public e(UpdatesActivity updatesActivity) {
-        this.f1769a = updatesActivity;
+        this.a = updatesActivity;
     }
 
     public void a() {
-        this.f1769a = null;
+        this.a = null;
     }
 
     public void a(List<UpdatesItemData> list) {
@@ -42,7 +40,7 @@ public class e extends BaseAdapter {
         if (view != null) {
             fVar = (f) view.getTag();
         }
-        f fVar2 = fVar == null ? new f(this.f1769a) : fVar;
+        f fVar2 = fVar == null ? new f(this.a) : fVar;
         fVar2.a(this.b.get(i));
         return fVar2.a();
     }

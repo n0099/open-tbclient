@@ -1,24 +1,20 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tieba.im.model.MsglistModel;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.DialogInterface;
 /* loaded from: classes.dex */
-public class bg implements Runnable {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f1565a;
-    final /* synthetic */ MsglistActivity b;
+class bg implements DialogInterface.OnClickListener {
+    final /* synthetic */ int a;
+    final /* synthetic */ bc b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bg(MsglistActivity msglistActivity, String str) {
-        this.b = msglistActivity;
-        this.f1565a = str;
+    public bg(bc bcVar, int i) {
+        this.b = bcVar;
+        this.a = i;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        MsglistModel msglistModel;
-        msglistModel = this.b.g;
-        msglistModel.c(this.f1565a);
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        dialogInterface.dismiss();
+        this.b.b(this.a);
     }
 }

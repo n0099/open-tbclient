@@ -1,12 +1,10 @@
 package com.baidu.tieba.d;
 
 import com.baidu.tieba.sharedPref.b;
-import com.baidu.tieba.util.bc;
+import com.baidu.tieba.util.bd;
 /* loaded from: classes.dex */
 public class a {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static a f1206a;
+    private static a a;
     private int b = 1;
     private int c = 1;
     private int d = 0;
@@ -15,16 +13,16 @@ public class a {
 
     public static a a() {
         a aVar;
-        if (f1206a == null) {
+        if (a == null) {
             synchronized (a.class) {
-                if (f1206a == null) {
-                    f1206a = new a();
+                if (a == null) {
+                    a = new a();
                 }
-                aVar = f1206a;
+                aVar = a;
             }
             return aVar;
         }
-        return f1206a;
+        return a;
     }
 
     private a() {
@@ -49,7 +47,7 @@ public class a {
 
     public boolean d() {
         if (this.b == 0) {
-            if (bc.a().c()) {
+            if (bd.a().c()) {
                 return true;
             }
         } else if (this.b == 1) {
@@ -85,8 +83,8 @@ public class a {
         if (this.f != i) {
             this.f = i;
             b.a().b("view_image_quality", i);
-            bc.a().f();
-            bc.a().g();
+            bd.a().f();
+            bd.a().g();
         }
     }
 

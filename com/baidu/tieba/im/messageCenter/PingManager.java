@@ -4,31 +4,27 @@ import android.os.Handler;
 import android.os.Message;
 import com.baidu.location.LocationClientOption;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.im.message.BackgroundSwitchMessage;
-import com.baidu.tieba.im.message.PingMessage;
-import com.baidu.tieba.im.message.ResponsedMessage;
+import com.baidu.tieba.im.message.bz;
 import com.baidu.tieba.im.net.TiebaSocketLinkService;
 /* loaded from: classes.dex */
 public class PingManager extends Handler {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static PingManager f1793a = null;
+    private static PingManager a = null;
     private long b = 0;
     private int c = 180000;
     private int d = 900000;
     private int e = this.d;
-    private PingMessage f = null;
+    private com.baidu.tieba.im.message.q f = null;
     private g g = null;
 
     public static PingManager a() {
-        if (f1793a == null) {
+        if (a == null) {
             synchronized (PingManager.class) {
-                if (f1793a == null) {
-                    f1793a = new PingManager();
+                if (a == null) {
+                    a = new PingManager();
                 }
             }
         }
-        return f1793a;
+        return a;
     }
 
     @Override // android.os.Handler
@@ -68,10 +64,11 @@ public class PingManager extends Handler {
     public void c() {
         removeMessages(1);
         sendMessageDelayed(obtainMessage(1), this.e);
+        this.b = System.currentTimeMillis();
     }
 
     public void d() {
-        this.f = new PingMessage();
+        this.f = new com.baidu.tieba.im.message.q();
         e();
         this.g = new n(this);
         e.a().a(-11, this.g);
@@ -79,16 +76,16 @@ public class PingManager extends Handler {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(ResponsedMessage responsedMessage) {
-        if (responsedMessage != null && responsedMessage.getErrNo() != 0) {
+    public void a(bz bzVar) {
+        if (bzVar != null && bzVar.j() != 0) {
             TiebaSocketLinkService.a(7, "ping error");
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(BackgroundSwitchMessage backgroundSwitchMessage) {
-        if (backgroundSwitchMessage != null) {
-            if (backgroundSwitchMessage.isBackground()) {
+    public void a(com.baidu.tieba.im.message.a aVar) {
+        if (aVar != null) {
+            if (aVar.a()) {
                 this.e = this.d;
             } else {
                 this.e = this.c;

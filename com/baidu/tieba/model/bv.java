@@ -1,9 +1,7 @@
 package com.baidu.tieba.model;
 /* loaded from: classes.dex */
 public class bv {
-
-    /* renamed from: a  reason: collision with root package name */
-    private com.baidu.tieba.data.an f2016a = null;
+    private com.baidu.tieba.data.an a = null;
     private boolean d = true;
     private boolean c = true;
     private boolean e = false;
@@ -21,11 +19,11 @@ public class bv {
     private boolean p = false;
 
     public void a(com.baidu.tieba.data.an anVar) {
-        this.f2016a = anVar;
+        this.a = anVar;
     }
 
     public com.baidu.tieba.data.an a() {
-        return this.f2016a;
+        return this.a;
     }
 
     public boolean b() {

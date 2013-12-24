@@ -14,10 +14,8 @@ import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class w implements com.baidu.tieba.util.ak {
-
-    /* renamed from: a  reason: collision with root package name */
-    private String f1263a;
+public class w implements com.baidu.tieba.util.al {
+    private String a;
     private String b;
     private String c;
     private SpannableString d;
@@ -38,7 +36,7 @@ public class w implements com.baidu.tieba.util.ak {
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.f1263a = jSONObject.optString("forum_id", "");
+                this.a = jSONObject.optString("forum_id", "");
                 this.b = jSONObject.optString("forum_name", "");
                 this.c = jSONObject.optString("thread_id", "");
                 String optString = jSONObject.optString("title", "");
@@ -99,7 +97,7 @@ public class w implements com.baidu.tieba.util.ak {
                 }
                 a(optString);
             } catch (Exception e) {
-                com.baidu.tieba.util.bd.b(w.class.getName(), "parserJson", "error = " + e.getMessage());
+                com.baidu.tieba.util.be.b(w.class.getName(), "parserJson", "error = " + e.getMessage());
             }
         }
     }
@@ -119,9 +117,9 @@ public class w implements com.baidu.tieba.util.ak {
                 SpannableString spannableString2 = new SpannableString(sb.toString() + str);
                 int i2 = 0;
                 for (int i3 = 0; i3 < arrayList.size(); i3++) {
-                    Bitmap a2 = com.baidu.tieba.util.m.a(((Integer) arrayList.get(i3)).intValue());
-                    BitmapDrawable bitmapDrawable = new BitmapDrawable(a2);
-                    bitmapDrawable.setBounds(0, 0, a2.getWidth(), a2.getHeight());
+                    Bitmap a = com.baidu.tieba.util.m.a(((Integer) arrayList.get(i3)).intValue());
+                    BitmapDrawable bitmapDrawable = new BitmapDrawable(a);
+                    bitmapDrawable.setBounds(0, 0, a.getWidth(), a.getHeight());
                     spannableString2.setSpan(new ImageSpan(bitmapDrawable, 1), i2, i2 + 1, 33);
                     i2 += 2;
                 }
@@ -134,7 +132,7 @@ public class w implements com.baidu.tieba.util.ak {
     }
 
     public String a() {
-        return this.f1263a;
+        return this.a;
     }
 
     public String b() {
@@ -181,7 +179,7 @@ public class w implements com.baidu.tieba.util.ak {
         return this.q;
     }
 
-    @Override // com.baidu.tieba.util.ak
+    @Override // com.baidu.tieba.util.al
     public LinkedList<String> getImageUrl() {
         if (this.m == null) {
             return null;
@@ -201,12 +199,12 @@ public class w implements com.baidu.tieba.util.ak {
         return linkedList;
     }
 
-    @Override // com.baidu.tieba.util.ak
+    @Override // com.baidu.tieba.util.al
     public LinkedList<String> getPhotoUrl() {
         return null;
     }
 
-    @Override // com.baidu.tieba.util.ak
+    @Override // com.baidu.tieba.util.al
     public LinkedList<String> getForumPhotoUrl() {
         return null;
     }

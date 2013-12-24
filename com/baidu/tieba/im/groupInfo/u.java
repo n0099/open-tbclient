@@ -11,9 +11,9 @@ public class u {
         String str3 = str + "@" + str2;
         com.baidu.adp.lib.cache.s<String> t = com.baidu.tieba.b.a.a().t();
         com.baidu.adp.lib.h.e.d("key is:" + str3);
-        String a2 = t.a(str3);
-        if (TextUtils.isEmpty(a2)) {
-            com.baidu.adp.lib.h.e.d("key is:" + str3 + " value is:" + a2);
+        String a = t.a(str3);
+        if (TextUtils.isEmpty(a)) {
+            com.baidu.adp.lib.h.e.d("key is:" + str3 + " value is:" + a);
             GroupSettingItemData groupSettingItemData = new GroupSettingItemData();
             groupSettingItemData.setUid(str);
             groupSettingItemData.setGid(str2);
@@ -22,7 +22,7 @@ public class u {
             a(groupSettingItemData);
             return groupSettingItemData;
         }
-        return (GroupSettingItemData) new Gson().fromJson(a2, (Class<Object>) GroupSettingItemData.class);
+        return (GroupSettingItemData) new Gson().fromJson(a, (Class<Object>) GroupSettingItemData.class);
     }
 
     public static void a(GroupSettingItemData groupSettingItemData) {
@@ -34,7 +34,7 @@ public class u {
         String gid = groupSettingItemData.getGid();
         if (TextUtils.isEmpty(uid) || TextUtils.isEmpty(gid)) {
             com.baidu.adp.lib.h.e.a(" key value is null");
-            if (com.baidu.tieba.data.h.s()) {
+            if (com.baidu.tieba.data.h.u()) {
                 throw new RuntimeException("key param is null");
             }
             return;
@@ -48,35 +48,35 @@ public class u {
     }
 
     public static void a(String str, String str2, boolean z) {
-        GroupSettingItemData a2 = a(str, str2);
-        if (a2 != null) {
-            a2.setAlreadyApply(z);
-            a2.setLastApplyTimeStamp(System.currentTimeMillis());
-            a(a2);
+        GroupSettingItemData a = a(str, str2);
+        if (a != null) {
+            a.setAlreadyApply(z);
+            a.setLastApplyTimeStamp(System.currentTimeMillis());
+            a(a);
         }
     }
 
     public static void b(String str, String str2, boolean z) {
-        GroupSettingItemData a2 = a(str, str2);
-        if (a2 != null) {
-            a2.setAcceptNotify(z);
-            a(a2);
+        GroupSettingItemData a = a(str, str2);
+        if (a != null) {
+            a.setAcceptNotify(z);
+            a(a);
         }
     }
 
     public static boolean b(String str, String str2) {
-        GroupSettingItemData a2 = a(str, str2);
-        if (a2 == null) {
+        GroupSettingItemData a = a(str, str2);
+        if (a == null) {
             return false;
         }
-        return a2.isAcceptNotify();
+        return a.isAcceptNotify();
     }
 
     public static void c(String str, String str2, boolean z) {
-        GroupSettingItemData a2 = a(str, str2);
-        if (a2 != null) {
-            a2.setInGroup(z);
-            a(a2);
+        GroupSettingItemData a = a(str, str2);
+        if (a != null) {
+            a.setInGroup(z);
+            a(a);
         }
     }
 
@@ -85,12 +85,12 @@ public class u {
     }
 
     public static boolean c(String str, String str2) {
-        GroupSettingItemData a2 = a(str, str2);
-        if (a2 == null) {
+        GroupSettingItemData a = a(str, str2);
+        if (a == null) {
             return false;
         }
-        com.baidu.adp.lib.h.e.d("uid:" + str + " gid:" + str2 + "is in" + a2.isInGroup());
-        return a2.isInGroup();
+        com.baidu.adp.lib.h.e.d("uid:" + str + " gid:" + str2 + "is in" + a.isInGroup());
+        return a.isInGroup();
     }
 
     public static void a(String str, String str2, long j, com.baidu.tieba.im.a<Boolean> aVar) {

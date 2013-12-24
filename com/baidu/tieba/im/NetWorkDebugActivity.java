@@ -8,14 +8,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.tieba.im.message.Message;
-import com.baidu.tieba.im.message.ResponsedMessage;
+import com.baidu.tieba.im.message.bz;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class NetWorkDebugActivity extends Activity implements com.baidu.tieba.im.messageCenter.g {
-
-    /* renamed from: a  reason: collision with root package name */
-    public static NetWorkDebugActivity f1512a;
+    public static NetWorkDebugActivity a;
     LinearLayout b;
     TextView c;
     EditText d;
@@ -25,12 +22,12 @@ public class NetWorkDebugActivity extends Activity implements com.baidu.tieba.im
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.activity_main);
-        f1512a = this;
+        a = this;
         this.b = (LinearLayout) findViewById(R.id.action_layout);
         this.c = (TextView) findViewById(R.id.tv);
         this.d = new EditText(this);
         this.b.addView(this.d, new LinearLayout.LayoutParams(-2, -2));
-        this.d.setText(j.f1787a);
+        this.d.setText(j.a);
         com.baidu.tieba.im.messageCenter.e.a().a(1001, this);
         com.baidu.tieba.im.messageCenter.e.a().a(202001, this);
         a("closeConnect", new d(this));
@@ -65,28 +62,34 @@ public class NetWorkDebugActivity extends Activity implements com.baidu.tieba.im
     }
 
     public static void a(String str) {
-        if (f1512a != null) {
-            f1512a.e.sendMessage(f1512a.e.obtainMessage(0, str));
+        if (a != null) {
+            a.e.sendMessage(a.e.obtainMessage(0, str));
         }
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(Message message) {
-        if (message instanceof ResponsedMessage) {
-            ResponsedMessage responsedMessage = (ResponsedMessage) message;
-            int errNo = responsedMessage.getErrNo();
-            String errMsg = responsedMessage.getErrMsg();
-            if (message.getCmd() == 1001) {
-                if (responsedMessage.hasError()) {
-                    a("on msg acked:" + responsedMessage + "\nerrCode:" + responsedMessage.getErrNo() + "\nerrMsg:" + responsedMessage.getErrMsg());
+    public void a(com.baidu.tieba.im.message.n nVar) {
+        if (nVar instanceof bz) {
+            bz bzVar = (bz) nVar;
+            int j = bzVar.j();
+            String k = bzVar.k();
+            if (nVar.t() == 1001) {
+                if (bzVar.i()) {
+                    a("on msg acked:" + bzVar + "\nerrCode:" + bzVar.j() + "\nerrMsg:" + bzVar.k());
                 } else {
-                    a("failed to send msg:" + message + "\nerrCode:" + errNo + "\nerrMsg:" + errMsg);
+                    a("failed to send msg:" + nVar + "\nerrCode:" + j + "\nerrMsg:" + k);
                 }
-            } else if (message.getCmd() == 202001) {
-                if (responsedMessage.hasError()) {
-                    a("failed to send msg:" + message + "\nerrCode:" + errNo + "\nerrMsg:" + errMsg);
+            } else if (nVar.t() == 202001) {
+                if (bzVar.i()) {
+                    a("failed to send msg:" + nVar + "\nerrCode:" + j + "\nerrMsg:" + k);
                 } else {
-                    a("on msg acked:" + responsedMessage);
+                    a("on msg acked:" + bzVar);
+                }
+            } else if (nVar.t() == 205001) {
+                if (bzVar.i()) {
+                    a("failed to send msg:" + nVar + "\nerrCode:" + j + "\nerrMsg:" + k);
+                } else {
+                    a("on msg acked:" + bzVar);
                 }
             }
         }

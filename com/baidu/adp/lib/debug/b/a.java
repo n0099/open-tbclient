@@ -1,19 +1,17 @@
 package com.baidu.adp.lib.debug.b;
 /* loaded from: classes.dex */
 public class a {
-
-    /* renamed from: a  reason: collision with root package name */
-    private String f462a;
+    private String a;
     private String[] b;
     private String c;
     private String d;
 
     public String a() {
-        return this.f462a;
+        return this.a;
     }
 
     public void a(String str) {
-        this.f462a = str;
+        this.a = str;
     }
 
     public String[] b() {

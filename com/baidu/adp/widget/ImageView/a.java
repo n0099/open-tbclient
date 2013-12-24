@@ -16,9 +16,7 @@ import com.baidu.adp.g;
 import java.lang.ref.SoftReference;
 /* loaded from: classes.dex */
 public class a extends ImageView {
-
-    /* renamed from: a  reason: collision with root package name */
-    protected int f560a;
+    protected int a;
     private int b;
     private Paint c;
     private ImageView.ScaleType d;
@@ -85,8 +83,8 @@ public class a extends ImageView {
         if (attributeSet != null) {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, g.BDImageView);
             if (obtainStyledAttributes != null) {
-                this.f560a = obtainStyledAttributes.getDimensionPixelSize(0, 0);
-                this.p = this.f560a != 0;
+                this.a = obtainStyledAttributes.getDimensionPixelSize(0, 0);
+                this.p = this.a != 0;
                 return;
             }
             this.p = false;
@@ -94,8 +92,8 @@ public class a extends ImageView {
     }
 
     public void setRadius(int i) {
-        this.f560a = i;
-        this.p = this.f560a != 0;
+        this.a = i;
+        this.p = this.a != 0;
     }
 
     @Override // android.widget.ImageView
@@ -119,6 +117,14 @@ public class a extends ImageView {
         this.f = null;
         this.h = null;
         this.b = i;
+    }
+
+    public void a() {
+        setDefaultResource(0);
+        this.h = null;
+        setTag(null);
+        this.e = null;
+        this.f = null;
     }
 
     public void a(long j, float f, float f2) {
@@ -157,40 +163,40 @@ public class a extends ImageView {
         int paddingTop = getPaddingTop();
         int paddingBottom = getPaddingBottom();
         int b = eVar.b();
-        int a2 = eVar.a();
+        int a = eVar.a();
         int realHeight = (getRealHeight() - paddingTop) - paddingBottom;
         int realWidth = (getRealWidth() - paddingLeft) - paddingRight;
         float f = 0.0f;
         float f2 = 0.0f;
-        float f3 = realWidth / a2;
+        float f3 = realWidth / a;
         float f4 = realHeight / b;
-        switch (c.f562a[scaleType.ordinal()]) {
+        switch (c.a[scaleType.ordinal()]) {
             case 2:
                 f4 = Math.min(f3, f4);
                 f3 = f4;
                 break;
             case 3:
                 f4 = Math.min(f3, f4);
-                f = (realWidth - (a2 * f4)) / 2.0f;
+                f = (realWidth - (a * f4)) / 2.0f;
                 f2 = (realHeight - (b * f4)) / 2.0f;
                 f3 = f4;
                 break;
             case 4:
                 f4 = Math.min(f3, f4);
-                f = realWidth - (a2 * f4);
+                f = realWidth - (a * f4);
                 f2 = realHeight - (b * f4);
                 f3 = f4;
                 break;
             case 5:
                 f3 = 1.0f;
                 f4 = 1.0f;
-                f = (realWidth - a2) / 2.0f;
+                f = (realWidth - a) / 2.0f;
                 f2 = (realHeight - b) / 2.0f;
                 break;
             case 6:
                 f3 = Math.max(f3, f4);
                 f4 = Math.max(f3, f4);
-                f = (realWidth - (a2 * f3)) / 2.0f;
+                f = (realWidth - (a * f3)) / 2.0f;
                 f2 = (realHeight - (b * f4)) / 2.0f;
                 break;
             case 7:
@@ -198,7 +204,7 @@ public class a extends ImageView {
                 if (f4 > 1.0f) {
                     f4 = 1.0f;
                 }
-                f = (realWidth - (a2 * f4)) / 2.0f;
+                f = (realWidth - (a * f4)) / 2.0f;
                 f2 = (realHeight - (b * f4)) / 2.0f;
                 f3 = f4;
                 break;
@@ -210,7 +216,7 @@ public class a extends ImageView {
             this.m = new Rect();
         }
         int i = (int) (paddingLeft + f);
-        int i2 = (int) ((f3 * a2) + f + paddingLeft);
+        int i2 = (int) ((f3 * a) + f + paddingLeft);
         int i3 = (int) (paddingTop + f2);
         int i4 = (int) ((f4 * b) + f2 + paddingTop);
         if (i >= paddingLeft) {
@@ -240,9 +246,9 @@ public class a extends ImageView {
     protected e getImage() {
         if (this.h != null) {
             try {
-                Object a2 = com.baidu.adp.lib.e.c.a().a(this.h, this.i, null, getContext(), null, 1);
-                if (a2 != null && (a2 instanceof e)) {
-                    return (e) a2;
+                Object a = com.baidu.adp.lib.e.c.a().a(this.h, this.i, null, getContext(), null, 1);
+                if (a != null && (a instanceof e)) {
+                    return (e) a;
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -319,7 +325,7 @@ public class a extends ImageView {
                 matrix = this.e;
             }
             if (this.p) {
-                image.a(canvas, matrix, getResources(), this, this.f560a, this.o);
+                image.a(canvas, matrix, getResources(), this, this.a, this.o);
             } else if (matrix == null) {
                 image.a(canvas, 0.0f, 0.0f, this.c);
             } else {
@@ -341,7 +347,7 @@ public class a extends ImageView {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void a() {
+    public void b() {
         this.o = null;
         this.c.setColorFilter(null);
     }

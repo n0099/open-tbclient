@@ -7,13 +7,11 @@ import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class cu implements View.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ cr f2217a;
+    final /* synthetic */ cr a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cu(cr crVar) {
-        this.f2217a = crVar;
+        this.a = crVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -22,16 +20,16 @@ public class cu implements View.OnClickListener {
         bv bvVar;
         bv bvVar2;
         Dialog dialog2;
-        dialog = this.f2217a.G;
+        dialog = this.a.G;
         if (dialog != null) {
-            dialog2 = this.f2217a.G;
+            dialog2 = this.a.G;
             dialog2.dismiss();
         }
         SparseArray sparseArray = (SparseArray) view.getTag();
         if (sparseArray != null) {
-            bvVar = this.f2217a.au;
+            bvVar = this.a.au;
             if (bvVar != null) {
-                bvVar2 = this.f2217a.au;
+                bvVar2 = this.a.au;
                 bvVar2.a(new Object[]{sparseArray.get(R.id.tag_manage_user_identity), sparseArray.get(R.id.tag_forbid_user_name)});
             }
         }

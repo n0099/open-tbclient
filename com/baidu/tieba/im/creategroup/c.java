@@ -10,21 +10,19 @@ import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class c implements v {
-
-    /* renamed from: a  reason: collision with root package name */
-    CreateGroupStepActivity f1620a;
+    CreateGroupStepActivity a;
     View b;
     ImageView c;
     EditText d;
     TextView e;
 
     public c(CreateGroupStepActivity createGroupStepActivity) {
-        this.f1620a = null;
+        this.a = null;
         this.b = null;
         this.c = null;
         this.d = null;
         this.e = null;
-        this.f1620a = createGroupStepActivity;
+        this.a = createGroupStepActivity;
         this.b = createGroupStepActivity.getLayoutInflater().inflate(R.layout.create_group_step2_view, (ViewGroup) null);
         this.c = (ImageView) this.b.findViewById(R.id.step2_img_bg);
         this.d = (EditText) this.b.findViewById(R.id.step2_group_info);
@@ -57,7 +55,7 @@ public class c implements v {
     @Override // com.baidu.tieba.im.creategroup.v
     public View a() {
         if (TiebaApplication.h().t()) {
-            StatService.onEvent(this.f1620a, "create_g_intro", "pv", 1);
+            StatService.onEvent(this.a, "create_g_intro", "pv", 1);
         }
         return this.b;
     }
@@ -68,18 +66,18 @@ public class c implements v {
     }
 
     public void g() {
-        this.f1620a.getLayoutMode().a(TiebaApplication.h().an() == 1);
-        this.f1620a.getLayoutMode().a(this.e);
+        this.a.getLayoutMode().a(TiebaApplication.h().an() == 1);
+        this.a.getLayoutMode().a(this.e);
     }
 
     @Override // com.baidu.tieba.im.creategroup.v
     public void k() {
-        this.f1620a.getLayoutMode().a(TiebaApplication.h().an() == 1);
-        this.f1620a.getLayoutMode().a(this.b);
+        this.a.getLayoutMode().a(TiebaApplication.h().an() == 1);
+        this.a.getLayoutMode().a(this.b);
         if (TiebaApplication.h().an() == 1) {
-            this.d.setHintTextColor(this.f1620a.getResources().getColor(R.color.create_group_input_hintcolor_1));
+            this.d.setHintTextColor(this.a.getResources().getColor(R.color.create_group_input_hintcolor_1));
         } else {
-            this.d.setHintTextColor(this.f1620a.getResources().getColor(R.color.create_group_input_hintcolor));
+            this.d.setHintTextColor(this.a.getResources().getColor(R.color.create_group_input_hintcolor));
         }
     }
 }

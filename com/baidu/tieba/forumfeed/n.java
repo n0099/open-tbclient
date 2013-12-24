@@ -11,9 +11,7 @@ import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n {
-
-    /* renamed from: a  reason: collision with root package name */
-    public boolean f1352a = false;
+    public boolean a = false;
     final /* synthetic */ i b;
     private TextView c;
     private TextView d;
@@ -35,7 +33,7 @@ public class n {
 
     public void a() {
         LinearLayout linearLayout;
-        this.f1352a = false;
+        this.a = false;
         this.c.setVisibility(8);
         this.d.setVisibility(8);
         this.e.setVisibility(8);
@@ -47,7 +45,7 @@ public class n {
 
     public void b() {
         LinearLayout linearLayout;
-        this.f1352a = true;
+        this.a = true;
         int an = TiebaApplication.h().an();
         this.c.setVisibility(0);
         this.d.setVisibility(0);
@@ -61,7 +59,7 @@ public class n {
     public void a(int i) {
         if (i == 1) {
             this.h.setBackgroundResource(R.color.forumfeed_frs_bg_1);
-        } else if (this.f1352a) {
+        } else if (this.a) {
             this.h.setBackgroundResource(R.color.forumfeed_frs_bg);
         }
     }

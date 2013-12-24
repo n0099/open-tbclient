@@ -6,23 +6,21 @@ import com.baidu.tieba.util.UtilHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ab implements View.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ aa f2472a;
+    final /* synthetic */ aa a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(aa aaVar) {
-        this.f2472a = aaVar;
+        this.a = aaVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Context context;
         ad adVar = view.getTag() instanceof ad ? (ad) view.getTag() : null;
-        String a2 = SquareActivity.a("forum_list_recommend", adVar.c());
+        String a = SquareActivity.a("forum_list_recommend", adVar.c());
         if (adVar != null) {
-            context = this.f2472a.b;
-            UtilHelper.a(context, adVar.b(), null, a2);
+            context = this.a.b;
+            UtilHelper.a(context, adVar.b(), null, a);
         }
     }
 }

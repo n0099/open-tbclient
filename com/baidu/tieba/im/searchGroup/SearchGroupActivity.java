@@ -8,15 +8,13 @@ import com.baidu.mobstat.StatService;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.im.data.BaseGroupData;
 import com.baidu.tieba.im.groupInfo.GroupInfoActivity;
-import com.baidu.tieba.im.message.ResponseSearchGroupMessage;
-import com.baidu.tieba.im.model.aa;
-import com.baidu.tieba.util.ah;
+import com.baidu.tieba.im.message.bv;
+import com.baidu.tieba.im.model.al;
+import com.baidu.tieba.util.ai;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class SearchGroupActivity extends com.baidu.tieba.j implements View.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    protected aa f1872a;
+    protected al a;
     private g b;
     private com.baidu.tieba.im.messageCenter.g c = new d(this);
 
@@ -25,7 +23,7 @@ public class SearchGroupActivity extends com.baidu.tieba.j implements View.OnCli
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.b = new g(this);
-        this.f1872a = new aa();
+        this.a = new al();
         com.baidu.tieba.im.messageCenter.e.a().a(103007, this.c);
     }
 
@@ -66,7 +64,7 @@ public class SearchGroupActivity extends com.baidu.tieba.j implements View.OnCli
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.home_bt_search_s /* 2131100343 */:
+            case R.id.home_bt_search_s /* 2131100339 */:
                 if (view.getTag() instanceof String) {
                     a((String) view.getTag());
                     return;
@@ -81,8 +79,8 @@ public class SearchGroupActivity extends com.baidu.tieba.j implements View.OnCli
         if (!TextUtils.isEmpty(str) && TextUtils.isDigitsOnly(str)) {
             try {
                 this.b.d();
-                this.b.a((ResponseSearchGroupMessage) null);
-                this.f1872a.a(Long.parseLong(str));
+                this.b.a((bv) null);
+                this.a.a(Integer.parseInt(str));
                 return;
             } catch (NumberFormatException e) {
                 e.printStackTrace();
@@ -108,7 +106,7 @@ public class SearchGroupActivity extends com.baidu.tieba.j implements View.OnCli
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a() {
         if (this.b != null && this.b.a() != null) {
-            ah.a(this.b.f1879a, this.b.a().a(), 0, -1);
+            ai.a(this.b.a, this.b.a().a(), 0, -1);
         }
     }
 }

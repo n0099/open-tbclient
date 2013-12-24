@@ -4,15 +4,13 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements View.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ac f2089a;
+    final /* synthetic */ ac a;
     final /* synthetic */ d b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar, ac acVar) {
         this.b = dVar;
-        this.f2089a = acVar;
+        this.a = acVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -26,14 +24,14 @@ public class e implements View.OnClickListener {
             if (view != settingTextTipView) {
                 settingTextFunctionIntroView = this.b.j;
                 if (view == settingTextFunctionIntroView) {
-                    this.f2089a.a(3);
+                    this.a.a(3);
                     return;
                 }
                 return;
             }
-            this.f2089a.a(2);
+            this.a.a(2);
             return;
         }
-        this.f2089a.a(1);
+        this.a.a(1);
     }
 }

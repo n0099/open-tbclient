@@ -50,7 +50,7 @@ final class b implements Handler.Callback {
                 }
                 break;
         }
-        int unused = a.f2710a = 0;
+        int unused = a.a = 0;
         j unused2 = a.d = null;
         return false;
     }

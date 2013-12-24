@@ -8,9 +8,7 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class i extends ae implements Runnable {
-
-    /* renamed from: a  reason: collision with root package name */
-    final v f293a;
+    final v a;
     j b;
     j c;
     int d;
@@ -172,14 +170,14 @@ public final class i extends ae implements Runnable {
                         printWriter.println(jVar.i.get(i2));
                     }
                 }
-                jVar = jVar.f294a;
+                jVar = jVar.a;
                 i++;
             }
         }
     }
 
     public i(v vVar) {
-        this.f293a = vVar;
+        this.a = vVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -189,7 +187,7 @@ public final class i extends ae implements Runnable {
             this.b = jVar;
         } else {
             jVar.b = this.c;
-            this.c.f294a = jVar;
+            this.c.a = jVar;
             this.c = jVar;
         }
         jVar.e = this.e;
@@ -212,7 +210,7 @@ public final class i extends ae implements Runnable {
     }
 
     private void a(int i, Fragment fragment, String str, int i2) {
-        fragment.B = this.f293a;
+        fragment.B = this.a;
         if (str != null) {
             if (fragment.H != null && !str.equals(fragment.H)) {
                 throw new IllegalStateException("Can't change tag of fragment " + fragment + ": was " + fragment.H + " now " + str);
@@ -280,13 +278,13 @@ public final class i extends ae implements Runnable {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(int i) {
         if (this.k) {
-            if (v.f300a) {
+            if (v.a) {
                 Log.v("FragmentManager", "Bump nesting in " + this + " by " + i);
             }
-            for (j jVar = this.b; jVar != null; jVar = jVar.f294a) {
+            for (j jVar = this.b; jVar != null; jVar = jVar.a) {
                 if (jVar.d != null) {
                     jVar.d.A += i;
-                    if (v.f300a) {
+                    if (v.a) {
                         Log.v("FragmentManager", "Bump nesting of " + jVar.d + " to " + jVar.d.A);
                     }
                 }
@@ -294,7 +292,7 @@ public final class i extends ae implements Runnable {
                     for (int size = jVar.i.size() - 1; size >= 0; size--) {
                         Fragment fragment = jVar.i.get(size);
                         fragment.A += i;
-                        if (v.f300a) {
+                        if (v.a) {
                             Log.v("FragmentManager", "Bump nesting of " + fragment + " to " + fragment.A);
                         }
                     }
@@ -317,44 +315,44 @@ public final class i extends ae implements Runnable {
         if (this.n) {
             throw new IllegalStateException("commit already called");
         }
-        if (v.f300a) {
+        if (v.a) {
             Log.v("FragmentManager", "Commit: " + this);
             a("  ", (FileDescriptor) null, new PrintWriter(new android.support.v4.b.b("FragmentManager")), (String[]) null);
         }
         this.n = true;
         if (this.k) {
-            this.o = this.f293a.a(this);
+            this.o = this.a.a(this);
         } else {
             this.o = -1;
         }
-        this.f293a.a(this, z);
+        this.a.a(this, z);
         return this.o;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Fragment fragment;
-        if (v.f300a) {
+        if (v.a) {
             Log.v("FragmentManager", "Run: " + this);
         }
         if (this.k && this.o < 0) {
             throw new IllegalStateException("addToBackStack() called after commit()");
         }
         a(1);
-        for (j jVar = this.b; jVar != null; jVar = jVar.f294a) {
+        for (j jVar = this.b; jVar != null; jVar = jVar.a) {
             switch (jVar.c) {
                 case 1:
                     Fragment fragment2 = jVar.d;
                     fragment2.P = jVar.e;
-                    this.f293a.a(fragment2, false);
+                    this.a.a(fragment2, false);
                     break;
                 case 2:
                     Fragment fragment3 = jVar.d;
-                    if (this.f293a.g != null) {
+                    if (this.a.g != null) {
                         fragment = fragment3;
-                        for (int i = 0; i < this.f293a.g.size(); i++) {
-                            Fragment fragment4 = this.f293a.g.get(i);
-                            if (v.f300a) {
+                        for (int i = 0; i < this.a.g.size(); i++) {
+                            Fragment fragment4 = this.a.g.get(i);
+                            if (v.a) {
                                 Log.v("FragmentManager", "OP_REPLACE: adding=" + fragment + " old=" + fragment4);
                             }
                             if (fragment == null || fragment4.G == fragment.G) {
@@ -369,11 +367,11 @@ public final class i extends ae implements Runnable {
                                     fragment4.P = jVar.f;
                                     if (this.k) {
                                         fragment4.A++;
-                                        if (v.f300a) {
+                                        if (v.a) {
                                             Log.v("FragmentManager", "Bump nesting of " + fragment4 + " to " + fragment4.A);
                                         }
                                     }
-                                    this.f293a.a(fragment4, this.i, this.j);
+                                    this.a.a(fragment4, this.i, this.j);
                                 }
                             }
                         }
@@ -382,7 +380,7 @@ public final class i extends ae implements Runnable {
                     }
                     if (fragment != null) {
                         fragment.P = jVar.e;
-                        this.f293a.a(fragment, false);
+                        this.a.a(fragment, false);
                         break;
                     } else {
                         break;
@@ -390,40 +388,40 @@ public final class i extends ae implements Runnable {
                 case 3:
                     Fragment fragment5 = jVar.d;
                     fragment5.P = jVar.f;
-                    this.f293a.a(fragment5, this.i, this.j);
+                    this.a.a(fragment5, this.i, this.j);
                     break;
                 case 4:
                     Fragment fragment6 = jVar.d;
                     fragment6.P = jVar.f;
-                    this.f293a.b(fragment6, this.i, this.j);
+                    this.a.b(fragment6, this.i, this.j);
                     break;
                 case 5:
                     Fragment fragment7 = jVar.d;
                     fragment7.P = jVar.e;
-                    this.f293a.c(fragment7, this.i, this.j);
+                    this.a.c(fragment7, this.i, this.j);
                     break;
                 case 6:
                     Fragment fragment8 = jVar.d;
                     fragment8.P = jVar.f;
-                    this.f293a.d(fragment8, this.i, this.j);
+                    this.a.d(fragment8, this.i, this.j);
                     break;
                 case 7:
                     Fragment fragment9 = jVar.d;
                     fragment9.P = jVar.e;
-                    this.f293a.e(fragment9, this.i, this.j);
+                    this.a.e(fragment9, this.i, this.j);
                     break;
                 default:
                     throw new IllegalArgumentException("Unknown cmd: " + jVar.c);
             }
         }
-        this.f293a.a(this.f293a.n, this.i, this.j, true);
+        this.a.a(this.a.n, this.i, this.j, true);
         if (this.k) {
-            this.f293a.b(this);
+            this.a.b(this);
         }
     }
 
     public void b(boolean z) {
-        if (v.f300a) {
+        if (v.a) {
             Log.v("FragmentManager", "popFromBackStack: " + this);
             a("  ", (FileDescriptor) null, new PrintWriter(new android.support.v4.b.b("FragmentManager")), (String[]) null);
         }
@@ -433,19 +431,19 @@ public final class i extends ae implements Runnable {
                 case 1:
                     Fragment fragment = jVar.d;
                     fragment.P = jVar.h;
-                    this.f293a.a(fragment, v.c(this.i), this.j);
+                    this.a.a(fragment, v.c(this.i), this.j);
                     break;
                 case 2:
                     Fragment fragment2 = jVar.d;
                     if (fragment2 != null) {
                         fragment2.P = jVar.h;
-                        this.f293a.a(fragment2, v.c(this.i), this.j);
+                        this.a.a(fragment2, v.c(this.i), this.j);
                     }
                     if (jVar.i != null) {
                         for (int i = 0; i < jVar.i.size(); i++) {
                             Fragment fragment3 = jVar.i.get(i);
                             fragment3.P = jVar.g;
-                            this.f293a.a(fragment3, false);
+                            this.a.a(fragment3, false);
                         }
                         break;
                     } else {
@@ -454,37 +452,37 @@ public final class i extends ae implements Runnable {
                 case 3:
                     Fragment fragment4 = jVar.d;
                     fragment4.P = jVar.g;
-                    this.f293a.a(fragment4, false);
+                    this.a.a(fragment4, false);
                     break;
                 case 4:
                     Fragment fragment5 = jVar.d;
                     fragment5.P = jVar.g;
-                    this.f293a.c(fragment5, v.c(this.i), this.j);
+                    this.a.c(fragment5, v.c(this.i), this.j);
                     break;
                 case 5:
                     Fragment fragment6 = jVar.d;
                     fragment6.P = jVar.h;
-                    this.f293a.b(fragment6, v.c(this.i), this.j);
+                    this.a.b(fragment6, v.c(this.i), this.j);
                     break;
                 case 6:
                     Fragment fragment7 = jVar.d;
                     fragment7.P = jVar.g;
-                    this.f293a.e(fragment7, v.c(this.i), this.j);
+                    this.a.e(fragment7, v.c(this.i), this.j);
                     break;
                 case 7:
                     Fragment fragment8 = jVar.d;
                     fragment8.P = jVar.g;
-                    this.f293a.d(fragment8, v.c(this.i), this.j);
+                    this.a.d(fragment8, v.c(this.i), this.j);
                     break;
                 default:
                     throw new IllegalArgumentException("Unknown cmd: " + jVar.c);
             }
         }
         if (z) {
-            this.f293a.a(this.f293a.n, v.c(this.i), this.j, true);
+            this.a.a(this.a.n, v.c(this.i), this.j, true);
         }
         if (this.o >= 0) {
-            this.f293a.b(this.o);
+            this.a.b(this.o);
             this.o = -1;
         }
     }

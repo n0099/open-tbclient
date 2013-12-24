@@ -11,15 +11,13 @@ import android.widget.ListAdapter;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.more.SettingTextSwitchView;
-import com.baidu.tieba.util.aa;
-import com.baidu.tieba.util.ba;
+import com.baidu.tieba.util.ab;
+import com.baidu.tieba.util.bb;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class s extends com.baidu.adp.a.e {
-
-    /* renamed from: a  reason: collision with root package name */
-    private int f1635a;
+    private int a;
     private NavigationBar c;
     private View d;
     private GroupAddressLocateActivity e;
@@ -39,7 +37,7 @@ public class s extends com.baidu.adp.a.e {
     private String s;
     private boolean t;
     private r u;
-    private aa v;
+    private ab v;
     private String w;
     private String x;
     private DialogInterface.OnClickListener y;
@@ -47,7 +45,7 @@ public class s extends com.baidu.adp.a.e {
 
     public s(GroupAddressLocateActivity groupAddressLocateActivity, String str, String str2, boolean z) {
         super(groupAddressLocateActivity);
-        this.f1635a = 3;
+        this.a = 3;
         this.c = null;
         this.d = null;
         this.e = null;
@@ -158,7 +156,7 @@ public class s extends com.baidu.adp.a.e {
     }
 
     private void s() {
-        this.v = new aa(this.e);
+        this.v = new ab(this.e);
         a();
     }
 
@@ -166,7 +164,7 @@ public class s extends com.baidu.adp.a.e {
         this.k.setText(R.string.address_pos_list);
         this.m.setText(R.string.address_locating);
         this.n.setVisibility(8);
-        this.f1635a = 3;
+        this.a = 3;
         t();
     }
 
@@ -174,7 +172,7 @@ public class s extends com.baidu.adp.a.e {
         this.k.setText(R.string.address_locate_noaddresslist);
         this.m.setText(R.string.address_locate_failed_tryagain);
         this.n.setVisibility(0);
-        this.f1635a = 2;
+        this.a = 2;
         t();
     }
 
@@ -195,7 +193,7 @@ public class s extends com.baidu.adp.a.e {
         this.k.setText(R.string.address_pos_list);
         this.m.setText(R.string.address_locate_failed_opengps);
         this.n.setVisibility(0);
-        this.f1635a = 1;
+        this.a = 1;
         t();
     }
 
@@ -209,7 +207,7 @@ public class s extends com.baidu.adp.a.e {
 
     private void t() {
         if (this.p != null) {
-            if (this.f1635a == 3) {
+            if (this.a == 3) {
                 this.p.start();
                 return;
             }
@@ -243,7 +241,7 @@ public class s extends com.baidu.adp.a.e {
     }
 
     public int q() {
-        return this.f1635a;
+        return this.a;
     }
 
     public void a(DialogInterface.OnClickListener onClickListener) {
@@ -261,7 +259,7 @@ public class s extends com.baidu.adp.a.e {
     public void a(int i) {
         this.e.getLayoutMode().a(i == 1);
         this.e.getLayoutMode().a(this.d);
-        ba.b(this.d, i);
+        bb.b(this.d, i);
         this.c.c(i);
         if (i == 1) {
             this.d.setBackgroundResource(R.color.group_info_bg_1);

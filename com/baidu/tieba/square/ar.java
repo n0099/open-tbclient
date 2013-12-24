@@ -1,15 +1,12 @@
 package com.baidu.tieba.square;
 
 import com.baidu.tieba.forumdetail.ForumDetailData;
-import com.tencent.mm.sdk.platformtools.LocaleUtil;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ar {
-
-    /* renamed from: a  reason: collision with root package name */
-    private ArrayList<au> f2488a = new ArrayList<>();
+    private ArrayList<au> a = new ArrayList<>();
     private ArrayList<au> b = new ArrayList<>();
     private ad c = new ad();
     private ForumDetailData.ThreadInfo[] d = null;
@@ -21,7 +18,7 @@ public class ar {
     }
 
     public ArrayList<au> b() {
-        return this.f2488a;
+        return this.a;
     }
 
     public ArrayList<au> c() {
@@ -49,7 +46,7 @@ public class ar {
             a(new JSONObject(str));
         } catch (Exception e) {
             this.f = false;
-            com.baidu.tieba.util.bd.b(getClass().getName(), "parserJson", e.toString());
+            com.baidu.tieba.util.be.b(getClass().getName(), "parserJson", e.toString());
         }
     }
 
@@ -63,7 +60,7 @@ public class ar {
             this.e.b(jSONObject);
         } catch (Exception e) {
             this.f = false;
-            com.baidu.tieba.util.bd.b(getClass().getName(), "parserJson", e.toString());
+            com.baidu.tieba.util.be.b(getClass().getName(), "parserJson", e.toString());
         }
     }
 
@@ -76,11 +73,11 @@ public class ar {
                         JSONObject jSONObject = jSONArray.getJSONObject(i);
                         auVar.a(jSONObject.optString("pic_url", ""));
                         auVar.b(jSONObject.optString("link", ""));
-                        this.f2488a.add(auVar);
+                        this.a.add(auVar);
                     }
                 }
             } catch (Exception e) {
-                com.baidu.tieba.util.bd.b(getClass().getName(), "parseCarouselRecommendData", e.toString());
+                com.baidu.tieba.util.be.b(getClass().getName(), "parseCarouselRecommendData", e.toString());
             }
         }
     }
@@ -98,7 +95,7 @@ public class ar {
                     }
                 }
             } catch (Exception e) {
-                com.baidu.tieba.util.bd.b(getClass().getName(), "parseForumTopicRecommendData", e.toString());
+                com.baidu.tieba.util.be.b(getClass().getName(), "parseForumTopicRecommendData", e.toString());
             }
         }
     }
@@ -111,7 +108,7 @@ public class ar {
                     for (int i = 0; i < jSONArray.length(); i++) {
                         ForumDetailData.ThreadInfo threadInfo = new ForumDetailData.ThreadInfo();
                         JSONObject jSONObject = jSONArray.getJSONObject(i);
-                        threadInfo.id = jSONObject.optLong(LocaleUtil.INDONESIAN);
+                        threadInfo.id = jSONObject.optLong("id");
                         threadInfo.title = jSONObject.optString("title");
                         threadInfo.viewNum = jSONObject.optLong("view_num");
                         threadInfo.replyNum = jSONObject.optLong("reply_num");
@@ -134,7 +131,7 @@ public class ar {
                     }
                 }
             } catch (Exception e) {
-                com.baidu.tieba.util.bd.b(getClass().getName(), "parseRecommendPostData", e.toString());
+                com.baidu.tieba.util.be.b(getClass().getName(), "parseRecommendPostData", e.toString());
             }
         }
     }
@@ -142,7 +139,7 @@ public class ar {
     public boolean g() {
         boolean z = false;
         if (this.f) {
-            if (this.f2488a == null || this.e == null || this.b == null || this.c == null || this.d == null) {
+            if (this.a == null || this.e == null || this.b == null || this.c == null || this.d == null) {
                 z = true;
             }
             return z;

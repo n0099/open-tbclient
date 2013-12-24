@@ -3,22 +3,21 @@ package com.baidu.tieba.log;
 import android.text.TextUtils;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.ae;
-import com.baidu.tieba.util.am;
-import com.baidu.tieba.util.bd;
-import com.baidu.tieba.util.x;
+import com.baidu.tieba.util.af;
+import com.baidu.tieba.util.an;
+import com.baidu.tieba.util.be;
+import com.baidu.tieba.util.y;
+import com.baidu.zeus.NotificationProxy;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 /* loaded from: classes.dex */
 class e {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f1917a;
-    private am b;
+    final /* synthetic */ a a;
+    private an b;
 
     private e(a aVar) {
-        this.f1917a = aVar;
+        this.a = aVar;
         this.b = null;
     }
 
@@ -47,14 +46,14 @@ class e {
                 try {
                     String[] split = name.split("-");
                     String str5 = split.length > 1 ? split[0] : null;
-                    byteArrayOutputStream = new ByteArrayOutputStream(1024);
+                    byteArrayOutputStream = new ByteArrayOutputStream(NotificationProxy.MAX_URL_LENGTH);
                     try {
                         if (z) {
-                            ae.a(fileInputStream, byteArrayOutputStream);
+                            af.a(fileInputStream, byteArrayOutputStream);
                         } else {
-                            byte[] bArr = new byte[1024];
+                            byte[] bArr = new byte[NotificationProxy.MAX_URL_LENGTH];
                             while (true) {
-                                int read = fileInputStream.read(bArr, 0, 1024);
+                                int read = fileInputStream.read(bArr, 0, NotificationProxy.MAX_URL_LENGTH);
                                 if (read == -1) {
                                     break;
                                 }
@@ -68,7 +67,7 @@ class e {
                                 try {
                                     byteArrayOutputStream.close();
                                 } catch (Exception e) {
-                                    bd.b(getClass().getName(), "sendLogFile", e.getMessage());
+                                    be.b(getClass().getName(), "sendLogFile", e.getMessage());
                                 }
                             }
                             if (fileInputStream != null) {
@@ -76,13 +75,13 @@ class e {
                                     fileInputStream.close();
                                     return;
                                 } catch (Exception e2) {
-                                    bd.b(getClass().getName(), "sendLogFile", e2.getMessage());
+                                    be.b(getClass().getName(), "sendLogFile", e2.getMessage());
                                     return;
                                 }
                             }
                             return;
                         }
-                        this.b = new am(com.baidu.tieba.data.h.f1248a + str2);
+                        this.b = new an(com.baidu.tieba.data.h.a + str2);
                         this.b.a(SocialConstants.PARAM_CUID, com.baidu.tieba.im.i.a());
                         this.b.a("uid", TiebaApplication.B());
                         this.b.a("time", str5);
@@ -99,11 +98,11 @@ class e {
                         }
                         if (this.b.c()) {
                             str3 = a.d;
-                            x.k(str3);
-                            if (TextUtils.isEmpty(x.a("log", name, "logbak", name))) {
-                                bd.b(getClass().getName(), "sendLogFile", "file.move error");
+                            y.k(str3);
+                            if (TextUtils.isEmpty(y.a("log", name, "logbak", name))) {
+                                be.b(getClass().getName(), "sendLogFile", "file.move error");
                             }
-                            a aVar = this.f1917a;
+                            a aVar = this.a;
                             str4 = a.d;
                             aVar.g(str4);
                         }
@@ -111,12 +110,12 @@ class e {
                         e = e3;
                         byteArrayOutputStream2 = byteArrayOutputStream;
                         try {
-                            bd.b(getClass().getName(), "sendLogFile", e.getMessage());
+                            be.b(getClass().getName(), "sendLogFile", e.getMessage());
                             if (byteArrayOutputStream2 != null) {
                                 try {
                                     byteArrayOutputStream2.close();
                                 } catch (Exception e4) {
-                                    bd.b(getClass().getName(), "sendLogFile", e4.getMessage());
+                                    be.b(getClass().getName(), "sendLogFile", e4.getMessage());
                                 }
                             }
                             if (fileInputStream != null) {
@@ -124,7 +123,7 @@ class e {
                                     fileInputStream.close();
                                     return;
                                 } catch (Exception e5) {
-                                    bd.b(getClass().getName(), "sendLogFile", e5.getMessage());
+                                    be.b(getClass().getName(), "sendLogFile", e5.getMessage());
                                     return;
                                 }
                             }
@@ -136,14 +135,14 @@ class e {
                                 try {
                                     byteArrayOutputStream.close();
                                 } catch (Exception e6) {
-                                    bd.b(getClass().getName(), "sendLogFile", e6.getMessage());
+                                    be.b(getClass().getName(), "sendLogFile", e6.getMessage());
                                 }
                             }
                             if (fileInputStream != null) {
                                 try {
                                     fileInputStream.close();
                                 } catch (Exception e7) {
-                                    bd.b(getClass().getName(), "sendLogFile", e7.getMessage());
+                                    be.b(getClass().getName(), "sendLogFile", e7.getMessage());
                                 }
                             }
                             throw th;
@@ -170,14 +169,14 @@ class e {
                 try {
                     byteArrayOutputStream.close();
                 } catch (Exception e9) {
-                    bd.b(getClass().getName(), "sendLogFile", e9.getMessage());
+                    be.b(getClass().getName(), "sendLogFile", e9.getMessage());
                 }
             }
             if (fileInputStream != null) {
                 try {
                     fileInputStream.close();
                 } catch (Exception e10) {
-                    bd.b(getClass().getName(), "sendLogFile", e10.getMessage());
+                    be.b(getClass().getName(), "sendLogFile", e10.getMessage());
                 }
             }
         } catch (Exception e11) {

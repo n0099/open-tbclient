@@ -31,9 +31,7 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class EditHeadActivity extends com.baidu.tieba.j {
-
-    /* renamed from: a  reason: collision with root package name */
-    public static String f2292a = "resourceid";
+    public static String a = "resourceid";
     public static String b = "pic_info";
     public static String c = "delete";
     public static String d = "change";
@@ -94,9 +92,9 @@ public class EditHeadActivity extends com.baidu.tieba.j {
         if (this.F == 12002 || this.F == 12001) {
             e();
             if (intent.getData() != null) {
-                TiebaPrepareImageService.a(this.F, intent.getData(), com.baidu.tieba.util.bc.a().e());
+                TiebaPrepareImageService.a(this.F, intent.getData(), com.baidu.tieba.util.bd.a().e());
             } else {
-                TiebaPrepareImageService.a(this.F, null, com.baidu.tieba.util.bc.a().e());
+                TiebaPrepareImageService.a(this.F, null, com.baidu.tieba.util.bd.a().e());
             }
             f();
         } else {
@@ -272,13 +270,13 @@ public class EditHeadActivity extends com.baidu.tieba.j {
     /* JADX INFO: Access modifiers changed from: private */
     public boolean a(String str, Bitmap bitmap) {
         try {
-            com.baidu.tieba.util.x.a((String) null, str, bitmap, 80);
+            com.baidu.tieba.util.y.a((String) null, str, bitmap, 80);
             if (this.E) {
-                new com.baidu.tieba.account.ai("motu_pic", String.valueOf(this.A)).start();
+                new com.baidu.tieba.account.av("motu_pic", String.valueOf(this.A)).start();
             }
             return true;
         } catch (Exception e2) {
-            com.baidu.tieba.util.bd.b(getClass().getName(), "saveFile", e2.toString());
+            com.baidu.tieba.util.be.b(getClass().getName(), "saveFile", e2.toString());
             return false;
         }
     }

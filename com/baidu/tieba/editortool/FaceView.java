@@ -14,16 +14,15 @@ import android.widget.ListAdapter;
 import android.widget.RelativeLayout;
 import com.baidu.tbadk.imageManager.TbFaceManager;
 import com.baidu.tieba.im.chat.ViewPagerAdapter;
+import com.baidu.tieba.im.chat.q;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class FaceView extends RelativeLayout {
-
-    /* renamed from: a  reason: collision with root package name */
-    private int f1270a;
+    private int a;
     private double b;
     private int c;
-    private com.baidu.tieba.im.chat.k d;
+    private q d;
     private ArrayList<View> e;
     private ArrayList<ImageView> f;
     private RelativeLayout g;
@@ -34,7 +33,7 @@ public class FaceView extends RelativeLayout {
 
     public FaceView(Context context) {
         super(context);
-        this.f1270a = 1;
+        this.a = 1;
         this.b = 0.0d;
         this.c = 0;
         this.d = null;
@@ -50,7 +49,7 @@ public class FaceView extends RelativeLayout {
 
     public FaceView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f1270a = 1;
+        this.a = 1;
         this.b = 0.0d;
         this.c = 0;
         this.d = null;
@@ -66,7 +65,7 @@ public class FaceView extends RelativeLayout {
 
     public FaceView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f1270a = 1;
+        this.a = 1;
         this.b = 0.0d;
         this.c = 0;
         this.d = null;
@@ -94,7 +93,7 @@ public class FaceView extends RelativeLayout {
         for (int i = 0; i < ceil; i++) {
             GridView gridView = new GridView(this.j);
             this.c = i * 28;
-            this.d = new com.baidu.tieba.im.chat.k(this.j, 28, this.c - i, i);
+            this.d = new q(this.j, 28, this.c - i, i);
             gridView.setAdapter((ListAdapter) this.d);
             arrayList.add(this.d);
             gridView.setNumColumns(7);

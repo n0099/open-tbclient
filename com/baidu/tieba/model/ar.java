@@ -7,9 +7,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ar {
-
-    /* renamed from: a  reason: collision with root package name */
-    private ForumData f1993a;
+    private ForumData a;
     private ArrayList<com.baidu.tieba.data.ba> b;
     private ArrayList<String> c;
     private int d;
@@ -29,7 +27,7 @@ public class ar {
     }
 
     private void g() {
-        this.f1993a = new ForumData();
+        this.a = new ForumData();
         this.b = new ArrayList<>();
         this.c = new ArrayList<>();
         this.d = 0;
@@ -40,7 +38,7 @@ public class ar {
     }
 
     public ForumData a() {
-        return this.f1993a;
+        return this.a;
     }
 
     public ArrayList<com.baidu.tieba.data.ba> b() {
@@ -63,7 +61,7 @@ public class ar {
         if (jSONObject != null) {
             try {
                 g();
-                this.f1993a.parserJson(jSONObject.optJSONObject("forum"));
+                this.a.parserJson(jSONObject.optJSONObject("forum"));
                 this.h.a(jSONObject.optJSONObject("user"));
                 this.g.parserJson(jSONObject.optJSONObject("anti"));
                 JSONObject optJSONObject = jSONObject.optJSONObject("photo_data");

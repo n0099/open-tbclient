@@ -7,9 +7,7 @@ import java.io.ByteArrayOutputStream;
 import java.util.Hashtable;
 /* loaded from: classes.dex */
 public class a {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static a f501a = null;
+    private static a a = null;
     private volatile Hashtable<Integer, Bitmap> b = new Hashtable<>();
     private Context c = null;
     private Bitmap.Config d = Bitmap.Config.RGB_565;
@@ -17,10 +15,10 @@ public class a {
     public static synchronized a a() {
         a aVar;
         synchronized (a.class) {
-            if (f501a == null) {
-                f501a = new a();
+            if (a == null) {
+                a = new a();
             }
-            aVar = f501a;
+            aVar = a;
         }
         return aVar;
     }

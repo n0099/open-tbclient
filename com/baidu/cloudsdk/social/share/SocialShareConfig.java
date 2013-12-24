@@ -9,9 +9,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class SocialShareConfig extends BaseConfig {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static SocialShareConfig f865a;
+    private static SocialShareConfig a;
     private List b;
     private List c;
 
@@ -22,11 +20,11 @@ public class SocialShareConfig extends BaseConfig {
     }
 
     public static SocialShareConfig getInstance(Context context) {
-        if (f865a == null) {
-            f865a = new SocialShareConfig(context);
-            f865a.loadDefaultConfig();
+        if (a == null) {
+            a = new SocialShareConfig(context);
+            a.loadDefaultConfig();
         }
-        return f865a;
+        return a;
     }
 
     @Override // com.baidu.cloudsdk.social.core.BaseConfig

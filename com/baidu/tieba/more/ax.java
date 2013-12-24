@@ -1,75 +1,62 @@
 package com.baidu.tieba.more;
 
-import android.widget.RelativeLayout;
-import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.ba;
-import com.baidu.tieba.view.NavigationBar;
-import com.slidingmenu.lib.R;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tieba.model.MoreModel;
+import com.baidu.tieba.util.DatabaseService;
+import com.baidu.tieba.util.be;
+import java.io.File;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ax extends com.baidu.adp.a.e {
+public class ax extends BdAsyncTask<String, Integer, String> {
+    final /* synthetic */ av a;
 
-    /* renamed from: a  reason: collision with root package name */
-    private SystemHelpSettingActivity f2085a;
-    private RelativeLayout c;
-    private SettingTextSwitchView d;
-    private SettingTextTipView e;
-    private SettingTextTipView f;
-    private NavigationBar g;
+    private ax(av avVar) {
+        this.a = avVar;
+    }
 
-    public ax(SystemHelpSettingActivity systemHelpSettingActivity) {
-        super(systemHelpSettingActivity);
-        this.f2085a = null;
-        this.c = null;
-        this.d = null;
-        this.e = null;
-        this.f = null;
-        this.f2085a = systemHelpSettingActivity;
-        this.f2085a.setContentView(R.layout.system_help_activity);
-        this.g = (NavigationBar) this.f2085a.findViewById(R.id.view_navigation_bar);
-        this.g.a(this.f2085a.getString(R.string.systemhelpsetting));
-        this.g.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.d = (SettingTextSwitchView) this.f2085a.findViewById(R.id.sv_earphone);
-        this.e = (SettingTextTipView) this.f2085a.findViewById(R.id.clear_cache);
-        this.e.d();
-        this.e.setOnClickListener(this.f2085a);
-        this.f = (SettingTextTipView) this.f2085a.findViewById(R.id.clear_im);
-        this.f.d();
-        this.f.setOnClickListener(this.f2085a);
-        this.d.setSwitchStateChangeListener(this.f2085a);
-        this.c = (RelativeLayout) this.f2085a.findViewById(R.id.parent);
-        if (TiebaApplication.C()) {
-            this.f.setVisibility(0);
-        } else {
-            this.f.setVisibility(8);
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(String str) {
+        com.baidu.adp.a.g gVar;
+        com.baidu.adp.a.g gVar2;
+        super.a((ax) str);
+        this.a.a = null;
+        gVar = this.a.mLoadDataCallBack;
+        if (gVar != null) {
+            gVar2 = this.a.mLoadDataCallBack;
+            gVar2.a(MoreModel.TaskType.DO_CLEAR);
         }
     }
 
-    public BdSwitchView a() {
-        return this.d.getSwitchView();
-    }
-
-    public SettingTextTipView e() {
-        return this.e;
-    }
-
-    public SettingTextTipView f() {
-        return this.f;
-    }
-
-    public void a(int i) {
-        this.g.c(i);
-        this.d.a(i);
-        if (i == 1) {
-            ba.e(this.d, (int) R.drawable.more_all_1);
-            ba.e(this.e, (int) R.drawable.more_all_1);
-        } else {
-            ba.e(this.d, (int) R.drawable.more_all);
-            ba.e(this.e, (int) R.drawable.more_all);
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public String a(String... strArr) {
+        DatabaseService.x();
+        com.baidu.tieba.voice.a.e.a();
+        try {
+            File[] listFiles = new File(com.baidu.tieba.util.y.a + "/tieba/image/").listFiles();
+            if (listFiles != null) {
+                for (File file : listFiles) {
+                    if (!file.delete()) {
+                        be.b(getClass().getName(), "doInBackground", "list[i].delete error");
+                    }
+                }
+            }
+            File[] listFiles2 = new File(com.baidu.tieba.util.y.a + "/tieba/hotspot/").listFiles();
+            if (listFiles2 != null) {
+                for (File file2 : listFiles2) {
+                    if (!file2.delete()) {
+                        be.b(getClass().getName(), "doInBackground", "list[i].delete error");
+                    }
+                }
+                return null;
+            }
+            return null;
+        } catch (Exception e) {
+            be.b(getClass().getName(), "doInBackground", e.getMessage());
+            return null;
         }
-        this.e.a(i);
-        this.f.a(i);
-        this.f2085a.getLayoutMode().a(i == 1);
-        this.f2085a.getLayoutMode().a(this.c);
     }
 }

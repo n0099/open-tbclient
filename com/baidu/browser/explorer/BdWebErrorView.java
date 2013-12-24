@@ -9,7 +9,6 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import com.baidu.browser.core.BdNoProGuard;
 import com.baidu.browser.webpool.BdWebPoolView;
-import com.tencent.mm.sdk.platformtools.LocaleUtil;
 /* loaded from: classes.dex */
 public class BdWebErrorView extends ScrollView implements BdNoProGuard {
     public static final int BAD_NETWORK = 16;
@@ -86,9 +85,9 @@ public class BdWebErrorView extends ScrollView implements BdNoProGuard {
     @Override // android.view.View
     protected void onFinishInflate() {
         super.onFinishInflate();
-        this.mDescriptionTextView = (TextView) findViewById(getContext().getResources().getIdentifier("webview_error_description_textview", LocaleUtil.INDONESIAN, getContext().getPackageName()));
-        this.mImageView = (ImageView) findViewById(getContext().getResources().getIdentifier("webview_error_imageview", LocaleUtil.INDONESIAN, getContext().getPackageName()));
-        this.mButton = (Button) findViewById(getContext().getResources().getIdentifier("webview_error_button", LocaleUtil.INDONESIAN, getContext().getPackageName()));
+        this.mDescriptionTextView = (TextView) findViewById(getContext().getResources().getIdentifier("webview_error_description_textview", "id", getContext().getPackageName()));
+        this.mImageView = (ImageView) findViewById(getContext().getResources().getIdentifier("webview_error_imageview", "id", getContext().getPackageName()));
+        this.mButton = (Button) findViewById(getContext().getResources().getIdentifier("webview_error_button", "id", getContext().getPackageName()));
     }
 
     public void setAttachedFixedWebView(BdWebPoolView bdWebPoolView) {

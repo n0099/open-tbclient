@@ -7,56 +7,54 @@ import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.im.message.ChatMessage;
 import com.baidu.tieba.view.HeadImageView;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class MsgrightView extends an {
-    private static final String n = MsgrightView.class.getName();
-    protected TextView m;
-    private ProgressBar o;
-    private ImageButton p;
-    private HeadImageView q;
+public class MsgrightView extends at {
+    private static final String o = MsgrightView.class.getName();
+    protected TextView n;
+    private ProgressBar p;
+    private ImageButton q;
+    private HeadImageView r;
 
     public MsgrightView(Context context) {
         super(context, R.layout.msg_msgright_view);
         e();
-        this.m = (TextView) a(R.id.img_msgitem_progressbar);
-        this.o = (ProgressBar) a(R.id.progress);
-        this.p = (ImageButton) a(R.id.btn_msgitem_resend);
-        this.q = (HeadImageView) a(R.id.img_msgitem_photo);
-        this.q.setAutoChangeStyle(false);
-        this.q.setIsRound(true);
-        this.q.setOnClickListener(new cb(this));
+        this.n = (TextView) a(R.id.img_msgitem_progressbar);
+        this.p = (ProgressBar) a(R.id.progress);
+        this.q = (ImageButton) a(R.id.btn_msgitem_resend);
+        this.r = (HeadImageView) a(R.id.img_msgitem_photo);
+        this.r.setAutoChangeStyle(false);
+        this.r.setOnClickListener(new ck(this));
     }
 
-    @Override // com.baidu.tieba.im.chat.an
-    public void a(View view, ChatMessage chatMessage) {
-        if (chatMessage.getLocalData() != null && chatMessage.getLocalData().getStatus() != null && (chatMessage.getLocalData().getStatus().shortValue() == 3 || chatMessage.getLocalData().getStatus().shortValue() == 2)) {
-            if (this.m.getVisibility() != 8) {
-                this.m.setVisibility(8);
+    @Override // com.baidu.tieba.im.chat.at
+    public void a(View view, com.baidu.tieba.im.message.b bVar) {
+        if (bVar.m() != null && bVar.m().getStatus() != null && (bVar.m().getStatus().shortValue() == 3 || bVar.m().getStatus().shortValue() == 2)) {
+            if (this.n.getVisibility() != 8) {
+                this.n.setVisibility(8);
                 this.k.setColorFilter(0, PorterDuff.Mode.SRC_ATOP);
             }
-        } else if (chatMessage.getProgressValue() >= 100 || !chatMessage.getIsUploading()) {
-            if (this.m.getVisibility() != 8) {
-                this.m.setVisibility(8);
+        } else if (bVar.d() >= 100 || !bVar.c()) {
+            if (this.n.getVisibility() != 8) {
+                this.n.setVisibility(8);
                 this.k.setColorFilter(0, PorterDuff.Mode.SRC_ATOP);
             }
         } else {
             this.k.setColorFilter(TiebaApplication.h().getResources().getColor(R.color.image_uploading_cover), PorterDuff.Mode.SRC_ATOP);
-            this.m.setText(chatMessage.getProgressValue() + "%");
-            this.m.setVisibility(0);
+            this.n.setText(bVar.d() + "%");
+            this.n.setVisibility(0);
         }
     }
 
-    @Override // com.baidu.tieba.im.chat.an
-    public void b(View view, ChatMessage chatMessage) {
+    @Override // com.baidu.tieba.im.chat.at
+    public void b(View view, com.baidu.tieba.im.message.b bVar) {
         String str = null;
-        super.b(view, chatMessage);
-        if (chatMessage == null) {
+        super.b(view, bVar);
+        if (bVar == null) {
             this.i.setVisibility(8);
-            this.o.setVisibility(8);
             this.p.setVisibility(8);
+            this.q.setVisibility(8);
             this.j.setVisibility(0);
             this.j.setText(null);
             c(8);
@@ -66,50 +64,50 @@ public class MsgrightView extends an {
             return;
         }
         try {
-            a(chatMessage);
-            if (chatMessage.getUserInfo() != null) {
-                this.q.setUserId(chatMessage.getUserInfo().getId());
+            a(bVar);
+            if (bVar.f() != null) {
+                this.r.setUserId(bVar.f().getId());
                 if (TiebaApplication.C()) {
                     str = com.baidu.tieba.im.i.b();
                 }
             }
             com.baidu.adp.widget.ImageView.e c = this.e.c(str);
             if (c != null) {
-                c.a(this.q);
+                c.a(this.r);
             } else {
-                this.e.b(str, new cc(this));
+                this.e.b(str, new cl(this));
             }
-            this.o.setVisibility(8);
             this.p.setVisibility(8);
-            if (chatMessage.getLocalData() != null && chatMessage.getLocalData().getStatus() != null) {
-                switch (chatMessage.getLocalData().getStatus().shortValue()) {
+            this.q.setVisibility(8);
+            if (bVar.m() != null && bVar.m().getStatus() != null) {
+                switch (bVar.m().getStatus().shortValue()) {
                     case 1:
-                        this.o.setVisibility(0);
-                        break;
-                    case 2:
                         this.p.setVisibility(0);
                         break;
+                    case 2:
+                        this.q.setVisibility(0);
+                        break;
                     case 3:
-                        this.o.setVisibility(8);
+                        this.p.setVisibility(8);
                         break;
                 }
             }
-            if (this.p.getVisibility() == 0) {
-                this.p.setOnClickListener(new cd(this));
+            if (this.q.getVisibility() == 0) {
+                this.q.setOnClickListener(new cm(this));
             }
             this.j.setVisibility(8);
             c(8);
             this.l.setVisibility(8);
-            switch (chatMessage.getMsgType()) {
+            switch (bVar.h()) {
                 case 1:
-                    a(chatMessage, n);
+                    a(bVar, o);
                     return;
                 case 2:
-                    a(view, chatMessage, n);
+                    a(view, bVar, o);
                     c(0);
                     return;
                 case 3:
-                    b(chatMessage, n);
+                    b(bVar, o);
                     this.l.setVisibility(0);
                     return;
                 default:

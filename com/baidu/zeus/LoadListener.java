@@ -307,7 +307,7 @@ public class LoadListener extends Handler implements EventHandler {
                     }
                 }
             }
-            if ((this.mStatusCode == 200 || this.mStatusCode == 302 || this.mStatusCode == 301 || this.mStatusCode == HTTP_TEMPORARY_REDIRECT) && this.mNativeLoader != 0) {
+            if ((this.mStatusCode == 200 || this.mStatusCode == HTTP_FOUND || this.mStatusCode == HTTP_MOVED_PERMANENTLY || this.mStatusCode == HTTP_TEMPORARY_REDIRECT) && this.mNativeLoader != 0) {
                 if (!this.mFromCache && this.mRequestHandle != null && (!this.mRequestHandle.getMethod().equals("POST") || this.mPostIdentifier != 0)) {
                     WebViewWorker.CacheCreateData cacheCreateData = new WebViewWorker.CacheCreateData();
                     cacheCreateData.mListener = this;
@@ -424,7 +424,7 @@ public class LoadListener extends Handler implements EventHandler {
     private void handleEndData() {
         if (!this.mCancelled) {
             switch (this.mStatusCode) {
-                case 301:
+                case HTTP_MOVED_PERMANENTLY /* 301 */:
                     this.mPermanent = true;
                     if (this.mStatusCode != HTTP_TEMPORARY_REDIRECT) {
                         if (this.mRequestHandle != null && this.mRequestHandle.getMethod().equals("POST")) {
@@ -440,13 +440,13 @@ public class LoadListener extends Handler implements EventHandler {
                     }
                     sendMessageInternal(obtainMessage(MSG_LOCATION_CHANGED));
                     return;
-                case 302:
-                case 303:
+                case HTTP_FOUND /* 302 */:
+                case HTTP_SEE_OTHER /* 303 */:
                 case HTTP_TEMPORARY_REDIRECT /* 307 */:
                     if (this.mStatusCode != HTTP_TEMPORARY_REDIRECT) {
                     }
                     break;
-                case 304:
+                case HTTP_NOT_MODIFIED /* 304 */:
                     if (this.mCacheLoader != null) {
                         if (isSynchronous()) {
                             this.mCacheLoader.load();
@@ -660,8 +660,8 @@ public class LoadListener extends Handler implements EventHandler {
 
     private void commitHeadersCheckRedirect() {
         if (!this.mCancelled) {
-            if ((this.mStatusCode < 301 || this.mStatusCode > 303) && this.mStatusCode != HTTP_TEMPORARY_REDIRECT) {
-                if (this.mStatusCode != 304 || this.mCacheLoader == null) {
+            if ((this.mStatusCode < HTTP_MOVED_PERMANENTLY || this.mStatusCode > HTTP_SEE_OTHER) && this.mStatusCode != HTTP_TEMPORARY_REDIRECT) {
+                if (this.mStatusCode != HTTP_NOT_MODIFIED || this.mCacheLoader == null) {
                     commitHeaders();
                 }
             }
@@ -675,7 +675,7 @@ public class LoadListener extends Handler implements EventHandler {
     }
 
     private int createNativeResponse() {
-        final int nativeCreateResponse = nativeCreateResponse(originalUrl(), (this.mStatusCode != 304 || this.mCacheLoader == null) ? this.mStatusCode : 200, this.mStatusText, this.mMimeType, this.mContentLength, this.mEncoding);
+        final int nativeCreateResponse = nativeCreateResponse(originalUrl(), (this.mStatusCode != HTTP_NOT_MODIFIED || this.mCacheLoader == null) ? this.mStatusCode : 200, this.mStatusText, this.mMimeType, this.mContentLength, this.mEncoding);
         if (this.mHeaders != null) {
             this.mHeaders.getHeaders(new Headers.HeaderCallback() { // from class: com.baidu.zeus.LoadListener.1
                 @Override // com.baidu.zeus.Headers.HeaderCallback

@@ -6,13 +6,11 @@ import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements com.baidu.tieba.model.w {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ EnterForumActivity f1491a;
+    final /* synthetic */ EnterForumActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(EnterForumActivity enterForumActivity) {
-        this.f1491a = enterForumActivity;
+        this.a = enterForumActivity;
     }
 
     @Override // com.baidu.tieba.model.w
@@ -31,48 +29,48 @@ public class f implements com.baidu.tieba.model.w {
         k kVar7;
         boolean z = false;
         boolean z2 = true;
-        baseFragmentActivity = this.f1491a.g;
+        baseFragmentActivity = this.a.g;
         UtilHelper.NetworkStateInfo g = UtilHelper.g(baseFragmentActivity);
         if (g == UtilHelper.NetworkStateInfo.UNAVAIL) {
-            kVar7 = this.f1491a.f1433a;
+            kVar7 = this.a.a;
             kVar7.m();
         }
-        kVar = this.f1491a.f1433a;
+        kVar = this.a.a;
         kVar.a(true, "");
         if (uVar.b) {
-            tVar2 = this.f1491a.c;
-            com.baidu.tieba.data.r a2 = tVar2.a();
-            kVar5 = this.f1491a.f1433a;
-            kVar5.a(a2);
-            kVar6 = this.f1491a.f1433a;
+            tVar2 = this.a.c;
+            com.baidu.tieba.data.r a = tVar2.a();
+            kVar5 = this.a.a;
+            kVar5.a(a);
+            kVar6 = this.a.a;
             kVar6.i();
         } else {
-            kVar2 = this.f1491a.f1433a;
+            kVar2 = this.a.a;
             kVar2.f();
-            if (uVar.f2047a != null && uVar.f2047a.equals("")) {
-                baseFragmentActivity2 = this.f1491a.g;
-                baseFragmentActivity2.b(uVar.f2047a);
+            if (uVar.a != null && uVar.a.equals("")) {
+                baseFragmentActivity2 = this.a.g;
+                baseFragmentActivity2.a(uVar.a);
             }
         }
         if (uVar.c == 0 && g != UtilHelper.NetworkStateInfo.UNAVAIL) {
-            kVar4 = this.f1491a.f1433a;
+            kVar4 = this.a.a;
             kVar4.e();
         }
-        tVar = this.f1491a.c;
-        com.baidu.tieba.data.r a3 = tVar.a();
+        tVar = this.a.c;
+        com.baidu.tieba.data.r a2 = tVar.a();
         String str = null;
-        if (a3.a() == 1) {
-            if (a3.g()) {
+        if (a2.a() == 1) {
+            if (a2.g()) {
                 z = true;
             } else {
-                baseFragmentActivity3 = this.f1491a.g;
-                str = String.format(baseFragmentActivity3.getString(R.string.signallforum_warning), Integer.valueOf(a3.b()));
+                baseFragmentActivity3 = this.a.g;
+                str = String.format(baseFragmentActivity3.getString(R.string.signallforum_warning), Integer.valueOf(a2.b()));
             }
         } else {
-            str = a3.c();
+            str = a2.c();
             z2 = false;
         }
-        kVar3 = this.f1491a.f1433a;
+        kVar3 = this.a.a;
         kVar3.a(z2, z, str);
     }
 }

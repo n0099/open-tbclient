@@ -7,12 +7,10 @@ import org.apache.http.protocol.HttpContext;
 /* renamed from: x  reason: default package */
 /* loaded from: classes.dex */
 public class x implements HttpRequestInterceptor {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ AsyncHttpClient f3156a;
+    final /* synthetic */ AsyncHttpClient a;
 
     public x(AsyncHttpClient asyncHttpClient) {
-        this.f3156a = asyncHttpClient;
+        this.a = asyncHttpClient;
     }
 
     public void process(HttpRequest httpRequest, HttpContext httpContext) {

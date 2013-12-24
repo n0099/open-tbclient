@@ -4,9 +4,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 class k {
-
-    /* renamed from: a  reason: collision with root package name */
-    TextView f2356a;
+    TextView a;
     StringBuffer b;
     TextView c;
     StringBuffer d;

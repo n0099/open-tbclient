@@ -5,13 +5,11 @@ import com.baidu.tieba.flist.ForumListActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements View.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ c f2521a;
+    final /* synthetic */ c a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(c cVar) {
-        this.f2521a = cVar;
+        this.a = cVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -19,10 +17,10 @@ public class f implements View.OnClickListener {
         z zVar;
         Object tag = view.getTag();
         if ((tag instanceof g) && (zVar = ((g) tag).d) != null) {
-            if (zVar.f2541a == null) {
-                BarFolderFirstDirActivity.a(this.f2521a.b(), (String) null);
+            if (zVar.a == null) {
+                BarFolderFirstDirActivity.a(this.a.b(), (String) null);
             } else {
-                ForumListActivity.a(this.f2521a.b(), zVar.b, zVar.f2541a, zVar.c);
+                ForumListActivity.a(this.a.b(), zVar.b, zVar.a, zVar.c);
             }
         }
     }

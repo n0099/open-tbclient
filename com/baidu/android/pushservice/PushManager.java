@@ -2,526 +2,353 @@ package com.baidu.android.pushservice;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.database.sqlite.SQLiteException;
-import android.os.Build;
-import android.util.Log;
-import com.baidu.android.pushservice.util.Internal;
-import com.baidu.android.pushservice.util.PushDatabase;
-import com.baidu.cloudsdk.social.core.SocialConstants;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class PushManager {
-    private static final String TAG = "PushManager";
-    private static int INFO_MAX_NUM = 50;
-    private static HashMap mStatisticsMap = new HashMap();
-
-    public static void activityStarted(Activity activity) {
-        Intent intent;
-        long currentTimeMillis = System.currentTimeMillis() / 1000;
-        String str = "" + intent.getIntExtra(PushConstants.EXTRA_OPENTYPE, 0);
-        String stringExtra = activity.getIntent().getStringExtra(PushConstants.EXTRA_MSGID);
-        int hashCode = activity.hashCode();
-        if (b.a()) {
-            Log.d(TAG, "Collect Activity start feedback info , package:" + activity.getPackageName() + " timeStamp:" + currentTimeMillis + " openType: " + str + " msgid: " + stringExtra + " hashCode: " + hashCode);
-        }
-        insertAppStartInfo(activity.getPackageName(), hashCode, str, stringExtra, currentTimeMillis + "");
-    }
-
-    public static void activityStoped(Activity activity) {
-        long currentTimeMillis = System.currentTimeMillis() / 1000;
-        int hashCode = activity.hashCode();
-        if (b.a()) {
-            Log.d(TAG, "Collect Activity stop feedback info , package:" + activity.getPackageName() + " timeStamp:" + currentTimeMillis + " hashCode: " + hashCode);
-        }
-        insertAppStopInfo(activity, activity.getPackageName(), hashCode, "" + currentTimeMillis);
-    }
-
-    public static void bind(Context context, int i) {
-        if (isNullContext(context)) {
-            return;
-        }
-        Intent createMethodIntent = createMethodIntent(context);
-        createMethodIntent.putExtra(PushConstants.EXTRA_METHOD, PushConstants.METHOD_BIND);
-        createMethodIntent.putExtra(PushConstants.EXTRA_BIND_NAME, Build.MODEL);
-        createMethodIntent.putExtra(PushConstants.EXTRA_BIND_STATUS, i);
-        createMethodIntent.putExtra(PushConstants.EXTRA_PUSH_SDK_VERSION, 13);
-        createMethodIntent.setFlags(createMethodIntent.getFlags() | 32);
-        context.sendBroadcast(createMethodIntent);
-    }
-
-    public static void bindGroup(Context context, String str) {
-        if (isNullContext(context)) {
-            return;
-        }
-        Intent createMethodIntent = createMethodIntent(context);
-        createMethodIntent.putExtra(PushConstants.EXTRA_METHOD, PushConstants.METHOD_GBIND);
-        createMethodIntent.putExtra(PushConstants.EXTRA_GID, str);
-        createMethodIntent.setFlags(createMethodIntent.getFlags() | 32);
-        context.sendBroadcast(createMethodIntent);
-    }
-
-    private static Intent createMethodIntent(Context context) {
-        if (isNullContext(context)) {
-            return null;
-        }
-        SharedPreferences sharedPreferences = context.getSharedPreferences(context.getPackageName(), 1);
-        int i = sharedPreferences.getInt("com.baidu.android.pushservice.PushManager.LOGIN_TYPE", 0);
-        String string = sharedPreferences.getString("com.baidu.android.pushservice.PushManager.LONGIN_VALUE", "");
-        if (i == 2) {
-            Intent createBdussInent = Internal.createBdussInent(context);
-            createBdussInent.putExtra("appid", string);
-            String rsaEncrypt = PushConstants.rsaEncrypt(sharedPreferences.getString("com.baidu.android.pushservice.PushManager.BDUSS", ""));
-            createBdussInent.putExtra(SocialConstants.PARAM_BDUSS, rsaEncrypt);
-            if (b.a()) {
-                Log.d(TAG, "RSA Bduss:" + rsaEncrypt);
-                return createBdussInent;
+    public static void init(final Context context, final String str, final String str2) {
+        LoadExecutor.excuteMethod(new Runnable() { // from class: com.baidu.android.pushservice.PushManager.1
+            @Override // java.lang.Runnable
+            public void run() {
+                com.baidu.android.pushservice.apiproxy.PushManager.init(context, str, str2);
             }
-            return createBdussInent;
-        }
-        Intent createMethodIntent = PushConstants.createMethodIntent(context);
-        if (i != 1) {
-            createMethodIntent.putExtra(PushConstants.EXTRA_API_KEY, string);
-            if (b.a()) {
-                Log.d(TAG, "Api Key:" + string.substring(0, 5));
-                return createMethodIntent;
+        }, context);
+    }
+
+    public static void init(final Context context, final String str) {
+        LoadExecutor.excuteMethod(new Runnable() { // from class: com.baidu.android.pushservice.PushManager.12
+            @Override // java.lang.Runnable
+            public void run() {
+                com.baidu.android.pushservice.apiproxy.PushManager.init(context, str);
             }
-            return createMethodIntent;
-        }
-        String rsaEncrypt2 = PushConstants.rsaEncrypt(string);
-        createMethodIntent.putExtra("access_token", rsaEncrypt2);
-        if (b.a()) {
-            Log.d(TAG, "RSA Access Token:" + rsaEncrypt2);
-            return createMethodIntent;
-        }
-        return createMethodIntent;
+        }, context);
     }
 
-    public static void delTags(Context context, List list) {
-        Iterator it;
-        if (isNullContext(context)) {
-            return;
-        }
-        if (list == null || list.size() == 0) {
-            Log.w(TAG, "No tags specified, do nothing.");
-            return;
-        }
-        String str = "[";
-        while (true) {
-            String str2 = str;
-            if (!list.iterator().hasNext()) {
-                String str3 = str2.substring(0, str2.length() - 1) + "]";
-                Intent createMethodIntent = createMethodIntent(context);
-                createMethodIntent.putExtra(PushConstants.EXTRA_METHOD, PushConstants.METHOD_DEL_TAGS);
-                createMethodIntent.putExtra(PushConstants.EXTRA_TAGS, str3);
-                context.sendBroadcast(createMethodIntent);
-                return;
+    public static void initFromAKSK(final Context context, final String str) {
+        LoadExecutor.excuteMethod(new Runnable() { // from class: com.baidu.android.pushservice.PushManager.23
+            @Override // java.lang.Runnable
+            public void run() {
+                com.baidu.android.pushservice.apiproxy.PushManager.initFromAKSK(context, str);
             }
-            str = ((str2 + "\"") + ((String) it.next())) + "\",";
-        }
+        }, context);
     }
 
-    public static void deleteMessages(Context context, String[] strArr) {
-        if (isNullContext(context) || strArr == null) {
-            return;
-        }
-        Intent createMethodIntent = createMethodIntent(context);
-        createMethodIntent.putExtra(PushConstants.EXTRA_METHOD, PushConstants.METHOD_DELETE);
-        createMethodIntent.putExtra(PushConstants.EXTRA_MSG_IDS, strArr);
-        context.sendBroadcast(createMethodIntent);
+    public static void startWork(final Context context, final String str, final String str2) {
+        LoadExecutor.excuteMethod(new Runnable() { // from class: com.baidu.android.pushservice.PushManager.32
+            @Override // java.lang.Runnable
+            public void run() {
+                com.baidu.android.pushservice.apiproxy.PushManager.startWork(context, str, str2);
+            }
+        }, context);
     }
 
-    public static void disableLbs(Context context) {
-        if (isNullContext(context)) {
-            return;
-        }
-        PushSettings.a(context, false);
+    public static void startWork(final Context context, final int i, final String str) {
+        LoadExecutor.excuteMethod(new Runnable() { // from class: com.baidu.android.pushservice.PushManager.33
+            @Override // java.lang.Runnable
+            public void run() {
+                com.baidu.android.pushservice.apiproxy.PushManager.startWork(context, i, str);
+            }
+        }, context);
     }
 
-    public static void enableLbs(Context context) {
-        if (isNullContext(context)) {
-            return;
-        }
-        PushSettings.a(context, true);
+    public static void sdkStartWork(final Context context, final String str, final int i) {
+        LoadExecutor.excuteMethod(new Runnable() { // from class: com.baidu.android.pushservice.PushManager.34
+            @Override // java.lang.Runnable
+            public void run() {
+                com.baidu.android.pushservice.apiproxy.PushManager.sdkStartWork(context, str, i);
+            }
+        }, context);
     }
 
-    public static void fetchGroupMessages(Context context, String str, int i, int i2) {
-        if (isNullContext(context)) {
-            return;
-        }
-        Intent createMethodIntent = createMethodIntent(context);
-        createMethodIntent.putExtra(PushConstants.EXTRA_METHOD, PushConstants.METHOD_FETCHGMSG);
-        createMethodIntent.putExtra(PushConstants.EXTRA_GID, str);
-        createMethodIntent.putExtra(PushConstants.EXTRA_GROUP_FETCH_TYPE, i);
-        createMethodIntent.putExtra(PushConstants.EXTRA_GROUP_FETCH_NUM, i2);
-        context.sendBroadcast(createMethodIntent);
+    public static void stopWork(final Context context) {
+        LoadExecutor.excuteMethod(new Runnable() { // from class: com.baidu.android.pushservice.PushManager.35
+            @Override // java.lang.Runnable
+            public void run() {
+                com.baidu.android.pushservice.apiproxy.PushManager.stopWork(context);
+            }
+        }, context);
     }
 
-    public static void fetchMessages(Context context, int i, int i2) {
-        if (isNullContext(context)) {
-            return;
-        }
-        Intent createMethodIntent = createMethodIntent(context);
-        createMethodIntent.putExtra(PushConstants.EXTRA_METHOD, PushConstants.METHOD_FETCH);
-        createMethodIntent.putExtra(PushConstants.EXTRA_FETCH_TYPE, i);
-        createMethodIntent.putExtra(PushConstants.EXTRA_FETCH_NUM, i2);
-        context.sendBroadcast(createMethodIntent);
+    public static void resumeWork(final Context context) {
+        LoadExecutor.excuteMethod(new Runnable() { // from class: com.baidu.android.pushservice.PushManager.36
+            @Override // java.lang.Runnable
+            public void run() {
+                com.baidu.android.pushservice.apiproxy.PushManager.resumeWork(context);
+            }
+        }, context);
     }
 
-    public static void getGroupInfo(Context context, String str) {
-        if (isNullContext(context)) {
-            return;
-        }
-        Intent createMethodIntent = createMethodIntent(context);
-        createMethodIntent.putExtra(PushConstants.EXTRA_METHOD, PushConstants.METHOD_GINFO);
-        createMethodIntent.putExtra(PushConstants.EXTRA_GID, str);
-        context.sendBroadcast(createMethodIntent);
-    }
-
-    public static void getGroupList(Context context) {
-        if (isNullContext(context)) {
-            return;
-        }
-        Intent createMethodIntent = createMethodIntent(context);
-        createMethodIntent.putExtra(PushConstants.EXTRA_METHOD, PushConstants.METHOD_GLIST);
-        context.sendBroadcast(createMethodIntent);
-    }
-
-    public static void getGroupMessageCounts(Context context, String str) {
-        if (isNullContext(context)) {
-            return;
-        }
-        Intent createMethodIntent = createMethodIntent(context);
-        createMethodIntent.putExtra(PushConstants.EXTRA_METHOD, PushConstants.METHOD_COUNTGMSG);
-        createMethodIntent.putExtra(PushConstants.EXTRA_GID, str);
-        context.sendBroadcast(createMethodIntent);
-    }
-
-    public static void getMessageCounts(Context context) {
-        if (isNullContext(context)) {
-            return;
-        }
-        Intent createMethodIntent = createMethodIntent(context);
-        createMethodIntent.putExtra(PushConstants.EXTRA_METHOD, PushConstants.METHOD_COUNT);
-        context.sendBroadcast(createMethodIntent);
-    }
-
-    public static void init(Context context, String str) {
-        if (isNullContext(context)) {
-            return;
-        }
-        SharedPreferences.Editor edit = context.getSharedPreferences(context.getPackageName(), 0).edit();
-        edit.putInt("com.baidu.android.pushservice.PushManager.LOGIN_TYPE", 1);
-        edit.putString("com.baidu.android.pushservice.PushManager.LONGIN_VALUE", str);
-        edit.commit();
-        PushSettings.a(context.getApplicationContext());
-        com.baidu.android.pushservice.util.m.j(context);
-    }
-
-    public static void init(Context context, String str, String str2) {
-        if (isNullContext(context)) {
-            return;
-        }
-        SharedPreferences.Editor edit = context.getSharedPreferences(context.getPackageName(), 0).edit();
-        edit.putInt("com.baidu.android.pushservice.PushManager.LOGIN_TYPE", 2);
-        edit.putString("com.baidu.android.pushservice.PushManager.LONGIN_VALUE", str);
-        edit.putString("com.baidu.android.pushservice.PushManager.BDUSS", str2);
-        edit.commit();
-        PushSettings.a(context.getApplicationContext());
-        com.baidu.android.pushservice.util.m.j(context);
-    }
-
-    public static void initFromAKSK(Context context, String str) {
-        if (isNullContext(context)) {
-            return;
-        }
-        SharedPreferences.Editor edit = context.getSharedPreferences(context.getPackageName(), 0).edit();
-        edit.putInt("com.baidu.android.pushservice.PushManager.LOGIN_TYPE", 0);
-        edit.putString("com.baidu.android.pushservice.PushManager.LONGIN_VALUE", str);
-        edit.commit();
-        PushSettings.a(context);
-        com.baidu.android.pushservice.util.m.j(context);
-    }
-
-    private static void insertAppStartInfo(String str, int i, String str2, String str3, String str4) {
-        if (mStatisticsMap.size() < INFO_MAX_NUM) {
-            com.baidu.android.pushservice.util.k kVar = new com.baidu.android.pushservice.util.k();
-            kVar.f765a = i;
-            kVar.b = str;
-            kVar.c = str2;
-            kVar.d = str3;
-            kVar.e = str4;
-            mStatisticsMap.put(Integer.valueOf(kVar.f765a), kVar);
-        }
-    }
-
-    private static void insertAppStopInfo(Context context, String str, int i, String str2) {
-        if (isNullContext(context) || mStatisticsMap == null) {
-            return;
-        }
-        SharedPreferences sharedPreferences = context.getSharedPreferences(context.getPackageName() + "pst", 1);
-        String string = sharedPreferences.getString("cache_when_exception", "");
-        if (!string.equals("")) {
-            com.baidu.android.pushservice.util.k kVar = new com.baidu.android.pushservice.util.k();
-            String[] split = string.split("#");
-            if (split.length == 5 || split.length == 6) {
-                kVar.b = split[0];
-                kVar.c = split[1];
-                kVar.d = split[2];
-                kVar.e = split[3];
-                kVar.g = split[4];
-                if (split.length == 6) {
-                    try {
-                        kVar.h = new JSONObject(split[5]);
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
+    /* JADX WARN: Type inference failed for: r0v1, types: [com.baidu.android.pushservice.PushManager$37] */
+    public static boolean isPushEnabled(final Context context) {
+        try {
+            context.getClassLoader().loadClass("com.baidu.android.pushservice.internal.PushManager");
+            return com.baidu.android.pushservice.apiproxy.PushManager.isPushEnabled(context);
+        } catch (ClassNotFoundException e) {
+            new Thread() { // from class: com.baidu.android.pushservice.PushManager.37
+                @Override // java.lang.Thread, java.lang.Runnable
+                public void run() {
+                    LoadExecutor.loadPush(context);
                 }
-                PushDatabase.insertStatisticsInfo(PushDatabase.getDb(context), kVar);
-                SharedPreferences.Editor edit = sharedPreferences.edit();
-                edit.putString("cache_when_exception", "");
-                edit.commit();
-            }
-        }
-        com.baidu.android.pushservice.util.k kVar2 = (com.baidu.android.pushservice.util.k) mStatisticsMap.remove(Integer.valueOf(i));
-        if (kVar2 != null) {
-            kVar2.f = str2;
-            kVar2.g = "" + (Long.parseLong(kVar2.f) - Long.parseLong(kVar2.e));
-            try {
-                PushDatabase.insertStatisticsInfo(PushDatabase.getDb(context), kVar2);
-                Log.i(TAG, "insert into db " + context.getPackageName());
-            } catch (SQLiteException e2) {
-                Log.e(TAG, "inset into db exception");
-                SharedPreferences.Editor edit2 = sharedPreferences.edit();
-                edit2.putString("cache_when_exception", kVar2.b + "#" + kVar2.c + "#" + kVar2.d + "#" + kVar2.e + "#" + kVar2.f + "#" + kVar2.g);
-                edit2.commit();
-            }
-        }
-    }
-
-    public static boolean isConnected(Context context) {
-        if (isNullContext(context)) {
+            }.start();
             return false;
         }
-        boolean z = true;
-        if (!com.baidu.android.pushservice.util.m.o(context) || !PushSettings.b(context)) {
-            z = false;
-        }
-        return z;
     }
 
-    private static boolean isNullContext(Context context) {
-        if (context == null) {
-            Log.e(TAG, "Context is null!");
-            return true;
-        }
-        return false;
-    }
-
-    public static boolean isPushEnabled(Context context) {
-        return (isNullContext(context) || com.baidu.android.pushservice.util.m.c(context)) ? false : true;
-    }
-
-    public static void listTags(Context context) {
-        if (isNullContext(context)) {
-            return;
-        }
-        Intent createMethodIntent = createMethodIntent(context);
-        createMethodIntent.putExtra(PushConstants.EXTRA_METHOD, PushConstants.METHOD_LISTTAGS);
-        context.sendBroadcast(createMethodIntent);
-    }
-
-    public static void resumeWork(Context context) {
-        if (isNullContext(context)) {
-            return;
-        }
-        b.b(context, true);
-        com.baidu.android.pushservice.util.m.c(context, true);
-        b.a(context, true);
-        com.baidu.android.pushservice.util.m.j(context);
-        bind(context, 0);
-    }
-
-    public static void sendMsgToServer(Context context, String str, String str2, String str3) {
-        if (isNullContext(context)) {
-            return;
-        }
-        Intent createMethodIntent = createMethodIntent(context);
-        createMethodIntent.putExtra(PushConstants.EXTRA_METHOD, PushConstants.METHOD_SEND_MSG_TO_SERVER);
-        createMethodIntent.putExtra(PushConstants.EXTRA_APP_ID, str);
-        createMethodIntent.putExtra(PushConstants.EXTRA_CB_URL, str2);
-        createMethodIntent.putExtra(PushConstants.EXTRA_MSG, str3);
-        context.sendBroadcast(createMethodIntent);
-    }
-
-    public static void sendMsgToUser(Context context, String str, String str2, String str3, String str4) {
-        if (isNullContext(context)) {
-            return;
-        }
-        Intent createMethodIntent = createMethodIntent(context);
-        createMethodIntent.putExtra(PushConstants.EXTRA_METHOD, PushConstants.METHOD_SEND_MSG_TO_USER);
-        createMethodIntent.putExtra(PushConstants.EXTRA_APP_ID, str);
-        createMethodIntent.putExtra(PushConstants.EXTRA_USER_ID, str2);
-        createMethodIntent.putExtra(PushConstants.EXTRA_MSG_KEY, str3);
-        createMethodIntent.putExtra(PushConstants.EXTRA_MSG, str4);
-        context.sendBroadcast(createMethodIntent);
-    }
-
-    public static void setAccessToken(Context context, String str) {
-        if (isNullContext(context)) {
-            return;
-        }
-        SharedPreferences.Editor edit = context.getSharedPreferences(context.getPackageName(), 1).edit();
-        edit.putInt("com.baidu.android.pushservice.PushManager.LOGIN_TYPE", 1);
-        edit.putString("com.baidu.android.pushservice.PushManager.LONGIN_VALUE", str);
-        edit.commit();
-    }
-
-    public static void setApiKey(Context context, String str) {
-        if (isNullContext(context)) {
-            return;
-        }
-        SharedPreferences.Editor edit = context.getSharedPreferences(context.getPackageName(), 1).edit();
-        edit.putInt("com.baidu.android.pushservice.PushManager.LOGIN_TYPE", 0);
-        edit.putString("com.baidu.android.pushservice.PushManager.LONGIN_VALUE", str);
-        edit.commit();
-    }
-
-    public static void setBduss(Context context, String str) {
-        if (isNullContext(context)) {
-            return;
-        }
-        SharedPreferences.Editor edit = context.getSharedPreferences(context.getPackageName(), 1).edit();
-        edit.putInt("com.baidu.android.pushservice.PushManager.LOGIN_TYPE", 2);
-        edit.putString("com.baidu.android.pushservice.PushManager.BDUSS", str);
-        edit.commit();
-    }
-
-    public static void setDefaultNotificationBuilder(Context context, PushNotificationBuilder pushNotificationBuilder) {
-        if (isNullContext(context)) {
-            return;
-        }
-        c.a(context, pushNotificationBuilder);
-    }
-
-    public static void setMediaNotificationBuilder(Context context, PushNotificationBuilder pushNotificationBuilder) {
-        if (isNullContext(context)) {
-            return;
-        }
-        c.b(context, pushNotificationBuilder);
-    }
-
-    public static void setNotificationBuilder(Context context, int i, PushNotificationBuilder pushNotificationBuilder) {
-        if (isNullContext(context)) {
-            return;
-        }
-        if (i < 1 || i > 1000) {
-            Log.e(TAG, "set notification builder error, id is illegal !");
-        } else {
-            c.a(context, i, pushNotificationBuilder);
-        }
-    }
-
-    public static void setTags(Context context, List list) {
-        Iterator it;
-        if (isNullContext(context)) {
-            return;
-        }
-        if (list == null || list.size() == 0) {
-            Log.w(TAG, "No tags specified, do nothing.");
-            return;
-        }
-        String str = "[";
-        while (true) {
-            String str2 = str;
-            if (!list.iterator().hasNext()) {
-                String str3 = str2.substring(0, str2.length() - 1) + "]";
-                Intent createMethodIntent = createMethodIntent(context);
-                createMethodIntent.putExtra(PushConstants.EXTRA_METHOD, PushConstants.METHOD_SET_TAGS);
-                createMethodIntent.putExtra(PushConstants.EXTRA_TAGS, str3);
-                context.sendBroadcast(createMethodIntent);
-                return;
+    public static void activityStarted(final Activity activity) {
+        LoadExecutor.excuteMethod(new Runnable() { // from class: com.baidu.android.pushservice.PushManager.2
+            @Override // java.lang.Runnable
+            public void run() {
+                com.baidu.android.pushservice.apiproxy.PushManager.activityStarted(activity);
             }
-            str = ((str2 + "\"") + ((String) it.next())) + "\",";
+        }, activity);
+    }
+
+    public static void activityStoped(final Activity activity) {
+        LoadExecutor.excuteMethod(new Runnable() { // from class: com.baidu.android.pushservice.PushManager.3
+            @Override // java.lang.Runnable
+            public void run() {
+                com.baidu.android.pushservice.apiproxy.PushManager.activityStoped(activity);
+            }
+        }, activity);
+    }
+
+    public static void setAccessToken(final Context context, final String str) {
+        LoadExecutor.excuteMethod(new Runnable() { // from class: com.baidu.android.pushservice.PushManager.4
+            @Override // java.lang.Runnable
+            public void run() {
+                com.baidu.android.pushservice.apiproxy.PushManager.setAccessToken(context, str);
+            }
+        }, context);
+    }
+
+    public static void setApiKey(final Context context, final String str) {
+        LoadExecutor.excuteMethod(new Runnable() { // from class: com.baidu.android.pushservice.PushManager.5
+            @Override // java.lang.Runnable
+            public void run() {
+                com.baidu.android.pushservice.apiproxy.PushManager.setApiKey(context, str);
+            }
+        }, context);
+    }
+
+    public static void setBduss(final Context context, final String str) {
+        LoadExecutor.excuteMethod(new Runnable() { // from class: com.baidu.android.pushservice.PushManager.6
+            @Override // java.lang.Runnable
+            public void run() {
+                com.baidu.android.pushservice.apiproxy.PushManager.setBduss(context, str);
+            }
+        }, context);
+    }
+
+    public static void bind(final Context context, final int i) {
+        LoadExecutor.excuteMethod(new Runnable() { // from class: com.baidu.android.pushservice.PushManager.7
+            @Override // java.lang.Runnable
+            public void run() {
+                com.baidu.android.pushservice.apiproxy.PushManager.bind(context, i);
+            }
+        }, context);
+    }
+
+    public static void sdkBind(final Context context, final int i, final String str, final int i2) {
+        LoadExecutor.excuteMethod(new Runnable() { // from class: com.baidu.android.pushservice.PushManager.8
+            @Override // java.lang.Runnable
+            public void run() {
+                com.baidu.android.pushservice.apiproxy.PushManager.sdkBind(context, i, str, i2);
+            }
+        }, context);
+    }
+
+    public static void unbind(final Context context) {
+        LoadExecutor.excuteMethod(new Runnable() { // from class: com.baidu.android.pushservice.PushManager.9
+            @Override // java.lang.Runnable
+            public void run() {
+                com.baidu.android.pushservice.apiproxy.PushManager.unbind(context);
+            }
+        }, context);
+    }
+
+    public static void fetchMessages(final Context context, final int i, final int i2) {
+        LoadExecutor.excuteMethod(new Runnable() { // from class: com.baidu.android.pushservice.PushManager.10
+            @Override // java.lang.Runnable
+            public void run() {
+                com.baidu.android.pushservice.apiproxy.PushManager.fetchMessages(context, i, i2);
+            }
+        }, context);
+    }
+
+    public static void getMessageCounts(final Context context) {
+        LoadExecutor.excuteMethod(new Runnable() { // from class: com.baidu.android.pushservice.PushManager.11
+            @Override // java.lang.Runnable
+            public void run() {
+                com.baidu.android.pushservice.apiproxy.PushManager.getMessageCounts(context);
+            }
+        }, context);
+    }
+
+    public static void deleteMessages(final Context context, final String[] strArr) {
+        LoadExecutor.excuteMethod(new Runnable() { // from class: com.baidu.android.pushservice.PushManager.13
+            @Override // java.lang.Runnable
+            public void run() {
+                com.baidu.android.pushservice.apiproxy.PushManager.deleteMessages(context, strArr);
+            }
+        }, context);
+    }
+
+    public static void sendMsgToUser(final Context context, final String str, final String str2, final String str3, final String str4) {
+        LoadExecutor.excuteMethod(new Runnable() { // from class: com.baidu.android.pushservice.PushManager.14
+            @Override // java.lang.Runnable
+            public void run() {
+                com.baidu.android.pushservice.apiproxy.PushManager.sendMsgToUser(context, str, str2, str3, str4);
+            }
+        }, context);
+    }
+
+    public static void bindGroup(final Context context, final String str) {
+        LoadExecutor.excuteMethod(new Runnable() { // from class: com.baidu.android.pushservice.PushManager.15
+            @Override // java.lang.Runnable
+            public void run() {
+                com.baidu.android.pushservice.apiproxy.PushManager.bindGroup(context, str);
+            }
+        }, context);
+    }
+
+    public static void setTags(final Context context, final List<String> list) {
+        LoadExecutor.excuteMethod(new Runnable() { // from class: com.baidu.android.pushservice.PushManager.16
+            @Override // java.lang.Runnable
+            public void run() {
+                com.baidu.android.pushservice.apiproxy.PushManager.setTags(context, list);
+            }
+        }, context);
+    }
+
+    public static void listTags(final Context context) {
+        LoadExecutor.excuteMethod(new Runnable() { // from class: com.baidu.android.pushservice.PushManager.17
+            @Override // java.lang.Runnable
+            public void run() {
+                com.baidu.android.pushservice.apiproxy.PushManager.listTags(context);
+            }
+        }, context);
+    }
+
+    public static void delTags(final Context context, final List<String> list) {
+        LoadExecutor.excuteMethod(new Runnable() { // from class: com.baidu.android.pushservice.PushManager.18
+            @Override // java.lang.Runnable
+            public void run() {
+                com.baidu.android.pushservice.apiproxy.PushManager.delTags(context, list);
+            }
+        }, context);
+    }
+
+    public static void unbindGroup(final Context context, final String str) {
+        LoadExecutor.excuteMethod(new Runnable() { // from class: com.baidu.android.pushservice.PushManager.19
+            @Override // java.lang.Runnable
+            public void run() {
+                com.baidu.android.pushservice.apiproxy.PushManager.unbindGroup(context, str);
+            }
+        }, context);
+    }
+
+    public static void getGroupInfo(final Context context, final String str) {
+        LoadExecutor.excuteMethod(new Runnable() { // from class: com.baidu.android.pushservice.PushManager.20
+            @Override // java.lang.Runnable
+            public void run() {
+                com.baidu.android.pushservice.apiproxy.PushManager.getGroupInfo(context, str);
+            }
+        }, context);
+    }
+
+    public static void getGroupList(final Context context) {
+        LoadExecutor.excuteMethod(new Runnable() { // from class: com.baidu.android.pushservice.PushManager.21
+            @Override // java.lang.Runnable
+            public void run() {
+                com.baidu.android.pushservice.apiproxy.PushManager.getGroupList(context);
+            }
+        }, context);
+    }
+
+    public static void fetchGroupMessages(final Context context, final String str, final int i, final int i2) {
+        LoadExecutor.excuteMethod(new Runnable() { // from class: com.baidu.android.pushservice.PushManager.22
+            @Override // java.lang.Runnable
+            public void run() {
+                com.baidu.android.pushservice.apiproxy.PushManager.fetchGroupMessages(context, str, i, i2);
+            }
+        }, context);
+    }
+
+    public static void getGroupMessageCounts(final Context context, final String str) {
+        LoadExecutor.excuteMethod(new Runnable() { // from class: com.baidu.android.pushservice.PushManager.24
+            @Override // java.lang.Runnable
+            public void run() {
+                com.baidu.android.pushservice.apiproxy.PushManager.getGroupMessageCounts(context, str);
+            }
+        }, context);
+    }
+
+    public static void setDefaultNotificationBuilder(final Context context, final PushNotificationBuilder pushNotificationBuilder) {
+        LoadExecutor.excuteMethod(new Runnable() { // from class: com.baidu.android.pushservice.PushManager.25
+            @Override // java.lang.Runnable
+            public void run() {
+                com.baidu.android.pushservice.apiproxy.PushManager.setDefaultNotificationBuilder(context, pushNotificationBuilder.getInner());
+            }
+        }, context);
+    }
+
+    public static void setNotificationBuilder(final Context context, final int i, final PushNotificationBuilder pushNotificationBuilder) {
+        LoadExecutor.excuteMethod(new Runnable() { // from class: com.baidu.android.pushservice.PushManager.26
+            @Override // java.lang.Runnable
+            public void run() {
+                com.baidu.android.pushservice.apiproxy.PushManager.setNotificationBuilder(context, i, pushNotificationBuilder.getInner());
+            }
+        }, context);
+    }
+
+    public static void setMediaNotificationBuilder(final Context context, final PushNotificationBuilder pushNotificationBuilder) {
+        LoadExecutor.excuteMethod(new Runnable() { // from class: com.baidu.android.pushservice.PushManager.27
+            @Override // java.lang.Runnable
+            public void run() {
+                com.baidu.android.pushservice.apiproxy.PushManager.setMediaNotificationBuilder(context, pushNotificationBuilder.getInner());
+            }
+        }, context);
+    }
+
+    /* JADX WARN: Type inference failed for: r0v1, types: [com.baidu.android.pushservice.PushManager$28] */
+    public static boolean isConnected(final Context context) {
+        try {
+            context.getClassLoader().loadClass("com.baidu.android.pushservice.internal.PushManager");
+            return com.baidu.android.pushservice.apiproxy.PushManager.isConnected(context);
+        } catch (ClassNotFoundException e) {
+            new Thread() { // from class: com.baidu.android.pushservice.PushManager.28
+                @Override // java.lang.Thread, java.lang.Runnable
+                public void run() {
+                    LoadExecutor.loadPush(context);
+                }
+            }.start();
+            return false;
         }
     }
 
-    public static void startWork(Context context, int i, String str) {
-        if (isNullContext(context)) {
-            return;
-        }
-        b.b(context, true);
-        SharedPreferences.Editor edit = context.getSharedPreferences(context.getPackageName(), 0).edit();
-        if (i == 1) {
-            edit.putInt("com.baidu.android.pushservice.PushManager.LOGIN_TYPE", 1);
-            edit.putString("com.baidu.android.pushservice.PushManager.LONGIN_VALUE", str);
-        } else if (i != 0) {
-            Log.e(TAG, "Wrong login type, please check!");
-            return;
-        } else {
-            edit.putInt("com.baidu.android.pushservice.PushManager.LOGIN_TYPE", 0);
-            edit.putString("com.baidu.android.pushservice.PushManager.LONGIN_VALUE", str);
-        }
-        edit.commit();
-        PushSettings.a(context);
-        com.baidu.android.pushservice.util.m.j(context);
-        bind(context, 0);
+    public static void tryConnect(final Context context) {
+        LoadExecutor.excuteMethod(new Runnable() { // from class: com.baidu.android.pushservice.PushManager.29
+            @Override // java.lang.Runnable
+            public void run() {
+                com.baidu.android.pushservice.apiproxy.PushManager.tryConnect(context);
+            }
+        }, context);
     }
 
-    public static void startWork(Context context, String str, String str2) {
-        if (isNullContext(context)) {
-            return;
-        }
-        b.b(context, true);
-        SharedPreferences.Editor edit = context.getSharedPreferences(context.getPackageName(), 0).edit();
-        edit.putInt("com.baidu.android.pushservice.PushManager.LOGIN_TYPE", 2);
-        edit.putString("com.baidu.android.pushservice.PushManager.LONGIN_VALUE", str);
-        edit.putString("com.baidu.android.pushservice.PushManager.BDUSS", str2);
-        edit.commit();
-        PushSettings.a(context);
-        com.baidu.android.pushservice.util.m.j(context);
-        bind(context, 0);
+    public static void enableLbs(final Context context) {
+        LoadExecutor.excuteMethod(new Runnable() { // from class: com.baidu.android.pushservice.PushManager.30
+            @Override // java.lang.Runnable
+            public void run() {
+                com.baidu.android.pushservice.apiproxy.PushManager.enableLbs(context);
+            }
+        }, context);
     }
 
-    public static void stopWork(Context context) {
-        if (isNullContext(context)) {
-            return;
-        }
-        b.b(context, false);
-        com.baidu.android.pushservice.util.m.c(context, true);
-        unbind(context);
-        b.a(context, true);
-        com.baidu.android.pushservice.util.m.g(context, context.getPackageName());
-    }
-
-    public static void tryConnect(Context context) {
-        if (isNullContext(context)) {
-            return;
-        }
-        context.sendBroadcast(createMethodIntent(context));
-    }
-
-    public static void unbind(Context context) {
-        if (isNullContext(context)) {
-            return;
-        }
-        Intent createMethodIntent = createMethodIntent(context);
-        createMethodIntent.putExtra(PushConstants.EXTRA_METHOD, PushConstants.METHOD_UNBIND);
-        context.sendBroadcast(createMethodIntent);
-    }
-
-    public static void unbindGroup(Context context, String str) {
-        if (isNullContext(context)) {
-            return;
-        }
-        Intent createMethodIntent = createMethodIntent(context);
-        createMethodIntent.putExtra(PushConstants.EXTRA_METHOD, PushConstants.METHOD_GUNBIND);
-        createMethodIntent.putExtra(PushConstants.EXTRA_GID, str);
-        context.sendBroadcast(createMethodIntent);
+    public static void disableLbs(final Context context) {
+        LoadExecutor.excuteMethod(new Runnable() { // from class: com.baidu.android.pushservice.PushManager.31
+            @Override // java.lang.Runnable
+            public void run() {
+                com.baidu.android.pushservice.apiproxy.PushManager.disableLbs(context);
+            }
+        }, context);
     }
 }

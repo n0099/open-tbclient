@@ -5,9 +5,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class at extends com.baidu.tieba.data.a {
-
-    /* renamed from: a  reason: collision with root package name */
-    private ArrayList<as> f2490a = new ArrayList<>();
+    private ArrayList<as> a = new ArrayList<>();
     private String b;
 
     public at() {
@@ -16,11 +14,11 @@ public class at extends com.baidu.tieba.data.a {
     }
 
     public ArrayList<as> d() {
-        return this.f2490a;
+        return this.a;
     }
 
     public void a(ArrayList<as> arrayList) {
-        this.f2490a = arrayList;
+        this.a = arrayList;
         a((String) null);
     }
 

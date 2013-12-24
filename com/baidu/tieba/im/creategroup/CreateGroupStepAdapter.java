@@ -7,13 +7,11 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class CreateGroupStepAdapter extends ae {
-
-    /* renamed from: a  reason: collision with root package name */
-    public CreateGroupStepActivity f1615a;
+    public CreateGroupStepActivity a;
     private List<v> b = new ArrayList();
 
     public CreateGroupStepAdapter(CreateGroupStepActivity createGroupStepActivity) {
-        this.f1615a = createGroupStepActivity;
+        this.a = createGroupStepActivity;
     }
 
     public List<v> a() {

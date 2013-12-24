@@ -7,14 +7,12 @@ import java.io.File;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends BdAsyncTask<String, Integer, String> {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f1916a;
+    final /* synthetic */ a a;
     private e b = null;
     private String c;
 
     public d(a aVar, String str) {
-        this.f1916a = aVar;
+        this.a = aVar;
         this.c = null;
         this.c = str;
     }
@@ -28,10 +26,10 @@ public class d extends BdAsyncTask<String, Integer, String> {
         String str;
         String str2;
         String str3;
-        this.b = new e(this.f1916a, null);
-        networkStateInfo = this.f1916a.l;
+        this.b = new e(this.a, null);
+        networkStateInfo = this.a.l;
         if (networkStateInfo != UtilHelper.NetworkStateInfo.WIFI) {
-            a aVar = this.f1916a;
+            a aVar = this.a;
             str3 = a.c;
             aVar.g(str3);
             z = false;
@@ -63,7 +61,7 @@ public class d extends BdAsyncTask<String, Integer, String> {
         if (this.b != null) {
             this.b.a();
         }
-        this.f1916a.q = null;
+        this.a.q = null;
         super.cancel(true);
     }
 
@@ -72,6 +70,6 @@ public class d extends BdAsyncTask<String, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(String str) {
         super.a((d) str);
-        this.f1916a.q = null;
+        this.a.q = null;
     }
 }

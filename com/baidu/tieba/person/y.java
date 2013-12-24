@@ -29,10 +29,10 @@ class y extends com.baidu.tieba.m {
                     r1 = (String) objArr[1];
                 }
                 aaVar5 = this.b.b;
-                oVar4 = this.b.f2293a;
+                oVar4 = this.b.a;
                 aaVar5.a(r1, oVar4, (Boolean) objArr[2]);
                 EditMarkActivity editMarkActivity = this.b;
-                oVar5 = this.b.f2293a;
+                oVar5 = this.b.a;
                 editMarkActivity.d = oVar5.c();
             } else if (((Integer) objArr[0]).intValue() == 3) {
                 if (objArr[1] != null && (objArr[1] instanceof String)) {
@@ -48,16 +48,16 @@ class y extends com.baidu.tieba.m {
                 aaVar2.a(booleanValue2, r1, booleanValue);
                 if (booleanValue2) {
                     aaVar3 = this.b.b;
-                    oVar2 = this.b.f2293a;
+                    oVar2 = this.b.a;
                     aaVar3.a(oVar2.a());
-                    oVar3 = this.b.f2293a;
+                    oVar3 = this.b.a;
                     oVar3.a((Boolean) true);
                 }
             } else if (((Integer) objArr[0]).intValue() == 2) {
                 booleanValue = objArr[1] != null ? ((Boolean) objArr[1]).booleanValue() : false;
                 String str = objArr[2] != null ? (String) objArr[2] : null;
                 aaVar = this.b.b;
-                oVar = this.b.f2293a;
+                oVar = this.b.a;
                 aaVar.a(booleanValue, str, oVar.c());
             }
         } catch (Exception e) {

@@ -10,12 +10,10 @@ import org.apache.http.protocol.HttpContext;
 /* renamed from: bh  reason: default package */
 /* loaded from: classes.dex */
 public class bh implements HttpResponseInterceptor {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ AsyncHttpClient f377a;
+    final /* synthetic */ AsyncHttpClient a;
 
     public bh(AsyncHttpClient asyncHttpClient) {
-        this.f377a = asyncHttpClient;
+        this.a = asyncHttpClient;
     }
 
     public void process(HttpResponse httpResponse, HttpContext httpContext) {

@@ -4,13 +4,11 @@ import android.os.Handler;
 import android.os.Message;
 /* loaded from: classes.dex */
 class bp implements Handler.Callback {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NewPbActivity f2191a;
+    final /* synthetic */ NewPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bp(NewPbActivity newPbActivity) {
-        this.f2191a = newPbActivity;
+        this.a = newPbActivity;
     }
 
     @Override // android.os.Handler.Callback
@@ -20,17 +18,17 @@ class bp implements Handler.Callback {
         cr crVar2;
         switch (message.what) {
             case 0:
-                crVar2 = this.f2191a.y;
+                crVar2 = this.a.x;
                 crVar2.ac();
                 return false;
             case 1:
-                crVar = this.f2191a.y;
+                crVar = this.a.x;
                 crVar.ab();
                 return false;
             case 2:
-                bmVar = this.f2191a.s;
+                bmVar = this.a.r;
                 if (bmVar.t()) {
-                    this.f2191a.r();
+                    this.a.r();
                     return false;
                 }
                 return false;

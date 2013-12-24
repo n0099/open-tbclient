@@ -3,9 +3,7 @@ package com.baidu.tbadk.widget.richText;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class f {
-
-    /* renamed from: a  reason: collision with root package name */
-    private String f993a;
+    private String a;
     private String b;
     private String c;
     private int d;
@@ -13,17 +11,17 @@ public class f {
     private boolean f;
 
     public f(JSONObject jSONObject) {
-        this.f993a = null;
+        this.a = null;
         this.b = null;
         this.c = null;
         this.d = 1;
         this.e = 1;
         this.f = false;
         if (jSONObject != null) {
-            this.f993a = jSONObject.optString("src");
+            this.a = jSONObject.optString("src");
             this.b = jSONObject.optString("cdn_src", "");
             if (this.b == null || this.b.length() == 0) {
-                this.b = this.f993a;
+                this.b = this.a;
             }
             this.c = jSONObject.optString("big_cdn_src", null);
             try {
@@ -62,7 +60,7 @@ public class f {
     }
 
     public String e() {
-        return this.f993a;
+        return this.a;
     }
 
     public String f() {

@@ -2,6 +2,7 @@ package com.baidu.cloudsdk.social.share;
 
 import android.content.Context;
 import android.view.View;
+import com.baidu.android.pushservice.PushConstants;
 import com.baidu.cloudsdk.BaiduException;
 import com.baidu.cloudsdk.IBaiduListener;
 import com.baidu.cloudsdk.common.util.Validator;
@@ -14,9 +15,7 @@ import com.baidu.cloudsdk.social.share.handler.SocialShareStatisticsManager;
 import com.baidu.cloudsdk.social.share.ui.ShareUIWidget;
 /* loaded from: classes.dex */
 public class SocialShare extends SocialWidget {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static SocialShare f863a;
+    private static SocialShare a;
     private Theme b;
     private View c;
 
@@ -33,12 +32,12 @@ public class SocialShare extends SocialWidget {
     }
 
     public static SocialShare getInstance(Context context) {
-        if (f863a == null) {
-            f863a = new SocialShare(context);
+        if (a == null) {
+            a = new SocialShare(context);
         } else {
-            f863a.setContext(context);
+            a.setContext(context);
         }
-        return f863a;
+        return a;
     }
 
     public View getParentView() {
@@ -65,7 +64,7 @@ public class SocialShare extends SocialWidget {
     }
 
     public void share(ShareContent shareContent, String str, IBaiduListener iBaiduListener, boolean z) {
-        Validator.notNull(shareContent, "content");
+        Validator.notNull(shareContent, PushConstants.EXTRA_CONTENT);
         Validator.notNullOrEmpty(str, "mediaType");
         ISocialShareHandler newInstance = new SocialShareHandlerFactory(this.mContext, this.mClientId, this.b).newInstance(str);
         if (newInstance != null) {
@@ -76,7 +75,7 @@ public class SocialShare extends SocialWidget {
     }
 
     public void share(ShareContent shareContent, String[] strArr, IBaiduListener iBaiduListener, boolean z) {
-        Validator.notNull(shareContent, "content");
+        Validator.notNull(shareContent, PushConstants.EXTRA_CONTENT);
         Validator.notNullOrEmpty(strArr, "mediaTypes");
         new CloudBatchShareHandler(this.mContext, this.mClientId, strArr).share(shareContent, iBaiduListener, z);
     }

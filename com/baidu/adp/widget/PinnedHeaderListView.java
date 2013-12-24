@@ -12,9 +12,7 @@ import android.widget.ListAdapter;
 import com.baidu.adp.widget.ListView.BdListView;
 /* loaded from: classes.dex */
 public class PinnedHeaderListView extends BdListView implements AbsListView.OnScrollListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    private AbsListView.OnScrollListener f585a;
+    private AbsListView.OnScrollListener a;
     private DataSetObserver b;
     private View c;
     private int d;
@@ -153,16 +151,16 @@ public class PinnedHeaderListView extends BdListView implements AbsListView.OnSc
                     this.g = 0;
                     invalidate(0, 0, this.e, this.f);
                 }
-                int a2 = a(i);
-                if (a2 == -1) {
+                int a = a(i);
+                if (a == -1) {
                     this.k = false;
                     uVar.a(null, this, -1);
-                } else if (a2 != this.j || a2 == 0) {
-                    uVar.a(this.c, this, a2);
+                } else if (a != this.j || a == 0) {
+                    uVar.a(this.c, this, a);
                     a(getMeasuredWidth(), getMeasuredHeight());
                     this.c.layout(0, 0, this.e, this.f);
                     invalidate(0, 0, this.e, this.f);
-                    this.j = a2;
+                    this.j = a;
                     this.h = this.i;
                 }
             } else if (itemViewType == this.d) {
@@ -190,21 +188,21 @@ public class PinnedHeaderListView extends BdListView implements AbsListView.OnSc
 
     @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.AbsListView
     public void setOnScrollListener(AbsListView.OnScrollListener onScrollListener) {
-        this.f585a = onScrollListener;
+        this.a = onScrollListener;
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScrollStateChanged(AbsListView absListView, int i) {
-        if (this.f585a != null) {
-            this.f585a.onScrollStateChanged(absListView, i);
+        if (this.a != null) {
+            this.a.onScrollStateChanged(absListView, i);
         }
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScroll(AbsListView absListView, int i, int i2, int i3) {
         e();
-        if (this.f585a != null) {
-            this.f585a.onScroll(absListView, i, i2, i3);
+        if (this.a != null) {
+            this.a.onScroll(absListView, i, i2, i3);
         }
     }
 

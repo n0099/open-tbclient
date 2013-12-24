@@ -11,7 +11,7 @@ public enum ResultMetadataType {
     UPC_EAN_EXTENSION,
     PDF417_EXTRA_METADATA;
 
-    /* JADX DEBUG: Replace access to removed values field (a) with 'values()' method */
+    /* JADX DEBUG: Replace access to removed values field (ENUM$VALUES) with 'values()' method */
     /* renamed from: values  reason: to resolve conflict with enum method */
     public static ResultMetadataType[] valuesCustom() {
         ResultMetadataType[] valuesCustom = values();

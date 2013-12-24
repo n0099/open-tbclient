@@ -6,15 +6,13 @@ import android.widget.ImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class du implements Animation.AnimationListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ImageView f2244a;
+    final /* synthetic */ ImageView a;
     final /* synthetic */ cr b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public du(cr crVar, ImageView imageView) {
         this.b = crVar;
-        this.f2244a = imageView;
+        this.a = imageView;
     }
 
     @Override // android.view.animation.Animation.AnimationListener

@@ -3,9 +3,8 @@ package com.baidu.tieba.log;
 import android.text.TextUtils;
 /* loaded from: classes.dex */
 public class g {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static String f1919a = "";
+    private static String a = "";
+    private static boolean b = false;
 
     public static boolean a(LoggerItem loggerItem) {
         if (loggerItem == null) {
@@ -26,13 +25,18 @@ public class g {
     }
 
     public static void a() {
-        f1919a = com.baidu.adp.lib.g.a.a().c();
+        try {
+            a = com.baidu.adp.lib.g.a.a().c();
+        } catch (Exception e) {
+            com.baidu.adp.lib.h.e.d(e.getMessage());
+        }
     }
 
     public static String b() {
-        if (TextUtils.isEmpty(f1919a)) {
+        if (TextUtils.isEmpty(a) && !b) {
             a();
+            b = true;
         }
-        return f1919a;
+        return a;
     }
 }

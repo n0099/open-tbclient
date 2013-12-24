@@ -17,16 +17,14 @@ import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class bs extends com.baidu.adp.a.e {
-
-    /* renamed from: a  reason: collision with root package name */
-    public static int f1482a;
+    public static int a;
     private com.baidu.tieba.j c;
     private NavigationBar d;
     private RelativeLayout e;
     private bp f;
     private ProgressBar g;
     private BdListView h;
-    private com.baidu.tieba.view.bk i;
+    private com.baidu.tieba.view.bq i;
     private bf j;
     private t k;
     private View l;
@@ -45,7 +43,7 @@ public class bs extends com.baidu.adp.a.e {
         this.d.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new bt(this));
         this.h = (BdListView) this.c.findViewById(R.id.signallforum_list);
         this.h.setOnItemClickListener(jVar);
-        this.i = new com.baidu.tieba.view.bk(jVar);
+        this.i = new com.baidu.tieba.view.bq(jVar);
         this.h.setPullRefresh(this.i);
         this.o = (TextView) this.c.getLayoutInflater().inflate(R.layout.signallforum_maxcount_warning, (ViewGroup) null);
         this.h.addFooterView(this.o);
@@ -89,7 +87,7 @@ public class bs extends com.baidu.adp.a.e {
         k();
         ArrayList<u> j = tVar.j();
         this.j.a(this.k);
-        if (j.size() == f1482a) {
+        if (j.size() == a) {
             this.o.setVisibility(0);
             this.o.setText(tVar.f());
             return;

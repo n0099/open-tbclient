@@ -1,19 +1,33 @@
 package com.baidu.tieba.im.messageCenter.a;
 
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.im.message.Message;
-import com.baidu.tieba.im.message.ResponseQueryGroupCountMessage;
+import com.baidu.tieba.im.message.bp;
+import com.baidu.tieba.im.message.bz;
 /* loaded from: classes.dex */
-public class q extends com.baidu.tieba.im.messageCenter.a {
-    @Override // com.baidu.tieba.im.messageCenter.a
-    public Message a(Message message, com.baidu.tieba.im.b.p pVar) {
-        if (message != null && (message instanceof ResponseQueryGroupCountMessage) && !((ResponseQueryGroupCountMessage) message).hasError()) {
-            String str = "";
-            if (TiebaApplication.F() != null) {
-                str = TiebaApplication.F().getID();
-            }
-            com.baidu.tieba.im.b.m.a(com.baidu.tieba.b.a.a().s(), "enter_forum_group_info_" + str, pVar);
+public class q extends com.baidu.tieba.im.messageCenter.d {
+    @Override // com.baidu.tieba.im.messageCenter.d
+    public bz a(com.baidu.tieba.im.message.n nVar) {
+        bp bpVar;
+        if (nVar == null || !(nVar instanceof com.baidu.tieba.im.message.t)) {
+            return null;
         }
-        return null;
+        String str = "";
+        if (TiebaApplication.F() != null) {
+            str = TiebaApplication.F().getID();
+        }
+        byte[] a = com.baidu.tieba.b.a.a().r().a("p_enter_forum_group_info_" + str);
+        bp bpVar2 = new bp();
+        if (a != null) {
+            try {
+                bpVar = (bp) l.a(103011, a);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            bpVar.e(-114);
+            return bpVar;
+        }
+        bpVar = bpVar2;
+        bpVar.e(-114);
+        return bpVar;
     }
 }

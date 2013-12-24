@@ -4,21 +4,19 @@ import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements DialogInterface.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ RecordVoiceBnt f2731a;
+    final /* synthetic */ RecordVoiceBnt a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(RecordVoiceBnt recordVoiceBnt) {
-        this.f2731a = recordVoiceBnt;
+        this.a = recordVoiceBnt;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
-        this.f2731a.e();
-        if (this.f2731a.getVoiceManager() != null) {
-            this.f2731a.getVoiceManager().a(this.f2731a.f2706a.voiceId);
-            this.f2731a.f2706a = null;
+        this.a.e();
+        if (this.a.getVoiceManager() != null) {
+            this.a.getVoiceManager().a(this.a.a.voiceId);
+            this.a.a = null;
         }
     }
 }

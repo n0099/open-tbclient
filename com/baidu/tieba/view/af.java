@@ -2,8 +2,7 @@ package com.baidu.tieba.view;
 
 import android.graphics.Bitmap;
 import com.baidu.zeus.bouncycastle.DERTags;
-import com.tencent.mm.sdk.platformtools.LVBuffer;
-import com.tencent.mm.sdk.platformtools.Util;
+import com.google.protobuf.CodedOutputStream;
 import java.io.InputStream;
 import java.util.Vector;
 /* loaded from: classes.dex */
@@ -17,9 +16,7 @@ public class af {
     protected Vector<ag> M;
     protected int N;
     private int Q;
-
-    /* renamed from: a  reason: collision with root package name */
-    protected InputStream f2654a;
+    protected InputStream a;
     protected int b;
     protected int c;
     protected int d;
@@ -157,7 +154,7 @@ public class af {
         if (this.N <= 0) {
             return null;
         }
-        return this.M.elementAt(i % this.N).f2655a;
+        return this.M.elementAt(i % this.N).a;
     }
 
     public int a(InputStream inputStream) {
@@ -166,11 +163,11 @@ public class af {
         }
         f();
         if (inputStream != null) {
-            this.f2654a = inputStream;
+            this.a = inputStream;
             k();
             if (!e()) {
                 i();
-                com.baidu.tieba.util.bd.a(getClass().getName(), "read", "gif mem ==" + String.valueOf(this.O / 1024.0f) + "k");
+                com.baidu.tieba.util.be.a(getClass().getName(), "read", "gif mem ==" + String.valueOf(this.O / 1024.0f) + "k");
                 if (this.O >= this.Q) {
                     return 3;
                 }
@@ -212,10 +209,10 @@ public class af {
             this.L = new byte[i10];
         }
         if (this.I == null) {
-            this.I = new short[LVBuffer.LENGTH_ALLOC_PER_NEW];
+            this.I = new short[CodedOutputStream.DEFAULT_BUFFER_SIZE];
         }
         if (this.J == null) {
-            this.J = new byte[LVBuffer.LENGTH_ALLOC_PER_NEW];
+            this.J = new byte[CodedOutputStream.DEFAULT_BUFFER_SIZE];
         }
         if (this.K == null) {
             this.K = new byte[4097];
@@ -347,7 +344,7 @@ public class af {
 
     protected int g() {
         try {
-            return this.f2654a.read();
+            return this.a.read();
         } catch (Exception e) {
             this.b = 1;
             return 0;
@@ -360,7 +357,7 @@ public class af {
         if (this.C > 0) {
             while (i < this.C) {
                 try {
-                    int read = this.f2654a.read(this.B, i, this.C - i);
+                    int read = this.a.read(this.B, i, this.C - i);
                     if (read == -1) {
                         break;
                     }
@@ -382,7 +379,7 @@ public class af {
         int[] iArr = null;
         byte[] bArr = new byte[i3];
         try {
-            i2 = this.f2654a.read(bArr);
+            i2 = this.a.read(bArr);
         } catch (Exception e) {
             e.printStackTrace();
             i2 = 0;
@@ -419,7 +416,7 @@ public class af {
                             case 254:
                                 q();
                                 continue;
-                            case Util.MASK_8BIT /* 255 */:
+                            case 255:
                                 h();
                                 StringBuffer stringBuffer = new StringBuffer();
                                 for (int i = 0; i < 11; i++) {
@@ -583,7 +580,7 @@ public class af {
             while (true) {
                 int i2 = i;
                 if (i2 < this.M.size()) {
-                    this.M.get(i2).f2655a = null;
+                    this.M.get(i2).a = null;
                     i = i2 + 1;
                 } else {
                     return;

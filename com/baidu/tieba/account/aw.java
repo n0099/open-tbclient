@@ -1,39 +1,39 @@
 package com.baidu.tieba.account;
 
-import android.view.View;
-import android.widget.EditText;
-import android.widget.ImageView;
+import com.baidu.tieba.data.AccountData;
 /* loaded from: classes.dex */
-class aw implements View.OnFocusChangeListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Register2Activity f1070a;
+class aw implements Runnable {
+    final /* synthetic */ ReLoginActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aw(Register2Activity register2Activity) {
-        this.f1070a = register2Activity;
+    public aw(ReLoginActivity reLoginActivity) {
+        this.a = reLoginActivity;
     }
 
-    @Override // android.view.View.OnFocusChangeListener
-    public void onFocusChange(View view, boolean z) {
-        EditText editText;
-        EditText editText2;
-        ImageView imageView = null;
-        editText = this.f1070a.t;
-        if (view == editText) {
-            imageView = this.f1070a.k;
-        } else {
-            editText2 = this.f1070a.v;
-            if (view == editText2) {
-                imageView = this.f1070a.l;
+    @Override // java.lang.Runnable
+    public void run() {
+        AccountData accountData;
+        String str;
+        AccountData accountData2;
+        AccountData accountData3;
+        AccountData accountData4;
+        accountData = this.a.i;
+        if (accountData != null) {
+            accountData2 = this.a.i;
+            if (accountData2.getAccount() != null) {
+                accountData3 = this.a.i;
+                if (!accountData3.getAccount().equals("BaiduUser")) {
+                    ReLoginActivity reLoginActivity = this.a;
+                    accountData4 = this.a.i;
+                    reLoginActivity.a(accountData4);
+                    return;
+                }
             }
+            this.a.e();
+            return;
         }
-        if (imageView != null) {
-            if (z) {
-                imageView.setVisibility(0);
-            } else {
-                imageView.setVisibility(8);
-            }
-        }
+        ReLoginActivity reLoginActivity2 = this.a;
+        str = this.a.l;
+        reLoginActivity2.a(1, str);
     }
 }

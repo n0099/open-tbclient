@@ -1,35 +1,32 @@
 package com.baidu.tieba.im.messageCenter.a;
 
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.im.message.GroupsByLocationLocalMessage;
-import com.baidu.tieba.im.message.Message;
-import com.baidu.tieba.im.message.ResponseNearbyGroupsMessage;
-import com.baidu.tieba.im.message.ResponsedMessage;
+import com.baidu.tieba.im.message.bz;
+import java.util.List;
 /* loaded from: classes.dex */
-public class l extends com.baidu.tieba.im.messageCenter.d {
-    @Override // com.baidu.tieba.im.messageCenter.d
-    public ResponsedMessage a(Message message) {
-        ResponseNearbyGroupsMessage responseNearbyGroupsMessage;
-        if (message == null || !(message instanceof GroupsByLocationLocalMessage)) {
+public class l {
+    public static void a(com.baidu.adp.lib.cache.s<byte[]> sVar, String str, com.baidu.tieba.im.coder.d dVar) {
+        if (str != null && sVar != null && dVar != null && dVar.c == 0 && dVar.d > 0) {
+            sVar.a(str, dVar.b);
+        }
+    }
+
+    public static bz a(int i, byte[] bArr) {
+        if (bArr == null) {
             return null;
         }
-        String str = "";
-        if (TiebaApplication.F() != null) {
-            str = TiebaApplication.F().getID();
-        }
-        byte[] a2 = com.baidu.tieba.b.a.a().r().a("nearby_group_info" + str);
-        ResponseNearbyGroupsMessage responseNearbyGroupsMessage2 = new ResponseNearbyGroupsMessage();
-        if (a2 != null) {
-            try {
-                responseNearbyGroupsMessage = (ResponseNearbyGroupsMessage) com.baidu.tieba.im.b.m.a(a2);
-            } catch (Exception e) {
-                e.printStackTrace();
+        try {
+            List<com.baidu.tieba.im.message.n> a = com.baidu.tieba.im.coder.c.a().a(i, bArr, 0, bArr.length);
+            if (a == null || a.isEmpty()) {
+                return null;
             }
-            responseNearbyGroupsMessage.setCmd(-115);
-            return responseNearbyGroupsMessage;
+            com.baidu.tieba.im.message.n nVar = a.get(0);
+            if (nVar instanceof bz) {
+                return (bz) nVar;
+            }
+            return null;
+        } catch (Throwable th) {
+            th.printStackTrace();
+            return null;
         }
-        responseNearbyGroupsMessage = responseNearbyGroupsMessage2;
-        responseNearbyGroupsMessage.setCmd(-115);
-        return responseNearbyGroupsMessage;
     }
 }

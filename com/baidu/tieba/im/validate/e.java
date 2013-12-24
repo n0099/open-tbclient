@@ -1,26 +1,24 @@
 package com.baidu.tieba.im.validate;
 
 import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tieba.util.ah;
+import com.baidu.tieba.util.ai;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements Runnable {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ValidateActivity f1899a;
+    final /* synthetic */ ValidateActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(ValidateActivity validateActivity) {
-        this.f1899a = validateActivity;
+        this.a = validateActivity;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         n nVar;
         com.baidu.tieba.util.i iVar;
-        nVar = this.f1899a.b;
+        nVar = this.a.b;
         BdListView f = nVar.f();
-        iVar = this.f1899a.h;
-        ah.a(f, iVar, 0, 1);
+        iVar = this.a.h;
+        ai.a(f, iVar, 0, 1);
     }
 }

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Build;
 import android.webkit.WebView;
 import com.baidu.browser.core.BdNoProGuard;
+import com.baidu.zeus.NotificationProxy;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -66,7 +67,7 @@ public class BdWebJsEngine implements BdNoProGuard {
 
     private String convertStreamToString(InputStream inputStream) {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        byte[] bArr = new byte[1024];
+        byte[] bArr = new byte[NotificationProxy.MAX_URL_LENGTH];
         while (true) {
             try {
                 int read = inputStream.read(bArr);

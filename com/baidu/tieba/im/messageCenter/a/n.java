@@ -1,35 +1,21 @@
 package com.baidu.tieba.im.messageCenter.a;
 
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.im.message.GroupsByUidLocalMessage;
-import com.baidu.tieba.im.message.Message;
-import com.baidu.tieba.im.message.ResponseGroupsByUidMessage;
-import com.baidu.tieba.im.message.ResponsedMessage;
+import com.baidu.tieba.im.message.bk;
 /* loaded from: classes.dex */
-public class n extends com.baidu.tieba.im.messageCenter.d {
-    @Override // com.baidu.tieba.im.messageCenter.d
-    public ResponsedMessage a(Message message) {
-        ResponseGroupsByUidMessage responseGroupsByUidMessage;
-        if (message == null || !(message instanceof GroupsByUidLocalMessage)) {
-            return null;
-        }
-        String str = "";
-        if (TiebaApplication.F() != null) {
-            str = TiebaApplication.F().getID();
-        }
-        byte[] a2 = com.baidu.tieba.b.a.a().r().a("group_info" + str);
-        ResponseGroupsByUidMessage responseGroupsByUidMessage2 = new ResponseGroupsByUidMessage();
-        if (a2 != null) {
-            try {
-                responseGroupsByUidMessage = (ResponseGroupsByUidMessage) com.baidu.tieba.im.b.m.a(a2);
-            } catch (Exception e) {
-                e.printStackTrace();
+public class n extends com.baidu.tieba.im.messageCenter.a {
+    @Override // com.baidu.tieba.im.messageCenter.a
+    public com.baidu.tieba.im.message.n a(com.baidu.tieba.im.message.n nVar, com.baidu.tieba.im.coder.d dVar) {
+        if (nVar != null && (nVar instanceof bk)) {
+            bk bkVar = (bk) nVar;
+            if (!bkVar.i() && (bkVar.a() == null || bkVar.a().getOffset() == 0)) {
+                String str = "";
+                if (TiebaApplication.F() != null) {
+                    str = TiebaApplication.F().getID();
+                }
+                l.a(com.baidu.tieba.b.a.a().r(), "p_nearby_group_info" + str, dVar);
             }
-            responseGroupsByUidMessage.setCmd(-106);
-            return responseGroupsByUidMessage;
         }
-        responseGroupsByUidMessage = responseGroupsByUidMessage2;
-        responseGroupsByUidMessage.setCmd(-106);
-        return responseGroupsByUidMessage;
+        return null;
     }
 }

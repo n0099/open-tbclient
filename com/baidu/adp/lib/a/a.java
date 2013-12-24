@@ -3,9 +3,7 @@ package com.baidu.adp.lib.a;
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public class a {
-
-    /* renamed from: a  reason: collision with root package name */
-    private int f403a = 0;
+    private int a = 0;
     private String[] b = null;
     private int c = 0;
     private String d;
@@ -25,7 +23,7 @@ public class a {
     }
 
     public void a(int i, String[] strArr, int i2) {
-        this.f403a = i;
+        this.a = i;
         this.b = strArr;
         this.c = i2;
     }
@@ -35,7 +33,7 @@ public class a {
     }
 
     public int b() {
-        return this.f403a;
+        return this.a;
     }
 
     public String[] c() {

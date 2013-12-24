@@ -24,9 +24,7 @@ import java.util.Map;
 /* loaded from: classes.dex */
 public class ImageActivity extends com.baidu.tieba.j {
     private FrameLayout D;
-
-    /* renamed from: a  reason: collision with root package name */
-    private ProgressBar f2137a = null;
+    private ProgressBar a = null;
     private int b = 0;
     private ArrayList<String> c = null;
     private int d = -1;
@@ -135,11 +133,11 @@ public class ImageActivity extends com.baidu.tieba.j {
         e();
         d();
         if (!this.B) {
-            String a2 = a(this.c.get(this.c.size() - 1));
-            if (a2 == null) {
+            String a = a(this.c.get(this.c.size() - 1));
+            if (a == null) {
                 this.l.setVisibility(8);
             }
-            this.u = new a(this.c, this.z, this.y, a2);
+            this.u = new a(this.c, this.z, this.y, a);
             this.u.a(new d(this));
             this.u.a();
         }
@@ -158,7 +156,7 @@ public class ImageActivity extends com.baidu.tieba.j {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (i == 1) {
-            this.m.setBackgroundColor(com.baidu.tieba.util.ba.d(i));
+            this.m.setBackgroundColor(com.baidu.tieba.util.bb.d(i));
         } else {
             this.m.setBackgroundColor(-16777216);
         }
@@ -208,8 +206,8 @@ public class ImageActivity extends com.baidu.tieba.j {
             this.h.cancel();
             this.h = null;
         }
-        if (this.f2137a != null) {
-            this.f2137a.setVisibility(8);
+        if (this.a != null) {
+            this.a.setVisibility(8);
         }
         if (this.B) {
             unregisterReceiver(this.t);
@@ -237,7 +235,7 @@ public class ImageActivity extends com.baidu.tieba.j {
         this.D = (FrameLayout) this.l.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.image_activity_save_button, this.n);
         this.j = this.l.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.k = this.l.a("");
-        this.f2137a = (ProgressBar) findViewById(R.id.progress);
+        this.a = (ProgressBar) findViewById(R.id.progress);
         this.i = (TextView) findViewById(R.id.save);
         this.i.setClickable(false);
         this.m = (MultiImageView) findViewById(R.id.viewpager);
@@ -379,7 +377,7 @@ public class ImageActivity extends com.baidu.tieba.j {
     private String a(String str) {
         int lastIndexOf;
         int indexOf;
-        String e = com.baidu.tieba.util.bb.e(str);
+        String e = com.baidu.tieba.util.bc.e(str);
         if (e != null) {
             if (e.indexOf(".baidu.com") != -1 && (lastIndexOf = e.lastIndexOf("/")) != -1 && (indexOf = e.indexOf(".", lastIndexOf)) != -1) {
                 return e.substring(lastIndexOf + 1, indexOf);

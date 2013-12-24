@@ -22,13 +22,11 @@ import java.util.Vector;
 public class b extends BaseAdapter implements View.OnFocusChangeListener, View.OnTouchListener, AdapterView.OnItemClickListener {
     private static Vector<a> b = null;
     private static boolean[] c = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    private Context f463a;
+    private Context a;
 
     public b(Context context) {
-        this.f463a = null;
-        this.f463a = context;
+        this.a = null;
+        this.a = context;
         a();
         c = new boolean[b.size()];
         for (int i = 0; i < c.length; i++) {
@@ -38,7 +36,7 @@ public class b extends BaseAdapter implements View.OnFocusChangeListener, View.O
 
     private static void a() {
         if (b == null) {
-            Properties properties = SwitchDebugService.f477a;
+            Properties properties = SwitchDebugService.a;
             synchronized (b.class) {
                 if (b == null) {
                     b = new Vector<>();
@@ -80,7 +78,7 @@ public class b extends BaseAdapter implements View.OnFocusChangeListener, View.O
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        View inflate = LayoutInflater.from(this.f463a).inflate(com.baidu.adp.c.adp_debug_custom_config_items, (ViewGroup) null);
+        View inflate = LayoutInflater.from(this.a).inflate(com.baidu.adp.c.adp_debug_custom_config_items, (ViewGroup) null);
         TextView textView = (TextView) inflate.findViewById(com.baidu.adp.d.adp_debug_custom_config_title);
         TextView textView2 = (TextView) inflate.findViewById(com.baidu.adp.d.adp_debug_edit_custom_config);
         ListView listView = (ListView) inflate.findViewById(com.baidu.adp.d.adp_debug_custom_config_defaults_list);
@@ -101,7 +99,7 @@ public class b extends BaseAdapter implements View.OnFocusChangeListener, View.O
             hashMap.put("default_value", aVar.b()[i2]);
             arrayList.add(hashMap);
         }
-        listView.setAdapter((ListAdapter) new SimpleAdapter(this.f463a, arrayList, com.baidu.adp.c.adp_debug_custom_config_default_value_item, new String[]{"default_value"}, new int[]{com.baidu.adp.d.adp_debug_constom_config_default_value}));
+        listView.setAdapter((ListAdapter) new SimpleAdapter(this.a, arrayList, com.baidu.adp.c.adp_debug_custom_config_default_value_item, new String[]{"default_value"}, new int[]{com.baidu.adp.d.adp_debug_constom_config_default_value}));
         a(listView);
         if (!c[i]) {
             listView.setVisibility(8);
@@ -161,7 +159,7 @@ public class b extends BaseAdapter implements View.OnFocusChangeListener, View.O
                 } else {
                     str = "配置修改失败！！！";
                 }
-                Toast makeText = Toast.makeText(this.f463a.getApplicationContext(), str, 1);
+                Toast makeText = Toast.makeText(this.a.getApplicationContext(), str, 1);
                 makeText.setGravity(17, 0, 0);
                 makeText.show();
             }

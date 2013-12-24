@@ -3,9 +3,7 @@ package com.baidu.tieba.view;
 import java.util.List;
 /* loaded from: classes.dex */
 class k {
-
-    /* renamed from: a  reason: collision with root package name */
-    public final boolean f2690a;
+    public final boolean a;
     public final List<Object> b;
     public final List<Object> c;
 
@@ -18,7 +16,7 @@ class k {
     }
 
     private k(boolean z, List<Object> list, List<Object> list2) {
-        this.f2690a = z;
+        this.a = z;
         this.b = list;
         this.c = list2;
     }

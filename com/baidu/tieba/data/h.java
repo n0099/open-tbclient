@@ -7,23 +7,21 @@ import com.baidu.browser.explorer.BdWebErrorView;
 import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.util.UtilHelper;
-import com.tencent.mm.sdk.platformtools.Util;
+import com.baidu.zeus.NotificationProxy;
 /* loaded from: classes.dex */
 public class h {
-
-    /* renamed from: a  reason: collision with root package name */
-    public static String f1248a = "http://c.tieba.baidu.com/";
+    public static String a = "http://c.tieba.baidu.com/";
     public static String b = "http://tieba.baidu.com/";
     public static String c = "http://static.tieba.baidu.com/";
-    public static final Long d = Long.valueOf((long) Util.MILLSECONDS_OF_HOUR);
+    public static final Long d = 3600000L;
     public static final Long e = 36000000L;
     public static final Long f = 36000000L;
-    public static final Long g = Long.valueOf((long) Util.MILLSECONDS_OF_DAY);
+    public static final Long g = 86400000L;
     public static final String h = b + "mo/q/topic_page/136_1";
-    public static final String i = f1248a + "c/s/recommend/";
-    public static final String j = f1248a + "c/s/classic";
+    public static final String i = a + "c/s/recommend/";
+    public static final String j = a + "c/s/classic";
     public static String k = "http://tb.himg.baidu.com/sys/portrait/item/";
-    public static final String l = f1248a + "c/p/img?";
+    public static final String l = a + "c/p/img?";
     public static int m = 80;
     public static final Bitmap.Config n = Bitmap.Config.RGB_565;
     private static String p = null;
@@ -32,14 +30,16 @@ public class h {
     private static String s = "http://tb.himg.baidu.com/sys/portraitn/item/";
     private static String t = s;
     private static int u = 80;
-    private static int v = Util.BYTE_OF_MB;
-    private static int w = 1024;
+    private static int v = 1048576;
+    private static int w = NotificationProxy.MAX_URL_LENGTH;
     private static int x = 1;
     private static String y = "贴吧客户端反馈";
     private static String z = "2631903";
     private static int A = 640;
     private static String B = "";
-    public static final Long o = Long.valueOf((long) Util.MILLSECONDS_OF_HOUR);
+    private static String C = "";
+    private static int D = 3;
+    public static final Long o = 3600000L;
 
     public static String a() {
         return p;
@@ -93,7 +93,23 @@ public class h {
         B = str;
     }
 
+    public static String k() {
+        return C;
+    }
+
     public static void d(String str) {
+        C = str;
+    }
+
+    public static int l() {
+        return D;
+    }
+
+    public static void a(int i2) {
+        D = i2;
+    }
+
+    public static void e(String str) {
         if (URLUtil.isHttpUrl(str) || URLUtil.isHttpsUrl(str)) {
             s = str;
         }
@@ -110,7 +126,7 @@ public class h {
         return w;
     }
 
-    public static int k() {
+    public static int m() {
         return w;
     }
 
@@ -132,21 +148,21 @@ public class h {
         u = SocialAPIErrorCodes.ERROR_MISS_ACCESS_TOKEN;
     }
 
-    public static String l() {
+    public static String n() {
         return t;
     }
 
-    public static int m() {
+    public static int o() {
         return u;
     }
 
-    public static void e(String str) {
+    public static void f(String str) {
         if (URLUtil.isHttpUrl(str) || URLUtil.isHttpsUrl(str)) {
             k = str;
         }
     }
 
-    public static void a(int i2) {
+    public static void b(int i2) {
         if (i2 >= 60 && i2 <= 1000) {
             r = i2;
         }
@@ -169,15 +185,15 @@ public class h {
         }
     }
 
-    public static void b(int i2) {
+    public static void c(int i2) {
         x = i2;
     }
 
-    public static int n() {
+    public static int p() {
         return x;
     }
 
-    public static int o() {
+    public static int q() {
         switch (TiebaApplication.h().aj()) {
             case 1:
                 return 18;
@@ -188,15 +204,15 @@ public class h {
         }
     }
 
-    public static int p() {
-        return o() + 1;
+    public static int r() {
+        return q() + 1;
     }
 
-    public static int q() {
+    public static int s() {
         return 14;
     }
 
-    public static int r() {
+    public static int t() {
         switch (TiebaApplication.h().aj()) {
             case 1:
                 return 13;
@@ -207,7 +223,7 @@ public class h {
         }
     }
 
-    public static boolean s() {
+    public static boolean u() {
         return com.baidu.adp.a.b.a().b();
     }
 }

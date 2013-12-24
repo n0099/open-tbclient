@@ -1,41 +1,45 @@
 package com.baidu.tieba.account;
 
-import com.baidu.tieba.data.AccountData;
+import android.text.Editable;
+import android.text.TextWatcher;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class aj implements Runnable {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ReLoginActivity f1046a;
+public class aj implements TextWatcher {
+    final /* synthetic */ LoginActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aj(ReLoginActivity reLoginActivity) {
-        this.f1046a = reLoginActivity;
+    public aj(LoginActivity loginActivity) {
+        this.a = loginActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        AccountData accountData;
-        String str;
-        AccountData accountData2;
-        AccountData accountData3;
-        AccountData accountData4;
-        accountData = this.f1046a.i;
-        if (accountData != null) {
-            accountData2 = this.f1046a.i;
-            if (accountData2.getAccount() != null) {
-                accountData3 = this.f1046a.i;
-                if (!accountData3.getAccount().equals("BaiduUser")) {
-                    ReLoginActivity reLoginActivity = this.f1046a;
-                    accountData4 = this.f1046a.i;
-                    reLoginActivity.a(accountData4);
-                    return;
-                }
-            }
-            this.f1046a.e();
-            return;
+    @Override // android.text.TextWatcher
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+        boolean z;
+        z = this.a.m;
+        if (z) {
+            this.a.k();
         }
-        ReLoginActivity reLoginActivity2 = this.f1046a;
-        str = this.f1046a.l;
-        reLoginActivity2.a(1, str);
+        this.a.n = true;
+        this.a.n();
+        this.a.o();
+    }
+
+    @Override // android.text.TextWatcher
+    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    }
+
+    @Override // android.text.TextWatcher
+    public void afterTextChanged(Editable editable) {
+        String str;
+        String str2;
+        this.a.d();
+        str = this.a.f;
+        if (!com.baidu.tieba.util.bc.c(str)) {
+            String obj = editable.toString();
+            str2 = this.a.f;
+            if (obj.equals(str2)) {
+                this.a.j();
+            }
+        }
     }
 }

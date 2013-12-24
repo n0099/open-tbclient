@@ -19,16 +19,14 @@ import com.baidu.tieba.model.aa;
 import com.baidu.tieba.model.ac;
 import com.baidu.tieba.util.UtilHelper;
 import com.baidu.tieba.view.UserIconBox;
-import com.baidu.tieba.view.bx;
+import com.baidu.tieba.view.cd;
 import com.baidu.tieba.voice.VoiceManager;
 import com.baidu.tieba.voice.af;
 import com.baidu.zeus.Headers;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class ForumFeedActivity extends BaseFragment implements bx {
-
-    /* renamed from: a  reason: collision with root package name */
-    private VoiceManager f1338a;
+public class ForumFeedActivity extends BaseFragment implements cd {
+    private VoiceManager a;
     private aa b;
     private i c;
     private View d;
@@ -63,7 +61,7 @@ public class ForumFeedActivity extends BaseFragment implements bx {
         H();
         this.Z = null;
         if (this.f instanceof af) {
-            this.f1338a = ((af) this.f).d_();
+            this.a = ((af) this.f).d_();
         }
     }
 
@@ -102,8 +100,8 @@ public class ForumFeedActivity extends BaseFragment implements bx {
             if (this.c != null) {
                 this.c.k();
             }
-            if (this.f1338a != null) {
-                this.f1338a.c(this.f);
+            if (this.a != null) {
+                this.a.c(this.f);
             }
         }
     }
@@ -124,8 +122,8 @@ public class ForumFeedActivity extends BaseFragment implements bx {
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
     public void s() {
         super.s();
-        if (this.f1338a != null) {
-            this.f1338a.h();
+        if (this.a != null) {
+            this.a.h();
         }
     }
 
@@ -194,8 +192,8 @@ public class ForumFeedActivity extends BaseFragment implements bx {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Object obj) {
         ac acVar = (ac) obj;
-        if (acVar != null && acVar.f1978a != null && acVar.f1978a.b() != null && acVar.f1978a.b().size() > 0) {
-            this.c.a(acVar.f1978a);
+        if (acVar != null && acVar.a != null && acVar.a.b() != null && acVar.a.b().size() > 0) {
+            this.c.a(acVar.a);
             this.b.a(true);
         }
         this.c.a();
@@ -238,7 +236,7 @@ public class ForumFeedActivity extends BaseFragment implements bx {
                 }
             }
             if (errorCode != 0 && errorString != "" && R()) {
-                this.f.b(errorString);
+                this.f.a(errorString);
             }
         }
     }
@@ -287,12 +285,12 @@ public class ForumFeedActivity extends BaseFragment implements bx {
         frameLayout.addView(this.d);
     }
 
-    @Override // com.baidu.tieba.view.bx
+    @Override // com.baidu.tieba.view.cd
     public ListView c() {
         return this.c.m();
     }
 
-    @Override // com.baidu.tieba.view.bx
+    @Override // com.baidu.tieba.view.cd
     public int a() {
         if (this.c == null) {
             return 0;
@@ -300,7 +298,7 @@ public class ForumFeedActivity extends BaseFragment implements bx {
         return this.c.n();
     }
 
-    @Override // com.baidu.tieba.view.bx
+    @Override // com.baidu.tieba.view.cd
     public com.baidu.adp.lib.d.b<TbImageView> G() {
         return this.i;
     }

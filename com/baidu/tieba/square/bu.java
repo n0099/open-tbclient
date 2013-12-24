@@ -14,10 +14,8 @@ import com.baidu.zeus.Headers;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class bu extends com.baidu.adp.a.e {
-
-    /* renamed from: a  reason: collision with root package name */
-    public static String f2517a = "top_nav_all_folder";
-    com.baidu.tieba.view.bk c;
+    public static String a = "top_nav_all_folder";
+    com.baidu.tieba.view.bq c;
     private BaseFragmentActivity d;
     private BaseFragment e;
     private View f;
@@ -45,7 +43,7 @@ public class bu extends com.baidu.adp.a.e {
         this.g.setOnScrollListener(baseFragment);
         this.k = new ay(baseFragmentActivity);
         this.g.setAdapter((ListAdapter) this.k);
-        this.c = new com.baidu.tieba.view.bk(baseFragmentActivity);
+        this.c = new com.baidu.tieba.view.bq(baseFragmentActivity);
         this.g.setPullRefresh(this.c);
         this.j = (NoNetworkView) this.f.findViewById(R.id.view_no_network);
         com.baidu.tieba.view.r rVar = new com.baidu.tieba.view.r(this.b);
@@ -59,7 +57,7 @@ public class bu extends com.baidu.adp.a.e {
                 this.k.a(arVar);
                 this.k.notifyDataSetChanged();
             } catch (Exception e) {
-                com.baidu.tieba.util.bd.b(getClass().getName(), Headers.REFRESH, e.getMessage());
+                com.baidu.tieba.util.be.b(getClass().getName(), Headers.REFRESH, e.getMessage());
             }
         }
     }
@@ -84,7 +82,7 @@ public class bu extends com.baidu.adp.a.e {
     public void a(boolean z, String str) {
         e();
         if (!z && str != null) {
-            this.d.b(str);
+            this.d.a(str);
         }
     }
 
@@ -104,12 +102,12 @@ public class bu extends com.baidu.adp.a.e {
         this.j.setVisibility(8);
     }
 
-    public void a(com.baidu.tieba.view.ba baVar) {
-        this.j.a(baVar);
+    public void a(com.baidu.tieba.view.az azVar) {
+        this.j.a(azVar);
     }
 
-    public void b(com.baidu.tieba.view.ba baVar) {
-        this.j.b(baVar);
+    public void b(com.baidu.tieba.view.az azVar) {
+        this.j.b(azVar);
     }
 
     public void j() {
@@ -118,7 +116,7 @@ public class bu extends com.baidu.adp.a.e {
 
     public void k() {
         NetworkInfo activeNetworkInfo;
-        com.baidu.tieba.util.bd.e("SquareView", "onResume", "onResume");
+        com.baidu.tieba.util.be.e("SquareView", "onResume", "onResume");
         this.k.a();
         if (this.j != null && this.j.getVisibility() == 0 && (activeNetworkInfo = ((ConnectivityManager) this.d.getSystemService("connectivity")).getActiveNetworkInfo()) != null && activeNetworkInfo.isAvailable()) {
             this.j.setVisible(false);

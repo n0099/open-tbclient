@@ -10,9 +10,7 @@ import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class e implements v {
-
-    /* renamed from: a  reason: collision with root package name */
-    CreateGroupStepActivity f1622a;
+    CreateGroupStepActivity a;
     View b;
     ImageView c;
     EditText d;
@@ -31,7 +29,7 @@ public class e implements v {
     }
 
     public int h() {
-        return com.baidu.tieba.im.e.g.a(this.d);
+        return com.baidu.tieba.im.d.g.a(this.d);
     }
 
     public void a(boolean z) {
@@ -43,12 +41,12 @@ public class e implements v {
     }
 
     public e(CreateGroupStepActivity createGroupStepActivity) {
-        this.f1622a = null;
+        this.a = null;
         this.b = null;
         this.c = null;
         this.d = null;
         this.e = null;
-        this.f1622a = createGroupStepActivity;
+        this.a = createGroupStepActivity;
         this.b = createGroupStepActivity.getLayoutInflater().inflate(R.layout.create_group_step1_view, (ViewGroup) null);
         this.d = (EditText) this.b.findViewById(R.id.step1_group_name);
         this.c = (ImageView) this.b.findViewById(R.id.step1_img_bg);
@@ -74,7 +72,7 @@ public class e implements v {
     @Override // com.baidu.tieba.im.creategroup.v
     public View a() {
         if (TiebaApplication.h().t()) {
-            StatService.onEvent(this.f1622a, "create_g_name", "pv", 1);
+            StatService.onEvent(this.a, "create_g_name", "pv", 1);
         }
         return this.b;
     }
@@ -86,12 +84,12 @@ public class e implements v {
 
     @Override // com.baidu.tieba.im.creategroup.v
     public void k() {
-        this.f1622a.getLayoutMode().a(TiebaApplication.h().an() == 1);
-        this.f1622a.getLayoutMode().a(this.b);
+        this.a.getLayoutMode().a(TiebaApplication.h().an() == 1);
+        this.a.getLayoutMode().a(this.b);
         if (TiebaApplication.h().an() == 1) {
-            this.d.setHintTextColor(this.f1622a.getResources().getColor(R.color.create_group_input_hintcolor_1));
+            this.d.setHintTextColor(this.a.getResources().getColor(R.color.create_group_input_hintcolor_1));
         } else {
-            this.d.setHintTextColor(this.f1622a.getResources().getColor(R.color.create_group_input_hintcolor));
+            this.d.setHintTextColor(this.a.getResources().getColor(R.color.create_group_input_hintcolor));
         }
     }
 }

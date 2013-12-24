@@ -7,13 +7,11 @@ import com.baidu.adp.widget.ListView.BdListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n implements AbsListView.OnScrollListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ j f1961a;
+    final /* synthetic */ j a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(j jVar) {
-        this.f1961a = jVar;
+        this.a = jVar;
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
@@ -29,25 +27,25 @@ public class n implements AbsListView.OnScrollListener {
         com.baidu.tieba.view.r rVar2;
         BdListView bdListView3;
         com.baidu.tieba.view.r rVar3;
-        handler = this.f1961a.r;
-        runnable = this.f1961a.s;
+        handler = this.a.r;
+        runnable = this.a.s;
         handler.removeCallbacks(runnable);
-        handler2 = this.f1961a.r;
-        runnable2 = this.f1961a.s;
+        handler2 = this.a.r;
+        runnable2 = this.a.s;
         handler2.postDelayed(runnable2, 300L);
-        bdListView = this.f1961a.e;
+        bdListView = this.a.e;
         if (bdListView.getAdapter() != null) {
-            bdListView2 = this.f1961a.e;
+            bdListView2 = this.a.e;
             if (i2 < bdListView2.getAdapter().getCount()) {
-                rVar = this.f1961a.p;
+                rVar = this.a.p;
                 if (rVar == null) {
-                    j jVar = this.f1961a;
-                    activity = this.f1961a.c;
+                    j jVar = this.a;
+                    activity = this.a.c;
                     jVar.p = new com.baidu.tieba.view.r(activity);
-                    rVar2 = this.f1961a.p;
+                    rVar2 = this.a.p;
                     rVar2.setHeightDip(30);
-                    bdListView3 = this.f1961a.e;
-                    rVar3 = this.f1961a.p;
+                    bdListView3 = this.a.e;
+                    rVar3 = this.a.p;
                     bdListView3.addFooterView(rVar3);
                 }
             }

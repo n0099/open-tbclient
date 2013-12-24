@@ -7,7 +7,7 @@ import com.baidu.tieba.data.AccountData;
 public final class g implements BaiduAccount.BaiduOnAccountsUpdateListener {
     @Override // com.baidu.tieba.BaiduAccount.BaiduAccount.BaiduOnAccountsUpdateListener
     public void onAccountsUpdated(String str) {
-        com.baidu.tieba.util.bd.e(getClass().getName(), "onAccountsUpdated", "account =" + str);
+        com.baidu.tieba.util.be.e(getClass().getName(), "onAccountsUpdated", "account =" + str);
         if ((str == null || !str.equals(TiebaApplication.G())) && TiebaApplication.F() != null) {
             f.b(TiebaApplication.B());
             AccountData F = TiebaApplication.F();

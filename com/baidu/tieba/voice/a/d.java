@@ -4,9 +4,7 @@ import com.baidu.tieba.voice.ak;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class d {
-
-    /* renamed from: a  reason: collision with root package name */
-    public String f2713a = null;
+    public String a = null;
     public String b = null;
     public int c = 0;
     public String d = null;

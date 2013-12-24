@@ -2,7 +2,6 @@ package cn.jingling.lib.filters;
 
 import android.graphics.Bitmap;
 import android.graphics.Color;
-import com.tencent.mm.sdk.platformtools.Util;
 /* loaded from: classes.dex */
 public class ImageSelection {
     private static /* synthetic */ int[] $SWITCH_TABLE$cn$jingling$lib$filters$ImageSelection$Align;
@@ -188,7 +187,7 @@ public class ImageSelection {
                 if (dist2 < i6) {
                     this.mSelection[(this.mWidth * i7) + i8] = 255;
                 } else if (dist2 < i5) {
-                    this.mSelection[(this.mWidth * i7) + i8] = ((i3 - ((int) Math.sqrt(dist2))) * Util.MASK_8BIT) / i4;
+                    this.mSelection[(this.mWidth * i7) + i8] = ((i3 - ((int) Math.sqrt(dist2))) * 255) / i4;
                 } else {
                     this.mSelection[(this.mWidth * i7) + i8] = 0;
                 }
@@ -215,7 +214,7 @@ public class ImageSelection {
 
     private int getSquareFeatherValue(int i, int i2, int i3, int i4, int i5) {
         if (i5 == 0) {
-            return Util.MASK_8BIT;
+            return 255;
         }
         double d = i3 < i5 ? (1.0d * i3) / i5 : 1.0d;
         if (i3 > i - i5) {

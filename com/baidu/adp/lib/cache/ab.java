@@ -12,7 +12,7 @@ public class ab extends c<String> {
     @Override // com.baidu.adp.lib.cache.c
     public String a(String str) {
         String str2 = "cache_kv_t" + Math.abs(str.hashCode());
-        this.f428a.a(this.f428a.a(), "CREATE TABLE IF NOT EXISTS " + str2 + "(m_key VARCHAR(64) PRIMARY KEY, saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value text)");
+        this.a.a(this.a.a(), "CREATE TABLE IF NOT EXISTS " + str2 + "(m_key VARCHAR(64) PRIMARY KEY, saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value text)");
         return str2;
     }
 
@@ -36,7 +36,7 @@ public class ab extends c<String> {
             try {
                 if (cursor.moveToNext()) {
                     mVar = new m<>();
-                    mVar.f433a = cursor.getString(0);
+                    mVar.a = cursor.getString(0);
                     mVar.d = cursor.getLong(1);
                     mVar.e = cursor.getLong(2);
                     mVar.f = cursor.getLong(3);
@@ -60,7 +60,7 @@ public class ab extends c<String> {
     @Override // com.baidu.adp.lib.cache.c
     protected ContentValues a(m<String> mVar) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put("m_key", mVar.f433a);
+        contentValues.put("m_key", mVar.a);
         contentValues.put("m_value", mVar.b);
         contentValues.put("saveTime", Long.valueOf(mVar.d));
         contentValues.put("lastHitTime", Long.valueOf(mVar.e));
@@ -75,7 +75,7 @@ public class ab extends c<String> {
 
     @Override // com.baidu.adp.lib.cache.c
     protected boolean b(String str) {
-        this.f428a.a(this.f428a.a(), "DROP TABLE IF EXISTS " + this.b);
+        this.a.a(this.a.a(), "DROP TABLE IF EXISTS " + this.b);
         return true;
     }
 }

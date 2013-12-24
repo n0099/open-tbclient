@@ -9,13 +9,11 @@ import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class am implements DialogInterface.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WriteActivity f2787a;
+    final /* synthetic */ WriteActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public am(WriteActivity writeActivity) {
-        this.f2787a = writeActivity;
+        this.a = writeActivity;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -26,16 +24,16 @@ public class am implements DialogInterface.OnClickListener {
         EditText editText2;
         WriteData writeData3;
         Handler handler;
-        writeData = this.f2787a.b;
-        editText = this.f2787a.f;
+        writeData = this.a.b;
+        editText = this.a.f;
         writeData.setTitle(editText.getText().toString());
-        writeData2 = this.f2787a.b;
-        editText2 = this.f2787a.h;
+        writeData2 = this.a.b;
+        editText2 = this.a.h;
         writeData2.setContent(editText2.getText().toString());
-        writeData3 = this.f2787a.b;
+        writeData3 = this.a.b;
         DatabaseService.b(writeData3);
-        this.f2787a.showToast(R.string.draft_save_success);
-        handler = this.f2787a.s;
+        this.a.showToast(R.string.draft_save_success);
+        handler = this.a.s;
         handler.postDelayed(new an(this), 1000L);
     }
 }

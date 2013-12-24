@@ -10,15 +10,13 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tieba.BaseFragmentActivity;
-import com.baidu.tieba.au;
+import com.baidu.tieba.at;
 import com.baidu.tieba.e;
 import com.baidu.tieba.j;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class GroupTabWidget extends RelativeLayout {
-
-    /* renamed from: a  reason: collision with root package name */
-    boolean f1428a;
+    boolean a;
     int b;
     int c;
     private ImageView d;
@@ -28,7 +26,7 @@ public class GroupTabWidget extends RelativeLayout {
     public GroupTabWidget(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.f = new int[2];
-        this.f1428a = false;
+        this.a = false;
         this.b = 0;
         this.c = 0;
         a(attributeSet);
@@ -37,7 +35,7 @@ public class GroupTabWidget extends RelativeLayout {
     public GroupTabWidget(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.f = new int[2];
-        this.f1428a = false;
+        this.a = false;
         this.b = 0;
         this.c = 0;
         a(attributeSet);
@@ -46,7 +44,7 @@ public class GroupTabWidget extends RelativeLayout {
     public GroupTabWidget(Context context) {
         super(context);
         this.f = new int[2];
-        this.f1428a = false;
+        this.a = false;
         this.b = 0;
         this.c = 0;
     }
@@ -55,7 +53,7 @@ public class GroupTabWidget extends RelativeLayout {
         LayoutInflater.from(getContext()).inflate(R.layout.group_tab_widget, this);
         this.d = (ImageView) findViewById(R.id.left_icon);
         this.e = (TextView) findViewById(R.id.text);
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, au.groupTabWidget);
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, at.groupTabWidget);
         this.e.setText(obtainStyledAttributes.getString(1));
         this.d.setImageDrawable(obtainStyledAttributes.getDrawable(0));
         this.f[0] = obtainStyledAttributes.getResourceId(0, 0);
@@ -64,7 +62,7 @@ public class GroupTabWidget extends RelativeLayout {
     }
 
     public void setText(String str) {
-        this.f1428a = false;
+        this.a = false;
         this.b = 0;
         this.c = 0;
         this.e.setText(str);
@@ -72,7 +70,7 @@ public class GroupTabWidget extends RelativeLayout {
 
     public void a(String str, int i, int i2) {
         boolean z;
-        this.f1428a = true;
+        this.a = true;
         this.b = i;
         this.c = i2;
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
@@ -102,7 +100,7 @@ public class GroupTabWidget extends RelativeLayout {
         } else if (context instanceof BaseFragmentActivity) {
             ((BaseFragmentActivity) getContext()).a().a(this);
         }
-        if (this.f1428a) {
+        if (this.a) {
             a(this.e.getText().toString(), this.b, this.c);
         }
     }

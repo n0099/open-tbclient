@@ -1,68 +1,28 @@
 package com.baidu.tieba;
 
-import android.support.v4.view.ViewPager;
-import android.view.View;
-import android.view.ViewGroup;
-import java.util.ArrayList;
+import android.os.Handler;
+import android.os.Message;
+import com.baidu.tieba.util.DatabaseService;
 /* loaded from: classes.dex */
-class ah extends android.support.v4.view.ae {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ GuideActivity f1114a;
-
-    private ah(GuideActivity guideActivity) {
-        this.f1114a = guideActivity;
-    }
+class ah extends Handler {
+    final /* synthetic */ LogoActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ah(GuideActivity guideActivity, ab abVar) {
-        this(guideActivity);
+    public ah(LogoActivity logoActivity) {
+        this.a = logoActivity;
     }
 
-    @Override // android.support.v4.view.ae
-    public int getCount() {
-        int[] iArr;
-        iArr = this.f1114a.f;
-        return iArr.length + 1;
-    }
-
-    @Override // android.support.v4.view.ae
-    public Object instantiateItem(View view, int i) {
-        ArrayList arrayList;
-        ArrayList arrayList2;
-        ArrayList arrayList3;
-        ArrayList arrayList4;
-        ArrayList arrayList5;
-        arrayList = this.f1114a.g;
-        if (i < arrayList.size()) {
-            arrayList2 = this.f1114a.g;
-            ((ViewPager) view).addView((View) arrayList2.get(i), 0);
-            arrayList3 = this.f1114a.g;
-            if (i == arrayList3.size() - 1) {
-                arrayList5 = this.f1114a.g;
-                ((View) arrayList5.get(i)).setOnClickListener(this.f1114a.d);
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        boolean z;
+        this.a.c = true;
+        z = this.a.b;
+        if (z) {
+            if (!this.a.getDatabasePath("baidu_tieba.db").exists()) {
+                TiebaApplication.a(DatabaseService.n(), this.a.getBaseContext());
             }
-            arrayList4 = this.f1114a.g;
-            return arrayList4.get(i);
+            this.a.a(this.a.getBaseContext());
         }
-        View view2 = new View(this.f1114a);
-        view2.setBackgroundColor(-1);
-        ((ViewPager) view).addView(view2, 0);
-        return view2;
-    }
-
-    @Override // android.support.v4.view.ae
-    public void destroyItem(View view, int i, Object obj) {
-        ((ViewPager) view).removeView((View) obj);
-    }
-
-    @Override // android.support.v4.view.ae
-    public boolean isViewFromObject(View view, Object obj) {
-        return view == obj;
-    }
-
-    @Override // android.support.v4.view.ae
-    public void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
-        super.setPrimaryItem(viewGroup, i, obj);
+        super.handleMessage(message);
     }
 }

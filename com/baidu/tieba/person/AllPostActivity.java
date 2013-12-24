@@ -12,9 +12,7 @@ import android.widget.TextView;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class AllPostActivity extends com.baidu.tieba.j {
-
-    /* renamed from: a  reason: collision with root package name */
-    FrameLayout f2290a = null;
+    FrameLayout a = null;
     TextView b = null;
     ListView c = null;
     ImageView d = null;
@@ -37,7 +35,7 @@ public class AllPostActivity extends com.baidu.tieba.j {
     }
 
     void a() {
-        this.f2290a = (FrameLayout) findViewById(R.id.all_post_activity_layout);
+        this.a = (FrameLayout) findViewById(R.id.all_post_activity_layout);
         this.b = (TextView) findViewById(R.id.no_post_view);
         int b = this.f.b();
         if (this.f.a() == null) {
@@ -102,9 +100,9 @@ public class AllPostActivity extends com.baidu.tieba.j {
     @Override // com.baidu.tieba.j
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        com.baidu.tieba.util.ba.a(this.f2290a, i);
+        com.baidu.tieba.util.bb.a(this.a, i);
         if (i == 1) {
-            this.b.setTextColor(com.baidu.tieba.util.ba.a(i));
+            this.b.setTextColor(com.baidu.tieba.util.bb.a(i));
             this.d.setBackgroundResource(R.drawable.time_line_skin_1);
             return;
         }

@@ -8,9 +8,7 @@ import java.net.InetSocketAddress;
 import java.net.Proxy;
 /* loaded from: classes.dex */
 public class e {
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final int f950a = 1;
+    public static final int a = 1;
     public static final int b = 2;
     public static final int c = 3;
     public static final String d = "wap";

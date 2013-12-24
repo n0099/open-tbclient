@@ -5,7 +5,6 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 import com.baidu.browser.core.BdNoProGuard;
-import com.tencent.mm.sdk.platformtools.LocaleUtil;
 /* loaded from: classes.dex */
 public class BdExplorePopView extends LinearLayout implements View.OnClickListener, BdNoProGuard {
     public static final int SELECTION_PADDING = 15;
@@ -40,9 +39,9 @@ public class BdExplorePopView extends LinearLayout implements View.OnClickListen
 
     @Override // android.view.View
     protected void onFinishInflate() {
-        this.mCopyView = (LinearLayout) findViewById(getContext().getResources().getIdentifier("btn_wv_copy", LocaleUtil.INDONESIAN, getContext().getPackageName()));
+        this.mCopyView = (LinearLayout) findViewById(getContext().getResources().getIdentifier("btn_wv_copy", "id", getContext().getPackageName()));
         this.mCopyView.setOnClickListener(this);
-        this.mSearchView = (LinearLayout) findViewById(getContext().getResources().getIdentifier("btn_wv_search", LocaleUtil.INDONESIAN, getContext().getPackageName()));
+        this.mSearchView = (LinearLayout) findViewById(getContext().getResources().getIdentifier("btn_wv_search", "id", getContext().getPackageName()));
         this.mSearchView.setOnClickListener(this);
     }
 

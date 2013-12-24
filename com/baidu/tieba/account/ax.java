@@ -1,28 +1,24 @@
 package com.baidu.tieba.account;
 
-import android.widget.EditText;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
+import com.baidu.account.AccountProxy;
+import com.baidu.tieba.BaiduAccount.BaiduAccount;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ax implements RadioGroup.OnCheckedChangeListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Register2Activity f1071a;
+public class ax implements AccountProxy.TokenCallback {
+    final /* synthetic */ ReLoginActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ax(Register2Activity register2Activity) {
-        this.f1071a = register2Activity;
+    public ax(ReLoginActivity reLoginActivity) {
+        this.a = reLoginActivity;
     }
 
-    @Override // android.widget.RadioGroup.OnCheckedChangeListener
-    public void onCheckedChanged(RadioGroup radioGroup, int i) {
-        EditText editText;
-        if (i > 0) {
-            RadioButton radioButton = (RadioButton) this.f1071a.findViewById(i);
-            if (radioButton.isChecked()) {
-                editText = this.f1071a.t;
-                editText.setText(radioButton.getText());
-            }
+    @Override // com.baidu.account.AccountProxy.TokenCallback
+    public void callBack(String str) {
+        com.baidu.tieba.util.be.e("BaiduAccountProxy", "getAccountData", "token = " + str);
+        if (str != null) {
+            this.a.a(BaiduAccount.get(this.a).getCurrentAccount(), str);
+            return;
         }
+        this.a.finish();
     }
 }

@@ -3,25 +3,23 @@ package com.baidu.tieba.im.frsgroup;
 import android.view.View;
 /* loaded from: classes.dex */
 class d implements View.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsGroupListFragment f1706a;
+    final /* synthetic */ FrsGroupListFragment a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(FrsGroupListFragment frsGroupListFragment) {
-        this.f1706a = frsGroupListFragment;
+        this.a = frsGroupListFragment;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        com.baidu.tieba.im.model.b bVar;
+        com.baidu.tieba.im.model.c cVar;
         FrsGroupActivity frsGroupActivity;
-        com.baidu.tieba.im.model.b bVar2;
-        bVar = this.f1706a.b;
-        if (bVar.d() != null) {
-            frsGroupActivity = this.f1706a.f1695a;
-            bVar2 = this.f1706a.b;
-            frsGroupActivity.a(bVar2.d());
+        com.baidu.tieba.im.model.c cVar2;
+        cVar = this.a.b;
+        if (cVar.d() != null) {
+            frsGroupActivity = this.a.a;
+            cVar2 = this.a.b;
+            frsGroupActivity.a(cVar2.d());
         }
     }
 }

@@ -5,9 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class e extends BdAsyncTask<String, Object, Object> {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ c f481a;
+    final /* synthetic */ c a;
     private String b;
     private int c;
     private Map<b, f> d = new HashMap();
@@ -24,7 +22,7 @@ public class e extends BdAsyncTask<String, Object, Object> {
     }
 
     public e(c cVar, String str, int i, b bVar, f fVar) {
-        this.f481a = cVar;
+        this.a = cVar;
         this.b = str;
         this.c = i;
         this.d.put(bVar, fVar);
@@ -51,15 +49,15 @@ public class e extends BdAsyncTask<String, Object, Object> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public Object a(String... strArr) {
-        g a2;
-        if (c.a(this.f481a) == null || (a2 = c.a(this.f481a, this.c)) == null) {
+        g a;
+        if (c.a(this.a) == null || (a = c.a(this.a, this.c)) == null) {
             return null;
         }
-        Object a3 = a2.a(this.b, this);
-        if (a3 == null) {
-            return a2.b(this.b, this);
+        Object a2 = a.a(this.b, this);
+        if (a2 == null) {
+            return a.b(this.b, this);
         }
-        return a3;
+        return a2;
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask

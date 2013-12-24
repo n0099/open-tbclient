@@ -7,18 +7,16 @@ import com.baidu.cloudsdk.social.share.ui.ShareDialog;
 /* renamed from: z  reason: default package */
 /* loaded from: classes.dex */
 public class z implements View.OnTouchListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ GestureDetector f3158a;
+    final /* synthetic */ GestureDetector a;
     final /* synthetic */ ShareDialog b;
 
     public z(ShareDialog shareDialog, GestureDetector gestureDetector) {
         this.b = shareDialog;
-        this.f3158a = gestureDetector;
+        this.a = gestureDetector;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        return this.f3158a.onTouchEvent(motionEvent);
+        return this.a.onTouchEvent(motionEvent);
     }
 }

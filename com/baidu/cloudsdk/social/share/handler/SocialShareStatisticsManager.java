@@ -1,6 +1,7 @@
 package com.baidu.cloudsdk.social.share.handler;
 
 import android.content.Context;
+import com.baidu.android.pushservice.PushConstants;
 import com.baidu.cloudsdk.common.http.AsyncHttpClient;
 import com.baidu.cloudsdk.common.http.HttpResponseHandler;
 import com.baidu.cloudsdk.common.http.RequestParams;
@@ -12,19 +13,17 @@ import com.baidu.cloudsdk.social.core.WidgetStatisticsManager;
 import com.baidu.cloudsdk.social.share.ShareContent;
 /* loaded from: classes.dex */
 public class SocialShareStatisticsManager extends WidgetStatisticsManager {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static SocialShareStatisticsManager f874a;
+    private static SocialShareStatisticsManager a;
 
     private SocialShareStatisticsManager(Context context) {
         super(context, SocialConfig.getInstance(context).getClientId(MediaType.BAIDU));
     }
 
     public static SocialShareStatisticsManager getInstance(Context context) {
-        if (f874a == null) {
-            f874a = new SocialShareStatisticsManager(context);
+        if (a == null) {
+            a = new SocialShareStatisticsManager(context);
         }
-        return f874a;
+        return a;
     }
 
     public void getBackUrl(String str, String str2, HttpResponseHandler httpResponseHandler) {
@@ -61,7 +60,7 @@ public class SocialShareStatisticsManager extends WidgetStatisticsManager {
 
     public void statistics(String str, ShareContent shareContent) {
         Validator.notNullOrEmpty(str, "mediaType");
-        Validator.notNull(shareContent, "content");
+        Validator.notNull(shareContent, PushConstants.EXTRA_CONTENT);
         RequestParams requestParams = new RequestParams();
         requestParams.put(SocialConstants.PARAM_CLIENT_ID, this.mClientId);
         requestParams.put(SocialConstants.PARAM_CLIENT_TYPE, SocialConstants.ANDROID_CLIENT_TYPE);

@@ -2,9 +2,7 @@ package com.baidu.tieba.square;
 /* loaded from: classes.dex */
 public class av extends com.baidu.adp.a.d {
     private ar b;
-
-    /* renamed from: a  reason: collision with root package name */
-    private ax f2492a = null;
+    private ax a = null;
     private aw c = null;
 
     public av() {
@@ -27,8 +25,8 @@ public class av extends com.baidu.adp.a.d {
 
     @Override // com.baidu.adp.a.d
     public boolean cancelLoadData() {
-        if (this.f2492a != null) {
-            this.f2492a.cancel();
+        if (this.a != null) {
+            this.a.cancel();
             return false;
         }
         return false;
@@ -43,11 +41,11 @@ public class av extends com.baidu.adp.a.d {
     }
 
     public boolean a(int i) {
-        if (this.f2492a != null) {
+        if (this.a != null) {
             return false;
         }
-        this.f2492a = new ax(this, i);
-        this.f2492a.execute(new Object[0]);
+        this.a = new ax(this, i);
+        this.a.execute(new Object[0]);
         return true;
     }
 }

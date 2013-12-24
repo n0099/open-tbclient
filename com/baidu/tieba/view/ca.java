@@ -1,11 +1,20 @@
 package com.baidu.tieba.view;
+
+import android.view.View;
 /* loaded from: classes.dex */
-public interface ca {
-    void a();
+class ca implements com.baidu.tbadk.imageManager.c {
+    final /* synthetic */ UserIconBox a;
 
-    void b();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ca(UserIconBox userIconBox) {
+        this.a = userIconBox;
+    }
 
-    void c();
-
-    void d();
+    @Override // com.baidu.tbadk.imageManager.c
+    public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
+        View findViewWithTag = this.a.findViewWithTag(str);
+        if (findViewWithTag != null && eVar != null) {
+            findViewWithTag.invalidate();
+        }
+    }
 }

@@ -6,13 +6,11 @@ import javax.net.ssl.X509TrustManager;
 /* renamed from: bl  reason: default package */
 /* loaded from: classes.dex */
 public class bl implements X509TrustManager {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bk f381a;
+    final /* synthetic */ bk a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bl(bk bkVar) {
-        this.f381a = bkVar;
+        this.a = bkVar;
     }
 
     @Override // javax.net.ssl.X509TrustManager

@@ -12,18 +12,16 @@ import android.widget.AbsListView;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.im.data.UserData;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
-import com.baidu.tieba.im.message.RequestMembersMessage;
-import com.baidu.tieba.view.bk;
+import com.baidu.tieba.im.message.af;
+import com.baidu.tieba.view.bq;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 /* loaded from: classes.dex */
-public class MembersActivity extends com.baidu.tieba.j implements View.OnClickListener, AbsListView.OnScrollListener, com.baidu.adp.widget.ListView.r, com.baidu.tieba.im.pushNotify.k {
-
-    /* renamed from: a  reason: collision with root package name */
-    private bk f1700a;
+public class MembersActivity extends com.baidu.tieba.j implements View.OnClickListener, AbsListView.OnScrollListener, com.baidu.adp.widget.ListView.r, com.baidu.tieba.im.c.l {
+    private bq a;
     private aa b;
-    private com.baidu.tieba.im.model.h c;
+    private com.baidu.tieba.im.model.m c;
     private Handler d;
     private com.baidu.tieba.im.messageCenter.g e = new r(this);
     private com.baidu.tieba.im.messageCenter.g f = new s(this);
@@ -46,8 +44,8 @@ public class MembersActivity extends com.baidu.tieba.j implements View.OnClickLi
     }
 
     private void d() {
-        com.baidu.tieba.im.pushNotify.l.a().a("kick_out", this);
-        com.baidu.tieba.im.pushNotify.l.a().a("apply_join_success", this);
+        com.baidu.tieba.im.c.m.a().a("kick_out", this);
+        com.baidu.tieba.im.c.m.a().a("apply_join_success", this);
     }
 
     @Override // android.app.Activity
@@ -67,21 +65,21 @@ public class MembersActivity extends com.baidu.tieba.j implements View.OnClickLi
     @Override // com.baidu.tieba.j, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        com.baidu.tieba.im.pushNotify.l.a().a(this);
+        com.baidu.tieba.im.c.m.a().a(this);
         this.c.b(this.e);
         this.c.d(this.f);
     }
 
-    public com.baidu.tieba.im.model.h b() {
+    public com.baidu.tieba.im.model.m b() {
         return this.c;
     }
 
     private void e() {
         this.b = new aa(this);
         BdListView l = this.b.l();
-        this.f1700a = new bk(this);
-        this.f1700a.a(new k(this, l));
-        l.setPullRefresh(this.f1700a);
+        this.a = new bq(this);
+        this.a.a(new k(this, l));
+        l.setPullRefresh(this.a);
         l.setOnScrollListener(this);
         l.setOnSrollToBottomListener(this);
         l.setOnItemClickListener(new m(this));
@@ -115,7 +113,7 @@ public class MembersActivity extends com.baidu.tieba.j implements View.OnClickLi
 
     private void f() {
         this.c.b(false);
-        this.c.a((RequestMembersMessage) null);
+        this.c.a((af) null);
         this.b.i().a(true);
         this.c.b(0);
         this.c.d(50);
@@ -125,7 +123,7 @@ public class MembersActivity extends com.baidu.tieba.j implements View.OnClickLi
     /* JADX INFO: Access modifiers changed from: private */
     public void g() {
         this.c.b(true);
-        this.c.a((RequestMembersMessage) null);
+        this.c.a((af) null);
         this.b.i().a(false);
         this.c.b(0);
         this.c.d(50);
@@ -141,12 +139,11 @@ public class MembersActivity extends com.baidu.tieba.j implements View.OnClickLi
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean i() {
-        RequestMembersMessage a2 = this.c.a();
-        return a2 != null ? 50 == a2.getRn() : 50 == this.c.f();
+        return 50 == this.c.e();
     }
 
     public void a(Bundle bundle) {
-        this.c = new com.baidu.tieba.im.model.h();
+        this.c = new com.baidu.tieba.im.model.m();
         if (bundle == null) {
             this.c.a(getIntent());
         } else {
@@ -183,7 +180,7 @@ public class MembersActivity extends com.baidu.tieba.j implements View.OnClickLi
     @Override // com.baidu.tieba.j
     public void onChangeSkinType(int i) {
         this.b.a(i);
-        this.f1700a.a(i);
+        this.a.a(i);
     }
 
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
@@ -202,7 +199,7 @@ public class MembersActivity extends com.baidu.tieba.j implements View.OnClickLi
     }
 
     private void k() {
-        com.baidu.tieba.im.e.b.a((Activity) this, (DialogInterface.OnClickListener) new t(this));
+        com.baidu.tieba.im.d.b.a((Activity) this, (DialogInterface.OnClickListener) new t(this));
     }
 
     private void l() {
@@ -223,13 +220,13 @@ public class MembersActivity extends com.baidu.tieba.j implements View.OnClickLi
         if (b.size() > 0) {
             ArrayList arrayList = new ArrayList();
             arrayList.addAll(b);
-            com.baidu.tieba.im.e.b.b(this, new u(this, arrayList), new v(this));
+            com.baidu.tieba.im.d.b.b(this, new u(this, arrayList), new v(this));
         }
     }
 
     private void o() {
         if (this.b.i().c()) {
-            this.c.a(this.c.g(), this.c.e(), this.c.f(), this.c.b());
+            this.c.a(this.c.f(), this.c.d(), this.c.e(), this.c.a());
         }
     }
 
@@ -260,7 +257,7 @@ public class MembersActivity extends com.baidu.tieba.j implements View.OnClickLi
         }
     }
 
-    @Override // com.baidu.tieba.im.pushNotify.k
+    @Override // com.baidu.tieba.im.c.l
     public void a(GroupNewsPojo groupNewsPojo) {
         if (groupNewsPojo != null) {
             String cmd = groupNewsPojo.getCmd();

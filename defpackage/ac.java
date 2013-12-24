@@ -9,15 +9,13 @@ import com.baidu.cloudsdk.social.share.handler.CloudBatchShareHandler;
 /* renamed from: ac  reason: default package */
 /* loaded from: classes.dex */
 public class ac implements AsyncImageLoader.IAsyncImageLoaderListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MultipartRequestParams f262a;
+    final /* synthetic */ MultipartRequestParams a;
     final /* synthetic */ IBaiduListener b;
     final /* synthetic */ CloudBatchShareHandler c;
 
     public ac(CloudBatchShareHandler cloudBatchShareHandler, MultipartRequestParams multipartRequestParams, IBaiduListener iBaiduListener) {
         this.c = cloudBatchShareHandler;
-        this.f262a = multipartRequestParams;
+        this.a = multipartRequestParams;
         this.b = iBaiduListener;
     }
 
@@ -26,7 +24,7 @@ public class ac implements AsyncImageLoader.IAsyncImageLoaderListener {
         if (bitmap != null) {
             new CompressBitmapTask(new c(this)).execute(bitmap);
         } else {
-            this.c.a(this.c.getShareUrl(), this.f262a, this.b);
+            this.c.a(this.c.getShareUrl(), this.a, this.b);
         }
     }
 }

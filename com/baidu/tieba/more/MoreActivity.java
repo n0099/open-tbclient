@@ -19,9 +19,7 @@ import com.baidu.tieba.write.WriteActivity;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class MoreActivity extends com.baidu.tieba.j implements com.baidu.adp.widget.BdSwitchView.c {
-
-    /* renamed from: a  reason: collision with root package name */
-    private ah f2056a;
+    private ah a;
     private MoreModel b = null;
     private ag c = null;
     private com.baidu.tieba.util.i d = null;
@@ -40,7 +38,7 @@ public class MoreActivity extends com.baidu.tieba.j implements com.baidu.adp.wid
     @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.f2056a = new ah(this, a());
+        this.a = new ah(this, a());
         a(bundle);
         c();
         this.d = new com.baidu.tieba.util.i(this);
@@ -63,14 +61,14 @@ public class MoreActivity extends com.baidu.tieba.j implements com.baidu.adp.wid
         super.onResume();
         if (TiebaApplication.o()) {
             if (TiebaApplication.B() == null || TiebaApplication.G() == null || TiebaApplication.G().equals("BaiduUser")) {
-                this.f2056a.e();
+                this.a.e();
             } else {
-                this.f2056a.a();
+                this.a.a();
             }
-            this.f2056a.f();
+            this.a.f();
         }
-        if (this.f2056a != null) {
-            this.f2056a.i();
+        if (this.a != null) {
+            this.a.i();
         }
     }
 
@@ -78,14 +76,14 @@ public class MoreActivity extends com.baidu.tieba.j implements com.baidu.adp.wid
     @Override // com.baidu.tieba.j
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.f2056a.a(i);
+        this.a.a(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j
     public void onResourceRecycle() {
         setSkinType(-1);
-        this.f2056a.j();
+        this.a.j();
     }
 
     @Override // android.app.Activity
@@ -111,14 +109,14 @@ public class MoreActivity extends com.baidu.tieba.j implements com.baidu.adp.wid
                     PersonChangeData personChangeData = (PersonChangeData) intent.getSerializableExtra("data");
                     this.b.a(personChangeData);
                     this.b.a(true);
-                    if (personChangeData != null && personChangeData.getPhotoChanged() && this.f2056a != null) {
-                        this.f2056a.h();
+                    if (personChangeData != null && personChangeData.getPhotoChanged() && this.a != null) {
+                        this.a.h();
                         String portrait = personChangeData.getPortrait();
-                        if (portrait != null && portrait.length() > 0 && this.f2056a != null) {
-                            this.f2056a.b(portrait);
+                        if (portrait != null && portrait.length() > 0 && this.a != null) {
+                            this.a.b(portrait);
                             com.baidu.adp.widget.ImageView.e c = this.d.c(portrait);
                             if (c != null) {
-                                this.f2056a.a(c);
+                                this.a.a(c);
                                 return;
                             } else {
                                 this.d.c(portrait, new ae(this));
@@ -153,7 +151,7 @@ public class MoreActivity extends com.baidu.tieba.j implements com.baidu.adp.wid
             personChangeData = (PersonChangeData) getIntent().getSerializableExtra("person_change_data");
         }
         if (personChangeData != null && personChangeData.getPortrait() != null) {
-            this.f2056a.a(personChangeData.getPortrait());
+            this.a.a(personChangeData.getPortrait());
         }
         this.b = new MoreModel(personChangeData);
         this.b.setLoadDataCallBack(new af(this));
@@ -246,5 +244,10 @@ public class MoreActivity extends com.baidu.tieba.j implements com.baidu.adp.wid
     /* JADX INFO: Access modifiers changed from: private */
     public void l() {
         MsgRemindActivity.a(this);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void m() {
+        SecretSettingActivity.a(this);
     }
 }

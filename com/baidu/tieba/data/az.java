@@ -8,13 +8,12 @@ import com.baidu.location.LocationClientOption;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.voice.VoiceManager;
 import com.slidingmenu.lib.R;
-import com.tencent.mm.sdk.platformtools.LocaleUtil;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class az implements com.baidu.tieba.util.ak {
+public class az implements com.baidu.tieba.util.al {
     private SpannableString t;
     private int y;
     private int z;
@@ -33,9 +32,7 @@ public class az implements com.baidu.tieba.util.ak {
     private bc n = new bc();
     private MetaData o = new MetaData();
     private String p = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    ArrayList<ai> f1233a = new ArrayList<>();
+    ArrayList<ai> a = new ArrayList<>();
     ArrayList<VoiceManager.VoiceModel> b = new ArrayList<>();
     private int q = 0;
     private int r = 0;
@@ -137,7 +134,7 @@ public class az implements com.baidu.tieba.util.ak {
     }
 
     public ArrayList<ai> p() {
-        return this.f1233a;
+        return this.a;
     }
 
     public ArrayList<VoiceManager.VoiceModel> q() {
@@ -147,7 +144,7 @@ public class az implements com.baidu.tieba.util.ak {
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.c = jSONObject.optString(LocaleUtil.INDONESIAN);
+                this.c = jSONObject.optString("id");
                 this.d = jSONObject.optString("tid");
                 this.e = jSONObject.optString("title");
                 this.f = jSONObject.optInt("reply_num", 0);
@@ -188,7 +185,7 @@ public class az implements com.baidu.tieba.util.ak {
                     for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
                         ai aiVar = new ai();
                         aiVar.a(optJSONArray2.getJSONObject(i2));
-                        this.f1233a.add(aiVar);
+                        this.a.add(aiVar);
                     }
                 }
                 JSONArray optJSONArray3 = jSONObject.optJSONArray("voice_info");
@@ -204,7 +201,7 @@ public class az implements com.baidu.tieba.util.ak {
                     }
                 }
             } catch (Exception e) {
-                com.baidu.tieba.util.bd.b("ThreadData", "parserJson", "error = " + e.getMessage());
+                com.baidu.tieba.util.be.b("ThreadData", "parserJson", "error = " + e.getMessage());
             }
         }
     }
@@ -263,9 +260,9 @@ public class az implements com.baidu.tieba.util.ak {
                 SpannableString spannableString2 = new SpannableString(sb.toString() + this.e);
                 int i2 = 0;
                 for (int i3 = 0; i3 < arrayList.size(); i3++) {
-                    Bitmap a2 = com.baidu.tieba.util.m.a(((Integer) arrayList.get(i3)).intValue());
-                    BitmapDrawable bitmapDrawable = new BitmapDrawable(a2);
-                    bitmapDrawable.setBounds(0, 0, a2.getWidth(), a2.getHeight());
+                    Bitmap a = com.baidu.tieba.util.m.a(((Integer) arrayList.get(i3)).intValue());
+                    BitmapDrawable bitmapDrawable = new BitmapDrawable(a);
+                    bitmapDrawable.setBounds(0, 0, a.getWidth(), a.getHeight());
                     spannableString2.setSpan(new ImageSpan(bitmapDrawable, 1), i2, i2 + 1, 33);
                     i2 += 2;
                 }
@@ -277,7 +274,7 @@ public class az implements com.baidu.tieba.util.ak {
         }
     }
 
-    @Override // com.baidu.tieba.util.ak
+    @Override // com.baidu.tieba.util.al
     public LinkedList<String> getImageUrl() {
         ArrayList<ai> p = p();
         if (p == null) {
@@ -298,12 +295,12 @@ public class az implements com.baidu.tieba.util.ak {
         return linkedList;
     }
 
-    @Override // com.baidu.tieba.util.ak
+    @Override // com.baidu.tieba.util.al
     public LinkedList<String> getPhotoUrl() {
         return null;
     }
 
-    @Override // com.baidu.tieba.util.ak
+    @Override // com.baidu.tieba.util.al
     public LinkedList<String> getForumPhotoUrl() {
         return null;
     }

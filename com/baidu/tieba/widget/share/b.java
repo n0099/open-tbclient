@@ -18,15 +18,13 @@ import com.baidu.cloudsdk.social.share.ShareContent;
 import com.baidu.mobstat.StatService;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.bb;
+import com.baidu.tieba.util.bc;
 import com.baidu.zeus.Headers;
 import com.slidingmenu.lib.R;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class b implements View.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    private LayoutInflater f2754a;
+    private LayoutInflater a;
     private Context b;
     private View c;
     private TextView d;
@@ -47,8 +45,8 @@ public class b implements View.OnClickListener {
 
     public b(Context context) {
         this.b = context;
-        this.f2754a = (LayoutInflater) context.getSystemService("layout_inflater");
-        this.c = this.f2754a.inflate(R.layout.share_dialog_content, (ViewGroup) null);
+        this.a = (LayoutInflater) context.getSystemService("layout_inflater");
+        this.c = this.a.inflate(R.layout.share_dialog_content, (ViewGroup) null);
         this.d = (TextView) this.c.findViewById(R.id.share_dialog_title);
         this.e = this.c.findViewById(R.id.share_dialog_content);
         this.l = (Button) this.c.findViewById(R.id.btnShareCancel);
@@ -151,64 +149,64 @@ public class b implements View.OnClickListener {
                 this.p = true;
                 d dVar = new d(this.b, this.r);
                 switch (view.getId()) {
-                    case R.id.iconWeixinTimeline /* 2131100956 */:
+                    case R.id.iconWeixinTimeline /* 2131100987 */:
                         a("share_to_pyq");
                         b(MediaType.WEIXIN_TIMELINE);
-                        ShareContent a2 = a(MediaType.WEIXIN_TIMELINE);
-                        if (a2 != null) {
-                            dVar.b(a2);
+                        ShareContent a = a(MediaType.WEIXIN_TIMELINE);
+                        if (a != null) {
+                            dVar.b(a);
                             return;
                         }
                         return;
-                    case R.id.iconWeixin /* 2131100957 */:
+                    case R.id.iconWeixin /* 2131100988 */:
                         a("share_to_weixin");
                         b(MediaType.WEIXIN_FRIEND);
-                        ShareContent a3 = a(MediaType.WEIXIN_FRIEND);
-                        if (a3 != null) {
-                            dVar.a(a3);
+                        ShareContent a2 = a(MediaType.WEIXIN_FRIEND);
+                        if (a2 != null) {
+                            dVar.a(a2);
                             return;
                         }
                         return;
-                    case R.id.iconQZone /* 2131100958 */:
+                    case R.id.iconQZone /* 2131100989 */:
                         a("share_to_qzone");
                         b(MediaType.QZONE);
-                        ShareContent a4 = a(MediaType.QZONE);
-                        if (a4 != null) {
-                            dVar.c(a4);
+                        ShareContent a3 = a(MediaType.QZONE);
+                        if (a3 != null) {
+                            dVar.c(a3);
                             return;
                         }
                         return;
-                    case R.id.iconQQWeibo /* 2131100959 */:
+                    case R.id.iconQQWeibo /* 2131100990 */:
                         a("share_to_qweibo");
                         b(MediaType.QQWEIBO);
-                        ShareContent a5 = a(MediaType.QQWEIBO);
-                        if (a5 != null) {
-                            dVar.d(a5);
+                        ShareContent a4 = a(MediaType.QQWEIBO);
+                        if (a4 != null) {
+                            dVar.d(a4);
                             return;
                         }
                         return;
-                    case R.id.iconSinaWeibo /* 2131100960 */:
+                    case R.id.iconSinaWeibo /* 2131100991 */:
                         a("share_to_sweibo");
                         b(MediaType.SINAWEIBO);
-                        ShareContent a6 = a(MediaType.SINAWEIBO);
-                        if (a6 != null) {
-                            dVar.e(a6);
+                        ShareContent a5 = a(MediaType.SINAWEIBO);
+                        if (a5 != null) {
+                            dVar.e(a5);
                             return;
                         }
                         return;
-                    case R.id.iconRenren /* 2131100961 */:
+                    case R.id.iconRenren /* 2131100992 */:
                         a("share_to_renren");
                         b(MediaType.RENREN);
-                        ShareContent a7 = a(MediaType.RENREN);
-                        if (a7 != null) {
-                            dVar.f(a7);
+                        ShareContent a6 = a(MediaType.RENREN);
+                        if (a6 != null) {
+                            dVar.f(a6);
                             return;
                         }
                         return;
-                    case R.id.customViewBox /* 2131100962 */:
+                    case R.id.customViewBox /* 2131100993 */:
                     default:
                         return;
-                    case R.id.btnShareCancel /* 2131100963 */:
+                    case R.id.btnShareCancel /* 2131100994 */:
                         a("share_cancel");
                         this.r.b();
                         return;
@@ -232,7 +230,7 @@ public class b implements View.OnClickListener {
             this.p = true;
             if (this.q != null) {
                 String str = this.q.get(mediaType);
-                if (!bb.c(str)) {
+                if (!bc.c(str)) {
                     a(str);
                 }
             }

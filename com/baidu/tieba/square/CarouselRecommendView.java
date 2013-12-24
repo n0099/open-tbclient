@@ -17,9 +17,7 @@ import java.util.Iterator;
 /* loaded from: classes.dex */
 public class CarouselRecommendView extends FrameLayout {
     private static int l = 5000;
-
-    /* renamed from: a  reason: collision with root package name */
-    public View.OnTouchListener f2465a;
+    public View.OnTouchListener a;
     private Context b;
     private ViewPager c;
     private IndicatorView d;
@@ -48,12 +46,12 @@ public class CarouselRecommendView extends FrameLayout {
         this.h = 0.3043478f;
         this.m = new ArrayList<>();
         this.n = new v(this);
-        this.f2465a = new w(this);
+        this.a = new w(this);
         this.b = context;
         ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(R.layout.carousel_topics_recommend, (ViewGroup) this, true);
         this.c = (ViewPager) findViewById(R.id.carousel_pager);
         this.d = (IndicatorView) findViewById(R.id.carousel_indicator);
-        this.c.setOnTouchListener(this.f2465a);
+        this.c.setOnTouchListener(this.a);
         this.j = context.getResources().getDimensionPixelSize(R.dimen.square_caroucel_paddingTop);
         this.i = context.getResources().getDimensionPixelSize(R.dimen.square_caroucel_paddingBottom);
         this.k = context.getResources().getDimensionPixelSize(R.dimen.square_page_padding);
@@ -126,9 +124,7 @@ public class CarouselRecommendView extends FrameLayout {
         private ArrayList<au> c = null;
         private int d = 0;
         private ArrayList<View> e = new ArrayList<>();
-
-        /* renamed from: a  reason: collision with root package name */
-        public ArrayList<HeadImageView> f2466a = new ArrayList<>();
+        public ArrayList<HeadImageView> a = new ArrayList<>();
         private float j = 0.46875f;
 
         public CarouselRecommendPagerAdapter(Context context) {
@@ -149,7 +145,7 @@ public class CarouselRecommendView extends FrameLayout {
             headImageView.setTag(auVar.a());
             headImageView.setLayoutParams(new ViewGroup.LayoutParams(this.h, this.i));
             headImageView.setOnClickListener(new x(this, auVar, i));
-            this.f2466a.add(headImageView);
+            this.a.add(headImageView);
         }
 
         public void a(ArrayList<au> arrayList) {
@@ -185,8 +181,8 @@ public class CarouselRecommendView extends FrameLayout {
         }
 
         public void a(int i) {
-            if (this.f2466a != null && this.f2466a.size() > 0) {
-                Iterator<HeadImageView> it = this.f2466a.iterator();
+            if (this.a != null && this.a.size() > 0) {
+                Iterator<HeadImageView> it = this.a.iterator();
                 while (it.hasNext()) {
                     it.next().invalidate();
                 }
@@ -226,9 +222,9 @@ public class CarouselRecommendView extends FrameLayout {
                 while (true) {
                     int i4 = i3;
                     if (i4 < this.c.size()) {
-                        String a2 = this.c.get(i4).a();
+                        String a = this.c.get(i4).a();
                         if (this.l != null) {
-                            ((HeadImageView) this.l.findViewWithTag(a2)).setDefaultScaleType(ImageView.ScaleType.CENTER);
+                            ((HeadImageView) this.l.findViewWithTag(a)).setDefaultScaleType(ImageView.ScaleType.CENTER);
                         }
                         this.g.a(this.c.get(i4).a(), this);
                         i3 = i4 + 1;

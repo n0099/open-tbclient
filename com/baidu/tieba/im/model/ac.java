@@ -1,27 +1,32 @@
 package com.baidu.tieba.im.model;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ac extends com.baidu.adp.a.d {
+public class ac implements com.baidu.tieba.im.messageCenter.g {
+    final /* synthetic */ MsglistModel a;
 
-    /* renamed from: a  reason: collision with root package name */
-    private static final String f1810a = ac.class.getName();
-    private ad b;
-
-    @Override // com.baidu.adp.a.d
-    protected boolean LoadData() {
-        return false;
+    private ac(MsglistModel msglistModel) {
+        this.a = msglistModel;
     }
 
-    @Override // com.baidu.adp.a.d
-    public boolean cancelLoadData() {
-        return false;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ ac(MsglistModel msglistModel, n nVar) {
+        this(msglistModel);
     }
 
-    public void a(String str, long j) {
-        if (this.b != null) {
-            this.b.cancel();
-            this.b = null;
+    @Override // com.baidu.tieba.im.messageCenter.g
+    public void a(com.baidu.tieba.im.message.n nVar) {
+        if (nVar == null) {
+            com.baidu.adp.lib.h.e.a("msg == null");
+        } else if (nVar.t() == 103112) {
+            this.a.b(nVar);
+        } else if (nVar.t() == 103102) {
+            this.a.d(nVar);
+        } else if (nVar.t() == 202003) {
+            this.a.c(nVar);
+        } else if (nVar.t() == -113) {
+            this.a.p();
+        } else if (nVar.t() == 205004) {
+            this.a.a(nVar);
         }
-        this.b = new ad(this, str, j);
-        this.b.execute(new Object[0]);
     }
 }

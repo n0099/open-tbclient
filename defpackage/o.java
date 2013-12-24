@@ -8,31 +8,29 @@ import org.json.JSONObject;
 /* renamed from: o  reason: default package */
 /* loaded from: classes.dex */
 public class o extends JsonHttpResponseHandler {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ IBaiduListener f3048a;
+    final /* synthetic */ IBaiduListener a;
     final /* synthetic */ String b;
     final /* synthetic */ BaseConfig c;
 
     public o(BaseConfig baseConfig, IBaiduListener iBaiduListener, String str) {
         this.c = baseConfig;
-        this.f3048a = iBaiduListener;
+        this.a = iBaiduListener;
         this.b = str;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
     public void onFailure(Throwable th, String str) {
-        this.f3048a.onError(new BaiduException(th));
+        this.a.onError(new BaiduException(th));
     }
 
     @Override // com.baidu.cloudsdk.common.http.JsonHttpResponseHandler
     protected void onSuccess(JSONObject jSONObject) {
         if (jSONObject == null) {
-            this.f3048a.onError(new BaiduException("Load config from server failed, url: " + this.b));
+            this.a.onError(new BaiduException("Load config from server failed, url: " + this.b));
             return;
         }
         this.c.a(jSONObject);
-        this.f3048a.onComplete(jSONObject);
+        this.a.onComplete(jSONObject);
     }
 }

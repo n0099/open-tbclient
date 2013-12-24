@@ -27,9 +27,7 @@ public class a {
     private int j = 0;
     private Address l = null;
     private f m = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public long f420a = 0;
+    public long a = 0;
     private ArrayList<SoftReference<d>> n = null;
     private Context o = null;
     private Handler p = null;
@@ -96,7 +94,7 @@ public class a {
 
     public Address a(boolean z, d dVar) {
         boolean z2;
-        if (System.currentTimeMillis() - this.f420a > d) {
+        if (System.currentTimeMillis() - this.a > d) {
             this.l = null;
         }
         if (this.l != null && !z) {

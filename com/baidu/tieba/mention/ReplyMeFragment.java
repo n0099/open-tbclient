@@ -10,38 +10,37 @@ import android.widget.LinearLayout;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.BaseFragment;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.aq;
-import com.baidu.tieba.util.bd;
-import com.baidu.tieba.view.bk;
+import com.baidu.tieba.ap;
+import com.baidu.tieba.util.be;
+import com.baidu.tieba.view.bq;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class ReplyMeFragment extends BaseFragment implements com.baidu.adp.widget.ListView.b {
-
-    /* renamed from: a  reason: collision with root package name */
-    private j f1943a = null;
-    private BdListView b = null;
-    private bk c;
+    private bq c;
     private LinearLayout d;
     private com.baidu.tieba.home.n e;
-    private aq f;
+    private ap f;
     private int g;
+    private j a = null;
+    private BdListView b = null;
+    private boolean h = false;
 
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
     public View a(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         this.g = -1;
         View inflate = layoutInflater.inflate(R.layout.reply_me_activity, (ViewGroup) null);
-        this.c = new bk(i());
+        this.c = new bq(i());
         this.c.a(this);
         this.d = (LinearLayout) inflate.findViewById(R.id.bodyNotLogin);
-        this.f = new aq(inflate, (int) R.drawable.pic_blank_page_search, (int) R.drawable.pic_blank_page_search_1);
+        this.f = new ap(inflate, (int) R.drawable.pic_blank_page_search, (int) R.drawable.pic_blank_page_search_1);
         this.b = (BdListView) inflate.findViewById(R.id.replyme_lv);
         this.b.setPullRefresh(this.c);
-        this.f1943a = new j(this, 1, new ad(this));
-        this.f1943a.a(this.b);
-        this.f1943a.a((ViewGroup) inflate.findViewById(R.id.mention_layout_replyme));
-        this.f1943a.a(this.f);
-        this.f1943a.a("c/u/feed/replyme");
-        this.f1943a.c();
+        this.a = new j(this, 1, new ad(this));
+        this.a.a(this.b);
+        this.a.a((ViewGroup) inflate.findViewById(R.id.mention_layout_replyme));
+        this.a.a(this.f);
+        this.a.a("c/u/feed/replyme");
+        this.a.c();
         return inflate;
     }
 
@@ -85,13 +84,11 @@ public class ReplyMeFragment extends BaseFragment implements com.baidu.adp.widge
         if (TiebaApplication.C()) {
             this.b.setVisibility(0);
             this.d.setVisibility(8);
-            if (t.a().l() > 0) {
-                this.f1943a.a(2);
-            } else {
-                this.f1943a.a(1);
+            if (this.h) {
+                this.h = false;
+                a();
             }
-            this.f1943a.d();
-            this.f1943a.e();
+            this.a.e();
             return;
         }
         if (this.e == null) {
@@ -105,6 +102,21 @@ public class ReplyMeFragment extends BaseFragment implements com.baidu.adp.widge
         }
         this.b.setVisibility(8);
         this.d.setVisibility(0);
+    }
+
+    public void a() {
+        if (this.a == null) {
+            this.h = true;
+            return;
+        }
+        this.h = false;
+        if (t.a().m() > 0) {
+            this.a.a(2);
+        } else {
+            this.a.a(1);
+        }
+        this.a.d();
+        this.a.e();
     }
 
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
@@ -123,24 +135,24 @@ public class ReplyMeFragment extends BaseFragment implements com.baidu.adp.widge
     public void t() {
         super.t();
         try {
-            if (this.f1943a != null) {
-                this.f1943a.f();
-                this.f1943a.a();
+            if (this.a != null) {
+                this.a.f();
+                this.a.a();
             }
             System.gc();
         } catch (Exception e) {
-            bd.b(getClass().getName(), "onDestroy", e.toString());
+            be.b(getClass().getName(), "onDestroy", e.toString());
         }
     }
 
-    public void a() {
-        this.f1943a.b();
+    public void G() {
+        this.a.b();
     }
 
     @Override // com.baidu.adp.widget.ListView.b
     public void a(boolean z) {
         if (!z) {
-            a();
+            G();
         }
     }
 }

@@ -66,24 +66,24 @@ public class b {
     }
 
     public static Bitmap a(Context context, Uri uri, int i, int i2, boolean z) {
-        Bitmap a2;
-        Bitmap a3 = a(context, uri, i, i2);
-        if (a3 == null) {
+        Bitmap a;
+        Bitmap a2 = a(context, uri, i, i2);
+        if (a2 == null) {
             throw new OtherException();
         }
         try {
-            if (a3.getWidth() > a3.getHeight()) {
-                a2 = a(a3, i, i2);
+            if (a2.getWidth() > a2.getHeight()) {
+                a = a(a2, i, i2);
             } else {
-                a2 = a(a3, i2, i);
+                a = a(a2, i2, i);
             }
             int b = v.b(context, uri, z);
             if (b != 0) {
                 Matrix matrix = new Matrix();
                 matrix.setRotate(b);
-                return Bitmap.createBitmap(a2, 0, 0, a2.getWidth(), a2.getHeight(), matrix, true);
+                return Bitmap.createBitmap(a, 0, 0, a.getWidth(), a.getHeight(), matrix, true);
             }
-            return a2;
+            return a;
         } catch (Exception e) {
             e.printStackTrace();
             throw new OtherException();

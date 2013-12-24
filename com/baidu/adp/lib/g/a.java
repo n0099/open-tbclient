@@ -14,9 +14,7 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static a f484a;
+    private static a a;
     private static int b = 20;
     private Context c;
     private String d;
@@ -30,14 +28,14 @@ public class a {
     private String l;
     private String m;
     private boolean n;
-    private ArrayList<c> o = new ArrayList<>();
-    private ArrayList<c> p = new ArrayList<>();
+    private ArrayList<d> o = new ArrayList<>();
+    private ArrayList<d> p = new ArrayList<>();
 
     public static a a() {
-        if (f484a == null) {
-            f484a = new a();
+        if (a == null) {
+            a = new a();
         }
-        return f484a;
+        return a;
     }
 
     public void a(Context context, String str, String str2, String str3, String str4, String str5) {
@@ -59,17 +57,17 @@ public class a {
 
     public void a(boolean z, Object... objArr) {
         if (objArr != null) {
-            c cVar = new c();
+            d dVar = new d();
             for (int i = 0; i < objArr.length / 2; i++) {
                 if ((i * 2) + 1 < objArr.length) {
-                    cVar.a(objArr[i * 2], objArr[(i * 2) + 1]);
+                    dVar.a(objArr[i * 2], objArr[(i * 2) + 1]);
                 }
             }
             synchronized (this.o) {
                 if (this.n) {
-                    this.p.add(cVar);
+                    this.p.add(dVar);
                 } else {
-                    this.o.add(cVar);
+                    this.o.add(dVar);
                     int size = this.o.size();
                     if (z || size >= b) {
                         b();
@@ -83,8 +81,8 @@ public class a {
         a().a(false, "op_key", str, "is_net", 0, "cost", Long.valueOf(j), "result", Long.valueOf(j2), "module", "op");
     }
 
-    public void a(String str, long j, long j2, long j3, long j4, long j5, long j6, int i, long j7) {
-        a().a(false, "cost", Long.valueOf(j3), "dns_cost", Long.valueOf(j4), "con_cost", Long.valueOf(j5), "rsp_cost", Long.valueOf(j6), "result", Long.valueOf(j7), "module", e.e, "logid", Long.valueOf(System.currentTimeMillis()), "interface", str, "retry", Integer.valueOf(i), "size_d", Long.valueOf(j), "size_u", Long.valueOf(j2), e.e, c());
+    public void a(String str, String str2, long j, long j2, long j3, long j4, long j5, long j6, int i, long j7) {
+        a().a(false, "cost", Long.valueOf(j3), "dns_cost", Long.valueOf(j4), "con_cost", Long.valueOf(j5), "rsp_cost", Long.valueOf(j6), "result", Long.valueOf(j7), "module", e.e, "logid", Long.valueOf(System.currentTimeMillis()), "interface", str, "retry", Integer.valueOf(i), "size_d", Long.valueOf(j), "size_u", Long.valueOf(j2), e.e, c(), "sid", str2);
     }
 
     public void a(String str) {
@@ -209,29 +207,32 @@ public class a {
                         sb.append('N');
                         break;
                 }
-                if (activeNetworkInfo.getExtraInfo().contains(e.d)) {
+                if (activeNetworkInfo.getExtraInfo() != null && activeNetworkInfo.getExtraInfo().contains(e.d)) {
                     sb.append("_WAP_");
                 } else {
                     sb.append("_NET_");
                 }
-                switch (((TelephonyManager) this.c.getSystemService("phone")).getNetworkType()) {
-                    case 1:
-                    case 2:
-                    case 4:
-                    case 5:
-                        sb.append("2G");
-                        break;
-                    case 3:
-                    case 6:
-                    case 7:
-                    case 8:
-                    case 9:
-                    case 10:
-                        sb.append("3G");
-                        break;
-                    default:
-                        sb.append('N');
-                        break;
+                TelephonyManager telephonyManager = (TelephonyManager) this.c.getSystemService("phone");
+                if (telephonyManager != null) {
+                    switch (telephonyManager.getNetworkType()) {
+                        case 1:
+                        case 2:
+                        case 4:
+                        case 5:
+                            sb.append("2G");
+                            break;
+                        case 3:
+                        case 6:
+                        case 7:
+                        case 8:
+                        case 9:
+                        case 10:
+                            sb.append("3G");
+                            break;
+                        default:
+                            sb.append('N');
+                            break;
+                    }
                 }
                 return sb.toString();
             }

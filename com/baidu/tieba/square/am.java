@@ -6,13 +6,11 @@ import com.baidu.tieba.util.UtilHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class am implements aw {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SquareActivity f2483a;
+    final /* synthetic */ SquareActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public am(SquareActivity squareActivity) {
-        this.f2483a = squareActivity;
+        this.a = squareActivity;
     }
 
     @Override // com.baidu.tieba.square.aw
@@ -30,40 +28,40 @@ public class am implements aw {
         Runnable runnable;
         Handler handler2;
         Runnable runnable2;
-        buVar = this.f2483a.b;
+        buVar = this.a.b;
         buVar.a(true, "");
         if (z && arVar != null) {
-            buVar5 = this.f2483a.b;
-            avVar = this.f2483a.c;
+            buVar5 = this.a.b;
+            avVar = this.a.c;
             buVar5.a(avVar.a());
-            handler = this.f2483a.g;
-            runnable = this.f2483a.h;
+            handler = this.a.g;
+            runnable = this.a.h;
             handler.removeCallbacks(runnable);
-            handler2 = this.f2483a.g;
-            runnable2 = this.f2483a.h;
+            handler2 = this.a.g;
+            runnable2 = this.a.h;
             handler2.postDelayed(runnable2, 0L);
-            this.f2483a.d = true;
-            this.f2483a.J();
+            this.a.d = true;
+            this.a.J();
         }
-        z2 = this.f2483a.e;
+        z2 = this.a.e;
         if (z2) {
-            this.f2483a.e = false;
-            buVar4 = this.f2483a.b;
+            this.a.e = false;
+            buVar4 = this.a.b;
             buVar4.g();
         }
         if (!UtilHelper.b()) {
-            buVar3 = this.f2483a.b;
+            buVar3 = this.a.b;
             buVar3.h();
-            z3 = this.f2483a.d;
+            z3 = this.a.d;
             if (!z3) {
-                this.f2483a.I();
+                this.a.I();
                 return;
             }
             return;
         }
-        baseFragmentActivity = this.f2483a.f;
-        baseFragmentActivity.b(str);
-        buVar2 = this.f2483a.b;
+        baseFragmentActivity = this.a.f;
+        baseFragmentActivity.a(str);
+        buVar2 = this.a.b;
         buVar2.i();
     }
 }

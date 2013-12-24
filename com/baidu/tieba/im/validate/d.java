@@ -4,13 +4,11 @@ import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements DialogInterface.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ValidateActivity f1898a;
+    final /* synthetic */ ValidateActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(ValidateActivity validateActivity) {
-        this.f1898a = validateActivity;
+        this.a = validateActivity;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -19,10 +17,10 @@ public class d implements DialogInterface.OnClickListener {
         ValidateItemData validateItemData;
         switch (i) {
             case 0:
-                nVar = this.f1898a.b;
+                nVar = this.a.b;
                 nVar.a(true);
-                ValidateActivity validateActivity = this.f1898a;
-                validateItemData = this.f1898a.f;
+                ValidateActivity validateActivity = this.a;
+                validateItemData = this.a.f;
                 validateActivity.c(validateItemData);
                 return;
             default:

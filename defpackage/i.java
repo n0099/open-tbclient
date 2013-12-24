@@ -10,16 +10,14 @@ import com.baidu.cloudsdk.common.imgloader.AsyncImageLoader;
 /* renamed from: i  reason: default package */
 /* loaded from: classes.dex */
 public class i implements AsyncImageLoader.IAsyncImageLoaderListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ aq f2900a;
+    final /* synthetic */ aq a;
     private Uri b;
     private String c;
     private String d;
     private String e;
 
     public i(aq aqVar, Uri uri, String str, String str2, String str3) {
-        this.f2900a = aqVar;
+        this.a = aqVar;
         this.b = uri;
         this.c = str;
         this.d = str2;
@@ -31,20 +29,20 @@ public class i implements AsyncImageLoader.IAsyncImageLoaderListener {
         String str;
         String str2;
         String str3;
-        int a2;
+        int a;
         if (bitmap != null) {
-            a2 = this.f2900a.a(bitmap, 150);
-            this.f2900a.a(this.c, this.d, this.e, Bitmap.createScaledBitmap(bitmap, 150, a2, true));
+            a = this.a.a(bitmap, 150);
+            this.a.a(this.c, this.d, this.e, Bitmap.createScaledBitmap(bitmap, 150, a, true));
             return;
         }
         if (this.b != null) {
-            str3 = aq.f362a;
+            str3 = aq.a;
             Log.e(str3, "fail to load image uri from" + this.b.toString());
         }
-        str = this.f2900a.h;
-        IBaiduListener a3 = aq.a(str);
-        str2 = this.f2900a.h;
+        str = this.a.h;
+        IBaiduListener a2 = aq.a(str);
+        str2 = this.a.h;
         aq.b(str2);
-        a3.onError(new BaiduException("failed to load image uri "));
+        a2.onError(new BaiduException("failed to load image uri "));
     }
 }

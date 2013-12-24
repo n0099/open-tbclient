@@ -3,9 +3,7 @@ package com.baidu.tieba.model;
 import android.content.Context;
 /* loaded from: classes.dex */
 public class ap {
-
-    /* renamed from: a  reason: collision with root package name */
-    private long f1991a;
+    private long a;
     private long b;
     private long c;
     private long d;
@@ -17,7 +15,7 @@ public class ap {
     }
 
     public void a(long j) {
-        this.f1991a = j;
+        this.a = j;
     }
 
     public void b(long j) {

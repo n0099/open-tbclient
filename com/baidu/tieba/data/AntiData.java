@@ -150,7 +150,7 @@ public class AntiData implements Serializable {
         try {
             parserJson(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.tieba.util.bd.b("AntiData", "parserJson", "error = " + e.getMessage());
+            com.baidu.tieba.util.be.b("AntiData", "parserJson", "error = " + e.getMessage());
         }
     }
 
@@ -176,18 +176,18 @@ public class AntiData implements Serializable {
                 this.days_tofree = jSONObject.optInt("days_tofree", 1);
                 this.has_chance = jSONObject.optInt("has_chance", 1) == 1;
             } catch (Exception e) {
-                com.baidu.tieba.util.bd.b("AntiData", "parserJson", "error = " + e.getMessage());
+                com.baidu.tieba.util.be.b("AntiData", "parserJson", "error = " + e.getMessage());
             }
         }
     }
 
     public void logPrint() {
-        com.baidu.tieba.util.bd.d("AntiData", "logPrint", "ifpost = " + String.valueOf(this.ifpost));
-        com.baidu.tieba.util.bd.d("AntiData", "logPrint", "ifposta = " + String.valueOf(this.ifposta));
-        com.baidu.tieba.util.bd.d("AntiData", "logPrint", "forbid_flag = " + String.valueOf(this.forbid_flag));
-        com.baidu.tieba.util.bd.d("AntiData", "logPrint", "tbs = " + this.tbs);
-        com.baidu.tieba.util.bd.d("AntiData", "logPrint", "need_vcode = " + String.valueOf(this.need_vcode));
-        com.baidu.tieba.util.bd.d("AntiData", "logPrint", "vcode_md5 = " + this.vcode_md5);
+        com.baidu.tieba.util.be.d("AntiData", "logPrint", "ifpost = " + String.valueOf(this.ifpost));
+        com.baidu.tieba.util.be.d("AntiData", "logPrint", "ifposta = " + String.valueOf(this.ifposta));
+        com.baidu.tieba.util.be.d("AntiData", "logPrint", "forbid_flag = " + String.valueOf(this.forbid_flag));
+        com.baidu.tieba.util.be.d("AntiData", "logPrint", "tbs = " + this.tbs);
+        com.baidu.tieba.util.be.d("AntiData", "logPrint", "need_vcode = " + String.valueOf(this.need_vcode));
+        com.baidu.tieba.util.be.d("AntiData", "logPrint", "vcode_md5 = " + this.vcode_md5);
     }
 
     public void setForbid_info(String str) {

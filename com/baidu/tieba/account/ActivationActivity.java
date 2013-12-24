@@ -15,15 +15,12 @@ import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.AccountData;
 import com.baidu.tieba.data.RegistData;
-import com.baidu.tieba.model.be;
 import com.baidu.tieba.topRec.TopRecActivity;
 import com.baidu.tieba.util.DatabaseService;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class ActivationActivity extends com.baidu.tieba.j {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static int f1030a = 60;
+    private static int a = 60;
     private ImageView b = null;
     private LinearLayout c = null;
     private ImageView d = null;
@@ -34,10 +31,10 @@ public class ActivationActivity extends com.baidu.tieba.j {
     private EditText i = null;
     private RelativeLayout j = null;
     private RelativeLayout k = null;
-    private j l = null;
-    private i m = null;
+    private t l = null;
+    private s m = null;
     private boolean n = false;
-    private int o = f1030a;
+    private int o = a;
     private RegistData p = null;
     private Handler q = new Handler();
     private RelativeLayout r = null;
@@ -48,10 +45,10 @@ public class ActivationActivity extends com.baidu.tieba.j {
     private int w = 0;
     private int x = 0;
     private int y = 0;
-    private Runnable z = new e(this);
-    private View.OnClickListener A = new f(this);
-    private TextWatcher B = new g(this);
-    private View.OnFocusChangeListener C = new h(this);
+    private Runnable z = new o(this);
+    private View.OnClickListener A = new p(this);
+    private TextWatcher B = new q(this);
+    private View.OnFocusChangeListener C = new r(this);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ int a(ActivationActivity activationActivity) {
@@ -86,7 +83,7 @@ public class ActivationActivity extends com.baidu.tieba.j {
             setResult(0);
             finish();
         } else if (this.p.getSmsCodeTime() > 0) {
-            f1030a = this.p.getSmsCodeTime();
+            a = this.p.getSmsCodeTime();
         }
     }
 
@@ -119,7 +116,7 @@ public class ActivationActivity extends com.baidu.tieba.j {
     public void a() {
         this.n = false;
         this.k.setEnabled(false);
-        this.o = f1030a;
+        this.o = a;
         this.g.setText(String.format(getString(R.string.resend_code_second), Integer.valueOf(this.o)));
         this.q.postDelayed(this.z, 1000L);
     }
@@ -158,13 +155,13 @@ public class ActivationActivity extends com.baidu.tieba.j {
     @Override // com.baidu.tieba.j
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        com.baidu.tieba.util.ba.a(this.r, i);
-        com.baidu.tieba.util.ba.d(this.t, i);
-        com.baidu.tieba.util.ba.a(this.b, i);
-        com.baidu.tieba.util.ba.e(this.s, i);
-        com.baidu.tieba.util.ba.a(this.u, i);
-        com.baidu.tieba.util.ba.a(this.g, i);
-        com.baidu.tieba.util.ba.b(this.v, i);
+        com.baidu.tieba.util.bb.a(this.r, i);
+        com.baidu.tieba.util.bb.d(this.t, i);
+        com.baidu.tieba.util.bb.a(this.b, i);
+        com.baidu.tieba.util.bb.e(this.s, i);
+        com.baidu.tieba.util.bb.a(this.u, i);
+        com.baidu.tieba.util.bb.a(this.g, i);
+        com.baidu.tieba.util.bb.b(this.v, i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -181,7 +178,7 @@ public class ActivationActivity extends com.baidu.tieba.j {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(be beVar) {
+    public void a(com.baidu.tieba.model.be beVar) {
         AccountData accountData = new AccountData();
         accountData.setAccount(beVar.a().getName());
         if (beVar.a().getPassword() != null) {

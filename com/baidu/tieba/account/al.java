@@ -1,20 +1,29 @@
 package com.baidu.tieba.account;
 
-import android.view.View;
+import android.text.Editable;
+import android.text.TextWatcher;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class al implements View.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ReLoginActivity f1048a;
+public class al implements TextWatcher {
+    final /* synthetic */ LoginActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public al(ReLoginActivity reLoginActivity) {
-        this.f1048a = reLoginActivity;
+    public al(LoginActivity loginActivity) {
+        this.a = loginActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.f1048a.c();
+    @Override // android.text.TextWatcher
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+        this.a.n = true;
+        this.a.n();
+    }
+
+    @Override // android.text.TextWatcher
+    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    }
+
+    @Override // android.text.TextWatcher
+    public void afterTextChanged(Editable editable) {
+        this.a.d();
     }
 }

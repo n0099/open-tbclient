@@ -11,8 +11,8 @@ import android.graphics.SweepGradient;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.LinearLayout;
+import com.baidu.browser.webpool.BdWebPoolView;
 import com.baidu.zeus.bouncycastle.DERTags;
-import com.tencent.mm.sdk.platformtools.Util;
 /* loaded from: classes.dex */
 class ColorPickerDialog extends AlertDialog implements DialogInterface.OnClickListener {
     private int mColor;
@@ -53,7 +53,7 @@ class ColorPickerDialog extends AlertDialog implements DialogInterface.OnClickLi
             this.mCenterPaint.setStyle(Paint.Style.FILL);
             this.mCenterPaint.setStrokeWidth(5.0f);
             this.mCenterPaint.setColor(i);
-            this.mCenterPaint.setAlpha(Util.MASK_8BIT);
+            this.mCenterPaint.setAlpha(255);
         }
 
         @Override // android.view.View
@@ -66,7 +66,7 @@ class ColorPickerDialog extends AlertDialog implements DialogInterface.OnClickLi
                 int color = this.mCenterPaint.getColor();
                 this.mCenterPaint.setStyle(Paint.Style.STROKE);
                 if (this.mHighlightCenter) {
-                    this.mCenterPaint.setAlpha(Util.MASK_8BIT);
+                    this.mCenterPaint.setAlpha(255);
                 } else {
                     this.mCenterPaint.setAlpha(DERTags.TAGGED);
                 }
@@ -78,7 +78,7 @@ class ColorPickerDialog extends AlertDialog implements DialogInterface.OnClickLi
 
         @Override // android.view.View
         protected void onMeasure(int i, int i2) {
-            setMeasuredDimension(200, 200);
+            setMeasuredDimension(BdWebPoolView.DELAYED_TIME, BdWebPoolView.DELAYED_TIME);
         }
 
         private int floatToByte(float f) {
@@ -89,7 +89,10 @@ class ColorPickerDialog extends AlertDialog implements DialogInterface.OnClickLi
             if (i < 0) {
                 return 0;
             }
-            return i > 255 ? Util.MASK_8BIT : i;
+            if (i > 255) {
+                return 255;
+            }
+            return i;
         }
 
         private int ave(int i, int i2, float f) {

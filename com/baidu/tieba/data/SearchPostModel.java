@@ -46,7 +46,7 @@ public class SearchPostModel implements Serializable {
         try {
             parserJson(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.tieba.util.bd.b("SearchPostModel", "parserJson", "error = " + e.getMessage());
+            com.baidu.tieba.util.be.b("SearchPostModel", "parserJson", "error = " + e.getMessage());
         }
     }
 
@@ -68,7 +68,7 @@ public class SearchPostModel implements Serializable {
                 this.hasPre = optJSONObject.optInt("has_prev") != 0;
                 this.currentPage = optJSONObject.optInt("current_page");
             } catch (Exception e) {
-                com.baidu.tieba.util.bd.b("SearchPostModel", "parserJson", "error = " + e.getMessage());
+                com.baidu.tieba.util.be.b("SearchPostModel", "parserJson", "error = " + e.getMessage());
             }
         }
     }

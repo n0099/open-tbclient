@@ -1,6 +1,5 @@
 package com.baidu.tieba.im.data;
 
-import com.baidu.tieba.im.message.ChatMessage;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +7,7 @@ import java.util.List;
 public class MsgPageData implements Serializable {
     private boolean isNewAdd = false;
     private int newAddNum = 0;
-    private List<ChatMessage> mChatMessages = new ArrayList();
+    private List<com.baidu.tieba.im.message.b> mChatMessages = new ArrayList();
 
     public boolean getIsNewAdd() {
         return this.isNewAdd;
@@ -18,11 +17,11 @@ public class MsgPageData implements Serializable {
         this.isNewAdd = z;
     }
 
-    public List<ChatMessage> getChatMessages() {
+    public List<com.baidu.tieba.im.message.b> getChatMessages() {
         return this.mChatMessages;
     }
 
-    public void setChatMessages(List<ChatMessage> list) {
+    public void setChatMessages(List<com.baidu.tieba.im.message.b> list) {
         this.mChatMessages = list;
     }
 

@@ -1,56 +1,63 @@
 package com.baidu.tieba.a;
 
-import com.baidu.android.pushservice.PushConstants;
+import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tieba.data.NewErrorData;
-import com.baidu.tieba.util.am;
+import com.baidu.tieba.n;
 /* loaded from: classes.dex */
-public class e {
-    private static final String c = com.baidu.tieba.data.h.f1248a + "c/s/clearmsg";
+public class e extends n {
+    private static final String c = com.baidu.tieba.data.h.a + "c/u/user/get_double_follows";
+    private static final String d = com.baidu.tieba.data.h.a + "c/u/user/search_double_follows";
 
-    /* renamed from: a  reason: collision with root package name */
-    private am f1022a = null;
-    private NewErrorData b = null;
-
-    public void a(String str, String str2) {
-        this.f1022a = new am(c);
-        this.f1022a.a(PushConstants.EXTRA_USER_ID, str);
-        this.f1022a.a("com_id", str2);
-        String l = this.f1022a.l();
-        this.b = new NewErrorData();
-        this.b.parserJson(l);
+    public String b(String str) {
+        if (str == null || str.trim().equals("")) {
+            a(c);
+        } else {
+            a(d);
+            this.a.a("user_name", str);
+        }
+        this.a.a("offset", SocialConstants.FALSE);
+        this.a.a("limit", String.valueOf(100));
+        String b = b();
+        if (!c()) {
+            return null;
+        }
+        return b;
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.n
+    public String b() {
+        String l = this.a.l();
+        if (this.a.c()) {
+            this.b = new NewErrorData();
+            this.b.parserJson(l);
+        } else {
+            this.b = new NewErrorData();
+            this.b.errmsg = this.a.i();
+            this.b.errno = this.a.e();
+        }
+        return l;
+    }
+
+    @Override // com.baidu.tieba.n
     public void a() {
-        if (this.f1022a != null) {
-            this.f1022a.j();
+        if (this.a != null) {
+            this.a.j();
         }
     }
 
-    public boolean b() {
-        if (this.f1022a != null) {
-            return this.f1022a.c();
-        }
-        return false;
-    }
-
-    public String c() {
-        if (this.f1022a != null) {
-            return this.f1022a.i();
-        }
-        return null;
-    }
-
-    public int d() {
-        if (this.b != null) {
-            return this.b.getErrorNumber();
-        }
-        return -1;
-    }
-
-    public String e() {
+    public String g() {
         if (this.b != null) {
             return this.b.getErrorMsg();
         }
         return null;
+    }
+
+    @Override // com.baidu.tieba.n
+    public int e() {
+        if (this.b != null) {
+            return this.b.getErrorNumber();
+        }
+        return 0;
     }
 }

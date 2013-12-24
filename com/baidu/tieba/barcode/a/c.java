@@ -3,12 +3,10 @@ package com.baidu.tieba.barcode.a;
 import android.os.AsyncTask;
 /* loaded from: classes.dex */
 final class c extends AsyncTask<Object, Object, Object> {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f1136a;
+    final /* synthetic */ a a;
 
     private c(a aVar) {
-        this.f1136a = aVar;
+        this.a = aVar;
     }
 
     @Override // android.os.AsyncTask
@@ -17,9 +15,9 @@ final class c extends AsyncTask<Object, Object, Object> {
             Thread.sleep(2000L);
         } catch (InterruptedException e) {
         }
-        synchronized (this.f1136a) {
-            if (a.a(this.f1136a)) {
-                this.f1136a.a();
+        synchronized (this.a) {
+            if (a.a(this.a)) {
+                this.a.a();
             }
         }
         return null;

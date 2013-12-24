@@ -4,13 +4,11 @@ import android.view.View;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 class ae implements View.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SearchActivity f1444a;
+    final /* synthetic */ SearchActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ae(SearchActivity searchActivity) {
-        this.f1444a = searchActivity;
+        this.a = searchActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -19,21 +17,21 @@ class ae implements View.OnClickListener {
         String str2;
         int i;
         String str3;
-        str = this.f1444a.A;
+        str = this.a.A;
         if (str != null) {
-            str2 = this.f1444a.A;
+            str2 = this.a.A;
             if (str2.trim().length() >= 1) {
-                i = this.f1444a.B;
+                i = this.a.B;
                 if (i == 0) {
-                    this.f1444a.d();
+                    this.a.d();
                     return;
                 }
-                SearchActivity searchActivity = this.f1444a;
-                str3 = this.f1444a.A;
+                SearchActivity searchActivity = this.a;
+                str3 = this.a.A;
                 searchActivity.a(1, str3);
                 return;
             }
         }
-        this.f1444a.showToast(this.f1444a.getResources().getString(R.string.write_keyword));
+        this.a.showToast(this.a.getResources().getString(R.string.write_keyword));
     }
 }

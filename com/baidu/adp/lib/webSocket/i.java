@@ -1,5 +1,6 @@
 package com.baidu.adp.lib.webSocket;
 
+import com.baidu.zeus.NotificationProxy;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.InetSocketAddress;
@@ -7,25 +8,23 @@ import java.net.Socket;
 import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
 class i implements g {
-
-    /* renamed from: a  reason: collision with root package name */
-    private Socket f538a;
+    private Socket a;
     private InputStream b;
     private OutputStream c;
     private byte[] d;
 
     public i(String str, int i, am amVar) {
-        this.f538a = null;
+        this.a = null;
         this.b = null;
         this.c = null;
         this.d = null;
-        this.f538a = new Socket();
-        this.f538a.connect(new InetSocketAddress(str, i), amVar.f());
-        this.f538a.setSoTimeout(amVar.e());
-        this.f538a.setTcpNoDelay(amVar.d());
-        this.b = this.f538a.getInputStream();
-        this.c = this.f538a.getOutputStream();
-        this.d = new byte[1024];
+        this.a = new Socket();
+        this.a.connect(new InetSocketAddress(str, i), amVar.f());
+        this.a.setSoTimeout(amVar.e());
+        this.a.setTcpNoDelay(amVar.d());
+        this.b = this.a.getInputStream();
+        this.c = this.a.getOutputStream();
+        this.d = new byte[NotificationProxy.MAX_URL_LENGTH];
     }
 
     @Override // com.baidu.adp.lib.webSocket.g
@@ -40,15 +39,15 @@ class i implements g {
         } catch (Exception e2) {
             com.baidu.adp.lib.h.e.a(e2.getMessage());
         }
-        if (this.f538a != null) {
-            this.f538a.close();
+        if (this.a != null) {
+            this.a.close();
         }
     }
 
     @Override // com.baidu.adp.lib.webSocket.g
     public boolean b() {
-        if (this.f538a != null) {
-            return this.f538a.isConnected();
+        if (this.a != null) {
+            return this.a.isConnected();
         }
         return false;
     }

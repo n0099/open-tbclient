@@ -1,109 +1,80 @@
 package com.baidu.tieba.im.chat;
 
-import android.text.TextUtils;
-import android.widget.TextView;
-import com.baidu.tieba.view.MultiImageView;
-import java.util.ArrayList;
+import android.app.Activity;
+import android.graphics.drawable.BitmapDrawable;
+import android.text.Editable;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.EditText;
+import android.widget.ImageView;
+import com.slidingmenu.lib.R;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ak implements ab {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MsgImageActivity f1544a;
+public class ak implements AdapterView.OnItemClickListener {
+    final /* synthetic */ aj a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ak(MsgImageActivity msgImageActivity) {
-        this.f1544a = msgImageActivity;
+    public ak(aj ajVar) {
+        this.a = ajVar;
     }
 
-    @Override // com.baidu.tieba.im.chat.ab
-    public void a(ArrayList<String> arrayList) {
-        ArrayList arrayList2;
-        ArrayList arrayList3;
-        ArrayList arrayList4;
-        String str;
-        String str2;
-        String str3;
-        boolean z;
-        ArrayList arrayList5;
-        TextView textView;
-        MultiImageView multiImageView;
-        MultiImageView multiImageView2;
-        MultiImageView multiImageView3;
-        ArrayList<String> arrayList6;
-        MultiImageView multiImageView4;
-        int i;
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+        q qVar;
         int i2;
-        ArrayList arrayList7;
-        String str4;
-        ArrayList arrayList8;
-        String str5;
-        this.f1544a.b = arrayList;
-        arrayList2 = this.f1544a.b;
-        if (arrayList2 == null) {
-            this.f1544a.b = new ArrayList();
-        }
-        arrayList3 = this.f1544a.b;
-        if (arrayList3.isEmpty()) {
-            str4 = this.f1544a.r;
-            if (!TextUtils.isEmpty(str4)) {
-                arrayList8 = this.f1544a.b;
-                str5 = this.f1544a.r;
-                arrayList8.add(str5);
+        int i3;
+        EditText editText;
+        EditText editText2;
+        EditText editText3;
+        Activity activity;
+        EditText editText4;
+        EditText editText5;
+        EditText editText6;
+        EditText editText7;
+        EditText editText8;
+        EditText editText9;
+        EditText editText10;
+        EditText editText11;
+        if (i % 27 != 0 || i == 0) {
+            qVar = this.a.f;
+            i2 = this.a.c;
+            i3 = this.a.c;
+            String a = qVar.a(((((i2 - 1) * 28) + i) - i3) + 1);
+            if (a != null) {
+                editText = this.a.b;
+                int selectionStart = editText.getSelectionStart();
+                editText2 = this.a.b;
+                editText2.getText().insert(selectionStart, a);
+                return;
             }
-        }
-        arrayList4 = this.f1544a.b;
-        int size = arrayList4.size();
-        if (size == 0) {
-            this.f1544a.finish();
             return;
         }
-        StringBuilder append = new StringBuilder().append("get img curUrl:");
-        str = this.f1544a.r;
-        com.baidu.adp.lib.h.e.d(append.append(str).toString());
-        str2 = this.f1544a.r;
-        str3 = this.f1544a.r;
-        String substring = str2.substring(str3.lastIndexOf("/"));
-        int i3 = 0;
-        while (true) {
-            if (i3 >= size) {
-                z = false;
-                break;
+        editText3 = this.a.b;
+        if (editText3.getSelectionStart() > 0) {
+            activity = this.a.a;
+            ((ImageView) view).setImageBitmap(((BitmapDrawable) activity.getResources().getDrawable(R.drawable.but_face_close_n)).getBitmap());
+            editText4 = this.a.b;
+            String obj = editText4.getText().toString();
+            editText5 = this.a.b;
+            String substring = obj.substring(0, editText5.getSelectionStart());
+            Matcher matcher = Pattern.compile("#\\([^#\\)\\(]+\\)$").matcher(substring);
+            if (!matcher.find()) {
+                editText6 = this.a.b;
+                Editable text = editText6.getText();
+                editText7 = this.a.b;
+                editText8 = this.a.b;
+                text.delete(editText7.getSelectionStart() - 1, editText8.getSelectionStart());
+                return;
             }
-            arrayList7 = this.f1544a.b;
-            String str6 = (String) arrayList7.get(i3);
-            if (!TextUtils.isEmpty(str6)) {
-                com.baidu.adp.lib.h.e.d("get img url :" + str6);
-                String substring2 = str6.substring(str6.lastIndexOf("/"));
-                if (!TextUtils.isEmpty(substring) && !TextUtils.isEmpty(substring2) && substring2.equals(substring)) {
-                    com.baidu.adp.lib.h.e.d("get img idx:" + i3);
-                    this.f1544a.c = i3;
-                    z = true;
-                    break;
-                }
-            }
-            i3++;
+            int length = substring.length() - matcher.replaceFirst("").length();
+            editText9 = this.a.b;
+            Editable text2 = editText9.getText();
+            editText10 = this.a.b;
+            int selectionStart2 = editText10.getSelectionStart() - length;
+            editText11 = this.a.b;
+            text2.delete(selectionStart2, editText11.getSelectionStart());
         }
-        MsgImageActivity msgImageActivity = this.f1544a;
-        arrayList5 = this.f1544a.b;
-        msgImageActivity.q = arrayList5.size();
-        if (!z) {
-            MsgImageActivity msgImageActivity2 = this.f1544a;
-            i2 = this.f1544a.q;
-            msgImageActivity2.c = i2 - 1;
-        }
-        textView = this.f1544a.h;
-        textView.setVisibility(0);
-        this.f1544a.b();
-        multiImageView = this.f1544a.j;
-        multiImageView.setIsFromCDN(true);
-        multiImageView2 = this.f1544a.j;
-        multiImageView2.setAllowLocalUrl(true);
-        multiImageView3 = this.f1544a.j;
-        arrayList6 = this.f1544a.b;
-        multiImageView3.setUrlData(arrayList6);
-        multiImageView4 = this.f1544a.j;
-        i = this.f1544a.c;
-        multiImageView4.a(i, false);
     }
 }

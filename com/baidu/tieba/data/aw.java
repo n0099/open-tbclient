@@ -6,9 +6,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class aw {
-
-    /* renamed from: a  reason: collision with root package name */
-    private ArrayList<MetaData> f1230a = new ArrayList<>();
+    private ArrayList<MetaData> a = new ArrayList<>();
 
     public void a(JSONObject jSONObject, HashMap<String, String> hashMap) {
         String str;
@@ -25,14 +23,14 @@ public class aw {
                     if (hashMap != null && (str = hashMap.get(metaData.getName())) != null) {
                         metaData.setPortrait(str);
                     }
-                    this.f1230a.add(metaData);
+                    this.a.add(metaData);
                     i = i2 + 1;
                 } else {
                     return;
                 }
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.bd.b("AtListModel", "parserSuggestJson", "error = " + e.getMessage());
+            com.baidu.tieba.util.be.b("AtListModel", "parserSuggestJson", "error = " + e.getMessage());
         }
     }
 
@@ -40,7 +38,7 @@ public class aw {
         try {
             a(new JSONObject(str), hashMap);
         } catch (Exception e) {
-            com.baidu.tieba.util.bd.b("AtListModel", "parserSuggestJson", "error = " + e.getMessage());
+            com.baidu.tieba.util.be.b("AtListModel", "parserSuggestJson", "error = " + e.getMessage());
         }
     }
 
@@ -49,8 +47,8 @@ public class aw {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < this.f1230a.size()) {
-                    MetaData metaData = this.f1230a.get(i2);
+                if (i2 < this.a.size()) {
+                    MetaData metaData = this.a.get(i2);
                     metaData.setPortrait(hashMap.get(metaData.getName()));
                     i = i2 + 1;
                 } else {
@@ -61,6 +59,6 @@ public class aw {
     }
 
     public ArrayList<MetaData> a() {
-        return this.f1230a;
+        return this.a;
     }
 }
