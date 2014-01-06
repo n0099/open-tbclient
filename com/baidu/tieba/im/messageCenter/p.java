@@ -10,7 +10,7 @@ public class p extends com.baidu.adp.lib.webSocket.d {
     private int b;
     private CoderException c;
     private boolean d;
-    private com.baidu.tieba.im.message.n e;
+    private com.baidu.tieba.im.message.o e;
     private int g;
     private boolean h;
     private i j;
@@ -21,7 +21,7 @@ public class p extends com.baidu.adp.lib.webSocket.d {
     private int l = 0;
     private int m = 0;
 
-    public p(com.baidu.tieba.im.message.n nVar, boolean z, int i, boolean z2, i iVar, int i2, boolean z3) {
+    public p(com.baidu.tieba.im.message.o oVar, boolean z, int i, boolean z2, i iVar, int i2, boolean z3) {
         this.b = 0;
         this.d = false;
         this.e = null;
@@ -29,10 +29,10 @@ public class p extends com.baidu.adp.lib.webSocket.d {
         this.h = false;
         this.j = null;
         this.n = true;
-        if (nVar == null) {
+        if (oVar == null) {
             throw new InvalidParameterException("SenderData msg null");
         }
-        this.e = nVar;
+        this.e = oVar;
         this.g = i;
         this.h = z2;
         this.d = z;
@@ -84,7 +84,7 @@ public class p extends com.baidu.adp.lib.webSocket.d {
 
     @Override // com.baidu.adp.lib.webSocket.aq
     public void c() {
-        com.baidu.tieba.log.a.b(com.baidu.tieba.log.i.a(this.e.t(), this.f, "socket", "SenderData: start send", null, 0, null, 0L, b() != null ? b().length : 0, null));
+        com.baidu.tieba.log.a.b(com.baidu.tieba.log.i.a(this.e.u(), this.f, "socket", "SenderData: start send", null, 0, null, 0L, b() != null ? b().length : 0, null));
         a.removeCallbacks(u());
         if (this.b > 0) {
             a.postDelayed(u(), this.b);
@@ -102,7 +102,7 @@ public class p extends com.baidu.adp.lib.webSocket.d {
 
     @Override // com.baidu.adp.lib.webSocket.aq
     public void d() {
-        com.baidu.tieba.log.a.b(com.baidu.tieba.log.i.a(this.e.t(), this.f, "socket", "SenderData: finish send", null, 0, null, 0L, b() != null ? b().length : 0, null));
+        com.baidu.tieba.log.a.b(com.baidu.tieba.log.i.a(this.e.u(), this.f, "socket", "SenderData: finish send", null, 0, null, 0L, b() != null ? b().length : 0, null));
         if (!this.d) {
             a.removeCallbacks(u());
         }
@@ -121,7 +121,7 @@ public class p extends com.baidu.adp.lib.webSocket.d {
         return this.g;
     }
 
-    public com.baidu.tieba.im.message.n j() {
+    public com.baidu.tieba.im.message.o j() {
         return this.e;
     }
 
@@ -140,7 +140,7 @@ public class p extends com.baidu.adp.lib.webSocket.d {
 
     public int k() {
         if (this.e != null) {
-            return this.e.t();
+            return this.e.u();
         }
         return 0;
     }

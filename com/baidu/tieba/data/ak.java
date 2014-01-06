@@ -1,27 +1,70 @@
 package com.baidu.tieba.data;
 
-import com.baidu.cloudsdk.social.core.SocialConstants;
+import com.baidu.android.pushservice.PushConstants;
+import com.baidu.tieba.util.bo;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ak {
     private int a = 0;
-    private String b = null;
+    private int b = 0;
+    private int c = 0;
+    private int d = 0;
     private int e = 0;
-    private String c = null;
-    private String d = null;
-    private String f = null;
+
+    public void a(int i) {
+        this.a = i;
+    }
+
+    public int a() {
+        return this.a;
+    }
+
+    public void b(int i) {
+        this.b = i;
+    }
+
+    public int b() {
+        return this.b;
+    }
+
+    public void c(int i) {
+        this.c = i;
+    }
+
+    public int c() {
+        return this.c;
+    }
+
+    public int d() {
+        return this.d;
+    }
+
+    public void d(int i) {
+        this.d = i;
+    }
+
+    public int e() {
+        return this.e;
+    }
+
+    public void a(String str) {
+        try {
+            a(new JSONObject(str).optJSONObject(PushConstants.EXTRA_PUSH_MESSAGE));
+        } catch (Exception e) {
+            bo.b("MessageData", "parserJson", "error = " + e.getMessage());
+        }
+    }
 
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.b = jSONObject.optString("id");
-                this.a = jSONObject.optInt("is_login", 0);
-                this.e = jSONObject.optInt("no_un", 0);
-                this.c = jSONObject.optString(SocialConstants.PARAM_MEDIA_UNAME);
-                this.d = jSONObject.optString("name_show");
-                this.f = jSONObject.optString("portrait");
+                this.a = jSONObject.optInt("replyme", 0);
+                this.b = jSONObject.optInt("atme", 0);
+                this.c = jSONObject.optInt("fans", 0);
+                this.d = jSONObject.optInt("pletter", 0);
+                this.e = jSONObject.optInt("bookmark", 0);
             } catch (Exception e) {
-                com.baidu.tieba.util.be.b(getClass().getName(), "parserJson", "error = " + e.getMessage());
+                bo.b("MessageData", "parserJson", "error = " + e.getMessage());
             }
         }
     }

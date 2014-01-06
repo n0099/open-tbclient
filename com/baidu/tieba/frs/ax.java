@@ -12,16 +12,16 @@ class ax implements com.baidu.tbadk.imageManager.c {
     }
 
     @Override // com.baidu.tbadk.imageManager.c
-    public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
-        bl blVar;
+    public void a(com.baidu.adp.widget.ImageView.d dVar, String str, boolean z) {
+        bm bmVar;
         try {
-            blVar = this.a.l;
-            View findViewWithTag = blVar.e().a(1).findViewWithTag(str);
+            bmVar = this.a.l;
+            View findViewWithTag = bmVar.e().a(2).findViewWithTag(str);
             if (findViewWithTag != null && (findViewWithTag instanceof TbImageView)) {
                 findViewWithTag.invalidate();
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.be.b(getClass().getName(), "imageLoaded", e.getMessage());
+            com.baidu.tieba.util.bo.b(getClass().getName(), "imageLoaded", e.getMessage());
         }
     }
 }

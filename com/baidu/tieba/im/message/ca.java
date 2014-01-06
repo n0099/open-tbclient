@@ -1,35 +1,18 @@
 package com.baidu.tieba.im.message;
+
+import java.util.LinkedList;
+import protobuf.UpdateMaskInfo.UpdateMaskInfoRes;
 /* loaded from: classes.dex */
-public class ca extends n {
-    private String a;
-    private String b;
-    private int c = 0;
-
+public class ca extends cc implements com.baidu.tieba.im.coder.f {
     public ca() {
-        e(-104);
+        super(104102);
     }
 
-    public String a() {
-        return this.b;
-    }
-
-    public void a(String str) {
-        this.b = str;
-    }
-
-    public String b() {
-        return this.a;
-    }
-
-    public void b(String str) {
-        this.a = str;
-    }
-
-    public int c() {
-        return this.c;
-    }
-
-    public void a(int i) {
-        this.c = i;
+    @Override // com.baidu.tieba.im.coder.f
+    public void a(LinkedList<o> linkedList, byte[] bArr, int i) {
+        UpdateMaskInfoRes.UpdateMaskInfoResIdl parseFrom = UpdateMaskInfoRes.UpdateMaskInfoResIdl.parseFrom(bArr);
+        g(parseFrom.getError().getErrorno());
+        c(parseFrom.getError().getUsermsg());
+        linkedList.add(this);
     }
 }

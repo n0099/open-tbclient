@@ -1,143 +1,164 @@
 package com.baidu.tieba.home;
 
+import com.baidu.tieba.TiebaApplication;
+import java.util.ArrayList;
+import java.util.HashMap;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class u {
     private int a;
     private String b;
     private String c;
-    private int d;
-    private int e;
-    private int f;
-    private int g;
+    private String d;
+    private String e;
+    private String f;
+    private String g;
     private int h;
-    private boolean i;
-    private boolean j;
-    private boolean k;
-    private boolean l;
-    private boolean m;
-    private int n;
-    private String o;
+    private String i;
+    private int j;
+    private ArrayList<v> k = new ArrayList<>();
+    private ArrayList<v> l = new ArrayList<>();
+    private ArrayList<v> m = new ArrayList<>();
+    private HashMap<String, v> n = new HashMap<>();
+    private n o = new n();
+    private int p;
 
-    public int a() {
-        return this.a;
-    }
-
-    public String b() {
+    public String a() {
         return this.b;
     }
 
-    public String c() {
+    public String b() {
         return this.c;
     }
 
-    public int d() {
+    public String c() {
         return this.d;
     }
 
-    public int e() {
+    public String d() {
         return this.e;
     }
 
-    public int f() {
+    public String e() {
         return this.f;
     }
 
-    public int g() {
+    public String f() {
         return this.g;
     }
 
-    public int h() {
+    public int g() {
         return this.h;
     }
 
-    public void a(int i) {
-        this.d = i;
-    }
-
-    public void b(int i) {
-        this.e = i;
-    }
-
-    public void c(int i) {
-        this.f = i;
-    }
-
-    public boolean i() {
+    public String h() {
         return this.i;
     }
 
-    public void a(boolean z) {
-        this.i = z;
-        this.d = 1;
-    }
-
-    public boolean j() {
-        return this.k;
-    }
-
-    public void b(boolean z) {
-        this.k = z;
-        this.d = 0;
-    }
-
-    public boolean k() {
-        return this.l;
-    }
-
-    public void c(boolean z) {
-        this.l = z;
-    }
-
-    public boolean l() {
-        return this.m;
-    }
-
-    public void d(boolean z) {
-        this.m = z;
-    }
-
-    public int m() {
-        return this.n;
-    }
-
-    public void d(int i) {
-        this.n = i;
-    }
-
-    public String n() {
-        return this.o;
-    }
-
-    public void a(String str) {
-        this.o = str;
-    }
-
-    public boolean o() {
+    public int i() {
         return this.j;
     }
 
-    public void e(boolean z) {
-        this.j = z;
+    public ArrayList<v> j() {
+        return this.k;
+    }
+
+    public n k() {
+        return this.o;
+    }
+
+    public ArrayList<v> l() {
+        return this.l;
+    }
+
+    public ArrayList<v> m() {
+        return this.m;
+    }
+
+    public void a(String str) {
+        if (str != null) {
+            try {
+                a(new JSONObject(str));
+            } catch (Exception e) {
+                com.baidu.tieba.util.bo.b(getClass().getName(), "parserJson", e.getMessage());
+            }
+        }
+    }
+
+    public void a(bl blVar) {
+        ArrayList<bm> d = blVar.d();
+        int size = d.size();
+        for (int i = 0; i < size; i++) {
+            bm bmVar = d.get(i);
+            String str = bmVar.a() + "";
+            v vVar = this.n.get(str);
+            if (vVar != null) {
+                if (bmVar.b() != 0) {
+                    this.n.remove(str);
+                    this.m.remove(vVar);
+                    vVar.a(1);
+                    vVar.b(bmVar.c());
+                    vVar.d(bmVar.d());
+                    vVar.a(true);
+                    vVar.b(false);
+                    vVar.c(false);
+                    if (vVar.g() + vVar.m() >= vVar.h()) {
+                        vVar.c(vVar.f() + 1);
+                        vVar.e(true);
+                    }
+                    this.l.add(vVar);
+                    TiebaApplication.g().a(vVar.b(), vVar.m(), -1);
+                } else {
+                    vVar.a(false);
+                    vVar.b(true);
+                    vVar.c(false);
+                    vVar.a(bmVar.e().b());
+                }
+            }
+        }
     }
 
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.a = jSONObject.optInt("forum_id");
-                this.b = jSONObject.optString("forum_name");
-                this.c = jSONObject.optString("avatar");
-                this.d = jSONObject.optInt("is_sign_in");
-                this.e = jSONObject.optInt("cont_sign_num");
-                this.f = jSONObject.optInt("user_level");
-                this.g = jSONObject.optInt("user_exp");
-                this.h = jSONObject.optInt("need_exp");
-                if (this.d != 0) {
-                    this.i = true;
-                    this.k = false;
+                this.o.a(jSONObject.optJSONObject("error"));
+                this.a = jSONObject.optInt("level");
+                this.b = jSONObject.optString("title");
+                this.c = jSONObject.optString("text_pre");
+                this.d = jSONObject.optString("text_color");
+                this.e = jSONObject.optString("text_mid");
+                this.f = jSONObject.optString("text_suf");
+                this.g = jSONObject.optString("num_notice");
+                this.h = jSONObject.optInt("show_dialog");
+                this.i = jSONObject.optString("sign_notice");
+                this.j = jSONObject.optInt("valid");
+                this.p = jSONObject.optInt("sign_max_num");
+                bu.a = this.p;
+                JSONArray optJSONArray = jSONObject.optJSONArray("forum_info");
+                if (optJSONArray != null) {
+                    int min = Math.min(optJSONArray.length(), bu.a);
+                    for (int i = 0; i < min; i++) {
+                        JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
+                        if (jSONObject2 != null) {
+                            v vVar = new v();
+                            vVar.a(jSONObject2);
+                            if (vVar.d() == 0) {
+                                if (this.j == 0) {
+                                    vVar.b(true);
+                                }
+                                this.m.add(vVar);
+                                this.n.put(vVar.a() + "", vVar);
+                            } else {
+                                this.l.add(vVar);
+                                TiebaApplication.g().a(vVar.b(), vVar.m(), -1);
+                            }
+                            this.k.add(vVar);
+                        }
+                    }
                 }
             } catch (Exception e) {
-                com.baidu.tieba.util.be.b(getClass().getName(), "parserJson", e.getMessage());
+                com.baidu.tieba.util.bo.b(getClass().getName(), "parserJson", e.getMessage());
             }
         }
     }

@@ -1,98 +1,92 @@
 package com.baidu.tieba.util;
 
-import android.widget.ListAdapter;
-import android.widget.ListView;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.UtilHelper;
-import java.util.Iterator;
-import java.util.LinkedList;
+import android.content.Context;
+import android.os.Handler;
+import java.util.ArrayList;
+import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
-public class ai {
-    public static void a(ListView listView, i iVar, int i, int i2) {
-        a(listView, iVar, null, null, i, i2);
-    }
+public interface ai {
+    String A();
 
-    public static void a(ListView listView, i iVar, com.baidu.tbadk.imageManager.c cVar, com.baidu.tbadk.imageManager.c cVar2, int i, int i2) {
-        boolean z;
-        int i3;
-        int i4;
-        LinkedList<String> photoUrl;
-        LinkedList<String> imageUrl;
-        if (listView != null && iVar != null) {
-            iVar.a();
-            int firstVisiblePosition = listView.getFirstVisiblePosition();
-            int lastVisiblePosition = listView.getLastVisiblePosition();
-            ListAdapter adapter = listView.getAdapter();
-            if (adapter != null) {
-                if (cVar == null) {
-                    cVar = new aj(listView);
-                }
-                if (cVar2 == null) {
-                    cVar2 = new ak(listView);
-                }
-                int i5 = 0;
-                try {
-                    UtilHelper.NetworkStateInfo g = UtilHelper.g(TiebaApplication.h());
-                    if (g == UtilHelper.NetworkStateInfo.WIFI || g == UtilHelper.NetworkStateInfo.ThreeG) {
-                        z = true;
-                    } else {
-                        z = false;
-                    }
-                    int i6 = firstVisiblePosition;
-                    int i7 = 0;
-                    while (i6 < adapter.getCount()) {
-                        if (i6 <= lastVisiblePosition || z) {
-                            if (adapter.getItem(i6) instanceof al) {
-                                al alVar = (al) adapter.getItem(i6);
-                                if (i != 0 || i7 >= 13 || (imageUrl = alVar.getImageUrl()) == null) {
-                                    i4 = i7;
-                                } else {
-                                    Iterator<String> it = imageUrl.iterator();
-                                    i4 = i7;
-                                    while (it.hasNext()) {
-                                        i4++;
-                                        iVar.a(it.next(), cVar);
-                                    }
-                                }
-                                if (i5 < 30 && (photoUrl = alVar.getPhotoUrl()) != null) {
-                                    Iterator<String> it2 = photoUrl.iterator();
-                                    while (it2.hasNext()) {
-                                        String next = it2.next();
-                                        i5++;
-                                        if (i2 == 0) {
-                                            iVar.d(next, cVar2);
-                                        } else if (i2 == 1) {
-                                            iVar.b(next, cVar2);
-                                        }
-                                    }
-                                }
-                                int i8 = i5;
-                                LinkedList<String> forumPhotoUrl = alVar.getForumPhotoUrl();
-                                if (forumPhotoUrl != null) {
-                                    Iterator<String> it3 = forumPhotoUrl.iterator();
-                                    while (it3.hasNext()) {
-                                        i8++;
-                                        iVar.f(it3.next(), cVar);
-                                    }
-                                }
-                                i3 = i8;
-                                if (z && i4 >= 13 && i3 >= 30) {
-                                    return;
-                                }
-                                i7 = i4;
-                            } else {
-                                i3 = i5;
-                            }
-                            i6++;
-                            i5 = i3;
-                        } else {
-                            return;
-                        }
-                    }
-                } catch (Exception e) {
-                    be.b("LoadImageHelper", "loadListView", e.toString());
-                }
-            }
-        }
-    }
+    void a(int i);
+
+    void a(Context context);
+
+    void a(Boolean bool);
+
+    void a(String str);
+
+    void a(String str, String str2);
+
+    void a(String str, byte[] bArr);
+
+    void a(ArrayList<BasicNameValuePair> arrayList);
+
+    void a(BasicNameValuePair basicNameValuePair);
+
+    void a(boolean z);
+
+    boolean a();
+
+    boolean a(String str, Handler handler, int i, int i2, int i3);
+
+    long b();
+
+    void b(String str);
+
+    void b(boolean z);
+
+    String c();
+
+    void c(String str);
+
+    void c(boolean z);
+
+    long d();
+
+    void d(boolean z);
+
+    long e();
+
+    long f();
+
+    long g();
+
+    int h();
+
+    long i();
+
+    int j();
+
+    Context k();
+
+    ArrayList<BasicNameValuePair> l();
+
+    int m();
+
+    String n();
+
+    boolean o();
+
+    boolean p();
+
+    String q();
+
+    void r();
+
+    String s();
+
+    void t();
+
+    byte[] u();
+
+    String v();
+
+    String w();
+
+    boolean x();
+
+    int y();
+
+    String z();
 }

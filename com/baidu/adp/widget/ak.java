@@ -5,6 +5,7 @@ import android.view.animation.Interpolator;
 final class ak implements Interpolator {
     @Override // android.animation.TimeInterpolator
     public float getInterpolation(float f) {
-        return f * f * f * f * f;
+        float f2 = f - 1.0f;
+        return (f2 * f2 * f2 * f2 * f2) + 1.0f;
     }
 }

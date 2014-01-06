@@ -5,16 +5,16 @@ import android.app.NotificationManager;
 import android.os.Handler;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tieba.data.VersionData;
-import com.baidu.tieba.util.an;
-import com.baidu.tieba.util.be;
-import com.baidu.tieba.util.y;
+import com.baidu.tieba.util.aa;
+import com.baidu.tieba.util.at;
+import com.baidu.tieba.util.bo;
 import com.slidingmenu.lib.R;
 import java.io.File;
 /* loaded from: classes.dex */
 class u extends BdAsyncTask<String, Integer, Boolean> {
     final /* synthetic */ TiebaUpdateService a;
     private VersionData b;
-    private an c = null;
+    private at c = null;
     private volatile boolean d = false;
 
     public u(TiebaUpdateService tiebaUpdateService, VersionData versionData) {
@@ -34,9 +34,9 @@ class u extends BdAsyncTask<String, Integer, Boolean> {
         Boolean bool2 = false;
         while (!this.d) {
             try {
-                this.c = new an(this.b.getUrl());
+                this.c = new at(this.b.getUrl());
                 handler = this.a.k;
-                bool2 = this.c.a(this.b.getNew_file() + ".tmp", handler, 900002);
+                bool2 = Boolean.valueOf(this.c.a(this.b.getNew_file() + ".tmp", handler, 900002));
                 if (bool2.booleanValue()) {
                     break;
                 } else if (this.c.e() == -2) {
@@ -56,15 +56,15 @@ class u extends BdAsyncTask<String, Integer, Boolean> {
         bool = bool2;
         try {
             if (bool.booleanValue()) {
-                y.j(this.b.getNew_file());
-                File d = y.d(this.b.getNew_file() + ".tmp");
-                if (d != null && (e2 = y.e(this.b.getNew_file())) != null && !d.renameTo(e2)) {
-                    be.b(getClass().getName(), "doInBackground", "renameTo error");
+                aa.j(this.b.getNew_file());
+                File d = aa.d(this.b.getNew_file() + ".tmp");
+                if (d != null && (e2 = aa.e(this.b.getNew_file())) != null && !d.renameTo(e2)) {
+                    bo.b(getClass().getName(), "doInBackground", "renameTo error");
                 }
             }
         } catch (Exception e5) {
             e = e5;
-            be.b(getClass().getName(), "doInBackground", e.getMessage());
+            bo.b(getClass().getName(), "doInBackground", e.getMessage());
             return bool;
         }
         return bool;
@@ -96,7 +96,7 @@ class u extends BdAsyncTask<String, Integer, Boolean> {
         this.a.e = null;
         try {
         } catch (Exception e) {
-            be.b(getClass().getName(), "onPostExecute", e.getMessage());
+            bo.b(getClass().getName(), "onPostExecute", e.getMessage());
         }
         if (bool.booleanValue()) {
             notificationManager2 = this.a.b;

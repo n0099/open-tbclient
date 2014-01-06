@@ -1,5 +1,6 @@
 package com.baidu.tieba.data;
 
+import com.baidu.tieba.util.bo;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class UserData extends MetaData {
@@ -49,7 +50,7 @@ public class UserData extends MetaData {
         try {
             parserJson(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.tieba.util.be.b("PostData", "parserJson", "error = " + e.getMessage());
+            bo.b("PostData", "parserJson", "error = " + e.getMessage());
         }
     }
 
@@ -74,20 +75,20 @@ public class UserData extends MetaData {
                 this.bawu_type = jSONObject.optString("bawu_type");
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.be.b("PostData", "parserJson", "error = " + e.getMessage());
+            bo.b("PostData", "parserJson", "error = " + e.getMessage());
         }
     }
 
     @Override // com.baidu.tieba.data.MetaData
     public void logPrint() {
         super.logPrint();
-        com.baidu.tieba.util.be.d(getClass().getName(), "logPrint", "ip = " + this.ip);
-        com.baidu.tieba.util.be.d(getClass().getName(), "logPrint", "BDUSS = " + this.BDUSS);
-        com.baidu.tieba.util.be.d(getClass().getName(), "logPrint", "level_id = " + String.valueOf(this.level_id));
-        com.baidu.tieba.util.be.d(getClass().getName(), "logPrint", "fans_num = " + String.valueOf(this.fans_num));
-        com.baidu.tieba.util.be.d(getClass().getName(), "logPrint", "concern_num = " + String.valueOf(this.concern_num));
-        com.baidu.tieba.util.be.d(getClass().getName(), "logPrint", "sex = " + String.valueOf(this.sex));
-        com.baidu.tieba.util.be.d(getClass().getName(), "logPrint", "intro = " + this.intro);
+        bo.d(getClass().getName(), "logPrint", "ip = " + this.ip);
+        bo.d(getClass().getName(), "logPrint", "BDUSS = " + this.BDUSS);
+        bo.d(getClass().getName(), "logPrint", "level_id = " + String.valueOf(this.level_id));
+        bo.d(getClass().getName(), "logPrint", "fans_num = " + String.valueOf(this.fans_num));
+        bo.d(getClass().getName(), "logPrint", "concern_num = " + String.valueOf(this.concern_num));
+        bo.d(getClass().getName(), "logPrint", "sex = " + String.valueOf(this.sex));
+        bo.d(getClass().getName(), "logPrint", "intro = " + this.intro);
     }
 
     public void setFans_num(int i) {

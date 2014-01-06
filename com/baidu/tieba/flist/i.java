@@ -16,7 +16,7 @@ class i implements AdapterView.OnItemClickListener {
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        if (TiebaApplication.h().t()) {
+        if (TiebaApplication.g().s()) {
             StatService.onEvent(this.a, "forumlist_\tcatalog", "catalogclick", 1);
         }
         this.a.c.t.dismiss();

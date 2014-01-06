@@ -1,31 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.data.CombineDownload;
+import com.baidu.tieba.data.chat.RecentChatFriendData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bi implements ax {
-    final /* synthetic */ UpdateDialog a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bi(UpdateDialog updateDialog) {
-        this.a = updateDialog;
-    }
-
-    @Override // com.baidu.tieba.ax
-    public void a(boolean z) {
-        CombineDownload combineDownload;
-        if (!z) {
-            this.a.a();
-        } else {
-            UpdateDialog updateDialog = this.a;
-            combineDownload = this.a.b;
-            updateDialog.a(combineDownload.getAppUrl());
-        }
-        this.a.finish();
-    }
-
-    @Override // com.baidu.tieba.ax
-    public void a() {
-        this.a.finish();
+public final class bi implements com.baidu.tieba.im.a<Void> {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.a
+    public void a(Void r4) {
+        com.baidu.tieba.im.c.a.h().f();
+        com.baidu.tieba.im.c.a.h().b((RecentChatFriendData) null);
+        com.baidu.tieba.im.c.a.h().c((RecentChatFriendData) null);
+        com.baidu.tieba.im.c.a.h().b(false, (com.baidu.tieba.im.a<Void>) null);
     }
 }

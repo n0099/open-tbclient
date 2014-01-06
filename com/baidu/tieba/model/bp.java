@@ -7,13 +7,14 @@ import com.baidu.tieba.data.WriteData;
 /* loaded from: classes.dex */
 public class bp extends com.baidu.adp.a.d {
     protected Context e;
-    protected com.baidu.tieba.data.av f;
+    protected com.baidu.tieba.data.ax f;
     protected int a = 0;
     protected String b = null;
     protected String c = null;
     protected String d = null;
     protected bq g = null;
     protected br h = null;
+    protected com.baidu.tieba.util.i i = null;
 
     public void a(Intent intent) {
         this.b = intent.getStringExtra("thread_id");
@@ -37,7 +38,7 @@ public class bp extends com.baidu.adp.a.d {
         this.e = null;
         this.f = null;
         this.e = context;
-        this.f = new com.baidu.tieba.data.av();
+        this.f = new com.baidu.tieba.data.ax();
     }
 
     public void a(String str) {
@@ -61,10 +62,10 @@ public class bp extends com.baidu.adp.a.d {
     }
 
     public void d() {
-        this.f = new com.baidu.tieba.data.av();
+        this.f = new com.baidu.tieba.data.ax();
     }
 
-    public com.baidu.tieba.data.av e() {
+    public com.baidu.tieba.data.ax e() {
         return this.f;
     }
 

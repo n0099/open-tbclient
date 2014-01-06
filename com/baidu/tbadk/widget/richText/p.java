@@ -1,22 +1,18 @@
 package com.baidu.tbadk.widget.richText;
-
-import android.view.View;
-import android.widget.AbsListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class p implements AbsListView.RecyclerListener {
-    private int a;
+public class p implements Runnable {
+    final /* synthetic */ TbRichTextView a;
 
-    public p(int i) {
-        this.a = 0;
-        this.a = i;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public p(TbRichTextView tbRichTextView) {
+        this.a = tbRichTextView;
     }
 
-    @Override // android.widget.AbsListView.RecyclerListener
-    public void onMovedToScrapHeap(View view) {
-        View findViewById = view.findViewById(this.a);
-        if (findViewById != null && (findViewById instanceof TbRichTextView)) {
-            ((TbRichTextView) findViewById).setText(null);
+    @Override // java.lang.Runnable
+    public void run() {
+        if (this.a.performLongClick()) {
+            this.a.z = true;
         }
     }
 }

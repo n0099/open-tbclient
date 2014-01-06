@@ -14,11 +14,11 @@ class m implements com.baidu.tbadk.imageManager.c {
     }
 
     @Override // com.baidu.tbadk.imageManager.c
-    public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
+    public void a(com.baidu.adp.widget.ImageView.d dVar, String str, boolean z) {
         View findViewWithTag = this.a.findViewWithTag(str);
-        if (findViewWithTag instanceof ImageView) {
+        if ((findViewWithTag instanceof ImageView) && dVar != null) {
             ImageView imageView = (ImageView) findViewWithTag;
-            imageView.setImageBitmap(eVar.f());
+            imageView.setImageBitmap(dVar.h());
             imageView.invalidate();
         }
     }

@@ -26,7 +26,7 @@ public class r {
                 if (a != null) {
                     a.setText(trim);
                 } else {
-                    a = Toast.makeText(TiebaApplication.h(), trim, 0);
+                    a = Toast.makeText(TiebaApplication.g(), trim, 0);
                     a.setGravity(17, 0, i2);
                 }
                 b.postDelayed(c, i);
@@ -36,15 +36,15 @@ public class r {
     }
 
     public void a(String str, int i) {
-        a(str, i, com.baidu.adp.lib.h.g.a((Context) TiebaApplication.h(), 100.0f));
+        a(str, i, com.baidu.adp.lib.h.g.a((Context) TiebaApplication.g(), 100.0f));
     }
 
     public void a(int i, int i2) {
-        a(TiebaApplication.h().getResources().getString(i), i2);
+        a(TiebaApplication.g().getResources().getString(i), i2);
     }
 
     public void a(int i, int i2, int i3) {
-        a(TiebaApplication.h().getResources().getString(i), i2, i3);
+        a(TiebaApplication.g().getResources().getString(i), i2, i3);
     }
 
     public void b() {

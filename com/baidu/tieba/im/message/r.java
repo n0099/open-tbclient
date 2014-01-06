@@ -1,61 +1,53 @@
 package com.baidu.tieba.im.message;
-
-import com.google.protobuf.ByteString;
-import com.google.protobuf.CodedOutputStream;
-import com.google.protobuf.MessageLite;
-import com.google.protobuf.Parser;
-import java.io.OutputStream;
 /* loaded from: classes.dex */
-final class r implements MessageLite {
-    @Override // com.google.protobuf.MessageLiteOrBuilder
-    public boolean isInitialized() {
-        return false;
+public class r extends cc {
+    private int a = 0;
+    private int b = 0;
+    private int c = 0;
+    private int d = 0;
+    private int e = 0;
+
+    public r() {
+        super.e(-124);
     }
 
-    @Override // com.google.protobuf.MessageLiteOrBuilder
-    public MessageLite getDefaultInstanceForType() {
-        return null;
+    public int a() {
+        return this.a;
     }
 
-    @Override // com.google.protobuf.MessageLite
-    public void writeTo(OutputStream outputStream) {
+    public void a(int i) {
+        this.a = i;
     }
 
-    @Override // com.google.protobuf.MessageLite
-    public void writeTo(CodedOutputStream codedOutputStream) {
+    public int b() {
+        return this.b;
     }
 
-    @Override // com.google.protobuf.MessageLite
-    public void writeDelimitedTo(OutputStream outputStream) {
+    public void b(int i) {
+        this.b = i;
     }
 
-    @Override // com.google.protobuf.MessageLite
-    public ByteString toByteString() {
-        return null;
+    public int c() {
+        return this.c;
     }
 
-    @Override // com.google.protobuf.MessageLite
-    public byte[] toByteArray() {
-        return null;
+    public void c(int i) {
+        this.c = i;
     }
 
-    @Override // com.google.protobuf.MessageLite
-    public MessageLite.Builder toBuilder() {
-        return null;
+    public int d() {
+        return this.d;
     }
 
-    @Override // com.google.protobuf.MessageLite
-    public MessageLite.Builder newBuilderForType() {
-        return null;
+    public void d(int i) {
+        this.d = i;
     }
 
-    @Override // com.google.protobuf.MessageLite
-    public int getSerializedSize() {
-        return 0;
+    public int e() {
+        return this.e;
     }
 
-    @Override // com.google.protobuf.MessageLite
-    public Parser<? extends MessageLite> getParserForType() {
-        return null;
+    public void f(int i) {
+        this.e = i;
     }
 }

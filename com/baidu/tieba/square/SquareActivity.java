@@ -20,14 +20,14 @@ import java.net.URLEncoder;
 public class SquareActivity extends BaseFragment implements AbsListView.OnScrollListener, com.baidu.tbadk.imageManager.c {
     public static boolean a = false;
     private BaseFragmentActivity f;
-    private bu b = null;
+    private by b = null;
     private av c = null;
     private boolean d = false;
     private boolean e = false;
     private Handler g = null;
     private Runnable h = null;
     private aw i = new am(this);
-    private com.baidu.tieba.view.az Y = new an(this);
+    private com.baidu.tieba.view.bf Y = new an(this);
     private View.OnKeyListener Z = new ap(this);
     private com.baidu.adp.widget.ListView.b aa = new aq(this);
 
@@ -73,7 +73,7 @@ public class SquareActivity extends BaseFragment implements AbsListView.OnScroll
     }
 
     private void G() {
-        this.b = new bu(this.f, this, this.Z);
+        this.b = new by(this.f, this, this.Z);
         this.b.a(this.aa);
         this.b.f().setClickStatKey("sq_tb_search");
     }
@@ -144,10 +144,10 @@ public class SquareActivity extends BaseFragment implements AbsListView.OnScroll
     @Override // com.baidu.tieba.BaseFragment, android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getId() == R.id.square_all_cat) {
-            if (TiebaApplication.h().t()) {
+            if (TiebaApplication.g().s()) {
                 StatService.onEvent(this.f, "sq_icon_category", "click", 1);
             }
-            BarFolderFirstDirActivity.a(this.f, a(bu.a, "all"));
+            BarFolderFirstDirActivity.a(this.f, a(by.a, "all"));
         }
     }
 
@@ -205,8 +205,8 @@ public class SquareActivity extends BaseFragment implements AbsListView.OnScroll
     }
 
     @Override // com.baidu.tbadk.imageManager.c
-    public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
-        if (eVar == null) {
+    public void a(com.baidu.adp.widget.ImageView.d dVar, String str, boolean z) {
+        if (dVar == null) {
         }
     }
 

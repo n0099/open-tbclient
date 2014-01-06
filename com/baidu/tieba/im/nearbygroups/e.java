@@ -31,9 +31,9 @@ class e implements com.baidu.adp.lib.c.d {
                 kVar7.b(false);
                 String valueOf = String.valueOf(address.getLatitude());
                 String valueOf2 = String.valueOf(address.getLongitude());
-                TiebaApplication.h().y(valueOf);
-                TiebaApplication.h().z(valueOf2);
-                TiebaApplication.h().A(address.getAdminArea());
+                TiebaApplication.g().y(valueOf);
+                TiebaApplication.g().z(valueOf2);
+                TiebaApplication.g().A(address.getAdminArea());
                 adVar = this.a.c;
                 adVar.b(valueOf);
                 adVar2 = this.a.c;

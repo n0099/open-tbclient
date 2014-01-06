@@ -24,7 +24,7 @@ public class m {
 
     public static Bitmap a(int i) {
         Bitmap bitmap = b.get(Integer.valueOf(i));
-        if (bitmap == null && (bitmap = b(TiebaApplication.h(), i)) != null) {
+        if (bitmap == null && (bitmap = b(TiebaApplication.g(), i)) != null) {
             b.put(Integer.valueOf(i), bitmap);
         }
         return bitmap;
@@ -44,10 +44,10 @@ public class m {
     public static Bitmap a(Context context, int i) {
         try {
             BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inPreferredConfig = com.baidu.tieba.data.h.n;
+            options.inPreferredConfig = com.baidu.tieba.data.h.o;
             return BitmapFactory.decodeResource(context.getResources(), i, options);
         } catch (Throwable th) {
-            be.b("BitmapHelper", "getResBitmap", "error = " + th.getMessage());
+            bo.b("BitmapHelper", "getResBitmap", "error = " + th.getMessage());
             return null;
         }
     }
@@ -56,7 +56,7 @@ public class m {
         try {
             return BitmapFactory.decodeResource(context.getResources(), i, new BitmapFactory.Options());
         } catch (Throwable th) {
-            be.b("BitmapHelper", "getResBitmap", "error = " + th.getMessage());
+            bo.b("BitmapHelper", "getResBitmap", "error = " + th.getMessage());
             return null;
         }
     }
@@ -132,9 +132,9 @@ public class m {
             synchronized (a) {
                 BitmapFactory.Options options = new BitmapFactory.Options();
                 options.inJustDecodeBounds = true;
-                InputStream h = y.h(str);
+                InputStream h = aa.h(str);
                 BitmapFactory.decodeStream(h, null, options);
-                options.inPreferredConfig = com.baidu.tieba.data.h.n;
+                options.inPreferredConfig = com.baidu.tieba.data.h.o;
                 o.a(h);
                 while (true) {
                     if (options.outWidth / (i2 * 2) > i || options.outHeight / (i2 * 2) > i) {
@@ -142,7 +142,7 @@ public class m {
                     } else {
                         options.inJustDecodeBounds = false;
                         options.inSampleSize = i2;
-                        InputStream h2 = y.h(str);
+                        InputStream h2 = aa.h(str);
                         decodeStream = BitmapFactory.decodeStream(h2, null, options);
                         o.a(h2);
                     }
@@ -166,7 +166,7 @@ public class m {
         }
         try {
             BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inPreferredConfig = com.baidu.tieba.data.h.n;
+            options.inPreferredConfig = com.baidu.tieba.data.h.o;
             options.inDither = false;
             options.inJustDecodeBounds = true;
             synchronized (a) {
@@ -283,7 +283,7 @@ public class m {
             return null;
         }
         BitmapFactory.Options options = new BitmapFactory.Options();
-        options.inPreferredConfig = com.baidu.tieba.data.h.n;
+        options.inPreferredConfig = com.baidu.tieba.data.h.o;
         try {
             synchronized (a) {
                 try {
@@ -391,7 +391,7 @@ public class m {
     }
 
     public static int b(int i) {
-        int an = TiebaApplication.h().an();
+        int an = TiebaApplication.g().an();
         if (i > 15) {
             if (an == 1) {
                 return R.drawable.icon_grade_yellow_1;

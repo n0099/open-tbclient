@@ -1,80 +1,56 @@
 package com.baidu.tieba.im.chat;
 
-import android.app.Activity;
-import android.graphics.drawable.BitmapDrawable;
-import android.text.Editable;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.EditText;
-import android.widget.ImageView;
-import com.slidingmenu.lib.R;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.ArrayList;
+import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ak implements AdapterView.OnItemClickListener {
-    final /* synthetic */ aj a;
+public class ak implements android.support.v4.view.bq {
+    final /* synthetic */ MsgImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ak(aj ajVar) {
-        this.a = ajVar;
+    public ak(MsgImageActivity msgImageActivity) {
+        this.a = msgImageActivity;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        q qVar;
+    @Override // android.support.v4.view.bq
+    public void onPageSelected(int i) {
         int i2;
+        MsgImageActivity msgImageActivity = this.a;
+        i2 = this.a.c;
+        msgImageActivity.a(i2, i);
+        this.a.c = i;
+        this.a.b();
+    }
+
+    @Override // android.support.v4.view.bq
+    public void onPageScrolled(int i, float f, int i2) {
+    }
+
+    @Override // android.support.v4.view.bq
+    public void onPageScrollStateChanged(int i) {
+        long j;
+        ArrayList arrayList;
+        int i2;
+        ArrayList arrayList2;
+        HashMap hashMap;
+        ArrayList arrayList3;
         int i3;
-        EditText editText;
-        EditText editText2;
-        EditText editText3;
-        Activity activity;
-        EditText editText4;
-        EditText editText5;
-        EditText editText6;
-        EditText editText7;
-        EditText editText8;
-        EditText editText9;
-        EditText editText10;
-        EditText editText11;
-        if (i % 27 != 0 || i == 0) {
-            qVar = this.a.f;
-            i2 = this.a.c;
-            i3 = this.a.c;
-            String a = qVar.a(((((i2 - 1) * 28) + i) - i3) + 1);
-            if (a != null) {
-                editText = this.a.b;
-                int selectionStart = editText.getSelectionStart();
-                editText2 = this.a.b;
-                editText2.getText().insert(selectionStart, a);
-                return;
+        if (i == 1) {
+            long nanoTime = System.nanoTime();
+            j = this.a.t;
+            if (nanoTime - j > 300000000) {
+                arrayList = this.a.b;
+                if (arrayList != null) {
+                    i2 = this.a.c;
+                    arrayList2 = this.a.b;
+                    if (i2 < arrayList2.size()) {
+                        hashMap = this.a.u;
+                        arrayList3 = this.a.b;
+                        i3 = this.a.c;
+                        hashMap.put(arrayList3.get(i3), true);
+                    }
+                }
             }
-            return;
-        }
-        editText3 = this.a.b;
-        if (editText3.getSelectionStart() > 0) {
-            activity = this.a.a;
-            ((ImageView) view).setImageBitmap(((BitmapDrawable) activity.getResources().getDrawable(R.drawable.but_face_close_n)).getBitmap());
-            editText4 = this.a.b;
-            String obj = editText4.getText().toString();
-            editText5 = this.a.b;
-            String substring = obj.substring(0, editText5.getSelectionStart());
-            Matcher matcher = Pattern.compile("#\\([^#\\)\\(]+\\)$").matcher(substring);
-            if (!matcher.find()) {
-                editText6 = this.a.b;
-                Editable text = editText6.getText();
-                editText7 = this.a.b;
-                editText8 = this.a.b;
-                text.delete(editText7.getSelectionStart() - 1, editText8.getSelectionStart());
-                return;
-            }
-            int length = substring.length() - matcher.replaceFirst("").length();
-            editText9 = this.a.b;
-            Editable text2 = editText9.getText();
-            editText10 = this.a.b;
-            int selectionStart2 = editText10.getSelectionStart() - length;
-            editText11 = this.a.b;
-            text2.delete(selectionStart2, editText11.getSelectionStart());
         }
     }
 }

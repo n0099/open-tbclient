@@ -10,7 +10,7 @@ import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class h extends BdAsyncTask<ForumData, Integer, String> {
     final /* synthetic */ EditBarActivity a;
-    private com.baidu.tieba.util.an b;
+    private com.baidu.tieba.util.at b;
 
     private h(EditBarActivity editBarActivity) {
         this.a = editBarActivity;
@@ -32,11 +32,11 @@ public class h extends BdAsyncTask<ForumData, Integer, String> {
             try {
                 if (forumData.getId() != null && forumData.getName() != null) {
                     this.a.j = forumData.getName();
-                    this.b = new com.baidu.tieba.util.an(com.baidu.tieba.data.h.a + "c/c/forum/unfavolike");
+                    this.b = new com.baidu.tieba.util.at(com.baidu.tieba.data.h.a + "c/c/forum/unfavolike");
                     this.b.a("fid", forumData.getId());
-                    com.baidu.tieba.util.an anVar = this.b;
+                    com.baidu.tieba.util.at atVar = this.b;
                     str = this.a.j;
-                    anVar.a("kw", str);
+                    atVar.a("kw", str);
                     this.b.a("favo_type", String.valueOf(forumData.getFavo_type()));
                     this.b.e(true);
                     this.b.l();
@@ -44,7 +44,7 @@ public class h extends BdAsyncTask<ForumData, Integer, String> {
                 }
                 return null;
             } catch (Exception e) {
-                com.baidu.tieba.util.be.b(getClass().getName(), "doInBackground", e.getMessage());
+                com.baidu.tieba.util.bo.b(getClass().getName(), "doInBackground", e.getMessage());
                 return null;
             }
         }
@@ -78,9 +78,9 @@ public class h extends BdAsyncTask<ForumData, Integer, String> {
                         if (i2 < a.size()) {
                             i3 = this.a.i;
                             a.remove(i3);
-                            TiebaApplication h = TiebaApplication.h();
+                            TiebaApplication g = TiebaApplication.g();
                             str2 = this.a.j;
-                            h.g(str2);
+                            g.g(str2);
                             iVar = this.a.f;
                             if (iVar != null) {
                                 this.a.a(true);

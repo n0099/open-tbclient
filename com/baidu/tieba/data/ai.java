@@ -1,44 +1,18 @@
 package com.baidu.tieba.data;
 
+import com.baidu.cloudsdk.social.core.SocialConstants;
+import com.baidu.tieba.util.bo;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ai {
-    private int a = -1;
-    private String b = null;
-    private String c = null;
-
-    public int a() {
-        return this.a;
-    }
-
-    public String b() {
-        return this.b;
-    }
-
-    public String c() {
-        return this.c;
-    }
-
-    public void a(int i) {
-        this.a = i;
-    }
-
-    public void a(String str) {
-        this.b = str;
-    }
+    private String a = null;
 
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.a = jSONObject.optInt("type");
-                if (this.a == 3) {
-                    this.b = jSONObject.optString("big_pic");
-                } else if (this.a == 5) {
-                    this.b = jSONObject.optString("vpic");
-                    this.c = jSONObject.optString("vsrc");
-                }
+                this.a = jSONObject.optString(SocialConstants.PARAM_MEDIA_UNAME);
             } catch (Exception e) {
-                com.baidu.tieba.util.be.b(getClass().getName(), "parserJson", "error=" + e.toString());
+                bo.b("LocationData", "parserJson", "error = " + e.getMessage());
             }
         }
     }

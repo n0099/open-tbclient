@@ -18,13 +18,13 @@ import com.baidu.tieba.im.data.GroupInfoData;
 import com.baidu.tieba.im.groupInfo.GroupInfoActivity;
 import com.baidu.tieba.im.messageCenter.e;
 import com.baidu.tieba.im.messageCenter.g;
-import com.baidu.tieba.util.ai;
-import com.baidu.tieba.view.bq;
+import com.baidu.tieba.util.ak;
+import com.baidu.tieba.view.bw;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class HotGroupFragment extends BaseFragment implements com.baidu.adp.widget.ListView.b, q, r {
     private BdListView a;
-    private bq b;
+    private bw b;
     private HotGroupActivity c;
     private View d;
     private HotGroupAdapter e;
@@ -44,7 +44,7 @@ public class HotGroupFragment extends BaseFragment implements com.baidu.adp.widg
         View inflate = layoutInflater.inflate(R.layout.hot_group_fragment, (ViewGroup) null);
         this.a = (BdListView) inflate.findViewById(R.id.hot_group_list);
         this.a.a(this, 300L);
-        this.b = new bq(this.c);
+        this.b = new bw(this.c);
         this.b.a(this);
         this.e = new HotGroupAdapter(this.c);
         this.a.setAdapter((ListAdapter) this.e);
@@ -65,7 +65,7 @@ public class HotGroupFragment extends BaseFragment implements com.baidu.adp.widg
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         GroupInfoData item = this.e.getItem(i);
         if (item != null) {
-            if (TiebaApplication.h().t()) {
+            if (TiebaApplication.g().s()) {
                 StatService.onEvent(this.c, "hot_group_item", "click", 1);
             }
             GroupInfoActivity.a(this.c, item.getGroupId(), 0);
@@ -115,7 +115,7 @@ public class HotGroupFragment extends BaseFragment implements com.baidu.adp.widg
     /* JADX INFO: Access modifiers changed from: private */
     public void I() {
         if (this.a != null && this.e != null) {
-            ai.a(this.a, this.e.a(), 0, -1);
+            ak.a(this.a, this.e.a(), 0, -1);
         }
     }
 

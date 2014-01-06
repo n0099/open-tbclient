@@ -1,6 +1,6 @@
 package com.baidu.tieba.pb;
 
-import com.baidu.tieba.view.KeyboardEventLayout;
+import android.widget.FrameLayout;
 /* loaded from: classes.dex */
 class dc implements Runnable {
     final /* synthetic */ db a;
@@ -12,8 +12,8 @@ class dc implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        KeyboardEventLayout keyboardEventLayout;
-        keyboardEventLayout = this.a.b.h;
-        keyboardEventLayout.removeView(this.a.a);
+        FrameLayout frameLayout;
+        frameLayout = this.a.b.h;
+        frameLayout.removeView(this.a.a);
     }
 }

@@ -40,17 +40,17 @@ public class TbFaceManager {
         this.c = aVar;
     }
 
-    public com.baidu.adp.widget.ImageView.e a(String str) {
+    public com.baidu.adp.widget.ImageView.d a(String str) {
         return a(b(str), str);
     }
 
-    private com.baidu.adp.widget.ImageView.e a(int i, String str) {
+    private com.baidu.adp.widget.ImageView.d a(int i, String str) {
         Bitmap a2;
-        com.baidu.adp.widget.ImageView.e c = d.a().c(str);
+        com.baidu.adp.widget.ImageView.d c = d.a().c(str);
         if (c == null && (a2 = com.baidu.adp.lib.h.a.a().a(this.b, i)) != null) {
-            com.baidu.adp.widget.ImageView.e eVar = new com.baidu.adp.widget.ImageView.e(a2, false, str);
-            d.a().b(str, eVar);
-            return eVar;
+            com.baidu.adp.widget.ImageView.d dVar = new com.baidu.adp.widget.ImageView.d(a2, false, str);
+            d.a().b(str, dVar);
+            return dVar;
         }
         return c;
     }
@@ -60,37 +60,20 @@ public class TbFaceManager {
     }
 
     public b c(String str) {
-        com.baidu.adp.widget.ImageView.e a2;
+        com.baidu.adp.widget.ImageView.d a2;
         b a3 = this.c.a(this.b, str);
         if (a3 == null && (a2 = a(str)) != null) {
-            return new b(a2.a(), a2.b());
+            return new b(a2.c(), a2.d());
         }
         return a3;
-    }
-
-    public int b() {
-        return this.c.a();
     }
 
     public String d(String str) {
         return this.c.c(str);
     }
 
-    public int a(int i) {
-        return this.c.a(i);
-    }
-
-    public com.baidu.adp.widget.ImageView.e b(int i) {
-        int a2 = a(i);
-        return a(a2, String.valueOf(a2));
-    }
-
-    public String c(int i) {
-        return this.c.b(i);
-    }
-
     public SpannableString a(Context context, String str) {
-        com.baidu.adp.widget.ImageView.e a2;
+        com.baidu.adp.widget.ImageView.d a2;
         if (str == null) {
             return null;
         }
@@ -102,9 +85,9 @@ public class TbFaceManager {
             if (b > 0 && (a2 = a(b, String.valueOf(b))) != null) {
                 int length = group.length();
                 int start = matcher.start();
-                BitmapDrawable g = a2.g();
-                g.setBounds(0, 0, a2.a(), a2.b());
-                spannableString.setSpan(new ImageSpan(g, 0), start, length + start, 33);
+                BitmapDrawable i = a2.i();
+                i.setBounds(0, 0, a2.c(), a2.d());
+                spannableString.setSpan(new ImageSpan(i, 0), start, length + start, 33);
             }
         }
         return spannableString;

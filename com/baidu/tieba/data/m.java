@@ -5,7 +5,7 @@ import android.view.View;
 import com.baidu.tieba.person.PersonInfoActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class m extends com.baidu.tieba.util.ah {
+public class m extends com.baidu.tieba.util.aj {
     final /* synthetic */ j a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,7 +15,7 @@ public class m extends com.baidu.tieba.util.ah {
         this.a = jVar;
     }
 
-    @Override // com.baidu.tieba.util.ah, android.text.style.ClickableSpan
+    @Override // com.baidu.tieba.util.aj, android.text.style.ClickableSpan
     public void onClick(View view) {
         String str;
         String str2;
@@ -27,7 +27,7 @@ public class m extends com.baidu.tieba.util.ah {
             str4 = str3.replace("@", "").replace(" ", "");
         }
         Context a = a();
-        str2 = this.a.f;
+        str2 = this.a.g;
         PersonInfoActivity.a(a, str2, str4);
     }
 }

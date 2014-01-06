@@ -18,7 +18,7 @@ public class ej implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
         int[] iArr = new int[2];
-        this.c.I.getLocationInWindow(iArr);
+        this.c.L.getLocationInWindow(iArr);
         this.c.c.setSelectionFromTop(this.a + 1, iArr[1] - this.b.getHeight());
         this.c.c.invalidate();
     }

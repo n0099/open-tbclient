@@ -1,8 +1,9 @@
 package com.baidu.tieba.square;
 
-import android.widget.EditText;
+import java.util.ArrayList;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bi implements Runnable {
+public class bi implements com.baidu.tieba.im.a<ArrayList<String>> {
     final /* synthetic */ SquareSearchActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,14 +11,9 @@ class bi implements Runnable {
         this.a = squareSearchActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        EditText editText;
-        EditText editText2;
-        editText = this.a.c;
-        editText.requestFocus();
-        SquareSearchActivity squareSearchActivity = this.a;
-        editText2 = this.a.c;
-        com.baidu.adp.lib.h.g.b(squareSearchActivity, editText2);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.a
+    public void a(ArrayList<String> arrayList) {
+        this.a.a(true, arrayList);
     }
 }

@@ -1,22 +1,30 @@
 package com.baidu.tieba.util;
 
-import com.baidu.tieba.BaiduAccount.BaiduAccount;
-import com.baidu.tieba.TiebaApplication;
-import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class ap implements BaiduAccount.CallbackListener {
-    final /* synthetic */ an a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ap(an anVar) {
-        this.a = anVar;
+public abstract class ap implements ar {
+    @Override // com.baidu.tieba.util.ar
+    public boolean isSupportImageSize() {
+        return false;
     }
 
-    @Override // com.baidu.tieba.BaiduAccount.BaiduAccount.CallbackListener
-    public void callback() {
-        ag agVar;
-        agVar = this.a.a;
-        agVar.c(TiebaApplication.h().getString(R.string.error_unkown));
+    @Override // com.baidu.tieba.util.ar
+    public LinkedList<String> getImageUrl() {
+        return null;
+    }
+
+    @Override // com.baidu.tieba.util.ar
+    public LinkedList<aq> getImagesWithEmotions() {
+        return null;
+    }
+
+    @Override // com.baidu.tieba.util.ar
+    public LinkedList<String> getPhotoUrl() {
+        return null;
+    }
+
+    @Override // com.baidu.tieba.util.ar
+    public LinkedList<String> getForumPhotoUrl() {
+        return null;
     }
 }

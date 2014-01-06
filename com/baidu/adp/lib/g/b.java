@@ -2,6 +2,9 @@ package com.baidu.adp.lib.g;
 
 import com.baidu.adp.lib.network.e;
 import java.io.ByteArrayOutputStream;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import org.apache.http.message.BasicNameValuePair;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements Runnable {
@@ -22,7 +25,7 @@ public class b implements Runnable {
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                 com.baidu.adp.lib.h.d.a(g, byteArrayOutputStream);
                 try {
-                    e a = com.baidu.adp.lib.network.d.a().a("http://or.baidu.com/or/api/get", null, "monitor", byteArrayOutputStream.toByteArray(), 2, null, null, null);
+                    e a = com.baidu.adp.lib.network.d.a().a("http://or.baidu.com/or/api/get", (ArrayList<BasicNameValuePair>) null, "monitor", byteArrayOutputStream.toByteArray(), 2, (com.baidu.adp.lib.network.c) null, (com.baidu.adp.lib.network.a) null, (LinkedList<BasicNameValuePair>) null);
                     if (a == null || a.a != 200) {
                         this.a.d();
                     } else {

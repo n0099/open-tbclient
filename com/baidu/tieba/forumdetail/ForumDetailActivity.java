@@ -33,7 +33,7 @@ public class ForumDetailActivity extends com.baidu.tieba.j {
         super.onCreate(bundle);
         a();
         b();
-        if (TiebaApplication.h().t()) {
+        if (TiebaApplication.g().s()) {
             StatService.onEvent(this, getIntent().getStringExtra("from_type").equals(FromType.FRS.toString()) ? "detail_from_frs" : "detail_from_bar_dir", "click", 1);
         }
     }

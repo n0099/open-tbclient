@@ -5,7 +5,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tieba.flist.ForumListModel;
 import com.baidu.tieba.model.ax;
-import com.baidu.tieba.util.be;
+import com.baidu.tieba.util.bo;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -43,11 +43,11 @@ public class g implements w {
         int i6;
         s sVar7;
         ForumListModel.RequestParams requestParams5;
-        be.e("ForunListActivity", "ForumListDetailCallBack", "callback start");
+        bo.e("ForunListActivity", "ForumListDetailCallBack", "callback start");
         if (!z) {
             sVar7 = this.a.D;
             if (sVar7.a() == null) {
-                be.e("ForunListActivity", "ForumListDetailCallBack", "isOk == false");
+                bo.e("ForunListActivity", "ForumListDetailCallBack", "isOk == false");
                 this.a.showToast(str);
                 this.a.c.d();
                 this.a.c.c();
@@ -60,7 +60,7 @@ public class g implements w {
             }
         }
         if (forumListModel == null || forumListModel.recommend_list_left == null || forumListModel.recommend_list_right == null || forumListModel.editor_recommend == null || forumListModel.forum_class == null) {
-            be.e("ForunListActivity", "ForumListDetailCallBack", "data null ec:" + i);
+            bo.e("ForunListActivity", "ForumListDetailCallBack", "data null ec:" + i);
             requestParams = this.a.A;
             if (requestParams.menu_type == 2 && !z2) {
                 this.a.showToast(this.a.getString(R.string.no_forum_data));

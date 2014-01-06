@@ -1,27 +1,75 @@
 package com.baidu.tieba;
 
-import android.content.DialogInterface;
-import com.baidu.browser.webpool.BdWebPoolView;
-import com.baidu.tieba.data.VersionData;
+import android.location.Address;
+import android.location.Geocoder;
+import android.location.Location;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import java.io.IOException;
+import java.util.List;
+import java.util.Locale;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bk implements DialogInterface.OnDismissListener {
-    final /* synthetic */ UpdateDialog a;
+public class bk extends BdAsyncTask<Location, Void, Address> {
+    final /* synthetic */ TiebaApplication a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bk(UpdateDialog updateDialog) {
-        this.a = updateDialog;
+    private bk(TiebaApplication tiebaApplication) {
+        this.a = tiebaApplication;
     }
 
-    @Override // android.content.DialogInterface.OnDismissListener
-    public void onDismiss(DialogInterface dialogInterface) {
-        au auVar;
-        VersionData versionData;
-        auVar = this.a.c;
-        auVar.dismiss();
-        versionData = this.a.a;
-        if (versionData.getForce_update() == 1) {
-            MainTabActivity.a(this.a, (int) BdWebPoolView.DELAYED_TIME);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ bk(TiebaApplication tiebaApplication, az azVar) {
+        this(tiebaApplication);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public Address a(Location... locationArr) {
+        List<Address> list;
+        Geocoder geocoder = new Geocoder(TiebaApplication.g(), Locale.getDefault());
+        if (locationArr == null || locationArr.length < 1) {
+            return null;
         }
+        Location location = locationArr[0];
+        try {
+            list = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
+        } catch (IOException e) {
+            com.baidu.tieba.util.bo.b(getClass().getName(), "ReverseGeocodingTask_doInBackground", e.toString());
+            list = null;
+        } catch (IllegalArgumentException e2) {
+            com.baidu.tieba.util.bo.b(getClass().getName(), "ReverseGeocodingTask_doInBackground", e2.toString());
+            list = null;
+        }
+        if (list == null || list.size() <= 0) {
+            return null;
+        }
+        Address address = list.get(0);
+        StringBuffer stringBuffer = new StringBuffer();
+        if (address.getSubLocality() == null || address.getThoroughfare() == null) {
+            stringBuffer.append(address.getLocality());
+        }
+        stringBuffer.append(address.getSubLocality());
+        stringBuffer.append(address.getThoroughfare());
+        address.setAddressLine(0, stringBuffer.toString());
+        return address;
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        cancel(true);
+        this.a.G = null;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(Address address) {
+        super.a((bk) address);
+        if (address != null) {
+            this.a.aP();
+            this.a.a(0, "", address);
+            this.a.F = address;
+        }
+        this.a.G = null;
     }
 }

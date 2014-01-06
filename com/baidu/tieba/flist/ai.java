@@ -3,7 +3,7 @@ package com.baidu.tieba.flist;
 import android.content.Intent;
 import android.os.Bundle;
 import com.baidu.gson.GsonBuilder;
-import com.baidu.tieba.util.an;
+import com.baidu.tieba.util.at;
 /* loaded from: classes.dex */
 public class ai extends com.baidu.adp.a.d {
     private String a;
@@ -51,9 +51,9 @@ public class ai extends com.baidu.adp.a.d {
     }
 
     public ForumRankData a() {
-        an anVar = new an(com.baidu.tieba.data.h.a + "c/f/forum/forumsquarelist");
-        anVar.a("list_id", this.a);
-        anVar.a("st_type", this.c);
-        return (ForumRankData) new GsonBuilder().create().fromJson(anVar.l(), (Class<Object>) ForumRankData.class);
+        at atVar = new at(com.baidu.tieba.data.h.a + "c/f/forum/forumsquarelist");
+        atVar.a("list_id", this.a);
+        atVar.a("st_type", this.c);
+        return (ForumRankData) new GsonBuilder().create().fromJson(atVar.l(), (Class<Object>) ForumRankData.class);
     }
 }

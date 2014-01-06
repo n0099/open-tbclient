@@ -2,6 +2,7 @@ package com.baidu.tieba.util;
 
 import android.graphics.Bitmap;
 import java.util.HashSet;
+import java.util.Map;
 /* loaded from: classes.dex */
 public class l {
     public HashSet<com.baidu.tbadk.imageManager.c> b;
@@ -9,15 +10,25 @@ public class l {
     public volatile int d;
     public volatile Bitmap e;
     public boolean g;
-    public volatile com.baidu.adp.widget.ImageView.e i;
+    public volatile com.baidu.adp.widget.ImageView.d i;
     public boolean k;
     public boolean l;
-    public volatile an a = null;
+    public Map<String, Object> m;
+    public volatile at a = null;
     public boolean f = true;
     public volatile boolean h = false;
     public boolean j = false;
+    private boolean n = false;
 
-    public l(String str, int i, com.baidu.tbadk.imageManager.c cVar, boolean z, boolean z2, boolean z3) {
+    public boolean a() {
+        return this.n;
+    }
+
+    public void a(boolean z) {
+        this.n = z;
+    }
+
+    public l(String str, int i, com.baidu.tbadk.imageManager.c cVar, boolean z, boolean z2, boolean z3, Map<String, Object> map) {
         this.b = null;
         this.c = null;
         this.d = 0;
@@ -33,6 +44,12 @@ public class l {
         this.g = z;
         this.l = z2;
         this.k = z3;
+        this.m = map;
+    }
+
+    public String b() {
+        Object obj;
+        return (this.d != 6 || this.m == null || (obj = this.m.get("em_sharp_text")) == null) ? this.c : obj.toString();
     }
 
     public void a(com.baidu.tbadk.imageManager.c cVar) {
@@ -42,14 +59,14 @@ public class l {
         this.b.add(cVar);
     }
 
-    public void a() {
+    public void c() {
         this.j = true;
         if (this.a != null) {
             this.a.j();
         }
     }
 
-    public String b() {
+    public String d() {
         return this.c;
     }
 }

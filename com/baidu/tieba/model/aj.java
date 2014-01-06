@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class aj {
     public boolean a;
     public String b;
-    public ArrayList<com.baidu.tieba.data.z> c;
+    public ArrayList<com.baidu.tieba.data.aa> c;
     final /* synthetic */ ad d;
 
     public aj(ad adVar) {

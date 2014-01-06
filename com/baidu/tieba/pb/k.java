@@ -46,7 +46,7 @@ public class k implements Runnable {
                 }
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.be.b("ImagePbActivity", "mGetImageRunnble.run", "error = " + e.getMessage());
+            com.baidu.tieba.util.bo.b("ImagePbActivity", "mGetImageRunnble.run", "error = " + e.getMessage());
         }
     }
 }

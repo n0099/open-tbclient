@@ -10,7 +10,7 @@ public interface IDuplicateProcess {
         REMOVE_ALL
     }
 
-    boolean a(com.baidu.tieba.im.message.n nVar);
+    boolean a(com.baidu.tieba.im.message.o oVar);
 
     RemoveState h();
 }

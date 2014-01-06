@@ -33,7 +33,7 @@ public class ad {
     public synchronized void a(com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMessageCenterPojo>> aVar) {
         if (Thread.currentThread().getId() != com.baidu.tieba.im.i.a) {
             com.baidu.adp.lib.h.e.a("!!!!!!!!!!!!!!!获取缓存不是在主线程里面执行了！");
-            if (com.baidu.tieba.data.h.u()) {
+            if (com.baidu.tieba.data.h.v()) {
                 new RuntimeException().printStackTrace();
             }
         }
@@ -62,8 +62,8 @@ public class ad {
             com.baidu.adp.lib.h.e.d("see init cmpojo is null");
             return null;
         }
-        String B = TiebaApplication.B();
-        if (TextUtils.isEmpty(B)) {
+        String A = TiebaApplication.A();
+        if (TextUtils.isEmpty(A)) {
             com.baidu.adp.lib.h.e.d("see init not login:");
             return null;
         }
@@ -81,12 +81,12 @@ public class ad {
             return null;
         }
         String toUid = commonMsgPojo.getToUid();
-        if (!TextUtils.isEmpty(toUid) && toUid.equals(gid) && B.equals(gid)) {
+        if (!TextUtils.isEmpty(toUid) && toUid.equals(gid) && A.equals(gid)) {
             com.baidu.adp.lib.h.e.a("see init private : send msg to self");
             return null;
         }
         String uid = commonMsgPojo.getUid();
-        if (B.equals(uid)) {
+        if (A.equals(uid)) {
             UserData userData2 = (UserData) new Gson().fromJson(commonMsgPojo.getToUser_info(), (Class<Object>) UserData.class);
             if (userData2 != null) {
                 imMessageCenterPojo.setGroup_name(userData2.getName());
@@ -97,10 +97,10 @@ public class ad {
             imMessageCenterPojo.setGroup_head(userData.getPortrait());
         }
         imMessageCenterPojo.setGroup_type(6);
-        if (B.equals(uid)) {
-            imMessageCenterPojo.setLast_content(com.baidu.tieba.im.d.d.f(commonMsgPojo.toChatMessage()));
+        if (A.equals(uid)) {
+            imMessageCenterPojo.setLast_content(com.baidu.tieba.im.d.d.g(commonMsgPojo.toChatMessage()));
         } else {
-            imMessageCenterPojo.setLast_content(userData.getName() + ":" + com.baidu.tieba.im.d.d.f(commonMsgPojo.toChatMessage()));
+            imMessageCenterPojo.setLast_content(userData.getName() + ":" + com.baidu.tieba.im.d.d.g(commonMsgPojo.toChatMessage()));
         }
         imMessageCenterPojo.setLast_content_time(commonMsgPojo.getCreate_time() * 1000);
         com.baidu.adp.lib.h.e.d("see convert " + imMessageCenterPojo + "ori:" + commonMsgPojo);
@@ -108,10 +108,10 @@ public class ad {
     }
 
     private synchronized void d() {
-        String B = TiebaApplication.B();
-        if (TextUtils.isEmpty(B) || !B.equals(this.b)) {
+        String A = TiebaApplication.A();
+        if (TextUtils.isEmpty(A) || !A.equals(this.b)) {
             this.d.clear();
-            this.b = B;
+            this.b = A;
             this.c.set(false);
         }
     }

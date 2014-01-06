@@ -1,55 +1,36 @@
 package com.baidu.tieba.write;
 
-import android.widget.CompoundButton;
-import android.widget.HorizontalScrollView;
-import android.widget.LinearLayout;
-import android.widget.RadioButton;
-import android.widget.TextView;
-import com.slidingmenu.lib.R;
+import android.graphics.Bitmap;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class as implements CompoundButton.OnCheckedChangeListener {
-    final /* synthetic */ WriteImageActivity a;
+public class as implements View.OnClickListener {
+    final /* synthetic */ String a;
+    final /* synthetic */ int b;
+    final /* synthetic */ WriteImageActivity c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public as(WriteImageActivity writeImageActivity) {
-        this.a = writeImageActivity;
+    public as(WriteImageActivity writeImageActivity, String str, int i) {
+        this.c = writeImageActivity;
+        this.a = str;
+        this.b = i;
     }
 
-    @Override // android.widget.CompoundButton.OnCheckedChangeListener
-    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-        RadioButton radioButton;
-        RadioButton radioButton2;
-        HorizontalScrollView horizontalScrollView;
-        LinearLayout linearLayout;
-        TextView textView;
-        HorizontalScrollView horizontalScrollView2;
-        LinearLayout linearLayout2;
-        TextView textView2;
-        if (z) {
-            compoundButton.setTextColor(this.a.getResources().getColor(R.color.white));
-            radioButton = this.a.j;
-            if (compoundButton == radioButton) {
-                horizontalScrollView2 = this.a.f;
-                horizontalScrollView2.setVisibility(0);
-                linearLayout2 = this.a.l;
-                linearLayout2.setVisibility(4);
-                textView2 = this.a.n;
-                textView2.setText(this.a.getString(R.string.beautify));
-                return;
-            }
-            radioButton2 = this.a.k;
-            if (compoundButton == radioButton2) {
-                horizontalScrollView = this.a.f;
-                horizontalScrollView.setVisibility(4);
-                linearLayout = this.a.l;
-                linearLayout.setVisibility(0);
-                textView = this.a.n;
-                textView.setText(this.a.getString(R.string.rotate));
-                return;
-            }
-            return;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        ProgressBar progressBar;
+        ImageView imageView;
+        Bitmap bitmap;
+        progressBar = this.c.g;
+        if (progressBar.getVisibility() != 0) {
+            imageView = this.c.b;
+            bitmap = this.c.c;
+            imageView.setImageBitmap(bitmap);
+            this.c.x = false;
+            this.c.c(this.a);
+            this.c.s = this.b;
         }
-        compoundButton.setTextColor(this.a.getResources().getColor(R.color.beautify_rotate_tab_unchecked_color));
     }
 }

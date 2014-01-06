@@ -1,29 +1,53 @@
 package com.baidu.tieba.im.chat;
 
-import android.view.View;
-import com.baidu.tieba.view.HeadImageView;
+import com.baidu.tbadk.gif.GifView;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.util.UtilHelper;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class cs implements com.baidu.tieba.util.bm {
-    final /* synthetic */ String a;
-    final /* synthetic */ com.baidu.adp.widget.ImageView.e b;
-    final /* synthetic */ cr c;
+public final class cs implements com.baidu.tbadk.imageManager.c {
+    final /* synthetic */ GifView a;
+    final /* synthetic */ String b;
+    final /* synthetic */ com.baidu.tieba.im.message.b c;
+    final /* synthetic */ String d;
+    final /* synthetic */ com.baidu.tieba.util.i e;
+    final /* synthetic */ String f;
+    final /* synthetic */ String g;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cs(cr crVar, String str, com.baidu.adp.widget.ImageView.e eVar) {
-        this.c = crVar;
-        this.a = str;
-        this.b = eVar;
+    public cs(GifView gifView, String str, com.baidu.tieba.im.message.b bVar, String str2, com.baidu.tieba.util.i iVar, String str3, String str4) {
+        this.a = gifView;
+        this.b = str;
+        this.c = bVar;
+        this.d = str2;
+        this.e = iVar;
+        this.f = str3;
+        this.g = str4;
     }
 
-    @Override // com.baidu.tieba.util.bm
-    public boolean a(View view) {
-        if ((view instanceof HeadImageView) && this.a.equals(view.getTag())) {
-            view.setTag(null);
-            HeadImageView headImageView = (HeadImageView) view;
-            headImageView.a();
-            this.b.a(headImageView);
-            return false;
+    @Override // com.baidu.tbadk.imageManager.c
+    public void a(com.baidu.adp.widget.ImageView.d dVar, String str, boolean z) {
+        Object tag = this.a.getTag();
+        if (tag != null && ((String) tag).equals(this.b)) {
+            if (dVar != null) {
+                this.a.setGif(dVar);
+                this.c.b(true);
+            } else if (dVar == null) {
+                if (str != null && UtilHelper.g(TiebaApplication.g()) == UtilHelper.NetworkStateInfo.UNAVAIL && !this.c.a) {
+                    this.c.a = true;
+                    com.baidu.adp.widget.ImageView.d b = str.equals(this.d) ? cm.b(this.e, this.f, this.b, this.g, false, this) : cm.b(this.e, this.f, this.b, this.d, true, this);
+                    if (b != null) {
+                        this.a.setGif(b);
+                        this.a.setIsLoading(false);
+                        this.c.b(true);
+                        return;
+                    }
+                    this.a.setIsLoading(true);
+                    return;
+                }
+                this.a.setGif(dVar);
+                this.c.b(false);
+            }
         }
-        return false;
     }
 }

@@ -7,11 +7,11 @@ import android.widget.ImageView;
 /* loaded from: classes.dex */
 public class db implements Animation.AnimationListener {
     final /* synthetic */ ImageView a;
-    final /* synthetic */ cr b;
+    final /* synthetic */ cs b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public db(cr crVar, ImageView imageView) {
-        this.b = crVar;
+    public db(cs csVar, ImageView imageView) {
+        this.b = csVar;
         this.a = imageView;
     }
 

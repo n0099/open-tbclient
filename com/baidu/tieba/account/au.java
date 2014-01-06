@@ -19,12 +19,12 @@ public class au extends Thread {
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         super.run();
-        com.baidu.tieba.util.an anVar = new com.baidu.tieba.util.an(com.baidu.tieba.data.h.a + "c/s/pv");
-        anVar.a("img_num", String.valueOf(this.a));
-        anVar.a("img_total", String.valueOf(this.b));
+        com.baidu.tieba.util.at atVar = new com.baidu.tieba.util.at(com.baidu.tieba.data.h.a + "c/s/pv");
+        atVar.a("img_num", String.valueOf(this.a));
+        atVar.a("img_total", String.valueOf(this.b));
         if (this.c != null) {
-            anVar.a("img_type", this.c);
+            atVar.a("img_type", this.c);
         }
-        anVar.l();
+        atVar.l();
     }
 }

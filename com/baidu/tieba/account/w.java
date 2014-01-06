@@ -17,10 +17,10 @@ public class w extends Thread {
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         super.run();
-        com.baidu.tieba.util.an anVar = new com.baidu.tieba.util.an(com.baidu.tieba.data.h.a + "c/s/pv");
-        anVar.a("obj", this.a);
-        anVar.a("obj_tp", this.b);
-        anVar.a("group_id", this.c);
-        anVar.l();
+        com.baidu.tieba.util.at atVar = new com.baidu.tieba.util.at(com.baidu.tieba.data.h.a + "c/s/pv");
+        atVar.a("obj", this.a);
+        atVar.a("obj_tp", this.b);
+        atVar.a("group_id", this.c);
+        atVar.l();
     }
 }

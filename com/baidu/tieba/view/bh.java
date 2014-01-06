@@ -1,33 +1,27 @@
 package com.baidu.tieba.view;
-
-import android.app.Activity;
-import android.view.View;
-import com.baidu.mobstat.StatService;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.square.SquareSearchActivity;
-import com.slidingmenu.lib.R;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bh implements View.OnClickListener {
-    final /* synthetic */ SearchBoxView a;
+public class bh implements Runnable {
+    final /* synthetic */ bg a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bh(SearchBoxView searchBoxView) {
-        this.a = searchBoxView;
+    public bh(bg bgVar) {
+        this.a = bgVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Activity activity;
-        Activity activity2;
-        String str;
-        if (view.getId() == R.id.search_bg_layout) {
-            if (TiebaApplication.h().t()) {
-                activity2 = this.a.a;
-                str = this.a.b;
-                StatService.onEvent(activity2, str, "click", 1);
-            }
-            activity = this.a.a;
-            SquareSearchActivity.a(activity, "");
+    @Override // java.lang.Runnable
+    public void run() {
+        int i;
+        int i2;
+        this.a.f = true;
+        bg.a(this.a, 30);
+        i = this.a.i;
+        if (i > 360) {
+            bg bgVar = this.a;
+            i2 = this.a.i;
+            bgVar.i = i2 - 360;
         }
+        this.a.invalidate(this.a.getRotateInvalidRect());
+        this.a.postDelayed(this.a.e, 50L);
     }
 }

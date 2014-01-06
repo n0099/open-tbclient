@@ -151,7 +151,7 @@ public class ASN1InputStream extends FilterInputStream implements DERTags {
             case Im.GroupInfo.AUTHORISMEIZHI_FIELD_NUMBER /* 29 */:
             case Im.GroupInfo.FORUMSHOWNAME_FIELD_NUMBER /* 31 */:
             case 32:
-            case 33:
+            case Im.GroupInfo.ISRECENTLYREPLY_FIELD_NUMBER /* 33 */:
             case 34:
             case 35:
             case 37:

@@ -1,7 +1,7 @@
 package com.baidu.tieba.model;
 /* loaded from: classes.dex */
 public class bv {
-    private com.baidu.tieba.data.an a = null;
+    private com.baidu.tieba.data.ao a = null;
     private boolean d = true;
     private boolean c = true;
     private boolean e = false;
@@ -18,11 +18,11 @@ public class bv {
     private int o = 1;
     private boolean p = false;
 
-    public void a(com.baidu.tieba.data.an anVar) {
-        this.a = anVar;
+    public void a(com.baidu.tieba.data.ao aoVar) {
+        this.a = aoVar;
     }
 
-    public com.baidu.tieba.data.an a() {
+    public com.baidu.tieba.data.ao a() {
         return this.a;
     }
 

@@ -9,7 +9,7 @@ import android.database.sqlite.SQLiteStatement;
 import android.text.TextUtils;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.be;
+import com.baidu.tieba.util.bo;
 import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
@@ -22,7 +22,7 @@ public class r extends SQLiteOpenHelper {
         try {
             sQLiteDatabase.execSQL(str);
         } catch (Exception e) {
-            be.a(3, getClass().getName(), "ExecSQL", str);
+            bo.a(3, getClass().getName(), "ExecSQL", str);
         }
     }
 
@@ -44,7 +44,7 @@ public class r extends SQLiteOpenHelper {
     @SuppressLint({"Override"})
     public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
         try {
-            TiebaApplication.h().deleteDatabase(TiebaApplication.B() + ".db");
+            TiebaApplication.g().deleteDatabase(TiebaApplication.A() + ".db");
             a(sQLiteDatabase);
         } catch (Exception e) {
             e.printStackTrace();
@@ -62,7 +62,7 @@ public class r extends SQLiteOpenHelper {
                     return;
                 } catch (Exception e) {
                     com.baidu.adp.lib.h.e.a("im数据库升级失败， 删除数据库。 重新建立数据库");
-                    TiebaApplication.h().deleteDatabase(TiebaApplication.B() + ".db");
+                    TiebaApplication.g().deleteDatabase(TiebaApplication.A() + ".db");
                     a(sQLiteDatabase);
                     return;
                 }

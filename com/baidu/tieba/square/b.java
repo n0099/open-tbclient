@@ -5,7 +5,7 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* loaded from: classes.dex */
 public class b extends BdAsyncTask<Object, h, h> {
     final /* synthetic */ BarFolderFirstDirActivity a;
-    private com.baidu.tieba.util.an b;
+    private com.baidu.tieba.util.at b;
 
     private b(BarFolderFirstDirActivity barFolderFirstDirActivity) {
         this.a = barFolderFirstDirActivity;
@@ -34,7 +34,7 @@ public class b extends BdAsyncTask<Object, h, h> {
      */
     /* JADX WARN: Code restructure failed: missing block: B:23:0x00bd, code lost:
         r3.a(r0.getMessage());
-        com.baidu.tieba.util.be.b(getClass().getName(), "doInBackground", r0.getMessage());
+        com.baidu.tieba.util.bo.b(getClass().getName(), "doInBackground", r0.getMessage());
      */
     /* JADX WARN: Removed duplicated region for block: B:10:0x0052 A[Catch: Exception -> 0x00bc, TryCatch #0 {Exception -> 0x00bc, blocks: (B:8:0x002e, B:10:0x0052, B:11:0x005f, B:13:0x006d, B:18:0x00a8, B:20:0x00b2), top: B:27:0x002e }] */
     /* JADX WARN: Removed duplicated region for block: B:13:0x006d A[Catch: Exception -> 0x00bc, TryCatch #0 {Exception -> 0x00bc, blocks: (B:8:0x002e, B:10:0x0052, B:11:0x005f, B:13:0x006d, B:18:0x00a8, B:20:0x00b2), top: B:27:0x002e }] */
@@ -57,13 +57,13 @@ public class b extends BdAsyncTask<Object, h, h> {
                 hVar.b(a);
                 c((Object[]) new h[]{hVar});
                 z2 = z;
-                this.b = new com.baidu.tieba.util.an(com.baidu.tieba.data.h.a + "c/f/forum/forumdir");
+                this.b = new com.baidu.tieba.util.at(com.baidu.tieba.data.h.a + "c/f/forum/forumdir");
                 str = this.a.g;
                 if (str != null) {
-                    com.baidu.tieba.util.an anVar = this.b;
+                    com.baidu.tieba.util.at atVar = this.b;
                     String str3 = BarFolderFirstDirActivity.c;
                     str2 = this.a.g;
-                    anVar.a(str3, str2);
+                    atVar.a(str3, str2);
                 }
                 String l = this.b.l();
                 if (!this.b.c()) {
@@ -83,7 +83,7 @@ public class b extends BdAsyncTask<Object, h, h> {
         }
         z = false;
         z2 = z;
-        this.b = new com.baidu.tieba.util.an(com.baidu.tieba.data.h.a + "c/f/forum/forumdir");
+        this.b = new com.baidu.tieba.util.at(com.baidu.tieba.data.h.a + "c/f/forum/forumdir");
         str = this.a.g;
         if (str != null) {
         }

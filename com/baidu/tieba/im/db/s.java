@@ -5,7 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.text.TextUtils;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.be;
+import com.baidu.tieba.util.bo;
 import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
@@ -19,13 +19,13 @@ public class s {
         synchronized (s.class) {
             try {
             } catch (Exception e) {
-                be.b("ImDatabaseHelper", "ImDatabaseHelper", "error = " + e.getMessage());
+                bo.b("ImDatabaseHelper", "ImDatabaseHelper", "error = " + e.getMessage());
             }
-            if (TextUtils.isEmpty(TiebaApplication.B())) {
-                be.a("没有登录");
+            if (TextUtils.isEmpty(TiebaApplication.A())) {
+                bo.a("没有登录");
                 sQLiteDatabase = null;
             } else {
-                String str = TiebaApplication.B() + ".db";
+                String str = TiebaApplication.A() + ".db";
                 if (b != null && str.equals(a) && b.isOpen()) {
                     sQLiteDatabase = b;
                 } else {
@@ -33,7 +33,7 @@ public class s {
                         com.baidu.tieba.util.o.a(b);
                         com.baidu.adp.lib.h.e.b("读取数据文件错误或者没有打开或者要切换数据库，关闭当前数据库，重新开启。cur data：" + a + " should data:" + str);
                     }
-                    r rVar = new r(TiebaApplication.h(), str);
+                    r rVar = new r(TiebaApplication.g(), str);
                     a = str;
                     b = rVar.getWritableDatabase();
                     sQLiteDatabase = b;
@@ -77,7 +77,7 @@ public class s {
                         if (next.startsWith("tb_private_msg_")) {
                             String charSequence = next.subSequence("tb_private_msg_".length(), next.length()).toString();
                             com.baidu.adp.lib.h.e.d("see table id:" + charSequence + "name:" + next);
-                            ar.a().a(com.baidu.adp.lib.f.b.a(charSequence, 0L), true);
+                            as.a().a(com.baidu.adp.lib.f.b.a(charSequence, 0L), true);
                         } else if (next.startsWith("tb_group_msg_")) {
                             SQLiteDatabase a3 = a();
                             if (a3 != null) {

@@ -48,7 +48,7 @@ public class NavigationBar extends RelativeLayout {
         this.a = true;
         this.i = 0;
         this.j = 0;
-        this.k = new aw(this);
+        this.k = new bc(this);
         a(context);
     }
 
@@ -57,7 +57,7 @@ public class NavigationBar extends RelativeLayout {
         this.a = true;
         this.i = 0;
         this.j = 0;
-        this.k = new aw(this);
+        this.k = new bc(this);
         a(context);
     }
 
@@ -66,7 +66,7 @@ public class NavigationBar extends RelativeLayout {
         this.a = true;
         this.i = 0;
         this.j = 0;
-        this.k = new aw(this);
+        this.k = new bc(this);
         a(context);
     }
 
@@ -83,7 +83,8 @@ public class NavigationBar extends RelativeLayout {
         a();
     }
 
-    private void a() {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void a() {
         setPadding(com.baidu.adp.lib.h.g.a(this.f, getResources().getDimension(R.dimen.navi_padding_left)), com.baidu.adp.lib.h.g.a(this.f, getResources().getDimension(R.dimen.navi_padding_top)), com.baidu.adp.lib.h.g.a(this.f, getResources().getDimension(R.dimen.navi_padding_right)), com.baidu.adp.lib.h.g.a(this.f, getResources().getDimension(R.dimen.navi_padding_bottom)));
     }
 
@@ -172,14 +173,16 @@ public class NavigationBar extends RelativeLayout {
     public TextView a(ControlAlign controlAlign, String str, View.OnClickListener onClickListener) {
         TextView textView = (TextView) b(R.layout.widget_nb_item_textbtn);
         textView.setText(str);
-        if (str != null && str.length() > 3 && textView.getTextSize() > 2.0f) {
-            textView.setTextSize(0, textView.getTextSize() - 4.0f);
-        }
         if (ControlAlign.HORIZONTAL_RIGHT == controlAlign) {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -1);
             int dimension = (int) getResources().getDimension(R.dimen.navi_btn_margin_right);
             layoutParams.setMargins(0, dimension, dimension, dimension);
             textView.setLayoutParams(layoutParams);
+        } else if (ControlAlign.HORIZONTAL_LEFT == controlAlign) {
+            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -1);
+            int dimension2 = (int) getResources().getDimension(R.dimen.navi_btn_margin_right);
+            layoutParams2.setMargins(dimension2, dimension2, 0, dimension2);
+            textView.setLayoutParams(layoutParams2);
         }
         a(controlAlign).addView(textView);
         if (onClickListener != null) {

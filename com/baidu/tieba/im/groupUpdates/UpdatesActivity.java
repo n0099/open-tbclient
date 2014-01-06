@@ -9,14 +9,15 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AbsListView;
 import cn.jingling.lib.file.Shared;
-import com.baidu.tieba.ao;
+import com.baidu.tieba.ap;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.frsgroup.GroupLevelActivity;
 import com.baidu.tieba.im.groupInfo.GroupInfoActivity;
 import com.baidu.tieba.im.groupInfo.af;
 import com.baidu.tieba.im.groupInfo.ai;
-import com.baidu.tieba.im.message.bz;
-import com.baidu.tieba.mention.t;
+import com.baidu.tieba.im.message.cc;
+import com.baidu.tieba.im.message.o;
+import com.baidu.tieba.mention.s;
 import com.baidu.tieba.util.UtilHelper;
 import com.slidingmenu.lib.R;
 import java.util.LinkedList;
@@ -50,24 +51,6 @@ public class UpdatesActivity extends com.baidu.tieba.j implements AbsListView.On
         c();
         this.g = new com.baidu.tieba.util.i(this);
         this.g.d(true);
-        LinkedList linkedList = new LinkedList();
-        for (int i = 0; i < 100; i++) {
-            UpdatesItemData updatesItemData = new UpdatesItemData();
-            updatesItemData.setGroupId("1212");
-            updatesItemData.setGroupName("groupName" + i);
-            updatesItemData.setShown(Math.random() > 0.6d);
-            if (Math.random() > 0.5d) {
-                updatesItemData.setContent("一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十");
-            } else {
-                updatesItemData.setContent("一二三四五六七八九十");
-            }
-            updatesItemData.setNotice_id("" + i);
-            updatesItemData.setTitle("提醒");
-            updatesItemData.setTime(System.currentTimeMillis());
-            GroupNewsPojo groupNewsPojo = new GroupNewsPojo(updatesItemData);
-            groupNewsPojo.setCmd("group_intro_change");
-            linkedList.add(groupNewsPojo);
-        }
         com.baidu.tieba.im.c.m.a().a("group_intro_change", this);
         com.baidu.tieba.im.c.m.a().a("group_level_up", this);
         com.baidu.tieba.im.c.m.a().a("group_name_change", this);
@@ -83,8 +66,8 @@ public class UpdatesActivity extends com.baidu.tieba.j implements AbsListView.On
     public void onResume() {
         super.onResume();
         a = true;
-        t.a().a(2);
-        t.a().g();
+        s.a().a(2);
+        s.a().g();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -233,7 +216,7 @@ public class UpdatesActivity extends com.baidu.tieba.j implements AbsListView.On
                         GroupLevelActivity.a(this, Long.parseLong(groupId));
                     } else if (!updatesType.equals("dismiss_group")) {
                         if (updatesType.equals("group_event_info")) {
-                            ao.a(this, "update_activity_group_event_click");
+                            ap.a(this, "update_activity_group_event_click");
                             UtilHelper.a(this, updatesItemData.getEventLink(), null, null);
                         } else {
                             GroupInfoActivity.a(this, Long.parseLong(groupId), 0);
@@ -324,10 +307,10 @@ public class UpdatesActivity extends com.baidu.tieba.j implements AbsListView.On
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(com.baidu.tieba.im.message.n nVar) {
+    public void a(o oVar) {
         this.b.a(false);
-        if (nVar != null && (nVar instanceof bz) && 202004 == nVar.t()) {
-            ai aiVar = (ai) nVar;
+        if (oVar != null && (oVar instanceof cc) && 202004 == oVar.u()) {
+            ai aiVar = (ai) oVar;
             af afVar = (af) aiVar.l();
             if (aiVar.i()) {
                 com.baidu.adp.lib.h.e.a("del group info err:" + aiVar.k());

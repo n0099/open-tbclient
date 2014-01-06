@@ -4,6 +4,7 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.IBinder;
+import android.os.Looper;
 import com.baidu.adp.lib.webSocket.m;
 import com.baidu.adp.lib.webSocket.r;
 import com.baidu.cloudsdk.social.core.SocialConstants;
@@ -16,7 +17,7 @@ import org.apache.http.message.BasicNameValuePair;
 public class TiebaSocketLinkService extends Service {
     private static a b;
     private static b a = new b();
-    private static final Handler c = new d();
+    private static final Handler c = new d(Looper.getMainLooper());
     private static r d = new e();
 
     public static void a(a aVar) {
@@ -75,10 +76,10 @@ public class TiebaSocketLinkService extends Service {
     }
 
     public static void a(boolean z, String str) {
-        Intent intent = new Intent(TiebaApplication.h(), TiebaSocketLinkService.class);
+        Intent intent = new Intent(TiebaApplication.g(), TiebaSocketLinkService.class);
         intent.putExtra("reopen", z);
         intent.putExtra("reason", str);
-        com.baidu.adp.lib.f.c.a(TiebaApplication.h(), intent);
+        com.baidu.adp.lib.f.c.a(TiebaApplication.g(), intent);
     }
 
     @Override // android.app.Service

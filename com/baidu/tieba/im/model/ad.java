@@ -2,7 +2,7 @@ package com.baidu.tieba.im.model;
 
 import android.content.Context;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.im.message.au;
+import com.baidu.tieba.im.message.ax;
 import com.baidu.tieba.util.UtilHelper;
 /* loaded from: classes.dex */
 public class ad extends com.baidu.adp.a.d {
@@ -10,9 +10,9 @@ public class ad extends com.baidu.adp.a.d {
     private String c;
     private int d;
     private boolean g;
-    private com.baidu.tieba.im.message.ag j;
-    private au k;
-    private com.baidu.tieba.im.message.g l;
+    private com.baidu.tieba.im.message.aj j;
+    private ax k;
+    private com.baidu.tieba.im.message.h l;
     private int a = 0;
     private boolean h = false;
     private boolean i = false;
@@ -65,22 +65,22 @@ public class ad extends com.baidu.adp.a.d {
         this.h = z;
     }
 
-    private com.baidu.tieba.im.message.ag b(int i) {
-        com.baidu.tieba.im.message.ag agVar = new com.baidu.tieba.im.message.ag();
-        agVar.b(this.e);
-        agVar.a(this.f);
-        agVar.b(this.c);
-        agVar.a(this.b);
-        agVar.d(i * 30);
-        agVar.c(30);
-        agVar.f(this.d);
-        return agVar;
+    private com.baidu.tieba.im.message.aj b(int i) {
+        com.baidu.tieba.im.message.aj ajVar = new com.baidu.tieba.im.message.aj();
+        ajVar.b(this.e);
+        ajVar.a(this.f);
+        ajVar.b(this.c);
+        ajVar.a(this.b);
+        ajVar.d(i * 30);
+        ajVar.c(30);
+        ajVar.f(this.d);
+        return ajVar;
     }
 
-    private au b(long j) {
-        au auVar = new au();
-        auVar.a(j);
-        return auVar;
+    private ax b(long j) {
+        ax axVar = new ax();
+        axVar.a(j);
+        return axVar;
     }
 
     public void d() {
@@ -103,7 +103,7 @@ public class ad extends com.baidu.adp.a.d {
 
     public void f() {
         this.h = true;
-        this.l = new com.baidu.tieba.im.message.g();
+        this.l = new com.baidu.tieba.im.message.h();
         com.baidu.tieba.im.messageCenter.e.a().a(this.l);
     }
 

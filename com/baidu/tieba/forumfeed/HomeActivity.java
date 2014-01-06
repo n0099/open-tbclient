@@ -1,7 +1,6 @@
 package com.baidu.tieba.forumfeed;
 
 import android.app.Activity;
-import android.content.BroadcastReceiver;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.v4.view.bq;
@@ -14,15 +13,14 @@ import com.baidu.tieba.BaseFragmentActivity;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class HomeActivity extends BaseFragment implements bq, RadioGroup.OnCheckedChangeListener {
-    private BaseFragmentActivity c;
-    private q d;
-    private int b = 0;
-    public BroadcastReceiver a = new p(this);
+    private int a = 0;
+    private BaseFragmentActivity b;
+    private p c;
 
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
     public void a(Activity activity) {
         super.a(activity);
-        this.c = (BaseFragmentActivity) activity;
+        this.b = (BaseFragmentActivity) activity;
     }
 
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
@@ -33,9 +31,7 @@ public class HomeActivity extends BaseFragment implements bq, RadioGroup.OnCheck
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
     public void a(Bundle bundle) {
         super.a(bundle);
-        IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction("com.baidu.tieba.SHOWSQUARE");
-        this.c.registerReceiver(this.a, intentFilter);
+        new IntentFilter().addAction("com.baidu.tieba.SHOWSQUARE");
     }
 
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
@@ -52,13 +48,12 @@ public class HomeActivity extends BaseFragment implements bq, RadioGroup.OnCheck
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
     public void t() {
         super.t();
-        this.c.unregisterReceiver(this.a);
     }
 
     @Override // android.support.v4.app.Fragment
     public void e(Bundle bundle) {
-        if (this.b != -1) {
-            bundle.putInt("type", this.b);
+        if (this.a != -1) {
+            bundle.putInt("type", this.a);
         } else {
             bundle.putInt("type", 0);
         }
@@ -66,41 +61,40 @@ public class HomeActivity extends BaseFragment implements bq, RadioGroup.OnCheck
     }
 
     private void c(Bundle bundle) {
-        this.d = new q(this.c, this);
-        this.d.e().check(R.id.radio_square);
+        this.c = new p(this.b, this);
+        this.c.e().check(R.id.radio_square);
     }
 
     private void d(int i) {
         int i2 = 0;
         switch (i) {
-            case R.id.radio_square /* 2131100719 */:
-                this.d.a().setVisibility(0);
+            case R.id.radio_square /* 2131100820 */:
+                this.c.a().setVisibility(0);
                 break;
-            case R.id.radio_forumfeed /* 2131100720 */:
+            case R.id.radio_forumfeed /* 2131100821 */:
                 i2 = 1;
-                this.d.a().setVisibility(4);
+                this.c.a().setVisibility(4);
                 break;
         }
-        if (i2 != this.b) {
-            this.b = i2;
-            this.d.f().setCurrentItem(i2);
+        if (i2 != this.a) {
+            this.a = i2;
+            this.c.f().setCurrentItem(i2);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void e(int i) {
+    private void e(int i) {
         int i2 = R.id.radio_square;
         switch (i) {
             case 1:
                 i2 = R.id.radio_forumfeed;
                 break;
         }
-        this.d.e().check(i2);
+        this.c.e().check(i2);
     }
 
     @Override // com.baidu.tieba.BaseFragment
     public void c(int i) {
-        this.d.a(i);
+        this.c.a(i);
     }
 
     @Override // android.support.v4.view.bq

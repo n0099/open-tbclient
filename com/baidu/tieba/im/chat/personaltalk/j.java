@@ -22,13 +22,13 @@ class j extends BdAsyncTask<Void, Void, Void> {
         long j2;
         long j3;
         if (this.a == BdSwitchView.SwitchState.OFF) {
-            String B = TiebaApplication.B();
+            String A = TiebaApplication.A();
             j3 = this.b.c;
-            a.a(B, String.valueOf(j3), false);
+            a.a(A, String.valueOf(j3), false);
         } else {
-            String B2 = TiebaApplication.B();
+            String A2 = TiebaApplication.A();
             j = this.b.c;
-            a.a(B2, String.valueOf(j), true);
+            a.a(A2, String.valueOf(j), true);
         }
         com.baidu.tieba.im.c.a h = com.baidu.tieba.im.c.a.h();
         j2 = this.b.c;

@@ -43,14 +43,14 @@ public class af extends SingleRunnable<LinkedList<ImMessageCenterPojo>> {
                             next.setPulled_msgId(d.getMid());
                         } else {
                             d.checkRidAndSelf();
-                            String g = com.baidu.tieba.im.d.d.g(d.toChatMessage());
+                            String h = com.baidu.tieba.im.d.d.h(d.toChatMessage());
                             UserData userData = (UserData) new Gson().fromJson(d.getUser_info(), (Class<Object>) UserData.class);
                             if (userData == null) {
                                 str = "";
                             } else {
                                 str = userData.getUserName();
                             }
-                            next.setLast_content(g);
+                            next.setLast_content(h);
                             next.setLast_user_name(str);
                             next.setLast_rid(d.getRid());
                             next.setLast_content_time(d.getCreate_time() * 1000);
@@ -76,14 +76,14 @@ public class af extends SingleRunnable<LinkedList<ImMessageCenterPojo>> {
                 }
                 imMessageCenterPojo.setGid(String.valueOf(com.baidu.tieba.im.chat.a.a));
                 imMessageCenterPojo.setGroup_type(6);
-                for (String str2 : ar.a().c()) {
+                for (String str2 : as.a().c()) {
                     com.baidu.adp.lib.h.e.d("see init private chat id:" + str2);
                     if (!TextUtils.isEmpty(str2)) {
-                        long b2 = ar.a().b(str2);
+                        long b2 = as.a().b(str2);
                         if (b2 > imMessageCenterPojo.getPulled_msgId()) {
                             imMessageCenterPojo.setPulled_msgId(b2);
                         }
-                        CommonMsgPojo c = ar.a().c(str2);
+                        CommonMsgPojo c = as.a().c(str2);
                         if (c == null) {
                             com.baidu.adp.lib.h.e.d("see init private chat cmpojo null id:" + str2);
                         } else {
@@ -94,6 +94,19 @@ public class af extends SingleRunnable<LinkedList<ImMessageCenterPojo>> {
                                 b.add(a);
                                 if (c.getRid() > imMessageCenterPojo.getLast_rid()) {
                                     imMessageCenterPojo.setLast_rid(c.getRid());
+                                }
+                                String b3 = t.b(str2);
+                                Iterator<ImMessageCenterPojo> it2 = b.iterator();
+                                while (true) {
+                                    if (!it2.hasNext()) {
+                                        break;
+                                    }
+                                    ImMessageCenterPojo next2 = it2.next();
+                                    if (next2 != null && next2.getGid() != null && b3 != null && next2.getGid().equals(b3)) {
+                                        imMessageCenterPojo.setIs_hidden(next2.getIs_hidden());
+                                        a.setIs_hidden(next2.getIs_hidden());
+                                        break;
+                                    }
                                 }
                             }
                         }

@@ -1,18 +1,30 @@
 package com.baidu.tieba.im.message;
 /* loaded from: classes.dex */
-public class ar extends aq {
-    private String b;
+public class ar extends at {
+    private int b;
+    private String c;
+    private String d;
 
-    public ar(String str) {
-        this.b = str;
-    }
-
-    public String b() {
+    public int b() {
         return this.b;
     }
 
-    @Override // com.baidu.tieba.im.message.aq
+    public String c() {
+        return this.c;
+    }
+
+    public ar(int i, String str, String str2) {
+        this.b = 0;
+        this.c = "";
+        this.d = "";
+        this.b = i;
+        this.c = str;
+        this.d = str2;
+    }
+
+    @Override // com.baidu.tieba.im.message.at
     protected void a(protobuf.i iVar) {
-        iVar.a(b());
+        iVar.d(c());
+        iVar.d(b());
     }
 }

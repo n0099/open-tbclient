@@ -9,10 +9,10 @@ import android.widget.ListAdapter;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.adp.widget.PinnedHeaderListView;
-import com.baidu.tieba.util.bb;
+import com.baidu.tieba.util.bl;
 import com.baidu.tieba.view.NavigationBar;
 import com.baidu.tieba.view.PbListView;
-import com.baidu.tieba.view.br;
+import com.baidu.tieba.view.bx;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class y extends com.baidu.adp.a.e {
@@ -20,7 +20,7 @@ public class y extends com.baidu.adp.a.e {
     private PinnedHeaderListView c;
     private ProgressBar d;
     private View e;
-    private br f;
+    private bx f;
     private PbListView g;
     private View h;
     private TextView i;
@@ -35,7 +35,7 @@ public class y extends com.baidu.adp.a.e {
         this.c = (PinnedHeaderListView) this.e.findViewById(R.id.pinnedHeaderListview);
         this.j = new h(dailyRecommendActivity, pVar);
         this.i = (TextView) this.e.findViewById(R.id.text_info);
-        this.f = new br(this.b);
+        this.f = new bx(this.b);
         this.c.setPullRefresh(this.f);
         this.c.setAdapter((ListAdapter) this.j);
         this.c.setOnSrollToBottomListener(rVar);
@@ -102,7 +102,7 @@ public class y extends com.baidu.adp.a.e {
 
     public void a(int i) {
         this.k.c(i);
-        bb.b(this.c, i);
+        bl.b(this.c, i);
         this.f.a(i);
         if (this.g != null) {
             this.g.d(i);

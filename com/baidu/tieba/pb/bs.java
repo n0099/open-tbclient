@@ -1,10 +1,9 @@
 package com.baidu.tieba.pb;
 
-import android.content.DialogInterface;
-import com.baidu.mobstat.StatService;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.os.Handler;
+import android.os.Message;
 /* loaded from: classes.dex */
-public class bs implements DialogInterface.OnClickListener {
+class bs implements Handler.Callback {
     final /* synthetic */ NewPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,9 +11,29 @@ public class bs implements DialogInterface.OnClickListener {
         this.a = newPbActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        StatService.onEvent(this.a, "pb_close_phonedialog", "close");
-        dialogInterface.cancel();
+    @Override // android.os.Handler.Callback
+    public boolean handleMessage(Message message) {
+        com.baidu.tieba.model.bm bmVar;
+        cs csVar;
+        cs csVar2;
+        switch (message.what) {
+            case 0:
+                csVar2 = this.a.z;
+                csVar2.ac();
+                return false;
+            case 1:
+                csVar = this.a.z;
+                csVar.ab();
+                return false;
+            case 2:
+                bmVar = this.a.t;
+                if (bmVar.t()) {
+                    this.a.t();
+                    return false;
+                }
+                return false;
+            default:
+                return false;
+        }
     }
 }

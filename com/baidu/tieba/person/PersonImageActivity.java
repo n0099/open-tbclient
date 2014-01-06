@@ -15,12 +15,12 @@ import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class PersonImageActivity extends com.baidu.tieba.j {
     private ProgressBar a = null;
-    private bd b = null;
+    private bk b = null;
     private MultiImageView c = null;
     private View.OnClickListener d = null;
     private View.OnLongClickListener e = null;
     private DialogInterface.OnClickListener f = null;
-    private com.baidu.tieba.view.a g = null;
+    private com.baidu.tieba.view.e g = null;
     private String h;
     private Context i;
 
@@ -36,7 +36,7 @@ public class PersonImageActivity extends com.baidu.tieba.j {
     @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        TiebaApplication.h().a((com.baidu.tieba.j) this);
+        TiebaApplication.g().a((com.baidu.tieba.j) this);
         setContentView(R.layout.person_image_activity);
         a(bundle);
         a();
@@ -54,7 +54,7 @@ public class PersonImageActivity extends com.baidu.tieba.j {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (i == 1) {
-            this.c.setBackgroundColor(com.baidu.tieba.util.bb.d(i));
+            this.c.setBackgroundColor(com.baidu.tieba.util.bl.d(i));
         } else {
             this.c.setBackgroundColor(-16777216);
         }
@@ -82,7 +82,7 @@ public class PersonImageActivity extends com.baidu.tieba.j {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j, android.app.Activity
     public void onDestroy() {
-        TiebaApplication.h().b((com.baidu.tieba.j) this);
+        TiebaApplication.g().b((com.baidu.tieba.j) this);
         this.c.c();
         if (this.b != null) {
             this.b.cancel();
@@ -104,10 +104,10 @@ public class PersonImageActivity extends com.baidu.tieba.j {
     }
 
     private void a() {
-        this.d = new az(this);
-        this.e = new ba(this);
-        this.f = new bb(this);
-        this.g = new bc(this);
+        this.d = new bg(this);
+        this.e = new bh(this);
+        this.f = new bi(this);
+        this.g = new bj(this);
         this.a = (ProgressBar) findViewById(R.id.progress);
         this.c = (MultiImageView) findViewById(R.id.viewpager);
         this.c.setPageMargin(com.baidu.adp.lib.h.g.a((Context) this, 8.0f));

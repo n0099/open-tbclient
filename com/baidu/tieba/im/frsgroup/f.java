@@ -4,7 +4,8 @@ import android.text.TextUtils;
 import com.baidu.tieba.im.data.GroupInfoData;
 import com.baidu.tieba.im.data.GroupPermData;
 import com.baidu.tieba.im.frsgroup.GroupListAdapter;
-import com.baidu.tieba.im.message.bc;
+import com.baidu.tieba.im.message.ac;
+import com.baidu.tieba.im.message.bf;
 import com.slidingmenu.lib.R;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -18,7 +19,7 @@ public class f implements com.baidu.tieba.im.messageCenter.g {
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(com.baidu.tieba.im.message.n nVar) {
+    public void a(com.baidu.tieba.im.message.o oVar) {
         g gVar;
         com.baidu.tieba.im.model.c cVar;
         com.baidu.tieba.im.model.c cVar2;
@@ -43,22 +44,22 @@ public class f implements com.baidu.tieba.im.messageCenter.g {
         GroupListAdapter groupListAdapter11;
         GroupListAdapter groupListAdapter12;
         com.baidu.tieba.im.model.c cVar10;
-        if (nVar == null || !(nVar instanceof bc)) {
+        if (oVar == null || !(oVar instanceof bf)) {
             this.a.b(R.string.neterror);
             return;
         }
-        bc bcVar = (bc) nVar;
-        com.baidu.tieba.im.message.n l = bcVar.l();
-        if (l != null && (l instanceof com.baidu.tieba.im.message.z)) {
-            String e = ((com.baidu.tieba.im.message.z) l).e();
+        bf bfVar = (bf) oVar;
+        com.baidu.tieba.im.message.o l = bfVar.l();
+        if (l != null && (l instanceof ac)) {
+            String e = ((ac) l).e();
             cVar10 = this.a.b;
             if (!e.equals(String.valueOf(cVar10.g()))) {
                 return;
             }
         }
-        if (bcVar.t() == -201) {
+        if (bfVar.u() == -201) {
             cVar8 = this.a.b;
-            if (!cVar8.e() && (a = bcVar.a()) != null && !a.isEmpty()) {
+            if (!cVar8.e() && (a = bfVar.a()) != null && !a.isEmpty()) {
                 cVar9 = this.a.b;
                 cVar9.a(true);
                 groupListAdapter9 = this.a.h;
@@ -79,10 +80,10 @@ public class f implements com.baidu.tieba.im.messageCenter.g {
         gVar.b(true);
         cVar = this.a.b;
         cVar.a(this.a.g());
-        if (bcVar.i()) {
-            if (bcVar.j() > 0) {
-                if (!TextUtils.isEmpty(bcVar.k())) {
-                    this.a.a(bcVar.k());
+        if (bfVar.i()) {
+            if (bfVar.j() > 0) {
+                if (!TextUtils.isEmpty(bfVar.k())) {
+                    this.a.a(bfVar.k());
                     return;
                 }
                 return;
@@ -90,8 +91,8 @@ public class f implements com.baidu.tieba.im.messageCenter.g {
             this.a.b(R.string.neterror);
             return;
         }
-        List<GroupInfoData> a2 = bcVar.a();
-        GroupPermData b = bcVar.b();
+        List<GroupInfoData> a2 = bfVar.a();
+        GroupPermData b = bfVar.b();
         cVar2 = this.a.b;
         cVar2.a(b);
         if (a2 != null) {

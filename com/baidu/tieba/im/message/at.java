@@ -1,47 +1,51 @@
 package com.baidu.tieba.im.message;
 
+import com.baidu.tieba.im.messageCenter.IDuplicateProcess;
 import com.google.protobuf.MessageLite;
-import protobuf.UpdateMaskInfo.UpdateMaskInfoReq;
+import protobuf.Im;
+import protobuf.UpdateGroup.UpdateGroupReq;
 /* loaded from: classes.dex */
-public class at extends n implements com.baidu.tieba.im.coder.g {
-    private int a;
+public abstract class at extends o implements com.baidu.tieba.im.coder.g, IDuplicateProcess {
+    public int a;
     private int b;
-    private String c;
+
+    protected abstract void a(protobuf.i iVar);
 
     public at() {
-        e(104102);
+        e(103102);
+    }
+
+    public int d() {
+        return this.b;
+    }
+
+    public void a(int i) {
+        this.b = i;
+    }
+
+    public int e() {
+        return this.a;
+    }
+
+    public void b(int i) {
+        this.a = i;
+    }
+
+    @Override // com.baidu.tieba.im.messageCenter.IDuplicateProcess
+    public IDuplicateProcess.RemoveState h() {
+        return IDuplicateProcess.RemoveState.REMOVE_ME;
+    }
+
+    @Override // com.baidu.tieba.im.messageCenter.IDuplicateProcess
+    public boolean a(o oVar) {
+        return true;
     }
 
     @Override // com.baidu.tieba.im.coder.g
     public MessageLite a() {
-        return UpdateMaskInfoReq.UpdateMaskInfoReqIdl.newBuilder().a(UpdateMaskInfoReq.DataReq.newBuilder().a(b()).b(c()).a(d()).build()).build();
-    }
-
-    public int b() {
-        return this.a;
-    }
-
-    public void a(int i) {
-        this.a = i;
-    }
-
-    public int c() {
-        return this.b;
-    }
-
-    public void b(int i) {
-        this.b = i;
-    }
-
-    public void a(boolean z) {
-        this.b = z ? 1 : 0;
-    }
-
-    public String d() {
-        return this.c;
-    }
-
-    public void a(String str) {
-        this.c = str;
+        protobuf.i newBuilder = Im.GroupInfo.newBuilder();
+        newBuilder.a(d());
+        a(newBuilder);
+        return UpdateGroupReq.UpdateGroupReqIdl.newBuilder().a(newBuilder.build()).build();
     }
 }

@@ -14,13 +14,14 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import com.baidu.tieba.data.MetaData;
+import com.baidu.tieba.util.bl;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class AtListActivity extends com.baidu.tieba.j {
     public static ArrayList<MetaData> a = new ArrayList<>();
-    private com.baidu.tieba.ap m;
+    private com.baidu.tieba.aq m;
     private NavigationBar n;
     private LinearLayout o;
     private LinearLayout p;
@@ -59,7 +60,7 @@ public class AtListActivity extends com.baidu.tieba.j {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.at_list_activity);
-        this.m = new com.baidu.tieba.ap(this, (int) R.drawable.individual_center_like, (int) R.drawable.individual_center_like_1);
+        this.m = new com.baidu.tieba.aq(this, (int) R.drawable.individual_center_like, (int) R.drawable.individual_center_like_1);
         a(bundle);
         a();
         a((String) null);
@@ -70,12 +71,12 @@ public class AtListActivity extends com.baidu.tieba.j {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.m.a(i);
-        com.baidu.tieba.util.bb.a(this.l, i);
+        bl.a(this.l, i);
         this.n.c(i);
         this.i.notifyDataSetChanged();
         if (i == 1) {
             this.d.setDivider(getResources().getDrawable(R.drawable.list_divider_1));
-            com.baidu.tieba.util.bb.e(this.o, (int) R.drawable.inputbox_topbg_1);
+            bl.e(this.o, (int) R.drawable.inputbox_topbg_1);
             this.p.setBackgroundResource(R.drawable.inputbox_top_1);
             this.q.setImageResource(R.drawable.icon_head_bar_search_1);
             this.b.setTextColor(-11446171);
@@ -84,7 +85,7 @@ public class AtListActivity extends com.baidu.tieba.j {
             return;
         }
         this.d.setDivider(getResources().getDrawable(R.drawable.list_divider));
-        com.baidu.tieba.util.bb.e(this.o, (int) R.drawable.tabbar_bj_tab);
+        bl.e(this.o, (int) R.drawable.tabbar_bj_tab);
         this.p.setBackgroundResource(R.drawable.inputbox_top);
         this.q.setImageResource(R.drawable.icon_head_bar_search);
         this.b.setTextColor(-5921112);
@@ -128,7 +129,7 @@ public class AtListActivity extends com.baidu.tieba.j {
         if (this.i != null) {
             this.i.a();
             if (this.i.b() != null) {
-                this.i.b().b();
+                this.i.b().d();
             }
         }
         if (this.k != null) {
@@ -155,7 +156,7 @@ public class AtListActivity extends com.baidu.tieba.j {
         this.d.setAdapter((ListAdapter) this.i);
         this.d.setOnItemClickListener(new g(this));
         this.d.setOnScrollListener(new h(this));
-        if (!getIntent().getBooleanExtra("keyboard", true) && this.b.getParent() != null) {
+        if (!getIntent().getBooleanExtra("keyboard", false) && this.b.getParent() != null) {
             ((View) this.b.getParent()).setFocusable(true);
             ((View) this.b.getParent()).setFocusableInTouchMode(true);
         }

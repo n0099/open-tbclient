@@ -35,14 +35,14 @@ class l extends com.baidu.adp.a.g {
             }
             return;
         }
-        com.baidu.tieba.im.data.e eVar = (com.baidu.tieba.im.data.e) obj;
-        ArrayList<com.baidu.tieba.im.data.d> a = eVar == null ? null : eVar.a();
-        if (eVar != null && eVar.b() && (a == null || a.size() <= 0)) {
+        com.baidu.tieba.im.data.d dVar = (com.baidu.tieba.im.data.d) obj;
+        ArrayList<com.baidu.tieba.im.data.c> a = dVar == null ? null : dVar.a();
+        if (dVar != null && dVar.b() && (a == null || a.size() <= 0)) {
             this.a.showToast(this.a.getString(R.string.invite_friend_no_data_now));
         }
-        if (eVar != null) {
+        if (dVar != null) {
             tVar2 = this.a.a;
-            tVar2.a(eVar);
+            tVar2.a(dVar);
         }
     }
 }

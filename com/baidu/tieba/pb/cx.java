@@ -5,17 +5,17 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class cx implements View.OnClickListener {
-    final /* synthetic */ cr a;
+    final /* synthetic */ cs a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cx(cr crVar) {
-        this.a = crVar;
+    public cx(cs csVar) {
+        this.a = csVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Dialog dialog;
-        dialog = this.a.X;
+        dialog = this.a.L;
         dialog.dismiss();
     }
 }

@@ -9,7 +9,7 @@ import android.text.style.AbsoluteSizeSpan;
 import android.util.TypedValue;
 import android.widget.RelativeLayout;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.bb;
+import com.baidu.tieba.util.bl;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
@@ -74,19 +74,19 @@ public class w extends com.baidu.adp.a.e {
         this.k.a(i);
         if (i == 1) {
             this.d.setBackgroundColor(this.c.getResources().getColor(R.color.bg_page_setting_1));
-            bb.e(this.f, (int) R.drawable.more_all_1);
-            bb.e(this.h, (int) R.drawable.more_up_1);
-            bb.e(this.i, (int) R.drawable.more_middle_1);
-            bb.e(this.j, (int) R.drawable.more_down_1);
-            bb.e(this.k, (int) R.drawable.more_all_1);
+            bl.e(this.f, (int) R.drawable.more_all_1);
+            bl.e(this.h, (int) R.drawable.more_up_1);
+            bl.e(this.i, (int) R.drawable.more_middle_1);
+            bl.e(this.j, (int) R.drawable.more_down_1);
+            bl.e(this.k, (int) R.drawable.more_all_1);
             return;
         }
         this.d.setBackgroundColor(this.c.getResources().getColor(R.color.bg_page_setting));
-        bb.e(this.f, (int) R.drawable.more_all);
-        bb.e(this.h, (int) R.drawable.more_up);
-        bb.e(this.i, (int) R.drawable.more_middle);
-        bb.e(this.j, (int) R.drawable.more_down);
-        bb.e(this.k, (int) R.drawable.more_all);
+        bl.e(this.f, (int) R.drawable.more_all);
+        bl.e(this.h, (int) R.drawable.more_up);
+        bl.e(this.i, (int) R.drawable.more_middle);
+        bl.e(this.j, (int) R.drawable.more_down);
+        bl.e(this.k, (int) R.drawable.more_all);
     }
 
     public SettingTextTipView a() {
@@ -216,16 +216,16 @@ public class w extends com.baidu.adp.a.e {
 
     public void b(int i) {
         if (i == 1) {
-            if (TiebaApplication.h().an() != 1) {
-                TiebaApplication.h().e(i);
+            if (TiebaApplication.g().an() != 1) {
+                TiebaApplication.g().e(i);
                 a(i);
                 new com.baidu.tieba.account.av("eyeshield").start();
             } else {
                 return;
             }
         } else if (i == 0) {
-            if (TiebaApplication.h().an() != 0) {
-                TiebaApplication.h().e(i);
+            if (TiebaApplication.g().an() != 0) {
+                TiebaApplication.g().e(i);
                 a(i);
             } else {
                 return;
@@ -251,7 +251,7 @@ public class w extends com.baidu.adp.a.e {
     }
 
     public void p() {
-        if (TiebaApplication.h().an() == 1) {
+        if (TiebaApplication.g().an() == 1) {
             this.f.b();
         } else {
             this.f.a();
@@ -260,7 +260,7 @@ public class w extends com.baidu.adp.a.e {
 
     public void a(boolean z) {
         this.g.setSwitchStateChangeListener(null);
-        if (com.baidu.tieba.d.a.a().h()) {
+        if (com.baidu.tieba.e.a.a().h()) {
             this.g.b(z);
         } else {
             this.g.a(z);
@@ -274,11 +274,11 @@ public class w extends com.baidu.adp.a.e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void B() {
-        if (!com.baidu.tieba.d.a.a().f()) {
+        if (!com.baidu.tieba.e.a.a().f()) {
             this.h.setTip(this.b.getString(R.string.view_close));
-        } else if (com.baidu.tieba.d.a.a().g() == 1) {
+        } else if (com.baidu.tieba.e.a.a().g() == 1) {
             this.h.setTip(this.b.getString(R.string.view_high));
-        } else if (com.baidu.tieba.d.a.a().g() == 2) {
+        } else if (com.baidu.tieba.e.a.a().g() == 2) {
             this.h.setTip(this.b.getString(R.string.view_low));
         } else {
             this.h.setTip(this.b.getString(R.string.view_auto));
@@ -287,7 +287,7 @@ public class w extends com.baidu.adp.a.e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void C() {
-        switch (com.baidu.tieba.d.a.a().e()) {
+        switch (com.baidu.tieba.e.a.a().e()) {
             case 0:
                 this.i.setTip(this.b.getString(R.string.view_auto));
                 return;
@@ -309,7 +309,7 @@ public class w extends com.baidu.adp.a.e {
     }
 
     public void s() {
-        switch (com.baidu.tieba.d.a.a().c()) {
+        switch (com.baidu.tieba.e.a.a().c()) {
             case 0:
                 this.j.setTip(this.b.getString(R.string.is_wifiopen));
                 return;
@@ -325,9 +325,9 @@ public class w extends com.baidu.adp.a.e {
     }
 
     public void t() {
-        if (TiebaApplication.h().aj() == 1) {
+        if (TiebaApplication.g().aj() == 1) {
             this.k.setTip(this.b.getString(R.string.font_size_big));
-        } else if (TiebaApplication.h().aj() == 2) {
+        } else if (TiebaApplication.g().aj() == 2) {
             this.k.setTip(this.b.getString(R.string.font_size_mid));
         } else {
             this.k.setTip(this.b.getString(R.string.font_size_small));

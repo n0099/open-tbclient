@@ -20,7 +20,7 @@ public class CustomScrollView extends ScrollView {
         super(context, attributeSet);
         this.c = 0;
         this.d = 0;
-        this.b = new GestureDetector(context, new j(this));
+        this.b = new GestureDetector(context, new o(this));
         setFadingEdgeLength(0);
     }
 
@@ -47,7 +47,7 @@ public class CustomScrollView extends ScrollView {
                     return;
                 }
             } catch (Exception e) {
-                com.baidu.tieba.util.be.b(getClass().getName(), "onScrollChanged", e.getMessage());
+                com.baidu.tieba.util.bo.b(getClass().getName(), "onScrollChanged", e.getMessage());
             }
         }
         super.onScrollChanged(i, i2, i3, i4);
@@ -63,7 +63,7 @@ public class CustomScrollView extends ScrollView {
                 obj.getClass().getMethod("abortAnimation", new Class[0]).invoke(obj, new Object[0]);
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.be.b(getClass().getName(), "stopAnim", e.getMessage());
+            com.baidu.tieba.util.bo.b(getClass().getName(), "stopAnim", e.getMessage());
         }
     }
 

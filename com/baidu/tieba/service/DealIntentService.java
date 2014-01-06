@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.IBinder;
 /* loaded from: classes.dex */
 public class DealIntentService extends Service {
+    private static String b = "TaskExsits";
+    private static String c = "TaskNeedsTobeStart";
     private c a = null;
 
     @Override // android.app.Service
@@ -31,6 +33,7 @@ public class DealIntentService extends Service {
             this.a = null;
         }
         this.a = new c(this, intent);
+        this.a.setImmediatelyExecut(true);
         this.a.execute(new String[0]);
     }
 }

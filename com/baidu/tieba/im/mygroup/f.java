@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.mygroup;
 
-import com.baidu.tieba.im.message.bz;
-import com.baidu.tieba.im.message.n;
+import com.baidu.tieba.im.message.cc;
+import com.baidu.tieba.im.message.o;
 /* loaded from: classes.dex */
 class f implements com.baidu.tieba.im.messageCenter.g {
     final /* synthetic */ MyGroupFragment a;
@@ -12,14 +12,14 @@ class f implements com.baidu.tieba.im.messageCenter.g {
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(n nVar) {
-        switch (nVar.t()) {
+    public void a(o oVar) {
+        switch (oVar.u()) {
             case -109:
             case 103101:
             case 103102:
             case 103104:
             case 103112:
-                if (!(nVar instanceof bz) || !((bz) nVar).i()) {
+                if (!(oVar instanceof cc) || !((cc) oVar).i()) {
                     this.a.b = true;
                     return;
                 }

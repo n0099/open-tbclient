@@ -103,7 +103,7 @@ public class i extends com.baidu.adp.a.e {
             i = 1;
         }
         while (i2 <= i) {
-            if (TiebaApplication.h().an() == 0) {
+            if (TiebaApplication.g().an() == 0) {
                 this.t[i2].setImageResource(R.drawable.icon_grade_big_star_s);
             } else {
                 this.t[i2].setImageResource(R.drawable.icon_grade_big_star_s_1);
@@ -111,7 +111,7 @@ public class i extends com.baidu.adp.a.e {
             i2++;
         }
         while (i2 <= 3) {
-            if (TiebaApplication.h().an() == 0) {
+            if (TiebaApplication.g().an() == 0) {
                 this.t[i2].setImageResource(R.drawable.icon_grade_big_star_n);
             } else {
                 this.t[i2].setImageResource(R.drawable.icon_grade_big_star_n_1);

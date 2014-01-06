@@ -11,10 +11,11 @@ import com.baidu.tieba.widget.share.ShareJsBridge;
 /* loaded from: classes.dex */
 public class BaseWebView extends WebView {
     private WebViewClient a;
-    private d b;
+    private h b;
     private Context c;
-    private d d;
-    private e e;
+    private h d;
+    private j e;
+    private i f;
 
     public BaseWebView(Context context) {
         super(context);
@@ -22,6 +23,7 @@ public class BaseWebView extends WebView {
         this.c = null;
         this.d = null;
         this.e = null;
+        this.f = null;
         this.c = context;
         a();
     }
@@ -43,6 +45,7 @@ public class BaseWebView extends WebView {
         this.c = null;
         this.d = null;
         this.e = null;
+        this.f = null;
         this.c = context;
         a();
     }
@@ -54,7 +57,7 @@ public class BaseWebView extends WebView {
         UtilHelper.a(getSettings());
         this.a = new MyWebViewClient();
         setWebViewClient(this.a);
-        setOnLongClickListener(new b(this));
+        setOnLongClickListener(new f(this));
     }
 
     /* loaded from: classes.dex */
@@ -65,6 +68,9 @@ public class BaseWebView extends WebView {
         @Override // android.webkit.WebViewClient
         public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
             super.onPageStarted(webView, str, bitmap);
+            if (BaseWebView.this.e != null) {
+                BaseWebView.this.e.c(webView, str);
+            }
             Log.d("BaseWebView", "@onPageStarted = " + str);
         }
 
@@ -76,8 +82,8 @@ public class BaseWebView extends WebView {
         @Override // android.webkit.WebViewClient
         public void onPageFinished(WebView webView, String str) {
             super.onPageFinished(webView, str);
-            if (BaseWebView.this.e != null) {
-                BaseWebView.this.e.a(webView, str);
+            if (BaseWebView.this.f != null) {
+                BaseWebView.this.f.b(webView, str);
             }
             Log.d("BaseWebView", "@onPageFinished = " + str);
         }
@@ -96,15 +102,19 @@ public class BaseWebView extends WebView {
         }
     }
 
-    public void setOnLoadUrlListener(d dVar) {
-        this.b = dVar;
+    public void setOnLoadUrlListener(h hVar) {
+        this.b = hVar;
     }
 
-    public void setOnPageFinishedListener(e eVar) {
-        this.e = eVar;
+    public void setOnPageStartedListener(j jVar) {
+        this.e = jVar;
+    }
+
+    public void setOnPageFinishedListener(i iVar) {
+        this.f = iVar;
     }
 
     private void b() {
-        this.d = new c(this);
+        this.d = new g(this);
     }
 }

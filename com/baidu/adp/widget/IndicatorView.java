@@ -16,7 +16,7 @@ public class IndicatorView extends View {
     private float e;
     private Drawable f;
     private Drawable g;
-    private final al h;
+    private final am h;
 
     /* JADX DEBUG: Marked for inline */
     /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.widget.q.a():void] */

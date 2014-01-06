@@ -8,7 +8,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ce extends BdAsyncTask<Object, Integer, SignData> {
     final /* synthetic */ cc a;
-    private volatile com.baidu.tieba.util.an b;
+    private volatile com.baidu.tieba.util.at b;
 
     private ce(cc ccVar) {
         this.a = ccVar;
@@ -45,13 +45,13 @@ public class ce extends BdAsyncTask<Object, Integer, SignData> {
         JSONObject jSONObject;
         Object obj2 = null;
         try {
-            this.b = new com.baidu.tieba.util.an(com.baidu.tieba.data.h.a + "c/c/forum/sign");
-            com.baidu.tieba.util.an anVar = this.b;
+            this.b = new com.baidu.tieba.util.at(com.baidu.tieba.data.h.a + "c/c/forum/sign");
+            com.baidu.tieba.util.at atVar = this.b;
             str = this.a.a;
-            anVar.a("kw", str);
-            com.baidu.tieba.util.an anVar2 = this.b;
+            atVar.a("kw", str);
+            com.baidu.tieba.util.at atVar2 = this.b;
             str2 = this.a.b;
-            anVar2.a("fid", str2);
+            atVar2.a("fid", str2);
             this.b.e(true);
             l = this.b.l();
         } catch (Exception e2) {
@@ -65,7 +65,7 @@ public class ce extends BdAsyncTask<Object, Integer, SignData> {
                     SignData signData = new SignData();
                     signData.parserJson(l);
                     obj = signData;
-                } else if (!com.baidu.tieba.util.bc.c(l) && (jSONObject = new JSONObject(l)) != null && "199901".equals(jSONObject.optString(SocialConstants.PARAM_ERROR_CODE))) {
+                } else if (!com.baidu.tieba.util.bm.c(l) && (jSONObject = new JSONObject(l)) != null && "199901".equals(jSONObject.optString(SocialConstants.PARAM_ERROR_CODE))) {
                     SignData signData2 = new SignData();
                     signData2.parserJson(l);
                     signData2.setIsSigned(1);
@@ -76,7 +76,7 @@ public class ce extends BdAsyncTask<Object, Integer, SignData> {
                 }
             } catch (Exception e3) {
                 e = e3;
-                com.baidu.tieba.util.be.b(getClass().getName(), "doInBackground", e.getMessage());
+                com.baidu.tieba.util.bo.b(getClass().getName(), "doInBackground", e.getMessage());
                 return obj;
             }
             return obj;

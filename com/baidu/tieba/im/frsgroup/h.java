@@ -3,7 +3,7 @@ package com.baidu.tieba.im.frsgroup;
 import android.text.TextUtils;
 import android.widget.TextView;
 import com.baidu.tieba.im.data.GroupLevelInfo;
-import com.baidu.tieba.im.message.bf;
+import com.baidu.tieba.im.message.bi;
 import com.slidingmenu.lib.R;
 import java.util.List;
 /* loaded from: classes.dex */
@@ -16,7 +16,7 @@ class h implements com.baidu.tieba.im.messageCenter.g {
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(com.baidu.tieba.im.message.n nVar) {
+    public void a(com.baidu.tieba.im.message.o oVar) {
         i iVar;
         i iVar2;
         i iVar3;
@@ -24,15 +24,15 @@ class h implements com.baidu.tieba.im.messageCenter.g {
         i iVar5;
         iVar = this.a.b;
         iVar.a(false);
-        if (nVar == null) {
+        if (oVar == null) {
             this.a.showToast(R.string.neterror);
             return;
         }
-        bf bfVar = (bf) nVar;
-        if (bfVar.i()) {
-            if (bfVar.j() > 0) {
-                if (!TextUtils.isEmpty(bfVar.k())) {
-                    this.a.showToast(bfVar.k());
+        bi biVar = (bi) oVar;
+        if (biVar.i()) {
+            if (biVar.j() > 0) {
+                if (!TextUtils.isEmpty(biVar.k())) {
+                    this.a.showToast(biVar.k());
                     return;
                 }
                 return;
@@ -40,7 +40,7 @@ class h implements com.baidu.tieba.im.messageCenter.g {
             this.a.showToast(R.string.neterror);
             return;
         }
-        GroupLevelInfo a = bfVar.a();
+        GroupLevelInfo a = biVar.a();
         if (a != null) {
             int grade = a.getGrade();
             List<GroupLevelInfo.LevelInfo> levelInfos = a.getLevelInfos();

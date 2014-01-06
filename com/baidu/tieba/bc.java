@@ -1,13 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.im.SingleRunnable;
+import com.baidu.tieba.data.AccountData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class bc extends SingleRunnable<Void> {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.SingleRunnable
-    /* renamed from: a */
-    public Void b() {
-        return null;
+public final class bc implements Runnable {
+    final /* synthetic */ AccountData a;
+    final /* synthetic */ TiebaApplication b;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bc(AccountData accountData, TiebaApplication tiebaApplication) {
+        this.a = accountData;
+        this.b = tiebaApplication;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        TiebaApplication.b(this.a, this.b);
     }
 }

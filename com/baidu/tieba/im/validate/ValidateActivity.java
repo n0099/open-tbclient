@@ -13,8 +13,8 @@ import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.groupInfo.ae;
 import com.baidu.tieba.im.groupInfo.af;
 import com.baidu.tieba.im.groupInfo.ai;
-import com.baidu.tieba.im.message.bz;
-import com.baidu.tieba.mention.t;
+import com.baidu.tieba.im.message.cc;
+import com.baidu.tieba.mention.s;
 import com.baidu.tieba.person.PersonInfoActivity;
 import com.baidu.tieba.util.UtilHelper;
 import com.slidingmenu.lib.R;
@@ -70,7 +70,7 @@ public class ValidateActivity extends com.baidu.tieba.j implements AbsListView.O
     @Override // com.baidu.tieba.j, android.app.Activity
     public void onResume() {
         super.onResume();
-        t.a().a(1);
+        s.a().a(1);
     }
 
     @Override // android.app.Activity
@@ -230,18 +230,18 @@ public class ValidateActivity extends com.baidu.tieba.j implements AbsListView.O
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(com.baidu.tieba.im.message.n nVar) {
+    public void a(com.baidu.tieba.im.message.o oVar) {
         this.b.a(false);
         this.i = false;
-        if (nVar != null && (nVar instanceof bz)) {
-            int t = nVar.t();
-            if (t == 103111) {
-                bz bzVar = (bz) nVar;
-                ae aeVar = (ae) bzVar.l();
-                if (bzVar.i()) {
+        if (oVar != null && (oVar instanceof cc)) {
+            int u = oVar.u();
+            if (u == 103111) {
+                cc ccVar = (cc) oVar;
+                ae aeVar = (ae) ccVar.l();
+                if (ccVar.i()) {
                     if (aeVar != null) {
-                        int j = bzVar.j();
-                        String k = bzVar.k();
+                        int j = ccVar.j();
+                        String k = ccVar.k();
                         if (TextUtils.isEmpty(k)) {
                             showToast(R.string.validate_fail);
                         } else {
@@ -254,7 +254,7 @@ public class ValidateActivity extends com.baidu.tieba.j implements AbsListView.O
                             a2.setShown(true);
                             l.a(this.d, a2);
                             this.b.g().notifyDataSetChanged();
-                            com.baidu.adp.lib.h.e.d("apply add group" + nVar.toString() + "err:" + j + " " + k);
+                            com.baidu.adp.lib.h.e.d("apply add group" + oVar.toString() + "err:" + j + " " + k);
                             return;
                         }
                         return;
@@ -266,16 +266,16 @@ public class ValidateActivity extends com.baidu.tieba.j implements AbsListView.O
                     a3.setPass(true);
                     a3.setShown(true);
                     l.a(this.d, a3);
-                    if (TextUtils.isEmpty(bzVar.k())) {
+                    if (TextUtils.isEmpty(ccVar.k())) {
                         showToast(R.string.validate_succ);
                     } else {
-                        showToast(bzVar.k());
+                        showToast(ccVar.k());
                     }
                     this.b.g().notifyDataSetChanged();
-                    com.baidu.adp.lib.h.e.d("apply add group" + nVar.toString());
+                    com.baidu.adp.lib.h.e.d("apply add group" + oVar.toString());
                 }
-            } else if (202004 == t) {
-                ai aiVar = (ai) nVar;
+            } else if (202004 == u) {
+                ai aiVar = (ai) oVar;
                 af afVar = (af) aiVar.l();
                 if (aiVar.i()) {
                     com.baidu.adp.lib.h.e.a("del group info err:" + aiVar.k());

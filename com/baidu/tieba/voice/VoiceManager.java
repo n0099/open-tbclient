@@ -122,8 +122,8 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
             return false;
         }
         this.a = aeVar;
-        if (!com.baidu.tieba.util.y.a()) {
-            String b = com.baidu.tieba.util.y.b();
+        if (!com.baidu.tieba.util.aa.a()) {
+            String b = com.baidu.tieba.util.aa.b();
             if (b == null) {
                 b = this.d.getString(R.string.voice_error_sdcard);
             }
@@ -321,7 +321,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
 
     private void n() {
         if (this.s) {
-            if (TiebaApplication.h().ak()) {
+            if (TiebaApplication.g().ak()) {
                 k();
             } else {
                 j();
@@ -550,7 +550,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
 
     public void j() {
         if (this.g != null && this.H != 2) {
-            if (TiebaApplication.h().ak()) {
+            if (TiebaApplication.g().ak()) {
                 d(false);
                 return;
             }
@@ -658,7 +658,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
     }
 
     private void v() {
-        if (!TiebaApplication.h().ak() && !this.t && this.f != null && ak.c()) {
+        if (!TiebaApplication.g().ak() && !this.t && this.f != null && ak.c()) {
             if (this.p != null) {
                 this.p.removeCallbacks(this.O);
             }

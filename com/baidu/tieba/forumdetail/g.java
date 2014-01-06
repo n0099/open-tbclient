@@ -24,7 +24,7 @@ public class g implements View.OnClickListener {
     public void onClick(View view) {
         boolean z;
         Context context;
-        if (TiebaApplication.h().t()) {
+        if (TiebaApplication.g().s()) {
             context = this.c.a;
             StatService.onEvent(context, "detail_enter_forum", "click", 1);
         }

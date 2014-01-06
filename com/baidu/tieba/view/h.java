@@ -1,5 +1,7 @@
 package com.baidu.tieba.view;
+
+import android.webkit.WebView;
 /* loaded from: classes.dex */
 public interface h {
-    void a();
+    boolean a(WebView webView, String str);
 }

@@ -61,14 +61,14 @@ public class ah implements r {
     @Override // com.baidu.tieba.voice.r
     public void a(int i) {
         if (this.a.a != null) {
-            this.a.a.e(i);
+            this.a.a.f(i);
         }
     }
 
     @Override // com.baidu.tieba.voice.r
     public void b(int i) {
         if (this.a.a != null) {
-            this.a.a.d(i / LocationClientOption.MIN_SCAN_SPAN);
+            this.a.a.e(i / LocationClientOption.MIN_SCAN_SPAN);
         }
     }
 

@@ -14,10 +14,10 @@ public class u extends Thread {
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         super.run();
-        com.baidu.tieba.util.an anVar = new com.baidu.tieba.util.an(com.baidu.tieba.data.h.a + "c/s/clientcall");
-        anVar.a("tid", this.a);
-        anVar.a("phonenum", this.b);
-        anVar.a("optype", this.c);
-        anVar.l();
+        com.baidu.tieba.util.at atVar = new com.baidu.tieba.util.at(com.baidu.tieba.data.h.a + "c/s/clientcall");
+        atVar.a("tid", this.a);
+        atVar.a("phonenum", this.b);
+        atVar.a("optype", this.c);
+        atVar.l();
     }
 }

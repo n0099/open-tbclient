@@ -1,76 +1,31 @@
 package com.baidu.tieba.person;
 
-import android.app.Dialog;
-import android.content.Intent;
 import android.view.View;
-import android.widget.RadioButton;
+import com.baidu.mobstat.StatService;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.pb.NewPbActivity;
 /* loaded from: classes.dex */
 class ao implements View.OnClickListener {
-    final /* synthetic */ PersonChangeActivity a;
+    final /* synthetic */ com.baidu.tieba.model.bl a;
+    final /* synthetic */ am b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ao(PersonChangeActivity personChangeActivity) {
-        this.a = personChangeActivity;
+    public ao(am amVar, com.baidu.tieba.model.bl blVar) {
+        this.b = amVar;
+        this.a = blVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        RadioButton radioButton;
-        RadioButton radioButton2;
-        com.baidu.tieba.model.bw bwVar;
-        com.baidu.tieba.model.bw bwVar2;
-        boolean z;
-        com.baidu.tieba.model.bw bwVar3;
-        com.baidu.tieba.model.bw bwVar4;
-        Boolean bool;
-        com.baidu.tieba.model.bw bwVar5;
-        com.baidu.tieba.model.bw bwVar6;
-        Dialog dialog;
-        com.baidu.tieba.model.bw bwVar7;
-        com.baidu.tieba.model.bw bwVar8;
-        radioButton = this.a.u;
-        if (radioButton.isChecked()) {
-            bwVar7 = this.a.y;
-            if (bwVar7 != null) {
-                bwVar8 = this.a.y;
-                if (bwVar8.a().getSex() != 1) {
-                    this.a.G = true;
-                }
-            }
+        if (this.a.a() == 2) {
+            NewPbActivity.a(this.b.a, this.a.g(), (String) null, "");
+        } else if (this.a.i()) {
+            NewPbActivity.b(this.b.a, this.a.g(), this.a.h(), "");
         } else {
-            radioButton2 = this.a.v;
-            if (radioButton2.isChecked()) {
-                bwVar = this.a.y;
-                if (bwVar != null) {
-                    bwVar2 = this.a.y;
-                    if (bwVar2.a().getSex() != 2) {
-                        this.a.G = true;
-                    }
-                }
-            }
+            NewPbActivity.a(this.b.a, this.a.g(), this.a.h(), "");
         }
-        z = this.a.G;
-        if (z) {
-            dialog = this.a.F;
-            dialog.show();
-            return;
+        if (this.b.b.a() != null && TiebaApplication.g().s()) {
+            StatService.onEvent(this.b.a, "his_threads_item", "click", 1);
         }
-        bwVar3 = this.a.y;
-        if (bwVar3 != null) {
-            bwVar4 = this.a.y;
-            if (bwVar4.a().getPhotoChanged()) {
-                Intent intent = new Intent();
-                bool = this.a.b;
-                if (bool.booleanValue()) {
-                    bwVar6 = this.a.y;
-                    intent.putExtra("person_change_data", bwVar6.a());
-                } else {
-                    bwVar5 = this.a.y;
-                    intent.putExtra("data", bwVar5.a());
-                }
-                this.a.setResult(-1, intent);
-            }
-        }
-        this.a.finish();
     }
 }

@@ -19,8 +19,8 @@ import com.baidu.tieba.im.data.GroupInfoData;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.groupInfo.GroupInfoActivity;
 import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.ai;
-import com.baidu.tieba.view.bq;
+import com.baidu.tieba.util.ak;
+import com.baidu.tieba.view.bw;
 import com.slidingmenu.lib.R;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -29,7 +29,7 @@ public class MyGroupFragment extends BaseFragment implements View.OnClickListene
     public boolean b;
     private h c;
     public BdListView a = null;
-    private bq d = null;
+    private bw d = null;
     private a e = null;
     private EnterForumGuideCenterView f = null;
     private View g = null;
@@ -99,7 +99,7 @@ public class MyGroupFragment extends BaseFragment implements View.OnClickListene
         this.f = (EnterForumGuideCenterView) inflate.findViewById(R.id.lv_guid_center_root);
         this.a = (BdListView) inflate.findViewById(R.id.my_group_list);
         this.a.a(new d(this), 300L);
-        this.d = new bq(i());
+        this.d = new bw(i());
         this.e = new a(this);
         this.d.a(new e(this));
         this.a.setPullRefresh(this.d);
@@ -112,7 +112,7 @@ public class MyGroupFragment extends BaseFragment implements View.OnClickListene
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
         if (this.a != null && this.e != null) {
-            ai.a(this.a, this.e.a(), 0, -1);
+            ak.a(this.a, this.e.a(), 0, -1);
         }
     }
 
@@ -120,7 +120,7 @@ public class MyGroupFragment extends BaseFragment implements View.OnClickListene
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         GroupInfoData item = this.e.getItem(i);
         if (item != null) {
-            if (TiebaApplication.h().t()) {
+            if (TiebaApplication.g().s()) {
                 StatService.onEvent(i(), "my_group_item", "click", 1);
             }
             GroupChatActivity.a(i(), item.getGroupId(), item.getName(), item.getAuthorId(), "group_lstb");
@@ -131,7 +131,7 @@ public class MyGroupFragment extends BaseFragment implements View.OnClickListene
     public void onClick(View view) {
         super.onClick(view);
         switch (view.getId()) {
-            case R.id.click_head /* 2131100376 */:
+            case R.id.click_head /* 2131100457 */:
                 GroupInfoData groupInfoData = null;
                 if (view.getTag() instanceof GroupInfoData) {
                     groupInfoData = (GroupInfoData) view.getTag();

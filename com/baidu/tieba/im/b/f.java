@@ -2,28 +2,28 @@ package com.baidu.tieba.im.b;
 
 import android.os.Handler;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.im.chat.ai;
+import com.baidu.tieba.im.chat.ah;
 import com.baidu.tieba.im.db.ag;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.db.t;
 import com.baidu.tieba.im.groupInfo.u;
 import com.baidu.tieba.im.message.GroupUpdateMessage;
-import com.baidu.tieba.im.message.bl;
+import com.baidu.tieba.im.message.bo;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes.dex */
 class f implements com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMessageCenterPojo>> {
-    final /* synthetic */ bl a;
+    final /* synthetic */ bo a;
     final /* synthetic */ LinkedList b;
     final /* synthetic */ LinkedList c;
     final /* synthetic */ e d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public f(e eVar, bl blVar, LinkedList linkedList, LinkedList linkedList2) {
+    public f(e eVar, bo boVar, LinkedList linkedList, LinkedList linkedList2) {
         this.d = eVar;
-        this.a = blVar;
+        this.a = boVar;
         this.b = linkedList;
         this.c = linkedList2;
     }
@@ -45,9 +45,12 @@ class f implements com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMessageCente
                     imMessageCenterPojo.setGroup_type(groupUpdateMessage.getGroupType());
                     a = this.d.a.a(concurrentHashMap, groupUpdateMessage.getGroupId());
                     if (a == null || a.getPulled_msgId() == 0 || a.getLast_rid() == 0) {
-                        long b = ai.b(groupUpdateMessage.getLastMsgId());
+                        long b = ah.b(groupUpdateMessage.getLastMsgId());
                         imMessageCenterPojo.setPulled_msgId(b);
                         imMessageCenterPojo.setLast_rid(b);
+                    }
+                    if (a != null) {
+                        imMessageCenterPojo.setIs_hidden(a.getIs_hidden());
                     }
                     imMessageCenterPojo.setGroup_head(groupUpdateMessage.getPortrait());
                 }
@@ -66,13 +69,13 @@ class f implements com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMessageCente
                         }
                         String str = (String) it.next();
                         if (imMessageCenterPojo2.getGid() != null && imMessageCenterPojo2.getGid().equals(str)) {
-                            u.d(TiebaApplication.B(), str, true);
+                            u.d(TiebaApplication.A(), str, true);
                             z = false;
                             break;
                         }
                     }
                     if (z) {
-                        u.d(TiebaApplication.B(), imMessageCenterPojo2.getGid(), false);
+                        u.d(TiebaApplication.A(), imMessageCenterPojo2.getGid(), false);
                         imMessageCenterPojo2.setIs_delete(1);
                         this.b.add(imMessageCenterPojo2);
                     }
@@ -82,7 +85,7 @@ class f implements com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMessageCente
         com.baidu.tieba.im.messageCenter.e.a().b(false);
         com.baidu.adp.lib.h.e.c("----online succ");
         ag.a().a(concurrentHashMap, this.b);
-        if (TiebaApplication.C()) {
+        if (TiebaApplication.B()) {
             handler = this.d.a.p;
             handler2 = this.d.a.p;
             handler.sendMessage(handler2.obtainMessage(3));

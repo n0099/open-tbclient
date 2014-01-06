@@ -1,10 +1,10 @@
 package com.baidu.tieba.im.model;
 
-import com.baidu.tieba.im.message.bt;
+import com.baidu.tieba.im.message.bw;
 /* loaded from: classes.dex */
 public class ak extends com.baidu.adp.a.d {
-    private com.baidu.tieba.im.message.ai a = null;
-    private bt b = null;
+    private com.baidu.tieba.im.message.al a = null;
+    private bw b = null;
     private int c;
     private String d;
     private String e;
@@ -21,12 +21,12 @@ public class ak extends com.baidu.adp.a.d {
         this.e = str;
     }
 
-    private com.baidu.tieba.im.message.ai c() {
-        com.baidu.tieba.im.message.ai aiVar = new com.baidu.tieba.im.message.ai();
-        aiVar.a(this.d);
-        aiVar.b(this.e);
-        aiVar.a(this.c);
-        return aiVar;
+    private com.baidu.tieba.im.message.al c() {
+        com.baidu.tieba.im.message.al alVar = new com.baidu.tieba.im.message.al();
+        alVar.a(this.d);
+        alVar.b(this.e);
+        alVar.a(this.c);
+        return alVar;
     }
 
     public void a() {

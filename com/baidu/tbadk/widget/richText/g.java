@@ -1,65 +1,69 @@
 package com.baidu.tbadk.widget.richText;
 
-import android.content.Context;
-import android.text.TextPaint;
-import android.text.style.ClickableSpan;
-import android.view.View;
-import com.baidu.zeus.bouncycastle.DERTags;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class g extends ClickableSpan {
-    private Context a;
-    private int b;
+public class g {
+    private String a;
+    private String b;
     private String c;
-    private String d;
+    private int d;
+    private int e;
+    private boolean f;
 
-    public g(Context context, int i, String str) {
+    public g(JSONObject jSONObject) {
         this.a = null;
-        this.b = 0;
+        this.b = null;
         this.c = null;
-        this.a = context;
-        this.c = str;
-        this.b = i;
-    }
-
-    public void a(String str) {
-        this.d = str;
-    }
-
-    @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
-    public void updateDrawState(TextPaint textPaint) {
-        super.updateDrawState(textPaint);
-        textPaint.setUnderlineText(false);
-    }
-
-    @Override // android.text.style.ClickableSpan
-    public void onClick(View view) {
-        i iVar = null;
-        if (this.a instanceof i) {
-            iVar = (i) this.a;
-        }
-        if (iVar != null) {
-            switch (this.b) {
-                case 2:
-                    iVar.b(this.a, this.c);
-                    return;
-                case 16:
-                    iVar.a(this.a, this.c);
-                    return;
-                case 32:
-                    iVar.c(this.a, this.c);
-                    return;
-                case DERTags.APPLICATION /* 64 */:
-                    iVar.d(this.a, this.c);
-                    return;
-                case DERTags.TAGGED /* 128 */:
-                    iVar.e(this.a, this.c);
-                    return;
-                case 256:
-                    iVar.a(this.a, this.c, this.d);
-                    return;
-                default:
-                    return;
+        this.d = 1;
+        this.e = 1;
+        this.f = false;
+        if (jSONObject != null) {
+            this.a = jSONObject.optString("src");
+            this.b = jSONObject.optString("cdn_src", "");
+            if (this.b == null || this.b.length() == 0) {
+                this.b = this.a;
+            }
+            this.c = jSONObject.optString("big_cdn_src", null);
+            try {
+                String[] split = jSONObject.optString("bsize").split(",");
+                this.d = Integer.valueOf(split[0]).intValue();
+                this.e = Integer.valueOf(split[1]).intValue();
+            } catch (Exception e) {
+                com.baidu.adp.lib.h.e.a(e.getMessage());
+            }
+            if (this.d <= 0) {
+                this.d = 1;
+            }
+            if (this.e <= 0) {
+                this.e = 1;
+            }
+            if (this.b != null && this.b.indexOf(".baidu.com") != -1) {
+                this.f = true;
             }
         }
+    }
+
+    public String a() {
+        return this.c;
+    }
+
+    public int b() {
+        return this.e;
+    }
+
+    public int c() {
+        return this.d;
+    }
+
+    public boolean d() {
+        return this.f;
+    }
+
+    public String e() {
+        return this.a;
+    }
+
+    public String f() {
+        return this.b;
     }
 }

@@ -27,9 +27,9 @@ public class n implements AbsListView.OnScrollListener {
         handler2 = this.a.e;
         runnable2 = this.a.f;
         handler2.postDelayed(runnable2, 300L);
-        bdListView = this.a.Y;
+        bdListView = this.a.i;
         if (bdListView.getAdapter() != null) {
-            bdListView2 = this.a.Y;
+            bdListView2 = this.a.i;
             if (i2 < bdListView2.getAdapter().getCount()) {
             }
         }

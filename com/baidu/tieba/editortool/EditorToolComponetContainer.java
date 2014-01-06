@@ -1,158 +1,237 @@
 package com.baidu.tieba.editortool;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.graphics.Bitmap;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import com.baidu.tieba.view.ap;
+import com.baidu.tieba.view.av;
 import com.baidu.tieba.voice.RecordVoiceBnt;
 import com.baidu.tieba.voice.VoiceManager;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class EditorToolComponetContainer extends RelativeLayout implements ap {
+public class EditorToolComponetContainer extends RelativeLayout implements av {
     protected Context a;
-    protected FaceView b;
-    protected RecordVoiceBnt c;
-    protected ImageUploadView d;
-    protected View e;
-    protected boolean f;
+    protected ToolMoreView b;
+    protected EmotionTabHost c;
+    protected RecordVoiceBnt d;
+    protected ImageUploadView e;
+    protected View f;
+    protected ImageView g;
+    protected boolean h;
+    private AlertDialog.Builder i;
+    private boolean j;
 
     public EditorToolComponetContainer(Context context) {
         super(context);
-        this.f = false;
+        this.h = false;
+        this.i = null;
+        this.j = true;
         this.a = context;
         a();
     }
 
     public EditorToolComponetContainer(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f = false;
+        this.h = false;
+        this.i = null;
+        this.j = true;
         this.a = context;
         a();
     }
 
     protected void a() {
         LayoutInflater.from(this.a).inflate(R.layout.editor_tool_container, (ViewGroup) this, true);
-        this.b = (FaceView) findViewById(R.id.face_view);
-        this.c = (RecordVoiceBnt) findViewById(R.id.record_voice_view);
-        this.d = (ImageUploadView) findViewById(R.id.image_upload_view);
+        this.b = (ToolMoreView) findViewById(R.id.tool_view);
+        this.c = (EmotionTabHost) findViewById(R.id.face_view);
+        this.d = (RecordVoiceBnt) findViewById(R.id.record_voice_view);
+        this.e = (ImageUploadView) findViewById(R.id.image_upload_view);
+        this.i = new AlertDialog.Builder(this.a);
+        this.i.setTitle(R.string.editor_dialog_title);
+        this.i.setNegativeButton(R.string.editor_dialog_no, (DialogInterface.OnClickListener) null);
+        this.g = (ImageView) findViewById(R.id.pb_foot_down_shadow);
+    }
+
+    public void setFrom(int i) {
+        if (this.c != null) {
+            this.c.setFrom(i);
+        }
     }
 
     protected void b() {
-        this.b.setVisibility(0);
-    }
-
-    protected void c() {
-        this.b.setVisibility(8);
-    }
-
-    protected void d() {
+        this.g.setVisibility(0);
         this.c.setVisibility(0);
     }
 
-    protected void e() {
+    protected void c() {
         this.c.setVisibility(8);
     }
 
-    protected void f() {
+    protected void d() {
+        this.g.setVisibility(0);
         this.d.setVisibility(0);
     }
 
-    protected void g() {
+    protected void e() {
         this.d.setVisibility(8);
+    }
+
+    protected void f() {
+        this.g.setVisibility(0);
+        this.e.setVisibility(0);
+    }
+
+    protected void g() {
+        this.e.setVisibility(8);
+    }
+
+    protected void h() {
+        this.g.setVisibility(0);
+        this.b.setVisibility(0);
+    }
+
+    protected void i() {
+        this.b.setVisibility(8);
     }
 
     public void a(View view) {
         if (view != null) {
             com.baidu.adp.lib.h.g.b(this.a, view);
-            this.f = true;
+            this.h = true;
         }
     }
 
     public void b(View view) {
         if (view != null) {
             com.baidu.adp.lib.h.g.a(this.a, view);
-            this.f = false;
+            this.h = false;
         }
     }
 
-    public boolean h() {
-        return this.c.getVisibility() == 0 || this.b.getVisibility() == 0 || this.d.getVisibility() == 0;
-    }
-
-    public void i() {
-        e();
-        c();
-        g();
-        b(this.e);
-    }
-
-    public void j() {
-        i();
-        b();
+    public boolean j() {
+        return this.b.getVisibility() == 0 || this.d.getVisibility() == 0 || this.c.getVisibility() == 0 || this.e.getVisibility() == 0;
     }
 
     public void k() {
+        this.g.setVisibility(8);
         i();
-        d();
+        e();
+        c();
+        g();
+        b(this.f);
     }
 
     public void l() {
-        i();
+        k();
+        h();
+    }
+
+    public void m() {
+        k();
+        b();
+    }
+
+    public void n() {
+        k();
+        d();
+    }
+
+    public void o() {
+        k();
         f();
     }
 
     public void c(View view) {
-        if (!this.f) {
-            i();
-            this.e = view;
+        if (!this.h) {
+            k();
+            this.f = view;
             a(view);
         }
     }
 
-    public boolean m() {
-        return this.d.a();
+    public boolean p() {
+        return this.e.a();
     }
 
-    public boolean n() {
-        VoiceManager.VoiceModel voiceModel = this.c.getVoiceModel();
+    public boolean q() {
+        VoiceManager.VoiceModel voiceModel = this.d.getVoiceModel();
         return (voiceModel == null || voiceModel.getId() == null || voiceModel.getId().length() <= 0) ? false : true;
     }
 
     public VoiceManager.VoiceModel getAudioData() {
-        return this.c.getVoiceModel();
+        return this.d.getVoiceModel();
     }
 
-    public void o() {
-        this.c.a();
+    public void r() {
+        this.d.a();
+        setImage(null);
     }
 
-    public void p() {
-        this.c.D();
+    public void s() {
+        this.d.E();
     }
 
-    public void q() {
-        p();
+    public void t() {
+        s();
     }
 
-    public void setOnActionListener(h hVar) {
-        this.d.setOnClickListener(new b(this, hVar));
-        this.b.setOnDataSelected(new c(this, hVar));
-        this.c.setCallback(new d(this, hVar));
+    public void setOnActionListener(t tVar) {
+        this.i.setPositiveButton(R.string.editor_dialog_yes, new b(this, tVar));
+        this.b.setOnClickListener(new c(this, tVar));
+        this.e.setOnClickListener(new d(this, tVar));
+        this.c.setOnDataSelected(new e(this, tVar));
+        this.d.setCallback(new f(this, tVar));
     }
 
-    public boolean r() {
-        return this.f;
+    public boolean u() {
+        return this.h;
     }
 
-    @Override // com.baidu.tieba.view.ap
+    @Override // com.baidu.tieba.view.av
     public void a(int i) {
         if (i == 1) {
-            this.f = false;
+            this.h = false;
         } else if (i == 0) {
-            this.f = true;
+            this.h = true;
         }
+    }
+
+    public boolean v() {
+        return this.b.a();
+    }
+
+    public void setImage(Bitmap bitmap) {
+        if (bitmap == null) {
+            this.b.setmImagetype(0);
+        }
+        this.b.setImage(bitmap);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void w() {
+        this.j = true;
+        this.i.setMessage(R.string.editor_dialog_camera_to_image_content);
+        this.i.show();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void x() {
+        this.j = false;
+        this.i.setMessage(R.string.editor_dialog_image_to_camera_content);
+        this.i.show();
+    }
+
+    public void a(boolean z) {
+        this.b.a(z);
+        this.c.setShowBigEmotion(!z);
+    }
+
+    public void b(int i) {
+        this.c.b(i);
     }
 }

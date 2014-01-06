@@ -1,6 +1,9 @@
 package com.baidu.tieba.frs;
+
+import android.content.DialogInterface;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class f implements com.baidu.adp.widget.ListView.t {
+public class f implements DialogInterface.OnDismissListener {
     final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -8,7 +11,8 @@ class f implements com.baidu.adp.widget.ListView.t {
         this.a = frsActivity;
     }
 
-    @Override // com.baidu.adp.widget.ListView.t
-    public void b() {
+    @Override // android.content.DialogInterface.OnDismissListener
+    public void onDismiss(DialogInterface dialogInterface) {
+        this.a.z();
     }
 }

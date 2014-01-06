@@ -23,7 +23,7 @@ public class f {
 
     public void b() {
         this.c = new HashMap();
-        a(TiebaApplication.h().aX());
+        a(TiebaApplication.g().aX());
         this.b = UtilHelper.NetworkStateInfo.UNAVAIL;
     }
 
@@ -52,7 +52,7 @@ public class f {
     }
 
     public void c() {
-        this.b = UtilHelper.g(TiebaApplication.h());
+        this.b = UtilHelper.g(TiebaApplication.g());
     }
 
     public int d() {

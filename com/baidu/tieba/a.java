@@ -6,6 +6,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import com.baidu.tieba.util.bu;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class a extends j {
@@ -43,25 +44,25 @@ public class a extends j {
             this.e = (ListView) findViewById(R.id.list);
         }
         this.g = (ViewGroup) findViewById(R.id.body_container);
-        com.baidu.tieba.util.bk.b(this.g);
+        bu.b(this.g);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        com.baidu.tieba.util.bb.a(this.c, i);
-        com.baidu.tieba.util.bb.d(this.b, i);
-        com.baidu.tieba.util.bb.e(this.d, i);
-        com.baidu.tieba.util.bb.b(this.a, i);
-        com.baidu.tieba.util.bb.f((TextView) this.f, i);
+        com.baidu.tieba.util.bl.a(this.c, i);
+        com.baidu.tieba.util.bl.d(this.b, i);
+        com.baidu.tieba.util.bl.e(this.d, i);
+        com.baidu.tieba.util.bl.b(this.a, i);
+        com.baidu.tieba.util.bl.f((TextView) this.f, i);
         if (this.e != null) {
             this.e.invalidateViews();
             if (i == 1) {
             }
         }
         if (this.g != null) {
-            com.baidu.tieba.util.bk.a(this.g, i);
+            bu.a(this.g, i);
         }
     }
 

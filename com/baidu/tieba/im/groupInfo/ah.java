@@ -1,10 +1,10 @@
 package com.baidu.tieba.im.groupInfo;
 
-import com.baidu.tieba.im.message.bz;
+import com.baidu.tieba.im.message.cc;
 import java.util.LinkedList;
 import protobuf.AddGroupUsers.AddGroupUsersRes;
 /* loaded from: classes.dex */
-public class ah extends bz implements com.baidu.tieba.im.coder.f {
+public class ah extends cc implements com.baidu.tieba.im.coder.f {
     private int a;
 
     public ah() {
@@ -12,9 +12,9 @@ public class ah extends bz implements com.baidu.tieba.im.coder.f {
     }
 
     @Override // com.baidu.tieba.im.coder.f
-    public void a(LinkedList<com.baidu.tieba.im.message.n> linkedList, byte[] bArr, int i) {
+    public void a(LinkedList<com.baidu.tieba.im.message.o> linkedList, byte[] bArr, int i) {
         AddGroupUsersRes.AddGroupUsersResIdl parseFrom = AddGroupUsersRes.AddGroupUsersResIdl.parseFrom(bArr);
-        c(parseFrom.getError().getErrorno());
+        g(parseFrom.getError().getErrorno());
         c(parseFrom.getError().getUsermsg());
         linkedList.add(this);
         if (!i()) {

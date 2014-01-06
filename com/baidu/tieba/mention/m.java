@@ -20,7 +20,7 @@ public class m implements AdapterView.OnItemClickListener {
         if (itemId == -1) {
             this.a.b();
         } else if (itemId == -2) {
-            j.e(this.a);
+            j.d(this.a);
             this.a.n = 4;
             this.a.d();
         } else {

@@ -75,7 +75,7 @@ public class LoginActivity extends com.baidu.tieba.j {
     }
 
     public static void a(Activity activity, int i, String str, int i2) {
-        if (TiebaApplication.o()) {
+        if (TiebaApplication.n()) {
             com.baidu.tieba.f.a(activity, i2, i, false);
             return;
         }
@@ -87,7 +87,7 @@ public class LoginActivity extends com.baidu.tieba.j {
     }
 
     public static void a(Activity activity, String str, boolean z, int i) {
-        if (TiebaApplication.o()) {
+        if (TiebaApplication.n()) {
             com.baidu.tieba.f.a(activity, i, -1, z);
             return;
         }
@@ -159,7 +159,7 @@ public class LoginActivity extends com.baidu.tieba.j {
             o();
             System.gc();
         } catch (Exception e) {
-            com.baidu.tieba.util.be.b(getClass().getName(), "onDestroy", e.getMessage());
+            com.baidu.tieba.util.bo.b(getClass().getName(), "onDestroy", e.getMessage());
         }
         if (this.c != null) {
             this.c.b();
@@ -203,15 +203,14 @@ public class LoginActivity extends com.baidu.tieba.j {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
-        l.a().b();
         if (this.l) {
-            TiebaApplication.h().A();
+            TiebaApplication.g().z();
             Intent intent = new Intent();
             intent.putExtra("BDUSS", TiebaApplication.E());
             setResult(-1, intent);
         } else {
             int intExtra = getIntent().getIntExtra("locate_type", -1);
-            MainTabActivity.b(this, intExtra != -1 ? intExtra : 1);
+            MainTabActivity.c(this, intExtra != -1 ? intExtra : 1);
         }
         finish();
     }
@@ -269,8 +268,8 @@ public class LoginActivity extends com.baidu.tieba.j {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.L.c(i);
-        com.baidu.tieba.util.bb.a(this.I, i);
-        com.baidu.tieba.util.bb.c(this.a, i);
+        com.baidu.tieba.util.bl.a(this.I, i);
+        com.baidu.tieba.util.bl.c(this.a, i);
         if (i == 1) {
             this.H.setTextColor(getResources().getColor(R.color.skin_1_common_color));
         } else {
@@ -315,9 +314,9 @@ public class LoginActivity extends com.baidu.tieba.j {
         String obj2 = this.p.getText().toString();
         String obj3 = this.q.getText().toString();
         if (this.B.getVisibility() == 8) {
-            z = com.baidu.tieba.util.bc.c(obj) || com.baidu.tieba.util.bc.c(obj2);
+            z = com.baidu.tieba.util.bm.c(obj) || com.baidu.tieba.util.bm.c(obj2);
         } else {
-            z = com.baidu.tieba.util.bc.c(obj) || com.baidu.tieba.util.bc.c(obj2) || com.baidu.tieba.util.bc.c(obj3);
+            z = com.baidu.tieba.util.bm.c(obj) || com.baidu.tieba.util.bm.c(obj2) || com.baidu.tieba.util.bm.c(obj3);
         }
         if (!z) {
             this.r.setEnabled(true);
@@ -461,9 +460,9 @@ public class LoginActivity extends com.baidu.tieba.j {
     public void g() {
         if (this.M == null) {
             String obj = this.o.getText().toString();
-            this.g = com.baidu.tieba.util.bc.b(this.p.getText().toString().getBytes());
+            this.g = com.baidu.tieba.util.bm.b(this.p.getText().toString().getBytes());
             if (obj.length() > 0 && this.g.length() > 0) {
-                if (!this.m || !com.baidu.tieba.util.bc.c(this.q.getText().toString())) {
+                if (!this.m || !com.baidu.tieba.util.bm.c(this.q.getText().toString())) {
                     l();
                     StringBuffer stringBuffer = new StringBuffer(30);
                     stringBuffer.append(com.baidu.tieba.data.h.a);
@@ -472,8 +471,8 @@ public class LoginActivity extends com.baidu.tieba.j {
                     arrayList.add(new BasicNameValuePair("un", obj));
                     arrayList.add(new BasicNameValuePair("passwd", this.g));
                     arrayList.add(new BasicNameValuePair("isphone", String.valueOf(this.j)));
-                    arrayList.add(new BasicNameValuePair("channel_id", TiebaApplication.h().bc()));
-                    arrayList.add(new BasicNameValuePair("channel_uid", TiebaApplication.h().bb()));
+                    arrayList.add(new BasicNameValuePair("channel_id", TiebaApplication.g().bc()));
+                    arrayList.add(new BasicNameValuePair("channel_uid", TiebaApplication.g().bb()));
                     if (this.B != null && this.B.getVisibility() == 0) {
                         arrayList.add(new BasicNameValuePair("vcode", this.q.getText().toString()));
                         arrayList.add(new BasicNameValuePair("vcode_md5", this.h));
@@ -489,6 +488,7 @@ public class LoginActivity extends com.baidu.tieba.j {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void h() {
+        com.baidu.tieba.c.d.a().b();
         AccountData accountData = new AccountData();
         accountData.setAccount(this.N.a().getName());
         if (this.N.a().getPassword() != null) {

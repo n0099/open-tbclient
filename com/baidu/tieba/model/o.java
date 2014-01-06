@@ -8,6 +8,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class o {
+    private boolean h;
     private r b = null;
     private s c = null;
     private q d = null;
@@ -21,6 +22,11 @@ public class o {
         int i = oVar.g;
         oVar.g = i - 1;
         return i;
+    }
+
+    public o() {
+        this.h = false;
+        this.h = true;
     }
 
     public int a() {
@@ -38,7 +44,24 @@ public class o {
         this.g = i;
     }
 
-    public ArrayList<MarkData> c() {
+    public boolean c() {
+        return this.f >= 20;
+    }
+
+    public void d() {
+        if (this.e != null) {
+            this.e.clear();
+        }
+        this.g = 0;
+        this.f = 0;
+        this.h = true;
+    }
+
+    public boolean e() {
+        return this.h;
+    }
+
+    public ArrayList<MarkData> f() {
         return this.e;
     }
 
@@ -56,18 +79,18 @@ public class o {
         this.e.add(markData);
     }
 
-    public int d() {
+    public int g() {
         if (this.e == null) {
             return 0;
         }
         return this.e.size();
     }
 
-    public int e() {
+    public int h() {
         return this.f;
     }
 
-    public void f() {
+    public void i() {
         ArrayList<MarkData> s = DatabaseService.s();
         if (s != null) {
             a(s);
@@ -99,7 +122,7 @@ public class o {
                 i5--;
                 i4 = i3;
             } catch (Exception e) {
-                com.baidu.tieba.util.be.b(getClass().getName(), "toJson", e.toString());
+                com.baidu.tieba.util.bo.b(getClass().getName(), "toJson", e.toString());
                 jSONArray = null;
             }
         }
@@ -114,7 +137,7 @@ public class o {
         try {
             a(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.tieba.util.be.b(getClass().getName(), "parserJson", e.toString());
+            com.baidu.tieba.util.bo.b(getClass().getName(), "parserJson", e.toString());
         }
     }
 
@@ -125,7 +148,7 @@ public class o {
         try {
             jSONObject = new JSONObject(str);
         } catch (Exception e) {
-            com.baidu.tieba.util.be.b(getClass().getName(), "parserJson", e.toString());
+            com.baidu.tieba.util.bo.b(getClass().getName(), "parserJson", e.toString());
             arrayList = null;
         }
         if (jSONObject.optJSONObject("error").optString("errno").equals(SocialConstants.FALSE)) {
@@ -151,7 +174,7 @@ public class o {
                 }
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.be.b(getClass().getName(), "parserJson", e.toString());
+            com.baidu.tieba.util.bo.b(getClass().getName(), "parserJson", e.toString());
         }
     }
 
@@ -164,7 +187,7 @@ public class o {
         this.b.execute(bool);
     }
 
-    public void g() {
+    public void j() {
         if (this.c != null) {
             this.c.cancel();
         }
@@ -173,18 +196,20 @@ public class o {
         this.c.execute(new o[0]);
     }
 
-    public void b(int i) {
+    public boolean b(int i) {
         if (this.d != null) {
             this.d.cancel();
         }
-        if (i < this.e.size() && this.e.get(i) != null && this.e.get(i).getId() != null) {
-            this.d = new q(this, this.e.get(i).getId(), i);
-            this.d.setPriority(2);
-            this.d.execute(new Boolean[0]);
+        if (i >= this.e.size() || this.e.get(i) == null || this.e.get(i).getId() == null) {
+            return false;
         }
+        this.d = new q(this, this.e.get(i).getId(), i);
+        this.d.setPriority(2);
+        this.d.execute(new Boolean[0]);
+        return true;
     }
 
-    public int h() {
+    public int k() {
         return com.baidu.tieba.sharedPref.b.a().a("uploac_mark_offset", 399);
     }
 
@@ -192,7 +217,7 @@ public class o {
         com.baidu.tieba.sharedPref.b.a().b("uploac_mark_offset", i);
     }
 
-    public void i() {
+    public void l() {
         if (this.b != null) {
             this.b.cancel();
         }

@@ -5,7 +5,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.os.Process;
 import com.baidu.adp.lib.voice.Amrnb;
-import com.baidu.tieba.util.be;
+import com.baidu.tieba.util.bo;
 import com.google.protobuf.CodedOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -69,7 +69,7 @@ public class c implements Runnable {
             this.b = new AudioTrack(VoiceManager.i, 8000, 2, 2, Math.min(AudioTrack.getMinBufferSize(8000, 2, 2) * 8, (int) CodedOutputStream.DEFAULT_BUFFER_SIZE), 1);
         } catch (IllegalArgumentException e) {
             this.b = null;
-            be.b("AmrAudioPlayerRunnable", "init new AudioTrack", "error = " + e.getMessage());
+            bo.b("AmrAudioPlayerRunnable", "init new AudioTrack", "error = " + e.getMessage());
         }
         a = 1;
     }

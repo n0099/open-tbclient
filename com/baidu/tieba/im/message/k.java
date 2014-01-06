@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.message;
 /* loaded from: classes.dex */
-public class k extends bz {
-    private String a;
+public class k extends o {
+    private int a = 0;
     private String b;
 
     public k() {
@@ -9,18 +9,18 @@ public class k extends bz {
     }
 
     public String a() {
-        return this.a;
-    }
-
-    public void a(String str) {
-        this.a = str;
-    }
-
-    public String b() {
         return this.b;
     }
 
-    public void b(String str) {
+    public void a(String str) {
         this.b = str;
+    }
+
+    public int b() {
+        return this.a;
+    }
+
+    public void a(int i) {
+        this.a = i;
     }
 }

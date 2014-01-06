@@ -15,10 +15,14 @@ public class g implements as {
 
     @Override // com.baidu.tieba.account.as
     public void a(AccountData accountData) {
+        boolean z;
         Activity activity;
+        z = this.a.d;
+        if (z) {
+            this.a.b("login_after_shareout_by_up");
+        }
         activity = this.a.b;
         TiebaApplication.a(accountData, activity);
-        l.a().b();
         new h(this, accountData).execute(new Void[0]);
     }
 

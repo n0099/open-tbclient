@@ -1,7 +1,7 @@
 package com.baidu.tieba.forumdetail;
 
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.data.af;
+import com.baidu.tieba.data.ag;
 import com.baidu.tieba.model.ax;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -29,11 +29,11 @@ public class h extends com.baidu.adp.a.g {
             this.d.a(this.c);
         } else if (this.a.getErrorCode() != 0) {
             this.b.showToast(this.a.getErrorString());
-        } else if (((af) obj) != null) {
+        } else if (((ag) obj) != null) {
             this.b.showToast(this.b.getString(R.string.like_success));
-            TiebaApplication h = TiebaApplication.h();
+            TiebaApplication g = TiebaApplication.g();
             forumDetailData = this.d.f;
-            h.f(forumDetailData.forumInfo.forumName);
+            g.f(forumDetailData.forumInfo.forumName);
             this.d.b(true);
             this.d.a(this.c);
         } else {

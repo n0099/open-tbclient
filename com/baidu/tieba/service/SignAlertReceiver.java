@@ -12,7 +12,7 @@ import com.slidingmenu.lib.R;
 public class SignAlertReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        TiebaApplication h;
+        TiebaApplication g;
         if (intent.getAction().equals("com.baidu.tieba.broadcast.signalert")) {
             try {
                 Intent intent2 = new Intent(context, DealIntentService.class);
@@ -30,14 +30,14 @@ public class SignAlertReceiver extends BroadcastReceiver {
                 notification.icon = R.drawable.icon;
                 notification.setLatestEventInfo(context, string2, string, service);
                 notification.defaults = -1;
-                if (com.baidu.tieba.mention.t.c()) {
+                if (com.baidu.tieba.mention.s.c()) {
                     notification.defaults &= -2;
                     notification.defaults &= -3;
                 } else {
-                    if (!TiebaApplication.h().U()) {
+                    if (!TiebaApplication.g().U()) {
                         notification.defaults &= -3;
                     }
-                    if (!TiebaApplication.h().T()) {
+                    if (!TiebaApplication.g().T()) {
                         notification.defaults &= -2;
                     } else {
                         notification.audioStreamType = 5;
@@ -45,19 +45,19 @@ public class SignAlertReceiver extends BroadcastReceiver {
                 }
                 notification.flags |= 16;
                 ((NotificationManager) context.getSystemService("notification")).notify(12, notification);
-                h = TiebaApplication.h();
+                g = TiebaApplication.g();
             } catch (Throwable th) {
                 try {
                     if (com.baidu.adp.lib.h.e.a()) {
                         com.baidu.adp.lib.h.e.a(th.getMessage());
                     }
-                    h = TiebaApplication.h();
+                    g = TiebaApplication.g();
                 } catch (Throwable th2) {
-                    TiebaApplication.h().af();
+                    TiebaApplication.g().af();
                     throw th2;
                 }
             }
-            h.af();
+            g.af();
         }
     }
 }

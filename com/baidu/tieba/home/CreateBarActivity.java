@@ -144,12 +144,12 @@ public class CreateBarActivity extends com.baidu.tieba.j {
     @Override // com.baidu.tieba.j
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        com.baidu.tieba.util.bb.e(this.c, i);
-        com.baidu.tieba.util.bb.a(this.j, i);
-        com.baidu.tieba.util.bb.a(this.a, i);
-        com.baidu.tieba.util.bb.d(this.b, i);
-        com.baidu.tieba.util.bb.a(this.d, i);
-        com.baidu.tieba.util.bb.b(this.f, i);
+        com.baidu.tieba.util.bl.e(this.c, i);
+        com.baidu.tieba.util.bl.a(this.j, i);
+        com.baidu.tieba.util.bl.a(this.a, i);
+        com.baidu.tieba.util.bl.d(this.b, i);
+        com.baidu.tieba.util.bl.a(this.d, i);
+        com.baidu.tieba.util.bl.b(this.f, i);
         String str = this.u + getString(R.string.bar_not_create);
         SpannableString spannableString = new SpannableString(str);
         spannableString.setSpan(new ForegroundColorSpan(Color.rgb(229, 4, 0)), 0, this.u.length(), 33);

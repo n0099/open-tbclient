@@ -1,92 +1,193 @@
 package com.baidu.tieba.mention;
 
 import android.app.Activity;
-import android.content.DialogInterface;
-import com.baidu.tieba.ao;
-import com.baidu.tieba.pb.NewPbActivity;
+import android.content.Context;
+import android.support.v4.app.Fragment;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tieba.BaseFragmentActivity;
+import com.baidu.tieba.model.bj;
+import com.baidu.tieba.util.at;
+import com.baidu.tieba.util.bm;
+import com.baidu.tieba.util.bo;
+import java.util.ArrayList;
+import org.apache.http.message.BasicNameValuePair;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class q implements DialogInterface.OnClickListener {
+public class q extends BdAsyncTask<Object, Integer, bj> {
     final /* synthetic */ j a;
-    private com.baidu.tieba.data.u b = null;
+    private String c;
+    private ArrayList<BasicNameValuePair> d;
+    private f e;
+    private at b = null;
+    private bj f = null;
 
-    public q(j jVar) {
-        this.a = jVar;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public void b(Integer... numArr) {
+        super.b((Object[]) numArr);
+        if (this.f != null) {
+            this.a.a(this.f, true);
+        }
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        int i2;
-        int i3;
+    public q(j jVar, String str, ArrayList<BasicNameValuePair> arrayList, f fVar) {
+        this.a = jVar;
+        this.c = null;
+        this.d = null;
+        this.e = null;
+        this.c = str;
+        this.d = arrayList;
+        this.e = fVar;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void b() {
+        a(true);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: d */
+    public bj a(Object... objArr) {
+        p pVar;
+        String str;
         Activity activity;
-        Activity activity2;
-        Activity activity3;
-        int i4;
-        int i5;
-        Activity activity4;
-        Activity activity5;
-        int i6;
-        int i7;
-        Activity activity6;
-        Activity activity7;
-        Activity activity8;
-        if (this.b != null) {
-            switch (i) {
-                case 0:
-                    i6 = this.a.i;
-                    if (i6 == 2) {
-                        activity8 = this.a.c;
-                        ao.a(activity8, "at_me_visit_post");
-                    } else {
-                        i7 = this.a.i;
-                        if (i7 == 1) {
-                            activity6 = this.a.c;
-                            ao.a(activity6, "my_reply_visit_post");
-                        }
-                    }
-                    if (this.b.j()) {
-                        this.a.b(this.b);
-                        return;
-                    }
-                    activity7 = this.a.c;
-                    NewPbActivity.a(activity7, this.b.g(), this.b.h(), "mention");
-                    return;
+        int i;
+        p pVar2;
+        int i2;
+        p pVar3;
+        pVar = this.a.j;
+        String a = pVar.a();
+        if (a != null && a.length() > 0) {
+            i2 = this.a.h;
+            if (i2 == 1) {
+                this.f = new bj();
+                this.f.a(a);
+                if (!this.f.a()) {
+                    bo.e("MentionAsyncTask", "doInBackground", "cache data format err");
+                    this.f = null;
+                    pVar3 = this.a.j;
+                    pVar3.b();
+                } else {
+                    bo.e("MentionAsyncTask", "doInBackground", "cache data.size: " + String.valueOf(a.length()));
+                    c((Object[]) new Integer[]{0});
+                }
+            }
+        }
+        try {
+            str = this.a.o;
+        } catch (Exception e) {
+            bo.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
+        }
+        if (bm.c(str)) {
+            return null;
+        }
+        this.b = new at(this.c);
+        this.b.a(this.d);
+        at atVar = this.b;
+        activity = this.a.c;
+        atVar.a(activity);
+        String l = this.b.l();
+        if (this.b.c() && l != null) {
+            this.f = new bj();
+            this.f.a(l);
+            if (this.f.a()) {
+                i = this.a.n;
+                if (i != 4) {
+                    pVar2 = this.a.j;
+                    pVar2.a(l);
+                }
+            } else {
+                this.f = null;
+            }
+        }
+        return this.f;
+    }
+
+    private void a(boolean z) {
+        int i;
+        BdListView bdListView;
+        BdListView bdListView2;
+        int i2;
+        BdListView bdListView3;
+        BdListView bdListView4;
+        if (z) {
+            i2 = this.a.n;
+            switch (i2) {
                 case 1:
-                    i4 = this.a.i;
-                    if (i4 == 2) {
-                        activity5 = this.a.c;
-                        ao.a(activity5, "at_me_to_reply");
-                    } else {
-                        i5 = this.a.i;
-                        if (i5 == 1) {
-                            activity4 = this.a.c;
-                            ao.a(activity4, "my_reply_to_reply");
-                        }
-                    }
-                    if (this.b.j()) {
-                        this.a.a(this.b.g(), this.b.h(), this.b.i() != null ? this.b.i().getName() : null, 2);
-                        return;
-                    } else {
-                        this.a.a(this.b.g(), this.b.h(), null, 1);
-                        return;
-                    }
                 case 2:
-                    i2 = this.a.i;
-                    if (i2 == 2) {
-                        activity3 = this.a.c;
-                        ao.a(activity3, "at_me_visit_pb");
-                    } else {
-                        i3 = this.a.i;
-                        if (i3 == 1) {
-                            activity = this.a.c;
-                            ao.a(activity, "my_reply_visit_pb");
-                        }
+                case 3:
+                    bdListView3 = this.a.e;
+                    if (bdListView3 != null) {
+                        bdListView4 = this.a.e;
+                        bdListView4.b();
+                        return;
                     }
-                    activity2 = this.a.c;
-                    NewPbActivity.a(activity2, this.b.g(), null, "mention");
+                    return;
+                case 4:
+                    this.e.c(true);
+                    this.e.notifyDataSetChanged();
                     return;
                 default:
                     return;
             }
         }
+        i = this.a.n;
+        switch (i) {
+            case 1:
+            case 2:
+            case 3:
+                bdListView = this.a.e;
+                if (bdListView != null) {
+                    bdListView2 = this.a.e;
+                    bdListView2.a();
+                    return;
+                }
+                return;
+            case 4:
+                this.e.c(false);
+                this.e.notifyDataSetChanged();
+                return;
+            default:
+                return;
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(bj bjVar) {
+        Fragment fragment;
+        int i;
+        a(false);
+        if (this.b != null) {
+            if (!this.b.d() || bjVar == null) {
+                fragment = this.a.b;
+                android.support.v4.app.n i2 = fragment.i();
+                if (i2 != null && (i2 instanceof BaseFragmentActivity)) {
+                    com.baidu.adp.lib.h.g.a((Context) ((BaseFragmentActivity) i2), this.b.i());
+                }
+            } else {
+                j jVar = this.a;
+                i = this.a.n;
+                jVar.a(bjVar, i == 4);
+            }
+        }
+        this.a.k = null;
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        if (this.b != null) {
+            this.b.j();
+        }
+        a(false);
+        this.a.k = null;
+        super.cancel(true);
     }
 }

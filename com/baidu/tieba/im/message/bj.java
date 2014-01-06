@@ -1,59 +1,68 @@
 package com.baidu.tieba.im.message;
 
-import com.baidu.tieba.im.data.MembersData;
-import com.baidu.tieba.im.data.UserData;
+import com.baidu.tieba.im.data.GroupInfoData;
+import com.baidu.tieba.im.data.GroupPermData;
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import protobuf.Im;
-import protobuf.QueryGroupUserList.QueryGroupUserListRes;
+import protobuf.QueryGroupsByUid.QueryGroupsByUidRes;
 /* loaded from: classes.dex */
-public class bj extends bz implements com.baidu.tieba.im.coder.f {
-    private MembersData a;
+public class bj extends cc implements com.baidu.tieba.im.coder.f {
+    private List<GroupInfoData> a;
+    private GroupPermData b;
 
-    public MembersData a() {
+    public bj() {
+        super(103003);
+    }
+
+    public List<GroupInfoData> a() {
         return this.a;
     }
 
-    public void a(MembersData membersData) {
-        this.a = membersData;
+    public void a(List<GroupInfoData> list) {
+        this.a = list;
+    }
+
+    public void a(GroupPermData groupPermData) {
+        this.b = groupPermData;
     }
 
     @Override // com.baidu.tieba.im.coder.f
-    public void a(LinkedList<n> linkedList, byte[] bArr, int i) {
-        QueryGroupUserListRes.QueryGroupUserListResIdl parseFrom = QueryGroupUserListRes.QueryGroupUserListResIdl.parseFrom(bArr);
-        e(i);
-        c(parseFrom.getError().getErrorno());
+    public void a(LinkedList<o> linkedList, byte[] bArr, int i) {
+        QueryGroupsByUidRes.QueryGroupsByUidResIdl parseFrom = QueryGroupsByUidRes.QueryGroupsByUidResIdl.parseFrom(bArr);
+        g(parseFrom.getError().getErrorno());
         c(parseFrom.getError().getUsermsg());
         linkedList.add(this);
         if (!i()) {
-            a(new MembersData());
-            a().setUsers(new ArrayList());
-            int userListCount = parseFrom.getData().getUserListCount();
-            for (int i2 = 0; i2 < userListCount; i2++) {
-                Im.UserInfo userList = parseFrom.getData().getUserList(i2);
-                UserData userData = new UserData();
-                userData.setInTime(userList.getInTime());
-                userData.setLastReplyTime(userList.getLastReplyTime());
-                userData.setLat(String.valueOf(userList.getLat()));
-                userData.setLng(String.valueOf(userList.getLng()));
-                userData.setLoginTime(userList.getLoginTime());
-                userData.setPortrait(userList.getPortrait());
-                userData.setPosition(userList.getPosition());
-                userData.setSex(userList.getSex());
-                userData.setUserId(userList.getUserId());
-                userData.setUserName(userList.getUserName());
-                Im.UserPermission permission = userList.getPermission();
-                UserData.Permission permission2 = new UserData.Permission();
-                permission2.setIsGroupManager(permission.getIsGroupManager());
-                permission2.setIsGroupOwner(permission.getIsGroupOwner());
-                userData.setPermission(permission2);
-                a().getUsers().add(userData);
+            a(new ArrayList());
+            int groupsCount = parseFrom.getData().getGroupsCount();
+            for (int i2 = 0; i2 < groupsCount; i2++) {
+                Im.GroupInfo groups = parseFrom.getData().getGroups(i2);
+                GroupInfoData groupInfoData = new GroupInfoData();
+                groupInfoData.setGroupId(groups.getGroupId());
+                groupInfoData.setAuthorId(groups.getAuthorId());
+                groupInfoData.setAuthorName(groups.getAuthorName());
+                groupInfoData.setForumId(groups.getForumId());
+                groupInfoData.setGrade(groups.getGrade());
+                groupInfoData.setIntro(groups.getIntro());
+                groupInfoData.setName(groups.getName());
+                groupInfoData.setIsGroupManager(groups.getIsGroupManager());
+                groupInfoData.setMaxMemberNum(groups.getMaxMemberNum());
+                groupInfoData.setMemberNum(groups.getMemberNum());
+                groupInfoData.setPortrait(groups.getPortrait());
+                a().add(groupInfoData);
             }
-            Im.UserPermission permission3 = parseFrom.getData().getPermission();
-            UserData.Permission permission4 = new UserData.Permission();
-            permission4.setIsGroupManager(permission3.getIsGroupManager());
-            permission4.setIsGroupOwner(permission3.getIsGroupOwner());
-            a().setPermission(permission4);
+            Im.GroupPermission groupPerm = parseFrom.getData().getGroupPerm();
+            GroupPermData groupPermData = new GroupPermData();
+            groupPermData.setCanCreateNormal(groupPerm.getCanCreateNormal());
+            groupPermData.setCanCreateOfficial(groupPerm.getCanCreateOfficial());
+            groupPermData.setCanCreatePersonal(groupPerm.getCanCreatePersonal());
+            groupPermData.setCreateNormalTip(groupPerm.getCreateNormalTip());
+            groupPermData.setCreateOfficialTip(groupPerm.getCreateOfficialTip());
+            groupPermData.setCreatePersonalTip(groupPerm.getCreatePersonalTip());
+            groupPermData.setIsManager(groupPerm.getIsForumManager());
+            a(groupPermData);
         }
     }
 }

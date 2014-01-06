@@ -4,7 +4,7 @@ import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.ForumData;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class n implements af {
+class n implements ae {
     final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,40 +12,40 @@ class n implements af {
         this.a = frsActivity;
     }
 
-    @Override // com.baidu.tieba.frs.af
+    @Override // com.baidu.tieba.frs.ae
     public void a(com.baidu.tieba.model.am amVar, com.baidu.tieba.model.an anVar) {
-        bn bnVar;
-        bn bnVar2;
-        bn bnVar3;
+        bo boVar;
+        bo boVar2;
+        bo boVar3;
         com.baidu.tieba.model.ak akVar;
         com.baidu.tieba.model.ak akVar2;
-        bn bnVar4;
+        bo boVar4;
         com.baidu.tieba.model.ak akVar3;
         com.baidu.tieba.model.ak akVar4;
         if (amVar.a) {
-            bnVar3 = this.a.n;
-            bnVar3.a(this.a.getString(R.string.add_fan_sucess));
+            boVar3 = this.a.n;
+            boVar3.a(this.a.getString(R.string.add_fan_sucess));
             akVar = this.a.w;
             akVar.f().b(1);
             akVar2 = this.a.w;
             akVar2.f().c(amVar.c);
-            bnVar4 = this.a.n;
+            boVar4 = this.a.n;
             akVar3 = this.a.w;
             ForumData a = akVar3.a();
             akVar4 = this.a.w;
-            bnVar4.a(1, a, akVar4, false);
-            TiebaApplication.h().h(true);
+            boVar4.a(1, a, akVar4, false);
+            TiebaApplication.g().h(true);
             return;
         }
         if (anVar.d == null || anVar.d.length() <= 0) {
-            bnVar = this.a.n;
-            bnVar.a(this.a.getString(R.string.add_fan_error));
+            boVar = this.a.n;
+            boVar.a(this.a.getString(R.string.add_fan_error));
         } else {
-            bnVar2 = this.a.n;
-            bnVar2.a(anVar.d);
+            boVar2 = this.a.n;
+            boVar2.a(anVar.d);
         }
         if (anVar.c == 120002) {
-            this.a.A();
+            this.a.B();
         }
     }
 }

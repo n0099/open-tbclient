@@ -85,11 +85,11 @@ public class BDImageView2 extends ImageView {
         this.d = null;
     }
 
-    private Matrix a(e eVar) {
+    private Matrix a(d dVar) {
         float f;
         float f2;
         float f3 = 0.0f;
-        if (eVar == null) {
+        if (dVar == null) {
             return null;
         }
         ImageView.ScaleType scaleType = getScaleType();
@@ -97,13 +97,13 @@ public class BDImageView2 extends ImageView {
         int paddingRight = getPaddingRight();
         int paddingTop = getPaddingTop();
         int paddingBottom = getPaddingBottom();
-        int b = eVar.b();
-        int a = eVar.a();
+        int d = dVar.d();
+        int c = dVar.c();
         int height = (getHeight() - paddingTop) - paddingBottom;
         int width = (getWidth() - paddingLeft) - paddingRight;
-        float f4 = width / a;
-        float f5 = height / b;
-        switch (d.a[scaleType.ordinal()]) {
+        float f4 = width / c;
+        float f5 = height / d;
+        switch (c.a[scaleType.ordinal()]) {
             case 1:
                 r0 = f5;
                 f2 = f4;
@@ -116,33 +116,33 @@ public class BDImageView2 extends ImageView {
                 break;
             case 3:
                 r0 = Math.min(f4, f5);
-                f3 = (width - (a * r0)) / 2.0f;
-                f = (height - (b * r0)) / 2.0f;
+                f3 = (width - (c * r0)) / 2.0f;
+                f = (height - (d * r0)) / 2.0f;
                 f2 = r0;
                 break;
             case 4:
                 r0 = Math.min(f4, f5);
-                f3 = width - (a * r0);
-                f = height - (b * r0);
+                f3 = width - (c * r0);
+                f = height - (d * r0);
                 f2 = r0;
                 break;
             case 5:
-                f3 = (width - a) / 2;
-                f = (height - b) / 2;
+                f3 = (width - c) / 2;
+                f = (height - d) / 2;
                 f2 = 1.0f;
                 break;
             case 6:
                 float max = Math.max(f4, f5);
                 r0 = Math.max(max, f5);
-                f3 = (width - (a * max)) / 2.0f;
-                f = (height - (b * r0)) / 2.0f;
+                f3 = (width - (c * max)) / 2.0f;
+                f = (height - (d * r0)) / 2.0f;
                 f2 = max;
                 break;
             case 7:
                 float min = Math.min(f4, f5);
                 r0 = min <= 1.0f ? min : 1.0f;
-                f3 = (width - (a * r0)) / 2.0f;
-                f = (height - (b * r0)) / 2.0f;
+                f3 = (width - (c * r0)) / 2.0f;
+                f = (height - (d * r0)) / 2.0f;
                 f2 = r0;
                 break;
             default:
@@ -163,12 +163,12 @@ public class BDImageView2 extends ImageView {
         invalidate();
     }
 
-    private e getImage() {
+    private d getImage() {
         if (this.e != null) {
             try {
                 Object a = com.baidu.adp.lib.e.c.a().a(this.e, this.f, null, getContext(), null, 1);
-                if (a != null && (a instanceof e)) {
-                    return (e) a;
+                if (a != null && (a instanceof d)) {
+                    return (d) a;
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -181,14 +181,14 @@ public class BDImageView2 extends ImageView {
     protected void onDraw(Canvas canvas) {
         Matrix matrix;
         super.onDraw(canvas);
-        e image = getImage();
+        d image = getImage();
         if (image != null) {
             if (this.d == null) {
                 this.d = a(image);
             }
             matrix = this.d;
         } else {
-            image = new e(com.baidu.adp.lib.h.a.a().a(this.a), false, null);
+            image = new d(com.baidu.adp.lib.h.a.a().a(this.a), false, null);
             if (this.c == null) {
                 this.c = a(image);
             }

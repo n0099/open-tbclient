@@ -1,17 +1,14 @@
 package com.baidu.tieba.im.data;
 /* loaded from: classes.dex */
-public class g extends h {
-    private String a;
+public class g {
+    private int a = 1;
 
-    public g() {
-        a(0);
-    }
-
-    public String a() {
+    public int b() {
         return this.a;
     }
 
-    public void a(String str) {
-        this.a = str;
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void a(int i) {
+        this.a = i;
     }
 }

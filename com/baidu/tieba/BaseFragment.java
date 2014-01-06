@@ -71,8 +71,8 @@ public abstract class BaseFragment extends Fragment implements DialogInterface.O
             this.b.c();
         }
         super.r();
-        if (F()) {
-            this.a = TiebaApplication.h().an();
+        if (F() && TiebaApplication.g().an() != this.a) {
+            this.a = TiebaApplication.g().an();
             c(this.a);
         }
     }

@@ -1,25 +1,7 @@
 package com.baidu.tieba.im.message;
-
-import com.google.protobuf.MessageLite;
-import protobuf.CheckMaskUser.CheckMaskUserReq;
 /* loaded from: classes.dex */
-public class w extends n implements com.baidu.tieba.im.coder.g {
-    private int a;
-
+public class w extends o {
     public w() {
-        e(104104);
-    }
-
-    @Override // com.baidu.tieba.im.coder.g
-    public MessageLite a() {
-        return CheckMaskUserReq.CheckMaskUserIdl.newBuilder().a(CheckMaskUserReq.DataReq.newBuilder().a(b()).build()).build();
-    }
-
-    public int b() {
-        return this.a;
-    }
-
-    public void a(int i) {
-        this.a = i;
+        e(-114);
     }
 }

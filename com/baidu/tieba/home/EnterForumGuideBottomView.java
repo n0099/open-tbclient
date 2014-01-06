@@ -93,7 +93,7 @@ public class EnterForumGuideBottomView extends RelativeLayout {
     }
 
     public void a() {
-        a(TiebaApplication.h().an());
+        a(TiebaApplication.g().an());
     }
 
     public void b() {

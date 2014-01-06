@@ -1,81 +1,35 @@
 package com.baidu.tieba.im.message;
-
-import com.baidu.gson.Gson;
-import com.baidu.tieba.im.messageCenter.IDuplicateProcess;
-import com.google.protobuf.ByteString;
-import com.google.protobuf.MessageLite;
-import java.util.HashMap;
-import java.util.Map;
-import protobuf.UpdateClientInfo.UpdateClientInfoReq;
 /* loaded from: classes.dex */
-public class cd extends n implements com.baidu.tieba.im.coder.g, IDuplicateProcess {
+public class cd extends o {
     private String a;
-    private int b;
-    private int c;
-    private Map<String, String> d = new HashMap();
-    private byte[] e;
+    private String b;
+    private int c = 0;
 
     public cd() {
-        e(1001);
+        e(-104);
     }
 
-    public byte[] b() {
-        return this.e;
-    }
-
-    public void a(byte[] bArr) {
-        this.e = bArr;
-    }
-
-    public String c() {
-        return this.a;
-    }
-
-    public void a(String str) {
-        this.a = str;
-    }
-
-    public void a(String str, String str2) {
-        this.d.put(str, str2);
-    }
-
-    public String d() {
-        try {
-            return new Gson().toJson(this.d);
-        } catch (Exception e) {
-            com.baidu.adp.lib.h.e.b(cd.class.getName(), "getDevice", e.getMessage());
-            return null;
-        }
-    }
-
-    @Override // com.baidu.tieba.im.messageCenter.IDuplicateProcess
-    public IDuplicateProcess.RemoveState h() {
-        return IDuplicateProcess.RemoveState.REMOVE_ME;
-    }
-
-    @Override // com.baidu.tieba.im.messageCenter.IDuplicateProcess
-    public boolean a(n nVar) {
-        return true;
-    }
-
-    public int e() {
+    public String a() {
         return this.b;
     }
 
-    public void a(int i) {
-        this.b = i;
+    public void a(String str) {
+        this.b = str;
     }
 
-    public int f() {
+    public String b() {
+        return this.a;
+    }
+
+    public void b(String str) {
+        this.a = str;
+    }
+
+    public int c() {
         return this.c;
     }
 
-    public void b(int i) {
+    public void a(int i) {
         this.c = i;
-    }
-
-    @Override // com.baidu.tieba.im.coder.g
-    public MessageLite a() {
-        return UpdateClientInfoReq.UpdateClientInfoReqIdl.newBuilder().a(com.baidu.tieba.im.i.a()).a(UpdateClientInfoReq.DataReq.newBuilder().a(c()).b(d()).a(ByteString.copyFrom(b())).b(f()).a(e()).build()).build();
     }
 }

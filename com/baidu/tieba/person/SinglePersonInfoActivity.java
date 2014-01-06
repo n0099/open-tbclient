@@ -2,6 +2,7 @@ package com.baidu.tieba.person;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import com.baidu.tieba.BaseFragmentActivity;
 /* loaded from: classes.dex */
 public class SinglePersonInfoActivity extends BaseFragmentActivity {
@@ -17,7 +18,7 @@ public class SinglePersonInfoActivity extends BaseFragmentActivity {
         this.b.g(a);
         android.support.v4.app.ae a2 = supportFragmentManager.a();
         a2.a(16908290, this.b);
-        a2.a();
+        a2.b();
     }
 
     private Bundle a(Bundle bundle) {
@@ -43,5 +44,10 @@ public class SinglePersonInfoActivity extends BaseFragmentActivity {
         if (this.b != null) {
             this.b.a(i, i2, intent);
         }
+    }
+
+    @Override // com.baidu.tieba.BaseFragmentActivity, android.support.v4.app.n, android.app.Activity, android.view.KeyEvent.Callback
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
+        return super.onKeyDown(i, keyEvent);
     }
 }

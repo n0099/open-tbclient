@@ -1,14 +1,11 @@
 package com.baidu.tieba.write;
 
-import android.view.View;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.graphics.Bitmap;
 import com.baidu.tieba.data.WriteData;
-import com.baidu.tieba.editortool.EditorToolComponetContainer;
 import com.slidingmenu.lib.R;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ag implements View.OnFocusChangeListener {
+public class ag implements com.baidu.tieba.editortool.t {
     final /* synthetic */ WriteActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -16,66 +13,25 @@ class ag implements View.OnFocusChangeListener {
         this.a = writeActivity;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:7:0x0017, code lost:
-        if (r4 == r0) goto L22;
-     */
-    @Override // android.view.View.OnFocusChangeListener
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void onFocusChange(View view, boolean z) {
-        EditText editText;
-        WriteEditorToolButtonContainer writeEditorToolButtonContainer;
-        EditorToolComponetContainer editorToolComponetContainer;
-        EditText editText2;
-        EditText editText3;
+    @Override // com.baidu.tieba.editortool.t
+    public void a(int i, Object obj) {
         WriteData writeData;
-        EditText editText4;
         WriteData writeData2;
-        WriteEditorToolButtonContainer writeEditorToolButtonContainer2;
-        EditorToolComponetContainer editorToolComponetContainer2;
-        EditText editText5;
-        EditText editText6;
-        ImageView imageView;
-        TextView textView;
-        editText = this.a.f;
-        if (view != editText) {
-            imageView = this.a.l;
-            if (view != imageView) {
-                textView = this.a.m;
+        if (i == 28) {
+            if (obj != null && (obj instanceof Bitmap)) {
+                WriteImageActivity.a(this.a, (Bitmap) obj, 12003);
             }
-        }
-        if (z) {
-            this.a.G = true;
-            this.a.n();
-            writeEditorToolButtonContainer = this.a.A;
-            writeEditorToolButtonContainer.c();
-            editorToolComponetContainer = this.a.B;
-            editText2 = this.a.f;
-            editorToolComponetContainer.c(editText2);
-        }
-        editText3 = this.a.h;
-        if (view == editText3) {
-            if (z) {
-                this.a.G = false;
-                writeData2 = this.a.b;
-                if (writeData2.getType() == 0) {
-                    editText6 = this.a.h;
-                    editText6.setHint((CharSequence) null);
-                }
-                this.a.n();
-                writeEditorToolButtonContainer2 = this.a.A;
-                writeEditorToolButtonContainer2.c();
-                editorToolComponetContainer2 = this.a.B;
-                editText5 = this.a.h;
-                editorToolComponetContainer2.c(editText5);
-                return;
-            }
+        } else if (i == 29) {
+            this.a.showToast(R.string.pic_parser_error);
+            this.a.t();
+        } else if (i == 32) {
+            writeData2 = this.a.b;
+            writeData2.setBitmapId(null);
+            this.a.t();
+        } else if (i == 30) {
             writeData = this.a.b;
-            if (writeData.getType() == 0) {
-                editText4 = this.a.h;
-                editText4.setHint(R.string.content);
-            }
+            writeData.setBitmapId(null);
+            this.a.t();
         }
     }
 }

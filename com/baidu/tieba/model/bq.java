@@ -2,7 +2,7 @@ package com.baidu.tieba.model;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* loaded from: classes.dex */
-public class bq extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.av> {
+public class bq extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.ax> {
     protected com.baidu.tieba.a.g a = null;
     protected int b;
     final /* synthetic */ bp c;
@@ -17,27 +17,32 @@ public class bq extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.av> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: d */
-    public com.baidu.tieba.data.av a(Object... objArr) {
+    public com.baidu.tieba.data.ax a(Object... objArr) {
         this.a = new com.baidu.tieba.a.g();
         try {
             String a = this.a.a(this.c.b, this.c.d, this.b, this.c.c, d());
             if (!this.a.a()) {
                 return null;
             }
-            com.baidu.tieba.data.av avVar = new com.baidu.tieba.data.av();
-            avVar.a(a, this.c.e);
-            String id = (avVar.m() == null || avVar.m().j() == null) ? null : avVar.m().j().getId();
+            com.baidu.tieba.data.ax axVar = new com.baidu.tieba.data.ax();
+            axVar.a(a, this.c.e);
+            String id = (axVar.m() == null || axVar.m().j() == null) ? null : axVar.m().j().getId();
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 >= avVar.c().size()) {
-                    return avVar;
+                if (i2 >= axVar.c().size()) {
+                    return axVar;
                 }
-                avVar.c().get(i2).a(this.c.e, id.equals(avVar.c().get(i2).g().getId()));
+                boolean equals = id.equals(axVar.c().get(i2).g().getId());
+                if (this.c.i == null) {
+                    this.c.i = new com.baidu.tieba.util.i(this.c.e);
+                    this.c.i.d(true);
+                }
+                axVar.c().get(i2).a(this.c.e, equals, this.c.i);
                 i = i2 + 1;
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.be.b(getClass().getName(), "doInBackground", e.toString());
+            com.baidu.tieba.util.bo.b(getClass().getName(), "doInBackground", e.toString());
             return null;
         }
     }
@@ -66,34 +71,38 @@ public class bq extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.av> {
         if (this.a != null) {
             this.a.d();
         }
+        if (this.c.i != null) {
+            this.c.i.d();
+            this.c.i = null;
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(com.baidu.tieba.data.av avVar) {
+    public void a(com.baidu.tieba.data.ax axVar) {
         this.c.g = null;
-        if (avVar == null) {
+        if (axVar == null) {
             if (this.c.h != null) {
                 this.c.h.a(false, this.a.c(), this.a.b(), null);
                 return;
             }
             return;
         }
-        if (avVar.a() != null) {
-            this.c.c = avVar.a().d();
+        if (axVar.a() != null) {
+            this.c.c = axVar.a().d();
         }
-        if (avVar.m() != null) {
-            this.c.b = avVar.m().a();
+        if (axVar.m() != null) {
+            this.c.b = axVar.m().a();
         }
         if (this.b == 1) {
-            this.c.f = avVar;
+            this.c.f = axVar;
         } else if (this.b == 2) {
-            this.c.f.b(avVar, true);
+            this.c.f.b(axVar, true);
         } else if (this.b == 3) {
-            this.c.f.a(avVar, false);
+            this.c.f.a(axVar, false);
         } else {
-            this.c.f.b(avVar, false);
+            this.c.f.b(axVar, false);
         }
         if (this.c.h != null) {
             this.c.h.a(true, this.a.c(), this.a.b(), this.c.f);

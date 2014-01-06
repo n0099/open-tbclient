@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.model;
 
-import com.baidu.tieba.im.chat.bc;
+import com.baidu.tieba.im.chat.ba;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class y implements Runnable {
@@ -13,8 +13,8 @@ public class y implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        bc bcVar;
-        bcVar = this.a.p;
-        bcVar.finish();
+        ba baVar;
+        baVar = this.a.p;
+        baVar.finish();
     }
 }

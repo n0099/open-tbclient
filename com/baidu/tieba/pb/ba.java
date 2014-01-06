@@ -14,12 +14,12 @@ class ba implements com.baidu.adp.widget.ListView.r {
     @Override // com.baidu.adp.widget.ListView.r
     public void a() {
         com.baidu.tieba.model.bm bmVar;
-        cr crVar;
-        bmVar = this.a.r;
+        cs csVar;
+        bmVar = this.a.t;
         if (bmVar.a(false)) {
-            crVar = this.a.x;
-            crVar.q();
-            if (TiebaApplication.h().t()) {
+            csVar = this.a.z;
+            csVar.r();
+            if (TiebaApplication.g().s()) {
                 StatService.onEvent(this.a, "pb_more", "pbclick", 1);
             }
         }

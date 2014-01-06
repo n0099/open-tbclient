@@ -8,7 +8,7 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* loaded from: classes.dex */
 public class j extends BdAsyncTask<String, Integer, com.baidu.tieba.data.x> {
     final /* synthetic */ AtListActivity a;
-    private com.baidu.tieba.util.an b;
+    private com.baidu.tieba.util.at b;
 
     private j(AtListActivity atListActivity) {
         this.a = atListActivity;
@@ -45,7 +45,7 @@ public class j extends BdAsyncTask<String, Integer, com.baidu.tieba.data.x> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public com.baidu.tieba.data.x a(String... strArr) {
-        this.b = new com.baidu.tieba.util.an();
+        this.b = new com.baidu.tieba.util.at();
         this.b.a(com.baidu.tieba.data.h.a + "c/u/follow/list");
         String l = this.b.l();
         if (!this.b.c()) {

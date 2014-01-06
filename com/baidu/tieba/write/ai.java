@@ -1,11 +1,12 @@
 package com.baidu.tieba.write;
 
-import android.graphics.Bitmap;
-import com.baidu.tieba.data.WriteData;
-import com.slidingmenu.lib.R;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
+import com.baidu.tieba.editortool.EditorToolComponetContainer;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ai implements com.baidu.tieba.editortool.h {
+public class ai implements View.OnClickListener {
     final /* synthetic */ WriteActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,25 +14,23 @@ public class ai implements com.baidu.tieba.editortool.h {
         this.a = writeActivity;
     }
 
-    @Override // com.baidu.tieba.editortool.h
-    public void a(int i, Object obj) {
-        WriteData writeData;
-        WriteData writeData2;
-        if (i == 28) {
-            if (obj != null && (obj instanceof Bitmap)) {
-                WriteImageActivity.a(this.a, (Bitmap) obj, 12003);
-            }
-        } else if (i == 29) {
-            this.a.showToast(R.string.pic_parser_error);
-            this.a.t();
-        } else if (i == 32) {
-            writeData2 = this.a.b;
-            writeData2.setBitmapId(null);
-            this.a.t();
-        } else if (i == 30) {
-            writeData = this.a.b;
-            writeData.setBitmapId(null);
-            this.a.t();
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        InputMethodManager inputMethodManager;
+        EditText editText;
+        InputMethodManager inputMethodManager2;
+        EditText editText2;
+        EditorToolComponetContainer editorToolComponetContainer;
+        WriteActivity writeActivity = this.a;
+        inputMethodManager = this.a.e;
+        editText = this.a.f;
+        writeActivity.HidenSoftKeyPad(inputMethodManager, editText);
+        WriteActivity writeActivity2 = this.a;
+        inputMethodManager2 = this.a.e;
+        editText2 = this.a.h;
+        writeActivity2.HidenSoftKeyPad(inputMethodManager2, editText2);
+        editorToolComponetContainer = this.a.B;
+        editorToolComponetContainer.k();
+        this.a.m();
     }
 }

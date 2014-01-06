@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bp extends com.baidu.tieba.util.ah {
+public class bp extends com.baidu.tieba.util.aj {
     final /* synthetic */ Register2Activity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,7 +15,7 @@ public class bp extends com.baidu.tieba.util.ah {
         this.a = register2Activity;
     }
 
-    @Override // com.baidu.tieba.util.ah, android.text.style.ClickableSpan
+    @Override // com.baidu.tieba.util.aj, android.text.style.ClickableSpan
     public void onClick(View view) {
         br brVar;
         brVar = this.a.O;

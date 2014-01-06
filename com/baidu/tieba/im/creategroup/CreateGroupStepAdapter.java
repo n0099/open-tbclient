@@ -8,22 +8,25 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class CreateGroupStepAdapter extends ae {
     public CreateGroupStepActivity a;
-    private List<v> b = new ArrayList();
+    private List<x> b = new ArrayList();
 
     public CreateGroupStepAdapter(CreateGroupStepActivity createGroupStepActivity) {
         this.a = createGroupStepActivity;
     }
 
-    public List<v> a() {
+    public List<x> a() {
         return this.b;
     }
 
-    public v a(int i) {
+    public x a(int i) {
+        if (i < 0 || i >= getCount()) {
+            return null;
+        }
         return this.b.get(i);
     }
 
-    public void a(v vVar) {
-        this.b.add(vVar);
+    public void a(x xVar) {
+        this.b.add(xVar);
     }
 
     @Override // android.support.v4.view.ae

@@ -14,8 +14,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.location.LocationClientOption;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.ao;
-import com.baidu.tieba.at;
+import com.baidu.tieba.ap;
+import com.baidu.tieba.au;
 import com.baidu.tieba.voice.VoiceManager;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
@@ -44,7 +44,7 @@ public class PlayVoiceBnt extends RelativeLayout implements View.OnClickListener
     public PlayVoiceBnt(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.a = 0;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, at.Voice_play_type);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, au.Voice_play_type);
         this.a = obtainStyledAttributes.getInteger(0, 0);
         obtainStyledAttributes.recycle();
         a(context);
@@ -96,7 +96,7 @@ public class PlayVoiceBnt extends RelativeLayout implements View.OnClickListener
     private void e() {
         int i;
         int i2 = R.anim.voice_btn_play_anim;
-        int an = TiebaApplication.h().an();
+        int an = TiebaApplication.g().an();
         if (this.a == 0) {
             int i3 = an != 1 ? R.drawable.but_thread_voice_selector : R.drawable.but_thread_voice_selector_1;
             i = an == 1 ? -8682095 : -16777216;
@@ -195,13 +195,13 @@ public class PlayVoiceBnt extends RelativeLayout implements View.OnClickListener
                 voiceManager.b(true);
                 voiceManager.b(this);
             }
-            ao.a(getContext(), this.b.from);
+            ap.a(getContext(), this.b.from);
         }
     }
 
     private void f() {
         int i = R.anim.voice_btn_play_anim;
-        int an = TiebaApplication.h().an();
+        int an = TiebaApplication.g().an();
         if (this.a == 0) {
             if (an == 1) {
                 i = R.anim.voice_btn_play_anim_1;
@@ -216,7 +216,7 @@ public class PlayVoiceBnt extends RelativeLayout implements View.OnClickListener
 
     private void g() {
         int i = R.drawable.icon_thread_voice_reply_curve_three;
-        int an = TiebaApplication.h().an();
+        int an = TiebaApplication.g().an();
         if (this.a == 0) {
             if (an == 1) {
                 i = R.drawable.icon_thread_voice_reply_curve_three_1;
@@ -260,21 +260,21 @@ public class PlayVoiceBnt extends RelativeLayout implements View.OnClickListener
 
     @Override // android.view.View
     public void setTag(Object obj) {
-        if (obj != null && (obj instanceof com.baidu.tbadk.widget.richText.q)) {
-            com.baidu.tbadk.widget.richText.q qVar = (com.baidu.tbadk.widget.richText.q) obj;
-            VoiceManager.VoiceModel voiceModel = (VoiceManager.VoiceModel) qVar.d();
+        if (obj != null && (obj instanceof com.baidu.tbadk.widget.richText.t)) {
+            com.baidu.tbadk.widget.richText.t tVar = (com.baidu.tbadk.widget.richText.t) obj;
+            VoiceManager.VoiceModel voiceModel = (VoiceManager.VoiceModel) tVar.d();
             if (voiceModel == null) {
                 voiceModel = new VoiceManager.VoiceModel();
-                if (qVar.c() == 0) {
+                if (tVar.c() == 0) {
                     voiceModel.from = "pb_voice_play";
                 } else {
                     voiceModel.from = "floor_voice_play";
                 }
-                voiceModel.voiceId = qVar.a();
-                voiceModel.duration = qVar.b();
-                qVar.a(voiceModel);
+                voiceModel.voiceId = tVar.a();
+                voiceModel.duration = tVar.b();
+                tVar.a(voiceModel);
             }
-            this.a = qVar.c();
+            this.a = tVar.c();
             setVoiceModel(voiceModel);
             e();
             obj = voiceModel;

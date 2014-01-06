@@ -1,13 +1,13 @@
 package com.baidu.tieba.voice.a;
 
 import com.baidu.tieba.data.h;
-import com.baidu.tieba.util.an;
-import com.baidu.tieba.util.y;
+import com.baidu.tieba.util.aa;
+import com.baidu.tieba.util.at;
 import com.baidu.tieba.voice.ak;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class g implements com.baidu.adp.lib.e.g {
-    private an a = null;
+    private at a = null;
     private com.baidu.adp.lib.e.f b;
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,7 +21,7 @@ public class g implements com.baidu.adp.lib.e.g {
     @Override // com.baidu.adp.lib.e.g
     /* renamed from: c */
     public d a(String str, com.baidu.adp.lib.e.e eVar) {
-        String a = y.a(str, 1);
+        String a = aa.a(str, 1);
         if (a == null) {
             return null;
         }
@@ -41,7 +41,7 @@ public class g implements com.baidu.adp.lib.e.g {
             str2 = (String) this.b.a("from");
         }
         d dVar = new d();
-        this.a = new an(h.a + "c/p/voice?voice_md5=" + str + "&play_from=" + str2);
+        this.a = new at(h.a + "c/p/voice?voice_md5=" + str + "&play_from=" + str2);
         if (this.b != null) {
             this.b.a("network", this.a);
         }
@@ -57,7 +57,7 @@ public class g implements com.baidu.adp.lib.e.g {
         } else {
             int a = e.a(str, k);
             if (a == 0) {
-                dVar.b = y.a(str, 1);
+                dVar.b = aa.a(str, 1);
                 dVar.a = str;
             } else {
                 dVar.c = a;

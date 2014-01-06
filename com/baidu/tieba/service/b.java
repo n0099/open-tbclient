@@ -2,8 +2,8 @@ package com.baidu.tieba.service;
 
 import android.os.Handler;
 import com.baidu.tieba.switchs.SwitchKey;
-import com.baidu.tieba.util.be;
-import com.baidu.tieba.util.y;
+import com.baidu.tieba.util.aa;
+import com.baidu.tieba.util.bo;
 import java.io.File;
 /* loaded from: classes.dex */
 class b extends Thread {
@@ -20,14 +20,14 @@ class b extends Thread {
         Handler handler2;
         super.run();
         try {
-            File file = new File(y.a + "/tieba/image");
-            File file2 = new File(y.a + "/tieba/share");
-            File file3 = new File(y.a + "/tieba/" + SwitchKey.VOICE);
+            File file = new File(aa.a + "/tieba/image");
+            File file2 = new File(aa.a + "/tieba/share");
+            File file3 = new File(aa.a + "/tieba/" + SwitchKey.VOICE);
             this.a.a(file);
             this.a.a(file2);
             this.a.a(file3);
         } catch (Exception e) {
-            be.b(getClass().getName(), "run", e.getMessage());
+            bo.b(getClass().getName(), "run", e.getMessage());
         }
         handler = this.a.c;
         handler2 = this.a.c;

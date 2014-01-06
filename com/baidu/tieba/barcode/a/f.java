@@ -7,7 +7,7 @@ import android.hardware.Camera;
 import android.os.Handler;
 import android.view.SurfaceHolder;
 import com.baidu.tieba.compatible.CompatibleUtile;
-import com.baidu.tieba.util.be;
+import com.baidu.tieba.util.bo;
 import com.google.zxing.PlanarYUVLuminanceSource;
 import com.slidingmenu.lib.R;
 import java.io.IOException;
@@ -56,8 +56,8 @@ public final class f {
         try {
             this.b.a(camera2, false);
         } catch (RuntimeException e) {
-            be.c(getClass().getName(), "openDriver", "Camera rejected parameters. Setting only minimal safe-mode parameters");
-            be.a(getClass().getName(), "openDriver", "Resetting to saved camera params: " + flatten);
+            bo.c(getClass().getName(), "openDriver", "Camera rejected parameters. Setting only minimal safe-mode parameters");
+            bo.a(getClass().getName(), "openDriver", "Resetting to saved camera params: " + flatten);
             if (flatten != null) {
                 Camera.Parameters parameters2 = camera2.getParameters();
                 parameters2.unflatten(flatten);
@@ -65,7 +65,7 @@ public final class f {
                     camera2.setParameters(parameters2);
                     this.b.a(camera2, true);
                 } catch (RuntimeException e2) {
-                    be.c(getClass().getName(), "openDriver", "Camera rejected even safe-mode parameters! No configuration");
+                    bo.c(getClass().getName(), "openDriver", "Camera rejected even safe-mode parameters! No configuration");
                 }
             }
         }
@@ -123,7 +123,7 @@ public final class f {
                     int i = (b.x - dimensionPixelSize) / 2;
                     int i2 = (b.y - dimensionPixelSize) / 2;
                     this.e = new Rect(i, i2, i + dimensionPixelSize, dimensionPixelSize + i2);
-                    be.e(getClass().getName(), "getFramingRect", "Calculated framing rect: " + this.e);
+                    bo.e(getClass().getName(), "getFramingRect", "Calculated framing rect: " + this.e);
                 }
             }
             rect = this.e;
@@ -166,7 +166,7 @@ public final class f {
             int i3 = (b.x - i) / 2;
             int i4 = (b.y - i2) / 2;
             this.e = new Rect(i3, i4, i3 + i, i4 + i2);
-            be.e(getClass().getName(), "setManualFramingRect", "Calculated manual framing rect: " + this.e);
+            bo.e(getClass().getName(), "setManualFramingRect", "Calculated manual framing rect: " + this.e);
             this.f = null;
         } else {
             this.i = i;

@@ -112,7 +112,7 @@ public class Register2Activity extends com.baidu.tieba.j {
         if (this.N != null) {
             this.N.cancel();
         }
-        com.baidu.tieba.util.be.a("Register2Activity", "onDestroy", "onDestroy");
+        com.baidu.tieba.util.bo.a("Register2Activity", "onDestroy", "onDestroy");
     }
 
     private void h() {
@@ -170,8 +170,8 @@ public class Register2Activity extends com.baidu.tieba.j {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.M.c(i);
-        com.baidu.tieba.util.bb.a(this.b, i);
-        com.baidu.tieba.util.bb.c(this.a, i);
+        com.baidu.tieba.util.bl.a(this.b, i);
+        com.baidu.tieba.util.bl.c(this.a, i);
         n();
         k();
     }
@@ -353,7 +353,7 @@ public class Register2Activity extends com.baidu.tieba.j {
     protected void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (i == c && i2 == -1) {
-            com.baidu.tieba.util.be.a("Register2Activity", "onActivityResult", "onActivityResult");
+            com.baidu.tieba.util.bo.a("Register2Activity", "onActivityResult", "onActivityResult");
             setResult(-1);
             finish();
         }

@@ -1,9 +1,10 @@
 package com.baidu.tieba.write;
 
-import android.view.View;
+import android.content.DialogInterface;
+import com.baidu.tieba.data.WriteData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ah implements View.OnClickListener {
+public class ah implements DialogInterface.OnClickListener {
     final /* synthetic */ WriteActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,8 +12,18 @@ public class ah implements View.OnClickListener {
         this.a = writeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.a.o();
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        WriteData writeData;
+        WriteData writeData2;
+        if (i == 0) {
+            bb.a(this.a);
+            writeData2 = this.a.b;
+            writeData2.setPicType(2);
+        } else if (i == 1) {
+            bb.b(this.a);
+            writeData = this.a.b;
+            writeData.setPicType(1);
+        }
     }
 }

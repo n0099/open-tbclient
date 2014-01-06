@@ -1,30 +1,22 @@
 package com.baidu.tieba.pb;
 
-import android.os.Handler;
-import android.view.animation.Animation;
-import android.widget.ImageView;
+import com.baidu.adp.widget.ListView.BdListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ds implements Animation.AnimationListener {
-    final /* synthetic */ ImageView a;
-    final /* synthetic */ cr b;
+public class ds implements Runnable {
+    final /* synthetic */ boolean a;
+    final /* synthetic */ cs b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ds(cr crVar, ImageView imageView) {
-        this.b = crVar;
-        this.a = imageView;
+    public ds(cs csVar, boolean z) {
+        this.b = csVar;
+        this.a = z;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        new Handler().post(new dt(this));
+    @Override // java.lang.Runnable
+    public void run() {
+        BdListView bdListView;
+        bdListView = this.b.i;
+        bdListView.setEnabled(this.a);
     }
 }

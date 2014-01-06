@@ -16,8 +16,8 @@ public class ar implements CompoundButton.OnCheckedChangeListener {
     public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
         RadioButton radioButton;
         if (z) {
-            this.a.a(1);
-            radioButton = this.a.i;
+            this.a.a(0);
+            radioButton = this.a.j;
             radioButton.setChecked(false);
         }
     }

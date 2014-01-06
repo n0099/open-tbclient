@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.baidu.browser.core.util.BdUtil;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tieba.util.DatabaseService;
-import com.baidu.tieba.util.bb;
+import com.baidu.tieba.util.bl;
 import com.baidu.tieba.view.BaseWebView;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
@@ -74,12 +74,12 @@ public class AppsActivity extends com.baidu.tieba.j {
     @Override // com.baidu.tieba.j
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        bb.a(this.h, i);
-        bb.a(this.b, i);
-        bb.d(this.i, i);
-        bb.a(this.c, i);
-        bb.e(this.j, i);
-        bb.b(this.g, i);
+        bl.a(this.h, i);
+        bl.a(this.b, i);
+        bl.d(this.i, i);
+        bl.a(this.c, i);
+        bl.e(this.j, i);
+        bl.b(this.g, i);
     }
 
     private void c() {

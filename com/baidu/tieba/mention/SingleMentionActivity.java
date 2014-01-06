@@ -2,6 +2,7 @@ package com.baidu.tieba.mention;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.ae;
 import com.baidu.tieba.BaseFragmentActivity;
 /* loaded from: classes.dex */
 public class SingleMentionActivity extends BaseFragmentActivity {
@@ -15,9 +16,15 @@ public class SingleMentionActivity extends BaseFragmentActivity {
         android.support.v4.app.t supportFragmentManager = getSupportFragmentManager();
         this.b = new MentionActivity();
         this.b.g(a);
-        android.support.v4.app.ae a2 = supportFragmentManager.a();
+        ae a2 = supportFragmentManager.a();
         a2.a(16908290, this.b);
         a2.b();
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // android.support.v4.app.n, android.app.Activity
+    public void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
     }
 
     private Bundle a(Bundle bundle) {

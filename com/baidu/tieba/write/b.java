@@ -2,7 +2,7 @@ package com.baidu.tieba.write;
 
 import android.widget.ListView;
 import com.baidu.tieba.data.MetaData;
-import com.baidu.tieba.util.be;
+import com.baidu.tieba.util.bo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements Runnable {
@@ -39,7 +39,7 @@ public class b implements Runnable {
                 }
             }
         } catch (Exception e) {
-            be.b(getClass().getName(), "mGetImageRunnble.run", e.getMessage());
+            bo.b(getClass().getName(), "mGetImageRunnble.run", e.getMessage());
         }
     }
 }

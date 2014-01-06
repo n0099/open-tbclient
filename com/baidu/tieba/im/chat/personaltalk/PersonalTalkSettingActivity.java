@@ -15,10 +15,10 @@ public class PersonalTalkSettingActivity extends com.baidu.tieba.j implements co
     private long c;
 
     public static void a(long j) {
-        Intent intent = new Intent(TiebaApplication.h().getApplicationContext(), PersonalTalkSettingActivity.class);
+        Intent intent = new Intent(TiebaApplication.g().getApplicationContext(), PersonalTalkSettingActivity.class);
         intent.addFlags(268435456);
         intent.putExtra("userId", j);
-        TiebaApplication.h().getApplicationContext().startActivity(intent);
+        TiebaApplication.g().getApplicationContext().startActivity(intent);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -71,22 +71,22 @@ public class PersonalTalkSettingActivity extends com.baidu.tieba.j implements co
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.user_info_lin /* 2131100817 */:
+            case R.id.user_info_lin /* 2131100919 */:
                 if (this.b != null && this.b.b() != null) {
                     PersonInfoActivity.a(this, String.valueOf(this.c), this.b.b().getName());
                     return;
                 }
                 return;
-            case R.id.remove_from_black_man /* 2131100825 */:
+            case R.id.remove_from_black_man /* 2131100927 */:
                 new AlertDialog.Builder(this).setMessage(getString(R.string.add_black_alert, new Object[]{this.b.b().getName()})).setPositiveButton(R.string.alert_yes_button, new c(this)).setNegativeButton(R.string.alert_no_button, new b(this)).create().show();
                 return;
-            case R.id.st_delete_talk_history /* 2131100828 */:
+            case R.id.st_delete_talk_history /* 2131100930 */:
                 new AlertDialog.Builder(this).setMessage(getString(R.string.remove_personal_history, new Object[]{this.b.b().getName()})).setPositiveButton(R.string.alert_yes_button, new e(this)).setNegativeButton(R.string.alert_no_button, new d(this)).create().show();
                 return;
-            case R.id.add_to_black /* 2131100829 */:
+            case R.id.add_to_black /* 2131100931 */:
                 new AlertDialog.Builder(this).setMessage(getString(R.string.remove_black_alert, new Object[]{this.b.b().getName()})).setPositiveButton(R.string.alert_yes_button, new i(this)).setNegativeButton(R.string.alert_no_button, new h(this)).create().show();
                 return;
-            case R.id.change_attention /* 2131100830 */:
+            case R.id.change_attention /* 2131100932 */:
                 this.b.e();
                 return;
             default:

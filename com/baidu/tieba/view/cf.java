@@ -1,64 +1,33 @@
 package com.baidu.tieba.view;
 
-import java.util.ArrayList;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.tbadk.widget.TbImageView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class cf {
-    int a = 0;
-    ArrayList<int[]> b = new ArrayList<>();
-    final /* synthetic */ WaterFallView c;
+public class cf implements ViewGroup.OnHierarchyChangeListener {
+    final /* synthetic */ UserIconBox a;
 
-    public cf(WaterFallView waterFallView) {
-        this.c = waterFallView;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public cf(UserIconBox userIconBox) {
+        this.a = userIconBox;
     }
 
-    public void a(int i) {
-        this.a += i;
-        this.b.add(new int[]{this.a, this.a});
-    }
-
-    public void a() {
-        this.a = 0;
-        this.b.clear();
-    }
-
-    public int b() {
-        return this.a;
-    }
-
-    public int b(int i) {
-        int size = this.b.size();
-        for (int i2 = 0; i2 < size; i2++) {
-            if (this.b.get(i2)[1] > i) {
-                return i2;
+    @Override // android.view.ViewGroup.OnHierarchyChangeListener
+    public void onChildViewRemoved(View view, View view2) {
+        com.baidu.adp.lib.d.b bVar;
+        com.baidu.adp.lib.d.b bVar2;
+        com.baidu.adp.lib.h.e.d("pool return child");
+        if (view2 instanceof TbImageView) {
+            bVar = this.a.b;
+            if (bVar != null) {
+                bVar2 = this.a.b;
+                bVar2.a((com.baidu.adp.lib.d.b) ((TbImageView) view2));
             }
         }
-        return -1;
     }
 
-    public int c(int i) {
-        int i2;
-        int size = this.b.size();
-        if (size <= 0) {
-            return -1;
-        }
-        int i3 = 0;
-        while (true) {
-            if (i3 >= size) {
-                i2 = i3;
-                break;
-            } else if (this.b.get(i3)[0] <= i) {
-                i3++;
-            } else {
-                i2 = i3 - 1;
-                break;
-            }
-        }
-        if (i2 < 0) {
-            i2 = 0;
-        }
-        if (i2 >= size) {
-            return size - 1;
-        }
-        return i2;
+    @Override // android.view.ViewGroup.OnHierarchyChangeListener
+    public void onChildViewAdded(View view, View view2) {
     }
 }

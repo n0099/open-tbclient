@@ -1,12 +1,14 @@
 package com.baidu.tieba.write;
 
-import android.view.View;
-import android.view.inputmethod.InputMethodManager;
+import android.content.DialogInterface;
+import android.os.Handler;
 import android.widget.EditText;
-import com.baidu.tieba.editortool.EditorToolComponetContainer;
+import com.baidu.tieba.data.WriteData;
+import com.baidu.tieba.util.DatabaseService;
+import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ak implements View.OnClickListener {
+public class ak implements DialogInterface.OnClickListener {
     final /* synthetic */ WriteActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,23 +16,24 @@ public class ak implements View.OnClickListener {
         this.a = writeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        InputMethodManager inputMethodManager;
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        WriteData writeData;
         EditText editText;
-        InputMethodManager inputMethodManager2;
+        WriteData writeData2;
         EditText editText2;
-        EditorToolComponetContainer editorToolComponetContainer;
-        WriteActivity writeActivity = this.a;
-        inputMethodManager = this.a.e;
+        WriteData writeData3;
+        Handler handler;
+        writeData = this.a.b;
         editText = this.a.f;
-        writeActivity.HidenSoftKeyPad(inputMethodManager, editText);
-        WriteActivity writeActivity2 = this.a;
-        inputMethodManager2 = this.a.e;
+        writeData.setTitle(editText.getText().toString());
+        writeData2 = this.a.b;
         editText2 = this.a.h;
-        writeActivity2.HidenSoftKeyPad(inputMethodManager2, editText2);
-        editorToolComponetContainer = this.a.B;
-        editorToolComponetContainer.i();
-        this.a.m();
+        writeData2.setContent(editText2.getText().toString());
+        writeData3 = this.a.b;
+        DatabaseService.b(writeData3);
+        this.a.showToast(R.string.draft_save_success);
+        handler = this.a.s;
+        handler.postDelayed(new al(this), 1000L);
     }
 }

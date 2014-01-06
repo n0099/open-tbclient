@@ -1,40 +1,48 @@
 package com.baidu.tieba;
 
-import android.app.Dialog;
-import android.content.Context;
-import android.os.Bundle;
-import android.widget.Button;
-import android.widget.LinearLayout;
-import com.baidu.tieba.im.creategroup.CreateGroupStepActivity;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.os.Handler;
+import android.os.Message;
+import com.baidu.location.LocationClientOption;
+import com.baidu.tieba.util.UtilHelper;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class s extends Dialog {
-    public LinearLayout a;
-    public Button b;
-    public Context c;
+class s extends Handler {
+    final /* synthetic */ FileDownloader a;
 
-    public s(Context context, int i) {
-        super(context, i);
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        this.c = context;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public s(FileDownloader fileDownloader) {
+        this.a = fileDownloader;
     }
 
-    @Override // android.app.Dialog
-    protected void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        setContentView(R.layout.create_private_group_tip_dialog);
-        this.a = (LinearLayout) findViewById(R.id.dialogparent);
-        this.b = (Button) findViewById(R.id.isee);
-        this.b.setOnClickListener(new t(this));
-    }
-
-    public void a(int i) {
-        if (this.c instanceof CreateGroupStepActivity) {
-            CreateGroupStepActivity createGroupStepActivity = (CreateGroupStepActivity) this.c;
-            createGroupStepActivity.getLayoutMode().a(i == 1);
-            createGroupStepActivity.getLayoutMode().a(this.a);
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        Notification notification;
+        Notification notification2;
+        Notification notification3;
+        NotificationManager notificationManager;
+        Notification notification4;
+        super.handleMessage(message);
+        if (message.what == 900002) {
+            notification = this.a.b;
+            if (notification != null && message.arg2 > 0) {
+                notification2 = this.a.b;
+                notification2.contentView.setProgressBar(R.id.progress, 100, (int) ((message.arg1 * 100) / message.arg2), false);
+                StringBuffer stringBuffer = new StringBuffer(20);
+                stringBuffer.append(String.valueOf(message.arg1 / LocationClientOption.MIN_SCAN_SPAN));
+                stringBuffer.append("K/");
+                stringBuffer.append(String.valueOf(message.arg2 / LocationClientOption.MIN_SCAN_SPAN));
+                stringBuffer.append("K");
+                notification3 = this.a.b;
+                notification3.contentView.setTextViewText(R.id.schedule, stringBuffer);
+                notificationManager = this.a.a;
+                notification4 = this.a.b;
+                notificationManager.notify(10, notification4);
+            }
+        } else if (message.what == 1) {
+            UtilHelper.a(TiebaApplication.g(), (String) message.obj);
+            this.a.stopSelf();
         }
     }
 }

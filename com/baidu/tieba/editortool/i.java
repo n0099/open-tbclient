@@ -1,32 +1,33 @@
 package com.baidu.tieba.editortool;
 
-import android.view.View;
-import android.widget.Button;
+import com.baidu.tbadk.gif.GifView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i implements View.OnClickListener {
-    final /* synthetic */ h a;
-    final /* synthetic */ ImageUploadView b;
+public class i implements com.baidu.tbadk.imageManager.c {
+    final /* synthetic */ EmotionTabContentView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public i(ImageUploadView imageUploadView, h hVar) {
-        this.b = imageUploadView;
-        this.a = hVar;
+    public i(EmotionTabContentView emotionTabContentView) {
+        this.a = emotionTabContentView;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Button button;
-        Button button2;
-        button = this.b.b;
-        if (view != button) {
-            button2 = this.b.c;
-            if (view == button2) {
-                this.a.a(23, null);
-                return;
-            }
-            return;
+    @Override // com.baidu.tbadk.imageManager.c
+    public void a(com.baidu.adp.widget.ImageView.d dVar, String str, boolean z) {
+        GifView gifView;
+        GifView gifView2;
+        GifView gifView3;
+        GifView gifView4;
+        gifView = this.a.e;
+        Object tag = gifView.getTag();
+        if (dVar == null || tag == null || !(tag instanceof String)) {
+            gifView2 = this.a.e;
+            gifView2.setGif(null);
+        } else if (((String) tag).equals(str)) {
+            gifView4 = this.a.e;
+            gifView4.setGif(dVar);
+        } else {
+            gifView3 = this.a.e;
+            gifView3.setGif(null);
         }
-        this.a.a(22, null);
     }
 }

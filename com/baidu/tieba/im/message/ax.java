@@ -1,23 +1,36 @@
 package com.baidu.tieba.im.message;
 
-import java.util.LinkedList;
-import protobuf.CommitGroupMsg.CommitGroupMsgRes;
+import com.baidu.tieba.im.messageCenter.IDuplicateProcess;
+import com.google.protobuf.MessageLite;
+import protobuf.QueryUserPermission.QueryUserPermissionReq;
 /* loaded from: classes.dex */
-public class ax extends az {
+public class ax extends o implements com.baidu.tieba.im.coder.g, IDuplicateProcess {
+    private long a;
+
     public ax() {
-        e(202001);
+        e(103008);
     }
 
-    @Override // com.baidu.tieba.im.coder.f
-    public void a(LinkedList<n> linkedList, byte[] bArr, int i) {
-        CommitGroupMsgRes.CommitGroupMsgResIdl parseFrom = CommitGroupMsgRes.CommitGroupMsgResIdl.parseFrom(bArr);
-        c(parseFrom.getError().getErrorno());
-        c(parseFrom.getError().getUsermsg());
-        linkedList.add(this);
-        if (!i()) {
-            a(com.baidu.tieba.im.chat.ai.b(parseFrom.getData().getMsgId()));
-            b(parseFrom.getData().getRecordId());
-            a(String.valueOf(parseFrom.getData().getGroupId()));
-        }
+    public long b() {
+        return this.a;
+    }
+
+    public void a(long j) {
+        this.a = j;
+    }
+
+    @Override // com.baidu.tieba.im.coder.g
+    public MessageLite a() {
+        return QueryUserPermissionReq.QueryUserPermissionReqIdl.newBuilder().a(QueryUserPermissionReq.DataReq.newBuilder().a((int) b()).build()).build();
+    }
+
+    @Override // com.baidu.tieba.im.messageCenter.IDuplicateProcess
+    public IDuplicateProcess.RemoveState h() {
+        return IDuplicateProcess.RemoveState.REMOVE_ME;
+    }
+
+    @Override // com.baidu.tieba.im.messageCenter.IDuplicateProcess
+    public boolean a(o oVar) {
+        return true;
     }
 }

@@ -9,8 +9,9 @@ import com.baidu.tieba.view.CommonImageLayout;
 import com.baidu.tieba.view.DottedLine;
 import com.baidu.tieba.view.UserIconBox;
 import com.baidu.tieba.voice.PlayVoiceBnt;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class al {
+public class al {
     LinearLayout a;
     LinearLayout b;
     RelativeLayout c;
@@ -25,9 +26,10 @@ class al {
     ViewGroup l;
     DottedLine m;
     UserIconBox n;
-    final /* synthetic */ ah o;
+    UserIconBox o;
+    final /* synthetic */ ah p;
 
     private al(ah ahVar) {
-        this.o = ahVar;
+        this.p = ahVar;
     }
 }

@@ -1,21 +1,19 @@
 package com.baidu.tieba.person;
 
-import android.app.AlertDialog;
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 /* loaded from: classes.dex */
-public class aq implements View.OnClickListener {
-    final /* synthetic */ PersonChangeActivity a;
+class aq {
+    LinearLayout a;
+    ImageView b;
+    TextView c;
+    TextView d;
+    TextView e;
+    final /* synthetic */ am f;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aq(PersonChangeActivity personChangeActivity) {
-        this.a = personChangeActivity;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        AlertDialog alertDialog;
-        alertDialog = this.a.c;
-        alertDialog.show();
+    public aq(am amVar) {
+        this.f = amVar;
     }
 }

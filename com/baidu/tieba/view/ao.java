@@ -1,22 +1,29 @@
 package com.baidu.tieba.view;
 
-import android.view.MotionEvent;
-import android.view.View;
+import android.os.Handler;
+import android.os.Message;
 /* loaded from: classes.dex */
-class ao implements View.OnTouchListener {
-    final /* synthetic */ an a;
+class ao extends Handler {
+    final /* synthetic */ ImagePbImageView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ao(an anVar) {
-        this.a = anVar;
+    public ao(ImagePbImageView imagePbImageView) {
+        this.a = imagePbImageView;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        if (motionEvent.getAction() == 0) {
-            this.a.dismiss();
-            return false;
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        int i;
+        Handler handler;
+        Handler handler2;
+        super.handleMessage(message);
+        ImagePbImageView.a(this.a);
+        i = this.a.n;
+        if (i >= 0) {
+            handler = this.a.o;
+            handler2 = this.a.o;
+            handler.sendMessageDelayed(handler2.obtainMessage(1), 20L);
+            this.a.invalidate();
         }
-        return false;
     }
 }

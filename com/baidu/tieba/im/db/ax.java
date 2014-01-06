@@ -1,5 +1,6 @@
 package com.baidu.tieba.im.db;
 
+import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
 import android.text.TextUtils;
 import com.baidu.tieba.im.SingleRunnable;
@@ -8,11 +9,11 @@ import com.baidu.tieba.im.SingleRunnable;
 public class ax extends SingleRunnable<Boolean> {
     final /* synthetic */ String a;
     final /* synthetic */ String b;
-    final /* synthetic */ ar c;
+    final /* synthetic */ as c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ax(ar arVar, String str, String str2) {
-        this.c = arVar;
+    public ax(as asVar, String str, String str2) {
+        this.c = asVar;
         this.a = str;
         this.b = str2;
     }
@@ -27,7 +28,9 @@ public class ax extends SingleRunnable<Boolean> {
         SQLiteDatabase a = s.a();
         String str = "tb_private_msg_" + this.a;
         if (a != null) {
-            a.delete(str, "mid=?", new String[]{this.b});
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("is_delete", (Integer) 1);
+            a.update(str, contentValues, "mid=?", new String[]{this.b});
             return true;
         }
         return false;

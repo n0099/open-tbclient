@@ -1,9 +1,15 @@
 package com.baidu.tieba.im.net;
 
 import android.os.Handler;
+import android.os.Looper;
 import android.os.Message;
 /* loaded from: classes.dex */
 final class d extends Handler {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public d(Looper looper) {
+        super(looper);
+    }
+
     @Override // android.os.Handler
     public void dispatchMessage(Message message) {
         b bVar;

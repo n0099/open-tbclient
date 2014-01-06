@@ -5,7 +5,7 @@ import com.baidu.tieba.MainTabActivity;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.AccountData;
 import com.baidu.tieba.util.DatabaseService;
-import com.baidu.tieba.util.be;
+import com.baidu.tieba.util.bo;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -42,7 +42,7 @@ public class j extends BdAsyncTask<Object, Integer, AccountData> {
                 com.baidu.tieba.im.db.s.a(this.b.getID());
             }
             DatabaseService.q(this.b.getID());
-            if (this.b.getID().equals(TiebaApplication.B())) {
+            if (this.b.getID().equals(TiebaApplication.A())) {
                 arrayList = this.a.a;
                 if (arrayList.size() >= 2) {
                     this.c = 1;
@@ -57,7 +57,7 @@ public class j extends BdAsyncTask<Object, Integer, AccountData> {
                 this.c = 0;
             }
         } catch (Exception e) {
-            be.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
+            bo.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
         }
         return null;
     }
@@ -91,11 +91,10 @@ public class j extends BdAsyncTask<Object, Integer, AccountData> {
                     new o(this.a, accountData.getBDUSS()).start();
                 }
                 TiebaApplication.a(accountData, this.a);
-                com.baidu.tieba.account.l.a().b();
-                MainTabActivity.b(this.a, 1);
+                MainTabActivity.c(this.a, 1);
                 break;
             case 2:
-                MainTabActivity.b(this.a, 4);
+                MainTabActivity.c(this.a, 4);
                 break;
         }
         this.a.h = null;

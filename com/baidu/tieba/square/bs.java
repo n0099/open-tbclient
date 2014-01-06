@@ -1,21 +1,30 @@
 package com.baidu.tieba.square;
 
-import android.widget.ImageView;
+import android.widget.CompoundButton;
+import android.widget.RadioButton;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bs implements com.baidu.tbadk.imageManager.c {
-    final /* synthetic */ ImageView a;
-    final /* synthetic */ br b;
+public class bs implements CompoundButton.OnCheckedChangeListener {
+    final /* synthetic */ SquareSearchActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bs(br brVar, ImageView imageView) {
-        this.b = brVar;
-        this.a = imageView;
+    public bs(SquareSearchActivity squareSearchActivity) {
+        this.a = squareSearchActivity;
     }
 
-    @Override // com.baidu.tbadk.imageManager.c
-    public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
-        if (eVar != null) {
-            this.a.invalidate();
+    @Override // android.widget.CompoundButton.OnCheckedChangeListener
+    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
+        RadioButton radioButton;
+        RadioButton radioButton2;
+        RadioButton radioButton3;
+        if (z) {
+            this.a.a(1);
+            radioButton = this.a.k;
+            radioButton.setChecked(false);
+            radioButton2 = this.a.k;
+            radioButton2.setSelected(false);
+            radioButton3 = this.a.l;
+            radioButton3.setSelected(true);
         }
     }
 }

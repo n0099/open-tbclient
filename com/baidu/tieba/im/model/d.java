@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import com.baidu.tieba.im.chat.LocalViewSize;
 import com.baidu.tieba.im.data.MemberData;
 import com.baidu.tieba.im.data.PhotoUrlData;
-import com.baidu.tieba.im.message.be;
+import com.baidu.tieba.im.message.bh;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -17,9 +17,9 @@ public class d extends com.baidu.adp.a.d {
     private int c;
     private long d;
     private String e;
-    private be f;
-    private com.baidu.tieba.im.message.ab g;
-    private com.baidu.tieba.im.message.ab h;
+    private bh f;
+    private com.baidu.tieba.im.message.ae g;
+    private com.baidu.tieba.im.message.ae h;
     private PhotoUrlData i;
     private boolean j;
 
@@ -73,31 +73,31 @@ public class d extends com.baidu.adp.a.d {
         this.e = bundle.getString("default_invite_msg");
     }
 
-    private com.baidu.tieba.im.message.ab c(long j, int i) {
-        com.baidu.tieba.im.message.ab abVar = new com.baidu.tieba.im.message.ab();
-        abVar.a(j);
+    private com.baidu.tieba.im.message.ae c(long j, int i) {
+        com.baidu.tieba.im.message.ae aeVar = new com.baidu.tieba.im.message.ae();
+        aeVar.a(j);
         LocalViewSize.ImageSize c = LocalViewSize.a().c();
         LocalViewSize.ImageSize d = LocalViewSize.a().d();
-        abVar.c(d.height);
-        abVar.d(d.width);
-        abVar.a(c.height);
-        abVar.b(c.width);
+        aeVar.c(d.height);
+        aeVar.d(d.width);
+        aeVar.a(c.height);
+        aeVar.b(c.width);
         if (i == 4) {
-            abVar.a("forumgroup_recommend");
+            aeVar.a("forumgroup_recommend");
         } else if (i == 5) {
-            abVar.a("forumgroup_hot");
+            aeVar.a("forumgroup_hot");
         } else if (i == 6) {
-            abVar.a("forumgroup_official");
+            aeVar.a("forumgroup_official");
         } else if (i == 3) {
-            abVar.a("grouptalk");
+            aeVar.a("grouptalk");
         } else if (i == 1) {
-            abVar.a("usergroup");
+            aeVar.a("usergroup");
         } else if (i == 7) {
-            abVar.a("invitetalk");
+            aeVar.a("invitetalk");
         } else {
-            abVar.a("");
+            aeVar.a("");
         }
-        return abVar;
+        return aeVar;
     }
 
     public void a(long j, int i) {
@@ -122,12 +122,12 @@ public class d extends com.baidu.adp.a.d {
         bundle.putString("default_invite_msg", this.e);
     }
 
-    public void a(be beVar) {
+    public void a(bh bhVar) {
         this.i = null;
-        this.f = beVar;
+        this.f = bhVar;
     }
 
-    public be g() {
+    public bh g() {
         return this.f;
     }
 
@@ -273,11 +273,11 @@ public class d extends com.baidu.adp.a.d {
         return false;
     }
 
-    public com.baidu.tieba.im.message.n l() {
+    public com.baidu.tieba.im.message.o l() {
         return this.h;
     }
 
-    public com.baidu.tieba.im.message.n m() {
+    public com.baidu.tieba.im.message.o m() {
         return this.g;
     }
 

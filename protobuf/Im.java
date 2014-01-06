@@ -14,6 +14,9 @@ import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.Parser;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 /* loaded from: classes.dex */
 public final class Im {
 
@@ -244,10 +247,10 @@ public final class Im {
     }
 
     /* loaded from: classes.dex */
-    public final class UserPermission extends GeneratedMessageLite implements ah {
+    public final class UserPermission extends GeneratedMessageLite implements ak {
         public static final int ISGROUPMANAGER_FIELD_NUMBER = 2;
         public static final int ISGROUPOWNER_FIELD_NUMBER = 1;
-        public static Parser<UserPermission> PARSER = new af();
+        public static Parser<UserPermission> PARSER = new ai();
         private static final UserPermission a = new UserPermission(true);
         private static final long serialVersionUID = 0;
         private int bitField0_;
@@ -429,31 +432,34 @@ public final class Im {
             return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
 
-        public static ag newBuilder() {
-            return ag.f();
+        public static aj newBuilder() {
+            return aj.f();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public ag newBuilderForType() {
+        public aj newBuilderForType() {
             return newBuilder();
         }
 
-        public static ag newBuilder(UserPermission userPermission) {
+        public static aj newBuilder(UserPermission userPermission) {
             return newBuilder().mergeFrom(userPermission);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public ag toBuilder() {
+        public aj toBuilder() {
             return newBuilder(this);
         }
     }
 
     /* loaded from: classes.dex */
     public final class GroupPermission extends GeneratedMessageLite implements p {
+        public static final int CANCREATENORMALNUM_FIELD_NUMBER = 8;
         public static final int CANCREATENORMAL_FIELD_NUMBER = 2;
+        public static final int CANCREATEOFFICIALNUM_FIELD_NUMBER = 9;
         public static final int CANCREATEOFFICIAL_FIELD_NUMBER = 3;
+        public static final int CANCREATEPERSONALNUM_FIELD_NUMBER = 10;
         public static final int CANCREATEPERSONAL_FIELD_NUMBER = 4;
         public static final int CREATENORMALTIP_FIELD_NUMBER = 5;
         public static final int CREATEOFFICIALTIP_FIELD_NUMBER = 6;
@@ -463,8 +469,11 @@ public final class Im {
         private static final GroupPermission a = new GroupPermission(true);
         private static final long serialVersionUID = 0;
         private int bitField0_;
+        private int canCreateNormalNum_;
         private int canCreateNormal_;
+        private int canCreateOfficialNum_;
         private int canCreateOfficial_;
+        private int canCreatePersonalNum_;
         private int canCreatePersonal_;
         private Object createNormalTip_;
         private Object createOfficialTip_;
@@ -535,6 +544,18 @@ public final class Im {
                                 case 58:
                                     this.bitField0_ |= 64;
                                     this.createPersonalTip_ = codedInputStream.readBytes();
+                                    break;
+                                case DERTags.APPLICATION /* 64 */:
+                                    this.bitField0_ |= DERTags.TAGGED;
+                                    this.canCreateNormalNum_ = codedInputStream.readInt32();
+                                    break;
+                                case 72:
+                                    this.bitField0_ |= 256;
+                                    this.canCreateOfficialNum_ = codedInputStream.readInt32();
+                                    break;
+                                case com.baidu.loginshare.e.i /* 80 */:
+                                    this.bitField0_ |= ImageManager.DEFAULT_MAX_CACHEABLE_SIZE;
+                                    this.canCreatePersonalNum_ = codedInputStream.readInt32();
                                     break;
                                 default:
                                     if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
@@ -678,6 +699,30 @@ public final class Im {
             return (ByteString) obj;
         }
 
+        public boolean hasCanCreateNormalNum() {
+            return (this.bitField0_ & DERTags.TAGGED) == 128;
+        }
+
+        public int getCanCreateNormalNum() {
+            return this.canCreateNormalNum_;
+        }
+
+        public boolean hasCanCreateOfficialNum() {
+            return (this.bitField0_ & 256) == 256;
+        }
+
+        public int getCanCreateOfficialNum() {
+            return this.canCreateOfficialNum_;
+        }
+
+        public boolean hasCanCreatePersonalNum() {
+            return (this.bitField0_ & ImageManager.DEFAULT_MAX_CACHEABLE_SIZE) == 512;
+        }
+
+        public int getCanCreatePersonalNum() {
+            return this.canCreatePersonalNum_;
+        }
+
         private void a() {
             this.isForumManager_ = 0;
             this.canCreateNormal_ = 0;
@@ -686,6 +731,9 @@ public final class Im {
             this.createNormalTip_ = "";
             this.createOfficialTip_ = "";
             this.createPersonalTip_ = "";
+            this.canCreateNormalNum_ = 0;
+            this.canCreateOfficialNum_ = 0;
+            this.canCreatePersonalNum_ = 0;
         }
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -722,6 +770,15 @@ public final class Im {
             if ((this.bitField0_ & 64) == 64) {
                 codedOutputStream.writeBytes(7, getCreatePersonalTipBytes());
             }
+            if ((this.bitField0_ & DERTags.TAGGED) == 128) {
+                codedOutputStream.writeInt32(8, this.canCreateNormalNum_);
+            }
+            if ((this.bitField0_ & 256) == 256) {
+                codedOutputStream.writeInt32(9, this.canCreateOfficialNum_);
+            }
+            if ((this.bitField0_ & ImageManager.DEFAULT_MAX_CACHEABLE_SIZE) == 512) {
+                codedOutputStream.writeInt32(10, this.canCreatePersonalNum_);
+            }
         }
 
         @Override // com.google.protobuf.MessageLite
@@ -746,6 +803,15 @@ public final class Im {
                 }
                 if ((this.bitField0_ & 64) == 64) {
                     i += CodedOutputStream.computeBytesSize(7, getCreatePersonalTipBytes());
+                }
+                if ((this.bitField0_ & DERTags.TAGGED) == 128) {
+                    i += CodedOutputStream.computeInt32Size(8, this.canCreateNormalNum_);
+                }
+                if ((this.bitField0_ & 256) == 256) {
+                    i += CodedOutputStream.computeInt32Size(9, this.canCreateOfficialNum_);
+                }
+                if ((this.bitField0_ & ImageManager.DEFAULT_MAX_CACHEABLE_SIZE) == 512) {
+                    i += CodedOutputStream.computeInt32Size(10, this.canCreatePersonalNum_);
                 }
                 this.memoizedSerializedSize = i;
             }
@@ -820,7 +886,292 @@ public final class Im {
     }
 
     /* loaded from: classes.dex */
-    public final class UserInfo extends GeneratedMessageLite implements ae {
+    public final class TshowInfo extends GeneratedMessageLite implements ae {
+        public static final int ICON_FIELD_NUMBER = 1;
+        public static final int NAME_FIELD_NUMBER = 2;
+        public static final int URL_FIELD_NUMBER = 3;
+        private static final long serialVersionUID = 0;
+        private int bitField0_;
+        private Object icon_;
+        private byte memoizedIsInitialized;
+        private int memoizedSerializedSize;
+        private Object name_;
+        private Object url_;
+        public static Parser<TshowInfo> PARSER = new ac();
+        private static final TshowInfo a = new TshowInfo(true);
+
+        private TshowInfo(GeneratedMessageLite.Builder builder) {
+            super(builder);
+            this.memoizedIsInitialized = (byte) -1;
+            this.memoizedSerializedSize = -1;
+        }
+
+        private TshowInfo(boolean z) {
+            this.memoizedIsInitialized = (byte) -1;
+            this.memoizedSerializedSize = -1;
+        }
+
+        public static TshowInfo getDefaultInstance() {
+            return a;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.google.protobuf.MessageLiteOrBuilder
+        public TshowInfo getDefaultInstanceForType() {
+            return a;
+        }
+
+        private TshowInfo(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
+            this.memoizedIsInitialized = (byte) -1;
+            this.memoizedSerializedSize = -1;
+            a();
+            boolean z = false;
+            while (!z) {
+                try {
+                    try {
+                        try {
+                            int readTag = codedInputStream.readTag();
+                            switch (readTag) {
+                                case 0:
+                                    z = true;
+                                    break;
+                                case 10:
+                                    this.bitField0_ |= 1;
+                                    this.icon_ = codedInputStream.readBytes();
+                                    break;
+                                case 18:
+                                    this.bitField0_ |= 2;
+                                    this.name_ = codedInputStream.readBytes();
+                                    break;
+                                case 26:
+                                    this.bitField0_ |= 4;
+                                    this.url_ = codedInputStream.readBytes();
+                                    break;
+                                default:
+                                    if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
+                                        z = true;
+                                        break;
+                                    } else {
+                                        break;
+                                    }
+                            }
+                        } catch (IOException e) {
+                            throw new InvalidProtocolBufferException(e.getMessage()).setUnfinishedMessage(this);
+                        }
+                    } catch (InvalidProtocolBufferException e2) {
+                        throw e2.setUnfinishedMessage(this);
+                    }
+                } finally {
+                    makeExtensionsImmutable();
+                }
+            }
+        }
+
+        static {
+            a.a();
+        }
+
+        @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
+        public Parser<TshowInfo> getParserForType() {
+            return PARSER;
+        }
+
+        public boolean hasIcon() {
+            return (this.bitField0_ & 1) == 1;
+        }
+
+        public String getIcon() {
+            Object obj = this.icon_;
+            if (obj instanceof String) {
+                return (String) obj;
+            }
+            ByteString byteString = (ByteString) obj;
+            String stringUtf8 = byteString.toStringUtf8();
+            if (byteString.isValidUtf8()) {
+                this.icon_ = stringUtf8;
+            }
+            return stringUtf8;
+        }
+
+        public ByteString getIconBytes() {
+            Object obj = this.icon_;
+            if (obj instanceof String) {
+                ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
+                this.icon_ = copyFromUtf8;
+                return copyFromUtf8;
+            }
+            return (ByteString) obj;
+        }
+
+        public boolean hasName() {
+            return (this.bitField0_ & 2) == 2;
+        }
+
+        public String getName() {
+            Object obj = this.name_;
+            if (obj instanceof String) {
+                return (String) obj;
+            }
+            ByteString byteString = (ByteString) obj;
+            String stringUtf8 = byteString.toStringUtf8();
+            if (byteString.isValidUtf8()) {
+                this.name_ = stringUtf8;
+            }
+            return stringUtf8;
+        }
+
+        public ByteString getNameBytes() {
+            Object obj = this.name_;
+            if (obj instanceof String) {
+                ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
+                this.name_ = copyFromUtf8;
+                return copyFromUtf8;
+            }
+            return (ByteString) obj;
+        }
+
+        public boolean hasUrl() {
+            return (this.bitField0_ & 4) == 4;
+        }
+
+        public String getUrl() {
+            Object obj = this.url_;
+            if (obj instanceof String) {
+                return (String) obj;
+            }
+            ByteString byteString = (ByteString) obj;
+            String stringUtf8 = byteString.toStringUtf8();
+            if (byteString.isValidUtf8()) {
+                this.url_ = stringUtf8;
+            }
+            return stringUtf8;
+        }
+
+        public ByteString getUrlBytes() {
+            Object obj = this.url_;
+            if (obj instanceof String) {
+                ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
+                this.url_ = copyFromUtf8;
+                return copyFromUtf8;
+            }
+            return (ByteString) obj;
+        }
+
+        private void a() {
+            this.icon_ = "";
+            this.name_ = "";
+            this.url_ = "";
+        }
+
+        @Override // com.google.protobuf.MessageLiteOrBuilder
+        public final boolean isInitialized() {
+            byte b = this.memoizedIsInitialized;
+            if (b != -1) {
+                return b == 1;
+            }
+            this.memoizedIsInitialized = (byte) 1;
+            return true;
+        }
+
+        @Override // com.google.protobuf.MessageLite
+        public void writeTo(CodedOutputStream codedOutputStream) {
+            getSerializedSize();
+            if ((this.bitField0_ & 1) == 1) {
+                codedOutputStream.writeBytes(1, getIconBytes());
+            }
+            if ((this.bitField0_ & 2) == 2) {
+                codedOutputStream.writeBytes(2, getNameBytes());
+            }
+            if ((this.bitField0_ & 4) == 4) {
+                codedOutputStream.writeBytes(3, getUrlBytes());
+            }
+        }
+
+        @Override // com.google.protobuf.MessageLite
+        public int getSerializedSize() {
+            int i = this.memoizedSerializedSize;
+            if (i == -1) {
+                i = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeBytesSize(1, getIconBytes()) : 0;
+                if ((this.bitField0_ & 2) == 2) {
+                    i += CodedOutputStream.computeBytesSize(2, getNameBytes());
+                }
+                if ((this.bitField0_ & 4) == 4) {
+                    i += CodedOutputStream.computeBytesSize(3, getUrlBytes());
+                }
+                this.memoizedSerializedSize = i;
+            }
+            return i;
+        }
+
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.google.protobuf.GeneratedMessageLite
+        public Object writeReplace() {
+            return super.writeReplace();
+        }
+
+        public static TshowInfo parseFrom(ByteString byteString) {
+            return PARSER.parseFrom(byteString);
+        }
+
+        public static TshowInfo parseFrom(ByteString byteString, ExtensionRegistryLite extensionRegistryLite) {
+            return PARSER.parseFrom(byteString, extensionRegistryLite);
+        }
+
+        public static TshowInfo parseFrom(byte[] bArr) {
+            return PARSER.parseFrom(bArr);
+        }
+
+        public static TshowInfo parseFrom(byte[] bArr, ExtensionRegistryLite extensionRegistryLite) {
+            return PARSER.parseFrom(bArr, extensionRegistryLite);
+        }
+
+        public static TshowInfo parseFrom(InputStream inputStream) {
+            return PARSER.parseFrom(inputStream);
+        }
+
+        public static TshowInfo parseFrom(InputStream inputStream, ExtensionRegistryLite extensionRegistryLite) {
+            return PARSER.parseFrom(inputStream, extensionRegistryLite);
+        }
+
+        public static TshowInfo parseDelimitedFrom(InputStream inputStream) {
+            return PARSER.parseDelimitedFrom(inputStream);
+        }
+
+        public static TshowInfo parseDelimitedFrom(InputStream inputStream, ExtensionRegistryLite extensionRegistryLite) {
+            return PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
+        }
+
+        public static TshowInfo parseFrom(CodedInputStream codedInputStream) {
+            return PARSER.parseFrom(codedInputStream);
+        }
+
+        public static TshowInfo parseFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
+            return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
+        }
+
+        public static ad newBuilder() {
+            return ad.f();
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.google.protobuf.MessageLite
+        public ad newBuilderForType() {
+            return newBuilder();
+        }
+
+        public static ad newBuilder(TshowInfo tshowInfo) {
+            return newBuilder().mergeFrom(tshowInfo);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.google.protobuf.MessageLite
+        public ad toBuilder() {
+            return newBuilder(this);
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public final class UserInfo extends GeneratedMessageLite implements ah {
         public static final int INTIME_FIELD_NUMBER = 9;
         public static final int LASTREPLYTIME_FIELD_NUMBER = 11;
         public static final int LAT_FIELD_NUMBER = 8;
@@ -832,6 +1183,7 @@ public final class Im {
         public static final int POSITION_FIELD_NUMBER = 6;
         public static final int SEX_FIELD_NUMBER = 5;
         public static final int SYSGROUPID_FIELD_NUMBER = 12;
+        public static final int TSHOWICON_FIELD_NUMBER = 14;
         public static final int USERID_FIELD_NUMBER = 1;
         public static final int USERNAME_FIELD_NUMBER = 2;
         private static final long serialVersionUID = 0;
@@ -849,9 +1201,10 @@ public final class Im {
         private Object position_;
         private int sex_;
         private int sysGroupId_;
+        private List<TshowInfo> tshowIcon_;
         private int userId_;
         private Object userName_;
-        public static Parser<UserInfo> PARSER = new ac();
+        public static Parser<UserInfo> PARSER = new af();
         private static final UserInfo a = new UserInfo(true);
 
         private UserInfo(GeneratedMessageLite.Builder builder) {
@@ -875,114 +1228,168 @@ public final class Im {
             return a;
         }
 
+        /* JADX DEBUG: Multi-variable search result rejected for r3v6, resolved type: java.util.List<protobuf.Im$TshowInfo> */
+        /* JADX WARN: Multi-variable type inference failed */
         private UserInfo(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
-            ag agVar;
             boolean z;
+            boolean z2;
+            boolean z3;
+            aj ajVar;
+            boolean z4 = false;
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
             a();
-            boolean z2 = false;
-            while (!z2) {
+            boolean z5 = false;
+            while (!z4) {
                 try {
                     try {
                         int readTag = codedInputStream.readTag();
                         switch (readTag) {
                             case 0:
-                                z = true;
+                                z3 = true;
+                                z2 = z5;
                                 break;
                             case 8:
                                 this.bitField0_ |= 1;
                                 this.userId_ = codedInputStream.readInt32();
-                                z = z2;
+                                z3 = z4;
+                                z2 = z5;
                                 break;
                             case 18:
                                 this.bitField0_ |= 2;
                                 this.userName_ = codedInputStream.readBytes();
-                                z = z2;
+                                z3 = z4;
+                                z2 = z5;
                                 break;
                             case 26:
                                 this.bitField0_ |= 4;
                                 this.nickName_ = codedInputStream.readBytes();
-                                z = z2;
+                                z3 = z4;
+                                z2 = z5;
                                 break;
                             case 34:
                                 this.bitField0_ |= 8;
                                 this.portrait_ = codedInputStream.readBytes();
-                                z = z2;
+                                z3 = z4;
+                                z2 = z5;
                                 break;
                             case 40:
                                 this.bitField0_ |= 16;
                                 this.sex_ = codedInputStream.readInt32();
-                                z = z2;
+                                z3 = z4;
+                                z2 = z5;
                                 break;
                             case 50:
                                 this.bitField0_ |= 32;
                                 this.position_ = codedInputStream.readBytes();
-                                z = z2;
+                                z3 = z4;
+                                z2 = z5;
                                 break;
                             case 57:
                                 this.bitField0_ |= 64;
                                 this.lng_ = codedInputStream.readDouble();
-                                z = z2;
+                                z3 = z4;
+                                z2 = z5;
                                 break;
                             case BDLocation.TypeCacheLocation /* 65 */:
                                 this.bitField0_ |= DERTags.TAGGED;
                                 this.lat_ = codedInputStream.readDouble();
-                                z = z2;
+                                z3 = z4;
+                                z2 = z5;
                                 break;
                             case 72:
                                 this.bitField0_ |= 256;
                                 this.inTime_ = codedInputStream.readInt32();
-                                z = z2;
+                                z3 = z4;
+                                z2 = z5;
                                 break;
                             case com.baidu.loginshare.e.i /* 80 */:
                                 this.bitField0_ |= ImageManager.DEFAULT_MAX_CACHEABLE_SIZE;
                                 this.loginTime_ = codedInputStream.readInt32();
-                                z = z2;
+                                z3 = z4;
+                                z2 = z5;
                                 break;
                             case 88:
                                 this.bitField0_ |= NotificationProxy.MAX_URL_LENGTH;
                                 this.lastReplyTime_ = codedInputStream.readInt32();
-                                z = z2;
+                                z3 = z4;
+                                z2 = z5;
                                 break;
                             case 96:
                                 this.bitField0_ |= 2048;
                                 this.sysGroupId_ = codedInputStream.readInt32();
-                                z = z2;
+                                z3 = z4;
+                                z2 = z5;
                                 break;
                             case SocialAPIErrorCodes.ERROR_INVALID_SIGNATURE_ALGORITHM /* 106 */:
                                 if ((this.bitField0_ & CodedOutputStream.DEFAULT_BUFFER_SIZE) != 4096) {
-                                    agVar = null;
+                                    ajVar = null;
                                 } else {
-                                    agVar = this.permission_.toBuilder();
+                                    ajVar = this.permission_.toBuilder();
                                 }
                                 this.permission_ = (UserPermission) codedInputStream.readMessage(UserPermission.PARSER, extensionRegistryLite);
-                                if (agVar != null) {
-                                    agVar.mergeFrom(this.permission_);
-                                    this.permission_ = agVar.buildPartial();
+                                if (ajVar != null) {
+                                    ajVar.mergeFrom(this.permission_);
+                                    this.permission_ = ajVar.buildPartial();
                                 }
                                 this.bitField0_ |= CodedOutputStream.DEFAULT_BUFFER_SIZE;
-                                z = z2;
+                                z3 = z4;
+                                z2 = z5;
                                 break;
+                            case 114:
+                                if (!(z5 & true)) {
+                                    this.tshowIcon_ = new ArrayList();
+                                    z = z5 | true;
+                                } else {
+                                    z = z5;
+                                }
+                                try {
+                                    this.tshowIcon_.add(codedInputStream.readMessage(TshowInfo.PARSER, extensionRegistryLite));
+                                    boolean z6 = z4;
+                                    z2 = z;
+                                    z3 = z6;
+                                    break;
+                                } catch (InvalidProtocolBufferException e) {
+                                    e = e;
+                                    throw e.setUnfinishedMessage(this);
+                                } catch (IOException e2) {
+                                    e = e2;
+                                    throw new InvalidProtocolBufferException(e.getMessage()).setUnfinishedMessage(this);
+                                } catch (Throwable th) {
+                                    z5 = z;
+                                    th = th;
+                                    if (z5 & true) {
+                                        this.tshowIcon_ = Collections.unmodifiableList(this.tshowIcon_);
+                                    }
+                                    makeExtensionsImmutable();
+                                    throw th;
+                                }
                             default:
                                 if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
-                                    z = true;
+                                    z3 = true;
+                                    z2 = z5;
                                     break;
                                 } else {
-                                    z = z2;
+                                    z3 = z4;
+                                    z2 = z5;
                                     break;
                                 }
                         }
-                        z2 = z;
-                    } catch (InvalidProtocolBufferException e) {
-                        throw e.setUnfinishedMessage(this);
-                    } catch (IOException e2) {
-                        throw new InvalidProtocolBufferException(e2.getMessage()).setUnfinishedMessage(this);
+                        z5 = z2;
+                        z4 = z3;
+                    } catch (Throwable th2) {
+                        th = th2;
                     }
-                } finally {
-                    makeExtensionsImmutable();
+                } catch (InvalidProtocolBufferException e3) {
+                    e = e3;
+                } catch (IOException e4) {
+                    e = e4;
                 }
             }
+            if (z5 & true) {
+                this.tshowIcon_ = Collections.unmodifiableList(this.tshowIcon_);
+            }
+            makeExtensionsImmutable();
         }
 
         static {
@@ -1174,6 +1581,26 @@ public final class Im {
             return this.permission_;
         }
 
+        public List<TshowInfo> getTshowIconList() {
+            return this.tshowIcon_;
+        }
+
+        public List<? extends ae> getTshowIconOrBuilderList() {
+            return this.tshowIcon_;
+        }
+
+        public int getTshowIconCount() {
+            return this.tshowIcon_.size();
+        }
+
+        public TshowInfo getTshowIcon(int i) {
+            return this.tshowIcon_.get(i);
+        }
+
+        public ae getTshowIconOrBuilder(int i) {
+            return this.tshowIcon_.get(i);
+        }
+
         private void a() {
             this.userId_ = 0;
             this.userName_ = "";
@@ -1188,6 +1615,7 @@ public final class Im {
             this.lastReplyTime_ = 0;
             this.sysGroupId_ = 0;
             this.permission_ = UserPermission.getDefaultInstance();
+            this.tshowIcon_ = Collections.emptyList();
         }
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -1242,52 +1670,71 @@ public final class Im {
             if ((this.bitField0_ & CodedOutputStream.DEFAULT_BUFFER_SIZE) == 4096) {
                 codedOutputStream.writeMessage(13, this.permission_);
             }
+            int i = 0;
+            while (true) {
+                int i2 = i;
+                if (i2 < this.tshowIcon_.size()) {
+                    codedOutputStream.writeMessage(14, this.tshowIcon_.get(i2));
+                    i = i2 + 1;
+                } else {
+                    return;
+                }
+            }
         }
 
         @Override // com.google.protobuf.MessageLite
         public int getSerializedSize() {
-            int i = this.memoizedSerializedSize;
-            if (i == -1) {
-                i = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeInt32Size(1, this.userId_) : 0;
+            int i = 0;
+            int i2 = this.memoizedSerializedSize;
+            if (i2 == -1) {
+                int computeInt32Size = (this.bitField0_ & 1) == 1 ? CodedOutputStream.computeInt32Size(1, this.userId_) + 0 : 0;
                 if ((this.bitField0_ & 2) == 2) {
-                    i += CodedOutputStream.computeBytesSize(2, getUserNameBytes());
+                    computeInt32Size += CodedOutputStream.computeBytesSize(2, getUserNameBytes());
                 }
                 if ((this.bitField0_ & 4) == 4) {
-                    i += CodedOutputStream.computeBytesSize(3, getNickNameBytes());
+                    computeInt32Size += CodedOutputStream.computeBytesSize(3, getNickNameBytes());
                 }
                 if ((this.bitField0_ & 8) == 8) {
-                    i += CodedOutputStream.computeBytesSize(4, getPortraitBytes());
+                    computeInt32Size += CodedOutputStream.computeBytesSize(4, getPortraitBytes());
                 }
                 if ((this.bitField0_ & 16) == 16) {
-                    i += CodedOutputStream.computeInt32Size(5, this.sex_);
+                    computeInt32Size += CodedOutputStream.computeInt32Size(5, this.sex_);
                 }
                 if ((this.bitField0_ & 32) == 32) {
-                    i += CodedOutputStream.computeBytesSize(6, getPositionBytes());
+                    computeInt32Size += CodedOutputStream.computeBytesSize(6, getPositionBytes());
                 }
                 if ((this.bitField0_ & 64) == 64) {
-                    i += CodedOutputStream.computeDoubleSize(7, this.lng_);
+                    computeInt32Size += CodedOutputStream.computeDoubleSize(7, this.lng_);
                 }
                 if ((this.bitField0_ & DERTags.TAGGED) == 128) {
-                    i += CodedOutputStream.computeDoubleSize(8, this.lat_);
+                    computeInt32Size += CodedOutputStream.computeDoubleSize(8, this.lat_);
                 }
                 if ((this.bitField0_ & 256) == 256) {
-                    i += CodedOutputStream.computeInt32Size(9, this.inTime_);
+                    computeInt32Size += CodedOutputStream.computeInt32Size(9, this.inTime_);
                 }
                 if ((this.bitField0_ & ImageManager.DEFAULT_MAX_CACHEABLE_SIZE) == 512) {
-                    i += CodedOutputStream.computeInt32Size(10, this.loginTime_);
+                    computeInt32Size += CodedOutputStream.computeInt32Size(10, this.loginTime_);
                 }
                 if ((this.bitField0_ & NotificationProxy.MAX_URL_LENGTH) == 1024) {
-                    i += CodedOutputStream.computeInt32Size(11, this.lastReplyTime_);
+                    computeInt32Size += CodedOutputStream.computeInt32Size(11, this.lastReplyTime_);
                 }
                 if ((this.bitField0_ & 2048) == 2048) {
-                    i += CodedOutputStream.computeInt32Size(12, this.sysGroupId_);
+                    computeInt32Size += CodedOutputStream.computeInt32Size(12, this.sysGroupId_);
                 }
                 if ((this.bitField0_ & CodedOutputStream.DEFAULT_BUFFER_SIZE) == 4096) {
-                    i += CodedOutputStream.computeMessageSize(13, this.permission_);
+                    computeInt32Size += CodedOutputStream.computeMessageSize(13, this.permission_);
                 }
-                this.memoizedSerializedSize = i;
+                while (true) {
+                    i2 = computeInt32Size;
+                    if (i >= this.tshowIcon_.size()) {
+                        break;
+                    }
+                    computeInt32Size = CodedOutputStream.computeMessageSize(14, this.tshowIcon_.get(i)) + i2;
+                    i++;
+                }
+                this.memoizedSerializedSize = i2;
             }
-            return i;
+            return i2;
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
@@ -1336,23 +1783,23 @@ public final class Im {
             return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
 
-        public static ad newBuilder() {
-            return ad.f();
+        public static ag newBuilder() {
+            return ag.f();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public ad newBuilderForType() {
+        public ag newBuilderForType() {
             return newBuilder();
         }
 
-        public static ad newBuilder(UserInfo userInfo) {
+        public static ag newBuilder(UserInfo userInfo) {
             return newBuilder().mergeFrom(userInfo);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public ad toBuilder() {
+        public ag toBuilder() {
             return newBuilder(this);
         }
     }
@@ -1625,6 +2072,8 @@ public final class Im {
         public static final int INTRO_FIELD_NUMBER = 4;
         public static final int ISGROUPMANAGER_FIELD_NUMBER = 28;
         public static final int ISHIDEPOSITION_FIELD_NUMBER = 24;
+        public static final int ISNEWLYCREATE_FIELD_NUMBER = 32;
+        public static final int ISRECENTLYREPLY_FIELD_NUMBER = 33;
         public static final int LASTMSGID_FIELD_NUMBER = 21;
         public static final int LASTMSGTIME_FIELD_NUMBER = 30;
         public static final int LAT_FIELD_NUMBER = 9;
@@ -1645,6 +2094,7 @@ public final class Im {
         private Object authorName_;
         private Object authorPortrait_;
         private int bitField0_;
+        private int bitField1_;
         private Object business_;
         private int createTime_;
         private int distance_;
@@ -1658,6 +2108,8 @@ public final class Im {
         private Object intro_;
         private int isGroupManager_;
         private int isHidePosition_;
+        private int isNewlyCreate_;
+        private int isRecentlyReply_;
         private long lastMsgId_;
         private int lastMsgTime_;
         private double lat_;
@@ -1833,6 +2285,14 @@ public final class Im {
                                 case 250:
                                     this.bitField0_ |= 1073741824;
                                     this.forumShowName_ = codedInputStream.readBytes();
+                                    break;
+                                case 256:
+                                    this.bitField0_ |= Integer.MIN_VALUE;
+                                    this.isNewlyCreate_ = codedInputStream.readInt32();
+                                    break;
+                                case 264:
+                                    this.bitField1_ |= 1;
+                                    this.isRecentlyReply_ = codedInputStream.readInt32();
                                     break;
                                 default:
                                     if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
@@ -2339,6 +2799,22 @@ public final class Im {
             return (ByteString) obj;
         }
 
+        public boolean hasIsNewlyCreate() {
+            return (this.bitField0_ & Integer.MIN_VALUE) == Integer.MIN_VALUE;
+        }
+
+        public int getIsNewlyCreate() {
+            return this.isNewlyCreate_;
+        }
+
+        public boolean hasIsRecentlyReply() {
+            return (this.bitField1_ & 1) == 1;
+        }
+
+        public int getIsRecentlyReply() {
+            return this.isRecentlyReply_;
+        }
+
         private void a() {
             this.groupId_ = 0;
             this.forumId_ = 0;
@@ -2371,6 +2847,8 @@ public final class Im {
             this.authorIsMeizhi_ = 0;
             this.lastMsgTime_ = 0;
             this.forumShowName_ = "";
+            this.isNewlyCreate_ = 0;
+            this.isRecentlyReply_ = 0;
         }
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -2479,6 +2957,12 @@ public final class Im {
             if ((this.bitField0_ & 1073741824) == 1073741824) {
                 codedOutputStream.writeBytes(31, getForumShowNameBytes());
             }
+            if ((this.bitField0_ & Integer.MIN_VALUE) == Integer.MIN_VALUE) {
+                codedOutputStream.writeInt32(32, this.isNewlyCreate_);
+            }
+            if ((this.bitField1_ & 1) == 1) {
+                codedOutputStream.writeInt32(33, this.isRecentlyReply_);
+            }
         }
 
         @Override // com.google.protobuf.MessageLite
@@ -2576,6 +3060,12 @@ public final class Im {
                 if ((this.bitField0_ & 1073741824) == 1073741824) {
                     i += CodedOutputStream.computeBytesSize(31, getForumShowNameBytes());
                 }
+                if ((this.bitField0_ & Integer.MIN_VALUE) == Integer.MIN_VALUE) {
+                    i += CodedOutputStream.computeInt32Size(32, this.isNewlyCreate_);
+                }
+                if ((this.bitField1_ & 1) == 1) {
+                    i += CodedOutputStream.computeInt32Size(33, this.isRecentlyReply_);
+                }
                 this.memoizedSerializedSize = i;
             }
             return i;
@@ -2628,9 +3118,7 @@ public final class Im {
         }
 
         public static i newBuilder() {
-            i h;
-            h = i.h();
-            return h;
+            return i.f();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -3032,7 +3520,7 @@ public final class Im {
                                 z = z2;
                                 break;
                             case 82:
-                                ad builder = (this.bitField0_ & ImageManager.DEFAULT_MAX_CACHEABLE_SIZE) == 512 ? this.userInfo_.toBuilder() : null;
+                                ag builder = (this.bitField0_ & ImageManager.DEFAULT_MAX_CACHEABLE_SIZE) == 512 ? this.userInfo_.toBuilder() : null;
                                 this.userInfo_ = (UserInfo) codedInputStream.readMessage(UserInfo.PARSER, extensionRegistryLite);
                                 if (builder != null) {
                                     builder.mergeFrom(this.userInfo_);
@@ -3047,7 +3535,7 @@ public final class Im {
                                 z = z2;
                                 break;
                             case 98:
-                                ad builder2 = (this.bitField0_ & 2048) == 2048 ? this.toUserInfo_.toBuilder() : null;
+                                ag builder2 = (this.bitField0_ & 2048) == 2048 ? this.toUserInfo_.toBuilder() : null;
                                 this.toUserInfo_ = (UserInfo) codedInputStream.readMessage(UserInfo.PARSER, extensionRegistryLite);
                                 if (builder2 != null) {
                                     builder2.mergeFrom(this.toUserInfo_);

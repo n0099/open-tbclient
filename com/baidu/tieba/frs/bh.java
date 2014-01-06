@@ -14,7 +14,7 @@ public class bh implements cj {
     @Override // com.baidu.tieba.model.cj
     public void a(String str, long j) {
         com.baidu.tieba.model.ar arVar;
-        arVar = this.a.r;
+        arVar = this.a.q;
         arVar.a().setLike(0);
     }
 

@@ -4,7 +4,7 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.IBinder;
-import com.baidu.tieba.util.be;
+import com.baidu.tieba.util.bo;
 import java.io.File;
 import java.util.Date;
 /* loaded from: classes.dex */
@@ -46,7 +46,7 @@ public class ClearTempService extends Service {
         if (listFiles != null) {
             for (int i = 0; i < listFiles.length && !this.a; i++) {
                 if (time - listFiles[i].lastModified() > 259200000 && !listFiles[i].delete()) {
-                    be.b(getClass().getName(), "run", "list[i].delete error");
+                    bo.b(getClass().getName(), "run", "list[i].delete error");
                 }
             }
         }

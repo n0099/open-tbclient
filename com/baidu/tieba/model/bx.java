@@ -92,7 +92,7 @@ public class bx extends com.baidu.adp.a.d implements com.baidu.tieba.im.messageC
         try {
             a(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.tieba.util.be.b(getClass().getName(), "parserJson", "error = " + e.getMessage());
+            com.baidu.tieba.util.bo.b(getClass().getName(), "parserJson", "error = " + e.getMessage());
         }
     }
 
@@ -104,7 +104,7 @@ public class bx extends com.baidu.adp.a.d implements com.baidu.tieba.im.messageC
                 this.l = new AntiData();
                 this.l.parserJson(jSONObject.optJSONObject("anti_stat"));
             } catch (Exception e) {
-                com.baidu.tieba.util.be.b(getClass().getName(), "parserJson", "error = " + e.getMessage());
+                com.baidu.tieba.util.bo.b(getClass().getName(), "parserJson", "error = " + e.getMessage());
             }
         }
     }
@@ -137,10 +137,6 @@ public class bx extends com.baidu.adp.a.d implements com.baidu.tieba.im.messageC
         this.g = j;
     }
 
-    public long i() {
-        return this.g;
-    }
-
     public void d(long j) {
         this.d = j;
     }
@@ -153,7 +149,7 @@ public class bx extends com.baidu.adp.a.d implements com.baidu.tieba.im.messageC
         this.i = z;
     }
 
-    public boolean j() {
+    public boolean i() {
         return this.i;
     }
 
@@ -161,7 +157,7 @@ public class bx extends com.baidu.adp.a.d implements com.baidu.tieba.im.messageC
         this.j = z;
     }
 
-    public boolean k() {
+    public boolean j() {
         return this.j;
     }
 
@@ -175,29 +171,29 @@ public class bx extends com.baidu.adp.a.d implements com.baidu.tieba.im.messageC
         return false;
     }
 
-    public void l() {
+    public void k() {
         com.baidu.tieba.im.messageCenter.e.a().a(this);
         if (this.n != null) {
             this.n.cancel();
         }
         if (this.m != null) {
-            this.m.b();
+            this.m.d();
         }
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(com.baidu.tieba.im.message.n nVar) {
-        if (nVar != null) {
-            switch (nVar.t()) {
+    public void a(com.baidu.tieba.im.message.o oVar) {
+        if (oVar != null) {
+            switch (oVar.u()) {
                 case -118:
-                    if ((nVar instanceof com.baidu.tieba.im.message.cc) && d() != null) {
-                        com.baidu.tieba.im.message.cc ccVar = (com.baidu.tieba.im.message.cc) nVar;
-                        if (d().getId() != null && d().getId().equals(ccVar.c())) {
-                            d().setHave_attention(ccVar.d() ? 1 : 0);
+                    if ((oVar instanceof com.baidu.tieba.im.message.cf) && d() != null) {
+                        com.baidu.tieba.im.message.cf cfVar = (com.baidu.tieba.im.message.cf) oVar;
+                        if (d().getId() != null && d().getId().equals(cfVar.c())) {
+                            d().setHave_attention(cfVar.d() ? 1 : 0);
                             this.mLoadDataMode = 3;
-                            setErrorString(ccVar.b());
+                            setErrorString(cfVar.b());
                             if (this.mLoadDataCallBack != null) {
-                                this.mLoadDataCallBack.a(Boolean.valueOf(ccVar.a()));
+                                this.mLoadDataCallBack.a(Boolean.valueOf(cfVar.a()));
                                 return;
                             }
                             return;

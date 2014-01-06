@@ -17,7 +17,7 @@ public final class b extends SingleRunnable<Void> {
     /* renamed from: a */
     public Void b() {
         if (TiebaApplication.G() != null) {
-            com.baidu.tieba.im.db.ar.a().a(this.a);
+            com.baidu.tieba.im.db.as.a().a(this.a);
             return null;
         }
         return null;

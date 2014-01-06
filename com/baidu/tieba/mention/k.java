@@ -2,7 +2,7 @@ package com.baidu.tieba.mention;
 
 import android.widget.ImageView;
 import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tieba.util.be;
+import com.baidu.tieba.util.bo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements Runnable {
@@ -45,7 +45,7 @@ public class k implements Runnable {
                     com.baidu.tieba.data.u uVar = (com.baidu.tieba.data.u) fVar2.getItem(i4);
                     if (uVar != null && (portrait = uVar.i().getPortrait()) != null && portrait.length() > 0) {
                         fVar3 = this.a.f;
-                        com.baidu.adp.widget.ImageView.e b = fVar3.e().b(portrait, new l(this));
+                        com.baidu.adp.widget.ImageView.d b = fVar3.e().b(portrait, new l(this));
                         if (b != null) {
                             bdListView3 = this.a.e;
                             ImageView imageView = (ImageView) bdListView3.findViewWithTag(portrait);
@@ -64,7 +64,7 @@ public class k implements Runnable {
                 }
             }
         } catch (Exception e) {
-            be.b("MentionView", "mGetImageRunnble.run", "error = " + e.getMessage());
+            bo.b("MentionView", "mGetImageRunnble.run", "error = " + e.getMessage());
         }
     }
 }

@@ -40,9 +40,9 @@ public class ay extends BdAsyncTask<String, Integer, String> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public String a(String... strArr) {
-        String B = TiebaApplication.B();
-        if (!TextUtils.isEmpty(B)) {
-            com.baidu.tieba.im.db.s.a(B);
+        String A = TiebaApplication.A();
+        if (!TextUtils.isEmpty(A)) {
+            com.baidu.tieba.im.db.s.a(A);
             return null;
         }
         return null;

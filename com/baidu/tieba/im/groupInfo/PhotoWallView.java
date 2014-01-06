@@ -8,6 +8,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.baidu.adp.widget.ImageView.BDImageView;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.im.data.PhotoUrlData;
 import com.slidingmenu.lib.R;
@@ -16,7 +17,7 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class PhotoWallView extends FrameLayout {
     private final int a;
-    private com.baidu.adp.widget.ImageView.a[] b;
+    private BDImageView[] b;
     private Context c;
     private LinearLayout d;
     private LinearLayout e;
@@ -33,7 +34,7 @@ public class PhotoWallView extends FrameLayout {
     public PhotoWallView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.a = 8;
-        this.b = new com.baidu.adp.widget.ImageView.a[8];
+        this.b = new BDImageView[8];
         this.d = null;
         this.e = null;
         this.f = null;
@@ -47,7 +48,7 @@ public class PhotoWallView extends FrameLayout {
     public PhotoWallView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.a = 8;
-        this.b = new com.baidu.adp.widget.ImageView.a[8];
+        this.b = new BDImageView[8];
         this.d = null;
         this.e = null;
         this.f = null;
@@ -61,7 +62,7 @@ public class PhotoWallView extends FrameLayout {
     public PhotoWallView(Context context) {
         super(context);
         this.a = 8;
-        this.b = new com.baidu.adp.widget.ImageView.a[8];
+        this.b = new BDImageView[8];
         this.d = null;
         this.e = null;
         this.f = null;
@@ -86,7 +87,7 @@ public class PhotoWallView extends FrameLayout {
     }
 
     public void setData(List<PhotoUrlData> list) {
-        com.baidu.adp.widget.ImageView.a aVar;
+        BDImageView bDImageView;
         boolean z;
         if (this.n != null && list != null) {
             if (this.n.size() != list.size() || list.size() == 0 || this.n.size() == 0) {
@@ -125,42 +126,42 @@ public class PhotoWallView extends FrameLayout {
         if (list != null && list.size() > 0) {
             int size2 = list.size();
             for (int i2 = 0; i2 < size2 && i2 < 8; i2++) {
-                com.baidu.adp.widget.ImageView.a aVar2 = this.b[i2];
-                if (aVar2 == null) {
-                    com.baidu.adp.widget.ImageView.a aVar3 = new com.baidu.adp.widget.ImageView.a(this.c);
-                    this.b[i2] = aVar3;
-                    aVar = aVar3;
+                BDImageView bDImageView2 = this.b[i2];
+                if (bDImageView2 == null) {
+                    BDImageView bDImageView3 = new BDImageView(this.c);
+                    this.b[i2] = bDImageView3;
+                    bDImageView = bDImageView3;
                 } else {
-                    aVar = aVar2;
+                    bDImageView = bDImageView2;
                 }
-                aVar.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                if (TiebaApplication.h().an() == 1) {
-                    aVar.setBackgroundResource(R.drawable.image_group_qzl_1);
+                bDImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                if (TiebaApplication.g().an() == 1) {
+                    bDImageView.setBackgroundResource(R.drawable.image_group_qzl_1);
                 } else {
-                    aVar.setBackgroundResource(R.drawable.image_group_qzl);
+                    bDImageView.setBackgroundResource(R.drawable.image_group_qzl);
                 }
                 PhotoUrlData photoUrlData2 = list.get(i2);
                 if (photoUrlData2 != null) {
-                    a(aVar, photoUrlData2.getSmallurl());
-                    aVar.setOnClickListener(new aa(this, photoUrlData2, i2));
+                    a(bDImageView, photoUrlData2.getSmallurl());
+                    bDImageView.setOnClickListener(new aa(this, photoUrlData2, i2));
                     if (this.m) {
-                        aVar.setOnLongClickListener(new ab(this, photoUrlData2, i2));
+                        bDImageView.setOnLongClickListener(new ab(this, photoUrlData2, i2));
                     }
                 }
                 if (i2 < 4) {
                     if (i2 == 0) {
-                        this.e.addView(aVar, a2);
+                        this.e.addView(bDImageView, a2);
                     } else if (i2 == 3) {
-                        this.e.addView(aVar, a3);
+                        this.e.addView(bDImageView, a3);
                     } else {
-                        this.e.addView(aVar, a);
+                        this.e.addView(bDImageView, a);
                     }
                 } else if (i2 == 4) {
-                    this.f.addView(aVar, a2);
+                    this.f.addView(bDImageView, a2);
                 } else if (i2 == 7) {
-                    this.f.addView(aVar, a3);
+                    this.f.addView(bDImageView, a3);
                 } else {
-                    this.f.addView(aVar, a);
+                    this.f.addView(bDImageView, a);
                 }
             }
         }
@@ -174,33 +175,33 @@ public class PhotoWallView extends FrameLayout {
             }
         }
         if (size3 < 8 && this.m) {
-            com.baidu.adp.widget.ImageView.a aVar4 = this.b[size3];
-            if (aVar4 == null) {
-                aVar4 = new com.baidu.adp.widget.ImageView.a(this.c);
-                this.b[size3] = aVar4;
+            BDImageView bDImageView4 = this.b[size3];
+            if (bDImageView4 == null) {
+                bDImageView4 = new BDImageView(this.c);
+                this.b[size3] = bDImageView4;
             }
-            aVar4.setImageBitmap(null);
-            if (TiebaApplication.h().an() == 1) {
-                aVar4.setBackgroundResource(R.drawable.add_group_frd_1);
+            bDImageView4.setImageBitmap(null);
+            if (TiebaApplication.g().an() == 1) {
+                bDImageView4.setBackgroundResource(R.drawable.add_group_frd_1);
             } else {
-                aVar4.setBackgroundResource(R.drawable.add_group_frd);
+                bDImageView4.setBackgroundResource(R.drawable.add_group_frd);
             }
-            aVar4.setOnClickListener(new ac(this, size3));
-            aVar4.setOnLongClickListener(null);
+            bDImageView4.setOnClickListener(new ac(this, size3));
+            bDImageView4.setOnLongClickListener(null);
             if (size3 < 4) {
                 if (size3 == 0) {
-                    this.e.addView(aVar4, a2);
+                    this.e.addView(bDImageView4, a2);
                 } else if (size3 == 3) {
-                    this.e.addView(aVar4, a3);
+                    this.e.addView(bDImageView4, a3);
                 } else {
-                    this.e.addView(aVar4, a);
+                    this.e.addView(bDImageView4, a);
                 }
             } else if (size3 == 4) {
-                this.f.addView(aVar4, a2);
+                this.f.addView(bDImageView4, a2);
             } else if (size3 == 7) {
-                this.f.addView(aVar4, a3);
+                this.f.addView(bDImageView4, a3);
             } else {
-                this.f.addView(aVar4, a);
+                this.f.addView(bDImageView4, a);
             }
         }
         if (this.e.getChildCount() + this.f.getChildCount() > 4) {
@@ -212,16 +213,16 @@ public class PhotoWallView extends FrameLayout {
         this.e.setLayoutParams(layoutParams);
     }
 
-    private void a(com.baidu.adp.widget.ImageView.a aVar, String str) {
+    private void a(BDImageView bDImageView, String str) {
         if (this.j == null) {
             this.j = new com.baidu.tieba.util.i(this.c);
         }
         this.j.d(true);
-        com.baidu.adp.widget.ImageView.e a = this.j.a(str, new ad(this, aVar));
+        com.baidu.adp.widget.ImageView.d a = this.j.a(str, new ad(this, bDImageView));
         if (a != null) {
-            aVar.setBackgroundDrawable(null);
-            aVar.setImageBitmap(null);
-            a.a(aVar);
+            bDImageView.setBackgroundDrawable(null);
+            bDImageView.setImageBitmap(null);
+            a.a(bDImageView);
         }
     }
 
@@ -244,10 +245,10 @@ public class PhotoWallView extends FrameLayout {
 
     public void a() {
         for (int i = 0; i < 8; i++) {
-            com.baidu.adp.widget.ImageView.a aVar = this.b[i];
-            if (aVar != null) {
-                aVar.setBackgroundDrawable(null);
-                aVar.setImageBitmap(null);
+            BDImageView bDImageView = this.b[i];
+            if (bDImageView != null) {
+                bDImageView.setBackgroundDrawable(null);
+                bDImageView.setImageBitmap(null);
             }
         }
     }

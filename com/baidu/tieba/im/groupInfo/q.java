@@ -14,9 +14,9 @@ public class q implements com.baidu.tbadk.imageManager.c {
     }
 
     @Override // com.baidu.tbadk.imageManager.c
-    public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
-        if (eVar != null) {
-            eVar.a(this.a);
+    public void a(com.baidu.adp.widget.ImageView.d dVar, String str, boolean z) {
+        if (dVar != null) {
+            dVar.a(this.a);
         }
     }
 }

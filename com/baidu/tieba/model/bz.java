@@ -12,7 +12,7 @@ import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class bz extends BdAsyncTask<Boolean, bx, bx> {
     final /* synthetic */ bx a;
-    private com.baidu.tieba.util.an b;
+    private com.baidu.tieba.util.at b;
     private volatile boolean c;
     private boolean d;
 
@@ -44,7 +44,7 @@ public class bz extends BdAsyncTask<Boolean, bx, bx> {
                 bxVar = null;
             }
             if (!this.c && this.a.b() != null) {
-                this.b = new com.baidu.tieba.util.an(com.baidu.tieba.data.h.a + "c/u/user/profile");
+                this.b = new com.baidu.tieba.util.at(com.baidu.tieba.data.h.a + "c/u/user/profile");
                 this.b.a("uid", this.a.b());
                 this.b.a("need_post_count", SocialConstants.TRUE);
                 String l = this.b.l();
@@ -71,7 +71,7 @@ public class bz extends BdAsyncTask<Boolean, bx, bx> {
             }
             return bxVar;
         } catch (Exception e2) {
-            com.baidu.tieba.util.be.b(getClass().getName(), "doInBackground", e2.getMessage());
+            com.baidu.tieba.util.bo.b(getClass().getName(), "doInBackground", e2.getMessage());
             return null;
         }
     }

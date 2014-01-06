@@ -26,7 +26,7 @@ public class q {
         this.a = context;
         TextView textView = new TextView(this.a);
         textView.setLineSpacing(0.0f, 1.2f);
-        textView.setTextSize(com.baidu.tieba.data.h.q());
+        textView.setTextSize(com.baidu.tieba.data.h.r());
         this.b = textView.getLineHeight();
         this.c = (int) textView.getTextSize();
     }
@@ -38,6 +38,7 @@ public class q {
     public void a(TextView textView, LinearLayout linearLayout, List<com.baidu.tieba.data.j> list, boolean z) {
         TextView textView2;
         int i;
+        CharSequence d;
         if (textView != null && linearLayout != null && list != null) {
             if (list != null && list.size() > 0) {
                 if (this.f) {
@@ -48,7 +49,7 @@ public class q {
                     textView2 = null;
                     i = 0;
                 } else {
-                    textView.setTextSize(com.baidu.tieba.data.h.q());
+                    textView.setTextSize(com.baidu.tieba.data.h.r());
                     textView.setVisibility(0);
                     a(textView, jVar);
                     i = 1;
@@ -76,14 +77,15 @@ public class q {
                                 }
                             } else if (textView3 != null) {
                                 if (jVar2.a() == 2) {
-                                    textView3.append(jVar2.a(this.a, this.b, this.c));
-                                    i2 = i4;
-                                    textView2 = textView3;
+                                    d = jVar2.a(this.a, this.b, this.c);
                                 } else {
-                                    textView3.append(jVar2.c());
-                                    i2 = i4;
-                                    textView2 = textView3;
+                                    d = jVar2.d();
                                 }
+                                if (d != null) {
+                                    textView3.append(d);
+                                }
+                                i2 = i4;
+                                textView2 = textView3;
                             } else {
                                 TextView a = a(jVar2);
                                 linearLayout.addView(a);
@@ -118,13 +120,13 @@ public class q {
             com.baidu.tieba.data.j jVar = list.get(i);
             int a = jVar.a();
             if (a == 0 || a == 4 || a == 1) {
-                length = jVar.c() != null ? jVar.c().length() + i2 : i2;
+                length = jVar.d() != null ? jVar.d().length() + i2 : i2;
             } else {
                 length = i2 + 1;
             }
             if (length > 50) {
                 if (a == 0 || a == 4 || a == 1) {
-                    SpannableStringBuilder valueOf = SpannableStringBuilder.valueOf(jVar.c().subSequence(0, 50 - i2));
+                    SpannableStringBuilder valueOf = SpannableStringBuilder.valueOf(jVar.d().subSequence(0, 50 - i2));
                     com.baidu.tieba.data.j jVar2 = new com.baidu.tieba.data.j();
                     jVar2.a(valueOf);
                     jVar2.a(a);
@@ -154,7 +156,7 @@ public class q {
             if (jVar.a() == 2) {
                 textView.setText(jVar.a(this.a, this.b, this.c));
             } else {
-                textView.setText(jVar.c());
+                textView.setText(jVar.d());
             }
         }
     }
@@ -168,9 +170,9 @@ public class q {
         layoutParams.topMargin = a;
         layoutParams.bottomMargin = 0;
         customTextView.setLineSpacing(0.0f, 1.2f);
-        customTextView.setTextSize(com.baidu.tieba.data.h.q());
-        if (TiebaApplication.h().an() == 1) {
-            customTextView.setTextColor(bb.a(1));
+        customTextView.setTextSize(com.baidu.tieba.data.h.r());
+        if (TiebaApplication.g().an() == 1) {
+            customTextView.setTextColor(bl.a(1));
         } else {
             customTextView.setTextColor(this.g);
         }
@@ -188,14 +190,14 @@ public class q {
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, a);
         layoutParams.topMargin = com.baidu.adp.lib.h.g.a(this.a, 15.0f);
         layoutParams.bottomMargin = 0;
-        com.baidu.adp.widget.ImageView.e d = this.d.d(jVar.d());
+        com.baidu.adp.widget.ImageView.d d = this.d.d(jVar.e());
         imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
         imageView.setMaxWidth(a2);
         if (d != null) {
             imageView.setTag(null);
             d.a(imageView);
         } else {
-            imageView.setTag(jVar.d());
+            imageView.setTag(jVar.e());
             imageView.setImageBitmap(m.a((int) R.drawable.image_default));
         }
         imageView.setClickable(true);

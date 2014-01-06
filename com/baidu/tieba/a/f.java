@@ -2,27 +2,27 @@ package com.baidu.tieba.a;
 
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.data.ao;
-import com.baidu.tieba.util.an;
-import com.baidu.tieba.util.bd;
+import com.baidu.tieba.data.ap;
+import com.baidu.tieba.util.at;
+import com.baidu.tieba.util.bn;
 /* loaded from: classes.dex */
 public class f {
     private static final String a = com.baidu.tieba.data.h.a + "c/f/pb/page";
-    private an b = null;
+    private at b = null;
 
-    public String a(String str, String str2, String str3, int i, int i2, boolean z, boolean z2, int i3, int i4, int i5, boolean z3, long j, boolean z4, ao aoVar) {
+    public String a(String str, String str2, String str3, int i, int i2, boolean z, boolean z2, int i3, int i4, int i5, boolean z3, long j, boolean z4, ap apVar) {
         if (str == null || str.length() == 0) {
             return null;
         }
-        this.b = new an(a);
+        this.b = new at(a);
         this.b.a("kz", str);
         this.b.a("rn", String.valueOf(30));
         this.b.a("with_floor", SocialConstants.TRUE);
-        int b = com.baidu.adp.lib.h.g.b(TiebaApplication.h());
-        int c = com.baidu.adp.lib.h.g.c(TiebaApplication.h());
-        float f = TiebaApplication.h().getResources().getDisplayMetrics().density;
+        int b = com.baidu.adp.lib.h.g.b(TiebaApplication.g());
+        int c = com.baidu.adp.lib.h.g.c(TiebaApplication.g());
+        float f = TiebaApplication.g().getResources().getDisplayMetrics().density;
         int i6 = 1;
-        if (bd.a().d().equals("80")) {
+        if (bn.a().d().equals("80")) {
             i6 = 2;
         }
         this.b.a("scr_w", String.valueOf(b));
@@ -42,8 +42,8 @@ public class f {
             this.b.a("msg_click", SocialConstants.TRUE);
             this.b.a("message_id", String.valueOf(j));
         }
-        if (aoVar != null) {
-            aoVar.a(this.b);
+        if (apVar != null) {
+            apVar.a(this.b);
         }
         switch (i3) {
             case 1:

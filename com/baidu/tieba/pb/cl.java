@@ -15,7 +15,7 @@ public class cl extends BdAsyncTask<String, String, String> {
         this.a = op_type;
         this.b = cmVar;
         this.c = str2;
-        this.d = "pb_editor_" + TiebaApplication.B() + str;
+        this.d = "pb_editor_" + TiebaApplication.A() + str;
         setPriority(3);
     }
 
@@ -28,8 +28,8 @@ public class cl extends BdAsyncTask<String, String, String> {
             String a = d.a(this.d);
             try {
                 if (this.a == PbEditorCacheModel.OP_TYPE.SET) {
-                    if (com.baidu.tieba.util.bc.c(this.c)) {
-                        if (!com.baidu.tieba.util.bc.c(a)) {
+                    if (com.baidu.tieba.util.bm.c(this.c)) {
+                        if (!com.baidu.tieba.util.bm.c(a)) {
                             d.c(this.d);
                         }
                     } else {

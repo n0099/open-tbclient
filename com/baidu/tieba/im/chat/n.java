@@ -14,22 +14,22 @@ public class n implements com.baidu.tieba.im.messageCenter.g {
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(com.baidu.tieba.im.message.n nVar) {
-        if (nVar == null) {
+    public void a(com.baidu.tieba.im.message.o oVar) {
+        if (oVar == null) {
             com.baidu.adp.lib.h.e.a("msg == null");
-        } else if (nVar.t() == -100) {
-            this.a.a(nVar);
-        } else if (nVar.t() == 205001) {
-            this.a.c(nVar);
-        } else if (nVar.t() == 202001) {
-            this.a.b(nVar);
-        } else if (nVar.t() == -103) {
-            if (nVar instanceof com.baidu.tieba.im.message.k) {
-                this.a.d(nVar);
+        } else if (oVar.u() == -100) {
+            this.a.a(oVar);
+        } else if (oVar.u() == 205001) {
+            this.a.c(oVar);
+        } else if (oVar.u() == 202001) {
+            this.a.b(oVar);
+        } else if (oVar.u() == -103) {
+            if (oVar instanceof com.baidu.tieba.im.message.l) {
+                this.a.d(oVar);
             }
-        } else if (nVar.t() == -105) {
-            if (nVar instanceof com.baidu.tieba.im.message.m) {
-                this.a.d(nVar);
+        } else if (oVar.u() == -105) {
+            if (oVar instanceof com.baidu.tieba.im.message.n) {
+                this.a.d(oVar);
             }
         } else {
             com.baidu.adp.lib.h.e.a("convert error need GroupMsgData");

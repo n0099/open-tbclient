@@ -33,7 +33,7 @@ public class ad extends BroadcastReceiver {
         } else if (this.a.J == 0 || (this.a.J >= this.a.G.k() - 1 && this.a.G.h().size() == this.a.G.k())) {
             int intExtra2 = intent.getIntExtra(SocialConstants.PARAM_STATE, -1);
             this.a.a(intExtra2);
-            com.baidu.tieba.util.be.a(getClass().getName(), "find_bug_onReceive", "state=" + String.valueOf(intExtra2));
+            com.baidu.tieba.util.bo.a(getClass().getName(), "find_bug_onReceive", "state=" + String.valueOf(intExtra2));
         }
     }
 }

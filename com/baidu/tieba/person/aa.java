@@ -2,14 +2,13 @@ package com.baidu.tieba.person;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
-import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.MarkData;
 import com.baidu.tieba.view.NavigationBar;
@@ -17,23 +16,23 @@ import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class aa {
-    Context a;
-    private ListView c;
-    private FrameLayout d;
-    private TextView e;
-    private com.baidu.tieba.home.aa f;
+    EditMarkActivity a;
+    private BdListView c;
+    private com.baidu.tieba.view.bw d;
+    private FrameLayout e;
+    private com.baidu.tieba.home.ab f;
     private TextView g;
     private LinearLayout h;
     private ProgressBar i;
-    private NavigationBar l;
+    private NavigationBar m;
     private Dialog j = null;
     private int k = 0;
     DialogInterface.OnClickListener b = null;
+    private boolean l = false;
 
     public aa(EditMarkActivity editMarkActivity) {
         this.a = null;
         this.c = null;
-        this.d = null;
         this.e = null;
         this.f = null;
         this.g = null;
@@ -43,18 +42,21 @@ public class aa {
         editMarkActivity.setContentView(R.layout.edit_mark_activity);
         this.i = (ProgressBar) editMarkActivity.findViewById(R.id.progress);
         this.h = (LinearLayout) editMarkActivity.findViewById(R.id.parent);
-        this.d = (FrameLayout) editMarkActivity.findViewById(R.id.empty_textview_container);
-        this.e = (TextView) editMarkActivity.findViewById(R.id.empty_textview);
-        this.f = new com.baidu.tieba.home.aa(editMarkActivity);
-        this.f.c(false);
+        this.e = (FrameLayout) editMarkActivity.findViewById(R.id.empty_textview_container);
+        this.f = new com.baidu.tieba.home.ab(editMarkActivity);
+        this.f.d(false);
         this.f.b();
-        this.c = (ListView) editMarkActivity.findViewById(R.id.list);
+        this.d = new com.baidu.tieba.view.bw(editMarkActivity);
+        this.d.a(editMarkActivity);
+        this.c = (BdListView) editMarkActivity.findViewById(R.id.list);
         this.c.setAdapter((ListAdapter) this.f);
+        this.c.setPullRefresh(this.d);
+        this.c.setOnSrollToBottomListener(editMarkActivity);
         this.c.setOnItemClickListener(editMarkActivity);
-        this.l = (NavigationBar) editMarkActivity.findViewById(R.id.view_navigation_bar);
-        this.l.a(editMarkActivity.getResources().getString(R.string.my_mark));
-        this.l.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.g = this.l.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, editMarkActivity.getResources().getString(R.string.edit));
+        this.m = (NavigationBar) editMarkActivity.findViewById(R.id.view_navigation_bar);
+        this.m.a(editMarkActivity.getResources().getString(R.string.my_mark));
+        this.m.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.g = this.m.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, editMarkActivity.getResources().getString(R.string.edit));
         this.g.setOnClickListener(editMarkActivity);
         this.g.setVisibility(4);
         this.f.a(editMarkActivity);
@@ -70,15 +72,15 @@ public class aa {
 
     public void b() {
         if (!this.f.c()) {
-            this.f.d(true);
+            this.f.e(true);
             this.g.setText(R.string.done);
-            com.baidu.tieba.util.bb.h(this.g, TiebaApplication.h().an());
+            com.baidu.tieba.util.bl.h(this.g, TiebaApplication.g().an());
             this.f.notifyDataSetChanged();
             return;
         }
-        this.f.d(false);
+        this.f.e(false);
         this.g.setText(R.string.edit);
-        com.baidu.tieba.util.bb.j(this.g, TiebaApplication.h().an());
+        com.baidu.tieba.util.bl.j(this.g, TiebaApplication.g().an());
         this.f.notifyDataSetChanged();
     }
 
@@ -98,85 +100,106 @@ public class aa {
         this.i.setVisibility(0);
     }
 
-    public void a(String str, com.baidu.tieba.model.o oVar, Boolean bool) {
+    public void e() {
+        this.i.setVisibility(8);
+    }
+
+    public void a(String str, com.baidu.tieba.model.o oVar, boolean z) {
         this.f.b(true);
         if (str != null) {
             a(str);
         }
         if (oVar != null) {
-            if (oVar.e() == 0 && !bool.booleanValue() && oVar.d() > 0) {
+            if (oVar.h() == 0 && !z && oVar.g() > 0) {
                 a(this.a.getString(R.string.no_more_mark));
             }
-            this.k = oVar.d();
-            if (oVar.d() < 20) {
+            this.k = oVar.g();
+            if (oVar.h() < 20) {
                 this.f.a(false);
+                this.f.c(!oVar.e());
+            } else {
+                this.f.a(true);
+                this.f.c(true);
             }
-            this.f.a(oVar.c());
-            this.f.c(true);
+            this.f.a(oVar.f());
+            this.f.d(true);
             this.f.b();
-            if (oVar.d() > 0) {
+            if (oVar.g() > 0) {
                 this.g.setVisibility(0);
-                this.d.setVisibility(8);
+                this.e.setVisibility(8);
+                this.c.setVisibility(0);
                 this.f.notifyDataSetChanged();
-            } else if (oVar.d() == 0 && !bool.booleanValue()) {
+            } else if (oVar.g() == 0 && !z) {
                 this.g.setVisibility(4);
-                this.d.setVisibility(0);
+                this.e.setVisibility(0);
+                this.c.setVisibility(8);
             }
         } else if (this.k > 0) {
             this.g.setVisibility(0);
-            this.d.setVisibility(8);
+            this.e.setVisibility(8);
+            this.c.setVisibility(0);
+            this.f.c(false);
             this.f.notifyDataSetChanged();
         } else {
             this.g.setVisibility(4);
-            this.d.setVisibility(0);
+            this.e.setVisibility(0);
+            this.c.setVisibility(8);
         }
         this.f.b(false);
         this.i.setVisibility(8);
-        if (bool.booleanValue()) {
+        if (z && !l()) {
             d();
+        }
+        if (l()) {
+            a(false);
         }
     }
 
-    public void a(String str) {
-        ((com.baidu.tieba.j) this.a).showToast(str);
+    public void f() {
+        this.f.a((ArrayList<MarkData>) null);
     }
 
-    public void e() {
-        ((com.baidu.tieba.j) this.a).showLoadingDialog(this.a.getString(R.string.syncing));
+    public void a(String str) {
+        this.a.showToast(str);
+    }
+
+    public void g() {
+        this.a.showLoadingDialog(this.a.getString(R.string.syncing));
     }
 
     public void a(boolean z, String str, boolean z2) {
-        ((com.baidu.tieba.j) this.a).closeLoadingDialog();
+        this.a.closeLoadingDialog();
         if (z) {
             this.f.b();
         }
         if (str != null) {
-            ((com.baidu.tieba.j) this.a).showToast(str);
+            this.a.showToast(str);
         }
         if (z2) {
-            i();
+            m();
         }
         this.f.notifyDataSetChanged();
     }
 
-    public void f() {
+    public void h() {
         this.i.setVisibility(0);
     }
 
     public void a(boolean z, String str, ArrayList<MarkData> arrayList) {
         if (z) {
-            ((com.baidu.tieba.j) this.a).showToast(this.a.getString(R.string.del_mark_success));
+            this.a.showToast(this.a.getString(R.string.del_mark_success));
             this.f.a(arrayList);
-            this.f.c(true);
+            this.f.d(true);
             this.f.b();
             if (arrayList.size() == 0) {
                 this.g.setText(R.string.edit);
                 this.g.setVisibility(4);
-                this.f.d(false);
-                this.d.setVisibility(0);
+                this.f.e(false);
+                this.e.setVisibility(0);
+                this.c.setVisibility(8);
             }
         } else {
-            ((com.baidu.tieba.j) this.a).showToast(str);
+            this.a.showToast(str);
         }
         this.f.notifyDataSetChanged();
         this.i.setVisibility(8);
@@ -190,7 +213,7 @@ public class aa {
         }
     }
 
-    private void i() {
+    private void m() {
         if (this.j == null) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this.a);
             builder.setTitle(this.a.getString(R.string.sync_mark_fail));
@@ -206,27 +229,19 @@ public class aa {
     }
 
     public void b(int i) {
-        com.baidu.tieba.util.bb.a(this.h, i);
-        this.l.c(i);
-        this.f.notifyDataSetChanged();
-        if (i == 1) {
-            this.c.setDivider(this.a.getResources().getDrawable(R.drawable.list_divider_1));
-            this.c.setSelector(R.drawable.list_selector_1);
-            this.e.setTextColor(this.a.getResources().getColor(R.color.person_post_header_uname_1));
-        } else {
-            this.c.setDivider(this.a.getResources().getDrawable(R.drawable.list_divider));
-            this.c.setSelector(R.drawable.list_selector);
-            this.e.setTextColor(this.a.getResources().getColor(R.color.person_post_header_uname));
+        this.m.c(i);
+        this.a.getLayoutMode().a(this.h);
+        if (this.d != null) {
+            this.d.a(i);
         }
-        this.f.notifyDataSetChanged();
     }
 
-    public void g() {
+    public void i() {
         this.f.b();
         this.f.notifyDataSetChanged();
     }
 
-    public void h() {
+    public void j() {
         if (this.j != null) {
             this.j.dismiss();
             this.j = null;
@@ -235,5 +250,19 @@ public class aa {
             this.i.setVisibility(8);
         }
         this.f.a();
+    }
+
+    public void k() {
+        if (this.c != null) {
+            this.c.a();
+        }
+    }
+
+    public boolean l() {
+        return this.l;
+    }
+
+    public void a(boolean z) {
+        this.l = z;
     }
 }

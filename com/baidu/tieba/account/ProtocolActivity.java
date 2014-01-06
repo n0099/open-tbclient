@@ -102,7 +102,7 @@ public class ProtocolActivity extends com.baidu.tieba.j {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.c.c(i);
-        com.baidu.tieba.util.bb.c(this.b, i);
-        com.baidu.tieba.util.bb.b(this.a, i);
+        com.baidu.tieba.util.bl.c(this.b, i);
+        com.baidu.tieba.util.bl.b(this.a, i);
     }
 }

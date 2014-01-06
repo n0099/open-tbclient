@@ -3,7 +3,6 @@ package com.baidu.tieba.mention;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -20,7 +19,7 @@ import com.baidu.tieba.BaseFragmentActivity;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.chat.ChatListFragment;
 import com.baidu.tieba.im.chat.PersonalChatActivity;
-import com.baidu.tieba.util.bb;
+import com.baidu.tieba.util.bl;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
@@ -30,6 +29,7 @@ public class MentionActivity extends BaseFragment implements bq {
     private MentionPagerAdapter ac;
     private boolean ae;
     private BaseFragmentActivity af;
+    private e ag;
     private TextView[] c;
     private TextView[] d;
     private int f;
@@ -42,7 +42,7 @@ public class MentionActivity extends BaseFragment implements bq {
     private ViewPager aa = null;
     protected int a = -1;
     private boolean ad = false;
-    private e ag = null;
+    private int ah = 16;
 
     public static void a(Activity activity, int i) {
         Intent intent = new Intent(activity, SingleMentionActivity.class);
@@ -51,12 +51,17 @@ public class MentionActivity extends BaseFragment implements bq {
         activity.startActivityForResult(intent, i);
     }
 
-    public static void a(Context context) {
+    public static void a(Context context, int i) {
         Intent intent = new Intent(context, SingleMentionActivity.class);
         intent.setFlags(268435456);
         intent.putExtra("showBack", true);
+        intent.putExtra("NotifiIdKey", i);
         b = true;
         context.startActivity(intent);
+    }
+
+    public void d(int i) {
+        this.ah = i;
     }
 
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
@@ -75,6 +80,7 @@ public class MentionActivity extends BaseFragment implements bq {
         super.a(bundle);
         if (h() != null) {
             this.ae = h().getBoolean("showBack", false);
+            this.ah = h().getInt("NotifiIdKey", this.ah);
         }
     }
 
@@ -87,14 +93,9 @@ public class MentionActivity extends BaseFragment implements bq {
 
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
     public void r() {
-        this.a = TiebaApplication.h().an();
+        this.a = TiebaApplication.g().an();
         super.r();
         if (F()) {
-            View q = q();
-            if (q != null) {
-                q.requestFocus();
-                q.requestFocusFromTouch();
-            }
             if (this.e == 0) {
                 Fragment a = this.ac.a(this.e);
                 if (a instanceof ChatListFragment) {
@@ -103,23 +104,23 @@ public class MentionActivity extends BaseFragment implements bq {
             }
             if (this.ad) {
                 this.ad = false;
-                d(0);
+                e(0);
             } else if (b) {
                 b = false;
-                if (t.a().q() > 0) {
-                    d(0);
-                } else if (t.a().m() > 0) {
-                    d(1);
-                } else if (t.a().n() > 0) {
-                    d(2);
+                if (this.ah != 11) {
+                    e(0);
+                } else if (s.a().m() > 0) {
+                    e(1);
+                } else if (s.a().n() > 0) {
+                    e(2);
                 }
             } else {
-                e(this.e);
+                f(this.e);
             }
         }
     }
 
-    private void e(int i) {
+    private void f(int i) {
         if (i == 1) {
             Fragment a = this.ac.a(this.e);
             if (a instanceof ReplyMeFragment) {
@@ -214,23 +215,23 @@ public class MentionActivity extends BaseFragment implements bq {
                 i = h.getInt("type", 0);
             }
         }
-        d(i);
+        e(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(View view) {
         for (int i = 0; i < this.c.length; i++) {
             if (this.c[i] == view) {
-                d(i);
+                e(i);
                 return;
             }
         }
     }
 
-    protected void d(int i) {
+    protected void e(int i) {
         if (i >= 0 && i < this.f && this.e != i) {
             this.e = i;
-            e(i);
+            f(i);
             this.aa.setCurrentItem(i);
             String str = null;
             if (i == 0) {
@@ -240,7 +241,7 @@ public class MentionActivity extends BaseFragment implements bq {
             } else if (i == 2) {
                 str = "msg_atme_tab_click";
             }
-            if (str != null && TiebaApplication.h().t()) {
+            if (str != null && TiebaApplication.g().s()) {
                 StatService.onEvent(this.af, str, "click", 1);
             }
             a();
@@ -252,17 +253,17 @@ public class MentionActivity extends BaseFragment implements bq {
     public void c(int i) {
         int i2 = 0;
         if (i == 1) {
-            if (TiebaApplication.C()) {
+            if (TiebaApplication.B()) {
                 this.aa.setBackgroundColor(-14538444);
             } else {
                 this.aa.setBackgroundColor(this.af.getResources().getColor(R.color.bg_page_setting_1));
             }
-        } else if (TiebaApplication.C()) {
+        } else if (TiebaApplication.B()) {
             this.aa.setBackgroundColor(this.af.getResources().getColor(R.color.backgroundcolor));
         } else {
             this.aa.setBackgroundColor(this.af.getResources().getColor(R.color.bg_page_setting));
         }
-        bb.a(this.i, i);
+        bl.a(this.i, i);
         this.h.c(i);
         if (i == 1) {
             for (TextView textView : this.d) {
@@ -294,7 +295,7 @@ public class MentionActivity extends BaseFragment implements bq {
     }
 
     private void a() {
-        boolean z = TiebaApplication.h().an() == 1;
+        boolean z = TiebaApplication.g().an() == 1;
         for (int i = 0; i < this.c.length; i++) {
             TextView textView = this.c[i];
             if (i == this.e) {
@@ -307,22 +308,21 @@ public class MentionActivity extends BaseFragment implements bq {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(long[] jArr) {
+    private void a(int[] iArr) {
         boolean z = this.a == 1;
-        for (int i = 0; i < jArr.length; i++) {
+        for (int i = 0; i < iArr.length; i++) {
             TextView textView = this.d[i];
-            long j = jArr[i];
-            if (!f(i)) {
+            int i2 = iArr[i];
+            if (!g(i)) {
                 textView.setVisibility(8);
-            } else if (j <= 0) {
+            } else if (i2 <= 0) {
                 textView.setVisibility(8);
-            } else if (j < 10) {
-                textView.setText(String.valueOf(j));
+            } else if (i2 < 10) {
+                textView.setText(String.valueOf(i2));
                 textView.setBackgroundResource(z ? R.drawable.icon_news_head_prompt_one_1 : R.drawable.icon_news_head_prompt_one);
                 textView.setVisibility(0);
-            } else if (j < 100) {
-                textView.setText(String.valueOf(j));
+            } else if (i2 < 100) {
+                textView.setText(String.valueOf(i2));
                 textView.setBackgroundResource(z ? R.drawable.icon_news_head_prompt_two_1 : R.drawable.icon_news_head_prompt_two);
                 textView.setVisibility(0);
             } else {
@@ -338,53 +338,48 @@ public class MentionActivity extends BaseFragment implements bq {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private boolean f(int i) {
+    private boolean g(int i) {
         switch (i) {
             case 0:
-                return TiebaApplication.h().Z() || TiebaApplication.h().aa();
+                return TiebaApplication.g().Z() || TiebaApplication.g().aa();
             case 1:
-                if (!TiebaApplication.h().Y()) {
+                if (!TiebaApplication.g().Y()) {
                     return false;
                 }
-                if (TiebaApplication.h().X()) {
+                if (TiebaApplication.g().X()) {
                     return false;
                 }
                 break;
             case 2:
-                if (TiebaApplication.h().X()) {
+                if (TiebaApplication.g().X()) {
                 }
                 break;
         }
     }
 
     public void a(int i, boolean z) {
-        long m = t.a().m();
-        long n = t.a().n();
-        long[] jArr = new long[3];
-        jArr[0] = t.a().q();
-        jArr[1] = m;
-        jArr[2] = n;
-        if (z && i < jArr.length && i > -1 && i != 0 && this.e != 0) {
-            jArr[i] = 0;
+        int m = s.a().m();
+        int n = s.a().n();
+        int[] iArr = new int[3];
+        iArr[0] = s.a().q();
+        iArr[1] = m;
+        iArr[2] = n;
+        if (z && i < iArr.length && i > -1 && i != 0 && this.e != 0) {
+            iArr[i] = 0;
         }
-        a(jArr);
+        a(iArr);
         if (i != 0 && z) {
-            t.a().a(jArr[1], jArr[2], t.a().o(), jArr[0] - t.a().t());
+            s.a().a(iArr[1], iArr[2], s.a().o(), iArr[0] - s.a().t());
         }
     }
 
     private void G() {
         this.ag = new e(this, null);
-        IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction("com.baidu.tieba.broadcast.notify");
-        this.af.registerReceiver(this.ag, intentFilter);
+        com.baidu.tieba.im.messageCenter.e.a().a(-124, this.ag);
     }
 
     private void H() {
-        if (this.ag != null) {
-            this.af.unregisterReceiver(this.ag);
-            this.ag = null;
-        }
+        com.baidu.tieba.im.messageCenter.e.a().a(this.ag);
     }
 
     @Override // android.support.v4.view.bq
@@ -395,7 +390,7 @@ public class MentionActivity extends BaseFragment implements bq {
     public void onPageSelected(int i) {
         if (i >= 0 && i < this.f && i != this.e) {
             this.e = i;
-            e(this.e);
+            f(this.e);
             String str = null;
             if (i == 0) {
                 str = "msg_chat_tab_click";
@@ -404,7 +399,7 @@ public class MentionActivity extends BaseFragment implements bq {
             } else if (i == 2) {
                 str = "msg_atme_tab_click";
             }
-            if (str != null && TiebaApplication.h().t()) {
+            if (str != null && TiebaApplication.g().s()) {
                 StatService.onEvent(this.af, str, "click", 1);
             }
             a();
@@ -414,5 +409,17 @@ public class MentionActivity extends BaseFragment implements bq {
 
     @Override // android.support.v4.view.bq
     public void onPageScrollStateChanged(int i) {
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(com.baidu.tieba.im.message.o oVar) {
+        if (oVar != null) {
+            if (!(oVar instanceof com.baidu.tieba.im.message.r)) {
+                com.baidu.adp.lib.h.e.a("transform error");
+                return;
+            }
+            com.baidu.tieba.im.message.r rVar = (com.baidu.tieba.im.message.r) oVar;
+            a(new int[]{rVar.d(), rVar.a(), rVar.b()});
+        }
     }
 }

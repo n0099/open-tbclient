@@ -5,8 +5,11 @@ import java.io.Serializable;
 public class GroupPermData implements Serializable {
     private static final long serialVersionUID = 5660832418912851013L;
     private int canCreateNormal;
+    private int canCreateNormalNum;
     private int canCreateOfficial;
+    private int canCreateOfficialNum;
     private int canCreatePersonal;
+    private int canCreatePersonalNum;
     private String createNormalTip;
     private String createOfficialTip;
     private String createPersonalTip;
@@ -78,5 +81,29 @@ public class GroupPermData implements Serializable {
 
     public void setCreatePersonalTip(String str) {
         this.createPersonalTip = str;
+    }
+
+    public int getCanCreateNormalNum() {
+        return this.canCreateNormalNum;
+    }
+
+    public void setCanCreateNormalNum(int i) {
+        this.canCreateNormalNum = i;
+    }
+
+    public int getCanCreateOfficialNum() {
+        return this.canCreateOfficialNum;
+    }
+
+    public void setCanCreateOfficialNum(int i) {
+        this.canCreateOfficialNum = i;
+    }
+
+    public int getCanCreatePersonalNum() {
+        return this.canCreatePersonalNum;
+    }
+
+    public void setCanCreatePersonalNum(int i) {
+        this.canCreatePersonalNum = i;
     }
 }

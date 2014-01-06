@@ -2,9 +2,9 @@ package com.baidu.tieba.account.forbid;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.gson.GsonBuilder;
-import com.baidu.tieba.util.an;
-import com.baidu.tieba.util.bc;
-import com.baidu.tieba.util.be;
+import com.baidu.tieba.util.at;
+import com.baidu.tieba.util.bm;
+import com.baidu.tieba.util.bo;
 import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -34,29 +34,29 @@ public class i extends BdAsyncTask<String, Object, ForbidResultData> {
     public ForbidResultData a(String... strArr) {
         String str;
         str = h.a;
-        an anVar = new an(str);
-        anVar.a("day", this.e);
-        anVar.a("un", this.d);
-        anVar.a("fid", this.a);
-        anVar.a("word", this.b);
-        anVar.a("z", this.c);
-        anVar.a("reason", this.f);
-        anVar.a("ntn", "banid");
-        anVar.e(true);
-        String l = anVar.l();
-        if (anVar.c()) {
+        at atVar = new at(str);
+        atVar.a("day", this.e);
+        atVar.a("un", this.d);
+        atVar.a("fid", this.a);
+        atVar.a("word", this.b);
+        atVar.a("z", this.c);
+        atVar.a("reason", this.f);
+        atVar.a("ntn", "banid");
+        atVar.e(true);
+        String l = atVar.l();
+        if (atVar.c()) {
             try {
                 return (ForbidResultData) new GsonBuilder().create().fromJson(l, (Class<Object>) ForbidResultData.class);
             } catch (Exception e) {
-                be.b("ForbidPostModel", "doInBackground", e.getMessage());
+                bo.b("ForbidPostModel", "doInBackground", e.getMessage());
                 ForbidResultData forbidResultData = new ForbidResultData();
                 forbidResultData.errNo = -1000;
                 return forbidResultData;
             }
         }
         ForbidResultData forbidResultData2 = new ForbidResultData();
-        forbidResultData2.errNo = anVar.e();
-        forbidResultData2.errMsg = anVar.i();
+        forbidResultData2.errNo = atVar.e();
+        forbidResultData2.errMsg = atVar.i();
         return forbidResultData2;
     }
 
@@ -67,7 +67,7 @@ public class i extends BdAsyncTask<String, Object, ForbidResultData> {
         super.a((i) forbidResultData);
         j jVar = this.g.get();
         if (jVar != null) {
-            if (forbidResultData.errNo == 0 && bc.c(forbidResultData.errMsg)) {
+            if (forbidResultData.errNo == 0 && bm.c(forbidResultData.errMsg)) {
                 jVar.a(forbidResultData);
             } else {
                 jVar.b(forbidResultData);

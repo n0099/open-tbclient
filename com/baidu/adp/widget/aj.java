@@ -2,10 +2,14 @@ package com.baidu.adp.widget;
 
 import android.view.animation.Interpolator;
 /* loaded from: classes.dex */
-final class aj implements Interpolator {
-    @Override // android.animation.TimeInterpolator
-    public float getInterpolation(float f) {
-        float f2 = f - 1.0f;
-        return (f2 * f2 * f2 * f2 * f2) + 1.0f;
+abstract class aj {
+    public static final Interpolator a = new ak();
+    public static final Interpolator b = new al();
+
+    public static int a(float f, float f2, boolean z) {
+        if (z) {
+            return (int) (f - (a.getInterpolation(f2 / (f2 - f)) * f));
+        }
+        return (int) (a.getInterpolation(f2 / f) * f);
     }
 }

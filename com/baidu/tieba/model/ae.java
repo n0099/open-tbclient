@@ -6,7 +6,7 @@ import com.baidu.cloudsdk.social.core.SocialConstants;
 /* loaded from: classes.dex */
 public class ae extends BdAsyncTask<String, Integer, String> {
     final /* synthetic */ ad a;
-    private com.baidu.tieba.util.an b = null;
+    private com.baidu.tieba.util.at b = null;
     private String c;
     private String d;
     private String e;
@@ -37,7 +37,7 @@ public class ae extends BdAsyncTask<String, Integer, String> {
         } else {
             str = str2 + "c/c/bawu/delpost";
         }
-        this.b = new com.baidu.tieba.util.an(str);
+        this.b = new com.baidu.tieba.util.at(str);
         this.b.a("fid", this.c);
         this.b.a("word", this.d);
         this.b.a("z", this.e);

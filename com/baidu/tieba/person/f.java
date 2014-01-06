@@ -32,7 +32,7 @@ public class f implements View.OnClickListener {
             textView3 = this.a.d;
             textView3.setText(R.string.done);
             textView4 = this.a.d;
-            com.baidu.tieba.util.bb.h(textView4, TiebaApplication.h().an());
+            com.baidu.tieba.util.bl.h(textView4, TiebaApplication.g().an());
             iVar5 = this.a.f;
             iVar5.notifyDataSetChanged();
             return;
@@ -42,7 +42,7 @@ public class f implements View.OnClickListener {
         textView = this.a.d;
         textView.setText(R.string.edit);
         textView2 = this.a.d;
-        com.baidu.tieba.util.bb.j(textView2, TiebaApplication.h().an());
+        com.baidu.tieba.util.bl.j(textView2, TiebaApplication.g().an());
         iVar3 = this.a.f;
         iVar3.notifyDataSetChanged();
     }

@@ -13,8 +13,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import protobuf.Im;
-import protobuf.ae;
-import protobuf.ag;
+import protobuf.ah;
+import protobuf.aj;
 /* loaded from: classes.dex */
 public final class QueryGroupUserListRes {
 
@@ -57,7 +57,7 @@ public final class QueryGroupUserListRes {
         /* JADX DEBUG: Multi-variable search result rejected for r3v6, resolved type: java.util.List<protobuf.Im$UserInfo> */
         /* JADX WARN: Multi-variable type inference failed */
         private DataRes(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
-            ag agVar;
+            aj ajVar;
             boolean z;
             boolean z2;
             boolean z3;
@@ -111,14 +111,14 @@ public final class QueryGroupUserListRes {
                                 }
                             case 26:
                                 if ((this.bitField0_ & 2) != 2) {
-                                    agVar = null;
+                                    ajVar = null;
                                 } else {
-                                    agVar = this.permission_.toBuilder();
+                                    ajVar = this.permission_.toBuilder();
                                 }
                                 this.permission_ = (Im.UserPermission) codedInputStream.readMessage(Im.UserPermission.PARSER, extensionRegistryLite);
-                                if (agVar != null) {
-                                    agVar.mergeFrom(this.permission_);
-                                    this.permission_ = agVar.buildPartial();
+                                if (ajVar != null) {
+                                    ajVar.mergeFrom(this.permission_);
+                                    this.permission_ = ajVar.buildPartial();
                                 }
                                 this.bitField0_ |= 2;
                                 z = z4;
@@ -173,7 +173,7 @@ public final class QueryGroupUserListRes {
             return this.userList_;
         }
 
-        public List<? extends ae> getUserListOrBuilderList() {
+        public List<? extends ah> getUserListOrBuilderList() {
             return this.userList_;
         }
 
@@ -185,7 +185,7 @@ public final class QueryGroupUserListRes {
             return this.userList_.get(i);
         }
 
-        public ae getUserListOrBuilder(int i) {
+        public ah getUserListOrBuilder(int i) {
             return this.userList_.get(i);
         }
 

@@ -3,17 +3,17 @@ package com.baidu.tieba.service;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.data.aj;
-import com.baidu.tieba.util.an;
-import com.baidu.tieba.util.be;
+import com.baidu.tieba.data.ak;
+import com.baidu.tieba.util.at;
+import com.baidu.tieba.util.bo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class n extends BdAsyncTask<String, Integer, aj> {
+public class n extends BdAsyncTask<String, Integer, ak> {
     int b;
     final /* synthetic */ TiebaMessageService c;
-    an a = null;
-    private TiebaApplication d = TiebaApplication.h();
-    private String e = TiebaApplication.B();
+    at a = null;
+    private TiebaApplication d = TiebaApplication.g();
+    private String e = TiebaApplication.A();
 
     public n(TiebaMessageService tiebaMessageService, int i) {
         this.c = tiebaMessageService;
@@ -30,33 +30,33 @@ public class n extends BdAsyncTask<String, Integer, aj> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public aj a(String... strArr) {
-        aj ajVar;
+    public ak a(String... strArr) {
+        ak akVar;
         Exception e;
         try {
         } catch (Exception e2) {
-            ajVar = null;
+            akVar = null;
             e = e2;
         }
         if (this.d.ab() && this.e != null && this.e.length() > 0) {
-            this.a = new an(com.baidu.tieba.data.h.a + "c/s/msg");
+            this.a = new at(com.baidu.tieba.data.h.a + "c/s/msg");
             if (this.b == 2) {
                 this.a.a("bookmark", SocialConstants.TRUE);
             }
             String l = this.a.l();
             if (this.a.c()) {
-                ajVar = new aj();
+                akVar = new ak();
                 try {
-                    ajVar.a(l);
+                    akVar.a(l);
                 } catch (Exception e3) {
                     e = e3;
-                    be.b(getClass().getName(), "doInBackground", e.getMessage());
-                    return ajVar;
+                    bo.b(getClass().getName(), "doInBackground", e.getMessage());
+                    return akVar;
                 }
             } else {
-                ajVar = null;
+                akVar = null;
             }
-            return ajVar;
+            return akVar;
         }
         return null;
     }
@@ -74,22 +74,19 @@ public class n extends BdAsyncTask<String, Integer, aj> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(aj ajVar) {
+    public void a(ak akVar) {
         try {
-            super.a((n) ajVar);
+            super.a((n) akVar);
             this.c.a = null;
             this.c.b = null;
-            if (ajVar != null) {
-                this.c.c = ajVar;
-                if (this.b == 2) {
-                    this.d.a((Boolean) false);
-                }
+            if (akVar != null) {
+                this.c.c = akVar;
                 if (this.e != null && this.e.length() > 0) {
                     this.c.b(this.b);
                 }
             }
         } catch (Exception e) {
-            be.b(getClass().getName(), "onPostExecute", e.getMessage());
+            bo.b(getClass().getName(), "onPostExecute", e.getMessage());
         }
     }
 }

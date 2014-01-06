@@ -1,11 +1,11 @@
 package com.baidu.tieba.service;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.util.af;
-import com.baidu.tieba.util.an;
-import com.baidu.tieba.util.be;
-import com.baidu.tieba.util.bf;
-import com.baidu.tieba.util.y;
+import com.baidu.tieba.util.aa;
+import com.baidu.tieba.util.ah;
+import com.baidu.tieba.util.at;
+import com.baidu.tieba.util.bo;
+import com.baidu.tieba.util.bp;
 import com.baidu.zeus.NotificationProxy;
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
@@ -16,7 +16,7 @@ import java.io.FileWriter;
 /* loaded from: classes.dex */
 class e extends BdAsyncTask<String, Integer, String> {
     final /* synthetic */ FatalErrorService a;
-    private an b;
+    private at b;
 
     private e(FatalErrorService fatalErrorService) {
         this.a = fatalErrorService;
@@ -46,7 +46,7 @@ class e extends BdAsyncTask<String, Integer, String> {
         FileWriter fileWriter2 = null;
         try {
             try {
-                File d = y.d(str);
+                File d = aa.d(str);
                 if (d == null || d.length() <= 50) {
                     fileInputStream2 = null;
                     byteArrayOutputStream2 = null;
@@ -56,7 +56,7 @@ class e extends BdAsyncTask<String, Integer, String> {
                         byteArrayOutputStream = new ByteArrayOutputStream(NotificationProxy.MAX_URL_LENGTH);
                         try {
                             if (z) {
-                                af.a(fileInputStream, byteArrayOutputStream);
+                                ah.a(fileInputStream, byteArrayOutputStream);
                             } else {
                                 byte[] bArr = new byte[NotificationProxy.MAX_URL_LENGTH];
                                 while (true) {
@@ -74,14 +74,14 @@ class e extends BdAsyncTask<String, Integer, String> {
                                     try {
                                         byteArrayOutputStream.close();
                                     } catch (Exception e) {
-                                        be.b(getClass().getName(), "sendLogFile", e.getMessage());
+                                        bo.b(getClass().getName(), "sendLogFile", e.getMessage());
                                     }
                                 }
                                 if (fileInputStream != null) {
                                     try {
                                         fileInputStream.close();
                                     } catch (Exception e2) {
-                                        be.b(getClass().getName(), "sendLogFile", e2.getMessage());
+                                        bo.b(getClass().getName(), "sendLogFile", e2.getMessage());
                                     }
                                 }
                                 if (0 != 0) {
@@ -92,12 +92,12 @@ class e extends BdAsyncTask<String, Integer, String> {
                                         name = getClass().getName();
                                         str3 = "sendLogFile";
                                         message = e3.getMessage();
-                                        be.b(name, str3, message);
+                                        bo.b(name, str3, message);
                                     }
                                 }
                                 return;
                             }
-                            this.b = new an(com.baidu.tieba.data.h.a + str2);
+                            this.b = new at(com.baidu.tieba.data.h.a + str2);
                             this.b.a("logfile", byteArray);
                             this.b.n();
                             if (byteArrayOutputStream != null) {
@@ -113,7 +113,7 @@ class e extends BdAsyncTask<String, Integer, String> {
                                 } catch (Exception e4) {
                                     e = e4;
                                     byteArrayOutputStream = byteArrayOutputStream2;
-                                    be.b(getClass().getName(), "sendLogFile", e.getMessage());
+                                    bo.b(getClass().getName(), "sendLogFile", e.getMessage());
                                     if (byteArrayOutputStream != null) {
                                     }
                                     if (fileInputStream != null) {
@@ -149,26 +149,26 @@ class e extends BdAsyncTask<String, Integer, String> {
                                             fileWriter = fileWriter3;
                                         }
                                         if (!d.delete()) {
-                                            be.b(getClass().getName(), "sendLogFile", "file.delete error");
+                                            bo.b(getClass().getName(), "sendLogFile", "file.delete error");
                                         }
                                     } catch (Exception e5) {
                                         e = e5;
                                         fileWriter = fileWriter3;
                                         fileInputStream = fileInputStream2;
                                         byteArrayOutputStream = byteArrayOutputStream2;
-                                        be.b(getClass().getName(), "sendLogFile", e.getMessage());
+                                        bo.b(getClass().getName(), "sendLogFile", e.getMessage());
                                         if (byteArrayOutputStream != null) {
                                             try {
                                                 byteArrayOutputStream.close();
                                             } catch (Exception e6) {
-                                                be.b(getClass().getName(), "sendLogFile", e6.getMessage());
+                                                bo.b(getClass().getName(), "sendLogFile", e6.getMessage());
                                             }
                                         }
                                         if (fileInputStream != null) {
                                             try {
                                                 fileInputStream.close();
                                             } catch (Exception e7) {
-                                                be.b(getClass().getName(), "sendLogFile", e7.getMessage());
+                                                bo.b(getClass().getName(), "sendLogFile", e7.getMessage());
                                             }
                                         }
                                         if (fileWriter == null) {
@@ -179,7 +179,7 @@ class e extends BdAsyncTask<String, Integer, String> {
                                                 name = getClass().getName();
                                                 str3 = "sendLogFile";
                                                 message = e8.getMessage();
-                                                be.b(name, str3, message);
+                                                bo.b(name, str3, message);
                                             }
                                         }
                                         return;
@@ -192,21 +192,21 @@ class e extends BdAsyncTask<String, Integer, String> {
                                             try {
                                                 byteArrayOutputStream.close();
                                             } catch (Exception e9) {
-                                                be.b(getClass().getName(), "sendLogFile", e9.getMessage());
+                                                bo.b(getClass().getName(), "sendLogFile", e9.getMessage());
                                             }
                                         }
                                         if (fileInputStream != null) {
                                             try {
                                                 fileInputStream.close();
                                             } catch (Exception e10) {
-                                                be.b(getClass().getName(), "sendLogFile", e10.getMessage());
+                                                bo.b(getClass().getName(), "sendLogFile", e10.getMessage());
                                             }
                                         }
                                         if (fileWriter != null) {
                                             try {
                                                 fileWriter.close();
                                             } catch (Exception e11) {
-                                                be.b(getClass().getName(), "sendLogFile", e11.getMessage());
+                                                bo.b(getClass().getName(), "sendLogFile", e11.getMessage());
                                             }
                                         }
                                         throw th;
@@ -236,14 +236,14 @@ class e extends BdAsyncTask<String, Integer, String> {
                     try {
                         byteArrayOutputStream2.close();
                     } catch (Exception e15) {
-                        be.b(getClass().getName(), "sendLogFile", e15.getMessage());
+                        bo.b(getClass().getName(), "sendLogFile", e15.getMessage());
                     }
                 }
                 if (fileInputStream2 != null) {
                     try {
                         fileInputStream2.close();
                     } catch (Exception e16) {
-                        be.b(getClass().getName(), "sendLogFile", e16.getMessage());
+                        bo.b(getClass().getName(), "sendLogFile", e16.getMessage());
                     }
                 }
                 if (fileWriter != null) {
@@ -253,7 +253,7 @@ class e extends BdAsyncTask<String, Integer, String> {
                         name = getClass().getName();
                         str3 = "sendLogFile";
                         message = e17.getMessage();
-                        be.b(name, str3, message);
+                        bo.b(name, str3, message);
                     }
                 }
             } catch (Throwable th5) {
@@ -286,10 +286,10 @@ class e extends BdAsyncTask<String, Integer, String> {
                 try {
                     for (String readLine = bufferedReader.readLine(); readLine != null; readLine = bufferedReader.readLine()) {
                         if (readLine.startsWith("crash_type=")) {
-                            bf.a(readLine.substring("crash_type=".length() - 1));
+                            bp.a(readLine.substring("crash_type=".length() - 1));
                         }
                     }
-                    bf.a();
+                    bp.a();
                     if (bufferedReader != null) {
                         try {
                             bufferedReader.close();
@@ -297,12 +297,12 @@ class e extends BdAsyncTask<String, Integer, String> {
                             name = getClass().getName();
                             str = "countCrashType";
                             exc = e.toString();
-                            be.b(name, str, exc);
+                            bo.b(name, str, exc);
                         }
                     }
                 } catch (Exception e2) {
                     e = e2;
-                    be.b(getClass().getName(), "countCrashType", e.toString());
+                    bo.b(getClass().getName(), "countCrashType", e.toString());
                     if (bufferedReader != null) {
                         try {
                             bufferedReader.close();
@@ -310,7 +310,7 @@ class e extends BdAsyncTask<String, Integer, String> {
                             name = getClass().getName();
                             str = "countCrashType";
                             exc = e3.toString();
-                            be.b(name, str, exc);
+                            bo.b(name, str, exc);
                         }
                     }
                 }
@@ -320,7 +320,7 @@ class e extends BdAsyncTask<String, Integer, String> {
                     try {
                         bufferedReader.close();
                     } catch (Exception e4) {
-                        be.b(getClass().getName(), "countCrashType", e4.toString());
+                        bo.b(getClass().getName(), "countCrashType", e4.toString());
                     }
                 }
                 throw th;

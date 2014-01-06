@@ -13,11 +13,10 @@ import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class c extends BaseAdapter {
+    View.OnClickListener a = new f(this);
     private Activity b;
     private ArrayList<z> c;
     private com.baidu.tieba.util.i d;
-    private float e = 0.0f;
-    View.OnClickListener a = new f(this);
 
     public c(Activity activity, h hVar, boolean z) {
         this.b = activity;
@@ -48,13 +47,13 @@ public class c extends BaseAdapter {
         int itemViewType = getItemViewType(i);
         if (view == null) {
             view = a(viewGroup, itemViewType);
-            com.baidu.tieba.util.bk.b(view);
+            com.baidu.tieba.util.bu.b(view);
         }
-        com.baidu.tieba.util.bk.a(view);
+        com.baidu.tieba.util.bu.a(view);
         if (itemViewType != 3) {
-            int an = TiebaApplication.h().an();
+            int an = TiebaApplication.g().an();
             View findViewById = view.findViewById(R.id.container);
-            com.baidu.tieba.util.bk.a(findViewById, 1, an);
+            com.baidu.tieba.util.bu.a(findViewById, 1, an);
             if (itemViewType == 2) {
                 if (getCount() > 1) {
                     findViewById.setVisibility(0);
@@ -107,9 +106,9 @@ public class c extends BaseAdapter {
         if (zVar.d != null) {
             gVar.a.setImageBitmap(null);
             gVar.a.setTag(zVar.d);
-            com.baidu.adp.widget.ImageView.e d = this.d.d(zVar.d);
+            com.baidu.adp.widget.ImageView.d d = this.d.d(zVar.d);
             if (d != null) {
-                gVar.a.setImageBitmap(d.f());
+                gVar.a.setImageBitmap(d.h());
                 gVar.a.invalidate();
                 return;
             }
@@ -136,6 +135,9 @@ public class c extends BaseAdapter {
     public int getItemViewType(int i) {
         if (i == getCount() - 1) {
             return 2;
+        }
+        if (i < 0) {
+            i *= -1;
         }
         return i % 2 == 1 ? 3 : 1;
     }

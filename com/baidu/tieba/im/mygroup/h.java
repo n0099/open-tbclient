@@ -2,6 +2,7 @@ package com.baidu.tieba.im.mygroup;
 
 import android.content.Context;
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.im.message.j;
 /* loaded from: classes.dex */
 public class h {
     private boolean c = false;
@@ -10,10 +11,10 @@ public class h {
 
     public void a() {
         if (this.c) {
-            com.baidu.tieba.im.messageCenter.e.a().a(new com.baidu.tieba.im.message.i(this.a, this.b));
+            com.baidu.tieba.im.messageCenter.e.a().a(new j(this.a, this.b));
             return;
         }
         this.c = true;
-        com.baidu.tieba.im.messageCenter.e.a().a(new com.baidu.tieba.im.message.h());
+        com.baidu.tieba.im.messageCenter.e.a().a(new com.baidu.tieba.im.message.i());
     }
 }

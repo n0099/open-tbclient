@@ -1,14 +1,14 @@
 package com.baidu.tieba.im.messageCenter.a;
 
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.im.message.bk;
-import com.baidu.tieba.im.message.bz;
+import com.baidu.tieba.im.message.bn;
+import com.baidu.tieba.im.message.cc;
 /* loaded from: classes.dex */
 public class m extends com.baidu.tieba.im.messageCenter.d {
     @Override // com.baidu.tieba.im.messageCenter.d
-    public bz a(com.baidu.tieba.im.message.n nVar) {
-        bk bkVar;
-        if (nVar == null || !(nVar instanceof com.baidu.tieba.im.message.g)) {
+    public cc a(com.baidu.tieba.im.message.o oVar) {
+        bn bnVar;
+        if (oVar == null || !(oVar instanceof com.baidu.tieba.im.message.h)) {
             return null;
         }
         String str = "";
@@ -16,18 +16,18 @@ public class m extends com.baidu.tieba.im.messageCenter.d {
             str = TiebaApplication.F().getID();
         }
         byte[] a = com.baidu.tieba.b.a.a().r().a("p_nearby_group_info" + str);
-        bk bkVar2 = new bk();
+        bn bnVar2 = new bn();
         if (a != null) {
             try {
-                bkVar = (bk) l.a(103009, a);
+                bnVar = (bn) l.a(103009, a);
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            bkVar.e(-115);
-            return bkVar;
+            bnVar.e(-115);
+            return bnVar;
         }
-        bkVar = bkVar2;
-        bkVar.e(-115);
-        return bkVar;
+        bnVar = bnVar2;
+        bnVar.e(-115);
+        return bnVar;
     }
 }

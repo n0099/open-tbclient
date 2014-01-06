@@ -9,14 +9,17 @@ import com.baidu.mobstat.StatService;
 import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class c implements v {
+public class c implements x {
     CreateGroupStepActivity a;
     View b;
     ImageView c;
     EditText d;
     TextView e;
+    private int f;
+    private int g;
+    private int h;
 
-    public c(CreateGroupStepActivity createGroupStepActivity) {
+    public c(CreateGroupStepActivity createGroupStepActivity, int i, int i2, int i3) {
         this.a = null;
         this.b = null;
         this.c = null;
@@ -27,57 +30,78 @@ public class c implements v {
         this.c = (ImageView) this.b.findViewById(R.id.step2_img_bg);
         this.d = (EditText) this.b.findViewById(R.id.step2_group_info);
         this.e = (TextView) this.b.findViewById(R.id.step2_group_info_count);
+        this.f = i;
+        this.g = i2;
+        this.h = i3;
     }
 
-    @Override // com.baidu.tieba.im.creategroup.v
-    public int c() {
-        return R.string.group_create_step_tip;
-    }
-
-    @Override // com.baidu.tieba.im.creategroup.v
+    @Override // com.baidu.tieba.im.creategroup.x
     public int b() {
-        return 2;
+        return this.f;
     }
 
-    @Override // com.baidu.tieba.im.creategroup.v
-    public int d() {
-        return R.string.group_create_step2;
-    }
-
-    public EditText e() {
+    public EditText c() {
         return this.d;
     }
 
-    public TextView f() {
+    public TextView d() {
         return this.e;
     }
 
-    @Override // com.baidu.tieba.im.creategroup.v
+    @Override // com.baidu.tieba.im.creategroup.x
     public View a() {
-        if (TiebaApplication.h().t()) {
+        if (TiebaApplication.g().s()) {
             StatService.onEvent(this.a, "create_g_intro", "pv", 1);
         }
         return this.b;
     }
 
-    @Override // com.baidu.tieba.im.creategroup.v
-    public void j() {
+    @Override // com.baidu.tieba.im.creategroup.x
+    public void h() {
         this.c.setBackgroundDrawable(null);
     }
 
-    public void g() {
-        this.a.getLayoutMode().a(TiebaApplication.h().an() == 1);
+    public void e() {
+        this.a.getLayoutMode().a(TiebaApplication.g().an() == 1);
         this.a.getLayoutMode().a(this.e);
     }
 
-    @Override // com.baidu.tieba.im.creategroup.v
-    public void k() {
-        this.a.getLayoutMode().a(TiebaApplication.h().an() == 1);
+    @Override // com.baidu.tieba.im.creategroup.x
+    public void i() {
+        this.a.getLayoutMode().a(TiebaApplication.g().an() == 1);
         this.a.getLayoutMode().a(this.b);
-        if (TiebaApplication.h().an() == 1) {
+        if (TiebaApplication.g().an() == 1) {
             this.d.setHintTextColor(this.a.getResources().getColor(R.color.create_group_input_hintcolor_1));
         } else {
             this.d.setHintTextColor(this.a.getResources().getColor(R.color.create_group_input_hintcolor));
         }
+    }
+
+    @Override // com.baidu.tieba.im.creategroup.x
+    public String j() {
+        return String.format(this.a.getString(R.string.group_create_step_intro), Integer.valueOf(this.g));
+    }
+
+    @Override // com.baidu.tieba.im.creategroup.x
+    public String k() {
+        if (this.f != this.h) {
+            return this.a.getString(R.string.group_create_step_tip);
+        }
+        return this.a.getString(R.string.group_create_step_done_tip);
+    }
+
+    @Override // com.baidu.tieba.im.creategroup.x
+    public boolean l() {
+        return false;
+    }
+
+    @Override // com.baidu.tieba.im.creategroup.x
+    public String m() {
+        return this.a.getString(R.string.group_step_info_error);
+    }
+
+    @Override // com.baidu.tieba.im.creategroup.x
+    public boolean n() {
+        return true;
     }
 }

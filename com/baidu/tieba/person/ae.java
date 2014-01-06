@@ -1,39 +1,139 @@
 package com.baidu.tieba.person;
 
-import android.content.Intent;
-import android.widget.RadioGroup;
-import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
+import com.baidu.tieba.data.PersonChangeData;
+import com.baidu.tieba.data.UserData;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class ae implements RadioGroup.OnCheckedChangeListener {
-    final /* synthetic */ MyPostActivity a;
+public class ae extends com.baidu.adp.a.d {
+    private ag b;
+    private String c;
+    private Context e;
+    private com.baidu.tieba.util.i f;
+    private boolean i;
+    private boolean j;
+    private boolean k;
+    private UserData a = null;
+    private String d = null;
+    private long g = 0;
+    private long h = 0;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ae(MyPostActivity myPostActivity) {
-        this.a = myPostActivity;
+    public ae(Context context) {
+        this.f = new com.baidu.tieba.util.i(context);
+        this.e = context;
     }
 
-    @Override // android.widget.RadioGroup.OnCheckedChangeListener
-    public void onCheckedChanged(RadioGroup radioGroup, int i) {
-        String str;
-        int i2;
-        String str2;
-        switch (i) {
-            case R.id.all_tab /* 2131100706 */:
-                Intent intent = new Intent(this.a, AllPostActivity.class);
-                str = this.a.i;
-                if (str != null) {
-                    str2 = this.a.i;
-                    intent.putExtra("user", str2);
-                }
-                i2 = this.a.j;
-                intent.putExtra("user_sex", i2);
-                this.a.a("all", intent);
-                return;
-            case R.id.thread_tab /* 2131100707 */:
-            case R.id.reply_tab /* 2131100708 */:
-            default:
-                return;
+    public UserData a() {
+        return this.a;
+    }
+
+    public void a(UserData userData) {
+        this.a = userData;
+    }
+
+    public void a(String str) {
+        this.c = str;
+    }
+
+    public String b() {
+        return this.c;
+    }
+
+    public void b(String str) {
+        this.d = str;
+    }
+
+    public long c() {
+        return this.g;
+    }
+
+    public void a(long j) {
+        this.g = j;
+    }
+
+    public long d() {
+        return this.h;
+    }
+
+    public void b(long j) {
+        this.h = j;
+    }
+
+    public void a(boolean z) {
+        this.i = z;
+    }
+
+    public boolean e() {
+        return this.i;
+    }
+
+    public void b(boolean z) {
+        this.j = z;
+    }
+
+    public boolean f() {
+        return this.j;
+    }
+
+    public void a(PersonChangeData personChangeData) {
+        if (this.a != null) {
+            this.a.setName(personChangeData.getName());
+            this.a.setIntro(personChangeData.getIntro());
+        }
+    }
+
+    public void a(boolean z, boolean z2) {
+        if (this.b == null) {
+            this.b = new ag(this);
+            this.b.setPriority(3);
+            this.b.execute(Boolean.valueOf(z), Boolean.valueOf(z2));
+        }
+    }
+
+    public com.baidu.tieba.util.i g() {
+        return this.f;
+    }
+
+    public void c(String str) {
+        try {
+            a(new JSONObject(str));
+        } catch (Exception e) {
+            com.baidu.tieba.util.bo.b(getClass().getName(), "parserJson", "error = " + e.getMessage());
+        }
+    }
+
+    public void a(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.a = new UserData();
+                this.a.parserJson(jSONObject.optJSONObject("user"));
+                this.k = true;
+            } catch (Exception e) {
+                com.baidu.tieba.util.bo.b(getClass().getName(), "parserJson", "error = " + e.getMessage());
+            }
+        }
+    }
+
+    public boolean h() {
+        return this.k;
+    }
+
+    @Override // com.baidu.adp.a.d
+    protected boolean LoadData() {
+        return false;
+    }
+
+    @Override // com.baidu.adp.a.d
+    public boolean cancelLoadData() {
+        return false;
+    }
+
+    public void i() {
+        if (this.b != null) {
+            this.b.cancel();
+        }
+        if (this.f != null) {
+            this.f.d();
         }
     }
 }

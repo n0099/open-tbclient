@@ -1,26 +1,28 @@
 package com.baidu.tieba.im.message;
+
+import com.google.protobuf.MessageLite;
+import protobuf.QueryGroupsByUid.QueryGroupsByUidReq;
 /* loaded from: classes.dex */
-public class j extends n {
-    private int a = 0;
-    private String b;
+public class j extends o implements com.baidu.tieba.im.coder.g {
+    private int a;
+    private int b;
 
-    public j() {
-        e(-103);
-    }
-
-    public String a() {
-        return this.b;
-    }
-
-    public void a(String str) {
-        this.b = str;
+    public j(int i, int i2) {
+        e(103003);
+        this.a = i;
+        this.b = i2;
     }
 
     public int b() {
         return this.a;
     }
 
-    public void a(int i) {
-        this.a = i;
+    public int c() {
+        return this.b;
+    }
+
+    @Override // com.baidu.tieba.im.coder.g
+    public MessageLite a() {
+        return QueryGroupsByUidReq.QueryGroupsByUidReqIdl.newBuilder().a(QueryGroupsByUidReq.DataReq.newBuilder().a(b()).b(c()).build()).build();
     }
 }

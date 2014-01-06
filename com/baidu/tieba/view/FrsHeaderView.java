@@ -79,16 +79,16 @@ public class FrsHeaderView {
     private String M = null;
     private com.baidu.tieba.model.ak N = null;
     private boolean O = false;
-    com.baidu.tieba.data.az a = null;
+    com.baidu.tieba.data.bb a = null;
     private float W = 0.0f;
     private float X = 0.0f;
     private boolean Y = false;
     private boolean Z = false;
     private boolean ad = false;
     private int ai = 2;
-    private final String aj = com.baidu.tieba.data.h.b + "mo/q/topic_page/133_1";
+    private String aj = com.baidu.tieba.data.h.b + "mo/q/topic_page/133_1";
     private ArrayList<com.baidu.tieba.frs.a> ak = null;
-    View.OnClickListener d = new x(this);
+    View.OnClickListener d = new ac(this);
 
     /* loaded from: classes.dex */
     public enum PAGE {
@@ -178,16 +178,16 @@ public class FrsHeaderView {
         this.x.setOnClickListener(onClickListener);
         this.q.setOnClickListener(onClickListener);
         if (com.baidu.adp.lib.a.d.a().b(SwitchKey.BAR_DETAIL_FRS) == 0) {
-            this.v.setOnClickListener(new y(this));
+            this.v.setOnClickListener(new ad(this));
         }
-        this.R.setOnClickListener(new z(this));
+        this.R.setOnClickListener(new ae(this));
     }
 
     public com.baidu.tieba.util.i a() {
         return this.Q;
     }
 
-    public com.baidu.tieba.data.az b() {
+    public com.baidu.tieba.data.bb b() {
         return this.a;
     }
 
@@ -206,24 +206,24 @@ public class FrsHeaderView {
         if (i == 1) {
             this.w.setBackgroundColor(this.E.getResources().getColor(R.color.frs_header_bg_1));
             if (this.J >= 0 && this.J < b.length) {
-                com.baidu.tieba.util.bb.e((View) this.R, c[this.J]);
+                com.baidu.tieba.util.bl.e((View) this.R, c[this.J]);
             }
             this.j.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_like_1, 0, 0, 0);
             this.m.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_sign_1, 0, 0, 0);
             this.j.setShadowLayer(1.0f, 0.0f, 1.0f, this.E.getResources().getColor(R.color.frs_like_shadow_1));
             this.m.setShadowLayer(1.0f, 0.0f, 1.0f, this.E.getResources().getColor(R.color.frs_sign_shadow_1));
-            com.baidu.tieba.util.bb.e(this.ag, (int) R.drawable.icon_arrow_right_1);
+            com.baidu.tieba.util.bl.e(this.ag, (int) R.drawable.icon_arrow_right_1);
             return;
         }
         this.w.setBackgroundColor(this.E.getResources().getColor(R.color.frs_header_bg));
         if (this.J >= 0 && this.J < b.length) {
-            com.baidu.tieba.util.bb.e((View) this.R, b[this.J]);
+            com.baidu.tieba.util.bl.e((View) this.R, b[this.J]);
         }
         this.j.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_like, 0, 0, 0);
         this.m.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_sign, 0, 0, 0);
         this.j.setShadowLayer(1.0f, 0.0f, 1.0f, this.E.getResources().getColor(R.color.frs_like_shadow));
         this.m.setShadowLayer(1.0f, 0.0f, 1.0f, this.E.getResources().getColor(R.color.frs_sign_shadow));
-        com.baidu.tieba.util.bb.e(this.ag, (int) R.drawable.icon_arrow_right);
+        com.baidu.tieba.util.bl.e(this.ag, (int) R.drawable.icon_arrow_right);
     }
 
     public View c() {
@@ -246,11 +246,11 @@ public class FrsHeaderView {
         this.ak = forumData.getBadgeData();
         this.N = akVar;
         this.v.setVisibility(0);
-        this.a = new com.baidu.tieba.data.az();
-        com.baidu.tieba.data.ai aiVar = new com.baidu.tieba.data.ai();
-        aiVar.a(3);
-        aiVar.a(this.M);
-        this.a.p().add(aiVar);
+        this.a = new com.baidu.tieba.data.bb();
+        com.baidu.tieba.data.aj ajVar = new com.baidu.tieba.data.aj();
+        ajVar.a(3);
+        ajVar.a(this.M);
+        this.a.p().add(ajVar);
         i();
     }
 
@@ -275,10 +275,10 @@ public class FrsHeaderView {
             if (this.R != null && this.L != null && this.L.length() > 0) {
                 this.J = Integer.parseInt(this.L);
                 if (this.J >= 0 && this.J < b.length) {
-                    if (TiebaApplication.h().an() == 1) {
-                        com.baidu.tieba.util.bb.e((View) this.R, c[this.J]);
+                    if (TiebaApplication.g().an() == 1) {
+                        com.baidu.tieba.util.bl.e((View) this.R, c[this.J]);
                     } else {
-                        com.baidu.tieba.util.bb.e((View) this.R, b[this.J]);
+                        com.baidu.tieba.util.bl.e((View) this.R, b[this.J]);
                     }
                 }
             }
@@ -316,7 +316,8 @@ public class FrsHeaderView {
                 if (i2 < this.ak.size()) {
                     IconData iconData = new IconData();
                     iconData.setIconName(this.ak.get(i2).b());
-                    iconData.setIconUrl(this.ak.get(i2).a());
+                    iconData.setIcon(this.ak.get(i2).a());
+                    this.aj = this.ak.get(i2).c();
                     linkedList.add(iconData);
                     i = i2 + 1;
                 } else {

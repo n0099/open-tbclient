@@ -10,14 +10,17 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.data.IconData;
 import com.baidu.tieba.im.data.UserData;
-import com.baidu.tieba.util.bc;
+import com.baidu.tieba.util.bm;
 import com.baidu.tieba.view.HeadImageView;
+import com.baidu.tieba.view.UserIconBox;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 /* loaded from: classes.dex */
@@ -30,6 +33,7 @@ public class w extends BaseAdapter {
     private com.baidu.tieba.util.i f;
     private Set<Long> g = new HashSet();
     private List<UserData> h = new ArrayList();
+    private LinkedList<IconData> i = null;
 
     public void a(y yVar) {
         this.b = yVar;
@@ -182,6 +186,7 @@ public class w extends BaseAdapter {
                     zVar2.i = (TextView) inflate2.findViewById(R.id.item_time);
                     zVar2.j = (TextView) inflate2.findViewById(R.id.item_address);
                     zVar2.e = (ImageView) inflate2.findViewById(R.id.item_check);
+                    zVar2.k = (UserIconBox) inflate2.findViewById(R.id.user_tshow_icon_box);
                     view2 = inflate2;
                 }
                 view2.setTag(zVar2);
@@ -201,14 +206,14 @@ public class w extends BaseAdapter {
             } else if (getItemViewType(i) == 2) {
                 a(view);
             } else {
-                int an = TiebaApplication.h().an();
+                int an = TiebaApplication.g().an();
                 UserData userData = (UserData) getItem(i);
                 zVar.f.setTag(null);
                 String portrait = userData.getPortrait();
                 if (!TextUtils.isEmpty(portrait)) {
-                    com.baidu.adp.widget.ImageView.e c = this.f.c(portrait);
+                    com.baidu.adp.widget.ImageView.d c = this.f.c(portrait);
                     if (c != null) {
-                        zVar.f.setImageBitmap(c.f());
+                        zVar.f.setImageBitmap(c.h());
                     } else {
                         zVar.f.setTag(portrait);
                         zVar.f.setImageBitmap(com.baidu.tieba.util.m.a((int) R.drawable.photo));
@@ -240,6 +245,10 @@ public class w extends BaseAdapter {
                 }
                 zVar.i.setText(a(userData));
                 zVar.j.setText(userData.getPosition());
+                this.i = userData.getTShowInfo();
+                if (zVar.k != null) {
+                    zVar.k.a(this.i, 2, this.a.getResources().getDimensionPixelSize(R.dimen.big_icon_width), this.a.getResources().getDimensionPixelSize(R.dimen.big_icon_height), this.a.getResources().getDimensionPixelSize(R.dimen.big_icon_margin), true);
+                }
                 if (this.e) {
                     zVar.e.setVisibility(userData.getPermission().isController() ? 4 : 0);
                     Long valueOf = Long.valueOf(userData.getUserId());
@@ -256,7 +265,7 @@ public class w extends BaseAdapter {
     }
 
     private void a(View view) {
-        this.a.getLayoutMode().a(TiebaApplication.h().an() == 1);
+        this.a.getLayoutMode().a(TiebaApplication.g().an() == 1);
         this.a.getLayoutMode().a(view);
     }
 
@@ -283,7 +292,7 @@ public class w extends BaseAdapter {
             }
             return "";
         }
-        return bc.e(new Date(lastReplyTime * 1000));
+        return bm.e(new Date(lastReplyTime * 1000));
     }
 
     public com.baidu.tieba.util.i e() {

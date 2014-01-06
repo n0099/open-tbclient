@@ -3,31 +3,26 @@ package com.baidu.tieba.person;
 import android.app.Activity;
 import android.view.View;
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.account.LoginActivity;
+import com.slidingmenu.lib.R;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bz {
-    Activity a;
+public class bz implements View.OnClickListener {
+    final /* synthetic */ PersonListActivity a;
 
-    public bz(Activity activity) {
-        this.a = activity;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bz(PersonListActivity personListActivity) {
+        this.a = personListActivity;
     }
 
-    public static boolean a() {
-        return com.baidu.tieba.sharedPref.b.a().a("is_show_person_photo_cover", true);
-    }
-
-    public static void b() {
-        com.baidu.tieba.sharedPref.b.a().b("is_show_person_photo_cover", true);
-    }
-
-    public void a(View view) {
-        if (!a() && TiebaApplication.C()) {
-            com.baidu.adp.lib.guide.g gVar = new com.baidu.adp.lib.guide.g();
-            gVar.a(view).a(150).b(true);
-            ca caVar = new ca(this);
-            gVar.a(caVar).a(new cb(this));
-            gVar.a().a(this.a);
-            com.baidu.adp.lib.h.e.e("PersonPhotoCover", "show", "done");
-            b();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.a.a = ((Integer) view.getTag()).intValue();
+        String A = TiebaApplication.A();
+        if (A != null && A.length() > 0) {
+            this.a.c();
+        } else {
+            LoginActivity.a((Activity) this.a, this.a.getString(R.string.login_to_chat), true, 11028);
         }
     }
 }

@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.bb;
+import com.baidu.tieba.util.bl;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
@@ -34,13 +34,13 @@ public class PersonPostView implements bq {
     }
 
     public void a(int i) {
-        bb.b(this.a, i);
+        bl.b(this.a, i);
         this.f.c(i);
         b(this.e);
     }
 
     public void b(int i) {
-        boolean z = TiebaApplication.h().an() == 1;
+        boolean z = TiebaApplication.g().an() == 1;
         switch (i) {
             case 1:
                 if (z) {
@@ -50,8 +50,8 @@ public class PersonPostView implements bq {
                     this.c.setTextColor(this.c.getContext().getResources().getColor(R.color.navi_multiview_text_s));
                     this.d.setTextColor(this.d.getContext().getResources().getColor(R.color.navi_multiview_text_n));
                 }
-                bb.e((View) this.c, z ? R.drawable.btn_jin_ba_s_1 : R.drawable.btn_jin_ba_s);
-                bb.e((View) this.d, z ? R.drawable.btn_jin_qun_n_1 : R.drawable.btn_jin_qun_n);
+                bl.e((View) this.c, z ? R.drawable.btn_jin_ba_s_1 : R.drawable.btn_jin_ba_s);
+                bl.e((View) this.d, z ? R.drawable.btn_jin_qun_n_1 : R.drawable.btn_jin_qun_n);
                 return;
             case 2:
                 if (z) {
@@ -61,8 +61,8 @@ public class PersonPostView implements bq {
                     this.c.setTextColor(this.c.getContext().getResources().getColor(R.color.navi_multiview_text_n));
                     this.d.setTextColor(this.d.getContext().getResources().getColor(R.color.navi_multiview_text_s));
                 }
-                bb.e((View) this.c, z ? R.drawable.btn_jin_ba_n_1 : R.drawable.btn_jin_ba_n);
-                bb.e((View) this.d, z ? R.drawable.btn_jin_qun_s_1 : R.drawable.btn_jin_qun_s);
+                bl.e((View) this.c, z ? R.drawable.btn_jin_ba_n_1 : R.drawable.btn_jin_ba_n);
+                bl.e((View) this.d, z ? R.drawable.btn_jin_qun_s_1 : R.drawable.btn_jin_qun_s);
                 return;
             default:
                 return;

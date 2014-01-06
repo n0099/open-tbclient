@@ -1,29 +1,5 @@
 package com.baidu.tieba.view;
-
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.tieba.voice.PlayVoiceBnt;
 /* loaded from: classes.dex */
-public class v {
-    public LinearLayout a;
-    public RelativeLayout b;
-    public TextView c;
-    public TextView d;
-    public TextView e;
-    public TextView f;
-    public TextView g;
-    public TextView h;
-    public CommonImageLayout i;
-    public PlayVoiceBnt j;
-    public String k;
-    public String l;
-    public int m;
-    public boolean n;
-    public UserIconBox o;
-    final /* synthetic */ s p;
-
-    public v(s sVar) {
-        this.p = sVar;
-    }
+public interface v {
+    void a(q qVar, boolean z, boolean z2);
 }

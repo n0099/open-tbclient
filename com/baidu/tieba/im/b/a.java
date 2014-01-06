@@ -14,14 +14,14 @@ import com.baidu.tieba.im.chat.LocalViewSize;
 import com.baidu.tieba.im.data.GroupMidData;
 import com.baidu.tieba.im.db.ad;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.im.message.bn;
-import com.baidu.tieba.im.message.cd;
-import com.baidu.tieba.im.message.n;
+import com.baidu.tieba.im.message.bq;
+import com.baidu.tieba.im.message.cg;
 import com.baidu.tieba.im.message.o;
-import com.baidu.tieba.im.message.s;
+import com.baidu.tieba.im.message.p;
+import com.baidu.tieba.im.message.v;
 import com.baidu.tieba.im.net.TiebaSocketLinkService;
 import com.baidu.tieba.log.i;
-import com.baidu.tieba.util.an;
+import com.baidu.tieba.util.at;
 import com.baidu.tieba.view.NoNetworkView;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -39,7 +39,7 @@ public class a {
     private long u;
     private int b = 900000;
     private int c = 360000;
-    private cd d = null;
+    private cg d = null;
     private int e = this.c;
     private boolean f = false;
     private long g = 0;
@@ -85,13 +85,13 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Map<Long, Long> a(n nVar) {
+    public Map<Long, Long> a(o oVar) {
         boolean z;
         List<com.baidu.tieba.im.message.b> a2;
-        if (nVar instanceof bn) {
-            bn bnVar = (bn) nVar;
+        if (oVar instanceof bq) {
+            bq bqVar = (bq) oVar;
             StringBuilder sb = new StringBuilder((int) BdWebPoolView.DELAYED_TIME);
-            if (bnVar.i()) {
+            if (bqVar.i()) {
                 Iterator<GroupMidData> it = this.h.iterator();
                 while (it.hasNext()) {
                     GroupMidData next = it.next();
@@ -100,17 +100,17 @@ public class a {
                     sb.append(next.getLastMsgId());
                     sb.append("|");
                 }
-                com.baidu.tieba.log.a.b(i.a(202003, 0, this.i, "MessageSync-receive-pullmsg", "fail", bnVar.j(), bnVar.k(), System.currentTimeMillis() - this.g, 0, sb.toString()));
+                com.baidu.tieba.log.a.b(i.a(202003, 0, this.i, "MessageSync-receive-pullmsg", "fail", bqVar.j(), bqVar.k(), System.currentTimeMillis() - this.g, 0, sb.toString()));
                 return null;
-            } else if (bnVar.a() == null || bnVar.a().size() == 0) {
-                com.baidu.tieba.log.a.b(i.a(202003, 0, this.i, "MessageSync-receive-pullmsg", "succ-empty", bnVar.j(), bnVar.k(), System.currentTimeMillis() - this.g, 0, ""));
+            } else if (bqVar.a() == null || bqVar.a().size() == 0) {
+                com.baidu.tieba.log.a.b(i.a(202003, 0, this.i, "MessageSync-receive-pullmsg", "succ-empty", bqVar.j(), bqVar.k(), System.currentTimeMillis() - this.g, 0, ""));
                 return null;
             } else {
                 HashMap hashMap = new HashMap();
-                for (com.baidu.tieba.im.data.c cVar : bnVar.a()) {
-                    if (cVar != null) {
-                        long groupId = cVar.a() != null ? cVar.a().getGroupId() : 0L;
-                        long k = (cVar.b() == null || (a2 = cVar.b().a()) == null || a2.size() <= 0) ? 0L : a2.get(a2.size() - 1).k();
+                for (com.baidu.tieba.im.data.b bVar : bqVar.a()) {
+                    if (bVar != null) {
+                        long groupId = bVar.a() != null ? bVar.a().getGroupId() : 0L;
+                        long k = (bVar.b() == null || (a2 = bVar.b().a()) == null || a2.size() <= 0) ? 0L : a2.get(a2.size() - 1).k();
                         if (groupId > 0 && k > 0) {
                             hashMap.put(Long.valueOf(groupId), Long.valueOf(k));
                         }
@@ -123,13 +123,13 @@ public class a {
                     sb.append("-");
                     sb.append(next2.getLastMsgId());
                     sb.append("-");
-                    Iterator<com.baidu.tieba.im.data.c> it3 = bnVar.a().iterator();
+                    Iterator<com.baidu.tieba.im.data.b> it3 = bqVar.a().iterator();
                     while (true) {
                         if (!it3.hasNext()) {
                             z = false;
                             break;
                         }
-                        com.baidu.tieba.im.data.c next3 = it3.next();
+                        com.baidu.tieba.im.data.b next3 = it3.next();
                         if (next3 != null && next3.a() != null && next3.a().getGroupId() == next2.getGroupId() && next3.b() != null && next3.b().a() != null) {
                             z = true;
                             sb.append(next3.b().a().size());
@@ -141,7 +141,7 @@ public class a {
                     }
                     sb.append("|");
                 }
-                com.baidu.tieba.log.a.b(i.a(202003, 0, this.i, "MessageSync-receive-pullmsg", "succ", bnVar.j(), bnVar.k(), System.currentTimeMillis() - this.g, 0, sb.toString()));
+                com.baidu.tieba.log.a.b(i.a(202003, 0, this.i, "MessageSync-receive-pullmsg", "succ", bqVar.j(), bqVar.k(), System.currentTimeMillis() - this.g, 0, sb.toString()));
                 return hashMap;
             }
         }
@@ -197,7 +197,7 @@ public class a {
     }
 
     public void c() {
-        int[] ba = TiebaApplication.h().ba();
+        int[] ba = TiebaApplication.g().ba();
         if (ba.length == 2) {
             a(ba[0] * LocationClientOption.MIN_SCAN_SPAN);
             b(ba[1] * LocationClientOption.MIN_SCAN_SPAN);
@@ -244,35 +244,35 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     public void m() {
         if (System.currentTimeMillis() - this.n >= 180000) {
-            s sVar = new s();
-            sVar.b(this.m);
-            sVar.a(m.a().h());
-            sVar.b(m.a().j());
-            sVar.a(TiebaApplication.h().aF());
-            com.baidu.tieba.im.messageCenter.e.a().a(sVar);
+            v vVar = new v();
+            vVar.b(this.m);
+            vVar.a(m.a().h());
+            vVar.b(m.a().j());
+            vVar.a(TiebaApplication.g().aF());
+            com.baidu.tieba.im.messageCenter.e.a().a(vVar);
             this.n = System.currentTimeMillis();
             this.m = 0;
             m.a().i();
             m.a().g();
-            TiebaApplication.h().aG();
+            TiebaApplication.g().aG();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public o n() {
-        o oVar = new o();
-        oVar.a(new ArrayList());
+    public p n() {
+        p pVar = new p();
+        pVar.a(new ArrayList());
         LocalViewSize.ImageSize d = LocalViewSize.a().d();
         if (d != null) {
-            oVar.a(d.width);
-            oVar.b(d.height);
+            pVar.a(d.width);
+            pVar.b(d.height);
         }
         LocalViewSize.ImageSize c = LocalViewSize.a().c();
         if (c != null) {
-            oVar.d(c.height);
-            oVar.c(c.width);
+            pVar.d(c.height);
+            pVar.c(c.width);
         }
-        return oVar;
+        return pVar;
     }
 
     public synchronized void a(long j, long j2, long j3) {
@@ -285,7 +285,7 @@ public class a {
     }
 
     private synchronized void a(long j, long j2, long j3, boolean z) {
-        if (TiebaApplication.C()) {
+        if (TiebaApplication.B()) {
             this.s = z;
             this.t = j;
             this.u = j2;
@@ -313,56 +313,56 @@ public class a {
         com.baidu.tieba.im.messageCenter.e.a().a(this.d, -3, 0, false);
     }
 
-    private cd p() {
-        cd cdVar = new cd();
-        cdVar.a("_client_type", "2");
-        cdVar.a("_client_version", h.j());
-        if (TiebaApplication.h().q() != null) {
-            cdVar.a("_phone_imei", TiebaApplication.h().q());
+    private cg p() {
+        cg cgVar = new cg();
+        cgVar.a("_client_type", "2");
+        cgVar.a("_client_version", h.j());
+        if (TiebaApplication.g().p() != null) {
+            cgVar.a("_phone_imei", TiebaApplication.g().p());
         }
         String L = TiebaApplication.L();
         if (L != null) {
-            cdVar.a("_client_id", L);
+            cgVar.a("_client_id", L);
         }
-        String z = TiebaApplication.z();
-        if (z != null && z.length() > 0) {
-            cdVar.a("from", z);
+        String y = TiebaApplication.y();
+        if (y != null && y.length() > 0) {
+            cgVar.a("from", y);
         }
-        String h = new an().h();
+        String h = new at().h();
         if (h != null) {
-            cdVar.a("net_type", h);
+            cgVar.a("net_type", h);
         }
-        String p = TiebaApplication.h().p();
-        if (p != null) {
-            cdVar.a(SocialConstants.PARAM_CUID, p);
+        String o = TiebaApplication.g().o();
+        if (o != null) {
+            cgVar.a(SocialConstants.PARAM_CUID, o);
         }
-        cdVar.a("timestamp", Long.toString(System.currentTimeMillis()));
-        cdVar.a("model", Build.MODEL);
-        cdVar.a("_os_version", Build.VERSION.RELEASE);
+        cgVar.a("timestamp", Long.toString(System.currentTimeMillis()));
+        cgVar.a("model", Build.MODEL);
+        cgVar.a("_os_version", Build.VERSION.RELEASE);
         StringBuffer stringBuffer = new StringBuffer(15);
-        stringBuffer.append(String.valueOf(com.baidu.adp.lib.h.g.b(TiebaApplication.h())));
+        stringBuffer.append(String.valueOf(com.baidu.adp.lib.h.g.b(TiebaApplication.g())));
         stringBuffer.append(",");
-        stringBuffer.append(String.valueOf(com.baidu.adp.lib.h.g.c(TiebaApplication.h())));
-        cdVar.a("_phone_screen", stringBuffer.toString());
-        if (TiebaApplication.h().N() > 0) {
-            cdVar.a("_msg_status", SocialConstants.FALSE);
+        stringBuffer.append(String.valueOf(com.baidu.adp.lib.h.g.c(TiebaApplication.g())));
+        cgVar.a("_phone_screen", stringBuffer.toString());
+        if (TiebaApplication.g().N() > 0) {
+            cgVar.a("_msg_status", SocialConstants.FALSE);
         } else {
-            cdVar.a("_msg_status", SocialConstants.TRUE);
+            cgVar.a("_msg_status", SocialConstants.TRUE);
         }
-        cdVar.a("_pic_quality", String.valueOf(TiebaApplication.h().ah()));
-        if (TiebaApplication.C()) {
+        cgVar.a("_pic_quality", String.valueOf(TiebaApplication.g().ah()));
+        if (TiebaApplication.B()) {
             Token a2 = com.baidu.tieba.account.a.a(TiebaApplication.E());
             if (a2 != null) {
-                cdVar.a(a2.mBduss);
+                cgVar.a(a2.mBduss);
             } else {
-                cdVar.a(TiebaApplication.E());
+                cgVar.a(TiebaApplication.E());
             }
         }
         int a3 = com.baidu.adp.lib.h.g.a((Context) TiebaApplication.a(), 70.0f);
-        cdVar.b(com.baidu.adp.lib.h.g.a((Context) TiebaApplication.a(), 70.0f));
-        cdVar.a(a3);
-        cdVar.a(com.baidu.tieba.im.coder.e.a().b());
-        cdVar.a("pversion", "1.0.0");
-        return cdVar;
+        cgVar.b(com.baidu.adp.lib.h.g.a((Context) TiebaApplication.a(), 70.0f));
+        cgVar.a(a3);
+        cgVar.a(com.baidu.tieba.im.coder.e.a().b());
+        cgVar.a("pversion", "1.0.0");
+        return cgVar;
     }
 }

@@ -16,51 +16,51 @@ class au implements com.baidu.tieba.model.br {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void a(boolean z, int i, String str, com.baidu.tieba.data.av avVar) {
-        cr crVar;
-        cr crVar2;
+    public void a(boolean z, int i, String str, com.baidu.tieba.data.ax axVar) {
+        cs csVar;
+        cs csVar2;
         com.baidu.tieba.model.bp bpVar;
-        cr crVar3;
+        cs csVar3;
         com.baidu.tieba.model.bm bmVar;
         AntiData i2;
         com.baidu.tieba.model.bp bpVar2;
         String str2;
-        cr crVar4;
+        cs csVar4;
         com.baidu.tieba.model.bm bmVar2;
         String str3;
         com.baidu.tieba.model.bp bpVar3;
         com.baidu.tieba.model.bm bmVar3;
-        this.a.u();
-        crVar = this.a.x;
-        crVar.e(str);
-        crVar2 = this.a.x;
-        crVar2.z();
+        this.a.w();
+        csVar = this.a.z;
+        csVar.e(str);
+        csVar2 = this.a.z;
+        csVar2.A();
         if (!z) {
             if (i == 4 || i == 28) {
-                bmVar3 = this.a.r;
+                bmVar3 = this.a.t;
                 if (bmVar3.i()) {
                     this.a.closeActivity();
                 }
             }
-        } else if (avVar != null) {
-            bpVar = this.a.v;
+        } else if (axVar != null) {
+            bpVar = this.a.x;
             String c = bpVar.c();
             if (c != null) {
-                bpVar2 = this.a.v;
+                bpVar2 = this.a.x;
                 if ("mention".equals(bpVar2.c()) || c.equals("person_post_reply")) {
-                    str2 = this.a.C;
+                    str2 = this.a.D;
                     if (str2 != null) {
-                        crVar4 = this.a.x;
-                        bmVar2 = this.a.r;
+                        csVar4 = this.a.z;
+                        bmVar2 = this.a.t;
                         int l = bmVar2.l().l();
-                        str3 = this.a.C;
-                        boolean z2 = avVar.b() > 1;
-                        bpVar3 = this.a.v;
-                        crVar4.a(avVar, l, str3, z2, bpVar3.g() == 1);
-                        i2 = avVar.i();
+                        str3 = this.a.D;
+                        boolean z2 = axVar.b() > 1;
+                        bpVar3 = this.a.x;
+                        csVar4.a(axVar, l, str3, z2, bpVar3.g() == 1);
+                        i2 = axVar.i();
                         if (i2 == null) {
                             Boolean valueOf = Boolean.valueOf(i2.isIfvoice());
-                            this.a.k = i2.getVoice_message();
+                            this.a.l = i2.getVoice_message();
                             this.a.a(valueOf);
                             return;
                         }
@@ -68,10 +68,10 @@ class au implements com.baidu.tieba.model.br {
                     }
                 }
             }
-            crVar3 = this.a.x;
-            bmVar = this.a.r;
-            crVar3.a(avVar, bmVar.l().l());
-            i2 = avVar.i();
+            csVar3 = this.a.z;
+            bmVar = this.a.t;
+            csVar3.a(axVar, bmVar.l().l());
+            i2 = axVar.i();
             if (i2 == null) {
             }
         }

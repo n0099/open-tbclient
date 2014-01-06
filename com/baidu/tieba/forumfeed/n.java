@@ -38,7 +38,7 @@ public class n {
         this.d.setVisibility(8);
         this.e.setVisibility(8);
         this.f.setVisibility(8);
-        int i = TiebaApplication.h().an() == 1 ? R.color.forumfeed_frs_bg_1 : R.color.forumfeed_frs_bg;
+        int i = TiebaApplication.g().an() == 1 ? R.color.forumfeed_frs_bg_1 : R.color.forumfeed_frs_bg;
         linearLayout = this.b.n;
         linearLayout.setBackgroundResource(i);
     }
@@ -46,7 +46,7 @@ public class n {
     public void b() {
         LinearLayout linearLayout;
         this.a = true;
-        int an = TiebaApplication.h().an();
+        int an = TiebaApplication.g().an();
         this.c.setVisibility(0);
         this.d.setVisibility(0);
         this.e.setVisibility(0);

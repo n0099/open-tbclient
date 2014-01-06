@@ -1,12 +1,13 @@
 package com.baidu.tieba.data;
 
+import com.baidu.tieba.util.bo;
 import java.io.Serializable;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class SearchPostModel implements Serializable {
-    private ArrayList<au> datas;
+    private ArrayList<aw> datas;
     private int totalCount = 0;
     private int currentPage = 0;
     private int totalPage = 0;
@@ -18,7 +19,7 @@ public class SearchPostModel implements Serializable {
         this.datas = new ArrayList<>();
     }
 
-    public ArrayList<au> getData() {
+    public ArrayList<aw> getData() {
         return this.datas;
     }
 
@@ -46,7 +47,7 @@ public class SearchPostModel implements Serializable {
         try {
             parserJson(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.tieba.util.be.b("SearchPostModel", "parserJson", "error = " + e.getMessage());
+            bo.b("SearchPostModel", "parserJson", "error = " + e.getMessage());
         }
     }
 
@@ -58,9 +59,9 @@ public class SearchPostModel implements Serializable {
                 this.datas.clear();
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
-                    au auVar = new au();
-                    auVar.a(optJSONObject2);
-                    this.datas.add(auVar);
+                    aw awVar = new aw();
+                    awVar.a(optJSONObject2);
+                    this.datas.add(awVar);
                 }
                 this.totalCount = optJSONObject.optInt("total_count");
                 this.totalPage = optJSONObject.optInt("total_page");
@@ -68,7 +69,7 @@ public class SearchPostModel implements Serializable {
                 this.hasPre = optJSONObject.optInt("has_prev") != 0;
                 this.currentPage = optJSONObject.optInt("current_page");
             } catch (Exception e) {
-                com.baidu.tieba.util.be.b("SearchPostModel", "parserJson", "error = " + e.getMessage());
+                bo.b("SearchPostModel", "parserJson", "error = " + e.getMessage());
             }
         }
     }

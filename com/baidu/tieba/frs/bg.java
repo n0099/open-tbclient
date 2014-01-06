@@ -14,8 +14,8 @@ public class bg extends com.baidu.adp.a.g {
     @Override // com.baidu.adp.a.g
     public void a(Object obj) {
         com.baidu.tieba.model.ar arVar;
-        if (obj != null && (obj instanceof com.baidu.tieba.data.af)) {
-            arVar = this.a.r;
+        if (obj != null && (obj instanceof com.baidu.tieba.data.ag)) {
+            arVar = this.a.q;
             arVar.a().setLike(1);
             this.a.showToast(this.a.getString(R.string.like_success));
             return;

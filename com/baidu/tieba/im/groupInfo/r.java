@@ -18,7 +18,7 @@ public class r implements DialogInterface.OnClickListener {
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
         x xVar;
-        xVar = this.c.H;
+        xVar = this.c.I;
         xVar.a(dialogInterface, i, this.a, this.b);
     }
 }

@@ -10,7 +10,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.account.LoginActivity;
-import com.baidu.tieba.ao;
+import com.baidu.tieba.ap;
 import com.baidu.tieba.im.chat.GroupChatActivity;
 import com.baidu.tieba.im.chat.GroupSettingActivity;
 import com.baidu.tieba.im.creategroup.GroupAddressLocateActivity;
@@ -26,7 +26,7 @@ import com.baidu.tieba.im.model.am;
 import com.baidu.tieba.im.updategroup.UpdateGroupActivity;
 import com.baidu.tieba.person.EditHeadActivity;
 import com.baidu.tieba.person.PersonInfoActivity;
-import com.baidu.tieba.write.bd;
+import com.baidu.tieba.write.bb;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 import org.json.JSONException;
@@ -166,7 +166,7 @@ public class GroupInfoActivity extends com.baidu.tieba.j implements View.OnClick
     public void onClick(View view) {
         if (view == this.f.s()) {
             if (this.g.g().g()) {
-                ao.a(this, "edit_place_at_groupinfo");
+                ap.a(this, "edit_place_at_groupinfo");
                 GroupAddressLocateActivity.a(this, 21001, this.g.g().a().getPosition(), this.g.g().a().getBusiness(), (this.g.g().a().getFlag() & 1) == 1);
             }
         } else if (view == this.f.p()) {
@@ -183,7 +183,7 @@ public class GroupInfoActivity extends com.baidu.tieba.j implements View.OnClick
             GroupLevelActivity.a(this, this.g.d());
         } else if (view == this.f.l()) {
             com.baidu.adp.lib.h.e.d("botton click");
-            if (TextUtils.isEmpty(TiebaApplication.B())) {
+            if (TextUtils.isEmpty(TiebaApplication.A())) {
                 LoginActivity.a((Activity) this, "", true, 3);
             } else if (this.g.g() != null) {
                 if (this.g.g().f()) {
@@ -324,7 +324,7 @@ public class GroupInfoActivity extends com.baidu.tieba.j implements View.OnClick
                 case 12010:
                     PhotoUrlData photoUrlData = (PhotoUrlData) intent.getSerializableExtra(EditHeadActivity.b);
                     if (photoUrlData != null) {
-                        com.baidu.tieba.util.a.c.a(photoUrlData.getSmallurl(), com.baidu.tieba.util.y.c("tieba_group_image"), true, false, true);
+                        com.baidu.tieba.util.a.d.a(photoUrlData.getSmallurl(), com.baidu.tieba.util.aa.c("tieba_group_image"), true, false, true);
                     }
                     b(photoUrlData);
                     return;
@@ -336,9 +336,9 @@ public class GroupInfoActivity extends com.baidu.tieba.j implements View.OnClick
             }
         } else if (i2 == 0) {
             if (i == 12010) {
-                bd.a(this);
+                bb.a(this);
             } else if (i == 12009) {
-                bd.b(this);
+                bb.b(this);
             }
         }
     }

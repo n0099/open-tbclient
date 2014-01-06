@@ -1,8 +1,8 @@
 package com.baidu.tieba.im.searchGroup;
 
 import com.baidu.tieba.im.data.BaseGroupData;
-import com.baidu.tieba.im.message.bv;
-import com.baidu.tieba.im.message.n;
+import com.baidu.tieba.im.message.by;
+import com.baidu.tieba.im.message.o;
 import java.util.List;
 /* loaded from: classes.dex */
 class a implements com.baidu.tieba.im.messageCenter.g {
@@ -14,21 +14,21 @@ class a implements com.baidu.tieba.im.messageCenter.g {
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(n nVar) {
+    public void a(o oVar) {
         b bVar;
         bVar = this.a.a;
         bVar.a(false);
-        if (nVar == null || nVar.t() != 103007) {
+        if (oVar == null || oVar.u() != 103007) {
             this.a.a();
-        } else if (!(nVar instanceof bv)) {
+        } else if (!(oVar instanceof by)) {
             this.a.a();
         } else {
-            bv bvVar = (bv) nVar;
-            if (bvVar.i()) {
-                this.a.a(bvVar.k(), bvVar.j());
+            by byVar = (by) oVar;
+            if (byVar.i()) {
+                this.a.a(byVar.k(), byVar.j());
                 return;
             }
-            List<BaseGroupData> a = bvVar.a();
+            List<BaseGroupData> a = byVar.a();
             if (a == null || a.size() <= 0) {
                 this.a.a();
             } else {

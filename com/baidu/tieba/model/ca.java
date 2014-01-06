@@ -1,7 +1,7 @@
 package com.baidu.tieba.model;
 /* loaded from: classes.dex */
 public class ca {
-    private com.baidu.tieba.data.ap a = new com.baidu.tieba.data.ap();
+    private com.baidu.tieba.data.aq a = new com.baidu.tieba.data.aq();
     private boolean b = true;
     private String c = null;
     private int d;
@@ -30,7 +30,7 @@ public class ca {
         return this.b;
     }
 
-    public com.baidu.tieba.data.ap d() {
+    public com.baidu.tieba.data.aq d() {
         return this.a;
     }
 
@@ -43,7 +43,7 @@ public class ca {
         }
     }
 
-    public com.baidu.tieba.data.ap b(boolean z) {
+    public com.baidu.tieba.data.aq b(boolean z) {
         if (this.c == null) {
             return null;
         }
@@ -53,9 +53,9 @@ public class ca {
             if (a == null) {
                 return null;
             }
-            com.baidu.tieba.data.ap apVar = new com.baidu.tieba.data.ap();
-            apVar.a(a);
-            return apVar;
+            com.baidu.tieba.data.aq aqVar = new com.baidu.tieba.data.aq();
+            aqVar.a(a);
+            return aqVar;
         }
         return null;
     }

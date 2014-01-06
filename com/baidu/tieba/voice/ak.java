@@ -8,8 +8,8 @@ public class ak {
     private static final String[] b = {"meizu"};
 
     public static String a(int i) {
-        TiebaApplication h = TiebaApplication.h();
-        return h == null ? "" : h.getString(i);
+        TiebaApplication g = TiebaApplication.g();
+        return g == null ? "" : g.getString(i);
     }
 
     public static final boolean a() {

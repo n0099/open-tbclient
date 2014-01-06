@@ -1,21 +1,22 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tieba.view.HeadImageView;
+import android.content.Context;
+import com.baidu.tieba.im.data.UserData;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class cl implements com.baidu.tbadk.imageManager.c {
-    final /* synthetic */ MsgrightView a;
+public final class cl implements com.baidu.tieba.im.a<Void> {
+    final /* synthetic */ Context a;
+    final /* synthetic */ UserData b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cl(MsgrightView msgrightView) {
-        this.a = msgrightView;
+    public cl(Context context, UserData userData) {
+        this.a = context;
+        this.b = userData;
     }
 
-    @Override // com.baidu.tbadk.imageManager.c
-    public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
-        HeadImageView headImageView;
-        if (eVar != null) {
-            headImageView = this.a.r;
-            eVar.a(headImageView);
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.a
+    public void a(Void r4) {
+        PersonalChatActivity.a(this.a, this.b, true);
     }
 }

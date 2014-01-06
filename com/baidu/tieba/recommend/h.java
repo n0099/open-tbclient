@@ -17,14 +17,14 @@ import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.view.ChildViewPager;
-import com.baidu.tieba.view.ai;
+import com.baidu.tieba.view.an;
 import com.slidingmenu.lib.R;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 /* loaded from: classes.dex */
-public class h extends com.baidu.adp.widget.u implements ai {
+public class h extends com.baidu.adp.widget.u implements an {
     int a;
     int b;
     int c;
@@ -148,7 +148,7 @@ public class h extends com.baidu.adp.widget.u implements ai {
     }
 
     public void a(s sVar, int i) {
-        boolean z = TiebaApplication.h().an() == 1;
+        boolean z = TiebaApplication.g().an() == 1;
         if (this.n.get(i).a == 1) {
             com.baidu.tieba.data.q qVar = (com.baidu.tieba.data.q) this.n.get(i).b;
             Date date = new Date();
@@ -174,7 +174,7 @@ public class h extends com.baidu.adp.widget.u implements ai {
     }
 
     public void a(r rVar, int i) {
-        boolean z = TiebaApplication.h().an() == 1;
+        boolean z = TiebaApplication.g().an() == 1;
         if (this.n.get(i).a == 2) {
             com.baidu.tieba.data.p pVar = (com.baidu.tieba.data.p) this.n.get(i).b;
             int paddingLeft = rVar.c.getPaddingLeft();
@@ -201,7 +201,7 @@ public class h extends com.baidu.adp.widget.u implements ai {
     }
 
     public void a(o oVar, int i) {
-        boolean z = TiebaApplication.h().an() == 1;
+        boolean z = TiebaApplication.g().an() == 1;
         if (this.n.get(i).a == 3) {
             com.baidu.tieba.data.p pVar = (com.baidu.tieba.data.p) this.n.get(i).b;
             int paddingLeft = oVar.b.getPaddingLeft();
@@ -243,17 +243,17 @@ public class h extends com.baidu.adp.widget.u implements ai {
         }
     }
 
-    @Override // com.baidu.tieba.view.ai
+    @Override // com.baidu.tieba.view.an
     public void d() {
         if (this.h != null) {
-            this.h.b();
+            this.h.d();
         }
         if (this.g != null) {
             this.g.d();
         }
     }
 
-    @Override // com.baidu.tieba.view.ai
+    @Override // com.baidu.tieba.view.an
     public void a(View view, int i, int i2) {
         if (this.g != null) {
             this.g.a(this.f, 0, 0);
@@ -327,7 +327,7 @@ public class h extends com.baidu.adp.widget.u implements ai {
         }
         q qVar = this.n.get(i);
         TextView textView = (TextView) view.findViewById(R.id.time);
-        boolean z = TiebaApplication.h().an() == 1;
+        boolean z = TiebaApplication.g().an() == 1;
         Date date2 = new Date();
         try {
             date = this.l.parse(qVar.c);

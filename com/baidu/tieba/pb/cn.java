@@ -1,39 +1,22 @@
 package com.baidu.tieba.pb;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import android.view.View;
+import com.baidu.tieba.editortool.EditorToolButton;
 /* loaded from: classes.dex */
-public class cn implements com.baidu.tieba.editortool.h {
-    final /* synthetic */ com.baidu.tieba.editortool.h a;
-    final /* synthetic */ PbEditorToolView b;
+class cn implements View.OnClickListener {
+    final /* synthetic */ com.baidu.tieba.editortool.t a;
+    final /* synthetic */ PbEditorToolButtonContainer b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cn(PbEditorToolView pbEditorToolView, com.baidu.tieba.editortool.h hVar) {
-        this.b = pbEditorToolView;
-        this.a = hVar;
+    public cn(PbEditorToolButtonContainer pbEditorToolButtonContainer, com.baidu.tieba.editortool.t tVar) {
+        this.b = pbEditorToolButtonContainer;
+        this.a = tVar;
     }
 
-    @Override // com.baidu.tieba.editortool.h
-    public void a(int i, Object obj) {
-        if (i == 5) {
-            this.b.h();
-            this.b.c.h();
-        } else if (i == 6) {
-            this.b.h();
-            this.b.c.c();
-        } else if (i == 0) {
-            this.b.h();
-        } else if (i == 2) {
-            this.b.h();
-            this.b.c.f();
-        } else if (i == 3) {
-            this.b.h();
-            this.b.c.c();
-        } else if (i == 8) {
-            this.b.h();
-            this.b.c.g();
-        } else if (i == 9) {
-            this.b.h();
-            this.b.c.c();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        if (view instanceof EditorToolButton) {
+            this.b.a((EditorToolButton) view, this.a);
         }
-        this.a.a(i, obj);
     }
 }

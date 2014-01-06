@@ -1,41 +1,27 @@
 package com.baidu.tieba.im.message;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.LinkedList;
+import protobuf.QueryUserInfos.QueryUserInfosRes;
 /* loaded from: classes.dex */
-public class bt extends bz {
-    private String a;
-    private List<String> b;
+public class bt extends cc implements com.baidu.tieba.im.coder.f {
+    private QueryUserInfosRes.DataRes a = null;
 
     public bt() {
-        this.a = "";
-        this.b = new ArrayList();
+        e(205003);
     }
 
-    public bt(int i) {
-        super(i);
-        this.a = "";
-        this.b = new ArrayList();
-    }
-
-    public void a(String str) {
-        if (str != null) {
-            this.a = str;
-        }
-    }
-
-    public String a() {
+    public QueryUserInfosRes.DataRes a() {
         return this.a;
     }
 
-    public void b(String str) {
-        if (str != null && !str.equals("") && !this.b.contains(str)) {
-            this.b.add(str);
+    @Override // com.baidu.tieba.im.coder.f
+    public void a(LinkedList<o> linkedList, byte[] bArr, int i) {
+        QueryUserInfosRes.QueryUserInfosResIdl parseFrom = QueryUserInfosRes.QueryUserInfosResIdl.parseFrom(bArr);
+        g(parseFrom.getError().getErrorno());
+        c(parseFrom.getError().getUsermsg());
+        linkedList.add(this);
+        if (!i()) {
+            this.a = parseFrom.getData();
         }
-    }
-
-    public Iterator<String> b() {
-        return this.b.iterator();
     }
 }

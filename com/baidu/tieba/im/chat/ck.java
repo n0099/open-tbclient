@@ -12,6 +12,6 @@ class ck implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.a.c.a(view, 6, this.a.f, 0L);
+        this.a.c.a(view, 1, this.a.f, 0L);
     }
 }

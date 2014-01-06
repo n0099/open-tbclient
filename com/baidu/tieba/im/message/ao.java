@@ -1,30 +1,34 @@
 package com.baidu.tieba.im.message;
+
+import com.google.protobuf.MessageLite;
+import protobuf.ReportGroup.ReportGroupReq;
 /* loaded from: classes.dex */
-public class ao extends aq {
+public class ao extends o implements com.baidu.tieba.im.coder.g {
+    private int a;
     private int b;
-    private String c;
-    private String d;
+
+    public ao() {
+        e(103103);
+    }
 
     public int b() {
+        return this.a;
+    }
+
+    public void a(int i) {
+        this.a = i;
+    }
+
+    public int c() {
         return this.b;
     }
 
-    public String c() {
-        return this.c;
-    }
-
-    public ao(int i, String str, String str2) {
-        this.b = 0;
-        this.c = "";
-        this.d = "";
+    public void b(int i) {
         this.b = i;
-        this.c = str;
-        this.d = str2;
     }
 
-    @Override // com.baidu.tieba.im.message.aq
-    protected void a(protobuf.i iVar) {
-        iVar.d(c());
-        iVar.d(b());
+    @Override // com.baidu.tieba.im.coder.g
+    public MessageLite a() {
+        return ReportGroupReq.ReportGroupReqIdl.newBuilder().a(ReportGroupReq.DataReq.newBuilder().a(b()).b(c()).build()).build();
     }
 }

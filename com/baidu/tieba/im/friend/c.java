@@ -103,7 +103,7 @@ public class c extends BaseAdapter {
 
     private void a(e eVar, String str) {
         if (str != null) {
-            com.baidu.adp.widget.ImageView.e c = this.b.c(str);
+            com.baidu.adp.widget.ImageView.d c = this.b.c(str);
             if (c != null) {
                 c.a(eVar.b);
                 return;

@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.message;
 /* loaded from: classes.dex */
-public class a extends n {
+public class a extends o {
     private boolean a;
 
     public a(boolean z) {

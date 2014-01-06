@@ -3,9 +3,9 @@ package com.baidu.tieba.account.forbid;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.gson.GsonBuilder;
-import com.baidu.tieba.util.an;
-import com.baidu.tieba.util.bc;
-import com.baidu.tieba.util.be;
+import com.baidu.tieba.util.at;
+import com.baidu.tieba.util.bm;
+import com.baidu.tieba.util.bo;
 import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -27,23 +27,23 @@ public class m extends BdAsyncTask<String, Object, ForbidTplData> {
     public ForbidTplData a(String... strArr) {
         String str;
         str = l.a;
-        an anVar = new an(str);
-        anVar.a("forum_id", this.a);
-        anVar.a(PushConstants.EXTRA_USER_ID, this.b);
-        String l = anVar.l();
-        if (anVar.c()) {
+        at atVar = new at(str);
+        atVar.a("forum_id", this.a);
+        atVar.a(PushConstants.EXTRA_USER_ID, this.b);
+        String l = atVar.l();
+        if (atVar.c()) {
             try {
                 return (ForbidTplData) new GsonBuilder().create().fromJson(l, (Class<Object>) ForbidTplData.class);
             } catch (Exception e) {
-                be.b("ForbidTplModel", "doInBackground", e.getMessage());
+                bo.b("ForbidTplModel", "doInBackground", e.getMessage());
                 ForbidTplData forbidTplData = new ForbidTplData();
                 forbidTplData.error.a = -1000;
                 return forbidTplData;
             }
         }
         ForbidTplData forbidTplData2 = new ForbidTplData();
-        forbidTplData2.error.a = anVar.e();
-        forbidTplData2.error.b = anVar.i();
+        forbidTplData2.error.a = atVar.e();
+        forbidTplData2.error.b = atVar.i();
         return forbidTplData2;
     }
 
@@ -54,7 +54,7 @@ public class m extends BdAsyncTask<String, Object, ForbidTplData> {
         super.a((m) forbidTplData);
         n nVar = this.c.get();
         if (nVar != null) {
-            if (forbidTplData.error.a == 0 && bc.c(forbidTplData.error.b)) {
+            if (forbidTplData.error.a == 0 && bm.c(forbidTplData.error.b)) {
                 nVar.a(forbidTplData);
             } else {
                 nVar.b(forbidTplData);

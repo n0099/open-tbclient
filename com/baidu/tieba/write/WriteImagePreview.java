@@ -16,8 +16,8 @@ public class WriteImagePreview extends FrameLayout {
     protected ImageView b;
     protected ProgressBar c;
     protected Bitmap d;
-    protected bc e;
-    protected com.baidu.tieba.editortool.h f;
+    protected ba e;
+    protected com.baidu.tieba.editortool.t f;
     protected Handler g;
     protected Runnable h;
     private boolean i;
@@ -41,17 +41,17 @@ public class WriteImagePreview extends FrameLayout {
         this.b = (ImageView) findViewById(R.id.image);
         this.c = (ProgressBar) findViewById(R.id.image_progress);
         this.g = new Handler();
-        this.h = new ba(this);
+        this.h = new ay(this);
     }
 
-    public void setOnActionListener(com.baidu.tieba.editortool.h hVar) {
-        this.f = hVar;
-        this.b.setOnClickListener(new bb(this, hVar));
+    public void setOnActionListener(com.baidu.tieba.editortool.t tVar) {
+        this.f = tVar;
+        this.b.setOnClickListener(new az(this, tVar));
     }
 
     public void a(String str) {
         d();
-        this.e = new bc(this, str);
+        this.e = new ba(this, str);
         this.e.execute(new Object[0]);
         this.g.removeCallbacks(this.h);
         this.g.postDelayed(this.h, 10000L);

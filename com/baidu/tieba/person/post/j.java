@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.person.post.PersonPostReplyModel;
-import com.baidu.tieba.util.bc;
+import com.baidu.tieba.util.bm;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 import java.util.regex.Pattern;
@@ -100,7 +100,7 @@ public class j extends BaseAdapter {
                 for (int i3 = 0; i3 < length2; i3++) {
                     stringBuffer.append(a.content[i2].post_content[i3].text);
                 }
-                arrayList.add(new String[]{stringBuffer.toString(), String.valueOf(a.thread_id), String.valueOf(a.content[i2].post_id), String.valueOf(a.content[i2].post_type), bc.b(a.content[i2].create_time * 1000)});
+                arrayList.add(new String[]{stringBuffer.toString(), String.valueOf(a.thread_id), String.valueOf(a.content[i2].post_id), String.valueOf(a.content[i2].post_type), bm.b(a.content[i2].create_time * 1000)});
             }
         }
         nVar.g.setContent(arrayList);
@@ -110,7 +110,7 @@ public class j extends BaseAdapter {
             nVar.h.setText(a.title);
         }
         nVar.h.setTag(new String[]{String.valueOf(a.thread_id), null, null});
-        if (TiebaApplication.h().an() == 1) {
+        if (TiebaApplication.g().an() == 1) {
             nVar.h.setTextColor(viewGroup.getResources().getColor(R.color.person_post_content_ori_1));
             nVar.h.setBackgroundResource(R.drawable.person_post_line_1);
         } else {
@@ -120,6 +120,6 @@ public class j extends BaseAdapter {
         int dimensionPixelSize = viewGroup.getResources().getDimensionPixelSize(R.dimen.person_post_reply_ori_padding);
         nVar.h.setPadding(dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize);
         nVar.a(this.g);
-        nVar.a(TiebaApplication.h().an());
+        nVar.a(TiebaApplication.g().an());
     }
 }

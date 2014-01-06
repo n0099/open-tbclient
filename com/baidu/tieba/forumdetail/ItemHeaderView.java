@@ -54,7 +54,7 @@ public class ItemHeaderView extends RelativeLayout {
         if (forumDetailData == null || forumDetailData.forumDir == null) {
             return false;
         }
-        int an = TiebaApplication.h().an();
+        int an = TiebaApplication.g().an();
         ForumDetailData.ForumInfo forumInfo = forumDetailData.forumInfo;
         this.d.setText(forumInfo.forumName);
         this.e.setText(String.valueOf(forumInfo.memberCount));
@@ -78,9 +78,9 @@ public class ItemHeaderView extends RelativeLayout {
         int a = com.baidu.adp.lib.h.g.a(this.a, 80.0f);
         com.baidu.tieba.util.i iVar = new com.baidu.tieba.util.i(this.a);
         iVar.a(a, a);
-        com.baidu.adp.widget.ImageView.e d = iVar.d(forumInfo.avatar);
+        com.baidu.adp.widget.ImageView.d d = iVar.d(forumInfo.avatar);
         if (d != null) {
-            this.b.setImageBitmap(d.f());
+            this.b.setImageBitmap(d.h());
             this.b.invalidate();
         } else {
             iVar.a(forumInfo.avatar, new j(this));

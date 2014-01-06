@@ -33,16 +33,16 @@ class bc implements bk {
             return;
         }
         FrsImageActivity.d(this.a, 30);
-        this.a.s = new com.baidu.tieba.model.aq();
-        aqVar = this.a.s;
+        this.a.r = new com.baidu.tieba.model.aq();
+        aqVar = this.a.r;
         aqVar.a(jSONObject);
         FrsImageActivity frsImageActivity = this.a;
-        aqVar2 = this.a.s;
+        aqVar2 = this.a.r;
         frsImageActivity.a(aqVar2.a());
         i2 = this.a.h;
-        arVar = this.a.r;
+        arVar = this.a.q;
         if (i2 >= arVar.c().size()) {
-            arVar2 = this.a.r;
+            arVar2 = this.a.q;
             if (arVar2.d() == 0) {
                 this.a.a(FrsImageActivity.FooterType.LAST);
             } else {

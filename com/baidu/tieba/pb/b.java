@@ -5,9 +5,9 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.ab> {
+public class b extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.ac> {
     final /* synthetic */ a a;
-    private com.baidu.tieba.util.an b = null;
+    private com.baidu.tieba.util.at b = null;
     private String c;
     private String d;
     private int e;
@@ -33,13 +33,13 @@ public class b extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.ab> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: d */
-    public com.baidu.tieba.data.ab a(Object... objArr) {
+    public com.baidu.tieba.data.ac a(Object... objArr) {
         String str;
         boolean z;
-        this.b = new com.baidu.tieba.util.an(com.baidu.tieba.data.h.a + "c/f/pb/picpage");
-        com.baidu.tieba.util.an anVar = this.b;
+        this.b = new com.baidu.tieba.util.at(com.baidu.tieba.data.h.a + "c/f/pb/picpage");
+        com.baidu.tieba.util.at atVar = this.b;
         str = this.a.e;
-        anVar.a("kw", str);
+        atVar.a("kw", str);
         this.b.a("tid", this.c);
         if (this.d != null) {
             this.b.a("pic_id", this.d);
@@ -55,9 +55,9 @@ public class b extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.ab> {
         if (!this.b.c()) {
             return null;
         }
-        com.baidu.tieba.data.ab abVar = new com.baidu.tieba.data.ab();
-        abVar.a(l, true);
-        return abVar;
+        com.baidu.tieba.data.ac acVar = new com.baidu.tieba.data.ac();
+        acVar.a(l, true);
+        return acVar;
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -79,7 +79,7 @@ public class b extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.ab> {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void a(com.baidu.tieba.data.ab abVar) {
+    public void a(com.baidu.tieba.data.ac acVar) {
         boolean z;
         boolean z2;
         boolean z3;
@@ -99,9 +99,9 @@ public class b extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.ab> {
         int i4;
         String str4;
         c cVar4;
-        super.a((b) abVar);
+        super.a((b) acVar);
         this.a.h = null;
-        if (abVar == null) {
+        if (acVar == null) {
             cVar3 = this.a.l;
             if (cVar3 != null) {
                 if (this.b != null) {
@@ -117,14 +117,14 @@ public class b extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.ab> {
             }
             return;
         }
-        this.a.i = abVar.k();
-        this.a.c = abVar.g();
-        this.a.b = abVar.f();
+        this.a.i = acVar.k();
+        this.a.c = acVar.g();
+        this.a.b = acVar.f();
         if (this.d == null) {
             arrayList3 = this.a.a;
             arrayList3.clear();
         }
-        LinkedList<com.baidu.tieba.data.aa> h = abVar.h();
+        LinkedList<com.baidu.tieba.data.ab> h = acVar.h();
         int size = h.size();
         if (size <= 0) {
             this.a.g = true;
@@ -134,10 +134,10 @@ public class b extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.ab> {
                 a = this.a.a(h.get(i5));
                 arrayList2.add(a);
             }
-            com.baidu.tieba.data.aa aaVar = h.get(size - 1);
-            this.a.f = aaVar.c();
+            com.baidu.tieba.data.ab abVar = h.get(size - 1);
+            this.a.f = abVar.c();
             i3 = this.a.i;
-            if (i3 == aaVar.h()) {
+            if (i3 == abVar.h()) {
                 this.a.g = true;
             } else {
                 this.a.g = false;

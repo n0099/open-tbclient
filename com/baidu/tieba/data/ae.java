@@ -1,48 +1,60 @@
 package com.baidu.tieba.data;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import org.json.JSONArray;
+import com.baidu.tieba.util.bo;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ae {
-    private ArrayList<ad> a = new ArrayList<>();
-    private boolean b;
-    private int c;
+    private String a = null;
+    private String b = null;
+    private int c = 0;
+    private int d = 0;
+    private int f = 0;
+    private String e = null;
 
-    public ArrayList<ad> a() {
+    public String a() {
         return this.a;
     }
 
-    public void a(int i) {
-        this.c = i;
-    }
-
-    public boolean b() {
+    public String b() {
         return this.b;
     }
 
-    public void c() {
-        Iterator<ad> it = this.a.iterator();
-        while (it.hasNext()) {
-            it.next().a(0);
+    public void a(int i) {
+        this.d = i;
+    }
+
+    public int c() {
+        return this.d;
+    }
+
+    public void b(int i) {
+        this.c = i;
+    }
+
+    public int d() {
+        return this.c;
+    }
+
+    public void a(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.a = jSONObject.optString("forum_id");
+                this.b = jSONObject.optString("forum_name");
+                c(jSONObject.optInt("is_like", 0));
+                this.d = jSONObject.optInt("is_sign", 0);
+                this.c = jSONObject.optInt("level_id", 0);
+                this.e = jSONObject.optString("avatar", "");
+            } catch (Exception e) {
+                bo.b("BrowseForumData", "parserJson", "error = " + e.getMessage());
+            }
         }
     }
 
-    public void a(JSONArray jSONArray) {
-        if (jSONArray != null) {
-            for (int i = 0; i < jSONArray.length(); i++) {
-                try {
-                    ad adVar = new ad();
-                    adVar.a(jSONArray.getJSONObject(i));
-                    if (adVar.d() >= this.c) {
-                        this.b = true;
-                    }
-                    this.a.add(adVar);
-                } catch (Exception e) {
-                    com.baidu.tieba.util.be.b("LikeForumListData", "parserJson", "error = " + e.getMessage());
-                    return;
-                }
-            }
-        }
+    public void c(int i) {
+        this.f = i;
+    }
+
+    public int e() {
+        return this.f;
     }
 }

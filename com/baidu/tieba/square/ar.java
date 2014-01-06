@@ -46,7 +46,7 @@ public class ar {
             a(new JSONObject(str));
         } catch (Exception e) {
             this.f = false;
-            com.baidu.tieba.util.be.b(getClass().getName(), "parserJson", e.toString());
+            com.baidu.tieba.util.bo.b(getClass().getName(), "parserJson", e.toString());
         }
     }
 
@@ -60,7 +60,7 @@ public class ar {
             this.e.b(jSONObject);
         } catch (Exception e) {
             this.f = false;
-            com.baidu.tieba.util.be.b(getClass().getName(), "parserJson", e.toString());
+            com.baidu.tieba.util.bo.b(getClass().getName(), "parserJson", e.toString());
         }
     }
 
@@ -77,7 +77,7 @@ public class ar {
                     }
                 }
             } catch (Exception e) {
-                com.baidu.tieba.util.be.b(getClass().getName(), "parseCarouselRecommendData", e.toString());
+                com.baidu.tieba.util.bo.b(getClass().getName(), "parseCarouselRecommendData", e.toString());
             }
         }
     }
@@ -95,7 +95,7 @@ public class ar {
                     }
                 }
             } catch (Exception e) {
-                com.baidu.tieba.util.be.b(getClass().getName(), "parseForumTopicRecommendData", e.toString());
+                com.baidu.tieba.util.bo.b(getClass().getName(), "parseForumTopicRecommendData", e.toString());
             }
         }
     }
@@ -131,7 +131,7 @@ public class ar {
                     }
                 }
             } catch (Exception e) {
-                com.baidu.tieba.util.be.b(getClass().getName(), "parseRecommendPostData", e.toString());
+                com.baidu.tieba.util.bo.b(getClass().getName(), "parseRecommendPostData", e.toString());
             }
         }
     }

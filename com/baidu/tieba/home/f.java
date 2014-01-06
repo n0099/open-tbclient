@@ -1,5 +1,6 @@
 package com.baidu.tieba.home;
 
+import android.os.Handler;
 import com.baidu.tieba.BaseFragmentActivity;
 import com.baidu.tieba.util.UtilHelper;
 import com.slidingmenu.lib.R;
@@ -16,45 +17,43 @@ public class f implements com.baidu.tieba.model.w {
     @Override // com.baidu.tieba.model.w
     public void a(com.baidu.tieba.model.u uVar) {
         BaseFragmentActivity baseFragmentActivity;
-        k kVar;
-        k kVar2;
+        l lVar;
+        l lVar2;
         BaseFragmentActivity baseFragmentActivity2;
         com.baidu.tieba.model.t tVar;
-        k kVar3;
+        l lVar3;
         BaseFragmentActivity baseFragmentActivity3;
-        k kVar4;
         com.baidu.tieba.model.t tVar2;
-        k kVar5;
-        k kVar6;
-        k kVar7;
+        l lVar4;
+        l lVar5;
+        l lVar6;
         boolean z = false;
         boolean z2 = true;
         baseFragmentActivity = this.a.g;
         UtilHelper.NetworkStateInfo g = UtilHelper.g(baseFragmentActivity);
         if (g == UtilHelper.NetworkStateInfo.UNAVAIL) {
-            kVar7 = this.a.a;
-            kVar7.m();
+            lVar6 = this.a.a;
+            lVar6.m();
         }
-        kVar = this.a.a;
-        kVar.a(true, "");
+        lVar = this.a.a;
+        lVar.a(true, "");
         if (uVar.b) {
             tVar2 = this.a.c;
             com.baidu.tieba.data.r a = tVar2.a();
-            kVar5 = this.a.a;
-            kVar5.a(a);
-            kVar6 = this.a.a;
-            kVar6.i();
+            lVar4 = this.a.a;
+            lVar4.a(a);
+            lVar5 = this.a.a;
+            lVar5.i();
         } else {
-            kVar2 = this.a.a;
-            kVar2.f();
+            lVar2 = this.a.a;
+            lVar2.f();
             if (uVar.a != null && uVar.a.equals("")) {
                 baseFragmentActivity2 = this.a.g;
                 baseFragmentActivity2.a(uVar.a);
             }
         }
         if (uVar.c == 0 && g != UtilHelper.NetworkStateInfo.UNAVAIL) {
-            kVar4 = this.a.a;
-            kVar4.e();
+            new Handler().postDelayed(new g(this), 600L);
         }
         tVar = this.a.c;
         com.baidu.tieba.data.r a2 = tVar.a();
@@ -70,7 +69,7 @@ public class f implements com.baidu.tieba.model.w {
             str = a2.c();
             z2 = false;
         }
-        kVar3 = this.a.a;
-        kVar3.a(z2, z, str);
+        lVar3 = this.a.a;
+        lVar3.a(z2, z, str);
     }
 }

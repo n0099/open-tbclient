@@ -39,11 +39,11 @@ public class g extends com.baidu.adp.a.c<ValidateItemData> {
 
     public void f() {
         if (this.j != null) {
-            this.i.getLayoutMode().a(TiebaApplication.h().an() == 1);
+            this.i.getLayoutMode().a(TiebaApplication.g().an() == 1);
             this.i.getLayoutMode().a(this.c);
             String portrait = this.j.getPortrait();
             this.d.setTag(portrait);
-            com.baidu.adp.widget.ImageView.e c = this.i.b().c(portrait);
+            com.baidu.adp.widget.ImageView.d c = this.i.b().c(portrait);
             if (c != null) {
                 c.a(this.d);
             } else {
@@ -67,7 +67,7 @@ public class g extends com.baidu.adp.a.c<ValidateItemData> {
             }
             com.baidu.adp.lib.h.e.d("isShown:" + this.j.isShown());
             if (!this.j.isShown()) {
-                if (TiebaApplication.h().an() == 1) {
+                if (TiebaApplication.g().an() == 1) {
                     this.c.setBackgroundResource(R.color.validate_item_background_sean_1);
                 } else {
                     this.c.setBackgroundResource(R.color.validate_item_background_sean);

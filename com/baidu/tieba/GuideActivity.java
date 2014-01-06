@@ -30,11 +30,11 @@ public class GuideActivity extends j {
     private ag h;
     private BaseViewPager i;
     private List<Bitmap> k;
-    private int[] f = {R.drawable.image_bootpage01};
+    private int[] f = new int[0];
     private Button j = null;
     private af l = null;
     private String m = null;
-    private com.baidu.tieba.view.a o = new aa(this);
+    private com.baidu.tieba.view.e o = new aa(this);
     public View.OnClickListener c = new ab(this);
     public View.OnClickListener d = new ac(this);
     public View.OnClickListener e = new ad(this);
@@ -71,11 +71,11 @@ public class GuideActivity extends j {
         this.j = (Button) inflate.findViewById(R.id.last_page_btn);
         this.j.setOnClickListener(this.c);
         this.g.add(inflate);
-        if (TiebaApplication.h().t()) {
+        if (TiebaApplication.g().s()) {
             try {
                 StatService.setAppChannel(com.baidu.tieba.data.h.a());
             } catch (Exception e) {
-                com.baidu.tieba.util.be.b(getClass().getName(), "onCreate", e.getMessage());
+                com.baidu.tieba.util.bo.b(getClass().getName(), "onCreate", e.getMessage());
             }
         }
         if (bundle != null) {
@@ -123,11 +123,11 @@ public class GuideActivity extends j {
     @Override // com.baidu.tieba.j, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (TiebaApplication.h().t()) {
+        if (TiebaApplication.g().s()) {
             try {
                 StatService.onResume(this);
             } catch (Exception e) {
-                com.baidu.tieba.util.be.b(getClass().getName(), "onResume", e.getMessage());
+                com.baidu.tieba.util.bo.b(getClass().getName(), "onResume", e.getMessage());
             }
         }
     }
@@ -135,11 +135,11 @@ public class GuideActivity extends j {
     @Override // com.baidu.tieba.j, android.app.Activity
     public void onPause() {
         super.onPause();
-        if (TiebaApplication.h().t()) {
+        if (TiebaApplication.g().s()) {
             try {
                 StatService.onPause(this);
             } catch (Exception e) {
-                com.baidu.tieba.util.be.b(getClass().getName(), "onPause", e.getMessage());
+                com.baidu.tieba.util.bo.b(getClass().getName(), "onPause", e.getMessage());
             }
         }
     }
@@ -148,7 +148,10 @@ public class GuideActivity extends j {
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         switch (i) {
             case 4:
-                a();
+                if (!this.m.equals(b)) {
+                    a();
+                }
+                closeActivity();
                 return true;
             default:
                 return super.onKeyDown(i, keyEvent);
@@ -157,18 +160,18 @@ public class GuideActivity extends j {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
-        String B = TiebaApplication.B();
-        boolean aH = TiebaApplication.h().aH();
-        if (B != null && B.length() > 0 && !aH) {
+        String A = TiebaApplication.A();
+        boolean aH = TiebaApplication.g().aH();
+        if (A != null && A.length() > 0 && !aH) {
             MainTabActivity.a(this, 1);
         } else {
             MainTabActivity.c(1);
             MainTabActivity.a(this, 2);
             if (aH) {
-                TiebaApplication.h().aI();
+                TiebaApplication.g().aI();
             }
-            if ((B == null || B.length() <= 0) && TiebaApplication.o() && f.a((Activity) this)) {
-                TiebaApplication.h().ay();
+            if ((A == null || A.length() <= 0) && TiebaApplication.n() && f.a((Activity) this)) {
+                TiebaApplication.g().ay();
                 f.a(this, 0, 1, false);
             }
         }
@@ -207,7 +210,7 @@ public class GuideActivity extends j {
                 }
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.be.a(getClass().getName(), "checkShortCut", e.toString());
+            com.baidu.tieba.util.bo.a(getClass().getName(), "checkShortCut", e.toString());
         }
         return false;
     }

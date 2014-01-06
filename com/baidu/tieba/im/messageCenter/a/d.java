@@ -1,13 +1,13 @@
 package com.baidu.tieba.im.messageCenter.a;
 
-import com.baidu.tieba.im.message.ae;
-import com.baidu.tieba.im.message.bz;
+import com.baidu.tieba.im.message.ah;
+import com.baidu.tieba.im.message.cc;
 /* loaded from: classes.dex */
 public class d extends com.baidu.tieba.im.messageCenter.d {
     @Override // com.baidu.tieba.im.messageCenter.d
-    public bz a(com.baidu.tieba.im.message.n nVar) {
-        if (nVar != null && (nVar instanceof ae)) {
-            com.baidu.tieba.im.db.d.a().b(((ae) nVar).a());
+    public cc a(com.baidu.tieba.im.message.o oVar) {
+        if (oVar != null && (oVar instanceof ah)) {
+            com.baidu.tieba.im.db.d.a().b(((ah) oVar).a());
         }
         return null;
     }

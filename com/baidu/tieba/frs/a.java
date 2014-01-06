@@ -15,6 +15,10 @@ public class a {
         return String.valueOf(this.a);
     }
 
+    public String c() {
+        return this.c;
+    }
+
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
@@ -22,7 +26,7 @@ public class a {
                 this.b = jSONObject.optString("badge_url", "");
                 this.c = jSONObject.optString("webview");
             } catch (Exception e) {
-                com.baidu.tieba.util.be.b("BadgeData", "parserJson", "error = " + e.getMessage());
+                com.baidu.tieba.util.bo.b("BadgeData", "parserJson", "error = " + e.getMessage());
             }
         }
     }

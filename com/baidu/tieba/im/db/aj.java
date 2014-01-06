@@ -1,33 +1,25 @@
 package com.baidu.tieba.im.db;
 
-import com.baidu.tieba.im.SingleRunnable;
-import java.util.Iterator;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import java.util.HashMap;
 import java.util.concurrent.ConcurrentHashMap;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class aj extends SingleRunnable<Boolean> {
-    final /* synthetic */ ConcurrentHashMap a;
-    final /* synthetic */ ai b;
+public class aj implements com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMessageCenterPojo>> {
+    final /* synthetic */ HashMap a;
+    final /* synthetic */ com.baidu.tieba.im.a b;
+    final /* synthetic */ ag c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aj(ai aiVar, ConcurrentHashMap concurrentHashMap) {
-        this.b = aiVar;
-        this.a = concurrentHashMap;
+    public aj(ag agVar, HashMap hashMap, com.baidu.tieba.im.a aVar) {
+        this.c = agVar;
+        this.a = hashMap;
+        this.b = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.SingleRunnable
-    /* renamed from: a */
-    public Boolean b() {
-        boolean z = false;
-        Iterator it = this.b.a.keySet().iterator();
-        while (true) {
-            boolean z2 = z;
-            if (it.hasNext()) {
-                com.baidu.tieba.im.chat.o oVar = (com.baidu.tieba.im.chat.o) this.b.a.get((String) it.next());
-                z = this.b.c.a(oVar.a, oVar.c, oVar.b, this.a) ? true : z2;
-            } else {
-                return Boolean.valueOf(z2);
-            }
-        }
+    @Override // com.baidu.tieba.im.a
+    public void a(ConcurrentHashMap<String, ImMessageCenterPojo> concurrentHashMap) {
+        com.baidu.tieba.im.o.a(new ak(this, concurrentHashMap), new al(this));
     }
 }

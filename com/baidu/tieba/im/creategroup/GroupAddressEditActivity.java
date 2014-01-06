@@ -9,7 +9,7 @@ import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import java.util.List;
 /* loaded from: classes.dex */
 public class GroupAddressEditActivity extends com.baidu.tieba.j implements AdapterView.OnItemClickListener, com.baidu.adp.widget.BdSwitchView.c {
-    n a = null;
+    p a = null;
     private String[] b = null;
     private boolean c = false;
     private int d = -1;
@@ -43,7 +43,7 @@ public class GroupAddressEditActivity extends com.baidu.tieba.j implements Adapt
             this.d = intent.getIntExtra("IntentSelectedIndex", 0);
             this.c = intent.getBooleanExtra("HiddenAddress", false);
         }
-        this.a = new n(this, this.b, this.c);
+        this.a = new p(this, this.b, this.c);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

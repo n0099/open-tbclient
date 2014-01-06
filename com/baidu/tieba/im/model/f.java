@@ -8,7 +8,7 @@ public class f {
         com.baidu.tieba.data.e a2;
         if (str != null) {
             try {
-                com.baidu.tieba.data.f a3 = new com.baidu.tieba.a.a("c/c/voice/chunkupload", "c/c/voice/voice_fin_chunk_upload").a(com.baidu.tieba.util.y.a(str, 1));
+                com.baidu.tieba.data.f a3 = new com.baidu.tieba.a.a("c/c/voice/chunkupload", "c/c/voice/voice_fin_chunk_upload").a(com.baidu.tieba.util.aa.a(str, 1));
                 if (a3 != null && a3.b() && (a2 = a3.a()) != null) {
                     String a4 = a2.a();
                     com.baidu.tieba.voice.a.e.a(str, a4);

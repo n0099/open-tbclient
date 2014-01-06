@@ -34,7 +34,7 @@ public class v extends BdAsyncTask<Object, Integer, Bitmap> {
         HashMap hashMap2;
         Bitmap bitmap = null;
         try {
-            Bitmap c = com.baidu.tieba.util.y.c(null, "tieba_resized_image");
+            Bitmap c = com.baidu.tieba.util.aa.c(null, "tieba_resized_image");
             try {
                 if (c.getWidth() > 750 || c.getHeight() > 750) {
                     Bitmap a = com.baidu.tieba.util.m.a(c, 750);
@@ -44,7 +44,7 @@ public class v extends BdAsyncTask<Object, Integer, Bitmap> {
                     } catch (Exception e) {
                         e = e;
                         bitmap = a;
-                        com.baidu.tieba.util.be.b(getClass().getName(), "GetImageTask", e.toString());
+                        com.baidu.tieba.util.bo.b(getClass().getName(), "GetImageTask", e.toString());
                         return bitmap;
                     }
                 }
@@ -65,7 +65,7 @@ public class v extends BdAsyncTask<Object, Integer, Bitmap> {
                         for (String str : strArr) {
                             String substring = str.substring(0, str.indexOf("|"));
                             if (!substring.equals("normal")) {
-                                Bitmap apply = FilterFactory.createOneKeyFilter(this.a, substring).apply(this.a, a3.copy(a3.getConfig() == null ? com.baidu.tieba.data.h.n : a3.getConfig(), true));
+                                Bitmap apply = FilterFactory.createOneKeyFilter(this.a, substring).apply(this.a, a3.copy(a3.getConfig() == null ? com.baidu.tieba.data.h.o : a3.getConfig(), true));
                                 hashMap2 = this.a.G;
                                 hashMap2.put(substring, apply);
                             }

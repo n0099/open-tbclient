@@ -172,7 +172,7 @@ public class HotGroupAdapter extends BaseAdapter {
                 }
                 a(aVar.o, item.getGrade());
             }
-            this.a.a().a(TiebaApplication.h().an() == 1);
+            this.a.a().a(TiebaApplication.g().an() == 1);
             this.a.a().a(view);
         }
         return view;

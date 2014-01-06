@@ -8,11 +8,11 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
-import com.baidu.tieba.util.ae;
+import com.baidu.tieba.util.ag;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
-public class GroupAddressLocateActivity extends com.baidu.tieba.j implements AdapterView.OnItemClickListener, com.baidu.adp.widget.BdSwitchView.c, ae {
+public class GroupAddressLocateActivity extends com.baidu.tieba.j implements AdapterView.OnItemClickListener, com.baidu.adp.widget.BdSwitchView.c, ag {
     private boolean c = false;
     private boolean d = false;
     private String e = null;
@@ -20,9 +20,9 @@ public class GroupAddressLocateActivity extends com.baidu.tieba.j implements Ada
     private String[] g = null;
     private String h = "";
     private int i = -1;
-    private s j = null;
-    DialogInterface.OnClickListener a = new p(this);
-    DialogInterface.OnClickListener b = new q(this);
+    private u j = null;
+    DialogInterface.OnClickListener a = new r(this);
+    DialogInterface.OnClickListener b = new s(this);
 
     public static void a(Activity activity, int i, String str, String str2, boolean z) {
         Intent intent = new Intent(activity, GroupAddressLocateActivity.class);
@@ -43,7 +43,7 @@ public class GroupAddressLocateActivity extends com.baidu.tieba.j implements Ada
             this.c = intent.getBooleanExtra("IntentDataIsHiddenAddress", false);
             this.d = this.c;
         }
-        this.j = new s(this, this.e, this.f, this.c);
+        this.j = new u(this, this.e, this.f, this.c);
         this.j.a(this.b);
         this.j.b(this.a);
     }
@@ -130,7 +130,7 @@ public class GroupAddressLocateActivity extends com.baidu.tieba.j implements Ada
         return this.i;
     }
 
-    @Override // com.baidu.tieba.util.ae
+    @Override // com.baidu.tieba.util.ag
     public void a(String str, List<String> list, double d, double d2) {
         this.j.b(String.valueOf(d));
         this.j.a(String.valueOf(d2));
@@ -153,12 +153,12 @@ public class GroupAddressLocateActivity extends com.baidu.tieba.j implements Ada
         }
     }
 
-    @Override // com.baidu.tieba.util.ae
+    @Override // com.baidu.tieba.util.ag
     public void a() {
         this.j.j();
     }
 
-    @Override // com.baidu.tieba.util.ae
+    @Override // com.baidu.tieba.util.ag
     public void b() {
         this.j.k();
     }

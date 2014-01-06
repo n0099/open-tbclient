@@ -30,7 +30,7 @@ public class k {
 
     public static String a(int i2) {
         int i3 = w - i2;
-        TiebaApplication h2 = TiebaApplication.h();
-        return (i3 <= 199 || i3 >= 300) ? h2.getString(R.string.im_error_default) : h2.getString(R.string.im_error_codec);
+        TiebaApplication g2 = TiebaApplication.g();
+        return (i3 <= 199 || i3 >= 300) ? g2.getString(R.string.im_error_default) : g2.getString(R.string.im_error_codec);
     }
 }

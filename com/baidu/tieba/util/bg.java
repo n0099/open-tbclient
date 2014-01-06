@@ -1,14 +1,12 @@
 package com.baidu.tieba.util;
-
-import java.util.Date;
 /* loaded from: classes.dex */
-public class bg {
-    public static Date a() {
-        return new Date(System.currentTimeMillis());
-    }
+class bg {
+    int a;
+    int b;
+    int c;
+    final /* synthetic */ bd d;
 
-    public static long a(Date date, Date date2) {
-        long time = date.getTime() - date2.getTime();
-        return (time / 3600000) - ((time / 86400000) * 24);
+    private bg(bd bdVar) {
+        this.d = bdVar;
     }
 }

@@ -5,7 +5,7 @@ import android.os.Message;
 import com.baidu.tieba.TiebaApplication;
 /* loaded from: classes.dex */
 class m extends Handler {
-    long a = TiebaApplication.h().N();
+    long a = TiebaApplication.g().N();
     long b = 0;
     final /* synthetic */ TiebaMessageService c;
 

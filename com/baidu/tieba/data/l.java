@@ -2,11 +2,12 @@ package com.baidu.tieba.data;
 
 import android.content.Context;
 import android.view.View;
+import com.baidu.tieba.util.bo;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class l extends com.baidu.tieba.util.ah {
+public class l extends com.baidu.tieba.util.aj {
     final /* synthetic */ j a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -16,15 +17,15 @@ public class l extends com.baidu.tieba.util.ah {
         this.a = jVar;
     }
 
-    @Override // com.baidu.tieba.util.ah, android.text.style.ClickableSpan
+    @Override // com.baidu.tieba.util.aj, android.text.style.ClickableSpan
     public void onClick(View view) {
         Pattern pattern;
         String str;
         Pattern pattern2;
         String str2;
         String str3;
-        pattern = j.i;
-        str = this.a.f;
+        pattern = j.j;
+        str = this.a.g;
         Matcher matcher = pattern.matcher(str);
         if (matcher.find()) {
             try {
@@ -32,11 +33,11 @@ public class l extends com.baidu.tieba.util.ah {
                 b(group.substring(group.lastIndexOf("/") + 1));
                 return;
             } catch (Exception e) {
-                com.baidu.tieba.util.be.b(getClass().getName(), "onClick", e.toString());
+                bo.b(getClass().getName(), "onClick", e.toString());
             }
         }
-        pattern2 = j.j;
-        str2 = this.a.f;
+        pattern2 = j.k;
+        str2 = this.a.g;
         Matcher matcher2 = pattern2.matcher(str2);
         if (matcher2.find()) {
             try {
@@ -44,10 +45,10 @@ public class l extends com.baidu.tieba.util.ah {
                 b(group2.substring(group2.lastIndexOf("=") + 1));
                 return;
             } catch (Exception e2) {
-                com.baidu.tieba.util.be.b(getClass().getName(), "onClick", e2.toString());
+                bo.b(getClass().getName(), "onClick", e2.toString());
             }
         }
-        str3 = this.a.f;
+        str3 = this.a.g;
         a(str3);
     }
 }

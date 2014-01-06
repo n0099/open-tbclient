@@ -24,12 +24,12 @@ public class k extends BdAsyncTask<Object, Integer, LocalPicModel.ResponseData> 
         String str5 = "im_" + String.valueOf(System.currentTimeMillis());
         str = this.a.mSPath;
         str2 = this.a.mSName;
-        String a = com.baidu.tieba.util.y.a(str, str2, com.baidu.tieba.im.j.c, str5 + "_send");
+        String a = com.baidu.tieba.util.aa.a(str, str2, com.baidu.tieba.im.j.c, str5 + "_send");
         String str6 = str5 + "_display";
         str3 = this.a.mDPath;
         str4 = this.a.mDName;
-        String a2 = com.baidu.tieba.util.y.a(str3, str4, com.baidu.tieba.im.j.c, str6);
-        Bitmap c = com.baidu.tieba.util.y.c(com.baidu.tieba.im.j.c, str6);
+        String a2 = com.baidu.tieba.util.aa.a(str3, str4, com.baidu.tieba.im.j.c, str6);
+        Bitmap c = com.baidu.tieba.util.aa.c(com.baidu.tieba.im.j.c, str6);
         if (a == null || a2 == null || c == null) {
             return null;
         }

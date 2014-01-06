@@ -2,9 +2,8 @@ package android.support.v4.view;
 
 import android.graphics.Paint;
 import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class at extends as {
+class at extends as {
     @Override // android.support.v4.view.ar
     long a() {
         return az.a();

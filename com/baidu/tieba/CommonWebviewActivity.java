@@ -17,7 +17,7 @@ import com.baidu.tieba.view.BaseWebView;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class CommonWebviewActivity extends j implements com.baidu.tieba.view.d {
+public class CommonWebviewActivity extends j implements com.baidu.tieba.view.h {
     private static boolean q = false;
     private static long r = 0;
     private String t;
@@ -45,7 +45,7 @@ public class CommonWebviewActivity extends j implements com.baidu.tieba.view.d {
 
     @Override // com.baidu.tieba.j
     public boolean getGpuSwitch() {
-        return TiebaApplication.h().v();
+        return TiebaApplication.g().u();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -85,7 +85,7 @@ public class CommonWebviewActivity extends j implements com.baidu.tieba.view.d {
         this.n = (TextView) this.j.findViewById(R.id.webview_fail);
         this.o = (TextView) this.j.findViewById(R.id.webview_crash_tip);
         this.i = (ProgressBar) findViewById(R.id.common_progress);
-        if (TiebaApplication.h().ao() >= 5) {
+        if (TiebaApplication.g().ao() >= 5) {
             this.n.setVisibility(8);
             this.o.setVisibility(0);
         } else if (f()) {
@@ -117,12 +117,14 @@ public class CommonWebviewActivity extends j implements com.baidu.tieba.view.d {
     @Override // com.baidu.tieba.j
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        com.baidu.tieba.util.bb.a(this.e, i);
+        com.baidu.tieba.util.bl.a(this.e, i);
         if (this.h != null) {
-            com.baidu.tieba.util.bb.a(this.h, i);
+            com.baidu.tieba.util.bl.a(this.h, i);
             a();
         }
-        this.u.c(i);
+        if (this.u != null) {
+            this.u.c(i);
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -132,7 +134,7 @@ public class CommonWebviewActivity extends j implements com.baidu.tieba.view.d {
     }
 
     public void a() {
-        if (TiebaApplication.h().ao() == 0 && !f()) {
+        if (TiebaApplication.g().ao() == 0 && !f()) {
             this.o.setVisibility(0);
             return;
         }
@@ -160,10 +162,10 @@ public class CommonWebviewActivity extends j implements com.baidu.tieba.view.d {
         }
     }
 
-    @Override // com.baidu.tieba.view.d
+    @Override // com.baidu.tieba.view.h
     public boolean a(WebView webView, String str) {
         if (!com.baidu.tieba.recommend.ab.a(this, str)) {
-            UtilHelper.c(this, str + "&_client_version=" + com.baidu.tieba.data.h.j());
+            UtilHelper.d(this, str + "&_client_version=" + com.baidu.tieba.data.h.j());
         }
         return true;
     }
@@ -172,11 +174,11 @@ public class CommonWebviewActivity extends j implements com.baidu.tieba.view.d {
         boolean z = false;
         if (this.h == null) {
             try {
-                if (UtilHelper.d(this) && TiebaApplication.h().ao() >= 5) {
+                if (UtilHelper.d(this) && TiebaApplication.g().ao() >= 5) {
                     super.showToast(getString(R.string.web_view_corrupted));
                 } else {
                     this.h = new BaseWebView(this);
-                    com.baidu.tieba.util.bb.a(this.h, TiebaApplication.h().an());
+                    com.baidu.tieba.util.bl.a(this.h, TiebaApplication.g().an());
                     this.h.setOnLoadUrlListener(this);
                     this.h.setHorizontalScrollBarEnabled(false);
                     this.h.setHorizontalScrollbarOverlay(false);
@@ -187,7 +189,7 @@ public class CommonWebviewActivity extends j implements com.baidu.tieba.view.d {
                 }
                 return z;
             } catch (Exception e) {
-                com.baidu.tieba.util.be.b(getClass().getName(), "", "CommonWebviewActivity.refreshFrs error = " + e.getMessage());
+                com.baidu.tieba.util.bo.b(getClass().getName(), "", "CommonWebviewActivity.refreshFrs error = " + e.getMessage());
                 return z;
             }
         }

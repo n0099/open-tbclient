@@ -1,51 +1,40 @@
 package com.baidu.tieba.view;
 
-import android.app.Activity;
-import android.view.LayoutInflater;
+import android.content.Context;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ImageView;
-import android.widget.ListAdapter;
-import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class w {
-    private View a;
-    private GoodGridView b;
-    private ImageView c;
-    private Activity d;
+public class w extends View {
+    private int a;
+    private int b;
 
-    public w(Activity activity) {
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        this.d = null;
-        this.d = activity;
-        this.a = LayoutInflater.from(activity).inflate(R.layout.dialog_good, (ViewGroup) null);
-        this.b = (GoodGridView) this.a.findViewById(R.id.good_gridview);
-        this.c = (ImageView) this.a.findViewById(R.id.divider_line);
+    public w(Context context) {
+        super(context);
+        this.a = 0;
+        this.b = 0;
     }
 
-    public void a(com.baidu.tieba.frs.ap apVar) {
-        this.b.setAdapter((ListAdapter) apVar);
-    }
-
-    public void a(AdapterView.OnItemClickListener onItemClickListener) {
-        this.b.setOnItemClickListener(onItemClickListener);
-    }
-
-    public View a() {
-        return this.a;
-    }
-
-    public void a(int i) {
-        if (i == 1) {
-            this.b.setBackgroundResource(R.color.frs_goodheader_bg_1);
-            this.c.setBackgroundResource(R.color.frs_goodheader_line_end_1);
-            return;
+    @Override // android.view.View
+    protected void onMeasure(int i, int i2) {
+        if (this.b == 0) {
+            setMeasuredDimension(i & 1073741823, this.a);
+        } else if (this.a == 0) {
+            setMeasuredDimension(this.b, 1073741823 & i2);
         }
-        this.b.setBackgroundDrawable(null);
-        this.b.setBackgroundColor(-1);
-        this.c.setBackgroundResource(R.color.frs_goodheader_line_end);
+    }
+
+    public void setHeightPx(int i) {
+        this.a = i;
+    }
+
+    public void setWidthPx(int i) {
+        this.b = i;
+    }
+
+    public void setHeightDip(int i) {
+        this.a = com.baidu.adp.lib.h.g.a(getContext(), i);
+    }
+
+    public void setWidthDip(int i) {
+        this.b = com.baidu.adp.lib.h.g.a(getContext(), i);
     }
 }

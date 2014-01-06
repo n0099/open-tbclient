@@ -84,7 +84,7 @@ public class EditHeadActivity extends com.baidu.tieba.j {
     @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        TiebaApplication.h().a((com.baidu.tieba.j) this);
+        TiebaApplication.g().a((com.baidu.tieba.j) this);
         setContentView(R.layout.edit_head_activity);
         Intent intent = getIntent();
         this.i = intent.getIntExtra("edit_type", 0);
@@ -92,9 +92,9 @@ public class EditHeadActivity extends com.baidu.tieba.j {
         if (this.F == 12002 || this.F == 12001) {
             e();
             if (intent.getData() != null) {
-                TiebaPrepareImageService.a(this.F, intent.getData(), com.baidu.tieba.util.bd.a().e());
+                TiebaPrepareImageService.a(this.F, intent.getData(), com.baidu.tieba.util.bn.a().e());
             } else {
-                TiebaPrepareImageService.a(this.F, null, com.baidu.tieba.util.bd.a().e());
+                TiebaPrepareImageService.a(this.F, null, com.baidu.tieba.util.bn.a().e());
             }
             f();
         } else {
@@ -197,7 +197,7 @@ public class EditHeadActivity extends com.baidu.tieba.j {
         if (this.F == 12002 || this.F == 12001) {
             unregisterReceiver(this.y);
         }
-        TiebaApplication.h().b((com.baidu.tieba.j) this);
+        TiebaApplication.g().b((com.baidu.tieba.j) this);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -270,13 +270,13 @@ public class EditHeadActivity extends com.baidu.tieba.j {
     /* JADX INFO: Access modifiers changed from: private */
     public boolean a(String str, Bitmap bitmap) {
         try {
-            com.baidu.tieba.util.y.a((String) null, str, bitmap, 80);
+            com.baidu.tieba.util.aa.a((String) null, str, bitmap, 80);
             if (this.E) {
                 new com.baidu.tieba.account.av("motu_pic", String.valueOf(this.A)).start();
             }
             return true;
         } catch (Exception e2) {
-            com.baidu.tieba.util.be.b(getClass().getName(), "saveFile", e2.toString());
+            com.baidu.tieba.util.bo.b(getClass().getName(), "saveFile", e2.toString());
             return false;
         }
     }

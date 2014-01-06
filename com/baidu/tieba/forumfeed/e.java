@@ -7,18 +7,18 @@ import android.widget.BaseAdapter;
 import com.baidu.browser.webpool.BdWebPoolView;
 import com.baidu.tieba.BaseFragmentActivity;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.data.ai;
+import com.baidu.tieba.data.aj;
 import com.baidu.tieba.data.v;
 import com.baidu.tieba.data.w;
-import com.baidu.tieba.util.bd;
-import com.baidu.tieba.view.s;
+import com.baidu.tieba.util.bn;
+import com.baidu.tieba.view.x;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class e extends BaseAdapter {
     private v a;
     private Context b;
-    private s c;
+    private x c;
     private View.OnClickListener d;
     private com.baidu.tieba.util.i f;
     private int g;
@@ -29,7 +29,7 @@ public class e extends BaseAdapter {
     private boolean k = false;
 
     public void a(v vVar) {
-        b(bd.a().b());
+        b(bn.a().b());
         this.e = true;
         this.a = vVar;
     }
@@ -39,7 +39,7 @@ public class e extends BaseAdapter {
         this.b = context;
         this.f = new com.baidu.tieba.util.i(context);
         this.g = com.baidu.adp.lib.h.g.b(context);
-        b(bd.a().b());
+        b(bn.a().b());
     }
 
     @Override // android.widget.Adapter
@@ -86,13 +86,13 @@ public class e extends BaseAdapter {
             return a();
         }
         if (this.c == null) {
-            this.c = new s(this.b);
+            this.c = new x(this.b);
         }
         this.c.a(this.g, this.i, this.j);
         this.c.a(this.k);
         View a = (view == null || view.getTag() == null) ? this.c.a() : view;
         a.setPadding(0, i == 0 ? this.b.getResources().getDimensionPixelSize(R.dimen.forumfeed_first_item_margin_top) : 0, 0, 0);
-        int an = TiebaApplication.h().an();
+        int an = TiebaApplication.g().an();
         ArrayList<w> b = this.a.b();
         if (b != null && (wVar = b.get(i)) != null) {
             this.c.a(a, wVar);
@@ -112,13 +112,13 @@ public class e extends BaseAdapter {
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
         w wVar;
-        ArrayList<ai> j;
+        ArrayList<aj> k;
         if (this.e && this.a != null) {
             ArrayList<w> b = this.a.b();
-            if (b == null || (wVar = b.get(i)) == null || (j = wVar.j()) == null) {
+            if (b == null || (wVar = b.get(i)) == null || (k = wVar.k()) == null) {
                 return 2;
             }
-            int size = j.size();
+            int size = k.size();
             if (size >= 3) {
                 return 5;
             }

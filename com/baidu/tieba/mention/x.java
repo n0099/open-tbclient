@@ -13,15 +13,15 @@ public class x implements com.baidu.tbadk.imageManager.c {
     }
 
     @Override // com.baidu.tbadk.imageManager.c
-    public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
+    public void a(com.baidu.adp.widget.ImageView.d dVar, String str, boolean z) {
         LinearLayout linearLayout;
         LinearLayout linearLayout2;
         linearLayout = this.a.a;
         ImageView imageView = (ImageView) linearLayout.findViewWithTag(str);
         while (imageView != null) {
             imageView.setTag(null);
-            if (imageView != null && eVar != null) {
-                eVar.a(imageView);
+            if (imageView != null && dVar != null) {
+                dVar.a(imageView);
             }
             linearLayout2 = this.a.a;
             imageView = (ImageView) linearLayout2.findViewWithTag(str);

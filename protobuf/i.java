@@ -1,5 +1,6 @@
 package protobuf;
 
+import cn.jingling.lib.file.Shared;
 import com.baidu.cloudsdk.common.imgloader.ImageManager;
 import com.baidu.zeus.NotificationProxy;
 import com.baidu.zeus.bouncycastle.DERTags;
@@ -11,38 +12,46 @@ import com.google.protobuf.InvalidProtocolBufferException;
 import protobuf.Im;
 /* loaded from: classes.dex */
 public final class i extends GeneratedMessageLite.Builder<Im.GroupInfo, i> implements j {
-    private int B;
     private int C;
     private int D;
     private int E;
+    private int F;
+    private int H;
+    private int I;
     private int a;
     private int b;
     private int c;
-    private double i;
+    private int d;
     private double j;
-    private int m;
+    private double k;
     private int n;
     private int o;
-    private int r;
+    private int p;
     private int s;
     private int t;
     private int u;
-    private long v;
-    private int w;
+    private int v;
+    private long w;
     private int x;
     private int y;
-    private Object d = "";
+    private int z;
     private Object e = "";
     private Object f = "";
     private Object g = "";
     private Object h = "";
-    private Object k = "";
+    private Object i = "";
     private Object l = "";
-    private Object p = "";
+    private Object m = "";
     private Object q = "";
-    private Object z = "";
+    private Object r = "";
     private Object A = "";
-    private Object F = "";
+    private Object B = "";
+    private Object G = "";
+
+    /* JADX DEBUG: Method not inlined, still used in: [protobuf.Im.GroupInfo.newBuilder():protobuf.i] */
+    public static /* synthetic */ i f() {
+        return h();
+    }
 
     private i() {
         g();
@@ -51,96 +60,95 @@ public final class i extends GeneratedMessageLite.Builder<Im.GroupInfo, i> imple
     private void g() {
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public static i h() {
         return new i();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
     /* renamed from: a */
     public i clear() {
         super.clear();
-        this.b = 0;
-        this.a &= -2;
         this.c = 0;
+        this.a &= -2;
+        this.d = 0;
         this.a &= -3;
-        this.d = "";
-        this.a &= -5;
         this.e = "";
-        this.a &= -9;
+        this.a &= -5;
         this.f = "";
-        this.a &= -17;
+        this.a &= -9;
         this.g = "";
-        this.a &= -33;
+        this.a &= -17;
         this.h = "";
+        this.a &= -33;
+        this.i = "";
         this.a &= -65;
-        this.i = 0.0d;
-        this.a &= -129;
         this.j = 0.0d;
+        this.a &= -129;
+        this.k = 0.0d;
         this.a &= -257;
-        this.k = "";
-        this.a &= -513;
         this.l = "";
+        this.a &= -513;
+        this.m = "";
         this.a &= -1025;
-        this.m = 0;
-        this.a &= -2049;
         this.n = 0;
-        this.a &= -4097;
+        this.a &= -2049;
         this.o = 0;
+        this.a &= -4097;
+        this.p = 0;
         this.a &= -8193;
-        this.p = "";
-        this.a &= -16385;
         this.q = "";
+        this.a &= -16385;
+        this.r = "";
         this.a &= -32769;
-        this.r = 0;
-        this.a &= -65537;
         this.s = 0;
-        this.a &= -131073;
+        this.a &= -65537;
         this.t = 0;
-        this.a &= -262145;
+        this.a &= -131073;
         this.u = 0;
+        this.a &= -262145;
+        this.v = 0;
         this.a &= -524289;
-        this.v = 0L;
+        this.w = 0L;
         this.a &= -1048577;
-        this.w = 0;
-        this.a &= -2097153;
         this.x = 0;
-        this.a &= -4194305;
+        this.a &= -2097153;
         this.y = 0;
+        this.a &= -4194305;
+        this.z = 0;
         this.a &= -8388609;
-        this.z = "";
-        this.a &= -16777217;
         this.A = "";
+        this.a &= -16777217;
+        this.B = "";
         this.a &= -33554433;
-        this.B = 0;
-        this.a &= -67108865;
         this.C = 0;
-        this.a &= -134217729;
+        this.a &= -67108865;
         this.D = 0;
-        this.a &= -268435457;
+        this.a &= -134217729;
         this.E = 0;
+        this.a &= -268435457;
+        this.F = 0;
         this.a &= -536870913;
-        this.F = "";
+        this.G = "";
         this.a &= -1073741825;
+        this.H = 0;
+        this.a &= Shared.INFINITY;
+        this.I = 0;
+        this.b &= -2;
         return this;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
     /* renamed from: b */
     public i clone() {
         return h().mergeFrom(buildPartial());
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
     /* renamed from: c */
     public Im.GroupInfo getDefaultInstanceForType() {
         return Im.GroupInfo.getDefaultInstance();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.protobuf.MessageLite.Builder
     /* renamed from: d */
     public Im.GroupInfo build() {
@@ -151,145 +159,160 @@ public final class i extends GeneratedMessageLite.Builder<Im.GroupInfo, i> imple
         return buildPartial;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.protobuf.MessageLite.Builder
     /* renamed from: e */
     public Im.GroupInfo buildPartial() {
         Im.GroupInfo groupInfo = new Im.GroupInfo(this);
         int i = this.a;
-        int i2 = 0;
-        if ((i & 1) == 1) {
-            i2 = 1;
-        }
-        groupInfo.groupId_ = this.b;
+        int i2 = this.b;
+        int i3 = (i & 1) == 1 ? 1 : 0;
+        groupInfo.groupId_ = this.c;
         if ((i & 2) == 2) {
-            i2 |= 2;
+            i3 |= 2;
         }
-        groupInfo.forumId_ = this.c;
+        groupInfo.forumId_ = this.d;
         if ((i & 4) == 4) {
-            i2 |= 4;
+            i3 |= 4;
         }
-        groupInfo.name_ = this.d;
+        groupInfo.name_ = this.e;
         if ((i & 8) == 8) {
-            i2 |= 8;
+            i3 |= 8;
         }
-        groupInfo.intro_ = this.e;
+        groupInfo.intro_ = this.f;
         if ((i & 16) == 16) {
-            i2 |= 16;
+            i3 |= 16;
         }
-        groupInfo.portrait_ = this.f;
+        groupInfo.portrait_ = this.g;
         if ((i & 32) == 32) {
-            i2 |= 32;
+            i3 |= 32;
         }
-        groupInfo.position_ = this.g;
+        groupInfo.position_ = this.h;
         if ((i & 64) == 64) {
-            i2 |= 64;
+            i3 |= 64;
         }
-        groupInfo.business_ = this.h;
+        groupInfo.business_ = this.i;
         if ((i & DERTags.TAGGED) == 128) {
-            i2 |= DERTags.TAGGED;
+            i3 |= DERTags.TAGGED;
         }
-        groupInfo.lng_ = this.i;
+        groupInfo.lng_ = this.j;
         if ((i & 256) == 256) {
-            i2 |= 256;
+            i3 |= 256;
         }
-        groupInfo.lat_ = this.j;
+        groupInfo.lat_ = this.k;
         if ((i & ImageManager.DEFAULT_MAX_CACHEABLE_SIZE) == 512) {
-            i2 |= ImageManager.DEFAULT_MAX_CACHEABLE_SIZE;
+            i3 |= ImageManager.DEFAULT_MAX_CACHEABLE_SIZE;
         }
-        groupInfo.notice_ = this.k;
+        groupInfo.notice_ = this.l;
         if ((i & NotificationProxy.MAX_URL_LENGTH) == 1024) {
-            i2 |= NotificationProxy.MAX_URL_LENGTH;
+            i3 |= NotificationProxy.MAX_URL_LENGTH;
         }
-        groupInfo.album_ = this.l;
+        groupInfo.album_ = this.m;
         if ((i & 2048) == 2048) {
-            i2 |= 2048;
+            i3 |= 2048;
         }
-        groupInfo.status_ = this.m;
+        groupInfo.status_ = this.n;
         if ((i & CodedOutputStream.DEFAULT_BUFFER_SIZE) == 4096) {
-            i2 |= CodedOutputStream.DEFAULT_BUFFER_SIZE;
+            i3 |= CodedOutputStream.DEFAULT_BUFFER_SIZE;
         }
-        groupInfo.flag_ = this.n;
+        groupInfo.flag_ = this.o;
         if ((i & 8192) == 8192) {
-            i2 |= 8192;
+            i3 |= 8192;
         }
-        groupInfo.authorId_ = this.o;
+        groupInfo.authorId_ = this.p;
         if ((i & 16384) == 16384) {
-            i2 |= 16384;
+            i3 |= 16384;
         }
-        groupInfo.authorName_ = this.p;
+        groupInfo.authorName_ = this.q;
         if ((i & 32768) == 32768) {
-            i2 |= 32768;
+            i3 |= 32768;
         }
-        groupInfo.authorPortrait_ = this.q;
+        groupInfo.authorPortrait_ = this.r;
         if ((i & 65536) == 65536) {
-            i2 |= 65536;
+            i3 |= 65536;
         }
-        groupInfo.createTime_ = this.r;
+        groupInfo.createTime_ = this.s;
         if ((i & 131072) == 131072) {
-            i2 |= 131072;
+            i3 |= 131072;
         }
-        groupInfo.maxMemberNum_ = this.s;
-        if ((i & 262144) == 262144) {
-            i2 |= 262144;
+        groupInfo.maxMemberNum_ = this.t;
+        if ((262144 & i) == 262144) {
+            i3 |= 262144;
         }
-        groupInfo.memberNum_ = this.t;
-        if ((i & 524288) == 524288) {
-            i2 |= 524288;
+        groupInfo.memberNum_ = this.u;
+        if ((524288 & i) == 524288) {
+            i3 |= 524288;
         }
-        groupInfo.groupType_ = this.u;
+        groupInfo.groupType_ = this.v;
         if ((1048576 & i) == 1048576) {
-            i2 |= 1048576;
+            i3 |= 1048576;
         }
-        groupInfo.lastMsgId_ = this.v;
+        groupInfo.lastMsgId_ = this.w;
         if ((2097152 & i) == 2097152) {
-            i2 |= 2097152;
+            i3 |= 2097152;
         }
-        groupInfo.grade_ = this.w;
+        groupInfo.grade_ = this.x;
         if ((4194304 & i) == 4194304) {
-            i2 |= 4194304;
+            i3 |= 4194304;
         }
-        groupInfo.distance_ = this.x;
+        groupInfo.distance_ = this.y;
         if ((8388608 & i) == 8388608) {
-            i2 |= 8388608;
+            i3 |= 8388608;
         }
-        groupInfo.isHidePosition_ = this.y;
+        groupInfo.isHidePosition_ = this.z;
         if ((16777216 & i) == 16777216) {
-            i2 |= 16777216;
+            i3 |= 16777216;
         }
-        groupInfo.forumName_ = this.z;
+        groupInfo.forumName_ = this.A;
         if ((33554432 & i) == 33554432) {
-            i2 |= 33554432;
+            i3 |= 33554432;
         }
-        groupInfo.nickName_ = this.A;
+        groupInfo.nickName_ = this.B;
         if ((67108864 & i) == 67108864) {
-            i2 |= 67108864;
+            i3 |= 67108864;
         }
-        groupInfo.activeDay_ = this.B;
+        groupInfo.activeDay_ = this.C;
         if ((134217728 & i) == 134217728) {
-            i2 |= 134217728;
+            i3 |= 134217728;
         }
-        groupInfo.isGroupManager_ = this.C;
+        groupInfo.isGroupManager_ = this.D;
         if ((268435456 & i) == 268435456) {
-            i2 |= 268435456;
+            i3 |= 268435456;
         }
-        groupInfo.authorIsMeizhi_ = this.D;
+        groupInfo.authorIsMeizhi_ = this.E;
         if ((536870912 & i) == 536870912) {
-            i2 |= 536870912;
+            i3 |= 536870912;
         }
-        groupInfo.lastMsgTime_ = this.E;
-        if ((i & 1073741824) == 1073741824) {
-            i2 |= 1073741824;
+        groupInfo.lastMsgTime_ = this.F;
+        if ((1073741824 & i) == 1073741824) {
+            i3 |= 1073741824;
         }
-        groupInfo.forumShowName_ = this.F;
-        groupInfo.bitField0_ = i2;
+        groupInfo.forumShowName_ = this.G;
+        if ((i & Integer.MIN_VALUE) == Integer.MIN_VALUE) {
+            i3 |= Integer.MIN_VALUE;
+        }
+        groupInfo.isNewlyCreate_ = this.H;
+        int i4 = (i2 & 1) != 1 ? 0 : 1;
+        groupInfo.isRecentlyReply_ = this.I;
+        groupInfo.bitField0_ = i3;
+        groupInfo.bitField1_ = i4;
         return groupInfo;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
     public i mergeFrom(Im.GroupInfo groupInfo) {
+        Object obj;
+        Object obj2;
+        Object obj3;
+        Object obj4;
+        Object obj5;
+        Object obj6;
+        Object obj7;
+        Object obj8;
+        Object obj9;
+        Object obj10;
+        Object obj11;
+        Object obj12;
         if (groupInfo != Im.GroupInfo.getDefaultInstance()) {
             if (groupInfo.hasGroupId()) {
                 a(groupInfo.getGroupId());
@@ -299,23 +322,28 @@ public final class i extends GeneratedMessageLite.Builder<Im.GroupInfo, i> imple
             }
             if (groupInfo.hasName()) {
                 this.a |= 4;
-                this.d = groupInfo.name_;
+                obj12 = groupInfo.name_;
+                this.e = obj12;
             }
             if (groupInfo.hasIntro()) {
                 this.a |= 8;
-                this.e = groupInfo.intro_;
+                obj11 = groupInfo.intro_;
+                this.f = obj11;
             }
             if (groupInfo.hasPortrait()) {
                 this.a |= 16;
-                this.f = groupInfo.portrait_;
+                obj10 = groupInfo.portrait_;
+                this.g = obj10;
             }
             if (groupInfo.hasPosition()) {
                 this.a |= 32;
-                this.g = groupInfo.position_;
+                obj9 = groupInfo.position_;
+                this.h = obj9;
             }
             if (groupInfo.hasBusiness()) {
                 this.a |= 64;
-                this.h = groupInfo.business_;
+                obj8 = groupInfo.business_;
+                this.i = obj8;
             }
             if (groupInfo.hasLng()) {
                 a(groupInfo.getLng());
@@ -325,11 +353,13 @@ public final class i extends GeneratedMessageLite.Builder<Im.GroupInfo, i> imple
             }
             if (groupInfo.hasNotice()) {
                 this.a |= ImageManager.DEFAULT_MAX_CACHEABLE_SIZE;
-                this.k = groupInfo.notice_;
+                obj7 = groupInfo.notice_;
+                this.l = obj7;
             }
             if (groupInfo.hasAlbum()) {
                 this.a |= NotificationProxy.MAX_URL_LENGTH;
-                this.l = groupInfo.album_;
+                obj6 = groupInfo.album_;
+                this.m = obj6;
             }
             if (groupInfo.hasStatus()) {
                 c(groupInfo.getStatus());
@@ -342,11 +372,13 @@ public final class i extends GeneratedMessageLite.Builder<Im.GroupInfo, i> imple
             }
             if (groupInfo.hasAuthorName()) {
                 this.a |= 16384;
-                this.p = groupInfo.authorName_;
+                obj5 = groupInfo.authorName_;
+                this.q = obj5;
             }
             if (groupInfo.hasAuthorPortrait()) {
                 this.a |= 32768;
-                this.q = groupInfo.authorPortrait_;
+                obj4 = groupInfo.authorPortrait_;
+                this.r = obj4;
             }
             if (groupInfo.hasCreateTime()) {
                 f(groupInfo.getCreateTime());
@@ -374,11 +406,13 @@ public final class i extends GeneratedMessageLite.Builder<Im.GroupInfo, i> imple
             }
             if (groupInfo.hasForumName()) {
                 this.a |= 16777216;
-                this.z = groupInfo.forumName_;
+                obj3 = groupInfo.forumName_;
+                this.A = obj3;
             }
             if (groupInfo.hasNickName()) {
                 this.a |= 33554432;
-                this.A = groupInfo.nickName_;
+                obj2 = groupInfo.nickName_;
+                this.B = obj2;
             }
             if (groupInfo.hasActiveDay()) {
                 m(groupInfo.getActiveDay());
@@ -394,7 +428,14 @@ public final class i extends GeneratedMessageLite.Builder<Im.GroupInfo, i> imple
             }
             if (groupInfo.hasForumShowName()) {
                 this.a |= 1073741824;
-                this.F = groupInfo.forumShowName_;
+                obj = groupInfo.forumShowName_;
+                this.G = obj;
+            }
+            if (groupInfo.hasIsNewlyCreate()) {
+                q(groupInfo.getIsNewlyCreate());
+            }
+            if (groupInfo.hasIsRecentlyReply()) {
+                r(groupInfo.getIsRecentlyReply());
             }
         }
         return this;
@@ -405,8 +446,7 @@ public final class i extends GeneratedMessageLite.Builder<Im.GroupInfo, i> imple
         return true;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Removed duplicated region for block: B:14:0x001e  */
+    /* JADX WARN: Removed duplicated region for block: B:36:0x001e  */
     @Override // com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
     /* renamed from: a */
     /*
@@ -446,20 +486,20 @@ public final class i extends GeneratedMessageLite.Builder<Im.GroupInfo, i> imple
 
     public i a(int i) {
         this.a |= 1;
-        this.b = i;
+        this.c = i;
         return this;
     }
 
     public i b(int i) {
         this.a |= 2;
-        this.c = i;
+        this.d = i;
         return this;
     }
 
     public i a(String str) {
         if (str != null) {
             this.a |= 4;
-            this.d = str;
+            this.e = str;
         }
         return this;
     }
@@ -467,7 +507,7 @@ public final class i extends GeneratedMessageLite.Builder<Im.GroupInfo, i> imple
     public i b(String str) {
         if (str != null) {
             this.a |= 8;
-            this.e = str;
+            this.f = str;
         }
         return this;
     }
@@ -475,7 +515,7 @@ public final class i extends GeneratedMessageLite.Builder<Im.GroupInfo, i> imple
     public i c(String str) {
         if (str != null) {
             this.a |= 16;
-            this.f = str;
+            this.g = str;
         }
         return this;
     }
@@ -483,118 +523,130 @@ public final class i extends GeneratedMessageLite.Builder<Im.GroupInfo, i> imple
     public i d(String str) {
         if (str != null) {
             this.a |= 32;
-            this.g = str;
+            this.h = str;
         }
         return this;
     }
 
     public i a(double d) {
         this.a |= DERTags.TAGGED;
-        this.i = d;
+        this.j = d;
         return this;
     }
 
     public i b(double d) {
         this.a |= 256;
-        this.j = d;
+        this.k = d;
         return this;
     }
 
     public i e(String str) {
         if (str != null) {
             this.a |= NotificationProxy.MAX_URL_LENGTH;
-            this.l = str;
+            this.m = str;
         }
         return this;
     }
 
     public i c(int i) {
         this.a |= 2048;
-        this.m = i;
+        this.n = i;
         return this;
     }
 
     public i d(int i) {
         this.a |= CodedOutputStream.DEFAULT_BUFFER_SIZE;
-        this.n = i;
+        this.o = i;
         return this;
     }
 
     public i e(int i) {
         this.a |= 8192;
-        this.o = i;
+        this.p = i;
         return this;
     }
 
     public i f(int i) {
         this.a |= 65536;
-        this.r = i;
+        this.s = i;
         return this;
     }
 
     public i g(int i) {
         this.a |= 131072;
-        this.s = i;
+        this.t = i;
         return this;
     }
 
     public i h(int i) {
         this.a |= 262144;
-        this.t = i;
+        this.u = i;
         return this;
     }
 
     public i i(int i) {
         this.a |= 524288;
-        this.u = i;
+        this.v = i;
         return this;
     }
 
     public i a(long j) {
         this.a |= 1048576;
-        this.v = j;
+        this.w = j;
         return this;
     }
 
     public i j(int i) {
         this.a |= 2097152;
-        this.w = i;
+        this.x = i;
         return this;
     }
 
     public i k(int i) {
         this.a |= 4194304;
-        this.x = i;
+        this.y = i;
         return this;
     }
 
     public i l(int i) {
         this.a |= 8388608;
-        this.y = i;
+        this.z = i;
         return this;
     }
 
     public i m(int i) {
         this.a |= 67108864;
-        this.B = i;
+        this.C = i;
         return this;
     }
 
     public i n(int i) {
         this.a |= 134217728;
-        this.C = i;
+        this.D = i;
         return this;
     }
 
     public i o(int i) {
         this.a |= 268435456;
-        this.D = i;
+        this.E = i;
         return this;
     }
 
     public i p(int i) {
         this.a |= 536870912;
-        this.E = i;
+        this.F = i;
+        return this;
+    }
+
+    public i q(int i) {
+        this.a |= Integer.MIN_VALUE;
+        this.H = i;
+        return this;
+    }
+
+    public i r(int i) {
+        this.b |= 1;
+        this.I = i;
         return this;
     }
 }

@@ -10,8 +10,8 @@ import com.baidu.browser.explorer.BdWebErrorView;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.topRec.TRForumListData;
-import com.baidu.tieba.util.bb;
-import com.baidu.tieba.util.be;
+import com.baidu.tieba.util.bl;
+import com.baidu.tieba.util.bo;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class e extends BaseAdapter implements View.OnClickListener {
@@ -101,12 +101,12 @@ public class e extends BaseAdapter implements View.OnClickListener {
             view.setOnClickListener(this);
         }
         g gVar2 = (g) view.getTag();
-        int an = TiebaApplication.h().an();
-        bb.c(gVar2.b, an);
-        bb.c(gVar2.c, an);
-        bb.c(gVar2.d, an);
-        bb.c(gVar2.e, an);
-        bb.c(gVar2.f, an);
+        int an = TiebaApplication.g().an();
+        bl.c(gVar2.b, an);
+        bl.c(gVar2.c, an);
+        bl.c(gVar2.d, an);
+        bl.c(gVar2.e, an);
+        bl.c(gVar2.f, an);
         if (an != 1) {
             gVar2.b.setTextColor(-14277082);
             gVar2.c.setTextColor(-6775644);
@@ -119,7 +119,7 @@ public class e extends BaseAdapter implements View.OnClickListener {
             view.setBackgroundColor(this.c.getResources().getColor(R.color.flist_item_color_even_day));
         }
         TRForumListData.TRForum tRForum = this.a.forum_list[i];
-        be.e("ForumListAdapter", "getView", "forum name:" + this.a.forum_list[i].forum_name + "forum avatar:" + this.a.forum_list[i].avatar);
+        bo.e("ForumListAdapter", "getView", "forum name:" + this.a.forum_list[i].forum_name + "forum avatar:" + this.a.forum_list[i].avatar);
         String str = tRForum.avatar;
         this.d.f(str, new f(this, str, gVar2.a));
         gVar2.a.setTag(str);
@@ -133,7 +133,7 @@ public class e extends BaseAdapter implements View.OnClickListener {
             }
             gVar2.f.setText(R.string.attention_y);
             gVar2.f.setGravity(17);
-            if (TiebaApplication.h().an() == 1) {
+            if (TiebaApplication.g().an() == 1) {
                 gVar2.f.setTextColor(this.c.getResources().getColor(R.color.forum_list_already_attention_night));
             } else {
                 gVar2.f.setTextColor(this.c.getResources().getColor(R.color.forum_list_attention));
@@ -161,7 +161,7 @@ public class e extends BaseAdapter implements View.OnClickListener {
         }
         int i = 0;
         for (int i2 = 0; i2 < this.a.forum_list.length; i2++) {
-            int e = TiebaApplication.h().e(this.a.forum_list[i2].forum_name);
+            int e = TiebaApplication.g().e(this.a.forum_list[i2].forum_name);
             if (e == 1) {
                 if (this.a.forum_list[i2].is_like == 0) {
                     this.a.forum_list[i2].is_like = 1;

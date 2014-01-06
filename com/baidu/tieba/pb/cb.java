@@ -2,21 +2,33 @@ package com.baidu.tieba.pb;
 
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.widget.ColumnLayout;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.view.HeadImageView;
+import com.baidu.tieba.view.UserIconBox;
 /* loaded from: classes.dex */
-public class cb {
+class cb {
     public View a;
-    public ColumnLayout b;
-    public HeadImageView c;
+    public HeadImageView b;
+    public TextView c;
     public TextView d;
-    public Button e;
-    public TbRichTextView f;
-    final /* synthetic */ ca g;
+    public TextView e;
+    public TextView f;
+    public ImageView g;
+    public Button h;
+    public Button i;
+    public TbRichTextView j;
+    public ColumnLayout k;
+    public SubPbLayout l;
+    public LinearLayout m;
+    public UserIconBox n;
+    UserIconBox o;
+    final /* synthetic */ bz p;
 
-    public cb(ca caVar) {
-        this.g = caVar;
+    private cb(bz bzVar) {
+        this.p = bzVar;
     }
 }

@@ -16,9 +16,9 @@ class n implements Runnable {
     public void run() {
         TextView textView;
         TextView textView2;
-        textView = this.b.u;
+        textView = this.b.s;
         textView.setVisibility(0);
-        textView2 = this.b.u;
+        textView2 = this.b.s;
         textView2.setText(this.a);
     }
 }

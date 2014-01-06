@@ -5,16 +5,16 @@ import android.app.NotificationManager;
 import android.os.Handler;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tieba.data.VersionData;
-import com.baidu.tieba.util.an;
-import com.baidu.tieba.util.be;
-import com.baidu.tieba.util.y;
+import com.baidu.tieba.util.aa;
+import com.baidu.tieba.util.at;
+import com.baidu.tieba.util.bo;
 import com.slidingmenu.lib.R;
 import java.io.File;
 /* loaded from: classes.dex */
 class v extends BdAsyncTask<String, Integer, Boolean> {
     final /* synthetic */ TiebaUpdateService a;
     private String b;
-    private an c = null;
+    private at c = null;
     private volatile boolean d = false;
 
     public v(TiebaUpdateService tiebaUpdateService, String str) {
@@ -34,9 +34,9 @@ class v extends BdAsyncTask<String, Integer, Boolean> {
         Boolean bool2 = false;
         while (!this.d) {
             try {
-                this.c = new an(this.b);
+                this.c = new at(this.b);
                 handler = this.a.l;
-                bool2 = this.c.a(this.a.a + ".tmp", handler, 900003);
+                bool2 = Boolean.valueOf(this.c.a(this.a.a + ".tmp", handler, 900003));
                 if (bool2.booleanValue()) {
                     break;
                 } else if (this.c.e() == -2) {
@@ -56,15 +56,15 @@ class v extends BdAsyncTask<String, Integer, Boolean> {
         bool = bool2;
         try {
             if (bool.booleanValue()) {
-                y.j(this.a.a);
-                File d = y.d(this.a.a + ".tmp");
-                if (d != null && (e2 = y.e(this.a.a)) != null && !d.renameTo(e2)) {
-                    be.b(getClass().getName(), "doInBackground", "renameTo error");
+                aa.j(this.a.a);
+                File d = aa.d(this.a.a + ".tmp");
+                if (d != null && (e2 = aa.e(this.a.a)) != null && !d.renameTo(e2)) {
+                    bo.b(getClass().getName(), "doInBackground", "renameTo error");
                 }
             }
         } catch (Exception e5) {
             e = e5;
-            be.b(getClass().getName(), "doInBackground", e.getMessage());
+            bo.b(getClass().getName(), "doInBackground", e.getMessage());
             return bool;
         }
         return bool;
@@ -113,7 +113,7 @@ class v extends BdAsyncTask<String, Integer, Boolean> {
                 }
             }
         } catch (Exception e) {
-            be.b(getClass().getName(), "onPostExecute", e.getMessage());
+            bo.b(getClass().getName(), "onPostExecute", e.getMessage());
         }
         z = this.a.j;
         if (z) {

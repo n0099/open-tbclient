@@ -18,6 +18,6 @@ public class l extends SingleRunnable<PersonalSettingItemData> {
     @Override // com.baidu.tieba.im.SingleRunnable
     /* renamed from: a */
     public PersonalSettingItemData b() {
-        return a.a(TiebaApplication.B(), String.valueOf(this.a));
+        return a.a(TiebaApplication.A(), String.valueOf(this.a));
     }
 }

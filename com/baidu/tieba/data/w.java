@@ -6,6 +6,7 @@ import android.text.SpannableString;
 import android.text.style.ImageSpan;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.location.LocationClientOption;
+import com.baidu.tieba.util.bo;
 import com.baidu.tieba.voice.VoiceManager;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
@@ -14,7 +15,7 @@ import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class w implements com.baidu.tieba.util.al {
+public class w extends com.baidu.tieba.util.ap {
     private String a;
     private String b;
     private String c;
@@ -27,11 +28,12 @@ public class w implements com.baidu.tieba.util.al {
     private int j;
     private int k;
     private int l;
-    private ArrayList<ai> m;
+    private ArrayList<aj> m;
     private ArrayList<VoiceManager.VoiceModel> n = new ArrayList<>();
     private int o = 0;
     private int p;
     private LinkedList<IconData> q;
+    private LinkedList<IconData> r;
 
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
@@ -48,7 +50,9 @@ public class w implements com.baidu.tieba.util.al {
                 this.l = jSONObject.optInt("is_up", 0);
                 this.h = jSONObject.optLong("create_time", 0L);
                 this.p = jSONObject.optInt("is_voice_thread");
-                JSONArray optJSONArray = jSONObject.optJSONObject("userinfo").optJSONArray("iconinfo");
+                JSONObject optJSONObject = jSONObject.optJSONObject("userinfo");
+                JSONArray optJSONArray = optJSONObject.optJSONArray("iconinfo");
+                JSONArray optJSONArray2 = optJSONObject.optJSONArray("tshow_icon");
                 if (optJSONArray != null) {
                     if (this.q == null) {
                         this.q = new LinkedList<>();
@@ -59,36 +63,46 @@ public class w implements com.baidu.tieba.util.al {
                         this.q.add(iconData);
                     }
                 }
+                if (optJSONArray2 != null) {
+                    if (this.r == null) {
+                        this.r = new LinkedList<>();
+                    }
+                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                        IconData iconData2 = new IconData();
+                        iconData2.parserJson(optJSONArray2.getJSONObject(i2));
+                        this.r.add(iconData2);
+                    }
+                }
                 StringBuilder sb = new StringBuilder();
-                JSONArray optJSONArray2 = jSONObject.optJSONArray("abstract");
-                if (optJSONArray2 != null && optJSONArray2.length() > 0) {
-                    int length = optJSONArray2.length();
-                    for (int i2 = 0; i2 < length; i2++) {
-                        JSONObject jSONObject2 = optJSONArray2.getJSONObject(i2);
+                JSONArray optJSONArray3 = jSONObject.optJSONArray("abstract");
+                if (optJSONArray3 != null && optJSONArray3.length() > 0) {
+                    int length = optJSONArray3.length();
+                    for (int i3 = 0; i3 < length; i3++) {
+                        JSONObject jSONObject2 = optJSONArray3.getJSONObject(i3);
                         if (jSONObject2 != null && jSONObject2.optInt("type", -1) == this.o) {
                             sb.append(jSONObject2.optString("text", ""));
                         }
                     }
                 }
                 this.i = sb.toString();
-                JSONArray optJSONArray3 = jSONObject.optJSONArray("media");
-                if (optJSONArray3 != null) {
+                JSONArray optJSONArray4 = jSONObject.optJSONArray("media");
+                if (optJSONArray4 != null) {
                     if (this.m == null) {
                         this.m = new ArrayList<>();
                     }
-                    for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
-                        ai aiVar = new ai();
-                        aiVar.a(optJSONArray3.getJSONObject(i3));
-                        if (aiVar.b() != null && aiVar.b().length() > 0) {
-                            this.m.add(aiVar);
+                    for (int i4 = 0; i4 < optJSONArray4.length(); i4++) {
+                        aj ajVar = new aj();
+                        ajVar.a(optJSONArray4.getJSONObject(i4));
+                        if (ajVar.b() != null && ajVar.b().length() > 0) {
+                            this.m.add(ajVar);
                         }
                     }
                 }
-                JSONArray optJSONArray4 = jSONObject.optJSONArray("voice_info");
-                if (optJSONArray4 != null) {
-                    for (int i4 = 0; i4 < optJSONArray4.length(); i4++) {
+                JSONArray optJSONArray5 = jSONObject.optJSONArray("voice_info");
+                if (optJSONArray5 != null) {
+                    for (int i5 = 0; i5 < optJSONArray5.length(); i5++) {
                         VoiceManager.VoiceModel voiceModel = new VoiceManager.VoiceModel();
-                        JSONObject jSONObject3 = optJSONArray4.getJSONObject(i4);
+                        JSONObject jSONObject3 = optJSONArray5.getJSONObject(i5);
                         voiceModel.from = "home_voice_play";
                         voiceModel.voiceId = jSONObject3.optString("voice_md5");
                         voiceModel.duration = jSONObject3.optInt("during_time") / LocationClientOption.MIN_SCAN_SPAN;
@@ -97,9 +111,13 @@ public class w implements com.baidu.tieba.util.al {
                 }
                 a(optString);
             } catch (Exception e) {
-                com.baidu.tieba.util.be.b(w.class.getName(), "parserJson", "error = " + e.getMessage());
+                bo.b(w.class.getName(), "parserJson", "error = " + e.getMessage());
             }
         }
+    }
+
+    public LinkedList<IconData> a() {
+        return this.r;
     }
 
     public void a(String str) {
@@ -131,64 +149,64 @@ public class w implements com.baidu.tieba.util.al {
         }
     }
 
-    public String a() {
+    public String b() {
         return this.a;
     }
 
-    public String b() {
+    public String c() {
         return this.b != null ? this.b : "";
     }
 
-    public String c() {
+    public String d() {
         return this.c != null ? this.c : "";
     }
 
-    public SpannableString d() {
+    public SpannableString e() {
         return this.d;
     }
 
-    public int e() {
+    public int f() {
         return this.e;
     }
 
-    public String f() {
+    public String g() {
         return this.g != null ? this.g : "";
     }
 
-    public long g() {
+    public long h() {
         return this.h;
     }
 
-    public String h() {
+    public String i() {
         return this.i != null ? this.i : "";
     }
 
-    public int i() {
+    public int j() {
         return this.j;
     }
 
-    public ArrayList<ai> j() {
+    public ArrayList<aj> k() {
         return this.m;
     }
 
-    public ArrayList<VoiceManager.VoiceModel> k() {
+    public ArrayList<VoiceManager.VoiceModel> l() {
         return this.n;
     }
 
-    public LinkedList<IconData> l() {
+    public LinkedList<IconData> m() {
         return this.q;
     }
 
-    @Override // com.baidu.tieba.util.al
+    @Override // com.baidu.tieba.util.ap, com.baidu.tieba.util.ar
     public LinkedList<String> getImageUrl() {
         if (this.m == null) {
             return null;
         }
         LinkedList<String> linkedList = new LinkedList<>();
-        Iterator<ai> it = this.m.iterator();
+        Iterator<aj> it = this.m.iterator();
         int i = 0;
         while (it.hasNext()) {
-            ai next = it.next();
+            aj next = it.next();
             i++;
             if (i > 3) {
                 break;
@@ -197,15 +215,5 @@ public class w implements com.baidu.tieba.util.al {
             }
         }
         return linkedList;
-    }
-
-    @Override // com.baidu.tieba.util.al
-    public LinkedList<String> getPhotoUrl() {
-        return null;
-    }
-
-    @Override // com.baidu.tieba.util.al
-    public LinkedList<String> getForumPhotoUrl() {
-        return null;
     }
 }

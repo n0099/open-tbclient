@@ -1,18 +1,12 @@
 package com.baidu.tieba.im.chat;
 
-import android.content.Intent;
-import android.view.View;
-import android.view.animation.AlphaAnimation;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
+import android.text.TextUtils;
 import android.widget.TextView;
 import com.baidu.tieba.view.MultiImageView;
-import com.baidu.tieba.view.NavigationBar;
-import com.slidingmenu.lib.R;
+import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class am implements View.OnClickListener {
+public class am implements ag {
     final /* synthetic */ MsgImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -20,93 +14,102 @@ public class am implements View.OnClickListener {
         this.a = msgImageActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        ImageView imageView;
-        FrameLayout frameLayout;
+    /* JADX WARN: Code restructure failed: missing block: B:5:0x0015, code lost:
+        if (r0 != false) goto L39;
+     */
+    @Override // com.baidu.tieba.im.chat.ag
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void a(ArrayList<String> arrayList) {
+        ArrayList arrayList2;
+        ArrayList arrayList3;
+        ArrayList arrayList4;
+        String str;
+        String str2;
+        String str3;
         boolean z;
-        NavigationBar navigationBar;
-        MultiImageView multiImageView;
-        AlphaAnimation alphaAnimation;
-        AlphaAnimation alphaAnimation2;
-        AlphaAnimation alphaAnimation3;
-        NavigationBar navigationBar2;
-        AlphaAnimation alphaAnimation4;
-        NavigationBar navigationBar3;
-        MultiImageView multiImageView2;
-        NavigationBar navigationBar4;
-        MultiImageView multiImageView3;
-        MultiImageView multiImageView4;
-        ar arVar;
+        ArrayList arrayList5;
         TextView textView;
-        ProgressBar progressBar;
-        NavigationBar navigationBar5;
+        MultiImageView multiImageView;
+        MultiImageView multiImageView2;
+        MultiImageView multiImageView3;
+        ArrayList<String> arrayList6;
+        MultiImageView multiImageView4;
         int i;
-        imageView = this.a.f;
-        if (view == imageView) {
-            navigationBar5 = this.a.i;
-            if (navigationBar5.getVisibility() != 8) {
-                Intent intent = new Intent();
-                i = this.a.c;
-                intent.putExtra("index", i);
-                this.a.setResult(-1, intent);
-                this.a.finish();
-                return;
+        int i2;
+        ArrayList arrayList7;
+        String str4;
+        ArrayList arrayList8;
+        String str5;
+        boolean z2;
+        this.a.b = arrayList;
+        arrayList2 = this.a.b;
+        if (arrayList2 != null) {
+            z2 = this.a.w;
+        }
+        this.a.b = new ArrayList();
+        arrayList3 = this.a.b;
+        if (arrayList3.isEmpty()) {
+            str4 = this.a.r;
+            if (!TextUtils.isEmpty(str4)) {
+                arrayList8 = this.a.b;
+                str5 = this.a.r;
+                arrayList8.add(str5);
             }
+        }
+        arrayList4 = this.a.b;
+        int size = arrayList4.size();
+        if (size == 0) {
+            this.a.finish();
             return;
         }
-        frameLayout = this.a.g;
-        if (view == frameLayout) {
-            navigationBar4 = this.a.i;
-            if (navigationBar4.getVisibility() != 8) {
-                try {
-                    multiImageView3 = this.a.j;
-                    byte[] currentImageData = multiImageView3.getCurrentImageData();
-                    if (currentImageData != null) {
-                        multiImageView4 = this.a.j;
-                        String currentImageUrl = multiImageView4.getCurrentImageUrl();
-                        this.a.d = new ar(this.a, currentImageUrl, currentImageData);
-                        arVar = this.a.d;
-                        arVar.execute(new String[0]);
-                        textView = this.a.e;
-                        textView.setVisibility(4);
-                        progressBar = this.a.a;
-                        progressBar.setVisibility(0);
-                    } else {
-                        this.a.showToast(this.a.getString(R.string.no_data));
-                    }
-                    return;
-                } catch (Exception e) {
-                    return;
+        StringBuilder append = new StringBuilder().append("get img curUrl:");
+        str = this.a.r;
+        com.baidu.adp.lib.h.e.d(append.append(str).toString());
+        str2 = this.a.r;
+        str3 = this.a.r;
+        String substring = str2.substring(str3.lastIndexOf("/"));
+        int i3 = 0;
+        while (true) {
+            if (i3 >= size) {
+                z = false;
+                break;
+            }
+            arrayList7 = this.a.b;
+            String str6 = (String) arrayList7.get(i3);
+            if (!TextUtils.isEmpty(str6)) {
+                com.baidu.adp.lib.h.e.d("get img url :" + str6);
+                String substring2 = str6.substring(str6.lastIndexOf("/"));
+                if (!TextUtils.isEmpty(substring) && !TextUtils.isEmpty(substring2) && substring2.equals(substring)) {
+                    com.baidu.adp.lib.h.e.d("get img idx:" + i3);
+                    this.a.c = i3;
+                    z = true;
+                    break;
                 }
             }
-            return;
+            i3++;
         }
-        z = this.a.o;
-        if (z) {
-            navigationBar = this.a.i;
-            if (navigationBar.getVisibility() != 0) {
-                navigationBar3 = this.a.i;
-                navigationBar3.setVisibility(0);
-                multiImageView2 = this.a.j;
-                multiImageView2.d();
-                this.a.n = new AlphaAnimation(0.0f, 1.0f);
-            } else {
-                this.a.n = new AlphaAnimation(1.0f, 0.0f);
-                this.a.p = true;
-                multiImageView = this.a.j;
-                multiImageView.e();
-            }
-            alphaAnimation = this.a.n;
-            alphaAnimation.setDuration(300L);
-            alphaAnimation2 = this.a.n;
-            alphaAnimation2.setFillAfter(true);
-            alphaAnimation3 = this.a.n;
-            alphaAnimation3.setAnimationListener(new an(this));
-            this.a.o = false;
-            navigationBar2 = this.a.i;
-            alphaAnimation4 = this.a.n;
-            navigationBar2.startAnimation(alphaAnimation4);
+        MsgImageActivity msgImageActivity = this.a;
+        arrayList5 = this.a.b;
+        msgImageActivity.q = arrayList5.size();
+        if (!z) {
+            MsgImageActivity msgImageActivity2 = this.a;
+            i2 = this.a.q;
+            msgImageActivity2.c = i2 - 1;
         }
+        textView = this.a.h;
+        textView.setVisibility(0);
+        this.a.b();
+        multiImageView = this.a.j;
+        multiImageView.setIsFromCDN(true);
+        multiImageView2 = this.a.j;
+        multiImageView2.setAllowLocalUrl(true);
+        multiImageView3 = this.a.j;
+        arrayList6 = this.a.b;
+        multiImageView3.setUrlData(arrayList6);
+        multiImageView4 = this.a.j;
+        i = this.a.c;
+        multiImageView4.a(i, false);
     }
 }

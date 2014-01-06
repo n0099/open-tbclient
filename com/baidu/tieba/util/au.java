@@ -1,23 +1,18 @@
 package com.baidu.tieba.util;
 
-import com.baidu.tieba.util.UtilHelper;
+import com.baidu.tieba.BaiduAccount.BaiduAccount;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public /* synthetic */ class au {
-    static final /* synthetic */ int[] a = new int[UtilHelper.NetworkStateInfo.values().length];
+public class au implements BaiduAccount.CallbackListener {
+    final /* synthetic */ at a;
 
-    static {
-        try {
-            a[UtilHelper.NetworkStateInfo.WIFI.ordinal()] = 1;
-        } catch (NoSuchFieldError e) {
-        }
-        try {
-            a[UtilHelper.NetworkStateInfo.TwoG.ordinal()] = 2;
-        } catch (NoSuchFieldError e2) {
-        }
-        try {
-            a[UtilHelper.NetworkStateInfo.ThreeG.ordinal()] = 3;
-        } catch (NoSuchFieldError e3) {
-        }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public au(at atVar) {
+        this.a = atVar;
+    }
+
+    @Override // com.baidu.tieba.BaiduAccount.BaiduAccount.CallbackListener
+    public void callback() {
+        this.a.w();
     }
 }

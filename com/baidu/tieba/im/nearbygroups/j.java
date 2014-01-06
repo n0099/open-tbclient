@@ -28,9 +28,11 @@ public class j implements a {
     private TextView n;
     private LinearLayout o;
     private TextView p;
+    private TextView q;
+    private TextView r;
     private LinearLayout a = null;
     private View c = null;
-    private DecimalFormat q = new DecimalFormat("#.#");
+    private DecimalFormat s = new DecimalFormat("#.#");
 
     public j(NearbyGroupsActivity nearbyGroupsActivity) {
         this.b = null;
@@ -45,13 +47,13 @@ public class j implements a {
 
     @Override // com.baidu.tieba.im.nearbygroups.a
     public void a(int i, Object obj) {
-        if (obj instanceof com.baidu.tieba.im.data.i) {
-            com.baidu.tieba.im.data.i iVar = (com.baidu.tieba.im.data.i) obj;
-            this.o.setTag(iVar.c());
-            this.e.setText(iVar.d());
-            this.f.setText(iVar.h() + "/" + iVar.g());
-            this.g.setText(iVar.e());
-            String f = iVar.f();
+        if (obj instanceof com.baidu.tieba.im.data.h) {
+            com.baidu.tieba.im.data.h hVar = (com.baidu.tieba.im.data.h) obj;
+            this.o.setTag(hVar.c());
+            this.e.setText(hVar.d());
+            this.f.setText(hVar.h() + "/" + hVar.g());
+            this.g.setText(hVar.e());
+            String f = hVar.f();
             this.d.setTag(null);
             this.d.setDefaultResource(R.drawable.avatar_poto_defaul140);
             this.d.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
@@ -60,19 +62,29 @@ public class j implements a {
             if (!TextUtils.isEmpty(f)) {
                 this.d.setTag(f);
             }
-            a(this.k, iVar.i());
-            String b = b(iVar.j());
+            a(this.k, hVar.i());
+            String b = b(hVar.j());
             this.m.setText(b);
             this.n.setText(b);
-            if (iVar.a()) {
+            if (hVar.a()) {
                 this.p.setVisibility(0);
                 this.m.setVisibility(0);
                 this.n.setVisibility(8);
-                return;
+            } else {
+                this.p.setVisibility(8);
+                this.m.setVisibility(8);
+                this.n.setVisibility(0);
             }
-            this.p.setVisibility(8);
-            this.m.setVisibility(8);
-            this.n.setVisibility(0);
+            if (hVar.k()) {
+                this.q.setVisibility(0);
+            } else {
+                this.q.setVisibility(8);
+            }
+            if (hVar.l()) {
+                this.r.setVisibility(0);
+            } else {
+                this.r.setVisibility(8);
+            }
         }
     }
 
@@ -84,7 +96,7 @@ public class j implements a {
             }
             return "<" + (i2 + 1) + "00m";
         }
-        return this.q.format(i / 1000.0d) + "km";
+        return this.s.format(i / 1000.0d) + "km";
     }
 
     private void a(ImageView[] imageViewArr, int i) {
@@ -105,6 +117,8 @@ public class j implements a {
         this.c = LayoutInflater.from(this.b).inflate(R.layout.im_group_list_item, (ViewGroup) null);
         this.a = (LinearLayout) this.c.findViewById(R.id.list_item);
         this.p = (TextView) this.c.findViewById(R.id.isMeizi);
+        this.q = (TextView) this.c.findViewById(R.id.isNewCreate);
+        this.r = (TextView) this.c.findViewById(R.id.isRecentlyReplay);
         this.o = (LinearLayout) this.c.findViewById(R.id.list_item_content);
         this.l = (TextView) this.c.findViewById(R.id.tv_im_line_bottom);
         this.m = (TextView) this.c.findViewById(R.id.tv_distance);
@@ -131,6 +145,6 @@ public class j implements a {
     }
 
     public void c() {
-        a(TiebaApplication.h().an());
+        a(TiebaApplication.g().an());
     }
 }

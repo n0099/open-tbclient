@@ -23,8 +23,8 @@ public class b implements View.OnClickListener {
         BaseFragmentActivity baseFragmentActivity;
         BaseFragmentActivity baseFragmentActivity2;
         imageView = this.a.Y;
-        if (view == imageView && TiebaApplication.C()) {
-            if (TiebaApplication.h().t()) {
+        if (view == imageView && TiebaApplication.B()) {
+            if (TiebaApplication.g().s()) {
                 baseFragmentActivity2 = this.a.af;
                 StatService.onEvent(baseFragmentActivity2, "msg_newchat_tab_c", "click", 1);
             }

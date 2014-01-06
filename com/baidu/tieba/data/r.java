@@ -1,5 +1,6 @@
 package com.baidu.tieba.data;
 
+import com.baidu.tieba.util.bo;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -9,7 +10,7 @@ public class r {
     private int e;
     private String f;
     private long c = 0;
-    private ae a = new ae();
+    private af a = new af();
 
     public r() {
         this.b = true;
@@ -38,7 +39,7 @@ public class r {
             this.b = true;
         } catch (Exception e) {
             this.b = false;
-            com.baidu.tieba.util.be.b(getClass().getName(), "parserJson", e.toString());
+            bo.b(getClass().getName(), "parserJson", e.toString());
         }
     }
 
@@ -53,11 +54,11 @@ public class r {
             this.c = jSONObject.optLong("time");
         } catch (Exception e) {
             this.b = false;
-            com.baidu.tieba.util.be.b(getClass().getName(), "parserJson", e.toString());
+            bo.b(getClass().getName(), "parserJson", e.toString());
         }
     }
 
-    public ae d() {
+    public af d() {
         return this.a;
     }
 
@@ -70,7 +71,7 @@ public class r {
     }
 
     public boolean f() {
-        return System.currentTimeMillis() / h.g.longValue() == (this.c * 1000) / h.g.longValue();
+        return System.currentTimeMillis() / h.h.longValue() == (this.c * 1000) / h.h.longValue();
     }
 
     public boolean g() {

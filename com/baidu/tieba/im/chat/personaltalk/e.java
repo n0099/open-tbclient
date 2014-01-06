@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.chat.personaltalk;
 
 import android.content.DialogInterface;
-import com.baidu.tieba.im.db.ar;
+import com.baidu.tieba.im.db.as;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements DialogInterface.OnClickListener {
@@ -20,7 +20,7 @@ public class e implements DialogInterface.OnClickListener {
         StringBuilder append = new StringBuilder().append("see del person :");
         j = this.a.c;
         com.baidu.adp.lib.h.e.d(append.append(j).toString());
-        ar a = ar.a();
+        as a = as.a();
         j2 = this.a.c;
         a.a(String.valueOf(j2), new f(this));
     }

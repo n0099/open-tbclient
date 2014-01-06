@@ -12,8 +12,8 @@ public class z implements com.baidu.tbadk.imageManager.c {
     }
 
     @Override // com.baidu.tbadk.imageManager.c
-    public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
+    public void a(com.baidu.adp.widget.ImageView.d dVar, String str, boolean z) {
         this.b.c.setTag(this.a);
-        this.b.a(this.b.c, eVar);
+        this.b.a(this.b.c, dVar);
     }
 }

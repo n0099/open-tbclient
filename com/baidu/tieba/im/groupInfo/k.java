@@ -3,12 +3,12 @@ package com.baidu.tieba.im.groupInfo;
 import android.text.TextUtils;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.im.data.GroupData;
-import com.baidu.tieba.im.message.ak;
-import com.baidu.tieba.im.message.aq;
-import com.baidu.tieba.im.message.bb;
+import com.baidu.tieba.im.message.an;
+import com.baidu.tieba.im.message.at;
 import com.baidu.tieba.im.message.be;
-import com.baidu.tieba.im.message.br;
-import com.baidu.tieba.im.message.bw;
+import com.baidu.tieba.im.message.bh;
+import com.baidu.tieba.im.message.bu;
+import com.baidu.tieba.im.message.bz;
 import com.baidu.tieba.im.model.am;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -26,9 +26,9 @@ public class k implements com.baidu.tieba.im.messageCenter.g {
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(com.baidu.tieba.im.message.n nVar) {
+    public void a(com.baidu.tieba.im.message.o oVar) {
         com.baidu.tieba.im.model.d dVar;
-        com.baidu.tieba.im.message.n l;
+        com.baidu.tieba.im.message.o l;
         com.baidu.tieba.im.model.d dVar2;
         String[] split;
         com.baidu.tieba.im.model.d dVar3;
@@ -65,7 +65,7 @@ public class k implements com.baidu.tieba.im.messageCenter.g {
         com.baidu.tieba.im.model.d dVar21;
         m mVar10;
         com.baidu.tieba.im.model.d dVar22;
-        com.baidu.tieba.im.message.n l2;
+        com.baidu.tieba.im.message.o l2;
         com.baidu.tieba.im.model.d dVar23;
         m mVar11;
         com.baidu.tieba.im.model.d dVar24;
@@ -87,12 +87,12 @@ public class k implements com.baidu.tieba.im.messageCenter.g {
         com.baidu.tieba.im.model.d dVar37;
         com.baidu.tieba.im.model.d dVar38;
         m mVar15;
-        if (nVar == null) {
+        if (oVar == null) {
             mVar15 = this.a.f;
             mVar15.q();
             this.a.showToast(R.string.neterror);
-        } else if (nVar.t() == -102) {
-            if (!(nVar instanceof be)) {
+        } else if (oVar.u() == -102) {
+            if (!(oVar instanceof bh)) {
                 dVar36 = this.a.g;
                 dVar37 = this.a.g;
                 long d = dVar37.d();
@@ -100,10 +100,10 @@ public class k implements com.baidu.tieba.im.messageCenter.g {
                 dVar36.a(d, dVar38.e());
                 return;
             }
-            be beVar = (be) nVar;
+            bh bhVar = (bh) oVar;
             dVar28 = this.a.g;
-            if (dVar28.l() == beVar.l()) {
-                if (beVar.i()) {
+            if (dVar28.l() == bhVar.l()) {
+                if (bhVar.i()) {
                     dVar33 = this.a.g;
                     dVar34 = this.a.g;
                     long d2 = dVar34.d();
@@ -113,47 +113,47 @@ public class k implements com.baidu.tieba.im.messageCenter.g {
                 }
                 this.a.d();
                 dVar29 = this.a.g;
-                dVar29.a(beVar);
+                dVar29.a(bhVar);
                 mVar14 = this.a.f;
-                mVar14.a(beVar);
+                mVar14.a(bhVar);
                 dVar30 = this.a.g;
                 dVar31 = this.a.g;
                 long d3 = dVar31.d();
                 dVar32 = this.a.g;
                 dVar30.a(d3, dVar32.e());
             }
-        } else if (nVar.t() == 103004) {
+        } else if (oVar.u() == 103004) {
             mVar12 = this.a.f;
             mVar12.q();
-            if (!(nVar instanceof be)) {
+            if (!(oVar instanceof bh)) {
                 this.a.showToast(R.string.neterror);
                 return;
             }
-            be beVar2 = (be) nVar;
+            bh bhVar2 = (bh) oVar;
             dVar25 = this.a.g;
-            if (dVar25.m() == beVar2.l()) {
-                if (beVar2.j() == 2230101) {
-                    this.a.showToast(beVar2.k(), false);
+            if (dVar25.m() == bhVar2.l()) {
+                if (bhVar2.j() == 2230101) {
+                    this.a.showToast(bhVar2.k(), false);
                     this.a.finish();
-                } else if (!beVar2.i()) {
+                } else if (!bhVar2.i()) {
                     this.a.d();
                     dVar26 = this.a.g;
-                    dVar26.a(beVar2);
-                    if (beVar2 == null || beVar2.f()) {
+                    dVar26.a(bhVar2);
+                    if (bhVar2 == null || bhVar2.f()) {
                         mVar13 = this.a.f;
-                        mVar13.a(beVar2, false);
+                        mVar13.a(bhVar2, false);
                         return;
                     }
-                    String B = TiebaApplication.B();
+                    String A = TiebaApplication.A();
                     dVar27 = this.a.g;
-                    u.a(B, String.valueOf(dVar27.d()), 60000L, new l(this, beVar2));
+                    u.a(A, String.valueOf(dVar27.d()), 60000L, new l(this, bhVar2));
                 } else {
                     this.a.showToast(R.string.neterror);
                 }
             }
-        } else if (nVar.t() == 103110) {
-            if (nVar instanceof aj) {
-                aj ajVar = (aj) nVar;
+        } else if (oVar.u() == 103110) {
+            if (oVar instanceof aj) {
+                aj ajVar = (aj) oVar;
                 if (!ajVar.i() && (l2 = ajVar.l()) != null && (l2 instanceof ag)) {
                     dVar23 = this.a.g;
                     if (((ag) l2).d() == dVar23.d()) {
@@ -165,18 +165,18 @@ public class k implements com.baidu.tieba.im.messageCenter.g {
                     }
                 }
             }
-        } else if (nVar.t() == 103102) {
+        } else if (oVar.u() == 103102) {
             mVar5 = this.a.f;
             mVar5.q();
-            if (!(nVar instanceof bw)) {
+            if (!(oVar instanceof bz)) {
                 this.a.showToast(R.string.neterror);
                 return;
             }
-            bw bwVar = (bw) nVar;
-            if (bwVar.j() != 0) {
-                this.a.showToast(bwVar.k());
-            } else if (bwVar.l() instanceof aq) {
-                int e = ((aq) bwVar.l()).e();
+            bz bzVar = (bz) oVar;
+            if (bzVar.j() != 0) {
+                this.a.showToast(bzVar.k());
+            } else if (bzVar.l() instanceof at) {
+                int e = ((at) bzVar.l()).e();
                 i = this.a.e;
                 switch (i) {
                     case 1:
@@ -249,15 +249,15 @@ public class k implements com.baidu.tieba.im.messageCenter.g {
                         return;
                 }
             }
-        } else if (nVar.t() == 103112) {
-            if (nVar instanceof br) {
-                br brVar = (br) nVar;
-                if (!brVar.i() && (l = brVar.l()) != null && (l instanceof ak)) {
-                    ak akVar = (ak) l;
-                    long b = akVar.b();
+        } else if (oVar.u() == 103112) {
+            if (oVar instanceof bu) {
+                bu buVar = (bu) oVar;
+                if (!buVar.i() && (l = buVar.l()) != null && (l instanceof an)) {
+                    an anVar = (an) l;
+                    long b = anVar.b();
                     dVar2 = this.a.g;
                     if (b == dVar2.d()) {
-                        String c = akVar.c();
+                        String c = anVar.c();
                         if (!TextUtils.isEmpty(c) && (split = c.split(",")) != null && split.length != 0) {
                             String id = TiebaApplication.F().getID();
                             if (!TextUtils.isEmpty(id)) {
@@ -294,11 +294,11 @@ public class k implements com.baidu.tieba.im.messageCenter.g {
                     }
                 }
             }
-        } else if (nVar.t() == 103104 && (nVar instanceof bb)) {
-            bb bbVar = (bb) nVar;
-            if (!bbVar.i()) {
+        } else if (oVar.u() == 103104 && (oVar instanceof be)) {
+            be beVar = (be) oVar;
+            if (!beVar.i()) {
                 dVar = this.a.g;
-                if (dVar.d() == bbVar.a()) {
+                if (dVar.d() == beVar.a()) {
                     this.a.finish();
                 }
             }

@@ -1,84 +1,139 @@
 package com.baidu.tieba.view;
 
+import android.app.Dialog;
+import android.content.Context;
+import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
-import com.baidu.tieba.util.UtilHelper;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class as implements android.support.v4.view.bq {
-    final /* synthetic */ MultiImageView a;
+public class as extends Dialog {
+    private Window a;
+    private ImageView b;
+    private View c;
+    private ProgressBar d;
+    private View.OnTouchListener e;
+    private int f;
+    private int g;
+    private int h;
+    private int i;
+    private int j;
+    private int k;
+    private int l;
+    private int m;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public as(MultiImageView multiImageView) {
-        this.a = multiImageView;
+    public as(Context context, int i, int i2) {
+        super(context, R.style.big_image_dialog);
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        this.d = null;
+        this.e = null;
+        this.f = 0;
+        this.g = 0;
+        this.h = 0;
+        this.i = 0;
+        this.j = 0;
+        this.k = 0;
+        this.l = 0;
+        this.m = 0;
+        this.l = com.baidu.adp.lib.h.g.a(context, 0.0f);
+        this.f = i;
+        this.g = i2;
+        if (this.f <= 0) {
+            this.f = 1;
+        }
+        if (this.g <= 0) {
+            this.g = 1;
+        }
+        this.c = LayoutInflater.from(context).inflate(R.layout.big_image_dialog, (ViewGroup) null);
+        this.b = (ImageView) this.c.findViewById(R.id.image);
+        this.b.setScaleType(ImageView.ScaleType.FIT_CENTER);
+        this.b.setPadding(this.l, this.l, this.l, this.l);
+        this.h = (int) (this.f * 0.8d);
+        this.i = (int) (this.g * 0.8d);
+        this.d = (ProgressBar) this.c.findViewById(R.id.image_progress);
+        this.e = new at(this);
     }
 
-    @Override // android.support.v4.view.bq
-    public void onPageScrollStateChanged(int i) {
-        android.support.v4.view.bq bqVar;
-        android.support.v4.view.bq bqVar2;
-        bqVar = this.a.g;
-        if (bqVar != null) {
-            bqVar2 = this.a.g;
-            bqVar2.onPageScrollStateChanged(i);
+    public void a() {
+        if (isShowing()) {
+            this.d.setVisibility(8);
+            com.baidu.adp.lib.h.g.a(getContext(), getContext().getResources().getString(R.string.image_error));
         }
     }
 
-    @Override // android.support.v4.view.bq
-    public void onPageScrolled(int i, float f, int i2) {
-        android.support.v4.view.bq bqVar;
-        android.support.v4.view.bq bqVar2;
-        bqVar = this.a.g;
-        if (bqVar != null) {
-            bqVar2 = this.a.g;
-            bqVar2.onPageScrolled(i, f, i2);
+    public void a(com.baidu.adp.widget.ImageView.d dVar) {
+        this.d.setVisibility(8);
+        if (dVar != null) {
+            this.b.setLayoutParams(this.b.getLayoutParams());
+            dVar.a(this.b);
         }
     }
 
-    @Override // android.support.v4.view.bq
-    public void onPageSelected(int i) {
-        GalleryViewPager galleryViewPager;
-        GalleryViewPager galleryViewPager2;
-        boolean z;
-        android.support.v4.view.bq bqVar;
-        android.support.v4.view.bq bqVar2;
-        GalleryViewPager galleryViewPager3;
-        boolean z2;
-        GalleryViewPager galleryViewPager4;
-        l imageView;
-        GalleryViewPager galleryViewPager5;
-        com.baidu.tieba.util.be.e(getClass().getName(), "onPageSelected", "postion = " + String.valueOf(i));
-        galleryViewPager = this.a.e;
-        View findViewWithTag = galleryViewPager.findViewWithTag(String.valueOf(i));
-        if (findViewWithTag != null && (findViewWithTag instanceof bu) && (imageView = ((bu) findViewWithTag).getImageView()) != null) {
-            galleryViewPager5 = this.a.e;
-            galleryViewPager5.setSelectedView(imageView);
-            imageView.o();
+    public void a(com.baidu.adp.widget.ImageView.d dVar, boolean z) {
+        b(dVar);
+        if (!z) {
+            this.d.setVisibility(8);
+        } else {
+            this.d.setVisibility(0);
         }
-        galleryViewPager2 = this.a.e;
-        int childCount = galleryViewPager2.getChildCount();
-        for (int i2 = 0; i2 < childCount; i2++) {
-            galleryViewPager4 = this.a.e;
-            View childAt = galleryViewPager4.getChildAt(i2);
-            if (childAt != null && (childAt instanceof bu)) {
-                ((bu) childAt).e();
+        b();
+        show();
+    }
+
+    private void b(com.baidu.adp.widget.ImageView.d dVar) {
+        int i;
+        int d;
+        if (dVar != null) {
+            if (this.h / this.i > dVar.c() / dVar.d()) {
+                i = (dVar.c() * this.i) / dVar.d();
+                d = this.i;
+            } else {
+                i = this.h;
+                d = (dVar.d() * this.h) / dVar.c();
             }
+            ViewGroup.LayoutParams layoutParams = this.b.getLayoutParams();
+            int i2 = i + (this.l * 2);
+            int i3 = d + (this.l * 2);
+            layoutParams.width = i2;
+            layoutParams.height = i3;
+            this.b.setLayoutParams(layoutParams);
+            this.j = (this.f - (i2 + (this.m * 2))) / 2;
+            this.k = (this.g - (i3 + (this.m * 2))) / 2;
+            dVar.a(this.b);
         }
-        UtilHelper.NetworkStateInfo g = UtilHelper.g(this.a.getContext());
-        z = this.a.l;
-        if (z && (g == UtilHelper.NetworkStateInfo.WIFI || g == UtilHelper.NetworkStateInfo.ThreeG)) {
-            for (int i3 = 0; i3 < childCount; i3++) {
-                galleryViewPager3 = this.a.e;
-                View childAt2 = galleryViewPager3.getChildAt(i3);
-                if (childAt2 != null && (childAt2 instanceof bu)) {
-                    z2 = this.a.o;
-                    ((bu) childAt2).a(z2);
-                }
-            }
-        }
-        bqVar = this.a.g;
-        if (bqVar != null) {
-            bqVar2 = this.a.g;
-            bqVar2.onPageSelected(i);
-        }
+    }
+
+    @Override // android.app.Dialog
+    protected void onStop() {
+        super.onStop();
+        this.d.setVisibility(8);
+    }
+
+    @Override // android.app.Dialog
+    protected void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        setContentView(this.c);
+        setCanceledOnTouchOutside(true);
+        setCancelable(true);
+        getWindow().getDecorView().setOnTouchListener(this.e);
+    }
+
+    public void b() {
+        this.a = getWindow();
+        this.a.setWindowAnimations(R.style.big_image_dialog_anim);
+        WindowManager.LayoutParams attributes = this.a.getAttributes();
+        attributes.x = this.j;
+        attributes.y = this.k;
+        attributes.horizontalMargin = 0.0f;
+        attributes.verticalMargin = 0.0f;
+        attributes.gravity = 51;
+        this.a.setAttributes(attributes);
     }
 }

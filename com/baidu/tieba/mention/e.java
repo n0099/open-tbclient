@@ -1,11 +1,7 @@
 package com.baidu.tieba.mention;
-
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e extends BroadcastReceiver {
+public class e implements com.baidu.tieba.im.messageCenter.g {
     final /* synthetic */ MentionActivity a;
 
     private e(MentionActivity mentionActivity) {
@@ -17,10 +13,10 @@ public class e extends BroadcastReceiver {
         this(mentionActivity);
     }
 
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
-        long longExtra = intent.getLongExtra("relay", 0L);
-        long longExtra2 = intent.getLongExtra("at_me", 0L);
-        this.a.a(new long[]{intent.getLongExtra("pletter", 0L), longExtra, longExtra2});
+    @Override // com.baidu.tieba.im.messageCenter.g
+    public void a(com.baidu.tieba.im.message.o oVar) {
+        if (oVar != null && oVar.u() == -124) {
+            this.a.a(oVar);
+        }
     }
 }

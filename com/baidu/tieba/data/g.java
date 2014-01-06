@@ -1,6 +1,7 @@
 package com.baidu.tieba.data;
 
 import com.baidu.cloudsdk.social.core.SocialConstants;
+import com.baidu.tieba.util.bo;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class g {
@@ -15,7 +16,7 @@ public class g {
             try {
                 this.a = jSONObject.optString(SocialConstants.PARAM_CLIENT_ID);
             } catch (Exception e) {
-                com.baidu.tieba.util.be.b(getClass().getName(), "parserJson", e.getMessage());
+                bo.b(getClass().getName(), "parserJson", e.getMessage());
             }
         }
     }

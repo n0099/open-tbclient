@@ -7,7 +7,7 @@ import android.os.Build;
 import android.view.Display;
 import android.view.WindowManager;
 import com.baidu.tieba.compatible.CompatibleUtile;
-import com.baidu.tieba.util.be;
+import com.baidu.tieba.util.bo;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -49,12 +49,12 @@ public final class d {
     public void a(Camera camera, boolean z) {
         Camera.Parameters parameters = camera.getParameters();
         if (parameters == null) {
-            be.c(getClass().getName(), "setDesiredCameraParameters", "Device error: no camera parameters are available. Proceeding without configuration.");
+            bo.c(getClass().getName(), "setDesiredCameraParameters", "Device error: no camera parameters are available. Proceeding without configuration.");
             return;
         }
-        be.a(getClass().getName(), "setDesiredCameraParameters", "Initial camera parameters: " + parameters.flatten());
+        bo.a(getClass().getName(), "setDesiredCameraParameters", "Initial camera parameters: " + parameters.flatten());
         if (z) {
-            be.c(getClass().getName(), "setDesiredCameraParameters", "In camera config safe mode -- most settings will not be honored");
+            bo.c(getClass().getName(), "setDesiredCameraParameters", "In camera config safe mode -- most settings will not be honored");
         }
         String a = a(parameters.getSupportedFocusModes(), "auto");
         if (!z && a == null) {
@@ -87,7 +87,7 @@ public final class d {
         Point point2;
         List<Camera.Size> supportedPreviewSizes = parameters.getSupportedPreviewSizes();
         if (supportedPreviewSizes == null) {
-            be.c(getClass().getName(), "findBestPreviewSizeValue", "Device returned no supported preview sizes; using default");
+            bo.c(getClass().getName(), "findBestPreviewSizeValue", "Device returned no supported preview sizes; using default");
             Camera.Size previewSize = parameters.getPreviewSize();
             return new Point(previewSize.width, previewSize.height);
         }
@@ -106,7 +106,7 @@ public final class d {
                 int i5 = z ? i : i2;
                 if (i4 == point.x && i5 == point.y) {
                     Point point4 = new Point(i, i2);
-                    be.a(getClass().getName(), "sort", "Found preview size exactly matching screen size: " + point4);
+                    bo.a(getClass().getName(), "sort", "Found preview size exactly matching screen size: " + point4);
                     return point4;
                 }
                 float abs = Math.abs((i4 / i5) - f);
@@ -123,15 +123,15 @@ public final class d {
         if (point3 == null) {
             Camera.Size previewSize2 = parameters.getPreviewSize();
             point3 = new Point(previewSize2.width, previewSize2.height);
-            be.a(getClass().getName(), "sort", "No suitable preview sizes, using default: " + point3);
+            bo.a(getClass().getName(), "sort", "No suitable preview sizes, using default: " + point3);
         }
-        be.a(getClass().getName(), "sort", "Found best approximate preview size: " + point3);
+        bo.a(getClass().getName(), "sort", "Found best approximate preview size: " + point3);
         return point3;
     }
 
     private static String a(Collection<String> collection, String... strArr) {
         String str;
-        be.a("CameraConfiguration", "findSettableValue", "Supported values: " + collection);
+        bo.a("CameraConfiguration", "findSettableValue", "Supported values: " + collection);
         if (collection != null) {
             int length = strArr.length;
             for (int i = 0; i < length; i++) {
@@ -142,7 +142,7 @@ public final class d {
             }
         }
         str = null;
-        be.a("CameraConfiguration", "findSettableValue", "Settable value: " + str);
+        bo.a("CameraConfiguration", "findSettableValue", "Settable value: " + str);
         return str;
     }
 }

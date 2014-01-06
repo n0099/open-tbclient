@@ -7,7 +7,7 @@ import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bf extends BdAsyncTask<String, Integer, com.baidu.tieba.model.be> {
-    private volatile com.baidu.tieba.util.an a = null;
+    private volatile com.baidu.tieba.util.at a = null;
     private String b;
     private String c;
     private String d;
@@ -35,17 +35,17 @@ public class bf extends BdAsyncTask<String, Integer, com.baidu.tieba.model.be> {
     public com.baidu.tieba.model.be a(String... strArr) {
         com.baidu.tieba.model.be beVar = null;
         long nanoTime = System.nanoTime();
-        this.a = new com.baidu.tieba.util.an(com.baidu.tieba.data.h.a + "c/s/login");
+        this.a = new com.baidu.tieba.util.at(com.baidu.tieba.data.h.a + "c/s/login");
         this.a.a("bdusstoken", this.c + "|" + this.d);
-        this.a.a("channel_id", TiebaApplication.h().bc());
-        this.a.a("channel_uid", TiebaApplication.h().bb());
+        this.a.a("channel_id", TiebaApplication.g().bc());
+        this.a.a("channel_uid", TiebaApplication.g().bb());
         this.a.c(false);
         String l = this.a.l();
         if (this.a.c()) {
             beVar = new com.baidu.tieba.model.be();
             beVar.a(l);
         } else {
-            com.baidu.tieba.util.be.e(getClass().getName(), "doInBackground", "reLogin fail");
+            com.baidu.tieba.util.bo.e(getClass().getName(), "doInBackground", "reLogin fail");
         }
         if (this.f) {
             long nanoTime2 = 2000 - ((System.nanoTime() - nanoTime) / 1000000);
@@ -80,7 +80,7 @@ public class bf extends BdAsyncTask<String, Integer, com.baidu.tieba.model.be> {
         }
         String i = this.a != null ? this.a.i() : null;
         if (i == null) {
-            i = TiebaApplication.h().getResources().getString(R.string.data_load_error);
+            i = TiebaApplication.g().getResources().getString(R.string.data_load_error);
         }
         this.e.a(this.b, i);
     }

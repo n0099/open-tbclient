@@ -63,9 +63,9 @@ public class v extends com.baidu.adp.a.d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(String str) {
-        com.baidu.adp.lib.cache.s<String> bg = TiebaApplication.h().bg();
-        if (bg != null) {
-            bg.a("dailyrecommend", str, 2592000000L);
+        com.baidu.adp.lib.cache.s<String> bh = TiebaApplication.g().bh();
+        if (bh != null) {
+            bh.a("dailyrecommend", str, 2592000000L);
         }
     }
 

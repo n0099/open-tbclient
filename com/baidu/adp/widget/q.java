@@ -6,7 +6,7 @@ import android.os.SystemClock;
 import android.util.Log;
 import com.baidu.location.LocationClientOption;
 /* loaded from: classes.dex */
-public class q implements al {
+public class q implements am {
     final /* synthetic */ IndicatorView a;
     private final int b;
     private long c;
@@ -21,7 +21,7 @@ public class q implements al {
         this.b = (int) ((indicatorView.getResources().getDisplayMetrics().density * 1.0f) + 0.5f);
     }
 
-    @Override // com.baidu.adp.widget.al
+    @Override // com.baidu.adp.widget.am
     public void a(int i, int i2) {
         Drawable drawable;
         Drawable drawable2;
@@ -191,7 +191,7 @@ public class q implements al {
     }
 
     /* JADX WARN: Incorrect condition in loop: B:17:0x0013 */
-    @Override // com.baidu.adp.widget.al
+    @Override // com.baidu.adp.widget.am
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

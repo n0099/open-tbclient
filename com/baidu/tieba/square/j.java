@@ -35,7 +35,7 @@ public class j implements View.OnClickListener {
                 UtilHelper.a(context, str3, null, str);
                 return;
             }
-            if (TiebaApplication.h().t()) {
+            if (TiebaApplication.g().s()) {
                 context2 = this.a.b;
                 StatService.onEvent(context2, "sq_all_category", "click", 1);
             }

@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.model;
 
-import com.baidu.tieba.im.message.at;
+import com.baidu.tieba.im.message.aw;
 /* loaded from: classes.dex */
 public class l extends com.baidu.adp.a.d {
     @Override // com.baidu.adp.a.d
@@ -8,18 +8,18 @@ public class l extends com.baidu.adp.a.d {
         return false;
     }
 
-    private com.baidu.tieba.im.message.aa b(int i) {
-        com.baidu.tieba.im.message.aa aaVar = new com.baidu.tieba.im.message.aa();
-        aaVar.a(i);
-        return aaVar;
+    private com.baidu.tieba.im.message.ad b(int i) {
+        com.baidu.tieba.im.message.ad adVar = new com.baidu.tieba.im.message.ad();
+        adVar.a(i);
+        return adVar;
     }
 
-    private at b(int i, boolean z) {
-        at atVar = new at();
-        atVar.a(z);
-        atVar.a(i);
-        atVar.a("");
-        return atVar;
+    private aw b(int i, boolean z) {
+        aw awVar = new aw();
+        awVar.a(z);
+        awVar.a(i);
+        awVar.a("");
+        return awVar;
     }
 
     public void a(int i) {

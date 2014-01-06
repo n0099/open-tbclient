@@ -23,10 +23,10 @@ public class ImagePbImageView extends ImageView {
     private boolean g;
     private boolean h;
     private Bitmap i;
-    private com.baidu.adp.widget.ImageView.e j;
-    private SoftReference<com.baidu.adp.widget.ImageView.e> k;
-    private com.baidu.adp.widget.ImageView.e l;
-    private SoftReference<com.baidu.adp.widget.ImageView.e> m;
+    private com.baidu.adp.widget.ImageView.d j;
+    private SoftReference<com.baidu.adp.widget.ImageView.d> k;
+    private com.baidu.adp.widget.ImageView.d l;
+    private SoftReference<com.baidu.adp.widget.ImageView.d> m;
     private int n;
     private Handler o;
 
@@ -83,7 +83,7 @@ public class ImagePbImageView extends ImageView {
         this.l = null;
         this.m = null;
         this.n = -1;
-        this.o = new aj(this);
+        this.o = new ao(this);
         c();
     }
 
@@ -103,7 +103,7 @@ public class ImagePbImageView extends ImageView {
         this.l = null;
         this.m = null;
         this.n = -1;
-        this.o = new aj(this);
+        this.o = new ao(this);
         c();
     }
 
@@ -123,7 +123,7 @@ public class ImagePbImageView extends ImageView {
         this.l = null;
         this.m = null;
         this.n = -1;
-        this.o = new aj(this);
+        this.o = new ao(this);
         c();
     }
 
@@ -133,54 +133,54 @@ public class ImagePbImageView extends ImageView {
 
     @Override // android.widget.ImageView, android.view.View
     protected void onDraw(Canvas canvas) {
-        com.baidu.adp.widget.ImageView.e eVar;
+        com.baidu.adp.widget.ImageView.d dVar;
         super.onDraw(canvas);
-        com.baidu.adp.widget.ImageView.e c = com.baidu.tbadk.imageManager.d.a().c(((String) getTag()) + "_big");
+        com.baidu.adp.widget.ImageView.d c = com.baidu.tbadk.imageManager.d.a().c(((String) getTag()) + "_big");
         if (c == null) {
             this.g = false;
-            if (TiebaApplication.h().an() == 1) {
+            if (TiebaApplication.g().an() == 1) {
                 if (this.m == null) {
-                    this.l = new com.baidu.adp.widget.ImageView.e(com.baidu.tieba.util.m.a((int) R.drawable.image_default_1), false, null);
+                    this.l = new com.baidu.adp.widget.ImageView.d(com.baidu.tieba.util.m.a((int) R.drawable.image_default_1), false, null);
                     this.m = new SoftReference<>(this.l);
                 }
-                eVar = this.m.get();
+                dVar = this.m.get();
             } else {
                 if (this.k == null) {
-                    this.j = new com.baidu.adp.widget.ImageView.e(com.baidu.tieba.util.m.a((int) R.drawable.image_default), false, null);
+                    this.j = new com.baidu.adp.widget.ImageView.d(com.baidu.tieba.util.m.a((int) R.drawable.image_default), false, null);
                     this.k = new SoftReference<>(this.j);
                 }
-                eVar = this.k.get();
+                dVar = this.k.get();
             }
         } else {
             this.g = true;
-            eVar = c;
+            dVar = c;
         }
-        if (eVar != null) {
+        if (dVar != null) {
             this.d.setAlpha(255);
             if (this.n >= 0) {
                 this.d.setAlpha(255 - ((this.n * 255) / 10));
             }
             int a = com.baidu.adp.lib.h.g.a(getContext(), 8.0f);
-            int a2 = eVar.a();
-            int b = eVar.b();
+            int c2 = dVar.c();
+            int d = dVar.d();
             int width = getWidth() - a;
             int height = getHeight();
             this.c.reset();
             if (this.g && this.a) {
-                float min = Math.min(width / a2, height / b);
-                a2 = (int) (a2 * min);
-                b = (int) (b * min);
+                float min = Math.min(width / c2, height / d);
+                c2 = (int) (c2 * min);
+                d = (int) (d * min);
                 this.c.setScale(min, min);
             }
-            float f = ((width + a) - a2) >> 1;
+            float f = ((width + a) - c2) >> 1;
             float f2 = 0.0f;
             if (!this.g || this.b == 0) {
-                f2 = (height - b) >> 1;
+                f2 = (height - d) >> 1;
             }
             this.c.postTranslate(f, f2);
-            eVar.a(canvas, this.c, this.d);
-            if (this.g && TiebaApplication.h().an() == 1) {
-                this.f.set(f, f2, a2 + f, b + f2);
+            dVar.a(canvas, this.c, this.d);
+            if (this.g && TiebaApplication.g().an() == 1) {
+                this.f.set(f, f2, c2 + f, d + f2);
                 canvas.drawRect(this.f, this.e);
             }
             if (this.h && this.i != null && this.g) {

@@ -17,6 +17,6 @@ public class ba implements View.OnClickListener {
     public void onClick(View view) {
         EditText editText;
         editText = this.a.c;
-        UtilHelper.h(this.a, editText.getText().toString().trim());
+        UtilHelper.i(this.a, editText.getText().toString().trim());
     }
 }

@@ -40,7 +40,7 @@ public class o implements View.OnClickListener {
             this.a.d();
             return;
         }
-        com.baidu.tieba.im.model.ae aeVar = new com.baidu.tieba.im.model.ae(com.baidu.tieba.util.y.c("tieba_group_image"), 0, 0, 0, 0);
+        com.baidu.tieba.im.model.ae aeVar = new com.baidu.tieba.im.model.ae(com.baidu.tieba.util.aa.c("tieba_group_image"), 0, 0, 0, 0);
         aeVar.a(new p(this));
         aeVar.a();
         this.a.showLoadingDialog(this.a.getString(R.string.uploading));

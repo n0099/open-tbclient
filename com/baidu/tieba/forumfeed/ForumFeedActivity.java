@@ -19,13 +19,13 @@ import com.baidu.tieba.model.aa;
 import com.baidu.tieba.model.ac;
 import com.baidu.tieba.util.UtilHelper;
 import com.baidu.tieba.view.UserIconBox;
-import com.baidu.tieba.view.cd;
+import com.baidu.tieba.view.cj;
 import com.baidu.tieba.voice.VoiceManager;
 import com.baidu.tieba.voice.af;
 import com.baidu.zeus.Headers;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class ForumFeedActivity extends BaseFragment implements cd {
+public class ForumFeedActivity extends BaseFragment implements cj {
     private VoiceManager a;
     private aa b;
     private i c;
@@ -83,10 +83,10 @@ public class ForumFeedActivity extends BaseFragment implements cd {
         if (F()) {
             this.Y = false;
             if (this.Z == null) {
-                this.Z = Boolean.valueOf(com.baidu.tieba.d.a.a().f());
+                this.Z = Boolean.valueOf(com.baidu.tieba.e.a.a().f());
             } else {
-                this.Y = this.Z.booleanValue() != com.baidu.tieba.d.a.a().f();
-                this.Z = Boolean.valueOf(com.baidu.tieba.d.a.a().f());
+                this.Y = this.Z.booleanValue() != com.baidu.tieba.e.a.a().f();
+                this.Z = Boolean.valueOf(com.baidu.tieba.e.a.a().f());
             }
             boolean N = N();
             if (this.e != N) {
@@ -242,7 +242,7 @@ public class ForumFeedActivity extends BaseFragment implements cd {
     }
 
     private boolean N() {
-        return (TiebaApplication.B() == null || TiebaApplication.G() == null) ? false : true;
+        return (TiebaApplication.A() == null || TiebaApplication.G() == null) ? false : true;
     }
 
     private void O() {
@@ -255,6 +255,9 @@ public class ForumFeedActivity extends BaseFragment implements cd {
     /* JADX INFO: Access modifiers changed from: private */
     public void P() {
         this.h = true;
+        if (this.b == null) {
+            J();
+        }
         if (R()) {
             this.b.a(1);
         } else {
@@ -279,18 +282,18 @@ public class ForumFeedActivity extends BaseFragment implements cd {
         if (this.d != null) {
             frameLayout.removeView(this.d);
         }
-        int an = TiebaApplication.h().an();
+        int an = TiebaApplication.g().an();
         this.d = f.a(this.f, j().getString(R.string.forum_feed_login_tip), an, this);
         this.g.setVisibility(8);
         frameLayout.addView(this.d);
     }
 
-    @Override // com.baidu.tieba.view.cd
+    @Override // com.baidu.tieba.view.cj
     public ListView c() {
         return this.c.m();
     }
 
-    @Override // com.baidu.tieba.view.cd
+    @Override // com.baidu.tieba.view.cj
     public int a() {
         if (this.c == null) {
             return 0;
@@ -298,7 +301,7 @@ public class ForumFeedActivity extends BaseFragment implements cd {
         return this.c.n();
     }
 
-    @Override // com.baidu.tieba.view.cd
+    @Override // com.baidu.tieba.view.cj
     public com.baidu.adp.lib.d.b<TbImageView> G() {
         return this.i;
     }

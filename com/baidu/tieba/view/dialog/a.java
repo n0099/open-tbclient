@@ -12,7 +12,7 @@ import android.widget.TextView;
 import com.baidu.tieba.BaseFragmentActivity;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.j;
-import com.baidu.tieba.util.bb;
+import com.baidu.tieba.util.bl;
 import com.slidingmenu.lib.R;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -80,15 +80,15 @@ public class a {
             if (!TextUtils.isEmpty(this.a)) {
                 this.h.setText(this.a);
                 this.h.setVisibility(0);
-                bb.f(this.g, (int) R.drawable.bg_unite_popup_share_down);
+                bl.f(this.g, (int) R.drawable.bg_unite_popup_share_down);
             } else {
                 this.h.setVisibility(8);
-                bb.f(this.g, (int) R.drawable.bg_unite_popup);
+                bl.f(this.g, (int) R.drawable.bg_unite_popup);
             }
             if (this.b != null && this.b.size() > 0) {
                 int size = this.b.size();
                 for (int i = 0; i < size; i++) {
-                    c(i);
+                    d(i);
                 }
             }
         }
@@ -121,7 +121,7 @@ public class a {
     }
 
     private void d() {
-        int an = TiebaApplication.h().an();
+        int an = TiebaApplication.g().an();
         if (this.e instanceof j) {
             j jVar = (j) this.e;
             jVar.getLayoutMode().a(an == 1);
@@ -143,7 +143,7 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private View c(int i) {
+    private View d(int i) {
         String valueOf;
         int i2;
         int i3;
@@ -170,8 +170,8 @@ public class a {
                             e.printStackTrace();
                             valueOf = str;
                             button.setText(valueOf);
-                            bb.f((View) button, i2);
-                            bb.a(button, intValue2, 3);
+                            bl.f((View) button, i2);
+                            bl.a(button, intValue2, 3);
                             if (this.c != null) {
                             }
                             this.g.addView(inflate);
@@ -195,12 +195,23 @@ public class a {
             i2 = intValue;
         }
         button.setText(valueOf);
-        bb.f((View) button, i2);
-        bb.a(button, intValue2, 3);
+        bl.f((View) button, i2);
+        bl.a(button, intValue2, 3);
         if (this.c != null) {
             button.setOnClickListener(new b(this, i, button));
         }
         this.g.addView(inflate);
         return inflate;
+    }
+
+    public View c(int i) {
+        if (this.g == null) {
+            return null;
+        }
+        int childCount = this.g.getChildCount();
+        if (i < 0 || i > childCount - 1) {
+            return null;
+        }
+        return this.g.getChildAt(i);
     }
 }

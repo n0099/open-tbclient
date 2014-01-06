@@ -4,7 +4,8 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.browser.explorer.share.BdSharer;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.im.data.UploadPicData2;
-import com.baidu.tieba.util.bc;
+import com.baidu.tieba.util.at;
+import com.baidu.tieba.util.bm;
 import com.slidingmenu.lib.R;
 import java.io.Closeable;
 import java.io.File;
@@ -13,7 +14,7 @@ import java.io.RandomAccessFile;
 /* loaded from: classes.dex */
 public class ag extends BdAsyncTask<String, Integer, UploadPicData2> {
     final /* synthetic */ ae a;
-    private com.baidu.tieba.util.an b;
+    private at b;
     private boolean c;
 
     private ag(ae aeVar) {
@@ -48,12 +49,12 @@ public class ag extends BdAsyncTask<String, Integer, UploadPicData2> {
             str = this.a.h;
             File file = new File(str);
             long length = file.length();
-            String a = bc.a(com.baidu.tieba.util.y.a(file));
+            String a = bm.a(com.baidu.tieba.util.aa.a(file));
             if (length == 0 || a == null) {
                 uploadPicData2 = new UploadPicData2();
                 i = ae.b;
                 uploadPicData2.error_code = i;
-                uploadPicData2.error_msg = TiebaApplication.h().getString(R.string.file_not_exist);
+                uploadPicData2.error_msg = TiebaApplication.g().getString(R.string.file_not_exist);
                 com.baidu.adp.lib.f.a.a((Closeable) null);
                 a(100);
             } else {
@@ -84,7 +85,7 @@ public class ag extends BdAsyncTask<String, Integer, UploadPicData2> {
                                     randomAccessFile.seek((i10 - 1) * 10240);
                                     randomAccessFile.read(bArr, 0, i11);
                                 }
-                                this.b = new com.baidu.tieba.util.an(com.baidu.tieba.im.j.g);
+                                this.b = new at(com.baidu.tieba.im.j.g);
                                 this.b.a("resourceId", str3);
                                 this.b.a("chunkNo", String.valueOf(i10));
                                 if (i10 >= j) {
@@ -92,18 +93,18 @@ public class ag extends BdAsyncTask<String, Integer, UploadPicData2> {
                                 } else {
                                     this.b.a("isFinish", String.valueOf(0));
                                 }
-                                com.baidu.tieba.util.an anVar = this.b;
+                                at atVar = this.b;
                                 i2 = this.a.l;
-                                anVar.a("width", String.valueOf(i2));
-                                com.baidu.tieba.util.an anVar2 = this.b;
+                                atVar.a("width", String.valueOf(i2));
+                                at atVar2 = this.b;
                                 i3 = this.a.m;
-                                anVar2.a("height", String.valueOf(i3));
-                                com.baidu.tieba.util.an anVar3 = this.b;
+                                atVar2.a("height", String.valueOf(i3));
+                                at atVar3 = this.b;
                                 i4 = this.a.j;
-                                anVar3.a("smallWidth", String.valueOf(i4));
-                                com.baidu.tieba.util.an anVar4 = this.b;
+                                atVar3.a("smallWidth", String.valueOf(i4));
+                                at atVar4 = this.b;
                                 i5 = this.a.k;
-                                anVar4.a("smallHeight", String.valueOf(i5));
+                                atVar4.a("smallHeight", String.valueOf(i5));
                                 this.b.a("groupId", String.valueOf(1));
                                 this.b.a("alt", "json");
                                 if (bArr != null) {
@@ -199,7 +200,7 @@ public class ag extends BdAsyncTask<String, Integer, UploadPicData2> {
             UploadPicData2 uploadPicData2 = new UploadPicData2();
             i = ae.d;
             uploadPicData2.error_code = i;
-            uploadPicData2.error_msg = TiebaApplication.h().getString(R.string.send_error);
+            uploadPicData2.error_msg = TiebaApplication.g().getString(R.string.send_error);
             ahVar2 = this.a.g;
             str = this.a.h;
             ahVar2.a(str, uploadPicData2);
@@ -232,7 +233,7 @@ public class ag extends BdAsyncTask<String, Integer, UploadPicData2> {
                 uploadPicData2 = new UploadPicData2();
                 i = ae.c;
                 uploadPicData2.error_code = i;
-                uploadPicData2.error_msg = TiebaApplication.h().getString(R.string.send_error);
+                uploadPicData2.error_msg = TiebaApplication.g().getString(R.string.send_error);
             }
             ahVar2 = this.a.g;
             str = this.a.h;

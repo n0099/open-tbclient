@@ -1,20 +1,23 @@
 package com.baidu.tieba.pb;
 
-import android.webkit.URLUtil;
+import android.view.View;
+import android.widget.AdapterView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ep implements Runnable {
-    final /* synthetic */ WebActivity a;
+public class ep implements AdapterView.OnItemLongClickListener {
+    final /* synthetic */ ed a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ep(WebActivity webActivity) {
-        this.a = webActivity;
+    public ep(ed edVar) {
+        this.a = edVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        String guessUrl = URLUtil.guessUrl(this.a.c);
-        if (URLUtil.isNetworkUrl(guessUrl)) {
-            this.a.a.loadUrl(guessUrl);
+    @Override // android.widget.AdapterView.OnItemLongClickListener
+    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
+        if (this.a.K != null) {
+            this.a.K.onLongClick(view);
+            return false;
         }
+        return false;
     }
 }

@@ -1,47 +1,49 @@
 package com.baidu.tieba.data;
-
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ap {
-    private ArrayList<UserData> a = new ArrayList<>();
-    private am b = new am();
+    private volatile long a = 0;
+    private volatile long b = 0;
+    private volatile int c = 0;
+    private volatile boolean d = false;
 
-    public void a(am amVar) {
-        this.b = amVar;
-    }
-
-    public am a() {
-        return this.b;
-    }
-
-    public ArrayList<UserData> b() {
-        return this.a;
-    }
-
-    public void a(String str) {
-        try {
-            a(new JSONObject(str));
-        } catch (Exception e) {
-            com.baidu.tieba.util.be.b(getClass().getName(), "parserJson", e.getMessage());
+    public void a(int i) {
+        if (i > 0) {
+            this.d = true;
+            this.a = i;
         }
     }
 
-    public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
-                if (optJSONArray != null) {
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        UserData userData = new UserData();
-                        userData.parserJson(optJSONArray.getJSONObject(i));
-                        this.a.add(userData);
-                    }
-                }
-                this.b.a(jSONObject.optJSONObject("page"));
-            } catch (Exception e) {
-                com.baidu.tieba.util.be.b(getClass().getName(), "parserJson", e.getMessage());
+    public void b(int i) {
+        if (i > 0) {
+            this.d = true;
+            this.b = i;
+        }
+    }
+
+    public void c(int i) {
+        if (i != 0) {
+            this.d = true;
+            this.c = i;
+        }
+    }
+
+    public void a() {
+        this.d = false;
+        this.a = 0L;
+        this.b = 0L;
+        this.c = 0;
+    }
+
+    public void a(com.baidu.tieba.util.at atVar) {
+        if (atVar != null) {
+            if (this.a != 0) {
+                atVar.a("ctime", String.valueOf(this.a));
+            }
+            if (this.b != 0) {
+                atVar.a("data_size", String.valueOf(this.b));
+            }
+            if (this.c != 0) {
+                atVar.a("net_error", String.valueOf(this.c));
             }
         }
     }

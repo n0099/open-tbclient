@@ -1,8 +1,19 @@
 package com.baidu.tieba;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes.dex */
-public interface ax {
-    void a();
 
-    void a(boolean z);
+import android.view.View;
+/* loaded from: classes.dex */
+class ax implements View.OnClickListener {
+    final /* synthetic */ av a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ax(av avVar) {
+        this.a = avVar;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        ay ayVar;
+        ayVar = this.a.h;
+        ayVar.a();
+    }
 }

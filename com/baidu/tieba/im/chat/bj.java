@@ -6,11 +6,11 @@ import com.baidu.tieba.im.model.MsglistModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bj extends SingleRunnable<Boolean> {
-    final /* synthetic */ bc a;
+    final /* synthetic */ ba a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bj(bc bcVar) {
-        this.a = bcVar;
+    public bj(ba baVar) {
+        this.a = baVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -18,8 +18,8 @@ public class bj extends SingleRunnable<Boolean> {
     /* renamed from: a */
     public Boolean b() {
         MsglistModel msglistModel;
-        String B = TiebaApplication.B();
+        String A = TiebaApplication.A();
         msglistModel = this.a.h;
-        return Boolean.valueOf(com.baidu.tieba.im.groupInfo.u.b(B, String.valueOf(msglistModel.a().getGroupId())));
+        return Boolean.valueOf(com.baidu.tieba.im.chat.personaltalk.a.b(A, String.valueOf(msglistModel.b().getUserId())));
     }
 }

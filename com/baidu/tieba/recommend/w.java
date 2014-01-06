@@ -46,9 +46,9 @@ public class w extends BdAsyncTask<String, Integer, com.baidu.tieba.data.o> {
                 a = jVar.a(str2, str);
                 break;
             case 1:
-                com.baidu.adp.lib.cache.s<String> bg = TiebaApplication.h().bg();
-                if (bg != null) {
-                    a = bg.a("dailyrecommend");
+                com.baidu.adp.lib.cache.s<String> bh = TiebaApplication.g().bh();
+                if (bh != null) {
+                    a = bh.a("dailyrecommend");
                     break;
                 }
             default:

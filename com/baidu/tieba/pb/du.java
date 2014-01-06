@@ -1,18 +1,14 @@
 package com.baidu.tieba.pb;
 
-import android.os.Handler;
 import android.view.animation.Animation;
-import android.widget.ImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class du implements Animation.AnimationListener {
-    final /* synthetic */ ImageView a;
-    final /* synthetic */ cr b;
+    final /* synthetic */ cs a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public du(cr crVar, ImageView imageView) {
-        this.b = crVar;
-        this.a = imageView;
+    public du(cs csVar) {
+        this.a = csVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -20,11 +16,13 @@ public class du implements Animation.AnimationListener {
     }
 
     @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
+    public void onAnimationEnd(Animation animation) {
+        PbEditor pbEditor;
+        pbEditor = this.a.aq;
+        pbEditor.setVisibility(4);
     }
 
     @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        new Handler().post(new dv(this));
+    public void onAnimationRepeat(Animation animation) {
     }
 }

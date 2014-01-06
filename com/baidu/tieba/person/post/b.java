@@ -14,14 +14,14 @@ public class b implements com.baidu.tbadk.imageManager.c {
     }
 
     @Override // com.baidu.tbadk.imageManager.c
-    public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
-        com.baidu.adp.widget.ImageView.e eVar2;
-        if (eVar != null) {
-            com.baidu.adp.widget.ImageView.e unused = a.j = eVar;
+    public void a(com.baidu.adp.widget.ImageView.d dVar, String str, boolean z) {
+        com.baidu.adp.widget.ImageView.d dVar2;
+        if (dVar != null) {
+            com.baidu.adp.widget.ImageView.d unused = a.j = dVar;
             String unused2 = a.k = this.a;
             HeadImageView headImageView = this.b.b;
-            eVar2 = a.j;
-            headImageView.setImageBitmap(eVar2.f());
+            dVar2 = a.j;
+            headImageView.setImageBitmap(dVar2.h());
         }
     }
 }

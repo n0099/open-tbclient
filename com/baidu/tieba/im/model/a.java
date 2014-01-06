@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.model;
 
-import com.baidu.tieba.im.message.av;
+import com.baidu.tieba.im.message.ay;
 /* loaded from: classes.dex */
 public class a extends com.baidu.adp.a.d {
     private int c;
@@ -13,8 +13,8 @@ public class a extends com.baidu.adp.a.d {
     private String j;
     private int k;
     private int l;
-    private com.baidu.tieba.im.message.v a = null;
-    private av b = null;
+    private com.baidu.tieba.im.message.y a = null;
+    private ay b = null;
     private int m = -1;
 
     public void a(int i) {
@@ -71,36 +71,36 @@ public class a extends com.baidu.adp.a.d {
         this.m = i;
     }
 
-    private com.baidu.tieba.im.message.v c() {
-        com.baidu.tieba.im.message.v vVar = new com.baidu.tieba.im.message.v();
-        vVar.a(this.c);
-        vVar.a(this.d);
-        vVar.b(this.e);
-        vVar.c(this.f);
-        vVar.d(this.g);
-        vVar.e(this.h);
-        vVar.f(this.i);
-        vVar.g(this.j);
-        vVar.b(this.k);
-        vVar.c(this.l);
+    private com.baidu.tieba.im.message.y c() {
+        com.baidu.tieba.im.message.y yVar = new com.baidu.tieba.im.message.y();
+        yVar.a(this.c);
+        yVar.a(this.d);
+        yVar.b(this.e);
+        yVar.c(this.f);
+        yVar.d(this.g);
+        yVar.e(this.h);
+        yVar.f(this.i);
+        yVar.g(this.j);
+        yVar.b(this.k);
+        yVar.c(this.l);
         switch (this.m) {
             case 1011:
-                vVar.h("neargp");
+                yVar.h("neargp");
                 break;
             case 1012:
-                vVar.h("mygp");
+                yVar.h("mygp");
                 break;
             case 1013:
-                vVar.h("bargp");
+                yVar.h("bargp");
                 break;
             case 1014:
-                vVar.h("");
+                yVar.h("");
                 break;
             default:
-                vVar.h("");
+                yVar.h("");
                 break;
         }
-        return vVar;
+        return yVar;
     }
 
     public void a() {

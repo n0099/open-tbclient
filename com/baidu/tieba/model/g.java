@@ -5,7 +5,7 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* loaded from: classes.dex */
 public class g extends BdAsyncTask<Integer, Integer, String> {
     final /* synthetic */ e a;
-    private com.baidu.tieba.util.an b;
+    private com.baidu.tieba.util.at b;
     private boolean c;
     private String d;
     private String e;
@@ -34,7 +34,7 @@ public class g extends BdAsyncTask<Integer, Integer, String> {
     public String a(Integer... numArr) {
         try {
             if (this.d != null) {
-                this.b = new com.baidu.tieba.util.an();
+                this.b = new com.baidu.tieba.util.at();
                 if (this.c) {
                     this.b.a(com.baidu.tieba.data.h.a + "c/c/user/follow");
                 } else {
@@ -47,7 +47,7 @@ public class g extends BdAsyncTask<Integer, Integer, String> {
             }
             return null;
         } catch (Exception e) {
-            com.baidu.tieba.util.be.b(getClass().getName(), "doInBackground", e.getMessage());
+            com.baidu.tieba.util.bo.b(getClass().getName(), "doInBackground", e.getMessage());
             return null;
         }
     }
@@ -60,12 +60,12 @@ public class g extends BdAsyncTask<Integer, Integer, String> {
         super.a((g) str);
         this.a.a = null;
         if (this.b != null) {
-            com.baidu.tieba.im.message.cc ccVar = new com.baidu.tieba.im.message.cc();
-            ccVar.a(this.b.c());
-            ccVar.a(this.b.i());
-            ccVar.b(this.c);
-            ccVar.b(this.e);
-            com.baidu.tieba.im.messageCenter.e.a().e(ccVar);
+            com.baidu.tieba.im.message.cf cfVar = new com.baidu.tieba.im.message.cf();
+            cfVar.a(this.b.c());
+            cfVar.a(this.b.i());
+            cfVar.b(this.c);
+            cfVar.b(this.e);
+            com.baidu.tieba.im.messageCenter.e.a().e(cfVar);
         }
     }
 

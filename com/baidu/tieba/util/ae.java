@@ -1,11 +1,53 @@
 package com.baidu.tieba.util;
 
-import java.util.List;
+import android.location.Address;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public interface ae {
-    void a();
+public class ae implements com.baidu.adp.lib.c.d {
+    final /* synthetic */ ad a;
 
-    void a(String str, List<String> list, double d, double d2);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ae(ad adVar) {
+        this.a = adVar;
+    }
 
-    void b();
+    @Override // com.baidu.adp.lib.c.d
+    public void a(int i, String str, Address address) {
+        ag agVar;
+        ag agVar2;
+        com.baidu.tieba.im.model.ak akVar;
+        com.baidu.tieba.im.model.ak akVar2;
+        com.baidu.tieba.im.model.ak akVar3;
+        com.baidu.tieba.im.model.ak akVar4;
+        switch (i) {
+            case 0:
+                if (address != null) {
+                    this.a.b = address.getLatitude();
+                    this.a.a = address.getLongitude();
+                    akVar = this.a.c;
+                    akVar.b(String.valueOf(address.getLatitude()));
+                    akVar2 = this.a.c;
+                    akVar2.a(String.valueOf(address.getLongitude()));
+                    akVar3 = this.a.c;
+                    akVar3.a(0);
+                    akVar4 = this.a.c;
+                    akVar4.a();
+                    return;
+                }
+                return;
+            case 1:
+            case 2:
+            case 3:
+                agVar2 = this.a.d;
+                agVar2.b();
+                return;
+            case 4:
+            case 5:
+                agVar = this.a.d;
+                agVar.a();
+                return;
+            default:
+                return;
+        }
+    }
 }

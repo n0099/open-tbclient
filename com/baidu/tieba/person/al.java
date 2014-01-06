@@ -1,25 +1,39 @@
 package com.baidu.tieba.person;
 
-import android.content.DialogInterface;
+import android.content.Intent;
+import android.widget.RadioGroup;
+import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class al implements DialogInterface.OnCancelListener {
-    final /* synthetic */ PersonChangeActivity a;
+public class al implements RadioGroup.OnCheckedChangeListener {
+    final /* synthetic */ MyPostActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public al(PersonChangeActivity personChangeActivity) {
-        this.a = personChangeActivity;
+    public al(MyPostActivity myPostActivity) {
+        this.a = myPostActivity;
     }
 
-    @Override // android.content.DialogInterface.OnCancelListener
-    public void onCancel(DialogInterface dialogInterface) {
-        ay ayVar;
-        ay ayVar2;
-        this.a.DeinitWaitingDialog();
-        ayVar = this.a.B;
-        if (ayVar != null) {
-            ayVar2 = this.a.B;
-            ayVar2.cancel();
+    @Override // android.widget.RadioGroup.OnCheckedChangeListener
+    public void onCheckedChanged(RadioGroup radioGroup, int i) {
+        String str;
+        int i2;
+        String str2;
+        switch (i) {
+            case R.id.all_tab /* 2131100807 */:
+                Intent intent = new Intent(this.a, AllPostActivity.class);
+                str = this.a.i;
+                if (str != null) {
+                    str2 = this.a.i;
+                    intent.putExtra("user", str2);
+                }
+                i2 = this.a.j;
+                intent.putExtra("user_sex", i2);
+                this.a.a("all", intent);
+                return;
+            case R.id.thread_tab /* 2131100808 */:
+            case R.id.reply_tab /* 2131100809 */:
+            default:
+                return;
         }
     }
 }

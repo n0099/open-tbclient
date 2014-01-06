@@ -15,19 +15,19 @@ public class y implements DialogInterface.OnClickListener {
     public void onClick(DialogInterface dialogInterface, int i) {
         switch (i) {
             case 0:
-                com.baidu.tieba.d.a.a().a(true);
-                com.baidu.tieba.d.a.a().c(0);
+                com.baidu.tieba.e.a.a().a(true);
+                com.baidu.tieba.e.a.a().c(0);
                 break;
             case 1:
-                com.baidu.tieba.d.a.a().a(true);
-                com.baidu.tieba.d.a.a().c(1);
+                com.baidu.tieba.e.a.a().a(true);
+                com.baidu.tieba.e.a.a().c(1);
                 break;
             case 2:
-                com.baidu.tieba.d.a.a().a(true);
-                com.baidu.tieba.d.a.a().c(2);
+                com.baidu.tieba.e.a.a().a(true);
+                com.baidu.tieba.e.a.a().c(2);
                 break;
             case 3:
-                com.baidu.tieba.d.a.a().a(false);
+                com.baidu.tieba.e.a.a().a(false);
                 break;
         }
         this.a.B();

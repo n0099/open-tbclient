@@ -1,15 +1,15 @@
 package com.baidu.tieba.im.groupInfo;
 
-import com.baidu.tieba.im.message.be;
+import com.baidu.tieba.im.message.bh;
 /* loaded from: classes.dex */
 class l implements com.baidu.tieba.im.a<Boolean> {
-    final /* synthetic */ be a;
+    final /* synthetic */ bh a;
     final /* synthetic */ k b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public l(k kVar, be beVar) {
+    public l(k kVar, bh bhVar) {
         this.b = kVar;
-        this.a = beVar;
+        this.a = bhVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

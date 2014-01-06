@@ -31,10 +31,10 @@ public class ImageUploadView extends LinearLayout {
         this.c = (Button) findViewById(R.id.btn_image_upload_album);
     }
 
-    public void setOnClickListener(h hVar) {
-        i iVar = new i(this, hVar);
-        this.b.setOnClickListener(iVar);
-        this.c.setOnClickListener(iVar);
+    public void setOnClickListener(t tVar) {
+        u uVar = new u(this, tVar);
+        this.b.setOnClickListener(uVar);
+        this.c.setOnClickListener(uVar);
     }
 
     public boolean a() {

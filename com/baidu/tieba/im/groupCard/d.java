@@ -8,7 +8,7 @@ import android.widget.ProgressBar;
 import com.baidu.adp.a.e;
 import com.baidu.adp.lib.h.g;
 import com.baidu.tieba.im.d.f;
-import com.baidu.tieba.util.bb;
+import com.baidu.tieba.util.bl;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
@@ -18,16 +18,14 @@ public class d extends e {
     private LinearLayout d;
     private LinearLayout e;
     private LinearLayout f;
-    private LinearLayout g;
-    private ImageView h;
-    private ProgressBar i;
-    private NavigationBar j;
-    private View k;
+    private ImageView g;
+    private ProgressBar h;
+    private NavigationBar i;
+    private ImageView j;
+    private ImageView k;
     private ImageView l;
     private ImageView m;
     private ImageView n;
-    private ImageView o;
-    private ImageView p;
 
     public d(GroupCardActivity groupCardActivity, View.OnClickListener onClickListener) {
         super(groupCardActivity);
@@ -43,8 +41,6 @@ public class d extends e {
         this.l = null;
         this.m = null;
         this.n = null;
-        this.o = null;
-        this.p = null;
         this.c = groupCardActivity;
         l();
     }
@@ -56,20 +52,19 @@ public class d extends e {
         this.d.setOnClickListener(this.c);
         this.e = (LinearLayout) this.c.findViewById(R.id.group_card_share);
         this.e.setOnClickListener(this.c);
-        this.f = (LinearLayout) this.c.findViewById(R.id.group_card_image);
-        this.g = (LinearLayout) this.c.findViewById(R.id.group_card_setting);
-        this.i = (ProgressBar) this.c.findViewById(R.id.progress);
-        this.l = (ImageView) this.c.findViewById(R.id.group_card_inner_image);
-        this.j = (NavigationBar) this.c.findViewById(R.id.group_card_topbar);
-        this.j.setSystemClickable(false);
-        this.j.a(this.c.getResources().getString(R.string.group_card_name));
-        this.h = this.j.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.h.setOnClickListener(this.c);
+        this.f = (LinearLayout) this.c.findViewById(R.id.group_card_setting);
+        this.h = (ProgressBar) this.c.findViewById(R.id.progress);
+        this.j = (ImageView) this.c.findViewById(R.id.group_card_inner_image);
+        this.i = (NavigationBar) this.c.findViewById(R.id.group_card_topbar);
+        this.i.setSystemClickable(false);
+        this.i.a(this.c.getResources().getString(R.string.group_card_name));
+        this.g = this.i.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.g.setOnClickListener(this.c);
     }
 
-    public void a(com.baidu.adp.widget.ImageView.e eVar) {
-        if (eVar != null) {
-            eVar.a(this.l);
+    public void a(com.baidu.adp.widget.ImageView.d dVar) {
+        if (dVar != null) {
+            dVar.a(this.j);
         }
     }
 
@@ -85,15 +80,15 @@ public class d extends e {
     }
 
     public void a() {
-        this.i.setVisibility(0);
+        this.h.setVisibility(0);
     }
 
     public void e() {
-        this.i.setVisibility(8);
+        this.h.setVisibility(8);
     }
 
     public void f() {
-        this.l.setVisibility(0);
+        this.j.setVisibility(0);
     }
 
     public View g() {
@@ -105,21 +100,21 @@ public class d extends e {
     }
 
     public ImageView i() {
-        return this.h;
+        return this.g;
     }
 
     public View j() {
-        return this.j;
+        return this.i;
     }
 
     public LinearLayout k() {
-        return this.g;
+        return this.f;
     }
 
     public void a(int i) {
         this.c.getLayoutMode().a(i == 1);
         this.c.getLayoutMode().a(this.a);
-        bb.a(this.a, i);
-        this.j.c(i);
+        bl.a(this.a, i);
+        this.i.c(i);
     }
 }

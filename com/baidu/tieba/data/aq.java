@@ -1,27 +1,49 @@
 package com.baidu.tieba.data;
 
+import com.baidu.tieba.util.bo;
+import java.util.ArrayList;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class aq {
-    private String a = null;
-    private String b = null;
-    private String c = null;
-    private String d = null;
+    private ArrayList<UserData> a = new ArrayList<>();
+    private an b = new an();
+
+    public void a(an anVar) {
+        this.b = anVar;
+    }
+
+    public an a() {
+        return this.b;
+    }
+
+    public ArrayList<UserData> b() {
+        return this.a;
+    }
+
+    public void a(String str) {
+        try {
+            a(new JSONObject(str));
+        } catch (Exception e) {
+            bo.b(getClass().getName(), "parserJson", e.getMessage());
+        }
+    }
 
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.a = jSONObject.optString("player_id");
-                this.b = jSONObject.optString("player_name");
-                this.c = jSONObject.optString("small_head_url");
-                a(jSONObject.optString("big_head_url"));
+                JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
+                if (optJSONArray != null) {
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        UserData userData = new UserData();
+                        userData.parserJson(optJSONArray.getJSONObject(i));
+                        this.a.add(userData);
+                    }
+                }
+                this.b.a(jSONObject.optJSONObject("page"));
             } catch (Exception e) {
-                com.baidu.tieba.util.be.b("PlayerInfoData", "parserJson", "error = " + e.getMessage());
+                bo.b(getClass().getName(), "parserJson", e.getMessage());
             }
         }
-    }
-
-    public void a(String str) {
-        this.d = str;
     }
 }

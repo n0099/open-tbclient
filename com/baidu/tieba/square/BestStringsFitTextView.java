@@ -45,7 +45,7 @@ public class BestStringsFitTextView extends TextView {
             }
             sb.append(this.a[i]);
             String sb2 = sb.toString();
-            com.baidu.tieba.util.be.b(sb2);
+            com.baidu.tieba.util.bo.b(sb2);
             if (this.c < getPaint().measureText(sb2)) {
                 break;
             }

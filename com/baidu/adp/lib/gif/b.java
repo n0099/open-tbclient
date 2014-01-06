@@ -7,6 +7,7 @@ import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
+import protobuf.Im;
 /* loaded from: classes.dex */
 public class b extends Thread {
     private Bitmap A;
@@ -532,7 +533,7 @@ public class b extends Thread {
             switch (l()) {
                 case 0:
                     break;
-                case 33:
+                case Im.GroupInfo.ISRECENTLYREPLY_FIELD_NUMBER /* 33 */:
                     switch (l()) {
                         case 249:
                             o();

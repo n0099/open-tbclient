@@ -1,8 +1,8 @@
 package com.baidu.tieba.pb;
 
 import android.view.View;
-import com.baidu.tieba.person.PersonInfoActivity;
-import com.baidu.tieba.view.HeadImageView;
+import com.baidu.tieba.CommonWebviewActivity;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 class aq implements View.OnClickListener {
     final /* synthetic */ NewPbActivity a;
@@ -15,13 +15,10 @@ class aq implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         String str;
-        if (view instanceof HeadImageView) {
-            str = ((HeadImageView) view).getUserId();
-        } else {
-            str = (String) view.getTag();
-        }
-        if (str != null) {
-            PersonInfoActivity.a(this.a, str, (String) null);
-        }
+        NewPbActivity newPbActivity = this.a;
+        String string = this.a.getString(R.string.user_icon_intro);
+        StringBuilder sb = new StringBuilder();
+        str = NewPbActivity.c;
+        CommonWebviewActivity.a(newPbActivity, string, sb.append(str).append("?st_type=pb_user_icon").toString(), true, "get");
     }
 }

@@ -1,54 +1,34 @@
 package com.baidu.tieba.im.message;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
-import protobuf.GetMaskInfo.GetMaskInfoRes;
+import protobuf.CommitPersonalMsg.CommitPersonalMsgRes;
 /* loaded from: classes.dex */
-public class bd extends bz implements com.baidu.tieba.im.coder.f {
-    private int a;
-    private String b;
-    private ArrayList<com.baidu.tieba.im.data.a> c;
+public class bd extends bc {
+    private String a = null;
 
     public bd() {
-        super(104103);
+        e(205001);
     }
 
-    @Override // com.baidu.tieba.im.coder.f
-    public void a(LinkedList<n> linkedList, byte[] bArr, int i) {
-        GetMaskInfoRes.GetMaskInfoResIdl parseFrom = GetMaskInfoRes.GetMaskInfoResIdl.parseFrom(bArr);
-        c(parseFrom.getError().getErrorno());
-        c(parseFrom.getError().getUsermsg());
-        linkedList.add(this);
-        if (!i()) {
-            a(parseFrom.getData().getIsMask());
-            a(parseFrom.getData().getList());
-            List<GetMaskInfoRes.UserInfo> usersList = parseFrom.getData().getUsersList();
-            int size = usersList != null ? usersList.size() : 0;
-            this.c = new ArrayList<>();
-            for (int i2 = 0; i2 < size; i2++) {
-                com.baidu.tieba.im.data.a aVar = new com.baidu.tieba.im.data.a();
-                aVar.b(usersList.get(i2).getPortrait());
-                aVar.a(usersList.get(i2).getUid());
-                aVar.a(usersList.get(i2).getName());
-                this.c.add(aVar);
-            }
-        }
-    }
-
-    public int a() {
+    public String d() {
         return this.a;
     }
 
-    public void a(int i) {
-        this.a = i;
+    public void b(String str) {
+        this.a = str;
     }
 
-    public void a(String str) {
-        this.b = str;
-    }
-
-    public ArrayList<com.baidu.tieba.im.data.a> b() {
-        return this.c;
+    @Override // com.baidu.tieba.im.coder.f
+    public void a(LinkedList<o> linkedList, byte[] bArr, int i) {
+        CommitPersonalMsgRes.CommitPersonalMsgResIdl parseFrom = CommitPersonalMsgRes.CommitPersonalMsgResIdl.parseFrom(bArr);
+        g(parseFrom.getError().getErrorno());
+        c(parseFrom.getError().getUsermsg());
+        linkedList.add(this);
+        if (!i()) {
+            a(com.baidu.tieba.im.chat.ah.b(parseFrom.getData().getMsgId()));
+            b(parseFrom.getData().getRecordId());
+            a(String.valueOf(parseFrom.getData().getGroupId()));
+            b(String.valueOf(parseFrom.getData().getToUid()));
+        }
     }
 }

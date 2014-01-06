@@ -65,7 +65,7 @@ public class ReplyLinearLayout extends LinearLayout {
     }
 
     private void a(TextView textView, int i) {
-        if (TiebaApplication.h().an() == 1) {
+        if (TiebaApplication.g().an() == 1) {
             if (i == 0) {
                 textView.setTextColor(getResources().getColor(R.color.person_post_content_main_1));
                 textView.setPadding(0, com.baidu.adp.lib.h.g.a(getContext(), 10.0f), 0, com.baidu.adp.lib.h.g.a(getContext(), 10.0f));

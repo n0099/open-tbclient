@@ -21,7 +21,7 @@ public class SystemHelpSettingActivity extends com.baidu.tieba.j implements com.
         super.onCreate(bundle);
         this.a = new az(this);
         this.b = new av();
-        if (TiebaApplication.h().ak()) {
+        if (TiebaApplication.g().ak()) {
             this.a.a().a();
         } else {
             this.a.a().b();

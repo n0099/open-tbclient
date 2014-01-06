@@ -1,8 +1,9 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tieba.view.cg;
+import android.view.View;
+import com.baidu.tieba.pb.ImagePbActivity;
 /* loaded from: classes.dex */
-class av implements cg {
+class av implements View.OnClickListener {
     final /* synthetic */ FrsImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,25 +11,15 @@ class av implements cg {
         this.a = frsImageActivity;
     }
 
-    @Override // com.baidu.tieba.view.cg
-    public void a() {
-        int i;
-        FrsImageActivity frsImageActivity = this.a;
-        i = this.a.h;
-        frsImageActivity.d(i);
-    }
-
-    @Override // com.baidu.tieba.view.cg
-    public void b() {
-        this.a.f();
-    }
-
-    @Override // com.baidu.tieba.view.cg
-    public void c() {
-    }
-
-    @Override // com.baidu.tieba.view.cg
-    public void d() {
-        this.a.f();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        String str;
+        if (view.getTag() != null && (view.getTag() instanceof com.baidu.tieba.data.bc)) {
+            com.baidu.tieba.data.bc bcVar = (com.baidu.tieba.data.bc) view.getTag();
+            FrsImageActivity frsImageActivity = this.a;
+            String d = bcVar.d();
+            str = this.a.b;
+            ImagePbActivity.a(frsImageActivity, d, str, bcVar.c());
+        }
     }
 }

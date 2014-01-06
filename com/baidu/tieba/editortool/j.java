@@ -1,228 +1,95 @@
 package com.baidu.tieba.editortool;
 
 import android.content.Context;
-import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.AbsListView;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import com.baidu.adp.widget.ImageView.BDImageView;
+import com.baidu.tieba.data.emotions.WritableEmotionGroup;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class j extends a {
-    protected Context a;
-    protected EditorToolButton b;
-    protected EditorToolButton c;
-    protected EditorToolButton d;
-    protected EditorToolButton e;
-    protected TextView f;
-    protected TextView g;
+public class j extends BaseAdapter {
+    final /* synthetic */ EmotionTabContentView a;
+    private int b;
+    private int c;
 
-    public j(Context context) {
-        super(context);
-        this.a = context;
-        d();
+    public j(EmotionTabContentView emotionTabContentView, Context context, int i, int i2) {
+        this.a = emotionTabContentView;
+        this.b = i;
+        this.c = i2;
     }
 
-    public j(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.a = context;
-        d();
+    public int a() {
+        return this.c;
     }
 
-    public j(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.a = context;
-        d();
+    @Override // android.widget.Adapter
+    public int getCount() {
+        return this.b;
     }
 
-    @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
-    protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        super.onLayout(z, i, i2, i3, i4);
-        if (this.e.getTip() != null) {
-            TextView tip = this.e.getTip();
-            int right = this.e.getRight() - com.baidu.adp.lib.h.g.a(this.a, 14.0f);
-            int top = this.e.getTop() - com.baidu.adp.lib.h.g.a(this.a, 2.0f);
-            this.e.getTip().layout(right, top, tip.getMeasuredWidth() + right, tip.getMeasuredHeight() + top);
-        }
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        return Integer.valueOf(i);
     }
 
-    protected void d() {
-        e();
-        this.b = (EditorToolButton) findViewById(R.id.select_face);
-        this.c = (EditorToolButton) findViewById(R.id.select_at);
-        this.d = (EditorToolButton) findViewById(R.id.select_image);
-        this.e = (EditorToolButton) findViewById(R.id.select_audio);
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        return i;
     }
 
-    protected void e() {
-        LayoutInflater.from(this.a).inflate(R.layout.editor_tool_button_container, (ViewGroup) this, true);
-    }
-
-    public void setOnActionListener(h hVar) {
-        if (hVar != null) {
-            View.OnClickListener a = a(hVar);
-            this.b.setOnClickListener(a);
-            this.c.setOnClickListener(a);
-            this.d.setOnClickListener(a);
-            this.e.setOnClickListener(a);
-        }
-    }
-
-    public void f() {
-        this.b.h();
-    }
-
-    public void g() {
-        this.d.h();
-    }
-
-    public void h() {
-        this.e.h();
-    }
-
-    public void setFaceFocusable(boolean z) {
-        this.b.setFocusable(z);
-    }
-
-    public void setAtFocusable(boolean z) {
-        this.c.setFocusable(z);
-    }
-
-    public void setImageFocusable(boolean z) {
-        this.d.setFocusable(z);
-    }
-
-    public void setAudioFocusable(boolean z) {
-        this.e.setFocusable(z);
-    }
-
-    public void setFaceEnabled(boolean z) {
-        this.b.setEnabled(z);
-    }
-
-    public void setAtEnabled(boolean z) {
-        this.c.setEnabled(z);
-    }
-
-    public void setImageEnabled(boolean z) {
-        this.d.setEnabled(z);
-    }
-
-    public void setAudioEnabled(boolean z) {
-        this.e.setEnabled(z);
-    }
-
-    public void setAudioHardDisabled(boolean z) {
-        this.e.setHardDisabled(z);
-    }
-
-    public void i() {
-        if (this.f != null) {
-            this.d.f();
-        }
-    }
-
-    public void j() {
-        if (this.g == null) {
-            this.g = a(this.e, false);
-        }
-        this.e.e();
-    }
-
-    public void k() {
-        this.e.f();
-    }
-
-    public void a(boolean z) {
-        if (z) {
-            this.b.a();
+    @Override // android.widget.Adapter
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        LinearLayout linearLayout;
+        WritableEmotionGroup writableEmotionGroup;
+        WritableEmotionGroup writableEmotionGroup2;
+        int i2;
+        WritableEmotionGroup writableEmotionGroup3;
+        com.baidu.tieba.util.i iVar;
+        int i3;
+        int i4;
+        int i5;
+        int i6;
+        LinearLayout.LayoutParams layoutParams;
+        int i7 = this.c + i;
+        if (view == null) {
+            LinearLayout linearLayout2 = new LinearLayout(this.a.getContext());
+            i3 = this.a.k;
+            i4 = this.a.k;
+            i5 = this.a.k;
+            i6 = this.a.k;
+            linearLayout2.setPadding(i3, i4, i5, i6);
+            BDImageView bDImageView = new BDImageView(this.a.getContext());
+            bDImageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+            layoutParams = this.a.s;
+            linearLayout2.addView(bDImageView, layoutParams);
+            linearLayout = linearLayout2;
         } else {
-            this.b.b();
+            linearLayout = view;
         }
-    }
-
-    public void b(boolean z) {
-        if (z) {
-            this.c.a();
-        } else {
-            this.c.b();
+        int measuredWidth = viewGroup.getMeasuredWidth();
+        int measuredHeight = viewGroup.getMeasuredHeight();
+        writableEmotionGroup = this.a.b;
+        int h = measuredWidth / writableEmotionGroup.h();
+        writableEmotionGroup2 = this.a.b;
+        LinearLayout linearLayout3 = (LinearLayout) linearLayout;
+        linearLayout3.setLayoutParams(new AbsListView.LayoutParams(h, measuredHeight / writableEmotionGroup2.i()));
+        BDImageView bDImageView2 = (BDImageView) linearLayout3.getChildAt(0);
+        i2 = this.a.q;
+        bDImageView2.setBackgroundResource(i2 == 1 ? R.drawable.btn_choose_face_selector_1 : R.drawable.btn_choose_face_selector);
+        bDImageView2.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+        writableEmotionGroup3 = this.a.b;
+        String a = writableEmotionGroup3.a(i7);
+        bDImageView2.setTag(a);
+        iVar = this.a.r;
+        com.baidu.adp.widget.ImageView.d a2 = iVar.a(a, false, (com.baidu.tbadk.imageManager.c) new k(this));
+        if (a2 != null) {
+            a2.a(bDImageView2);
+            bDImageView2.setTag(null);
         }
-    }
-
-    public void c(boolean z) {
-        if (z) {
-            this.d.a();
-        } else {
-            this.d.b();
-        }
-    }
-
-    public void d(boolean z) {
-        if (z) {
-            this.e.a();
-        } else {
-            this.e.b();
-        }
-    }
-
-    public void a(int i) {
-        boolean z = i == 1;
-        if (this.g != null) {
-            TextView textView = this.g;
-            if (z) {
-            }
-            textView.setBackgroundResource(R.drawable.icon_news_content_prompt_1);
-        }
-        if (this.f != null) {
-            this.f.setBackgroundResource(z ? R.drawable.icon_new_tip_1 : R.drawable.icon_new_tip);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void a(EditorToolButton editorToolButton, h hVar) {
-        if (editorToolButton == this.b) {
-            hVar.a(1, null);
-        } else if (editorToolButton == this.c) {
-            hVar.a(0, null);
-        } else if (editorToolButton == this.d) {
-            hVar.a(7, null);
-        } else if (editorToolButton == this.e) {
-            hVar.a(4, null);
-        }
-        if (editorToolButton.g()) {
-            if (editorToolButton.isFocused()) {
-                c();
-                if (editorToolButton == this.b) {
-                    hVar.a(3, null);
-                    return;
-                } else if (editorToolButton == this.c) {
-                    hVar.a(16, null);
-                    return;
-                } else if (editorToolButton == this.d) {
-                    hVar.a(9, null);
-                    return;
-                } else if (editorToolButton == this.e) {
-                    hVar.a(6, null);
-                    return;
-                } else {
-                    return;
-                }
-            }
-            c();
-            editorToolButton.h();
-            if (editorToolButton == this.b) {
-                hVar.a(2, null);
-            } else if (editorToolButton == this.c) {
-                hVar.a(17, null);
-            } else if (editorToolButton == this.d) {
-                hVar.a(8, null);
-            } else if (editorToolButton == this.e) {
-                hVar.a(5, null);
-            }
-        }
-    }
-
-    protected View.OnClickListener a(h hVar) {
-        return new k(this, hVar);
+        return linearLayout3;
     }
 }

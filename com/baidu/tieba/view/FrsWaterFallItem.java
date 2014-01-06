@@ -95,8 +95,8 @@ public class FrsWaterFallItem extends LinearLayout {
         Bitmap a;
         super.onDraw(canvas);
         try {
-            com.baidu.tieba.data.ba baVar = (com.baidu.tieba.data.ba) getTag();
-            if (baVar != null) {
+            com.baidu.tieba.data.bc bcVar = (com.baidu.tieba.data.bc) getTag();
+            if (bcVar != null) {
                 int height = ((getHeight() - getPaddingBottom()) - this.l) + this.n;
                 int width = (getWidth() - getPaddingRight()) - this.j;
                 this.a.setTextSize(this.h);
@@ -106,7 +106,7 @@ public class FrsWaterFallItem extends LinearLayout {
                     this.a.setColor(getContext().getResources().getColor(R.color.listview_item_num_text));
                 }
                 int ceil = (int) Math.ceil(this.a.getFontMetrics().ascent);
-                int e = baVar.e();
+                int e = bcVar.e();
                 if (e > 0) {
                     if (this.d == null) {
                         if (e > 999) {
@@ -136,7 +136,7 @@ public class FrsWaterFallItem extends LinearLayout {
                 } else {
                     this.a.setColor(getContext().getResources().getColor(R.color.listview_item_author_time_text));
                 }
-                this.c = com.baidu.adp.lib.h.g.a(this.a, baVar.a(), width - (this.j * 2));
+                this.c = com.baidu.adp.lib.h.g.a(this.a, bcVar.a(), width - (this.j * 2));
                 canvas.drawText(this.c, this.k + this.j, height - ceil, this.a);
                 if (this.q == 1) {
                     this.a.setColor(getContext().getResources().getColor(R.color.frs_header_divider_bg_1));
@@ -153,7 +153,7 @@ public class FrsWaterFallItem extends LinearLayout {
                 }
                 int ceil2 = (int) Math.ceil(this.a.getFontMetrics().ascent);
                 if (this.b == null) {
-                    this.b = com.baidu.adp.lib.h.g.a(this.a, baVar.c(), ((getWidth() - getPaddingLeft()) - getPaddingRight()) - (this.j * 2));
+                    this.b = com.baidu.adp.lib.h.g.a(this.a, bcVar.c(), ((getWidth() - getPaddingLeft()) - getPaddingRight()) - (this.j * 2));
                 }
                 canvas.drawText(this.b, this.k + this.j, (((getHeight() - getPaddingBottom()) - (this.l * 2)) + this.m) - ceil2, this.a);
             }

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bd extends BdAsyncTask<String, com.baidu.tieba.data.ag, Boolean> {
+public class bd extends BdAsyncTask<String, com.baidu.tieba.data.ah, Boolean> {
     final /* synthetic */ ba a;
 
     private bd(ba baVar) {
@@ -21,26 +21,26 @@ public class bd extends BdAsyncTask<String, com.baidu.tieba.data.ag, Boolean> {
         ArrayList arrayList;
         Context context;
         Context context2;
-        com.baidu.tieba.util.bd a = com.baidu.tieba.util.bd.a();
+        com.baidu.tieba.util.bn a = com.baidu.tieba.util.bn.a();
         arrayList = this.a.b;
         Iterator it = arrayList.iterator();
         boolean z = true;
         while (it.hasNext()) {
-            com.baidu.tieba.data.ag agVar = (com.baidu.tieba.data.ag) it.next();
-            if (agVar != null && agVar.d != null) {
+            com.baidu.tieba.data.ah ahVar = (com.baidu.tieba.data.ah) it.next();
+            if (ahVar != null && ahVar.d != null) {
                 try {
                     context = this.a.c;
-                    com.baidu.tieba.motu_gallery.b.a(context, agVar.d, a.e(), a.e());
+                    com.baidu.tieba.motu_gallery.b.a(context, ahVar.d, a.e(), a.e());
                     context2 = this.a.c;
-                    Bitmap a2 = com.baidu.tieba.motu_gallery.b.a(context2, agVar.d, 150, 150);
+                    Bitmap a2 = com.baidu.tieba.motu_gallery.b.a(context2, ahVar.d, 150, 150);
                     if (a2 != null) {
-                        agVar.e = a2;
+                        ahVar.e = a2;
                     }
                 } catch (Exception e) {
                     z = false;
                 }
             }
-            c((Object[]) new com.baidu.tieba.data.ag[]{agVar});
+            c((Object[]) new com.baidu.tieba.data.ah[]{ahVar});
         }
         return Boolean.valueOf(z);
     }
@@ -69,13 +69,13 @@ public class bd extends BdAsyncTask<String, com.baidu.tieba.data.ag, Boolean> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
-    public void b(com.baidu.tieba.data.ag... agVarArr) {
+    public void b(com.baidu.tieba.data.ah... ahVarArr) {
         bc bcVar;
         bc bcVar2;
         bcVar = this.a.d;
         if (bcVar != null) {
             bcVar2 = this.a.d;
-            bcVar2.a(agVarArr[0]);
+            bcVar2.a(ahVarArr[0]);
         }
     }
 }

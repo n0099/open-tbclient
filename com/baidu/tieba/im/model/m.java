@@ -12,10 +12,10 @@ public class m extends com.baidu.adp.a.d {
     private boolean e;
     private List<Long> f;
     private boolean g;
-    private com.baidu.tieba.im.message.af h;
+    private com.baidu.tieba.im.message.ai h;
 
-    public void a(com.baidu.tieba.im.message.af afVar) {
-        this.h = afVar;
+    public void a(com.baidu.tieba.im.message.ai aiVar) {
+        this.h = aiVar;
     }
 
     public int a() {
@@ -90,20 +90,20 @@ public class m extends com.baidu.adp.a.d {
         this.d = bundle.getInt("len_position", 0);
     }
 
-    private com.baidu.tieba.im.message.af b(long j, int i, int i2, int i3) {
-        com.baidu.tieba.im.message.af afVar = new com.baidu.tieba.im.message.af();
-        afVar.a(j);
-        afVar.a(i);
-        afVar.b(i2);
-        afVar.c(i3);
-        return afVar;
+    private com.baidu.tieba.im.message.ai b(long j, int i, int i2, int i3) {
+        com.baidu.tieba.im.message.ai aiVar = new com.baidu.tieba.im.message.ai();
+        aiVar.a(j);
+        aiVar.a(i);
+        aiVar.b(i2);
+        aiVar.c(i3);
+        return aiVar;
     }
 
-    private com.baidu.tieba.im.message.ak b(long j, String str) {
-        com.baidu.tieba.im.message.ak akVar = new com.baidu.tieba.im.message.ak();
-        akVar.a(j);
-        akVar.a(str);
-        return akVar;
+    private com.baidu.tieba.im.message.an b(long j, String str) {
+        com.baidu.tieba.im.message.an anVar = new com.baidu.tieba.im.message.an();
+        anVar.a(j);
+        anVar.a(str);
+        return anVar;
     }
 
     public void a(long j, int i, int i2, int i3) {

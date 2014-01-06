@@ -1,14 +1,14 @@
 package com.baidu.tieba.im.messageCenter.a;
 
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.im.message.bk;
+import com.baidu.tieba.im.message.bn;
 /* loaded from: classes.dex */
 public class n extends com.baidu.tieba.im.messageCenter.a {
     @Override // com.baidu.tieba.im.messageCenter.a
-    public com.baidu.tieba.im.message.n a(com.baidu.tieba.im.message.n nVar, com.baidu.tieba.im.coder.d dVar) {
-        if (nVar != null && (nVar instanceof bk)) {
-            bk bkVar = (bk) nVar;
-            if (!bkVar.i() && (bkVar.a() == null || bkVar.a().getOffset() == 0)) {
+    public com.baidu.tieba.im.message.o a(com.baidu.tieba.im.message.o oVar, com.baidu.tieba.im.coder.d dVar) {
+        if (oVar != null && (oVar instanceof bn)) {
+            bn bnVar = (bn) oVar;
+            if (!bnVar.i() && (bnVar.a() == null || bnVar.a().getOffset() == 0)) {
                 String str = "";
                 if (TiebaApplication.F() != null) {
                     str = TiebaApplication.F().getID();

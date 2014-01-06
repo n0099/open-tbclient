@@ -13,11 +13,11 @@ class ba implements com.baidu.adp.widget.ScrollView.n {
 
     @Override // com.baidu.adp.widget.ScrollView.n
     public void a() {
-        if (TiebaApplication.h().t()) {
+        if (TiebaApplication.g().s()) {
             StatService.onEvent(this.a, "frs_pulldown", "frsclick", 1);
         }
-        this.a.r = null;
-        this.a.q = true;
+        this.a.q = null;
+        this.a.p = true;
         this.a.c(1);
     }
 }

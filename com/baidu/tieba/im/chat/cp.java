@@ -12,9 +12,9 @@ final class cp implements com.baidu.tbadk.imageManager.c {
     }
 
     @Override // com.baidu.tbadk.imageManager.c
-    public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
-        if (eVar != null && this.a != null && (this.a instanceof ViewGroup)) {
-            com.baidu.tieba.util.bk.a((ViewGroup) this.a, false, (com.baidu.tieba.util.bm) new cq(this, str, eVar));
+    public void a(com.baidu.adp.widget.ImageView.d dVar, String str, boolean z) {
+        if (dVar != null && this.a != null && (this.a instanceof ViewGroup)) {
+            com.baidu.tieba.util.bu.a((ViewGroup) this.a, false, (com.baidu.tieba.util.bw) new cq(this, str, dVar));
         }
     }
 }

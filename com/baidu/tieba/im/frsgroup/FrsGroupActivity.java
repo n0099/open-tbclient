@@ -33,7 +33,7 @@ public class FrsGroupActivity extends BaseFragmentActivity implements View.OnCli
     @Override // com.baidu.tieba.BaseFragmentActivity, android.support.v4.app.n, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        a(bundle, null);
+        a(bundle, (Intent) null);
         d();
         a(bundle);
         a(false);
@@ -47,9 +47,9 @@ public class FrsGroupActivity extends BaseFragmentActivity implements View.OnCli
             this.b.c();
             this.b = null;
         }
-        a(null, intent);
+        a((Bundle) null, intent);
         a(intent != null ? intent.getExtras() : null);
-        a(TiebaApplication.h().an());
+        a(TiebaApplication.g().an());
         a(true);
     }
 
@@ -124,7 +124,7 @@ public class FrsGroupActivity extends BaseFragmentActivity implements View.OnCli
         }
     }
 
-    private void f() {
+    private void g() {
         if (getSupportFragmentManager().a(this.b.a()[e()]) != null) {
             getSupportFragmentManager().a().b(this.b.g()[e()]).a();
         }
@@ -137,41 +137,42 @@ public class FrsGroupActivity extends BaseFragmentActivity implements View.OnCli
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this.b.h()) {
-            g();
+            h();
         } else if (view == this.b.i()) {
             StatService.onEvent(this, "create_g_in_frsgroup", "click");
-            i();
+            f();
         }
     }
 
-    private void g() {
+    private void h() {
         finish();
     }
 
-    private void h() {
+    private void i() {
         this.b.d(true);
         this.c.c(this.c.m());
     }
 
-    private void i() {
-        if (TextUtils.isEmpty(TiebaApplication.B())) {
+    public void f() {
+        if (TextUtils.isEmpty(TiebaApplication.A())) {
             LoginActivity.a((Activity) this, "", true, 0);
         } else {
-            h();
+            i();
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
     public void a(GroupPermData groupPermData) {
         if (!groupPermData.isManager()) {
             if (!groupPermData.isCreateNormal()) {
                 a(groupPermData.getCreateNormalTip());
                 return;
             } else {
-                CreateGroupStepActivity.a(this, 3, b(this.c.m()), 1013);
+                CreateGroupStepActivity.a(this, 3, b(this.c.m()), 1013, groupPermData.getCanCreateNormalNum(), groupPermData.getCanCreateOfficialNum(), groupPermData.getCanCreatePersonalNum());
                 return;
             }
         }
-        CreateGroupMainActivity.a(this, groupPermData.isCreateOfficial(), groupPermData.isCreateNormal(), groupPermData.getCreateOfficialTip(), groupPermData.getCreateNormalTip(), b(this.c.m()));
+        CreateGroupMainActivity.a(this, groupPermData.isCreateOfficial(), groupPermData.isCreateNormal(), groupPermData.getCreateOfficialTip(), groupPermData.getCreateNormalTip(), b(this.c.m()), groupPermData.getCanCreateNormalNum(), groupPermData.getCanCreateOfficialNum(), groupPermData.getCanCreatePersonalNum());
     }
 
     private int b(String str) {
@@ -185,15 +186,15 @@ public class FrsGroupActivity extends BaseFragmentActivity implements View.OnCli
 
     @Override // android.widget.RadioGroup.OnCheckedChangeListener
     public void onCheckedChanged(RadioGroup radioGroup, int i) {
-        f();
+        g();
         switch (i) {
-            case R.id.radio_recommend /* 2131100400 */:
+            case R.id.radio_recommend /* 2131100481 */:
                 this.c.a(1);
                 break;
-            case R.id.radio_hot /* 2131100402 */:
+            case R.id.radio_hot /* 2131100483 */:
                 this.c.a(2);
                 break;
-            case R.id.radio_official /* 2131100404 */:
+            case R.id.radio_official /* 2131100485 */:
                 this.c.a(3);
                 break;
         }
@@ -206,7 +207,7 @@ public class FrsGroupActivity extends BaseFragmentActivity implements View.OnCli
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (i == 0) {
-            h();
+            i();
         }
     }
 }

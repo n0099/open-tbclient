@@ -2,11 +2,11 @@ package com.baidu.tieba.im.groupUpdates;
 
 import com.baidu.gson.Gson;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
-import com.baidu.tieba.util.al;
+import com.baidu.tieba.util.ap;
 import java.io.Serializable;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class UpdatesItemData implements al, Serializable {
+public class UpdatesItemData extends ap implements Serializable {
     private static final long serialVersionUID = -6859992224160576142L;
     private String authorId;
     private String authorName;
@@ -107,14 +107,14 @@ public class UpdatesItemData implements al, Serializable {
         this.notice_id = str;
     }
 
-    @Override // com.baidu.tieba.util.al
+    @Override // com.baidu.tieba.util.ap, com.baidu.tieba.util.ar
     public LinkedList<String> getImageUrl() {
         LinkedList<String> linkedList = new LinkedList<>();
         linkedList.add(getGroupHeadUrl());
         return linkedList;
     }
 
-    @Override // com.baidu.tieba.util.al
+    @Override // com.baidu.tieba.util.ap, com.baidu.tieba.util.ar
     public LinkedList<String> getPhotoUrl() {
         LinkedList<String> linkedList = new LinkedList<>();
         linkedList.add(getGroupHeadUrl());
@@ -143,11 +143,6 @@ public class UpdatesItemData implements al, Serializable {
 
     public void setAuthorName(String str) {
         this.authorName = str;
-    }
-
-    @Override // com.baidu.tieba.util.al
-    public LinkedList<String> getForumPhotoUrl() {
-        return null;
     }
 
     public String getEventLink() {

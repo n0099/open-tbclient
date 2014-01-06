@@ -10,7 +10,7 @@ import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.pb.NewPbActivity;
 import com.baidu.tieba.person.post.PersonPostThreadModel;
-import com.baidu.tieba.util.be;
+import com.baidu.tieba.util.bo;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class q extends BaseAdapter implements c, g {
@@ -74,7 +74,7 @@ public class q extends BaseAdapter implements c, g {
     public View getView(int i, View view, ViewGroup viewGroup) {
         s sVar;
         if (view == null) {
-            be.e("PersonThreadAdapter", "getView", "create convertView");
+            bo.e("PersonThreadAdapter", "getView", "create convertView");
             view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.person_post_item_thread, viewGroup, false);
             s sVar2 = new s(view);
             view.setTag(sVar2);
@@ -99,7 +99,7 @@ public class q extends BaseAdapter implements c, g {
         } else {
             sVar.g.setVisibility(8);
         }
-        if (com.baidu.tieba.d.a.a().f() && postList.media != null && postList.media.length > 0) {
+        if (com.baidu.tieba.e.a.a().f() && postList.media != null && postList.media.length > 0) {
             int min = Math.min(postList.media.length, 3);
             String[] strArr = new String[min];
             for (int i2 = 0; i2 < min; i2++) {
@@ -125,33 +125,33 @@ public class q extends BaseAdapter implements c, g {
             sVar.h.setVisibility(8);
         }
         sVar.a(this);
-        sVar.a(TiebaApplication.h().an());
+        sVar.a(TiebaApplication.g().an());
         return view;
     }
 
     @Override // com.baidu.tieba.person.post.c
     public void a(View view) {
         switch (view.getId()) {
-            case R.id.portrait /* 2131099857 */:
+            case R.id.portrait /* 2131099863 */:
                 this.e.finish();
                 return;
-            case R.id.item_header /* 2131100076 */:
-            case R.id.item_content /* 2131100925 */:
+            case R.id.item_header /* 2131100159 */:
+            case R.id.item_content /* 2131101023 */:
                 String[] strArr = (String[]) view.getTag();
                 if (strArr != null) {
                     NewPbActivity.a(view.getContext(), strArr[0], strArr[1], "person_post");
-                    be.e("PersonThreadAdapter", "on", "start thread = " + strArr[0] + " post_id = " + strArr[1]);
+                    bo.e("PersonThreadAdapter", "on", "start thread = " + strArr[0] + " post_id = " + strArr[1]);
                     return;
                 }
                 return;
-            case R.id.forum_name /* 2131100929 */:
+            case R.id.forum_name /* 2131101027 */:
                 String str = (String) view.getTag();
                 if (str != null) {
                     FrsActivity.a(view.getContext(), str, "");
                     return;
                 }
                 return;
-            case R.id.username /* 2131100931 */:
+            case R.id.username /* 2131101029 */:
                 this.e.finish();
                 return;
             default:

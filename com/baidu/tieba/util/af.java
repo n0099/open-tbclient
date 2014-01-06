@@ -1,62 +1,54 @@
 package com.baidu.tieba.util;
 
-import com.baidu.zeus.NotificationProxy;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.util.zip.GZIPInputStream;
-import java.util.zip.GZIPOutputStream;
+import java.util.ArrayList;
+import java.util.Iterator;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class af {
-    public static void a(InputStream inputStream, OutputStream outputStream) {
-        GZIPOutputStream gZIPOutputStream;
-        try {
-            gZIPOutputStream = new GZIPOutputStream(outputStream);
-        } catch (Throwable th) {
-            th = th;
-            gZIPOutputStream = null;
-        }
-        try {
-            byte[] bArr = new byte[NotificationProxy.MAX_URL_LENGTH];
-            while (true) {
-                int read = inputStream.read(bArr, 0, NotificationProxy.MAX_URL_LENGTH);
-                if (read != -1) {
-                    gZIPOutputStream.write(bArr, 0, read);
-                } else {
-                    gZIPOutputStream.flush();
-                    o.a((OutputStream) gZIPOutputStream);
-                    return;
-                }
-            }
-        } catch (Throwable th2) {
-            th = th2;
-            o.a((OutputStream) gZIPOutputStream);
-            throw th;
-        }
+public class af implements com.baidu.tieba.im.messageCenter.g {
+    final /* synthetic */ ad a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public af(ad adVar) {
+        this.a = adVar;
     }
 
-    public static void b(InputStream inputStream, OutputStream outputStream) {
-        GZIPInputStream gZIPInputStream;
-        try {
-            gZIPInputStream = new GZIPInputStream(inputStream);
-        } catch (Throwable th) {
-            th = th;
-            gZIPInputStream = null;
-        }
-        try {
-            byte[] bArr = new byte[NotificationProxy.MAX_URL_LENGTH];
-            while (true) {
-                int read = gZIPInputStream.read(bArr, 0, NotificationProxy.MAX_URL_LENGTH);
-                if (read != -1) {
-                    outputStream.write(bArr, 0, read);
-                } else {
-                    o.a((InputStream) gZIPInputStream);
-                    return;
-                }
+    @Override // com.baidu.tieba.im.messageCenter.g
+    public void a(com.baidu.tieba.im.message.o oVar) {
+        ag agVar;
+        ag agVar2;
+        ag agVar3;
+        double d;
+        double d2;
+        ag agVar4;
+        ag agVar5;
+        if (oVar == null || oVar.u() != 103010) {
+            agVar = this.a.d;
+            agVar.a();
+        } else if (!(oVar instanceof com.baidu.tieba.im.message.bw)) {
+            agVar5 = this.a.d;
+            agVar5.a();
+        } else {
+            com.baidu.tieba.im.message.bw bwVar = (com.baidu.tieba.im.message.bw) oVar;
+            if (bwVar.i()) {
+                agVar4 = this.a.d;
+                agVar4.a();
+                return;
             }
-        } catch (Throwable th2) {
-            th = th2;
-            o.a((InputStream) gZIPInputStream);
-            throw th;
+            Iterator<String> b = bwVar.b();
+            ArrayList arrayList = new ArrayList();
+            while (b.hasNext()) {
+                arrayList.add(b.next());
+            }
+            String a = bwVar.a();
+            if ((a == null || a.equals("")) && arrayList.size() < 1) {
+                agVar2 = this.a.d;
+                agVar2.a();
+                return;
+            }
+            agVar3 = this.a.d;
+            d = this.a.b;
+            d2 = this.a.a;
+            agVar3.a(a, arrayList, d, d2);
         }
     }
 }

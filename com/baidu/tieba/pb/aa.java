@@ -1,6 +1,6 @@
 package com.baidu.tieba.pb;
 
-import com.baidu.tieba.editortool.FaceView;
+import com.baidu.tieba.editortool.EmotionTabHost;
 import com.baidu.tieba.view.KeyboardLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -14,17 +14,17 @@ public class aa implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        FaceView faceView;
+        EmotionTabHost emotionTabHost;
         KeyboardLayout keyboardLayout;
-        com.baidu.tieba.view.aq aqVar;
-        FaceView faceView2;
-        faceView = this.a.o;
-        if (faceView.getVisibility() != 0) {
-            faceView2 = this.a.o;
-            faceView2.setVisibility(0);
+        com.baidu.tieba.view.aw awVar;
+        EmotionTabHost emotionTabHost2;
+        emotionTabHost = this.a.o;
+        if (emotionTabHost.getVisibility() != 0) {
+            emotionTabHost2 = this.a.o;
+            emotionTabHost2.setVisibility(0);
         }
         keyboardLayout = this.a.s;
-        aqVar = this.a.T;
-        keyboardLayout.setOnkbdStateListener(aqVar);
+        awVar = this.a.T;
+        keyboardLayout.setOnkbdStateListener(awVar);
     }
 }

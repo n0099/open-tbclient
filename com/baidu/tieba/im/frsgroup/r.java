@@ -3,8 +3,8 @@ package com.baidu.tieba.im.frsgroup;
 import android.text.TextUtils;
 import com.baidu.tieba.im.data.MembersData;
 import com.baidu.tieba.im.data.UserData;
-import com.baidu.tieba.im.message.af;
-import com.baidu.tieba.im.message.bj;
+import com.baidu.tieba.im.message.ai;
+import com.baidu.tieba.im.message.bm;
 import com.slidingmenu.lib.R;
 import java.util.List;
 /* loaded from: classes.dex */
@@ -17,9 +17,9 @@ class r implements com.baidu.tieba.im.messageCenter.g {
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(com.baidu.tieba.im.message.n nVar) {
+    public void a(com.baidu.tieba.im.message.o oVar) {
         aa aaVar;
-        af afVar;
+        ai aiVar;
         com.baidu.tieba.im.model.m mVar;
         boolean i;
         boolean i2;
@@ -30,23 +30,23 @@ class r implements com.baidu.tieba.im.messageCenter.g {
         aaVar = this.a.b;
         w i4 = aaVar.i();
         this.a.h();
-        if (nVar == null || !(nVar instanceof bj)) {
+        if (oVar == null || !(oVar instanceof bm)) {
             this.a.showToast(R.string.neterror);
             return;
         }
-        bj bjVar = (bj) nVar;
-        com.baidu.tieba.im.message.n l = bjVar.l();
-        if (l == null || !(l instanceof af)) {
-            afVar = null;
+        bm bmVar = (bm) oVar;
+        com.baidu.tieba.im.message.o l = bmVar.l();
+        if (l == null || !(l instanceof ai)) {
+            aiVar = null;
         } else {
-            afVar = (af) l;
+            aiVar = (ai) l;
         }
         mVar = this.a.c;
-        mVar.a(afVar);
-        if (bjVar.i()) {
-            if (bjVar.j() > 0) {
-                if (!TextUtils.isEmpty(bjVar.k())) {
-                    this.a.showToast(bjVar.k());
+        mVar.a(aiVar);
+        if (bmVar.i()) {
+            if (bmVar.j() > 0) {
+                if (!TextUtils.isEmpty(bmVar.k())) {
+                    this.a.showToast(bmVar.k());
                     return;
                 }
                 return;
@@ -54,7 +54,7 @@ class r implements com.baidu.tieba.im.messageCenter.g {
             this.a.showToast(R.string.neterror);
             return;
         }
-        MembersData a = bjVar.a();
+        MembersData a = bmVar.a();
         List<UserData> users = a.getUsers();
         if (users != null) {
             i = this.a.i();

@@ -25,17 +25,18 @@ public class MsgImageActivity extends com.baidu.tieba.j {
     private int q;
     private String r;
     private String s;
+    private boolean w;
     private ProgressBar a = null;
     private ArrayList<String> b = null;
     private int c = 0;
-    private ar d = null;
+    private an d = null;
     private TextView e = null;
     private ImageView f = null;
     private TextView h = null;
     private NavigationBar i = null;
     private MultiImageView j = null;
     private View.OnClickListener k = null;
-    private com.baidu.tieba.view.a l = null;
+    private com.baidu.tieba.view.e l = null;
     private android.support.v4.view.bq m = null;
     private AlphaAnimation n = null;
     private boolean o = true;
@@ -44,17 +45,18 @@ public class MsgImageActivity extends com.baidu.tieba.j {
     private HashMap<String, Boolean> u = null;
     private int v = 0;
 
-    public static void a(Context context, String str, long j) {
+    public static void a(Context context, String str, long j, boolean z) {
         if (j != 0 && context != null) {
             Intent intent = new Intent(context, MsgImageActivity.class);
             intent.putExtra("current_url", str);
             intent.putExtra("id", String.valueOf(j));
             intent.putExtra("chat_mode", 0);
+            intent.putExtra("isSingle", z);
             context.startActivity(intent);
         }
     }
 
-    public static void b(Context context, String str, long j) {
+    public static void a(Context context, String str, long j) {
         if (j != 0 && context != null) {
             Intent intent = new Intent(context, MsgImageActivity.class);
             intent.putExtra("current_url", str);
@@ -68,7 +70,7 @@ public class MsgImageActivity extends com.baidu.tieba.j {
     @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        TiebaApplication.h().a((com.baidu.tieba.j) this);
+        TiebaApplication.g().a((com.baidu.tieba.j) this);
         setContentView(R.layout.image_activity_2);
         a(bundle);
         a();
@@ -87,7 +89,7 @@ public class MsgImageActivity extends com.baidu.tieba.j {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (i == 1) {
-            this.j.setBackgroundColor(com.baidu.tieba.util.bb.d(i));
+            this.j.setBackgroundColor(com.baidu.tieba.util.bl.d(i));
         } else {
             this.j.setBackgroundColor(-16777216);
         }
@@ -131,7 +133,7 @@ public class MsgImageActivity extends com.baidu.tieba.j {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j, android.app.Activity
     public void onDestroy() {
-        TiebaApplication.h().b((com.baidu.tieba.j) this);
+        TiebaApplication.g().b((com.baidu.tieba.j) this);
         super.onDestroy();
     }
 
@@ -148,11 +150,14 @@ public class MsgImageActivity extends com.baidu.tieba.j {
     }
 
     private void a() {
-        this.k = new am(this);
-        this.m = new ao(this);
-        this.l = new ap(this);
+        this.k = new ai(this);
+        this.m = new ak(this);
+        this.l = new al(this);
         this.i = (NavigationBar) findViewById(R.id.navigation_bar);
         this.g = (FrameLayout) this.i.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.image_activity_save_button, this.k);
+        if (this.w) {
+            this.g.setVisibility(8);
+        }
         this.a = (ProgressBar) findViewById(R.id.progress);
         this.e = (TextView) findViewById(R.id.save);
         this.f = this.i.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.k);
@@ -210,6 +215,7 @@ public class MsgImageActivity extends com.baidu.tieba.j {
         if (intent != null) {
             this.r = intent.getStringExtra("current_url");
             this.s = intent.getStringExtra("id");
+            this.w = intent.getBooleanExtra("isSingle", false);
             this.b = new ArrayList<>();
             this.b.add(this.r);
             this.v = intent.getIntExtra("chat_mode", 0);
@@ -221,6 +227,7 @@ public class MsgImageActivity extends com.baidu.tieba.j {
             this.c = bundle.getInt("index", -1);
             this.s = bundle.getString("id");
             this.v = bundle.getInt("chat_mode", 0);
+            this.w = bundle.getBoolean("isSingle", false);
         } else {
             com.baidu.adp.lib.h.e.d(" not have savedInstanceState");
         }
@@ -231,11 +238,11 @@ public class MsgImageActivity extends com.baidu.tieba.j {
         if (TextUtils.isEmpty(this.s)) {
             finish();
         }
-        aq aqVar = new aq(this);
+        am amVar = new am(this);
         if (this.v == 0) {
-            a.b().a(this.s, aqVar);
+            a.b().a(this.s, amVar);
         } else {
-            a.b().b(this.s, aqVar);
+            a.b().b(this.s, amVar);
         }
     }
 
@@ -246,6 +253,7 @@ public class MsgImageActivity extends com.baidu.tieba.j {
         bundle.putInt("index", this.c);
         bundle.putString("id", this.s);
         bundle.putInt("chat_mode", this.v);
+        bundle.putBoolean("isSingle", this.w);
     }
 
     @Override // android.app.Activity, android.content.ComponentCallbacks

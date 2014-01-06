@@ -1,14 +1,9 @@
 package com.baidu.tieba.home;
 
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+import com.baidu.tieba.data.SignData;
 /* loaded from: classes.dex */
-final class by extends bz {
-    LinearLayout a;
-    RelativeLayout b;
-    TextView c;
-    TextView d;
-    TextView e;
-    by f;
+public interface by {
+    void a(SignData signData);
+
+    void a(String str, String str2);
 }

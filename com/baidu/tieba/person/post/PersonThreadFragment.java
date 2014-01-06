@@ -12,7 +12,7 @@ import com.baidu.tieba.BaseFragment;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.util.UtilHelper;
 import com.baidu.tieba.view.PbListView;
-import com.baidu.tieba.view.bq;
+import com.baidu.tieba.view.bw;
 import com.slidingmenu.lib.R;
 import java.util.Timer;
 /* loaded from: classes.dex */
@@ -23,7 +23,7 @@ public class PersonThreadFragment extends BaseFragment implements AbsListView.On
     private String d;
     private PbListView e;
     private View f;
-    private bq g;
+    private bw g;
     private int h;
     private boolean i = false;
     private boolean Y = true;
@@ -41,7 +41,7 @@ public class PersonThreadFragment extends BaseFragment implements AbsListView.On
         this.d = h().getString("key_uid");
         this.b = new q(i(), this.d, h().getString("key_portrait_url"));
         this.a.a.setAdapter((ListAdapter) this.b);
-        this.g = new bq(i());
+        this.g = new bw(i());
         this.g.a(new t(this));
         this.a.a.setPullRefresh(this.g);
         this.b.a(this);
@@ -56,7 +56,7 @@ public class PersonThreadFragment extends BaseFragment implements AbsListView.On
         super.c(i);
         if (n()) {
             TextView textView = (TextView) this.f.findViewById(R.id.pb_more_text);
-            if (TiebaApplication.h().an() == 1) {
+            if (TiebaApplication.g().an() == 1) {
                 textView.setTextColor(j().getColor(R.color.person_post_header_uname_1));
             } else {
                 textView.setTextColor(j().getColor(R.color.person_post_header_uname));
@@ -97,7 +97,7 @@ public class PersonThreadFragment extends BaseFragment implements AbsListView.On
             this.a.a.setEmptyView(null);
             this.a.c.setVisibility(8);
             if (a(personPostThreadModel)) {
-                if (TiebaApplication.h().an() == 1) {
+                if (TiebaApplication.g().an() == 1) {
                     this.a.b.setTextColor(j().getColor(R.color.person_post_header_uname_1));
                 } else {
                     this.a.b.setTextColor(j().getColor(R.color.person_post_header_uname));

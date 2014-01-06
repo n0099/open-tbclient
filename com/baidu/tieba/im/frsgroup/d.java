@@ -12,14 +12,12 @@ class d implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        com.baidu.tieba.im.model.c cVar;
         FrsGroupActivity frsGroupActivity;
-        com.baidu.tieba.im.model.c cVar2;
-        cVar = this.a.b;
-        if (cVar.d() != null) {
-            frsGroupActivity = this.a.a;
-            cVar2 = this.a.b;
-            frsGroupActivity.a(cVar2.d());
+        FrsGroupActivity frsGroupActivity2;
+        frsGroupActivity = this.a.a;
+        if (frsGroupActivity != null) {
+            frsGroupActivity2 = this.a.a;
+            frsGroupActivity2.f();
         }
     }
 }

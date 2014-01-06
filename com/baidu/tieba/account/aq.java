@@ -14,7 +14,7 @@ public class aq extends BdAsyncTask<Object, Integer, com.baidu.tieba.model.be> {
     ArrayList<BasicNameValuePair> a;
     final /* synthetic */ LoginActivity b;
     private String d;
-    private com.baidu.tieba.util.an c = null;
+    private com.baidu.tieba.util.at c = null;
     private String e = null;
 
     public aq(LoginActivity loginActivity, String str, ArrayList<BasicNameValuePair> arrayList) {
@@ -57,11 +57,11 @@ public class aq extends BdAsyncTask<Object, Integer, com.baidu.tieba.model.be> {
         com.baidu.tieba.model.be beVar;
         Exception e;
         try {
-            this.c = new com.baidu.tieba.util.an(this.d);
+            this.c = new com.baidu.tieba.util.at(this.d);
             this.c.a(this.a);
             this.e = this.c.l();
             if (this.e != null) {
-                com.baidu.tieba.util.be.a("LoginAsyncTask", "doInBackground", "data: " + this.e);
+                com.baidu.tieba.util.bo.a("LoginAsyncTask", "doInBackground", "data: " + this.e);
             }
             if (!this.c.c() || this.e == null) {
                 return null;
@@ -72,7 +72,7 @@ public class aq extends BdAsyncTask<Object, Integer, com.baidu.tieba.model.be> {
                 return beVar;
             } catch (Exception e2) {
                 e = e2;
-                com.baidu.tieba.util.be.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
+                com.baidu.tieba.util.bo.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
                 return beVar;
             }
         } catch (Exception e3) {
@@ -113,9 +113,9 @@ public class aq extends BdAsyncTask<Object, Integer, com.baidu.tieba.model.be> {
                 textView4.setVisibility(8);
                 this.b.i();
             } else {
-                com.baidu.tieba.data.bd bdVar = new com.baidu.tieba.data.bd();
-                bdVar.a(this.e);
-                if (bdVar.b() == null) {
+                com.baidu.tieba.data.bf bfVar = new com.baidu.tieba.data.bf();
+                bfVar.a(this.e);
+                if (bfVar.b() == null) {
                     textView5 = this.b.G;
                     textView5.setVisibility(0);
                     textView6 = this.b.G;
@@ -124,8 +124,8 @@ public class aq extends BdAsyncTask<Object, Integer, com.baidu.tieba.model.be> {
                     textView7.setVisibility(8);
                     this.b.i();
                 } else {
-                    this.b.h = bdVar.a();
-                    this.b.i = bdVar.b();
+                    this.b.h = bfVar.a();
+                    this.b.i = bfVar.b();
                     LoginActivity loginActivity = this.b;
                     str = this.b.i;
                     loginActivity.a(str);

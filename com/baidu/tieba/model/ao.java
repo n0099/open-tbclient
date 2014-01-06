@@ -1,6 +1,7 @@
 package com.baidu.tieba.model;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.ForumData;
 import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
@@ -11,7 +12,7 @@ public class ao extends BdAsyncTask<Object, ak, JSONObject> {
     ArrayList<BasicNameValuePair> a;
     an b;
     final /* synthetic */ ak c;
-    private com.baidu.tieba.util.an d = null;
+    private com.baidu.tieba.util.at d = null;
     private String e;
     private String f;
     private int g;
@@ -33,12 +34,12 @@ public class ao extends BdAsyncTask<Object, ak, JSONObject> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void b() {
-        com.baidu.tieba.frs.ag agVar;
-        com.baidu.tieba.frs.ag agVar2;
-        agVar = this.c.i;
-        if (agVar != null) {
-            agVar2 = this.c.i;
-            agVar2.a(this.g);
+        com.baidu.tieba.frs.af afVar;
+        com.baidu.tieba.frs.af afVar2;
+        afVar = this.c.i;
+        if (afVar != null) {
+            afVar2 = this.c.i;
+            afVar2.a(this.g);
         }
     }
 
@@ -56,9 +57,12 @@ public class ao extends BdAsyncTask<Object, ak, JSONObject> {
         try {
             z = this.c.n;
             if (z && z.a().a(this.f)) {
+                if (!z.a().c(TiebaApplication.A() + this.f)) {
+                    z.a().b().a().getSignData().setIsSigned(0);
+                }
                 c((Object[]) new ak[]{z.a().b()});
             }
-            this.d = new com.baidu.tieba.util.an(this.e);
+            this.d = new com.baidu.tieba.util.at(this.e);
             this.d.a(this.a);
             String l = this.d.l();
             jSONObject = new JSONObject(l);
@@ -77,7 +81,7 @@ public class ao extends BdAsyncTask<Object, ak, JSONObject> {
                 }
             } catch (Exception e2) {
                 e = e2;
-                com.baidu.tieba.util.be.b(getClass().getName(), "", "FrsAsyncTask.doInBackground error = " + e.getMessage());
+                com.baidu.tieba.util.bo.b(getClass().getName(), "", "FrsAsyncTask.doInBackground error = " + e.getMessage());
                 return jSONObject;
             }
         } catch (Exception e3) {
@@ -92,12 +96,12 @@ public class ao extends BdAsyncTask<Object, ak, JSONObject> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
     public void b(ak... akVarArr) {
-        com.baidu.tieba.frs.ag agVar;
-        com.baidu.tieba.frs.ag agVar2;
-        agVar = this.c.i;
-        if (agVar != null) {
-            agVar2 = this.c.i;
-            agVar2.a(akVarArr.length > 0 ? akVarArr[0] : null);
+        com.baidu.tieba.frs.af afVar;
+        com.baidu.tieba.frs.af afVar2;
+        afVar = this.c.i;
+        if (afVar != null) {
+            afVar2 = this.c.i;
+            afVar2.a(akVarArr.length > 0 ? akVarArr[0] : null);
         }
     }
 
@@ -105,8 +109,8 @@ public class ao extends BdAsyncTask<Object, ak, JSONObject> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(JSONObject jSONObject) {
-        com.baidu.tieba.frs.ag agVar;
-        com.baidu.tieba.frs.ag agVar2;
+        com.baidu.tieba.frs.af afVar;
+        com.baidu.tieba.frs.af afVar2;
         if (this.d != null) {
             this.b.a = true;
             this.b.b = this.d.d();
@@ -114,10 +118,10 @@ public class ao extends BdAsyncTask<Object, ak, JSONObject> {
             this.b.d = this.d.i();
             this.b.e = this.d.b();
         }
-        agVar = this.c.i;
-        if (agVar != null) {
-            agVar2 = this.c.i;
-            agVar2.a(this.g, jSONObject, this.b);
+        afVar = this.c.i;
+        if (afVar != null) {
+            afVar2 = this.c.i;
+            afVar2.a(this.g, jSONObject, this.b);
         }
         this.c.l = null;
     }
@@ -130,16 +134,16 @@ public class ao extends BdAsyncTask<Object, ak, JSONObject> {
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        com.baidu.tieba.frs.ag agVar;
-        com.baidu.tieba.frs.ag agVar2;
+        com.baidu.tieba.frs.af afVar;
+        com.baidu.tieba.frs.af afVar2;
         super.cancel(true);
         if (this.d != null) {
             this.d.j();
         }
-        agVar = this.c.i;
-        if (agVar != null) {
-            agVar2 = this.c.i;
-            agVar2.a(this.g, null, null);
+        afVar = this.c.i;
+        if (afVar != null) {
+            afVar2 = this.c.i;
+            afVar2.a(this.g, null, null);
         }
     }
 }

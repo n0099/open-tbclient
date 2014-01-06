@@ -22,10 +22,10 @@ public class c extends Handler {
         long j;
         com.baidu.tieba.model.ak akVar3;
         boolean z;
-        bn bnVar;
+        bo boVar;
         com.baidu.tieba.model.ak akVar4;
         com.baidu.tieba.model.ak akVar5;
-        bn bnVar2;
+        bo boVar2;
         switch (message.what) {
             case 1:
                 removeMessages(1);
@@ -36,8 +36,8 @@ public class c extends Handler {
                     j = this.a.B;
                     long nanoTime = g - ((System.nanoTime() / 1000000000) - j);
                     if (nanoTime > 0) {
-                        bnVar2 = this.a.n;
-                        CustomTimerView customTimerView = (CustomTimerView) bnVar2.a(R.id.open_timer);
+                        boVar2 = this.a.n;
+                        CustomTimerView customTimerView = (CustomTimerView) boVar2.a(R.id.open_timer);
                         if (customTimerView != null) {
                             customTimerView.setTime(nanoTime);
                         }
@@ -48,12 +48,12 @@ public class c extends Handler {
                     akVar3.f().a(1);
                     z = this.a.d;
                     if (!z) {
-                        bnVar = this.a.n;
-                        com.baidu.tieba.view.ab o = bnVar.o();
+                        boVar = this.a.n;
+                        com.baidu.tieba.view.ag p = boVar.p();
                         akVar4 = this.a.w;
                         ForumData a = akVar4.a();
                         akVar5 = this.a.w;
-                        o.a(a, akVar5);
+                        p.a(a, akVar5);
                         return;
                     }
                     return;

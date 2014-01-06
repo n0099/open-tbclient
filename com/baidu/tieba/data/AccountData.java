@@ -1,5 +1,6 @@
 package com.baidu.tieba.data;
 
+import com.baidu.tieba.util.bo;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class AccountData implements Serializable {
@@ -12,6 +13,7 @@ public class AccountData implements Serializable {
     private String mTbs = null;
     private int mIsActive = 0;
     private long mTime = 0;
+    private int mPersonalGid = 0;
 
     public String getID() {
         return this.mID;
@@ -54,11 +56,11 @@ public class AccountData implements Serializable {
     }
 
     public void logPrint() {
-        com.baidu.tieba.util.be.d(getClass().getName(), "logPrint", "mAccount = " + this.mAccount);
-        com.baidu.tieba.util.be.d(getClass().getName(), "logPrint", "mPassword = " + this.mPassword);
-        com.baidu.tieba.util.be.d(getClass().getName(), "logPrint", "mIsActive = " + String.valueOf(this.mIsActive));
-        com.baidu.tieba.util.be.d(getClass().getName(), "logPrint", "BDUSS = " + this.BDUSS);
-        com.baidu.tieba.util.be.d(getClass().getName(), "logPrint", "portrait = " + this.portrait);
+        bo.d(getClass().getName(), "logPrint", "mAccount = " + this.mAccount);
+        bo.d(getClass().getName(), "logPrint", "mPassword = " + this.mPassword);
+        bo.d(getClass().getName(), "logPrint", "mIsActive = " + String.valueOf(this.mIsActive));
+        bo.d(getClass().getName(), "logPrint", "BDUSS = " + this.BDUSS);
+        bo.d(getClass().getName(), "logPrint", "portrait = " + this.portrait);
     }
 
     public void setTbs(String str) {
@@ -83,5 +85,13 @@ public class AccountData implements Serializable {
 
     public void setPortrait(String str) {
         this.portrait = str;
+    }
+
+    public int getPersonalGid() {
+        return this.mPersonalGid;
+    }
+
+    public void setPersonalGid(int i) {
+        this.mPersonalGid = i;
     }
 }

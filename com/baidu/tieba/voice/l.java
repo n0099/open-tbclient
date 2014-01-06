@@ -16,9 +16,9 @@ public class l implements DialogInterface.OnClickListener {
     public void onClick(DialogInterface dialogInterface, int i) {
         AlertDialog alertDialog;
         AlertDialog alertDialog2;
-        alertDialog = this.a.G;
+        alertDialog = this.a.C;
         if (alertDialog != null) {
-            alertDialog2 = this.a.G;
+            alertDialog2 = this.a.C;
             alertDialog2.dismiss();
         }
     }

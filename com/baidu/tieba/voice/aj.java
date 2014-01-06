@@ -1,6 +1,6 @@
 package com.baidu.tieba.voice;
 
-import com.baidu.tieba.util.be;
+import com.baidu.tieba.util.bo;
 import java.io.File;
 /* loaded from: classes.dex */
 public class aj {
@@ -16,7 +16,7 @@ public class aj {
     }
 
     public static String b(String str) {
-        return com.baidu.tieba.util.y.a(str, 1);
+        return com.baidu.tieba.util.aa.a(str, 1);
     }
 
     public static String c(String str) {
@@ -34,7 +34,7 @@ public class aj {
             }
             return false;
         } catch (Throwable th) {
-            be.b("FileHelper", "DelFile", "error = " + th.getMessage());
+            bo.b("FileHelper", "DelFile", "error = " + th.getMessage());
             return false;
         }
     }

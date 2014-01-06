@@ -1,19 +1,19 @@
 package com.baidu.tieba.im.model;
 
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.im.chat.bc;
+import com.baidu.tieba.im.chat.ba;
 import com.baidu.tieba.im.data.GroupData;
 import com.baidu.tieba.im.data.MsgPageData;
 import com.baidu.tieba.im.data.UserData;
-import com.baidu.tieba.im.message.az;
-import com.baidu.tieba.im.message.ba;
+import com.baidu.tieba.im.message.bc;
+import com.baidu.tieba.im.message.bd;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ab implements com.baidu.tieba.im.chat.ag {
+public class ab implements com.baidu.tieba.im.chat.af {
     final /* synthetic */ MsglistModel a;
 
     private ab(MsglistModel msglistModel) {
@@ -25,12 +25,12 @@ public class ab implements com.baidu.tieba.im.chat.ag {
         this(msglistModel);
     }
 
-    @Override // com.baidu.tieba.im.chat.ag
-    public void a(com.baidu.tieba.im.message.n nVar) {
-        az azVar;
+    @Override // com.baidu.tieba.im.chat.af
+    public void a(com.baidu.tieba.im.message.o oVar) {
+        bc bcVar;
         String d;
         String d2;
-        bc bcVar;
+        ba baVar;
         int i;
         int i2;
         UserData userData;
@@ -66,36 +66,36 @@ public class ab implements com.baidu.tieba.im.chat.ag {
         com.baidu.adp.a.g gVar4;
         MsgPageData msgPageData15;
         GroupData groupData5;
-        if (nVar != null) {
-            if (nVar.t() == -100) {
-                com.baidu.tieba.im.data.c cVar = (com.baidu.tieba.im.data.c) nVar;
-                com.baidu.tieba.im.data.f fVar = null;
+        if (oVar != null) {
+            if (oVar.u() == -100) {
+                com.baidu.tieba.im.data.b bVar = (com.baidu.tieba.im.data.b) oVar;
+                com.baidu.tieba.im.data.e eVar = null;
                 i4 = this.a.e;
                 if (i4 == 0) {
-                    if (cVar.a() != null) {
-                        int groupId = cVar.a().getGroupId();
+                    if (bVar.a() != null) {
+                        int groupId = bVar.a().getGroupId();
                         groupData5 = this.a.f;
                         if (groupId == groupData5.getGroupId()) {
-                            fVar = cVar.b();
+                            eVar = bVar.b();
                         }
                     }
-                } else if (this.a.b() != null && cVar.a() != null && cVar.a().getGroupType() == 6) {
-                    List<com.baidu.tieba.im.message.b> a3 = cVar.b().a();
+                } else if (this.a.b() != null && bVar.a() != null && bVar.a().getGroupType() == 6) {
+                    List<com.baidu.tieba.im.message.b> a3 = bVar.b().a();
                     LinkedList linkedList = new LinkedList();
-                    for (com.baidu.tieba.im.message.b bVar : a3) {
-                        if (bVar instanceof com.baidu.tieba.im.message.d) {
-                            if (bVar.b() == this.a.b().getUserId()) {
-                                linkedList.add(bVar);
-                            } else if (bVar.l() == this.a.b().getUserId()) {
-                                linkedList.add(bVar);
+                    for (com.baidu.tieba.im.message.b bVar2 : a3) {
+                        if (bVar2 instanceof com.baidu.tieba.im.message.e) {
+                            if (bVar2.b() == this.a.b().getUserId()) {
+                                linkedList.add(bVar2);
+                            } else if (bVar2.l() == this.a.b().getUserId()) {
+                                linkedList.add(bVar2);
                             }
                         }
                     }
-                    fVar = new com.baidu.tieba.im.data.f();
-                    fVar.a(linkedList);
+                    eVar = new com.baidu.tieba.im.data.e();
+                    eVar.a(linkedList);
                 }
-                if (fVar != null) {
-                    List<com.baidu.tieba.im.message.b> a4 = fVar.a();
+                if (eVar != null) {
+                    List<com.baidu.tieba.im.message.b> a4 = eVar.a();
                     this.a.b(a4);
                     MsglistModel msglistModel = this.a;
                     msgPageData9 = this.a.j;
@@ -120,52 +120,52 @@ public class ab implements com.baidu.tieba.im.chat.ag {
                     msgPageData12 = this.a.j;
                     msgPageData12.setNewAddNum(0);
                 }
-            } else if (nVar.t() == 202001 || nVar.t() == 205001) {
-                if ((nVar instanceof az) && (azVar = (az) nVar) != null) {
-                    if (azVar.l() == null || !(azVar.l() instanceof com.baidu.tieba.im.message.b)) {
-                        com.baidu.tieba.log.a.b(com.baidu.tieba.log.i.a(azVar.t(), 0, "chatResMessage.getOrginalMessage()==null", "return", null, 0, null));
+            } else if (oVar.u() == 202001 || oVar.u() == 205001) {
+                if ((oVar instanceof bc) && (bcVar = (bc) oVar) != null) {
+                    if (bcVar.l() == null || !(bcVar.l() instanceof com.baidu.tieba.im.message.b)) {
+                        com.baidu.tieba.log.a.b(com.baidu.tieba.log.i.a(bcVar.u(), 0, "chatResMessage.getOrginalMessage()==null", "return", null, 0, null));
                         return;
                     }
-                    if ((azVar instanceof ba) && azVar.j() == 2230303) {
+                    if ((bcVar instanceof bd) && bcVar.j() == 2230303) {
                         this.a.o();
                     }
-                    com.baidu.tieba.im.message.b bVar2 = (com.baidu.tieba.im.message.b) azVar.l();
-                    if (azVar.i()) {
-                        long currentTimeMillis = System.currentTimeMillis() - bVar2.r();
-                        long i5 = bVar2.i();
-                        d2 = this.a.d(bVar2);
-                        com.baidu.tieba.log.a.b(com.baidu.tieba.log.i.a(azVar.t(), 0, "", "", d2 + "rid" + i5, azVar.j(), azVar.k(), currentTimeMillis));
-                        this.a.c(bVar2);
-                        if (azVar.j() > 0) {
-                            bcVar = this.a.p;
-                            bcVar.showToast(azVar.k());
-                            if (bVar2.i() != azVar.b()) {
-                                azVar.b(bVar2.i());
-                                com.baidu.tieba.log.a.b(com.baidu.tieba.log.i.a(azVar.t(), 0, "orginalRecordId != serverRecordId", "", null, azVar.j(), azVar.k()));
+                    com.baidu.tieba.im.message.b bVar3 = (com.baidu.tieba.im.message.b) bcVar.l();
+                    if (bcVar.i()) {
+                        long currentTimeMillis = System.currentTimeMillis() - bVar3.s();
+                        long i5 = bVar3.i();
+                        d2 = this.a.d(bVar3);
+                        com.baidu.tieba.log.a.b(com.baidu.tieba.log.i.a(bcVar.u(), 0, "", "", d2 + "rid" + i5, bcVar.j(), bcVar.k(), currentTimeMillis));
+                        this.a.c(bVar3);
+                        if (bcVar.j() > 0) {
+                            baVar = this.a.p;
+                            baVar.showToast(bcVar.k());
+                            if (bVar3.i() != bcVar.b()) {
+                                bcVar.b(bVar3.i());
+                                com.baidu.tieba.log.a.b(com.baidu.tieba.log.i.a(bcVar.u(), 0, "orginalRecordId != serverRecordId", "", null, bcVar.j(), bcVar.k()));
                                 return;
                             }
                             return;
                         }
                         return;
                     }
-                    long currentTimeMillis2 = System.currentTimeMillis() - bVar2.r();
-                    long b = azVar.b();
-                    long a5 = azVar.a();
-                    d = this.a.d(bVar2);
-                    com.baidu.tieba.log.a.b(com.baidu.tieba.log.i.a(azVar.t(), 0, "", "", "rid = " + b + "msgId = " + a5 + d, azVar.j(), azVar.k(), currentTimeMillis2));
-                    if (bVar2.i() != azVar.b()) {
-                        azVar.b(bVar2.i());
-                        com.baidu.tieba.log.a.b(com.baidu.tieba.log.i.a(azVar.t(), 0, "orginalRecordId != serverRecordId", "", null, azVar.j(), azVar.k()));
+                    long currentTimeMillis2 = System.currentTimeMillis() - bVar3.s();
+                    long b = bcVar.b();
+                    long a5 = bcVar.a();
+                    d = this.a.d(bVar3);
+                    com.baidu.tieba.log.a.b(com.baidu.tieba.log.i.a(bcVar.u(), 0, "", "", "rid = " + b + "msgId = " + a5 + d, bcVar.j(), bcVar.k(), currentTimeMillis2));
+                    if (bVar3.i() != bcVar.b()) {
+                        bcVar.b(bVar3.i());
+                        com.baidu.tieba.log.a.b(com.baidu.tieba.log.i.a(bcVar.u(), 0, "orginalRecordId != serverRecordId", "", null, bcVar.j(), bcVar.k()));
                     }
-                    this.a.a(azVar);
+                    this.a.a(bcVar);
                 }
-            } else if (nVar.t() == -103) {
-                if (!(nVar instanceof com.baidu.tieba.im.message.k)) {
+            } else if (oVar.u() == -103) {
+                if (!(oVar instanceof com.baidu.tieba.im.message.l)) {
                     com.baidu.adp.lib.h.e.a("transform to LoadDraftResponsedMessage error");
                     return;
                 }
-                com.baidu.tieba.im.message.k kVar = (com.baidu.tieba.im.message.k) nVar;
-                if (!kVar.i()) {
+                com.baidu.tieba.im.message.l lVar = (com.baidu.tieba.im.message.l) oVar;
+                if (!lVar.i()) {
                     i3 = this.a.e;
                     if (i3 == 0) {
                         groupData3 = this.a.f;
@@ -173,7 +173,7 @@ public class ab implements com.baidu.tieba.im.chat.ag {
                             com.baidu.adp.lib.h.e.a("group ==null");
                             return;
                         }
-                        String b2 = kVar.b();
+                        String b2 = lVar.b();
                         groupData4 = this.a.f;
                         if (!b2.equals(String.valueOf(groupData4.getGroupId()))) {
                             return;
@@ -184,7 +184,7 @@ public class ab implements com.baidu.tieba.im.chat.ag {
                             com.baidu.adp.lib.h.e.a("user == null");
                             return;
                         }
-                        String b3 = kVar.b();
+                        String b3 = lVar.b();
                         userData4 = this.a.g;
                         if (!b3.equals(String.valueOf(userData4.getUserId()))) {
                             return;
@@ -192,46 +192,46 @@ public class ab implements com.baidu.tieba.im.chat.ag {
                     }
                     this.a.mLoadDataMode = 8;
                     gVar3 = this.a.mLoadDataCallBack;
-                    gVar3.a(kVar.a());
+                    gVar3.a(lVar.a());
                     return;
                 }
                 com.baidu.adp.lib.h.e.a("LoadDraftResponedMessage hasError");
-            } else if (nVar.t() == -105) {
-                if (!(nVar instanceof com.baidu.tieba.im.message.m)) {
+            } else if (oVar.u() == -105) {
+                if (!(oVar instanceof com.baidu.tieba.im.message.n)) {
                     com.baidu.adp.lib.h.e.a("transform to LoadHistoryResponsedMessage error");
                     return;
                 }
-                com.baidu.tieba.im.message.m mVar = (com.baidu.tieba.im.message.m) nVar;
-                if (mVar.i()) {
+                com.baidu.tieba.im.message.n nVar = (com.baidu.tieba.im.message.n) oVar;
+                if (nVar.i()) {
                     com.baidu.adp.lib.h.e.a("LoadHistoryResponsedMessage hasError");
                     return;
                 }
-                LinkedList linkedList2 = (LinkedList) mVar.b();
+                LinkedList linkedList2 = (LinkedList) nVar.b();
                 i = this.a.e;
-                if (i != 0 || mVar.e() != 0) {
+                if (i != 0 || nVar.e() != 0) {
                     i2 = this.a.e;
-                    if (i2 == 1 && mVar.e() == 1) {
+                    if (i2 == 1 && nVar.e() == 1) {
                         userData = this.a.g;
-                        if (userData == null || mVar == null) {
+                        if (userData == null || nVar == null) {
                             com.baidu.adp.lib.h.e.a("user ==null or LoadHistoryResponsedMessage == null");
                             return;
                         }
-                        long d3 = mVar.d();
+                        long d3 = nVar.d();
                         userData2 = this.a.g;
                         if (d3 == userData2.getUserId()) {
                             try {
-                                j = Long.parseLong(TiebaApplication.B());
+                                j = Long.parseLong(TiebaApplication.A());
                             } catch (Exception e) {
                                 e.printStackTrace();
                                 j = 0;
                             }
                             Iterator it = linkedList2.iterator();
                             while (it.hasNext()) {
-                                com.baidu.tieba.im.message.b bVar3 = (com.baidu.tieba.im.message.b) it.next();
-                                if (bVar3.l() == 0) {
-                                    bVar3.d(j);
-                                } else if (bVar3.b() == 0) {
-                                    bVar3.a(j);
+                                com.baidu.tieba.im.message.b bVar4 = (com.baidu.tieba.im.message.b) it.next();
+                                if (bVar4.l() == 0) {
+                                    bVar4.d(j);
+                                } else if (bVar4.b() == 0) {
+                                    bVar4.a(j);
                                 }
                             }
                         } else {
@@ -240,11 +240,11 @@ public class ab implements com.baidu.tieba.im.chat.ag {
                     }
                 } else {
                     groupData = this.a.f;
-                    if (groupData == null || mVar == null) {
+                    if (groupData == null || nVar == null) {
                         com.baidu.adp.lib.h.e.a("group ==null or LoadHistoryResponsedMessage == null");
                         return;
-                    } else if (mVar.a() != null) {
-                        String a6 = mVar.a();
+                    } else if (nVar.a() != null) {
+                        String a6 = nVar.a();
                         groupData2 = this.a.f;
                         if (!a6.equals(String.valueOf(groupData2.getGroupId()))) {
                             return;
@@ -269,7 +269,7 @@ public class ab implements com.baidu.tieba.im.chat.ag {
                 MsglistModel msglistModel3 = this.a;
                 msgPageData4 = this.a.j;
                 msglistModel3.a(msgPageData4.getChatMessages());
-                if (mVar.c()) {
+                if (nVar.c()) {
                     msgPageData6 = this.a.j;
                     if (msgPageData6.getIsNewAdd()) {
                         this.a.mLoadDataMode = 1;

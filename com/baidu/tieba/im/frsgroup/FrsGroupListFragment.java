@@ -14,8 +14,8 @@ import com.baidu.tieba.BaseFragment;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.im.data.GroupInfoData;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
-import com.baidu.tieba.im.message.bb;
-import com.baidu.tieba.view.bq;
+import com.baidu.tieba.im.message.be;
+import com.baidu.tieba.view.bw;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
@@ -29,7 +29,7 @@ public class FrsGroupListFragment extends BaseFragment implements AbsListView.On
     private g c;
     private BdListView d;
     private Button e;
-    private bq f;
+    private bw f;
     private InitGuideView g;
     private GroupListAdapter h;
     private Handler i;
@@ -72,7 +72,7 @@ public class FrsGroupListFragment extends BaseFragment implements AbsListView.On
         this.g = (InitGuideView) inflate.findViewById(R.id.group_guide);
         this.e = (Button) inflate.findViewById(R.id.guide_create);
         this.d = (BdListView) inflate.findViewById(R.id.group_list);
-        this.f = new bq(this.a);
+        this.f = new bw(this.a);
         this.d.setPullRefresh(this.f);
         this.h = new GroupListAdapter(this.a);
         this.d.setAdapter((ListAdapter) this.h);
@@ -219,7 +219,7 @@ public class FrsGroupListFragment extends BaseFragment implements AbsListView.On
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e(boolean z) {
-        int an = TiebaApplication.h().an();
+        int an = TiebaApplication.g().an();
         if (!z) {
             this.d.setDivider(j().getDrawable(17170445));
         } else if (an == 1) {
@@ -249,11 +249,11 @@ public class FrsGroupListFragment extends BaseFragment implements AbsListView.On
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(com.baidu.tieba.im.message.n nVar) {
-        if (nVar instanceof bb) {
-            bb bbVar = (bb) nVar;
-            if (!bbVar.i()) {
-                a(bbVar.a());
+    public void a(com.baidu.tieba.im.message.o oVar) {
+        if (oVar instanceof be) {
+            be beVar = (be) oVar;
+            if (!beVar.i()) {
+                a(beVar.a());
             }
         }
     }

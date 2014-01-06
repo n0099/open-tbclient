@@ -21,25 +21,31 @@ class y extends com.baidu.tieba.m {
         com.baidu.tieba.model.o oVar3;
         aa aaVar4;
         aa aaVar5;
+        aa aaVar6;
+        aa aaVar7;
         com.baidu.tieba.model.o oVar4;
         com.baidu.tieba.model.o oVar5;
         try {
             if (((Integer) objArr[0]).intValue() == 0) {
+                aaVar6 = this.b.b;
+                aaVar6.k();
+                if (objArr[1] != null && (objArr[1] instanceof String)) {
+                    r1 = (String) objArr[1];
+                }
+                aaVar7 = this.b.b;
+                oVar4 = this.b.a;
+                aaVar7.a(r1, oVar4, ((Boolean) objArr[2]).booleanValue());
+                EditMarkActivity editMarkActivity = this.b;
+                oVar5 = this.b.a;
+                editMarkActivity.d = oVar5.f();
+            } else if (((Integer) objArr[0]).intValue() == 3) {
+                aaVar4 = this.b.b;
+                aaVar4.k();
                 if (objArr[1] != null && (objArr[1] instanceof String)) {
                     r1 = (String) objArr[1];
                 }
                 aaVar5 = this.b.b;
-                oVar4 = this.b.a;
-                aaVar5.a(r1, oVar4, (Boolean) objArr[2]);
-                EditMarkActivity editMarkActivity = this.b;
-                oVar5 = this.b.a;
-                editMarkActivity.d = oVar5.c();
-            } else if (((Integer) objArr[0]).intValue() == 3) {
-                if (objArr[1] != null && (objArr[1] instanceof String)) {
-                    r1 = (String) objArr[1];
-                }
-                aaVar4 = this.b.b;
-                aaVar4.a(r1, (com.baidu.tieba.model.o) null, (Boolean) false);
+                aaVar5.a(r1, (com.baidu.tieba.model.o) null, false);
             } else if (((Integer) objArr[0]).intValue() == 1) {
                 boolean booleanValue2 = objArr[1] != null ? ((Boolean) objArr[1]).booleanValue() : false;
                 r1 = objArr[2] != null ? (String) objArr[2] : null;
@@ -58,9 +64,10 @@ class y extends com.baidu.tieba.m {
                 String str = objArr[2] != null ? (String) objArr[2] : null;
                 aaVar = this.b.b;
                 oVar = this.b.a;
-                aaVar.a(booleanValue, str, oVar.c());
+                aaVar.a(booleanValue, str, oVar.f());
             }
         } catch (Exception e) {
+            com.baidu.adp.lib.h.e.d(e.getMessage());
         }
     }
 }

@@ -27,7 +27,7 @@ import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class ah extends BaseAdapter {
     private Context a;
-    private ArrayList<com.baidu.tieba.data.az> b;
+    private ArrayList<com.baidu.tieba.data.bb> b;
     private boolean c;
     private boolean d;
     private boolean e;
@@ -35,24 +35,25 @@ public class ah extends BaseAdapter {
     private com.baidu.tieba.util.i g;
     private int h;
     private boolean j;
-    private int n;
     private int o;
     private int p;
+    private int q;
     private int i = BdWebPoolView.DELAYED_TIME;
     private float k = 0.4f;
     private boolean l = false;
     private LinkedList<IconData> m = null;
+    private LinkedList<IconData> n = null;
 
-    private int b(ArrayList<com.baidu.tieba.data.az> arrayList) {
+    private int b(ArrayList<com.baidu.tieba.data.bb> arrayList) {
         int i = 0;
         if (arrayList == null || arrayList.size() <= 0) {
             return 0;
         }
-        Iterator<com.baidu.tieba.data.az> it = arrayList.iterator();
+        Iterator<com.baidu.tieba.data.bb> it = arrayList.iterator();
         while (true) {
             int i2 = i;
             if (it.hasNext()) {
-                com.baidu.tieba.data.az next = it.next();
+                com.baidu.tieba.data.bb next = it.next();
                 if (next.f() == 1 || next.f() == 2) {
                     i = i2 + 1;
                 } else {
@@ -64,7 +65,7 @@ public class ah extends BaseAdapter {
         }
     }
 
-    public ah(Context context, ArrayList<com.baidu.tieba.data.az> arrayList, int i, boolean z) {
+    public ah(Context context, ArrayList<com.baidu.tieba.data.bb> arrayList, int i, boolean z) {
         this.h = BdWebPoolView.DELAYED_TIME;
         this.j = false;
         this.a = context;
@@ -74,9 +75,9 @@ public class ah extends BaseAdapter {
         this.h = i;
         this.j = z;
         a(z);
-        this.p = b(this.b);
-        this.n = this.a.getResources().getDimensionPixelSize(R.dimen.listview_item_margin);
-        this.o = this.a.getResources().getDimensionPixelSize(R.dimen.listview_divider_height);
+        this.q = b(this.b);
+        this.o = this.a.getResources().getDimensionPixelSize(R.dimen.listview_item_margin);
+        this.p = this.a.getResources().getDimensionPixelSize(R.dimen.listview_divider_height);
     }
 
     public void a(boolean z) {
@@ -132,9 +133,9 @@ public class ah extends BaseAdapter {
         this.d = z;
     }
 
-    public void a(ArrayList<com.baidu.tieba.data.az> arrayList) {
+    public void a(ArrayList<com.baidu.tieba.data.bb> arrayList) {
         this.b = arrayList;
-        this.p = b(this.b);
+        this.q = b(this.b);
     }
 
     @Override // android.widget.Adapter
@@ -183,7 +184,7 @@ public class ah extends BaseAdapter {
         if (this.d && i == getCount() - 1) {
             return 1;
         }
-        if (i < this.p) {
+        if (i < this.q) {
             return 2;
         }
         return 3;
@@ -191,7 +192,7 @@ public class ah extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        int an = TiebaApplication.h().an();
+        int an = TiebaApplication.g().an();
         switch (getItemViewType(i)) {
             case 0:
                 return a(view, an);
@@ -229,26 +230,26 @@ public class ah extends BaseAdapter {
         }
         ((FrsActivity) this.a).getLayoutMode().a(i2 == 1);
         ((FrsActivity) this.a).getLayoutMode().a(view3);
-        com.baidu.tieba.data.az azVar = (com.baidu.tieba.data.az) getItem(i);
-        akVar2.b.setText(azVar.c());
-        com.baidu.tieba.util.ba aw = TiebaApplication.h().aw();
-        if (aw != null && aw.b(azVar.a())) {
+        com.baidu.tieba.data.bb bbVar = (com.baidu.tieba.data.bb) getItem(i);
+        akVar2.b.setText(bbVar.c());
+        com.baidu.tieba.util.bk aw = TiebaApplication.g().aw();
+        if (aw != null && aw.b(bbVar.a())) {
             akVar2.b.setTextColor(this.a.getResources().getColor(R.color.read_thread_color));
         }
         if (i2 == 1) {
-            if (azVar.f() == 1) {
+            if (bbVar.f() == 1) {
                 bitmapDrawable = (BitmapDrawable) this.a.getResources().getDrawable(R.drawable.icon_top_1);
             } else {
-                bitmapDrawable = azVar.f() == 2 ? (BitmapDrawable) this.a.getResources().getDrawable(R.drawable.icon_notice_1) : null;
+                bitmapDrawable = bbVar.f() == 2 ? (BitmapDrawable) this.a.getResources().getDrawable(R.drawable.icon_notice_1) : null;
             }
-            if (this.p == 1) {
+            if (this.q == 1) {
                 akVar2.a.setBackgroundResource(R.drawable.bg_frs_top_selector_1);
                 akVar2.c.setVisibility(8);
-            } else if (this.p >= 2) {
+            } else if (this.q >= 2) {
                 if (i == 0) {
                     akVar2.a.setBackgroundResource(R.drawable.bg_frs_top_up_selector_1);
                     akVar2.c.setVisibility(0);
-                } else if (i == this.p - 1) {
+                } else if (i == this.q - 1) {
                     akVar2.a.setBackgroundResource(R.drawable.bg_frs_top_down_selector_1);
                     akVar2.c.setVisibility(8);
                 } else {
@@ -257,18 +258,18 @@ public class ah extends BaseAdapter {
                 }
             }
         } else {
-            if (azVar.f() == 1) {
+            if (bbVar.f() == 1) {
                 bitmapDrawable = (BitmapDrawable) this.a.getResources().getDrawable(R.drawable.icon_top);
             } else {
-                bitmapDrawable = azVar.f() == 2 ? (BitmapDrawable) this.a.getResources().getDrawable(R.drawable.icon_notice) : null;
+                bitmapDrawable = bbVar.f() == 2 ? (BitmapDrawable) this.a.getResources().getDrawable(R.drawable.icon_notice) : null;
             }
-            if (this.p == 1) {
+            if (this.q == 1) {
                 akVar2.a.setBackgroundResource(R.drawable.bg_frs_top_selector);
                 akVar2.c.setVisibility(8);
-            } else if (this.p >= 2) {
+            } else if (this.q >= 2) {
                 if (i == 0) {
                     akVar2.a.setBackgroundResource(R.drawable.bg_frs_top_up_selector);
-                } else if (i == this.p - 1) {
+                } else if (i == this.q - 1) {
                     akVar2.a.setBackgroundResource(R.drawable.bg_frs_top_down_selector);
                     akVar2.c.setVisibility(8);
                 } else {
@@ -295,7 +296,6 @@ public class ah extends BaseAdapter {
 
     private View b(int i, View view, int i2) {
         al alVar;
-        int i3;
         if (view == null) {
             view = LayoutInflater.from(this.a).inflate(R.layout.frs_item, (ViewGroup) null);
             al alVar2 = new al(this);
@@ -313,6 +313,7 @@ public class ah extends BaseAdapter {
             alVar2.l = (ViewGroup) view.findViewById(R.id.frs_list_divider_wrapper);
             alVar2.m = (DottedLine) view.findViewById(R.id.frs_list_divider);
             alVar2.n = (UserIconBox) view.findViewById(R.id.user_icon_box);
+            alVar2.o = (UserIconBox) view.findViewById(R.id.user_tshow_icon_box);
             view.setTag(alVar2);
             alVar = alVar2;
         } else {
@@ -325,12 +326,12 @@ public class ah extends BaseAdapter {
             alVar.b.setBackgroundResource(R.drawable.forumfeed_frs_list_item_top_bg);
             alVar.c.setBackgroundResource(R.drawable.forumfeed_frs_list_item_foot_bg);
         }
-        alVar.a.setPadding(0, i - this.p == 0 ? this.n : this.o, 0, 0);
+        alVar.a.setPadding(0, i - this.q == 0 ? this.o : this.p, 0, 0);
         alVar.l.setVisibility(8);
         ((FrsActivity) this.a).getLayoutMode().a(i2 == 1);
         ((FrsActivity) this.a).getLayoutMode().a(view);
-        com.baidu.tieba.data.az azVar = (com.baidu.tieba.data.az) getItem(i);
-        int d = azVar.d();
+        com.baidu.tieba.data.bb bbVar = (com.baidu.tieba.data.bb) getItem(i);
+        int d = bbVar.d();
         alVar.k.setVisibility(0);
         if (d <= 999999) {
             if (d > 0) {
@@ -342,32 +343,47 @@ public class ah extends BaseAdapter {
         } else {
             alVar.g.setText("999999+");
         }
-        alVar.h.setText(com.baidu.tieba.util.bc.b(azVar.e() * 1000));
-        alVar.i.setText(azVar.r());
-        com.baidu.tieba.util.ba aw = TiebaApplication.h().aw();
-        if (aw != null && aw.b(azVar.a())) {
+        alVar.h.setText(com.baidu.tieba.util.bm.b(bbVar.e() * 1000));
+        alVar.i.setText(bbVar.r());
+        com.baidu.tieba.util.bk aw = TiebaApplication.g().aw();
+        if (aw != null && aw.b(bbVar.a())) {
             alVar.i.setTextColor(i2 == 1 ? this.a.getResources().getColor(R.color.listview_item_thread_read_1) : this.a.getResources().getColor(R.color.listview_item_thread_read));
         }
-        alVar.j.setText(azVar.j().getName());
-        this.m = azVar.j().getIconInfo();
+        alVar.j.setText(bbVar.j().getName());
+        this.m = bbVar.j().getIconInfo();
+        this.n = bbVar.j().getTShowInfo();
         if (alVar.n != null) {
             alVar.n.a(this.m, 3, this.a.getResources().getDimensionPixelSize(R.dimen.frs_icon_width), this.a.getResources().getDimensionPixelSize(R.dimen.frs_icon_height), this.a.getResources().getDimensionPixelSize(R.dimen.frs_icon_margin));
+        }
+        if (alVar.o != null) {
+            alVar.o.a(this.n, 2, this.a.getResources().getDimensionPixelSize(R.dimen.small_icon_width), this.a.getResources().getDimensionPixelSize(R.dimen.small_icon_height), this.a.getResources().getDimensionPixelSize(R.dimen.small_icon_margin));
+        }
+        if (this.n != null && this.n.size() > 0) {
+            alVar.j.setPadding(0, 0, 0, 0);
+        } else {
+            alVar.j.setPadding(this.a.getResources().getDimensionPixelSize(R.dimen.listview_item_padding), 0, 0, 0);
         }
         alVar.c.setVisibility(0);
         alVar.f.setVisibility(0);
         alVar.e.setVisibility(0);
         alVar.d.setVisibility(0);
         StringBuffer stringBuffer = new StringBuffer();
-        if (azVar.m() != null && azVar.m().trim().length() > 0) {
-            stringBuffer.append(azVar.m());
+        if (bbVar.m() != null && bbVar.m().trim().length() > 0) {
+            stringBuffer.append(bbVar.m());
         }
-        ArrayList<com.baidu.tieba.data.ai> p = azVar.p();
+        ArrayList<com.baidu.tieba.data.aj> p = bbVar.p();
         if (p != null) {
             StringBuffer stringBuffer2 = new StringBuffer();
-            for (int i4 = 0; i4 < p.size(); i4++) {
+            int i3 = 0;
+            while (true) {
+                int i4 = i3;
+                if (i4 >= p.size()) {
+                    break;
+                }
                 if (p.get(i4).c() != null && p.get(i4).c().endsWith("swf")) {
                     stringBuffer2.append(p.get(i4).c());
                 }
+                i3 = i4 + 1;
             }
             stringBuffer.append(stringBuffer2.toString());
             if (stringBuffer.length() > 0) {
@@ -376,32 +392,42 @@ public class ah extends BaseAdapter {
                 alVar.d.setVisibility(8);
             }
         }
-        if (com.baidu.tieba.d.a.a().f()) {
+        if (com.baidu.tieba.e.a.a().f()) {
             if (p != null) {
                 if (p.size() > 0) {
                     int i5 = 0;
-                    for (int i6 = 0; i6 < p.size(); i6++) {
-                        if (p.get(i6) != null && (p.get(i6).a() == 3 || p.get(i6).a() == 5)) {
-                            i5++;
+                    int i6 = 0;
+                    while (true) {
+                        int i7 = i5;
+                        if (i7 >= p.size()) {
+                            break;
                         }
+                        if (p.get(i7) != null && (p.get(i7).a() == 3 || p.get(i7).a() == 5)) {
+                            i6++;
+                        }
+                        i5 = i7 + 1;
                     }
-                    int i7 = i5 > 3 ? 3 : i5;
-                    if (i7 > 0) {
-                        com.baidu.tieba.data.ai[] aiVarArr = new com.baidu.tieba.data.ai[i7];
-                        int i8 = 0;
+                    int i8 = i6 > 3 ? 3 : i6;
+                    if (i8 > 0) {
+                        com.baidu.tieba.data.aj[] ajVarArr = new com.baidu.tieba.data.aj[i8];
                         int i9 = 0;
-                        while (i9 < p.size() && i8 < i7) {
-                            if (p.get(i9).a() == 3 || p.get(i9).a() == 5) {
-                                aiVarArr[i8] = p.get(i9);
-                                i3 = i8 + 1;
-                            } else {
-                                i3 = i8;
+                        int i10 = 0;
+                        while (true) {
+                            int i11 = i9;
+                            int i12 = i10;
+                            if (i11 >= p.size() || i12 >= i8) {
+                                break;
                             }
-                            i9++;
-                            i8 = i3;
+                            if (p.get(i11).a() == 3 || p.get(i11).a() == 5) {
+                                ajVarArr[i12] = p.get(i11);
+                                i10 = i12 + 1;
+                            } else {
+                                i10 = i12;
+                            }
+                            i9 = i11 + 1;
                         }
                         alVar.f.setShowBig(this.j);
-                        alVar.f.setData(aiVarArr);
+                        alVar.f.setData(ajVarArr);
                         alVar.f.setImageFrom("frs");
                         alVar.f.setFromCDN(this.l);
                     }
@@ -412,7 +438,7 @@ public class ah extends BaseAdapter {
         } else {
             alVar.f.setVisibility(8);
         }
-        ArrayList<VoiceManager.VoiceModel> q = azVar.q();
+        ArrayList<VoiceManager.VoiceModel> q = bbVar.q();
         if (q != null && q.size() > 0) {
             VoiceManager.VoiceModel voiceModel = q.get(0);
             alVar.e.setVoiceModel(voiceModel);
@@ -441,7 +467,7 @@ public class ah extends BaseAdapter {
         }
         if (this.c) {
             ajVar.a.setVisibility(0);
-            ajVar.a.setPadding(0, this.n, 0, 0);
+            ajVar.a.setPadding(0, this.o, 0, 0);
             if (this.f) {
                 ajVar.c.setText(R.string.loading);
                 ajVar.d.setVisibility(0);
@@ -454,7 +480,7 @@ public class ah extends BaseAdapter {
             } else {
                 ajVar.b.setBackgroundResource(R.drawable.frs_item_control_bg);
             }
-            com.baidu.tieba.util.bb.b(ajVar.c, i);
+            com.baidu.tieba.util.bl.b(ajVar.c, i);
         } else {
             ajVar.a.setVisibility(8);
         }
@@ -477,7 +503,7 @@ public class ah extends BaseAdapter {
         }
         if (this.d) {
             ajVar.a.setVisibility(0);
-            ajVar.a.setPadding(0, this.n, 0, this.n);
+            ajVar.a.setPadding(0, this.o, 0, this.o);
             if (this.e) {
                 ajVar.c.setText(R.string.loading);
                 ajVar.d.setVisibility(0);
@@ -490,7 +516,7 @@ public class ah extends BaseAdapter {
             } else {
                 ajVar.b.setBackgroundResource(R.drawable.frs_item_control_bg);
             }
-            com.baidu.tieba.util.bb.b(ajVar.c, i);
+            com.baidu.tieba.util.bl.b(ajVar.c, i);
         } else {
             ajVar.a.setVisibility(8);
         }

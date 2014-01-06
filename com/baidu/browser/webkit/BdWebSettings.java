@@ -1281,7 +1281,7 @@ public class BdWebSettings extends Observable implements BdNoProGuard, Cloneable
             this.mSysWebSettings.setAppCacheMaxSize(j);
         }
         this.mAppCacheMaxSize = j;
-        notifyObservers(MSG_setAppCacheMaxSize, Long.valueOf(j));
+        notifyObservers(33, Long.valueOf(j));
     }
 
     public synchronized void setDatabaseEnabled(boolean z) {
@@ -1865,7 +1865,7 @@ public class BdWebSettings extends Observable implements BdNoProGuard, Cloneable
             case 32:
                 setAppCachePath((String) message.obj);
                 return;
-            case MSG_setAppCacheMaxSize /* 33 */:
+            case 33:
                 setAppCacheMaxSize(((Long) message.obj).longValue());
                 return;
             case MSG_setDatabaseEnabled /* 34 */:

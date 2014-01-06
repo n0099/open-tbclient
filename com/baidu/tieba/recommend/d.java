@@ -1,6 +1,6 @@
 package com.baidu.tieba.recommend;
 
-import com.baidu.tieba.util.be;
+import com.baidu.tieba.util.bo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements Runnable {
@@ -20,7 +20,7 @@ public class d implements Runnable {
             yVar.h();
         } catch (Exception e) {
             str = this.a.b;
-            be.b(str, "mLoadImageRunnable.run", "error = " + e.getMessage());
+            bo.b(str, "mLoadImageRunnable.run", "error = " + e.getMessage());
         }
     }
 }

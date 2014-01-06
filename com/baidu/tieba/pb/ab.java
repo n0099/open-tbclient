@@ -10,7 +10,7 @@ import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class ab extends BdAsyncTask<Object, Integer, String> {
     final /* synthetic */ ImagePbActivity a;
-    private com.baidu.tieba.util.an b;
+    private com.baidu.tieba.util.at b;
     private ArrayList<BasicNameValuePair> c;
     private String d;
     private boolean f;
@@ -33,7 +33,7 @@ public class ab extends BdAsyncTask<Object, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: d */
     public String a(Object... objArr) {
-        this.b = new com.baidu.tieba.util.an(this.d);
+        this.b = new com.baidu.tieba.util.at(this.d);
         this.b.a(this.c);
         this.e = this.b.l();
         return this.e;
@@ -54,7 +54,7 @@ public class ab extends BdAsyncTask<Object, Integer, String> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(String str) {
-        com.baidu.tieba.data.ab abVar;
+        com.baidu.tieba.data.ac acVar;
         String str2;
         ImagePbPagerAdapter imagePbPagerAdapter;
         ImagePbPagerAdapter imagePbPagerAdapter2;
@@ -67,10 +67,10 @@ public class ab extends BdAsyncTask<Object, Integer, String> {
                     if (!this.a.G.a()) {
                         this.a.G.a(this.e, true);
                     }
-                    com.baidu.tieba.util.be.a(getClass().getName(), "onPostExecute", "" + this.a.G.h().size());
-                    com.baidu.tieba.data.ab abVar2 = this.a.G;
+                    com.baidu.tieba.util.bo.a(getClass().getName(), "onPostExecute", "" + this.a.G.h().size());
+                    com.baidu.tieba.data.ac acVar2 = this.a.G;
                     str2 = this.a.C;
-                    abVar2.c(str2);
+                    acVar2.c(str2);
                     imagePbPagerAdapter = this.a.z;
                     imagePbPagerAdapter.a(this.a.G);
                     imagePbPagerAdapter2 = this.a.z;
@@ -93,8 +93,8 @@ public class ab extends BdAsyncTask<Object, Integer, String> {
                 } else {
                     this.a.showToast(this.a.getString(R.string.pb_nodata));
                     if (this.f) {
-                        abVar = this.a.H;
-                        if (abVar != null) {
+                        acVar = this.a.H;
+                        if (acVar != null) {
                             this.a.a(0);
                         }
                     }

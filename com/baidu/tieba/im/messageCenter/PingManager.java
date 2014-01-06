@@ -4,7 +4,8 @@ import android.os.Handler;
 import android.os.Message;
 import com.baidu.location.LocationClientOption;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.im.message.bz;
+import com.baidu.tieba.im.message.cc;
+import com.baidu.tieba.im.message.t;
 import com.baidu.tieba.im.net.TiebaSocketLinkService;
 /* loaded from: classes.dex */
 public class PingManager extends Handler {
@@ -13,7 +14,7 @@ public class PingManager extends Handler {
     private int c = 180000;
     private int d = 900000;
     private int e = this.d;
-    private com.baidu.tieba.im.message.q f = null;
+    private t f = null;
     private g g = null;
 
     public static PingManager a() {
@@ -68,7 +69,7 @@ public class PingManager extends Handler {
     }
 
     public void d() {
-        this.f = new com.baidu.tieba.im.message.q();
+        this.f = new t();
         e();
         this.g = new n(this);
         e.a().a(-11, this.g);
@@ -76,8 +77,8 @@ public class PingManager extends Handler {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(bz bzVar) {
-        if (bzVar != null && bzVar.j() != 0) {
+    public void a(cc ccVar) {
+        if (ccVar != null && ccVar.j() != 0) {
             TiebaSocketLinkService.a(7, "ping error");
         }
     }
@@ -96,7 +97,7 @@ public class PingManager extends Handler {
     }
 
     public void e() {
-        int[] aZ = TiebaApplication.h().aZ();
+        int[] aZ = TiebaApplication.g().aZ();
         if (aZ.length == 2) {
             this.c = aZ[0] * LocationClientOption.MIN_SCAN_SPAN;
             this.d = aZ[1] * LocationClientOption.MIN_SCAN_SPAN;

@@ -8,14 +8,14 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.browser.core.util.BdUtil;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.an;
-import com.baidu.tieba.util.be;
+import com.baidu.tieba.util.at;
+import com.baidu.tieba.util.bo;
 import com.baidu.tieba.view.BaseWebView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends BdAsyncTask<Object, Integer, String> {
     final /* synthetic */ DailyClassicalActivity a;
-    private an b;
+    private at b;
     private String c;
 
     private b(DailyClassicalActivity dailyClassicalActivity) {
@@ -36,26 +36,26 @@ public class b extends BdAsyncTask<Object, Integer, String> {
         String str;
         boolean z;
         long j;
-        this.b = new an(com.baidu.tieba.data.h.a + "c/s/tag/gettogether");
+        this.b = new at(com.baidu.tieba.data.h.a + "c/s/tag/gettogether");
         this.b.b(false);
-        if (TiebaApplication.h().an() == 1) {
+        if (TiebaApplication.g().an() == 1) {
             this.b.a("night_type", SocialConstants.TRUE);
         }
-        an anVar = this.b;
+        at atVar = this.b;
         str = this.a.q;
-        anVar.a("pn", str);
+        atVar.a("pn", str);
         this.b.a("_version_more", SocialConstants.TRUE);
         this.b.a("platform", SocialConstants.ANDROID_CLIENT_TYPE);
         z = DailyClassicalActivity.o;
         if (z) {
             boolean unused = DailyClassicalActivity.o = false;
             this.b.a("msg_click", SocialConstants.TRUE);
-            an anVar2 = this.b;
+            at atVar2 = this.b;
             j = DailyClassicalActivity.p;
-            anVar2.a("message_id", String.valueOf(j));
+            atVar2.a("message_id", String.valueOf(j));
         }
-        Address aQ = TiebaApplication.h().aQ();
-        if (aQ != null && TiebaApplication.h().u()) {
+        Address aQ = TiebaApplication.g().aQ();
+        if (aQ != null && TiebaApplication.g().t()) {
             this.b.a("lbs", String.valueOf(aQ.getLatitude()) + "," + String.valueOf(aQ.getLongitude()));
         }
         try {
@@ -64,7 +64,7 @@ public class b extends BdAsyncTask<Object, Integer, String> {
                 return this.c;
             }
         } catch (Exception e) {
-            be.b("ContentAsyncTask", "doInBackground", "error = " + e.getMessage());
+            bo.b("ContentAsyncTask", "doInBackground", "error = " + e.getMessage());
         }
         return null;
     }

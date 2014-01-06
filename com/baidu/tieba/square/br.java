@@ -1,117 +1,30 @@
 package com.baidu.tieba.square;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.model.BarSuggestModel;
-import com.baidu.tieba.view.HeadImageView;
-import com.slidingmenu.lib.R;
-import java.util.ArrayList;
+import android.widget.CompoundButton;
+import android.widget.RadioButton;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class br extends BaseAdapter {
-    private com.baidu.tieba.j a;
-    private com.baidu.tieba.util.i b;
-    private String c;
-    private boolean d = true;
-    private ArrayList<BarSuggestModel.Forum> e;
+public class br implements CompoundButton.OnCheckedChangeListener {
+    final /* synthetic */ SquareSearchActivity a;
 
-    public br(com.baidu.tieba.j jVar, ArrayList<BarSuggestModel.Forum> arrayList) {
-        this.a = jVar;
-        this.c = jVar.getText(R.string.forum).toString();
-        this.e = arrayList;
-        this.b = new com.baidu.tieba.util.i(jVar);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public br(SquareSearchActivity squareSearchActivity) {
+        this.a = squareSearchActivity;
     }
 
-    public void a(ArrayList<BarSuggestModel.Forum> arrayList) {
-        this.e = arrayList;
-        if (this.e != null) {
-            notifyDataSetChanged();
+    @Override // android.widget.CompoundButton.OnCheckedChangeListener
+    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
+        RadioButton radioButton;
+        RadioButton radioButton2;
+        RadioButton radioButton3;
+        if (z) {
+            this.a.a(0);
+            radioButton = this.a.l;
+            radioButton.setChecked(false);
+            radioButton2 = this.a.l;
+            radioButton2.setSelected(false);
+            radioButton3 = this.a.k;
+            radioButton3.setSelected(true);
         }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        if (this.e == null) {
-            return 0;
-        }
-        return this.e.size();
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: a */
-    public BarSuggestModel.Forum getItem(int i) {
-        int count = getCount();
-        if (count <= 0 || i >= count) {
-            return null;
-        }
-        return this.e.get(i);
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        return i;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        Exception e;
-        View view2;
-        bt btVar;
-        try {
-            if (view == null) {
-                view = LayoutInflater.from(this.a).inflate(R.layout.square_dialog_search_item, (ViewGroup) null);
-                btVar = new bt(this, null);
-                btVar.b = (HeadImageView) view.findViewById(R.id.forum_avatar);
-                btVar.b.setGifIconSupport(false);
-                btVar.a = (TextView) view.findViewById(R.id.name);
-                btVar.c = (TextView) view.findViewById(R.id.member_count);
-                btVar.d = (TextView) view.findViewById(R.id.thread_count);
-                btVar.e = (TextView) view.findViewById(R.id.slogan);
-                view.setTag(btVar);
-                view2 = view;
-            } else {
-                btVar = (bt) view.getTag();
-                view2 = view;
-            }
-            try {
-                BarSuggestModel.Forum item = getItem(i);
-                if (item != null) {
-                    this.a.getLayoutMode().a(TiebaApplication.h().an() == 1);
-                    this.a.getLayoutMode().a(view2);
-                    String str = item.avatar;
-                    this.b.f(str, new bs(this, btVar.b));
-                    btVar.b.setTag(str);
-                    btVar.b.invalidate();
-                    if (this.d) {
-                        btVar.a.setText(item.forum_name.concat(this.c));
-                    } else {
-                        btVar.a.setText(item.forum_name);
-                    }
-                    btVar.b.setTag(item.avatar);
-                    btVar.c.setText(this.a.getString(R.string.forum_list_attention_tv) + " " + b(item.member_num));
-                    btVar.d.setText(this.a.getString(R.string.forum_list_thread_tv) + " " + b(item.thread_num));
-                    btVar.e.setText(item.slogan);
-                }
-            } catch (Exception e2) {
-                e = e2;
-                com.baidu.tieba.util.be.b(getClass().getName(), "", "SearchAdapter.getView error = " + e.getMessage());
-                return view2;
-            }
-        } catch (Exception e3) {
-            e = e3;
-            view2 = view;
-        }
-        return view2;
-    }
-
-    public String b(int i) {
-        if (i >= 100000) {
-            return String.valueOf(i / 10000) + this.a.getString(R.string.member_count_unit);
-        }
-        return String.valueOf(i);
     }
 }

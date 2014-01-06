@@ -22,12 +22,11 @@ public class e implements as {
         int i;
         activity = this.a.b;
         TiebaApplication.a(accountData, activity);
-        l.a().b();
         activity2 = this.a.b;
         if (activity2 != null) {
             activity3 = this.a.b;
             i = this.a.c;
-            MainTabActivity.b(activity3, i);
+            MainTabActivity.c(activity3, i);
         }
         new f(this, accountData).execute(new Void[0]);
     }

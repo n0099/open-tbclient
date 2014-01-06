@@ -14,7 +14,7 @@ class bb implements SlidingMenu.OnOpenedListener {
 
     @Override // com.slidingmenu.lib.SlidingMenu.OnOpenedListener
     public void onOpened() {
-        if (TiebaApplication.h().t()) {
+        if (TiebaApplication.g().s()) {
             StatService.onEvent(this.a, "frs_total_more", "frsclick", 1);
         }
     }

@@ -7151,7 +7151,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
                     case 17:
                         i2 = 21;
                         break;
-                    case 33:
+                    case Im.GroupInfo.ISRECENTLYREPLY_FIELD_NUMBER /* 33 */:
                         i2 = 19;
                         break;
                     case BDLocation.TypeOffLineLocation /* 66 */:
@@ -7858,7 +7858,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
                     case 30:
                     case Im.GroupInfo.FORUMSHOWNAME_FIELD_NUMBER /* 31 */:
                     case 32:
-                    case 33:
+                    case Im.GroupInfo.ISRECENTLYREPLY_FIELD_NUMBER /* 33 */:
                     case 34:
                     case 35:
                     case 36:

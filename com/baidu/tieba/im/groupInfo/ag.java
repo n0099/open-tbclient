@@ -3,7 +3,7 @@ package com.baidu.tieba.im.groupInfo;
 import com.google.protobuf.MessageLite;
 import protobuf.ApplyJoinGroup.ApplyJoinGroupReq;
 /* loaded from: classes.dex */
-public class ag extends com.baidu.tieba.im.message.n implements com.baidu.tieba.im.coder.g {
+public class ag extends com.baidu.tieba.im.message.o implements com.baidu.tieba.im.coder.g {
     private int a;
     private String b;
     private long c;

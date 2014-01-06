@@ -1,27 +1,21 @@
 package com.baidu.tieba.view;
 
-import android.content.Context;
-import android.widget.TextView;
-import com.slidingmenu.lib.R;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bt extends com.baidu.adp.widget.ScrollView.r {
-    public bt(Context context) {
-        super(context);
+public class bt implements View.OnClickListener {
+    final /* synthetic */ TbCheckBox a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bt(TbCheckBox tbCheckBox) {
+        this.a = tbCheckBox;
     }
 
-    public void a(int i) {
-        TextView d = d();
-        TextView c = c();
-        if (d != null && c != null) {
-            if (i == 1) {
-                int color = h().getResources().getColor(R.color.adp_pullview_night);
-                d.setTextColor(color);
-                c.setTextColor(color);
-                return;
-            }
-            int color2 = h().getResources().getColor(R.color.adp_pullview_day);
-            d.setTextColor(color2);
-            c.setTextColor(color2);
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        boolean d;
+        TbCheckBox tbCheckBox = this.a;
+        d = this.a.d();
+        tbCheckBox.setChecked(!d);
     }
 }

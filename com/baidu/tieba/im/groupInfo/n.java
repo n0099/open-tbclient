@@ -16,11 +16,11 @@ public class n implements c {
         TextView textView;
         TextView textView2;
         if (z) {
-            textView2 = this.a.T;
+            textView2 = this.a.U;
             textView2.setVisibility(0);
             return;
         }
-        textView = this.a.T;
+        textView = this.a.U;
         textView.setVisibility(8);
     }
 }

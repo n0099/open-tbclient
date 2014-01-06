@@ -5,11 +5,11 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import protobuf.Im;
 /* loaded from: classes.dex */
-final class ac extends AbstractParser<Im.UserInfo> {
+final class ac extends AbstractParser<Im.TshowInfo> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.protobuf.Parser
     /* renamed from: a */
-    public Im.UserInfo parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
-        return new Im.UserInfo(codedInputStream, extensionRegistryLite);
+    public Im.TshowInfo parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
+        return new Im.TshowInfo(codedInputStream, extensionRegistryLite);
     }
 }

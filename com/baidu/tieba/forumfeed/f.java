@@ -12,7 +12,7 @@ public class f {
         View inflate = LinearLayout.inflate(baseFragmentActivity, R.layout.forum_feed_guide, null);
         hVar.a = (LinearLayout) inflate.findViewById(R.id.forum_feed_login_container);
         hVar.c = (NoNetworkView) inflate.findViewById(R.id.view_no_network);
-        hVar.b = new com.baidu.tieba.home.n(baseFragmentActivity, str, str, 0);
+        hVar.b = new com.baidu.tieba.home.o(baseFragmentActivity, str, str, 0);
         hVar.a.addView(hVar.b.e());
         inflate.setTag(hVar);
         a(baseFragmentActivity, inflate, i);

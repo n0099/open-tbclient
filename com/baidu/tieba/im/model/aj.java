@@ -3,7 +3,7 @@ package com.baidu.tieba.im.model;
 public class aj extends com.baidu.adp.a.d {
     private int a;
     private int b;
-    private com.baidu.tieba.im.message.al c;
+    private com.baidu.tieba.im.message.ao c;
 
     public void a(int i) {
         this.a = i;
@@ -23,11 +23,11 @@ public class aj extends com.baidu.adp.a.d {
         return false;
     }
 
-    private com.baidu.tieba.im.message.al c() {
-        com.baidu.tieba.im.message.al alVar = new com.baidu.tieba.im.message.al();
-        alVar.a(this.a);
-        alVar.b(this.b);
-        return alVar;
+    private com.baidu.tieba.im.message.ao c() {
+        com.baidu.tieba.im.message.ao aoVar = new com.baidu.tieba.im.message.ao();
+        aoVar.a(this.a);
+        aoVar.b(this.b);
+        return aoVar;
     }
 
     public void a() {

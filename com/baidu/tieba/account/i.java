@@ -27,12 +27,11 @@ public class i implements be {
         int i;
         activity = this.a.b;
         TiebaApplication.a(accountData, activity);
-        l.a().b();
         activity2 = this.a.b;
         if (activity2 != null) {
             activity3 = this.a.b;
             i = this.a.c;
-            MainTabActivity.b(activity3, i);
+            MainTabActivity.c(activity3, i);
         }
         new j(this, accountData).execute(new Void[0]);
     }
@@ -44,7 +43,7 @@ public class i implements be {
         ArrayList arrayList;
         as asVar;
         c = this.a.c(str);
-        if (c == null || com.baidu.tieba.util.bc.c(c.getPassword())) {
+        if (c == null || com.baidu.tieba.util.bm.c(c.getPassword())) {
             i = this.a.f;
             arrayList = this.a.e;
             if (i < arrayList.size()) {

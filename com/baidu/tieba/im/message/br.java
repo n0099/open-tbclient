@@ -1,28 +1,17 @@
 package com.baidu.tieba.im.message;
 
 import java.util.LinkedList;
-import protobuf.DelGroupUsers.DelGroupUsersRes;
+import protobuf.CommitPusherCount.CommitPusherCountRes;
 /* loaded from: classes.dex */
-public class br extends bz implements com.baidu.tieba.im.coder.f {
-    private String a;
-
-    public String a() {
-        return this.a;
-    }
-
-    public void a(String str) {
-        this.a = str;
-    }
-
+public class br extends cc implements com.baidu.tieba.im.coder.f {
     @Override // com.baidu.tieba.im.coder.f
-    public void a(LinkedList<n> linkedList, byte[] bArr, int i) {
-        DelGroupUsersRes.DelGroupUsersResIdl parseFrom = DelGroupUsersRes.DelGroupUsersResIdl.parseFrom(bArr);
-        c(parseFrom.getError().getErrorno());
+    public void a(LinkedList<o> linkedList, byte[] bArr, int i) {
+        CommitPusherCountRes.CommitPusherCountResIdl parseFrom = CommitPusherCountRes.CommitPusherCountResIdl.parseFrom(bArr);
+        g(parseFrom.getError().getErrorno());
         c(parseFrom.getError().getUsermsg());
         linkedList.add(this);
         e(i);
-        if (!i()) {
-            a(String.valueOf(parseFrom.getData().getGroupId()));
+        if (i()) {
         }
     }
 }

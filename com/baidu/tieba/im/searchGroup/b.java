@@ -6,7 +6,6 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-import com.baidu.tieba.util.bb;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
@@ -59,13 +58,7 @@ public class b extends com.baidu.adp.a.e {
     public void a(int i) {
         this.i.getLayoutMode().a(i == 1);
         this.i.getLayoutMode().a(this.a);
-        bb.b(this.a, i);
         this.c.c(i);
-        if (i == 1) {
-            this.a.setBackgroundResource(R.color.im_add_group_page_backgroundcolor_1);
-        } else {
-            this.a.setBackgroundResource(R.color.im_add_group_page_backgroundcolor);
-        }
     }
 
     private void h() {

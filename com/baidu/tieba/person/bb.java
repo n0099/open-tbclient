@@ -1,56 +1,23 @@
 package com.baidu.tieba.person;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.widget.ProgressBar;
-import com.baidu.tieba.view.MultiImageView;
-import com.slidingmenu.lib.R;
+import android.view.MotionEvent;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bb implements DialogInterface.OnClickListener {
-    final /* synthetic */ PersonImageActivity a;
+public class bb implements View.OnTouchListener {
+    final /* synthetic */ PersonChangeActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bb(PersonImageActivity personImageActivity) {
-        this.a = personImageActivity;
+    public bb(PersonChangeActivity personChangeActivity) {
+        this.a = personChangeActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        AlertDialog listMenu;
-        MultiImageView multiImageView;
-        MultiImageView multiImageView2;
-        bd bdVar;
-        ProgressBar progressBar;
-        listMenu = this.a.getListMenu();
-        if (dialogInterface == listMenu) {
-            switch (i) {
-                case 0:
-                    try {
-                        multiImageView = this.a.c;
-                        byte[] currentImageData = multiImageView.getCurrentImageData();
-                        if (currentImageData != null) {
-                            multiImageView2 = this.a.c;
-                            String currentImageUrl = multiImageView2.getCurrentImageUrl();
-                            this.a.b = new bd(this.a, currentImageUrl, currentImageData);
-                            bdVar = this.a.b;
-                            bdVar.execute(new String[0]);
-                            progressBar = this.a.a;
-                            progressBar.setVisibility(0);
-                        } else {
-                            this.a.showToast(this.a.getString(R.string.no_data));
-                        }
-                        return;
-                    } catch (Exception e) {
-                        com.baidu.adp.lib.h.e.a("PersonImageActivity click save  error" + e.getMessage());
-                        return;
-                    }
-                case 1:
-                    dialogInterface.dismiss();
-                    return;
-                default:
-                    return;
-            }
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        if (motionEvent.getAction() == 1) {
+            this.a.x = true;
+            return false;
         }
+        return false;
     }
 }

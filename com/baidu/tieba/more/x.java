@@ -13,7 +13,7 @@ class x implements com.baidu.adp.widget.BdSwitchView.c {
 
     @Override // com.baidu.adp.widget.BdSwitchView.c
     public void a(View view, BdSwitchView.SwitchState switchState) {
-        com.baidu.tieba.d.a.a().b(switchState == BdSwitchView.SwitchState.ON);
+        com.baidu.tieba.e.a.a().b(switchState == BdSwitchView.SwitchState.ON);
         this.a.o();
     }
 }

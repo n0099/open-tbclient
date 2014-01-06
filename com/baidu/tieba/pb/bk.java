@@ -3,7 +3,7 @@ package com.baidu.tieba.pb;
 import android.view.View;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-class bk implements com.baidu.tbadk.widget.richText.o {
+class bk implements com.baidu.tbadk.widget.richText.r {
     final /* synthetic */ NewPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,9 +11,9 @@ class bk implements com.baidu.tbadk.widget.richText.o {
         this.a = newPbActivity;
     }
 
-    @Override // com.baidu.tbadk.widget.richText.o
+    @Override // com.baidu.tbadk.widget.richText.r
     public void onClick(View view, String str, int i) {
-        cr crVar;
+        cs csVar;
         com.baidu.tieba.model.bm bmVar;
         com.baidu.tbadk.widget.richText.a a;
         int i2;
@@ -22,13 +22,13 @@ class bk implements com.baidu.tbadk.widget.richText.o {
         String a2;
         String a3;
         try {
-            crVar = this.a.x;
-            if (crVar.a(view, str) != null) {
-                bmVar = this.a.r;
-                com.baidu.tieba.data.an l = bmVar.l();
+            csVar = this.a.z;
+            if (csVar.a(view, str) != null) {
+                bmVar = this.a.t;
+                com.baidu.tieba.data.ao l = bmVar.l();
                 a = this.a.a(str, i);
                 ArrayList<com.baidu.tbadk.widget.richText.c> a4 = a.a();
-                i2 = this.a.V;
+                i2 = this.a.X;
                 com.baidu.tbadk.widget.richText.c cVar = a4.get(i2);
                 if (cVar != null) {
                     ArrayList arrayList = new ArrayList();
@@ -83,7 +83,7 @@ class bk implements com.baidu.tbadk.widget.richText.o {
                 }
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.be.b("PbAdapter", "ImageOnClickListener", "error = " + e.getMessage());
+            com.baidu.tieba.util.bo.b("PbAdapter", "ImageOnClickListener", "error = " + e.getMessage());
         }
     }
 }

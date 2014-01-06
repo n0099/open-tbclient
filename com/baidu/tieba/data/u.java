@@ -1,6 +1,7 @@
 package com.baidu.tieba.data;
 
 import com.baidu.android.pushservice.PushConstants;
+import com.baidu.tieba.util.bo;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class u {
@@ -73,7 +74,7 @@ public class u {
                 this.i.parserJson(jSONObject.optJSONObject("replyer"));
                 this.j.parserJson(jSONObject.optJSONObject("quote_user"));
             } catch (Exception e) {
-                com.baidu.tieba.util.be.b("FeedData", "parserJson", "error = " + e.getMessage());
+                bo.b("FeedData", "parserJson", "error = " + e.getMessage());
             }
         }
     }

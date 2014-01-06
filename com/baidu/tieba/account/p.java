@@ -79,6 +79,6 @@ class p implements View.OnClickListener {
         }
         this.a.setResult(0);
         this.a.finish();
-        com.baidu.tieba.util.be.a("ActivationActivity", "mBack", "onClick");
+        com.baidu.tieba.util.bo.a("ActivationActivity", "mBack", "onClick");
     }
 }

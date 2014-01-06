@@ -1,10 +1,9 @@
 package com.baidu.tieba.util.a;
 
-import com.baidu.adp.lib.e.g;
 import com.baidu.tieba.util.i;
 import com.baidu.tieba.util.l;
 /* loaded from: classes.dex */
-public abstract class a implements g {
+public abstract class a implements com.baidu.adp.lib.e.g {
     protected abstract Object a(String str, com.baidu.adp.lib.e.e eVar, i iVar, l lVar);
 
     protected abstract Object a(String str, i iVar);

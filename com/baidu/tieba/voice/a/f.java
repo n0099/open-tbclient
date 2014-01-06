@@ -7,7 +7,7 @@ public class f {
     private com.baidu.adp.lib.e.c b = com.baidu.adp.lib.e.c.a();
 
     private f() {
-        this.b.a(com.baidu.tieba.util.a.f.a());
+        this.b.a(com.baidu.tieba.util.a.g.a());
     }
 
     public static synchronized f a() {

@@ -5,14 +5,16 @@ import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes.dex */
 class j implements com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMessageCenterPojo>> {
     final /* synthetic */ String a;
-    final /* synthetic */ com.baidu.tieba.im.a b;
-    final /* synthetic */ i c;
+    final /* synthetic */ boolean b;
+    final /* synthetic */ com.baidu.tieba.im.a c;
+    final /* synthetic */ i d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public j(i iVar, String str, com.baidu.tieba.im.a aVar) {
-        this.c = iVar;
+    public j(i iVar, String str, boolean z, com.baidu.tieba.im.a aVar) {
+        this.d = iVar;
         this.a = str;
-        this.b = aVar;
+        this.b = z;
+        this.c = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

@@ -4,163 +4,173 @@ import com.baidu.tieba.data.UserData;
 import com.baidu.tieba.im.data.MsgCacheData;
 import com.baidu.tieba.im.data.MsgLocalData;
 /* loaded from: classes.dex */
-public abstract class b extends n implements com.baidu.tieba.im.coder.g, com.baidu.tieba.im.messageCenter.c {
-    private int a;
-    private Object b;
-    private String c;
-    private long d;
+public abstract class b extends o implements com.baidu.tieba.im.coder.g, com.baidu.tieba.im.messageCenter.c {
+    public boolean a;
+    private int b;
+    private Object c;
+    private String d;
     private long e;
     private long f;
-    private int g;
+    private long g;
     private int h;
-    private long i;
-    private UserData j;
+    private int i;
+    private long j;
     private UserData k;
-    private MsgLocalData l;
-    private transient MsgCacheData m;
-    private long o;
-    private long q;
-    private int n = 0;
-    private boolean p = false;
+    private UserData l;
+    private MsgLocalData m;
+    private transient MsgCacheData n;
+    private long p;
+    private long s;
+    private int o = 0;
+    private boolean q = true;
+    private boolean r = false;
 
     public long b() {
-        return this.o;
-    }
-
-    public void a(long j) {
-        this.o = j;
-    }
-
-    public boolean c() {
         return this.p;
     }
 
+    public void a(long j) {
+        this.p = j;
+    }
+
+    public boolean c() {
+        return this.r;
+    }
+
     public void a(boolean z) {
-        this.p = z;
+        this.r = z;
     }
 
     public int d() {
-        return this.n;
+        return this.o;
     }
 
     public void a(int i) {
-        this.n = i;
+        this.o = i;
     }
 
     public Object e() {
-        return this.b;
-    }
-
-    public void a(Object obj) {
-        this.b = obj;
-    }
-
-    public UserData f() {
-        return this.j;
-    }
-
-    public void a(UserData userData) {
-        this.j = userData;
-    }
-
-    public UserData g() {
-        return this.k;
-    }
-
-    public void b(UserData userData) {
-        this.k = userData;
-    }
-
-    public int h() {
-        return this.a;
-    }
-
-    public void b(int i) {
-        this.a = i;
-    }
-
-    public long i() {
-        return this.d;
-    }
-
-    public void b(long j) {
-        this.d = j;
-    }
-
-    public String j() {
         return this.c;
     }
 
-    public void a(String str) {
-        this.c = str;
+    public void a(Object obj) {
+        this.c = obj;
     }
 
-    public long k() {
-        return this.e;
+    public UserData f() {
+        return this.k;
     }
 
-    public void c(long j) {
-        this.e = j;
+    public void a(UserData userData) {
+        this.k = userData;
     }
 
-    public long l() {
-        return this.i;
-    }
-
-    public void d(long j) {
-        this.i = j;
-    }
-
-    public MsgLocalData m() {
+    public UserData g() {
         return this.l;
     }
 
-    public void a(MsgLocalData msgLocalData) {
-        this.l = msgLocalData;
+    public void b(UserData userData) {
+        this.l = userData;
     }
 
-    public MsgCacheData n() {
-        return this.m;
+    public int h() {
+        return this.b;
     }
 
-    public void a(MsgCacheData msgCacheData) {
-        this.m = msgCacheData;
+    public void b(int i) {
+        this.b = i;
     }
 
-    public long o() {
+    public long i() {
+        return this.e;
+    }
+
+    public void b(long j) {
+        this.e = j;
+    }
+
+    public String j() {
+        return this.d;
+    }
+
+    public void a(String str) {
+        this.d = str;
+    }
+
+    public long k() {
         return this.f;
     }
 
-    public void e(long j) {
+    public void c(long j) {
         this.f = j;
     }
 
-    public int p() {
+    public long l() {
+        return this.j;
+    }
+
+    public void d(long j) {
+        this.j = j;
+    }
+
+    public MsgLocalData m() {
+        return this.m;
+    }
+
+    public void a(MsgLocalData msgLocalData) {
+        this.m = msgLocalData;
+    }
+
+    public MsgCacheData n() {
+        return this.n;
+    }
+
+    public void a(MsgCacheData msgCacheData) {
+        this.n = msgCacheData;
+    }
+
+    public long o() {
         return this.g;
     }
 
-    public void c(int i) {
-        this.g = i;
+    public void e(long j) {
+        this.g = j;
     }
 
-    public int q() {
+    public int p() {
         return this.h;
     }
 
-    public void d(int i) {
+    public void c(int i) {
         this.h = i;
     }
 
-    public long r() {
+    public int q() {
+        return this.i;
+    }
+
+    public void d(int i) {
+        this.i = i;
+    }
+
+    public boolean r() {
         return this.q;
     }
 
+    public void b(boolean z) {
+        this.q = z;
+    }
+
+    public long s() {
+        return this.s;
+    }
+
     public void f(long j) {
-        this.q = j;
+        this.s = j;
     }
 
     @Override // com.baidu.tieba.im.messageCenter.c
-    public boolean a(n nVar) {
-        return nVar != null && (nVar instanceof b) && ((b) nVar).i() == this.d;
+    public boolean a(o oVar) {
+        return oVar != null && (oVar instanceof b) && ((b) oVar).i() == this.e;
     }
 }

@@ -5,41 +5,25 @@ import com.baidu.adp.widget.ListView.BdListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class dm implements com.baidu.tbadk.imageManager.c {
-    final /* synthetic */ cr a;
+    final /* synthetic */ cs a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public dm(cr crVar) {
-        this.a = crVar;
+    public dm(cs csVar) {
+        this.a = csVar;
     }
 
     @Override // com.baidu.tbadk.imageManager.c
-    public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
+    public void a(com.baidu.adp.widget.ImageView.d dVar, String str, boolean z) {
         BdListView bdListView;
-        ed edVar;
-        ed edVar2;
-        bdListView = this.a.i;
-        ImageView imageView = (ImageView) bdListView.findViewWithTag(str);
-        if (eVar == null) {
-            if (imageView != null && (imageView instanceof com.baidu.tieba.view.ba)) {
-                ((com.baidu.tieba.view.ba) imageView).a(false);
-                return;
-            }
-            return;
-        }
-        if (imageView != null) {
-            if (imageView instanceof com.baidu.tieba.view.ba) {
-                ((com.baidu.tieba.view.ba) imageView).a(true);
-            }
-            imageView.invalidate();
-        }
-        if (this.a.x()) {
-            edVar = this.a.q;
-            if (edVar != null) {
-                edVar2 = this.a.q;
-                ImageView imageView2 = (ImageView) edVar2.n().findViewWithTag(str);
-                if (imageView2 != null) {
-                    imageView2.invalidate();
-                }
+        BdListView bdListView2;
+        if (dVar != null) {
+            bdListView = this.a.i;
+            ImageView imageView = (ImageView) bdListView.findViewWithTag(str);
+            while (imageView != null) {
+                imageView.setTag(null);
+                imageView.setImageBitmap(dVar.h());
+                bdListView2 = this.a.i;
+                imageView = (ImageView) bdListView2.findViewWithTag(str);
             }
         }
     }

@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tieba.BaseFragmentActivity;
-import com.baidu.tieba.at;
+import com.baidu.tieba.au;
 import com.baidu.tieba.e;
 import com.baidu.tieba.j;
 import com.slidingmenu.lib.R;
@@ -53,7 +53,7 @@ public class GroupTabWidget extends RelativeLayout {
         LayoutInflater.from(getContext()).inflate(R.layout.group_tab_widget, this);
         this.d = (ImageView) findViewById(R.id.left_icon);
         this.e = (TextView) findViewById(R.id.text);
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, at.groupTabWidget);
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, au.groupTabWidget);
         this.e.setText(obtainStyledAttributes.getString(1));
         this.d.setImageDrawable(obtainStyledAttributes.getDrawable(0));
         this.f[0] = obtainStyledAttributes.getResourceId(0, 0);

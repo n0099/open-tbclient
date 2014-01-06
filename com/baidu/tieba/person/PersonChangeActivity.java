@@ -51,15 +51,15 @@ public class PersonChangeActivity extends com.baidu.tieba.j {
     private boolean x = false;
     private com.baidu.tieba.model.bw y = null;
     protected FrameLayout a = null;
-    private com.baidu.adp.widget.ImageView.e z = null;
-    private ax A = null;
-    private ay B = null;
+    private com.baidu.adp.widget.ImageView.d z = null;
+    private be A = null;
+    private bf B = null;
     private ProgressBar C = null;
     private DialogInterface.OnCancelListener D = null;
     private com.baidu.tieba.util.i E = null;
     private Dialog F = null;
     private boolean G = false;
-    private View.OnClickListener H = new ao(this);
+    private View.OnClickListener H = new av(this);
 
     public static void a(Activity activity, int i, PersonChangeData personChangeData, Boolean bool) {
         Intent intent = new Intent(activity, PersonChangeActivity.class);
@@ -112,15 +112,16 @@ public class PersonChangeActivity extends com.baidu.tieba.j {
     public void a() {
         if (this.s.getVisibility() == 0) {
             this.s.setVisibility(8);
-            if (this.s.getText().length() > 0) {
-                this.q.setText(this.s.getText());
+            String replaceAll = this.s.getText().toString().replaceAll("\\s*", "");
+            if (replaceAll.length() > 0) {
+                this.q.setText(replaceAll);
             } else {
                 this.q.setText(getString(R.string.add_intro));
             }
-            if (this.y.a().getIntro() == null || !this.y.a().getIntro().equals(this.s.getText().toString())) {
+            if (this.y.a().getIntro() == null || !this.y.a().getIntro().equals(replaceAll)) {
                 this.G = true;
             }
-            this.y.a().setIntro(this.s.getText().toString());
+            this.y.a().setIntro(replaceAll);
             this.q.setVisibility(0);
             HidenSoftKeyPad(this.w, this.s);
         }
@@ -139,7 +140,7 @@ public class PersonChangeActivity extends com.baidu.tieba.j {
 
     private void a(Bundle bundle) {
         PersonChangeData personChangeData;
-        this.D = new al(this);
+        this.D = new as(this);
         if (bundle != null) {
             personChangeData = (PersonChangeData) bundle.getSerializable("data");
         } else {
@@ -156,17 +157,17 @@ public class PersonChangeActivity extends com.baidu.tieba.j {
     @Override // com.baidu.tieba.j
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        com.baidu.tieba.util.bb.a(this.h, i);
+        com.baidu.tieba.util.bl.a(this.h, i);
         this.e.c(i);
         this.d.e();
         if (i == 1) {
-            this.i.setTextColor(com.baidu.tieba.util.bb.a(i));
-            this.j.setTextColor(com.baidu.tieba.util.bb.a(i));
-            this.k.setTextColor(com.baidu.tieba.util.bb.a(i));
-            this.u.setTextColor(com.baidu.tieba.util.bb.a(i));
-            this.v.setTextColor(com.baidu.tieba.util.bb.a(i));
-            this.r.setTextColor(com.baidu.tieba.util.bb.a(i));
-            this.q.setTextColor(com.baidu.tieba.util.bb.a(i));
+            this.i.setTextColor(com.baidu.tieba.util.bl.a(i));
+            this.j.setTextColor(com.baidu.tieba.util.bl.a(i));
+            this.k.setTextColor(com.baidu.tieba.util.bl.a(i));
+            this.u.setTextColor(com.baidu.tieba.util.bl.a(i));
+            this.v.setTextColor(com.baidu.tieba.util.bl.a(i));
+            this.r.setTextColor(com.baidu.tieba.util.bl.a(i));
+            this.q.setTextColor(com.baidu.tieba.util.bl.a(i));
             this.l.setImageResource(R.drawable.list_divider_1);
             this.m.setImageResource(R.drawable.list_divider_1);
             this.n.setImageResource(R.drawable.list_divider_1);
@@ -196,12 +197,12 @@ public class PersonChangeActivity extends com.baidu.tieba.j {
         String[] strArr = {getString(R.string.take_photo), getString(R.string.album)};
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(getString(R.string.operation));
-        builder.setItems(strArr, new ap(this));
+        builder.setItems(strArr, new aw(this));
         if (this.c == null) {
             this.c = builder.create();
         }
         this.p = (RelativeLayout) findViewById(R.id.info);
-        this.p.setOnClickListener(new aq(this));
+        this.p.setOnClickListener(new ax(this));
         this.d = (HeadImageView) findViewById(R.id.photo);
         d();
         this.a = (FrameLayout) findViewById(R.id.frame_photo);
@@ -209,7 +210,7 @@ public class PersonChangeActivity extends com.baidu.tieba.j {
         if (this.z != null) {
             this.z.a(this.d);
         } else {
-            this.E.c(this.y.a().getPortrait(), new ar(this));
+            this.E.c(this.y.a().getPortrait(), new ay(this));
         }
         this.h = (LinearLayout) findViewById(R.id.parent);
         this.l = (ImageView) findViewById(R.id.divider1);
@@ -221,10 +222,10 @@ public class PersonChangeActivity extends com.baidu.tieba.j {
         this.e.a(getResources().getString(R.string.my_info));
         this.f = this.e.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.H);
         this.g = this.e.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(R.string.save));
-        this.g.setOnClickListener(new as(this));
+        this.g.setOnClickListener(new az(this));
         this.o = (LinearLayout) findViewById(R.id.intro_click);
-        this.o.setOnClickListener(new at(this));
-        this.o.setOnTouchListener(new au(this));
+        this.o.setOnClickListener(new ba(this));
+        this.o.setOnTouchListener(new bb(this));
         this.r = (TextView) findViewById(R.id.intro_text);
         this.q = (TextView) findViewById(R.id.intro);
         if (this.y.a().getIntro() != null && this.y.a().getIntro().length() > 0) {
@@ -234,8 +235,8 @@ public class PersonChangeActivity extends com.baidu.tieba.j {
         }
         this.s = (EditText) findViewById(R.id.edit);
         this.s.setText(this.y.a().getIntro());
-        this.s.setOnFocusChangeListener(new av(this));
-        this.s.setOnTouchListener(new aw(this));
+        this.s.setOnFocusChangeListener(new bc(this));
+        this.s.setOnTouchListener(new bd(this));
         this.t = (RadioGroup) findViewById(R.id.sexgroup);
         this.u = (RadioButton) findViewById(R.id.man);
         this.v = (RadioButton) findViewById(R.id.woman);
@@ -249,8 +250,8 @@ public class PersonChangeActivity extends com.baidu.tieba.j {
         this.C = (ProgressBar) findViewById(R.id.image_progress);
         AlertDialog.Builder builder2 = new AlertDialog.Builder(this);
         builder2.setMessage(getString(R.string.confirm_giveup));
-        builder2.setPositiveButton(getString(R.string.alert_yes_button), new am(this));
-        builder2.setNeutralButton(getString(R.string.cancel), new an(this));
+        builder2.setPositiveButton(getString(R.string.alert_yes_button), new at(this));
+        builder2.setNeutralButton(getString(R.string.cancel), new au(this));
         this.F = builder2.create();
     }
 
@@ -282,6 +283,7 @@ public class PersonChangeActivity extends com.baidu.tieba.j {
                 case 12010:
                     this.y.a().setPhotoChanged(true);
                     e();
+                    MoreDiscoveryActivity.a(true);
                     return;
                 default:
                     return;
@@ -289,10 +291,10 @@ public class PersonChangeActivity extends com.baidu.tieba.j {
         } else if (i2 == 0) {
             switch (i) {
                 case 12009:
-                    com.baidu.tieba.write.bd.c(this);
+                    com.baidu.tieba.write.bb.c(this);
                     return;
                 case 12010:
-                    com.baidu.tieba.write.bd.a(this);
+                    com.baidu.tieba.write.bb.a(this);
                     return;
                 default:
                     return;
@@ -312,7 +314,7 @@ public class PersonChangeActivity extends com.baidu.tieba.j {
             this.A.cancel();
         }
         this.z = null;
-        this.A = new ax(this, null);
+        this.A = new be(this, null);
         this.A.execute(new Object[0]);
     }
 }

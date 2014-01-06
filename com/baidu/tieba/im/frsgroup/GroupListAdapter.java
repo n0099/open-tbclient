@@ -178,7 +178,7 @@ public class GroupListAdapter extends BaseAdapter {
     }
 
     private void a(View view) {
-        this.a.a().a(TiebaApplication.h().an() == 1);
+        this.a.a().a(TiebaApplication.g().an() == 1);
         this.a.a().a(view);
     }
 

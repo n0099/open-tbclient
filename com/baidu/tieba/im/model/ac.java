@@ -14,19 +14,19 @@ public class ac implements com.baidu.tieba.im.messageCenter.g {
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(com.baidu.tieba.im.message.n nVar) {
-        if (nVar == null) {
+    public void a(com.baidu.tieba.im.message.o oVar) {
+        if (oVar == null) {
             com.baidu.adp.lib.h.e.a("msg == null");
-        } else if (nVar.t() == 103112) {
-            this.a.b(nVar);
-        } else if (nVar.t() == 103102) {
-            this.a.d(nVar);
-        } else if (nVar.t() == 202003) {
-            this.a.c(nVar);
-        } else if (nVar.t() == -113) {
+        } else if (oVar.u() == 103112) {
+            this.a.b(oVar);
+        } else if (oVar.u() == 103102) {
+            this.a.d(oVar);
+        } else if (oVar.u() == 202003) {
+            this.a.c(oVar);
+        } else if (oVar.u() == -113) {
             this.a.p();
-        } else if (nVar.t() == 205004) {
-            this.a.a(nVar);
+        } else if (oVar.u() == 205004) {
+            this.a.a(oVar);
         }
     }
 }

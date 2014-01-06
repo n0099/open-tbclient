@@ -1,42 +1,55 @@
 package com.baidu.tieba.im.message;
+
+import com.baidu.tieba.im.data.UpdateGroupInfoData;
+import java.util.LinkedList;
+import protobuf.Im;
+import protobuf.UpdateGroup.UpdateGroupRes;
 /* loaded from: classes.dex */
-public class bz extends n {
-    private int a;
-    private String b;
-    private n c;
+public class bz extends cc implements com.baidu.tieba.im.coder.f {
+    private UpdateGroupInfoData a;
 
     public bz() {
+        super(103102);
     }
 
-    public bz(int i) {
-        e(i);
-    }
-
-    public boolean i() {
-        return this.a != 0;
-    }
-
-    public int j() {
+    public UpdateGroupInfoData a() {
         return this.a;
     }
 
-    public void c(int i) {
-        this.a = i;
+    public void a(UpdateGroupInfoData updateGroupInfoData) {
+        this.a = updateGroupInfoData;
     }
 
-    public String k() {
-        return this.b;
-    }
-
-    public void c(String str) {
-        this.b = str;
-    }
-
-    public n l() {
-        return this.c;
-    }
-
-    public void a(n nVar) {
-        this.c = nVar;
+    @Override // com.baidu.tieba.im.coder.f
+    public void a(LinkedList<o> linkedList, byte[] bArr, int i) {
+        UpdateGroupRes.UpdateGroupResIdl parseFrom = UpdateGroupRes.UpdateGroupResIdl.parseFrom(bArr);
+        g(parseFrom.getError().getErrorno());
+        c(parseFrom.getError().getUsermsg());
+        linkedList.add(this);
+        if (!i()) {
+            UpdateGroupInfoData updateGroupInfoData = new UpdateGroupInfoData();
+            Im.GroupInfo group = parseFrom.getData().getGroup();
+            if (group != null) {
+                updateGroupInfoData.setGroupId(group.getGroupId());
+                updateGroupInfoData.setForumId(group.getForumId());
+                updateGroupInfoData.setName(group.getName());
+                updateGroupInfoData.setIntro(group.getIntro());
+                updateGroupInfoData.setPortrait(group.getPortrait());
+                updateGroupInfoData.setPosition(group.getPosition());
+                updateGroupInfoData.setLng(String.valueOf(group.getLng()));
+                updateGroupInfoData.setLat(String.valueOf(group.getLat()));
+                updateGroupInfoData.setNotice(group.getNotice());
+                updateGroupInfoData.setAlbum(group.getAlbum());
+                updateGroupInfoData.setStatus(group.getStatus());
+                updateGroupInfoData.setAuthorId(group.getAuthorId());
+                updateGroupInfoData.setAuthorName(group.getAuthorName());
+                updateGroupInfoData.setCreateTime(group.getCreateTime());
+                updateGroupInfoData.setMaxMemberNum(group.getMaxMemberNum());
+                updateGroupInfoData.setMemberNum(group.getMemberNum());
+                updateGroupInfoData.setGroupType(group.getGroupType());
+                updateGroupInfoData.setFlag(group.getFlag());
+                a(updateGroupInfoData);
+            }
+        }
     }
 }

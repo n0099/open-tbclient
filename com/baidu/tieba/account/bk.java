@@ -23,16 +23,18 @@ class bk implements be {
         String str;
         if (accountData.getAccount() != null) {
             this.a.a(accountData);
-            return;
+        } else {
+            ReLoginShareActivity reLoginShareActivity = this.a;
+            str = this.a.f;
+            reLoginShareActivity.a(2, str, accountData);
         }
-        ReLoginShareActivity reLoginShareActivity = this.a;
-        str = this.a.f;
-        reLoginShareActivity.a(2, str, accountData);
+        a.a().b("share_login_success");
     }
 
     @Override // com.baidu.tieba.account.be
     public void a(String str, String str2) {
         l.a().b(str);
         this.a.a(1, str2, null);
+        a.a().b("share_login_failure");
     }
 }

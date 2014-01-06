@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import com.baidu.android.pushservice.PushConstants;
-import com.baidu.tieba.im.message.ay;
+import com.baidu.tieba.im.message.bb;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class InviteFriendListActivity extends com.baidu.tieba.j implements View.OnClickListener, com.baidu.tieba.im.messageCenter.g {
@@ -86,13 +86,13 @@ public class InviteFriendListActivity extends com.baidu.tieba.j implements View.
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(com.baidu.tieba.im.message.n nVar) {
+    public void a(com.baidu.tieba.im.message.o oVar) {
         closeLoadingDialog();
-        if (nVar != null && nVar.t() == 205002 && (nVar instanceof ay)) {
+        if (oVar != null && oVar.u() == 205002 && (oVar instanceof bb)) {
             try {
-                ay ayVar = (ay) nVar;
-                if (ayVar.i()) {
-                    showToast(ayVar.k());
+                bb bbVar = (bb) oVar;
+                if (bbVar.i()) {
+                    showToast(bbVar.k());
                 } else {
                     showToast(getString(R.string.send_success), false);
                     new Handler().postDelayed(new n(this), 400L);

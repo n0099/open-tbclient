@@ -4,7 +4,7 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import com.baidu.tieba.editortool.FaceView;
+import com.baidu.tieba.editortool.EmotionTabHost;
 import com.baidu.tieba.view.KeyboardLayout;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -23,20 +23,20 @@ public class m implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        FaceView faceView;
+        EmotionTabHost emotionTabHost;
         KeyboardLayout keyboardLayout;
         EditText editText;
         Button button;
         EditText editText2;
-        FaceView faceView2;
+        EmotionTabHost emotionTabHost2;
         EditText editText3;
         Button button2;
-        faceView = this.c.o;
-        if (faceView.getVisibility() == 0) {
+        emotionTabHost = this.c.o;
+        if (emotionTabHost.getVisibility() == 0) {
             editText2 = this.c.l;
             editText2.requestFocus();
-            faceView2 = this.c.o;
-            faceView2.setVisibility(8);
+            emotionTabHost2 = this.c.o;
+            emotionTabHost2.setVisibility(8);
             ImagePbActivity imagePbActivity = this.c;
             editText3 = this.c.l;
             com.baidu.adp.lib.h.g.b(imagePbActivity, editText3);

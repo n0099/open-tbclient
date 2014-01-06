@@ -2,7 +2,7 @@ package com.baidu.tieba.im.model;
 
 import com.baidu.gson.Gson;
 import com.baidu.tieba.im.data.VoiceMsgData;
-import com.baidu.tieba.im.db.ar;
+import com.baidu.tieba.im.db.as;
 import org.apache.http.message.BasicNameValuePair;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -27,28 +27,28 @@ public class q extends com.baidu.adp.a.g {
                 a = this.a.a(Long.parseLong(name));
                 if (a != null) {
                     if (value != null && value.length() > 0) {
-                        VoiceMsgData e = com.baidu.tieba.im.d.d.e(a);
-                        if (e != null) {
-                            e.setVoice_md5(value);
-                            a.a("[" + new Gson().toJson(e) + "]");
+                        VoiceMsgData f = com.baidu.tieba.im.d.d.f(a);
+                        if (f != null) {
+                            f.setVoice_md5(value);
+                            a.a("[" + new Gson().toJson(f) + "]");
                         }
-                        com.baidu.tieba.log.a.b(com.baidu.tieba.log.i.a(a.t(), 0, "", "", "upload voice http suc vid = " + value, 0, "upload voice http success ", System.currentTimeMillis() - a.r()));
+                        com.baidu.tieba.log.a.b(com.baidu.tieba.log.i.a(a.u(), 0, "", "", "upload voice http suc vid = " + value, 0, "upload voice http success ", System.currentTimeMillis() - a.s()));
                         com.baidu.tieba.im.chat.a.b().a(a);
                         return;
                     }
-                    com.baidu.tieba.log.a.b(com.baidu.tieba.log.i.a(a.t(), 0, "", "", "", -1, "upload voice http fail", System.currentTimeMillis() - a.r()));
+                    com.baidu.tieba.log.a.b(com.baidu.tieba.log.i.a(a.u(), 0, "", "", "", -1, "upload voice http fail", System.currentTimeMillis() - a.s()));
                     this.a.c(a);
-                    if (a instanceof com.baidu.tieba.im.message.d) {
-                        com.baidu.tieba.im.message.d dVar = (com.baidu.tieba.im.message.d) a;
-                        com.baidu.tieba.im.db.d.a().a(dVar.s(), String.valueOf(dVar.i()), String.valueOf(dVar.k()), 2, new r(this));
-                    } else if (a instanceof com.baidu.tieba.im.message.p) {
-                        com.baidu.tieba.im.message.p pVar = (com.baidu.tieba.im.message.p) a;
-                        ar.a().a(pVar.l(), pVar.b(), String.valueOf(pVar.i()), String.valueOf(pVar.k()), 2, new s(this));
+                    if (a instanceof com.baidu.tieba.im.message.e) {
+                        com.baidu.tieba.im.message.e eVar = (com.baidu.tieba.im.message.e) a;
+                        com.baidu.tieba.im.db.d.a().a(eVar.t(), String.valueOf(eVar.i()), String.valueOf(eVar.k()), 2, new r(this));
+                    } else if (a instanceof com.baidu.tieba.im.message.s) {
+                        com.baidu.tieba.im.message.s sVar = (com.baidu.tieba.im.message.s) a;
+                        as.a().a(sVar.l(), sVar.b(), String.valueOf(sVar.i()), String.valueOf(sVar.k()), 2, new s(this));
                     }
                 }
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 str = MsglistModel.b;
-                com.baidu.adp.lib.h.e.b(str, "BdLoadDataCallBack", e2.getMessage());
+                com.baidu.adp.lib.h.e.b(str, "BdLoadDataCallBack", e.getMessage());
             }
         }
     }

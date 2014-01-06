@@ -1,22 +1,50 @@
 package com.baidu.tieba.im.creategroup;
 
-import android.content.DialogInterface;
-import com.baidu.tieba.im.data.AddGroupInfoData;
-import com.baidu.tieba.im.groupCard.GroupCardActivity;
+import android.graphics.Bitmap;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tieba.util.aa;
 /* loaded from: classes.dex */
-class j implements DialogInterface.OnClickListener {
-    final /* synthetic */ AddGroupInfoData a;
-    final /* synthetic */ i b;
+class j extends BdAsyncTask<Object, Integer, Bitmap> {
+    final /* synthetic */ h a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public j(i iVar, AddGroupInfoData addGroupInfoData) {
-        this.b = iVar;
-        this.a = addGroupInfoData;
+    private j(h hVar) {
+        this.a = hVar;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        this.b.a.finish();
-        GroupCardActivity.a(this.b.a, this.a.getGroupId(), this.a.getName(), this.a.getPortrait());
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void b() {
+        super.b();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: d */
+    public Bitmap a(Object... objArr) {
+        return aa.c(null, "tieba_group_image");
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        super.cancel(true);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void c() {
+        super.c();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(Bitmap bitmap) {
+        super.a((j) bitmap);
+        if (bitmap != null) {
+            this.a.c.setVisibility(0);
+            h.a(this.a, new com.baidu.adp.widget.ImageView.d(bitmap, false, null));
+            h.a(this.a).a(this.a.c);
+        }
     }
 }

@@ -15,7 +15,7 @@ import org.json.JSONObject;
 public class ae extends BdAsyncTask<Integer, Integer, String> {
     final /* synthetic */ ImagePbActivity a;
     private WriteData b;
-    private com.baidu.tieba.util.an c = null;
+    private com.baidu.tieba.util.at c = null;
     private boolean d = false;
 
     public ae(ImagePbActivity imagePbActivity, WriteData writeData) {
@@ -31,7 +31,7 @@ public class ae extends BdAsyncTask<Integer, Integer, String> {
         if (this.d) {
             return null;
         }
-        this.c = new com.baidu.tieba.util.an(com.baidu.tieba.data.h.a + "c/c/post/add");
+        this.c = new com.baidu.tieba.util.at(com.baidu.tieba.data.h.a + "c/c/post/add");
         this.c.a("anonymous", SocialConstants.FALSE);
         this.c.a("fid", this.b.getForumId());
         this.c.a("kw", this.b.getForumName());
@@ -41,7 +41,7 @@ public class ae extends BdAsyncTask<Integer, Integer, String> {
         if (this.b.getVcode() != null && this.b.getVcode().length() > 0) {
             this.c.a("vcode", this.b.getVcode());
         }
-        if (TiebaApplication.h().aq() < 3) {
+        if (TiebaApplication.g().aq() < 3) {
             this.c.a("vcode_tag", "11");
         }
         this.c.a("quote_id", this.b.getFloor());
@@ -54,7 +54,7 @@ public class ae extends BdAsyncTask<Integer, Integer, String> {
         if (AntiHelper.a(antiData) || AntiHelper.b(antiData) || AntiHelper.c(antiData) || AntiHelper.d(antiData)) {
             antiData.setBlock_forum_name(this.b.getForumName());
             antiData.setBlock_forum_id(this.b.getForumId());
-            antiData.setUser_id(TiebaApplication.B());
+            antiData.setUser_id(TiebaApplication.A());
             antiData.setUser_name(TiebaApplication.G());
             AntiHelper.a(this.a, antiData, AntiHelper.OperationType.REPLY, AntiHelper.PageType.IMAGE_PB);
             return;
@@ -64,15 +64,15 @@ public class ae extends BdAsyncTask<Integer, Integer, String> {
 
     private void a(int i, String str, String str2, AntiData antiData) {
         if (i == 5 || i == 6) {
-            com.baidu.tieba.data.bd bdVar = new com.baidu.tieba.data.bd();
-            bdVar.a(str2);
+            com.baidu.tieba.data.bf bfVar = new com.baidu.tieba.data.bf();
+            bfVar.a(str2);
             if (AntiHelper.c(antiData)) {
                 a(antiData, str);
                 return;
-            } else if (bdVar.b() != null) {
-                this.b.setVcodeMD5(bdVar.a());
-                this.b.setVcodeUrl(bdVar.b());
-                if (bdVar.c().equals("4")) {
+            } else if (bfVar.b() != null) {
+                this.b.setVcodeMD5(bfVar.a());
+                this.b.setVcodeUrl(bfVar.b());
+                if (bfVar.c().equals("4")) {
                     NewVcodeActivity.a(this.a, this.b, 12006);
                     return;
                 } else {

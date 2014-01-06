@@ -22,73 +22,73 @@ public class bf implements AdapterView.OnItemClickListener {
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         int i2;
-        com.baidu.tieba.home.ay ayVar;
-        com.baidu.tieba.home.ay ayVar2;
-        com.baidu.tieba.home.ay ayVar3;
+        com.baidu.tieba.home.az azVar;
+        com.baidu.tieba.home.az azVar2;
+        com.baidu.tieba.home.az azVar3;
         SearchPostModel searchPostModel;
         SearchPostModel searchPostModel2;
         String str;
-        com.baidu.tieba.home.ay ayVar4;
-        com.baidu.tieba.home.ay ayVar5;
+        com.baidu.tieba.home.az azVar4;
+        com.baidu.tieba.home.az azVar5;
         SearchPostModel searchPostModel3;
         SearchPostModel searchPostModel4;
         SearchPostModel searchPostModel5;
         String str2;
-        com.baidu.tieba.home.ay ayVar6;
-        com.baidu.tieba.home.ay ayVar7;
-        i2 = this.a.C;
+        com.baidu.tieba.home.az azVar6;
+        com.baidu.tieba.home.az azVar7;
+        i2 = this.a.D;
         if (i2 != 0) {
-            ayVar = this.a.s;
-            if (ayVar.getItemId(i) == -1) {
-                searchPostModel3 = this.a.y;
+            azVar = this.a.t;
+            if (azVar.getItemId(i) == -1) {
+                searchPostModel3 = this.a.z;
                 if (searchPostModel3 != null) {
-                    searchPostModel4 = this.a.y;
+                    searchPostModel4 = this.a.z;
                     if (searchPostModel4.getCurrentPage() > 1) {
                         SquareSearchActivity squareSearchActivity = this.a;
-                        searchPostModel5 = this.a.y;
-                        str2 = this.a.B;
+                        searchPostModel5 = this.a.z;
+                        str2 = this.a.C;
                         squareSearchActivity.a(searchPostModel5.getCurrentPage() - 1, str2);
-                        ayVar6 = this.a.s;
-                        ayVar6.a(1);
-                        ayVar7 = this.a.s;
-                        ayVar7.notifyDataSetChanged();
+                        azVar6 = this.a.t;
+                        azVar6.a(1);
+                        azVar7 = this.a.t;
+                        azVar7.notifyDataSetChanged();
                         return;
                     }
                     return;
                 }
                 return;
             }
-            ayVar2 = this.a.s;
-            if (ayVar2.getItemId(i) == -2) {
-                searchPostModel = this.a.y;
+            azVar2 = this.a.t;
+            if (azVar2.getItemId(i) == -2) {
+                searchPostModel = this.a.z;
                 if (searchPostModel != null) {
                     SquareSearchActivity squareSearchActivity2 = this.a;
-                    searchPostModel2 = this.a.y;
-                    str = this.a.B;
+                    searchPostModel2 = this.a.z;
+                    str = this.a.C;
                     squareSearchActivity2.a(searchPostModel2.getCurrentPage() + 1, str);
-                    ayVar4 = this.a.s;
-                    ayVar4.a(2);
-                    ayVar5 = this.a.s;
-                    ayVar5.notifyDataSetChanged();
+                    azVar4 = this.a.t;
+                    azVar4.a(2);
+                    azVar5 = this.a.t;
+                    azVar5.notifyDataSetChanged();
                     return;
                 }
                 return;
             }
-            ayVar3 = this.a.s;
-            com.baidu.tieba.data.au auVar = (com.baidu.tieba.data.au) ayVar3.getItem(i);
-            if (auVar != null) {
-                if (auVar.a()) {
-                    NewPbActivity.a(this.a, auVar.c(), null, "search_post");
+            azVar3 = this.a.t;
+            com.baidu.tieba.data.aw awVar = (com.baidu.tieba.data.aw) azVar3.getItem(i);
+            if (awVar != null) {
+                if (awVar.a()) {
+                    NewPbActivity.a(this.a, awVar.c(), (String) null, "search_post");
                     return;
                 } else {
-                    NewPbActivity.a(this.a, auVar.c(), auVar.b(), "search_post");
+                    NewPbActivity.a(this.a, awVar.c(), awVar.b(), "search_post");
                     return;
                 }
             }
             return;
         }
         String str3 = ((BarSuggestModel.Forum) ((ListView) adapterView).getAdapter().getItem(i)).forum_name;
-        if (TiebaApplication.h().t()) {
+        if (TiebaApplication.g().s()) {
             StatService.onEvent(this.a, "search_bar_result_click", "click", 1);
         }
         FrsActivity.a(this.a, str3, "tb_searchlist", 1);

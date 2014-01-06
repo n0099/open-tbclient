@@ -12,12 +12,12 @@ class c implements com.baidu.tbadk.imageManager.c {
     }
 
     @Override // com.baidu.tbadk.imageManager.c
-    public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
+    public void a(com.baidu.adp.widget.ImageView.d dVar, String str, boolean z) {
         ListView listView;
         listView = this.a.a.d;
         ImageView imageView = (ImageView) listView.findViewWithTag(str);
-        if (imageView != null && eVar != null) {
-            eVar.a(imageView);
+        if (imageView != null && dVar != null) {
+            dVar.a(imageView);
             imageView.setTag(null);
         }
     }

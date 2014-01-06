@@ -34,7 +34,7 @@ public class m extends com.baidu.adp.widget.ListView.c {
         this.g = this.f.findViewById(R.id.pb_more_view);
         this.g.setVisibility(8);
         this.d = (ProgressBar) this.f.findViewById(R.id.progress);
-        a(TiebaApplication.h().an());
+        a(TiebaApplication.g().an());
         this.g.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         return this.f;
     }

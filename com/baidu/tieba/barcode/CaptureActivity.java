@@ -23,9 +23,9 @@ import com.baidu.mobstat.StatService;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.barcode.result.ZxingResult;
 import com.baidu.tieba.service.TiebaPrepareImageService;
-import com.baidu.tieba.util.bd;
-import com.baidu.tieba.util.be;
-import com.baidu.tieba.util.y;
+import com.baidu.tieba.util.aa;
+import com.baidu.tieba.util.bn;
+import com.baidu.tieba.util.bo;
 import com.baidu.tieba.view.NavigationBar;
 import com.baidu.zeus.URLUtil;
 import com.baidu.zeus.bouncycastle.DERTags;
@@ -97,7 +97,7 @@ public final class CaptureActivity extends com.baidu.tieba.j implements SurfaceH
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean e() {
-        if (y.a()) {
+        if (aa.a()) {
             return true;
         }
         showToast(getString(R.string.voice_error_sdcard));
@@ -108,7 +108,7 @@ public final class CaptureActivity extends com.baidu.tieba.j implements SurfaceH
     protected void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (i2 == -1 && i == 12002 && intent != null && intent.getData() != null) {
-            TiebaPrepareImageService.a(i, intent.getData(), bd.a().e(), com.baidu.adp.lib.h.g.b(this));
+            TiebaPrepareImageService.a(i, intent.getData(), bn.a().e(), com.baidu.adp.lib.h.g.b(this));
         }
     }
 
@@ -134,7 +134,7 @@ public final class CaptureActivity extends com.baidu.tieba.j implements SurfaceH
             com.baidu.tieba.im.d.b.a((Context) this, (DialogInterface.OnClickListener) new c(this));
             return;
         }
-        if (TiebaApplication.h().t()) {
+        if (TiebaApplication.g().s()) {
             StatService.onEvent(this, "2d_code_scan_suc", "onclick");
         }
         if (URLUtil.isHttpUrl(str) || URLUtil.isHttpsUrl(str)) {
@@ -255,7 +255,7 @@ public final class CaptureActivity extends com.baidu.tieba.j implements SurfaceH
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceCreated(SurfaceHolder surfaceHolder) {
         if (surfaceHolder == null) {
-            be.b(getClass().getName(), "surfaceCreated", "*** WARNING *** surfaceCreated() gave us a null surface!");
+            bo.b(getClass().getName(), "surfaceCreated", "*** WARNING *** surfaceCreated() gave us a null surface!");
         }
         if (!this.e) {
             this.e = true;
@@ -311,7 +311,7 @@ public final class CaptureActivity extends com.baidu.tieba.j implements SurfaceH
         this.d.setVisibility(8);
         ZxingResult zxingResult = new ZxingResult();
         zxingResult.a(ResultParser.parseResult(result).getDisplayResult().toString());
-        if (TiebaApplication.h().t()) {
+        if (TiebaApplication.g().s()) {
             StatService.onEvent(this, "2d_code_scan", "onclick");
         }
         a(zxingResult.a());
@@ -323,7 +323,7 @@ public final class CaptureActivity extends com.baidu.tieba.j implements SurfaceH
             throw new IllegalStateException("No SurfaceHolder provided");
         }
         if (this.a.a()) {
-            be.c(getClass().getName(), "initCamera", "initCamera() while already open -- late SurfaceView callback?");
+            bo.c(getClass().getName(), "initCamera", "initCamera() while already open -- late SurfaceView callback?");
             return;
         }
         try {
@@ -333,10 +333,10 @@ public final class CaptureActivity extends com.baidu.tieba.j implements SurfaceH
             }
             a((Bitmap) null, (Result) null);
         } catch (IOException e) {
-            be.c(getClass().getName(), "initCamera", e.toString());
+            bo.c(getClass().getName(), "initCamera", e.toString());
             h();
         } catch (RuntimeException e2) {
-            be.c(getClass().getName(), "initCamera", "Unexpected error initializing camera" + e2.toString());
+            bo.c(getClass().getName(), "initCamera", "Unexpected error initializing camera" + e2.toString());
             h();
         }
     }

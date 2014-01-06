@@ -25,7 +25,7 @@ public class LoggerItem extends LinkedHashMap<String, String> {
     }
 
     public void initBaseData() {
-        String B = TiebaApplication.B();
+        String A = TiebaApplication.A();
         String j = com.baidu.tieba.data.h.j();
         String charSequence = DateFormat.format(a, System.currentTimeMillis()).toString();
         String a2 = com.baidu.tieba.im.i.a();
@@ -36,7 +36,7 @@ public class LoggerItem extends LinkedHashMap<String, String> {
         put(SocialConstants.PARAM_CUID, TextUtils.isEmpty(a2) ? "" : a2);
         put("model", TextUtils.isEmpty(str) ? "" : str);
         put("network", TextUtils.isEmpty(b) ? "" : b);
-        put("uid", TextUtils.isEmpty(B) ? "" : B);
+        put("uid", TextUtils.isEmpty(A) ? "" : A);
         put("version", TextUtils.isEmpty(j) ? "" : j);
     }
 

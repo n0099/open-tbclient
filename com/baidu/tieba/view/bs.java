@@ -1,85 +1,29 @@
 package com.baidu.tieba.view;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.ProgressBar;
-import android.widget.TextView;
+import android.content.Context;
+import android.graphics.Canvas;
 import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class bs extends com.baidu.adp.widget.ListView.c {
-    private com.baidu.tieba.j a;
-    private TextView b = null;
-    private ProgressBar c = null;
-    private View.OnClickListener d = null;
-    private View e = null;
-    private View f;
+public class bs extends com.baidu.tbadk.widget.b {
+    private int b;
 
-    public bs(com.baidu.tieba.j jVar) {
-        this.a = null;
-        this.a = jVar;
+    public bs(Context context) {
+        super(context);
+        this.b = -1;
     }
 
-    @Override // com.baidu.adp.widget.ListView.c
-    public View a() {
-        this.e = LayoutInflater.from(this.a).inflate(R.layout.new_pb_list_more, (ViewGroup) null);
-        this.e.setPadding(0, this.a.getResources().getDimensionPixelSize(R.dimen.listview_item_margin), 0, this.a.getResources().getDimensionPixelSize(R.dimen.listview_item_margin));
-        this.b = (TextView) this.e.findViewById(R.id.pb_more_text);
-        this.f = this.e.findViewById(R.id.pb_more_view);
-        this.f.setVisibility(8);
-        this.c = (ProgressBar) this.e.findViewById(R.id.progress);
-        a(TiebaApplication.h().an());
-        this.f.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-        return this.e;
-    }
-
-    public void a(int i) {
-        int color;
-        this.a.getLayoutMode().a(this.f);
-        String string = this.a.getString(R.string.nearby_group_no_more);
-        String charSequence = this.b.getText() != null ? this.b.getText().toString() : null;
-        boolean z = i == 1;
-        if (charSequence != null && charSequence.equals(string)) {
-            color = this.a.getResources().getColor(z ? R.color.pb_list_morebutton_nomore_text_1 : R.color.pb_list_morebutton_nomore_text);
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.widget.b, com.baidu.tbadk.widget.TbImageView, com.baidu.adp.widget.ImageView.BDImageView, android.widget.ImageView, android.view.View
+    public void onDraw(Canvas canvas) {
+        if (TiebaApplication.g().an() == 1) {
+            this.b = getResources().getColor(R.color.pb_default_image_bg_1);
         } else {
-            color = this.a.getResources().getColor(z ? R.color.pb_more_txt_1 : R.color.pb_more_txt);
+            this.b = getResources().getColor(R.color.pb_default_image_bg);
         }
-        this.b.setTextColor(color);
-    }
-
-    public void a(View.OnClickListener onClickListener) {
-        this.d = onClickListener;
-    }
-
-    public void c() {
-        this.e.setVisibility(8);
-    }
-
-    public void d() {
-        this.e.setVisibility(0);
-    }
-
-    public void e() {
-        this.c.setVisibility(0);
-        this.b.setText(this.a.getText(R.string.loading));
-        this.f.setVisibility(0);
-        a(TiebaApplication.h().an());
-    }
-
-    public void f() {
-        this.c.setVisibility(8);
-        this.b.setText(R.string.nearby_group_no_more);
-        this.b.setVisibility(0);
-        this.f.setVisibility(0);
-        a(TiebaApplication.h().an());
-    }
-
-    @Override // com.baidu.adp.widget.ListView.c
-    public void onClick() {
-        if (this.d != null) {
-            this.d.onClick(this.e);
+        if (getImage() == null && this.b != -1) {
+            canvas.drawColor(this.b);
         }
+        super.onDraw(canvas);
     }
 }

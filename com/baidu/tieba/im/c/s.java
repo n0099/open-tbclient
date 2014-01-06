@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.c;
 /* loaded from: classes.dex */
-public class s extends com.baidu.tieba.im.message.n {
+public class s extends com.baidu.tieba.im.message.o {
     private long a;
     private long b;
     private long c;

@@ -1,43 +1,52 @@
 package com.baidu.tieba.im.message;
 
 import com.google.protobuf.MessageLite;
-import protobuf.QueryGroupLocation.QueryGroupLocationReq;
+import protobuf.QueryGroupUserList.QueryGroupUserListReq;
 /* loaded from: classes.dex */
-public class ai extends n implements com.baidu.tieba.im.coder.g {
-    private int a;
-    private String b;
-    private String c;
+public class ai extends o implements com.baidu.tieba.im.coder.g {
+    private long a;
+    private int b;
+    private int c;
+    private int d;
 
     public ai() {
-        e(103010);
+        e(103005);
     }
 
-    public int b() {
+    public long b() {
         return this.a;
     }
 
-    public void a(int i) {
-        this.a = i;
+    public void a(long j) {
+        this.a = j;
     }
 
-    public String c() {
+    public int c() {
         return this.b;
     }
 
-    public void a(String str) {
-        this.b = str;
+    public void a(int i) {
+        this.b = i;
     }
 
-    public String d() {
+    public int d() {
         return this.c;
     }
 
-    public void b(String str) {
-        this.c = str;
+    public void b(int i) {
+        this.c = i;
+    }
+
+    public int e() {
+        return this.d;
+    }
+
+    public void c(int i) {
+        this.d = i;
     }
 
     @Override // com.baidu.tieba.im.coder.g
     public MessageLite a() {
-        return QueryGroupLocationReq.QueryGroupLocationReqIdl.newBuilder().a(QueryGroupLocationReq.DataReq.newBuilder().a(b()).b(Double.parseDouble(d())).a(Double.parseDouble(c())).build()).build();
+        return QueryGroupUserListReq.QueryGroupUserListReqIdl.newBuilder().a(QueryGroupUserListReq.DataReq.newBuilder().a((int) b()).b(c()).d(e()).c(d()).build()).build();
     }
 }

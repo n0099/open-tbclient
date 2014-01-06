@@ -1,10 +1,10 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.mobstat.StatService;
-import com.baidu.tieba.TiebaApplication;
-import com.slidingmenu.lib.SlidingMenu;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.GridView;
 /* loaded from: classes.dex */
-class v implements SlidingMenu.OnOpenedListener {
+class v implements AdapterView.OnItemClickListener {
     final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,10 +12,17 @@ class v implements SlidingMenu.OnOpenedListener {
         this.a = frsActivity;
     }
 
-    @Override // com.slidingmenu.lib.SlidingMenu.OnOpenedListener
-    public void onOpened() {
-        if (TiebaApplication.h().t()) {
-            StatService.onEvent(this.a, "frs_total_more", "frsclick", 1);
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+        bo boVar;
+        if (i >= 0) {
+            boVar = this.a.n;
+            boVar.i(i);
+            this.a.u = true;
+            this.a.t = ((com.baidu.tieba.data.aa) ((GridView) adapterView).getAdapter().getItem(i)).b();
+            this.a.i = 1;
+            this.a.e = 3;
+            this.a.C();
         }
     }
 }

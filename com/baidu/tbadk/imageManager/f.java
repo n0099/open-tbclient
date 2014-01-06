@@ -1,7 +1,7 @@
 package com.baidu.tbadk.imageManager;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f extends com.baidu.adp.lib.d.a<String, com.baidu.adp.widget.ImageView.e> {
+public class f extends com.baidu.adp.lib.d.a<String, com.baidu.adp.widget.ImageView.d> {
     final /* synthetic */ d a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,9 +15,9 @@ public class f extends com.baidu.adp.lib.d.a<String, com.baidu.adp.widget.ImageV
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.d.a
     /* renamed from: a */
-    public int b(String str, com.baidu.adp.widget.ImageView.e eVar) {
-        if (eVar != null) {
-            return eVar.d();
+    public int b(String str, com.baidu.adp.widget.ImageView.d dVar) {
+        if (dVar != null) {
+            return dVar.f();
         }
         return 0;
     }
@@ -25,15 +25,15 @@ public class f extends com.baidu.adp.lib.d.a<String, com.baidu.adp.widget.ImageV
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.d.a
-    public void a(boolean z, String str, com.baidu.adp.widget.ImageView.e eVar, com.baidu.adp.widget.ImageView.e eVar2) {
+    public void a(boolean z, String str, com.baidu.adp.widget.ImageView.d dVar, com.baidu.adp.widget.ImageView.d dVar2) {
         com.baidu.adp.lib.d.a aVar;
-        if (eVar != null) {
+        if (dVar != null) {
             if (com.baidu.adp.lib.h.e.a()) {
-                StringBuilder append = new StringBuilder().append("pic removed from cache:").append(eVar.h()).append(", size:").append(eVar.d()).append("/");
-                aVar = this.a.d;
+                StringBuilder append = new StringBuilder().append("pic removed from cache:").append(dVar.j()).append(", size:").append(dVar.f()).append("/");
+                aVar = this.a.c;
                 com.baidu.adp.lib.h.e.d(append.append(aVar.c()).toString());
             }
-            eVar.e();
+            dVar.g();
         }
     }
 }

@@ -28,9 +28,9 @@ public class x extends com.baidu.adp.a.d {
         return false;
     }
 
-    public void a(boolean z, boolean z2, boolean z3) {
+    public void a(boolean z, boolean z2, boolean z3, String str) {
         if (this.b == null) {
-            this.b = new y(this, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3));
+            this.b = new y(this, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), str);
             this.b.setPriority(3);
             this.b.execute(new Object[0]);
         }

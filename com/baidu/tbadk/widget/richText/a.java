@@ -7,7 +7,7 @@ import java.util.Iterator;
 import org.json.JSONArray;
 /* loaded from: classes.dex */
 public class a {
-    private ArrayList<h> a;
+    private ArrayList<i> a;
     private int b;
     private ArrayList<c> c;
     private Context d;
@@ -64,18 +64,18 @@ public class a {
             this.a = new ArrayList<>();
             int length = jSONArray.length();
             for (int i2 = 0; i2 < length; i2++) {
-                h hVar = new h();
-                hVar.a(jSONArray.optJSONObject(i2));
-                if ((hVar.a() & i) != 0) {
-                    this.a.add(hVar);
+                i iVar = new i();
+                iVar.a(jSONArray.optJSONObject(i2));
+                if ((iVar.a() & i) != 0) {
+                    this.a.add(iVar);
                 }
             }
             this.c = new ArrayList<>();
             this.b = 0;
-            Iterator<h> it = this.a.iterator();
+            Iterator<i> it = this.a.iterator();
             c cVar = null;
             while (it.hasNext()) {
-                h next = it.next();
+                i next = it.next();
                 if (next.a() == 8) {
                     if (cVar != null) {
                         this.c.add(cVar);
@@ -90,7 +90,7 @@ public class a {
                         this.c.add(cVar);
                     }
                     c cVar3 = new c(32);
-                    cVar3.a(next.e());
+                    cVar3.a(next.f());
                     this.c.add(cVar3);
                     cVar = new c(1);
                     CharSequence c = next.c(this.d, cVar.b());
@@ -105,6 +105,14 @@ public class a {
                     c cVar4 = new c(ImageManager.DEFAULT_MAX_CACHEABLE_SIZE);
                     cVar4.a(next.c());
                     this.c.add(cVar4);
+                } else if (next.a() == 17) {
+                    if (cVar != null) {
+                        this.c.add(cVar);
+                        cVar = null;
+                    }
+                    c cVar5 = new c(17);
+                    cVar5.a(next.d());
+                    this.c.add(cVar5);
                 } else {
                     if (cVar == null) {
                         cVar = new c(1);
@@ -129,7 +137,7 @@ public class a {
 
     public String toString() {
         if (this.c == null) {
-            return null;
+            return "";
         }
         StringBuilder sb = new StringBuilder(100);
         Iterator<c> it = this.c.iterator();

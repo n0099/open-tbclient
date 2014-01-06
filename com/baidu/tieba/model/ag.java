@@ -5,7 +5,7 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* loaded from: classes.dex */
 public class ag extends BdAsyncTask<String, Integer, String> {
     final /* synthetic */ ad a;
-    private com.baidu.tieba.util.an b;
+    private com.baidu.tieba.util.at b;
     private String c;
     private String d;
     private String e;
@@ -16,7 +16,7 @@ public class ag extends BdAsyncTask<String, Integer, String> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public String a(String... strArr) {
-        this.b = new com.baidu.tieba.util.an(strArr[0]);
+        this.b = new com.baidu.tieba.util.at(strArr[0]);
         this.b.a("day", this.g);
         this.b.a("un", this.f);
         this.b.a("fid", this.c);

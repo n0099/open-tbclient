@@ -4,23 +4,23 @@ import android.view.View;
 import android.widget.ImageView;
 import com.baidu.tieba.view.HeadImageView;
 /* loaded from: classes.dex */
-class e implements com.baidu.tieba.util.bm {
+class e implements com.baidu.tieba.util.bw {
     final /* synthetic */ String a;
-    final /* synthetic */ com.baidu.adp.widget.ImageView.e b;
+    final /* synthetic */ com.baidu.adp.widget.ImageView.d b;
     final /* synthetic */ d c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public e(d dVar, String str, com.baidu.adp.widget.ImageView.e eVar) {
+    public e(d dVar, String str, com.baidu.adp.widget.ImageView.d dVar2) {
         this.c = dVar;
         this.a = str;
-        this.b = eVar;
+        this.b = dVar2;
     }
 
-    @Override // com.baidu.tieba.util.bm
+    @Override // com.baidu.tieba.util.bw
     public boolean a(View view) {
         if ((view instanceof ImageView) && this.a != null && this.a.equals(view.getTag())) {
             HeadImageView headImageView = (HeadImageView) view;
-            headImageView.setImageBitmap(this.b.f());
+            headImageView.setImageBitmap(this.b.h());
             headImageView.invalidate();
             return false;
         }

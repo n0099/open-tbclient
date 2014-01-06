@@ -1,6 +1,6 @@
 package com.baidu.tieba.voice;
 
-import com.baidu.tieba.util.be;
+import com.baidu.tieba.util.bo;
 import com.baidu.tieba.voice.VoiceManager;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -45,7 +45,7 @@ public class ai implements com.baidu.tieba.voice.a.c {
                     }
                     return;
                 }
-                be.a(4, "VoiceManager", "VoiceLoaderCallback::voiceLoaded", "error code:" + i + " error msg:" + str3);
+                bo.a(4, "VoiceManager", "VoiceLoaderCallback::voiceLoaded", "error code:" + i + " error msg:" + str3);
                 if (i <= 0 || com.baidu.adp.lib.h.m.a(str3) || (i != 2 && i != 4 && i != 3 && i != 7)) {
                     adVar2 = this.a.y;
                     adVar2.b(5, ak.a(R.string.voice_err_load_fail));

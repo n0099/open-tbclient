@@ -1,6 +1,7 @@
 package com.baidu.tieba.data;
 
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.util.bo;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -150,7 +151,7 @@ public class AntiData implements Serializable {
         try {
             parserJson(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.tieba.util.be.b("AntiData", "parserJson", "error = " + e.getMessage());
+            bo.b("AntiData", "parserJson", "error = " + e.getMessage());
         }
     }
 
@@ -161,8 +162,8 @@ public class AntiData implements Serializable {
                 this.ifposta = jSONObject.optInt("ifposta", 0);
                 this.forbid_flag = jSONObject.optInt("forbid_flag", 0);
                 this.tbs = jSONObject.optString("tbs");
-                if (TiebaApplication.h() != null && this.tbs != null && this.tbs.length() > 0) {
-                    TiebaApplication.h().n(this.tbs);
+                if (TiebaApplication.g() != null && this.tbs != null && this.tbs.length() > 0) {
+                    TiebaApplication.g().n(this.tbs);
                 }
                 this.need_vcode = jSONObject.optInt("need_vcode", 0);
                 this.vcode_md5 = jSONObject.optString("vcode_md5");
@@ -176,18 +177,18 @@ public class AntiData implements Serializable {
                 this.days_tofree = jSONObject.optInt("days_tofree", 1);
                 this.has_chance = jSONObject.optInt("has_chance", 1) == 1;
             } catch (Exception e) {
-                com.baidu.tieba.util.be.b("AntiData", "parserJson", "error = " + e.getMessage());
+                bo.b("AntiData", "parserJson", "error = " + e.getMessage());
             }
         }
     }
 
     public void logPrint() {
-        com.baidu.tieba.util.be.d("AntiData", "logPrint", "ifpost = " + String.valueOf(this.ifpost));
-        com.baidu.tieba.util.be.d("AntiData", "logPrint", "ifposta = " + String.valueOf(this.ifposta));
-        com.baidu.tieba.util.be.d("AntiData", "logPrint", "forbid_flag = " + String.valueOf(this.forbid_flag));
-        com.baidu.tieba.util.be.d("AntiData", "logPrint", "tbs = " + this.tbs);
-        com.baidu.tieba.util.be.d("AntiData", "logPrint", "need_vcode = " + String.valueOf(this.need_vcode));
-        com.baidu.tieba.util.be.d("AntiData", "logPrint", "vcode_md5 = " + this.vcode_md5);
+        bo.d("AntiData", "logPrint", "ifpost = " + String.valueOf(this.ifpost));
+        bo.d("AntiData", "logPrint", "ifposta = " + String.valueOf(this.ifposta));
+        bo.d("AntiData", "logPrint", "forbid_flag = " + String.valueOf(this.forbid_flag));
+        bo.d("AntiData", "logPrint", "tbs = " + this.tbs);
+        bo.d("AntiData", "logPrint", "need_vcode = " + String.valueOf(this.need_vcode));
+        bo.d("AntiData", "logPrint", "vcode_md5 = " + this.vcode_md5);
     }
 
     public void setForbid_info(String str) {

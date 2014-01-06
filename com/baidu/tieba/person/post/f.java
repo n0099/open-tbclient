@@ -3,14 +3,14 @@ package com.baidu.tieba.person.post;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.gson.GsonBuilder;
 import com.baidu.gson.JsonParseException;
-import com.baidu.tieba.util.an;
-import com.baidu.tieba.util.be;
+import com.baidu.tieba.util.at;
+import com.baidu.tieba.util.bo;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class f extends BdAsyncTask<Void, Void, PersonPostReplyModel> {
     private WeakReference<e> a;
     private boolean b;
-    private an c;
+    private at c;
 
     public f(e eVar, boolean z) {
         this.a = new WeakReference<>(eVar);
@@ -21,18 +21,18 @@ public class f extends BdAsyncTask<Void, Void, PersonPostReplyModel> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public PersonPostReplyModel a(Void... voidArr) {
         PersonPostReplyModel personPostReplyModel;
-        this.c = new an(com.baidu.tieba.data.h.a + "c/u/feed/userpost");
+        this.c = new at(com.baidu.tieba.data.h.a + "c/u/feed/userpost");
         this.c.a("uid", String.valueOf(PersonPostReplyModel.mLastReplyUid));
         this.c.a("pn", String.valueOf(PersonPostReplyModel.mReplyPn));
         this.c.a("rn", String.valueOf(20));
         this.c.a("is_thread", String.valueOf(0));
         this.c.a("need_content", String.valueOf(1));
         String l = this.c.l();
-        be.e("PersonPostReplyModel", "doInBackground", l);
+        bo.e("PersonPostReplyModel", "doInBackground", l);
         try {
             personPostReplyModel = (PersonPostReplyModel) new GsonBuilder().create().fromJson(l, (Class<Object>) PersonPostReplyModel.class);
         } catch (JsonParseException e) {
-            be.e("PersonPostReplyModel", "doInBackground", e.getMessage());
+            bo.e("PersonPostReplyModel", "doInBackground", e.getMessage());
             personPostReplyModel = null;
         }
         if (personPostReplyModel == null) {

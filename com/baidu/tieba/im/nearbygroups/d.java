@@ -24,14 +24,14 @@ class d implements com.baidu.adp.widget.ListView.b {
         ad adVar3;
         ad adVar4;
         ad adVar5;
-        String be = TiebaApplication.h().be();
-        String bf = TiebaApplication.h().bf();
+        String bf = TiebaApplication.g().bf();
+        String bg = TiebaApplication.g().bg();
         adVar = this.a.c;
-        if (!adVar.c() && !TextUtils.isEmpty(be) && !TextUtils.isEmpty(bf)) {
+        if (!adVar.c() && !TextUtils.isEmpty(bf) && !TextUtils.isEmpty(bg)) {
             adVar3 = this.a.c;
-            adVar3.b(be);
+            adVar3.b(bf);
             adVar4 = this.a.c;
-            adVar4.a(bf);
+            adVar4.a(bg);
             adVar5 = this.a.c;
             adVar5.f();
         } else if (UtilHelper.b()) {

@@ -1,17 +1,20 @@
 package com.baidu.tieba.home;
 
-import android.content.DialogInterface;
+import android.app.AlertDialog;
+import android.view.View;
+import com.slidingmenu.lib.R;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ag implements DialogInterface.OnClickListener {
-    final /* synthetic */ af a;
+public class ag implements View.OnClickListener {
+    final /* synthetic */ SearchActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ag(af afVar) {
-        this.a = afVar;
+    public ag(SearchActivity searchActivity) {
+        this.a = searchActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        dialogInterface.cancel();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        new AlertDialog.Builder(this.a).setTitle("提醒").setIcon(R.drawable.dialogue_quit).setMessage("确认清除搜索记录？").setPositiveButton("确认", new ai(this)).setNegativeButton("取消", new ah(this)).create().show();
     }
 }

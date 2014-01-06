@@ -1,8 +1,10 @@
 package com.baidu.tieba.pb;
 
-import android.content.DialogInterface;
+import android.view.View;
+import com.baidu.tbadk.gif.GifView;
+import com.baidu.tieba.data.emotions.EmotionImageActivity;
 /* loaded from: classes.dex */
-class bl implements DialogInterface.OnClickListener {
+class bl implements com.baidu.tbadk.widget.richText.q {
     final /* synthetic */ NewPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,15 +12,38 @@ class bl implements DialogInterface.OnClickListener {
         this.a = newPbActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        if (this.a.b != null) {
-            if (i == 0) {
-                this.a.b.c(this.a);
-                this.a.b = null;
-            } else if (i == 1) {
-                this.a.a(this.a.b);
+    @Override // com.baidu.tbadk.widget.richText.q
+    public void a(View view, String str, String str2, String str3, String str4, String str5, String str6, int i, int i2) {
+        cs csVar;
+        com.baidu.tbadk.imageManager.c cVar;
+        com.baidu.adp.widget.ImageView.d a;
+        cs csVar2;
+        com.baidu.tbadk.imageManager.c cVar2;
+        GifView gifView = (GifView) view;
+        com.baidu.tbadk.widget.richText.e tbRichTextEmotionINfo = gifView.getTbRichTextEmotionINfo();
+        view.setTag(tbRichTextEmotionINfo.c);
+        if (tbRichTextEmotionINfo.j) {
+            tbRichTextEmotionINfo.j = false;
+            if (com.baidu.tieba.util.i.b()) {
+                csVar2 = this.a.z;
+                com.baidu.tieba.util.i a2 = csVar2.i().a();
+                cVar2 = this.a.aa;
+                a = a2.a(str, str6, str5, true, cVar2);
+            } else {
+                csVar = this.a.z;
+                com.baidu.tieba.util.i a3 = csVar.i().a();
+                cVar = this.a.aa;
+                a = a3.a(str, str6, str4, false, cVar);
             }
+            if (a == null) {
+                gifView.setIsLoading(true);
+                return;
+            }
+            gifView.setGif(a);
+            gifView.setIsLoading(false);
+            tbRichTextEmotionINfo.j = false;
+            return;
         }
+        EmotionImageActivity.a(this.a, str, str2, str3, str4, str5, str6, 1, i, i2);
     }
 }

@@ -28,10 +28,10 @@ public class e extends com.baidu.adp.a.d {
         this.a = bundle.getLong("group_id");
     }
 
-    private com.baidu.tieba.im.message.ac b(long j) {
-        com.baidu.tieba.im.message.ac acVar = new com.baidu.tieba.im.message.ac();
-        acVar.a(j);
-        return acVar;
+    private com.baidu.tieba.im.message.af b(long j) {
+        com.baidu.tieba.im.message.af afVar = new com.baidu.tieba.im.message.af();
+        afVar.a(j);
+        return afVar;
     }
 
     public void a(long j) {

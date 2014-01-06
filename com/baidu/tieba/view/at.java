@@ -1,20 +1,22 @@
 package com.baidu.tieba.view;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import android.view.MotionEvent;
+import android.view.View;
 /* loaded from: classes.dex */
-public class at implements q {
-    final /* synthetic */ MultiImageView a;
+class at implements View.OnTouchListener {
+    final /* synthetic */ as a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public at(MultiImageView multiImageView) {
-        this.a = multiImageView;
+    public at(as asVar) {
+        this.a = asVar;
     }
 
-    @Override // com.baidu.tieba.view.q
-    public void a(l lVar, boolean z, boolean z2) {
-        GalleryViewPager galleryViewPager;
-        galleryViewPager = this.a.e;
-        if (galleryViewPager.getSelectedView() == lVar) {
-            this.a.setZoomButton(lVar);
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        if (motionEvent.getAction() == 0) {
+            this.a.dismiss();
+            return false;
         }
+        return false;
     }
 }

@@ -14,7 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.browser.explorer.BdWebErrorView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.bb;
+import com.baidu.tieba.util.bl;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
@@ -184,11 +184,11 @@ public class ApplyJoinGroupActivity extends com.baidu.tieba.j implements com.bai
         getLayoutMode().a(i == 1);
         getLayoutMode().a(this.a);
         this.s.c(i);
-        bb.g(this.f, 0);
+        bl.g(this.f, 0);
     }
 
     private boolean f() {
-        return TiebaApplication.h().an() == 1;
+        return TiebaApplication.g().an() == 1;
     }
 
     void b() {
@@ -212,14 +212,14 @@ public class ApplyJoinGroupActivity extends com.baidu.tieba.j implements com.bai
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(com.baidu.tieba.im.message.n nVar) {
-        if (nVar != null && (nVar instanceof aj)) {
-            aj ajVar = (aj) nVar;
+    public void a(com.baidu.tieba.im.message.o oVar) {
+        if (oVar != null && (oVar instanceof aj)) {
+            aj ajVar = (aj) oVar;
             int j = ajVar.j();
             String k = ajVar.k();
             if (ajVar.i()) {
                 String string = TextUtils.isEmpty(k) ? getString(R.string.group_apply_fail) : k;
-                com.baidu.adp.lib.h.e.d("apply add group" + nVar.toString() + "err:" + j + " errMsg" + string);
+                com.baidu.adp.lib.h.e.d("apply add group" + oVar.toString() + "err:" + j + " errMsg" + string);
                 this.f.setEnabled(true);
                 showToast(string);
                 return;
@@ -229,7 +229,7 @@ public class ApplyJoinGroupActivity extends com.baidu.tieba.j implements com.bai
             }
             showToast(k, false);
             if (j == 0) {
-                u.a(TiebaApplication.B(), this.k, true);
+                u.a(TiebaApplication.A(), this.k, true);
                 finish();
             }
         }

@@ -5,8 +5,9 @@ import com.baidu.tieba.util.UtilHelper;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 import org.json.JSONObject;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class b implements ag {
+public class b implements af {
     final /* synthetic */ FrsActivity a;
     private long b = 0;
 
@@ -15,97 +16,97 @@ class b implements ag {
         this.a = frsActivity;
     }
 
-    @Override // com.baidu.tieba.frs.ag
+    @Override // com.baidu.tieba.frs.af
     public void a(int i) {
-        bn bnVar;
-        bn bnVar2;
-        bn bnVar3;
-        bn bnVar4;
-        bn bnVar5;
+        bo boVar;
+        bo boVar2;
+        bo boVar3;
+        bo boVar4;
+        bo boVar5;
         this.b = System.nanoTime();
         switch (i) {
             case 1:
-                bnVar3 = this.a.n;
-                bnVar3.c(true);
-                bnVar4 = this.a.n;
-                bnVar4.q();
+                boVar3 = this.a.n;
+                boVar3.c(true);
+                boVar4 = this.a.n;
+                boVar4.r();
                 return;
             case 2:
-                bnVar = this.a.n;
-                bnVar.d(true);
-                bnVar2 = this.a.n;
-                bnVar2.q();
+                boVar = this.a.n;
+                boVar.d(true);
+                boVar2 = this.a.n;
+                boVar2.r();
                 return;
             case 3:
-                bnVar5 = this.a.n;
-                bnVar5.b(true);
+                boVar5 = this.a.n;
+                boVar5.b(true);
                 return;
             default:
                 return;
         }
     }
 
-    @Override // com.baidu.tieba.frs.ag
+    @Override // com.baidu.tieba.frs.af
     public void a(int i, JSONObject jSONObject, com.baidu.tieba.model.an anVar) {
-        bn bnVar;
-        bn bnVar2;
-        bn bnVar3;
-        bn bnVar4;
-        bn bnVar5;
-        bn bnVar6;
+        bo boVar;
+        bo boVar2;
+        bo boVar3;
+        bo boVar4;
+        bo boVar5;
+        bo boVar6;
         com.baidu.tieba.model.ak akVar;
         com.baidu.tieba.model.ak akVar2;
         boolean z;
         String str;
         String str2;
         String str3;
-        bn bnVar7;
+        bo boVar7;
         com.baidu.tieba.model.ak akVar3;
         AdapterView.OnItemClickListener onItemClickListener;
-        bn bnVar8;
+        bo boVar8;
         com.baidu.tieba.model.ak akVar4;
         com.baidu.tieba.model.ak akVar5;
         com.baidu.tieba.model.ak akVar6;
         int i2;
         int i3;
-        bn bnVar9;
-        bn bnVar10;
+        bo boVar9;
+        bo boVar10;
         com.baidu.tieba.model.ak akVar7;
         com.baidu.tieba.model.ak akVar8;
         com.baidu.tieba.model.ak akVar9;
         boolean z2;
-        bn bnVar11;
-        bn bnVar12;
+        bo boVar11;
+        bo boVar12;
         if (UtilHelper.g(this.a) == UtilHelper.NetworkStateInfo.UNAVAIL) {
-            bnVar12 = this.a.n;
-            bnVar12.h();
+            boVar12 = this.a.n;
+            boVar12.h();
         } else {
-            bnVar = this.a.n;
-            bnVar.i();
+            boVar = this.a.n;
+            boVar.i();
         }
         if (anVar == null || !anVar.b) {
             int unused = FrsActivity.s = 1;
         } else {
-            bnVar11 = this.a.n;
-            bnVar11.m().a(com.baidu.tieba.util.bd.a().b());
+            boVar11 = this.a.n;
+            boVar11.n().a(com.baidu.tieba.util.bn.a().b());
             long unused2 = FrsActivity.q = 0L;
             long unused3 = FrsActivity.r = 0L;
             int unused4 = FrsActivity.s = 0;
         }
-        bnVar2 = this.a.n;
-        bnVar2.b(false);
+        boVar2 = this.a.n;
+        boVar2.b(false);
         switch (i) {
             case 1:
-                bnVar5 = this.a.n;
-                bnVar5.c(false);
-                bnVar6 = this.a.n;
-                bnVar6.q();
+                boVar5 = this.a.n;
+                boVar5.c(false);
+                boVar6 = this.a.n;
+                boVar6.r();
                 break;
             case 2:
-                bnVar3 = this.a.n;
-                bnVar3.d(false);
-                bnVar4 = this.a.n;
-                bnVar4.q();
+                boVar3 = this.a.n;
+                boVar3.d(false);
+                boVar4 = this.a.n;
+                boVar4.r();
                 break;
         }
         if (jSONObject == null || (anVar != null && anVar.c != 0)) {
@@ -128,39 +129,39 @@ class b implements ag {
                 }
             }
             akVar2 = this.a.w;
-            com.baidu.tieba.data.bb top_notice_data = akVar2.a().getTop_notice_data();
+            com.baidu.tieba.data.bd top_notice_data = akVar2.a().getTop_notice_data();
             if (top_notice_data != null && top_notice_data.a() != null) {
-                com.baidu.tieba.data.az azVar = new com.baidu.tieba.data.az();
-                azVar.c(top_notice_data.a());
-                azVar.a(2);
-                azVar.b(top_notice_data.b());
-                azVar.t();
+                com.baidu.tieba.data.bb bbVar = new com.baidu.tieba.data.bb();
+                bbVar.c(top_notice_data.a());
+                bbVar.a(2);
+                bbVar.b(top_notice_data.b());
+                bbVar.t();
                 akVar7 = this.a.w;
-                akVar7.b().add(0, azVar);
+                akVar7.b().add(0, bbVar);
             }
             z = this.a.v;
             if (z) {
-                bnVar10 = this.a.n;
-                bnVar10.A();
+                boVar10 = this.a.n;
+                boVar10.B();
                 this.a.v = false;
             }
             str = this.a.C;
             if (str.equals("frs_page")) {
-                bnVar9 = this.a.n;
-                bnVar9.s();
+                boVar9 = this.a.n;
+                boVar9.t();
             } else {
                 str2 = this.a.C;
                 if (str2.equals("normal_page")) {
-                    bnVar8 = this.a.n;
-                    bnVar8.r();
+                    boVar8 = this.a.n;
+                    boVar8.s();
                 } else {
                     str3 = this.a.C;
                     if (str3.equals("good_page")) {
-                        bnVar7 = this.a.n;
+                        boVar7 = this.a.n;
                         akVar3 = this.a.w;
-                        ArrayList<com.baidu.tieba.data.z> good_classify = akVar3.a().getGood_classify();
+                        ArrayList<com.baidu.tieba.data.aa> good_classify = akVar3.a().getGood_classify();
                         onItemClickListener = this.a.ad;
-                        bnVar7.a(good_classify, onItemClickListener);
+                        boVar7.a(good_classify, onItemClickListener);
                     }
                 }
             }
@@ -187,13 +188,13 @@ class b implements ag {
                     }
                 }
             }
-            this.a.D();
+            this.a.E();
         }
         this.a.o = null;
         System.gc();
     }
 
-    @Override // com.baidu.tieba.frs.ag
+    @Override // com.baidu.tieba.frs.af
     public void a(com.baidu.tieba.model.ak akVar) {
         String str;
         String str2;

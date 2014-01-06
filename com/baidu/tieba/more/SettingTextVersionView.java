@@ -15,8 +15,8 @@ public final class SettingTextVersionView extends SettingTextTipView {
 
     public void a() {
         boolean z = true;
-        boolean z2 = TiebaApplication.h().an() == 1;
-        VersionData au = TiebaApplication.h().au();
+        boolean z2 = TiebaApplication.g().an() == 1;
+        VersionData au = TiebaApplication.g().au();
         if (au == null || au.getHas_new_ver() != 1) {
             z = false;
         }

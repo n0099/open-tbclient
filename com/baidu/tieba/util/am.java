@@ -1,33 +1,23 @@
 package com.baidu.tieba.util;
 
-import android.content.Context;
-import android.media.MediaScannerConnection;
-import android.net.Uri;
+import android.view.View;
 /* loaded from: classes.dex */
-public class am implements MediaScannerConnection.MediaScannerConnectionClient {
-    private MediaScannerConnection a;
-    private Context b;
-    private String c;
-    private String d;
+class am implements bw {
+    final /* synthetic */ String a;
+    final /* synthetic */ al b;
 
-    public am(Context context) {
-        this.b = context;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public am(al alVar, String str) {
+        this.b = alVar;
+        this.a = str;
     }
 
-    public void a(String str) {
-        this.c = str;
-        this.d = "image/*";
-        this.a = new MediaScannerConnection(this.b, this);
-        this.a.connect();
-    }
-
-    @Override // android.media.MediaScannerConnection.MediaScannerConnectionClient
-    public void onMediaScannerConnected() {
-        this.a.scanFile(this.c, this.d);
-    }
-
-    @Override // android.media.MediaScannerConnection.OnScanCompletedListener
-    public void onScanCompleted(String str, Uri uri) {
-        this.a.disconnect();
+    @Override // com.baidu.tieba.util.bw
+    public boolean a(View view) {
+        if (this.a.equals(view.getTag())) {
+            view.invalidate();
+            return false;
+        }
+        return false;
     }
 }

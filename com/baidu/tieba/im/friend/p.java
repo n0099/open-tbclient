@@ -18,7 +18,7 @@ public class p implements com.baidu.tbadk.imageManager.c {
     }
 
     @Override // com.baidu.tbadk.imageManager.c
-    public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
+    public void a(com.baidu.adp.widget.ImageView.d dVar, String str, boolean z) {
         HeadImageView headImageView;
         ViewGroup viewGroup;
         ViewGroup viewGroup2;
@@ -33,11 +33,13 @@ public class p implements com.baidu.tbadk.imageManager.c {
         } catch (Exception e) {
             headImageView = this.b.b;
         }
-        if (eVar != null) {
-            headImageView.setImageBitmap(eVar.f());
-        } else {
-            headImageView.setImageBitmap(com.baidu.tieba.util.m.a((int) R.drawable.photo));
+        if (headImageView != null) {
+            if (dVar != null) {
+                headImageView.setImageBitmap(dVar.h());
+            } else {
+                headImageView.setImageBitmap(com.baidu.tieba.util.m.a((int) R.drawable.photo));
+            }
+            headImageView.invalidate();
         }
-        headImageView.invalidate();
     }
 }

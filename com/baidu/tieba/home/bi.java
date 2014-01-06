@@ -1,29 +1,23 @@
 package com.baidu.tieba.home;
 
-import android.graphics.Camera;
-import android.graphics.Matrix;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.Transformation;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bi extends Animation {
-    private Camera a = new Camera();
-    private View b;
+public class bi implements com.baidu.tbadk.imageManager.c {
+    final /* synthetic */ View a;
+    final /* synthetic */ bg b;
 
-    public bi(View view) {
-        this.b = view;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bi(bg bgVar, View view) {
+        this.b = bgVar;
+        this.a = view;
     }
 
-    @Override // android.view.animation.Animation
-    protected void applyTransformation(float f, Transformation transformation) {
-        int width = this.b.getWidth() / 2;
-        int height = this.b.getHeight() / 2;
-        Matrix matrix = transformation.getMatrix();
-        this.a.save();
-        this.a.translate(0.0f, 0.0f, (-150.0f) * (1.0f - f));
-        this.a.getMatrix(matrix);
-        this.a.restore();
-        matrix.preTranslate(-width, -height);
-        matrix.postTranslate(width, height);
+    @Override // com.baidu.tbadk.imageManager.c
+    public void a(com.baidu.adp.widget.ImageView.d dVar, String str, boolean z) {
+        View findViewWithTag = this.a.findViewWithTag(str);
+        if (findViewWithTag != null) {
+            findViewWithTag.invalidate();
+        }
     }
 }

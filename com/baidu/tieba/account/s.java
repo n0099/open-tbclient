@@ -12,7 +12,7 @@ import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class s extends BdAsyncTask<String, Integer, com.baidu.tieba.model.be> {
     final /* synthetic */ ActivationActivity a;
-    private com.baidu.tieba.util.an b;
+    private com.baidu.tieba.util.at b;
 
     private s(ActivationActivity activationActivity) {
         this.a = activationActivity;
@@ -37,31 +37,31 @@ public class s extends BdAsyncTask<String, Integer, com.baidu.tieba.model.be> {
         RegistData registData6;
         RegistData registData7;
         try {
-            this.b = new com.baidu.tieba.util.an(com.baidu.tieba.data.h.a + "c/s/regreal");
-            com.baidu.tieba.util.an anVar = this.b;
+            this.b = new com.baidu.tieba.util.at(com.baidu.tieba.data.h.a + "c/s/regreal");
+            com.baidu.tieba.util.at atVar = this.b;
             registData = this.a.p;
-            anVar.a("un", registData.getName());
-            com.baidu.tieba.util.an anVar2 = this.b;
+            atVar.a("un", registData.getName());
+            com.baidu.tieba.util.at atVar2 = this.b;
             registData2 = this.a.p;
-            anVar2.a("phonenum", registData2.getPhone());
-            com.baidu.tieba.util.an anVar3 = this.b;
+            atVar2.a("phonenum", registData2.getPhone());
+            com.baidu.tieba.util.at atVar3 = this.b;
             registData3 = this.a.p;
-            anVar3.a("passwd", registData3.getPsw());
+            atVar3.a("passwd", registData3.getPsw());
             registData4 = this.a.p;
             if (registData4.getVcode() != null) {
-                com.baidu.tieba.util.an anVar4 = this.b;
+                com.baidu.tieba.util.at atVar4 = this.b;
                 registData7 = this.a.p;
-                anVar4.a("vcode", registData7.getVcode());
+                atVar4.a("vcode", registData7.getVcode());
             }
             registData5 = this.a.p;
             if (registData5.getVcodeMd5() != null) {
-                com.baidu.tieba.util.an anVar5 = this.b;
+                com.baidu.tieba.util.at atVar5 = this.b;
                 registData6 = this.a.p;
-                anVar5.a("vcode_md5", registData6.getVcodeMd5());
+                atVar5.a("vcode_md5", registData6.getVcodeMd5());
             }
-            com.baidu.tieba.util.an anVar6 = this.b;
+            com.baidu.tieba.util.at atVar6 = this.b;
             editText = this.a.i;
-            anVar6.a("smscode", editText.getText().toString());
+            atVar6.a("smscode", editText.getText().toString());
             String l = this.b.l();
             if (this.b.c()) {
                 com.baidu.tieba.model.be beVar = new com.baidu.tieba.model.be();
@@ -70,7 +70,7 @@ public class s extends BdAsyncTask<String, Integer, com.baidu.tieba.model.be> {
             }
             return null;
         } catch (Exception e) {
-            com.baidu.tieba.util.be.b(getClass().getName(), "doInBackground", e.getMessage());
+            com.baidu.tieba.util.bo.b(getClass().getName(), "doInBackground", e.getMessage());
             return null;
         }
     }

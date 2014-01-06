@@ -8,16 +8,19 @@ import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class b implements v {
+public class b implements x {
     CreateGroupStepActivity a;
     View b;
     ImageView c;
     TextView d;
     private ImageView f;
+    private int h;
+    private int i;
+    private int j;
     private int e = 3;
     private boolean g = false;
 
-    public b(CreateGroupStepActivity createGroupStepActivity) {
+    public b(CreateGroupStepActivity createGroupStepActivity, int i, int i2, int i3) {
         this.a = null;
         this.b = null;
         this.c = null;
@@ -28,40 +31,33 @@ public class b implements v {
         this.c = (ImageView) this.b.findViewById(R.id.step4_img_bg);
         this.d = (TextView) this.b.findViewById(R.id.txt_tip_view);
         this.f = (ImageView) this.b.findViewById(R.id.create_group_address_rightarrwow);
+        this.h = i;
+        this.i = i2;
+        this.j = i3;
     }
 
-    @Override // com.baidu.tieba.im.creategroup.v
+    @Override // com.baidu.tieba.im.creategroup.x
     public View a() {
         return this.b;
     }
 
-    @Override // com.baidu.tieba.im.creategroup.v
+    @Override // com.baidu.tieba.im.creategroup.x
     public int b() {
-        return 4;
+        return this.h;
     }
 
-    @Override // com.baidu.tieba.im.creategroup.v
-    public int c() {
-        return R.string.group_create_step_done_tip;
-    }
-
-    @Override // com.baidu.tieba.im.creategroup.v
-    public int d() {
-        return R.string.group_create_step4;
-    }
-
-    public View e() {
+    public View c() {
         return this.d;
     }
 
-    public int f() {
+    public int d() {
         return this.e;
     }
 
-    public void g() {
+    public void e() {
         this.f.setVisibility(0);
         this.g = false;
-        l();
+        o();
         this.d.setText(R.string.address_locating);
         this.e = 3;
     }
@@ -69,7 +65,7 @@ public class b implements v {
     public void a(String str) {
         this.f.setVisibility(0);
         this.g = true;
-        l();
+        o();
         this.d.setText(str);
         this.e = 0;
     }
@@ -77,41 +73,41 @@ public class b implements v {
     public void b(String str) {
         this.f.setVisibility(8);
         this.g = true;
-        l();
+        o();
         this.d.setText(str);
         this.e = 4;
     }
 
-    public void h() {
+    public void f() {
         this.f.setVisibility(0);
         this.g = false;
-        l();
+        o();
         this.d.setText(R.string.address_locate_failed_opengps);
         this.e = 1;
     }
 
-    public void i() {
+    public void g() {
         this.g = false;
-        l();
+        o();
         this.d.setText(R.string.address_locate_failed_tryagain);
         this.f.setVisibility(8);
         this.e = 2;
     }
 
-    @Override // com.baidu.tieba.im.creategroup.v
-    public void j() {
+    @Override // com.baidu.tieba.im.creategroup.x
+    public void h() {
         this.c.setBackgroundDrawable(null);
     }
 
-    @Override // com.baidu.tieba.im.creategroup.v
-    public void k() {
-        this.a.getLayoutMode().a(TiebaApplication.h().an() == 1);
+    @Override // com.baidu.tieba.im.creategroup.x
+    public void i() {
+        this.a.getLayoutMode().a(TiebaApplication.g().an() == 1);
         this.a.getLayoutMode().a(this.b);
-        l();
+        o();
     }
 
-    private void l() {
-        if (TiebaApplication.h().an() == 1) {
+    private void o() {
+        if (TiebaApplication.g().an() == 1) {
             if (this.g) {
                 Drawable drawable = this.a.getResources().getDrawable(R.drawable.icon_jq_lbs_s_1);
                 drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
@@ -134,5 +130,33 @@ public class b implements v {
             this.d.setCompoundDrawables(drawable4, null, null, null);
             this.d.setTextColor(this.a.getResources().getColorStateList(R.color.listview_item_author_time_text));
         }
+    }
+
+    @Override // com.baidu.tieba.im.creategroup.x
+    public String j() {
+        return String.format(this.a.getString(R.string.group_create_step_address), Integer.valueOf(this.i));
+    }
+
+    @Override // com.baidu.tieba.im.creategroup.x
+    public String k() {
+        if (this.h != this.j) {
+            return this.a.getString(R.string.group_create_step_tip);
+        }
+        return this.a.getString(R.string.group_create_step_done_tip);
+    }
+
+    @Override // com.baidu.tieba.im.creategroup.x
+    public boolean l() {
+        return true;
+    }
+
+    @Override // com.baidu.tieba.im.creategroup.x
+    public String m() {
+        return null;
+    }
+
+    @Override // com.baidu.tieba.im.creategroup.x
+    public boolean n() {
+        return true;
     }
 }

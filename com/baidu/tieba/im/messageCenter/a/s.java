@@ -1,20 +1,20 @@
 package com.baidu.tieba.im.messageCenter.a;
 
-import com.baidu.tieba.im.message.am;
-import com.baidu.tieba.im.message.bv;
-import com.baidu.tieba.im.message.bz;
+import com.baidu.tieba.im.message.ap;
+import com.baidu.tieba.im.message.by;
+import com.baidu.tieba.im.message.cc;
 /* loaded from: classes.dex */
 public class s extends com.baidu.tieba.im.messageCenter.d {
     @Override // com.baidu.tieba.im.messageCenter.d
-    public bz a(com.baidu.tieba.im.message.n nVar) {
-        if (nVar == null || !(nVar instanceof am)) {
+    public cc a(com.baidu.tieba.im.message.o oVar) {
+        if (oVar == null || !(oVar instanceof ap)) {
             return null;
         }
         com.baidu.tieba.b.a.a().i();
-        bv bvVar = new bv();
-        bvVar.e(-203);
-        bvVar.a(nVar);
-        bvVar.c(0);
-        return bvVar;
+        by byVar = new by();
+        byVar.e(-203);
+        byVar.a(oVar);
+        byVar.g(0);
+        return byVar;
     }
 }

@@ -16,7 +16,7 @@ class f implements com.baidu.tieba.im.a<Boolean> {
     public void a(Boolean bool) {
         long j;
         this.a.a.closeLoadingDialog();
-        com.baidu.tieba.im.messageCenter.e.a().e(new com.baidu.tieba.im.message.e());
+        com.baidu.tieba.im.messageCenter.e.a().e(new com.baidu.tieba.im.message.f());
         ad.a().a(new g(this));
         StringBuilder append = new StringBuilder().append("clear cache by person:");
         j = this.a.a.c;

@@ -2,20 +2,57 @@ package com.baidu.tieba.im.chat.personaltalk;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.cache.s;
+import com.baidu.adp.lib.cache.t;
 import com.baidu.gson.Gson;
+import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.im.data.UserData;
+import java.util.HashMap;
+import java.util.List;
 /* loaded from: classes.dex */
 public class a {
+    private static HashMap<String, String> a = new HashMap<>();
+
+    public static void a() {
+        String a2;
+        synchronized (a) {
+            a.clear();
+        }
+        String str = "";
+        if (TiebaApplication.F() != null) {
+            str = TiebaApplication.F().getID();
+        }
+        if (str != null && str.length() != 0) {
+            String str2 = str + "@";
+            synchronized (a) {
+                s<String> u = com.baidu.tieba.b.a.a().u();
+                List<t<String>> a3 = com.baidu.adp.lib.h.j.a(u);
+                if (a3 != null) {
+                    for (t<String> tVar : a3) {
+                        String str3 = tVar.a;
+                        if (str3.startsWith(str2) && (a2 = u.a(str3)) != null) {
+                            a.put(str3, a2);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     public static PersonalSettingItemData a(String str, String str2) {
+        String str3;
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return null;
         }
-        String str3 = str + "@" + str2;
-        s<String> u = com.baidu.tieba.b.a.a().u();
-        com.baidu.adp.lib.h.e.d("key is:" + str3);
-        String a = u.a(str3);
-        com.baidu.adp.lib.h.e.d("key is:" + str3 + " value is:" + a);
-        if (TextUtils.isEmpty(a)) {
+        String str4 = str + "@" + str2;
+        com.baidu.adp.lib.h.e.d("key is:" + str4);
+        synchronized (a) {
+            str3 = a.get(str4);
+        }
+        if (str3 == null && (str3 = com.baidu.tieba.b.a.a().u().a(str4)) != null) {
+            a();
+        }
+        com.baidu.adp.lib.h.e.d("key is:" + str4 + " value is:" + str3);
+        if (TextUtils.isEmpty(str3)) {
             PersonalSettingItemData personalSettingItemData = new PersonalSettingItemData();
             personalSettingItemData.setMyUid(str);
             personalSettingItemData.setToUid(str2);
@@ -23,15 +60,15 @@ public class a {
             a(personalSettingItemData);
             return personalSettingItemData;
         }
-        return (PersonalSettingItemData) new Gson().fromJson(a, (Class<Object>) PersonalSettingItemData.class);
+        return (PersonalSettingItemData) new Gson().fromJson(str3, (Class<Object>) PersonalSettingItemData.class);
     }
 
     public static void a(String str, String str2, UserData userData) {
-        PersonalSettingItemData a;
-        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && userData != null && (a = a(str, str2)) != null) {
-            a.setToPortrait(userData.getPortrait());
-            a.setToName(userData.getUserName());
-            a(a);
+        PersonalSettingItemData a2;
+        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && userData != null && (a2 = a(str, str2)) != null) {
+            a2.setToPortrait(userData.getPortrait());
+            a2.setToName(userData.getUserName());
+            a(a2);
         }
     }
 
@@ -44,7 +81,7 @@ public class a {
         String toUid = personalSettingItemData.getToUid();
         if (TextUtils.isEmpty(myUid) || TextUtils.isEmpty(toUid)) {
             com.baidu.adp.lib.h.e.a(" key value is null");
-            if (com.baidu.tieba.data.h.u()) {
+            if (com.baidu.tieba.data.h.v()) {
                 throw new RuntimeException("key param is null");
             }
             return;
@@ -54,24 +91,27 @@ public class a {
         com.baidu.adp.lib.h.e.d(" key value is " + str);
         String json = new Gson().toJson(personalSettingItemData);
         com.baidu.adp.lib.h.e.d(" json value is " + json);
-        u.a(str, json, 315532800000L);
+        synchronized (a) {
+            a.put(str, json);
+        }
+        u.a(str, json);
     }
 
     public static void a(String str, String str2, boolean z) {
-        PersonalSettingItemData a = a(str, str2);
-        if (a != null) {
-            a.setMyUid(str);
-            a.setToUid(str2);
-            a.setAcceptNotify(z);
-            a(a);
+        PersonalSettingItemData a2 = a(str, str2);
+        if (a2 != null) {
+            a2.setMyUid(str);
+            a2.setToUid(str2);
+            a2.setAcceptNotify(z);
+            a(a2);
         }
     }
 
     public static boolean b(String str, String str2) {
-        PersonalSettingItemData a = a(str, str2);
-        if (a == null) {
+        PersonalSettingItemData a2 = a(str, str2);
+        if (a2 == null) {
             return false;
         }
-        return a.isAcceptNotify();
+        return a2.isAcceptNotify();
     }
 }

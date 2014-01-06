@@ -6,6 +6,7 @@ public class GroupData extends BaseGroupData {
     private String forumName;
     private int grade;
     private int isHidePosition;
+    private boolean isMeizhi;
     private String nickName;
 
     public String getAuthorPortrait() {
@@ -46,5 +47,13 @@ public class GroupData extends BaseGroupData {
 
     public void setNickName(String str) {
         this.nickName = str;
+    }
+
+    public boolean isMeizhi() {
+        return this.isMeizhi;
+    }
+
+    public void setMeizhi(boolean z) {
+        this.isMeizhi = z;
     }
 }

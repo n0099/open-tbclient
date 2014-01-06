@@ -3,7 +3,7 @@ package com.baidu.tieba.more;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tieba.model.MoreModel;
 import com.baidu.tieba.util.DatabaseService;
-import com.baidu.tieba.util.be;
+import com.baidu.tieba.util.bo;
 import java.io.File;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -36,26 +36,26 @@ public class ax extends BdAsyncTask<String, Integer, String> {
         DatabaseService.x();
         com.baidu.tieba.voice.a.e.a();
         try {
-            File[] listFiles = new File(com.baidu.tieba.util.y.a + "/tieba/image/").listFiles();
+            File[] listFiles = new File(com.baidu.tieba.util.aa.a + "/tieba/image/").listFiles();
             if (listFiles != null) {
                 for (File file : listFiles) {
                     if (!file.delete()) {
-                        be.b(getClass().getName(), "doInBackground", "list[i].delete error");
+                        bo.b(getClass().getName(), "doInBackground", "list[i].delete error");
                     }
                 }
             }
-            File[] listFiles2 = new File(com.baidu.tieba.util.y.a + "/tieba/hotspot/").listFiles();
+            File[] listFiles2 = new File(com.baidu.tieba.util.aa.a + "/tieba/hotspot/").listFiles();
             if (listFiles2 != null) {
                 for (File file2 : listFiles2) {
                     if (!file2.delete()) {
-                        be.b(getClass().getName(), "doInBackground", "list[i].delete error");
+                        bo.b(getClass().getName(), "doInBackground", "list[i].delete error");
                     }
                 }
                 return null;
             }
             return null;
         } catch (Exception e) {
-            be.b(getClass().getName(), "doInBackground", e.getMessage());
+            bo.b(getClass().getName(), "doInBackground", e.getMessage());
             return null;
         }
     }

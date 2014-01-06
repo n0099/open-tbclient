@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import protobuf.Im;
-import protobuf.ad;
+import protobuf.ag;
 import protobuf.r;
 /* loaded from: classes.dex */
 public final class UpdateClientInfoRes {
@@ -110,7 +110,7 @@ public final class UpdateClientInfoRes {
                                     throw th;
                                 }
                             case 18:
-                                ad builder = (this.bitField0_ & 1) == 1 ? this.userInfo_.toBuilder() : null;
+                                ag builder = (this.bitField0_ & 1) == 1 ? this.userInfo_.toBuilder() : null;
                                 this.userInfo_ = (Im.UserInfo) codedInputStream.readMessage(Im.UserInfo.PARSER, extensionRegistryLite);
                                 if (builder != null) {
                                     builder.mergeFrom(this.userInfo_);

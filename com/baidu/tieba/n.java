@@ -3,12 +3,12 @@ package com.baidu.tieba;
 import com.baidu.tieba.data.NewErrorData;
 /* loaded from: classes.dex */
 public class n {
-    protected com.baidu.tieba.util.an a;
+    protected com.baidu.tieba.util.at a;
     protected NewErrorData b = null;
 
     public n() {
         this.a = null;
-        this.a = new com.baidu.tieba.util.an();
+        this.a = new com.baidu.tieba.util.at();
     }
 
     public void a() {

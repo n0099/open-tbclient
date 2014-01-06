@@ -13,15 +13,15 @@ public class v implements com.baidu.tbadk.imageManager.c {
     }
 
     @Override // com.baidu.tbadk.imageManager.c
-    public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
+    public void a(com.baidu.adp.widget.ImageView.d dVar, String str, boolean z) {
         BdListView bdListView;
         BdListView bdListView2;
-        if (eVar != null) {
+        if (dVar != null) {
             bdListView = this.a.h;
             ImageView imageView = (ImageView) bdListView.findViewWithTag(str);
             while (imageView != null) {
                 imageView.setTag(null);
-                imageView.setImageBitmap(eVar.f());
+                imageView.setImageBitmap(dVar.h());
                 bdListView2 = this.a.h;
                 imageView = (ImageView) bdListView2.findViewWithTag(str);
             }

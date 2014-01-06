@@ -63,7 +63,7 @@ public class ItemFootNavView extends LinearLayout {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(com.baidu.tieba.j jVar) {
-        boolean z = (TiebaApplication.B() == null || TiebaApplication.G() == null) ? false : true;
+        boolean z = (TiebaApplication.A() == null || TiebaApplication.G() == null) ? false : true;
         Object tag = this.c.getTag();
         boolean z2 = (tag == null || ((Integer) tag).intValue() != 2) ? true : true;
         if (!z && !z2) {
@@ -78,7 +78,7 @@ public class ItemFootNavView extends LinearLayout {
         } else if (intValue == 1) {
             a(jVar, this.g);
         }
-        if (TiebaApplication.h().t()) {
+        if (TiebaApplication.g().s()) {
             StatService.onEvent(this.a, intValue == 1 ? "detail_care_add" : "detail_care_cancel", "click", 1);
         }
     }
@@ -110,7 +110,7 @@ public class ItemFootNavView extends LinearLayout {
         int i2;
         int i3;
         int i4;
-        int an = TiebaApplication.h().an();
+        int an = TiebaApplication.g().an();
         if (z) {
             if (an == 1) {
                 i4 = R.drawable.icon_brief_cancel_1;

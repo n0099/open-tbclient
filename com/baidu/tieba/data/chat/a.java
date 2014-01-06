@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.h.e;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.util.DatabaseService;
-import com.baidu.tieba.util.be;
+import com.baidu.tieba.util.bo;
 import com.baidu.tieba.util.o;
 import java.util.LinkedList;
 import java.util.List;
@@ -41,7 +41,7 @@ public class a {
             }
             e.d("affectedRows:" + update + " msg.ownerName:" + recentChatFriendData.ownerName + " msg.ownerId:" + recentChatFriendData.ownerId + " unreadCount" + recentChatFriendData.getUnReadCount());
         } catch (Throwable th) {
-            be.b("DatabaseService", "addOrUpdateRecentChatFriend", th.getMessage());
+            bo.b("DatabaseService", "addOrUpdateRecentChatFriend", th.getMessage());
         }
     }
 
@@ -75,7 +75,7 @@ public class a {
             return linkedList;
         } catch (Throwable th) {
             try {
-                be.b("DatabaseService", "listRecentChatFriends", th.getMessage());
+                bo.b("DatabaseService", "listRecentChatFriends", th.getMessage());
                 o.a(cursor);
                 return new LinkedList();
             } finally {
@@ -91,9 +91,9 @@ public class a {
             return null;
         }
         try {
-            cursor = DatabaseService.a().rawQuery("SELECT * FROM chat_recent_friends where ownerId = ? and ownerName = ? and friendId = ? order by serverTime desc", new String[]{TiebaApplication.B(), String.valueOf(i), str});
+            cursor = DatabaseService.a().rawQuery("SELECT * FROM chat_recent_friends where ownerId = ? and ownerName = ? and friendId = ? order by serverTime desc", new String[]{TiebaApplication.A(), String.valueOf(i), str});
             try {
-                e.d("query:" + TiebaApplication.B() + "___" + i + " gid:" + str);
+                e.d("query:" + TiebaApplication.A() + "___" + i + " gid:" + str);
                 LinkedList<RecentChatFriendData> linkedList = new LinkedList<>();
                 while (cursor.moveToNext()) {
                     RecentChatFriendData recentChatFriendData = new RecentChatFriendData();
@@ -118,7 +118,7 @@ public class a {
             } catch (Throwable th) {
                 th = th;
                 try {
-                    be.b("DatabaseService", "listRecentChatFriends", th.getMessage());
+                    bo.b("DatabaseService", "listRecentChatFriends", th.getMessage());
                     return null;
                 } finally {
                     o.a(cursor);
@@ -136,7 +136,7 @@ public class a {
         try {
             a.delete("chat_recent_friends", "ownerId = ? and friendId = ?", new String[]{str, str2});
         } catch (Throwable th) {
-            be.b("DatabaseService", "deleteChatMessagesByFriendId", th.getMessage());
+            bo.b("DatabaseService", "deleteChatMessagesByFriendId", th.getMessage());
         }
     }
 }

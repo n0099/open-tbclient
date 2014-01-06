@@ -1,7 +1,7 @@
 package com.baidu.tieba.barcode.b;
 
 import android.os.Build;
-import com.baidu.tieba.util.be;
+import com.baidu.tieba.util.bo;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collections;
 import java.util.SortedMap;
@@ -31,22 +31,22 @@ public abstract class a<T> {
             if (Build.VERSION.SDK_INT >= num.intValue()) {
                 try {
                     Class<? extends U> asSubclass = Class.forName(this.c.get(num)).asSubclass((Class<T>) this.a);
-                    be.a(getClass().getName(), "build", "Using implementation " + asSubclass + " of " + this.a + " for SDK " + num);
+                    bo.a(getClass().getName(), "build", "Using implementation " + asSubclass + " of " + this.a + " for SDK " + num);
                     return (T) asSubclass.getConstructor(new Class[0]).newInstance(new Object[0]);
                 } catch (ClassNotFoundException e) {
-                    be.c(getClass().getName(), "build", e.toString());
+                    bo.c(getClass().getName(), "build", e.toString());
                 } catch (IllegalAccessException e2) {
-                    be.c(getClass().getName(), "build", e2.toString());
+                    bo.c(getClass().getName(), "build", e2.toString());
                 } catch (InstantiationException e3) {
-                    be.c(getClass().getName(), "build", e3.toString());
+                    bo.c(getClass().getName(), "build", e3.toString());
                 } catch (NoSuchMethodException e4) {
-                    be.c(getClass().getName(), "build", e4.toString());
+                    bo.c(getClass().getName(), "build", e4.toString());
                 } catch (InvocationTargetException e5) {
-                    be.c(getClass().getName(), "build", e5.toString());
+                    bo.c(getClass().getName(), "build", e5.toString());
                 }
             }
         }
-        be.a(getClass().getName(), "build", "Using default implementation " + this.b.getClass() + " of " + this.a);
+        bo.a(getClass().getName(), "build", "Using default implementation " + this.b.getClass() + " of " + this.a);
         return this.b;
     }
 }

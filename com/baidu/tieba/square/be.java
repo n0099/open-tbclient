@@ -20,28 +20,28 @@ public class be implements AdapterView.OnItemClickListener {
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         int i2;
-        com.baidu.tieba.home.av avVar;
-        com.baidu.tieba.home.av avVar2;
+        com.baidu.tieba.home.aw awVar;
+        com.baidu.tieba.home.aw awVar2;
         EditText editText;
         EditText editText2;
         EditText editText3;
-        com.baidu.tieba.home.av avVar3;
-        com.baidu.tieba.home.av avVar4;
+        com.baidu.tieba.home.aw awVar3;
+        com.baidu.tieba.home.aw awVar4;
         String str = (String) ((ListView) adapterView).getAdapter().getItem(i);
-        i2 = this.a.C;
+        i2 = this.a.D;
         if (i2 == 0) {
             DatabaseService.m(str);
             FrsActivity.a(this.a, str, "tb_searchlist");
-            avVar3 = this.a.o;
-            avVar3.a(i);
-            avVar4 = this.a.o;
-            avVar4.notifyDataSetChanged();
+            awVar3 = this.a.p;
+            awVar3.a(i);
+            awVar4 = this.a.p;
+            awVar4.notifyDataSetChanged();
             this.a.finish();
         } else if (str != null && str.length() > 0) {
-            avVar = this.a.o;
-            avVar.a(i);
-            avVar2 = this.a.o;
-            avVar2.notifyDataSetChanged();
+            awVar = this.a.p;
+            awVar.a(i);
+            awVar2 = this.a.p;
+            awVar2.notifyDataSetChanged();
             this.a.a(1, str);
             editText = this.a.c;
             editText.setText(str);

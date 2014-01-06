@@ -2,20 +2,24 @@ package com.baidu.tieba.home;
 
 import android.app.Activity;
 import android.view.View;
-import com.baidu.tieba.account.Register2Activity;
+import com.baidu.tieba.account.LoginActivity;
 /* loaded from: classes.dex */
 class p implements View.OnClickListener {
     final /* synthetic */ Activity a;
-    final /* synthetic */ n b;
+    final /* synthetic */ int b;
+    final /* synthetic */ String c;
+    final /* synthetic */ o d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public p(n nVar, Activity activity) {
-        this.b = nVar;
+    public p(o oVar, Activity activity, int i, String str) {
+        this.d = oVar;
         this.a = activity;
+        this.b = i;
+        this.c = str;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        Register2Activity.a(this.a, 12007);
+        LoginActivity.a(this.a, this.b, this.c, 11003);
     }
 }

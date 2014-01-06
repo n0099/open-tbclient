@@ -2,13 +2,13 @@ package com.baidu.tieba.im.chat;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements com.baidu.tieba.im.a<Boolean> {
-    final /* synthetic */ com.baidu.tieba.im.data.c a;
+    final /* synthetic */ com.baidu.tieba.im.data.b a;
     final /* synthetic */ a b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public j(a aVar, com.baidu.tieba.im.data.c cVar) {
+    public j(a aVar, com.baidu.tieba.im.data.b bVar) {
         this.b = aVar;
-        this.a = cVar;
+        this.a = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

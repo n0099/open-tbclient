@@ -96,9 +96,9 @@ public class ReLoginShareActivity extends com.baidu.tieba.j {
         super.onChangeSkinType(i);
         a(0, this.f, null);
         this.k.c(i);
-        com.baidu.tieba.util.bb.a((TextView) this.c, i);
-        com.baidu.tieba.util.bb.a(this.a, i);
-        com.baidu.tieba.util.bb.b(this.d, i);
+        com.baidu.tieba.util.bl.a((TextView) this.c, i);
+        com.baidu.tieba.util.bl.a(this.a, i);
+        com.baidu.tieba.util.bl.b(this.d, i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -160,14 +160,14 @@ public class ReLoginShareActivity extends com.baidu.tieba.j {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
-        String B = TiebaApplication.B();
-        if (B == null || B.length() <= 0) {
+        String A = TiebaApplication.A();
+        if (A == null || A.length() <= 0) {
             MainTabActivity.a(this, 0);
             return;
         }
         DatabaseService.k();
         TiebaApplication.a((AccountData) null, getBaseContext());
-        MainTabActivity.b(this, 0);
+        MainTabActivity.c(this, 0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -184,9 +184,12 @@ public class ReLoginShareActivity extends com.baidu.tieba.j {
             DatabaseService.a(accountData);
             TiebaApplication.a(accountData, getBaseContext());
         }
-        MainTabActivity.b(this, getIntent().getIntExtra("locate_type", -1));
-        if (TiebaApplication.h().as() && TiebaApplication.h().au() != null) {
-            UpdateDialog.a(TiebaApplication.h(), TiebaApplication.h().au(), TiebaApplication.h().at());
+        MainTabActivity.c(this, getIntent().getIntExtra("locate_type", -1));
+        if (TiebaApplication.g().as() && TiebaApplication.g().au() != null) {
+            UpdateDialog.a(TiebaApplication.g(), TiebaApplication.g().au(), TiebaApplication.g().at());
+        }
+        if (TiebaApplication.g().as() && TiebaApplication.g().au() != null) {
+            UpdateDialog.a(TiebaApplication.g(), TiebaApplication.g().au(), TiebaApplication.g().at());
         }
     }
 }

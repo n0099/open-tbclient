@@ -8,7 +8,7 @@ import android.view.MotionEvent;
 public class ChildViewPager extends ViewPager {
     PointF a;
     PointF b;
-    g c;
+    l c;
 
     public ChildViewPager(Context context) {
         super(context);
@@ -46,7 +46,7 @@ public class ChildViewPager extends ViewPager {
         }
     }
 
-    public void setOnSingleTouchListener(g gVar) {
-        this.c = gVar;
+    public void setOnSingleTouchListener(l lVar) {
+        this.c = lVar;
     }
 }

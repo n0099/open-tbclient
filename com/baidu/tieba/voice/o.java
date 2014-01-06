@@ -15,11 +15,11 @@ class o implements Runnable {
         TextView textView;
         TextView textView2;
         TextView textView3;
-        textView = this.a.s;
+        textView = this.a.q;
         if (textView != null) {
-            textView2 = this.a.s;
+            textView2 = this.a.q;
             textView2.setVisibility(4);
-            textView3 = this.a.s;
+            textView3 = this.a.q;
             textView3.setText("");
         }
     }

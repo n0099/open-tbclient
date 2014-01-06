@@ -9,7 +9,7 @@ import com.baidu.cloudsdk.social.core.SocialConstants;
 /* loaded from: classes.dex */
 public class d extends BdAsyncTask<String, Integer, Bitmap> {
     final /* synthetic */ CreateBarActivity a;
-    private com.baidu.tieba.util.an b;
+    private com.baidu.tieba.util.at b;
     private volatile boolean c;
 
     private d(CreateBarActivity createBarActivity) {
@@ -41,28 +41,28 @@ public class d extends BdAsyncTask<String, Integer, Bitmap> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public Bitmap a(String... strArr) {
         try {
-            this.b = new com.baidu.tieba.util.an(com.baidu.tieba.data.h.a + "c/f/anti/vcode");
+            this.b = new com.baidu.tieba.util.at(com.baidu.tieba.data.h.a + "c/f/anti/vcode");
             this.b.a("fid", SocialConstants.FALSE);
             this.b.a("pub_type", SocialConstants.FALSE);
             this.b.a("fname", "");
             this.b.a("tid", SocialConstants.FALSE);
             String l = this.b.l();
             if (this.b.c()) {
-                com.baidu.tieba.data.bd bdVar = new com.baidu.tieba.data.bd();
-                bdVar.a(l);
-                if (bdVar.b() == null || bdVar.b().length() <= 0) {
+                com.baidu.tieba.data.bf bfVar = new com.baidu.tieba.data.bf();
+                bfVar.a(l);
+                if (bfVar.b() == null || bfVar.b().length() <= 0) {
                     return null;
                 }
-                this.a.s = bdVar.a();
+                this.a.s = bfVar.a();
                 if (this.c) {
                     return null;
                 }
-                this.b = new com.baidu.tieba.util.an(bdVar.b());
+                this.b = new com.baidu.tieba.util.at(bfVar.b());
                 return com.baidu.tieba.util.m.a(this.b.k());
             }
             return null;
         } catch (Exception e) {
-            com.baidu.tieba.util.be.b(getClass().getName(), "doInBackground", e.getMessage());
+            com.baidu.tieba.util.bo.b(getClass().getName(), "doInBackground", e.getMessage());
             return null;
         }
     }

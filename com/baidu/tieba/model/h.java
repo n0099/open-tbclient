@@ -8,7 +8,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class h {
     private ArrayList<ForumData> a = new ArrayList<>();
-    private com.baidu.tieba.data.am b = new com.baidu.tieba.data.am();
+    private com.baidu.tieba.data.an b = new com.baidu.tieba.data.an();
     private Date c = null;
     private boolean d = true;
 
@@ -26,7 +26,7 @@ public class h {
                 a(new JSONObject(str));
             } catch (Exception e) {
                 this.d = false;
-                com.baidu.tieba.util.be.b("BarlistModel", "parserJson", "error = " + e.getMessage());
+                com.baidu.tieba.util.bo.b("BarlistModel", "parserJson", "error = " + e.getMessage());
             }
         }
     }
@@ -50,7 +50,7 @@ public class h {
             }
         } catch (Exception e) {
             this.d = false;
-            com.baidu.tieba.util.be.b("BarlistModel", "parserJson", "error = " + e.getMessage());
+            com.baidu.tieba.util.bo.b("BarlistModel", "parserJson", "error = " + e.getMessage());
         }
     }
 }

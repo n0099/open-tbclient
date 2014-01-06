@@ -9,7 +9,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import com.baidu.tieba.data.AccountData;
 import com.baidu.tieba.util.DatabaseService;
-import com.baidu.tieba.util.bb;
+import com.baidu.tieba.util.bl;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
@@ -48,7 +48,7 @@ public class AccountActivity extends com.baidu.tieba.j {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.d.c(i);
-        bb.a((View) this.c, i);
+        bl.a((View) this.c, i);
         this.b.notifyDataSetChanged();
         if (i == 1) {
             this.c.setDivider(getResources().getDrawable(R.drawable.list_divider_1));

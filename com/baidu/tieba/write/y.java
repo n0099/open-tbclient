@@ -1,24 +1,18 @@
 package com.baidu.tieba.write;
-
-import com.baidu.tieba.editortool.EditorToolComponetContainer;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class y implements com.baidu.tieba.editortool.o {
-    final /* synthetic */ WriteActivity a;
+public class y implements Runnable {
+    final /* synthetic */ int a;
+    final /* synthetic */ WriteActivity b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public y(WriteActivity writeActivity) {
-        this.a = writeActivity;
+    public y(WriteActivity writeActivity, int i) {
+        this.b = writeActivity;
+        this.a = i;
     }
 
-    @Override // com.baidu.tieba.editortool.o
-    public void a() {
-        EditorToolComponetContainer editorToolComponetContainer;
-        editorToolComponetContainer = this.a.B;
-        editorToolComponetContainer.i();
-    }
-
-    @Override // com.baidu.tieba.editortool.o
-    public void b() {
+    @Override // java.lang.Runnable
+    public void run() {
+        this.b.b(this.a);
     }
 }

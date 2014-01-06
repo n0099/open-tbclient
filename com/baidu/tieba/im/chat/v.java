@@ -1,20 +1,22 @@
 package com.baidu.tieba.im.chat;
 
-import com.slidingmenu.lib.R;
+import com.baidu.tieba.im.SingleRunnable;
 /* loaded from: classes.dex */
-class v implements com.baidu.tieba.im.a<Boolean> {
-    final /* synthetic */ t a;
+class v extends SingleRunnable<Void> {
+    final /* synthetic */ GroupSettingActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public v(t tVar) {
-        this.a = tVar;
+    public v(GroupSettingActivity groupSettingActivity) {
+        this.a = groupSettingActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    public void a(Boolean bool) {
-        this.a.a.closeLoadingDialog();
-        com.baidu.tieba.im.messageCenter.e.a().e(new com.baidu.tieba.im.message.e());
-        this.a.a.showToast(R.string.cash_del_suc, false);
+    @Override // com.baidu.tieba.im.SingleRunnable
+    /* renamed from: a */
+    public Void b() {
+        z zVar;
+        zVar = this.a.b;
+        com.baidu.tieba.im.db.a.a(zVar.c());
+        return null;
     }
 }

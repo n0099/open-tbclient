@@ -8,7 +8,7 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* loaded from: classes.dex */
 public class bq extends BdAsyncTask<String, Integer, Bitmap> {
     final /* synthetic */ Register2Activity a;
-    private com.baidu.tieba.util.an b = null;
+    private com.baidu.tieba.util.at b = null;
     private String c;
 
     public bq(Register2Activity register2Activity, String str) {
@@ -44,7 +44,7 @@ public class bq extends BdAsyncTask<String, Integer, Bitmap> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public Bitmap a(String... strArr) {
-        this.b = new com.baidu.tieba.util.an(this.c);
+        this.b = new com.baidu.tieba.util.at(this.c);
         return com.baidu.tieba.util.m.a(this.b.k());
     }
 

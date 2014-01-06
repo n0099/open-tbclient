@@ -9,25 +9,32 @@ import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class y extends BdAsyncTask<Object, com.baidu.tieba.data.t, com.baidu.tieba.data.t> {
     final /* synthetic */ x a;
-    private com.baidu.tieba.util.an b = null;
+    private com.baidu.tieba.util.at b = null;
     private boolean c;
     private boolean d;
     private boolean e;
+    private String f;
 
-    public y(x xVar, Boolean bool, Boolean bool2, Boolean bool3) {
+    public y(x xVar, Boolean bool, Boolean bool2, Boolean bool3, String str) {
         this.a = xVar;
         this.c = false;
         this.d = false;
         this.e = true;
+        this.f = null;
         this.c = bool.booleanValue();
         this.d = bool2.booleanValue();
         this.e = bool3.booleanValue();
+        this.f = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
+    /* JADX WARN: Removed duplicated region for block: B:44:0x00eb A[ADDED_TO_REGION] */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: d */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public com.baidu.tieba.data.t a(Object... objArr) {
         com.baidu.tieba.data.t tVar;
         Exception e;
@@ -49,7 +56,7 @@ public class y extends BdAsyncTask<Object, com.baidu.tieba.data.t, com.baidu.tie
                     try {
                         tVar2.a(g);
                         if (!tVar2.a()) {
-                            com.baidu.tieba.util.be.a("Like_Recommend_AsyncTask", "doInBackground", "cache data format err");
+                            com.baidu.tieba.util.bo.a("Like_Recommend_AsyncTask", "doInBackground", "cache data format err");
                             if (this.e) {
                                 DatabaseService.b();
                                 z = false;
@@ -61,13 +68,16 @@ public class y extends BdAsyncTask<Object, com.baidu.tieba.data.t, com.baidu.tie
                             }
                         } else {
                             c((Object[]) new com.baidu.tieba.data.t[]{tVar2});
-                            com.baidu.tieba.util.be.a("Like_Recommend_AsyncTask", "doInBackground", "cache data.size: " + String.valueOf(g.length()));
+                            com.baidu.tieba.util.bo.a("Like_Recommend_AsyncTask", "doInBackground", "cache data.size: " + String.valueOf(g.length()));
                             z = true;
                         }
                     } catch (Exception e2) {
                         e = e2;
                         tVar = tVar2;
-                        com.baidu.tieba.util.be.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
+                        com.baidu.tieba.util.bo.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
+                        if (this.a.getLoadDataMode() == 1) {
+                            z.a().b(this.f);
+                        }
                         return tVar;
                     }
                 }
@@ -87,7 +97,7 @@ public class y extends BdAsyncTask<Object, com.baidu.tieba.data.t, com.baidu.tie
             stringBuffer.append("c/f/forum/favocommend");
             ArrayList<BasicNameValuePair> arrayList = new ArrayList<>();
             arrayList.add(new BasicNameValuePair("ctime", String.valueOf(System.currentTimeMillis())));
-            this.b = new com.baidu.tieba.util.an(stringBuffer.toString());
+            this.b = new com.baidu.tieba.util.at(stringBuffer.toString());
             this.b.a(arrayList);
             String l = this.b.l();
             if (!this.b.c() || l == null) {
@@ -108,9 +118,14 @@ public class y extends BdAsyncTask<Object, com.baidu.tieba.data.t, com.baidu.tie
                     }
                 } catch (Exception e4) {
                     e = e4;
-                    com.baidu.tieba.util.be.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
+                    com.baidu.tieba.util.bo.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
+                    if (this.a.getLoadDataMode() == 1) {
+                    }
                     return tVar;
                 }
+            }
+            if (this.a.getLoadDataMode() == 1 && tVar != null) {
+                z.a().b(this.f);
             }
             return tVar;
         }

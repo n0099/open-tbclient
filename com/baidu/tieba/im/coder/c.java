@@ -2,9 +2,8 @@ package com.baidu.tieba.im.coder;
 
 import android.util.SparseArray;
 import com.baidu.tieba.im.k;
-import com.baidu.tieba.im.message.n;
-import com.baidu.tieba.util.af;
-import com.baidu.tieba.util.o;
+import com.baidu.tieba.im.message.o;
+import com.baidu.tieba.util.ah;
 import com.google.protobuf.MessageLite;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -34,21 +33,21 @@ public class c {
         this.b = new SparseArray<>();
     }
 
-    public byte[] a(n nVar, int i, boolean z) {
+    public byte[] a(o oVar, int i, boolean z) {
         MessageLite messageLite = null;
         try {
-            if (nVar instanceof g) {
-                messageLite = ((g) nVar).a();
+            if (oVar instanceof g) {
+                messageLite = ((g) oVar).a();
             }
             byte[] byteArray = messageLite.toByteArray();
             if (byteArray != null && z) {
                 byteArray = b(byteArray, 0, byteArray.length);
             }
-            boolean b = e.a().b(nVar.t());
+            boolean b = e.a().b(oVar.u());
             if (byteArray != null && b) {
                 byteArray = com.baidu.tieba.im.d.e.a(e.a().c(), byteArray);
             }
-            return b.a(b, z, nVar.t(), i, byteArray);
+            return b.a(b, z, oVar.u(), i, byteArray);
         } catch (Exception e) {
             throw new CoderException(k.l);
         }
@@ -100,7 +99,7 @@ public class c {
         return dVar;
     }
 
-    public List<n> a(int i, byte[] bArr, int i2, int i3) {
+    public List<o> a(int i, byte[] bArr, int i2, int i3) {
         Class<?> cls = this.b.get(i);
         if (cls == null) {
             throw new CoderException(k.c);
@@ -109,7 +108,7 @@ public class c {
             bArr = ByteBuffer.wrap(bArr, i2, i3).array();
         }
         try {
-            LinkedList<n> linkedList = new LinkedList<>();
+            LinkedList<o> linkedList = new LinkedList<>();
             com.baidu.adp.lib.h.e.d("decode cmd:" + i);
             ((f) cls.newInstance()).a(linkedList, bArr, i);
             return linkedList;
@@ -122,12 +121,12 @@ public class c {
         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr, i, i2);
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         try {
-            af.b(byteArrayInputStream, byteArrayOutputStream);
+            ah.b(byteArrayInputStream, byteArrayOutputStream);
             byteArrayOutputStream.flush();
             return byteArrayOutputStream.toByteArray();
         } finally {
-            o.a((OutputStream) byteArrayOutputStream);
-            o.a((InputStream) byteArrayInputStream);
+            com.baidu.tieba.util.o.a((OutputStream) byteArrayOutputStream);
+            com.baidu.tieba.util.o.a((InputStream) byteArrayInputStream);
         }
     }
 
@@ -135,12 +134,12 @@ public class c {
         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr, i, i2);
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         try {
-            af.a(byteArrayInputStream, byteArrayOutputStream);
+            ah.a(byteArrayInputStream, byteArrayOutputStream);
             byteArrayOutputStream.flush();
             return byteArrayOutputStream.toByteArray();
         } finally {
-            o.a((OutputStream) byteArrayOutputStream);
-            o.a((InputStream) byteArrayInputStream);
+            com.baidu.tieba.util.o.a((OutputStream) byteArrayOutputStream);
+            com.baidu.tieba.util.o.a((InputStream) byteArrayInputStream);
         }
     }
 

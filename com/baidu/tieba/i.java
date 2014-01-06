@@ -23,7 +23,7 @@ public final class i implements AccountProxy.TokenCallback {
 
     @Override // com.baidu.account.AccountProxy.TokenCallback
     public void callBack(String str) {
-        com.baidu.tieba.util.be.e("BaiduAccountProxy", "getAccountData", "token = " + str);
+        com.baidu.tieba.util.bo.e("BaiduAccountProxy", "getAccountData", "token = " + str);
         if (str != null) {
             BaiduAccount baiduAccount = BaiduAccount.get(this.a);
             AccountData accountData = new AccountData();

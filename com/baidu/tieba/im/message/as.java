@@ -1,10 +1,9 @@
 package com.baidu.tieba.im.message;
 /* loaded from: classes.dex */
-public class as extends aq {
+public class as extends at {
     private String b;
 
     public as(String str) {
-        this.b = null;
         this.b = str;
     }
 
@@ -12,8 +11,8 @@ public class as extends aq {
         return this.b;
     }
 
-    @Override // com.baidu.tieba.im.message.aq
+    @Override // com.baidu.tieba.im.message.at
     protected void a(protobuf.i iVar) {
-        iVar.c(b());
+        iVar.b(b());
     }
 }

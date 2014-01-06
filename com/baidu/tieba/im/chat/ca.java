@@ -1,22 +1,23 @@
 package com.baidu.tieba.im.chat;
 
-import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ca implements View.OnTouchListener {
-    final /* synthetic */ bu a;
+public class ca implements View.OnClickListener {
+    final /* synthetic */ bs a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ca(bu buVar) {
-        this.a = buVar;
+    public ca(bs bsVar) {
+        this.a = bsVar;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        this.a.K();
-        this.a.L();
-        this.a.M();
-        return false;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Button button;
+        this.a.N();
+        this.a.P();
+        button = this.a.n;
+        button.postDelayed(new cb(this), 100L);
     }
 }

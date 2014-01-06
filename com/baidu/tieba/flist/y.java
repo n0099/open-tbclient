@@ -17,7 +17,7 @@ import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.view.NavigationBar;
-import com.baidu.tieba.view.bq;
+import com.baidu.tieba.view.bw;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class y {
@@ -41,8 +41,8 @@ public class y {
     LinearLayout o;
     TextView p;
     ImageView q;
-    bq r;
-    bq s;
+    bw r;
+    bw s;
     PopupWindow t;
     View u;
     ForumListActivity v;
@@ -66,8 +66,8 @@ public class y {
         this.j.setOnClickListener(forumListActivity);
         this.k = (TextView) forumListActivity.findViewById(R.id.tab_hot);
         this.k.setOnClickListener(forumListActivity);
-        this.r = new bq(forumListActivity);
-        this.s = new bq(forumListActivity);
+        this.r = new bw(forumListActivity);
+        this.s = new bw(forumListActivity);
         this.l = (LinearLayout) forumListActivity.getLayoutInflater().inflate(R.layout.forum_list_forum_footer, (ViewGroup) null);
         this.b = this.l.findViewById(R.id.footer_background);
         this.m = (TextView) this.l.findViewById(R.id.footer_text);
@@ -94,7 +94,7 @@ public class y {
 
     public void a(AdapterView.OnItemClickListener onItemClickListener) {
         if (!this.B) {
-            if (TiebaApplication.h().an() == 1) {
+            if (TiebaApplication.g().an() == 1) {
                 this.z.setImageResource(R.drawable.btn_allsproutpop_up_1);
             } else {
                 this.z.setImageResource(R.drawable.btn_allsproutpop_up);

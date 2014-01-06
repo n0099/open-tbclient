@@ -3,15 +3,15 @@ package com.baidu.tieba.mention;
 import android.content.DialogInterface;
 /* loaded from: classes.dex */
 class ab implements DialogInterface.OnClickListener {
-    final /* synthetic */ aa a;
+    final /* synthetic */ z a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ab(aa aaVar) {
-        this.a = aaVar;
+    public ab(z zVar) {
+        this.a = zVar;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
-        this.a.b.c();
+        dialogInterface.dismiss();
     }
 }

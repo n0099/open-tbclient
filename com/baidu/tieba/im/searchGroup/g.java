@@ -8,8 +8,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.im.data.BaseGroupData;
-import com.baidu.tieba.im.message.bv;
-import com.baidu.tieba.util.bb;
+import com.baidu.tieba.im.message.by;
+import com.baidu.tieba.util.bl;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 import java.util.LinkedList;
@@ -73,7 +73,7 @@ public class g {
     public void a(int i) {
         this.b.getLayoutMode().a(false);
         this.b.getLayoutMode().a(this.c);
-        bb.a(this.c, 0);
+        bl.a(this.c, 0);
         this.d.c(0);
         this.h.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.pic_search_fruitless, 0, 0);
     }
@@ -90,10 +90,10 @@ public class g {
         }
     }
 
-    public void a(bv bvVar) {
+    public void a(by byVar) {
         List<BaseGroupData> linkedList = new LinkedList<>();
-        if (bvVar != null && bvVar.a() != null) {
-            linkedList = bvVar.a();
+        if (byVar != null && byVar.a() != null) {
+            linkedList = byVar.a();
         }
         this.j.a(linkedList);
     }

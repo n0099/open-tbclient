@@ -1,244 +1,65 @@
 package com.baidu.tbadk.widget.richText;
 
 import android.content.Context;
-import android.graphics.Rect;
-import android.text.SpannableString;
-import android.text.SpannableStringBuilder;
-import android.text.style.ImageSpan;
-import com.baidu.cloudsdk.common.imgloader.ImageManager;
-import com.baidu.tbadk.imageManager.TbFaceManager;
+import android.text.TextPaint;
+import android.text.style.ClickableSpan;
+import android.view.View;
 import com.baidu.zeus.bouncycastle.DERTags;
-import java.util.ArrayList;
-import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class h {
-    private int a = 0;
-    private b b = null;
-    private f c = null;
-    private q d = null;
+public class h extends ClickableSpan {
+    private Context a;
+    private int b;
+    private String c;
+    private String d;
 
-    public int a() {
-        return this.a;
+    public h(Context context, int i, String str) {
+        this.a = null;
+        this.b = 0;
+        this.c = null;
+        this.a = context;
+        this.c = str;
+        this.b = i;
     }
 
-    public void a(int i, b bVar, f fVar, q qVar) {
-        this.a = i;
-        this.b = bVar;
-        this.c = fVar;
-        this.d = qVar;
+    public void a(String str) {
+        this.d = str;
     }
 
-    public f b() {
-        if (this.a == 8) {
-            return this.c;
+    @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
+    public void updateDrawState(TextPaint textPaint) {
+        super.updateDrawState(textPaint);
+        textPaint.setUnderlineText(false);
+    }
+
+    @Override // android.text.style.ClickableSpan
+    public void onClick(View view) {
+        j jVar = null;
+        if (this.a instanceof j) {
+            jVar = (j) this.a;
         }
-        return null;
-    }
-
-    public q c() {
-        if (this.a == 512 || this.a == 768) {
-            return this.d;
-        }
-        return null;
-    }
-
-    public SpannableString d() {
-        if (this.a != 1 || this.b == null) {
-            return null;
-        }
-        return new SpannableString(this.b.a());
-    }
-
-    public CharSequence a(Context context, ArrayList<e> arrayList) {
-        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-        if (this.a == 32 && this.b != null) {
-            spannableStringBuilder.append((CharSequence) "视频：");
-            CharSequence d = d(context, arrayList);
-            if (d != null) {
-                spannableStringBuilder.append(d);
+        if (jVar != null) {
+            switch (this.b) {
+                case 2:
+                    jVar.b(this.a, this.c);
+                    return;
+                case 16:
+                    jVar.a(this.a, this.c);
+                    return;
+                case 32:
+                    jVar.c(this.a, this.c);
+                    return;
+                case DERTags.APPLICATION /* 64 */:
+                    jVar.d(this.a, this.c);
+                    return;
+                case DERTags.TAGGED /* 128 */:
+                    jVar.e(this.a, this.c);
+                    return;
+                case 256:
+                    jVar.a(this.a, this.c, this.d);
+                    return;
+                default:
+                    return;
             }
-            SpannableString a = a(context, this.a, this.b.a(), this.b.a());
-            if (a != null) {
-                spannableStringBuilder.append((CharSequence) a);
-            }
-        }
-        return spannableStringBuilder;
-    }
-
-    public CharSequence b(Context context, ArrayList<e> arrayList) {
-        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-        if (this.a == 128 && this.b != null) {
-            CharSequence d = d(context, arrayList);
-            if (d != null) {
-                spannableStringBuilder.append(d);
-            }
-            SpannableString a = a(context, this.a, this.b.b(), this.b.b());
-            if (a != null) {
-                spannableStringBuilder.append((CharSequence) a);
-            }
-        }
-        return spannableStringBuilder;
-    }
-
-    private CharSequence d(Context context, ArrayList<e> arrayList) {
-        h hVar = new h();
-        hVar.a(4, new b("video_icon", " "), (f) null, (q) null);
-        return hVar.c(context, arrayList);
-    }
-
-    public String e() {
-        if (this.a != 32 || this.b == null) {
-            return null;
-        }
-        return this.b.a();
-    }
-
-    public SpannableString a(Context context) {
-        if (this.a != 2 || this.b == null) {
-            return null;
-        }
-        return a(context, this.a, this.b.a(), this.b.b());
-    }
-
-    public SpannableString b(Context context) {
-        if (this.a != 256 || this.b == null) {
-            return null;
-        }
-        String a = this.b.a();
-        if (a == null) {
-            return null;
-        }
-        if (!a.endsWith(" ")) {
-            a = a + " ";
-        }
-        SpannableString spannableString = new SpannableString(a);
-        g gVar = new g(context, this.a, a);
-        gVar.a(this.b.b());
-        spannableString.setSpan(gVar, 0, a.length() - 1, 33);
-        return spannableString;
-    }
-
-    public SpannableString c(Context context) {
-        if (this.a != 16 || this.b == null) {
-            return null;
-        }
-        return a(context, this.a, this.b.a(), this.b.b());
-    }
-
-    private SpannableString e(Context context, ArrayList<e> arrayList) {
-        SpannableString spannableString = null;
-        if (this.a == 4 && this.b != null && this.b.a() != null && this.b.b() != null) {
-            String a = this.b.a();
-            String b = this.b.b();
-            int b2 = TbFaceManager.a().b(a);
-            if (b2 != 0) {
-                spannableString = new SpannableString(b + " ");
-                e eVar = new e(context, b2);
-                if (arrayList != null) {
-                    arrayList.add(eVar);
-                }
-                com.baidu.tbadk.imageManager.b c = TbFaceManager.a().c(a);
-                if (c != null) {
-                    eVar.setBounds(new Rect(0, 0, c.a(), c.b()));
-                } else {
-                    eVar.setBounds(new Rect(0, 0, 0, 0));
-                }
-                spannableString.setSpan(new ImageSpan(eVar, 0), 0, b.length(), 33);
-            }
-        }
-        return spannableString;
-    }
-
-    private SpannableString a(Context context, int i, String str, String str2) {
-        if (str == null) {
-            return null;
-        }
-        if (!str.endsWith(" ")) {
-            str = str + " ";
-        }
-        SpannableString spannableString = new SpannableString(str);
-        spannableString.setSpan(new g(context, i, str2), 0, str.length() - 1, 33);
-        return spannableString;
-    }
-
-    public CharSequence c(Context context, ArrayList<e> arrayList) {
-        switch (this.a) {
-            case 1:
-                return d();
-            case 2:
-                return a(context);
-            case 4:
-                return e(context, arrayList);
-            case 8:
-            default:
-                return null;
-            case 16:
-                return c(context);
-            case 32:
-                return a(context, arrayList);
-            case DERTags.TAGGED /* 128 */:
-                return b(context, arrayList);
-            case 256:
-                return b(context);
-        }
-    }
-
-    public void a(JSONObject jSONObject) {
-        try {
-            this.a = a(jSONObject.optInt("type", 0));
-            if (this.a == 8) {
-                this.c = new f(jSONObject);
-            } else if (this.a == 512) {
-                this.d = new q(jSONObject);
-            } else if (this.a == 16) {
-                this.b = new b(jSONObject.optString("text"), jSONObject.optString("uid"));
-            } else {
-                this.b = new b(jSONObject);
-                if (this.a == 4) {
-                    String str = "[" + jSONObject.optString("c") + "]";
-                    if (TbFaceManager.a().b(this.b.a()) <= 0) {
-                        this.a = 1;
-                        this.b.a(str);
-                    } else {
-                        this.b.b(str);
-                    }
-                } else if (this.a == 256) {
-                    this.b.b(jSONObject.optString("phonetype"));
-                }
-            }
-            if (this.a != 1 && this.b != null) {
-                this.b.c();
-            }
-        } catch (Exception e) {
-            com.baidu.adp.lib.h.e.a(e.getMessage());
-        }
-    }
-
-    private int a(int i) {
-        switch (i) {
-            case 0:
-                return 1;
-            case 1:
-                return 2;
-            case 2:
-                return 4;
-            case 3:
-                return 8;
-            case 4:
-                return 16;
-            case 5:
-                return 32;
-            case 6:
-                return 64;
-            case 7:
-            default:
-                return 0;
-            case 8:
-                return DERTags.TAGGED;
-            case 9:
-                return 256;
-            case 10:
-                return ImageManager.DEFAULT_MAX_CACHEABLE_SIZE;
         }
     }
 }

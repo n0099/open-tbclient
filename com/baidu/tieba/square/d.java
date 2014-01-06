@@ -14,7 +14,9 @@ public class d implements com.baidu.tbadk.imageManager.c {
     }
 
     @Override // com.baidu.tbadk.imageManager.c
-    public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
-        com.baidu.tieba.util.bk.a(this.a, false, (com.baidu.tieba.util.bm) new e(this, str, eVar));
+    public void a(com.baidu.adp.widget.ImageView.d dVar, String str, boolean z) {
+        if (dVar != null) {
+            com.baidu.tieba.util.bu.a(this.a, false, (com.baidu.tieba.util.bw) new e(this, str, dVar));
+        }
     }
 }

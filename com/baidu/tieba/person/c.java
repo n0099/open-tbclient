@@ -14,7 +14,7 @@ public class c extends BdAsyncTask<Integer, String, String> {
     private int c;
     private int d;
     private String e;
-    private com.baidu.tieba.util.an f;
+    private com.baidu.tieba.util.at f;
 
     public c(AllPostActivity allPostActivity, int i, int i2, int i3, String str) {
         this.a = allPostActivity;
@@ -34,8 +34,8 @@ public class c extends BdAsyncTask<Integer, String, String> {
         String a;
         try {
             int intValue = numArr[0].intValue();
-            boolean z = this.e == null || this.e.equals(TiebaApplication.B());
-            if (intValue == 0 && z && (m = com.baidu.tieba.b.a.a().m()) != null && (a = m.a(TiebaApplication.B())) != null) {
+            boolean z = this.e == null || this.e.equals(TiebaApplication.A());
+            if (intValue == 0 && z && (m = com.baidu.tieba.b.a.a().m()) != null && (a = m.a(TiebaApplication.A())) != null) {
                 c((Object[]) new String[]{a});
             }
             if (z) {
@@ -43,7 +43,7 @@ public class c extends BdAsyncTask<Integer, String, String> {
             } else {
                 str = com.baidu.tieba.data.h.a + "c/u/feed/otherpost";
             }
-            this.f = new com.baidu.tieba.util.an(str);
+            this.f = new com.baidu.tieba.util.at(str);
             this.f.a("type", String.valueOf(this.b));
             this.f.a("pn", String.valueOf(this.c));
             if (!z) {
@@ -59,16 +59,16 @@ public class c extends BdAsyncTask<Integer, String, String> {
             }
             return null;
         } catch (Exception e) {
-            com.baidu.tieba.util.be.b(getClass().getName(), "", "MyPostAsyncTask.doInBackground error = " + e.getMessage());
+            com.baidu.tieba.util.bo.b(getClass().getName(), "", "MyPostAsyncTask.doInBackground error = " + e.getMessage());
             return null;
         }
     }
 
     private void b(String str) {
         com.baidu.adp.lib.cache.s<String> m;
-        String B = TiebaApplication.B();
-        if (B != null && (m = com.baidu.tieba.b.a.a().m()) != null) {
-            m.a(B, str, 604800000L);
+        String A = TiebaApplication.A();
+        if (A != null && (m = com.baidu.tieba.b.a.a().m()) != null) {
+            m.a(A, str, 604800000L);
         }
     }
 
@@ -83,7 +83,7 @@ public class c extends BdAsyncTask<Integer, String, String> {
         this.a.f.e();
         this.a.f.b(strArr[0]);
         this.a.e.notifyDataSetChanged();
-        if (this.e != null && !this.e.equals(TiebaApplication.B()) && !this.a.f.c()) {
+        if (this.e != null && !this.e.equals(TiebaApplication.A()) && !this.a.f.c()) {
             this.a.c.setVisibility(8);
             this.a.d.setVisibility(8);
             this.a.b.setVisibility(8);
@@ -128,7 +128,7 @@ public class c extends BdAsyncTask<Integer, String, String> {
                     }
                     this.a.f.b(str);
                     this.a.e.notifyDataSetChanged();
-                    if (this.e != null && !this.e.equals(TiebaApplication.B()) && !this.a.f.c()) {
+                    if (this.e != null && !this.e.equals(TiebaApplication.A()) && !this.a.f.c()) {
                         this.a.c.setVisibility(8);
                         this.a.d.setVisibility(8);
                         this.a.b.setVisibility(8);
@@ -155,7 +155,7 @@ public class c extends BdAsyncTask<Integer, String, String> {
                 }
                 this.a.showToast(this.f.i());
             } catch (Exception e) {
-                com.baidu.tieba.util.be.b(getClass().getName(), "", "MyPostAsyncTask.onPostExecute error = " + e.getMessage());
+                com.baidu.tieba.util.bo.b(getClass().getName(), "", "MyPostAsyncTask.onPostExecute error = " + e.getMessage());
             }
         }
     }

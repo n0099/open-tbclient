@@ -1,9 +1,11 @@
 package com.baidu.tieba.square;
 
-import android.view.View;
+import com.baidu.tieba.im.SingleRunnable;
+import com.baidu.tieba.util.DatabaseService;
+import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bj implements View.OnFocusChangeListener {
+public class bj extends SingleRunnable<ArrayList<String>> {
     final /* synthetic */ SquareSearchActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,10 +13,10 @@ public class bj implements View.OnFocusChangeListener {
         this.a = squareSearchActivity;
     }
 
-    @Override // android.view.View.OnFocusChangeListener
-    public void onFocusChange(View view, boolean z) {
-        if (!z) {
-            com.baidu.adp.lib.h.g.a(this.a, view);
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.SingleRunnable
+    /* renamed from: a */
+    public ArrayList<String> b() {
+        return DatabaseService.p();
     }
 }

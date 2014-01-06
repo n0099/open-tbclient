@@ -1,48 +1,34 @@
 package com.baidu.tieba.data;
 
+import com.baidu.tieba.util.bo;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ba {
-    private String a = null;
-    private String d = null;
+    private int a = 0;
     private String b = null;
-    private int c = 0;
-    private be e = new be();
 
-    public String a() {
-        return this.d;
-    }
-
-    public be b() {
-        return this.e;
-    }
-
-    public String c() {
-        return this.b;
-    }
-
-    public String d() {
+    public int a() {
         return this.a;
     }
 
-    public int e() {
-        return this.c;
+    public String b() {
+        return this.b;
+    }
+
+    public void a(String str) {
+        try {
+            a(new JSONObject(str).optJSONObject("error"));
+        } catch (Exception e) {
+            bo.b(getClass().getName(), "parserJson", e.toString());
+        }
     }
 
     public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.a = jSONObject.optString("tid");
-                this.b = jSONObject.optString("title");
-                this.c = jSONObject.optInt("reply_amount", 0);
-                JSONObject optJSONObject = jSONObject.optJSONObject("user");
-                if (optJSONObject != null) {
-                    this.d = optJSONObject.optString("name_show");
-                }
-                this.e.a(jSONObject.optJSONObject("photo"));
-            } catch (Exception e) {
-                com.baidu.tieba.util.be.b("HotspotData", "parserJson", "error = " + e.getMessage());
-            }
+        try {
+            this.a = jSONObject.optInt("errno");
+            this.b = jSONObject.optString("usermsg");
+        } catch (Exception e) {
+            bo.b(getClass().getName(), "parserJson", e.toString());
         }
     }
 }

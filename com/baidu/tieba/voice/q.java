@@ -24,19 +24,19 @@ public class q extends Handler {
         float f2;
         long j2;
         if (message.what == 1) {
-            f = this.a.E;
+            f = this.a.A;
             if (f >= 360.0f) {
-                this.a.E = 360.0f;
-                this.a.C = false;
+                this.a.A = 360.0f;
+                this.a.y = false;
             } else {
                 long uptimeMillis = SystemClock.uptimeMillis();
-                j = this.a.H;
-                this.a.H = uptimeMillis;
-                this.a.I = uptimeMillis + 25;
+                j = this.a.D;
+                this.a.D = uptimeMillis;
+                this.a.E = uptimeMillis + 25;
                 RecordVoiceBnt recordVoiceBnt = this.a;
-                f2 = this.a.D;
+                f2 = this.a.z;
                 RecordVoiceBnt.a(recordVoiceBnt, f2 * (((float) (uptimeMillis - j)) / 1000.0f));
-                j2 = this.a.I;
+                j2 = this.a.E;
                 sendEmptyMessageAtTime(1, j2);
             }
             this.a.invalidate();

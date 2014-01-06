@@ -12,11 +12,11 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.data.ar;
+import com.baidu.tieba.data.as;
 import com.baidu.tieba.model.bv;
-import com.baidu.tieba.util.bb;
-import com.baidu.tieba.util.bc;
-import com.baidu.tieba.util.be;
+import com.baidu.tieba.util.bl;
+import com.baidu.tieba.util.bm;
+import com.baidu.tieba.util.bo;
 import com.baidu.tieba.view.CustomTextView;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
@@ -33,7 +33,7 @@ public class PostActivity extends com.baidu.tieba.j {
     private String h = null;
     private String i = null;
     private String j = null;
-    private aa k = null;
+    private z k = null;
     private bv l = null;
     private com.baidu.tieba.util.i m;
     private ImageView n;
@@ -70,14 +70,14 @@ public class PostActivity extends com.baidu.tieba.j {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j, android.app.Activity
     public void onResume() {
-        if (this.u != TiebaApplication.h().aj()) {
-            this.u = TiebaApplication.h().aj();
-            this.o.setTextSize(com.baidu.tieba.data.h.t());
-            this.s.setTextSize(com.baidu.tieba.data.h.q());
+        if (this.u != TiebaApplication.g().aj()) {
+            this.u = TiebaApplication.g().aj();
+            this.o.setTextSize(com.baidu.tieba.data.h.u());
+            this.s.setTextSize(com.baidu.tieba.data.h.r());
             d();
         }
-        if (this.v != TiebaApplication.h().ai()) {
-            this.v = TiebaApplication.h().ai();
+        if (this.v != TiebaApplication.g().ai()) {
+            this.v = TiebaApplication.g().ai();
             d();
         }
         super.onResume();
@@ -98,7 +98,7 @@ public class PostActivity extends com.baidu.tieba.j {
             this.f.setVisibility(8);
             System.gc();
         } catch (Exception e) {
-            be.b(getClass().getName(), "onDestroy", e.getMessage());
+            bo.b(getClass().getName(), "onDestroy", e.getMessage());
         }
     }
 
@@ -115,13 +115,13 @@ public class PostActivity extends com.baidu.tieba.j {
         this.c = (TextView) findViewById(R.id.title_text);
         this.a = (LinearLayout) findViewById(R.id.post);
         this.e = (ImageView) findViewById(R.id.back);
-        this.e.setOnClickListener(new u(this));
+        this.e.setOnClickListener(new t(this));
         this.d = (Button) findViewById(R.id.reply);
-        this.d.setOnClickListener(new v(this));
+        this.d.setOnClickListener(new u(this));
         this.f = (ProgressBar) findViewById(R.id.progress);
         this.f.setVisibility(8);
         this.n = (ImageView) findViewById(R.id.photo);
-        this.n.setOnClickListener(new w(this));
+        this.n.setOnClickListener(new v(this));
         this.o = (TextView) findViewById(R.id.user_name);
         this.o.getPaint().setFakeBoldText(true);
         this.p = (TextView) findViewById(R.id.floor);
@@ -133,29 +133,29 @@ public class PostActivity extends com.baidu.tieba.j {
         this.s.setFocusable(false);
         this.s.setLineSpacing(0.0f, 1.2f);
         this.t = (LinearLayout) findViewById(R.id.seg);
-        this.o.setTextSize(com.baidu.tieba.data.h.t());
-        this.s.setTextSize(com.baidu.tieba.data.h.q());
-        this.u = TiebaApplication.h().aj();
-        this.v = TiebaApplication.h().ai();
+        this.o.setTextSize(com.baidu.tieba.data.h.u());
+        this.s.setTextSize(com.baidu.tieba.data.h.r());
+        this.u = TiebaApplication.g().aj();
+        this.v = TiebaApplication.g().ai();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        bb.a(this.c, i);
-        bb.a(this.e, i);
-        bb.f((TextView) this.d, i);
-        bb.a(this.g, i);
-        bb.d(this.b, i);
-        bb.b(this.o, i);
+        bl.a(this.c, i);
+        bl.a(this.e, i);
+        bl.f((TextView) this.d, i);
+        bl.a(this.g, i);
+        bl.d(this.b, i);
+        bl.b(this.o, i);
         if (i == 1) {
             this.s.setTextColor(getResources().getColor(R.color.skin_1_second_common_color));
-            bb.e((View) this.p, (int) R.drawable.floor_bg_1);
+            bl.e((View) this.p, (int) R.drawable.floor_bg_1);
             return;
         }
         this.s.setTextColor(-12040120);
-        bb.e((View) this.p, (int) R.drawable.floor_bg);
+        bl.e((View) this.p, (int) R.drawable.floor_bg);
     }
 
     private void b() {
@@ -164,7 +164,7 @@ public class PostActivity extends com.baidu.tieba.j {
             this.k = null;
         }
         if (this.m != null) {
-            this.m.b();
+            this.m.d();
         }
     }
 
@@ -182,27 +182,27 @@ public class PostActivity extends com.baidu.tieba.j {
             if (this.j != null) {
                 arrayList.add(new BasicNameValuePair("st_type", this.j));
             }
-            this.k = new aa(this, stringBuffer.toString(), arrayList);
+            this.k = new z(this, stringBuffer.toString(), arrayList);
             this.k.setPriority(3);
             this.k.execute(stringBuffer.toString(), arrayList);
         } catch (Exception e) {
-            be.b("PbActivity", "startPbAsyncTask", "error" + e.getMessage());
+            bo.b("PbActivity", "startPbAsyncTask", "error" + e.getMessage());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d() {
-        ArrayList<ar> e;
+        ArrayList<as> e;
         int i;
         int i2;
         try {
             if (this.l != null && this.l.a() != null && (e = this.l.a().e()) != null && e.size() > 0) {
-                ar arVar = e.get(0);
-                this.c.setText(String.format(getString(R.string.post_x_floor), Integer.valueOf(arVar.e())));
+                as asVar = e.get(0);
+                this.c.setText(String.format(getString(R.string.post_x_floor), Integer.valueOf(asVar.e())));
                 this.n.setVisibility(0);
-                String portrait = arVar.g().getPortrait();
+                String portrait = asVar.g().getPortrait();
                 if (portrait != null && portrait.length() > 0) {
-                    com.baidu.adp.widget.ImageView.e c = this.m.c(portrait);
+                    com.baidu.adp.widget.ImageView.d c = this.m.c(portrait);
                     if (c != null) {
                         c.a(this.n);
                     } else {
@@ -212,27 +212,27 @@ public class PostActivity extends com.baidu.tieba.j {
                 } else {
                     this.n.setImageResource(R.drawable.photo);
                 }
-                if (arVar.g() != null && arVar.g().getName_show() != null) {
-                    this.o.setText(arVar.g().getName_show());
+                if (asVar.g() != null && asVar.g().getName_show() != null) {
+                    this.o.setText(asVar.g().getName_show());
                 } else {
                     this.o.setText((CharSequence) null);
                 }
-                if (arVar.g() != null && arVar.g().getLevel_id() != 0) {
-                    this.q.setText(String.valueOf(arVar.g().getLevel_id()) + getString(R.string.grade));
+                if (asVar.g() != null && asVar.g().getLevel_id() != 0) {
+                    this.q.setText(String.valueOf(asVar.g().getLevel_id()) + getString(R.string.grade));
                 } else {
                     this.q.setText((CharSequence) null);
                 }
-                this.r.setText(bc.b(arVar.f()));
+                this.r.setText(bm.b(asVar.f()));
                 this.p.setVisibility(0);
-                this.p.setText(String.valueOf(arVar.e()) + getString(R.string.floor));
-                ArrayList<com.baidu.tieba.data.j> i3 = arVar.i();
+                this.p.setText(String.valueOf(asVar.e()) + getString(R.string.floor));
+                ArrayList<com.baidu.tieba.data.j> i3 = asVar.i();
                 if (i3 != null && i3.size() > 0) {
                     com.baidu.tieba.data.j jVar = i3.get(0);
                     if (jVar == null || jVar.a() != 0) {
                         i = 0;
                     } else {
                         this.s.setVisibility(0);
-                        this.s.setText(jVar.c());
+                        this.s.setText(jVar.d());
                         i = 1;
                     }
                     int i4 = -1;
@@ -249,19 +249,19 @@ public class PostActivity extends com.baidu.tieba.j {
                                 int a2 = com.baidu.adp.lib.h.g.a((Context) this, 105.0f);
                                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, a);
                                 layoutParams.topMargin = com.baidu.adp.lib.h.g.a((Context) this, 15.0f);
-                                com.baidu.adp.widget.ImageView.e d = this.m.d(jVar2.d());
+                                com.baidu.adp.widget.ImageView.d d = this.m.d(jVar2.e());
                                 imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
                                 imageView.setMaxWidth(a2);
                                 if (d != null) {
                                     imageView.setTag(null);
                                     d.a(imageView);
                                 } else {
-                                    imageView.setTag(jVar2.d());
+                                    imageView.setTag(jVar2.e());
                                     imageView.setImageBitmap(com.baidu.tieba.util.m.a((int) R.drawable.image_default));
                                 }
                                 imageView.setClickable(true);
                                 imageView.setFocusable(false);
-                                imageView.setOnClickListener(new z(this, i3, i6));
+                                imageView.setOnClickListener(new y(this, i3, i6));
                                 this.t.addView(imageView, layoutParams);
                                 i2 = i6;
                                 i5++;
@@ -274,9 +274,9 @@ public class PostActivity extends com.baidu.tieba.j {
                             layoutParams2.rightMargin = 0;
                             layoutParams2.leftMargin = 0;
                             layoutParams2.topMargin = a3;
-                            customTextView.setTextSize(com.baidu.tieba.data.h.q());
+                            customTextView.setTextSize(com.baidu.tieba.data.h.r());
                             customTextView.setTextColor(-11974584);
-                            customTextView.setText(jVar2.c());
+                            customTextView.setText(jVar2.d());
                             customTextView.setLineSpacing(0.0f, 1.2f);
                             customTextView.setMovementMethod(LinkMovementMethod.getInstance());
                             customTextView.setFocusable(false);
@@ -293,30 +293,30 @@ public class PostActivity extends com.baidu.tieba.j {
                 e();
             }
         } catch (Exception e2) {
-            be.b("PbActivity", "refreshActivity", "error = " + e2.getMessage());
+            bo.b("PbActivity", "refreshActivity", "error = " + e2.getMessage());
         }
     }
 
     private void e() {
         try {
-            ar arVar = this.l.a().e().get(0);
-            if (arVar != null) {
-                ArrayList<com.baidu.tieba.data.j> i = arVar.i();
-                String portrait = arVar.g().getPortrait();
+            as asVar = this.l.a().e().get(0);
+            if (asVar != null) {
+                ArrayList<com.baidu.tieba.data.j> i = asVar.i();
+                String portrait = asVar.g().getPortrait();
                 if (this.l.b() && portrait != null && portrait.length() > 0) {
-                    this.m.d(portrait, new x(this));
+                    this.m.d(portrait, new w(this));
                 }
                 int size = i.size();
                 if (this.v) {
                     for (int i2 = 0; i2 < size; i2++) {
                         if (i.get(i2).a() == 3) {
-                            this.m.a(i.get(i2).d(), new y(this));
+                            this.m.a(i.get(i2).e(), new x(this));
                         }
                     }
                 }
             }
         } catch (Exception e) {
-            be.b("PbActivity", "mGetImageRunnble.run", "error = " + e.getMessage());
+            bo.b("PbActivity", "mGetImageRunnble.run", "error = " + e.getMessage());
         }
     }
 }

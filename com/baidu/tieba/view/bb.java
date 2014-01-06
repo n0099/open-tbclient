@@ -1,27 +1,19 @@
 package com.baidu.tieba.view;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes.dex */
-public class bb implements Runnable {
-    final /* synthetic */ ba a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bb(ba baVar) {
-        this.a = baVar;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.drawable.BitmapDrawable;
+/* loaded from: classes.dex */
+public class bb extends BitmapDrawable {
+    public bb(Bitmap bitmap) {
+        super(bitmap);
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        int i;
-        int i2;
-        this.a.f = true;
-        ba.a(this.a, 30);
-        i = this.a.i;
-        if (i > 360) {
-            ba baVar = this.a;
-            i2 = this.a.i;
-            baVar.i = i2 - 360;
+    @Override // android.graphics.drawable.BitmapDrawable, android.graphics.drawable.Drawable
+    public void draw(Canvas canvas) {
+        Bitmap bitmap = getBitmap();
+        if (bitmap != null) {
+            canvas.drawBitmap(bitmap, 0.0f, 0.0f, getPaint());
         }
-        this.a.invalidate(this.a.getRotateInvalidRect());
-        this.a.postDelayed(this.a.e, 50L);
     }
 }

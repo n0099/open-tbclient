@@ -54,7 +54,7 @@ public class BarFolderFirstDirActivity extends com.baidu.tieba.j {
         this.a.setAdapter((ListAdapter) this.e);
         this.d = (ProgressBar) findViewById(R.id.progress);
         this.b = (ViewGroup) findViewById(R.id.body_container);
-        com.baidu.tieba.util.bk.b(this.b);
+        com.baidu.tieba.util.bu.b(this.b);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -113,8 +113,8 @@ public class BarFolderFirstDirActivity extends com.baidu.tieba.j {
             this.a.invalidateViews();
         }
         if (this.b != null) {
-            com.baidu.tieba.util.bk.a(this.b, i);
+            com.baidu.tieba.util.bu.a(this.b, i);
         }
-        com.baidu.tieba.util.bb.b(findViewById(R.id.root_view), i);
+        com.baidu.tieba.util.bl.b(findViewById(R.id.root_view), i);
     }
 }

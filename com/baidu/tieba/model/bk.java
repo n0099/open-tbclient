@@ -54,7 +54,7 @@ public class bk {
         try {
             a(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.tieba.util.be.b("MyPostModel", "parserJson", "error = " + e.getMessage());
+            com.baidu.tieba.util.bo.b("MyPostModel", "parserJson", "error = " + e.getMessage());
         }
     }
 
@@ -107,7 +107,7 @@ public class bk {
             }
             this.c = false;
         } catch (Exception e) {
-            com.baidu.tieba.util.be.b("MyPostModel", "parserJson", "error = " + e.getMessage());
+            com.baidu.tieba.util.bo.b("MyPostModel", "parserJson", "error = " + e.getMessage());
         }
     }
 }

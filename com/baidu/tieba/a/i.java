@@ -10,11 +10,11 @@ import com.baidu.tieba.data.ErrorData;
 import com.baidu.tieba.data.InfoData;
 import com.baidu.tieba.data.WriteData;
 import com.baidu.tieba.util.DatabaseService;
-import com.baidu.tieba.util.an;
-import com.baidu.tieba.util.bc;
-import com.baidu.tieba.util.be;
+import com.baidu.tieba.util.aa;
+import com.baidu.tieba.util.at;
+import com.baidu.tieba.util.bm;
+import com.baidu.tieba.util.bo;
 import com.baidu.tieba.util.n;
-import com.baidu.tieba.util.y;
 import java.io.File;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -22,7 +22,7 @@ public class i {
     private static final String a = com.baidu.tieba.data.h.a + "c/c/thread/add";
     private static final String b = com.baidu.tieba.data.h.a + "c/c/post/add";
     private static final String c = com.baidu.tieba.data.h.a + "c/c/img/upload";
-    private an d = null;
+    private at d = null;
     private ErrorData e;
     private AntiData f;
 
@@ -45,18 +45,18 @@ public class i {
         if (writeData != null) {
             if (z) {
                 try {
-                    File d = y.d("tieba_resized_image");
-                    this.d = new an(c);
-                    if (d.length() <= BdSharer.IMAGE_MIN_SIZE_TO_SHARE || (com.baidu.tieba.data.h.p() == 0 && this.d.h() != null && !this.d.h().equals("2"))) {
-                        be.e("PostThreadTask", "doInBackground", "image size is less than 100K");
+                    File d = aa.d("tieba_resized_image");
+                    this.d = new at(c);
+                    if (d.length() <= BdSharer.IMAGE_MIN_SIZE_TO_SHARE || (com.baidu.tieba.data.h.q() == 0 && this.d.h() != null && !this.d.h().equals("2"))) {
+                        bo.e("PostThreadTask", "doInBackground", "image size is less than 100K");
                         this.d.a("pic_type", String.valueOf(writeData.getPicType()));
                         b2 = this.d.b("tieba_resized_image");
                     } else {
-                        be.e("PostThreadTask", "doInBackground", "image size is more than 100K");
-                        String a3 = bc.a(y.a(d));
+                        bo.e("PostThreadTask", "doInBackground", "image size is more than 100K");
+                        String a3 = bm.a(aa.a(d));
                         com.baidu.tieba.data.e p = DatabaseService.p(a3);
                         if (p == null) {
-                            be.e("PostThreadTask", "doInBackground", "upload data is null");
+                            bo.e("PostThreadTask", "doInBackground", "upload data is null");
                             com.baidu.tieba.data.e eVar2 = new com.baidu.tieba.data.e();
                             eVar2.a(a3);
                             eVar2.a(0);
@@ -66,7 +66,7 @@ public class i {
                             eVar = p;
                         }
                         if (new n("tieba_resized_image", eVar, com.baidu.tieba.data.h.a + "c/c/img/chunkupload").b().b()) {
-                            this.d = new an(com.baidu.tieba.data.h.a + "c/c/img/finupload");
+                            this.d = new at(com.baidu.tieba.data.h.a + "c/c/img/finupload");
                             this.d.a("md5", eVar.a());
                             this.d.a("pic_type", String.valueOf(writeData.getPicType()));
                             b2 = this.d.l();
@@ -84,19 +84,19 @@ public class i {
                     infoData.parserJson(jSONObject.optJSONObject("info"));
                     writeData.setBitmapId(infoData);
                 } catch (Exception e) {
-                    be.b(getClass().getName(), "doInBackground", e.getMessage());
+                    bo.b(getClass().getName(), "doInBackground", e.getMessage());
                 }
             }
             String voice = writeData.getVoice();
             int voiceDuringTime = writeData.getVoiceDuringTime();
             if (voice != null) {
-                com.baidu.tieba.data.f a4 = new a("c/c/voice/chunkupload", "c/c/voice/voice_fin_chunk_upload").a(y.a(voice, 1));
+                com.baidu.tieba.data.f a4 = new a("c/c/voice/chunkupload", "c/c/voice/voice_fin_chunk_upload").a(aa.a(voice, 1));
                 if (a4 != null && a4.b() && (a2 = a4.a()) != null) {
                     str = a2.a();
                     com.baidu.tieba.voice.a.e.a(writeData.getVoice(), str);
                 }
             }
-            this.d = new an();
+            this.d = new at();
             this.d.e(true);
             this.d.a("anonymous", SocialConstants.TRUE);
             this.d.a("fid", writeData.getForumId());
@@ -111,10 +111,10 @@ public class i {
             if (writeData.getVcode() != null && writeData.getVcode().length() > 0) {
                 this.d.a("vcode", writeData.getVcode());
             }
-            if (TiebaApplication.h().aq() < 3) {
+            if (TiebaApplication.g().aq() < 3) {
                 this.d.a("vcode_tag", "11");
             }
-            Address aQ = TiebaApplication.h().aQ();
+            Address aQ = TiebaApplication.g().aQ();
             this.d.a("new_vcode", SocialConstants.TRUE);
             this.d.a(PushConstants.EXTRA_CONTENT, writeData.getContent() + str2);
             switch (writeData.getType()) {
@@ -122,7 +122,7 @@ public class i {
                     this.d.a(a);
                     this.d.a("kw", writeData.getForumName());
                     this.d.a("title", writeData.getTitle());
-                    if (aQ != null && TiebaApplication.h().u() && !com.baidu.tieba.data.h.h().equals(writeData.getForumId())) {
+                    if (aQ != null && TiebaApplication.g().t() && !com.baidu.tieba.data.h.h().equals(writeData.getForumId())) {
                         this.d.a("lbs", String.valueOf(aQ.getLatitude()) + "," + String.valueOf(aQ.getLongitude()));
                         break;
                     }

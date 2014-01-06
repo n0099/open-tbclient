@@ -1,20 +1,17 @@
 package com.baidu.tieba.person;
+
+import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bo implements com.baidu.tbadk.imageManager.c {
-    final /* synthetic */ bn a;
+public class bo implements DialogInterface.OnClickListener {
+    final /* synthetic */ PersonInfoActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bo(bn bnVar) {
-        this.a = bnVar;
+    public bo(PersonInfoActivity personInfoActivity) {
+        this.a = personInfoActivity;
     }
 
-    @Override // com.baidu.tbadk.imageManager.c
-    public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
-        if (eVar != null) {
-            this.a.o.setImageResource(0);
-            eVar.a(this.a.o);
-        }
-        this.a.l.c();
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
     }
 }

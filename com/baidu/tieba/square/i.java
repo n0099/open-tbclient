@@ -14,7 +14,7 @@ import com.baidu.tieba.view.HeadImageView;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class i extends BaseAdapter implements com.baidu.tieba.view.ai {
+public class i extends BaseAdapter implements com.baidu.tieba.view.an {
     private final Context b;
     private at c;
     private com.baidu.tieba.util.i d;
@@ -50,20 +50,20 @@ public class i extends BaseAdapter implements com.baidu.tieba.view.ai {
         int itemViewType = getItemViewType(i);
         if (view == null) {
             view = a(i, viewGroup, itemViewType);
-            com.baidu.tieba.util.bk.b(view);
+            com.baidu.tieba.util.bu.b(view);
         }
         if (itemViewType == 0) {
             if (this.c != null) {
                 ((TextView) view.findViewById(R.id.title)).setText(this.c.e());
             }
         } else if (itemViewType == 2) {
-            com.baidu.tieba.util.bk.a(view);
+            com.baidu.tieba.util.bu.a(view);
             a(viewGroup, (n) view.getTag(), i, "all");
         } else if (itemViewType == 1) {
-            com.baidu.tieba.util.bk.a(view);
+            com.baidu.tieba.util.bu.a(view);
             a(viewGroup, (n) view.getTag(), i, "normal");
         }
-        int an = TiebaApplication.h().an();
+        int an = TiebaApplication.g().an();
         BaseFragmentActivity baseFragmentActivity = (BaseFragmentActivity) this.b;
         baseFragmentActivity.a().a(an == 1);
         baseFragmentActivity.a().a(view);
@@ -141,9 +141,9 @@ public class i extends BaseAdapter implements com.baidu.tieba.view.ai {
         }
         if (asVar.e != null) {
             nVar.a.setTag(asVar.e);
-            com.baidu.adp.widget.ImageView.e d = this.d.d(asVar.e);
+            com.baidu.adp.widget.ImageView.d d = this.d.d(asVar.e);
             if (d != null) {
-                nVar.a.setImageBitmap(d.f());
+                nVar.a.setImageBitmap(d.h());
                 nVar.a.invalidate();
                 return;
             }
@@ -181,12 +181,12 @@ public class i extends BaseAdapter implements com.baidu.tieba.view.ai {
         return this.b;
     }
 
-    @Override // com.baidu.tieba.view.ai
+    @Override // com.baidu.tieba.view.an
     public void d() {
-        this.d.b();
+        this.d.d();
     }
 
-    @Override // com.baidu.tieba.view.ai
+    @Override // com.baidu.tieba.view.an
     public void a(View view, int i, int i2) {
         while (i <= i2) {
             if (getItemViewType(i) == 1) {

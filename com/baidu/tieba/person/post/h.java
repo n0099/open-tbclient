@@ -3,14 +3,14 @@ package com.baidu.tieba.person.post;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.gson.GsonBuilder;
 import com.baidu.gson.JsonParseException;
-import com.baidu.tieba.util.an;
-import com.baidu.tieba.util.be;
+import com.baidu.tieba.util.at;
+import com.baidu.tieba.util.bo;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class h extends BdAsyncTask<Void, Void, PersonPostThreadModel> {
     private WeakReference<g> a;
     private boolean b;
-    private an c;
+    private at c;
 
     public h(g gVar, boolean z) {
         this.a = new WeakReference<>(gVar);
@@ -23,22 +23,22 @@ public class h extends BdAsyncTask<Void, Void, PersonPostThreadModel> {
         String str;
         int i;
         PersonPostThreadModel personPostThreadModel;
-        this.c = new an(com.baidu.tieba.data.h.a + "c/u/feed/userpost");
-        an anVar = this.c;
+        this.c = new at(com.baidu.tieba.data.h.a + "c/u/feed/userpost");
+        at atVar = this.c;
         str = PersonPostThreadModel.b;
-        anVar.a("uid", String.valueOf(str));
-        an anVar2 = this.c;
+        atVar.a("uid", String.valueOf(str));
+        at atVar2 = this.c;
         i = PersonPostThreadModel.a;
-        anVar2.a("pn", String.valueOf(i));
+        atVar2.a("pn", String.valueOf(i));
         this.c.a("rn", String.valueOf(20));
         this.c.a("is_thread", String.valueOf(1));
         this.c.a("need_content", String.valueOf(1));
         String l = this.c.l();
-        be.e("PersonPostThreadModel", "doInBackground", l);
+        bo.e("PersonPostThreadModel", "doInBackground", l);
         try {
             personPostThreadModel = (PersonPostThreadModel) new GsonBuilder().create().fromJson(l, (Class<Object>) PersonPostThreadModel.class);
         } catch (JsonParseException e) {
-            be.e("PersonPostThreadModel", "doInBackground", e.getMessage());
+            bo.e("PersonPostThreadModel", "doInBackground", e.getMessage());
             personPostThreadModel = null;
         }
         if (personPostThreadModel == null) {

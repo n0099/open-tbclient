@@ -25,22 +25,22 @@ public class i extends com.baidu.adp.a.d {
             if (recentChatFriendData.getOwnerName().equals(String.valueOf(2))) {
                 com.baidu.tieba.sharedPref.b.a().b("is_show_validate", false);
                 com.baidu.tieba.im.c.a.h().b();
-                a(TiebaApplication.B(), String.valueOf(2), aVar);
+                a(TiebaApplication.A(), String.valueOf(2), aVar, false);
             } else if (recentChatFriendData.getOwnerName().equals(String.valueOf(3))) {
                 com.baidu.tieba.sharedPref.b.a().b("is_show_updates", false);
                 com.baidu.tieba.im.c.a.h().a();
-                a(TiebaApplication.B(), String.valueOf(3), aVar);
+                a(TiebaApplication.A(), String.valueOf(3), aVar, false);
             } else if (recentChatFriendData.getOwnerName().equals(String.valueOf(1))) {
-                a(TiebaApplication.B(), recentChatFriendData.getFriendId(), aVar);
+                a(TiebaApplication.A(), recentChatFriendData.getFriendId(), aVar, false);
             } else if (recentChatFriendData.getOwnerName().equals(String.valueOf(4))) {
-                a(TiebaApplication.B(), recentChatFriendData.getFriendId(), aVar);
+                a(TiebaApplication.A(), recentChatFriendData.getFriendId(), aVar, true);
             }
         }
     }
 
-    private void a(String str, String str2, com.baidu.tieba.im.a<Void> aVar) {
+    private void a(String str, String str2, com.baidu.tieba.im.a<Void> aVar, boolean z) {
         com.baidu.tieba.data.chat.c.a().a(str, str2);
-        com.baidu.tieba.im.db.ad.a().a(new j(this, str2, aVar));
+        com.baidu.tieba.im.db.ad.a().a(new j(this, str2, z, aVar));
     }
 
     public List<RecentChatFriendData> a() {

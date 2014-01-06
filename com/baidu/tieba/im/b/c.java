@@ -3,11 +3,11 @@ package com.baidu.tieba.im.b;
 import android.os.Handler;
 import com.baidu.browser.webpool.BdWebPoolView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.im.chat.ai;
+import com.baidu.tieba.im.chat.ah;
 import com.baidu.tieba.im.data.GroupMidData;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.m;
-import com.baidu.tieba.im.message.o;
+import com.baidu.tieba.im.message.p;
 import com.baidu.tieba.log.i;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -30,7 +30,7 @@ public class c implements com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMessa
         boolean z;
         LinkedList linkedList;
         boolean z2;
-        o n;
+        p n;
         LinkedList linkedList2;
         LinkedList linkedList3;
         String str;
@@ -52,7 +52,7 @@ public class c implements com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMessa
                 j4 = this.a.u;
                 if (j4 > 0) {
                     j5 = this.a.u;
-                    long b = ai.b(j5 - 1);
+                    long b = ah.b(j5 - 1);
                     j6 = this.a.t;
                     ImMessageCenterPojo imMessageCenterPojo = concurrentHashMap.get(String.valueOf(j6));
                     if (imMessageCenterPojo == null) {
@@ -77,7 +77,7 @@ public class c implements com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMessa
             this.a.f = com.baidu.tieba.im.messageCenter.e.a().b(202003);
             z = this.a.f;
             if (!z) {
-                if (TiebaApplication.h().aC()) {
+                if (TiebaApplication.g().aC()) {
                     long currentTimeMillis = System.currentTimeMillis();
                     j2 = this.a.l;
                     if (currentTimeMillis - j2 > 60000) {
@@ -109,7 +109,7 @@ public class c implements com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMessa
                 for (String str2 : concurrentHashMap.keySet()) {
                     ImMessageCenterPojo imMessageCenterPojo3 = concurrentHashMap.get(str2);
                     if (imMessageCenterPojo3.getIs_delete() == 0) {
-                        long c = ai.c(imMessageCenterPojo3.getPulled_msgId());
+                        long c = ah.c(imMessageCenterPojo3.getPulled_msgId());
                         com.baidu.adp.lib.h.e.d("see online1 see pull1:" + imMessageCenterPojo3.getGid() + "lastMsgId:" + c);
                         if (c != 0) {
                             GroupMidData groupMidData = new GroupMidData();

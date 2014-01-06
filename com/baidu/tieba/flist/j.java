@@ -2,7 +2,7 @@ package com.baidu.tieba.flist;
 
 import com.baidu.browser.webpool.BdWebPoolView;
 import com.baidu.tieba.flist.ForumListModel;
-import com.baidu.tieba.util.be;
+import com.baidu.tieba.util.bo;
 /* loaded from: classes.dex */
 class j implements com.baidu.adp.widget.ListView.b {
     final /* synthetic */ ForumListActivity a;
@@ -47,7 +47,7 @@ class j implements com.baidu.adp.widget.ListView.b {
                     } else {
                         this.a.n = BdWebPoolView.DELAYED_TIME;
                     }
-                    be.e("ForumListActivity", "pull down", "left refresh");
+                    bo.e("ForumListActivity", "pull down", "left refresh");
                     new r(this.a, null).execute(new Void[0]);
                 } else if (this.a.c.d.getCurrentItem() == 1) {
                     z3 = this.a.C;
@@ -56,7 +56,7 @@ class j implements com.baidu.adp.widget.ListView.b {
                     } else {
                         this.a.o = BdWebPoolView.DELAYED_TIME;
                     }
-                    be.e("ForumListActivity", "pull down", "right refresh");
+                    bo.e("ForumListActivity", "pull down", "right refresh");
                     new q(this.a, null).execute(new Void[0]);
                 }
             }

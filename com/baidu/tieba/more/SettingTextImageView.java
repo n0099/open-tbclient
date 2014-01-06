@@ -25,14 +25,14 @@ public class SettingTextImageView extends FrameLayout {
         this.a = context;
         d();
         a(attributeSet);
-        a(TiebaApplication.h().an());
+        a(TiebaApplication.g().an());
     }
 
     public SettingTextImageView(Context context) {
         super(context);
         this.a = context;
         d();
-        a(TiebaApplication.h().an());
+        a(TiebaApplication.g().an());
     }
 
     public void a(int i) {
@@ -68,9 +68,9 @@ public class SettingTextImageView extends FrameLayout {
         }
     }
 
-    public void setIcon(com.baidu.adp.widget.ImageView.e eVar) {
-        if (this.d != null) {
-            eVar.a(this.d);
+    public void setIcon(com.baidu.adp.widget.ImageView.d dVar) {
+        if (this.d != null && dVar != null) {
+            dVar.a(this.d);
         }
     }
 
@@ -95,7 +95,7 @@ public class SettingTextImageView extends FrameLayout {
     }
 
     private void a(AttributeSet attributeSet) {
-        TypedArray obtainStyledAttributes = this.a.obtainStyledAttributes(attributeSet, com.baidu.tieba.at.SettingView);
+        TypedArray obtainStyledAttributes = this.a.obtainStyledAttributes(attributeSet, com.baidu.tieba.au.SettingView);
         String string = obtainStyledAttributes.getString(0);
         int color = obtainStyledAttributes.getColor(1, -1);
         if (string != null) {

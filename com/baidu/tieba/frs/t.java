@@ -1,9 +1,8 @@
 package com.baidu.tieba.frs;
 
-import android.content.DialogInterface;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.slidingmenu.lib.SlidingMenu;
 /* loaded from: classes.dex */
-public class t implements DialogInterface.OnClickListener {
+class t implements SlidingMenu.OnClosedListener {
     final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,8 +10,15 @@ public class t implements DialogInterface.OnClickListener {
         this.a = frsActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        dialogInterface.dismiss();
+    @Override // com.slidingmenu.lib.SlidingMenu.OnClosedListener
+    public void onClosed() {
+        bo boVar;
+        bo boVar2;
+        boVar = this.a.n;
+        if (boVar.f().g()) {
+            boVar2 = this.a.n;
+            boVar2.f().b(false);
+            this.a.B();
+        }
     }
 }

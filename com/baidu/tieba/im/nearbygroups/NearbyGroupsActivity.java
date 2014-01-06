@@ -11,12 +11,12 @@ import com.baidu.tieba.im.creategroup.CreateGroupStepActivity;
 import com.baidu.tieba.im.data.GroupPermData;
 import com.baidu.tieba.im.data.NearbyGroupsData;
 import com.baidu.tieba.im.groupInfo.GroupInfoActivity;
-import com.baidu.tieba.im.message.bk;
-import com.baidu.tieba.im.message.by;
-import com.baidu.tieba.im.message.n;
+import com.baidu.tieba.im.message.bn;
+import com.baidu.tieba.im.message.cb;
+import com.baidu.tieba.im.message.o;
 import com.baidu.tieba.im.model.ad;
 import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.bg;
+import com.baidu.tieba.util.bq;
 import com.slidingmenu.lib.R;
 import java.util.Date;
 /* loaded from: classes.dex */
@@ -58,7 +58,7 @@ public class NearbyGroupsActivity extends com.baidu.tieba.j implements com.baidu
             return true;
         }
         try {
-            return bg.a(bg.a(), new Date(j)) >= 1;
+            return bq.a(bq.a(), new Date(j)) >= 1;
         } catch (Exception e) {
             return true;
         }
@@ -91,7 +91,7 @@ public class NearbyGroupsActivity extends com.baidu.tieba.j implements com.baidu
         Object tag;
         super.onClick(view);
         if (view.getId() == this.b.i()) {
-            if (!TiebaApplication.C()) {
+            if (!TiebaApplication.B()) {
                 LoginActivity.a((Activity) this, "", true, 0);
             } else {
                 b();
@@ -118,30 +118,30 @@ public class NearbyGroupsActivity extends com.baidu.tieba.j implements com.baidu
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(n nVar) {
-        if (nVar != null) {
-            if (nVar.t() == 103009 || nVar.t() == -115) {
+    public void a(o oVar) {
+        if (oVar != null) {
+            if (oVar.u() == 103009 || oVar.u() == -115) {
                 this.c.a(false);
-                if (!(nVar instanceof bk)) {
+                if (!(oVar instanceof bn)) {
                     this.b.h();
                     return;
                 }
-                if (nVar.t() == -115) {
+                if (oVar.u() == -115) {
                     if (UtilHelper.b()) {
-                        if (a(TiebaApplication.h().bd())) {
+                        if (a(TiebaApplication.g().bd())) {
                             this.c.h();
                             return;
                         }
                         this.c.g();
                     }
                 } else {
-                    TiebaApplication.h().d(System.currentTimeMillis());
+                    TiebaApplication.g().d(System.currentTimeMillis());
                 }
-                bk bkVar = (bk) nVar;
-                if (bkVar.i() && bkVar.j() > 0) {
-                    showToast(bkVar.k());
+                bn bnVar = (bn) oVar;
+                if (bnVar.i() && bnVar.j() > 0) {
+                    showToast(bnVar.k());
                 } else {
-                    NearbyGroupsData a = bkVar.a();
+                    NearbyGroupsData a = bnVar.a();
                     if (a != null) {
                         this.c.b(a.getHasMore());
                         this.c.a(a.getGeo());
@@ -154,17 +154,17 @@ public class NearbyGroupsActivity extends com.baidu.tieba.j implements com.baidu
                     }
                 }
                 this.b.h();
-            } else if (nVar.t() == 103008 && (nVar instanceof by)) {
+            } else if (oVar.u() == 103008 && (oVar instanceof cb)) {
                 try {
-                    by byVar = (by) nVar;
-                    if (byVar.i() && byVar.j() > 0) {
-                        showToast(byVar.k());
+                    cb cbVar = (cb) oVar;
+                    if (cbVar.i() && cbVar.j() > 0) {
+                        showToast(cbVar.k());
                         return;
                     }
-                    GroupPermData a2 = byVar.a();
+                    GroupPermData a2 = cbVar.a();
                     if (a2 != null) {
                         if (a2.isCreatePersonal()) {
-                            CreateGroupStepActivity.a(this, 2, 0, 1011);
+                            CreateGroupStepActivity.a(this, 2, 0, 1011, a2.getCanCreateNormalNum(), a2.getCanCreateOfficialNum(), a2.getCanCreatePersonalNum());
                         } else if (!TextUtils.isEmpty(a2.getCreatePersonalTip())) {
                             showToast(a2.getCreatePersonalTip());
                         }

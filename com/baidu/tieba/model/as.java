@@ -7,7 +7,7 @@ import org.json.JSONObject;
 public class as extends BdAsyncTask<Object, Integer, JSONObject> {
     final /* synthetic */ ar a;
     private int b;
-    private com.baidu.tieba.util.an c = null;
+    private com.baidu.tieba.util.at c = null;
 
     public as(ar arVar, int i) {
         this.a = arVar;
@@ -30,16 +30,16 @@ public class as extends BdAsyncTask<Object, Integer, JSONObject> {
         String str2;
         String str3;
         try {
-            this.c = new com.baidu.tieba.util.an(com.baidu.tieba.data.h.a + "c/f/frs/photolist");
+            this.c = new com.baidu.tieba.util.at(com.baidu.tieba.data.h.a + "c/f/frs/photolist");
             str = this.a.i;
             if (str != null) {
-                com.baidu.tieba.util.an anVar = this.c;
+                com.baidu.tieba.util.at atVar = this.c;
                 str3 = this.a.i;
-                anVar.a("st_type", str3);
+                atVar.a("st_type", str3);
             }
-            com.baidu.tieba.util.an anVar2 = this.c;
+            com.baidu.tieba.util.at atVar2 = this.c;
             str2 = this.a.j;
-            anVar2.a("kw", str2);
+            atVar2.a("kw", str2);
             this.c.a("bs", String.valueOf(this.b));
             this.c.a("be", String.valueOf((this.b + 240) - 1));
             this.c.a("an", String.valueOf(30));
@@ -51,7 +51,7 @@ public class as extends BdAsyncTask<Object, Integer, JSONObject> {
                 }
             } catch (Exception e2) {
                 e = e2;
-                com.baidu.tieba.util.be.b(getClass().getName(), "doInBackground", e.getMessage());
+                com.baidu.tieba.util.bo.b(getClass().getName(), "doInBackground", e.getMessage());
                 return jSONObject;
             }
         } catch (Exception e3) {

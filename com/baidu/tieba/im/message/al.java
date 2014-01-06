@@ -1,14 +1,15 @@
 package com.baidu.tieba.im.message;
 
 import com.google.protobuf.MessageLite;
-import protobuf.ReportGroup.ReportGroupReq;
+import protobuf.QueryGroupLocation.QueryGroupLocationReq;
 /* loaded from: classes.dex */
-public class al extends n implements com.baidu.tieba.im.coder.g {
+public class al extends o implements com.baidu.tieba.im.coder.g {
     private int a;
-    private int b;
+    private String b;
+    private String c;
 
     public al() {
-        e(103103);
+        e(103010);
     }
 
     public int b() {
@@ -19,16 +20,24 @@ public class al extends n implements com.baidu.tieba.im.coder.g {
         this.a = i;
     }
 
-    public int c() {
+    public String c() {
         return this.b;
     }
 
-    public void b(int i) {
-        this.b = i;
+    public void a(String str) {
+        this.b = str;
+    }
+
+    public String d() {
+        return this.c;
+    }
+
+    public void b(String str) {
+        this.c = str;
     }
 
     @Override // com.baidu.tieba.im.coder.g
     public MessageLite a() {
-        return ReportGroupReq.ReportGroupReqIdl.newBuilder().a(ReportGroupReq.DataReq.newBuilder().a(b()).b(c()).build()).build();
+        return QueryGroupLocationReq.QueryGroupLocationReqIdl.newBuilder().a(QueryGroupLocationReq.DataReq.newBuilder().a(b()).b(Double.parseDouble(d())).a(Double.parseDouble(c())).build()).build();
     }
 }

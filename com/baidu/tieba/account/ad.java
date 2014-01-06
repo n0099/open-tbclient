@@ -8,7 +8,7 @@ import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class ad extends BdAsyncTask<String, Integer, com.baidu.tieba.data.d> {
     final /* synthetic */ x a;
-    private com.baidu.tieba.util.an b = null;
+    private com.baidu.tieba.util.at b = null;
     private String c;
     private String d;
 
@@ -36,7 +36,7 @@ public class ad extends BdAsyncTask<String, Integer, com.baidu.tieba.data.d> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public com.baidu.tieba.data.d a(String... strArr) {
-        this.b = new com.baidu.tieba.util.an(this.c);
+        this.b = new com.baidu.tieba.util.at(this.c);
         this.b.a("un", this.d);
         String l = this.b.l();
         if (!this.b.d() || this.b.e() != 36) {

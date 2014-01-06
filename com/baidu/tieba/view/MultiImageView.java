@@ -19,9 +19,9 @@ public class MultiImageView extends RelativeLayout {
     private GalleryViewPager e;
     private android.support.v4.view.bq f;
     private android.support.v4.view.bq g;
-    private q h;
+    private v h;
     private ImagePagerAdapter i;
-    private p j;
+    private u j;
     private int k;
     private boolean l;
     private boolean m;
@@ -48,9 +48,9 @@ public class MultiImageView extends RelativeLayout {
         f();
     }
 
-    public void setOnScrollOutListener(a aVar) {
+    public void setOnScrollOutListener(e eVar) {
         if (this.e != null) {
-            this.e.setOnFlipOutListener(aVar);
+            this.e.setOnFlipOutListener(eVar);
         }
     }
 
@@ -101,10 +101,10 @@ public class MultiImageView extends RelativeLayout {
     }
 
     private void g() {
-        this.d = new ar(this);
-        this.f = new as(this);
-        this.h = new at(this);
-        this.j = new au(this);
+        this.d = new ax(this);
+        this.f = new ay(this);
+        this.h = new az(this);
+        this.j = new ba(this);
     }
 
     public void a() {
@@ -113,14 +113,14 @@ public class MultiImageView extends RelativeLayout {
                 int childCount = this.e.getChildCount();
                 for (int i = 0; i < childCount; i++) {
                     View childAt = this.e.getChildAt(i);
-                    if (childAt != null && (childAt instanceof bu) && ((bu) childAt).getImageView() != this.e.getCurrentView()) {
-                        ((bu) childAt).d();
+                    if (childAt != null && (childAt instanceof ca) && ((ca) childAt).getImageView() != this.e.getCurrentView()) {
+                        ((ca) childAt).d();
                     }
                 }
             }
             View findViewWithTag = this.e.findViewWithTag(String.valueOf(this.e.getCurrentItem()));
-            if (findViewWithTag != null && (findViewWithTag instanceof bu)) {
-                ((bu) findViewWithTag).a(this.o);
+            if (findViewWithTag != null && (findViewWithTag instanceof ca)) {
+                ((ca) findViewWithTag).a(this.o);
             }
             this.e.getCurrentView().e();
         }
@@ -137,8 +137,8 @@ public class MultiImageView extends RelativeLayout {
             int childCount = this.e.getChildCount();
             for (int i = 0; i < childCount; i++) {
                 View childAt = this.e.getChildAt(i);
-                if (childAt != null && (childAt instanceof bu)) {
-                    ((bu) childAt).c();
+                if (childAt != null && (childAt instanceof ca)) {
+                    ((ca) childAt).c();
                 }
             }
         }
@@ -189,14 +189,14 @@ public class MultiImageView extends RelativeLayout {
         return this.e.getCurrentItem();
     }
 
-    public void setZoomButton(l lVar) {
-        if (lVar != null) {
-            if (lVar.p()) {
+    public void setZoomButton(q qVar) {
+        if (qVar != null) {
+            if (qVar.p()) {
                 this.a.setEnabled(true);
             } else {
                 this.a.setEnabled(false);
             }
-            if (lVar.q()) {
+            if (qVar.q()) {
                 this.b.setEnabled(true);
                 return;
             } else {
@@ -221,7 +221,7 @@ public class MultiImageView extends RelativeLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public l getCurrentImageView() {
+    public q getCurrentImageView() {
         return this.e.getCurrentView();
     }
 
@@ -291,7 +291,7 @@ public class MultiImageView extends RelativeLayout {
     }
 
     public byte[] getCurrentImageData() {
-        l selectedView = this.e.getSelectedView();
+        q selectedView = this.e.getSelectedView();
         if (selectedView == null) {
             return null;
         }
@@ -299,7 +299,7 @@ public class MultiImageView extends RelativeLayout {
     }
 
     public String getCurrentImageUrl() {
-        l selectedView = this.e.getSelectedView();
+        q selectedView = this.e.getSelectedView();
         if (!(selectedView.getTag() instanceof String)) {
             return null;
         }

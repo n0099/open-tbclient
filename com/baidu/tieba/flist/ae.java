@@ -6,7 +6,7 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.util.al;
+import com.baidu.tieba.util.ar;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
@@ -39,7 +39,7 @@ class ae extends com.baidu.adp.a.g {
         TbImageView tbImageView3;
         BdListView bdListView4;
         TbImageView tbImageView4;
-        al alVar;
+        ar arVar;
         this.a.hideProgressBar();
         bdListView = this.a.a;
         bdListView.a();
@@ -51,8 +51,8 @@ class ae extends com.baidu.adp.a.g {
                     if (z) {
                         bdListView4 = this.a.a;
                         tbImageView4 = this.a.e;
-                        alVar = this.a.p;
-                        bdListView4.addHeaderView(tbImageView4, alVar, false);
+                        arVar = this.a.p;
+                        bdListView4.addHeaderView(tbImageView4, arVar, false);
                         this.a.n = false;
                     }
                     tbImageView = this.a.e;

@@ -2,14 +2,14 @@ package com.baidu.tieba.topRec;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.gson.GsonBuilder;
-import com.baidu.tieba.util.an;
-import com.baidu.tieba.util.be;
+import com.baidu.tieba.util.at;
+import com.baidu.tieba.util.bo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n extends BdAsyncTask<Object, Integer, TRForumListData> {
     TRForumListData a;
     final /* synthetic */ l b;
-    private an c;
+    private at c;
 
     private n(l lVar) {
         this.b = lVar;
@@ -24,12 +24,12 @@ public class n extends BdAsyncTask<Object, Integer, TRForumListData> {
     public TRForumListData a(Object... objArr) {
         String l;
         try {
-            this.c = new an(com.baidu.tieba.data.h.a + "c/f/forum/random_recommend_forum");
+            this.c = new at(com.baidu.tieba.data.h.a + "c/f/forum/random_recommend_forum");
             this.c.a("rn", "100");
             l = this.c.l();
-            be.e("TopRecModel", "doInBackground", l);
+            bo.e("TopRecModel", "doInBackground", l);
         } catch (Exception e) {
-            be.b(getClass().getName(), "doInBackground", e.getMessage());
+            bo.b(getClass().getName(), "doInBackground", e.getMessage());
         }
         if (l == null) {
             return null;
@@ -39,7 +39,7 @@ public class n extends BdAsyncTask<Object, Integer, TRForumListData> {
         } else {
             this.a = (TRForumListData) new GsonBuilder().create().fromJson(l, (Class<Object>) TRForumListData.class);
             this.b.c = true;
-            be.c(this.a.toString());
+            bo.c(this.a.toString());
         }
         return this.a;
     }
@@ -52,7 +52,7 @@ public class n extends BdAsyncTask<Object, Integer, TRForumListData> {
         boolean z2;
         super.a((n) tRForumListData);
         if (tRForumListData != null) {
-            be.c(tRForumListData.toString());
+            bo.c(tRForumListData.toString());
             if (tRForumListData.error_code == 0 && tRForumListData.error != null) {
                 o oVar = this.b.b;
                 z2 = this.b.c;

@@ -13,9 +13,9 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.bb;
-import com.baidu.tieba.util.bc;
-import com.baidu.tieba.util.be;
+import com.baidu.tieba.util.bl;
+import com.baidu.tieba.util.bm;
+import com.baidu.tieba.util.bo;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
@@ -48,7 +48,7 @@ public class f extends BaseAdapter {
                     try {
                         this.j.get(i2).setVisibility(8);
                     } catch (Exception e) {
-                        be.b(getClass().getName(), "releaseProgressBar", e.getMessage());
+                        bo.b(getClass().getName(), "releaseProgressBar", e.getMessage());
                     }
                     i = i2 + 1;
                 } else {
@@ -61,7 +61,7 @@ public class f extends BaseAdapter {
 
     public void a(ArrayList<com.baidu.tieba.data.u> arrayList, boolean z) {
         if (!z) {
-            this.k = new boolean[Math.min(100, t.a().b(this.h))];
+            this.k = new boolean[Math.min(100, s.a().g(this.h))];
         }
         this.b = arrayList;
     }
@@ -158,7 +158,7 @@ public class f extends BaseAdapter {
         if (this.b == null) {
             return view;
         }
-        int an = TiebaApplication.h().an();
+        int an = TiebaApplication.g().an();
         try {
             if (view == null) {
                 LayoutInflater from = LayoutInflater.from(this.a);
@@ -200,7 +200,7 @@ public class f extends BaseAdapter {
         } catch (Exception e2) {
             view2 = view3;
             exc = e2;
-            be.b(getClass().getName(), "", "ReplymeAdapter.getView error = " + exc.getMessage());
+            bo.b(getClass().getName(), "", "ReplymeAdapter.getView error = " + exc.getMessage());
             return view2;
         }
         if (getItemViewType(i) == 1) {
@@ -224,25 +224,25 @@ public class f extends BaseAdapter {
             }
             if (an == 1) {
                 if (iVar.a != null) {
-                    bb.e((View) iVar.a, (int) R.drawable.btn_w_square_1);
+                    bl.e((View) iVar.a, (int) R.drawable.btn_w_square_1);
                     iVar.a.setTextColor(-8682095);
                     return view4;
                 }
                 return view4;
             }
-            bb.e((View) iVar.a, (int) R.drawable.btn_w_square);
+            bl.e((View) iVar.a, (int) R.drawable.btn_w_square);
             iVar.a.setTextColor(-14277082);
             return view4;
         }
         if (an == 1) {
-            bb.e(view4, (int) R.drawable.list_selector_1);
+            bl.e(view4, (int) R.drawable.list_selector_1);
         } else {
-            bb.e(view4, (int) R.drawable.list_selector);
+            bl.e(view4, (int) R.drawable.list_selector);
         }
         com.baidu.tieba.data.u uVar = (com.baidu.tieba.data.u) getItem(i);
         if (uVar != null) {
             iVar.e.setText(uVar.i().getName_show());
-            iVar.f.setText(bc.b(uVar.b()));
+            iVar.f.setText(bm.b(uVar.b()));
             iVar.g.setText(uVar.e());
             if (this.h == 1) {
                 if (uVar.a() == 1) {
@@ -254,7 +254,7 @@ public class f extends BaseAdapter {
                 }
                 if (uVar.d() != null && uVar.d().length() > 0) {
                     iVar.i.setVisibility(0);
-                    iVar.i.setText(this.a.getString(R.string.reply_from) + bc.a(uVar.d(), 12).concat(this.d));
+                    iVar.i.setText(this.a.getString(R.string.reply_from) + bm.a(uVar.d(), 12).concat(this.d));
                 } else {
                     iVar.i.setVisibility(8);
                 }
@@ -263,7 +263,7 @@ public class f extends BaseAdapter {
             String portrait = uVar.i().getPortrait();
             iVar.d.setTag(null);
             if (portrait != null && portrait.length() > 0) {
-                com.baidu.adp.widget.ImageView.e c = this.c.c(portrait);
+                com.baidu.adp.widget.ImageView.d c = this.c.c(portrait);
                 if (c != null) {
                     c.a(iVar.d);
                 } else {

@@ -75,7 +75,7 @@ public class aa extends BaseAdapter {
             view = a(i, itemViewType);
         }
         ac acVar = (ac) view.getTag();
-        int an = TiebaApplication.h().an();
+        int an = TiebaApplication.g().an();
         int count = getCount();
         BaseFragmentActivity baseFragmentActivity = (BaseFragmentActivity) this.b;
         baseFragmentActivity.a().a(an == 1);
@@ -133,9 +133,9 @@ public class aa extends BaseAdapter {
             inflate.setTag(acVar);
             return inflate;
         } else if (i2 == 1) {
-            com.baidu.tieba.view.r rVar = new com.baidu.tieba.view.r(this.b);
-            rVar.setHeightPx(this.b.getResources().getDimensionPixelSize(R.dimen.square_forum_list_paddingBottom));
-            return rVar;
+            com.baidu.tieba.view.w wVar = new com.baidu.tieba.view.w(this.b);
+            wVar.setHeightPx(this.b.getResources().getDimensionPixelSize(R.dimen.square_forum_list_paddingBottom));
+            return wVar;
         } else {
             return null;
         }

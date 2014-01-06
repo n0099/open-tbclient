@@ -14,12 +14,12 @@ class az implements com.baidu.adp.widget.ListView.b {
     @Override // com.baidu.adp.widget.ListView.b
     public void a(boolean z) {
         com.baidu.tieba.model.bm bmVar;
-        cr crVar;
-        bmVar = this.a.r;
+        cs csVar;
+        bmVar = this.a.t;
         if (!bmVar.b(true)) {
-            crVar = this.a.x;
-            crVar.s();
-        } else if (TiebaApplication.h().t()) {
+            csVar = this.a.z;
+            csVar.t();
+        } else if (TiebaApplication.g().s()) {
             StatService.onEvent(this.a, "pb_pulldown", "pbclick", 1);
         }
     }

@@ -19,7 +19,7 @@ public class l implements com.baidu.tieba.im.a<Void> {
         List list;
         RecentChatFriendData recentChatFriendData;
         List list2;
-        list = this.a.c.b;
+        list = this.a.d.b;
         Iterator it = list.iterator();
         while (true) {
             if (!it.hasNext()) {
@@ -32,10 +32,10 @@ public class l implements com.baidu.tieba.im.a<Void> {
             }
         }
         if (recentChatFriendData != null) {
-            list2 = this.a.c.b;
+            list2 = this.a.d.b;
             list2.remove(recentChatFriendData);
         }
         com.baidu.tieba.im.c.a.h().b(this.a.a);
-        com.baidu.tieba.im.c.a.h().b(false, this.a.b);
+        com.baidu.tieba.im.c.a.h().b(false, this.a.c);
     }
 }

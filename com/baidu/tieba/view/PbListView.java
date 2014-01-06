@@ -57,7 +57,7 @@ public class PbListView extends com.baidu.adp.widget.ListView.c {
     public void c() {
         this.c.setVisibility(0);
         this.b.setText(this.a.getText(R.string.loading));
-        d(TiebaApplication.h().an());
+        d(TiebaApplication.g().an());
     }
 
     public void d() {
@@ -67,7 +67,7 @@ public class PbListView extends com.baidu.adp.widget.ListView.c {
         } else {
             this.b.setText(this.a.getText(R.string.pb_load_more));
         }
-        d(TiebaApplication.h().an());
+        d(TiebaApplication.g().an());
     }
 
     public void a(int i) {
@@ -83,7 +83,7 @@ public class PbListView extends com.baidu.adp.widget.ListView.c {
     public void a(String str) {
         this.f = str;
         this.b.setText(str);
-        d(TiebaApplication.h().an());
+        d(TiebaApplication.g().an());
     }
 
     public void c(int i) {

@@ -8,13 +8,13 @@ import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.mobstat.StatService;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.account.av;
-import com.baidu.tieba.ao;
+import com.baidu.tieba.ap;
 import com.baidu.tieba.data.chat.RecentChatFriendData;
 import com.baidu.tieba.im.chat.GroupChatActivity;
 import com.baidu.tieba.im.chat.PersonalChatActivity;
 import com.baidu.tieba.im.groupUpdates.UpdatesActivity;
 import com.baidu.tieba.im.validate.ValidateActivity;
-import com.baidu.tieba.mention.t;
+import com.baidu.tieba.mention.s;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements AdapterView.OnItemClickListener {
@@ -40,7 +40,7 @@ public class h implements AdapterView.OnItemClickListener {
         int i3;
         int i4;
         if (i >= 0) {
-            aVar = this.a.Z;
+            aVar = this.a.Y;
             long itemId = aVar.getItemId(i);
             if (itemId == -1) {
                 i3 = this.a.d;
@@ -51,9 +51,9 @@ public class h implements AdapterView.OnItemClickListener {
                     chatListFragment.b(i4, 2);
                 }
             } else if (itemId != -2) {
-                aVar2 = this.a.Z;
+                aVar2 = this.a.Y;
                 RecentChatFriendData recentChatFriendData = (RecentChatFriendData) aVar2.getItem(i);
-                if (TiebaApplication.h().t()) {
+                if (TiebaApplication.g().s()) {
                     activity5 = this.a.c;
                     StatService.onEvent(activity5, "list_to_chat", "chatlistclick", 1);
                 }
@@ -64,9 +64,9 @@ public class h implements AdapterView.OnItemClickListener {
                         return;
                     } else if (ownerName.equals(SocialConstants.TRUE)) {
                         com.baidu.tieba.im.c.a h = com.baidu.tieba.im.c.a.h();
-                        aVar4 = this.a.aj;
+                        aVar4 = this.a.ai;
                         h.b(false, aVar4);
-                        if (TiebaApplication.h().t()) {
+                        if (TiebaApplication.g().s()) {
                             activity4 = this.a.c;
                             StatService.onEvent(activity4, "chat_list_to_group", "click", 1);
                         }
@@ -75,19 +75,19 @@ public class h implements AdapterView.OnItemClickListener {
                         return;
                     } else if (recentChatFriendData.getOwnerName().equals("2")) {
                         a(recentChatFriendData);
-                        if (t.a().u() != null) {
-                            t.a().u().d(0L);
+                        if (s.a().u() != null) {
+                            s.a().u().d(0);
                         }
                         com.baidu.tieba.im.c.a h2 = com.baidu.tieba.im.c.a.h();
-                        aVar3 = this.a.aj;
+                        aVar3 = this.a.ai;
                         h2.b(false, aVar3);
                         activity2 = this.a.c;
                         ValidateActivity.a(activity2);
                         return;
                     } else if (recentChatFriendData.getOwnerName().equals("3")) {
                         a(recentChatFriendData);
-                        if (t.a().u() != null) {
-                            t.a().u().b(0L);
+                        if (s.a().u() != null) {
+                            s.a().u().b(0);
                         }
                         activity = this.a.c;
                         UpdatesActivity.a(activity);
@@ -115,14 +115,14 @@ public class h implements AdapterView.OnItemClickListener {
         Activity activity;
         Activity activity2;
         if (recentChatFriendData.getUnReadCount() > 0) {
-            t.a().d(t.a().p() - recentChatFriendData.getUnReadCount());
-            t.a().j();
+            s.a().e(s.a().p() - recentChatFriendData.getUnReadCount());
+            s.a().j();
             recentChatFriendData.setUnReadCount(0);
         }
         try {
             long parseLong = Long.parseLong(recentChatFriendData.getFriendId());
             activity = this.a.c;
-            ao.a(activity, "tab_msg_personal_chat_click");
+            ap.a(activity, "tab_msg_personal_chat_click");
             new av("pchat", SocialConstants.TRUE).start();
             activity2 = this.a.c;
             PersonalChatActivity.a(activity2, parseLong, recentChatFriendData.getFriendName(), recentChatFriendData.getFriendPortrait(), 0, null);

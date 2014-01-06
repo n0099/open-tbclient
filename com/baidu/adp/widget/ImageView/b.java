@@ -1,17 +1,38 @@
 package com.baidu.adp.widget.ImageView;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import android.widget.ImageView;
 /* loaded from: classes.dex */
-public class b extends com.baidu.adp.lib.e.b {
-    final /* synthetic */ a a;
+/* synthetic */ class b {
+    static final /* synthetic */ int[] a = new int[ImageView.ScaleType.values().length];
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public b(a aVar) {
-        this.a = aVar;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.e.b
-    public void a(Object obj, String str, com.baidu.adp.lib.e.f fVar) {
-        this.a.invalidate();
+    static {
+        try {
+            a[ImageView.ScaleType.FIT_XY.ordinal()] = 1;
+        } catch (NoSuchFieldError e) {
+        }
+        try {
+            a[ImageView.ScaleType.FIT_START.ordinal()] = 2;
+        } catch (NoSuchFieldError e2) {
+        }
+        try {
+            a[ImageView.ScaleType.FIT_CENTER.ordinal()] = 3;
+        } catch (NoSuchFieldError e3) {
+        }
+        try {
+            a[ImageView.ScaleType.FIT_END.ordinal()] = 4;
+        } catch (NoSuchFieldError e4) {
+        }
+        try {
+            a[ImageView.ScaleType.CENTER.ordinal()] = 5;
+        } catch (NoSuchFieldError e5) {
+        }
+        try {
+            a[ImageView.ScaleType.CENTER_CROP.ordinal()] = 6;
+        } catch (NoSuchFieldError e6) {
+        }
+        try {
+            a[ImageView.ScaleType.CENTER_INSIDE.ordinal()] = 7;
+        } catch (NoSuchFieldError e7) {
+        }
     }
 }

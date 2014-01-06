@@ -6,9 +6,9 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class bj {
-    private com.baidu.tieba.data.aj c = new com.baidu.tieba.data.aj();
+    private com.baidu.tieba.data.ak c = new com.baidu.tieba.data.ak();
     private ArrayList<com.baidu.tieba.data.u> a = new ArrayList<>();
-    private com.baidu.tieba.data.am b = new com.baidu.tieba.data.am();
+    private com.baidu.tieba.data.an b = new com.baidu.tieba.data.an();
     private boolean d = true;
 
     public boolean a() {
@@ -23,7 +23,7 @@ public class bj {
         return this.a;
     }
 
-    public com.baidu.tieba.data.am c() {
+    public com.baidu.tieba.data.an c() {
         return this.b;
     }
 
@@ -32,7 +32,7 @@ public class bj {
             a(new JSONObject(str));
         } catch (Exception e) {
             this.d = false;
-            com.baidu.tieba.util.be.b("MentionModel", "parserJson", "error = " + e.getMessage());
+            com.baidu.tieba.util.bo.b("MentionModel", "parserJson", "error = " + e.getMessage());
         }
     }
 
@@ -51,7 +51,7 @@ public class bj {
             this.b.a(jSONObject.optJSONObject("page"));
         } catch (Exception e) {
             this.d = false;
-            com.baidu.tieba.util.be.b("MentionModel", "parserJson", "error = " + e.getMessage());
+            com.baidu.tieba.util.bo.b("MentionModel", "parserJson", "error = " + e.getMessage());
         }
     }
 }

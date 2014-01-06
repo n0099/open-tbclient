@@ -10,16 +10,16 @@ import android.widget.LinearLayout;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.BaseFragment;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.ap;
-import com.baidu.tieba.util.be;
-import com.baidu.tieba.view.bq;
+import com.baidu.tieba.aq;
+import com.baidu.tieba.util.bo;
+import com.baidu.tieba.view.bw;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class AtMeFragment extends BaseFragment implements com.baidu.adp.widget.ListView.b {
-    private bq c;
+    private bw c;
     private LinearLayout d;
-    private com.baidu.tieba.home.n e;
-    private ap f;
+    private com.baidu.tieba.home.o e;
+    private aq f;
     private int g;
     private j a = null;
     private BdListView b = null;
@@ -29,12 +29,12 @@ public class AtMeFragment extends BaseFragment implements com.baidu.adp.widget.L
     public View a(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         this.g = -1;
         View inflate = layoutInflater.inflate(R.layout.at_me_activity, viewGroup, false);
-        this.c = new bq(i());
+        this.c = new bw(i());
         this.c.a(this);
         this.b = (BdListView) inflate.findViewById(R.id.atme_lv);
         this.b.setPullRefresh(this.c);
         this.d = (LinearLayout) inflate.findViewById(R.id.bodyNotLogin);
-        this.f = new ap(inflate, (int) R.drawable.individual_center_news, (int) R.drawable.individual_center_news_1);
+        this.f = new aq(inflate, (int) R.drawable.individual_center_news, (int) R.drawable.individual_center_news_1);
         this.a = new j(this, 2, new a(this));
         this.a.a(this.b);
         this.a.a(this.f);
@@ -92,7 +92,7 @@ public class AtMeFragment extends BaseFragment implements com.baidu.adp.widget.L
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
     public void r() {
         super.r();
-        if (TiebaApplication.C()) {
+        if (TiebaApplication.B()) {
             this.b.setVisibility(0);
             this.d.setVisibility(8);
             if (this.h) {
@@ -102,17 +102,7 @@ public class AtMeFragment extends BaseFragment implements com.baidu.adp.widget.L
             this.a.e();
             return;
         }
-        if (this.e == null) {
-            this.e = new com.baidu.tieba.home.n(i(), a(R.string.login_msg_tab), a(R.string.login_msg_form), 3);
-            this.d.addView(this.e.e());
-            this.e.b(TiebaApplication.h().an());
-        } else {
-            ((ViewGroup) this.e.e().getParent()).removeAllViews();
-            this.d.addView(this.e.e());
-            this.e.b(TiebaApplication.h().an());
-        }
-        this.b.setVisibility(8);
-        this.d.setVisibility(0);
+        H();
     }
 
     public void a() {
@@ -121,13 +111,33 @@ public class AtMeFragment extends BaseFragment implements com.baidu.adp.widget.L
             return;
         }
         this.h = false;
-        if (t.a().n() > 0) {
-            this.a.a(2);
-        } else {
-            this.a.a(1);
+        if (TiebaApplication.B()) {
+            this.b.setVisibility(0);
+            this.d.setVisibility(8);
+            if (s.a().n() > 0) {
+                this.a.a(2);
+            } else {
+                this.a.a(1);
+            }
+            this.a.d();
+            this.a.e();
+            return;
         }
-        this.a.d();
-        this.a.e();
+        H();
+    }
+
+    private void H() {
+        if (this.e == null) {
+            this.e = new com.baidu.tieba.home.o(i(), a(R.string.login_msg_tab), a(R.string.login_msg_form), 3);
+            this.d.addView(this.e.e());
+            this.e.b(TiebaApplication.g().an());
+        } else {
+            ((ViewGroup) this.e.e().getParent()).removeAllViews();
+            this.d.addView(this.e.e());
+            this.e.b(TiebaApplication.g().an());
+        }
+        this.b.setVisibility(8);
+        this.d.setVisibility(0);
     }
 
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
@@ -140,7 +150,7 @@ public class AtMeFragment extends BaseFragment implements com.baidu.adp.widget.L
             }
             System.gc();
         } catch (Exception e) {
-            be.b(getClass().getName(), "onDestroy", e.toString());
+            bo.b(getClass().getName(), "onDestroy", e.toString());
         }
     }
 

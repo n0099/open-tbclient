@@ -7,11 +7,12 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tieba.data.WriteData;
+import com.baidu.tieba.data.bf;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r extends BdAsyncTask<String, Integer, Bitmap> {
-    volatile com.baidu.tieba.util.an a;
-    com.baidu.tieba.data.bd b;
+    volatile com.baidu.tieba.util.at a;
+    bf b;
     final /* synthetic */ VcodeActivity c;
     private volatile boolean d;
 
@@ -52,41 +53,41 @@ public class r extends BdAsyncTask<String, Integer, Bitmap> {
         WriteData writeData6;
         String str = strArr[0];
         if (str == null || str.length() <= 0) {
-            this.a = new com.baidu.tieba.util.an(com.baidu.tieba.data.h.a + "c/f/anti/vcode");
-            com.baidu.tieba.util.an anVar = this.a;
+            this.a = new com.baidu.tieba.util.at(com.baidu.tieba.data.h.a + "c/f/anti/vcode");
+            com.baidu.tieba.util.at atVar = this.a;
             writeData = this.c.b;
-            anVar.a("fid", writeData.getForumId());
-            com.baidu.tieba.util.an anVar2 = this.a;
+            atVar.a("fid", writeData.getForumId());
+            com.baidu.tieba.util.at atVar2 = this.a;
             writeData2 = this.c.b;
-            anVar2.a("kw", writeData2.getForumName());
+            atVar2.a("kw", writeData2.getForumName());
             this.a.a("new_vcode", SocialConstants.TRUE);
-            com.baidu.tieba.util.an anVar3 = this.a;
+            com.baidu.tieba.util.at atVar3 = this.a;
             writeData3 = this.c.b;
-            anVar3.a("title", writeData3.getTitle());
-            com.baidu.tieba.util.an anVar4 = this.a;
+            atVar3.a("title", writeData3.getTitle());
+            com.baidu.tieba.util.at atVar4 = this.a;
             writeData4 = this.c.b;
-            anVar4.a(PushConstants.EXTRA_CONTENT, writeData4.getContent());
+            atVar4.a(PushConstants.EXTRA_CONTENT, writeData4.getContent());
             writeData5 = this.c.b;
             if (writeData5.getType() == 0) {
                 this.a.a("pub_type", SocialConstants.TRUE);
             } else {
                 this.a.a("pub_type", "2");
-                com.baidu.tieba.util.an anVar5 = this.a;
+                com.baidu.tieba.util.at atVar5 = this.a;
                 writeData6 = this.c.b;
-                anVar5.a("tid", writeData6.getThreadId());
+                atVar5.a("tid", writeData6.getThreadId());
             }
             String l = this.a.l();
             if (!this.a.c()) {
                 return null;
             }
-            this.b = new com.baidu.tieba.data.bd();
+            this.b = new bf();
             this.b.a(l);
             str = this.b.b();
         }
         if (this.d) {
             return null;
         }
-        this.a = new com.baidu.tieba.util.an(str);
+        this.a = new com.baidu.tieba.util.at(str);
         return com.baidu.tieba.util.m.a(this.a.k());
     }
 

@@ -14,7 +14,7 @@ public class n implements com.baidu.tbadk.imageManager.c {
     }
 
     @Override // com.baidu.tbadk.imageManager.c
-    public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
+    public void a(com.baidu.adp.widget.ImageView.d dVar, String str, boolean z) {
         View findViewWithTag;
         if (this.a != null && (findViewWithTag = this.a.findViewWithTag(str)) != null) {
             findViewWithTag.invalidate();

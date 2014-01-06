@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.model;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.util.be;
+import com.baidu.tieba.util.bo;
 import org.apache.http.message.BasicNameValuePair;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -27,7 +27,7 @@ public class ao extends BdAsyncTask<Object, Integer, String> {
             return this.d.a(this.b);
         } catch (Exception e) {
             str = an.a;
-            be.b(str, "doInBackground", "errro: " + e.getMessage());
+            bo.b(str, "doInBackground", "errro: " + e.getMessage());
             return null;
         }
     }

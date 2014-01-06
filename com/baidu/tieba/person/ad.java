@@ -1,18 +1,22 @@
 package com.baidu.tieba.person;
-
-import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ad implements View.OnClickListener {
-    final /* synthetic */ MyPostActivity a;
+public class ad implements com.baidu.tieba.im.messageCenter.g {
+    final /* synthetic */ MoreDiscoveryActivity a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ad(MyPostActivity myPostActivity) {
-        this.a = myPostActivity;
+    private ad(MoreDiscoveryActivity moreDiscoveryActivity) {
+        this.a = moreDiscoveryActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.a.c();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ ad(MoreDiscoveryActivity moreDiscoveryActivity, ac acVar) {
+        this(moreDiscoveryActivity);
+    }
+
+    @Override // com.baidu.tieba.im.messageCenter.g
+    public void a(com.baidu.tieba.im.message.o oVar) {
+        if (oVar != null && oVar.u() == -124) {
+            this.a.a(oVar);
+        }
     }
 }

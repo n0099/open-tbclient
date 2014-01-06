@@ -105,7 +105,7 @@ public class a extends BaseAdapter {
             }
             a(bVar.l, groupInfoData.getGrade());
         }
-        ((BaseFragmentActivity) this.a.i()).a().a(TiebaApplication.h().an() == 1);
+        ((BaseFragmentActivity) this.a.i()).a().a(TiebaApplication.g().an() == 1);
         ((BaseFragmentActivity) this.a.i()).a().a(view);
         return view;
     }

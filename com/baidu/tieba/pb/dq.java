@@ -1,22 +1,18 @@
 package com.baidu.tieba.pb;
 
-import com.baidu.adp.widget.ListView.BdListView;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dq implements Runnable {
-    final /* synthetic */ boolean a;
-    final /* synthetic */ cr b;
+public class dq implements View.OnLongClickListener {
+    final /* synthetic */ cs a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public dq(cr crVar, boolean z) {
-        this.b = crVar;
-        this.a = z;
+    public dq(cs csVar) {
+        this.a = csVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        BdListView bdListView;
-        bdListView = this.b.i;
-        bdListView.setEnabled(this.a);
+    @Override // android.view.View.OnLongClickListener
+    public boolean onLongClick(View view) {
+        return false;
     }
 }

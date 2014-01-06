@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.searchGroup;
 
-import com.baidu.tieba.im.message.bv;
-import com.baidu.tieba.im.message.n;
+import com.baidu.tieba.im.message.by;
+import com.baidu.tieba.im.message.o;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 class d implements com.baidu.tieba.im.messageCenter.g {
@@ -13,21 +13,21 @@ class d implements com.baidu.tieba.im.messageCenter.g {
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(n nVar) {
+    public void a(o oVar) {
         g gVar;
         g gVar2;
         g gVar3;
         gVar = this.a.b;
         gVar.b();
-        if (nVar == null) {
+        if (oVar == null) {
             this.a.showToast(R.string.neterror);
-        } else if (nVar.t() == 103007) {
+        } else if (oVar.u() == 103007) {
             try {
-                if (nVar instanceof bv) {
-                    bv bvVar = (bv) nVar;
-                    if (!bvVar.i()) {
+                if (oVar instanceof by) {
+                    by byVar = (by) oVar;
+                    if (!byVar.i()) {
                         gVar3 = this.a.b;
-                        gVar3.a(bvVar);
+                        gVar3.a(byVar);
                         this.a.a();
                     }
                     gVar2 = this.a.b;

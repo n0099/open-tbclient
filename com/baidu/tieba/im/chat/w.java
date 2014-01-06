@@ -1,8 +1,6 @@
 package com.baidu.tieba.im.chat;
-
-import com.baidu.tieba.im.SingleRunnable;
 /* loaded from: classes.dex */
-class w extends SingleRunnable<Void> {
+class w implements com.baidu.tieba.im.a<Void> {
     final /* synthetic */ GroupSettingActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,12 +9,12 @@ class w extends SingleRunnable<Void> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.SingleRunnable
-    /* renamed from: a */
-    public Void b() {
-        aa aaVar;
-        aaVar = this.a.b;
-        com.baidu.tieba.im.db.a.a(aaVar.c());
-        return null;
+    @Override // com.baidu.tieba.im.a
+    public void a(Void r4) {
+        z zVar;
+        zVar = this.a.b;
+        com.baidu.tieba.im.db.a.b(zVar.c());
+        com.baidu.tieba.im.c.a.h().b(false, (com.baidu.tieba.im.a<Void>) null);
+        this.a.finish();
     }
 }

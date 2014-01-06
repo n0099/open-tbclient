@@ -1,29 +1,13 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.util.UtilHelper;
+import com.baidu.tieba.im.SingleRunnable;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bh extends BdAsyncTask<String, Integer, String> {
-    private bh() {
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ bh(ay ayVar) {
-        this();
-    }
-
+public final class bh extends SingleRunnable<Void> {
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public String a(String... strArr) {
-        byte[] bArr;
-        byte[] bArr2;
-        bArr = TiebaApplication.az;
-        synchronized (bArr) {
-            Boolean unused = TiebaApplication.aA = Boolean.valueOf(UtilHelper.a());
-            bArr2 = TiebaApplication.az;
-            bArr2.notifyAll();
-        }
+    @Override // com.baidu.tieba.im.SingleRunnable
+    /* renamed from: a */
+    public Void b() {
         return null;
     }
 }

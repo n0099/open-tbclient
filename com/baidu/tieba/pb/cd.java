@@ -1,20 +1,22 @@
 package com.baidu.tieba.pb;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+import com.baidu.adp.widget.ColumnLayout;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.tieba.view.HeadImageView;
 /* loaded from: classes.dex */
-public class cd implements com.baidu.tieba.editortool.o {
-    final /* synthetic */ PbEditor a;
+public class cd {
+    public View a;
+    public ColumnLayout b;
+    public HeadImageView c;
+    public TextView d;
+    public Button e;
+    public TbRichTextView f;
+    final /* synthetic */ cc g;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public cd(PbEditor pbEditor) {
-        this.a = pbEditor;
-    }
-
-    @Override // com.baidu.tieba.editortool.o
-    public void a() {
-        this.a.f();
-    }
-
-    @Override // com.baidu.tieba.editortool.o
-    public void b() {
+    public cd(cc ccVar) {
+        this.g = ccVar;
     }
 }

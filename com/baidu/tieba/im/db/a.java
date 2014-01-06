@@ -15,13 +15,14 @@ public class a {
         c cVar = new c();
         cVar.a = c(str);
         cVar.b = d(str);
+        cVar.c = b(str);
         return cVar;
     }
 
     private static boolean c(String str) {
-        if (com.baidu.tieba.im.groupInfo.u.c(TiebaApplication.B(), str)) {
-            com.baidu.tieba.im.groupInfo.u.a(TiebaApplication.B(), str, false);
-            com.baidu.tieba.im.groupInfo.u.c(TiebaApplication.B(), str, false);
+        if (com.baidu.tieba.im.groupInfo.u.c(TiebaApplication.A(), str)) {
+            com.baidu.tieba.im.groupInfo.u.a(TiebaApplication.A(), str, false);
+            com.baidu.tieba.im.groupInfo.u.c(TiebaApplication.A(), str, false);
             return true;
         }
         return false;

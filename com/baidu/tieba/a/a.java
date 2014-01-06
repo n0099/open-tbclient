@@ -2,14 +2,14 @@ package com.baidu.tieba.a;
 
 import com.baidu.tieba.data.AudioInfoData;
 import com.baidu.tieba.util.DatabaseService;
-import com.baidu.tieba.util.an;
-import com.baidu.tieba.util.bc;
-import com.baidu.tieba.util.be;
-import com.baidu.tieba.util.y;
+import com.baidu.tieba.util.aa;
+import com.baidu.tieba.util.at;
+import com.baidu.tieba.util.bm;
+import com.baidu.tieba.util.bo;
 import java.io.File;
 /* loaded from: classes.dex */
 public class a {
-    private an a;
+    private at a;
     private b b;
     private com.baidu.tieba.data.f c;
     private String d;
@@ -26,17 +26,17 @@ public class a {
             if (file == null || !file.exists()) {
                 return null;
             }
-            this.a = new an(com.baidu.tieba.data.h.a + this.d);
+            this.a = new at(com.baidu.tieba.data.h.a + this.d);
             return a(str, file);
         } catch (Exception e) {
-            be.b(getClass().getName(), "upload", e.getMessage());
+            bo.b(getClass().getName(), "upload", e.getMessage());
             return null;
         }
     }
 
     private com.baidu.tieba.data.f a(String str, File file) {
         String a;
-        String a2 = bc.a(y.a(file));
+        String a2 = bm.a(aa.a(file));
         if (a2 != null && a2.length() > 0) {
             a2 = a2.toLowerCase();
         }
@@ -65,7 +65,7 @@ public class a {
     }
 
     private String a(String str, com.baidu.tieba.data.e eVar) {
-        this.a = new an(com.baidu.tieba.data.h.a + this.e);
+        this.a = new at(com.baidu.tieba.data.h.a + this.e);
         this.a.a("voice_md5", eVar.a());
         String l = this.a.l();
         if (l == null || !this.a.c()) {

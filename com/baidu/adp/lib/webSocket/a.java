@@ -106,7 +106,6 @@ public class a {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [928=5, 929=4, 930=4] */
     public static byte[] b(byte[] bArr, int i, int i2, int i3) {
         b bVar;
         ByteArrayOutputStream byteArrayOutputStream;
@@ -125,116 +124,116 @@ public class a {
         if (i + i2 > bArr.length) {
             throw new IllegalArgumentException(String.format("Cannot have offset of %d and length of %d with array of length %d", Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(bArr.length)));
         }
-        if ((i3 & 2) == 0) {
-            boolean z = (i3 & 8) != 0;
-            int i4 = (i2 % 3 > 0 ? 4 : 0) + ((i2 / 3) * 4);
-            if (z) {
-                i4 += i4 / 76;
-            }
-            byte[] bArr2 = new byte[i4];
-            int i5 = i2 - 2;
-            int i6 = 0;
-            int i7 = 0;
-            int i8 = 0;
-            while (i8 < i5) {
-                a(bArr, i8 + i, 3, bArr2, i7, i3);
-                int i9 = i6 + 4;
-                if (z && i9 >= 76) {
-                    bArr2[i7 + 4] = 10;
-                    i7++;
-                    i9 = 0;
-                }
-                i7 += 4;
-                i6 = i9;
-                i8 += 3;
-            }
-            if (i8 < i2) {
-                a(bArr, i8 + i, i2 - i8, bArr2, i7, i3);
-                i7 += 4;
-            }
-            if (i7 <= bArr2.length - 1) {
-                byte[] bArr3 = new byte[i7];
-                System.arraycopy(bArr2, 0, bArr3, 0, i7);
-                return bArr3;
-            }
-            return bArr2;
-        }
-        try {
-            byteArrayOutputStream = new ByteArrayOutputStream();
+        if ((i3 & 2) != 0) {
             try {
-                bVar = new b(byteArrayOutputStream, i3 | 1);
+                byteArrayOutputStream = new ByteArrayOutputStream();
                 try {
-                    gZIPOutputStream = new GZIPOutputStream(bVar);
-                } catch (IOException e2) {
-                    e = e2;
+                    bVar = new b(byteArrayOutputStream, i3 | 1);
+                    try {
+                        gZIPOutputStream = new GZIPOutputStream(bVar);
+                    } catch (IOException e2) {
+                        e = e2;
+                        byteArrayOutputStream2 = byteArrayOutputStream;
+                    } catch (Throwable th) {
+                        th = th;
+                    }
+                } catch (IOException e3) {
+                    e = e3;
+                    bVar = null;
                     byteArrayOutputStream2 = byteArrayOutputStream;
-                } catch (Throwable th) {
-                    th = th;
+                } catch (Throwable th2) {
+                    th = th2;
+                    bVar = null;
                 }
-            } catch (IOException e3) {
-                e = e3;
+            } catch (IOException e4) {
+                e = e4;
                 bVar = null;
-                byteArrayOutputStream2 = byteArrayOutputStream;
-            } catch (Throwable th2) {
-                th = th2;
+                byteArrayOutputStream2 = null;
+            } catch (Throwable th3) {
+                th = th3;
                 bVar = null;
+                byteArrayOutputStream = null;
             }
-        } catch (IOException e4) {
-            e = e4;
-            bVar = null;
-            byteArrayOutputStream2 = null;
-        } catch (Throwable th3) {
-            th = th3;
-            bVar = null;
-            byteArrayOutputStream = null;
-        }
-        try {
-            gZIPOutputStream.write(bArr, i, i2);
-            gZIPOutputStream.close();
             try {
+                gZIPOutputStream.write(bArr, i, i2);
                 gZIPOutputStream.close();
-            } catch (Exception e5) {
-            }
-            try {
-                bVar.close();
-            } catch (Exception e6) {
-            }
-            try {
-                byteArrayOutputStream.close();
-            } catch (Exception e7) {
-            }
-            return byteArrayOutputStream.toByteArray();
-        } catch (IOException e8) {
-            e = e8;
-            gZIPOutputStream2 = gZIPOutputStream;
-            byteArrayOutputStream2 = byteArrayOutputStream;
-            try {
-                throw e;
-            } catch (Throwable th4) {
-                th = th4;
-                byteArrayOutputStream = byteArrayOutputStream2;
                 try {
-                    gZIPOutputStream2.close();
-                } catch (Exception e9) {
+                    gZIPOutputStream.close();
+                } catch (Exception e5) {
                 }
                 try {
                     bVar.close();
-                } catch (Exception e10) {
+                } catch (Exception e6) {
                 }
                 try {
                     byteArrayOutputStream.close();
-                } catch (Exception e11) {
+                } catch (Exception e7) {
                 }
+                return byteArrayOutputStream.toByteArray();
+            } catch (IOException e8) {
+                e = e8;
+                gZIPOutputStream2 = gZIPOutputStream;
+                byteArrayOutputStream2 = byteArrayOutputStream;
+                try {
+                    throw e;
+                } catch (Throwable th4) {
+                    th = th4;
+                    byteArrayOutputStream = byteArrayOutputStream2;
+                    try {
+                        gZIPOutputStream2.close();
+                    } catch (Exception e9) {
+                    }
+                    try {
+                        bVar.close();
+                    } catch (Exception e10) {
+                    }
+                    try {
+                        byteArrayOutputStream.close();
+                    } catch (Exception e11) {
+                    }
+                    throw th;
+                }
+            } catch (Throwable th5) {
+                th = th5;
+                gZIPOutputStream2 = gZIPOutputStream;
+                gZIPOutputStream2.close();
+                bVar.close();
+                byteArrayOutputStream.close();
                 throw th;
             }
-        } catch (Throwable th5) {
-            th = th5;
-            gZIPOutputStream2 = gZIPOutputStream;
-            gZIPOutputStream2.close();
-            bVar.close();
-            byteArrayOutputStream.close();
-            throw th;
         }
+        boolean z = (i3 & 8) != 0;
+        int i4 = (i2 % 3 > 0 ? 4 : 0) + ((i2 / 3) * 4);
+        if (z) {
+            i4 += i4 / 76;
+        }
+        byte[] bArr2 = new byte[i4];
+        int i5 = i2 - 2;
+        int i6 = 0;
+        int i7 = 0;
+        int i8 = 0;
+        while (i8 < i5) {
+            a(bArr, i8 + i, 3, bArr2, i7, i3);
+            int i9 = i6 + 4;
+            if (z && i9 >= 76) {
+                bArr2[i7 + 4] = 10;
+                i7++;
+                i9 = 0;
+            }
+            i7 += 4;
+            i6 = i9;
+            i8 += 3;
+        }
+        if (i8 < i2) {
+            a(bArr, i8 + i, i2 - i8, bArr2, i7, i3);
+            i7 += 4;
+        }
+        if (i7 <= bArr2.length - 1) {
+            byte[] bArr3 = new byte[i7];
+            System.arraycopy(bArr2, 0, bArr3, 0, i7);
+            return bArr3;
+        }
+        return bArr2;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -338,7 +337,6 @@ public class a {
         return a(str, 0);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1289=7, 1290=6, 1291=5] */
     public static byte[] a(String str, int i) {
         byte[] bytes;
         ByteArrayOutputStream byteArrayOutputStream;

@@ -1,25 +1,15 @@
 package com.baidu.tieba.view;
-
-import android.app.Activity;
-import android.view.View;
-import com.baidu.cloudsdk.social.core.SocialConstants;
-import com.baidu.tieba.flist.ForumListActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class z implements View.OnClickListener {
-    final /* synthetic */ FrsHeaderView a;
+public class z {
+    final /* synthetic */ x a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public z(FrsHeaderView frsHeaderView) {
-        this.a = frsHeaderView;
+    private z(x xVar) {
+        this.a = xVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Activity activity;
-        String str;
-        activity = this.a.E;
-        str = this.a.K;
-        ForumListActivity.a(activity, str, "2", SocialConstants.TRUE);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ z(x xVar, y yVar) {
+        this(xVar);
     }
 }

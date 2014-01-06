@@ -8,20 +8,19 @@ import com.baidu.tieba.view.HeadImageView;
 /* loaded from: classes.dex */
 class c {
     ViewGroup a;
-    ViewGroup b;
-    HeadImageView c;
+    HeadImageView b;
+    TextView c;
     TextView d;
     TextView e;
     TextView f;
-    TextView g;
-    ViewGroup h;
-    TextView i;
-    ProgressBar j;
-    ImageView k;
-    final /* synthetic */ a l;
+    ViewGroup g;
+    TextView h;
+    ProgressBar i;
+    ImageView j;
+    final /* synthetic */ a k;
 
     private c(a aVar) {
-        this.l = aVar;
+        this.k = aVar;
         this.a = null;
         this.b = null;
         this.c = null;
@@ -32,6 +31,5 @@ class c {
         this.h = null;
         this.i = null;
         this.j = null;
-        this.k = null;
     }
 }

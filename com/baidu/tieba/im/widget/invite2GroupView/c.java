@@ -42,8 +42,8 @@ public class c implements com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMessa
                 return;
             }
         }
-        String B = TiebaApplication.B();
+        String A = TiebaApplication.A();
         inviteMsgData = this.a.e;
-        u.a(B, String.valueOf(inviteMsgData.getGroupId()), 60000L, new e(this));
+        u.a(A, String.valueOf(inviteMsgData.getGroupId()), 60000L, new e(this));
     }
 }

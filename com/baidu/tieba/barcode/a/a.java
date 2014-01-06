@@ -2,7 +2,7 @@ package com.baidu.tieba.barcode.a;
 
 import android.content.Context;
 import android.hardware.Camera;
-import com.baidu.tieba.util.be;
+import com.baidu.tieba.util.bo;
 import java.util.ArrayList;
 import java.util.Collection;
 /* loaded from: classes.dex */
@@ -23,7 +23,7 @@ public final class a implements Camera.AutoFocusCallback {
         this.d = camera;
         String focusMode = camera.getParameters().getFocusMode();
         this.c = a.contains(focusMode);
-        be.a(getClass().getName(), "AutoFocusManager", "Current focus mode '" + focusMode + "'; use auto focus? " + this.c);
+        bo.a(getClass().getName(), "AutoFocusManager", "Current focus mode '" + focusMode + "'; use auto focus? " + this.c);
         a();
     }
 
@@ -41,7 +41,7 @@ public final class a implements Camera.AutoFocusCallback {
             try {
                 this.d.autoFocus(this);
             } catch (RuntimeException e) {
-                be.c(getClass().getName(), "start", "Unexpected exception while focusing" + e.toString());
+                bo.c(getClass().getName(), "start", "Unexpected exception while focusing" + e.toString());
             }
         }
     }
@@ -51,7 +51,7 @@ public final class a implements Camera.AutoFocusCallback {
             try {
                 this.d.cancelAutoFocus();
             } catch (RuntimeException e) {
-                be.c(getClass().getName(), "stop", "Unexpected exception while cancelling focusing" + e.toString());
+                bo.c(getClass().getName(), "stop", "Unexpected exception while cancelling focusing" + e.toString());
             }
         }
         if (this.e != null) {

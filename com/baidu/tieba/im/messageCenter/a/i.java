@@ -1,21 +1,21 @@
 package com.baidu.tieba.im.messageCenter.a;
 
-import com.baidu.tieba.im.message.bc;
-import com.baidu.tieba.im.message.z;
+import com.baidu.tieba.im.message.ac;
+import com.baidu.tieba.im.message.bf;
 /* loaded from: classes.dex */
 public class i extends com.baidu.tieba.im.messageCenter.a {
     @Override // com.baidu.tieba.im.messageCenter.a
-    public com.baidu.tieba.im.message.n a(com.baidu.tieba.im.message.n nVar, com.baidu.tieba.im.coder.d dVar) {
-        if (nVar == null || !(nVar instanceof bc)) {
+    public com.baidu.tieba.im.message.o a(com.baidu.tieba.im.message.o oVar, com.baidu.tieba.im.coder.d dVar) {
+        if (oVar == null || !(oVar instanceof bf)) {
             return null;
         }
-        bc bcVar = (bc) nVar;
-        com.baidu.tieba.im.message.n l = bcVar.l();
-        if (l != null && (l instanceof z) && !bcVar.i()) {
-            z zVar = (z) l;
-            l.a(com.baidu.tieba.b.a.a().e(), "pb_" + zVar.e() + "_" + zVar.d(), dVar);
-            return nVar;
+        bf bfVar = (bf) oVar;
+        com.baidu.tieba.im.message.o l = bfVar.l();
+        if (l != null && (l instanceof ac) && !bfVar.i()) {
+            ac acVar = (ac) l;
+            l.a(com.baidu.tieba.b.a.a().e(), "pb_" + acVar.e() + "_" + acVar.d(), dVar);
+            return oVar;
         }
-        return nVar;
+        return oVar;
     }
 }

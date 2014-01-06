@@ -9,16 +9,16 @@ class bj implements dx {
     }
 
     @Override // com.baidu.tieba.pb.dx
-    public void a(com.baidu.tieba.data.av avVar) {
+    public void a(com.baidu.tieba.data.ax axVar) {
         com.baidu.tieba.model.bp bpVar;
         com.baidu.tieba.model.bp bpVar2;
-        cr crVar;
-        bpVar = this.a.v;
+        cs csVar;
+        bpVar = this.a.x;
         if (bpVar != null) {
-            bpVar2 = this.a.v;
+            bpVar2 = this.a.x;
             if (bpVar2.h()) {
-                crVar = this.a.x;
-                crVar.v();
+                csVar = this.a.z;
+                csVar.w();
             }
         }
     }

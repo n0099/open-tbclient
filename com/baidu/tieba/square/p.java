@@ -5,7 +5,7 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* loaded from: classes.dex */
 public class p extends BdAsyncTask<Object, Integer, t> {
     final /* synthetic */ BarFolderSecondDirActivity a;
-    private com.baidu.tieba.util.an b;
+    private com.baidu.tieba.util.at b;
 
     private p(BarFolderSecondDirActivity barFolderSecondDirActivity) {
         this.a = barFolderSecondDirActivity;
@@ -29,16 +29,16 @@ public class p extends BdAsyncTask<Object, Integer, t> {
         qVar = this.a.i;
         t a = qVar.a();
         try {
-            this.b = new com.baidu.tieba.util.an(com.baidu.tieba.data.h.a + "c/f/forum/seconddir");
-            com.baidu.tieba.util.an anVar = this.b;
+            this.b = new com.baidu.tieba.util.at(com.baidu.tieba.data.h.a + "c/f/forum/seconddir");
+            com.baidu.tieba.util.at atVar = this.b;
             str = this.a.l;
-            anVar.a("menu_name", str);
-            com.baidu.tieba.util.an anVar2 = this.b;
+            atVar.a("menu_name", str);
+            com.baidu.tieba.util.at atVar2 = this.b;
             str2 = this.a.m;
-            anVar2.a("menu_type", str2);
-            com.baidu.tieba.util.an anVar3 = this.b;
+            atVar2.a("menu_type", str2);
+            com.baidu.tieba.util.at atVar3 = this.b;
             str3 = this.a.n;
-            anVar3.a("menu_id", str3);
+            atVar3.a("menu_id", str3);
             String l = this.b.l();
             if (this.b.c()) {
                 a.b(l);
@@ -47,7 +47,7 @@ public class p extends BdAsyncTask<Object, Integer, t> {
             }
         } catch (Exception e) {
             a.a(e.getMessage());
-            com.baidu.tieba.util.be.b(getClass().getName(), "doInBackground", e.getMessage());
+            com.baidu.tieba.util.bo.b(getClass().getName(), "doInBackground", e.getMessage());
         }
         return a;
     }

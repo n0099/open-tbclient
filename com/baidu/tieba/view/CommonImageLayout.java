@@ -10,10 +10,10 @@ import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class CommonImageLayout extends ViewGroup {
     private static com.baidu.tieba.util.i j;
-    public bm b;
-    public bm c;
-    public bm d;
-    private com.baidu.tieba.data.ai[] k;
+    public bs b;
+    public bs c;
+    public bs d;
+    private com.baidu.tieba.data.aj[] k;
     private int l;
     private boolean m;
     private boolean n;
@@ -52,9 +52,9 @@ public class CommonImageLayout extends ViewGroup {
         this.p = "other";
         this.o = context;
         b();
-        this.b = new bm(context);
-        this.c = new bm(context);
-        this.d = new bm(context);
+        this.b = new bs(context);
+        this.c = new bs(context);
+        this.d = new bs(context);
         this.b.setScaleType(ImageView.ScaleType.CENTER_CROP);
         this.c.setScaleType(ImageView.ScaleType.CENTER_CROP);
         this.d.setScaleType(ImageView.ScaleType.CENTER_CROP);
@@ -90,8 +90,8 @@ public class CommonImageLayout extends ViewGroup {
         }
     }
 
-    public void setData(com.baidu.tieba.data.ai[] aiVarArr) {
-        this.k = aiVarArr;
+    public void setData(com.baidu.tieba.data.aj[] ajVarArr) {
+        this.k = ajVarArr;
         if (this.k == null || this.k.length <= 0) {
             if (this.b != null) {
                 this.b.setTag(null);
@@ -270,14 +270,14 @@ public class CommonImageLayout extends ViewGroup {
         this.l = i2;
     }
 
-    private void a(TbImageView tbImageView, com.baidu.tieba.data.ai aiVar) {
+    private void a(TbImageView tbImageView, com.baidu.tieba.data.aj ajVar) {
         if (tbImageView != null) {
-            String b = aiVar.b();
-            if (aiVar.a() == 5) {
+            String b = ajVar.b();
+            if (ajVar.a() == 5) {
                 b = null;
                 tbImageView.setDefaultResource(R.drawable.pic_video);
                 tbImageView.setNightDefaultResource(R.drawable.pic_video_1);
-                tbImageView.setOnClickListener(new i(this, aiVar));
+                tbImageView.setOnClickListener(new n(this, ajVar));
             } else {
                 tbImageView.setDefaultResource(R.drawable.pic_baidu_logo_d);
                 tbImageView.setNightDefaultResource(R.drawable.pic_baidu_logo_d_1);

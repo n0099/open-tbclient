@@ -6,7 +6,7 @@ import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class x extends BdAsyncTask<String, Integer, String> {
     final /* synthetic */ EditHeadActivity a;
-    private com.baidu.tieba.util.an b;
+    private com.baidu.tieba.util.at b;
     private com.baidu.tieba.data.f c;
     private com.baidu.tieba.util.n d;
 
@@ -34,7 +34,7 @@ public class x extends BdAsyncTask<String, Integer, String> {
     public String a(String... strArr) {
         String str;
         Exception e;
-        this.b = new com.baidu.tieba.util.an(com.baidu.tieba.data.h.a + "c/c/img/portrait");
+        this.b = new com.baidu.tieba.util.at(com.baidu.tieba.data.h.a + "c/c/img/portrait");
         try {
             str = this.b.b("tieba_head_image");
         } catch (Exception e2) {
@@ -48,7 +48,7 @@ public class x extends BdAsyncTask<String, Integer, String> {
             return null;
         } catch (Exception e3) {
             e = e3;
-            com.baidu.tieba.util.be.b(getClass().getName(), "doInBackground", e.getMessage());
+            com.baidu.tieba.util.bo.b(getClass().getName(), "doInBackground", e.getMessage());
             return str;
         }
     }

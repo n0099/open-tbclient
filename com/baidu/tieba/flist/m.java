@@ -35,26 +35,26 @@ class m extends com.baidu.adp.a.g {
                 ForumListActivity forumListActivity = this.b;
                 axVar3 = this.b.q;
                 forumListActivity.showToast(axVar3.getErrorString());
-            } else if (((com.baidu.tieba.data.af) obj).b() == 1) {
+            } else if (((com.baidu.tieba.data.ag) obj).b() == 1) {
                 this.b.showToast(this.b.getString(R.string.like_success));
                 i = this.b.p;
                 if (i == 0) {
                     sVar3 = this.b.D;
                     sVar3.notifyDataSetChanged();
-                    TiebaApplication h = TiebaApplication.h();
+                    TiebaApplication g = TiebaApplication.g();
                     ForumInfoData[] forumInfoDataArr = this.a;
                     sVar4 = this.b.D;
-                    h.f(forumInfoDataArr[sVar4.a].forum_name);
+                    g.f(forumInfoDataArr[sVar4.a].forum_name);
                     return;
                 }
                 i2 = this.b.p;
                 if (i2 == 1) {
                     sVar = this.b.E;
                     sVar.notifyDataSetChanged();
-                    TiebaApplication h2 = TiebaApplication.h();
+                    TiebaApplication g2 = TiebaApplication.g();
                     ForumInfoData[] forumInfoDataArr2 = this.a;
                     sVar2 = this.b.E;
-                    h2.f(forumInfoDataArr2[sVar2.a].forum_name);
+                    g2.f(forumInfoDataArr2[sVar2.a].forum_name);
                 }
             }
         }

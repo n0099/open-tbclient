@@ -1,5 +1,7 @@
 package com.baidu.tieba.im.chat;
+
+import java.util.ArrayList;
 /* loaded from: classes.dex */
 public interface ag {
-    void a(com.baidu.tieba.im.message.n nVar);
+    void a(ArrayList<String> arrayList);
 }

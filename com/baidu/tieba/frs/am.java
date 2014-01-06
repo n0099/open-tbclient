@@ -31,7 +31,7 @@ public class am {
         View inflate = this.e.inflate(R.layout.frs_like_cover, (ViewGroup) null);
         Button button = (Button) inflate.findViewById(R.id.btn_love);
         TextView textView = (TextView) inflate.findViewById(R.id.tv_love);
-        if (TiebaApplication.h().an() == 1) {
+        if (TiebaApplication.g().an() == 1) {
             textView.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_like_1, 0, 0, 0);
             textView.setShadowLayer(1.0f, 0.0f, 1.0f, R.color.frs_like_shadow_1);
             button.setBackgroundResource(R.drawable.frs_btn_like_1);

@@ -90,7 +90,7 @@ public class o {
                 for (QueryUserInfosRes.IconInfo iconInfo : dataRes.getIconInfoList()) {
                     IconData iconData = new IconData();
                     iconData.setIconName(iconInfo.getName());
-                    iconData.setIconUrl(iconInfo.getIconUrl());
+                    iconData.setIcon(iconInfo.getIconUrl());
                     linkedList.add(iconData);
                 }
                 this.h.a(linkedList, i, this.c.getResources().getDimensionPixelSize(R.dimen.person_icon_width), this.c.getResources().getDimensionPixelSize(R.dimen.person_icon_height), this.c.getResources().getDimensionPixelSize(R.dimen.person_icon_margin));
@@ -101,7 +101,7 @@ public class o {
     public void b(k kVar) {
         String portrait;
         if (kVar != null && kVar.b() != null && (portrait = kVar.b().getPortrait()) != null && portrait.length() > 0) {
-            com.baidu.adp.widget.ImageView.e c = kVar.f().c(portrait);
+            com.baidu.adp.widget.ImageView.d c = kVar.f().c(portrait);
             if (c == null) {
                 kVar.f().b(portrait, new p(this));
                 return;

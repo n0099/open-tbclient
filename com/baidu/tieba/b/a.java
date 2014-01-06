@@ -24,6 +24,8 @@ public class a {
     private s<String> r = null;
     private s<String> s = null;
     private s<byte[]> t = null;
+    private s<String> u = null;
+    private s<String> v = null;
 
     public static a a() {
         if (a == null) {
@@ -180,5 +182,12 @@ public class a {
             this.s = BdCacheService.c().a("tb.pic_gif", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 50);
         }
         return this.s;
+    }
+
+    public s<String> w() {
+        if (this.v == null) {
+            this.v = BdCacheService.c().a("tb_face_package", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 30);
+        }
+        return this.v;
     }
 }

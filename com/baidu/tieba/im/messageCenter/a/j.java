@@ -1,39 +1,39 @@
 package com.baidu.tieba.im.messageCenter.a;
 
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.im.message.ad;
-import com.baidu.tieba.im.message.bh;
-import com.baidu.tieba.im.message.bz;
+import com.baidu.tieba.im.message.ag;
+import com.baidu.tieba.im.message.bk;
+import com.baidu.tieba.im.message.cc;
 /* loaded from: classes.dex */
 public class j extends com.baidu.tieba.im.messageCenter.d {
     @Override // com.baidu.tieba.im.messageCenter.d
-    public bz a(com.baidu.tieba.im.message.n nVar) {
-        if (nVar == null || !(nVar instanceof ad)) {
-            return a(-116, nVar);
+    public cc a(com.baidu.tieba.im.message.o oVar) {
+        if (oVar == null || !(oVar instanceof ag)) {
+            return a(-116, oVar);
         }
-        int t = ((ad) nVar).t();
+        int u = ((ag) oVar).u();
         String str = "";
         if (TiebaApplication.F() != null) {
             str = TiebaApplication.F().getID();
         }
         byte[] a = com.baidu.tieba.b.a.a().f().a("p_hot_groups_info" + str);
         if (a != null) {
-            bz a2 = l.a(103012, a);
+            cc a2 = l.a(103012, a);
             if (a2 == null) {
-                return a(t, nVar);
+                return a(u, oVar);
             }
-            a2.e(t);
-            a2.a(nVar);
+            a2.e(u);
+            a2.a(oVar);
             return a2;
         }
-        return a(t, nVar);
+        return a(u, oVar);
     }
 
-    private bh a(int i, com.baidu.tieba.im.message.n nVar) {
-        bh bhVar = new bh();
-        bhVar.e(i);
-        bhVar.a(nVar);
-        bhVar.c(-18);
-        return bhVar;
+    private bk a(int i, com.baidu.tieba.im.message.o oVar) {
+        bk bkVar = new bk();
+        bkVar.e(i);
+        bkVar.a(oVar);
+        bkVar.g(-18);
+        return bkVar;
     }
 }

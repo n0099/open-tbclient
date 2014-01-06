@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.account.LoginActivity;
-import com.baidu.tieba.util.bb;
+import com.baidu.tieba.util.bl;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
@@ -42,8 +42,8 @@ public class ForbidActivity extends com.baidu.tieba.j {
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.account_forbid_activity);
-        String B = TiebaApplication.B();
-        if (B == null || B.length() <= 0) {
+        String A = TiebaApplication.A();
+        if (A == null || A.length() <= 0) {
             LoginActivity.a((Activity) this, getString(R.string.login_to_use), true, 11018);
             return;
         }
@@ -70,7 +70,7 @@ public class ForbidActivity extends com.baidu.tieba.j {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i) {
-        boolean z = TiebaApplication.h().an() == 1;
+        boolean z = TiebaApplication.g().an() == 1;
         int i2 = !z ? R.drawable.btn_prohibit_day_n : R.drawable.btn_prohibit_day_n_1;
         int i3 = !z ? R.color.appeal_com_text : R.color.appeal_com_text_1;
         int i4 = !z ? R.drawable.btn_prohibit_day_s : R.drawable.btn_prohibit_day_s_1;
@@ -78,10 +78,10 @@ public class ForbidActivity extends com.baidu.tieba.j {
         for (int i6 = 0; i6 < 3; i6++) {
             RadioButton radioButton = (RadioButton) this.b.getChildAt(i6);
             if (radioButton.getId() == i) {
-                bb.e((View) radioButton, i4);
+                bl.e((View) radioButton, i4);
                 radioButton.setTextColor(getResources().getColor(i5));
             } else {
-                bb.e((View) radioButton, i2);
+                bl.e((View) radioButton, i2);
                 radioButton.setTextColor(getResources().getColor(i3));
             }
         }

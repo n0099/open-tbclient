@@ -1,11 +1,6 @@
 package com.baidu.tieba.frs;
 
-import android.app.Activity;
 import android.content.DialogInterface;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.account.LoginActivity;
-import com.baidu.tieba.model.ci;
-import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class at implements DialogInterface.OnClickListener {
@@ -18,19 +13,6 @@ public class at implements DialogInterface.OnClickListener {
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
-        ci ciVar;
-        com.baidu.tieba.model.ar arVar;
-        com.baidu.tieba.model.ar arVar2;
         dialogInterface.dismiss();
-        String B = TiebaApplication.B();
-        if (B != null && B.length() > 0) {
-            ciVar = this.a.u;
-            arVar = this.a.r;
-            String name = arVar.a().getName();
-            arVar2 = this.a.r;
-            ciVar.a(name, Long.valueOf(arVar2.a().getId()).longValue());
-            return;
-        }
-        LoginActivity.a((Activity) this.a, this.a.getString(R.string.login_to_use), true, 11036);
     }
 }

@@ -55,6 +55,13 @@ public class g {
         return d;
     }
 
+    public static float d(Context context) {
+        if (!a) {
+            a(context);
+        }
+        return b;
+    }
+
     public static void a(Context context, String str, int i) {
         if (!TextUtils.isEmpty(str)) {
             g.removeCallbacks(h);
@@ -205,5 +212,9 @@ public class g {
                 throw new Error("can not be call not thread! trace = " + sb.toString());
             }
         }
+    }
+
+    public static boolean b() {
+        return Looper.getMainLooper() == Looper.myLooper();
     }
 }

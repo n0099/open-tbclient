@@ -36,7 +36,7 @@ public class a {
         Exception e;
         String[] split;
         try {
-            if (TiebaApplication.o() || str == null || (split = str.split("[|]")) == null || split.length < 1) {
+            if (TiebaApplication.n() || str == null || (split = str.split("[|]")) == null || split.length < 1) {
                 return null;
             }
             token = new Token();
@@ -49,7 +49,7 @@ public class a {
                 return token;
             } catch (Exception e2) {
                 e = e2;
-                com.baidu.tieba.util.be.b("AccountShareHelper", "parseBDUSS", e.getMessage());
+                com.baidu.tieba.util.bo.b("AccountShareHelper", "parseBDUSS", e.getMessage());
                 return token;
             }
         } catch (Exception e3) {
@@ -99,9 +99,9 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
-        k d = l.a().d();
-        if (d != null && this.b != null) {
-            ReLoginShareActivity.a(this.b, d.c, d.a, d.b, this.c);
+        k c = l.a().c();
+        if (c != null && this.b != null) {
+            ReLoginShareActivity.a(this.b, c.c, c.a, c.b, this.c);
         }
     }
 
@@ -131,8 +131,8 @@ public class a {
 
     public void b(String str) {
         try {
-            if (TiebaApplication.h().t()) {
-                StatService.onEvent(TiebaApplication.h(), str, "click", 1);
+            if (TiebaApplication.g().s()) {
+                StatService.onEvent(TiebaApplication.g(), str, "click", 1);
             }
         } catch (Exception e) {
             e.printStackTrace();

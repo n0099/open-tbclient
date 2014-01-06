@@ -1,29 +1,27 @@
 package com.baidu.tieba.editortool;
 
-import android.graphics.Bitmap;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.GridView;
+import com.baidu.tieba.data.emotions.WritableEmotionGroup;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g {
-    final /* synthetic */ FaceView a;
-    private String b;
-    private Bitmap c;
+public class g implements AdapterView.OnItemLongClickListener {
+    final /* synthetic */ EmotionTabContentView a;
 
-    public g(FaceView faceView) {
-        this.a = faceView;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public g(EmotionTabContentView emotionTabContentView) {
+        this.a = emotionTabContentView;
     }
 
-    public String a() {
-        return this.b;
-    }
-
-    public void a(String str) {
-        this.b = str;
-    }
-
-    public Bitmap b() {
-        return this.c;
-    }
-
-    public void a(Bitmap bitmap) {
-        this.c = bitmap;
+    @Override // android.widget.AdapterView.OnItemLongClickListener
+    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
+        WritableEmotionGroup writableEmotionGroup;
+        writableEmotionGroup = this.a.b;
+        if (writableEmotionGroup.c() == WritableEmotionGroup.EmotionGroupType.BIG_EMOTION) {
+            this.a.a(i, (GridView) adapterView);
+            return true;
+        }
+        return true;
     }
 }

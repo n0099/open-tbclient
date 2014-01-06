@@ -7,16 +7,16 @@ import com.baidu.tieba.data.MarkData;
 /* loaded from: classes.dex */
 public class bh extends BdAsyncTask<Boolean, Integer, Boolean> {
     final /* synthetic */ bg a;
-    private com.baidu.tieba.util.an b = null;
+    private com.baidu.tieba.util.at b = null;
     private boolean c;
-    private com.baidu.tieba.data.ay d;
+    private com.baidu.tieba.data.ba d;
 
     public bh(bg bgVar, boolean z) {
         this.a = bgVar;
         this.c = true;
         this.d = null;
         this.c = z;
-        this.d = new com.baidu.tieba.data.ay();
+        this.d = new com.baidu.tieba.data.ba();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -32,19 +32,19 @@ public class bh extends BdAsyncTask<Boolean, Integer, Boolean> {
         MarkData markData2;
         MarkData markData3;
         if (this.c) {
-            this.b = new com.baidu.tieba.util.an(com.baidu.tieba.data.h.a + "c/c/post/addstore");
+            this.b = new com.baidu.tieba.util.at(com.baidu.tieba.data.h.a + "c/c/post/addstore");
             o oVar = new o();
             markData3 = this.a.b;
             oVar.a(markData3);
             this.b.a("data", oVar.a(0, 1));
         } else {
-            this.b = new com.baidu.tieba.util.an(com.baidu.tieba.data.h.a + "c/c/post/rmstore");
-            com.baidu.tieba.util.an anVar = this.b;
+            this.b = new com.baidu.tieba.util.at(com.baidu.tieba.data.h.a + "c/c/post/rmstore");
+            com.baidu.tieba.util.at atVar = this.b;
             markData = this.a.b;
-            anVar.a(PushConstants.EXTRA_USER_ID, markData.getAccount());
-            com.baidu.tieba.util.an anVar2 = this.b;
+            atVar.a(PushConstants.EXTRA_USER_ID, markData.getAccount());
+            com.baidu.tieba.util.at atVar2 = this.b;
             markData2 = this.a.b;
-            anVar2.a("tid", markData2.getId());
+            atVar2.a("tid", markData2.getId());
         }
         this.d.a(this.b.l());
         boolean z = this.d.a() == 0;

@@ -3,7 +3,9 @@ package com.baidu.tieba.util;
 import android.content.Context;
 import com.baidu.tieba.TiebaApplication;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Map;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class i {
@@ -58,11 +60,11 @@ public class i {
         this.l.clear();
     }
 
-    public com.baidu.adp.widget.ImageView.e c(String str) {
+    public com.baidu.adp.widget.ImageView.d c(String str) {
         return com.baidu.tbadk.imageManager.d.a().b(str);
     }
 
-    public com.baidu.adp.widget.ImageView.e d(String str) {
+    public com.baidu.adp.widget.ImageView.d d(String str) {
         return com.baidu.tbadk.imageManager.d.a().c(str);
     }
 
@@ -70,107 +72,139 @@ public class i {
         com.baidu.tbadk.imageManager.d.a().a(str);
     }
 
-    public com.baidu.adp.widget.ImageView.e a(String str, boolean z, com.baidu.tbadk.imageManager.c cVar) {
+    public static boolean b() {
+        return c();
+    }
+
+    public static boolean c() {
+        return aa.a() && com.baidu.adp.gif.g.a();
+    }
+
+    public com.baidu.adp.widget.ImageView.d a(String str, String str2, String str3, boolean z, com.baidu.tbadk.imageManager.c cVar) {
+        String a = com.baidu.tieba.data.emotions.l.a().a(str2, z);
+        com.baidu.adp.widget.ImageView.d c = com.baidu.tbadk.imageManager.d.a().c(a);
+        if (c == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("em_sharp_text", str2);
+            hashMap.put("em_load_gif", Boolean.valueOf(z));
+            if (str != null) {
+                hashMap.put("em_group_id", str);
+            }
+            if (str3 != null) {
+                hashMap.put("em_img_url", str3);
+            }
+            return a(a, cVar, 6, true, false, false, false, hashMap);
+        }
+        return c;
+    }
+
+    public com.baidu.adp.widget.ImageView.d a(String str, boolean z, com.baidu.tbadk.imageManager.c cVar) {
+        return a(null, str, null, z, cVar);
+    }
+
+    public com.baidu.adp.widget.ImageView.d b(String str, boolean z, com.baidu.tbadk.imageManager.c cVar) {
         return a(str, z, false, cVar);
     }
 
-    public com.baidu.adp.widget.ImageView.e a(String str, boolean z, boolean z2, com.baidu.tbadk.imageManager.c cVar) {
-        return a(str, cVar, 0, true, false, z, z2);
+    public com.baidu.adp.widget.ImageView.d a(String str, boolean z, boolean z2, com.baidu.tbadk.imageManager.c cVar) {
+        return a(str, cVar, 0, true, false, z, z2, null);
     }
 
-    public com.baidu.adp.widget.ImageView.e a(String str, com.baidu.tbadk.imageManager.c cVar) {
-        return a(str, cVar, 0, true, false, false, false);
+    public com.baidu.adp.widget.ImageView.d a(String str, com.baidu.tbadk.imageManager.c cVar) {
+        return a(str, cVar, 0, true, false, false, false, null);
     }
 
-    public com.baidu.adp.widget.ImageView.e a(String str, com.baidu.tbadk.imageManager.c cVar, boolean z) {
-        return a(str, cVar, 0, true, z, false, false);
+    public com.baidu.adp.widget.ImageView.d a(String str, com.baidu.tbadk.imageManager.c cVar, boolean z) {
+        return a(str, cVar, 0, true, z, false, false, null);
     }
 
-    public com.baidu.adp.widget.ImageView.e b(String str, com.baidu.tbadk.imageManager.c cVar) {
+    public com.baidu.adp.widget.ImageView.d b(String str, com.baidu.tbadk.imageManager.c cVar) {
         return a(str, cVar, (Integer) 1, true);
     }
 
-    public com.baidu.adp.widget.ImageView.e c(String str, com.baidu.tbadk.imageManager.c cVar) {
+    public com.baidu.adp.widget.ImageView.d c(String str, com.baidu.tbadk.imageManager.c cVar) {
         return a(str, cVar, (Integer) 1, false);
     }
 
-    public com.baidu.adp.widget.ImageView.e d(String str, com.baidu.tbadk.imageManager.c cVar) {
+    public com.baidu.adp.widget.ImageView.d d(String str, com.baidu.tbadk.imageManager.c cVar) {
         return a(str, cVar, (Integer) 2, true);
     }
 
-    public com.baidu.adp.widget.ImageView.e e(String str, com.baidu.tbadk.imageManager.c cVar) {
+    public com.baidu.adp.widget.ImageView.d e(String str, com.baidu.tbadk.imageManager.c cVar) {
         return a(str, cVar, (Integer) 5, true);
     }
 
-    public com.baidu.adp.widget.ImageView.e f(String str, com.baidu.tbadk.imageManager.c cVar) {
+    public com.baidu.adp.widget.ImageView.d f(String str, com.baidu.tbadk.imageManager.c cVar) {
         return a(str, cVar, (Integer) 4, true);
     }
 
-    private com.baidu.adp.widget.ImageView.e a(String str, com.baidu.tbadk.imageManager.c cVar, Integer num, boolean z) {
-        return a(str, cVar, num, z, false, false, false);
+    private com.baidu.adp.widget.ImageView.d a(String str, com.baidu.tbadk.imageManager.c cVar, Integer num, boolean z) {
+        return a(str, cVar, num.intValue(), z, false, false, false, null);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public com.baidu.adp.widget.ImageView.e a(String str, com.baidu.tbadk.imageManager.c cVar, Integer num, boolean z, boolean z2, boolean z3, boolean z4) {
-        com.baidu.adp.widget.ImageView.e c;
+    public com.baidu.adp.widget.ImageView.d a(String str, com.baidu.tbadk.imageManager.c cVar, int i, boolean z, boolean z2, boolean z3, boolean z4, Map<String, Object> map) {
         if (str == null) {
             return null;
         }
         String str2 = this.f != null ? str + this.f : str;
-        if (num.intValue() == 0 || num.intValue() == 4 || num.intValue() == 5) {
-            c = com.baidu.tbadk.imageManager.d.a().c(str2);
-        } else {
-            c = com.baidu.tbadk.imageManager.d.a().b(str2);
+        com.baidu.adp.widget.ImageView.d dVar = null;
+        if (i == 0 || i == 4 || i == 5) {
+            dVar = com.baidu.tbadk.imageManager.d.a().c(str2);
+        } else if (i == 1 || i == 2) {
+            dVar = com.baidu.tbadk.imageManager.d.a().b(str2);
         }
-        if (c == null) {
+        if (dVar == null) {
+            boolean z5 = i == 6;
             l lVar = null;
             try {
                 int size = this.k.size();
-                int i = 0;
+                int i2 = 0;
                 while (true) {
-                    if (i >= size) {
+                    if (i2 >= size) {
                         break;
-                    } else if (!this.k.get(i).b().equals(str)) {
-                        i++;
+                    } else if (!this.k.get(i2).d().equals(str)) {
+                        i2++;
                     } else {
-                        this.k.get(i).a(cVar);
+                        this.k.get(i2).a(cVar);
                         if (z2) {
-                            lVar = this.k.get(i);
+                            lVar = this.k.get(i2);
                         } else {
                             return null;
                         }
                     }
                 }
-                if (this.d && this.l != null) {
+                if ((z5 || this.d) && this.l != null) {
                     int size2 = this.l.size();
-                    int i2 = 0;
+                    int i3 = 0;
                     while (true) {
-                        if (i2 >= size2) {
+                        if (i3 >= size2) {
                             break;
-                        } else if (this.l.get(i2).a == null || !this.l.get(i2).a.equals(str)) {
-                            i2++;
+                        } else if (this.l.get(i3).a == null || !this.l.get(i3).a.equals(str)) {
+                            i3++;
                         } else if (z2) {
-                            this.l.remove(i2);
+                            this.l.remove(i3);
                         } else {
                             return null;
                         }
                     }
                 }
                 if (!z2 && this.k.size() >= 5) {
-                    if (this.d) {
+                    if (this.d || z5) {
                         k kVar = new k(this, null);
                         kVar.c = cVar;
                         kVar.a = str;
-                        kVar.b = num.intValue();
+                        kVar.b = i;
                         kVar.d = z;
                         kVar.e = z3;
                         kVar.f = z4;
+                        kVar.g = map;
                         this.l.add(kVar);
                         return null;
                     }
-                    com.baidu.adp.lib.e.c.a().a(this.k.get(0).c, TiebaApplication.h());
+                    com.baidu.adp.lib.e.c.a().a(this.k.get(0).c, TiebaApplication.g());
                 }
-                l lVar2 = lVar != null ? lVar : new l(str, num.intValue(), cVar, z, z3, z4);
+                l lVar2 = lVar != null ? lVar : new l(str, i, cVar, z, z3, z4, map);
                 if (lVar != lVar2) {
                     this.k.add(lVar2);
                 }
@@ -178,25 +212,31 @@ public class i {
                 fVar.a("ImageAsyncTaskInfo", lVar2);
                 fVar.a("AsyncImageLoader", this);
                 fVar.a("param_immediatelyExecut", Boolean.valueOf(z2));
-                int i3 = 2;
-                int i4 = 1;
-                i4 = (num.intValue() == 0 || num.intValue() == 4 || num.intValue() == 5) ? 2 : 2;
-                if (num.intValue() == 0) {
-                    i3 = 1;
+                if (map != null) {
+                    for (Map.Entry<String, Object> entry : map.entrySet()) {
+                        fVar.a(entry.getKey(), entry.getValue());
+                    }
                 }
-                Object a = com.baidu.adp.lib.e.c.a().a(str, i4, new j(this, lVar2), TiebaApplication.h(), fVar, i3);
-                if (a != null && (a instanceof com.baidu.adp.widget.ImageView.e)) {
-                    return (com.baidu.adp.widget.ImageView.e) a;
+                int i4 = 2;
+                int i5 = 1;
+                if (i == 0 || i == 4 || i == 5) {
+                    i5 = 2;
+                } else if (i == 6) {
+                    i5 = 3;
+                }
+                Object a = com.baidu.adp.lib.e.c.a().a(str, i5, new j(this, lVar2), TiebaApplication.g(), fVar, (i == 0 || i == 6) ? 1 : 1);
+                if (a != null && (a instanceof com.baidu.adp.widget.ImageView.d)) {
+                    return (com.baidu.adp.widget.ImageView.d) a;
                 }
             } catch (Exception e) {
-                be.b("AsyncImageLoader", "loadBitmap", "error = " + e.getMessage());
+                bo.b("AsyncImageLoader", "loadBitmap", "error = " + e.getMessage());
             }
             return null;
         }
-        return c;
+        return dVar;
     }
 
-    public void b() {
+    public void d() {
         this.l.clear();
         int i = 0;
         while (true) {
@@ -204,7 +244,7 @@ public class i {
             if (i2 < this.k.size()) {
                 l lVar = this.k.get(i2);
                 if (lVar != null) {
-                    com.baidu.adp.lib.e.c.a().a(lVar.c, TiebaApplication.h());
+                    com.baidu.adp.lib.e.c.a().a(lVar.c, TiebaApplication.g());
                 }
                 i = i2 + 1;
             } else {
@@ -223,7 +263,7 @@ public class i {
         this.g = z;
     }
 
-    public boolean c() {
+    public boolean e() {
         return this.i;
     }
 
@@ -231,7 +271,7 @@ public class i {
         this.i = z;
     }
 
-    public String d() {
+    public String f() {
         return this.j;
     }
 

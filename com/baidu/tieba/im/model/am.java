@@ -1,10 +1,12 @@
 package com.baidu.tieba.im.model;
 
-import com.baidu.tieba.im.message.ap;
 import com.baidu.tieba.im.message.aq;
 import com.baidu.tieba.im.message.ar;
 import com.baidu.tieba.im.message.as;
-import com.baidu.tieba.im.message.bw;
+import com.baidu.tieba.im.message.at;
+import com.baidu.tieba.im.message.au;
+import com.baidu.tieba.im.message.av;
+import com.baidu.tieba.im.message.bz;
 /* loaded from: classes.dex */
 public class am extends com.baidu.adp.a.d {
     private int a;
@@ -15,8 +17,8 @@ public class am extends com.baidu.adp.a.d {
     private String f;
     private String g = null;
     private int h = 0;
-    private aq i;
-    private bw j;
+    private at i;
+    private bz j;
 
     public int a() {
         return this.a;
@@ -96,32 +98,32 @@ public class am extends com.baidu.adp.a.d {
         return false;
     }
 
-    private aq d(int i) {
-        aq aqVar = null;
+    private at d(int i) {
+        at atVar = null;
         switch (i) {
             case 1:
-                aqVar = new ap(c());
+                atVar = new as(c());
                 break;
             case 2:
-                aqVar = new ar(b());
+                atVar = new au(b());
                 break;
             case 3:
-                aqVar = new com.baidu.tieba.im.message.an(g());
+                atVar = new aq(g());
                 break;
             case 4:
-                aqVar = new as(d());
+                atVar = new av(d());
                 break;
             case 5:
-                aqVar = new com.baidu.tieba.im.message.ao(h(), e(), f());
+                atVar = new ar(h(), e(), f());
             default:
                 com.baidu.adp.lib.h.e.a("no right type");
                 break;
         }
-        if (aqVar != null) {
-            aqVar.a(a());
-            aqVar.b(i);
+        if (atVar != null) {
+            atVar.a(a());
+            atVar.b(i);
         }
-        return aqVar;
+        return atVar;
     }
 
     public void c(int i) {

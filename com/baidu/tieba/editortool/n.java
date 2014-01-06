@@ -1,32 +1,19 @@
 package com.baidu.tieba.editortool;
 
-import android.view.ViewGroup;
-import android.view.animation.Animation;
+import android.view.View;
+import com.slidingmenu.lib.R;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class n implements Animation.AnimationListener {
-    final /* synthetic */ o a;
-    final /* synthetic */ ViewGroup b;
+public class n implements View.OnClickListener {
+    final /* synthetic */ EmotionTabHorizonScrollView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public n(o oVar, ViewGroup viewGroup) {
-        this.a = oVar;
-        this.b = viewGroup;
+    public n(EmotionTabHorizonScrollView emotionTabHorizonScrollView) {
+        this.a = emotionTabHorizonScrollView;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        if (this.a != null) {
-            this.a.a();
-        }
-        this.b.setVisibility(0);
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-        this.b.setVisibility(8);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        com.baidu.adp.lib.h.g.a(this.a.getContext(), (int) R.string.emotion_cant_show);
     }
 }

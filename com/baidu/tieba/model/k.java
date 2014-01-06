@@ -15,7 +15,13 @@ public class k extends SingleRunnable<Void> {
     @Override // com.baidu.tieba.im.SingleRunnable
     /* renamed from: a */
     public Void b() {
-        com.baidu.tieba.im.db.t.a().a(this.a.a, true);
+        String str;
+        if (this.a.b) {
+            str = com.baidu.tieba.im.db.t.b(this.a.a);
+        } else {
+            str = this.a.a;
+        }
+        com.baidu.tieba.im.db.t.a().a(str, true);
         return null;
     }
 }

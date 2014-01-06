@@ -65,7 +65,7 @@ public class DailyRecommendActivity extends com.baidu.tieba.j {
             this.e.postDelayed(this.f, 300L);
         }
         this.c.i();
-        if (TiebaApplication.h().t()) {
+        if (TiebaApplication.g().s()) {
             StatService.onEvent(this, "recommend_feature", "visit", 1);
         }
     }

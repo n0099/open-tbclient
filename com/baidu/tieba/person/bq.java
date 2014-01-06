@@ -1,24 +1,24 @@
 package com.baidu.tieba.person;
 
-import android.widget.ImageView;
-import com.baidu.adp.widget.ListView.BdListView;
+import android.content.DialogInterface;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bq implements com.baidu.tbadk.imageManager.c {
-    final /* synthetic */ bp a;
+public class bq implements DialogInterface.OnClickListener {
+    final /* synthetic */ PersonInfoActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bq(bp bpVar) {
-        this.a = bpVar;
+    public bq(PersonInfoActivity personInfoActivity) {
+        this.a = personInfoActivity;
     }
 
-    @Override // com.baidu.tbadk.imageManager.c
-    public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
-        BdListView bdListView;
-        bdListView = this.a.a.b;
-        ImageView imageView = (ImageView) bdListView.findViewWithTag(str);
-        if (imageView != null && eVar != null) {
-            eVar.a(imageView);
-            imageView.setTag(null);
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        if (i == 0) {
+            this.a.O();
+        } else if (i == 1) {
+            com.baidu.tieba.write.bb.a(this.a.i());
+        } else if (i == 2) {
+            com.baidu.tieba.write.bb.c(this.a.i());
         }
     }
 }

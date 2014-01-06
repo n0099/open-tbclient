@@ -3,7 +3,7 @@ package com.baidu.tieba.more;
 import android.widget.RelativeLayout;
 import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.bb;
+import com.baidu.tieba.util.bl;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
@@ -36,7 +36,7 @@ public class az extends com.baidu.adp.a.e {
         this.f.setOnClickListener(this.a);
         this.d.setSwitchStateChangeListener(this.a);
         this.c = (RelativeLayout) this.a.findViewById(R.id.parent);
-        if (TiebaApplication.C()) {
+        if (TiebaApplication.B()) {
             this.f.setVisibility(0);
         } else {
             this.f.setVisibility(8);
@@ -59,11 +59,11 @@ public class az extends com.baidu.adp.a.e {
         this.g.c(i);
         this.d.a(i);
         if (i == 1) {
-            bb.e(this.d, (int) R.drawable.more_all_1);
-            bb.e(this.e, (int) R.drawable.more_all_1);
+            bl.e(this.d, (int) R.drawable.more_all_1);
+            bl.e(this.e, (int) R.drawable.more_all_1);
         } else {
-            bb.e(this.d, (int) R.drawable.more_all);
-            bb.e(this.e, (int) R.drawable.more_all);
+            bl.e(this.d, (int) R.drawable.more_all);
+            bl.e(this.e, (int) R.drawable.more_all);
         }
         this.e.a(i);
         this.f.a(i);

@@ -1,9 +1,9 @@
 package com.baidu.tieba.write;
 
-import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class af implements com.baidu.tieba.model.bc {
+public class af implements View.OnClickListener {
     final /* synthetic */ WriteActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,20 +11,8 @@ class af implements com.baidu.tieba.model.bc {
         this.a = writeActivity;
     }
 
-    @Override // com.baidu.tieba.model.bc
-    public void a(com.baidu.tieba.data.ag agVar) {
-        LinearLayout linearLayout;
-        linearLayout = this.a.D;
-        ImageView imageView = (ImageView) linearLayout.findViewWithTag(agVar.d);
-        if (imageView != null) {
-            imageView.setImageBitmap(agVar.e);
-        }
-    }
-
-    @Override // com.baidu.tieba.model.bc
-    public void a(boolean z, String str) {
-        if (!z) {
-            this.a.showToast(str);
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.a.o();
     }
 }

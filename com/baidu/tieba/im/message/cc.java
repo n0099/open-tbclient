@@ -1,44 +1,42 @@
 package com.baidu.tieba.im.message;
 /* loaded from: classes.dex */
-public class cc extends n {
-    private boolean a;
+public class cc extends o {
+    private int a;
     private String b;
-    private String c;
-    private boolean d;
+    private o c;
 
     public cc() {
-        super.e(-118);
     }
 
-    public boolean a() {
+    public cc(int i) {
+        e(i);
+    }
+
+    public boolean i() {
+        return this.a != 0;
+    }
+
+    public int j() {
         return this.a;
     }
 
-    public void a(boolean z) {
-        this.a = z;
+    public void g(int i) {
+        this.a = i;
     }
 
-    public String b() {
+    public String k() {
         return this.b;
     }
 
-    public void a(String str) {
+    public void c(String str) {
         this.b = str;
     }
 
-    public String c() {
+    public o l() {
         return this.c;
     }
 
-    public void b(String str) {
-        this.c = str;
-    }
-
-    public boolean d() {
-        return this.d;
-    }
-
-    public void b(boolean z) {
-        this.d = z;
+    public void a(o oVar) {
+        this.c = oVar;
     }
 }

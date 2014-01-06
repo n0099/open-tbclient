@@ -2,20 +2,19 @@ package com.baidu.tbadk.widget;
 
 import android.content.Context;
 import android.graphics.Canvas;
-import com.baidu.adp.widget.ImageView.e;
 /* loaded from: classes.dex */
 public class b extends TbImageView {
     public b(Context context) {
         super(context);
     }
 
-    @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.widget.ImageView.a
-    public e getImage() {
+    @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.widget.ImageView.BDImageView
+    public com.baidu.adp.widget.ImageView.d getImage() {
         return super.getImage();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.widget.ImageView.a, android.widget.ImageView, android.view.View
+    @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.widget.ImageView.BDImageView, android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
     }

@@ -12,7 +12,7 @@ import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.cloudsdk.social.oauth.SocialOAuthActivity;
 import com.baidu.cloudsdk.social.share.ShareContent;
 import com.baidu.cloudsdk.social.share.SocialShare;
-import com.baidu.tieba.util.bc;
+import com.baidu.tieba.util.bm;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class d {
@@ -95,12 +95,12 @@ public class d {
         if (shareContent.getImageUri() != null) {
             shareContent.setImageUri(Uri.parse(a(shareContent.getImageUri().toString(), "sfc=" + str)));
         }
-        shareContent.setLinkUrl(a(bc.c(shareContent.getLinkUrl()) ? "http://tieba.baidu.com" : shareContent.getLinkUrl(), "sfc=" + str));
+        shareContent.setLinkUrl(a(bm.c(shareContent.getLinkUrl()) ? "http://tieba.baidu.com" : shareContent.getLinkUrl(), "sfc=" + str));
         return shareContent;
     }
 
     private String a(String str, String str2) {
-        if (bc.c(Uri.parse(str).getQuery())) {
+        if (bm.c(Uri.parse(str).getQuery())) {
             str = str + "?";
         }
         return str + "&" + str2;

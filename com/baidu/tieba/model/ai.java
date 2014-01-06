@@ -7,10 +7,10 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ai extends BdAsyncTask<String, String, Boolean> {
-    ArrayList<com.baidu.tieba.data.z> a;
+    ArrayList<com.baidu.tieba.data.aa> a;
     String b;
     final /* synthetic */ ad c;
-    private com.baidu.tieba.util.an d = null;
+    private com.baidu.tieba.util.at d = null;
     private String e;
     private String f;
     private String g;
@@ -32,7 +32,7 @@ public class ai extends BdAsyncTask<String, String, Boolean> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public Boolean a(String... strArr) {
-        this.d = new com.baidu.tieba.util.an(strArr[0]);
+        this.d = new com.baidu.tieba.util.at(strArr[0]);
         this.d.a("word", this.f);
         if (this.h != 6) {
             this.d.a("fid", this.e);
@@ -55,12 +55,12 @@ public class ai extends BdAsyncTask<String, String, Boolean> {
                 try {
                     JSONArray optJSONArray = new JSONObject(l).optJSONArray("cates");
                     for (int i = 0; i < optJSONArray.length(); i++) {
-                        com.baidu.tieba.data.z zVar = new com.baidu.tieba.data.z();
-                        zVar.a(optJSONArray.optJSONObject(i));
-                        this.a.add(zVar);
+                        com.baidu.tieba.data.aa aaVar = new com.baidu.tieba.data.aa();
+                        aaVar.a(optJSONArray.optJSONObject(i));
+                        this.a.add(aaVar);
                     }
                 } catch (Exception e) {
-                    com.baidu.tieba.util.be.b(getClass().getName(), "doInBackground", e.getMessage());
+                    com.baidu.tieba.util.bo.b(getClass().getName(), "doInBackground", e.getMessage());
                     return false;
                 }
             }

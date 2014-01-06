@@ -2,7 +2,6 @@ package com.baidu.tieba.im.groupCard;
 
 import android.app.Activity;
 import android.graphics.Bitmap;
-import com.baidu.adp.widget.ImageView.e;
 import com.baidu.tieba.data.h;
 import com.baidu.tieba.im.chat.LocalViewSize;
 import com.baidu.tieba.util.i;
@@ -37,7 +36,7 @@ public class b extends com.baidu.adp.a.d {
         return false;
     }
 
-    public e a(Activity activity, int i, int i2, com.baidu.tbadk.imageManager.c cVar) {
+    public com.baidu.adp.widget.ImageView.d a(Activity activity, int i, int i2, com.baidu.tbadk.imageManager.c cVar) {
         this.c = new i(activity);
         if (System.currentTimeMillis() - f.longValue() > g.longValue()) {
             f = Long.valueOf(System.currentTimeMillis());

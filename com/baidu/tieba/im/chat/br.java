@@ -1,73 +1,184 @@
 package com.baidu.tieba.im.chat;
 
-import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.im.data.MsgCacheData;
+import java.util.List;
 /* loaded from: classes.dex */
-public class br {
-    String a;
-    com.baidu.adp.widget.ImageView.e b = null;
-    final /* synthetic */ bc c;
+public class br extends BaseAdapter {
+    private Context a;
+    private int g;
+    private com.baidu.tieba.util.i j;
+    private List<com.baidu.tieba.im.message.b> b = null;
+    private Long c = 0L;
+    private long d = 0;
+    private Long e = null;
+    private Long f = null;
+    private com.baidu.adp.lib.b.a h = null;
+    private com.baidu.adp.lib.b.b i = null;
 
-    public br(bc bcVar, String str) {
-        this.c = bcVar;
-        this.a = null;
-        this.a = str;
+    public br(Context context, int i) {
+        this.g = 0;
+        this.j = null;
+        this.a = context;
+        this.j = new com.baidu.tieba.util.i(context);
+        this.g = i;
     }
 
     public void a() {
-        try {
-            if (this.a == null || this.a.length() <= 0) {
-                a(this.c.getString(R.string.save_error));
-            }
-            this.b = new com.baidu.tieba.util.i(this.c).a(this.a, false, true, (com.baidu.tbadk.imageManager.c) new bs(this));
-            if (this.b != null) {
-                a(a(this.a, this.b.i()));
-            }
-        } catch (Exception e) {
-            com.baidu.tieba.util.be.b("SaveImageAsyncTask", "execute", "error" + e.getMessage());
-            a(this.c.getString(R.string.save_error));
-        }
+        this.c = Long.valueOf(System.currentTimeMillis() / 1000);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public String a(String str, byte[] bArr) {
-        String str2;
-        try {
-            if (bArr != null) {
-                if (!com.baidu.adp.lib.h.g.a(bArr)) {
-                    str2 = ".jpg";
+    public void a(com.baidu.adp.lib.b.a aVar) {
+        this.h = aVar;
+    }
+
+    public void a(com.baidu.adp.lib.b.b bVar) {
+        this.i = bVar;
+    }
+
+    public void a(long j) {
+        this.d = j;
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        int size;
+        if (this.b == null || (size = this.b.size()) < 0) {
+            return 0;
+        }
+        return size;
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        if (this.b == null || i >= this.b.size()) {
+            return null;
+        }
+        return this.b.get(i);
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        return i;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        ao aoVar;
+        MsgrightView msgrightView;
+        MsgleftView msgleftView;
+        MsgleftView msgleftView2 = null;
+        int itemViewType = getItemViewType(i);
+        com.baidu.tieba.im.message.b bVar = this.b.get(i);
+        if (bVar.n() == null) {
+            bVar.a(new MsgCacheData());
+        }
+        switch (itemViewType) {
+            case 0:
+                if (view == null) {
+                    msgleftView = new MsgleftView(this.a, this.g);
+                    view = msgleftView.a();
                 } else {
-                    str2 = ".gif";
+                    msgleftView = (MsgleftView) view.getTag();
                 }
-                String f = com.baidu.tieba.util.bc.f(str);
-                if (f == null) {
-                    return this.c.getString(R.string.save_error);
+                bVar.n().setIs_left(1);
+                msgleftView.a(this.j);
+                msgleftView2 = msgleftView;
+                aoVar = null;
+                break;
+            case 1:
+                if (view == null) {
+                    msgrightView = new MsgrightView(this.a);
+                    view = msgrightView.a();
+                } else {
+                    msgrightView = (MsgrightView) view.getTag();
                 }
-                String str3 = f + str2;
-                for (int i = 0; com.baidu.tieba.util.y.b(str3) && i < 10000; i++) {
-                    str3 = f + String.valueOf(Math.round(Math.random() * 9.9999999E7d)) + str2;
+                msgrightView.a(this.j);
+                bVar.n().setIs_left(0);
+                msgleftView2 = msgrightView;
+                aoVar = null;
+                break;
+            case 2:
+                if (view == null) {
+                    aoVar = new ao(this.a);
+                    view = aoVar.a();
+                    break;
+                } else {
+                    aoVar = (ao) view.getTag();
+                    break;
                 }
-                String a = com.baidu.tieba.util.y.a(str3, bArr);
-                if (a != null) {
-                    new com.baidu.tieba.util.am(this.c).a(a);
-                    return this.c.getString(R.string.save_image_to_album);
-                }
-                return com.baidu.tieba.util.y.b();
-            }
-            return this.c.getString(R.string.save_error);
-        } catch (Exception e) {
-            com.baidu.tieba.util.be.b("SaveImageAsyncTask", "saveByte", "error" + e.getMessage());
-            return this.c.getString(R.string.save_error);
+            default:
+                com.baidu.adp.lib.h.e.b(getClass().getName(), "getView", "view type error");
+                aoVar = null;
+                break;
         }
+        if (msgleftView2 != null) {
+            msgleftView2.a(this.h);
+            msgleftView2.a(this.i);
+            msgleftView2.b(i);
+            msgleftView2.a(this.d);
+            msgleftView2.c(this.c.longValue());
+            if (i > 0) {
+                msgleftView2.b(this.b.get(i - 1).o());
+            } else {
+                msgleftView2.b(0L);
+            }
+            msgleftView2.a(viewGroup, bVar);
+            msgleftView2.b(viewGroup, bVar);
+        } else if (aoVar != null) {
+            aoVar.a(bVar);
+        }
+        return view;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public final void a(String str) {
-        this.c.showToast(str);
-        this.c.l = null;
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getItemViewType(int i) {
+        try {
+            com.baidu.tieba.im.message.b bVar = this.b.get(i);
+            if (bVar != null) {
+                if (bVar.h() == 11) {
+                    return 2;
+                }
+                if (bVar.f() != null && bVar.f().getId() != null) {
+                    return bVar.f().getId().equals(TiebaApplication.A()) ? 1 : 0;
+                }
+            }
+        } catch (Exception e) {
+            com.baidu.adp.lib.h.e.b(getClass().getName(), "getItemViewType", e.getMessage());
+        }
+        return 0;
     }
 
-    public void b() {
-        this.c.l = null;
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getViewTypeCount() {
+        return 3;
+    }
+
+    public List<com.baidu.tieba.im.message.b> b() {
+        return this.b;
+    }
+
+    public void a(com.baidu.tieba.im.message.b bVar) {
+        notifyDataSetChanged();
+    }
+
+    public void a(List<com.baidu.tieba.im.message.b> list) {
+        this.b = list;
+        int size = this.b.size();
+        if (size > 0) {
+            this.f = Long.valueOf(this.b.get(size - 1).k());
+            this.e = Long.valueOf(this.b.get(0).k());
+            return;
+        }
+        this.f = null;
+        this.e = null;
+    }
+
+    public com.baidu.tieba.util.i c() {
+        return this.j;
     }
 }

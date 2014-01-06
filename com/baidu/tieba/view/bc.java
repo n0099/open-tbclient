@@ -1,43 +1,40 @@
 package com.baidu.tieba.view;
 
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.widget.Button;
+import android.app.Activity;
+import android.view.View;
+import com.baidu.tieba.MainTabActivity;
+import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bc implements TextWatcher {
-    final /* synthetic */ SearchBar a;
+public class bc implements View.OnClickListener {
+    final /* synthetic */ NavigationBar a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bc(SearchBar searchBar) {
-        this.a = searchBar;
+    public bc(NavigationBar navigationBar) {
+        this.a = navigationBar;
     }
 
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
-        Button button;
-        bf bfVar;
-        bf bfVar2;
-        Button button2;
-        if (this.a.getSearchText().length() > 0) {
-            button2 = this.a.c;
-            button2.setVisibility(0);
-        } else {
-            button = this.a.c;
-            button.setVisibility(8);
-        }
-        bfVar = this.a.e;
-        if (bfVar != null) {
-            bfVar2 = this.a.e;
-            bfVar2.a(this.a.getSearchText());
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        boolean z;
+        Activity activity;
+        Activity activity2;
+        z = this.a.a;
+        if (z) {
+            switch (view.getId()) {
+                case R.id.navigationBarGoBack /* 2131101176 */:
+                    activity2 = this.a.f;
+                    activity2.finish();
+                    return;
+                case R.id.navigationBarCreateGroupBtn /* 2131101177 */:
+                case R.id.navigationBarNewPost /* 2131101178 */:
+                default:
+                    return;
+                case R.id.navigationBarHome /* 2131101179 */:
+                    activity = this.a.f;
+                    MainTabActivity.a(activity);
+                    return;
+            }
         }
     }
 }

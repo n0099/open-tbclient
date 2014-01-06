@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class ba extends com.baidu.adp.a.d {
     private Context c;
     private bd a = null;
-    private ArrayList<com.baidu.tieba.data.ag> b = null;
+    private ArrayList<com.baidu.tieba.data.ah> b = null;
     private bc d = null;
 
     public ba(Context context) {

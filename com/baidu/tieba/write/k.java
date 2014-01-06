@@ -10,7 +10,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.MetaData;
-import com.baidu.tieba.util.be;
+import com.baidu.tieba.util.bl;
+import com.baidu.tieba.util.bo;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
@@ -34,7 +35,7 @@ public class k extends BaseAdapter {
                     try {
                         this.i.get(i2).setVisibility(8);
                     } catch (Exception e) {
-                        be.b(getClass().getName(), "releaseProgressBar", e.getMessage());
+                        bo.b(getClass().getName(), "releaseProgressBar", e.getMessage());
                     }
                     i = i2 + 1;
                 } else {
@@ -144,7 +145,7 @@ public class k extends BaseAdapter {
                         mVar.b.setVisibility(0);
                         mVar.e.setVisibility(8);
                         String portrait = this.d.get(i).getPortrait();
-                        com.baidu.adp.widget.ImageView.e c = this.f.c(portrait);
+                        com.baidu.adp.widget.ImageView.d c = this.f.c(portrait);
                         if (c != null) {
                             mVar.a.setTag(null);
                             c.a(mVar.a);
@@ -161,11 +162,11 @@ public class k extends BaseAdapter {
                     mVar.b.setText(this.e.getString(R.string.load_more));
                     mVar.d.setVisibility(8);
                 }
-                int an = TiebaApplication.h().an();
+                int an = TiebaApplication.g().an();
                 if (an == 1) {
-                    com.baidu.tieba.util.bb.e(view, (int) R.drawable.list_selector_1);
+                    bl.e(view, (int) R.drawable.list_selector_1);
                 } else {
-                    com.baidu.tieba.util.bb.e(view, (int) R.drawable.list_selector_divider1);
+                    bl.e(view, (int) R.drawable.list_selector_divider1);
                 }
                 if (an == 1) {
                     mVar.b.setTextColor(-8153171);

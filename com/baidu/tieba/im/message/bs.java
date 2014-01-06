@@ -1,20 +1,41 @@
 package com.baidu.tieba.im.message;
 
 import java.util.LinkedList;
-import protobuf.ReportGroup.ReportGroupRes;
+import protobuf.QueryGroupCount.QueryGroupCountRes;
 /* loaded from: classes.dex */
-public class bs extends bz implements com.baidu.tieba.im.coder.f {
+public class bs extends cc implements com.baidu.tieba.im.coder.f {
+    private int a;
+    private int b;
+
     public bs() {
-        e(103103);
+        e(103011);
+    }
+
+    public int a() {
+        return this.a;
+    }
+
+    public void a(int i) {
+        this.a = i;
+    }
+
+    public int b() {
+        return this.b;
+    }
+
+    public void b(int i) {
+        this.b = i;
     }
 
     @Override // com.baidu.tieba.im.coder.f
-    public void a(LinkedList<n> linkedList, byte[] bArr, int i) {
-        ReportGroupRes.ReportGroupResIdl parseFrom = ReportGroupRes.ReportGroupResIdl.parseFrom(bArr);
-        c(parseFrom.getError().getErrorno());
+    public void a(LinkedList<o> linkedList, byte[] bArr, int i) {
+        QueryGroupCountRes.QueryGroupCountResIdl parseFrom = QueryGroupCountRes.QueryGroupCountResIdl.parseFrom(bArr);
+        g(parseFrom.getError().getErrorno());
         c(parseFrom.getError().getUsermsg());
         linkedList.add(this);
-        if (i()) {
+        if (!i()) {
+            b(parseFrom.getData().getLocalGroupCount());
+            a(parseFrom.getData().getUserGroupCount());
         }
     }
 }

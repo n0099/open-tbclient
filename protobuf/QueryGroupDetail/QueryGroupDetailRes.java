@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import protobuf.Im;
-import protobuf.ae;
+import protobuf.ah;
 import protobuf.y;
 /* loaded from: classes.dex */
 public final class QueryGroupDetailRes {
@@ -263,7 +263,7 @@ public final class QueryGroupDetailRes {
             return this.member_;
         }
 
-        public List<? extends ae> getMemberOrBuilderList() {
+        public List<? extends ah> getMemberOrBuilderList() {
             return this.member_;
         }
 
@@ -275,7 +275,7 @@ public final class QueryGroupDetailRes {
             return this.member_.get(i);
         }
 
-        public ae getMemberOrBuilder(int i) {
+        public ah getMemberOrBuilder(int i) {
             return this.member_.get(i);
         }
 

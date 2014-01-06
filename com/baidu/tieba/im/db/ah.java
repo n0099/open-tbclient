@@ -28,8 +28,8 @@ public class ah implements com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMess
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Removed duplicated region for block: B:13:0x0089  */
-    /* JADX WARN: Removed duplicated region for block: B:28:0x018d  */
-    /* JADX WARN: Removed duplicated region for block: B:33:0x01c9  */
+    /* JADX WARN: Removed duplicated region for block: B:28:0x0196  */
+    /* JADX WARN: Removed duplicated region for block: B:33:0x01d2  */
     /* JADX WARN: Removed duplicated region for block: B:40:? A[RETURN, SYNTHETIC] */
     @Override // com.baidu.tieba.im.a
     /*
@@ -38,17 +38,17 @@ public class ah implements com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMess
     public void a(ConcurrentHashMap<String, ImMessageCenterPojo> concurrentHashMap) {
         String str;
         boolean z;
-        String g = com.baidu.tieba.im.d.d.g(this.a.toChatMessage());
+        String h = com.baidu.tieba.im.d.d.h(this.a.toChatMessage());
         UserData userData = (UserData) new Gson().fromJson(this.a.getUser_info(), (Class<Object>) UserData.class);
         String str2 = "";
         if (userData != null) {
             str2 = userData.getName();
-            if (TiebaApplication.C()) {
-                String B = TiebaApplication.B();
-                if (!TextUtils.isEmpty(B) && B.equals(String.valueOf(userData.getId()))) {
+            if (TiebaApplication.B()) {
+                String A = TiebaApplication.A();
+                if (!TextUtils.isEmpty(A) && A.equals(String.valueOf(userData.getId()))) {
                     str = str2;
                     z = true;
-                    com.baidu.adp.lib.h.e.d("see gid:" + this.b + " content:" + g);
+                    com.baidu.adp.lib.h.e.d("see gid:" + this.b + " content:" + h);
                     com.baidu.adp.lib.h.e.d("see pojo1:" + this.a);
                     if (concurrentHashMap.get(this.b) == null) {
                         if (concurrentHashMap.get(this.b).getGroup_type() == 6) {
@@ -56,10 +56,10 @@ public class ah implements com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMess
                         }
                         long rid = this.a.getRid();
                         long last_rid = concurrentHashMap.get(this.b).getLast_rid();
-                        com.baidu.adp.lib.h.e.d("gid:" + this.b + "curLastMid:" + rid + "orginalLastMid:" + last_rid + " cur unRead:" + concurrentHashMap.get(this.b).getUnread_count() + " add unread:" + this.c + "content:" + this.a + " readableContent:" + g);
+                        com.baidu.adp.lib.h.e.d("gid:" + this.b + "curLastMid:" + rid + "orginalLastMid:" + last_rid + " cur unRead:" + concurrentHashMap.get(this.b).getUnread_count() + " add unread:" + this.c + "content:" + this.a + " readableContent:" + h);
                         if (rid > last_rid) {
                             concurrentHashMap.get(this.b).setLast_rid(rid);
-                            concurrentHashMap.get(this.b).setLast_content(g);
+                            concurrentHashMap.get(this.b).setLast_content(h);
                             concurrentHashMap.get(this.b).setLast_content_time(this.a.getCreate_time() * 1000);
                             concurrentHashMap.get(this.b).setLast_user_name(str);
                             if (last_rid < rid) {
@@ -74,6 +74,7 @@ public class ah implements com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMess
                             }
                             if (z2) {
                                 concurrentHashMap.get(this.b).setIs_hidden(0);
+                                com.baidu.tieba.im.m.a(new ai(this), null);
                             }
                         } else {
                             com.baidu.adp.lib.h.e.d("curRid(" + rid + ") <= orginalLastRid(" + last_rid + "), 所以没有更新消息中心。消息： " + this.a.getContent());
@@ -84,7 +85,7 @@ public class ah implements com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMess
                         if (a != null) {
                             LinkedList<String> linkedList = new LinkedList<>();
                             linkedList.add(a.getGid());
-                            ar.a().a(linkedList, (com.baidu.tieba.im.a<Void>) null);
+                            as.a().a(linkedList, (com.baidu.tieba.im.a<Void>) null);
                             new LinkedList().add(this.a);
                             a.setUnread_count(this.c);
                             concurrentHashMap.put(this.b, a);
@@ -94,7 +95,7 @@ public class ah implements com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMess
                     } else {
                         ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
                         imMessageCenterPojo.setGid(this.b);
-                        imMessageCenterPojo.setLast_content(g);
+                        imMessageCenterPojo.setLast_content(h);
                         imMessageCenterPojo.setLast_content_time(this.a.getCreate_time() * 1000);
                         imMessageCenterPojo.setLast_user_name(str);
                         imMessageCenterPojo.setLast_rid(this.a.getMid());
@@ -112,7 +113,7 @@ public class ah implements com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMess
         }
         str = str2;
         z = false;
-        com.baidu.adp.lib.h.e.d("see gid:" + this.b + " content:" + g);
+        com.baidu.adp.lib.h.e.d("see gid:" + this.b + " content:" + h);
         com.baidu.adp.lib.h.e.d("see pojo1:" + this.a);
         if (concurrentHashMap.get(this.b) == null) {
         }

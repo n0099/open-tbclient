@@ -1,12 +1,10 @@
 package com.baidu.tieba.mention;
 
-import android.view.View;
-import com.baidu.tieba.data.ar;
-import com.baidu.tieba.model.bv;
-import com.baidu.tieba.person.PersonInfoActivity;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class w implements View.OnClickListener {
+public class w implements com.baidu.tbadk.imageManager.c {
     final /* synthetic */ PostActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,21 +12,19 @@ public class w implements View.OnClickListener {
         this.a = postActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        bv bvVar;
-        bv bvVar2;
-        bv bvVar3;
-        bvVar = this.a.l;
-        if (bvVar != null) {
-            bvVar2 = this.a.l;
-            if (bvVar2.a() != null) {
-                bvVar3 = this.a.l;
-                ar arVar = bvVar3.a().e().get(0);
-                if (arVar != null) {
-                    PersonInfoActivity.a(this.a, arVar.g().getId(), arVar.g().getName());
-                }
+    @Override // com.baidu.tbadk.imageManager.c
+    public void a(com.baidu.adp.widget.ImageView.d dVar, String str, boolean z) {
+        LinearLayout linearLayout;
+        LinearLayout linearLayout2;
+        linearLayout = this.a.a;
+        ImageView imageView = (ImageView) linearLayout.findViewWithTag(str);
+        while (imageView != null) {
+            imageView.setTag(null);
+            if (imageView != null && dVar != null) {
+                dVar.a(imageView);
             }
+            linearLayout2 = this.a.a;
+            imageView = (ImageView) linearLayout2.findViewWithTag(str);
         }
     }
 }

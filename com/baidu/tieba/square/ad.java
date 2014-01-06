@@ -44,7 +44,7 @@ public class ad {
                     }
                 }
             } catch (Exception e) {
-                com.baidu.tieba.util.be.b(getClass().getName(), "parseForumListRecommendData", e.toString());
+                com.baidu.tieba.util.bo.b(getClass().getName(), "parseForumListRecommendData", e.toString());
             }
         }
     }

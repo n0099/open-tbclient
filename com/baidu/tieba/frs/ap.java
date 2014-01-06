@@ -14,12 +14,12 @@ import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class ap extends BaseAdapter {
     private Context a;
-    private ArrayList<com.baidu.tieba.data.z> b;
+    private ArrayList<com.baidu.tieba.data.aa> b;
     private String c;
     private int d = 0;
     private int e = 0;
 
-    public ap(Context context, ArrayList<com.baidu.tieba.data.z> arrayList) {
+    public ap(Context context, ArrayList<com.baidu.tieba.data.aa> arrayList) {
         this.a = context;
         this.b = arrayList;
         this.c = this.a.getText(R.string.frs_good).toString();
@@ -33,7 +33,7 @@ public class ap extends BaseAdapter {
         }
     }
 
-    public void a(ArrayList<com.baidu.tieba.data.z> arrayList) {
+    public void a(ArrayList<com.baidu.tieba.data.aa> arrayList) {
         this.b = arrayList;
         a();
     }
@@ -41,20 +41,20 @@ public class ap extends BaseAdapter {
     private void a() {
         int i = 0;
         if (this.b != null) {
-            ArrayList<com.baidu.tieba.data.z> arrayList = new ArrayList<>();
-            com.baidu.tieba.data.z zVar = new com.baidu.tieba.data.z();
-            zVar.a(0);
-            zVar.a(this.c);
-            arrayList.add(zVar);
+            ArrayList<com.baidu.tieba.data.aa> arrayList = new ArrayList<>();
+            com.baidu.tieba.data.aa aaVar = new com.baidu.tieba.data.aa();
+            aaVar.a(0);
+            aaVar.a(this.c);
+            arrayList.add(aaVar);
             if (this.b != null && this.b.size() > 0) {
                 while (true) {
                     int i2 = i;
                     if (i2 >= this.b.size()) {
                         break;
                     }
-                    com.baidu.tieba.data.z zVar2 = this.b.get(i2);
-                    if (zVar2.b() != 0) {
-                        arrayList.add(zVar2);
+                    com.baidu.tieba.data.aa aaVar2 = this.b.get(i2);
+                    if (aaVar2.b() != 0) {
+                        arrayList.add(aaVar2);
                     }
                     i = i2 + 1;
                 }
@@ -104,14 +104,14 @@ public class ap extends BaseAdapter {
                 } catch (Exception e) {
                     view2 = view3;
                     exc = e;
-                    com.baidu.tieba.util.be.b(getClass().getName(), "", "DialogGoodAdapter.getView error = " + exc.getMessage());
+                    com.baidu.tieba.util.bo.b(getClass().getName(), "", "DialogGoodAdapter.getView error = " + exc.getMessage());
                     return view2;
                 }
             } else {
                 arVar = (ar) view.getTag();
                 view3 = view;
             }
-            if (TiebaApplication.h().an() == 1) {
+            if (TiebaApplication.g().an() == 1) {
                 arVar.b.setBackgroundResource(R.color.frs_goodheader_line_1);
                 arVar.c.setBackgroundResource(R.color.frs_goodheader_line_1);
                 if (this.e == i) {
@@ -148,7 +148,7 @@ public class ap extends BaseAdapter {
             if (item == null) {
                 return view3;
             }
-            arVar.a.setText(((com.baidu.tieba.data.z) item).a());
+            arVar.a.setText(((com.baidu.tieba.data.aa) item).a());
             return view3;
         } catch (Exception e2) {
             exc = e2;

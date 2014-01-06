@@ -103,11 +103,15 @@ public class d {
         this.a = str;
     }
 
+    public String j() {
+        return this.b;
+    }
+
     public void c(String str) {
         this.b = str;
     }
 
-    public int j() {
+    public int k() {
         return this.c;
     }
 
@@ -115,7 +119,7 @@ public class d {
         this.c = i;
     }
 
-    public int k() {
+    public int l() {
         return this.d;
     }
 
@@ -123,7 +127,7 @@ public class d {
         this.d = i;
     }
 
-    public int l() {
+    public int m() {
         return this.e;
     }
 
@@ -131,7 +135,7 @@ public class d {
         this.e = i;
     }
 
-    public int m() {
+    public int n() {
         return this.f;
     }
 
@@ -139,11 +143,11 @@ public class d {
         this.f = i;
     }
 
-    public int n() {
+    public int o() {
         return this.h;
     }
 
-    public int o() {
+    public int p() {
         return this.g;
     }
 
@@ -155,7 +159,7 @@ public class d {
         this.h = i;
     }
 
-    public int p() {
+    public int q() {
         return this.j;
     }
 
@@ -163,7 +167,7 @@ public class d {
         this.j = i;
     }
 
-    public int q() {
+    public int r() {
         return this.i;
     }
 
@@ -171,7 +175,7 @@ public class d {
         this.i = i;
     }
 
-    public int r() {
+    public int s() {
         return this.s;
     }
 
@@ -179,7 +183,7 @@ public class d {
         this.s = i;
     }
 
-    public int s() {
+    public int t() {
         return this.t;
     }
 

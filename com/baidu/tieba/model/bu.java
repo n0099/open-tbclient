@@ -74,20 +74,20 @@ public class bu extends BdAsyncTask<Integer, Integer, String> {
             }
             return;
         }
-        com.baidu.tieba.data.bd bdVar = new com.baidu.tieba.data.bd();
-        bdVar.a(this.c);
-        if (bdVar.b() != null) {
+        com.baidu.tieba.data.bf bfVar = new com.baidu.tieba.data.bf();
+        bfVar.a(this.c);
+        if (bfVar.b() != null) {
             writeData = this.a.b;
             if (writeData != null) {
                 writeData2 = this.a.b;
-                writeData2.setVcodeMD5(bdVar.a());
+                writeData2.setVcodeMD5(bfVar.a());
                 writeData3 = this.a.b;
-                writeData3.setVcodeUrl(bdVar.b());
+                writeData3.setVcodeUrl(bfVar.b());
                 btVar3 = this.a.c;
                 if (btVar3 != null) {
                     btVar4 = this.a.c;
                     writeData4 = this.a.b;
-                    btVar4.a(false, str, bdVar, writeData4, e);
+                    btVar4.a(false, str, bfVar, writeData4, e);
                     return;
                 }
                 return;
@@ -108,17 +108,17 @@ public class bu extends BdAsyncTask<Integer, Integer, String> {
         bt btVar2;
         bt btVar3;
         super.a((bu) str);
-        com.baidu.tieba.util.be.e(getClass().getName(), "onPostExecute", "result:" + str);
+        com.baidu.tieba.util.bo.e(getClass().getName(), "onPostExecute", "result:" + str);
         this.a.a = null;
         if (!this.d) {
             if (str == null) {
                 btVar = this.a.c;
-                btVar.a(false, TiebaApplication.h().getString(R.string.neterror), null, null, null);
+                btVar.a(false, TiebaApplication.g().getString(R.string.neterror), null, null, null);
             } else if (this.b.a()) {
                 ErrorData errorData = new ErrorData();
                 errorData.parserJson(this.c);
                 if (errorData.getError_msg() == null || errorData.getError_msg().length() <= 0) {
-                    errorData.setError_msg(TiebaApplication.h().getString(R.string.send_success));
+                    errorData.setError_msg(TiebaApplication.g().getString(R.string.send_success));
                     btVar2 = this.a.c;
                     if (btVar2 != null) {
                         AntiData e = (this.b == null || !this.b.a()) ? null : this.b.e();

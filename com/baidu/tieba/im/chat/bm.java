@@ -1,27 +1,27 @@
 package com.baidu.tieba.im.chat;
+
+import com.baidu.tieba.im.model.MsglistModel;
+import com.baidu.tieba.voice.VoiceManager;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bm implements com.baidu.tieba.im.a<Boolean> {
-    final /* synthetic */ bc a;
+public class bm implements ch {
+    final /* synthetic */ ba a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bm(bc bcVar) {
-        this.a = bcVar;
+    public bm(ba baVar) {
+        this.a = baVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    public void a(Boolean bool) {
-        bu buVar;
-        bu buVar2;
-        if (bool != null) {
-            if (bool.booleanValue()) {
-                buVar2 = this.a.g;
-                buVar2.G();
-                return;
-            }
-            buVar = this.a.g;
-            buVar.H();
+    @Override // com.baidu.tieba.im.chat.ch
+    public void a(VoiceManager.VoiceModel voiceModel) {
+        MsglistModel msglistModel;
+        if (voiceModel != null) {
+            msglistModel = this.a.h;
+            msglistModel.a(voiceModel.voiceId, voiceModel.duration);
         }
+    }
+
+    @Override // com.baidu.tieba.im.chat.ch
+    public void a() {
     }
 }

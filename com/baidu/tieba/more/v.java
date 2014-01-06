@@ -12,7 +12,7 @@ import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class v extends BdAsyncTask<Object, Integer, String> {
     final /* synthetic */ AppsActivity a;
-    private com.baidu.tieba.util.an b = null;
+    private com.baidu.tieba.util.at b = null;
     private String c;
 
     public v(AppsActivity appsActivity, String str) {
@@ -43,7 +43,7 @@ public class v extends BdAsyncTask<Object, Integer, String> {
         if (this.c == null) {
             return null;
         }
-        this.b = new com.baidu.tieba.util.an(this.c);
+        this.b = new com.baidu.tieba.util.at(this.c);
         this.b.b(false);
         this.b.a("client", SocialConstants.ANDROID_CLIENT_TYPE);
         return this.b.l();

@@ -25,13 +25,13 @@ public class ar {
             arrayList.add(new BasicNameValuePair("un", str));
             arrayList.add(new BasicNameValuePair("passwd", str2));
             arrayList.add(new BasicNameValuePair("isphone", SocialConstants.FALSE));
-            arrayList.add(new BasicNameValuePair("channel_id", TiebaApplication.h().bc()));
-            arrayList.add(new BasicNameValuePair("channel_uid", TiebaApplication.h().bb()));
-            com.baidu.tieba.util.ag a = com.baidu.tieba.util.aw.a().a(new com.baidu.tieba.util.ax());
+            arrayList.add(new BasicNameValuePair("channel_id", TiebaApplication.g().bc()));
+            arrayList.add(new BasicNameValuePair("channel_uid", TiebaApplication.g().bb()));
+            com.baidu.tieba.util.ai a = com.baidu.tieba.util.bc.a().a(new com.baidu.tieba.util.bh());
             if (a == null) {
                 return null;
             }
-            Context baseContext = TiebaApplication.h().getBaseContext();
+            Context baseContext = TiebaApplication.g().getBaseContext();
             a.b(sb.toString());
             a.a(arrayList);
             a.a((Boolean) true);
@@ -76,7 +76,7 @@ public class ar {
                 return null;
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.be.b("LoginModel".toString(), "login", e.getMessage());
+            com.baidu.tieba.util.bo.b("LoginModel".toString(), "login", e.getMessage());
             return null;
         }
     }

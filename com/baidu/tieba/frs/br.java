@@ -1,12 +1,29 @@
 package com.baidu.tieba.frs;
 
-import android.app.Activity;
+import android.view.View;
+import android.widget.AbsListView;
+import com.baidu.tieba.view.CommonImageLayout;
+import com.baidu.tieba.voice.PlayVoiceBnt;
+import com.slidingmenu.lib.R;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class br {
-    Activity a;
-    int b = 0;
+public class br implements AbsListView.RecyclerListener {
+    final /* synthetic */ bo a;
 
-    public br(Activity activity) {
-        this.a = activity;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public br(bo boVar) {
+        this.a = boVar;
+    }
+
+    @Override // android.widget.AbsListView.RecyclerListener
+    public void onMovedToScrapHeap(View view) {
+        PlayVoiceBnt playVoiceBnt = (PlayVoiceBnt) view.findViewById(R.id.abstract_voice);
+        if (playVoiceBnt != null) {
+            playVoiceBnt.d();
+        }
+        CommonImageLayout commonImageLayout = (CommonImageLayout) view.findViewById(R.id.abstract_img_layout);
+        if (commonImageLayout != null) {
+            commonImageLayout.a();
+        }
     }
 }

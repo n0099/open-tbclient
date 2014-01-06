@@ -8,7 +8,6 @@ import android.text.style.ImageSpan;
 import com.baidu.tbadk.imageManager.TbFaceManager;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.regex.Matcher;
 /* loaded from: classes.dex */
 public class p {
     private static final HashMap<String, String> a = new HashMap<>();
@@ -359,42 +358,30 @@ public class p {
         return arrayList;
     }
 
-    private static SpannableString a(Context context, ArrayList<com.baidu.tbadk.widget.richText.e> arrayList, String str, String str2) {
+    private static SpannableString a(Context context, ArrayList<com.baidu.tbadk.widget.richText.f> arrayList, String str, String str2) {
         SpannableString spannableString = null;
         int b = TbFaceManager.a().b(str);
         if (b != 0) {
             spannableString = new SpannableString(str2 + " ");
-            com.baidu.tbadk.widget.richText.e eVar = new com.baidu.tbadk.widget.richText.e(context, b);
+            com.baidu.tbadk.widget.richText.f fVar = new com.baidu.tbadk.widget.richText.f(context, b);
             if (arrayList != null) {
-                arrayList.add(eVar);
+                arrayList.add(fVar);
             }
             com.baidu.tbadk.imageManager.b c = TbFaceManager.a().c(str);
             if (c != null) {
-                eVar.setBounds(new Rect(0, 0, c.a(), c.b()));
+                fVar.setBounds(new Rect(0, 0, c.a(), c.b()));
             } else {
-                eVar.setBounds(new Rect(0, 0, 0, 0));
+                fVar.setBounds(new Rect(0, 0, 0, 0));
             }
-            spannableString.setSpan(new ImageSpan(eVar, 0), 0, str2.length(), 33);
+            spannableString.setSpan(new ImageSpan(fVar, 0), 0, str2.length(), 33);
         }
         return spannableString;
     }
 
     private static SpannableString b(Context context, String str) {
-        int start;
         if (str == null) {
             return null;
         }
-        SpannableString spannableString = new SpannableString(str);
-        Matcher matcher = com.baidu.tieba.im.d.h.a().matcher(str);
-        while (matcher.find()) {
-            String group = matcher.group();
-            String group2 = matcher.group();
-            if (!group2.endsWith(" ")) {
-                group2 = group2 + " ";
-            }
-            int length = group2.length();
-            spannableString.setSpan(new com.baidu.tbadk.widget.richText.g(context, 2, group), matcher.start(), (length + start) - 1, 33);
-        }
-        return spannableString;
+        return com.baidu.tieba.im.d.h.a(context, str);
     }
 }

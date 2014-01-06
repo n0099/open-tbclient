@@ -1,14 +1,14 @@
 package com.baidu.tieba.im.db.pojo;
 
 import android.text.TextUtils;
-import com.baidu.adp.lib.h.e;
 import com.baidu.gson.Gson;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.UserData;
 import com.baidu.tieba.im.chat.a;
+import com.baidu.tieba.im.d.d;
 import com.baidu.tieba.im.data.MsgLocalData;
 import com.baidu.tieba.im.message.b;
-import com.baidu.tieba.im.message.d;
+import com.baidu.tieba.im.message.e;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class CommonMsgPojo implements Serializable {
@@ -72,8 +72,8 @@ public class CommonMsgPojo implements Serializable {
         this.isPrivate = false;
         this.gson = new Gson();
         if (bVar != null) {
-            if (bVar instanceof d) {
-                this.gid = ((d) bVar).s();
+            if (bVar instanceof e) {
+                this.gid = ((e) bVar).t();
             } else {
                 this.gid = String.valueOf(a.a);
             }
@@ -82,6 +82,7 @@ public class CommonMsgPojo implements Serializable {
             this.toUid = String.valueOf(bVar.b());
             this.user_info_data = bVar.f();
             this.to_user_info_data = bVar.g();
+            this.to_user_info = this.gson.toJson(bVar.g());
             this.create_time = bVar.o();
             this.msg_type = bVar.h();
             this.msg_status = bVar.m().getStatus().shortValue();
@@ -126,12 +127,12 @@ public class CommonMsgPojo implements Serializable {
 
     /* JADX WARN: Removed duplicated region for block: B:16:0x0047  */
     /* JADX WARN: Removed duplicated region for block: B:19:0x005e  */
-    /* JADX WARN: Removed duplicated region for block: B:22:0x0099  */
-    /* JADX WARN: Removed duplicated region for block: B:27:0x00aa  */
+    /* JADX WARN: Removed duplicated region for block: B:22:0x00a8  */
+    /* JADX WARN: Removed duplicated region for block: B:27:0x00b9  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public d toChatMessage() {
+    public e toChatMessage() {
         Exception exc;
         long j;
         long j2;
@@ -139,7 +140,7 @@ public class CommonMsgPojo implements Serializable {
         UserData g;
         long j3;
         long j4 = 0;
-        d dVar = new d();
+        e eVar = new e();
         try {
             long parseLong = (this.uid == null || this.uid.length() <= 0) ? 0L : Long.parseLong(this.uid);
             try {
@@ -151,76 +152,78 @@ public class CommonMsgPojo implements Serializable {
                 exc = e;
                 exc.printStackTrace();
                 j2 = 0;
-                dVar.b(this.gid);
-                dVar.c(this.mid);
-                dVar.d(j);
-                dVar.a(j2);
-                dVar.b(this.rid);
+                eVar.b(this.gid);
+                eVar.c(this.mid);
+                eVar.d(j);
+                eVar.a(j2);
+                eVar.b(this.rid);
                 if (this.user_info_data == null) {
                 }
-                dVar.a(this.user_info_data);
+                eVar.a(this.user_info_data);
                 if (this.to_user_info_data == null) {
                 }
-                dVar.b(this.to_user_info_data);
-                dVar.e(this.create_time);
-                dVar.b((int) ((short) this.msg_type));
+                eVar.b(this.to_user_info_data);
+                eVar.b((UserData) this.gson.fromJson(this.to_user_info, (Class<Object>) UserData.class));
+                eVar.e(this.create_time);
+                eVar.b((int) ((short) this.msg_type));
                 MsgLocalData msgLocalData = new MsgLocalData();
                 msgLocalData.setStatus(Short.valueOf((short) this.msg_status));
-                dVar.a(msgLocalData);
-                dVar.a(this.content);
-                f = dVar.f();
+                eVar.a(msgLocalData);
+                eVar.a(this.content);
+                f = eVar.f();
                 if (f != null) {
                 }
-                g = dVar.g();
+                g = eVar.g();
                 if (g != null) {
                 }
-                com.baidu.tieba.im.d.d.e(dVar);
-                return dVar;
+                d.f(eVar);
+                return eVar;
             }
         } catch (Exception e2) {
             exc = e2;
             j = 0;
         }
-        dVar.b(this.gid);
-        dVar.c(this.mid);
-        dVar.d(j);
-        dVar.a(j2);
-        dVar.b(this.rid);
+        eVar.b(this.gid);
+        eVar.c(this.mid);
+        eVar.d(j);
+        eVar.a(j2);
+        eVar.b(this.rid);
         if (this.user_info_data == null) {
             this.user_info_data = (UserData) this.gson.fromJson(this.user_info, (Class<Object>) UserData.class);
         }
-        dVar.a(this.user_info_data);
+        eVar.a(this.user_info_data);
         if (this.to_user_info_data == null) {
             this.to_user_info_data = (UserData) this.gson.fromJson(this.to_user_info, (Class<Object>) UserData.class);
         }
-        dVar.b(this.to_user_info_data);
-        dVar.e(this.create_time);
-        dVar.b((int) ((short) this.msg_type));
+        eVar.b(this.to_user_info_data);
+        eVar.b((UserData) this.gson.fromJson(this.to_user_info, (Class<Object>) UserData.class));
+        eVar.e(this.create_time);
+        eVar.b((int) ((short) this.msg_type));
         MsgLocalData msgLocalData2 = new MsgLocalData();
         msgLocalData2.setStatus(Short.valueOf((short) this.msg_status));
-        dVar.a(msgLocalData2);
-        dVar.a(this.content);
-        f = dVar.f();
+        eVar.a(msgLocalData2);
+        eVar.a(this.content);
+        f = eVar.f();
         if (f != null) {
             try {
                 j3 = Long.parseLong(f.getId());
             } catch (Exception e3) {
-                e.a("error" + e3.getMessage());
+                com.baidu.adp.lib.h.e.a("error" + e3.getMessage());
                 j3 = 0;
             }
-            dVar.d(j3);
+            eVar.d(j3);
         }
-        g = dVar.g();
+        g = eVar.g();
         if (g != null) {
             try {
                 j4 = Long.parseLong(g.getId());
             } catch (Exception e4) {
-                e.a("error" + e4.getMessage());
+                com.baidu.adp.lib.h.e.a("error" + e4.getMessage());
             }
-            dVar.a(j4);
+            eVar.a(j4);
         }
-        com.baidu.tieba.im.d.d.e(dVar);
-        return dVar;
+        d.f(eVar);
+        return eVar;
     }
 
     public String getGid() {
@@ -320,8 +323,8 @@ public class CommonMsgPojo implements Serializable {
     }
 
     public void checkRidAndSelf() {
-        if (!TextUtils.isEmpty(TiebaApplication.B())) {
-            if (TiebaApplication.B().equals(this.uid)) {
+        if (!TextUtils.isEmpty(TiebaApplication.A())) {
+            if (TiebaApplication.A().equals(this.uid)) {
                 this.isSelf = true;
             }
         } else {

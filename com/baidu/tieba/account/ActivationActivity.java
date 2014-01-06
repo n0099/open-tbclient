@@ -155,13 +155,13 @@ public class ActivationActivity extends com.baidu.tieba.j {
     @Override // com.baidu.tieba.j
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        com.baidu.tieba.util.bb.a(this.r, i);
-        com.baidu.tieba.util.bb.d(this.t, i);
-        com.baidu.tieba.util.bb.a(this.b, i);
-        com.baidu.tieba.util.bb.e(this.s, i);
-        com.baidu.tieba.util.bb.a(this.u, i);
-        com.baidu.tieba.util.bb.a(this.g, i);
-        com.baidu.tieba.util.bb.b(this.v, i);
+        com.baidu.tieba.util.bl.a(this.r, i);
+        com.baidu.tieba.util.bl.d(this.t, i);
+        com.baidu.tieba.util.bl.a(this.b, i);
+        com.baidu.tieba.util.bl.e(this.s, i);
+        com.baidu.tieba.util.bl.a(this.u, i);
+        com.baidu.tieba.util.bl.a(this.g, i);
+        com.baidu.tieba.util.bl.b(this.v, i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

@@ -1,22 +1,27 @@
 package com.baidu.tieba.im.creategroup;
 
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.ImageView;
-import com.baidu.mobstat.StatService;
-import com.baidu.tieba.TiebaApplication;
+import android.widget.Button;
+import android.widget.TextView;
+import com.baidu.tieba.util.bl;
+import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class e implements v {
-    CreateGroupStepActivity a;
-    View b;
-    ImageView c;
-    EditText d;
-    private ImageButton e;
+public class e extends com.baidu.adp.a.e {
+    NavigationBar a;
+    View c;
+    Button d;
+    Button e;
+    TextView f;
+    TextView g;
+    CreateGroupMainActivity h;
+    private int i;
 
-    public EditText e() {
+    public int a() {
+        return this.i;
+    }
+
+    public View e() {
         return this.d;
     }
 
@@ -24,72 +29,50 @@ public class e implements v {
         return this.e;
     }
 
-    public void g() {
-        this.d.setText("");
-    }
-
-    public int h() {
-        return com.baidu.tieba.im.d.g.a(this.d);
-    }
-
-    public void a(boolean z) {
-        if (z) {
-            this.e.setVisibility(0);
-        } else {
-            this.e.setVisibility(8);
-        }
-    }
-
-    public e(CreateGroupStepActivity createGroupStepActivity) {
+    public e(CreateGroupMainActivity createGroupMainActivity) {
+        super(createGroupMainActivity);
         this.a = null;
-        this.b = null;
         this.c = null;
         this.d = null;
         this.e = null;
-        this.a = createGroupStepActivity;
-        this.b = createGroupStepActivity.getLayoutInflater().inflate(R.layout.create_group_step1_view, (ViewGroup) null);
-        this.d = (EditText) this.b.findViewById(R.id.step1_group_name);
-        this.c = (ImageView) this.b.findViewById(R.id.step1_img_bg);
-        this.e = (ImageButton) this.b.findViewById(R.id.button_del);
-        this.e.setOnClickListener(createGroupStepActivity);
+        this.f = null;
+        this.g = null;
+        this.h = null;
+        this.i = 0;
+        b(createGroupMainActivity);
+        a(createGroupMainActivity);
     }
 
-    @Override // com.baidu.tieba.im.creategroup.v
-    public int c() {
-        return R.string.group_create_step_tip;
+    private void a(CreateGroupMainActivity createGroupMainActivity) {
+        this.d.setOnClickListener(createGroupMainActivity);
+        this.e.setOnClickListener(createGroupMainActivity);
     }
 
-    @Override // com.baidu.tieba.im.creategroup.v
-    public int d() {
-        return R.string.group_create_step1;
+    public void a(boolean z, boolean z2, String str, String str2, int i) {
+        this.d.setEnabled(z2);
+        this.e.setEnabled(z);
+        this.f.setText(str2);
+        this.g.setText(str);
+        this.i = i;
     }
 
-    @Override // com.baidu.tieba.im.creategroup.v
-    public int b() {
-        return 1;
+    private void b(CreateGroupMainActivity createGroupMainActivity) {
+        this.h = createGroupMainActivity;
+        createGroupMainActivity.setContentView(R.layout.create_group_main_activity);
+        this.c = createGroupMainActivity.findViewById(R.id.parent);
+        this.d = (Button) createGroupMainActivity.findViewById(R.id.create_group1);
+        this.e = (Button) createGroupMainActivity.findViewById(R.id.create_group2);
+        this.f = (TextView) createGroupMainActivity.findViewById(R.id.create_group1_text);
+        this.g = (TextView) createGroupMainActivity.findViewById(R.id.create_group2_text);
+        this.a = (NavigationBar) createGroupMainActivity.findViewById(R.id.view_navigation_bar);
+        this.a.a(createGroupMainActivity.getResources().getString(R.string.group_create));
+        this.a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
     }
 
-    @Override // com.baidu.tieba.im.creategroup.v
-    public View a() {
-        if (TiebaApplication.h().t()) {
-            StatService.onEvent(this.a, "create_g_name", "pv", 1);
-        }
-        return this.b;
-    }
-
-    @Override // com.baidu.tieba.im.creategroup.v
-    public void j() {
-        this.c.setBackgroundDrawable(null);
-    }
-
-    @Override // com.baidu.tieba.im.creategroup.v
-    public void k() {
-        this.a.getLayoutMode().a(TiebaApplication.h().an() == 1);
-        this.a.getLayoutMode().a(this.b);
-        if (TiebaApplication.h().an() == 1) {
-            this.d.setHintTextColor(this.a.getResources().getColor(R.color.create_group_input_hintcolor_1));
-        } else {
-            this.d.setHintTextColor(this.a.getResources().getColor(R.color.create_group_input_hintcolor));
-        }
+    public void a(int i) {
+        this.h.getLayoutMode().a(i == 1);
+        this.h.getLayoutMode().a(this.c);
+        bl.a(this.c, i);
+        this.a.c(i);
     }
 }

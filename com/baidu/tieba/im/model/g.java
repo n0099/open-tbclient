@@ -7,7 +7,7 @@ import protobuf.CommitInviteMsg.CommitInviteMsgReq;
 /* loaded from: classes.dex */
 public class g extends com.baidu.adp.a.d {
     private i a = null;
-    private com.baidu.tieba.im.message.x b;
+    private com.baidu.tieba.im.message.aa b;
     private int c;
     private int d;
 
@@ -60,10 +60,10 @@ public class g extends com.baidu.adp.a.d {
         com.baidu.tieba.im.messageCenter.e.a().a(this.b);
     }
 
-    private com.baidu.tieba.im.message.x a(int i, int i2, String str) {
+    private com.baidu.tieba.im.message.aa a(int i, int i2, String str) {
         CommitInviteMsgReq.DataReq build = CommitInviteMsgReq.DataReq.newBuilder().a(i).b(5).a(str).b("{\"type\":" + String.valueOf(1) + ",\"groupId\":" + String.valueOf(i2) + "}").build();
-        com.baidu.tieba.im.message.x xVar = new com.baidu.tieba.im.message.x();
-        xVar.a(build);
-        return xVar;
+        com.baidu.tieba.im.message.aa aaVar = new com.baidu.tieba.im.message.aa();
+        aaVar.a(build);
+        return aaVar;
     }
 }

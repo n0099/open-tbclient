@@ -16,7 +16,7 @@ public class ab implements PopupWindow.OnDismissListener {
     @Override // android.widget.PopupWindow.OnDismissListener
     public void onDismiss() {
         this.a.B = false;
-        if (TiebaApplication.h().an() == 1) {
+        if (TiebaApplication.g().an() == 1) {
             this.a.z.setImageResource(R.drawable.btn_allsproutpop_down_1);
         } else {
             this.a.z.setImageResource(R.drawable.btn_allsproutpop_down);

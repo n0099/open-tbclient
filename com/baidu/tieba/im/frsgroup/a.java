@@ -2,7 +2,7 @@ package com.baidu.tieba.im.frsgroup;
 
 import android.text.TextUtils;
 import com.baidu.tieba.im.data.GroupPermData;
-import com.baidu.tieba.im.message.by;
+import com.baidu.tieba.im.message.cb;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 class a implements com.baidu.tieba.im.messageCenter.g {
@@ -14,7 +14,7 @@ class a implements com.baidu.tieba.im.messageCenter.g {
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(com.baidu.tieba.im.message.n nVar) {
+    public void a(com.baidu.tieba.im.message.o oVar) {
         g gVar;
         g gVar2;
         com.baidu.tieba.im.model.c cVar;
@@ -22,15 +22,15 @@ class a implements com.baidu.tieba.im.messageCenter.g {
         gVar.d(false);
         gVar2 = this.a.b;
         gVar2.b(true);
-        if (nVar == null || !(nVar instanceof by)) {
+        if (oVar == null || !(oVar instanceof cb)) {
             this.a.b(R.string.neterror);
             return;
         }
-        by byVar = (by) nVar;
-        if (byVar.i()) {
-            if (byVar.j() > 0) {
-                if (!TextUtils.isEmpty(byVar.k())) {
-                    this.a.a(byVar.k());
+        cb cbVar = (cb) oVar;
+        if (cbVar.i()) {
+            if (cbVar.j() > 0) {
+                if (!TextUtils.isEmpty(cbVar.k())) {
+                    this.a.a(cbVar.k());
                     return;
                 }
                 return;
@@ -38,7 +38,7 @@ class a implements com.baidu.tieba.im.messageCenter.g {
             this.a.b(R.string.neterror);
             return;
         }
-        GroupPermData a = byVar.a();
+        GroupPermData a = cbVar.a();
         if (a != null) {
             cVar = this.a.c;
             cVar.a(a);

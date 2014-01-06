@@ -1,22 +1,9 @@
 package com.baidu.tieba.util;
-
-import android.app.Activity;
-import android.content.DialogInterface;
-import com.baidu.tieba.TiebaApplication;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class bj implements DialogInterface.OnClickListener {
-    final /* synthetic */ Activity a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bj(Activity activity) {
-        this.a = activity;
-    }
-
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        TiebaApplication.h().aD();
-        com.baidu.tieba.log.a.b();
-        this.a.finish();
-    }
+public class bj {
+    public int a;
+    public long b;
+    public int c;
+    public int d;
+    public int e;
 }

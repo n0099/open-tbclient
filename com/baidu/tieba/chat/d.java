@@ -19,14 +19,14 @@ public class d implements com.baidu.tieba.im.a<Void> {
         a aVar2;
         com.baidu.tieba.model.i iVar;
         BdListView bdListView2;
-        bdListView = this.a.Y;
+        bdListView = this.a.i;
         if (bdListView != null) {
-            bdListView2 = this.a.Y;
+            bdListView2 = this.a.i;
             bdListView2.a();
         }
-        aVar = this.a.Z;
+        aVar = this.a.Y;
         if (aVar != null) {
-            aVar2 = this.a.Z;
+            aVar2 = this.a.Y;
             iVar = this.a.b;
             aVar2.a(iVar.a());
         }

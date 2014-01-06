@@ -72,7 +72,7 @@ public class TripleTbImageView extends ViewGroup {
         if (length == 1) {
             String str = (String) objArr[0];
             this.b.setTag(str);
-            com.baidu.adp.widget.ImageView.e a2 = g.a(str, new x(this, str));
+            com.baidu.adp.widget.ImageView.d a2 = g.a(str, new x(this, str));
             if (a2 != null) {
                 this.b.setTag(str);
                 a(this.b, a2);
@@ -82,13 +82,13 @@ public class TripleTbImageView extends ViewGroup {
         } else if (length == 2) {
             String str2 = (String) objArr[0];
             this.b.setTag(str2);
-            com.baidu.adp.widget.ImageView.e a3 = g.a(str2, new y(this, str2));
+            com.baidu.adp.widget.ImageView.d a3 = g.a(str2, new y(this, str2));
             if (a3 != null) {
                 this.b.setTag(str2);
                 a(this.b, a3);
             }
             String str3 = (String) objArr[1];
-            com.baidu.adp.widget.ImageView.e a4 = g.a(str3, new z(this, str3));
+            com.baidu.adp.widget.ImageView.d a4 = g.a(str3, new z(this, str3));
             if (a4 != null) {
                 this.c.setTag(str3);
                 a(this.c, a4);
@@ -97,19 +97,19 @@ public class TripleTbImageView extends ViewGroup {
         } else if (length == 3) {
             String str4 = (String) objArr[0];
             this.b.setTag(str4);
-            com.baidu.adp.widget.ImageView.e a5 = g.a(str4, new aa(this, str4));
+            com.baidu.adp.widget.ImageView.d a5 = g.a(str4, new aa(this, str4));
             if (a5 != null) {
                 this.b.setTag(str4);
                 a(this.b, a5);
             }
             String str5 = (String) objArr[1];
-            com.baidu.adp.widget.ImageView.e a6 = g.a(str5, new ab(this, str5));
+            com.baidu.adp.widget.ImageView.d a6 = g.a(str5, new ab(this, str5));
             if (a6 != null) {
                 this.c.setTag(str5);
                 a(this.c, a6);
             }
             String str6 = (String) objArr[2];
-            com.baidu.adp.widget.ImageView.e a7 = g.a(str6, new ac(this, str6));
+            com.baidu.adp.widget.ImageView.d a7 = g.a(str6, new ac(this, str6));
             if (a7 != null) {
                 this.d.setTag(str6);
                 a(this.d, a7);
@@ -120,10 +120,10 @@ public class TripleTbImageView extends ViewGroup {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(TbImageView tbImageView, com.baidu.adp.widget.ImageView.e eVar) {
-        if (this.e != null) {
+    public void a(TbImageView tbImageView, com.baidu.adp.widget.ImageView.d dVar) {
+        if (this.e != null && dVar != null && tbImageView != null) {
             int length = (int) (h / this.e.length);
-            if (eVar.a() < length * 0.3f || eVar.b() < length * a[this.e.length - 1] * 0.3f) {
+            if (dVar.c() < length * 0.3f || dVar.d() < length * a[this.e.length - 1] * 0.3f) {
                 tbImageView.setScaleType(ImageView.ScaleType.FIT_START);
             } else {
                 tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);

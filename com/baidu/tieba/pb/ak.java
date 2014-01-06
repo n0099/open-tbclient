@@ -14,7 +14,7 @@ class ak implements com.baidu.adp.lib.d.c<ImageView> {
     @Override // com.baidu.adp.lib.d.c
     /* renamed from: b */
     public ImageView a() {
-        return new com.baidu.tieba.view.ba(this.a);
+        return new com.baidu.tieba.view.bg(this.a);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,16 +24,16 @@ class ak implements com.baidu.adp.lib.d.c<ImageView> {
         imageView.setImageDrawable(null);
         imageView.setTag(null);
         imageView.setOnClickListener(null);
-        if (imageView instanceof com.baidu.tieba.view.ba) {
-            ((com.baidu.tieba.view.ba) imageView).h();
+        if (imageView instanceof com.baidu.tieba.view.bg) {
+            ((com.baidu.tieba.view.bg) imageView).h();
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.d.c
     public ImageView b(ImageView imageView) {
-        if (imageView instanceof com.baidu.tieba.view.ba) {
-            ((com.baidu.tieba.view.ba) imageView).g();
+        if (imageView instanceof com.baidu.tieba.view.bg) {
+            ((com.baidu.tieba.view.bg) imageView).g();
         }
         return imageView;
     }
@@ -45,8 +45,8 @@ class ak implements com.baidu.adp.lib.d.c<ImageView> {
         imageView.setImageDrawable(null);
         imageView.setTag(null);
         imageView.setOnClickListener(null);
-        if (imageView instanceof com.baidu.tieba.view.ba) {
-            ((com.baidu.tieba.view.ba) imageView).h();
+        if (imageView instanceof com.baidu.tieba.view.bg) {
+            ((com.baidu.tieba.view.bg) imageView).h();
         }
         return imageView;
     }

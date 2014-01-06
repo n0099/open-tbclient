@@ -5,7 +5,7 @@ import android.text.ClipboardManager;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.be;
+import com.baidu.tieba.util.bo;
 import java.io.Serializable;
 import java.util.ArrayList;
 import org.json.JSONObject;
@@ -36,7 +36,7 @@ public class ChatMessageData implements Serializable {
     public static ChatMessageData newMessage() {
         ChatMessageData chatMessageData = new ChatMessageData();
         chatMessageData.msgType = 0;
-        chatMessageData.setOwnerId(TiebaApplication.B());
+        chatMessageData.setOwnerId(TiebaApplication.A());
         return chatMessageData;
     }
 
@@ -115,7 +115,7 @@ public class ChatMessageData implements Serializable {
         try {
             parserJson(new JSONObject(str));
         } catch (Exception e) {
-            be.b(getClass().getName(), "parserJson", e.toString());
+            bo.b(getClass().getName(), "parserJson", e.toString());
         }
     }
 
@@ -133,7 +133,7 @@ public class ChatMessageData implements Serializable {
             } catch (Exception e) {
             }
         } catch (Exception e2) {
-            be.b(getClass().getName(), "parserJson", e2.toString());
+            bo.b(getClass().getName(), "parserJson", e2.toString());
         }
     }
 
@@ -154,7 +154,7 @@ public class ChatMessageData implements Serializable {
         }
         clipboardManager.setText(sb);
         if (clipboardManager.getText() != null) {
-            be.e("ChatMessageActivity", "clip_text", clipboardManager.getText().toString());
+            bo.e("ChatMessageActivity", "clip_text", clipboardManager.getText().toString());
         }
     }
 }

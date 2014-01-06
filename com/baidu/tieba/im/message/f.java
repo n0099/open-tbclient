@@ -1,13 +1,7 @@
 package com.baidu.tieba.im.message;
 /* loaded from: classes.dex */
-public class f extends bz {
-    private String a;
-
+public class f extends cc {
     public f() {
-        super.e(-109);
-    }
-
-    public void a(String str) {
-        this.a = str;
+        super.e(-113);
     }
 }

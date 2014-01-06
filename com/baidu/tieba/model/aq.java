@@ -8,15 +8,15 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class aq {
     private ForumData a = new ForumData();
-    private ArrayList<com.baidu.tieba.data.ba> b = new ArrayList<>();
+    private ArrayList<com.baidu.tieba.data.bc> b = new ArrayList<>();
     private ArrayList<String> c = new ArrayList<>();
     private int d = 0;
     private int e = 0;
     private int f = 0;
     private AntiData g = new AntiData();
-    private com.baidu.tieba.data.ak h = new com.baidu.tieba.data.ak();
+    private com.baidu.tieba.data.al h = new com.baidu.tieba.data.al();
 
-    public ArrayList<com.baidu.tieba.data.ba> a() {
+    public ArrayList<com.baidu.tieba.data.bc> a() {
         return this.b;
     }
 
@@ -31,9 +31,9 @@ public class aq {
                     JSONArray optJSONArray = optJSONObject.optJSONArray("thread_list");
                     if (optJSONArray != null) {
                         for (int i = 0; i < optJSONArray.length(); i++) {
-                            com.baidu.tieba.data.ba baVar = new com.baidu.tieba.data.ba();
-                            baVar.a(optJSONArray.optJSONObject(i));
-                            this.b.add(baVar);
+                            com.baidu.tieba.data.bc bcVar = new com.baidu.tieba.data.bc();
+                            bcVar.a(optJSONArray.optJSONObject(i));
+                            this.b.add(bcVar);
                         }
                     }
                     JSONArray optJSONArray2 = optJSONObject.optJSONArray("alb_id_list");
@@ -47,7 +47,7 @@ public class aq {
                     this.f = optJSONObject.optInt("current_count", 0);
                 }
             } catch (Exception e) {
-                com.baidu.tieba.util.be.b(getClass().getName(), "parserJson", "error = " + e.getMessage());
+                com.baidu.tieba.util.bo.b(getClass().getName(), "parserJson", "error = " + e.getMessage());
             }
         }
     }

@@ -1,22 +1,32 @@
 package com.baidu.tieba.im.data;
 
-import com.baidu.tieba.util.al;
+import com.baidu.tieba.data.IconData;
+import com.baidu.tieba.util.ap;
 import java.io.Serializable;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class UserData implements al, Serializable {
+public class UserData extends ap implements Serializable {
     private static final long serialVersionUID = -4483304441506804594L;
     private long inTime;
     private long lastReplyTime;
     private String lat;
     private String lng;
     private long loginTime;
+    private LinkedList<IconData> mTShowIconInfo;
     private Permission permission;
     private String portrait;
     private String position;
     private int sex;
     private long userId;
     private String userName;
+
+    public void setTShowInfo(LinkedList<IconData> linkedList) {
+        this.mTShowIconInfo = linkedList;
+    }
+
+    public LinkedList<IconData> getTShowInfo() {
+        return this.mTShowIconInfo;
+    }
 
     public Permission getPermission() {
         return this.permission;
@@ -106,12 +116,7 @@ public class UserData implements al, Serializable {
         this.lastReplyTime = j;
     }
 
-    @Override // com.baidu.tieba.util.al
-    public LinkedList<String> getImageUrl() {
-        return null;
-    }
-
-    @Override // com.baidu.tieba.util.al
+    @Override // com.baidu.tieba.util.ap, com.baidu.tieba.util.ar
     public LinkedList<String> getPhotoUrl() {
         LinkedList<String> linkedList = new LinkedList<>();
         linkedList.add(this.portrait);
@@ -143,10 +148,5 @@ public class UserData implements al, Serializable {
         public boolean isController() {
             return getIsGroupManager() || getIsGroupOwner();
         }
-    }
-
-    @Override // com.baidu.tieba.util.al
-    public LinkedList<String> getForumPhotoUrl() {
-        return null;
     }
 }

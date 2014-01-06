@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import com.baidu.tieba.im.data.GroupPermData;
-import com.baidu.tieba.im.message.au;
+import com.baidu.tieba.im.message.ax;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
@@ -136,15 +136,15 @@ public class c extends com.baidu.adp.a.d {
         this.i = (GroupPermData) bundle.getSerializable("group_perm");
     }
 
-    private com.baidu.tieba.im.message.z c(String str, int i, int i2, int i3, int i4, int i5) {
-        com.baidu.tieba.im.message.z zVar = new com.baidu.tieba.im.message.z();
-        zVar.a(str);
-        zVar.b(String.valueOf(i));
-        zVar.c(String.valueOf(i2));
-        zVar.d(String.valueOf(i3));
-        zVar.a(i4);
-        zVar.b(i5);
-        return zVar;
+    private com.baidu.tieba.im.message.ac c(String str, int i, int i2, int i3, int i4, int i5) {
+        com.baidu.tieba.im.message.ac acVar = new com.baidu.tieba.im.message.ac();
+        acVar.a(str);
+        acVar.b(String.valueOf(i));
+        acVar.c(String.valueOf(i2));
+        acVar.d(String.valueOf(i3));
+        acVar.a(i4);
+        acVar.b(i5);
+        return acVar;
     }
 
     public void a(String str, int i, int i2, int i3, int i4, int i5) {
@@ -161,21 +161,21 @@ public class c extends com.baidu.adp.a.d {
     }
 
     public void b(String str, int i, int i2, int i3, int i4, int i5) {
-        com.baidu.tieba.im.message.z c = c(str, i, i2, i3, i4, i5);
+        com.baidu.tieba.im.message.ac c = c(str, i, i2, i3, i4, i5);
         c.e(-201);
         com.baidu.tieba.im.messageCenter.e.a().a(c);
     }
 
-    private au d(String str) {
+    private ax d(String str) {
         long j = 0;
         try {
             j = Long.parseLong(str);
         } catch (NumberFormatException e) {
             e.printStackTrace();
         }
-        au auVar = new au();
-        auVar.a(j);
-        return auVar;
+        ax axVar = new ax();
+        axVar.a(j);
+        return axVar;
     }
 
     public void c(String str) {

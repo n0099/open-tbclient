@@ -1,32 +1,47 @@
 package com.baidu.tieba.im.message;
 
-import java.util.LinkedList;
-import protobuf.CheckMaskUser.CheckMaskUserRes;
+import com.google.protobuf.MessageLite;
+import protobuf.UpdateMaskInfo.UpdateMaskInfoReq;
 /* loaded from: classes.dex */
-public class aw extends bz implements com.baidu.tieba.im.coder.f {
-    private boolean a;
+public class aw extends o implements com.baidu.tieba.im.coder.g {
+    private int a;
+    private int b;
+    private String c;
 
     public aw() {
-        super(104104);
-        this.a = false;
+        e(104102);
     }
 
-    @Override // com.baidu.tieba.im.coder.f
-    public void a(LinkedList<n> linkedList, byte[] bArr, int i) {
-        CheckMaskUserRes.CheckMaskUserResIdl parseFrom = CheckMaskUserRes.CheckMaskUserResIdl.parseFrom(bArr);
-        c(parseFrom.getError().getErrorno());
-        c(parseFrom.getError().getUsermsg());
-        linkedList.add(this);
-        if (!i()) {
-            a(parseFrom.getData().getIsMask() == 1);
-        }
+    @Override // com.baidu.tieba.im.coder.g
+    public MessageLite a() {
+        return UpdateMaskInfoReq.UpdateMaskInfoReqIdl.newBuilder().a(UpdateMaskInfoReq.DataReq.newBuilder().a(b()).b(c()).a(d()).build()).build();
     }
 
-    public boolean a() {
+    public int b() {
         return this.a;
     }
 
+    public void a(int i) {
+        this.a = i;
+    }
+
+    public int c() {
+        return this.b;
+    }
+
+    public void b(int i) {
+        this.b = i;
+    }
+
     public void a(boolean z) {
-        this.a = z;
+        this.b = z ? 1 : 0;
+    }
+
+    public String d() {
+        return this.c;
+    }
+
+    public void a(String str) {
+        this.c = str;
     }
 }

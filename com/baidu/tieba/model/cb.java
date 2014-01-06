@@ -26,7 +26,7 @@ public class cb {
 
     public void a(String str, Long l) {
         if (str != null && str.length() > 0) {
-            this.b.a(TiebaApplication.B() + str, String.valueOf(l));
+            this.b.a(TiebaApplication.A() + str, String.valueOf(l));
         }
     }
 
@@ -34,7 +34,7 @@ public class cb {
         if (str == null || str.length() <= 0) {
             return false;
         }
-        String a2 = this.b.a((com.baidu.adp.lib.d.a<String, String>) (TiebaApplication.B() + str));
+        String a2 = this.b.a((com.baidu.adp.lib.d.a<String, String>) (TiebaApplication.A() + str));
         if (TextUtils.isEmpty(a2)) {
             return false;
         }

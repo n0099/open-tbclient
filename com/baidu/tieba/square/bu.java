@@ -1,145 +1,121 @@
 package com.baidu.tieba.square;
 
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.ListAdapter;
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tieba.BaseFragment;
-import com.baidu.tieba.BaseFragmentActivity;
-import com.baidu.tieba.view.NoNetworkView;
-import com.baidu.tieba.view.SearchBoxView;
-import com.baidu.zeus.Headers;
+import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tieba.data.SearchPostModel;
+import com.baidu.tieba.util.DatabaseService;
 import com.slidingmenu.lib.R;
+import java.util.ArrayList;
+import java.util.Iterator;
+import org.apache.http.message.BasicNameValuePair;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bu extends com.baidu.adp.a.e {
-    public static String a = "top_nav_all_folder";
-    com.baidu.tieba.view.bq c;
-    private BaseFragmentActivity d;
-    private BaseFragment e;
-    private View f;
-    private BdListView g;
-    private LinearLayout h;
-    private SearchBoxView i;
-    private NoNetworkView j;
-    private ay k;
+public class bu extends BdAsyncTask<Object, Integer, SearchPostModel> {
+    ArrayList<BasicNameValuePair> a;
+    final /* synthetic */ SquareSearchActivity b;
+    private com.baidu.tieba.util.at c = null;
+    private String d;
 
-    public bu(BaseFragmentActivity baseFragmentActivity, BaseFragment baseFragment, View.OnKeyListener onKeyListener) {
-        super(baseFragmentActivity);
+    public bu(SquareSearchActivity squareSearchActivity, String str, ArrayList<BasicNameValuePair> arrayList) {
+        this.b = squareSearchActivity;
         this.d = null;
-        this.g = null;
-        this.h = null;
-        this.c = null;
-        this.k = null;
-        this.d = baseFragmentActivity;
-        this.e = baseFragment;
-        this.f = baseFragment.q();
-        this.h = (LinearLayout) this.f.findViewById(R.id.container);
-        this.i = (SearchBoxView) this.f.findViewById(R.id.view_searchbox);
-        this.g = (BdListView) this.f.findViewById(R.id.square_list);
-        this.g.setOnKeyListener(onKeyListener);
-        this.g.setOnItemClickListener(baseFragment);
-        this.g.setOnScrollListener(baseFragment);
-        this.k = new ay(baseFragmentActivity);
-        this.g.setAdapter((ListAdapter) this.k);
-        this.c = new com.baidu.tieba.view.bq(baseFragmentActivity);
-        this.g.setPullRefresh(this.c);
-        this.j = (NoNetworkView) this.f.findViewById(R.id.view_no_network);
-        com.baidu.tieba.view.r rVar = new com.baidu.tieba.view.r(this.b);
-        rVar.setHeightDip(30);
-        this.g.addFooterView(rVar);
+        this.a = null;
+        this.d = str;
+        this.a = arrayList;
     }
 
-    public void a(ar arVar) {
-        if (arVar != null) {
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void b() {
+        TextView textView;
+        EditText editText;
+        ListView listView;
+        ProgressBar progressBar;
+        textView = this.b.x;
+        textView.setVisibility(8);
+        SquareSearchActivity squareSearchActivity = this.b;
+        editText = this.b.c;
+        com.baidu.adp.lib.h.g.a(squareSearchActivity, editText);
+        listView = this.b.q;
+        if (listView.getVisibility() != 0) {
+            progressBar = this.b.u;
+            progressBar.setVisibility(0);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: d */
+    public SearchPostModel a(Object... objArr) {
+        SearchPostModel searchPostModel;
+        Exception e;
+        String str;
+        try {
+            this.c = new com.baidu.tieba.util.at(this.d);
+            Iterator<BasicNameValuePair> it = this.a.iterator();
+            while (it.hasNext()) {
+                this.c.a(it.next());
+            }
+            String l = this.c.l();
+            if (!this.c.c() || l == null) {
+                return null;
+            }
+            searchPostModel = new SearchPostModel();
             try {
-                this.k.a(arVar);
-                this.k.notifyDataSetChanged();
-            } catch (Exception e) {
-                com.baidu.tieba.util.be.b(getClass().getName(), Headers.REFRESH, e.getMessage());
+                searchPostModel.parserJson(l);
+                str = this.b.C;
+                DatabaseService.n(str);
+                return searchPostModel;
+            } catch (Exception e2) {
+                e = e2;
+                com.baidu.tieba.util.bo.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
+                return searchPostModel;
             }
+        } catch (Exception e3) {
+            searchPostModel = null;
+            e = e3;
         }
     }
 
-    public void a() {
-        if (this.g != null) {
-            int headerViewsCount = this.g.getHeaderViewsCount() + 1;
-            int firstVisiblePosition = this.g.getFirstVisiblePosition();
-            int lastVisiblePosition = this.g.getLastVisiblePosition();
-            if (firstVisiblePosition > 0) {
-                firstVisiblePosition -= headerViewsCount;
-                lastVisiblePosition -= headerViewsCount;
-            }
-            this.k.a(this.g, firstVisiblePosition, lastVisiblePosition);
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(SearchPostModel searchPostModel) {
+        ProgressBar progressBar;
+        com.baidu.tieba.home.az azVar;
+        com.baidu.tieba.home.az azVar2;
+        com.baidu.tieba.home.az azVar3;
+        progressBar = this.b.u;
+        progressBar.setVisibility(8);
+        azVar = this.b.t;
+        azVar.a(0);
+        azVar2 = this.b.t;
+        azVar2.notifyDataSetChanged();
+        if (searchPostModel != null && this.c != null && this.c.c()) {
+            this.b.z = searchPostModel;
+            azVar3 = this.b.t;
+            azVar3.notifyDataSetChanged();
+            this.b.i();
+        } else {
+            this.b.showToast(this.b.getString(R.string.neterror));
         }
+        this.b.B = null;
     }
 
-    public void e() {
-        this.g.a();
-    }
-
-    public void a(boolean z, String str) {
-        e();
-        if (!z && str != null) {
-            this.d.a(str);
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        ProgressBar progressBar;
+        if (this.c != null) {
+            this.c.j();
+            this.c = null;
         }
-    }
-
-    public SearchBoxView f() {
-        return this.i;
-    }
-
-    public void g() {
-        this.g.b();
-    }
-
-    public void h() {
-        this.j.setVisibility(0);
-    }
-
-    public void i() {
-        this.j.setVisibility(8);
-    }
-
-    public void a(com.baidu.tieba.view.az azVar) {
-        this.j.a(azVar);
-    }
-
-    public void b(com.baidu.tieba.view.az azVar) {
-        this.j.b(azVar);
-    }
-
-    public void j() {
-        this.k.d();
-    }
-
-    public void k() {
-        NetworkInfo activeNetworkInfo;
-        com.baidu.tieba.util.be.e("SquareView", "onResume", "onResume");
-        this.k.a();
-        if (this.j != null && this.j.getVisibility() == 0 && (activeNetworkInfo = ((ConnectivityManager) this.d.getSystemService("connectivity")).getActiveNetworkInfo()) != null && activeNetworkInfo.isAvailable()) {
-            this.j.setVisible(false);
-        }
-    }
-
-    public void l() {
-        this.k.b();
-    }
-
-    public void m() {
-    }
-
-    public void a(int i) {
-        this.d.a().a(i == 1);
-        this.d.a().a(this.h);
-        this.k.a(i);
-        this.c.a(i);
-        this.j.a(i);
-        this.i.a(i);
-    }
-
-    public void a(com.baidu.adp.widget.ListView.b bVar) {
-        this.c.a(bVar);
+        progressBar = this.b.u;
+        progressBar.setVisibility(8);
+        this.b.B = null;
+        super.cancel(true);
     }
 }

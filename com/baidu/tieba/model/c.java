@@ -8,7 +8,7 @@ import com.baidu.tieba.TiebaApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends BdAsyncTask<String, Integer, ch> {
-    com.baidu.tieba.util.an a;
+    com.baidu.tieba.util.at a;
     final /* synthetic */ a b;
 
     private c(a aVar) {
@@ -30,14 +30,14 @@ public class c extends BdAsyncTask<String, Integer, ch> {
         Exception e;
         Context context;
         try {
-            this.a = new com.baidu.tieba.util.an(com.baidu.tieba.data.h.a + "c/s/sync");
+            this.a = new com.baidu.tieba.util.at(com.baidu.tieba.data.h.a + "c/s/sync");
             this.a.a("_os_version", Build.VERSION.RELEASE);
             StringBuffer stringBuffer = new StringBuffer(15);
-            stringBuffer.append(String.valueOf(com.baidu.adp.lib.h.g.b(TiebaApplication.h())));
+            stringBuffer.append(String.valueOf(com.baidu.adp.lib.h.g.b(TiebaApplication.g())));
             stringBuffer.append(",");
-            stringBuffer.append(String.valueOf(com.baidu.adp.lib.h.g.c(TiebaApplication.h())));
+            stringBuffer.append(String.valueOf(com.baidu.adp.lib.h.g.c(TiebaApplication.g())));
             this.a.a("_phone_screen", stringBuffer.toString());
-            if (TiebaApplication.h().N() > 0) {
+            if (TiebaApplication.g().N() > 0) {
                 this.a.a("_msg_status", SocialConstants.FALSE);
             } else {
                 this.a.a("_msg_status", SocialConstants.TRUE);
@@ -58,7 +58,7 @@ public class c extends BdAsyncTask<String, Integer, ch> {
                 return chVar;
             } catch (Exception e2) {
                 e = e2;
-                com.baidu.tieba.util.be.b(getClass().getName(), "doInBackground", e.getMessage());
+                com.baidu.tieba.util.bo.b(getClass().getName(), "doInBackground", e.getMessage());
                 return chVar;
             }
         } catch (Exception e3) {

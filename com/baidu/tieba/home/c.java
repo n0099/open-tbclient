@@ -8,7 +8,7 @@ public class c extends BdAsyncTask<String, Integer, String> {
     final /* synthetic */ CreateBarActivity a;
     private String b;
     private String c;
-    private com.baidu.tieba.util.an d = null;
+    private com.baidu.tieba.util.at d = null;
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
@@ -36,17 +36,17 @@ public class c extends BdAsyncTask<String, Integer, String> {
     public String a(String... strArr) {
         String str;
         try {
-            this.d = new com.baidu.tieba.util.an(com.baidu.tieba.data.h.a + "c/c/forum/create");
+            this.d = new com.baidu.tieba.util.at(com.baidu.tieba.data.h.a + "c/c/forum/create");
             this.d.e(true);
             this.d.a("kw", this.b);
             this.d.a("vcode", this.c);
-            com.baidu.tieba.util.an anVar = this.d;
+            com.baidu.tieba.util.at atVar = this.d;
             str = this.a.s;
-            anVar.a("vcode_md5", str);
+            atVar.a("vcode_md5", str);
             this.d.l();
             return null;
         } catch (Exception e) {
-            com.baidu.tieba.util.be.b(getClass().getName(), "doInBackground", e.getMessage());
+            com.baidu.tieba.util.bo.b(getClass().getName(), "doInBackground", e.getMessage());
             return null;
         }
     }

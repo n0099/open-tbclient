@@ -157,10 +157,10 @@ public class TopRecActivity extends com.baidu.tieba.j {
         } else if (view == this.a.b()) {
             if (this.j != 0) {
                 showToast(getString(R.string.top_rec_like_finish_a) + this.j + getString(R.string.top_rec_like_finish_b));
-                if (TiebaApplication.h().t()) {
+                if (TiebaApplication.g().s()) {
                     StatService.onEvent(this, "top_rec_have_like", "people_number", 1);
                 }
-            } else if (TiebaApplication.h().t()) {
+            } else if (TiebaApplication.g().s()) {
                 StatService.onEvent(this, "top_rec_no_like", "people_number", 1);
             }
             finish();
@@ -194,10 +194,10 @@ public class TopRecActivity extends com.baidu.tieba.j {
         super.onBackPressed();
         if (this.j != 0) {
             showToast(getString(R.string.top_rec_like_finish_a) + this.j + getString(R.string.top_rec_like_finish_b));
-            if (TiebaApplication.h().t()) {
+            if (TiebaApplication.g().s()) {
                 StatService.onEvent(this, "top_rec_have_like", "people_number", 1);
             }
-        } else if (TiebaApplication.h().t()) {
+        } else if (TiebaApplication.g().s()) {
             StatService.onEvent(this, "top_rec_no_like", "people_number", 1);
         }
         finish();

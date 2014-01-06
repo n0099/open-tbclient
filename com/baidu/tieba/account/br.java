@@ -9,7 +9,7 @@ import com.baidu.tieba.data.RegistData;
 /* loaded from: classes.dex */
 public class br extends BdAsyncTask<String, Integer, com.baidu.tieba.model.be> {
     final /* synthetic */ Register2Activity a;
-    private com.baidu.tieba.util.an b;
+    private com.baidu.tieba.util.at b;
 
     private br(Register2Activity register2Activity) {
         this.a = register2Activity;
@@ -42,7 +42,7 @@ public class br extends BdAsyncTask<String, Integer, com.baidu.tieba.model.be> {
         com.baidu.tieba.model.be beVar = new com.baidu.tieba.model.be();
         try {
             m = this.a.m();
-            this.b = new com.baidu.tieba.util.an(com.baidu.tieba.data.h.a + "c/s/regreal");
+            this.b = new com.baidu.tieba.util.at(com.baidu.tieba.data.h.a + "c/s/regreal");
             this.b.a("un", m.getName());
             this.b.a("phonenum", m.getPhone());
             this.b.a("passwd", m.getPsw());
@@ -60,7 +60,7 @@ public class br extends BdAsyncTask<String, Integer, com.baidu.tieba.model.be> {
             }
             return beVar;
         } catch (Exception e) {
-            com.baidu.tieba.util.be.b(getClass().getName(), "doInBackground", e.getMessage());
+            com.baidu.tieba.util.bo.b(getClass().getName(), "doInBackground", e.getMessage());
             return null;
         }
     }

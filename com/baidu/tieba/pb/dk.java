@@ -1,30 +1,32 @@
 package com.baidu.tieba.pb;
 
-import android.widget.ImageView;
-import com.baidu.adp.widget.ListView.BdListView;
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.view.KeyEvent;
+import android.widget.EditText;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dk implements com.baidu.tbadk.imageManager.c {
-    final /* synthetic */ cr a;
+public class dk implements DialogInterface.OnKeyListener {
+    final /* synthetic */ cs a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public dk(cr crVar) {
-        this.a = crVar;
+    public dk(cs csVar) {
+        this.a = csVar;
     }
 
-    @Override // com.baidu.tbadk.imageManager.c
-    public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
-        BdListView bdListView;
-        BdListView bdListView2;
-        if (eVar != null) {
-            bdListView = this.a.i;
-            ImageView imageView = (ImageView) bdListView.findViewWithTag(str);
-            while (imageView != null) {
-                imageView.setTag(null);
-                imageView.setImageBitmap(eVar.f());
-                bdListView2 = this.a.i;
-                imageView = (ImageView) bdListView2.findViewWithTag(str);
-            }
+    @Override // android.content.DialogInterface.OnKeyListener
+    public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
+        NewPbActivity newPbActivity;
+        EditText editText;
+        Dialog dialog;
+        if (i == 4) {
+            newPbActivity = this.a.g;
+            editText = this.a.t;
+            com.baidu.adp.lib.h.g.a(newPbActivity, editText);
+            dialog = this.a.p;
+            dialog.dismiss();
+            return true;
         }
+        return false;
     }
 }

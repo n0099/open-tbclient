@@ -1,24 +1,26 @@
 package com.baidu.tieba.view;
 
-import android.view.View;
+import android.view.animation.Animation;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class be implements View.OnClickListener {
-    final /* synthetic */ SearchBar a;
+public class be implements Animation.AnimationListener {
+    final /* synthetic */ NoNetworkView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public be(SearchBar searchBar) {
-        this.a = searchBar;
+    public be(NoNetworkView noNetworkView) {
+        this.a = noNetworkView;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        bf bfVar;
-        bf bfVar2;
-        bfVar = this.a.e;
-        if (bfVar != null) {
-            bfVar2 = this.a.e;
-            bfVar2.b(this.a.getSearchText());
-        }
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        this.a.setVisibility(8);
     }
 }

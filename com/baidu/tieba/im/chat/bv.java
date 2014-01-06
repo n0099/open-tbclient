@@ -1,30 +1,20 @@
 package com.baidu.tieba.im.chat;
 
-import android.os.Handler;
-import android.os.Message;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bv extends Handler {
-    final /* synthetic */ bu a;
+public class bv implements View.OnClickListener {
+    final /* synthetic */ bs a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bv(bu buVar) {
-        this.a = buVar;
+    public bv(bs bsVar) {
+        this.a = bsVar;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        Handler handler;
-        super.handleMessage(message);
-        switch (message.what) {
-            case 1:
-                handler = this.a.R;
-                handler.removeMessages(1);
-                this.a.m();
-                this.a.k();
-                return;
-            default:
-                return;
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.a.N();
+        this.a.P();
+        this.a.S();
     }
 }

@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.messageCenter;
 
-import com.baidu.tieba.im.message.bz;
+import com.baidu.tieba.im.message.cc;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n implements g {
@@ -12,12 +12,12 @@ public class n implements g {
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(com.baidu.tieba.im.message.n nVar) {
-        if (nVar != null) {
-            if (nVar.t() == -11 && (nVar instanceof com.baidu.tieba.im.message.a)) {
-                this.a.a((com.baidu.tieba.im.message.a) nVar);
-            } else if (nVar.t() == 1003 && (nVar instanceof bz)) {
-                this.a.a((bz) nVar);
+    public void a(com.baidu.tieba.im.message.o oVar) {
+        if (oVar != null) {
+            if (oVar.u() == -11 && (oVar instanceof com.baidu.tieba.im.message.a)) {
+                this.a.a((com.baidu.tieba.im.message.a) oVar);
+            } else if (oVar.u() == 1003 && (oVar instanceof cc)) {
+                this.a.a((cc) oVar);
             }
         }
     }

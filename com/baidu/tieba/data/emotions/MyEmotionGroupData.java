@@ -1,0 +1,42 @@
+package com.baidu.tieba.data.emotions;
+
+import java.io.Serializable;
+/* loaded from: classes.dex */
+public class MyEmotionGroupData implements Serializable {
+    protected String groupId;
+    protected int id;
+    protected String uid;
+    protected long updateTime;
+
+    public int getId() {
+        return this.id;
+    }
+
+    public void setId(int i) {
+        this.id = i;
+    }
+
+    public String getUid() {
+        return this.uid;
+    }
+
+    public void setUid(String str) {
+        this.uid = str;
+    }
+
+    public String getGroupId() {
+        return this.groupId;
+    }
+
+    public void setGroupId(String str) {
+        this.groupId = str;
+    }
+
+    public long getUpdateTime() {
+        return this.updateTime;
+    }
+
+    public void setUpdateTime(long j) {
+        this.updateTime = j;
+    }
+}

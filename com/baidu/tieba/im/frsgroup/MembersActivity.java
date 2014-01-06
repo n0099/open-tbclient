@@ -12,14 +12,14 @@ import android.widget.AbsListView;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.im.data.UserData;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
-import com.baidu.tieba.im.message.af;
-import com.baidu.tieba.view.bq;
+import com.baidu.tieba.im.message.ai;
+import com.baidu.tieba.view.bw;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class MembersActivity extends com.baidu.tieba.j implements View.OnClickListener, AbsListView.OnScrollListener, com.baidu.adp.widget.ListView.r, com.baidu.tieba.im.c.l {
-    private bq a;
+    private bw a;
     private aa b;
     private com.baidu.tieba.im.model.m c;
     private Handler d;
@@ -77,7 +77,7 @@ public class MembersActivity extends com.baidu.tieba.j implements View.OnClickLi
     private void e() {
         this.b = new aa(this);
         BdListView l = this.b.l();
-        this.a = new bq(this);
+        this.a = new bw(this);
         this.a.a(new k(this, l));
         l.setPullRefresh(this.a);
         l.setOnScrollListener(this);
@@ -113,7 +113,7 @@ public class MembersActivity extends com.baidu.tieba.j implements View.OnClickLi
 
     private void f() {
         this.c.b(false);
-        this.c.a((af) null);
+        this.c.a((ai) null);
         this.b.i().a(true);
         this.c.b(0);
         this.c.d(50);
@@ -123,7 +123,7 @@ public class MembersActivity extends com.baidu.tieba.j implements View.OnClickLi
     /* JADX INFO: Access modifiers changed from: private */
     public void g() {
         this.c.b(true);
-        this.c.a((af) null);
+        this.c.a((ai) null);
         this.b.i().a(false);
         this.c.b(0);
         this.c.d(50);

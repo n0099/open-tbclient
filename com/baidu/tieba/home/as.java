@@ -1,11 +1,10 @@
 package com.baidu.tieba.home;
 
-import android.view.View;
-import android.widget.EditText;
-import com.baidu.tieba.util.UtilHelper;
+import android.widget.CompoundButton;
+import android.widget.RadioButton;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class as implements View.OnClickListener {
+public class as implements CompoundButton.OnCheckedChangeListener {
     final /* synthetic */ SearchActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,10 +12,13 @@ public class as implements View.OnClickListener {
         this.a = searchActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        EditText editText;
-        editText = this.a.c;
-        UtilHelper.h(this.a, editText.getText().toString().trim());
+    @Override // android.widget.CompoundButton.OnCheckedChangeListener
+    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
+        RadioButton radioButton;
+        if (z) {
+            this.a.a(1);
+            radioButton = this.a.i;
+            radioButton.setChecked(false);
+        }
     }
 }

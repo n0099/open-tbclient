@@ -29,7 +29,7 @@ public class z {
 
     public boolean a(String str) {
         if (this.c != null && str != null) {
-            String a2 = this.c.a(TiebaApplication.B() + str);
+            String a2 = this.c.a(TiebaApplication.A() + str);
             if (a2 != null && a2.length() > 0) {
                 this.b.a(a2);
                 return true;
@@ -40,13 +40,13 @@ public class z {
 
     public void a(String str, String str2) {
         if (str != null && str.length() > 0) {
-            this.c.a(TiebaApplication.B() + str, str2, 604800000L);
+            this.c.a(TiebaApplication.A() + str, str2, 604800000L);
         }
     }
 
     public void b(String str) {
         if (str != null && str.length() > 0) {
-            this.c.c(TiebaApplication.B() + str);
+            this.c.c(TiebaApplication.A() + str);
         }
     }
 

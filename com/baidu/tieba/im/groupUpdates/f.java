@@ -6,7 +6,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.bc;
+import com.baidu.tieba.util.bm;
 import com.baidu.tieba.view.HeadImageView;
 import com.slidingmenu.lib.R;
 import java.util.Date;
@@ -54,9 +54,6 @@ public class f extends com.baidu.adp.a.c<UpdatesItemData> {
 
     public void f() {
         if (this.m != null) {
-            boolean z = TiebaApplication.h().an() == 1;
-            this.l.getLayoutMode().a(z);
-            this.l.getLayoutMode().a(this.a);
             if (this.l.b()) {
                 this.i.setVisibility(0);
             } else {
@@ -75,7 +72,7 @@ public class f extends com.baidu.adp.a.c<UpdatesItemData> {
             }
             Date date = new Date();
             date.setTime(this.m.getTime());
-            this.h.setText(bc.e(date));
+            this.h.setText(bm.e(date));
             if (!TextUtils.isEmpty(this.m.getContent())) {
                 this.f.setText(this.m.getContent());
             }
@@ -86,6 +83,9 @@ public class f extends com.baidu.adp.a.c<UpdatesItemData> {
             int paddingTop = this.j.getPaddingTop();
             int paddingRight = this.j.getPaddingRight();
             int paddingBottom = this.j.getPaddingBottom();
+            boolean z = TiebaApplication.g().an() == 1;
+            this.l.getLayoutMode().a(z);
+            this.l.getLayoutMode().a(this.a);
             this.i.setSelected(this.m.isSelected());
             if (this.m.isSelected()) {
                 this.j.setBackgroundResource(z ? R.drawable.bg_information_down_s_1 : R.drawable.bg_information_down_s);

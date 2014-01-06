@@ -1,27 +1,41 @@
 package com.baidu.tieba.view;
 
-import android.app.Dialog;
-import android.content.Context;
-import android.view.MotionEvent;
 import android.view.View;
-import com.slidingmenu.lib.R;
+import android.widget.Button;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ax extends Dialog {
-    public ax(Context context) {
-        super(context, R.style.common_alert_dialog);
+public class ax implements View.OnClickListener {
+    final /* synthetic */ MultiImageView a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ax(MultiImageView multiImageView) {
+        this.a = multiImageView;
     }
 
-    @Override // android.app.Dialog
-    public void setContentView(View view) {
-        super.setContentView(view);
-    }
-
-    @Override // android.app.Dialog, android.view.Window.Callback
-    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        boolean dispatchTouchEvent = super.dispatchTouchEvent(motionEvent);
-        if (!dispatchTouchEvent && motionEvent.getAction() == 0) {
-            dismiss();
+    /* JADX WARN: Code restructure failed: missing block: B:10:0x001c, code lost:
+        r0 = r1.a.getCurrentImageView();
+     */
+    @Override // android.view.View.OnClickListener
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void onClick(View view) {
+        Button button;
+        Button button2;
+        q currentImageView;
+        q currentImageView2;
+        button = this.a.a;
+        if (view == button) {
+            currentImageView2 = this.a.getCurrentImageView();
+            if (currentImageView2 != null) {
+                currentImageView2.m();
+                return;
+            }
+            return;
         }
-        return dispatchTouchEvent;
+        button2 = this.a.b;
+        if (view == button2 && currentImageView != null) {
+            currentImageView.n();
+        }
     }
 }

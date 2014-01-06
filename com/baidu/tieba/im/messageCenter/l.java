@@ -2,13 +2,13 @@ package com.baidu.tieba.im.messageCenter;
 
 import com.baidu.tieba.im.SingleRunnable;
 import com.baidu.tieba.im.coder.CoderException;
-import com.baidu.tieba.im.message.bz;
+import com.baidu.tieba.im.message.cc;
 import java.util.LinkedList;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l extends SingleRunnable<m> {
-    private LinkedList<com.baidu.tieba.im.message.n> a = null;
+    private LinkedList<com.baidu.tieba.im.message.o> a = null;
     private com.baidu.tieba.im.coder.d b;
     private p c;
 
@@ -19,12 +19,12 @@ public class l extends SingleRunnable<m> {
         this.c = pVar;
     }
 
-    private List<com.baidu.tieba.im.message.n> c() {
+    private List<com.baidu.tieba.im.message.o> c() {
         if (this.a == null) {
             synchronized (l.class) {
                 if (this.a == null) {
                     this.a = new LinkedList<>();
-                    this.a.addLast(new bz(1003));
+                    this.a.addLast(new cc(1003));
                 }
             }
         }
@@ -43,9 +43,9 @@ public class l extends SingleRunnable<m> {
         int i;
         com.baidu.tieba.im.coder.d dVar;
         int i2;
-        List<com.baidu.tieba.im.message.n> list;
+        List<com.baidu.tieba.im.message.o> list;
         boolean a;
-        List<com.baidu.tieba.im.message.n> list2;
+        List<com.baidu.tieba.im.message.o> list2;
         m mVar = null;
         r4 = null;
         com.baidu.tieba.im.coder.d dVar2 = null;
@@ -104,19 +104,19 @@ public class l extends SingleRunnable<m> {
         return mVar;
     }
 
-    private boolean a(List<com.baidu.tieba.im.message.n> list, int i, p pVar) {
-        bz bzVar;
-        com.baidu.tieba.im.message.n nVar;
+    private boolean a(List<com.baidu.tieba.im.message.o> list, int i, p pVar) {
+        cc ccVar;
+        com.baidu.tieba.im.message.o oVar;
         if (i != 0) {
-            if (list == null || list.size() <= 0 || (nVar = list.get(0)) == null || !(nVar instanceof bz)) {
-                bzVar = null;
+            if (list == null || list.size() <= 0 || (oVar = list.get(0)) == null || !(oVar instanceof cc)) {
+                ccVar = null;
             } else {
-                bzVar = (bz) nVar;
+                ccVar = (cc) oVar;
                 if (pVar != null) {
-                    bzVar.a(pVar.j());
+                    ccVar.a(pVar.j());
                 }
             }
-            if (bzVar == null && pVar != null) {
+            if (ccVar == null && pVar != null) {
                 com.baidu.tieba.log.a.b(com.baidu.tieba.log.i.a(0, 0, "server error", "ack cont responsed", null, 0, null));
                 return false;
             }
@@ -124,14 +124,14 @@ public class l extends SingleRunnable<m> {
         return true;
     }
 
-    private void a(List<com.baidu.tieba.im.message.n> list, com.baidu.tieba.im.coder.d dVar) {
+    private void a(List<com.baidu.tieba.im.message.o> list, com.baidu.tieba.im.coder.d dVar) {
         if (list != null) {
             int size = list.size();
             for (int i = 0; i < size; i++) {
-                com.baidu.tieba.im.message.n nVar = list.get(i);
-                a a = e.a().a(nVar.t());
+                com.baidu.tieba.im.message.o oVar = list.get(i);
+                a a = e.a().a(oVar.u());
                 if (a != null) {
-                    a.a(nVar, dVar);
+                    a.a(oVar, dVar);
                 }
             }
         }

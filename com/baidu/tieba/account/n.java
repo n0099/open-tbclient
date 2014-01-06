@@ -25,16 +25,16 @@ public class n implements ILoginShareListener {
             String str3 = token.mPtoken;
             if (loginShareEvent == LoginShareEvent.VALID) {
                 if (str2 != null && str3 != null) {
-                    com.baidu.tieba.util.be.e(getClass().getName(), "onLoginShareEvent", "login");
+                    com.baidu.tieba.util.bo.e(getClass().getName(), "onLoginShareEvent", "login");
                     this.a.a(true, str2, str3, str);
                     return;
                 }
                 return;
             }
-            com.baidu.tieba.util.be.e(getClass().getName(), "onLoginShareEvent", "logout");
+            com.baidu.tieba.util.bo.e(getClass().getName(), "onLoginShareEvent", "logout");
             this.a.a(false, null, null, str);
             AccountData F = TiebaApplication.F();
-            if (F != null && !com.baidu.tieba.util.bc.c(F.getAccount()) && F.getAccount().equals(token.mUsername)) {
+            if (F != null && !com.baidu.tieba.util.bm.c(F.getAccount()) && F.getAccount().equals(token.mUsername)) {
                 a.a().a((Activity) null, true);
                 a.a().b("detect_bduss_logout");
             }

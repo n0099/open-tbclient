@@ -1,7 +1,7 @@
 package com.baidu.tieba.a;
 
 import com.baidu.tieba.util.DatabaseService;
-import com.baidu.tieba.util.an;
+import com.baidu.tieba.util.at;
 import java.io.File;
 import java.io.RandomAccessFile;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,7 +11,7 @@ public class b {
     private String b;
     private String c;
     private com.baidu.tieba.data.e d;
-    private an e;
+    private at e;
     private boolean f = false;
     private String g;
 
@@ -45,7 +45,7 @@ public class b {
                         byte[] bArr = new byte[i2];
                         int read = randomAccessFile.read(bArr, 0, i2);
                         if (read != -1) {
-                            this.e = new an(this.c);
+                            this.e = new at(this.c);
                             this.e.a("voice_chunk", bArr);
                             this.e.a("chunk_md5", this.d.a());
                             this.e.a("length", String.valueOf(read));

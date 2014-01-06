@@ -15,7 +15,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.bb;
+import com.baidu.tieba.util.bl;
 import com.baidu.tieba.view.MultiImageView;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
@@ -36,7 +36,7 @@ public class GroupImageActivity extends com.baidu.tieba.j {
     private TextView i = null;
     private MultiImageView j = null;
     private View.OnClickListener k = null;
-    private com.baidu.tieba.view.a l = null;
+    private com.baidu.tieba.view.e l = null;
     private bq m = null;
     private AlphaAnimation n = null;
     private boolean o = true;
@@ -58,7 +58,7 @@ public class GroupImageActivity extends com.baidu.tieba.j {
     @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        TiebaApplication.h().a((com.baidu.tieba.j) this);
+        TiebaApplication.g().a((com.baidu.tieba.j) this);
         setContentView(R.layout.image_activity_2);
         a(bundle);
         a();
@@ -93,7 +93,7 @@ public class GroupImageActivity extends com.baidu.tieba.j {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (i == 1) {
-            this.j.setBackgroundColor(bb.d(i));
+            this.j.setBackgroundColor(bl.d(i));
         } else {
             this.j.setBackgroundColor(-16777216);
         }
@@ -122,7 +122,7 @@ public class GroupImageActivity extends com.baidu.tieba.j {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j, android.app.Activity
     public void onDestroy() {
-        TiebaApplication.h().b((com.baidu.tieba.j) this);
+        TiebaApplication.g().b((com.baidu.tieba.j) this);
         a(this.c, this.c);
         this.j.c();
         if (this.d != null) {

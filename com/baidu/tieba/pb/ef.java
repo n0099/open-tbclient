@@ -21,9 +21,9 @@ public class ef implements AdapterView.OnItemClickListener {
         String str;
         SparseArray sparseArray = (SparseArray) view.getTag();
         if (sparseArray != null && (str = (String) sparseArray.get(R.id.tag_photo_username)) != null) {
-            String obj = this.a.I.getEditText().getText().toString();
+            String obj = this.a.L.getEditText().getText().toString();
             String str2 = "^" + this.a.e.getResources().getString(R.string.reply_sub_floor).replace("%s", ".+") + "$";
-            if (com.baidu.tieba.util.bc.c(obj) || obj.matches(str2)) {
+            if (com.baidu.tieba.util.bm.c(obj) || obj.matches(str2)) {
                 this.a.c(str);
                 this.a.a(i, view);
                 return;

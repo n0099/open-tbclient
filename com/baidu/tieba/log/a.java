@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import android.text.format.DateFormat;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.y;
+import com.baidu.tieba.util.aa;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -15,8 +15,8 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class a {
     private static a n;
     private StringBuffer e;
-    private static final String c = y.a + "/tieba/log";
-    private static final String d = y.a + "/tieba/logbak";
+    private static final String c = aa.a + "/tieba/log";
+    private static final String d = aa.a + "/tieba/logbak";
     private static boolean o = false;
     private static boolean r = false;
     private AtomicBoolean a = new AtomicBoolean(false);
@@ -36,7 +36,7 @@ public class a {
     }
 
     public static boolean a() {
-        if (TiebaApplication.h().b()) {
+        if (TiebaApplication.g().b()) {
             return true;
         }
         if (Build.VERSION.SDK_INT < 16) {
@@ -74,11 +74,15 @@ public class a {
     }
 
     public static void a(String str) {
-        g().c(str);
+        if (a()) {
+            g().c(str);
+        }
     }
 
     public static void b(String str) {
-        g().c(str);
+        if (a()) {
+            g().c(str);
+        }
     }
 
     public static void c() {
@@ -87,7 +91,7 @@ public class a {
 
     public void d() {
         try {
-            b(UtilHelper.g(TiebaApplication.h().getApplicationContext()));
+            b(UtilHelper.g(TiebaApplication.g().getApplicationContext()));
         } catch (Exception e) {
             com.baidu.adp.lib.h.e.a("BdLogger", "初始化日志组建失败 ", e);
         }
@@ -142,7 +146,7 @@ public class a {
 
     public void d(String str) {
         if (!TextUtils.isEmpty(str)) {
-            if (TiebaApplication.h().b()) {
+            if (TiebaApplication.g().b()) {
                 com.baidu.adp.lib.h.e.d(str);
             }
             this.a.set(true);
@@ -162,7 +166,7 @@ public class a {
     }
 
     private boolean e(String str) {
-        if (y.g("log", str) > 102400) {
+        if (aa.g("log", str) > 102400) {
             if (this.l == UtilHelper.NetworkStateInfo.WIFI) {
                 this.p = new f(this, c + "/" + str);
                 this.p.execute(new String[0]);
@@ -184,7 +188,7 @@ public class a {
                 this.h = new File(c + "/" + c(e));
             }
             if (!this.h.exists()) {
-                y.k(c);
+                aa.k(c);
                 this.h.createNewFile();
                 if (this.l != UtilHelper.NetworkStateInfo.WIFI) {
                     g(c);
@@ -233,8 +237,8 @@ public class a {
                 long j2 = 0;
                 for (File file : listFiles) {
                     if (file.isFile()) {
-                        long b = y.b(file);
-                        if (y.c(file)) {
+                        long b = aa.b(file);
+                        if (aa.c(file)) {
                             j2 += b;
                             if (j2 >= j && j > 0) {
                                 return;
@@ -252,7 +256,7 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void g(String str) {
-        if (y.a(str, true) > 26214400) {
+        if (aa.a(str, true) > 26214400) {
             a(str, 10485760L);
         }
     }

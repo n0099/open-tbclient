@@ -31,7 +31,7 @@ class d extends BdAsyncTask<Void, Void, AccountData> {
         int i;
         as asVar;
         super.a((d) accountData);
-        if (accountData == null || com.baidu.tieba.util.bc.c(accountData.getPassword())) {
+        if (accountData == null || com.baidu.tieba.util.bm.c(accountData.getPassword())) {
             z = this.b.a.g;
             if (!z) {
                 a aVar = this.b.a;

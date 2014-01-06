@@ -1,21 +1,25 @@
 package com.baidu.tieba.im.chat;
+
+import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bq implements com.baidu.tieba.im.a<Void> {
-    final /* synthetic */ bc a;
-
-    private bq(bc bcVar) {
-        this.a = bcVar;
-    }
+public class bq implements com.baidu.tbadk.imageManager.c {
+    final /* synthetic */ bp a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ bq(bc bcVar, bd bdVar) {
-        this(bcVar);
+    public bq(bp bpVar) {
+        this.a = bpVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    public void a(Void r4) {
-        com.baidu.tieba.im.c.a.h().b(false, (com.baidu.tieba.im.a<Void>) null);
+    @Override // com.baidu.tbadk.imageManager.c
+    public void a(com.baidu.adp.widget.ImageView.d dVar, String str, boolean z) {
+        String a;
+        if (dVar == null) {
+            this.a.a(this.a.c.getString(R.string.save_error));
+            return;
+        }
+        bp bpVar = this.a;
+        a = this.a.a(str, dVar.k());
+        bpVar.a(a);
     }
 }

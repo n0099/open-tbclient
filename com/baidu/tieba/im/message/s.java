@@ -1,48 +1,20 @@
 package com.baidu.tieba.im.message;
 
 import com.google.protobuf.MessageLite;
-import protobuf.CommitPusherCount.CommitPusherCountReq;
+import protobuf.CommitPersonalMsg.CommitPersonalMsgReq;
 /* loaded from: classes.dex */
-public class s extends n implements com.baidu.tieba.im.coder.g {
-    private int a;
-    private long b;
-    private long c;
-    private int d;
-
-    public void a(int i) {
-        this.d = i;
-    }
-
-    public int b() {
-        return this.a;
-    }
-
-    public void b(int i) {
-        this.a = i;
-    }
-
-    public long c() {
-        return this.b;
-    }
-
-    public void a(long j) {
-        this.b = j;
-    }
-
-    public long d() {
-        return this.c;
-    }
-
-    public void b(long j) {
-        this.c = j;
-    }
-
+public class s extends b {
     public s() {
-        e(202101);
+        e(205001);
     }
 
     @Override // com.baidu.tieba.im.coder.g
     public MessageLite a() {
-        return CommitPusherCountReq.CommitPusherCountReqIdl.newBuilder().a(CommitPusherCountReq.DataReq.newBuilder().c(d()).a(b()).b(c()).build()).build();
+        try {
+            return CommitPersonalMsgReq.CommitPersonalMsgReqIdl.newBuilder().a(CommitPersonalMsgReq.DataReq.newBuilder().a(j()).a(b()).a(com.baidu.tieba.im.chat.a.a).b(h()).b(i()).build()).build();
+        } catch (Exception e) {
+            com.baidu.adp.lib.h.e.d("data convert error");
+            return null;
+        }
     }
 }

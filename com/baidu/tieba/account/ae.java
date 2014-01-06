@@ -10,7 +10,7 @@ import com.baidu.tieba.util.DatabaseService;
 /* loaded from: classes.dex */
 public class ae extends BdAsyncTask<String, Integer, com.baidu.tieba.data.d> {
     final /* synthetic */ x a;
-    private com.baidu.tieba.util.an b = null;
+    private com.baidu.tieba.util.at b = null;
     private String c;
     private String d;
 
@@ -60,7 +60,6 @@ public class ae extends BdAsyncTask<String, Integer, com.baidu.tieba.data.d> {
             accountData = this.a.t;
             jVar = this.a.j;
             TiebaApplication.a(accountData, jVar);
-            l.a().b();
             acVar = this.a.u;
             if (acVar != null) {
                 acVar2 = this.a.u;
@@ -110,11 +109,11 @@ public class ae extends BdAsyncTask<String, Integer, com.baidu.tieba.data.d> {
         AccountData accountData5;
         AccountData accountData6;
         try {
-            this.b = new com.baidu.tieba.util.an(this.c);
+            this.b = new com.baidu.tieba.util.at(this.c);
             this.b.a("un", this.d);
-            com.baidu.tieba.util.an anVar = this.b;
+            com.baidu.tieba.util.at atVar = this.b;
             accountData = this.a.t;
-            anVar.a("BDUSS", accountData.getBDUSS());
+            atVar.a("BDUSS", accountData.getBDUSS());
             this.b.c(false);
             String l = this.b.l();
             if (this.b.d()) {
@@ -152,7 +151,7 @@ public class ae extends BdAsyncTask<String, Integer, com.baidu.tieba.data.d> {
                     return dVar;
                 } catch (Exception e2) {
                     e = e2;
-                    com.baidu.tieba.util.be.b(getClass().getName(), "doInBackground", e.getMessage());
+                    com.baidu.tieba.util.bo.b(getClass().getName(), "doInBackground", e.getMessage());
                     return dVar;
                 }
             }

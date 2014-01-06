@@ -1,9 +1,8 @@
 package com.baidu.tieba.pb;
 
 import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class eu implements View.OnClickListener {
+class eu implements View.OnClickListener {
     final /* synthetic */ WebActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,6 +12,6 @@ public class eu implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.a.closeActivity();
+        this.a.a.reload();
     }
 }

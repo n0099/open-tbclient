@@ -12,6 +12,8 @@ import com.baidu.tieba.im.data.SystemMsgData;
 import com.baidu.tieba.im.data.VoiceMsgData;
 import com.slidingmenu.lib.R;
 import java.util.Iterator;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -21,6 +23,7 @@ public class d {
     private static short b = 2;
     private static short c = 3;
     private static short d = 5;
+    private static Pattern e = Pattern.compile("(#\\([^#\\)\\(]+\\))");
 
     public static String a(String str, boolean z) {
         String str2 = null;
@@ -30,7 +33,7 @@ public class d {
         try {
             str2 = new JSONArray(str).getJSONObject(0).optString(z ? "big_src" : "src");
             return str2;
-        } catch (Exception e) {
+        } catch (Exception e2) {
             return str2;
         }
     }
@@ -44,35 +47,39 @@ public class d {
     }
 
     public static boolean b(com.baidu.tieba.im.message.b bVar) {
-        return bVar != null && bVar.h() == c;
+        return bVar != null && bVar.h() == 4;
     }
 
     public static boolean c(com.baidu.tieba.im.message.b bVar) {
+        return bVar != null && bVar.h() == c;
+    }
+
+    public static boolean d(com.baidu.tieba.im.message.b bVar) {
         try {
-            if (bVar.h() != 11 && TiebaApplication.C()) {
-                return bVar.f().getId().equals(TiebaApplication.B());
+            if (bVar.h() != 11 && TiebaApplication.B()) {
+                return bVar.f().getId().equals(TiebaApplication.A());
             }
             return false;
-        } catch (Exception e) {
+        } catch (Exception e2) {
             com.baidu.adp.lib.h.e.b("LocalUtil", "isAuthor", "Msg Author is Null");
             return false;
         }
     }
 
-    public static MsgCacheData d(com.baidu.tieba.im.message.b bVar) {
+    public static MsgCacheData e(com.baidu.tieba.im.message.b bVar) {
         try {
             MsgCacheData msgCacheData = new MsgCacheData();
             msgCacheData.setRich_content(null);
             return msgCacheData;
-        } catch (Exception e) {
-            com.baidu.adp.lib.h.e.b("LocalUtil", "getMsgCacheData", "error:" + e.getMessage());
+        } catch (Exception e2) {
+            com.baidu.adp.lib.h.e.b("LocalUtil", "getMsgCacheData", "error:" + e2.getMessage());
             return null;
         }
     }
 
-    public static VoiceMsgData e(com.baidu.tieba.im.message.b bVar) {
+    public static VoiceMsgData f(com.baidu.tieba.im.message.b bVar) {
         VoiceMsgData voiceMsgData;
-        Exception e;
+        Exception e2;
         if (bVar == null || bVar.h() != 3) {
             return null;
         }
@@ -96,14 +103,14 @@ public class d {
             try {
                 bVar.a(voiceMsgData);
                 return voiceMsgData;
-            } catch (Exception e2) {
-                e = e2;
-                com.baidu.adp.lib.h.e.b("LocalUtil", "deserializerVoiceMsgData", "error:" + e.getMessage());
+            } catch (Exception e3) {
+                e2 = e3;
+                com.baidu.adp.lib.h.e.b("LocalUtil", "deserializerVoiceMsgData", "error:" + e2.getMessage());
                 return voiceMsgData;
             }
-        } catch (Exception e3) {
+        } catch (Exception e4) {
             voiceMsgData = null;
-            e = e3;
+            e2 = e4;
         }
     }
 
@@ -128,13 +135,13 @@ public class d {
                     }
                 }
             }
-        } catch (JSONException e) {
-            e.printStackTrace();
+        } catch (JSONException e2) {
+            e2.printStackTrace();
         }
         return sb.toString();
     }
 
-    public static String f(com.baidu.tieba.im.message.b bVar) {
+    public static String g(com.baidu.tieba.im.message.b bVar) {
         if (bVar == null) {
             return null;
         }
@@ -144,26 +151,57 @@ public class d {
                 a2 = bVar.j();
             }
             if (a2 != null) {
+                Matcher matcher = e.matcher(a2);
+                while (matcher.find()) {
+                    String group = matcher.group();
+                    a2 = a2.replace(group, group.replace("#(", "[").replace(")", "]"));
+                }
                 return a2;
             }
             return null;
         } else if (bVar.h() == 2) {
-            return TiebaApplication.h().getString(R.string.last_msg_pic);
+            return TiebaApplication.g().getString(R.string.last_msg_pic);
         } else {
             if (bVar.h() == 3) {
-                return TiebaApplication.h().getString(R.string.last_msg_voice);
+                return TiebaApplication.g().getString(R.string.last_msg_voice);
             }
             if (bVar.h() == 11) {
                 return b(bVar.j());
             }
-            if (bVar.h() == 5) {
-                return TiebaApplication.h().getString(R.string.last_msg_invite);
+            if (bVar.h() == 4) {
+                String j = bVar.j();
+                try {
+                    JSONArray jSONArray = new JSONArray(j);
+                    if (jSONArray.length() > 0) {
+                        String optString = jSONArray.getJSONObject(0).optString("face_name");
+                        if (optString != null && optString.startsWith("#(") && optString.endsWith(")")) {
+                            optString = "[" + optString.substring(2, optString.length() - 1) + "]";
+                        }
+                        return optString;
+                    }
+                    return null;
+                } catch (JSONException e2) {
+                    e2.printStackTrace();
+                    try {
+                        String optString2 = new JSONObject(j).optString("face_name");
+                        if (optString2 != null && optString2.startsWith("#(") && optString2.endsWith(")")) {
+                            optString2 = "[" + optString2.substring(2, optString2.length() - 1) + "]";
+                        }
+                        return optString2;
+                    } catch (JSONException e3) {
+                        e3.printStackTrace();
+                        return null;
+                    }
+                }
+            } else if (bVar.h() == 5) {
+                return TiebaApplication.g().getString(R.string.last_msg_invite);
+            } else {
+                return null;
             }
-            return null;
         }
     }
 
-    public static String g(com.baidu.tieba.im.message.b bVar) {
+    public static String h(com.baidu.tieba.im.message.b bVar) {
         if (bVar == null) {
             return null;
         }
@@ -172,16 +210,16 @@ public class d {
         if (f != null && !TextUtils.isEmpty(f.getName())) {
             str = bVar.f().getName();
         }
-        if (f != null && !TextUtils.isEmpty(f.getId()) && f.getId().equals(TiebaApplication.B())) {
-            return f(bVar);
+        if (f != null && !TextUtils.isEmpty(f.getId()) && f.getId().equals(TiebaApplication.A())) {
+            return g(bVar);
         }
         if (bVar.h() == 11) {
-            return f(bVar);
+            return g(bVar);
         }
         if (!TextUtils.isEmpty(str)) {
-            return str + ":" + f(bVar);
+            return str + ":" + g(bVar);
         }
-        return f(bVar);
+        return g(bVar);
     }
 
     private static String b(String str) {
@@ -195,37 +233,37 @@ public class d {
                 if (TextUtils.isEmpty(optString) || optJSONObject == null) {
                     com.baidu.adp.lib.h.e.a("eventId == null or eventParam == null");
                 } else if (optString.equals("003")) {
-                    str2 = TiebaApplication.h().getString(R.string.kick_out_myself);
+                    str2 = TiebaApplication.g().getString(R.string.kick_out_myself);
                 } else if (optString.equals("122") || optString.equals("121")) {
                     str2 = optString2;
                 } else if (optString.equals("105")) {
                     String optString3 = optJSONObject.optString("userId");
                     String optString4 = optJSONObject.optString("userName");
-                    if (optString3.equals(TiebaApplication.B())) {
-                        str2 = TiebaApplication.h().getString(R.string.join_group_myself);
+                    if (optString3.equals(TiebaApplication.A())) {
+                        str2 = TiebaApplication.g().getString(R.string.join_group_myself);
                     } else {
-                        str2 = optString4 + TiebaApplication.h().getString(R.string.join_group);
+                        str2 = optString4 + TiebaApplication.g().getString(R.string.join_group);
                     }
                 } else if (optString.equals("106")) {
                     String optString5 = optJSONObject.optString("userId");
                     optJSONObject.optString("userName");
-                    str2 = optString5.equals(TiebaApplication.B()) ? TiebaApplication.h().getString(R.string.kick_out_myself) : optString2;
+                    str2 = optString5.equals(TiebaApplication.A()) ? TiebaApplication.g().getString(R.string.kick_out_myself) : optString2;
                 } else if (optString.equals("002")) {
-                    str2 = TiebaApplication.h().getString(R.string.join_group_myself);
+                    str2 = TiebaApplication.g().getString(R.string.join_group_myself);
                 } else if (optString.equals("109")) {
                     str2 = optString2;
                 } else if (optString.equals("110")) {
                     str2 = optString2;
                 }
-            } catch (JSONException e) {
-                e.printStackTrace();
-                com.baidu.adp.lib.h.e.a("transform erro" + e.getMessage());
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+                com.baidu.adp.lib.h.e.a("transform erro" + e2.getMessage());
             }
         }
         return str2;
     }
 
-    public static SystemMsgData h(com.baidu.tieba.im.message.b bVar) {
+    public static SystemMsgData i(com.baidu.tieba.im.message.b bVar) {
         if (bVar == null || bVar.h() != 11 || TextUtils.isEmpty(bVar.j())) {
             return null;
         }
@@ -240,7 +278,7 @@ public class d {
             } else if (optString.equals("003")) {
                 SystemMsgData systemMsgData = new SystemMsgData();
                 systemMsgData.setIsSelf(true);
-                systemMsgData.setContent(TiebaApplication.h().getString(R.string.kick_out_myself));
+                systemMsgData.setContent(TiebaApplication.g().getString(R.string.kick_out_myself));
                 return systemMsgData;
             } else if (optString.equals("122") || optString.equals("121")) {
                 SystemMsgData systemMsgData2 = new SystemMsgData();
@@ -251,21 +289,21 @@ public class d {
                 String optString3 = optJSONObject.optString("userId");
                 String optString4 = optJSONObject.optString("userName");
                 SystemMsgData systemMsgData3 = new SystemMsgData();
-                if (optString3.equals(TiebaApplication.B())) {
+                if (optString3.equals(TiebaApplication.A())) {
                     systemMsgData3.setIsSelf(true);
-                    systemMsgData3.setContent(TiebaApplication.h().getString(R.string.join_group_myself));
+                    systemMsgData3.setContent(TiebaApplication.g().getString(R.string.join_group_myself));
                 } else {
                     systemMsgData3.setIsSelf(false);
-                    systemMsgData3.setContent(optString4 + TiebaApplication.h().getString(R.string.join_group));
+                    systemMsgData3.setContent(optString4 + TiebaApplication.g().getString(R.string.join_group));
                 }
                 return systemMsgData3;
             } else if (optString.equals("106")) {
                 String optString5 = optJSONObject.optString("userId");
                 optJSONObject.optString("userName");
                 SystemMsgData systemMsgData4 = new SystemMsgData();
-                if (optString5.equals(TiebaApplication.B())) {
+                if (optString5.equals(TiebaApplication.A())) {
                     systemMsgData4.setIsSelf(true);
-                    systemMsgData4.setContent(TiebaApplication.h().getString(R.string.kick_out_myself));
+                    systemMsgData4.setContent(TiebaApplication.g().getString(R.string.kick_out_myself));
                 } else {
                     systemMsgData4.setIsSelf(false);
                     systemMsgData4.setContent(optString2);
@@ -274,14 +312,14 @@ public class d {
             } else if (optString.equals("002")) {
                 SystemMsgData systemMsgData5 = new SystemMsgData();
                 systemMsgData5.setIsSelf(true);
-                systemMsgData5.setContent(TiebaApplication.h().getString(R.string.join_group_myself));
+                systemMsgData5.setContent(TiebaApplication.g().getString(R.string.join_group_myself));
                 return null;
             } else {
                 return null;
             }
-        } catch (JSONException e) {
-            e.printStackTrace();
-            com.baidu.adp.lib.h.e.a("transform erro" + e.getMessage());
+        } catch (JSONException e2) {
+            e2.printStackTrace();
+            com.baidu.adp.lib.h.e.a("transform erro" + e2.getMessage());
             return null;
         }
     }

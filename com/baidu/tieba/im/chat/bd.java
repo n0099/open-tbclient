@@ -1,16 +1,20 @@
 package com.baidu.tieba.im.chat;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import android.content.DialogInterface;
 /* loaded from: classes.dex */
-public class bd implements com.baidu.tieba.im.model.ai {
-    final /* synthetic */ bc a;
+class bd implements DialogInterface.OnClickListener {
+    final /* synthetic */ int a;
+    final /* synthetic */ ba b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bd(bc bcVar) {
-        this.a = bcVar;
+    public bd(ba baVar, int i) {
+        this.b = baVar;
+        this.a = i;
     }
 
-    @Override // com.baidu.tieba.im.model.ai
-    public void a(int i, com.baidu.tieba.im.message.b bVar) {
-        this.a.e.post(new be(this, i, bVar));
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        dialogInterface.dismiss();
+        this.b.a(this.a);
     }
 }

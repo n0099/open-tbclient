@@ -1,21 +1,31 @@
 package com.baidu.tieba.util;
 
+import android.content.Context;
+import android.text.style.ClickableSpan;
 import android.view.View;
-import android.widget.ListView;
+import com.baidu.tieba.pb.NewPbActivity;
 /* loaded from: classes.dex */
-final class aj implements com.baidu.tbadk.imageManager.c {
-    final /* synthetic */ ListView a;
+public class aj extends ClickableSpan {
+    private Context a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public aj(ListView listView) {
-        this.a = listView;
+    public aj(Context context) {
+        this.a = null;
+        this.a = context;
     }
 
-    @Override // com.baidu.tbadk.imageManager.c
-    public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
-        View findViewWithTag;
-        if (eVar != null && (findViewWithTag = this.a.findViewWithTag(str)) != null) {
-            findViewWithTag.invalidate();
-        }
+    @Override // android.text.style.ClickableSpan
+    public void onClick(View view) {
+    }
+
+    public Context a() {
+        return this.a;
+    }
+
+    public void a(String str) {
+        UtilHelper.c(this.a, str);
+    }
+
+    public void b(String str) {
+        NewPbActivity.a(this.a, str, (String) null, (String) null);
     }
 }

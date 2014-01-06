@@ -1,23 +1,30 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.data.AccountData;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.location.Address;
+import android.text.TextUtils;
 /* loaded from: classes.dex */
-public final class bb implements com.baidu.tieba.im.a<Integer> {
-    final /* synthetic */ AccountData a;
-    final /* synthetic */ TiebaApplication b;
+class bb implements com.baidu.adp.lib.c.d {
+    final /* synthetic */ TiebaApplication a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bb(AccountData accountData, TiebaApplication tiebaApplication) {
-        this.a = accountData;
-        this.b = tiebaApplication;
+    public bb(TiebaApplication tiebaApplication) {
+        this.a = tiebaApplication;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    public void a(Integer num) {
-        com.baidu.tieba.im.chat.a.a = num.intValue();
-        com.baidu.tieba.im.i.a(this.a, this.b);
-        com.baidu.tieba.im.m.b();
+    @Override // com.baidu.adp.lib.c.d
+    public void a(int i, String str, Address address) {
+        if (i == 0 && address != null) {
+            try {
+                String valueOf = String.valueOf(address.getLatitude());
+                String valueOf2 = String.valueOf(address.getLongitude());
+                if (!TextUtils.isEmpty(valueOf) && !TextUtils.isEmpty(valueOf2)) {
+                    this.a.y(valueOf);
+                    this.a.z(valueOf2);
+                    this.a.A(address.getAddressLine(0));
+                }
+            } catch (IllegalStateException e) {
+                com.baidu.adp.lib.h.e.a(e.getMessage());
+            }
+        }
     }
 }

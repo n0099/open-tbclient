@@ -4,7 +4,7 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.IBinder;
-import com.baidu.tieba.util.be;
+import com.baidu.tieba.util.bo;
 /* loaded from: classes.dex */
 public class PerformMonitorService extends Service {
     private com.baidu.adp.lib.debug.a.o b = null;
@@ -51,28 +51,28 @@ public class PerformMonitorService extends Service {
                 new Thread(this.b).start();
             }
         } catch (Exception e) {
-            be.b(getClass().getName(), "monitorOn", e.toString());
+            bo.b(getClass().getName(), "monitorOn", e.toString());
         }
         try {
             if (!this.c.a()) {
                 this.c.b();
             }
         } catch (Exception e2) {
-            be.b(getClass().getName(), "monitorOn", e2.toString());
+            bo.b(getClass().getName(), "monitorOn", e2.toString());
         }
         try {
             if (!this.e.a()) {
                 new Thread(this.e).start();
             }
         } catch (Exception e3) {
-            be.b(getClass().getName(), "monitorOn", e3.toString());
+            bo.b(getClass().getName(), "monitorOn", e3.toString());
         }
         try {
             if (!this.d.a()) {
                 this.d.b();
             }
         } catch (Exception e4) {
-            be.b(getClass().getName(), "monitorOn", e4.toString());
+            bo.b(getClass().getName(), "monitorOn", e4.toString());
         }
         this.f = true;
         new Thread(this.a).start();
@@ -85,28 +85,28 @@ public class PerformMonitorService extends Service {
                 this.b.c();
             }
         } catch (Exception e) {
-            be.b(getClass().getName(), "monitorOff", e.toString());
+            bo.b(getClass().getName(), "monitorOff", e.toString());
         }
         try {
             if (this.c.a()) {
                 this.c.c();
             }
         } catch (Exception e2) {
-            be.b(getClass().getName(), "monitorOff", e2.toString());
+            bo.b(getClass().getName(), "monitorOff", e2.toString());
         }
         try {
             if (this.e.a()) {
                 this.e.c();
             }
         } catch (Exception e3) {
-            be.b(getClass().getName(), "monitorOff", e3.toString());
+            bo.b(getClass().getName(), "monitorOff", e3.toString());
         }
         try {
             if (this.d.a()) {
                 this.d.c();
             }
         } catch (Exception e4) {
-            be.b(getClass().getName(), "monitorOff", e4.toString());
+            bo.b(getClass().getName(), "monitorOff", e4.toString());
         }
         this.f = false;
     }

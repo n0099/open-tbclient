@@ -1,11 +1,22 @@
 package com.baidu.tieba.frs;
-
-import org.json.JSONObject;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public interface ag {
-    void a(int i);
+public class ag implements com.baidu.tieba.im.messageCenter.g {
+    final /* synthetic */ FrsActivity a;
 
-    void a(int i, JSONObject jSONObject, com.baidu.tieba.model.an anVar);
+    private ag(FrsActivity frsActivity) {
+        this.a = frsActivity;
+    }
 
-    void a(com.baidu.tieba.model.ak akVar);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ ag(FrsActivity frsActivity, b bVar) {
+        this(frsActivity);
+    }
+
+    @Override // com.baidu.tieba.im.messageCenter.g
+    public void a(com.baidu.tieba.im.message.o oVar) {
+        if (oVar != null && oVar.u() == -124) {
+            this.a.a(oVar);
+        }
+    }
 }

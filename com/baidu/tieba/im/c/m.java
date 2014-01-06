@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.im.chat.GroupChatActivity;
 import com.baidu.tieba.im.chat.PersonalChatActivity;
-import com.baidu.tieba.im.chat.bc;
+import com.baidu.tieba.im.chat.ba;
 import com.baidu.tieba.im.data.GroupIdTypeData;
 import com.baidu.tieba.im.data.SystemMsgData;
 import com.baidu.tieba.im.db.ad;
@@ -79,15 +79,15 @@ public class m implements com.baidu.tieba.im.messageCenter.g {
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(com.baidu.tieba.im.message.n nVar) {
-        if (nVar != null) {
-            com.baidu.adp.lib.h.e.d("cmd:" + nVar.t());
-            switch (nVar.t()) {
+    public void a(com.baidu.tieba.im.message.o oVar) {
+        if (oVar != null) {
+            com.baidu.adp.lib.h.e.d("cmd:" + oVar.u());
+            switch (oVar.u()) {
                 case -100:
-                    a((com.baidu.tieba.im.data.c) nVar);
+                    a((com.baidu.tieba.im.data.b) oVar);
                     return;
                 case 202006:
-                    a((s) nVar);
+                    a((s) oVar);
                     return;
                 default:
                     return;
@@ -97,7 +97,7 @@ public class m implements com.baidu.tieba.im.messageCenter.g {
 
     private void a(s sVar) {
         if (sVar != null) {
-            com.baidu.adp.lib.h.e.d("cmd: " + sVar.t() + "groupId: " + sVar.c());
+            com.baidu.adp.lib.h.e.d("cmd: " + sVar.u() + "groupId: " + sVar.c());
             String valueOf = String.valueOf(sVar.c());
             com.baidu.tieba.log.a.b(com.baidu.tieba.log.i.a(202006, 0, "server push new", "PushNotifyManager-push_notify", "succ", 0, "", 0L, 0, "gid:" + valueOf));
             if (!TextUtils.isEmpty(valueOf)) {
@@ -110,15 +110,15 @@ public class m implements com.baidu.tieba.im.messageCenter.g {
         com.baidu.tieba.im.b.a.b().h();
     }
 
-    private void a(com.baidu.tieba.im.data.c cVar) {
+    private void a(com.baidu.tieba.im.data.b bVar) {
         GroupIdTypeData a2;
-        if (cVar != null && (a2 = cVar.a()) != null) {
+        if (bVar != null && (a2 = bVar.a()) != null) {
             int groupType = a2.getGroupType();
             com.baidu.adp.lib.h.e.d("type  " + groupType);
             if (1 == groupType) {
                 this.c = String.valueOf(a2.getGroupId());
                 com.baidu.adp.lib.h.e.d("systemGroupId:" + this.c);
-                a(cVar, groupType);
+                a(bVar, groupType);
                 return;
             }
             if (1 != groupType) {
@@ -130,12 +130,12 @@ public class m implements com.baidu.tieba.im.messageCenter.g {
         boolean z;
         boolean b;
         if (commonMsgPojo != null) {
-            com.baidu.tieba.im.message.d chatMessage = commonMsgPojo.toChatMessage();
+            com.baidu.tieba.im.message.e chatMessage = commonMsgPojo.toChatMessage();
             if (chatMessage != null) {
-                SystemMsgData h = com.baidu.tieba.im.d.d.h(chatMessage);
-                z = h == null || h.getIsSelf();
-                if (TiebaApplication.C()) {
-                    if (chatMessage.f().getId().equals(TiebaApplication.B()) && chatMessage.h() != 11) {
+                SystemMsgData i = com.baidu.tieba.im.d.d.i(chatMessage);
+                z = i == null || i.getIsSelf();
+                if (TiebaApplication.B()) {
+                    if (chatMessage.f().getId().equals(TiebaApplication.A()) && chatMessage.h() != 11) {
                         z = false;
                     }
                 }
@@ -145,25 +145,25 @@ public class m implements com.baidu.tieba.im.messageCenter.g {
             if (commonMsgPojo.getRead_flag() == 0) {
                 z = false;
             }
-            if (!TiebaApplication.h().aa() && !commonMsgPojo.isPrivate()) {
+            if (!TiebaApplication.g().aa() && !commonMsgPojo.isPrivate()) {
                 z = false;
             }
-            if (!TiebaApplication.h().Z() && commonMsgPojo.isPrivate()) {
+            if (!TiebaApplication.g().Z() && commonMsgPojo.isPrivate()) {
                 z = false;
             }
             String gid = commonMsgPojo.getGid();
-            if (!TextUtils.isEmpty(gid) && GroupChatActivity.a && gid.equals(bc.c)) {
+            if (!TextUtils.isEmpty(gid) && GroupChatActivity.a && gid.equals(ba.c)) {
                 z = false;
-            } else if (!TextUtils.isEmpty(gid) && PersonalChatActivity.a && gid.equals(bc.d)) {
+            } else if (!TextUtils.isEmpty(gid) && PersonalChatActivity.a && gid.equals(ba.d)) {
                 z = false;
             }
             k e = a.h().e(gid);
             if (e != null) {
                 b = e.isAcceptNotify();
             } else if (commonMsgPojo.isPrivate()) {
-                b = com.baidu.tieba.im.chat.personaltalk.a.b(TiebaApplication.B(), commonMsgPojo.getGid());
+                b = com.baidu.tieba.im.chat.personaltalk.a.b(TiebaApplication.A(), commonMsgPojo.getGid());
             } else {
-                b = com.baidu.tieba.im.chat.personaltalk.a.b(TiebaApplication.B(), commonMsgPojo.getGid());
+                b = com.baidu.tieba.im.chat.personaltalk.a.b(TiebaApplication.A(), commonMsgPojo.getGid());
             }
             if (z && !b) {
                 z = false;
@@ -196,8 +196,8 @@ public class m implements com.baidu.tieba.im.messageCenter.g {
         com.baidu.adp.lib.h.e.d("dispatch group chat: " + i + " times");
     }
 
-    private void a(com.baidu.tieba.im.data.c cVar, int i) {
-        com.baidu.tieba.im.m.a(new p(this, cVar, i), new q(this));
+    private void a(com.baidu.tieba.im.data.b bVar, int i) {
+        com.baidu.tieba.im.m.a(new p(this, bVar, i), new q(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -224,14 +224,14 @@ public class m implements com.baidu.tieba.im.messageCenter.g {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public LinkedList<GroupNewsPojo> b(com.baidu.tieba.im.data.c cVar, int i) {
+    public LinkedList<GroupNewsPojo> b(com.baidu.tieba.im.data.b bVar, int i) {
         long j;
         GroupNewsPojo groupNewsPojo;
         if (1 != i) {
             return null;
         }
         try {
-            LinkedList<GroupNewsPojo> a2 = a(cVar.b());
+            LinkedList<GroupNewsPojo> a2 = a(bVar.b());
             if (a2 == null || a2.isEmpty()) {
                 return null;
             }
@@ -308,9 +308,9 @@ public class m implements com.baidu.tieba.im.messageCenter.g {
         }
     }
 
-    private static LinkedList<GroupNewsPojo> a(com.baidu.tieba.im.data.f fVar) {
+    private static LinkedList<GroupNewsPojo> a(com.baidu.tieba.im.data.e eVar) {
         List<com.baidu.tieba.im.message.b> a2;
-        if (fVar == null || (a2 = fVar.a()) == null || a2.size() == 0) {
+        if (eVar == null || (a2 = eVar.a()) == null || a2.size() == 0) {
             return null;
         }
         LinkedList<GroupNewsPojo> linkedList = new LinkedList<>();
@@ -318,7 +318,7 @@ public class m implements com.baidu.tieba.im.messageCenter.g {
         int i = 0;
         for (com.baidu.tieba.im.message.b bVar : a2) {
             int i2 = i + 1;
-            com.baidu.adp.lib.h.e.d("idx:" + i + "  cmd:" + bVar.t() + " content:" + bVar.j());
+            com.baidu.adp.lib.h.e.d("idx:" + i + "  cmd:" + bVar.u() + " content:" + bVar.j());
             GroupNewsPojo a3 = a(bVar);
             if (a3 != null) {
                 linkedList.add(a3);

@@ -22,14 +22,13 @@ public class HeadImageView extends TbImageView {
     private final RectF h;
     private int i;
     private int j;
-    private float k;
+    private final float k;
     private boolean l;
     private boolean m;
     private boolean n;
-    private boolean o;
+    private int o;
     private int p;
-    private int q;
-    private boolean r;
+    private boolean q;
 
     public HeadImageView(Context context) {
         this(context, null, 0);
@@ -47,16 +46,15 @@ public class HeadImageView extends TbImageView {
         this.d = null;
         this.m = true;
         this.n = false;
-        this.o = false;
+        this.o = 0;
         this.p = 0;
-        this.q = 0;
-        this.r = false;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.baidu.tieba.at.HeadImageView);
+        this.q = false;
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.baidu.tieba.au.HeadImageView);
         this.k = obtainStyledAttributes.getFloat(0, -1.0f);
         obtainStyledAttributes.recycle();
         this.j = com.baidu.adp.lib.h.g.a(context, 5.0f);
-        this.p = this.j;
-        this.q = com.baidu.adp.lib.h.g.a(context, 200.0f);
+        this.o = this.j;
+        this.p = com.baidu.adp.lib.h.g.a(context, 200.0f);
         this.g = new RectF();
         this.h = new RectF();
         this.i = (int) ((getResources().getDisplayMetrics().density * 1.0f) + 0.5d);
@@ -68,10 +66,9 @@ public class HeadImageView extends TbImageView {
         this.f = new Paint();
         this.f.setColor(1275068416);
         this.f.setAntiAlias(true);
-        TypedArray obtainStyledAttributes2 = context.obtainStyledAttributes(attributeSet, com.baidu.tieba.at.HeadImageView);
-        this.n = obtainStyledAttributes2.getBoolean(1, true);
-        if (this.n) {
-            setIsRound(this.o);
+        TypedArray obtainStyledAttributes2 = context.obtainStyledAttributes(attributeSet, com.baidu.tieba.au.HeadImageView);
+        if (obtainStyledAttributes2.getBoolean(1, true)) {
+            setIsRound(this.n);
         }
         setGifIconSupport(obtainStyledAttributes2.getBoolean(2, true));
         obtainStyledAttributes2.recycle();
@@ -80,7 +77,7 @@ public class HeadImageView extends TbImageView {
 
     @Override // android.widget.ImageView, android.view.View
     protected void onMeasure(int i, int i2) {
-        if (this.k == -1.0f || Build.VERSION.SDK_INT < 11) {
+        if (this.k == -1.0f) {
             super.onMeasure(i, i2);
         } else {
             super.onMeasure(i, ((int) ((1073741823 & i) * this.k)) + 1073741824);
@@ -96,7 +93,7 @@ public class HeadImageView extends TbImageView {
     }
 
     public void setAutoChangeStyle(boolean z) {
-        this.r = z;
+        this.q = z;
     }
 
     public void setUserId(String str) {
@@ -115,22 +112,7 @@ public class HeadImageView extends TbImageView {
         return this.d;
     }
 
-    @Override // android.view.View
-    public void setBackgroundColor(int i) {
-        super.setBackgroundColor(i);
-    }
-
-    @Override // android.view.View
-    public void setBackgroundResource(int i) {
-        super.setBackgroundResource(i);
-    }
-
-    @Override // android.view.View
-    public void setBackgroundDrawable(Drawable drawable) {
-        super.setBackgroundDrawable(drawable);
-    }
-
-    @Override // com.baidu.adp.widget.ImageView.a, android.widget.ImageView
+    @Override // com.baidu.adp.widget.ImageView.BDImageView, android.widget.ImageView
     public void setImageBitmap(Bitmap bitmap) {
         super.setImageBitmap(bitmap);
         if (bitmap == null) {
@@ -145,7 +127,7 @@ public class HeadImageView extends TbImageView {
         this.l = true;
     }
 
-    @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.widget.ImageView.a, android.view.View
+    @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.widget.ImageView.BDImageView, android.view.View
     public void setTag(Object obj) {
         super.setTag(obj);
         if (obj != null) {
@@ -155,21 +137,21 @@ public class HeadImageView extends TbImageView {
 
     public void e() {
         if (this.l) {
-            if (this.b != TiebaApplication.h().an()) {
+            if (this.b != TiebaApplication.g().an()) {
                 invalidate();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.widget.ImageView.a, android.widget.ImageView, android.view.View
+    @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.widget.ImageView.BDImageView, android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         if (this.l) {
-            int an = TiebaApplication.h().an();
+            int an = TiebaApplication.g().an();
             if (f()) {
                 canvas.drawRoundRect(this.g, this.j, this.j, this.e);
-                if (this.r && an == 1) {
+                if (this.q && an == 1) {
                     canvas.drawRoundRect(this.h, this.j, this.j, this.f);
                 }
             }
@@ -187,12 +169,12 @@ public class HeadImageView extends TbImageView {
 
     public void setIsRound(boolean z) {
         Drawable drawable;
-        this.o = z;
-        if (this.o) {
-            this.j = this.q;
+        this.n = z;
+        if (this.n) {
+            this.j = this.p;
             setRadius(this.j);
         } else {
-            this.j = this.p;
+            this.j = this.o;
             setRadius(this.j);
         }
         if (this.l && (drawable = getDrawable()) != null && (drawable instanceof com.baidu.adp.widget.x)) {

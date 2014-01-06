@@ -6,8 +6,8 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import com.baidu.tieba.compatible.CompatibleUtile;
-import com.baidu.tieba.util.bd;
-import com.baidu.tieba.util.be;
+import com.baidu.tieba.util.bn;
+import com.baidu.tieba.util.bo;
 import com.baidu.tieba.view.NoNetworkView;
 /* loaded from: classes.dex */
 public class f extends BroadcastReceiver {
@@ -23,22 +23,31 @@ public class f extends BroadcastReceiver {
                 if (activeNetworkInfo.getTypeName().equalsIgnoreCase("WIFI")) {
                     if (this.a != 1) {
                         if (this.a != -1) {
-                            bd.a().b(true);
+                            bn.a().b(true);
+                            com.baidu.tieba.im.message.q qVar = new com.baidu.tieba.im.message.q(-121);
+                            qVar.a(1);
+                            com.baidu.tieba.im.messageCenter.e.a().d(qVar);
                         }
                         this.a = 1;
                     }
                 } else if (this.a != 2) {
                     if (this.a != -1) {
-                        bd.a().b(false);
+                        bn.a().b(false);
+                        com.baidu.tieba.im.message.q qVar2 = new com.baidu.tieba.im.message.q(-121);
+                        qVar2.a(2);
+                        com.baidu.tieba.im.messageCenter.e.a().d(qVar2);
                     }
                     this.a = 2;
                 }
             } else if (this.a != 0) {
                 this.a = 0;
+                com.baidu.tieba.im.message.q qVar3 = new com.baidu.tieba.im.message.q(-121);
+                qVar3.a(0);
+                com.baidu.tieba.im.messageCenter.e.a().d(qVar3);
             }
             CompatibleUtile.dealWebView();
         } catch (Exception e) {
-            be.b("NetworkChangeReceiver", "onReceiver", e.getMessage());
+            bo.b("NetworkChangeReceiver", "onReceiver", e.getMessage());
         }
     }
 }

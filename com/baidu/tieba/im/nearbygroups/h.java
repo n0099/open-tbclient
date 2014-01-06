@@ -58,6 +58,6 @@ public class h implements a {
     }
 
     public void c() {
-        a(TiebaApplication.h().an());
+        a(TiebaApplication.g().an());
     }
 }

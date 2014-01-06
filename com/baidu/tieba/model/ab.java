@@ -46,16 +46,16 @@ public class ab extends BdAsyncTask<Integer, com.baidu.tieba.data.v, com.baidu.t
             return vVar;
         } catch (Exception e) {
             this.a.g = 0;
-            com.baidu.tieba.util.be.b(aa.class.getName(), "GetForumFeedTask.doInBackground", e.getMessage().toString());
+            com.baidu.tieba.util.bo.b(aa.class.getName(), "GetForumFeedTask.doInBackground", e.getMessage().toString());
             return null;
         }
     }
 
     private void a(String str) {
         com.baidu.adp.lib.cache.s<String> g;
-        String B = TiebaApplication.B();
-        if (B != null && (g = com.baidu.tieba.b.a.a().g()) != null) {
-            g.a("home_forumfeed_" + B, str, 604800000L);
+        String A = TiebaApplication.A();
+        if (A != null && (g = com.baidu.tieba.b.a.a().g()) != null) {
+            g.a("home_forumfeed_" + A, str, 604800000L);
         }
     }
 

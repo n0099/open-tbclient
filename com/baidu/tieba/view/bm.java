@@ -1,29 +1,21 @@
 package com.baidu.tieba.view;
 
-import android.content.Context;
-import android.graphics.Canvas;
-import com.baidu.tieba.TiebaApplication;
-import com.slidingmenu.lib.R;
+import android.app.Activity;
+import android.view.View;
+import com.baidu.tieba.barcode.CaptureActivity;
 /* loaded from: classes.dex */
-public class bm extends com.baidu.tbadk.widget.b {
-    private int b;
+class bm implements View.OnClickListener {
+    final /* synthetic */ SearchBoxView a;
 
-    public bm(Context context) {
-        super(context);
-        this.b = -1;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bm(SearchBoxView searchBoxView) {
+        this.a = searchBoxView;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.widget.b, com.baidu.tbadk.widget.TbImageView, com.baidu.adp.widget.ImageView.a, android.widget.ImageView, android.view.View
-    public void onDraw(Canvas canvas) {
-        if (TiebaApplication.h().an() == 1) {
-            this.b = getResources().getColor(R.color.pb_default_image_bg_1);
-        } else {
-            this.b = getResources().getColor(R.color.pb_default_image_bg);
-        }
-        if (getImage() == null && this.b != -1) {
-            canvas.drawColor(this.b);
-        }
-        super.onDraw(canvas);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Activity activity;
+        activity = this.a.a;
+        CaptureActivity.a(activity, 16003);
     }
 }

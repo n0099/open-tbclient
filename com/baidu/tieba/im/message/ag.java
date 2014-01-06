@@ -1,75 +1,44 @@
 package com.baidu.tieba.im.message;
 
 import com.google.protobuf.MessageLite;
-import protobuf.QueryGroupsByLocation.QueryGroupsByLocationReq;
+import protobuf.QueryHotGroups.QueryHotGroupsReq;
 /* loaded from: classes.dex */
-public class ag extends n implements com.baidu.tieba.im.coder.g {
-    private String a;
-    private String b;
+public class ag extends o implements com.baidu.tieba.im.coder.g {
+    private int a;
+    private int b;
     private int c;
     private int d;
-    private int e;
-    private int f;
-    private int g;
 
-    public ag() {
-        e(103009);
-    }
-
-    public void a(int i) {
-        this.g = i;
+    public ag(int i, int i2, int i3, int i4) {
+        super.e(103012);
+        this.a = i;
+        this.b = i2;
+        this.c = i3;
+        this.d = i4;
     }
 
     public int b() {
-        return this.f;
-    }
-
-    public void b(int i) {
-        this.f = i;
-    }
-
-    public int c() {
-        return this.e;
-    }
-
-    public void c(int i) {
-        this.e = i;
-    }
-
-    public int d() {
-        return this.d;
-    }
-
-    public void d(int i) {
-        this.d = i;
-    }
-
-    public int e() {
         return this.c;
     }
 
-    public void f(int i) {
-        this.c = i;
-    }
-
-    public String f() {
+    public int c() {
         return this.a;
     }
 
-    public void a(String str) {
-        this.a = str;
-    }
-
-    public String g() {
+    public int d() {
         return this.b;
     }
 
-    public void b(String str) {
-        this.b = str;
+    public int e() {
+        return this.d;
+    }
+
+    public boolean f() {
+        return this.d == 0;
     }
 
     @Override // com.baidu.tieba.im.coder.g
     public MessageLite a() {
-        return QueryGroupsByLocationReq.QueryGroupsByLocationReqIdl.newBuilder().a(QueryGroupsByLocationReq.DataReq.newBuilder().a(com.baidu.adp.lib.f.b.a(g(), 0.0d)).b(com.baidu.adp.lib.f.b.a(f(), 0.0d)).c(e()).a(d()).b(c()).e(b()).d(b()).build()).build();
+        return QueryHotGroupsReq.QueryHotGroupsReqIdl.newBuilder().a(QueryHotGroupsReq.DataReq.newBuilder().c(d()).a(e()).b(b()).d(c()).build()).build();
     }
 }

@@ -1,31 +1,33 @@
 package com.baidu.tieba.pb;
 
-import android.app.Dialog;
-import android.util.SparseArray;
+import android.view.MotionEvent;
 import android.view.View;
-import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ct implements View.OnClickListener {
-    final /* synthetic */ cr a;
+public class ct implements com.baidu.tieba.d.b {
+    final /* synthetic */ cs a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ct(cr crVar) {
-        this.a = crVar;
+    public ct(cs csVar) {
+        this.a = csVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Dialog dialog;
-        Dialog dialog2;
-        dialog = this.a.G;
-        if (dialog != null) {
-            dialog2 = this.a.G;
-            dialog2.dismiss();
-        }
-        SparseArray sparseArray = (SparseArray) view.getTag();
-        if (sparseArray != null) {
-            this.a.a(((Integer) sparseArray.get(R.id.tag_del_post_type)).intValue(), (String) sparseArray.get(R.id.tag_del_post_id), ((Integer) sparseArray.get(R.id.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(R.id.tag_del_post_is_self)).booleanValue());
-        }
+    @Override // com.baidu.tieba.d.b
+    public boolean a(View view, MotionEvent motionEvent) {
+        this.a.j(false);
+        this.a.b(view);
+        this.a.j(true);
+        return true;
+    }
+
+    @Override // com.baidu.tieba.d.b
+    public boolean b(View view, MotionEvent motionEvent) {
+        return false;
+    }
+
+    @Override // com.baidu.tieba.d.b
+    public boolean c(View view, MotionEvent motionEvent) {
+        this.a.Z();
+        return false;
     }
 }

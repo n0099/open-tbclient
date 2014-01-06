@@ -10,11 +10,11 @@ public class ai implements com.baidu.tbadk.imageManager.c {
     }
 
     @Override // com.baidu.tbadk.imageManager.c
-    public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
+    public void a(com.baidu.adp.widget.ImageView.d dVar, String str, boolean z) {
         SettingTextImageView settingTextImageView;
-        if (eVar != null) {
+        if (dVar != null) {
             settingTextImageView = this.a.f;
-            settingTextImageView.setIcon(eVar);
+            settingTextImageView.setIcon(dVar);
         }
     }
 }

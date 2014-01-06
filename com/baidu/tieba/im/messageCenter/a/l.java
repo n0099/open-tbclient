@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.messageCenter.a;
 
-import com.baidu.tieba.im.message.bz;
+import com.baidu.tieba.im.message.cc;
 import java.util.List;
 /* loaded from: classes.dex */
 public class l {
@@ -10,18 +10,18 @@ public class l {
         }
     }
 
-    public static bz a(int i, byte[] bArr) {
+    public static cc a(int i, byte[] bArr) {
         if (bArr == null) {
             return null;
         }
         try {
-            List<com.baidu.tieba.im.message.n> a = com.baidu.tieba.im.coder.c.a().a(i, bArr, 0, bArr.length);
+            List<com.baidu.tieba.im.message.o> a = com.baidu.tieba.im.coder.c.a().a(i, bArr, 0, bArr.length);
             if (a == null || a.isEmpty()) {
                 return null;
             }
-            com.baidu.tieba.im.message.n nVar = a.get(0);
-            if (nVar instanceof bz) {
-                return (bz) nVar;
+            com.baidu.tieba.im.message.o oVar = a.get(0);
+            if (oVar instanceof cc) {
+                return (cc) oVar;
             }
             return null;
         } catch (Throwable th) {

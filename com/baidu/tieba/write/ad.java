@@ -1,9 +1,9 @@
 package com.baidu.tieba.write;
 
-import android.content.DialogInterface;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import com.baidu.tieba.editortool.EditorToolComponetContainer;
 /* loaded from: classes.dex */
-public class ad implements DialogInterface.OnCancelListener {
+class ad implements View.OnClickListener {
     final /* synthetic */ WriteActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,15 +11,14 @@ public class ad implements DialogInterface.OnCancelListener {
         this.a = writeActivity;
     }
 
-    @Override // android.content.DialogInterface.OnCancelListener
-    public void onCancel(DialogInterface dialogInterface) {
-        ao aoVar;
-        ao aoVar2;
-        this.a.DeinitWaitingDialog();
-        aoVar = this.a.o;
-        if (aoVar != null) {
-            aoVar2 = this.a.o;
-            aoVar2.cancel();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        EditorToolComponetContainer editorToolComponetContainer;
+        EditorToolComponetContainer editorToolComponetContainer2;
+        editorToolComponetContainer = this.a.B;
+        if (editorToolComponetContainer.j()) {
+            editorToolComponetContainer2 = this.a.B;
+            editorToolComponetContainer2.k();
         }
     }
 }

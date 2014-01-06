@@ -1,73 +1,51 @@
 package com.baidu.tieba.home;
 
-import java.util.ArrayList;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class bm extends com.baidu.adp.a.d {
-    private static bm f = new bm();
-    public boolean a;
-    private bk c;
-    private t e;
-    private bo b = null;
-    private bn d = null;
+public class bm {
+    private int a;
+    private String b;
+    private int c;
+    private int d;
+    private int e;
+    private int f;
+    private int g;
+    private n h = new n();
 
-    public static bm a() {
-        return f;
+    public int a() {
+        return this.a;
     }
 
-    private bm() {
-        this.c = null;
-        this.c = new bk();
+    public int b() {
+        return this.c;
     }
 
-    public void a(bn bnVar) {
-        this.d = bnVar;
+    public int c() {
+        return this.f;
     }
 
-    public void a(t tVar) {
-        this.e = tVar;
+    public int d() {
+        return this.g;
     }
 
-    public t b() {
-        return this.e;
+    public n e() {
+        return this.h;
     }
 
-    private String c() {
-        ArrayList<u> m = this.e.m();
-        int size = m.size();
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < size; i++) {
-            u uVar = m.get(i);
-            if (uVar.j()) {
-                if (!uVar.k()) {
-                    uVar.c(true);
-                }
+    public void a(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.h.a(jSONObject.optJSONObject("error"));
+                this.a = jSONObject.optInt("forum_id");
+                this.b = jSONObject.optString("forum_name");
+                this.c = jSONObject.optInt("signed");
+                this.d = jSONObject.optInt("is_on");
+                this.e = jSONObject.optInt("is_filter");
+                this.f = jSONObject.optInt("sign_day_count");
+                this.g = jSONObject.optInt("cur_score");
+            } catch (Exception e) {
+                com.baidu.tieba.util.bo.b(getClass().getName(), "parserJson", e.getMessage());
             }
-            if (i > 0) {
-                sb.append(",");
-            }
-            sb.append(uVar.a());
         }
-        return sb.toString();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.a.d
-    public boolean LoadData() {
-        if (this.b != null) {
-            return false;
-        }
-        String c = c();
-        this.b = new bo(this);
-        this.b.execute(c);
-        return true;
-    }
-
-    @Override // com.baidu.adp.a.d
-    public boolean cancelLoadData() {
-        if (this.b != null) {
-            this.b.cancel();
-            return true;
-        }
-        return false;
     }
 }

@@ -1,13 +1,14 @@
 package com.baidu.tieba.write;
 
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.view.View;
-import android.widget.ProgressBar;
-import java.util.Date;
+import android.widget.CompoundButton;
+import android.widget.HorizontalScrollView;
+import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.TextView;
+import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aq implements View.OnClickListener {
+public class aq implements CompoundButton.OnCheckedChangeListener {
     final /* synthetic */ WriteImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,51 +16,40 @@ public class aq implements View.OnClickListener {
         this.a = writeImageActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        boolean z;
-        int i;
-        ProgressBar progressBar;
-        boolean z2;
-        Bitmap bitmap;
-        Bitmap bitmap2;
-        boolean b;
-        z = this.a.y;
-        if (!z) {
-            i = this.a.z;
-            if (i == 12003) {
-                Intent intent = new Intent();
-                progressBar = this.a.g;
-                if (progressBar.getVisibility() != 0) {
-                    z2 = this.a.x;
-                    if (z2) {
-                        bitmap = this.a.p;
-                        if (bitmap != null) {
-                            bitmap2 = this.a.p;
-                            if (!bitmap2.isRecycled()) {
-                                String str = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
-                                b = this.a.b(str);
-                                if (b) {
-                                    intent.putExtra("change", true);
-                                    intent.putExtra("file_name", str);
-                                } else {
-                                    intent.putExtra("change", false);
-                                }
-                                this.a.setResult(-1, intent);
-                            }
-                        }
-                    }
-                    intent.putExtra("change", false);
-                    this.a.setResult(-1, intent);
-                } else {
-                    return;
-                }
-            } else {
-                this.a.setResult(0, new Intent());
+    @Override // android.widget.CompoundButton.OnCheckedChangeListener
+    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
+        RadioButton radioButton;
+        RadioButton radioButton2;
+        HorizontalScrollView horizontalScrollView;
+        LinearLayout linearLayout;
+        TextView textView;
+        HorizontalScrollView horizontalScrollView2;
+        LinearLayout linearLayout2;
+        TextView textView2;
+        if (z) {
+            compoundButton.setTextColor(this.a.getResources().getColor(R.color.white));
+            radioButton = this.a.j;
+            if (compoundButton == radioButton) {
+                horizontalScrollView2 = this.a.f;
+                horizontalScrollView2.setVisibility(0);
+                linearLayout2 = this.a.l;
+                linearLayout2.setVisibility(4);
+                textView2 = this.a.n;
+                textView2.setText(this.a.getString(R.string.beautify));
+                return;
             }
-        } else {
-            this.a.setResult(0, new Intent());
+            radioButton2 = this.a.k;
+            if (compoundButton == radioButton2) {
+                horizontalScrollView = this.a.f;
+                horizontalScrollView.setVisibility(4);
+                linearLayout = this.a.l;
+                linearLayout.setVisibility(0);
+                textView = this.a.n;
+                textView.setText(this.a.getString(R.string.rotate));
+                return;
+            }
+            return;
         }
-        this.a.finish();
+        compoundButton.setTextColor(this.a.getResources().getColor(R.color.beautify_rotate_tab_unchecked_color));
     }
 }

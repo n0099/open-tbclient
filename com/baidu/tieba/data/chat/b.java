@@ -1,7 +1,7 @@
 package com.baidu.tieba.data.chat;
 
 import com.baidu.tieba.util.DatabaseService;
-import com.baidu.tieba.util.be;
+import com.baidu.tieba.util.bo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends Thread {
@@ -17,7 +17,7 @@ public class b extends Thread {
         try {
             DatabaseService.a();
         } catch (Throwable th) {
-            be.b("DatabaseService", "cleanExpiredMessagesOnAppStart", th.getMessage());
+            bo.b("DatabaseService", "cleanExpiredMessagesOnAppStart", th.getMessage());
         }
     }
 }

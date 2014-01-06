@@ -1,73 +1,15 @@
 package com.baidu.tieba.data;
-
-import com.baidu.android.pushservice.PushConstants;
-import org.json.JSONObject;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class at {
-    private long a;
-    private String b;
-    private String c;
-    private String d;
-    private String e;
+public class at implements com.baidu.tbadk.imageManager.c {
+    final /* synthetic */ as a;
 
-    public at() {
-        this.a = -1L;
-        this.b = null;
-        this.c = null;
-        this.d = null;
-        this.e = "";
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public at(as asVar) {
+        this.a = asVar;
     }
 
-    public at(long j, String str, String str2) {
-        this.a = -1L;
-        this.b = null;
-        this.c = null;
-        this.d = null;
-        this.e = "";
-        this.a = j;
-        this.b = str;
-        this.c = str2;
-    }
-
-    public String a() {
-        return this.e;
-    }
-
-    public void a(String str) {
-        try {
-            a(new JSONObject(str));
-        } catch (Exception e) {
-            com.baidu.tieba.util.be.b("MssageData", "parserJson", "error = " + e.getMessage());
-        }
-    }
-
-    public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.a = jSONObject.optLong("message_id");
-                this.b = jSONObject.optString("link");
-                this.c = jSONObject.optString(PushConstants.EXTRA_CONTENT);
-                this.d = jSONObject.optString("to");
-                this.e = jSONObject.optString("stat");
-            } catch (Exception e) {
-                com.baidu.tieba.util.be.b("MssageData", "parserJson", "error = " + e.getMessage());
-            }
-        }
-    }
-
-    public long b() {
-        return this.a;
-    }
-
-    public String c() {
-        return this.b;
-    }
-
-    public String d() {
-        return this.c;
-    }
-
-    public String e() {
-        return this.d;
+    @Override // com.baidu.tbadk.imageManager.c
+    public void a(com.baidu.adp.widget.ImageView.d dVar, String str, boolean z) {
     }
 }

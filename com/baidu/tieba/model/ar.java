@@ -8,13 +8,13 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ar {
     private ForumData a;
-    private ArrayList<com.baidu.tieba.data.ba> b;
+    private ArrayList<com.baidu.tieba.data.bc> b;
     private ArrayList<String> c;
     private int d;
     private int e;
     private int f;
     private AntiData g;
-    private com.baidu.tieba.data.ak h;
+    private com.baidu.tieba.data.al h;
     private String i = null;
     private String j = null;
     private as k = null;
@@ -34,14 +34,14 @@ public class ar {
         this.e = 0;
         this.f = 0;
         this.g = new AntiData();
-        this.h = new com.baidu.tieba.data.ak();
+        this.h = new com.baidu.tieba.data.al();
     }
 
     public ForumData a() {
         return this.a;
     }
 
-    public ArrayList<com.baidu.tieba.data.ba> b() {
+    public ArrayList<com.baidu.tieba.data.bc> b() {
         return this.b;
     }
 
@@ -69,9 +69,9 @@ public class ar {
                     JSONArray optJSONArray = optJSONObject.optJSONArray("thread_list");
                     if (optJSONArray != null) {
                         for (int i = 0; i < optJSONArray.length(); i++) {
-                            com.baidu.tieba.data.ba baVar = new com.baidu.tieba.data.ba();
-                            baVar.a(optJSONArray.optJSONObject(i));
-                            this.b.add(baVar);
+                            com.baidu.tieba.data.bc bcVar = new com.baidu.tieba.data.bc();
+                            bcVar.a(optJSONArray.optJSONObject(i));
+                            this.b.add(bcVar);
                         }
                     }
                     JSONArray optJSONArray2 = optJSONObject.optJSONArray("alb_id_list");

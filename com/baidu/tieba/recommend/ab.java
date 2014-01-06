@@ -7,7 +7,7 @@ import com.baidu.tieba.im.chat.PersonalChatActivity;
 import com.baidu.tieba.pb.NewPbActivity;
 import com.baidu.tieba.person.PersonInfoActivity;
 import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.be;
+import com.baidu.tieba.util.bo;
 import java.net.URLDecoder;
 /* loaded from: classes.dex */
 public class ab {
@@ -15,11 +15,11 @@ public class ab {
         if (str != null) {
             try {
                 if (str.contains("jump=outer")) {
-                    UtilHelper.d(context, str);
+                    UtilHelper.e(context, str);
                     return true;
                 }
             } catch (Exception e) {
-                be.b(ab.class.getName(), "jumpTiebaNative", e.getMessage());
+                bo.b(ab.class.getName(), "jumpTiebaNative", e.getMessage());
             }
         }
         if (str != null && str.contains("jump=finish_this_page") && (context instanceof com.baidu.tieba.j)) {
@@ -50,7 +50,7 @@ public class ab {
             } else if (str.contains("kz=")) {
                 String a4 = a(str, "kz=");
                 if (a4 != null && a4.length() >= 0) {
-                    NewPbActivity.a(context, a4, null, "allthread");
+                    NewPbActivity.a(context, a4, (String) null, "allthread");
                 }
                 return true;
             } else if (str.contains("kw=")) {

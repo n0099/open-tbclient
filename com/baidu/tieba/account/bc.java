@@ -8,7 +8,7 @@ import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class bc extends BdAsyncTask<String, Integer, AccountData> {
     final /* synthetic */ ReLoginActivity a;
-    private volatile com.baidu.tieba.util.an b = null;
+    private volatile com.baidu.tieba.util.at b = null;
     private String c;
     private String d;
 
@@ -34,13 +34,13 @@ public class bc extends BdAsyncTask<String, Integer, AccountData> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public AccountData a(String... strArr) {
         String f;
-        this.b = new com.baidu.tieba.util.an();
+        this.b = new com.baidu.tieba.util.at();
         if (this.d != null) {
-            com.baidu.tieba.util.an anVar = this.b;
+            com.baidu.tieba.util.at atVar = this.b;
             String str = this.c;
             StringBuilder append = new StringBuilder().append(this.d).append('|');
             f = this.a.f();
-            return com.baidu.tieba.f.a(anVar, str, append.append(f).toString());
+            return com.baidu.tieba.f.a(atVar, str, append.append(f).toString());
         }
         return null;
     }

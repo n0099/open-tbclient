@@ -3,4 +3,5 @@ package com.baidu.tieba.im.db;
 public class c {
     public boolean a;
     public boolean b;
+    public boolean c;
 }

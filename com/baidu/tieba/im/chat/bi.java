@@ -1,37 +1,46 @@
 package com.baidu.tieba.im.chat;
 
-import android.graphics.Bitmap;
-import com.baidu.tieba.im.model.LocalPicModel;
+import android.text.TextUtils;
 import com.baidu.tieba.im.model.MsglistModel;
-import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bi extends com.baidu.adp.a.g {
-    final /* synthetic */ bc a;
+public class bi implements com.baidu.tieba.im.a<Boolean> {
+    final /* synthetic */ ba a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bi(bc bcVar) {
-        this.a = bcVar;
+    public bi(ba baVar) {
+        this.a = baVar;
     }
 
-    @Override // com.baidu.adp.a.g
-    public void a(Object obj) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.a
+    public void a(Boolean bool) {
+        bs bsVar;
         MsglistModel msglistModel;
         MsglistModel msglistModel2;
-        com.baidu.tieba.im.model.ai aiVar;
-        if (obj != null && (obj instanceof LocalPicModel.ResponseData)) {
-            LocalPicModel.ResponseData responseData = (LocalPicModel.ResponseData) obj;
+        MsglistModel msglistModel3;
+        bs bsVar2;
+        bs bsVar3;
+        if (bool != null) {
+            if (bool.booleanValue()) {
+                bsVar3 = this.a.g;
+                bsVar3.H();
+            } else {
+                bsVar = this.a.g;
+                bsVar.I();
+            }
             msglistModel = this.a.h;
             if (msglistModel != null) {
                 msglistModel2 = this.a.h;
-                String sPathGen = responseData.getSPathGen();
-                Bitmap bitmap = responseData.getBitmap();
-                aiVar = this.a.n;
-                msglistModel2.a(sPathGen, bitmap, aiVar);
-                return;
+                if (msglistModel2.a() != null) {
+                    msglistModel3 = this.a.h;
+                    String name = msglistModel3.a().getName();
+                    if (!TextUtils.isEmpty(name)) {
+                        bsVar2 = this.a.g;
+                        bsVar2.a(name, true);
+                    }
+                }
             }
-            return;
         }
-        this.a.showToast(R.string.pic_parser_error);
     }
 }

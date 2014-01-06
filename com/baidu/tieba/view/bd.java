@@ -1,17 +1,27 @@
 package com.baidu.tieba.view;
 
+import android.app.Dialog;
+import android.content.Context;
+import android.view.MotionEvent;
 import android.view.View;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class bd implements View.OnClickListener {
-    final /* synthetic */ SearchBar a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bd(SearchBar searchBar) {
-        this.a = searchBar;
+public class bd extends Dialog {
+    public bd(Context context) {
+        super(context, R.style.common_alert_dialog);
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.a.setSearchText("");
+    @Override // android.app.Dialog
+    public void setContentView(View view) {
+        super.setContentView(view);
+    }
+
+    @Override // android.app.Dialog, android.view.Window.Callback
+    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
+        boolean dispatchTouchEvent = super.dispatchTouchEvent(motionEvent);
+        if (!dispatchTouchEvent && motionEvent.getAction() == 0) {
+            dismiss();
+        }
+        return dispatchTouchEvent;
     }
 }

@@ -8,10 +8,10 @@ import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class q extends BdAsyncTask<Boolean, Integer, Boolean> {
     final /* synthetic */ o a;
-    private com.baidu.tieba.util.an b = null;
+    private com.baidu.tieba.util.at b = null;
     private String c;
     private int d;
-    private com.baidu.tieba.data.ay e;
+    private com.baidu.tieba.data.ba e;
 
     public q(o oVar, String str, int i) {
         this.a = oVar;
@@ -20,15 +20,15 @@ public class q extends BdAsyncTask<Boolean, Integer, Boolean> {
         this.e = null;
         this.c = str;
         this.d = i;
-        this.e = new com.baidu.tieba.data.ay();
+        this.e = new com.baidu.tieba.data.ba();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public Boolean a(Boolean... boolArr) {
-        this.b = new com.baidu.tieba.util.an(com.baidu.tieba.data.h.a + "c/c/post/rmstore");
-        this.b.a(PushConstants.EXTRA_USER_ID, TiebaApplication.B());
+        this.b = new com.baidu.tieba.util.at(com.baidu.tieba.data.h.a + "c/c/post/rmstore");
+        this.b.a(PushConstants.EXTRA_USER_ID, TiebaApplication.A());
         this.b.a("tid", this.c);
         this.e.a(this.b.l());
         return this.b.c() && this.e.a() == 0;

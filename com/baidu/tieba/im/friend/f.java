@@ -7,7 +7,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.ai;
+import com.baidu.tieba.util.ak;
 import com.baidu.tieba.view.NavigationBar;
 import com.baidu.tieba.view.NoNetworkView;
 import com.slidingmenu.lib.R;
@@ -83,14 +83,14 @@ public class f extends com.baidu.adp.a.e {
     }
 
     private void i() {
-        int an = TiebaApplication.h().an();
+        int an = TiebaApplication.g().an();
         this.a.getLayoutMode().a(an == 1);
         this.a.getLayoutMode().a(this.e);
         this.d.c(an);
     }
 
     public void f() {
-        ai.a(this.g, this.h.a(), null, this.k, 0, 1);
+        ak.a(this.g, this.h.a(), null, this.k, null, 0, 1);
     }
 
     public void g() {

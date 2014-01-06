@@ -58,11 +58,11 @@ public class MyPostActivity extends ActivityGroup {
             this.f.setText(R.string.my_post);
         }
         this.d = (ImageView) findViewById(R.id.back);
-        this.d.setOnClickListener(new ac(this));
+        this.d.setOnClickListener(new aj(this));
         this.e = (ImageView) findViewById(R.id.refresh);
-        this.e.setOnClickListener(new ad(this));
+        this.e.setOnClickListener(new ak(this));
         this.g = (RadioGroup) findViewById(R.id.posttype_tabs);
-        this.g.setOnCheckedChangeListener(new ae(this));
+        this.g.setOnCheckedChangeListener(new al(this));
         this.g.check(R.id.all_tab);
         this.g.setVisibility(8);
     }
@@ -70,18 +70,18 @@ public class MyPostActivity extends ActivityGroup {
     @Override // android.app.ActivityGroup, android.app.Activity
     protected void onResume() {
         super.onResume();
-        if (TiebaApplication.h().an() != this.a) {
-            this.a = TiebaApplication.h().an();
+        if (TiebaApplication.g().an() != this.a) {
+            this.a = TiebaApplication.g().an();
             a(this.a);
         }
     }
 
     public void a(int i) {
-        com.baidu.tieba.util.bb.a(this.b, i);
-        com.baidu.tieba.util.bb.d(this.c, i);
-        com.baidu.tieba.util.bb.e(this.f, i);
-        com.baidu.tieba.util.bb.a(this.d, i);
-        com.baidu.tieba.util.bb.b(this.e, i);
+        com.baidu.tieba.util.bl.a(this.b, i);
+        com.baidu.tieba.util.bl.d(this.c, i);
+        com.baidu.tieba.util.bl.e(this.f, i);
+        com.baidu.tieba.util.bl.a(this.d, i);
+        com.baidu.tieba.util.bl.b(this.e, i);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

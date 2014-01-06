@@ -114,7 +114,7 @@ public class CarouselRecommendView extends FrameLayout {
     }
 
     /* loaded from: classes.dex */
-    public class CarouselRecommendPagerAdapter extends android.support.v4.view.ae implements com.baidu.tbadk.imageManager.c, com.baidu.tieba.view.ai {
+    public class CarouselRecommendPagerAdapter extends android.support.v4.view.ae implements com.baidu.tbadk.imageManager.c, com.baidu.tieba.view.an {
         private Context f;
         private com.baidu.tieba.util.i g;
         private int h;
@@ -206,14 +206,14 @@ public class CarouselRecommendView extends FrameLayout {
             notifyDataSetChanged();
         }
 
-        @Override // com.baidu.tieba.view.ai
+        @Override // com.baidu.tieba.view.an
         public void d() {
             if (this.g != null) {
-                this.g.b();
+                this.g.d();
             }
         }
 
-        @Override // com.baidu.tieba.view.ai
+        @Override // com.baidu.tieba.view.an
         public void a(View view, int i, int i2) {
             this.l = view;
             if (this.g != null && this.c != null) {
@@ -236,7 +236,7 @@ public class CarouselRecommendView extends FrameLayout {
         }
 
         @Override // com.baidu.tbadk.imageManager.c
-        public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
+        public void a(com.baidu.adp.widget.ImageView.d dVar, String str, boolean z) {
             HeadImageView headImageView;
             if (this.l != null && (headImageView = (HeadImageView) this.l.findViewWithTag(str)) != null) {
                 headImageView.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);

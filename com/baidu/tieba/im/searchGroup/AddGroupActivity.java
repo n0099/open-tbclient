@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
-import com.baidu.tieba.ao;
+import com.baidu.tieba.ap;
 import com.baidu.tieba.im.data.BaseGroupData;
 import com.baidu.tieba.im.groupInfo.GroupInfoActivity;
 import com.baidu.tieba.im.model.al;
@@ -45,7 +45,7 @@ public class AddGroupActivity extends com.baidu.tieba.j {
         if (view == this.a.f()) {
             finish();
         } else if (view == this.a.e()) {
-            ao.a(this, "add_group_searchbtn_click");
+            ap.a(this, "add_group_searchbtn_click");
             if (view.getTag() instanceof String) {
                 a((String) view.getTag());
             }

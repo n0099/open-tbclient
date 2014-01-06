@@ -68,25 +68,25 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String a(com.baidu.tieba.data.aa aaVar) {
-        if (aaVar.j() != null && aaVar.j().length() > 0) {
-            return aaVar.j();
+    public String a(com.baidu.tieba.data.ab abVar) {
+        if (abVar.j() != null && abVar.j().length() > 0) {
+            return abVar.j();
         }
         StringBuilder sb = new StringBuilder(150);
-        if (aaVar.g() * aaVar.f() > com.baidu.tieba.data.h.i() * com.baidu.tieba.data.h.i()) {
-            double sqrt = Math.sqrt((com.baidu.tieba.data.h.i() * com.baidu.tieba.data.h.i()) / (aaVar.g() * aaVar.f()));
+        if (abVar.g() * abVar.f() > com.baidu.tieba.data.h.i() * com.baidu.tieba.data.h.i()) {
+            double sqrt = Math.sqrt((com.baidu.tieba.data.h.i() * com.baidu.tieba.data.h.i()) / (abVar.g() * abVar.f()));
             sb.append("width=");
-            sb.append(String.valueOf((int) (aaVar.f() * sqrt)));
+            sb.append(String.valueOf((int) (abVar.f() * sqrt)));
             sb.append("&height=");
-            sb.append(String.valueOf((int) (sqrt * aaVar.g())));
+            sb.append(String.valueOf((int) (sqrt * abVar.g())));
         } else {
             sb.append("width=");
-            sb.append(String.valueOf(aaVar.f()));
+            sb.append(String.valueOf(abVar.f()));
             sb.append("&height=");
-            sb.append(String.valueOf(aaVar.g()));
+            sb.append(String.valueOf(abVar.g()));
         }
         sb.append("&src=");
-        sb.append(com.baidu.tieba.util.bc.d(aaVar.b()));
+        sb.append(com.baidu.tieba.util.bm.d(abVar.b()));
         return sb.toString();
     }
 }

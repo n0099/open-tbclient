@@ -1,10 +1,9 @@
 package com.baidu.tieba.square;
 
-import android.widget.CompoundButton;
-import android.widget.RadioButton;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bn implements CompoundButton.OnCheckedChangeListener {
+public class bn implements View.OnFocusChangeListener {
     final /* synthetic */ SquareSearchActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,19 +11,10 @@ public class bn implements CompoundButton.OnCheckedChangeListener {
         this.a = squareSearchActivity;
     }
 
-    @Override // android.widget.CompoundButton.OnCheckedChangeListener
-    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-        RadioButton radioButton;
-        RadioButton radioButton2;
-        RadioButton radioButton3;
-        if (z) {
-            this.a.a(0);
-            radioButton = this.a.k;
-            radioButton.setChecked(false);
-            radioButton2 = this.a.k;
-            radioButton2.setSelected(false);
-            radioButton3 = this.a.j;
-            radioButton3.setSelected(true);
+    @Override // android.view.View.OnFocusChangeListener
+    public void onFocusChange(View view, boolean z) {
+        if (!z) {
+            com.baidu.adp.lib.h.g.a(this.a, view);
         }
     }
 }

@@ -16,6 +16,6 @@ class ah implements Runnable {
         com.baidu.tieba.util.i iVar;
         bdListView = this.a.a;
         iVar = this.a.f;
-        com.baidu.tieba.util.ai.a(bdListView, iVar, 0, -1);
+        com.baidu.tieba.util.ak.a(bdListView, iVar, 0, -1);
     }
 }

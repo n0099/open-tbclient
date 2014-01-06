@@ -84,7 +84,7 @@ public class EditBarActivity extends com.baidu.tieba.j {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.c.c(i);
-        com.baidu.tieba.util.bb.a(this.l, i);
+        com.baidu.tieba.util.bl.a(this.l, i);
         this.f.notifyDataSetChanged();
         if (i == 1) {
             this.b.setDivider(getResources().getDrawable(R.drawable.list_divider_1));

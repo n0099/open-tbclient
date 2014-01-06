@@ -19,11 +19,11 @@ class n implements Runnable {
         if (i == 0) {
             BdListView bdListView = this.a.c.h;
             iVar2 = this.a.r;
-            com.baidu.tieba.util.ai.a(bdListView, iVar2, 1, -1);
+            com.baidu.tieba.util.ak.a(bdListView, iVar2, 1, -1);
             return;
         }
         BdListView bdListView2 = this.a.c.i;
         iVar = this.a.r;
-        com.baidu.tieba.util.ai.a(bdListView2, iVar, 1, -1);
+        com.baidu.tieba.util.ak.a(bdListView2, iVar, 1, -1);
     }
 }

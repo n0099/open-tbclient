@@ -1,5 +1,6 @@
 package com.baidu.tieba.data;
 
+import com.baidu.tieba.util.bo;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -47,7 +48,7 @@ public class q {
                 }
             }
         } catch (JSONException e) {
-            com.baidu.tieba.util.be.b(getClass().getName(), "parserJson", e.toString());
+            bo.b(getClass().getName(), "parserJson", e.toString());
         }
     }
 }

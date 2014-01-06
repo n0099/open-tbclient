@@ -7,8 +7,8 @@ import android.widget.ProgressBar;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.mobstat.StatService;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.be;
-import com.baidu.tieba.util.y;
+import com.baidu.tieba.util.aa;
+import com.baidu.tieba.util.bo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j extends BdAsyncTask<Object, Integer, Bitmap> {
@@ -31,7 +31,7 @@ public class j extends BdAsyncTask<Object, Integer, Bitmap> {
         Bitmap c;
         Bitmap bitmap = null;
         try {
-            c = y.c(null, "tieba_resized_image");
+            c = aa.c(null, "tieba_resized_image");
         } catch (Exception e) {
             e = e;
         }
@@ -45,7 +45,7 @@ public class j extends BdAsyncTask<Object, Integer, Bitmap> {
             bitmap = c;
             e = e2;
             e.printStackTrace();
-            be.b(getClass().getName(), "GetImageTask", e.toString());
+            bo.b(getClass().getName(), "GetImageTask", e.toString());
             return bitmap;
         }
         return bitmap;
@@ -88,7 +88,7 @@ public class j extends BdAsyncTask<Object, Integer, Bitmap> {
                 if (TextUtils.isEmpty(a) && !bitmap.isRecycled()) {
                     bitmap.recycle();
                 }
-                if (TiebaApplication.h().t()) {
+                if (TiebaApplication.g().s()) {
                     StatService.onEvent(this.a, "2d_code_scan_local", "onclick");
                 }
                 this.a.a(a);

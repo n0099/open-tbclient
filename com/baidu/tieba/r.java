@@ -12,7 +12,7 @@ import com.baidu.tieba.view.BaseWebView;
 /* loaded from: classes.dex */
 public class r extends BdAsyncTask<Object, Integer, String> {
     final /* synthetic */ CommonWebviewActivity a;
-    private com.baidu.tieba.util.an b;
+    private com.baidu.tieba.util.at b;
     private String c;
 
     private r(CommonWebviewActivity commonWebviewActivity) {
@@ -41,32 +41,32 @@ public class r extends BdAsyncTask<Object, Integer, String> {
         String str4;
         long j;
         str = this.a.b;
-        this.b = new com.baidu.tieba.util.an(str);
+        this.b = new com.baidu.tieba.util.at(str);
         this.b.b(false);
-        if (TiebaApplication.h().an() == 1) {
+        if (TiebaApplication.g().an() == 1) {
             this.b.a("night_type", SocialConstants.TRUE);
         }
-        com.baidu.tieba.util.an anVar = this.b;
+        com.baidu.tieba.util.at atVar = this.b;
         str2 = this.a.s;
-        anVar.a("pn", str2);
+        atVar.a("pn", str2);
         this.b.a("_version_more", SocialConstants.TRUE);
         this.b.a("platform", SocialConstants.ANDROID_CLIENT_TYPE);
         z = CommonWebviewActivity.q;
         if (z) {
             boolean unused = CommonWebviewActivity.q = false;
             this.b.a("msg_click", SocialConstants.TRUE);
-            com.baidu.tieba.util.an anVar2 = this.b;
+            com.baidu.tieba.util.at atVar2 = this.b;
             j = CommonWebviewActivity.r;
-            anVar2.a("message_id", String.valueOf(j));
+            atVar2.a("message_id", String.valueOf(j));
         }
-        Address aQ = TiebaApplication.h().aQ();
-        if (aQ != null && TiebaApplication.h().u()) {
+        Address aQ = TiebaApplication.g().aQ();
+        if (aQ != null && TiebaApplication.g().t()) {
             this.b.a("lbs", String.valueOf(aQ.getLatitude()) + "," + String.valueOf(aQ.getLongitude()));
         }
         try {
             str3 = this.a.t;
         } catch (Exception e) {
-            com.baidu.tieba.util.be.b("ContentAsyncTask", "doInBackground", "error = " + e.getMessage());
+            com.baidu.tieba.util.bo.b("ContentAsyncTask", "doInBackground", "error = " + e.getMessage());
         }
         if (str3 != null) {
             str4 = this.a.t;

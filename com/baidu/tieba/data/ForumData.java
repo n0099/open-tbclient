@@ -1,6 +1,7 @@
 package com.baidu.tieba.data;
 
 import com.baidu.cloudsdk.social.core.SocialConstants;
+import com.baidu.tieba.util.bo;
 import java.io.Serializable;
 import java.util.ArrayList;
 import org.json.JSONArray;
@@ -16,9 +17,10 @@ public class ForumData implements Serializable {
     private String level_name;
     private int levelup_score;
     private ArrayList<com.baidu.tieba.frs.a> mBadgeData;
+    private y mFrsBannerData;
     private String tag_color;
     private String tag_id;
-    private bb top_notice_data;
+    private bd top_notice_data;
     private String id = null;
     private String name = null;
     private String first_class = null;
@@ -33,7 +35,7 @@ public class ForumData implements Serializable {
     private int album_open_photo_frs = 0;
     private SignData mSignData = new SignData();
     private ArrayList<String> managers = new ArrayList<>();
-    private ArrayList<z> good_classify = new ArrayList<>();
+    private ArrayList<aa> good_classify = new ArrayList<>();
     private String tag_name = null;
 
     public ForumData() {
@@ -43,8 +45,9 @@ public class ForumData implements Serializable {
         this.levelup_score = 0;
         this.is_support_local = 0;
         this.is_local_effect = 0;
-        this.top_notice_data = new bb();
+        this.top_notice_data = new bd();
         this.mBadgeData = new ArrayList<>();
+        this.mFrsBannerData = new y();
     }
 
     public void setId(String str) {
@@ -163,12 +166,12 @@ public class ForumData implements Serializable {
         this.mSignData = signData;
     }
 
-    public bb getTop_notice_data() {
+    public bd getTop_notice_data() {
         return this.top_notice_data;
     }
 
-    public void setTop_notice_data(bb bbVar) {
-        this.top_notice_data = bbVar;
+    public void setTop_notice_data(bd bdVar) {
+        this.top_notice_data = bdVar;
     }
 
     public void setManagers(ArrayList<String> arrayList) {
@@ -179,11 +182,11 @@ public class ForumData implements Serializable {
         return this.managers;
     }
 
-    public void setGood_classify(ArrayList<z> arrayList) {
+    public void setGood_classify(ArrayList<aa> arrayList) {
         this.good_classify = arrayList;
     }
 
-    public ArrayList<z> getGood_classify() {
+    public ArrayList<aa> getGood_classify() {
         return this.good_classify;
     }
 
@@ -199,11 +202,15 @@ public class ForumData implements Serializable {
         return this.mBadgeData;
     }
 
+    public y getFrsBannerData() {
+        return this.mFrsBannerData;
+    }
+
     public void parserJson(String str) {
         try {
             parserJson(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.tieba.util.be.b("ForumData", "parserJson", "error = " + e.getMessage());
+            bo.b("ForumData", "parserJson", "error = " + e.getMessage());
         }
     }
 
@@ -248,9 +255,9 @@ public class ForumData implements Serializable {
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("good_classify");
                 if (optJSONArray2 != null) {
                     for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                        z zVar = new z();
-                        zVar.a(optJSONArray2.optJSONObject(i2));
-                        this.good_classify.add(zVar);
+                        aa aaVar = new aa();
+                        aaVar.a(optJSONArray2.optJSONObject(i2));
+                        this.good_classify.add(aaVar);
                     }
                 }
                 JSONObject optJSONObject3 = jSONObject.optJSONObject("sign_in_info");
@@ -282,29 +289,30 @@ public class ForumData implements Serializable {
                         this.mBadgeData.add(aVar);
                     }
                 }
+                this.mFrsBannerData.a(jSONObject.getJSONObject("banner"));
             } catch (Exception e) {
-                com.baidu.tieba.util.be.b("ForumData", "parserJson", "error = " + e.getMessage());
+                bo.b("ForumData", "parserJson", "error = " + e.getMessage());
             }
         }
     }
 
     public void logPrint() {
-        com.baidu.tieba.util.be.d("ForumData", "logPrint", "id = " + this.id);
-        com.baidu.tieba.util.be.d("ForumData", "logPrint", "name = " + this.name);
-        com.baidu.tieba.util.be.d("ForumData", "logPrint", "first_class = " + this.first_class);
-        com.baidu.tieba.util.be.d("ForumData", "logPrint", "second_class = " + this.second_class);
-        com.baidu.tieba.util.be.d("ForumData", "logPrint", "is_exists = " + String.valueOf(this.is_exists));
-        com.baidu.tieba.util.be.d("ForumData", "logPrint", "is_forbidden = " + String.valueOf(this.is_forbidden));
-        com.baidu.tieba.util.be.d("ForumData", "logPrint", "thread_num = " + String.valueOf(this.thread_num));
-        com.baidu.tieba.util.be.d("ForumData", "logPrint", "post_num = " + String.valueOf(this.post_num));
-        com.baidu.tieba.util.be.d("ForumData", "logPrint", "member_num = " + String.valueOf(this.member_num));
-        com.baidu.tieba.util.be.d("ForumData", "logPrint", "is_like = " + String.valueOf(this.is_like));
-        com.baidu.tieba.util.be.d("ForumData", "logPrint", "user_level = " + String.valueOf(this.user_level));
+        bo.d("ForumData", "logPrint", "id = " + this.id);
+        bo.d("ForumData", "logPrint", "name = " + this.name);
+        bo.d("ForumData", "logPrint", "first_class = " + this.first_class);
+        bo.d("ForumData", "logPrint", "second_class = " + this.second_class);
+        bo.d("ForumData", "logPrint", "is_exists = " + String.valueOf(this.is_exists));
+        bo.d("ForumData", "logPrint", "is_forbidden = " + String.valueOf(this.is_forbidden));
+        bo.d("ForumData", "logPrint", "thread_num = " + String.valueOf(this.thread_num));
+        bo.d("ForumData", "logPrint", "post_num = " + String.valueOf(this.post_num));
+        bo.d("ForumData", "logPrint", "member_num = " + String.valueOf(this.member_num));
+        bo.d("ForumData", "logPrint", "is_like = " + String.valueOf(this.is_like));
+        bo.d("ForumData", "logPrint", "user_level = " + String.valueOf(this.user_level));
         int i = 0;
         while (true) {
             int i2 = i;
             if (i2 < this.managers.size()) {
-                com.baidu.tieba.util.be.d("ForumData", "logPrint", "managers" + String.valueOf(i2) + " = " + this.managers.get(i2));
+                bo.d("ForumData", "logPrint", "managers" + String.valueOf(i2) + " = " + this.managers.get(i2));
                 this.managers.get(i2);
                 i = i2 + 1;
             } else {

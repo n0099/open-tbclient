@@ -1,15 +1,21 @@
 package com.baidu.tieba.im.chat;
+
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class cd implements Runnable {
-    final /* synthetic */ cc a;
+public class cd implements View.OnClickListener {
+    final /* synthetic */ bs a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cd(cc ccVar) {
-        this.a = ccVar;
+    public cd(bs bsVar) {
+        this.a = bsVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        this.a.a.P();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.a.M();
+        this.a.O();
+        this.a.N();
+        this.a.Q();
     }
 }

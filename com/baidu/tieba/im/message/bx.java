@@ -1,18 +1,21 @@
 package com.baidu.tieba.im.message;
 
 import java.util.LinkedList;
-import protobuf.UpdateMaskInfo.UpdateMaskInfoRes;
+import protobuf.QueryGroupLocation.QueryGroupLocationRes;
 /* loaded from: classes.dex */
-public class bx extends bz implements com.baidu.tieba.im.coder.f {
-    public bx() {
-        super(104102);
-    }
-
+public class bx implements com.baidu.tieba.im.coder.f {
     @Override // com.baidu.tieba.im.coder.f
-    public void a(LinkedList<n> linkedList, byte[] bArr, int i) {
-        UpdateMaskInfoRes.UpdateMaskInfoResIdl parseFrom = UpdateMaskInfoRes.UpdateMaskInfoResIdl.parseFrom(bArr);
-        c(parseFrom.getError().getErrorno());
-        c(parseFrom.getError().getUsermsg());
-        linkedList.add(this);
+    public void a(LinkedList<o> linkedList, byte[] bArr, int i) {
+        QueryGroupLocationRes.QueryGroupLocationResIdl parseFrom = QueryGroupLocationRes.QueryGroupLocationResIdl.parseFrom(bArr);
+        QueryGroupLocationRes.DataRes data = parseFrom.getData();
+        bw bwVar = new bw(103010);
+        bwVar.g(parseFrom.getError().getErrorno());
+        bwVar.c(parseFrom.getError().getUsermsg());
+        bwVar.a(bwVar.a());
+        int businessCount = data.getBusinessCount();
+        for (int i2 = 0; i2 < businessCount; i2++) {
+            bwVar.b(data.getBusiness(i2));
+        }
+        linkedList.add(bwVar);
     }
 }

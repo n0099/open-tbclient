@@ -8,10 +8,11 @@ import java.util.Iterator;
 public class c {
     private int a;
     private SpannableStringBuilder b = null;
-    private f c = null;
-    private ArrayList<e> d = null;
-    private q e = null;
+    private g c = null;
+    private ArrayList<f> d = null;
+    private t e = null;
     private d f;
+    private e g;
 
     public c(int i) {
         this.a = 0;
@@ -24,7 +25,7 @@ public class c {
         return this.a;
     }
 
-    public ArrayList<e> b() {
+    public ArrayList<f> b() {
         if (this.d == null) {
             this.d = new ArrayList<>();
         }
@@ -33,9 +34,9 @@ public class c {
 
     public void a(int i, int i2) {
         if (this.d != null) {
-            Iterator<e> it = this.d.iterator();
+            Iterator<f> it = this.d.iterator();
             while (it.hasNext()) {
-                e next = it.next();
+                f next = it.next();
                 Rect bounds = next.getBounds();
                 if (bounds != null && i > bounds.bottom - bounds.top) {
                     next.a(0, i2);
@@ -46,7 +47,7 @@ public class c {
 
     public void b(int i, int i2) {
         if (this.d != null) {
-            Iterator<e> it = this.d.iterator();
+            Iterator<f> it = this.d.iterator();
             while (it.hasNext()) {
                 it.next().setBounds(0, 0, i, i2);
             }
@@ -69,16 +70,16 @@ public class c {
         }
     }
 
-    public f c() {
+    public g c() {
         if (this.a != 8) {
             return null;
         }
         return this.c;
     }
 
-    public void a(f fVar) {
+    public void a(g gVar) {
         if (this.a == 8) {
-            this.c = fVar;
+            this.c = gVar;
         }
     }
 
@@ -86,16 +87,16 @@ public class c {
         return this.b;
     }
 
-    public q e() {
+    public t e() {
         if (this.a == 512 || this.a == 768) {
             return this.e;
         }
         return null;
     }
 
-    public void a(q qVar) {
+    public void a(t tVar) {
         if (this.a == 512 || this.a == 768) {
-            this.e = qVar;
+            this.e = tVar;
         }
     }
 
@@ -104,8 +105,12 @@ public class c {
             if (this.b != null) {
                 return this.b.toString();
             }
-        } else if (this.a == 8 && this.c != null) {
-            return this.c.f();
+        } else if (this.a == 8) {
+            if (this.c != null) {
+                return this.c.f();
+            }
+        } else if (this.a == 17 && this.g != null) {
+            return this.g.c;
         }
         return "";
     }
@@ -115,5 +120,15 @@ public class c {
             return null;
         }
         return this.f;
+    }
+
+    public void a(e eVar) {
+        if (this.a == 17) {
+            this.g = eVar;
+        }
+    }
+
+    public e g() {
+        return this.g;
     }
 }

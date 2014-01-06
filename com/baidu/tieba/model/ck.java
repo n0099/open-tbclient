@@ -6,7 +6,7 @@ import com.baidu.tieba.TiebaApplication;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 class ck extends BdAsyncTask<Integer, Integer, Integer> {
-    private com.baidu.tieba.util.an a = null;
+    private com.baidu.tieba.util.at a = null;
     private String b;
     private long c;
     private String d;
@@ -29,7 +29,7 @@ class ck extends BdAsyncTask<Integer, Integer, Integer> {
     public Integer a(Integer... numArr) {
         try {
             if (this.c != 0 && this.b != null) {
-                this.a = new com.baidu.tieba.util.an(com.baidu.tieba.data.h.a + "c/c/forum/unfavolike");
+                this.a = new com.baidu.tieba.util.at(com.baidu.tieba.data.h.a + "c/c/forum/unfavolike");
                 this.a.a("fid", String.valueOf(this.c));
                 this.a.a("kw", this.b);
                 this.a.a("favo_type", SocialConstants.TRUE);
@@ -39,7 +39,7 @@ class ck extends BdAsyncTask<Integer, Integer, Integer> {
             }
             return 1;
         } catch (Exception e) {
-            com.baidu.tieba.util.be.b(getClass().getName(), "doInBackground", e.getMessage());
+            com.baidu.tieba.util.bo.b(getClass().getName(), "doInBackground", e.getMessage());
             return 0;
         }
     }
@@ -54,7 +54,7 @@ class ck extends BdAsyncTask<Integer, Integer, Integer> {
             if (this.a != null) {
                 if (this.a.c()) {
                     if (num.intValue() == 1) {
-                        TiebaApplication.h().g(this.b);
+                        TiebaApplication.g().g(this.b);
                         cjVar.a(this.b, this.c);
                         return;
                     }

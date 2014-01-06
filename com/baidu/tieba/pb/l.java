@@ -11,9 +11,9 @@ class l implements com.baidu.tbadk.imageManager.c {
     }
 
     @Override // com.baidu.tbadk.imageManager.c
-    public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
+    public void a(com.baidu.adp.widget.ImageView.d dVar, String str, boolean z) {
         ImagePbImageView imagePbImageView;
-        if (eVar != null && (imagePbImageView = (ImagePbImageView) this.a.a.y.findViewWithTag(str)) != null) {
+        if (dVar != null && (imagePbImageView = (ImagePbImageView) this.a.a.y.findViewWithTag(str)) != null) {
             imagePbImageView.invalidate();
             imagePbImageView.a();
         }

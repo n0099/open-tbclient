@@ -1,25 +1,17 @@
 package com.baidu.tieba.view;
 
-import android.view.animation.Animation;
+import android.view.View;
 /* loaded from: classes.dex */
-class bj implements Animation.AnimationListener {
-    final /* synthetic */ ShutDownValidateTipView a;
+class bj implements View.OnClickListener {
+    final /* synthetic */ SearchBar a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bj(ShutDownValidateTipView shutDownValidateTipView) {
-        this.a = shutDownValidateTipView;
+    public bj(SearchBar searchBar) {
+        this.a = searchBar;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        this.a.setVisibility(8);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.a.setSearchText("");
     }
 }

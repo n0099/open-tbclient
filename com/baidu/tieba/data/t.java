@@ -1,5 +1,6 @@
 package com.baidu.tieba.data;
 
+import com.baidu.tieba.util.bo;
 import java.util.ArrayList;
 import java.util.Date;
 import org.json.JSONArray;
@@ -8,7 +9,7 @@ import org.json.JSONObject;
 public class t {
     private ArrayList<s> a = new ArrayList<>();
     private ArrayList<s> b = new ArrayList<>();
-    private am c = new am();
+    private an c = new an();
     private Date d = null;
     private boolean e = true;
     private int f = 0;
@@ -30,7 +31,7 @@ public class t {
             a(new JSONObject(str));
         } catch (Exception e) {
             this.e = false;
-            com.baidu.tieba.util.be.b("LikeForumModel", "parserJson", "error = " + e.getMessage());
+            bo.b("LikeForumModel", "parserJson", "error = " + e.getMessage());
         }
     }
 
@@ -62,7 +63,7 @@ public class t {
             this.f = jSONObject.optInt("is_login", 0);
         } catch (Exception e) {
             this.e = false;
-            com.baidu.tieba.util.be.b("LikeForumModel", "parserJson", "error = " + e.getMessage());
+            bo.b("LikeForumModel", "parserJson", "error = " + e.getMessage());
         }
     }
 }

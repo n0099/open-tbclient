@@ -1,33 +1,27 @@
 package com.baidu.tieba.view;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.tbadk.widget.TbImageView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
+import android.widget.TextView;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class bz implements ViewGroup.OnHierarchyChangeListener {
-    final /* synthetic */ UserIconBox a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bz(UserIconBox userIconBox) {
-        this.a = userIconBox;
+public class bz extends com.baidu.adp.widget.ScrollView.r {
+    public bz(Context context) {
+        super(context);
     }
 
-    @Override // android.view.ViewGroup.OnHierarchyChangeListener
-    public void onChildViewRemoved(View view, View view2) {
-        com.baidu.adp.lib.d.b bVar;
-        com.baidu.adp.lib.d.b bVar2;
-        com.baidu.adp.lib.h.e.d("pool return child");
-        if (view2 instanceof TbImageView) {
-            bVar = this.a.b;
-            if (bVar != null) {
-                bVar2 = this.a.b;
-                bVar2.a((com.baidu.adp.lib.d.b) ((TbImageView) view2));
+    public void a(int i) {
+        TextView d = d();
+        TextView c = c();
+        if (d != null && c != null) {
+            if (i == 1) {
+                int color = h().getResources().getColor(R.color.adp_pullview_night);
+                d.setTextColor(color);
+                c.setTextColor(color);
+                return;
             }
+            int color2 = h().getResources().getColor(R.color.adp_pullview_day);
+            d.setTextColor(color2);
+            c.setTextColor(color2);
         }
-    }
-
-    @Override // android.view.ViewGroup.OnHierarchyChangeListener
-    public void onChildViewAdded(View view, View view2) {
     }
 }

@@ -9,9 +9,9 @@ class ae implements com.baidu.tbadk.imageManager.c {
     }
 
     @Override // com.baidu.tbadk.imageManager.c
-    public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
+    public void a(com.baidu.adp.widget.ImageView.d dVar, String str, boolean z) {
         ah ahVar;
         ahVar = this.a.a;
-        ahVar.a(eVar);
+        ahVar.a(dVar);
     }
 }

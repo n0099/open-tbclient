@@ -137,7 +137,10 @@ public class t {
             if (!TextUtils.isEmpty(str) && (a2 = s.a()) != null) {
                 ContentValues contentValues = new ContentValues();
                 contentValues.put("is_hidden", Integer.valueOf(z ? 1 : 0));
-                a2.update("tb_message_center", contentValues, "gid=?", new String[]{str});
+                if (a2.update("tb_message_center", contentValues, "gid=?", new String[]{str}) == 0) {
+                    contentValues.put(PushConstants.EXTRA_GID, str);
+                    a2.insert("tb_message_center", null, contentValues);
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -189,5 +192,12 @@ public class t {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public static String b(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return null;
+        }
+        return "" + str;
     }
 }

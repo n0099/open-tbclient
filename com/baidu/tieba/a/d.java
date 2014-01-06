@@ -3,7 +3,7 @@ package com.baidu.tieba.a;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.NewErrorData;
 import com.baidu.tieba.n;
-import com.baidu.tieba.util.bd;
+import com.baidu.tieba.util.bn;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class d extends n {
@@ -16,10 +16,10 @@ public class d extends n {
         a("rn", String.valueOf(20));
         this.a.e(true);
         a(e);
-        int b = com.baidu.adp.lib.h.g.b(TiebaApplication.h());
-        int c = com.baidu.adp.lib.h.g.c(TiebaApplication.h());
+        int b = com.baidu.adp.lib.h.g.b(TiebaApplication.g());
+        int c = com.baidu.adp.lib.h.g.c(TiebaApplication.g());
         float f = b / 320.0f;
-        int i = bd.a().b() ? 2 : 1;
+        int i = bn.a().b() ? 2 : 1;
         this.a.a("scr_w", String.valueOf(b));
         this.a.a("scr_h", String.valueOf(c));
         this.a.a("scr_dip", String.valueOf(f));
@@ -35,7 +35,7 @@ public class d extends n {
             return null;
         } else {
             this.c = -1;
-            this.d = TiebaApplication.h().getResources().getString(R.string.neterror);
+            this.d = TiebaApplication.g().getResources().getString(R.string.neterror);
             return null;
         }
     }

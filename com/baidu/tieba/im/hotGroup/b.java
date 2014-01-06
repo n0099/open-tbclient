@@ -4,9 +4,9 @@ import android.text.TextUtils;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.im.data.GroupInfoData;
 import com.baidu.tieba.im.hotGroup.HotGroupAdapter;
-import com.baidu.tieba.im.message.ad;
-import com.baidu.tieba.im.message.bh;
-import com.baidu.tieba.im.message.n;
+import com.baidu.tieba.im.message.ag;
+import com.baidu.tieba.im.message.bk;
+import com.baidu.tieba.im.message.o;
 import com.baidu.tieba.im.messageCenter.g;
 import java.util.List;
 /* loaded from: classes.dex */
@@ -19,7 +19,7 @@ class b implements g {
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(n nVar) {
+    public void a(o oVar) {
         HotGroupActivity hotGroupActivity;
         BdListView bdListView;
         c cVar;
@@ -48,36 +48,36 @@ class b implements g {
             if (bdListView != null) {
                 cVar = this.a.f;
                 if (cVar != null) {
-                    if (!(nVar instanceof bh)) {
+                    if (!(oVar instanceof bk)) {
                         bdListView3 = this.a.a;
                         bdListView3.a();
                         return;
                     }
-                    bh bhVar = (bh) nVar;
+                    bk bkVar = (bk) oVar;
                     cVar2 = this.a.f;
                     cVar2.c(false);
-                    if (nVar.t() == 103012) {
+                    if (oVar.u() == 103012) {
                         bdListView2 = this.a.a;
                         bdListView2.a();
-                        if (bhVar.i()) {
-                            if (bhVar.j() > 0 && !TextUtils.isEmpty(bhVar.k())) {
-                                this.a.a(bhVar.k());
+                        if (bkVar.i()) {
+                            if (bkVar.j() > 0 && !TextUtils.isEmpty(bkVar.k())) {
+                                this.a.a(bkVar.k());
                             }
-                        } else if (bhVar.l() instanceof ad) {
-                            ad adVar = (ad) bhVar.l();
-                            List<GroupInfoData> a = bhVar.a();
+                        } else if (bkVar.l() instanceof ag) {
+                            ag agVar = (ag) bkVar.l();
+                            List<GroupInfoData> a = bkVar.a();
                             if (a != null) {
-                                if (adVar.f()) {
+                                if (agVar.f()) {
                                     hotGroupAdapter12 = this.a.e;
                                     hotGroupAdapter12.b();
                                 }
                                 cVar5 = this.a.f;
-                                cVar5.a(bhVar.b());
+                                cVar5.a(bkVar.b());
                                 cVar6 = this.a.f;
                                 if (cVar6.a()) {
                                     hotGroupAdapter11 = this.a.e;
                                     hotGroupAdapter11.a(HotGroupAdapter.BOTTOM_TYPE.HAVE_MORE);
-                                } else if (!adVar.f()) {
+                                } else if (!agVar.f()) {
                                     hotGroupAdapter5 = this.a.e;
                                     hotGroupAdapter5.a(HotGroupAdapter.BOTTOM_TYPE.NO_MORE);
                                 } else if (a.size() == 0) {
@@ -99,8 +99,8 @@ class b implements g {
                                 }
                             }
                         }
-                    } else if (nVar.t() == -116) {
-                        List<GroupInfoData> a2 = bhVar.a();
+                    } else if (oVar.u() == -116) {
+                        List<GroupInfoData> a2 = bkVar.a();
                         if (a2 != null) {
                             hotGroupAdapter = this.a.e;
                             hotGroupAdapter.a(a2);

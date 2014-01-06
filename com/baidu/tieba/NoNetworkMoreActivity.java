@@ -58,9 +58,9 @@ public class NoNetworkMoreActivity extends j {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j
     public void onChangeSkinType(int i) {
-        com.baidu.tieba.util.bb.a(this.b, i);
-        com.baidu.tieba.util.bb.a(this.c, i);
-        com.baidu.tieba.util.bb.d(this.a, i);
-        com.baidu.tieba.util.bb.e(this.d, i);
+        com.baidu.tieba.util.bl.a(this.b, i);
+        com.baidu.tieba.util.bl.a(this.c, i);
+        com.baidu.tieba.util.bl.d(this.a, i);
+        com.baidu.tieba.util.bl.e(this.d, i);
     }
 }

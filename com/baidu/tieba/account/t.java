@@ -10,7 +10,7 @@ import com.baidu.tieba.data.RegistData;
 /* loaded from: classes.dex */
 public class t extends BdAsyncTask<String, Integer, Boolean> {
     final /* synthetic */ ActivationActivity a;
-    private com.baidu.tieba.util.an b;
+    private com.baidu.tieba.util.at b;
 
     private t(ActivationActivity activationActivity) {
         this.a = activationActivity;
@@ -48,16 +48,16 @@ public class t extends BdAsyncTask<String, Integer, Boolean> {
         RegistData registData;
         boolean z = false;
         try {
-            this.b = new com.baidu.tieba.util.an(com.baidu.tieba.data.h.a + "c/s/getsmscode");
-            com.baidu.tieba.util.an anVar = this.b;
+            this.b = new com.baidu.tieba.util.at(com.baidu.tieba.data.h.a + "c/s/getsmscode");
+            com.baidu.tieba.util.at atVar = this.b;
             registData = this.a.p;
-            anVar.a("phonenum", registData.getPhone());
+            atVar.a("phonenum", registData.getPhone());
             this.b.l();
             if (this.b.c()) {
                 z = true;
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.be.b(getClass().getName(), "doInBackground", e.getMessage());
+            com.baidu.tieba.util.bo.b(getClass().getName(), "doInBackground", e.getMessage());
         }
         return Boolean.valueOf(z);
     }

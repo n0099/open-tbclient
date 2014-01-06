@@ -11,7 +11,7 @@ import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
-public class af extends ViewGroup implements com.baidu.tbadk.imageManager.c, com.baidu.tieba.view.ai {
+public class af extends ViewGroup implements com.baidu.tbadk.imageManager.c, com.baidu.tieba.view.an {
     private Context a;
     private LayoutInflater b;
     private final int c;
@@ -150,14 +150,14 @@ public class af extends ViewGroup implements com.baidu.tbadk.imageManager.c, com
         }
     }
 
-    @Override // com.baidu.tieba.view.ai
+    @Override // com.baidu.tieba.view.an
     public void d() {
         if (this.m != null) {
-            this.m.b();
+            this.m.d();
         }
     }
 
-    @Override // com.baidu.tieba.view.ai
+    @Override // com.baidu.tieba.view.an
     public void a(View view, int i, int i2) {
         this.n = view;
         try {
@@ -173,9 +173,9 @@ public class af extends ViewGroup implements com.baidu.tbadk.imageManager.c, com
                                 if (view != null) {
                                     ((HeadImageView) this.n.findViewWithTag(a)).setDefaultScaleType(ImageView.ScaleType.CENTER);
                                 }
-                                com.baidu.adp.widget.ImageView.e a2 = this.m.a(a, this);
+                                com.baidu.adp.widget.ImageView.d a2 = this.m.a(a, this);
                                 if (a2 != null) {
-                                    a(a2.h());
+                                    a(a2.j());
                                 }
                             }
                             i3 = i4 + 1;
@@ -186,12 +186,12 @@ public class af extends ViewGroup implements com.baidu.tbadk.imageManager.c, com
                 }
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.be.b("ForumsTopicsRecommendView", "mGetImageRunnble.run", "error = " + e.getMessage());
+            com.baidu.tieba.util.bo.b("ForumsTopicsRecommendView", "mGetImageRunnble.run", "error = " + e.getMessage());
         }
     }
 
     @Override // com.baidu.tbadk.imageManager.c
-    public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
+    public void a(com.baidu.adp.widget.ImageView.d dVar, String str, boolean z) {
         a(str);
     }
 

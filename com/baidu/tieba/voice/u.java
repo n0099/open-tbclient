@@ -15,7 +15,7 @@ public class u implements Runnable {
         if (this.a.a != null) {
             i = this.a.H;
             if (i == 2) {
-                this.a.a.D();
+                this.a.a.E();
             }
         }
     }

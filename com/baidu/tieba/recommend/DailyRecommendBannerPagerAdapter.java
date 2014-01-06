@@ -7,11 +7,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.view.ai;
+import com.baidu.tieba.view.an;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class DailyRecommendBannerPagerAdapter extends ae implements ai {
+public class DailyRecommendBannerPagerAdapter extends ae implements an {
     ArrayList<View> a = new ArrayList<>();
     public int b;
     public int c;
@@ -77,14 +77,14 @@ public class DailyRecommendBannerPagerAdapter extends ae implements ai {
         return view == obj;
     }
 
-    @Override // com.baidu.tieba.view.ai
+    @Override // com.baidu.tieba.view.an
     public void d() {
         if (this.g != null) {
-            this.g.b();
+            this.g.d();
         }
     }
 
-    @Override // com.baidu.tieba.view.ai
+    @Override // com.baidu.tieba.view.an
     public void a(View view, int i, int i2) {
         if (this.g != null && this.f != null) {
             int i3 = 0;

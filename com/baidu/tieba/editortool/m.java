@@ -1,35 +1,47 @@
 package com.baidu.tieba.editortool;
 
-import android.view.ViewGroup;
-import android.view.animation.Animation;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.faceshop.FaceShopActivity;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class m implements Animation.AnimationListener {
-    final /* synthetic */ o a;
-    final /* synthetic */ ViewGroup b;
+public class m implements View.OnClickListener {
+    final /* synthetic */ EmotionTabHorizonScrollView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(o oVar, ViewGroup viewGroup) {
-        this.a = oVar;
-        this.b = viewGroup;
+    public m(EmotionTabHorizonScrollView emotionTabHorizonScrollView) {
+        this.a = emotionTabHorizonScrollView;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        if (this.a != null) {
-            this.a.a();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        TextView textView;
+        int i;
+        String str;
+        TextView textView2;
+        textView = this.a.j;
+        if (textView != null) {
+            textView2 = this.a.j;
+            textView2.setVisibility(8);
         }
-        this.b.setVisibility(0);
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-        this.b.setVisibility(8);
-        if (this.a != null) {
-            this.a.b();
+        TiebaApplication.g().q(TiebaApplication.g().bj());
+        TiebaApplication.g().y(false);
+        i = this.a.l;
+        switch (i) {
+            case 1:
+                str = "faceshop_from_write_shop";
+                break;
+            case 2:
+                str = "faceshop_from_pchat_shop";
+                break;
+            case 3:
+                str = "faceshop_from_gchat_shop";
+                break;
+            default:
+                str = "";
+                break;
         }
+        FaceShopActivity.a(this.a.getContext(), str);
     }
 }

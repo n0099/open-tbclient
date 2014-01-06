@@ -1,42 +1,37 @@
 package com.baidu.tbadk.widget.richText;
 
+import android.content.Context;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.TextView;
+import com.baidu.tbadk.gif.GifView;
 /* loaded from: classes.dex */
-class j implements View.OnClickListener {
-    final /* synthetic */ TbRichTextView a;
+public interface j {
+    void a(Context context, String str);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public j(TbRichTextView tbRichTextView) {
-        this.a = tbRichTextView;
-    }
+    void a(Context context, String str, String str2);
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        o oVar;
-        String str;
-        o oVar2;
-        oVar = this.a.u;
-        if (oVar != null && (view instanceof ImageView)) {
-            Object tag = view.getTag();
-            if (tag == null || !(tag instanceof String)) {
-                str = null;
-            } else {
-                str = (String) tag;
-            }
-            int childCount = this.a.getChildCount();
-            int i = -1;
-            for (int i2 = 0; i2 < childCount; i2++) {
-                View childAt = this.a.getChildAt(i2);
-                if (childAt instanceof ImageView) {
-                    i++;
-                }
-                if (view == childAt) {
-                    break;
-                }
-            }
-            oVar2 = this.a.u;
-            oVar2.onClick(view, str, i);
-        }
-    }
+    void b(Context context, String str);
+
+    ListView c();
+
+    void c(Context context, String str);
+
+    int d();
+
+    void d(Context context, String str);
+
+    com.baidu.adp.lib.d.b<ImageView> e();
+
+    void e(Context context, String str);
+
+    com.baidu.adp.lib.d.b<TextView> f();
+
+    com.baidu.adp.lib.d.b<GifView> g();
+
+    com.baidu.adp.lib.d.b<View> h();
+
+    com.baidu.adp.lib.d.b<LinearLayout> i();
 }

@@ -1,6 +1,8 @@
 package com.baidu.tieba.pb;
+
+import android.content.DialogInterface;
 /* loaded from: classes.dex */
-class bn implements com.baidu.tieba.view.az {
+class bn implements DialogInterface.OnClickListener {
     final /* synthetic */ NewPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -8,21 +10,14 @@ class bn implements com.baidu.tieba.view.az {
         this.a = newPbActivity;
     }
 
-    @Override // com.baidu.tieba.view.az
-    public void a(boolean z) {
-        boolean z2;
-        com.baidu.tieba.model.bm bmVar;
-        com.baidu.tieba.model.bm bmVar2;
-        cr crVar;
-        z2 = this.a.d;
-        if (!z2 && z) {
-            bmVar = this.a.r;
-            if (!bmVar.j()) {
-                bmVar2 = this.a.r;
-                if (bmVar2.o()) {
-                    crVar = this.a.x;
-                    crVar.o();
-                }
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        if (this.a.b != null) {
+            if (i == 0) {
+                this.a.b.c(this.a);
+                this.a.b = null;
+            } else if (i == 1) {
+                this.a.a(this.a.b);
             }
         }
     }

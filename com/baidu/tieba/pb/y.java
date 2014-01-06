@@ -14,9 +14,9 @@ public class y implements DialogInterface.OnClickListener {
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
         if (i == 0) {
-            com.baidu.tieba.write.bd.a(this.a);
+            com.baidu.tieba.write.bb.a(this.a);
         } else {
-            com.baidu.tieba.write.bd.b(this.a);
+            com.baidu.tieba.write.bb.b(this.a);
         }
     }
 }

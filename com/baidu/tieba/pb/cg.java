@@ -1,22 +1,18 @@
 package com.baidu.tieba.pb;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cg implements com.baidu.tieba.editortool.o {
-    final /* synthetic */ int a;
-    final /* synthetic */ PbEditor b;
+public class cg implements Runnable {
+    final /* synthetic */ PbEditor a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cg(PbEditor pbEditor, int i) {
-        this.b = pbEditor;
-        this.a = i;
+    public cg(PbEditor pbEditor) {
+        this.a = pbEditor;
     }
 
-    @Override // com.baidu.tieba.editortool.o
-    public void a() {
-        this.b.a(this.a, null);
-    }
-
-    @Override // com.baidu.tieba.editortool.o
-    public void b() {
+    @Override // java.lang.Runnable
+    public void run() {
+        if (this.a.e) {
+            this.a.c.k();
+        }
     }
 }

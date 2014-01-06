@@ -58,12 +58,12 @@ public class aa extends com.baidu.adp.a.d {
     }
 
     public com.baidu.tieba.data.v h() {
-        String B = TiebaApplication.B();
-        if (B == null) {
+        String A = TiebaApplication.A();
+        if (A == null) {
             return null;
         }
         com.baidu.adp.lib.cache.s<String> g = com.baidu.tieba.b.a.a().g();
-        String a = g != null ? g.a("home_forumfeed_" + B) : null;
+        String a = g != null ? g.a("home_forumfeed_" + A) : null;
         if (a != null) {
             com.baidu.tieba.data.v vVar = new com.baidu.tieba.data.v();
             vVar.a(a);

@@ -1,21 +1,15 @@
 package com.baidu.tieba.person;
 
-import android.content.DialogInterface;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 /* loaded from: classes.dex */
-class ap implements DialogInterface.OnClickListener {
-    final /* synthetic */ PersonChangeActivity a;
+class ap {
+    TextView a;
+    ProgressBar b;
+    final /* synthetic */ am c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ap(PersonChangeActivity personChangeActivity) {
-        this.a = personChangeActivity;
-    }
-
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        if (i == 0) {
-            com.baidu.tieba.write.bd.a(this.a);
-        } else if (i == 1) {
-            com.baidu.tieba.write.bd.c(this.a);
-        }
+    public ap(am amVar) {
+        this.c = amVar;
     }
 }

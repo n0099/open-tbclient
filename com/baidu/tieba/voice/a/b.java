@@ -1,7 +1,7 @@
 package com.baidu.tieba.voice.a;
 
 import android.content.Context;
-import com.baidu.tieba.util.an;
+import com.baidu.tieba.util.at;
 import com.slidingmenu.lib.R;
 import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -38,10 +38,10 @@ public class b extends com.baidu.adp.lib.e.b<d> {
     @Override // com.baidu.adp.lib.e.b
     public void c(String str, com.baidu.adp.lib.e.f fVar) {
         LinkedList linkedList;
-        an anVar;
+        at atVar;
         super.c(str, fVar);
-        if (fVar != null && (anVar = (an) fVar.a("network")) != null) {
-            anVar.j();
+        if (fVar != null && (atVar = (at) fVar.a("network")) != null) {
+            atVar.j();
         }
         linkedList = this.b.a;
         linkedList.remove(str);

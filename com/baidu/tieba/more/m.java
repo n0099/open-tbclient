@@ -5,7 +5,7 @@ import com.baidu.tieba.MainTabActivity;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.AccountData;
 import com.baidu.tieba.util.DatabaseService;
-import com.baidu.tieba.util.be;
+import com.baidu.tieba.util.bo;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -34,9 +34,8 @@ public class m extends BdAsyncTask<Object, Integer, Boolean> {
             Thread.sleep(1000L);
             this.b.setIsActive(1);
             DatabaseService.a(this.b);
-            TiebaApplication.a(this.b, this.a.getBaseContext());
         } catch (Exception e) {
-            be.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
+            bo.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
         }
         return true;
     }
@@ -45,12 +44,13 @@ public class m extends BdAsyncTask<Object, Integer, Boolean> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(Boolean bool) {
+        TiebaApplication.a(this.b, this.a.getBaseContext());
         if (this.b != null) {
             new o(this.a, this.b.getBDUSS()).start();
         }
         this.a.closeLoadingDialog();
-        MainTabActivity.b(this.a, 1);
-        com.baidu.tieba.account.l.a().b();
+        com.baidu.tieba.c.d.a().b();
+        MainTabActivity.c(this.a, 1);
         this.a.g = null;
     }
 }

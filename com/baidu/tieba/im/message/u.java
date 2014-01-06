@@ -1,42 +1,61 @@
 package com.baidu.tieba.im.message;
 
+import com.google.protobuf.ByteString;
+import com.google.protobuf.CodedOutputStream;
 import com.google.protobuf.MessageLite;
-import protobuf.QueryGroupCount.QueryGroupCountReq;
+import com.google.protobuf.Parser;
+import java.io.OutputStream;
 /* loaded from: classes.dex */
-public class u extends n implements com.baidu.tieba.im.coder.g {
-    private String a;
-    private String b;
-
-    public u() {
-        e(103011);
+final class u implements MessageLite {
+    @Override // com.google.protobuf.MessageLiteOrBuilder
+    public boolean isInitialized() {
+        return false;
     }
 
-    public void a(String str) {
-        this.a = str;
+    @Override // com.google.protobuf.MessageLiteOrBuilder
+    public MessageLite getDefaultInstanceForType() {
+        return null;
     }
 
-    public void b(String str) {
-        this.b = str;
+    @Override // com.google.protobuf.MessageLite
+    public void writeTo(OutputStream outputStream) {
     }
 
-    @Override // com.baidu.tieba.im.coder.g
-    public MessageLite a() {
-        NumberFormatException e;
-        double d;
-        double d2 = 0.0d;
-        try {
-            d = Double.valueOf(this.b).doubleValue();
-        } catch (NumberFormatException e2) {
-            e = e2;
-            d = 0.0d;
-        }
-        try {
-            d2 = Double.valueOf(this.a).doubleValue();
-        } catch (NumberFormatException e3) {
-            e = e3;
-            e.printStackTrace();
-            return QueryGroupCountReq.QueryGroupCountReqIdl.newBuilder().a(QueryGroupCountReq.DataReq.newBuilder().b(d).a(d2).build()).build();
-        }
-        return QueryGroupCountReq.QueryGroupCountReqIdl.newBuilder().a(QueryGroupCountReq.DataReq.newBuilder().b(d).a(d2).build()).build();
+    @Override // com.google.protobuf.MessageLite
+    public void writeTo(CodedOutputStream codedOutputStream) {
+    }
+
+    @Override // com.google.protobuf.MessageLite
+    public void writeDelimitedTo(OutputStream outputStream) {
+    }
+
+    @Override // com.google.protobuf.MessageLite
+    public ByteString toByteString() {
+        return null;
+    }
+
+    @Override // com.google.protobuf.MessageLite
+    public byte[] toByteArray() {
+        return null;
+    }
+
+    @Override // com.google.protobuf.MessageLite
+    public MessageLite.Builder toBuilder() {
+        return null;
+    }
+
+    @Override // com.google.protobuf.MessageLite
+    public MessageLite.Builder newBuilderForType() {
+        return null;
+    }
+
+    @Override // com.google.protobuf.MessageLite
+    public int getSerializedSize() {
+        return 0;
+    }
+
+    @Override // com.google.protobuf.MessageLite
+    public Parser<? extends MessageLite> getParserForType() {
+        return null;
     }
 }

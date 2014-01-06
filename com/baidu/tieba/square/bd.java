@@ -14,13 +14,13 @@ class bd implements DialogInterface.OnClickListener {
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
         int i2;
-        i2 = this.a.a.C;
+        i2 = this.a.a.D;
         if (i2 == 0) {
             DatabaseService.q();
             this.a.a.f();
             return;
         }
         DatabaseService.r();
-        this.a.a.h();
+        this.a.a.g();
     }
 }

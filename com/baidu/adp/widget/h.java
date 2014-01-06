@@ -38,7 +38,7 @@ public class h {
             this.h.a();
             return;
         }
-        this.h.f = (int) (ai.a(this.c, this.a, false) + this.d);
+        this.h.f = (int) (aj.a(this.c, this.a, false) + this.d);
         this.h.invalidate();
         gVar = this.h.s;
         gVar.sendEmptyMessageAtTime(-100, this.f);
@@ -59,7 +59,7 @@ public class h {
             this.h.a();
             return;
         }
-        this.h.f = (int) (ai.a(this.c, this.a, false) + this.d);
+        this.h.f = (int) (aj.a(this.c, this.a, false) + this.d);
         this.h.invalidate();
         gVar = this.h.s;
         gVar.sendEmptyMessageAtTime(-101, this.f);
@@ -82,7 +82,7 @@ public class h {
             this.h.a();
             return;
         }
-        this.h.f = (int) (ai.a(this.c, this.a, false) + this.d);
+        this.h.f = (int) (aj.a(this.c, this.a, false) + this.d);
         this.h.invalidate();
         gVar = this.h.s;
         gVar.sendEmptyMessageAtTime(-104, this.f);
@@ -105,7 +105,7 @@ public class h {
             this.h.a();
             return;
         }
-        this.h.f = (int) (ai.a(this.c, this.a, false) + this.d);
+        this.h.f = (int) (aj.a(this.c, this.a, false) + this.d);
         this.h.invalidate();
         gVar = this.h.s;
         gVar.sendEmptyMessageAtTime(-105, this.f);

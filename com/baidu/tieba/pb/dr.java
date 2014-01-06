@@ -1,22 +1,27 @@
 package com.baidu.tieba.pb;
+
+import android.util.SparseArray;
+import android.view.View;
+import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dr implements Runnable {
-    final /* synthetic */ cr a;
+public class dr implements View.OnClickListener {
+    final /* synthetic */ cs a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public dr(cr crVar) {
-        this.a = crVar;
+    public dr(cs csVar) {
+        this.a = csVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        PbEditor pbEditor;
-        PbEditor pbEditor2;
-        this.a.a.setVisibility(0);
-        pbEditor = this.a.an;
-        pbEditor.h();
-        pbEditor2 = this.a.an;
-        pbEditor2.setVisibility(0);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        SparseArray sparseArray = (SparseArray) view.getTag();
+        if (sparseArray != null) {
+            if (!"".equals(sparseArray.get(R.id.tag_forbid_user_name)) && !"".equals(sparseArray.get(R.id.tag_del_post_id))) {
+                this.a.a(view);
+            } else {
+                this.a.a(((Integer) sparseArray.get(R.id.tag_del_post_type)).intValue(), (String) sparseArray.get(R.id.tag_del_post_id), ((Integer) sparseArray.get(R.id.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(R.id.tag_del_post_is_self)).booleanValue());
+            }
+        }
     }
 }

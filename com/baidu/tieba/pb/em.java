@@ -1,17 +1,17 @@
 package com.baidu.tieba.pb;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class em implements com.baidu.tieba.editortool.h {
-    final /* synthetic */ com.baidu.tieba.editortool.h a;
+public class em implements com.baidu.tieba.editortool.t {
+    final /* synthetic */ com.baidu.tieba.editortool.t a;
     final /* synthetic */ ed b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public em(ed edVar, com.baidu.tieba.editortool.h hVar) {
+    public em(ed edVar, com.baidu.tieba.editortool.t tVar) {
         this.b = edVar;
-        this.a = hVar;
+        this.a = tVar;
     }
 
-    @Override // com.baidu.tieba.editortool.h
+    @Override // com.baidu.tieba.editortool.t
     public void a(int i, Object obj) {
         if (i == 0) {
             this.a.a(26, obj);

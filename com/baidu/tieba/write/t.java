@@ -1,7 +1,7 @@
 package com.baidu.tieba.write;
 
-import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import com.baidu.tieba.editortool.EditorToolComponetContainer;
 /* loaded from: classes.dex */
 class t implements Runnable {
     final /* synthetic */ WriteActivity a;
@@ -14,21 +14,19 @@ class t implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
         EditText editText;
-        InputMethodManager inputMethodManager;
+        EditorToolComponetContainer editorToolComponetContainer;
         EditText editText2;
-        InputMethodManager inputMethodManager2;
+        EditorToolComponetContainer editorToolComponetContainer2;
         EditText editText3;
         editText = this.a.f;
         if (editText.getVisibility() == 0) {
-            WriteActivity writeActivity = this.a;
-            inputMethodManager2 = this.a.e;
+            editorToolComponetContainer2 = this.a.B;
             editText3 = this.a.f;
-            writeActivity.ShowSoftKeyPad(inputMethodManager2, editText3);
+            editorToolComponetContainer2.c(editText3);
             return;
         }
-        WriteActivity writeActivity2 = this.a;
-        inputMethodManager = this.a.e;
+        editorToolComponetContainer = this.a.B;
         editText2 = this.a.h;
-        writeActivity2.ShowSoftKeyPad(inputMethodManager, editText2);
+        editorToolComponetContainer.c(editText2);
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.frsgroup;
 
 import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tieba.util.ai;
+import com.baidu.tieba.util.ak;
 /* loaded from: classes.dex */
 class l implements Runnable {
     final /* synthetic */ MembersActivity a;
@@ -18,6 +18,6 @@ class l implements Runnable {
         aaVar = this.a.b;
         BdListView l = aaVar.l();
         aaVar2 = this.a.b;
-        ai.a(l, aaVar2.i().e(), 1, 0);
+        ak.a(l, aaVar2.i().e(), 1, 0);
     }
 }

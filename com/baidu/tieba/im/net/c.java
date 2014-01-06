@@ -1,16 +1,19 @@
 package com.baidu.tieba.im.net;
 
 import android.os.Handler;
+import android.os.Looper;
 import android.os.Message;
 import com.baidu.location.LocationClientOption;
-import com.baidu.tieba.util.be;
+import com.baidu.tieba.util.bo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends Handler {
     final /* synthetic */ b a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public c(b bVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public c(b bVar, Looper looper) {
+        super(looper);
         this.a = bVar;
     }
 
@@ -34,7 +37,7 @@ public class c extends Handler {
                 handler.removeMessages(1);
                 StringBuilder append = new StringBuilder().append("this is reconn time:");
                 i = this.a.b;
-                be.b(append.append(i).toString());
+                bo.b(append.append(i).toString());
                 TiebaSocketLinkService.a(true, "time to reconnStragety");
                 b.c(this.a);
                 iArr = this.a.c;
@@ -45,7 +48,7 @@ public class c extends Handler {
                         StringBuilder append2 = new StringBuilder().append("Next will be delay:");
                         iArr3 = this.a.c;
                         i3 = this.a.b;
-                        be.b(append2.append(iArr3[i3]).toString());
+                        bo.b(append2.append(iArr3[i3]).toString());
                         handler2 = this.a.d;
                         handler3 = this.a.d;
                         Message obtainMessage = handler3.obtainMessage(1);

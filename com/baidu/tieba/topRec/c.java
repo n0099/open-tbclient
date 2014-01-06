@@ -1,7 +1,7 @@
 package com.baidu.tieba.topRec;
 
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.data.af;
+import com.baidu.tieba.data.ag;
 import com.baidu.tieba.model.ax;
 /* loaded from: classes.dex */
 class c extends com.baidu.adp.a.g {
@@ -40,11 +40,11 @@ class c extends com.baidu.adp.a.g {
                 axVar2 = this.c.d;
                 if (axVar2.getErrorCode() != 0) {
                     this.c.b(this.a, this.b);
-                } else if (((af) obj) != null) {
+                } else if (((ag) obj) != null) {
                     this.c.c();
-                    TiebaApplication h = TiebaApplication.h();
+                    TiebaApplication g = TiebaApplication.g();
                     tRForumListData3 = this.c.f;
-                    h.f(tRForumListData3.forum_list[this.a].forum_name);
+                    g.f(tRForumListData3.forum_list[this.a].forum_name);
                 } else {
                     this.c.b(this.a, this.b);
                 }

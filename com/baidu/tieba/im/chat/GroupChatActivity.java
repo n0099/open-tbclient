@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import com.baidu.tieba.im.data.GroupData;
 /* loaded from: classes.dex */
-public class GroupChatActivity extends bc {
+public class GroupChatActivity extends ba {
     public static boolean a;
 
     public static void a(Activity activity, int i, String str, long j, String str2) {
@@ -33,14 +33,14 @@ public class GroupChatActivity extends bc {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.im.chat.bc, com.baidu.tieba.j, android.app.Activity
+    @Override // com.baidu.tieba.im.chat.ba, com.baidu.tieba.j, android.app.Activity
     public void onPause() {
         super.onPause();
         a = false;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.im.chat.bc, com.baidu.tieba.j, android.app.Activity
+    @Override // com.baidu.tieba.im.chat.ba, com.baidu.tieba.j, android.app.Activity
     public void onResume() {
         super.onResume();
         a = true;

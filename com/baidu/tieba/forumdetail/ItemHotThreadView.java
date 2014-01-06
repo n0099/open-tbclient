@@ -10,7 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.forumdetail.ForumDetailData;
-import com.baidu.tieba.util.bc;
+import com.baidu.tieba.util.bm;
 import com.slidingmenu.lib.R;
 import java.util.HashMap;
 /* loaded from: classes.dex */
@@ -83,7 +83,7 @@ public class ItemHotThreadView extends LinearLayout {
                 sb.append(threadInfo.abstracts[i].text);
             }
         }
-        if (!bc.c(sb.toString().trim())) {
+        if (!bm.c(sb.toString().trim())) {
             lVar.b.setText(sb.toString());
             lVar.b.setVisibility(0);
         } else {
@@ -91,7 +91,7 @@ public class ItemHotThreadView extends LinearLayout {
         }
         lVar.d.setText(String.valueOf(threadInfo.viewNum));
         lVar.e.setText(String.valueOf(threadInfo.replyNum));
-        if (TiebaApplication.h().an() == 1) {
+        if (TiebaApplication.g().an() == 1) {
             lVar.a.setTextColor(this.a.getResources().getColor(R.color.forum_detail_htitem_title_color_1));
             lVar.b.setTextColor(this.a.getResources().getColor(R.color.forum_detail_htitem_txt_color_1));
             lVar.c.setTextColor(this.a.getResources().getColor(R.color.forum_detail_ht_lbl_1));

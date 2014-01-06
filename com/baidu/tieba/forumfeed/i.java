@@ -11,16 +11,16 @@ import com.baidu.tieba.BaseFragment;
 import com.baidu.tieba.BaseFragmentActivity;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.v;
-import com.baidu.tieba.util.ai;
+import com.baidu.tieba.util.ak;
 import com.baidu.tieba.view.NoNetworkView;
-import com.baidu.tieba.view.bq;
+import com.baidu.tieba.view.bw;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class i extends com.baidu.adp.a.e {
     private e a;
     private BdListView c;
     private BaseFragmentActivity d;
-    private bq e;
+    private bw e;
     private LinearLayout f;
     private View g;
     private Handler h;
@@ -45,7 +45,7 @@ public class i extends com.baidu.adp.a.e {
         this.n = (LinearLayout) this.g.findViewById(R.id.content_with_data);
         this.m = new n(this, baseFragmentActivity, findViewById);
         r();
-        a(TiebaApplication.h().an());
+        a(TiebaApplication.g().an());
     }
 
     public void a() {
@@ -103,7 +103,7 @@ public class i extends com.baidu.adp.a.e {
     public void j() {
         if (this.i != null) {
             this.i.a();
-            this.i.b();
+            this.i.d();
         }
     }
 
@@ -169,8 +169,8 @@ public class i extends com.baidu.adp.a.e {
     }
 
     public void l() {
-        if (com.baidu.tieba.d.a.a().f()) {
-            ai.a(this.c, this.a.b(), 0, -1);
+        if (com.baidu.tieba.e.a.a().f()) {
+            ak.a(this.c, this.a.b(), 0, -1);
         }
     }
 
@@ -194,7 +194,7 @@ public class i extends com.baidu.adp.a.e {
     }
 
     private void r() {
-        this.e = new bq(this.d);
+        this.e = new bw(this.d);
         this.c = (BdListView) this.g.findViewById(R.id.forum_feed_list);
         this.c.setPullRefresh(this.e);
         this.j = new m(this, this.d);

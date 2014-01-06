@@ -80,14 +80,14 @@ public class AboutActivity extends com.baidu.tieba.j {
         }
         ch chVar = obj != null ? (ch) obj : null;
         if (chVar != null) {
-            TiebaApplication.h().a(chVar.c());
-            TiebaApplication.h().x(false);
+            TiebaApplication.g().a(chVar.c());
+            TiebaApplication.g().x(false);
             if (chVar.c().getHas_new_ver() == 1) {
                 if (chVar.c().getForce_update() == 1) {
-                    UpdateDialog.a(TiebaApplication.h(), chVar.c(), chVar.b());
+                    UpdateDialog.a(TiebaApplication.g(), chVar.c(), chVar.b());
                 } else {
-                    TiebaApplication.h().a(Long.valueOf(new Date().getTime()).longValue());
-                    UpdateDialog.a(TiebaApplication.h(), chVar.c(), chVar.b());
+                    TiebaApplication.g().a(Long.valueOf(new Date().getTime()).longValue());
+                    UpdateDialog.a(TiebaApplication.g(), chVar.c(), chVar.b());
                 }
             } else {
                 showToast(getResources().getString(R.string.neednot_update));

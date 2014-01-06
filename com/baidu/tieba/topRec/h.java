@@ -14,9 +14,9 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.bb;
+import com.baidu.tieba.util.bl;
 import com.baidu.tieba.view.NavigationBar;
-import com.baidu.tieba.view.bq;
+import com.baidu.tieba.view.bw;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class h {
@@ -24,7 +24,7 @@ public class h {
     Handler b;
     private BdListView c;
     private Button d;
-    private bq e;
+    private bw e;
     private final View f;
     private LinearLayout g;
     private TextView h;
@@ -51,7 +51,7 @@ public class h {
         this.d = (Button) a.findViewById(R.id.title_finish);
         this.d.setOnClickListener(this.j);
         this.m = (TextView) a.findViewById(R.id.title_finish_cover);
-        this.e = new bq(this.j);
+        this.e = new bw(this.j);
         this.g = (LinearLayout) topRecActivity.getLayoutInflater().inflate(R.layout.forum_list_forum_footer, (ViewGroup) null);
         this.f = this.g.findViewById(R.id.footer_background);
         this.h = (TextView) this.g.findViewById(R.id.footer_text);
@@ -107,7 +107,7 @@ public class h {
 
     public void d() {
         this.h.setText(this.j.getString(R.string.flist_expand_list));
-        if (TiebaApplication.h().an() == 1) {
+        if (TiebaApplication.g().an() == 1) {
             this.i.setBackgroundResource(R.drawable.ico_downward_1);
         } else {
             this.i.setBackgroundResource(R.drawable.ico_downward);
@@ -124,11 +124,11 @@ public class h {
 
     public void b(int i) {
         this.a.c(i);
-        bb.b(this.j.findViewById(R.id.container), i);
-        bb.f((TextView) this.d, i);
-        bb.e((TextView) this.d, i);
-        bb.e(this.m, i);
-        if (TiebaApplication.h().an() == 1) {
+        bl.b(this.j.findViewById(R.id.container), i);
+        bl.f((TextView) this.d, i);
+        bl.e((TextView) this.d, i);
+        bl.e(this.m, i);
+        if (TiebaApplication.g().an() == 1) {
             this.c.setDivider(new ColorDrawable(-13881543));
         } else {
             this.c.setDivider(new ColorDrawable(-1775893));

@@ -1,27 +1,27 @@
 package com.baidu.tieba.im.chat;
 
 import android.view.View;
-import com.baidu.adp.widget.ImageView.BDImageView2;
+import com.baidu.tieba.view.HeadImageView;
 /* loaded from: classes.dex */
-class cq implements com.baidu.tieba.util.bm {
+class cq implements com.baidu.tieba.util.bw {
     final /* synthetic */ String a;
-    final /* synthetic */ com.baidu.adp.widget.ImageView.e b;
+    final /* synthetic */ com.baidu.adp.widget.ImageView.d b;
     final /* synthetic */ cp c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cq(cp cpVar, String str, com.baidu.adp.widget.ImageView.e eVar) {
+    public cq(cp cpVar, String str, com.baidu.adp.widget.ImageView.d dVar) {
         this.c = cpVar;
         this.a = str;
-        this.b = eVar;
+        this.b = dVar;
     }
 
-    @Override // com.baidu.tieba.util.bm
+    @Override // com.baidu.tieba.util.bw
     public boolean a(View view) {
-        if ((view instanceof BDImageView2) && this.a.equals(view.getTag())) {
+        if ((view instanceof HeadImageView) && this.a.equals(view.getTag())) {
             view.setTag(null);
-            BDImageView2 bDImageView2 = (BDImageView2) view;
-            bDImageView2.a();
-            this.b.a(bDImageView2);
+            HeadImageView headImageView = (HeadImageView) view;
+            headImageView.a();
+            this.b.a(headImageView);
             return false;
         }
         return false;

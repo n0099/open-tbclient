@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.bb;
+import com.baidu.tieba.util.bl;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
@@ -50,8 +50,8 @@ public class ah extends com.baidu.adp.a.e {
     }
 
     public void g() {
-        String B = TiebaApplication.B();
-        if (B == null || B.length() <= 0) {
+        String A = TiebaApplication.A();
+        if (A == null || A.length() <= 0) {
             this.f.setVisibility(8);
         } else {
             this.f.setVisibility(0);
@@ -71,20 +71,20 @@ public class ah extends com.baidu.adp.a.e {
         }
         this.f.b();
         h();
-        com.baidu.adp.widget.ImageView.e c = this.d.c(str);
+        com.baidu.adp.widget.ImageView.d c = this.d.c(str);
         if (c != null) {
             this.f.setIcon(c);
             return;
         }
-        com.baidu.adp.widget.ImageView.e c2 = this.d.c(str, new ai(this));
+        com.baidu.adp.widget.ImageView.d c2 = this.d.c(str, new ai(this));
         if (c2 != null) {
             this.f.setIcon(c2);
         }
     }
 
-    public void a(com.baidu.adp.widget.ImageView.e eVar) {
+    public void a(com.baidu.adp.widget.ImageView.d dVar) {
         if (this.f != null) {
-            this.f.setIcon(eVar);
+            this.f.setIcon(dVar);
         }
     }
 
@@ -154,7 +154,7 @@ public class ah extends com.baidu.adp.a.e {
         this.k = (SettingTextVersionView) this.a.findViewById(R.id.versionInfo);
         this.l = (SettingTextTipView) this.a.findViewById(R.id.feedBack);
         this.m = (SettingTextTipView) this.a.findViewById(R.id.recommend);
-        if (!TiebaApplication.h().y()) {
+        if (!TiebaApplication.g().x()) {
             this.m.setVisibility(8);
         } else {
             this.m.setVisibility(0);
@@ -163,50 +163,50 @@ public class ah extends com.baidu.adp.a.e {
         i();
         g();
         this.f.a();
-        b(TiebaApplication.h().an());
+        b(TiebaApplication.g().an());
         a(n);
     }
 
     private void l() {
-        bb.e(this.f, (int) R.drawable.more_up);
+        bl.e(this.f, (int) R.drawable.more_up);
         if (this.f.getVisibility() == 0) {
-            bb.e(this.g, (int) R.drawable.more_down);
+            bl.e(this.g, (int) R.drawable.more_down);
         } else {
-            bb.e(this.g, (int) R.drawable.more_all);
+            bl.e(this.g, (int) R.drawable.more_all);
         }
-        bb.e(this.h, (int) R.drawable.more_all);
-        bb.e(this.i, (int) R.drawable.more_all);
-        bb.e(this.j, (int) R.drawable.more_all);
-        bb.e(this.k, (int) R.drawable.more_up);
+        bl.e(this.h, (int) R.drawable.more_all);
+        bl.e(this.i, (int) R.drawable.more_all);
+        bl.e(this.j, (int) R.drawable.more_all);
+        bl.e(this.k, (int) R.drawable.more_up);
         if (this.m.getVisibility() == 0) {
-            bb.e(this.l, (int) R.drawable.more_middle);
+            bl.e(this.l, (int) R.drawable.more_middle);
         } else {
-            bb.e(this.l, (int) R.drawable.more_down);
+            bl.e(this.l, (int) R.drawable.more_down);
         }
-        bb.e(this.m, (int) R.drawable.more_down);
+        bl.e(this.m, (int) R.drawable.more_down);
         this.n.a(0);
-        bb.e(this.n, (int) R.drawable.more_all);
+        bl.e(this.n, (int) R.drawable.more_all);
     }
 
     private void m() {
-        bb.e(this.f, (int) R.drawable.more_up_1);
+        bl.e(this.f, (int) R.drawable.more_up_1);
         if (this.f.getVisibility() == 0) {
-            bb.e(this.g, (int) R.drawable.more_down_1);
+            bl.e(this.g, (int) R.drawable.more_down_1);
         } else {
-            bb.e(this.g, (int) R.drawable.more_all_1);
+            bl.e(this.g, (int) R.drawable.more_all_1);
         }
-        bb.e(this.h, (int) R.drawable.more_all_1);
-        bb.e(this.i, (int) R.drawable.more_all_1);
-        bb.e(this.j, (int) R.drawable.more_all_1);
-        bb.e(this.k, (int) R.drawable.more_up_1);
+        bl.e(this.h, (int) R.drawable.more_all_1);
+        bl.e(this.i, (int) R.drawable.more_all_1);
+        bl.e(this.j, (int) R.drawable.more_all_1);
+        bl.e(this.k, (int) R.drawable.more_up_1);
         if (this.m.getVisibility() == 0) {
-            bb.e(this.l, (int) R.drawable.more_middle_1);
+            bl.e(this.l, (int) R.drawable.more_middle_1);
         } else {
-            bb.e(this.l, (int) R.drawable.more_down_1);
+            bl.e(this.l, (int) R.drawable.more_down_1);
         }
-        bb.e(this.m, (int) R.drawable.more_down_1);
+        bl.e(this.m, (int) R.drawable.more_down_1);
         this.n.a(1);
-        bb.e(this.n, (int) R.drawable.more_all_1);
+        bl.e(this.n, (int) R.drawable.more_all_1);
         i();
     }
 

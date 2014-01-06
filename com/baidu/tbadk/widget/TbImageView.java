@@ -12,9 +12,9 @@ import android.util.AttributeSet;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.widget.ImageView;
-import com.baidu.adp.widget.ImageView.e;
+import com.baidu.adp.widget.ImageView.BDImageView;
 /* loaded from: classes.dex */
-public class TbImageView extends com.baidu.adp.widget.ImageView.a {
+public class TbImageView extends BDImageView {
     private static Bitmap c;
     private int d;
     private String f;
@@ -80,7 +80,7 @@ public class TbImageView extends com.baidu.adp.widget.ImageView.a {
         this.m = z;
     }
 
-    @Override // com.baidu.adp.widget.ImageView.a, android.view.View
+    @Override // com.baidu.adp.widget.ImageView.BDImageView, android.view.View
     public void setTag(Object obj) {
         super.setTag(obj);
         invalidate();
@@ -114,7 +114,7 @@ public class TbImageView extends com.baidu.adp.widget.ImageView.a {
         }
     }
 
-    @Override // com.baidu.adp.widget.ImageView.a
+    @Override // com.baidu.adp.widget.ImageView.BDImageView
     public void setDefaultResource(int i) {
         this.j = i;
         if (this.k == 0) {
@@ -146,8 +146,8 @@ public class TbImageView extends com.baidu.adp.widget.ImageView.a {
         super.setLayoutParams(layoutParams);
     }
 
-    @Override // com.baidu.adp.widget.ImageView.a
-    public e getImage() {
+    @Override // com.baidu.adp.widget.ImageView.BDImageView
+    public com.baidu.adp.widget.ImageView.d getImage() {
         String str;
         if (this.f != null) {
             str = this.f;
@@ -171,7 +171,7 @@ public class TbImageView extends com.baidu.adp.widget.ImageView.a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ImageView.a, android.widget.ImageView, android.view.View
+    @Override // com.baidu.adp.widget.ImageView.BDImageView, android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
         if (this.i != e) {
             this.i = e;

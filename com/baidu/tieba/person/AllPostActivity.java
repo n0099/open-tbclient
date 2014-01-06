@@ -16,7 +16,7 @@ public class AllPostActivity extends com.baidu.tieba.j {
     TextView b = null;
     ListView c = null;
     ImageView d = null;
-    af e = null;
+    am e = null;
     com.baidu.tieba.model.bk f = null;
     c g = null;
     private ProgressBar h = null;
@@ -51,7 +51,7 @@ public class AllPostActivity extends com.baidu.tieba.j {
         this.d = (ImageView) findViewById(R.id.time_line);
         this.d.setVisibility(8);
         this.c = (ListView) findViewById(R.id.all_post_list);
-        this.e = new af(this, this.f);
+        this.e = new am(this, this.f);
         this.c.setAdapter((ListAdapter) this.e);
         this.c.setOnItemClickListener(new a(this));
         this.h = (ProgressBar) findViewById(R.id.loading_progress);
@@ -100,9 +100,9 @@ public class AllPostActivity extends com.baidu.tieba.j {
     @Override // com.baidu.tieba.j
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        com.baidu.tieba.util.bb.a(this.a, i);
+        com.baidu.tieba.util.bl.a(this.a, i);
         if (i == 1) {
-            this.b.setTextColor(com.baidu.tieba.util.bb.a(i));
+            this.b.setTextColor(com.baidu.tieba.util.bl.a(i));
             this.d.setBackgroundResource(R.drawable.time_line_skin_1);
             return;
         }

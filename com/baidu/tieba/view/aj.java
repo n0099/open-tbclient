@@ -1,29 +1,25 @@
 package com.baidu.tieba.view;
 
-import android.os.Handler;
-import android.os.Message;
+import android.app.Activity;
+import android.view.View;
+import com.baidu.cloudsdk.social.core.SocialConstants;
+import com.baidu.tieba.flist.ForumListActivity;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class aj extends Handler {
-    final /* synthetic */ ImagePbImageView a;
+public class aj implements View.OnClickListener {
+    final /* synthetic */ ag a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aj(ImagePbImageView imagePbImageView) {
-        this.a = imagePbImageView;
+    public aj(ag agVar) {
+        this.a = agVar;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        int i;
-        Handler handler;
-        Handler handler2;
-        super.handleMessage(message);
-        ImagePbImageView.a(this.a);
-        i = this.a.n;
-        if (i >= 0) {
-            handler = this.a.o;
-            handler2 = this.a.o;
-            handler.sendMessageDelayed(handler2.obtainMessage(1), 20L);
-            this.a.invalidate();
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Activity activity;
+        String str;
+        activity = this.a.D;
+        str = this.a.ad;
+        ForumListActivity.a(activity, str, "2", SocialConstants.TRUE);
     }
 }

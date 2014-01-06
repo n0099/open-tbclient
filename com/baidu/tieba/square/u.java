@@ -7,7 +7,7 @@ import android.widget.BaseAdapter;
 import com.baidu.tieba.square.CarouselRecommendView;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class u extends BaseAdapter implements com.baidu.tieba.view.ai {
+public class u extends BaseAdapter implements com.baidu.tieba.view.an {
     private Context a;
     private CarouselRecommendView.CarouselRecommendPagerAdapter b = null;
     private ArrayList<au> c = new ArrayList<>();
@@ -59,14 +59,14 @@ public class u extends BaseAdapter implements com.baidu.tieba.view.ai {
         return this.d;
     }
 
-    @Override // com.baidu.tieba.view.ai
+    @Override // com.baidu.tieba.view.an
     public void d() {
         if (this.b != null) {
             this.b.d();
         }
     }
 
-    @Override // com.baidu.tieba.view.ai
+    @Override // com.baidu.tieba.view.an
     public void a(View view, int i, int i2) {
         if (this.b != null) {
             this.b.a(this.d, 0, 0);

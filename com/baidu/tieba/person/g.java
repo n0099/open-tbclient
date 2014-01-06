@@ -7,7 +7,7 @@ import com.baidu.tieba.TiebaApplication;
 /* loaded from: classes.dex */
 public class g extends BdAsyncTask<Object, String, com.baidu.tieba.model.h> {
     final /* synthetic */ EditBarActivity a;
-    private com.baidu.tieba.util.an b;
+    private com.baidu.tieba.util.at b;
 
     private g(EditBarActivity editBarActivity) {
         this.a = editBarActivity;
@@ -22,6 +22,9 @@ public class g extends BdAsyncTask<Object, String, com.baidu.tieba.model.h> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void b() {
+        ProgressBar progressBar;
+        progressBar = this.a.g;
+        progressBar.setVisibility(0);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -39,14 +42,14 @@ public class g extends BdAsyncTask<Object, String, com.baidu.tieba.model.h> {
         try {
             str = this.a.o;
             if (str == null && (n = com.baidu.tieba.b.a.a().n()) != null) {
-                c((Object[]) new String[]{n.a(TiebaApplication.B())});
+                c((Object[]) new String[]{n.a(TiebaApplication.A())});
             }
-            this.b = new com.baidu.tieba.util.an(com.baidu.tieba.data.h.a + "c/f/forum/like");
+            this.b = new com.baidu.tieba.util.at(com.baidu.tieba.data.h.a + "c/f/forum/like");
             str2 = this.a.o;
             if (str2 != null) {
-                com.baidu.tieba.util.an anVar = this.b;
+                com.baidu.tieba.util.at atVar = this.b;
                 str4 = this.a.o;
-                anVar.a("uid", str4);
+                atVar.a("uid", str4);
             }
             String l = this.b.l();
             if (!this.b.c()) {
@@ -63,7 +66,7 @@ public class g extends BdAsyncTask<Object, String, com.baidu.tieba.model.h> {
                 return hVar;
             } catch (Exception e2) {
                 e = e2;
-                com.baidu.tieba.util.be.b(getClass().getName(), "doInBackground", e.getMessage());
+                com.baidu.tieba.util.bo.b(getClass().getName(), "doInBackground", e.getMessage());
                 return hVar;
             }
         } catch (Exception e3) {
@@ -74,9 +77,9 @@ public class g extends BdAsyncTask<Object, String, com.baidu.tieba.model.h> {
 
     private void a(String str) {
         com.baidu.adp.lib.cache.s<String> n;
-        String B = TiebaApplication.B();
-        if (B != null && (n = com.baidu.tieba.b.a.a().n()) != null) {
-            n.a(B, str, 604800000L);
+        String A = TiebaApplication.A();
+        if (A != null && (n = com.baidu.tieba.b.a.a().n()) != null) {
+            n.a(A, str, 604800000L);
         }
     }
 
@@ -88,7 +91,6 @@ public class g extends BdAsyncTask<Object, String, com.baidu.tieba.model.h> {
         com.baidu.tieba.model.h hVar;
         i iVar;
         i iVar2;
-        ProgressBar progressBar;
         super.b((Object[]) strArr);
         String str = strArr[0];
         com.baidu.tieba.model.h hVar2 = new com.baidu.tieba.model.h();
@@ -100,8 +102,6 @@ public class g extends BdAsyncTask<Object, String, com.baidu.tieba.model.h> {
             this.a.a(false);
             iVar2 = this.a.f;
             iVar2.notifyDataSetChanged();
-            progressBar = this.a.g;
-            progressBar.setVisibility(0);
         }
     }
 

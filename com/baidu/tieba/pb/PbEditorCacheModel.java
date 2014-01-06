@@ -10,13 +10,13 @@ public class PbEditorCacheModel {
     }
 
     public static void a(String str, cm cmVar) {
-        if (!com.baidu.tieba.util.bc.c(str)) {
+        if (!com.baidu.tieba.util.bm.c(str)) {
             new cl(OP_TYPE.GET, str, cmVar, null).execute(new String[0]);
         }
     }
 
     public static void a(String str, String str2, cm cmVar) {
-        if (!com.baidu.tieba.util.bc.c(str)) {
+        if (!com.baidu.tieba.util.bm.c(str)) {
             new cl(OP_TYPE.SET, str, cmVar, str2).execute(new String[0]);
         }
     }

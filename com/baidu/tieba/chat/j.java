@@ -19,11 +19,11 @@ public class j implements AdapterView.OnItemLongClickListener {
         a aVar2;
         RecentChatFriendData recentChatFriendData;
         if (i >= 0) {
-            aVar = this.a.Z;
+            aVar = this.a.Y;
             long itemId = aVar.getItemId(i);
             if (itemId != -1 && itemId != -2) {
                 ChatListFragment chatListFragment = this.a;
-                aVar2 = this.a.Z;
+                aVar2 = this.a.Y;
                 chatListFragment.g = (RecentChatFriendData) aVar2.getItem(i);
                 ChatListFragment chatListFragment2 = this.a;
                 recentChatFriendData = this.a.g;
@@ -32,6 +32,7 @@ public class j implements AdapterView.OnItemLongClickListener {
                     this.a.a.show();
                 }
             }
+            return true;
         }
         return false;
     }

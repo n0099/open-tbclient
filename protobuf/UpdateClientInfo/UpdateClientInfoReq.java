@@ -10,6 +10,7 @@ import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.Parser;
 import java.io.IOException;
 import java.io.InputStream;
+import protobuf.Im;
 /* loaded from: classes.dex */
 public final class UpdateClientInfoReq {
 
@@ -85,7 +86,7 @@ public final class UpdateClientInfoReq {
                                     this.bitField0_ |= 4;
                                     this.secretKey_ = codedInputStream.readBytes();
                                     break;
-                                case 33:
+                                case Im.GroupInfo.ISRECENTLYREPLY_FIELD_NUMBER /* 33 */:
                                     this.bitField0_ |= 8;
                                     this.lat_ = codedInputStream.readDouble();
                                     break;

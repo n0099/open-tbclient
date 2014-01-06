@@ -38,7 +38,7 @@ public class MyGroupActivity extends BaseFragmentActivity implements View.OnClic
 
     public static void a(Context context) {
         if (context != null) {
-            if (!TiebaApplication.C()) {
+            if (!TiebaApplication.B()) {
                 if (context instanceof j) {
                     ((j) context).showToast(R.string.not_login_text);
                     return;

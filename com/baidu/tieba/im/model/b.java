@@ -1,11 +1,11 @@
 package com.baidu.tieba.im.model;
 
-import com.baidu.tieba.im.message.at;
+import com.baidu.tieba.im.message.aw;
 /* loaded from: classes.dex */
 public class b extends com.baidu.adp.a.d {
-    private com.baidu.tieba.im.message.aa a;
-    private at b;
-    private com.baidu.tieba.im.message.w c;
+    private com.baidu.tieba.im.message.ad a;
+    private aw b;
+    private com.baidu.tieba.im.message.z c;
     private int d = 2;
 
     @Override // com.baidu.adp.a.d
@@ -29,13 +29,13 @@ public class b extends com.baidu.adp.a.d {
     }
 
     public void a() {
-        this.a = new com.baidu.tieba.im.message.aa();
+        this.a = new com.baidu.tieba.im.message.ad();
         this.a.a(10);
         com.baidu.tieba.im.messageCenter.e.a().a(this.a);
     }
 
     public void a(long j) {
-        this.b = new at();
+        this.b = new aw();
         this.b.b(1);
         this.b.a(10);
         this.b.a(String.valueOf(j));
@@ -43,13 +43,13 @@ public class b extends com.baidu.adp.a.d {
     }
 
     public void a(int i) {
-        this.c = new com.baidu.tieba.im.message.w();
+        this.c = new com.baidu.tieba.im.message.z();
         this.c.a(i);
         com.baidu.tieba.im.messageCenter.e.a().a(this.c);
     }
 
     public void b(long j) {
-        this.b = new at();
+        this.b = new aw();
         this.b.b(0);
         this.b.a(10);
         this.b.a(String.valueOf(j));

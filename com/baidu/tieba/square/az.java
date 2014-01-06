@@ -17,17 +17,17 @@ class az implements View.OnClickListener {
         String str2;
         int i;
         String str3;
-        str = this.a.B;
+        str = this.a.C;
         if (str != null) {
-            str2 = this.a.B;
+            str2 = this.a.C;
             if (str2.trim().length() >= 1) {
-                i = this.a.C;
+                i = this.a.D;
                 if (i == 0) {
                     this.a.d();
                     return;
                 }
                 SquareSearchActivity squareSearchActivity = this.a;
-                str3 = this.a.B;
+                str3 = this.a.C;
                 squareSearchActivity.a(1, str3);
                 return;
             }

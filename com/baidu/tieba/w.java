@@ -1,8 +1,9 @@
 package com.baidu.tieba;
 
-import android.support.v4.app.Fragment;
+import android.view.View;
 /* loaded from: classes.dex */
 public class w {
-    public FragmentTabIndicator a;
-    public Fragment b;
+    public int a;
+    public int b;
+    public View c;
 }

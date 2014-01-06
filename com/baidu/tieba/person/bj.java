@@ -1,21 +1,16 @@
 package com.baidu.tieba.person;
-
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bj implements com.baidu.tieba.view.dialog.c {
-    final /* synthetic */ PersonInfoActivity a;
+class bj implements com.baidu.tieba.view.e {
+    final /* synthetic */ PersonImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bj(PersonInfoActivity personInfoActivity) {
-        this.a = personInfoActivity;
+    public bj(PersonImageActivity personImageActivity) {
+        this.a = personImageActivity;
     }
 
-    @Override // com.baidu.tieba.view.dialog.c
-    public void a(com.baidu.tieba.view.dialog.a aVar, int i, View view) {
+    @Override // com.baidu.tieba.view.e
+    public void a(int i) {
         if (i == 0) {
-            this.a.I();
         }
-        aVar.c();
     }
 }

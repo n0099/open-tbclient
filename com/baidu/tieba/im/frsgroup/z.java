@@ -5,6 +5,7 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.tieba.view.HeadImageView;
+import com.baidu.tieba.view.UserIconBox;
 /* loaded from: classes.dex */
 class z {
     LinearLayout a;
@@ -17,4 +18,5 @@ class z {
     ImageView h;
     TextView i;
     TextView j;
+    UserIconBox k = null;
 }

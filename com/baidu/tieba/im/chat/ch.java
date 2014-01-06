@@ -1,15 +1,9 @@
 package com.baidu.tieba.im.chat;
+
+import com.baidu.tieba.voice.VoiceManager;
 /* loaded from: classes.dex */
-class ch implements Runnable {
-    final /* synthetic */ cg a;
+public interface ch {
+    void a();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ch(cg cgVar) {
-        this.a = cgVar;
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        this.a.a.T();
-    }
+    void a(VoiceManager.VoiceModel voiceModel);
 }

@@ -1,24 +1,28 @@
 package com.baidu.tieba.im.chat;
 
+import android.view.View;
 import android.widget.AbsListView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.gif.GifView;
+import com.baidu.tieba.im.widget.chatVoiceView.ChatVoiceView;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class bz implements AbsListView.OnScrollListener {
-    final /* synthetic */ bu a;
+class bz implements AbsListView.RecyclerListener {
+    final /* synthetic */ bs a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bz(bu buVar) {
-        this.a = buVar;
+    public bz(bs bsVar) {
+        this.a = bsVar;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
-        this.a.K();
-        this.a.L();
-        this.a.M();
+    @Override // android.widget.AbsListView.RecyclerListener
+    public void onMovedToScrapHeap(View view) {
+        View findViewById = view.findViewById(R.id.lay_msgitem_voice);
+        if (findViewById != null && (findViewById instanceof ChatVoiceView)) {
+            ((ChatVoiceView) findViewById).a();
+        }
+        View findViewById2 = view.findViewById(R.id.emotion_msgitem_image);
+        if (findViewById2 != null && (findViewById2 instanceof GifView)) {
+            ((GifView) findViewById2).b();
+        }
     }
 }

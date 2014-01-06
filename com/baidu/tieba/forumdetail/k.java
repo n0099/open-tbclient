@@ -21,7 +21,7 @@ public class k implements View.OnClickListener {
     public void onClick(View view) {
         Context context;
         Context context2;
-        if (TiebaApplication.h().t()) {
+        if (TiebaApplication.g().s()) {
             context2 = this.b.a;
             StatService.onEvent(context2, "detail_hot_thread", "click", 1);
         }

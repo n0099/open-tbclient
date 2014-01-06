@@ -11,7 +11,7 @@ import com.baidu.tieba.forumdetail.ForumDetailActivity;
 import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.model.ax;
 import com.baidu.tieba.switchs.SwitchKey;
-import com.baidu.tieba.util.be;
+import com.baidu.tieba.util.bo;
 import com.baidu.tieba.view.HeadImageView;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -63,7 +63,7 @@ public class s extends BaseAdapter implements View.OnClickListener {
 
     public void b() {
         for (int i = 0; i < this.f; i++) {
-            int e = TiebaApplication.h().e(this.j[i].forum_name);
+            int e = TiebaApplication.g().e(this.j[i].forum_name);
             if (e == 1) {
                 this.j[i].is_like = 1;
             } else if (e == -1) {
@@ -126,11 +126,11 @@ public class s extends BaseAdapter implements View.OnClickListener {
             view.setTag(tVar);
         }
         t tVar2 = (t) view.getTag();
-        int an = TiebaApplication.h().an();
+        int an = TiebaApplication.g().an();
         this.b.getLayoutMode().a(an == 1);
         this.b.getLayoutMode().a(view);
         ForumInfoData forumInfoData = this.j[i];
-        be.e("ForumListAdapter", "getView", "forum name:" + this.j[i].forum_name + "forum avatar:" + this.j[i].avatar);
+        bo.e("ForumListAdapter", "getView", "forum name:" + this.j[i].forum_name + "forum avatar:" + this.j[i].avatar);
         String str = this.j[i].avatar;
         HeadImageView headImageView = tVar2.a;
         tVar2.a.setTag(str);
@@ -171,7 +171,7 @@ public class s extends BaseAdapter implements View.OnClickListener {
             tVar2.c.setCompoundDrawablesWithIntrinsicBounds(an != 1 ? R.drawable.icon_rise : R.drawable.icon_rise_1, 0, 0, 0);
             tVar2.c.setText(this.b.getString(R.string.rise) + String.valueOf(forumInfoData.mbr_inter_rank) + this.b.getString(R.string.number));
         }
-        if (TiebaApplication.h().an() == 1) {
+        if (TiebaApplication.g().an() == 1) {
             tVar2.h.setTextColor(this.b.getResources().getColor(R.color.enterforum_name_txt_1));
         } else {
             tVar2.h.setTextColor(this.b.getResources().getColor(R.color.enterforum_name_txt));
@@ -184,8 +184,8 @@ public class s extends BaseAdapter implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.like /* 2131100159 */:
-                if (TiebaApplication.h().t()) {
+            case R.id.like /* 2131100242 */:
+                if (TiebaApplication.g().s()) {
                     StatService.onEvent(this.b, "forumlist_to_frs", "tofrsclick", 1);
                 }
                 FrsActivity.a(this.b, (String) view.getTag(), (String) null);
@@ -196,7 +196,7 @@ public class s extends BaseAdapter implements View.OnClickListener {
                     ForumDetailActivity.a(this.b, String.valueOf(tVar.d.getTag()), this.i);
                     return;
                 }
-                if (TiebaApplication.h().t()) {
+                if (TiebaApplication.g().s()) {
                     StatService.onEvent(this.b, "forumlist_to_frs", "tofrsclick", 1);
                 }
                 FrsActivity.a(this.b, tVar.d.getText().toString(), (String) null);

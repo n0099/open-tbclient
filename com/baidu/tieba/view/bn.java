@@ -1,21 +1,33 @@
 package com.baidu.tieba.view;
 
+import android.app.Activity;
 import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.mobstat.StatService;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.square.SquareSearchActivity;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class bn implements View.OnClickListener {
-    final /* synthetic */ TbCheckBox a;
+class bn implements View.OnClickListener {
+    final /* synthetic */ SearchBoxView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bn(TbCheckBox tbCheckBox) {
-        this.a = tbCheckBox;
+    public bn(SearchBoxView searchBoxView) {
+        this.a = searchBoxView;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        boolean d;
-        TbCheckBox tbCheckBox = this.a;
-        d = this.a.d();
-        tbCheckBox.setChecked(!d);
+        Activity activity;
+        Activity activity2;
+        String str;
+        if (view.getId() == R.id.search_bg_layout) {
+            if (TiebaApplication.g().s()) {
+                activity2 = this.a.a;
+                str = this.a.b;
+                StatService.onEvent(activity2, str, "click", 1);
+            }
+            activity = this.a.a;
+            SquareSearchActivity.a(activity, "");
+        }
     }
 }
