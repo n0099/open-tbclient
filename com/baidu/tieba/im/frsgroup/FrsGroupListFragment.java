@@ -14,8 +14,9 @@ import com.baidu.tieba.BaseFragment;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.im.data.GroupInfoData;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
-import com.baidu.tieba.im.message.be;
-import com.baidu.tieba.view.bw;
+import com.baidu.tieba.im.message.bn;
+import com.baidu.tieba.im.message.cp;
+import com.baidu.tieba.view.cm;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
@@ -25,11 +26,11 @@ public class FrsGroupListFragment extends BaseFragment implements AbsListView.On
     private FrsGroupActivity a;
     private Runnable aa = new e(this);
     private com.baidu.tieba.im.messageCenter.g ab = new f(this);
-    private com.baidu.tieba.im.model.c b;
+    private com.baidu.tieba.im.model.d b;
     private g c;
     private BdListView d;
     private Button e;
-    private bw f;
+    private cm f;
     private InitGuideView g;
     private GroupListAdapter h;
     private Handler i;
@@ -38,12 +39,13 @@ public class FrsGroupListFragment extends BaseFragment implements AbsListView.On
     public void a(Bundle bundle) {
         super.a(bundle);
         this.a = (FrsGroupActivity) i();
-        this.b = this.a.b();
-        this.c = this.a.c();
+        this.b = this.a.c();
+        this.c = this.a.d();
         this.i = new Handler();
         this.b.a(this.ab);
         com.baidu.tieba.im.messageCenter.e.a().a(103104, this);
         com.baidu.tieba.im.c.m.a().a("dismiss_group", this);
+        com.baidu.tieba.im.messageCenter.e.a().a(103105, this);
     }
 
     private void G() {
@@ -72,7 +74,7 @@ public class FrsGroupListFragment extends BaseFragment implements AbsListView.On
         this.g = (InitGuideView) inflate.findViewById(R.id.group_guide);
         this.e = (Button) inflate.findViewById(R.id.guide_create);
         this.d = (BdListView) inflate.findViewById(R.id.group_list);
-        this.f = new bw(this.a);
+        this.f = new cm(this.a);
         this.d.setPullRefresh(this.f);
         this.h = new GroupListAdapter(this.a);
         this.d.setAdapter((ListAdapter) this.h);
@@ -192,8 +194,8 @@ public class FrsGroupListFragment extends BaseFragment implements AbsListView.On
     }
 
     @Override // com.baidu.tieba.BaseFragment
-    public void c(int i) {
-        super.c(i);
+    public void d(int i) {
+        super.d(i);
         if (i == 1) {
             this.d.setDivider(j().getDrawable(R.drawable.list_divider_1));
         } else {
@@ -219,10 +221,10 @@ public class FrsGroupListFragment extends BaseFragment implements AbsListView.On
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e(boolean z) {
-        int an = TiebaApplication.g().an();
+        int al = TiebaApplication.h().al();
         if (!z) {
             this.d.setDivider(j().getDrawable(17170445));
-        } else if (an == 1) {
+        } else if (al == 1) {
             this.d.setDivider(j().getDrawable(R.drawable.list_divider_1));
         } else {
             this.d.setDivider(j().getDrawable(R.drawable.list_divider));
@@ -249,11 +251,16 @@ public class FrsGroupListFragment extends BaseFragment implements AbsListView.On
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(com.baidu.tieba.im.message.o oVar) {
-        if (oVar instanceof be) {
-            be beVar = (be) oVar;
-            if (!beVar.i()) {
-                a(beVar.a());
+    public void a(com.baidu.tieba.im.message.q qVar) {
+        if (qVar instanceof bn) {
+            bn bnVar = (bn) qVar;
+            if (!bnVar.k()) {
+                a(bnVar.a());
+            }
+        } else if (qVar instanceof cp) {
+            cp cpVar = (cp) qVar;
+            if (!cpVar.k() || cpVar.l() == 2230110) {
+                K();
             }
         }
     }

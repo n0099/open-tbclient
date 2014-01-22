@@ -1,34 +1,21 @@
 package com.baidu.tieba.im.message;
 
 import com.google.protobuf.MessageLite;
-import protobuf.ReportGroup.ReportGroupReq;
+import protobuf.GetPeerInfo.GetPeerInfoReq;
 /* loaded from: classes.dex */
-public class ao extends o implements com.baidu.tieba.im.coder.g {
-    private int a;
-    private int b;
+public class ao extends q implements com.baidu.tieba.im.coder.g {
+    private long a;
 
     public ao() {
-        e(103103);
+        e(205004);
     }
 
-    public int b() {
-        return this.a;
-    }
-
-    public void a(int i) {
-        this.a = i;
-    }
-
-    public int c() {
-        return this.b;
-    }
-
-    public void b(int i) {
-        this.b = i;
+    public void a(long j) {
+        this.a = j;
     }
 
     @Override // com.baidu.tieba.im.coder.g
     public MessageLite a() {
-        return ReportGroupReq.ReportGroupReqIdl.newBuilder().a(ReportGroupReq.DataReq.newBuilder().a(b()).b(c()).build()).build();
+        return GetPeerInfoReq.GetPeerInfoReqIdl.newBuilder().a(GetPeerInfoReq.DataReq.newBuilder().a(this.a).build()).build();
     }
 }

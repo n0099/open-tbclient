@@ -29,7 +29,11 @@ public abstract class WritableEmotionGroup {
 
     public abstract String f();
 
-    public com.baidu.adp.widget.ImageView.d g() {
+    public abstract int g();
+
+    public abstract int h();
+
+    public com.baidu.adp.widget.ImageView.d i() {
         return this.a;
     }
 
@@ -51,7 +55,7 @@ public abstract class WritableEmotionGroup {
         this.b = dVar;
     }
 
-    public int h() {
+    public int j() {
         return this.d;
     }
 
@@ -60,7 +64,7 @@ public abstract class WritableEmotionGroup {
         this.d = i;
     }
 
-    public int i() {
+    public int k() {
         return this.c;
     }
 

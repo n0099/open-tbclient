@@ -1,11 +1,9 @@
 package com.baidu.tieba.square;
 
-import com.baidu.tieba.im.SingleRunnable;
-import com.baidu.tieba.util.DatabaseService;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bj extends SingleRunnable<ArrayList<String>> {
+public class bj implements com.baidu.tieba.im.a<ArrayList<String>> {
     final /* synthetic */ SquareSearchActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,9 +12,8 @@ public class bj extends SingleRunnable<ArrayList<String>> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.SingleRunnable
-    /* renamed from: a */
-    public ArrayList<String> b() {
-        return DatabaseService.p();
+    @Override // com.baidu.tieba.im.a
+    public void a(ArrayList<String> arrayList) {
+        this.a.a(true, arrayList);
     }
 }

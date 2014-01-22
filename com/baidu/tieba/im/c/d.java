@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.c;
 
-import com.baidu.tieba.im.db.ad;
+import com.baidu.tieba.im.db.ae;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class d implements Runnable {
@@ -13,6 +13,6 @@ public final class d implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        ad.a().a(new e(this));
+        ae.a().a(new e(this));
     }
 }

@@ -23,14 +23,14 @@ public class as implements View.OnClickListener {
         ProgressBar progressBar;
         ImageView imageView;
         Bitmap bitmap;
-        progressBar = this.c.g;
+        progressBar = this.c.f;
         if (progressBar.getVisibility() != 0) {
             imageView = this.c.b;
             bitmap = this.c.c;
             imageView.setImageBitmap(bitmap);
-            this.c.x = false;
+            this.c.w = false;
             this.c.c(this.a);
-            this.c.s = this.b;
+            this.c.r = this.b;
         }
     }
 }

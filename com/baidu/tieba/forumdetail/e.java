@@ -1,5 +1,6 @@
 package com.baidu.tieba.forumdetail;
 
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ProgressBar;
@@ -86,7 +87,7 @@ public class e extends com.baidu.adp.a.e {
 
     public void a(int i) {
         this.a.getLayoutMode().a(i == 1);
-        this.a.getLayoutMode().a(this.d);
+        this.a.getLayoutMode().a((View) this.d);
         this.f.c(i);
         this.g.a(this.a, i);
         this.h.a(this.a, i);

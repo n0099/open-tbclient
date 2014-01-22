@@ -1,28 +1,68 @@
 package com.baidu.tieba.im.message;
 
+import com.baidu.tieba.im.data.GroupInfoData;
+import java.util.ArrayList;
 import java.util.LinkedList;
-import protobuf.DelGroupUsers.DelGroupUsersRes;
+import java.util.List;
+import protobuf.Im;
+import protobuf.QueryHotGroups.QueryHotGroupsRes;
 /* loaded from: classes.dex */
-public class bu extends cc implements com.baidu.tieba.im.coder.f {
-    private String a;
+public class bu extends cr implements com.baidu.tieba.im.coder.f {
+    private List<GroupInfoData> a;
+    private boolean b;
 
-    public String a() {
+    public bu() {
+        super.e(103012);
+    }
+
+    public List<GroupInfoData> a() {
         return this.a;
     }
 
-    public void a(String str) {
-        this.a = str;
+    public void a(List<GroupInfoData> list) {
+        this.a = list;
+    }
+
+    public boolean b() {
+        return this.b;
+    }
+
+    public void a(boolean z) {
+        this.b = z;
     }
 
     @Override // com.baidu.tieba.im.coder.f
-    public void a(LinkedList<o> linkedList, byte[] bArr, int i) {
-        DelGroupUsersRes.DelGroupUsersResIdl parseFrom = DelGroupUsersRes.DelGroupUsersResIdl.parseFrom(bArr);
+    public void a(LinkedList<q> linkedList, byte[] bArr, int i) {
+        QueryHotGroupsRes.QueryHotGroupsResIdl parseFrom = QueryHotGroupsRes.QueryHotGroupsResIdl.parseFrom(bArr);
         g(parseFrom.getError().getErrorno());
         c(parseFrom.getError().getUsermsg());
         linkedList.add(this);
-        e(i);
-        if (!i()) {
-            a(String.valueOf(parseFrom.getData().getGroupId()));
+        if (!k()) {
+            a(new ArrayList());
+            int groupsCount = parseFrom.getData().getGroupsCount();
+            for (int i2 = 0; i2 < groupsCount; i2++) {
+                GroupInfoData groupInfoData = new GroupInfoData();
+                a().add(groupInfoData);
+                Im.GroupInfo groups = parseFrom.getData().getGroups(i2);
+                groupInfoData.setGroupId(groups.getGroupId());
+                groupInfoData.setForumId(groups.getForumId());
+                groupInfoData.setForumName(groups.getForumName());
+                groupInfoData.setName(groups.getName());
+                groupInfoData.setIntro(groups.getIntro());
+                groupInfoData.setPortrait(groups.getPortrait());
+                groupInfoData.setMaxMemberNum(groups.getMaxMemberNum());
+                groupInfoData.setMemberNum(groups.getMemberNum());
+                groupInfoData.setAuthorId(groups.getAuthorId());
+                groupInfoData.setAuthorName(groups.getAuthorName());
+                groupInfoData.setGrade(groups.getGrade());
+                groupInfoData.setForumShowName(groups.getForumShowName());
+                groupInfoData.setMemGroup(groups.getIsMemberGroup() == 1);
+            }
+            if (parseFrom.getData().getHasMore() == 1) {
+                a(true);
+            } else {
+                a(false);
+            }
         }
     }
 }

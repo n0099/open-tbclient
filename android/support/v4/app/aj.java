@@ -1,7 +1,6 @@
 package android.support.v4.app;
 
 import android.util.Log;
-import com.baidu.zeus.bouncycastle.DERTags;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -134,7 +133,7 @@ public class aj extends ah {
     }
 
     public String toString() {
-        StringBuilder sb = new StringBuilder((int) DERTags.TAGGED);
+        StringBuilder sb = new StringBuilder(128);
         sb.append("LoaderManager{");
         sb.append(Integer.toHexString(System.identityHashCode(this)));
         sb.append(" in ");

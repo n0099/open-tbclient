@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tieba.view.NavigationBar;
-import com.baidu.zeus.NotificationProxy;
 import com.slidingmenu.lib.R;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -40,7 +39,7 @@ public class ProtocolActivity extends com.baidu.tieba.j {
         String string = getString(R.string.account_protocol);
         navigationBar.a(string);
         this.a = (TextView) findViewById(R.id.text);
-        StringBuilder sb = new StringBuilder((int) NotificationProxy.MAX_URL_LENGTH);
+        StringBuilder sb = new StringBuilder(1024);
         ?? r2 = 0;
         try {
             try {
@@ -102,7 +101,7 @@ public class ProtocolActivity extends com.baidu.tieba.j {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.c.c(i);
-        com.baidu.tieba.util.bl.c(this.b, i);
-        com.baidu.tieba.util.bl.b(this.a, i);
+        com.baidu.tieba.util.bs.c(this.b, i);
+        com.baidu.tieba.util.bs.b(this.a, i);
     }
 }

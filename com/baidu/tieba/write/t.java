@@ -20,12 +20,12 @@ class t implements Runnable {
         EditText editText3;
         editText = this.a.f;
         if (editText.getVisibility() == 0) {
-            editorToolComponetContainer2 = this.a.B;
+            editorToolComponetContainer2 = this.a.z;
             editText3 = this.a.f;
             editorToolComponetContainer2.c(editText3);
             return;
         }
-        editorToolComponetContainer = this.a.B;
+        editorToolComponetContainer = this.a.z;
         editText2 = this.a.h;
         editorToolComponetContainer.c(editText2);
     }

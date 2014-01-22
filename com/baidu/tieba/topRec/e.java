@@ -6,12 +6,10 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.browser.explorer.BdWebErrorView;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.topRec.TRForumListData;
-import com.baidu.tieba.util.bl;
-import com.baidu.tieba.util.bo;
+import com.baidu.tieba.util.bs;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class e extends BaseAdapter implements View.OnClickListener {
@@ -27,7 +25,7 @@ public class e extends BaseAdapter implements View.OnClickListener {
     public e(TopRecActivity topRecActivity) {
         this.c = topRecActivity;
         this.d = new com.baidu.tieba.util.i(this.c);
-        this.d.a(BdWebErrorView.ERROR_CODE_400, BdWebErrorView.ERROR_CODE_400);
+        this.d.a(400, 400);
     }
 
     public void a(TRForumListData tRForumListData) {
@@ -101,25 +99,25 @@ public class e extends BaseAdapter implements View.OnClickListener {
             view.setOnClickListener(this);
         }
         g gVar2 = (g) view.getTag();
-        int an = TiebaApplication.g().an();
-        bl.c(gVar2.b, an);
-        bl.c(gVar2.c, an);
-        bl.c(gVar2.d, an);
-        bl.c(gVar2.e, an);
-        bl.c(gVar2.f, an);
-        if (an != 1) {
+        int al = TiebaApplication.h().al();
+        bs.c(gVar2.b, al);
+        bs.c(gVar2.c, al);
+        bs.c(gVar2.d, al);
+        bs.c(gVar2.e, al);
+        bs.c(gVar2.f, al);
+        if (al != 1) {
             gVar2.b.setTextColor(-14277082);
             gVar2.c.setTextColor(-6775644);
             gVar2.d.setTextColor(-6775644);
             gVar2.e.setTextColor(-6842215);
         }
-        if (an == 1) {
+        if (al == 1) {
             view.setBackgroundColor(this.c.getResources().getColor(R.color.flist_item_color_night));
         } else {
             view.setBackgroundColor(this.c.getResources().getColor(R.color.flist_item_color_even_day));
         }
         TRForumListData.TRForum tRForum = this.a.forum_list[i];
-        bo.e("ForumListAdapter", "getView", "forum name:" + this.a.forum_list[i].forum_name + "forum avatar:" + this.a.forum_list[i].avatar);
+        com.baidu.adp.lib.g.e.e("ForumListAdapter", "getView", "forum name:" + this.a.forum_list[i].forum_name + "forum avatar:" + this.a.forum_list[i].avatar);
         String str = tRForum.avatar;
         this.d.f(str, new f(this, str, gVar2.a));
         gVar2.a.setTag(str);
@@ -133,12 +131,12 @@ public class e extends BaseAdapter implements View.OnClickListener {
             }
             gVar2.f.setText(R.string.attention_y);
             gVar2.f.setGravity(17);
-            if (TiebaApplication.g().an() == 1) {
+            if (TiebaApplication.h().al() == 1) {
                 gVar2.f.setTextColor(this.c.getResources().getColor(R.color.forum_list_already_attention_night));
             } else {
                 gVar2.f.setTextColor(this.c.getResources().getColor(R.color.forum_list_attention));
             }
-            gVar2.f.setPadding(0, 0, 0, com.baidu.adp.lib.h.g.a((Context) this.c, 2.0f));
+            gVar2.f.setPadding(0, 0, 0, com.baidu.adp.lib.g.g.a((Context) this.c, 2.0f));
             gVar2.f.setTag(Integer.valueOf(tRForum.forum_id));
             gVar2.f.setOnClickListener(this.c);
         } else {
@@ -147,7 +145,7 @@ public class e extends BaseAdapter implements View.OnClickListener {
             }
             gVar2.f.setText(R.string.attention_n);
             gVar2.f.setTextColor(this.c.getResources().getColor(R.color.forum_list_attention));
-            gVar2.f.setPadding(com.baidu.adp.lib.h.g.a((Context) this.c, 30.0f), 0, com.baidu.adp.lib.h.g.a((Context) this.c, 10.0f), com.baidu.adp.lib.h.g.a((Context) this.c, 2.0f));
+            gVar2.f.setPadding(com.baidu.adp.lib.g.g.a((Context) this.c, 30.0f), 0, com.baidu.adp.lib.g.g.a((Context) this.c, 10.0f), com.baidu.adp.lib.g.g.a((Context) this.c, 2.0f));
             gVar2.f.setGravity(16);
             gVar2.f.setTag(Integer.valueOf(tRForum.forum_id));
             gVar2.f.setOnClickListener(this.c);
@@ -161,13 +159,13 @@ public class e extends BaseAdapter implements View.OnClickListener {
         }
         int i = 0;
         for (int i2 = 0; i2 < this.a.forum_list.length; i2++) {
-            int e = TiebaApplication.g().e(this.a.forum_list[i2].forum_name);
-            if (e == 1) {
+            int d = TiebaApplication.h().d(this.a.forum_list[i2].forum_name);
+            if (d == 1) {
                 if (this.a.forum_list[i2].is_like == 0) {
                     this.a.forum_list[i2].is_like = 1;
                     i++;
                 }
-            } else if (e == -1 && this.a.forum_list[i2].is_like == 1) {
+            } else if (d == -1 && this.a.forum_list[i2].is_like == 1) {
                 this.a.forum_list[i2].is_like = 0;
                 i--;
             }
@@ -177,6 +175,6 @@ public class e extends BaseAdapter implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        FrsActivity.a(this.c, ((g) view.getTag()).b.getText().toString(), (String) null);
+        FrsActivity.a(this.c, ((g) view.getTag()).b.getText().toString(), null);
     }
 }

@@ -16,7 +16,7 @@ public class SearchBar extends LinearLayout {
     private EditText b;
     private Button c;
     private Button d;
-    private bl e;
+    private cb e;
 
     public SearchBar(Context context) {
         super(context);
@@ -45,18 +45,18 @@ public class SearchBar extends LinearLayout {
         this.b = (EditText) findViewById(R.id.home_et_search);
         this.c = (Button) findViewById(R.id.home_bt_search_del);
         this.d = (Button) findViewById(R.id.home_bt_search_s);
-        this.b.addTextChangedListener(new bi(this));
-        this.c.setOnClickListener(new bj(this));
-        this.d.setOnClickListener(new bk(this));
-        a(TiebaApplication.g().an());
+        this.b.addTextChangedListener(new by(this));
+        this.c.setOnClickListener(new bz(this));
+        this.d.setOnClickListener(new ca(this));
+        a(TiebaApplication.h().al());
     }
 
     public void setHint(String str) {
         this.b.setHint(str);
     }
 
-    public void setHandler(bl blVar) {
-        this.e = blVar;
+    public void setHandler(cb cbVar) {
+        this.e = cbVar;
     }
 
     public int getSearchButtonId() {

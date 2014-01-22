@@ -1,21 +1,29 @@
 package com.baidu.tieba.im.chat;
+
+import android.view.View;
+import android.widget.AbsListView;
+import com.baidu.tbadk.gif.GifView;
+import com.baidu.tieba.im.widget.chatVoiceView.ChatVoiceView;
+import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h implements com.baidu.tieba.im.a<Boolean> {
-    final /* synthetic */ com.baidu.tieba.im.message.e a;
-    final /* synthetic */ a b;
+public class h implements AbsListView.RecyclerListener {
+    final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public h(a aVar, com.baidu.tieba.im.message.e eVar) {
-        this.b = aVar;
-        this.a = eVar;
+    public h(a aVar) {
+        this.a = aVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    public void a(Boolean bool) {
-        this.a.f(System.currentTimeMillis());
-        com.baidu.tieba.im.messageCenter.e.a().a(this.a);
-        com.baidu.adp.lib.h.e.d("SHANG sendMessage to queue");
+    @Override // android.widget.AbsListView.RecyclerListener
+    public void onMovedToScrapHeap(View view) {
+        View findViewById = view.findViewById(R.id.lay_msgitem_voice);
+        if (findViewById != null && (findViewById instanceof ChatVoiceView)) {
+            ((ChatVoiceView) findViewById).a();
+        }
+        View findViewById2 = view.findViewById(R.id.emotion_msgitem_image);
+        if (findViewById2 != null && (findViewById2 instanceof GifView)) {
+            ((GifView) findViewById2).b();
+        }
     }
 }

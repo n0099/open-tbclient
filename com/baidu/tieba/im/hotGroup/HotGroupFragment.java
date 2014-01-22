@@ -11,20 +11,19 @@ import android.widget.ListAdapter;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.adp.widget.ListView.q;
 import com.baidu.adp.widget.ListView.r;
-import com.baidu.mobstat.StatService;
 import com.baidu.tieba.BaseFragment;
-import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.im.data.GroupInfoData;
 import com.baidu.tieba.im.groupInfo.GroupInfoActivity;
 import com.baidu.tieba.im.messageCenter.e;
 import com.baidu.tieba.im.messageCenter.g;
-import com.baidu.tieba.util.ak;
-import com.baidu.tieba.view.bw;
+import com.baidu.tieba.util.an;
+import com.baidu.tieba.util.by;
+import com.baidu.tieba.view.cm;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class HotGroupFragment extends BaseFragment implements com.baidu.adp.widget.ListView.b, q, r {
     private BdListView a;
-    private bw b;
+    private cm b;
     private HotGroupActivity c;
     private View d;
     private HotGroupAdapter e;
@@ -44,7 +43,7 @@ public class HotGroupFragment extends BaseFragment implements com.baidu.adp.widg
         View inflate = layoutInflater.inflate(R.layout.hot_group_fragment, (ViewGroup) null);
         this.a = (BdListView) inflate.findViewById(R.id.hot_group_list);
         this.a.a(this, 300L);
-        this.b = new bw(this.c);
+        this.b = new cm(this.c);
         this.b.a(this);
         this.e = new HotGroupAdapter(this.c);
         this.a.setAdapter((ListAdapter) this.e);
@@ -65,16 +64,14 @@ public class HotGroupFragment extends BaseFragment implements com.baidu.adp.widg
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         GroupInfoData item = this.e.getItem(i);
         if (item != null) {
-            if (TiebaApplication.g().s()) {
-                StatService.onEvent(this.c, "hot_group_item", "click", 1);
-            }
+            by.a(this.c, "hot_group_item", "click", 1, new Object[0]);
             GroupInfoActivity.a(this.c, item.getGroupId(), 0);
         }
     }
 
     @Override // com.baidu.tieba.BaseFragment
-    public void c(int i) {
-        super.c(i);
+    public void d(int i) {
+        super.d(i);
         this.c.a().a(this.d);
         this.b.a(i);
     }
@@ -84,6 +81,7 @@ public class HotGroupFragment extends BaseFragment implements com.baidu.adp.widg
         super.d(bundle);
         e.a().a(103012, this.g);
         e.a().a(-116, this.g);
+        e.a().a(103105, this.g);
     }
 
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
@@ -104,7 +102,8 @@ public class HotGroupFragment extends BaseFragment implements com.baidu.adp.widg
         }
     }
 
-    private void H() {
+    /* JADX INFO: Access modifiers changed from: private */
+    public void H() {
         if (this.f == null) {
             this.f = new c();
         }
@@ -115,7 +114,7 @@ public class HotGroupFragment extends BaseFragment implements com.baidu.adp.widg
     /* JADX INFO: Access modifiers changed from: private */
     public void I() {
         if (this.a != null && this.e != null) {
-            ak.a(this.a, this.e.a(), 0, -1);
+            an.a(this.a, this.e.a(), 0, -1);
         }
     }
 

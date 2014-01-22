@@ -43,7 +43,7 @@ public class o extends SingleRunnable<Boolean> {
             i2++;
             i3 = i;
         }
-        com.baidu.adp.lib.h.e.d("affectCount:" + i3);
+        com.baidu.adp.lib.g.e.d("affectCount:" + i3);
         return this.b.a(linkedList);
     }
 }

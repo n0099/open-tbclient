@@ -1,7 +1,6 @@
 package android.support.v4.view;
 
 import android.view.KeyEvent;
-import com.baidu.zeus.bouncycastle.DERTags;
 /* loaded from: classes.dex */
 class t implements w {
     private static int a(int i, int i2, int i3, int i4, int i5) {
@@ -30,7 +29,7 @@ class t implements w {
 
     @Override // android.support.v4.view.w
     public boolean a(int i, int i2) {
-        return a(a(a(i) & 247, i2, 1, 64, DERTags.TAGGED), i2, 2, 16, 32) == i2;
+        return a(a(a(i) & 247, i2, 1, 64, 128), i2, 2, 16, 32) == i2;
     }
 
     @Override // android.support.v4.view.w

@@ -101,19 +101,19 @@ public class bg extends BaseAdapter implements AbsListView.OnScrollListener, by 
             return inflate;
         }
         View view = new View(this.c);
-        view.setLayoutParams(new AbsListView.LayoutParams(-1, com.baidu.adp.lib.h.g.a(this.c, 1.0f)));
+        view.setLayoutParams(new AbsListView.LayoutParams(-1, com.baidu.adp.lib.g.g.a(this.c, 1.0f)));
         return view;
     }
 
     private void a(View view, View view2, int i) {
         com.baidu.tieba.j jVar = (com.baidu.tieba.j) this.c;
-        jVar.getLayoutMode().a(TiebaApplication.g().an() == 1);
+        jVar.getLayoutMode().a(TiebaApplication.h().al() == 1);
         jVar.getLayoutMode().a(view);
         bk bkVar = (bk) view.getTag();
         v vVar = (v) getItem(i);
         bkVar.c.setText(vVar.b());
         bkVar.d.setText(vVar.f() + "");
-        bkVar.d.setBackgroundResource(com.baidu.tieba.util.m.b(vVar.f()));
+        bkVar.d.setBackgroundResource(com.baidu.tieba.util.n.b(vVar.f()));
         bkVar.e.setText(vVar.g() + "/" + vVar.h());
         bkVar.m.clearAnimation();
         bkVar.f.clearAnimation();
@@ -188,7 +188,7 @@ public class bg extends BaseAdapter implements AbsListView.OnScrollListener, by 
         if (this.f.d(c) != null) {
             bkVar.a.invalidate();
         } else if (!this.e) {
-            this.f.a(vVar.c(), new bi(this, view2));
+            this.f.b(vVar.c(), new bi(this, view2));
         }
     }
 
@@ -197,7 +197,7 @@ public class bg extends BaseAdapter implements AbsListView.OnScrollListener, by 
         int itemViewType = getItemViewType(i);
         View a = view == null ? a(itemViewType) : view;
         if (itemViewType == 1) {
-            if (TiebaApplication.g().an() == 1) {
+            if (TiebaApplication.h().al() == 1) {
                 a.setBackgroundDrawable(this.h);
             } else {
                 a.setBackgroundDrawable(this.i);
@@ -234,7 +234,7 @@ public class bg extends BaseAdapter implements AbsListView.OnScrollListener, by 
     @Override // com.baidu.tieba.home.by
     public void a(String str, String str2) {
         if (!TextUtils.isEmpty(str2)) {
-            com.baidu.adp.lib.h.g.a(this.c, str2);
+            com.baidu.adp.lib.g.g.a(this.c, str2);
         }
         synchronized (this) {
             this.g.remove(str);
@@ -254,7 +254,7 @@ public class bg extends BaseAdapter implements AbsListView.OnScrollListener, by 
                     vVar.b(signData.getCountSignNum());
                     vVar.d(signData.getBonusPoint());
                     vVar.a(1);
-                    TiebaApplication.g().a(vVar.b(), signData.getBonusPoint(), -1);
+                    TiebaApplication.h().a(vVar.b(), signData.getBonusPoint(), -1);
                     ArrayList<v> m = this.b.m();
                     if (m.contains(vVar)) {
                         m.remove(vVar);

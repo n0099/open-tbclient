@@ -1,24 +1,24 @@
 package com.baidu.tieba.im.messageCenter.a;
 
-import com.baidu.tieba.im.message.ap;
-import com.baidu.tieba.im.message.by;
-import com.baidu.tieba.im.message.cc;
+import com.baidu.tieba.im.message.av;
+import com.baidu.tieba.im.message.ck;
+import com.baidu.tieba.im.message.cr;
 /* loaded from: classes.dex */
 public class u extends com.baidu.tieba.im.messageCenter.d {
     @Override // com.baidu.tieba.im.messageCenter.d
-    public cc a(com.baidu.tieba.im.message.o oVar) {
-        if (oVar == null || !(oVar instanceof ap)) {
+    public cr a(com.baidu.tieba.im.message.q qVar) {
+        if (qVar == null || !(qVar instanceof av)) {
             return null;
         }
-        long b = ((ap) oVar).b();
-        by byVar = new by();
-        byVar.e(-204);
-        byVar.a(oVar);
-        byVar.g(0);
-        byVar.a(b);
+        long b = ((av) qVar).b();
+        ck ckVar = new ck();
+        ckVar.e(-204);
+        ckVar.a(qVar);
+        ckVar.g(0);
+        ckVar.a(b);
         String str = b + "";
         com.baidu.adp.lib.cache.s<String> h = com.baidu.tieba.b.a.a().h();
         h.a(str, h.a(str));
-        return byVar;
+        return ckVar;
     }
 }

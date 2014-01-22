@@ -1,5 +1,26 @@
 package com.baidu.tieba.im.chat.personaltalk;
+
+import com.baidu.tieba.im.message.ar;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public interface n {
-    void a();
+public class n implements com.baidu.tieba.im.a<PersonalSettingItemData> {
+    final /* synthetic */ long a;
+    final /* synthetic */ l b;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public n(l lVar, long j) {
+        this.b = lVar;
+        this.a = j;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.a
+    public void a(PersonalSettingItemData personalSettingItemData) {
+        if (personalSettingItemData != null) {
+            this.b.f = personalSettingItemData.isAcceptNotify();
+        }
+        ar arVar = new ar();
+        arVar.a(this.a);
+        com.baidu.tieba.im.messageCenter.e.a().a(arVar);
+    }
 }

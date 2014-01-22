@@ -1,44 +1,63 @@
 package com.baidu.tieba.im.chat;
 
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.widget.Button;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class cg implements TextWatcher {
-    final /* synthetic */ bs a;
+public class cg {
+    String a;
+    com.baidu.tieba.j b;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public cg(bs bsVar) {
-        this.a = bsVar;
+    public cg(String str, com.baidu.tieba.j jVar) {
+        this.a = null;
+        this.a = str;
+        this.b = jVar;
     }
 
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
-        Button button;
-        boolean W;
-        Button button2;
-        Button button3;
-        if (editable == null || editable.length() <= 0) {
-            button = this.a.y;
-            button.setEnabled(false);
-            return;
+    public void a() {
+        try {
+            if (this.a == null || this.a.length() <= 0) {
+                a(this.b.getString(R.string.save_error));
+            }
+            new com.baidu.tieba.util.i(this.b).a(this.a, false, true, (com.baidu.tbadk.imageManager.c) new ch(this));
+        } catch (Exception e) {
+            com.baidu.adp.lib.g.e.b("SaveImageAsyncTask", "execute", "error" + e.getMessage());
+            a(this.b.getString(R.string.save_error));
         }
-        W = this.a.W();
-        if (W) {
-            button3 = this.a.y;
-            button3.setEnabled(true);
-            return;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public String a(String str, byte[] bArr) {
+        String str2;
+        try {
+            if (bArr != null) {
+                if (!com.baidu.adp.lib.g.g.a(bArr)) {
+                    str2 = ".jpg";
+                } else {
+                    str2 = ".gif";
+                }
+                String f = com.baidu.tieba.util.bu.f(str);
+                if (f == null) {
+                    return this.b.getString(R.string.save_error);
+                }
+                String str3 = f + str2;
+                for (int i = 0; com.baidu.tieba.util.ad.b(str3) && i < 10000; i++) {
+                    str3 = f + String.valueOf(Math.round(Math.random() * 9.9999999E7d)) + str2;
+                }
+                String a = com.baidu.tieba.util.ad.a(str3, bArr);
+                if (a != null) {
+                    new com.baidu.tieba.util.aw(this.b).a(a);
+                    return this.b.getString(R.string.save_image_to_album);
+                }
+                return com.baidu.tieba.util.ad.b();
+            }
+            return this.b.getString(R.string.save_error);
+        } catch (Exception e) {
+            com.baidu.adp.lib.g.e.b("SaveImageAsyncTask", "saveByte", "error" + e.getMessage());
+            return this.b.getString(R.string.save_error);
         }
-        button2 = this.a.y;
-        button2.setEnabled(false);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public final void a(String str) {
+        this.b.showToast(str);
     }
 }

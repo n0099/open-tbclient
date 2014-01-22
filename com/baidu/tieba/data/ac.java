@@ -2,7 +2,6 @@ package com.baidu.tieba.data;
 
 import android.content.Context;
 import com.baidu.cloudsdk.social.core.SocialConstants;
-import com.baidu.tieba.util.bo;
 import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -93,7 +92,7 @@ public class ac {
         try {
             a(new JSONObject(str), Boolean.valueOf(z));
         } catch (Exception e) {
-            bo.b(getClass().getName(), "paserJson", e.toString());
+            com.baidu.adp.lib.g.e.b(getClass().getName(), "paserJson", e.toString());
         }
     }
 
@@ -157,7 +156,7 @@ public class ac {
                 this.g = optJSONObject2.optString("tid");
                 this.h = optJSONObject2.optString("title");
             } catch (Exception e) {
-                bo.b(getClass().getName(), "paserJson", e.toString());
+                com.baidu.adp.lib.g.e.b(getClass().getName(), "paserJson", e.toString());
             }
         }
     }

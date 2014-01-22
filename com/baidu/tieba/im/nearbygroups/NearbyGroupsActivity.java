@@ -11,19 +11,20 @@ import com.baidu.tieba.im.creategroup.CreateGroupStepActivity;
 import com.baidu.tieba.im.data.GroupPermData;
 import com.baidu.tieba.im.data.NearbyGroupsData;
 import com.baidu.tieba.im.groupInfo.GroupInfoActivity;
-import com.baidu.tieba.im.message.bn;
-import com.baidu.tieba.im.message.cb;
-import com.baidu.tieba.im.message.o;
-import com.baidu.tieba.im.model.ad;
+import com.baidu.tieba.im.message.bx;
+import com.baidu.tieba.im.message.cp;
+import com.baidu.tieba.im.message.cq;
+import com.baidu.tieba.im.message.q;
+import com.baidu.tieba.im.model.af;
 import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.bq;
+import com.baidu.tieba.util.ca;
 import com.slidingmenu.lib.R;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class NearbyGroupsActivity extends com.baidu.tieba.j implements com.baidu.tieba.im.messageCenter.g {
     private k b = null;
-    private ad c = null;
-    private com.baidu.adp.lib.h.c d = null;
+    private af c = null;
+    private com.baidu.adp.lib.g.c d = null;
     private com.baidu.adp.widget.ListView.b e = new d(this);
     com.baidu.adp.lib.c.d a = new e(this);
 
@@ -39,11 +40,12 @@ public class NearbyGroupsActivity extends com.baidu.tieba.j implements com.baidu
         this.b.a(this.e);
         this.b.a(new b(this));
         this.b.a(new c(this));
-        this.d = new com.baidu.adp.lib.h.c(this);
-        this.c = new ad();
+        this.d = new com.baidu.adp.lib.g.c(this);
+        this.c = new af();
         com.baidu.tieba.im.messageCenter.e.a().a(103009, this);
         com.baidu.tieba.im.messageCenter.e.a().a(103008, this);
         com.baidu.tieba.im.messageCenter.e.a().a(-115, this);
+        com.baidu.tieba.im.messageCenter.e.a().a(103105, this);
         this.b.g();
     }
 
@@ -58,7 +60,7 @@ public class NearbyGroupsActivity extends com.baidu.tieba.j implements com.baidu
             return true;
         }
         try {
-            return bq.a(bq.a(), new Date(j)) >= 1;
+            return ca.a(ca.a(), new Date(j)) >= 1;
         } catch (Exception e) {
             return true;
         }
@@ -118,30 +120,37 @@ public class NearbyGroupsActivity extends com.baidu.tieba.j implements com.baidu
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(o oVar) {
-        if (oVar != null) {
-            if (oVar.u() == 103009 || oVar.u() == -115) {
+    public void a(q qVar) {
+        if (qVar != null) {
+            if (qVar.w() == 103105) {
+                if (qVar instanceof cp) {
+                    cp cpVar = (cp) qVar;
+                    if (!cpVar.k() || cpVar.l() == 2230110) {
+                        this.c.d();
+                    }
+                }
+            } else if (qVar.w() == 103009 || qVar.w() == -115) {
                 this.c.a(false);
-                if (!(oVar instanceof bn)) {
+                if (!(qVar instanceof bx)) {
                     this.b.h();
                     return;
                 }
-                if (oVar.u() == -115) {
+                if (qVar.w() == -115) {
                     if (UtilHelper.b()) {
-                        if (a(TiebaApplication.g().bd())) {
+                        if (a(TiebaApplication.h().bc())) {
                             this.c.h();
                             return;
                         }
                         this.c.g();
                     }
                 } else {
-                    TiebaApplication.g().d(System.currentTimeMillis());
+                    TiebaApplication.h().d(System.currentTimeMillis());
                 }
-                bn bnVar = (bn) oVar;
-                if (bnVar.i() && bnVar.j() > 0) {
-                    showToast(bnVar.k());
+                bx bxVar = (bx) qVar;
+                if (bxVar.k() && bxVar.l() > 0) {
+                    showToast(bxVar.m());
                 } else {
-                    NearbyGroupsData a = bnVar.a();
+                    NearbyGroupsData a = bxVar.a();
                     if (a != null) {
                         this.c.b(a.getHasMore());
                         this.c.a(a.getGeo());
@@ -154,14 +163,14 @@ public class NearbyGroupsActivity extends com.baidu.tieba.j implements com.baidu
                     }
                 }
                 this.b.h();
-            } else if (oVar.u() == 103008 && (oVar instanceof cb)) {
+            } else if (qVar.w() == 103008 && (qVar instanceof cq)) {
                 try {
-                    cb cbVar = (cb) oVar;
-                    if (cbVar.i() && cbVar.j() > 0) {
-                        showToast(cbVar.k());
+                    cq cqVar = (cq) qVar;
+                    if (cqVar.k() && cqVar.l() > 0) {
+                        showToast(cqVar.m());
                         return;
                     }
-                    GroupPermData a2 = cbVar.a();
+                    GroupPermData a2 = cqVar.a();
                     if (a2 != null) {
                         if (a2.isCreatePersonal()) {
                             CreateGroupStepActivity.a(this, 2, 0, 1011, a2.getCanCreateNormalNum(), a2.getCanCreateOfficialNum(), a2.getCanCreatePersonalNum());

@@ -10,14 +10,14 @@ public class b extends Application {
     public void onCreate() {
         a = this;
         super.onCreate();
-        com.baidu.adp.lib.h.g.a(this);
+        com.baidu.adp.lib.g.g.a(this);
         e();
         f();
         d();
     }
 
     private void d() {
-        com.baidu.adp.lib.network.d.a().a(this, false);
+        com.baidu.adp.lib.network.e.a().a(this, false);
     }
 
     public static b a() {
@@ -37,7 +37,7 @@ public class b extends Application {
     }
 
     private void f() {
-        com.baidu.adp.lib.h.a.a().a(this);
+        com.baidu.adp.lib.g.a.a().a(this);
     }
 
     public void c() {

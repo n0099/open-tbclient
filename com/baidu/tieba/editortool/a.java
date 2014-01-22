@@ -27,7 +27,7 @@ public class a extends RelativeLayout {
     }
 
     private boolean d() {
-        return TiebaApplication.g().an() == 1;
+        return TiebaApplication.h().al() == 1;
     }
 
     public TextView a(EditorToolButton editorToolButton, boolean z) {

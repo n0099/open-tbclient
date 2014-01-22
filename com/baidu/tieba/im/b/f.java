@@ -2,28 +2,28 @@ package com.baidu.tieba.im.b;
 
 import android.os.Handler;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.im.chat.ah;
-import com.baidu.tieba.im.db.ag;
+import com.baidu.tieba.im.chat.ba;
+import com.baidu.tieba.im.db.ah;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.db.t;
 import com.baidu.tieba.im.groupInfo.u;
 import com.baidu.tieba.im.message.GroupUpdateMessage;
-import com.baidu.tieba.im.message.bo;
+import com.baidu.tieba.im.message.by;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes.dex */
 class f implements com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMessageCenterPojo>> {
-    final /* synthetic */ bo a;
+    final /* synthetic */ by a;
     final /* synthetic */ LinkedList b;
     final /* synthetic */ LinkedList c;
     final /* synthetic */ e d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public f(e eVar, bo boVar, LinkedList linkedList, LinkedList linkedList2) {
+    public f(e eVar, by byVar, LinkedList linkedList, LinkedList linkedList2) {
         this.d = eVar;
-        this.a = boVar;
+        this.a = byVar;
         this.b = linkedList;
         this.c = linkedList2;
     }
@@ -45,7 +45,7 @@ class f implements com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMessageCente
                     imMessageCenterPojo.setGroup_type(groupUpdateMessage.getGroupType());
                     a = this.d.a.a(concurrentHashMap, groupUpdateMessage.getGroupId());
                     if (a == null || a.getPulled_msgId() == 0 || a.getLast_rid() == 0) {
-                        long b = ah.b(groupUpdateMessage.getLastMsgId());
+                        long b = ba.b(groupUpdateMessage.getLastMsgId());
                         imMessageCenterPojo.setPulled_msgId(b);
                         imMessageCenterPojo.setLast_rid(b);
                     }
@@ -61,6 +61,9 @@ class f implements com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMessageCente
                 ImMessageCenterPojo value = entry.getValue();
                 if (value != null && (value instanceof ImMessageCenterPojo)) {
                     ImMessageCenterPojo imMessageCenterPojo2 = value;
+                    if (imMessageCenterPojo2.getGroup_type() == 7) {
+                        break;
+                    }
                     Iterator it = this.c.iterator();
                     while (true) {
                         if (!it.hasNext()) {
@@ -83,8 +86,8 @@ class f implements com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMessageCente
             }
         }
         com.baidu.tieba.im.messageCenter.e.a().b(false);
-        com.baidu.adp.lib.h.e.c("----online succ");
-        ag.a().a(concurrentHashMap, this.b);
+        com.baidu.adp.lib.g.e.c("----online succ");
+        ah.a().a(concurrentHashMap, this.b);
         if (TiebaApplication.B()) {
             handler = this.d.a.p;
             handler2 = this.d.a.p;

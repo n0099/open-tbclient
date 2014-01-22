@@ -15,34 +15,34 @@ class l extends com.baidu.adp.a.g {
     public void a(Object obj) {
         t tVar;
         t tVar2;
-        com.baidu.tieba.im.model.g gVar;
-        com.baidu.tieba.im.model.g gVar2;
-        com.baidu.tieba.im.model.g gVar3;
+        com.baidu.tieba.im.model.h hVar;
+        com.baidu.tieba.im.model.h hVar2;
+        com.baidu.tieba.im.model.h hVar3;
         tVar = this.a.a;
         tVar.m();
         this.a.closeLoadingDialog();
         if (obj == null) {
-            gVar = this.a.b;
-            if (gVar.getErrorCode() != 0) {
-                gVar2 = this.a.b;
-                if (gVar2.getErrorString() != null) {
+            hVar = this.a.b;
+            if (hVar.getErrorCode() != 0) {
+                hVar2 = this.a.b;
+                if (hVar2.getErrorString() != null) {
                     InviteFriendListActivity inviteFriendListActivity = this.a;
-                    gVar3 = this.a.b;
-                    inviteFriendListActivity.showToast(gVar3.getErrorString());
+                    hVar3 = this.a.b;
+                    inviteFriendListActivity.showToast(hVar3.getErrorString());
                     return;
                 }
                 return;
             }
             return;
         }
-        com.baidu.tieba.im.data.d dVar = (com.baidu.tieba.im.data.d) obj;
-        ArrayList<com.baidu.tieba.im.data.c> a = dVar == null ? null : dVar.a();
-        if (dVar != null && dVar.b() && (a == null || a.size() <= 0)) {
+        com.baidu.tieba.im.data.e eVar = (com.baidu.tieba.im.data.e) obj;
+        ArrayList<com.baidu.tieba.im.data.d> a = eVar == null ? null : eVar.a();
+        if (eVar != null && eVar.b() && (a == null || a.size() <= 0)) {
             this.a.showToast(this.a.getString(R.string.invite_friend_no_data_now));
         }
-        if (dVar != null) {
+        if (eVar != null) {
             tVar2 = this.a.a;
-            tVar2.a(dVar);
+            tVar2.a(eVar);
         }
     }
 }

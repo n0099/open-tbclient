@@ -28,7 +28,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
     private Context g;
     private boolean h;
     private int i;
-    private ArrayList<bf> j;
+    private ArrayList<br> j;
 
     public NoNetworkView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
@@ -60,7 +60,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
         this.b = (TextView) findViewById(R.id.no_network_showmore);
         this.b.setOnClickListener(this);
         if (attributeSet != null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.baidu.tieba.au.noNetworkView);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.baidu.tieba.ax.noNetworkView);
             this.h = obtainStyledAttributes.getBoolean(0, false);
             obtainStyledAttributes.recycle();
         }
@@ -74,19 +74,19 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
             setVisible(true);
             setIsHasNetwork(false);
         } catch (Exception e) {
-            com.baidu.adp.lib.h.e.b(NoNetworkView.class.getName(), "init", e.getMessage());
+            com.baidu.adp.lib.g.e.b(NoNetworkView.class.getName(), "init", e.getMessage());
         }
     }
 
-    public void a(bf bfVar) {
-        if (bfVar != null && !this.j.contains(bfVar)) {
-            this.j.add(bfVar);
+    public void a(br brVar) {
+        if (brVar != null && !this.j.contains(brVar)) {
+            this.j.add(brVar);
         }
     }
 
-    public void b(bf bfVar) {
-        if (bfVar != null && this.j.contains(bfVar)) {
-            this.j.remove(bfVar);
+    public void b(br brVar) {
+        if (brVar != null && this.j.contains(brVar)) {
+            this.j.remove(brVar);
         }
     }
 
@@ -120,7 +120,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
                     this.j.get(i).a(false);
                 }
             }
-        } else if (this.h && com.baidu.tieba.im.b.a.b().a()) {
+        } else if (this.h && com.baidu.tieba.im.b.a.c().a()) {
             if (2 != this.i) {
                 this.i = 2;
                 this.d.setText(R.string.offline_guide1);
@@ -140,7 +140,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
                 AlphaAnimation alphaAnimation3 = new AlphaAnimation(1.0f, 0.0f);
                 alphaAnimation3.setFillAfter(true);
                 alphaAnimation3.setDuration(500L);
-                alphaAnimation3.setAnimationListener(new be(this));
+                alphaAnimation3.setAnimationListener(new bq(this));
                 startAnimation(alphaAnimation3);
                 for (int i3 = 0; i3 < this.j.size(); i3++) {
                     this.j.get(i3).a(true);
@@ -190,7 +190,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
     }
 
     public static void a() {
-        NetworkInfo activeNetworkInfo = ((ConnectivityManager) TiebaApplication.g().getSystemService("connectivity")).getActiveNetworkInfo();
+        NetworkInfo activeNetworkInfo = ((ConnectivityManager) TiebaApplication.h().getSystemService("connectivity")).getActiveNetworkInfo();
         if (activeNetworkInfo != null && activeNetworkInfo.isAvailable()) {
             setIsHasNetwork(true);
         } else {

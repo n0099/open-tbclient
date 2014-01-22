@@ -1,17 +1,15 @@
 package com.baidu.tieba.im.data;
+
+import java.util.List;
 /* loaded from: classes.dex */
-public class f extends g {
-    private String a;
+public class f {
+    private List<com.baidu.tieba.im.message.b> a;
 
-    public f() {
-        a(0);
-    }
-
-    public String a() {
+    public List<com.baidu.tieba.im.message.b> a() {
         return this.a;
     }
 
-    public void a(String str) {
-        this.a = str;
+    public void a(List<com.baidu.tieba.im.message.b> list) {
+        this.a = list;
     }
 }

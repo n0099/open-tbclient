@@ -1,26 +1,31 @@
 package com.baidu.tieba.im.chat;
 
-import android.widget.EditText;
+import android.text.TextUtils;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bw implements Runnable {
-    final /* synthetic */ bs a;
+public class bw implements com.baidu.tieba.im.a<Boolean> {
+    final /* synthetic */ MsglistActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bw(bs bsVar) {
-        this.a = bsVar;
+    public bw(MsglistActivity msglistActivity) {
+        this.a = msglistActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        EditText editText;
-        EditText editText2;
-        EditText editText3;
-        editText = this.a.z;
-        editText.requestFocus();
-        editText2 = this.a.z;
-        int length = editText2.getText().toString().length();
-        editText3 = this.a.z;
-        editText3.setSelection(length);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.a
+    public void a(Boolean bool) {
+        if (bool != null) {
+            if (bool.booleanValue()) {
+                this.a.d.I();
+            } else {
+                this.a.d.J();
+            }
+            if (this.a.e != null && this.a.e.a() != null) {
+                String name = this.a.e.a().getName();
+                if (!TextUtils.isEmpty(name)) {
+                    this.a.d.a(name, true);
+                }
+            }
+        }
     }
 }

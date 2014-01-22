@@ -1,22 +1,21 @@
 package com.baidu.tieba.square;
 
-import android.widget.TextView;
-import com.baidu.tieba.view.HeadImageView;
+import android.widget.ImageView;
 /* loaded from: classes.dex */
-class bx {
-    TextView a;
-    HeadImageView b;
-    TextView c;
-    TextView d;
-    TextView e;
-    final /* synthetic */ bv f;
-
-    private bx(bv bvVar) {
-        this.f = bvVar;
-    }
+class bx implements com.baidu.tbadk.imageManager.c {
+    final /* synthetic */ ImageView a;
+    final /* synthetic */ bw b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ bx(bv bvVar, bw bwVar) {
-        this(bvVar);
+    public bx(bw bwVar, ImageView imageView) {
+        this.b = bwVar;
+        this.a = imageView;
+    }
+
+    @Override // com.baidu.tbadk.imageManager.c
+    public void a(com.baidu.adp.widget.ImageView.d dVar, String str, boolean z) {
+        if (dVar != null) {
+            this.a.invalidate();
+        }
     }
 }

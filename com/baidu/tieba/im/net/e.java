@@ -2,8 +2,9 @@ package com.baidu.tieba.im.net;
 
 import android.os.Handler;
 import com.baidu.adp.lib.webSocket.r;
-import com.baidu.tieba.log.i;
+import com.baidu.tieba.im.d.g;
 import com.baidu.tieba.util.UtilHelper;
+import com.baidu.tieba.util.by;
 import java.util.Map;
 /* loaded from: classes.dex */
 final class e extends r {
@@ -45,7 +46,7 @@ final class e extends r {
         Handler handler;
         a aVar;
         a aVar2;
-        com.baidu.tieba.log.a.b(i.a("onOpen", "TiebaSocketLinkService:onOpen", "onOpen"));
+        by.b("onOpen", "TiebaSocketLinkService:onOpen", "onOpen");
         f.a().c();
         handler = TiebaSocketLinkService.c;
         handler.removeMessages(1);
@@ -62,14 +63,16 @@ final class e extends r {
         a aVar;
         b bVar;
         a aVar2;
-        com.baidu.tieba.log.a.b(i.a("onClose", "TiebaSocketLinkService:onClose", "onClose", i, str));
+        boolean z = false;
+        by.a("onClose", "TiebaSocketLinkService:onClose", "onClose", i, str);
         handler = TiebaSocketLinkService.c;
         handler.removeMessages(1);
-        boolean z = false;
         aVar = TiebaSocketLinkService.b;
         if (aVar != null) {
             if (i != 0) {
-                str = com.baidu.tieba.im.d.f.a(-1);
+                com.baidu.tieba.im.b.a.c().b();
+                by.a("TiebaSocketLinkService", 0, 0, "onClose():" + str, i);
+                str = g.a(-1);
             }
             aVar2 = TiebaSocketLinkService.b;
             z = aVar2.a(i, str);

@@ -1,18 +1,20 @@
 package com.baidu.tieba.pb;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ch implements Runnable {
-    final /* synthetic */ int a;
-    final /* synthetic */ PbEditor b;
+class ch implements com.baidu.tieba.editortool.z {
+    final /* synthetic */ cg a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ch(PbEditor pbEditor, int i) {
-        this.b = pbEditor;
-        this.a = i;
+    public ch(cg cgVar) {
+        this.a = cgVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        this.b.a(this.a, new ci(this));
+    @Override // com.baidu.tieba.editortool.z
+    public void a() {
+        this.a.b.e = true;
+        this.a.b.b.getEditText().requestFocus();
+    }
+
+    @Override // com.baidu.tieba.editortool.z
+    public void b() {
     }
 }

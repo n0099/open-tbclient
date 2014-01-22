@@ -1,35 +1,27 @@
 package com.baidu.tieba.pb;
-
-import android.os.Handler;
-import android.view.animation.Animation;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dg implements Animation.AnimationListener {
-    final /* synthetic */ com.baidu.tieba.data.ax a;
-    final /* synthetic */ boolean b;
-    final /* synthetic */ String c;
-    final /* synthetic */ String d;
-    final /* synthetic */ cs e;
+class dg implements Runnable {
+    final /* synthetic */ df a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public dg(cs csVar, com.baidu.tieba.data.ax axVar, boolean z, String str, String str2) {
-        this.e = csVar;
-        this.a = axVar;
-        this.b = z;
-        this.c = str;
-        this.d = str2;
+    public dg(df dfVar) {
+        this.a = dfVar;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        new Handler().post(new dh(this));
+    @Override // java.lang.Runnable
+    public void run() {
+        dv dvVar;
+        eb ebVar;
+        dv dvVar2;
+        dvVar = this.a.e.ah;
+        if (dvVar != null) {
+            dvVar2 = this.a.e.ah;
+            dvVar2.a(this.a.a);
+        }
+        if (this.a.b) {
+            ebVar = this.a.e.r;
+            ebVar.a(this.a.c, this.a.d);
+        }
+        this.a.e.al();
     }
 }

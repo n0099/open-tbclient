@@ -9,8 +9,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.mobstat.StatService;
-import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class o extends com.baidu.adp.a.e {
@@ -45,16 +43,14 @@ public class o extends com.baidu.adp.a.e {
         }
         this.g.setOnClickListener(new p(this, activity, i, str2));
         this.h = (Button) this.c.findViewById(R.id.reg_btn);
-        this.h.setOnClickListener(new q(this, activity));
-        int a = com.baidu.adp.lib.h.g.a((Context) activity, 7.0f);
-        int a2 = com.baidu.adp.lib.h.g.a((Context) activity, 5.0f);
+        this.h.setOnClickListener(new q(this));
+        int a = com.baidu.adp.lib.g.g.a((Context) activity, 7.0f);
+        int a2 = com.baidu.adp.lib.g.g.a((Context) activity, 5.0f);
         this.d.setPadding(a, a2, a, a2);
     }
 
     public View e() {
-        if (TiebaApplication.g().s()) {
-            StatService.onEvent(this.a, "home_login_show", "loginshow", 1);
-        }
+        com.baidu.tieba.util.by.a(this.a, "home_login_show", "loginshow", 1, new Object[0]);
         return this.c;
     }
 

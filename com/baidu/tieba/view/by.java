@@ -1,85 +1,43 @@
 package com.baidu.tieba.view;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-import com.baidu.tieba.TiebaApplication;
-import com.slidingmenu.lib.R;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.widget.Button;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class by extends com.baidu.adp.widget.ListView.c {
-    private com.baidu.tieba.j a;
-    private TextView b = null;
-    private ProgressBar c = null;
-    private View.OnClickListener d = null;
-    private View e = null;
-    private View f;
+public class by implements TextWatcher {
+    final /* synthetic */ SearchBar a;
 
-    public by(com.baidu.tieba.j jVar) {
-        this.a = null;
-        this.a = jVar;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public by(SearchBar searchBar) {
+        this.a = searchBar;
     }
 
-    @Override // com.baidu.adp.widget.ListView.c
-    public View a() {
-        this.e = LayoutInflater.from(this.a).inflate(R.layout.new_pb_list_more, (ViewGroup) null);
-        this.e.setPadding(0, this.a.getResources().getDimensionPixelSize(R.dimen.listview_item_margin), 0, this.a.getResources().getDimensionPixelSize(R.dimen.listview_item_margin));
-        this.b = (TextView) this.e.findViewById(R.id.pb_more_text);
-        this.f = this.e.findViewById(R.id.pb_more_view);
-        this.f.setVisibility(8);
-        this.c = (ProgressBar) this.e.findViewById(R.id.progress);
-        a(TiebaApplication.g().an());
-        this.f.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-        return this.e;
+    @Override // android.text.TextWatcher
+    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
     }
 
-    public void a(int i) {
-        int color;
-        this.a.getLayoutMode().a(this.f);
-        String string = this.a.getString(R.string.nearby_group_no_more);
-        String charSequence = this.b.getText() != null ? this.b.getText().toString() : null;
-        boolean z = i == 1;
-        if (charSequence != null && charSequence.equals(string)) {
-            color = this.a.getResources().getColor(z ? R.color.pb_list_morebutton_nomore_text_1 : R.color.pb_list_morebutton_nomore_text);
+    @Override // android.text.TextWatcher
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    }
+
+    @Override // android.text.TextWatcher
+    public void afterTextChanged(Editable editable) {
+        Button button;
+        cb cbVar;
+        cb cbVar2;
+        Button button2;
+        if (this.a.getSearchText().length() > 0) {
+            button2 = this.a.c;
+            button2.setVisibility(0);
         } else {
-            color = this.a.getResources().getColor(z ? R.color.pb_more_txt_1 : R.color.pb_more_txt);
+            button = this.a.c;
+            button.setVisibility(8);
         }
-        this.b.setTextColor(color);
-    }
-
-    public void a(View.OnClickListener onClickListener) {
-        this.d = onClickListener;
-    }
-
-    public void c() {
-        this.e.setVisibility(8);
-    }
-
-    public void d() {
-        this.e.setVisibility(0);
-    }
-
-    public void e() {
-        this.c.setVisibility(0);
-        this.b.setText(this.a.getText(R.string.loading));
-        this.f.setVisibility(0);
-        a(TiebaApplication.g().an());
-    }
-
-    public void f() {
-        this.c.setVisibility(8);
-        this.b.setText(R.string.nearby_group_no_more);
-        this.b.setVisibility(0);
-        this.f.setVisibility(0);
-        a(TiebaApplication.g().an());
-    }
-
-    @Override // com.baidu.adp.widget.ListView.c
-    public void onClick() {
-        if (this.d != null) {
-            this.d.onClick(this.e);
+        cbVar = this.a.e;
+        if (cbVar != null) {
+            cbVar2 = this.a.e;
+            cbVar2.a(this.a.getSearchText());
         }
     }
 }

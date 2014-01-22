@@ -1,19 +1,26 @@
 package com.baidu.tieba.im.message;
+
+import com.google.protobuf.MessageLite;
+import protobuf.QueryPrize.QueryPrizeReq;
 /* loaded from: classes.dex */
-public class aq extends at {
-    private String b;
+public class aq extends q implements com.baidu.tieba.im.coder.g {
+    private int a;
 
-    public aq(String str) {
-        this.b = null;
-        this.b = str;
+    public aq() {
+        e(103013);
     }
 
-    public String b() {
-        return this.b;
+    public void a(int i) {
+        this.a = i;
     }
 
-    @Override // com.baidu.tieba.im.message.at
-    protected void a(protobuf.i iVar) {
-        iVar.e(b());
+    @Override // com.baidu.tieba.im.coder.g
+    public MessageLite a() {
+        try {
+            return QueryPrizeReq.QueryPrizeReqIdl.newBuilder().a(QueryPrizeReq.DataReq.newBuilder().a(this.a).build()).build();
+        } catch (Exception e) {
+            com.baidu.adp.lib.g.e.d("data convert error");
+            return null;
+        }
     }
 }

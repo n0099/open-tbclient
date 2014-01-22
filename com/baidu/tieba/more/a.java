@@ -21,7 +21,7 @@ public class a implements ac {
         } else if (i == 1) {
             this.a.a();
         } else if (i == 2) {
-            GuideActivity.a(this.a, GuideActivity.b);
+            GuideActivity.a(this.a, "from_about_page");
         } else if (i == 3) {
             com.baidu.tieba.sharedPref.b.a().b(SettingTextFunctionIntroView.a, true);
             AboutActivity aboutActivity = this.a;

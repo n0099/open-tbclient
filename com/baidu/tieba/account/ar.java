@@ -25,24 +25,24 @@ public class ar {
             arrayList.add(new BasicNameValuePair("un", str));
             arrayList.add(new BasicNameValuePair("passwd", str2));
             arrayList.add(new BasicNameValuePair("isphone", SocialConstants.FALSE));
-            arrayList.add(new BasicNameValuePair("channel_id", TiebaApplication.g().bc()));
-            arrayList.add(new BasicNameValuePair("channel_uid", TiebaApplication.g().bb()));
-            com.baidu.tieba.util.ai a = com.baidu.tieba.util.bc.a().a(new com.baidu.tieba.util.bh());
+            arrayList.add(new BasicNameValuePair("channel_id", TiebaApplication.h().bb()));
+            arrayList.add(new BasicNameValuePair("channel_uid", TiebaApplication.h().ba()));
+            com.baidu.tieba.util.al a = com.baidu.tieba.util.bg.a().a(new com.baidu.tieba.util.bl());
             if (a == null) {
                 return null;
             }
-            Context baseContext = TiebaApplication.g().getBaseContext();
+            Context baseContext = TiebaApplication.h().getBaseContext();
             a.b(sb.toString());
             a.a(arrayList);
             a.a((Boolean) true);
             a.a(baseContext);
-            String s = a.s();
-            if (a.o() && s != null) {
+            String u = a.u();
+            if (a.p() && u != null) {
                 com.baidu.tieba.model.be beVar = new com.baidu.tieba.model.be();
-                beVar.a(s);
+                beVar.a(u);
                 String id = beVar.a().getId();
                 if (id == null || id.length() <= 0) {
-                    a.c(a.k().getString(R.string.neterror));
+                    a.c(a.l().getString(R.string.neterror));
                     return null;
                 }
                 AccountData accountData = new AccountData();
@@ -60,12 +60,12 @@ public class ar {
                     accountData.setTbs(beVar.b().getTbs());
                 }
                 return accountData;
-            } else if (a.p()) {
-                switch (a.j()) {
+            } else if (a.q()) {
+                switch (a.k()) {
                     case 1:
                     case 2:
                     case 5:
-                        a.t();
+                        a.v();
                         return null;
                     case 3:
                     case 4:
@@ -76,7 +76,7 @@ public class ar {
                 return null;
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.bo.b("LoginModel".toString(), "login", e.getMessage());
+            com.baidu.adp.lib.g.e.b("LoginModel".toString(), "login", e.getMessage());
             return null;
         }
     }

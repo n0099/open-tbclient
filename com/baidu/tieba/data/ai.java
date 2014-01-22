@@ -1,7 +1,6 @@
 package com.baidu.tieba.data;
 
 import com.baidu.cloudsdk.social.core.SocialConstants;
-import com.baidu.tieba.util.bo;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ai {
@@ -12,7 +11,7 @@ public class ai {
             try {
                 this.a = jSONObject.optString(SocialConstants.PARAM_MEDIA_UNAME);
             } catch (Exception e) {
-                bo.b("LocationData", "parserJson", "error = " + e.getMessage());
+                com.baidu.adp.lib.g.e.b("LocationData", "parserJson", "error = " + e.getMessage());
             }
         }
     }

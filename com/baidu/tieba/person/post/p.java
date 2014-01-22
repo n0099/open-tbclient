@@ -46,7 +46,7 @@ public class p implements m {
         if (this.a.n()) {
             progressBar = this.a.d;
             progressBar.setVisibility(8);
-            if (TiebaApplication.g().an() == 1) {
+            if (TiebaApplication.h().al() == 1) {
                 textView7 = this.a.f;
                 textView7.setTextColor(this.a.j().getColor(R.color.person_post_header_uname_1));
             } else {
@@ -69,7 +69,7 @@ public class p implements m {
                         textView6 = this.a.f;
                         bdListView3.setEmptyView(textView6);
                     }
-                    com.baidu.adp.lib.h.g.a((Context) this.a.i(), personPostReplyModel.getErrorString());
+                    com.baidu.adp.lib.g.g.a((Context) this.a.i(), personPostReplyModel.getErrorString());
                 }
                 textView5 = this.a.f;
                 textView5.setVisibility(8);
@@ -97,7 +97,7 @@ public class p implements m {
                 }
                 return;
             }
-            if (TiebaApplication.g().an() == 1) {
+            if (TiebaApplication.h().al() == 1) {
                 textView4 = this.a.f;
                 textView4.setTextColor(this.a.j().getColor(R.color.person_post_header_uname_1));
             } else {

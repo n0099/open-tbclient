@@ -139,7 +139,7 @@ public class BdListView extends ListView {
         try {
             super.dispatchDraw(canvas);
         } catch (NullPointerException e) {
-            com.baidu.adp.lib.h.e.a(e.getMessage());
+            com.baidu.adp.lib.g.e.a(e.getMessage());
             if (getContext() instanceof Activity) {
                 ((Activity) getContext()).finish();
             }
@@ -321,7 +321,7 @@ public class BdListView extends ListView {
             getHandler().removeCallbacks(this.r);
             getHandler().removeCallbacks(this.y);
         } catch (Exception e) {
-            com.baidu.adp.lib.h.e.b(BdListView.class.getSimpleName(), "onDetachedFromWindow", e.getMessage());
+            com.baidu.adp.lib.g.e.b(BdListView.class.getSimpleName(), "onDetachedFromWindow", e.getMessage());
         }
     }
 
@@ -365,7 +365,7 @@ public class BdListView extends ListView {
             }
             this.w = i4;
         } catch (Throwable th) {
-            com.baidu.adp.lib.h.e.a(th.getMessage());
+            com.baidu.adp.lib.g.e.a(th.getMessage());
             if (getContext() instanceof Activity) {
                 ((Activity) getContext()).finish();
             }
@@ -412,7 +412,7 @@ public class BdListView extends ListView {
         try {
             return super.onTouchEvent(motionEvent);
         } catch (Exception e) {
-            com.baidu.adp.lib.h.e.a(e.getMessage());
+            com.baidu.adp.lib.g.e.a(e.getMessage());
             return false;
         }
     }

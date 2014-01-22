@@ -1,243 +1,301 @@
 package com.baidu.tieba.im.model;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.browser.explorer.share.BdSharer;
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.data.InfoData;
+import com.baidu.tieba.im.chat.LocalViewSize;
 import com.baidu.tieba.im.data.UploadPicData2;
-import com.baidu.tieba.util.at;
-import com.baidu.tieba.util.bm;
+import com.baidu.tieba.util.ax;
+import com.baidu.tieba.util.bu;
+import com.baidu.tieba.util.by;
 import com.slidingmenu.lib.R;
-import java.io.Closeable;
 import java.io.File;
 import java.io.RandomAccessFile;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ag extends BdAsyncTask<String, Integer, UploadPicData2> {
-    final /* synthetic */ ae a;
-    private at b;
-    private boolean c;
+public class ag {
+    public static int a = -1;
+    public static int b = -2;
+    public static int c = -3;
+    public static int d = 2230203;
+    public com.baidu.tieba.im.message.b e;
+    private String h;
+    private int j;
+    private int k;
+    private int l;
+    private int m;
+    private ak f = null;
+    private aj g = null;
+    private String i = null;
+    private ai n = null;
 
-    private ag(ae aeVar) {
-        this.a = aeVar;
-        this.b = null;
-        this.c = false;
+    public ag(String str, int i, int i2, int i3, int i4) {
+        this.h = null;
+        this.j = 0;
+        this.k = 0;
+        this.l = 0;
+        this.m = 0;
+        this.h = str;
+        this.j = i;
+        this.k = i2;
+        this.l = i3;
+        this.m = i4;
+        LocalViewSize.ImageSize c2 = LocalViewSize.a().c();
+        LocalViewSize.ImageSize d2 = LocalViewSize.a().d();
+        if (this.j <= 0) {
+            this.j = c2.width;
+        }
+        if (this.k <= 0) {
+            this.k = c2.height;
+        }
+        if (this.l <= 0) {
+            this.l = d2.width;
+        }
+        if (this.m <= 0) {
+            this.m = d2.height;
+        }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public UploadPicData2 a(String... strArr) {
-        return d();
+    public void a() {
+        if (this.n == null) {
+            this.n = new ai(this);
+            this.n.execute(new String[0]);
+        }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [184=5, 185=4] */
-    private UploadPicData2 d() {
+    public void b() {
+        if (this.n != null) {
+            this.n.cancel();
+            this.n = null;
+        }
+    }
+
+    public void a(ak akVar) {
+        this.f = akVar;
+    }
+
+    public void a(aj ajVar) {
+        this.g = ajVar;
+    }
+
+    public void a(String str) {
+        this.i = str;
+    }
+
+    public void a(com.baidu.tieba.im.message.b bVar) {
+        this.e = bVar;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:100:0x02a4, code lost:
+        r3 = null;
+        r1 = r3;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:30:0x0120, code lost:
+        r8.append("|startChunk=");
+        r8.append(r5);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:31:0x0128, code lost:
+        r2 = r1;
+        r1 = r2;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:82:0x026d, code lost:
+        r8.append("|startChunk=");
+        r8.append(r5);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:83:0x0275, code lost:
+        r2 = null;
+        r1 = r2;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:99:0x02a3, code lost:
+        r3 = move-exception;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:11:0x0078  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public InfoData a(boolean z, String str) {
         RandomAccessFile randomAccessFile;
         Exception e;
+        Throwable th;
         UploadPicData2 uploadPicData2;
-        String str;
-        int i;
+        InfoData infoData;
         String str2;
+        long length;
+        String a2;
+        int i;
         int i2;
-        int i3;
-        int i4;
-        int i5;
-        int i6;
-        int i7;
-        int i8;
+        UploadPicData2 uploadPicData22 = null;
+        RandomAccessFile randomAccessFile2 = null;
+        StringBuilder sb = new StringBuilder();
         try {
-            str = this.a.h;
-            File file = new File(str);
-            long length = file.length();
-            String a = bm.a(com.baidu.tieba.util.aa.a(file));
-            if (length == 0 || a == null) {
-                uploadPicData2 = new UploadPicData2();
-                i = ae.b;
-                uploadPicData2.error_code = i;
-                uploadPicData2.error_msg = TiebaApplication.g().getString(R.string.file_not_exist);
-                com.baidu.adp.lib.f.a.a((Closeable) null);
-                a(100);
-            } else {
-                String str3 = a + 10240;
-                long j = length % BdSharer.IMAGE_MIN_SIZE_TO_SHARE == 0 ? length / BdSharer.IMAGE_MIN_SIZE_TO_SHARE : (length / BdSharer.IMAGE_MIN_SIZE_TO_SHARE) + 1;
-                str2 = this.a.h;
-                randomAccessFile = new RandomAccessFile(str2, "r");
-                int i9 = 0;
-                byte[] bArr = null;
-                int i10 = 1;
-                uploadPicData2 = null;
-                while (i10 <= j) {
+            try {
+                str2 = this.h;
+                File file = new File(str2);
+                length = file.length();
+                a2 = bu.a(com.baidu.tieba.util.ad.a(file));
+                sb.append("path=");
+                sb.append(str2);
+                sb.append("|length=");
+                sb.append(length);
+                sb.append("|md5=");
+                sb.append(a2);
+            } catch (Throwable th2) {
+                randomAccessFile = null;
+                th = th2;
+            }
+        } catch (Exception e2) {
+            randomAccessFile = null;
+            e = e2;
+        }
+        if (length == 0 || a2 == null) {
+            uploadPicData2 = new UploadPicData2();
+            try {
+                uploadPicData2.error_code = a;
+                uploadPicData2.error_msg = TiebaApplication.h().getString(R.string.file_not_exist);
+                by.a("", -1007, "file error: " + uploadPicData2.error_msg, sb.toString());
+            } catch (Exception e3) {
+                uploadPicData22 = uploadPicData2;
+                randomAccessFile = null;
+                e = e3;
+                com.baidu.adp.lib.g.e.a(e.getMessage());
+                by.a("", -1002, str + "ex: " + e.getMessage(), sb.toString());
+                com.baidu.adp.lib.f.a.a(randomAccessFile);
+                uploadPicData2 = uploadPicData22;
+                infoData = null;
+                if (uploadPicData2 != null) {
+                }
+                return infoData;
+            }
+        } else {
+            String str3 = a2 + 10240;
+            long j = length % 10240 == 0 ? length / 10240 : (length / 10240) + 1;
+            sb.append("|chunkNo=");
+            sb.append(j);
+            randomAccessFile = new RandomAccessFile(str2, "r");
+            byte[] bArr = null;
+            try {
+                try {
+                    sb.append("|width=");
+                    sb.append(this.l);
+                    sb.append("|height=");
+                    sb.append(this.m);
+                    sb.append("|smallWidth=");
+                    sb.append(this.j);
+                    sb.append("|smallHeight=");
+                    sb.append(this.k);
+                    sb.append("|groupId=");
+                    sb.append(1);
+                    i = 1;
+                } catch (Throwable th3) {
+                    th = th3;
+                    com.baidu.adp.lib.f.a.a(randomAccessFile);
+                    throw th;
+                }
+            } catch (Exception e4) {
+                e = e4;
+            }
+            while (true) {
+                i2 = i;
+                UploadPicData2 uploadPicData23 = uploadPicData22;
+                byte[] bArr2 = bArr;
+                if (i2 > j) {
+                    uploadPicData2 = uploadPicData23;
+                    randomAccessFile2 = randomAccessFile;
+                    break;
+                }
+                if (z) {
+                    break;
+                }
+                int i3 = 0;
+                if (i2 > j) {
+                    bArr = null;
+                } else {
+                    if (i2 < j) {
+                        i3 = 10240;
+                    } else if (i2 == j) {
+                        i3 = (int) (length - (10240 * (j - 1)));
+                    }
+                    if (bArr2 == null || bArr2.length != i3) {
+                        bArr2 = new byte[i3];
+                    }
+                    randomAccessFile.seek((i2 - 1) * 10240);
+                    randomAccessFile.read(bArr2, 0, i3);
+                    bArr = bArr2;
+                }
+                ax axVar = new ax(com.baidu.tieba.im.j.g);
+                axVar.a("resourceId", str3);
+                axVar.a("chunkNo", String.valueOf(i2));
+                if (i2 >= j) {
                     try {
-                        try {
-                            if (!this.c) {
-                                int i11 = 0;
-                                if (i10 > j) {
-                                    bArr = null;
-                                } else {
-                                    if (i10 < j) {
-                                        i11 = 10240;
-                                    } else if (i10 == j) {
-                                        i11 = (int) (length - (BdSharer.IMAGE_MIN_SIZE_TO_SHARE * (j - 1)));
-                                    }
-                                    if (bArr == null || bArr.length != i11) {
-                                        bArr = new byte[i11];
-                                    }
-                                    randomAccessFile.seek((i10 - 1) * 10240);
-                                    randomAccessFile.read(bArr, 0, i11);
-                                }
-                                this.b = new at(com.baidu.tieba.im.j.g);
-                                this.b.a("resourceId", str3);
-                                this.b.a("chunkNo", String.valueOf(i10));
-                                if (i10 >= j) {
-                                    this.b.a("isFinish", String.valueOf(1));
-                                } else {
-                                    this.b.a("isFinish", String.valueOf(0));
-                                }
-                                at atVar = this.b;
-                                i2 = this.a.l;
-                                atVar.a("width", String.valueOf(i2));
-                                at atVar2 = this.b;
-                                i3 = this.a.m;
-                                atVar2.a("height", String.valueOf(i3));
-                                at atVar3 = this.b;
-                                i4 = this.a.j;
-                                atVar3.a("smallWidth", String.valueOf(i4));
-                                at atVar4 = this.b;
-                                i5 = this.a.k;
-                                atVar4.a("smallHeight", String.valueOf(i5));
-                                this.b.a("groupId", String.valueOf(1));
-                                this.b.a("alt", "json");
-                                if (bArr != null) {
-                                    this.b.a("chunk", bArr);
-                                }
-                                uploadPicData2 = UploadPicData2.parser(this.b.n());
-                                if (uploadPicData2 != null) {
-                                    if (uploadPicData2.error_code != 0) {
-                                        int i12 = uploadPicData2.error_code;
-                                        i8 = ae.e;
-                                        if (i12 != i8) {
-                                            break;
-                                        }
-                                    }
-                                    int i13 = uploadPicData2.error_code;
-                                    i6 = ae.e;
-                                    if (i13 != i6) {
-                                        i7 = i10 + 1;
-                                    } else if (i10 == uploadPicData2.chunkNo || uploadPicData2.chunkNo <= 0) {
-                                        uploadPicData2 = null;
-                                        break;
-                                    } else {
-                                        i7 = uploadPicData2.chunkNo;
-                                    }
-                                    int i14 = i9 + 1;
-                                    int i15 = (int) ((i14 / (j * 1.0d)) * 100.0d);
-                                    if (i15 > 100) {
-                                        i15 = 90;
-                                    }
-                                    a(i15);
-                                    if (i14 > 2 * j) {
-                                        break;
-                                    }
-                                    i9 = i14;
-                                    i10 = i7;
-                                } else {
-                                    break;
-                                }
-                            } else {
-                                break;
-                            }
-                        } catch (Exception e2) {
-                            e = e2;
-                            com.baidu.adp.lib.h.e.a(e.getMessage());
-                            com.baidu.adp.lib.f.a.a(randomAccessFile);
-                            a(100);
-                            return uploadPicData2;
-                        }
-                    } catch (Throwable th) {
-                        th = th;
+                        axVar.a("isFinish", String.valueOf(1));
+                    } catch (Exception e5) {
+                        uploadPicData22 = uploadPicData23;
+                        e = e5;
+                        com.baidu.adp.lib.g.e.a(e.getMessage());
+                        by.a("", -1002, str + "ex: " + e.getMessage(), sb.toString());
                         com.baidu.adp.lib.f.a.a(randomAccessFile);
-                        a(100);
-                        throw th;
+                        uploadPicData2 = uploadPicData22;
+                        infoData = null;
+                        if (uploadPicData2 != null) {
+                        }
+                        return infoData;
+                    }
+                } else {
+                    axVar.a("isFinish", String.valueOf(0));
+                }
+                axVar.a("width", String.valueOf(this.l));
+                axVar.a("height", String.valueOf(this.m));
+                axVar.a("smallWidth", String.valueOf(this.j));
+                axVar.a("smallHeight", String.valueOf(this.k));
+                axVar.a("groupId", String.valueOf(1));
+                axVar.a("alt", "json");
+                if (bArr != null) {
+                    axVar.a("chunk", bArr);
+                }
+                uploadPicData22 = UploadPicData2.parser(axVar.o());
+                if (uploadPicData22 == null || !(uploadPicData22.error_code == 0 || uploadPicData22.error_code == d)) {
+                    break;
+                } else if (uploadPicData22.error_code == d) {
+                    if (i2 == uploadPicData22.chunkNo || uploadPicData22.chunkNo <= 0) {
+                        break;
+                    }
+                    i = uploadPicData22.chunkNo;
+                } else {
+                    i = i2 + 1;
+                }
+                infoData = null;
+                if (uploadPicData2 != null && uploadPicData2.error_code == 0) {
+                    infoData = new InfoData();
+                    infoData.setPic_id(String.valueOf(uploadPicData2.picId));
+                    if (uploadPicData2.picInfo != null && uploadPicData2.picInfo.originPic != null) {
+                        infoData.setHeight(uploadPicData2.picInfo.originPic.height);
+                        infoData.setWidth(uploadPicData2.picInfo.originPic.width);
                     }
                 }
-                com.baidu.adp.lib.f.a.a(randomAccessFile);
-                a(100);
+                return infoData;
             }
-        } catch (Exception e3) {
-            randomAccessFile = null;
-            e = e3;
-            uploadPicData2 = null;
-        } catch (Throwable th2) {
-            th = th2;
-            randomAccessFile = null;
-            com.baidu.adp.lib.f.a.a(randomAccessFile);
-            a(100);
-            throw th;
-        }
-        return uploadPicData2;
-    }
-
-    private void a(int i) {
-        ai aiVar;
-        ai aiVar2;
-        aiVar = this.a.f;
-        if (aiVar != null) {
-            aiVar2 = this.a.f;
-            aiVar2.a(i, this.a.a);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a() {
-        ah ahVar;
-        int i;
-        ah ahVar2;
-        String str;
-        super.a();
-        ahVar = this.a.g;
-        if (ahVar != null) {
-            UploadPicData2 uploadPicData2 = new UploadPicData2();
-            i = ae.d;
-            uploadPicData2.error_code = i;
-            uploadPicData2.error_msg = TiebaApplication.g().getString(R.string.send_error);
-            ahVar2 = this.a.g;
-            str = this.a.h;
-            ahVar2.a(str, uploadPicData2);
-        }
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        super.cancel();
-        this.a.n = null;
-        if (this.b != null) {
-            this.b.j();
-        }
-        this.c = true;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(UploadPicData2 uploadPicData2) {
-        ah ahVar;
-        ah ahVar2;
-        String str;
-        int i;
-        super.a((ag) uploadPicData2);
-        this.a.n = null;
-        ahVar = this.a.g;
-        if (ahVar != null) {
-            if (uploadPicData2 == null) {
-                uploadPicData2 = new UploadPicData2();
-                i = ae.c;
-                uploadPicData2.error_code = i;
-                uploadPicData2.error_msg = TiebaApplication.g().getString(R.string.send_error);
+            sb.append("|startChunk=");
+            sb.append(i2);
+            sb.append("|picNull=");
+            sb.append(uploadPicData22 == null);
+            sb.append("|picErrNo=");
+            if (uploadPicData22 != null) {
+                sb.append(uploadPicData22.error_code);
+                randomAccessFile2 = randomAccessFile;
+                uploadPicData2 = uploadPicData22;
+            } else {
+                randomAccessFile2 = randomAccessFile;
+                uploadPicData2 = uploadPicData22;
             }
-            ahVar2 = this.a.g;
-            str = this.a.h;
-            ahVar2.a(str, uploadPicData2);
         }
+        com.baidu.adp.lib.f.a.a(randomAccessFile2);
+        infoData = null;
+        if (uploadPicData2 != null) {
+            infoData = new InfoData();
+            infoData.setPic_id(String.valueOf(uploadPicData2.picId));
+            if (uploadPicData2.picInfo != null) {
+                infoData.setHeight(uploadPicData2.picInfo.originPic.height);
+                infoData.setWidth(uploadPicData2.picInfo.originPic.width);
+            }
+        }
+        return infoData;
     }
 }

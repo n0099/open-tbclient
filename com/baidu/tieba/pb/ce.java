@@ -67,7 +67,7 @@ public class ce extends cc {
     public void a(com.baidu.tieba.data.as asVar, cd cdVar, boolean z, boolean z2) {
         int i = R.drawable.bg_floor_new_foot_d;
         int i2 = R.dimen.default_size_22;
-        boolean z3 = TiebaApplication.g().an() == 1;
+        boolean z3 = TiebaApplication.h().al() == 1;
         if (this.j != null && this.k != 0 && this.j.equals(asVar.d())) {
             if (z2 && !z) {
                 if (c()) {

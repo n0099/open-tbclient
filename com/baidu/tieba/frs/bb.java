@@ -1,10 +1,7 @@
 package com.baidu.tieba.frs;
-
-import com.baidu.mobstat.StatService;
-import com.baidu.tieba.TiebaApplication;
-import com.slidingmenu.lib.SlidingMenu;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bb implements SlidingMenu.OnOpenedListener {
+public class bb extends com.baidu.adp.a.g {
     final /* synthetic */ FrsImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,10 +9,21 @@ class bb implements SlidingMenu.OnOpenedListener {
         this.a = frsImageActivity;
     }
 
-    @Override // com.slidingmenu.lib.SlidingMenu.OnOpenedListener
-    public void onOpened() {
-        if (TiebaApplication.g().s()) {
-            StatService.onEvent(this.a, "frs_total_more", "frsclick", 1);
+    @Override // com.baidu.adp.a.g
+    public void a(Object obj) {
+        com.baidu.tieba.model.x xVar;
+        bi biVar;
+        com.baidu.tieba.model.x xVar2;
+        xVar = this.a.n;
+        if (xVar.getLoadDataMode() == 1) {
+            if (((Boolean) obj).booleanValue()) {
+                this.a.k();
+            }
+            biVar = this.a.l;
+            bq f = biVar.f();
+            boolean booleanValue = ((Boolean) obj).booleanValue();
+            xVar2 = this.a.n;
+            f.a(booleanValue, xVar2.getErrorString());
         }
     }
 }

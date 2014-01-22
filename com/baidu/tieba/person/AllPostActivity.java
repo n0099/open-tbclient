@@ -100,9 +100,9 @@ public class AllPostActivity extends com.baidu.tieba.j {
     @Override // com.baidu.tieba.j
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        com.baidu.tieba.util.bl.a(this.a, i);
+        com.baidu.tieba.util.bs.a(this.a, i);
         if (i == 1) {
-            this.b.setTextColor(com.baidu.tieba.util.bl.a(i));
+            this.b.setTextColor(com.baidu.tieba.util.bs.a(i));
             this.d.setBackgroundResource(R.drawable.time_line_skin_1);
             return;
         }

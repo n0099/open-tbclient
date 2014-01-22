@@ -8,11 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
-import com.baidu.browser.core.util.BdUtil;
-import com.baidu.mobstat.StatService;
 import com.baidu.tieba.BaseFragment;
 import com.baidu.tieba.BaseFragmentActivity;
-import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.util.UtilHelper;
 import com.slidingmenu.lib.R;
 import java.net.URLEncoder;
@@ -20,14 +17,14 @@ import java.net.URLEncoder;
 public class SquareActivity extends BaseFragment implements AbsListView.OnScrollListener, com.baidu.tbadk.imageManager.c {
     public static boolean a = false;
     private BaseFragmentActivity f;
-    private by b = null;
+    private bz b = null;
     private av c = null;
     private boolean d = false;
     private boolean e = false;
     private Handler g = null;
     private Runnable h = null;
     private aw i = new am(this);
-    private com.baidu.tieba.view.bf Y = new an(this);
+    private com.baidu.tieba.view.br Y = new an(this);
     private View.OnKeyListener Z = new ap(this);
     private com.baidu.adp.widget.ListView.b aa = new aq(this);
 
@@ -63,7 +60,7 @@ public class SquareActivity extends BaseFragment implements AbsListView.OnScroll
         StringBuilder sb = new StringBuilder();
         sb.append("square_page");
         try {
-            sb.append(URLEncoder.encode("|", BdUtil.UTF8));
+            sb.append(URLEncoder.encode("|", "utf-8"));
         } catch (Exception e) {
             e.printStackTrace();
             sb.append("|");
@@ -73,7 +70,7 @@ public class SquareActivity extends BaseFragment implements AbsListView.OnScroll
     }
 
     private void G() {
-        this.b = new by(this.f, this, this.Z);
+        this.b = new bz(this.f, this, this.Z);
         this.b.a(this.aa);
         this.b.f().setClickStatKey("sq_tb_search");
     }
@@ -144,10 +141,8 @@ public class SquareActivity extends BaseFragment implements AbsListView.OnScroll
     @Override // com.baidu.tieba.BaseFragment, android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getId() == R.id.square_all_cat) {
-            if (TiebaApplication.g().s()) {
-                StatService.onEvent(this.f, "sq_icon_category", "click", 1);
-            }
-            BarFolderFirstDirActivity.a(this.f, a(by.a, "all"));
+            com.baidu.tieba.util.by.a(this.f, "sq_icon_category", "click", 1, new Object[0]);
+            BarFolderFirstDirActivity.a(this.f, a(bz.a, "all"));
         }
     }
 
@@ -162,8 +157,8 @@ public class SquareActivity extends BaseFragment implements AbsListView.OnScroll
     }
 
     @Override // com.baidu.tieba.BaseFragment
-    public void c(int i) {
-        super.c(i);
+    public void d(int i) {
+        super.d(i);
         this.b.a(i);
     }
 

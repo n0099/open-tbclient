@@ -1,28 +1,19 @@
 package com.baidu.tieba.im.c;
 
-import com.baidu.tieba.im.SingleRunnable;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
-import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class p extends SingleRunnable<LinkedList<GroupNewsPojo>> {
-    final /* synthetic */ com.baidu.tieba.im.data.b a;
-    final /* synthetic */ int b;
-    final /* synthetic */ m c;
+public class p implements com.baidu.tieba.im.a<Void> {
+    final /* synthetic */ o a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public p(m mVar, com.baidu.tieba.im.data.b bVar, int i) {
-        this.c = mVar;
-        this.a = bVar;
-        this.b = i;
+    public p(o oVar) {
+        this.a = oVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.SingleRunnable
-    /* renamed from: a */
-    public LinkedList<GroupNewsPojo> b() {
-        LinkedList<GroupNewsPojo> b;
-        b = this.c.b(this.a, this.b);
-        return b;
+    @Override // com.baidu.tieba.im.a
+    public void a(Void r3) {
+        this.a.b.a((GroupNewsPojo) null);
     }
 }

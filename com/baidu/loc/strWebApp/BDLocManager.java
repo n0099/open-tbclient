@@ -8,8 +8,6 @@ import android.telephony.CellLocation;
 import android.telephony.TelephonyManager;
 import android.telephony.cdma.CdmaCellLocation;
 import android.telephony.gsm.GsmCellLocation;
-import com.baidu.cloudsdk.common.imgloader.ImageManager;
-import com.baidu.zeus.bouncycastle.DERTags;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.List;
@@ -55,7 +53,7 @@ public class BDLocManager {
 
         public String toString() {
             if (isValid()) {
-                StringBuffer stringBuffer = new StringBuffer((int) DERTags.TAGGED);
+                StringBuffer stringBuffer = new StringBuffer(128);
                 stringBuffer.append(this.mNetworkType);
                 stringBuffer.append("h");
                 if (this.mMcc != 460) {
@@ -128,7 +126,7 @@ public class BDLocManager {
             if (size() < 1) {
                 return null;
             }
-            StringBuffer stringBuffer = new StringBuffer((int) ImageManager.DEFAULT_MAX_CACHEABLE_SIZE);
+            StringBuffer stringBuffer = new StringBuffer(512);
             int size = this._WifiList.size();
             int i4 = 0;
             boolean z = true;

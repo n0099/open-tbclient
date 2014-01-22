@@ -25,19 +25,19 @@ public class q implements CompoundButton.OnCheckedChangeListener {
         LinearLayout linearLayout2;
         if (z) {
             compoundButton.setTextColor(this.a.getResources().getColor(R.color.white));
-            radioButton = this.a.r;
+            radioButton = this.a.q;
             if (compoundButton == radioButton) {
-                horizontalScrollView2 = this.a.n;
+                horizontalScrollView2 = this.a.m;
                 horizontalScrollView2.setVisibility(0);
-                linearLayout2 = this.a.t;
+                linearLayout2 = this.a.s;
                 linearLayout2.setVisibility(4);
                 return;
             }
-            radioButton2 = this.a.s;
+            radioButton2 = this.a.r;
             if (compoundButton == radioButton2) {
-                horizontalScrollView = this.a.n;
+                horizontalScrollView = this.a.m;
                 horizontalScrollView.setVisibility(4);
-                linearLayout = this.a.t;
+                linearLayout = this.a.s;
                 linearLayout.setVisibility(0);
                 return;
             }

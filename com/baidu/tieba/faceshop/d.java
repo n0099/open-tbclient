@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.tieba.util.bl;
+import com.baidu.tieba.util.bs;
 import com.slidingmenu.lib.R;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -80,15 +80,15 @@ public class d extends BaseAdapter {
         if (bitmap != null) {
             gVar.b.setImageBitmap(bitmap);
         } else {
-            bl.d(gVar.b, (int) R.drawable.pic_image_h_not);
+            bs.d(gVar.b, (int) R.drawable.pic_image_h_not);
         }
         z = this.a.p;
         if (z) {
             list3 = this.a.a;
             if (((e) list3.get(i)).c) {
-                bl.d(gVar.a, (int) R.drawable.btn_expression_choose_s);
+                bs.d(gVar.a, (int) R.drawable.btn_expression_choose_s);
             } else {
-                bl.d(gVar.a, (int) R.drawable.btn_expression_choose_n);
+                bs.d(gVar.a, (int) R.drawable.btn_expression_choose_n);
             }
             gVar.a.setVisibility(0);
         } else {

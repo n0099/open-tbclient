@@ -1,6 +1,5 @@
 package com.baidu.tieba.data;
 
-import com.baidu.tieba.util.bo;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class am {
@@ -28,7 +27,7 @@ public class am {
                 this.d = jSONObject.optString("title");
                 this.i = jSONObject.optInt("status", 0);
             } catch (Exception e) {
-                bo.b("PKInfoData", "parserJson", "error = " + e.getMessage());
+                com.baidu.adp.lib.g.e.b("PKInfoData", "parserJson", "error = " + e.getMessage());
             }
         }
     }

@@ -53,18 +53,18 @@ public class f extends u {
             z = true;
         }
         if (z) {
-            com.baidu.tieba.im.data.f lastGroup = this.b.getLastGroup();
-            com.baidu.tieba.im.data.f firstGroup = nearbyGroupsData.getFirstGroup();
+            com.baidu.tieba.im.data.g lastGroup = this.b.getLastGroup();
+            com.baidu.tieba.im.data.g firstGroup = nearbyGroupsData.getFirstGroup();
             if (lastGroup != null && firstGroup != null && lastGroup.a() != null && lastGroup.a().equals(firstGroup.a())) {
                 nearbyGroupsData.remove(firstGroup);
             }
             Iterator it = nearbyGroupsData.iterator();
             while (it.hasNext()) {
-                com.baidu.tieba.im.data.g gVar = (com.baidu.tieba.im.data.g) it.next();
-                if ((gVar instanceof com.baidu.tieba.im.data.h) && this.b.findItemByGroupId(((com.baidu.tieba.im.data.h) gVar).c()) != null) {
+                com.baidu.tieba.im.data.h hVar = (com.baidu.tieba.im.data.h) it.next();
+                if ((hVar instanceof com.baidu.tieba.im.data.i) && this.b.findItemByGroupId(((com.baidu.tieba.im.data.i) hVar).c()) != null) {
                     break;
                 }
-                this.b.add(gVar);
+                this.b.add(hVar);
             }
         } else {
             this.b = nearbyGroupsData;

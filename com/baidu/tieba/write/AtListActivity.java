@@ -14,14 +14,14 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import com.baidu.tieba.data.MetaData;
-import com.baidu.tieba.util.bl;
+import com.baidu.tieba.util.bs;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class AtListActivity extends com.baidu.tieba.j {
     public static ArrayList<MetaData> a = new ArrayList<>();
-    private com.baidu.tieba.aq m;
+    private com.baidu.tieba.at m;
     private NavigationBar n;
     private LinearLayout o;
     private LinearLayout p;
@@ -60,7 +60,7 @@ public class AtListActivity extends com.baidu.tieba.j {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.at_list_activity);
-        this.m = new com.baidu.tieba.aq(this, (int) R.drawable.individual_center_like, (int) R.drawable.individual_center_like_1);
+        this.m = new com.baidu.tieba.at(this, (int) R.drawable.individual_center_like, (int) R.drawable.individual_center_like_1);
         a(bundle);
         a();
         a((String) null);
@@ -71,12 +71,12 @@ public class AtListActivity extends com.baidu.tieba.j {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.m.a(i);
-        bl.a(this.l, i);
+        bs.a(this.l, i);
         this.n.c(i);
         this.i.notifyDataSetChanged();
         if (i == 1) {
             this.d.setDivider(getResources().getDrawable(R.drawable.list_divider_1));
-            bl.e(this.o, (int) R.drawable.inputbox_topbg_1);
+            bs.e(this.o, (int) R.drawable.inputbox_topbg_1);
             this.p.setBackgroundResource(R.drawable.inputbox_top_1);
             this.q.setImageResource(R.drawable.icon_head_bar_search_1);
             this.b.setTextColor(-11446171);
@@ -85,7 +85,7 @@ public class AtListActivity extends com.baidu.tieba.j {
             return;
         }
         this.d.setDivider(getResources().getDrawable(R.drawable.list_divider));
-        bl.e(this.o, (int) R.drawable.tabbar_bj_tab);
+        bs.e(this.o, (int) R.drawable.tabbar_bj_tab);
         this.p.setBackgroundResource(R.drawable.inputbox_top);
         this.q.setImageResource(R.drawable.icon_head_bar_search);
         this.b.setTextColor(-5921112);

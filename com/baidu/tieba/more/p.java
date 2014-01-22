@@ -10,8 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.AccountData;
-import com.baidu.tieba.util.bl;
-import com.baidu.tieba.util.bo;
+import com.baidu.tieba.util.bs;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
@@ -88,7 +87,7 @@ public class p extends BaseAdapter {
                 } catch (Exception e) {
                     exc = e;
                     view2 = rVar;
-                    bo.b(getClass().getName(), "getView", exc.getMessage());
+                    com.baidu.adp.lib.g.e.b(getClass().getName(), "getView", exc.getMessage());
                     return view2;
                 }
             } else {
@@ -101,8 +100,8 @@ public class p extends BaseAdapter {
         }
         try {
             if (getItemViewType(i) == 0) {
-                if (TiebaApplication.g().an() == 1) {
-                    rVar.a.setTextColor(bl.a(1));
+                if (TiebaApplication.h().al() == 1) {
+                    rVar.a.setTextColor(bs.a(1));
                 } else {
                     rVar.a.setTextColor(-12895429);
                 }
@@ -119,8 +118,8 @@ public class p extends BaseAdapter {
                         rVar.d.setVisibility(0);
                     }
                 }
-            } else if (TiebaApplication.g().an() == 1) {
-                rVar.b.setTextColor(bl.a(1));
+            } else if (TiebaApplication.h().al() == 1) {
+                rVar.b.setTextColor(bs.a(1));
             } else {
                 rVar.b.setTextColor(-12895429);
             }
@@ -128,7 +127,7 @@ public class p extends BaseAdapter {
         } catch (Exception e3) {
             view2 = view3;
             exc = e3;
-            bo.b(getClass().getName(), "getView", exc.getMessage());
+            com.baidu.adp.lib.g.e.b(getClass().getName(), "getView", exc.getMessage());
             return view2;
         }
     }

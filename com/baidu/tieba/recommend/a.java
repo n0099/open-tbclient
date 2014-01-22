@@ -18,7 +18,7 @@ public class a implements View.OnClickListener {
             case R.id.back /* 2131099658 */:
                 this.a.finish();
                 return;
-            case R.id.tag_webview_item /* 2131100018 */:
+            case R.id.tag_webview_item /* 2131100071 */:
                 this.a.a();
                 return;
             default:

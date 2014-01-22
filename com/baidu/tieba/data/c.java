@@ -1,6 +1,5 @@
 package com.baidu.tieba.data;
 
-import com.baidu.tieba.util.bo;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c {
@@ -13,7 +12,7 @@ public class c {
                 this.a = jSONObject.optInt("group_count", 0);
                 this.b = jSONObject.optInt("hide_recommend_group", 0);
             } catch (Exception e) {
-                bo.b("FrsStarData", "parserJson", "error = " + e.getMessage());
+                com.baidu.adp.lib.g.e.b("FrsStarData", "parserJson", "error = " + e.getMessage());
             }
         }
     }

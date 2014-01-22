@@ -65,7 +65,7 @@ public class h implements x {
 
     @Override // com.baidu.tieba.im.creategroup.x
     public void i() {
-        this.a.getLayoutMode().a(TiebaApplication.g().an() == 1);
+        this.a.getLayoutMode().a(TiebaApplication.h().al() == 1);
         this.a.getLayoutMode().a(this.b);
         this.c.e();
     }

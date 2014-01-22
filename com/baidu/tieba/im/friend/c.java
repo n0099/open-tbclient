@@ -109,7 +109,7 @@ public class c extends BaseAdapter {
                 return;
             }
             eVar.b.setTag(str);
-            eVar.b.setImageBitmap(com.baidu.tieba.util.m.a((int) R.drawable.photo));
+            eVar.b.setImageBitmap(com.baidu.tieba.util.n.a((int) R.drawable.photo));
         }
     }
 }

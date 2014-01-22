@@ -25,8 +25,8 @@ public class m implements View.OnClickListener {
             textView2 = this.a.j;
             textView2.setVisibility(8);
         }
-        TiebaApplication.g().q(TiebaApplication.g().bj());
-        TiebaApplication.g().y(false);
+        TiebaApplication.h().q(TiebaApplication.h().bl());
+        TiebaApplication.h().A(false);
         i = this.a.l;
         switch (i) {
             case 1:

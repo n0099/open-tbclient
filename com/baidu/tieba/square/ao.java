@@ -11,12 +11,12 @@ public class ao implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        by byVar;
+        bz bzVar;
         try {
-            byVar = this.a.b;
-            byVar.a();
+            bzVar = this.a.b;
+            bzVar.a();
         } catch (Exception e) {
-            com.baidu.tieba.util.bo.b("SquareActivity", "mLoadImageRunnable.run", "error = " + e.getMessage());
+            com.baidu.adp.lib.g.e.b("SquareActivity", "mLoadImageRunnable.run", "error = " + e.getMessage());
         }
     }
 }

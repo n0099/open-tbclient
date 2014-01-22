@@ -1,28 +1,34 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Message;
-import com.baidu.tieba.util.DatabaseService;
+import android.content.Context;
+import android.content.IntentFilter;
 /* loaded from: classes.dex */
-class ah extends Handler {
-    final /* synthetic */ LogoActivity a;
+public class ah {
+    final /* synthetic */ GuideActivity a;
+    private Context b;
+    private IntentFilter c = new IntentFilter("android.intent.action.CLOSE_SYSTEM_DIALOGS");
+    private aj d;
+    private ai e;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ah(LogoActivity logoActivity) {
-        this.a = logoActivity;
+    public ah(GuideActivity guideActivity, Context context) {
+        this.a = guideActivity;
+        this.b = context;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        boolean z;
-        this.a.c = true;
-        z = this.a.b;
-        if (z) {
-            if (!this.a.getDatabasePath("baidu_tieba.db").exists()) {
-                TiebaApplication.a(DatabaseService.n(), this.a.getBaseContext());
-            }
-            this.a.a(this.a.getBaseContext());
+    public void a(aj ajVar) {
+        this.d = ajVar;
+        this.e = new ai(this);
+    }
+
+    public void a() {
+        if (this.e != null) {
+            this.b.registerReceiver(this.e, this.c);
         }
-        super.handleMessage(message);
+    }
+
+    public void b() {
+        if (this.e != null) {
+            this.b.unregisterReceiver(this.e);
+        }
     }
 }

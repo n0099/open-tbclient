@@ -6,7 +6,6 @@ import com.baidu.gson.GsonBuilder;
 import com.baidu.gson.JsonParseException;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.flist.ForumListModel;
-import com.baidu.tieba.util.bo;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -71,7 +70,7 @@ public class x extends BdAsyncTask<Void, Void, ForumListModel> {
             requestParams = this.b.b;
             return ForumListModel.new_fetch(context, requestParams);
         } catch (JsonParseException e) {
-            bo.e("ForumListDetailModel", "ForumListTask", e.getMessage());
+            com.baidu.adp.lib.g.e.e("ForumListDetailModel", "ForumListTask", e.getMessage());
             return null;
         }
     }

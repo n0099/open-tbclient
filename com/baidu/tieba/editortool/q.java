@@ -7,6 +7,8 @@ public class q {
     private String b;
     private String c;
     private WritableEmotionGroup.EmotionGroupType d;
+    private int e;
+    private int f;
 
     public String a() {
         return this.a;
@@ -38,5 +40,21 @@ public class q {
 
     public void c(String str) {
         this.c = str;
+    }
+
+    public int e() {
+        return this.e;
+    }
+
+    public void a(int i) {
+        this.e = i;
+    }
+
+    public int f() {
+        return this.f;
+    }
+
+    public void b(int i) {
+        this.f = i;
     }
 }

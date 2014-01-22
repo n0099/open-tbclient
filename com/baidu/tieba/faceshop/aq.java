@@ -1,6 +1,7 @@
 package com.baidu.tieba.faceshop;
 
 import android.os.Handler;
+import android.view.View;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.LinearLayout;
@@ -9,7 +10,8 @@ import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.view.NavigationBar;
 import com.baidu.tieba.view.NoNetworkView;
-import com.baidu.tieba.view.bw;
+import com.baidu.tieba.view.br;
+import com.baidu.tieba.view.cm;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class aq {
@@ -18,7 +20,7 @@ public class aq {
     private NavigationBar d;
     private NoNetworkView e;
     private BdListView f;
-    private bw g;
+    private cm g;
     private TextView h;
     private ak i;
     private Handler j;
@@ -36,7 +38,7 @@ public class aq {
         this.e = (NoNetworkView) this.c.findViewById(R.id.view_no_network);
         this.h = (TextView) this.c.findViewById(R.id.empty);
         this.f = (BdListView) this.c.findViewById(R.id.purchase_record_list);
-        this.g = new bw(jVar);
+        this.g = new cm(jVar);
         this.f.setPullRefresh(this.g);
         this.f.setOnScrollListener(this.a);
         this.j = new Handler();
@@ -87,7 +89,7 @@ public class aq {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f() {
-        com.baidu.tieba.util.ak.a(this.f, this.i.a(), 0, -1);
+        com.baidu.tieba.util.an.a(this.f, this.i.a(), 0, -1);
     }
 
     private void g() {
@@ -101,17 +103,17 @@ public class aq {
         g();
     }
 
-    public void a(com.baidu.tieba.view.bf bfVar) {
-        this.e.a(bfVar);
+    public void a(br brVar) {
+        this.e.a(brVar);
     }
 
-    public void b(com.baidu.tieba.view.bf bfVar) {
-        this.e.b(bfVar);
+    public void b(br brVar) {
+        this.e.b(brVar);
     }
 
     public void a(int i) {
         this.b.getLayoutMode().a(i == 1);
-        this.b.getLayoutMode().a(this.c);
+        this.b.getLayoutMode().a((View) this.c);
         this.d.c(i);
         this.e.a(i);
         this.g.a(i);

@@ -71,7 +71,7 @@ public final class QueryGroupsByLocationRes {
                                     this.bitField0_ |= 1;
                                     this.business_ = codedInputStream.readBytes();
                                     break;
-                                case 18:
+                                case Im.GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
                                     if (!(z2 & true)) {
                                         this.groups_ = new ArrayList();
                                         z2 |= true;
@@ -342,11 +342,11 @@ public final class QueryGroupsByLocationRes {
                                     this.bitField0_ |= 1;
                                     this.geo_ = codedInputStream.readInt32();
                                     break;
-                                case 24:
+                                case Im.GroupInfo.ISHIDEPOSITION_FIELD_NUMBER /* 24 */:
                                     this.bitField0_ |= 2;
                                     this.offset_ = codedInputStream.readInt32();
                                     break;
-                                case 32:
+                                case Im.GroupInfo.ISNEWLYCREATE_FIELD_NUMBER /* 32 */:
                                     this.bitField0_ |= 4;
                                     this.hasMore_ = codedInputStream.readInt32();
                                     break;
@@ -613,7 +613,7 @@ public final class QueryGroupsByLocationRes {
                                 this.bitField0_ |= 1;
                                 z = z2;
                                 break;
-                            case 18:
+                            case Im.GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
                                 m builder2 = (this.bitField0_ & 2) == 2 ? this.data_.toBuilder() : null;
                                 this.data_ = (DataRes) codedInputStream.readMessage(DataRes.PARSER, extensionRegistryLite);
                                 if (builder2 != null) {

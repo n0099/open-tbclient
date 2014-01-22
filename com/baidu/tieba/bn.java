@@ -1,21 +1,29 @@
 package com.baidu.tieba;
 
-import android.content.DialogInterface;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tieba.util.UtilHelper;
 /* loaded from: classes.dex */
-public class bn implements DialogInterface.OnCancelListener {
-    final /* synthetic */ UpdateDialog a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bn(UpdateDialog updateDialog) {
-        this.a = updateDialog;
+class bn extends BdAsyncTask<String, Integer, String> {
+    private bn() {
     }
 
-    @Override // android.content.DialogInterface.OnCancelListener
-    public void onCancel(DialogInterface dialogInterface) {
-        av avVar;
-        avVar = this.a.c;
-        avVar.dismiss();
-        this.a.finish();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ bn(bc bcVar) {
+        this();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public String a(String... strArr) {
+        byte[] bArr;
+        byte[] bArr2;
+        bArr = TiebaApplication.aD;
+        synchronized (bArr) {
+            Boolean unused = TiebaApplication.aE = Boolean.valueOf(UtilHelper.a());
+            bArr2 = TiebaApplication.aD;
+            bArr2.notifyAll();
+        }
+        return null;
     }
 }

@@ -6,12 +6,12 @@ import android.widget.TextView;
 import com.baidu.adp.widget.ListView.r;
 import com.baidu.adp.widget.PinnedHeaderListView;
 import com.baidu.tieba.im.data.NearbyGroupsData;
-import com.baidu.tieba.util.ak;
-import com.baidu.tieba.util.bl;
+import com.baidu.tieba.util.an;
+import com.baidu.tieba.util.bs;
 import com.baidu.tieba.view.NavigationBar;
 import com.baidu.tieba.view.NoNetworkView;
-import com.baidu.tieba.view.bw;
-import com.baidu.tieba.view.by;
+import com.baidu.tieba.view.cm;
+import com.baidu.tieba.view.co;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class k extends com.baidu.adp.a.e {
@@ -21,9 +21,9 @@ public class k extends com.baidu.adp.a.e {
     private TextView e;
     private f f;
     private PinnedHeaderListView g;
-    private bw h;
+    private cm h;
     private NoNetworkView i;
-    private by j;
+    private co j;
 
     public k(NearbyGroupsActivity nearbyGroupsActivity) {
         super(nearbyGroupsActivity);
@@ -42,7 +42,7 @@ public class k extends com.baidu.adp.a.e {
 
     private void k() {
         this.f = new f(this.c);
-        this.j = new by(this.c);
+        this.j = new co(this.c);
         this.c.setContentView(R.layout.nearby_group_activity);
         this.d = this.c.findViewById(R.id.parent);
         this.g = (PinnedHeaderListView) this.c.findViewById(R.id.nearby_list);
@@ -51,7 +51,7 @@ public class k extends com.baidu.adp.a.e {
         this.a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.e = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.c);
         this.i = (NoNetworkView) this.c.findViewById(R.id.view_no_network);
-        this.h = new bw(this.c);
+        this.h = new cm(this.c);
         this.g.setPullRefresh(this.h);
         this.g.setAdapter((ListAdapter) this.f);
         this.g.setNextPage(this.j);
@@ -59,7 +59,7 @@ public class k extends com.baidu.adp.a.e {
     }
 
     public void a() {
-        ak.a(this.g, this.f.e(), 0, -1);
+        an.a(this.g, this.f.e(), 0, -1);
     }
 
     public void e() {
@@ -124,7 +124,7 @@ public class k extends com.baidu.adp.a.e {
 
     public void a(int i) {
         this.c.getLayoutMode().a(i == 1);
-        bl.a(this.d, i);
+        bs.a(this.d, i);
         this.h.a(i);
         this.a.c(i);
         this.i.a(i);

@@ -32,11 +32,11 @@ public class x implements com.baidu.tieba.editortool.t {
         } else if (i == 21) {
             this.a.l();
         } else if (i == 14) {
-            writeEditorToolButtonContainer2 = this.a.A;
+            writeEditorToolButtonContainer2 = this.a.y;
             writeEditorToolButtonContainer2.f();
             this.a.t();
         } else if (i == 15) {
-            writeEditorToolButtonContainer = this.a.A;
+            writeEditorToolButtonContainer = this.a.y;
             writeEditorToolButtonContainer.g();
             this.a.t();
         }

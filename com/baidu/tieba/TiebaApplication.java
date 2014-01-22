@@ -20,7 +20,6 @@ import android.text.TextUtils;
 import com.baidu.account.AccountProxy;
 import com.baidu.adp.lib.cache.BdCacheService;
 import com.baidu.android.common.util.CommonParam;
-import com.baidu.browser.explorer.BdWebErrorView;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.frontia.FrontiaApplication;
 import com.baidu.location.BDLocation;
@@ -29,6 +28,7 @@ import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
 import com.baidu.tbadk.imageManager.TbFaceManager;
 import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.account.SapiFastRegActivity;
 import com.baidu.tieba.data.AccountData;
 import com.baidu.tieba.data.BannerData;
 import com.baidu.tieba.data.CombineDownload;
@@ -41,11 +41,11 @@ import com.baidu.tieba.switchs.SwitchModel;
 import com.baidu.tieba.util.DatabaseService;
 import com.baidu.tieba.util.NetWorkCore;
 import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.bp;
-import com.baidu.tieba.util.br;
 import com.baidu.tieba.util.bu;
-import com.baidu.zeus.Headers;
-import com.baidu.zeus.bouncycastle.DERTags;
+import com.baidu.tieba.util.by;
+import com.baidu.tieba.util.bz;
+import com.baidu.tieba.util.cb;
+import com.baidu.tieba.util.ce;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -65,56 +65,57 @@ import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes.dex */
 public class TiebaApplication extends com.baidu.adp.a.b {
     private static TiebaApplication f;
-    private LocationManager E;
+    private LocationManager D;
     private int ab;
     private PersonChangeData ao;
-    private Boolean z;
+    private com.baidu.tieba.dex.a ap;
+    private Boolean y;
     private static AccountData i = null;
     private static String n = null;
     private static boolean o = false;
     private static boolean ac = false;
     private static Intent ag = null;
-    private static final byte[] aC = new byte[0];
-    private static volatile Boolean aD = null;
+    private static final byte[] aD = new byte[0];
+    private static volatile Boolean aE = null;
     private int e = 0;
     private HashMap<String, SoftReference<com.baidu.adp.widget.ImageView.d>> g = null;
     private int h = 1;
     private boolean j = false;
-    private com.baidu.tieba.util.bk k = null;
-    private com.baidu.tieba.util.bk l = null;
+    private com.baidu.tieba.util.bq k = null;
+    private com.baidu.tieba.util.bq l = null;
     private String m = null;
-    private String p = null;
-    private int q = 0;
+    private int p = 0;
+    private long q = 0;
     private long r = 0;
-    private long s = 0;
-    private long t = -1;
-    private String u = null;
-    private boolean v = false;
-    private VersionData w = null;
-    private CombineDownload x = null;
-    private BannerData y = null;
+    private long s = -1;
+    private String t = null;
+    private boolean u = false;
+    private VersionData v = null;
+    private CombineDownload w = null;
+    private BannerData x = null;
     public long a = 0;
-    private boolean A = true;
-    private LocationClient B = null;
-    private BDLocationListener C = null;
-    private int D = 0;
-    private Address F = null;
-    private bk G = null;
-    private ArrayList<SoftReference<bj>> H = null;
-    private ExecutorService I = null;
+    private boolean z = true;
+    private LocationClient A = null;
+    private BDLocationListener B = null;
+    private int C = 0;
+    private Address E = null;
+    private bm F = null;
+    private ArrayList<SoftReference<bl>> G = null;
+    private ExecutorService H = null;
+    private int I = 0;
     private int J = 0;
-    private int K = 0;
-    private boolean L = true;
-    private int M = 3;
-    private int N = 1;
-    private int O = 0;
-    private boolean P = true;
-    private boolean Q = false;
-    private int R = 0;
+    private boolean K = true;
+    private int L = 3;
+    private int M = 1;
+    private int N = 0;
+    private boolean O = true;
+    private boolean P = false;
+    private int Q = 0;
+    private boolean R = false;
     private boolean S = false;
-    private boolean T = false;
-    private boolean U = true;
-    private com.baidu.adp.lib.cache.s<String> V = null;
+    private boolean T = true;
+    private com.baidu.adp.lib.cache.s<String> U = null;
+    private boolean V = true;
     private int W = 0;
     private int X = 10;
     private int Y = 0;
@@ -131,21 +132,21 @@ public class TiebaApplication extends com.baidu.adp.a.b {
     private int al = -1;
     private int am = -1;
     private boolean an = false;
-    public Handler c = new Handler(new az(this));
-    com.baidu.adp.lib.c.d d = new bb(this);
-    private int ap = 0;
-    private boolean aq = true;
+    public Handler c = new Handler(new bc(this));
+    com.baidu.adp.lib.c.d d = new be(this);
+    private int aq = 0;
     private boolean ar = true;
     private boolean as = true;
     private boolean at = true;
-    private boolean au = false;
-    private boolean av = true;
+    private boolean au = true;
+    private boolean av = false;
     private boolean aw = true;
-    private boolean ax = false;
-    private String ay = "23:00";
-    private String az = "09:00";
-    private final LocationListener aA = new ba(this);
-    private boolean aB = false;
+    private boolean ax = true;
+    private boolean ay = false;
+    private String az = "23:00";
+    private String aA = "09:00";
+    private final LocationListener aB = new bk(this);
+    private boolean aC = false;
 
     public static void a(Intent intent) {
         ag = intent;
@@ -158,43 +159,49 @@ public class TiebaApplication extends com.baidu.adp.a.b {
     @Override // com.baidu.adp.a.b, android.app.Application
     public void onCreate() {
         super.onCreate();
+        if (!b()) {
+            com.baidu.bdcvf.a.a().a(this, new bd(this));
+        }
         f = this;
         FrontiaApplication.initFrontia(getApplicationContext());
-        new bl(null).execute(new String[0]);
-        NetWorkCore.D();
-        br();
+        new bn(null).execute(new String[0]);
+        NetWorkCore.F();
+        bt();
         if (q()) {
             com.baidu.tieba.sharedPref.b.a().b();
         }
-        bs();
-        bn();
-        bq();
-        bu.a(this);
-        n = a((Context) this);
-        bo();
+        bu();
         bp();
+        bs();
+        ce.a(this);
+        n = a((Context) this);
+        bq();
+        br();
         com.baidu.tieba.data.h.d(this);
         com.baidu.tieba.data.h.b(this);
         com.baidu.tieba.data.h.c(this);
+        SapiFastRegActivity.a(this);
         try {
-            Thread.setDefaultUncaughtExceptionHandler(new br());
+            Thread.setDefaultUncaughtExceptionHandler(new cb());
         } catch (SecurityException e) {
-            com.baidu.tieba.util.bo.b(getClass().getName(), "onCreate", e.getMessage());
+            com.baidu.adp.lib.g.e.b(getClass().getName(), "onCreate", e.getMessage());
         }
-        bp.a(this);
+        by.a(this);
+        this.ap = new com.baidu.tieba.dex.a(this);
         if (q()) {
-            if (aH()) {
+            if (aF()) {
                 com.baidu.adp.lib.a.d.a().b();
             }
             com.baidu.tbadk.imageManager.d.a().a(50, com.baidu.tieba.data.h.e());
             com.baidu.adp.lib.e.c.a().a(com.baidu.tieba.util.a.g.a());
-            TbFaceManager.a().a(this, new com.baidu.tieba.util.z());
+            TbFaceManager.a().a(this, new com.baidu.tieba.util.ab());
             this.g = new HashMap<>();
             if (getDatabasePath("baidu_tieba.db").exists()) {
                 i = DatabaseService.n();
                 if (i != null) {
-                    bp.a(i.getAccount(), i.getID());
-                    com.baidu.tieba.im.chat.a.a = com.baidu.tieba.im.db.as.a().b();
+                    by.a(i.getAccount(), i.getID(), D());
+                    a(i);
+                    com.baidu.tieba.im.chat.q.a = com.baidu.tieba.im.db.au.a().b();
                 }
             }
             if (n()) {
@@ -204,21 +211,17 @@ public class TiebaApplication extends com.baidu.adp.a.b {
             }
             DatabaseService.v();
             m();
-            this.k = new com.baidu.tieba.util.bk(300);
-            this.l = new com.baidu.tieba.util.bk(100);
+            this.k = new com.baidu.tieba.util.bq(300);
+            this.l = new com.baidu.tieba.util.bq(100);
             com.baidu.tieba.mention.s.a().b();
-            by();
-            this.H = new ArrayList<>();
-            af();
+            bA();
+            this.G = new ArrayList<>();
+            ae();
             new com.baidu.tieba.data.chat.a().a();
             k();
             l();
             com.baidu.tieba.im.i.a(this);
-            C();
             new com.baidu.tieba.account.av("open").start();
-            if (am()) {
-                new com.baidu.tieba.account.av("frs_abstract", SocialConstants.TRUE).start();
-            }
             com.baidu.tieba.data.emotions.l.a().b();
         } else {
             this.b = new ArrayList<>();
@@ -226,25 +229,29 @@ public class TiebaApplication extends com.baidu.adp.a.b {
         try {
             registerReceiver(new com.baidu.tieba.service.f(), new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
         } catch (Exception e2) {
-            com.baidu.adp.lib.h.e.a(e2.getMessage());
+            com.baidu.adp.lib.g.e.a(e2.getMessage());
         }
-        TbImageView.setSkinMode(this.O);
+        TbImageView.setSkinMode(this.N);
         try {
             com.baidu.adp.lib.c.a.a().a(this, "tieba");
         } catch (Exception e3) {
             e3.printStackTrace();
         }
         if (q()) {
-            bw();
-            e();
+            by();
+            f();
         }
     }
 
-    public void e() {
+    public com.baidu.tieba.dex.a e() {
+        return this.ap;
+    }
+
+    public void f() {
         com.baidu.adp.lib.c.a.a().a(true, this.d);
     }
 
-    public boolean f() {
+    public boolean g() {
         boolean z = false;
         String trim = Build.MODEL.trim();
         if (trim == null) {
@@ -263,25 +270,17 @@ public class TiebaApplication extends com.baidu.adp.a.b {
                 i2++;
             }
         }
-        if (com.baidu.adp.lib.h.e.a()) {
-            com.baidu.adp.lib.h.e.c("device:[" + trim + "], default GPU on:" + z);
+        if (com.baidu.adp.lib.g.e.a()) {
+            com.baidu.adp.lib.g.e.c("device:[" + trim + "], default GPU on:" + z);
         }
         return z;
     }
 
-    public static TiebaApplication g() {
+    public static TiebaApplication h() {
         return f;
     }
 
-    public void a(String str) {
-        this.p = str;
-    }
-
-    public String h() {
-        return this.p;
-    }
-
-    public boolean b(String str) {
+    public boolean a(String str) {
         if (this.ai == null || str == null) {
             return false;
         }
@@ -289,7 +288,7 @@ public class TiebaApplication extends com.baidu.adp.a.b {
     }
 
     public void a(String str, int i2, int i3) {
-        if (!b(str) && this.ai != null && str != null) {
+        if (!a(str) && this.ai != null && str != null) {
             if (this.ai.size() > 100) {
                 this.ai.clear();
                 this.aj.clear();
@@ -308,15 +307,15 @@ public class TiebaApplication extends com.baidu.adp.a.b {
         }
     }
 
-    public int c(String str) {
-        if (b(str)) {
+    public int b(String str) {
+        if (a(str)) {
             return this.ai.get(str).intValue();
         }
         return 0;
     }
 
-    public int d(String str) {
-        if (b(str)) {
+    public int c(String str) {
+        if (a(str)) {
             return this.aj.get(str).intValue();
         }
         return -1;
@@ -338,14 +337,14 @@ public class TiebaApplication extends com.baidu.adp.a.b {
         }
     }
 
-    public int e(String str) {
+    public int d(String str) {
         if (this.ak == null || str == null || !this.ak.containsKey(str)) {
             return 0;
         }
         return this.ak.get(str).intValue();
     }
 
-    public void f(String str) {
+    public void e(String str) {
         if (this.ak != null && str != null) {
             this.ak.put(str, 1);
             h(true);
@@ -355,7 +354,7 @@ public class TiebaApplication extends com.baidu.adp.a.b {
         }
     }
 
-    public void g(String str) {
+    public void f(String str) {
         if (this.ak != null && str != null) {
             this.ak.put(str, -1);
             h(true);
@@ -371,30 +370,30 @@ public class TiebaApplication extends com.baidu.adp.a.b {
         }
     }
 
-    public boolean h(String str) {
+    public boolean g(String str) {
         if (this.ah == null || str == null) {
             return false;
         }
         return this.ah.containsKey(str);
     }
 
-    public void i(String str) {
-        if (!h(str) && this.ah != null && str != null) {
+    public void h(String str) {
+        if (!g(str) && this.ah != null && str != null) {
             this.ah.put(str, 1);
-            new com.baidu.tieba.util.ac(1, str).start();
+            new com.baidu.tieba.util.af(1, str).start();
         }
     }
 
-    public void j(String str) {
-        if (h(str) && this.ah != null && str != null) {
+    public void i(String str) {
+        if (g(str) && this.ah != null && str != null) {
             this.ah.remove(str);
-            new com.baidu.tieba.util.ac(2, str).start();
+            new com.baidu.tieba.util.af(2, str).start();
         }
     }
 
     public void m() {
         this.ah = new Hashtable<>();
-        new com.baidu.tieba.util.ac(this.ah).start();
+        new com.baidu.tieba.util.af(this.ah).start();
     }
 
     public void a(j jVar) {
@@ -404,7 +403,7 @@ public class TiebaApplication extends com.baidu.adp.a.b {
                 try {
                     this.b.get(i2).releaseResouce();
                 } catch (Exception e) {
-                    com.baidu.tieba.util.bo.b(getClass().getName(), "addRemoteActivity", e.getMessage());
+                    com.baidu.adp.lib.g.e.b(getClass().getName(), "addRemoteActivity", e.getMessage());
                 }
             }
             if (jVar != null) {
@@ -419,7 +418,7 @@ public class TiebaApplication extends com.baidu.adp.a.b {
         }
     }
 
-    private void bn() {
+    private void bp() {
         if (Build.VERSION.SDK_INT >= 5) {
             o = new AccountProxy(this).hasBaiduAccount();
         } else {
@@ -431,7 +430,7 @@ public class TiebaApplication extends com.baidu.adp.a.b {
         return o;
     }
 
-    private void bo() {
+    private void bq() {
         TelephonyManager telephonyManager = (TelephonyManager) getSystemService("phone");
         if (telephonyManager != null) {
             this.m = telephonyManager.getDeviceId();
@@ -441,16 +440,16 @@ public class TiebaApplication extends com.baidu.adp.a.b {
         }
     }
 
-    private void bp() {
-        if (this.u == null || this.u.length() < 0) {
-            this.u = CommonParam.getCUID(this);
-            com.baidu.adp.lib.h.e.c("----cuid:" + this.u);
-            com.baidu.tieba.sharedPref.b.a().b(SocialConstants.PARAM_CUID, this.u);
+    private void br() {
+        if (this.t == null || this.t.length() < 0) {
+            this.t = CommonParam.getCUID(this);
+            com.baidu.adp.lib.g.e.c("----cuid:" + this.t);
+            com.baidu.tieba.sharedPref.b.a().b(SocialConstants.PARAM_CUID, this.t);
         }
     }
 
     public String o() {
-        return this.u;
+        return this.t;
     }
 
     public String p() {
@@ -459,8 +458,8 @@ public class TiebaApplication extends com.baidu.adp.a.b {
 
     public boolean q() {
         boolean z = false;
-        if (this.z != null) {
-            return this.z.booleanValue();
+        if (this.y != null) {
+            return this.y.booleanValue();
         }
         ActivityManager activityManager = (ActivityManager) getSystemService("activity");
         if (activityManager == null) {
@@ -469,7 +468,7 @@ public class TiebaApplication extends com.baidu.adp.a.b {
         List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = activityManager.getRunningAppProcesses();
         int myPid = Process.myPid();
         if (runningAppProcesses != null) {
-            this.z = Boolean.TRUE;
+            this.y = Boolean.TRUE;
             int i2 = 0;
             while (true) {
                 if (i2 >= runningAppProcesses.size()) {
@@ -479,7 +478,7 @@ public class TiebaApplication extends com.baidu.adp.a.b {
                 } else {
                     String str = runningAppProcesses.get(i2).processName;
                     if (str != null && (str.equalsIgnoreCase("com.baidu.tieba:pushservice_v1") || str.equalsIgnoreCase("com.baidu.tieba:remote") || str.equalsIgnoreCase("com.baidu.tieba:bdservice_v1"))) {
-                        this.z = Boolean.FALSE;
+                        this.y = Boolean.FALSE;
                     }
                 }
             }
@@ -488,33 +487,33 @@ public class TiebaApplication extends com.baidu.adp.a.b {
         return z;
     }
 
-    private void bq() {
+    private void bs() {
         SwitchModel.initSwitchManager();
-        this.J = com.baidu.tieba.sharedPref.b.a().a("image_quality", 0);
-        this.K = com.baidu.tieba.sharedPref.b.a().a("view_image_quality", 0);
-        this.L = com.baidu.tieba.sharedPref.b.a().a("show_images", true);
-        this.M = com.baidu.tieba.sharedPref.b.a().a("font_size", 2);
-        this.av = com.baidu.tieba.sharedPref.b.a().a("permoted_message", true);
+        this.I = com.baidu.tieba.sharedPref.b.a().a("image_quality", 0);
+        this.J = com.baidu.tieba.sharedPref.b.a().a("view_image_quality", 0);
+        this.K = com.baidu.tieba.sharedPref.b.a().a("show_images", true);
+        this.L = com.baidu.tieba.sharedPref.b.a().a("font_size", 2);
+        this.aw = com.baidu.tieba.sharedPref.b.a().a("permoted_message", true);
         this.h = com.baidu.tieba.sharedPref.b.a().a("new_display_photo", 1);
-        this.N = com.baidu.tieba.sharedPref.b.a().a("new_abstract_state", 0);
-        this.O = com.baidu.tieba.sharedPref.b.a().a("skin", 0);
-        this.s = com.baidu.tieba.sharedPref.b.a().a("message_id", 0L);
-        this.R = com.baidu.tieba.sharedPref.b.a().a("voice_headset_mode", 0);
-        this.S = com.baidu.tieba.sharedPref.b.a().a("gpu_open", f());
-        this.T = com.baidu.tieba.sharedPref.b.a().a("app_switcher", false);
+        this.M = com.baidu.tieba.sharedPref.b.a().a("new_abstract_state", 0);
+        this.N = com.baidu.tieba.sharedPref.b.a().a("skin", 0);
+        this.r = com.baidu.tieba.sharedPref.b.a().a("message_id", 0L);
+        this.Q = com.baidu.tieba.sharedPref.b.a().a("voice_headset_mode", 0);
+        this.R = com.baidu.tieba.sharedPref.b.a().a("gpu_open", g());
+        this.S = com.baidu.tieba.sharedPref.b.a().a("app_switcher", false);
         this.Z = com.baidu.tieba.sharedPref.b.a().a("manage_mode", false);
-        this.P = com.baidu.tieba.sharedPref.b.a().a("location_on", true);
-        this.Q = com.baidu.tieba.sharedPref.b.a().a("open_local_popularize", false);
+        this.O = com.baidu.tieba.sharedPref.b.a().a("location_on", true);
+        this.P = com.baidu.tieba.sharedPref.b.a().a("open_local_popularize", false);
         this.W = com.baidu.tieba.sharedPref.b.a().a("webview_crash_count", 0);
         this.Y = com.baidu.tieba.sharedPref.b.a().a("new_vcode_webview_crash_count", 0);
-        this.A = com.baidu.tieba.sharedPref.b.a().a("bd_loc_switcher", true);
+        this.z = com.baidu.tieba.sharedPref.b.a().a("bd_loc_switcher", true);
         this.aa = com.baidu.tieba.sharedPref.b.a().a("search_mode", true);
         this.ab = com.baidu.tieba.sharedPref.b.a().a("search_mode_int", 0);
-        this.u = com.baidu.tieba.sharedPref.b.a().a(SocialConstants.PARAM_CUID, (String) null);
+        this.t = com.baidu.tieba.sharedPref.b.a().a(SocialConstants.PARAM_CUID, (String) null);
         this.X = com.baidu.tieba.sharedPref.b.a().a("perform_sample_count", 0);
         this.al = com.baidu.tieba.sharedPref.b.a().a("faceshop_version", -1);
         if (Build.VERSION.SDK_INT <= 4) {
-            this.A = false;
+            this.z = false;
         }
         com.baidu.tieba.e.a.a().b();
         if (com.baidu.adp.lib.a.d.a().b(SwitchKey.LOG) == 0) {
@@ -525,7 +524,7 @@ public class TiebaApplication extends com.baidu.adp.a.b {
     }
 
     public void a(boolean z) {
-        this.A = z;
+        this.z = z;
         com.baidu.tieba.sharedPref.b.a().b("bd_loc_switcher", z);
     }
 
@@ -539,24 +538,24 @@ public class TiebaApplication extends com.baidu.adp.a.b {
     }
 
     public boolean s() {
-        return this.U;
+        return this.T;
     }
 
     public void c(boolean z) {
-        this.U = z;
+        this.T = z;
     }
 
     public boolean t() {
-        return this.P;
+        return this.O;
     }
 
     public void d(boolean z) {
         com.baidu.tieba.sharedPref.b.a().b("gpu_open", z);
-        this.S = z;
+        this.R = z;
     }
 
     public boolean u() {
-        return this.S;
+        return this.R;
     }
 
     public void e(boolean z) {
@@ -577,21 +576,21 @@ public class TiebaApplication extends com.baidu.adp.a.b {
 
     public void g(boolean z) {
         com.baidu.tieba.sharedPref.b.a().b("app_switcher", z);
-        this.T = z;
+        this.S = z;
     }
 
     public boolean x() {
-        return this.T;
+        return this.S;
     }
 
-    private void br() {
+    private void bt() {
         ApplicationInfo applicationInfo = null;
         try {
-            applicationInfo = getPackageManager().getApplicationInfo(getPackageName(), DERTags.TAGGED);
+            applicationInfo = getPackageManager().getApplicationInfo(getPackageName(), 128);
             com.baidu.tieba.data.h.a(com.baidu.adp.lib.f.b.a(String.valueOf(applicationInfo.metaData.get("versionType")), 3));
         } catch (Exception e) {
             com.baidu.tieba.data.h.a(3);
-            com.baidu.tieba.util.bo.b(getClass().getName(), "InitVersion", e.getMessage());
+            com.baidu.adp.lib.g.e.b(getClass().getName(), "InitVersion", e.getMessage());
         }
         try {
             if (com.baidu.tieba.data.h.l() == 2) {
@@ -603,7 +602,7 @@ public class TiebaApplication extends com.baidu.adp.a.b {
                 com.baidu.tieba.data.h.d(String.valueOf(applicationInfo.metaData.get("subVersion")));
             }
         } catch (Exception e2) {
-            com.baidu.tieba.util.bo.b(getClass().getName(), "InitVersion", e2.getMessage());
+            com.baidu.adp.lib.g.e.b(getClass().getName(), "InitVersion", e2.getMessage());
         }
     }
 
@@ -611,28 +610,28 @@ public class TiebaApplication extends com.baidu.adp.a.b {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void bs() {
+    private void bu() {
         BufferedReader bufferedReader;
         BufferedReader bufferedReader2 = null;
         try {
             try {
-                String bt = bt();
+                String bv = bv();
                 bufferedReader = new BufferedReader(new InputStreamReader(getResources().getAssets().open("channel"), "gbk"));
                 try {
                     String readLine = bufferedReader.readLine();
                     com.baidu.tieba.data.h.b(readLine);
-                    if (bt == null) {
-                        String bu = bu();
-                        if (bu != null && bu.length() > 0) {
-                            com.baidu.tieba.data.h.a(bu);
-                            B(bu);
+                    if (bv == null) {
+                        String bw = bw();
+                        if (bw != null && bw.length() > 0) {
+                            com.baidu.tieba.data.h.a(bw);
+                            A(bw);
                         } else if (readLine != null && readLine.length() > 0) {
                             com.baidu.tieba.data.h.a(readLine);
+                            A(readLine);
                             B(readLine);
-                            C(readLine);
                         }
                     } else {
-                        com.baidu.tieba.data.h.a(bt);
+                        com.baidu.tieba.data.h.a(bv);
                     }
                     if (bufferedReader != null) {
                         try {
@@ -643,7 +642,7 @@ public class TiebaApplication extends com.baidu.adp.a.b {
                     }
                 } catch (Exception e2) {
                     e = e2;
-                    com.baidu.tieba.util.bo.b(getClass().getName(), "InitFrom", e.getMessage());
+                    com.baidu.adp.lib.g.e.b(getClass().getName(), "InitFrom", e.getMessage());
                     if (bufferedReader != null) {
                         try {
                             bufferedReader.close();
@@ -651,7 +650,7 @@ public class TiebaApplication extends com.baidu.adp.a.b {
                             e3.printStackTrace();
                         }
                     }
-                    com.baidu.tieba.util.bo.a(getClass().getName(), "InitFrom", "from = " + com.baidu.tieba.data.h.a());
+                    com.baidu.adp.lib.g.e.a(getClass().getName(), "InitFrom", "from = " + com.baidu.tieba.data.h.a());
                 }
             } catch (Throwable th) {
                 th = th;
@@ -673,23 +672,23 @@ public class TiebaApplication extends com.baidu.adp.a.b {
             }
             throw th;
         }
-        com.baidu.tieba.util.bo.a(getClass().getName(), "InitFrom", "from = " + com.baidu.tieba.data.h.a());
+        com.baidu.adp.lib.g.e.a(getClass().getName(), "InitFrom", "from = " + com.baidu.tieba.data.h.a());
     }
 
-    private String bt() {
+    private String bv() {
         return com.baidu.tieba.sharedPref.b.a().a("from_id", (String) null);
     }
 
-    private void B(String str) {
+    private void A(String str) {
         if (str != null && str.length() > 0 && q()) {
             com.baidu.tieba.sharedPref.b.a().b("from_id", str);
         }
     }
 
-    private String bu() {
+    private String bw() {
         String str = null;
         try {
-            File d = com.baidu.tieba.util.aa.d("from.dat");
+            File d = com.baidu.tieba.util.ad.d("from.dat");
             if (d != null) {
                 BufferedReader bufferedReader = new BufferedReader(new FileReader(d));
                 str = bufferedReader.readLine();
@@ -698,15 +697,16 @@ public class TiebaApplication extends com.baidu.adp.a.b {
                 }
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.bo.b(getClass().getName(), "getFromByFile", e.getMessage());
+            com.baidu.adp.lib.g.e.b(getClass().getName(), "getFromByFile", e.getMessage());
+            by.a(e, "TiebaApplication.getFromByFile");
         }
         return str;
     }
 
-    private void C(String str) {
+    private void B(String str) {
         if (str != null && str.length() > 0) {
             try {
-                File f2 = com.baidu.tieba.util.aa.f("from.dat");
+                File f2 = com.baidu.tieba.util.ad.f("from.dat");
                 if (f2 != null) {
                     FileWriter fileWriter = new FileWriter(f2);
                     fileWriter.append((CharSequence) str);
@@ -714,7 +714,8 @@ public class TiebaApplication extends com.baidu.adp.a.b {
                     fileWriter.close();
                 }
             } catch (Exception e) {
-                com.baidu.tieba.util.bo.b(getClass().getName(), "saveFromToFile", e.getMessage());
+                com.baidu.adp.lib.g.e.b(getClass().getName(), "saveFromToFile", e.getMessage());
+                by.a(e, "TiebaApplication.saveFromToFile");
             }
         }
     }
@@ -728,7 +729,7 @@ public class TiebaApplication extends com.baidu.adp.a.b {
         DatabaseService.v();
     }
 
-    public com.baidu.adp.widget.ImageView.d k(String str) {
+    public com.baidu.adp.widget.ImageView.d j(String str) {
         SoftReference<com.baidu.adp.widget.ImageView.d> softReference = this.g.get(str);
         if (softReference != null && softReference.get() != null) {
             return softReference.get();
@@ -757,8 +758,8 @@ public class TiebaApplication extends com.baidu.adp.a.b {
         int b = com.baidu.tbadk.imageManager.d.a().b();
         int max = (int) Math.max(b * 0.8d, com.baidu.tieba.data.h.e());
         if (max < b) {
-            if (com.baidu.adp.lib.h.e.a()) {
-                com.baidu.adp.lib.h.e.c(TiebaApplication.class.getName(), "onAppMemoryLow", "trim pic cache to size:" + max);
+            if (com.baidu.adp.lib.g.e.a()) {
+                com.baidu.adp.lib.g.e.c(TiebaApplication.class.getName(), "onAppMemoryLow", "trim pic cache to size:" + max);
             }
             com.baidu.tbadk.imageManager.d.a().b(max);
         }
@@ -783,57 +784,65 @@ public class TiebaApplication extends com.baidu.adp.a.b {
         }
         i = accountData;
         if (context != null) {
-            if (g().w()) {
+            if (h().w()) {
                 UtilHelper.e(context);
             } else {
                 UtilHelper.f(context);
             }
         }
-        if (accountData != null) {
-            bp.a(accountData.getAccount(), accountData.getID());
-        } else {
-            bp.a(null, null);
-        }
+        a(accountData);
         if (z && accountData != null) {
-            a(accountData, g());
+            a(accountData, h());
         }
+    }
+
+    private static void a(AccountData accountData) {
+        String str;
+        String str2 = null;
+        if (accountData != null) {
+            str = accountData.getID();
+            str2 = accountData.getAccount();
+        } else {
+            str = null;
+        }
+        Intent intent = new Intent();
+        intent.setAction("adp.bdstatisticsmanager2.account_changed");
+        intent.putExtra("intent_data_userid", str);
+        intent.putExtra("intent_data_username", str2);
+        intent.putExtra("intent_data_bduss", D());
+        h().sendStickyBroadcast(intent);
     }
 
     protected static void a(AccountData accountData, TiebaApplication tiebaApplication) {
-        if (com.baidu.adp.lib.h.g.b()) {
+        if (com.baidu.adp.lib.g.g.b()) {
             b(accountData, tiebaApplication);
-        } else if (g() != null) {
-            g().c.post(new bc(accountData, tiebaApplication));
+        } else if (h() != null) {
+            h().c.post(new bf(accountData, tiebaApplication));
         }
-    }
-
-    protected static void C() {
-        com.baidu.tieba.im.m.a(new bd(), new be());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public static void b(AccountData accountData, TiebaApplication tiebaApplication) {
         com.baidu.tieba.mention.s.a().d();
+        com.baidu.tieba.im.m.a(new bg(), new bh(accountData, tiebaApplication));
         C();
-        com.baidu.tieba.im.m.a(new bf(), new bg(accountData, tiebaApplication));
-        D();
         com.baidu.tieba.mention.s.a().k();
         com.baidu.tieba.data.emotions.l.a().b();
     }
 
-    public static void D() {
-        com.baidu.tieba.im.db.ad.a().c();
-        com.baidu.tieba.im.m.a(new bh(), new bi());
+    public static void C() {
+        com.baidu.tieba.im.db.ae.a().c();
+        com.baidu.tieba.im.m.a(new bi(), new bj());
     }
 
-    public static String E() {
+    public static String D() {
         if (i != null) {
             return i.getBDUSS();
         }
         return null;
     }
 
-    public static void l(String str) {
+    public static void k(String str) {
         boolean z = true;
         if (i != null) {
             if (str != null ? str.equals(i.getBDUSS()) : i.getBDUSS() == null) {
@@ -841,16 +850,16 @@ public class TiebaApplication extends com.baidu.adp.a.b {
             }
             i.setBDUSS(str);
             if (z) {
-                a(i, g());
+                a(i, h());
             }
         }
     }
 
-    public static AccountData F() {
+    public static AccountData E() {
         return i;
     }
 
-    public static String G() {
+    public static String F() {
         if (i != null) {
             return i.getAccount();
         }
@@ -861,19 +870,19 @@ public class TiebaApplication extends com.baidu.adp.a.b {
         com.baidu.tieba.sharedPref.b.a().b("update_notify_time", j);
     }
 
-    public long H() {
+    public long G() {
         return com.baidu.tieba.sharedPref.b.a().a("update_notify_time", 0L);
     }
 
-    public void m(String str) {
+    public void l(String str) {
         com.baidu.tieba.sharedPref.b.a().b("install_other_app_file_name", str);
     }
 
-    public String I() {
+    public String H() {
         return com.baidu.tieba.sharedPref.b.a().a("install_other_app_file_name", (String) null);
     }
 
-    public void J() {
+    public void I() {
         com.baidu.tieba.sharedPref.b.a().b("tdatabasecreatetime", new Date().getTime());
     }
 
@@ -882,7 +891,7 @@ public class TiebaApplication extends com.baidu.adp.a.b {
         super.onTerminate();
     }
 
-    public void n(String str) {
+    public void m(String str) {
         if (str != null && str.length() > 0) {
             synchronized (this) {
                 if (i != null) {
@@ -892,7 +901,7 @@ public class TiebaApplication extends com.baidu.adp.a.b {
         }
     }
 
-    public String K() {
+    public String J() {
         if (i != null) {
             return i.getTbs();
         }
@@ -908,19 +917,19 @@ public class TiebaApplication extends com.baidu.adp.a.b {
                 if (com.baidu.tieba.data.h.j().equals(a.substring(0, indexOf))) {
                     str = a.substring(indexOf + 1);
                 } else {
-                    b((Context) g());
+                    b((Context) h());
                 }
             } else {
-                b((Context) g());
+                b((Context) h());
             }
         } else {
             str = a;
         }
-        com.baidu.tieba.util.bo.a("TiebaApplication", "readClientId", str);
+        com.baidu.adp.lib.g.e.a("TiebaApplication", "readClientId", str);
         return str;
     }
 
-    public static String L() {
+    public static String K() {
         return n;
     }
 
@@ -934,7 +943,7 @@ public class TiebaApplication extends com.baidu.adp.a.b {
         }
     }
 
-    public static void o(String str) {
+    public static void n(String str) {
         n = str;
     }
 
@@ -942,82 +951,82 @@ public class TiebaApplication extends com.baidu.adp.a.b {
         this.j = z;
     }
 
-    public boolean M() {
+    public boolean L() {
         return this.j;
     }
 
-    public int N() {
-        return this.ap;
+    public int M() {
+        return this.aq;
     }
 
-    public void O() {
+    public void N() {
         b(300);
         m(true);
         o(true);
         n(true);
         p(true);
         k(false);
-        p("23:00");
-        q("09:00");
+        o("23:00");
+        p("09:00");
     }
 
     public void i(boolean z) {
-        this.av = z;
+        this.aw = z;
         com.baidu.tieba.sharedPref.b.a().b("permoted_message", z);
     }
 
-    public boolean P() {
-        return this.av;
+    public boolean O() {
+        return this.aw;
     }
 
     public void j(boolean z) {
-        if (this.at != z) {
-            this.at = z;
+        if (this.au != z) {
+            this.au = z;
         }
     }
 
-    public boolean Q() {
-        return this.ax;
-    }
-
-    public void k(boolean z) {
-        this.ax = z;
-    }
-
-    public String R() {
+    public boolean P() {
         return this.ay;
     }
 
-    public void p(String str) {
-        this.ay = str;
+    public void k(boolean z) {
+        this.ay = z;
     }
 
-    public String S() {
+    public String Q() {
         return this.az;
     }
 
-    public void q(String str) {
+    public void o(String str) {
         this.az = str;
     }
 
-    public boolean T() {
-        return this.at;
+    public String R() {
+        return this.aA;
     }
 
-    public void l(boolean z) {
-        this.au = z;
+    public void p(String str) {
+        this.aA = str;
     }
 
-    public boolean U() {
+    public boolean S() {
         return this.au;
     }
 
-    public int V() {
-        if (!this.at && !this.au) {
+    public void l(boolean z) {
+        this.av = z;
+    }
+
+    public boolean T() {
+        return this.av;
+    }
+
+    public int U() {
+        if (!this.au && !this.av) {
             return 0;
         }
-        if (!this.at || this.au) {
-            if (!this.at && this.au) {
+        if (!this.au || this.av) {
+            if (!this.au && this.av) {
                 return 2;
             }
             return 3;
@@ -1027,77 +1036,77 @@ public class TiebaApplication extends com.baidu.adp.a.b {
 
     public void a(int i2) {
         if (i2 == 0) {
-            g().j(false);
-            g().l(false);
+            h().j(false);
+            h().l(false);
         } else if (i2 == 1) {
-            g().j(true);
-            g().l(false);
+            h().j(true);
+            h().l(false);
         } else if (i2 == 2) {
-            g().j(false);
-            g().l(true);
+            h().j(false);
+            h().l(true);
         } else {
-            g().j(true);
-            g().l(true);
+            h().j(true);
+            h().l(true);
         }
     }
 
     public void b(int i2) {
-        com.baidu.tieba.util.bo.a(getClass().getName(), "setMsgFrequence", "" + i2);
+        com.baidu.adp.lib.g.e.a(getClass().getName(), "setMsgFrequence", "" + i2);
         if (i2 == 0) {
-            this.ap = i2;
+            this.aq = i2;
             com.baidu.tieba.mention.s.a().a(true);
             this.c.sendMessage(this.c.obtainMessage(3));
             return;
         }
-        this.ap = 300;
+        this.aq = 300;
         this.c.sendMessage(this.c.obtainMessage(2));
     }
 
-    public boolean W() {
-        return this.aq;
+    public boolean V() {
+        return this.ar;
     }
 
     public void m(boolean z) {
-        this.aq = z;
+        this.ar = z;
         if (!z) {
             com.baidu.tieba.mention.s.a().d(0);
         }
     }
 
-    public boolean X() {
-        return this.ar;
+    public boolean W() {
+        return this.as;
     }
 
     public void n(boolean z) {
-        this.ar = z;
+        this.as = z;
         if (!z) {
             com.baidu.tieba.mention.s.a().c(0);
         }
     }
 
-    public boolean Y() {
-        return this.as;
+    public boolean X() {
+        return this.at;
     }
 
     public void o(boolean z) {
-        this.as = z;
+        this.at = z;
         if (!z) {
             com.baidu.tieba.mention.s.a().b(0);
         }
     }
 
-    public boolean Z() {
-        return this.aw;
+    public boolean Y() {
+        return this.ax;
     }
 
     public void p(boolean z) {
-        this.aw = z;
+        this.ax = z;
         if (!z) {
             com.baidu.tieba.mention.s.a().e(0);
         }
     }
 
-    public boolean aa() {
+    public boolean Z() {
         return com.baidu.tieba.sharedPref.b.a().a("group_notify", true);
     }
 
@@ -1105,37 +1114,37 @@ public class TiebaApplication extends com.baidu.adp.a.b {
         com.baidu.tieba.sharedPref.b.a().b("group_notify", z);
     }
 
-    public boolean ab() {
-        return this.ap > 0;
+    public boolean aa() {
+        return this.aq > 0;
     }
 
-    public boolean ac() {
+    public boolean ab() {
         return com.baidu.tieba.sharedPref.b.a().a("alert_sign_on", false);
     }
 
     public void r(boolean z) {
         com.baidu.tieba.sharedPref.b.a().b("alert_sign_on", z);
-        af();
+        ae();
     }
 
-    public int ad() {
+    public int ac() {
         int a = com.baidu.tieba.sharedPref.b.a().a("alert_sign_hours", -1);
         if (a == -1) {
-            bv();
+            bx();
             return com.baidu.tieba.sharedPref.b.a().a("alert_sign_hours", 12);
         }
         return a;
     }
 
-    private void bv() {
+    private void bx() {
         Calendar calendar = Calendar.getInstance();
         a(calendar.get(11), calendar.get(12));
     }
 
-    public int ae() {
+    public int ad() {
         int a = com.baidu.tieba.sharedPref.b.a().a("alert_sign_mins", -1);
         if (a == -1) {
-            bv();
+            bx();
             return com.baidu.tieba.sharedPref.b.a().a("alert_sign_mins", 30);
         }
         return a;
@@ -1144,101 +1153,90 @@ public class TiebaApplication extends com.baidu.adp.a.b {
     public void a(int i2, int i3) {
         com.baidu.tieba.sharedPref.b.a().b("alert_sign_hours", i2);
         com.baidu.tieba.sharedPref.b.a().b("alert_sign_mins", i3);
-        af();
+        ae();
     }
 
-    public void af() {
+    public void ae() {
         AlarmManager alarmManager = (AlarmManager) getSystemService("alarm");
-        Intent ag2 = ag();
-        if (ac()) {
+        Intent af = af();
+        if (ab()) {
             Calendar calendar = Calendar.getInstance();
-            int ad = ad();
+            int ac2 = ac();
             int i2 = calendar.get(11);
-            int ae = ae();
+            int ad = ad();
             int i3 = calendar.get(12);
-            calendar.set(11, ad);
-            calendar.set(12, ae);
+            calendar.set(11, ac2);
+            calendar.set(12, ad);
             calendar.set(13, 0);
             calendar.set(14, 0);
-            if (i2 >= ad && (i2 != ad || i3 >= ae)) {
+            if (i2 >= ac2 && (i2 != ac2 || i3 >= ad)) {
                 calendar.set(6, calendar.get(6) + 1);
             }
-            alarmManager.set(1, calendar.getTimeInMillis(), PendingIntent.getBroadcast(this, 0, ag2, 268435456));
-            if (com.baidu.adp.lib.h.e.a()) {
-                com.baidu.adp.lib.h.e.d("sign-alert alarm set to :" + com.baidu.tieba.util.bm.a(calendar.getTime()));
+            alarmManager.set(1, calendar.getTimeInMillis(), PendingIntent.getBroadcast(this, 0, af, 268435456));
+            if (com.baidu.adp.lib.g.e.a()) {
+                com.baidu.adp.lib.g.e.d("sign-alert alarm set to :" + bu.a(calendar.getTime()));
                 return;
             }
             return;
         }
-        PendingIntent broadcast = PendingIntent.getBroadcast(this, 0, ag2, 536870912);
+        PendingIntent broadcast = PendingIntent.getBroadcast(this, 0, af, 536870912);
         if (broadcast != null) {
             alarmManager.cancel(broadcast);
-            if (com.baidu.adp.lib.h.e.a()) {
-                com.baidu.adp.lib.h.e.d("sign-alert alarm cancelled.");
+            if (com.baidu.adp.lib.g.e.a()) {
+                com.baidu.adp.lib.g.e.d("sign-alert alarm cancelled.");
             }
         }
     }
 
-    protected Intent ag() {
+    protected Intent af() {
         Intent intent = new Intent("com.baidu.tieba.broadcast.signalert");
         intent.setData(Uri.parse("tieba_sign://alert"));
         intent.setClass(this, SignAlertReceiver.class);
         return intent;
     }
 
-    public int ah() {
+    public int ag() {
+        return this.J;
+    }
+
+    public boolean ah() {
         return this.K;
     }
 
-    public boolean ai() {
+    public int ai() {
         return this.L;
     }
 
-    public int aj() {
-        return this.M;
-    }
-
     public void c(int i2) {
-        if (this.M != i2) {
-            this.M = i2;
+        if (this.L != i2) {
+            this.L = i2;
             com.baidu.tieba.sharedPref.b.a().b("font_size", i2);
         }
     }
 
-    public boolean ak() {
-        return this.R == 1;
+    public boolean aj() {
+        return this.Q == 1;
     }
 
     public void s(boolean z) {
         int i2 = z ? 1 : 0;
-        if (this.R != i2) {
-            this.R = i2;
+        if (this.Q != i2) {
+            this.Q = i2;
             com.baidu.tieba.sharedPref.b.a().b("voice_headset_mode", i2);
         }
     }
 
     public void d(int i2) {
-        this.N = i2;
+        this.M = i2;
         com.baidu.tieba.sharedPref.b.a().b("new_abstract_state", i2);
     }
 
-    public int al() {
-        return this.N;
-    }
-
-    public boolean am() {
-        if (this.N == 0) {
-            if (com.baidu.tieba.util.bn.a().c()) {
-                return true;
-            }
-        } else if (this.N == 1) {
-            return true;
-        }
-        return false;
+    public int ak() {
+        return this.M;
     }
 
     public void t(boolean z) {
-        this.Q = z;
+        this.P = z;
         com.baidu.tieba.sharedPref.b.a().b("open_local_popularize", z);
     }
 
@@ -1251,7 +1249,7 @@ public class TiebaApplication extends com.baidu.adp.a.b {
     }
 
     public void f(int i2) {
-        this.O = i2;
+        this.N = i2;
     }
 
     private void s(int i2) {
@@ -1261,11 +1259,11 @@ public class TiebaApplication extends com.baidu.adp.a.b {
         sendBroadcast(intent);
     }
 
-    public int an() {
-        return this.O;
+    public int al() {
+        return this.N;
     }
 
-    public int ao() {
+    public int am() {
         return this.W;
     }
 
@@ -1274,7 +1272,7 @@ public class TiebaApplication extends com.baidu.adp.a.b {
         com.baidu.tieba.sharedPref.b.a().b("webview_crash_count", i2);
     }
 
-    public int ap() {
+    public int an() {
         return this.X;
     }
 
@@ -1283,7 +1281,7 @@ public class TiebaApplication extends com.baidu.adp.a.b {
         com.baidu.tieba.sharedPref.b.a().b("perform_sample_count", i2);
     }
 
-    public int aq() {
+    public int ao() {
         return this.Y;
     }
 
@@ -1292,7 +1290,7 @@ public class TiebaApplication extends com.baidu.adp.a.b {
         com.baidu.tieba.sharedPref.b.a().a("new_vcode_webview_crash_count", i2);
     }
 
-    public void ar() {
+    public void ap() {
         int a = com.baidu.tieba.sharedPref.b.a().a("bd_loc_crash_count", 0) + 1;
         com.baidu.tieba.sharedPref.b.a().b("bd_loc_crash_count", a);
         if (a > 3) {
@@ -1300,31 +1298,31 @@ public class TiebaApplication extends com.baidu.adp.a.b {
         }
     }
 
-    public boolean as() {
-        return this.v;
+    public boolean aq() {
+        return this.u;
     }
 
     public void u(boolean z) {
-        this.v = z;
+        this.u = z;
     }
 
     public void a(CombineDownload combineDownload) {
-        this.x = combineDownload;
+        this.w = combineDownload;
     }
 
-    public CombineDownload at() {
-        return this.x;
-    }
-
-    public VersionData au() {
+    public CombineDownload ar() {
         return this.w;
     }
 
-    public void a(VersionData versionData) {
-        this.w = versionData;
+    public VersionData as() {
+        return this.v;
     }
 
-    public static boolean av() {
+    public void a(VersionData versionData) {
+        this.v = versionData;
+    }
+
+    public static boolean at() {
         return ac;
     }
 
@@ -1332,84 +1330,86 @@ public class TiebaApplication extends com.baidu.adp.a.b {
         ac = z;
     }
 
-    public com.baidu.tieba.util.bk aw() {
+    public com.baidu.tieba.util.bq au() {
         return this.k;
     }
 
+    public void av() {
+        this.s = System.currentTimeMillis();
+    }
+
+    public void aw() {
+        this.s = -1L;
+    }
+
     public void ax() {
-        this.t = System.currentTimeMillis();
+        if (this.s > 0) {
+            this.s = System.currentTimeMillis() - this.s;
+            if (this.s > 0) {
+                new com.baidu.tieba.account.av("startup_time", String.valueOf(this.s));
+                by.a("op_launch", this.s);
+            }
+            com.baidu.adp.lib.g.e.a(getClass().getName(), "sendLaunchTime=", String.valueOf(this.s));
+        }
+        this.s = -1L;
     }
 
     public void ay() {
-        this.t = -1L;
+        this.p++;
+        bz();
     }
 
     public void az() {
-        if (this.t > 0) {
-            this.t = System.currentTimeMillis() - this.t;
-            if (this.t > 0) {
-                new com.baidu.tieba.account.av("startup_time", String.valueOf(this.t));
-                bp.a("op_launch", this.t, 0L);
-            }
-            com.baidu.tieba.util.bo.a(getClass().getName(), "sendLaunchTime=", String.valueOf(this.t));
-        }
-        this.t = -1L;
+        this.p--;
+        bz();
     }
 
-    public void aA() {
-        this.q++;
-        bx();
-    }
-
-    public void aB() {
-        this.q--;
-        bx();
-    }
-
-    private void bw() {
+    private void by() {
         this.c.sendMessageDelayed(this.c.obtainMessage(6, Boolean.TRUE), 1000L);
     }
 
-    private void bx() {
+    private void bz() {
         if (q()) {
-            if (this.q < 0) {
-                this.q = 0;
+            if (this.p < 0) {
+                this.p = 0;
             }
-            if (this.r == 0 && this.q > 0) {
-                this.r = System.nanoTime();
+            if (this.q == 0 && this.p > 0) {
+                this.q = System.nanoTime();
             }
-            com.baidu.tieba.util.bo.a(getClass().getName(), "mResumeNum = ", String.valueOf(this.q));
+            com.baidu.adp.lib.g.e.a(getClass().getName(), "mResumeNum = ", String.valueOf(this.p));
             this.c.removeMessages(4);
-            if (this.q == 0 && this.r > 0) {
+            if (this.p == 0 && this.q > 0) {
                 this.c.sendMessageDelayed(this.c.obtainMessage(4), 60000L);
             }
             this.c.removeMessages(6);
-            if (this.q == 0) {
-                bw();
+            if (this.p == 0) {
+                by();
             } else if (this.ad == null || this.ad.get()) {
                 this.c.sendMessageDelayed(this.c.obtainMessage(6, Boolean.FALSE), 1000L);
             }
         }
     }
 
-    public boolean aC() {
+    public boolean aA() {
         if (this.ad == null) {
             return true;
         }
         return this.ad.get();
     }
 
-    public void aD() {
+    public void aB() {
         if (this.ad == null) {
             this.ad = new AtomicBoolean(false);
         }
         if (!this.ad.get()) {
             this.ad.set(true);
             com.baidu.tieba.im.messageCenter.e.a().d(new com.baidu.tieba.im.message.a(true));
+            bz.a(null);
+            by.a();
         }
     }
 
-    public void aE() {
+    public void aC() {
         if (this.ad == null) {
             this.ad = new AtomicBoolean(true);
         }
@@ -1424,40 +1424,40 @@ public class TiebaApplication extends com.baidu.adp.a.b {
         }
     }
 
-    public int aF() {
+    public int aD() {
         return this.ae;
     }
 
-    public void aG() {
+    public void aE() {
         this.ae = 0;
     }
 
-    public boolean aH() {
-        if (com.baidu.tieba.util.ab.a("/package.cur/" + com.baidu.tieba.data.h.j())) {
+    public boolean aF() {
+        if (com.baidu.tieba.util.ae.a("/package.cur/" + com.baidu.tieba.data.h.j())) {
             return false;
         }
-        r(com.baidu.tieba.util.ab.d("/package.cur"));
+        q(com.baidu.tieba.util.ae.d("/package.cur"));
         return true;
     }
 
-    public void aI() {
-        com.baidu.tieba.util.ab.c("/package.cur");
-        com.baidu.tieba.util.ab.b("/package.cur/" + com.baidu.tieba.data.h.j());
+    public void aG() {
+        com.baidu.tieba.util.ae.c("/package.cur");
+        com.baidu.tieba.util.ae.b("/package.cur/" + com.baidu.tieba.data.h.j());
     }
 
-    public void r(String str) {
-        if (!com.baidu.tieba.util.bm.c(str) && !"null".equals(str)) {
-            com.baidu.tieba.util.ab.c("/package.last");
-            com.baidu.tieba.util.ab.b("/package.last/" + str);
+    public void q(String str) {
+        if (!bu.c(str) && !"null".equals(str)) {
+            com.baidu.tieba.util.ae.c("/package.last");
+            com.baidu.tieba.util.ae.b("/package.last/" + str);
         }
     }
 
-    public String aJ() {
+    public String aH() {
         String d;
-        if (!com.baidu.tieba.util.ab.a("/package.last")) {
+        if (!com.baidu.tieba.util.ae.a("/package.last")) {
             d = com.baidu.tieba.sharedPref.b.a().a("active_version", "");
         } else {
-            d = com.baidu.tieba.util.ab.d("/package.last");
+            d = com.baidu.tieba.util.ae.d("/package.last");
         }
         if ("active_clear".equals(d)) {
             return null;
@@ -1469,91 +1469,91 @@ public class TiebaApplication extends com.baidu.adp.a.b {
         com.baidu.tieba.sharedPref.b.a().b("first_sync_image_quality", z);
     }
 
-    public boolean aK() {
+    public boolean aI() {
         return com.baidu.tieba.sharedPref.b.a().a("first_sync_image_quality", true);
     }
 
-    public void aL() {
-        r("active_clear");
+    public void aJ() {
+        q("active_clear");
     }
 
-    public void aM() {
+    public void aK() {
         com.baidu.tieba.sharedPref.b.a().a("account_share");
     }
 
-    public String aN() {
+    public String aL() {
         return com.baidu.tieba.sharedPref.b.a().a("account_share", (String) null);
     }
 
-    public void s(String str) {
+    public void r(String str) {
         com.baidu.tieba.sharedPref.b.a().b("account_share", str);
     }
 
-    private void by() {
+    private void bA() {
         try {
-            this.E = (LocationManager) getSystemService(Headers.LOCATION);
-            if (this.A) {
-                this.C = new MyBDLocationListenner();
+            this.D = (LocationManager) getSystemService("location");
+            if (this.z) {
+                this.B = new MyBDLocationListenner();
                 LocationClientOption locationClientOption = new LocationClientOption();
                 locationClientOption.setOpenGps(true);
                 locationClientOption.setProdName("tieba");
                 locationClientOption.setAddrType("all");
                 locationClientOption.setCoorType("bd09ll");
-                locationClientOption.setScanSpan(BdWebErrorView.ERROR_CODE_500);
+                locationClientOption.setScanSpan(500);
                 locationClientOption.disableCache(true);
-                this.B = new LocationClient(getApplicationContext());
-                this.B.registerLocationListener(this.C);
-                this.B.setLocOption(locationClientOption);
+                this.A = new LocationClient(getApplicationContext());
+                this.A.registerLocationListener(this.B);
+                this.A.setLocOption(locationClientOption);
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.bo.b(getClass().getName(), "initLocationServer", e.toString());
+            com.baidu.adp.lib.g.e.b(getClass().getName(), "initLocationServer", e.toString());
         }
     }
 
-    public void aO() {
+    public void aM() {
         try {
-            if (this.F == null || System.currentTimeMillis() - this.a > 300000) {
-                this.F = null;
+            if (this.E == null || System.currentTimeMillis() - this.a > 300000) {
+                this.E = null;
                 if (this.c.hasMessages(5)) {
                     this.c.removeMessages(5);
                 }
-                if (this.E != null) {
-                    this.E.removeUpdates(this.aA);
+                if (this.D != null) {
+                    this.D.removeUpdates(this.aB);
                 }
-                if (this.A) {
-                    if (!this.B.isStarted()) {
-                        this.B.start();
+                if (this.z) {
+                    if (!this.A.isStarted()) {
+                        this.A.start();
                     }
-                    this.B.requestLocation();
+                    this.A.requestLocation();
                 }
-                this.D = 4;
-                if (this.E != null && !this.E.isProviderEnabled("gps") && !this.E.isProviderEnabled("network")) {
-                    this.D = 3;
-                    if (!this.A) {
+                this.C = 4;
+                if (this.D != null && !this.D.isProviderEnabled("gps") && !this.D.isProviderEnabled("network")) {
+                    this.C = 3;
+                    if (!this.z) {
                         this.c.sendMessageDelayed(this.c.obtainMessage(5), 100L);
                         return;
                     }
                 }
-                if (this.E != null && this.E.isProviderEnabled("gps")) {
-                    D("gps");
+                if (this.D != null && this.D.isProviderEnabled("gps")) {
+                    C("gps");
                 } else {
-                    this.D = 1;
+                    this.C = 1;
                 }
-                if (this.E != null && this.E.isProviderEnabled("network")) {
-                    D("network");
+                if (this.D != null && this.D.isProviderEnabled("network")) {
+                    C("network");
                 } else {
-                    this.D = 2;
+                    this.C = 2;
                 }
                 this.c.sendMessageDelayed(this.c.obtainMessage(5), 60000L);
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.bo.b(getClass().getName(), "startLocationServer", e.toString());
+            com.baidu.adp.lib.g.e.b(getClass().getName(), "startLocationServer", e.toString());
         }
     }
 
-    private void D(String str) {
-        if (this.E.isProviderEnabled(str)) {
-            this.E.requestLocationUpdates(str, 10000L, 100.0f, this.aA);
+    private void C(String str) {
+        if (this.D.isProviderEnabled(str)) {
+            this.D.requestLocationUpdates(str, 10000L, 100.0f, this.aB);
         }
     }
 
@@ -1565,11 +1565,11 @@ public class TiebaApplication extends com.baidu.adp.a.b {
         @Override // com.baidu.location.BDLocationListener
         public void onReceiveLocation(BDLocation bDLocation) {
             if (bDLocation != null && bDLocation.getLocType() != 62 && bDLocation.getLocType() != 63 && bDLocation.getLocType() != 68 && bDLocation.getLocType() <= 161) {
-                TiebaApplication.this.D = 0;
-                TiebaApplication.this.aP();
-                TiebaApplication.this.F = new Address(Locale.getDefault());
-                TiebaApplication.this.F.setLatitude(bDLocation.getLatitude());
-                TiebaApplication.this.F.setLongitude(bDLocation.getLongitude());
+                TiebaApplication.this.C = 0;
+                TiebaApplication.this.aN();
+                TiebaApplication.this.E = new Address(Locale.getDefault());
+                TiebaApplication.this.E.setLatitude(bDLocation.getLatitude());
+                TiebaApplication.this.E.setLongitude(bDLocation.getLongitude());
                 TiebaApplication.this.a = System.currentTimeMillis();
                 StringBuffer stringBuffer = new StringBuffer();
                 if ((bDLocation.getDistrict() == null || bDLocation.getStreet() == null) && bDLocation.getCity() != null) {
@@ -1582,9 +1582,9 @@ public class TiebaApplication extends com.baidu.adp.a.b {
                     stringBuffer.append(bDLocation.getStreet());
                 }
                 if (bDLocation.getAddrStr() != null) {
-                    TiebaApplication.this.F.setAddressLine(0, stringBuffer.toString());
+                    TiebaApplication.this.E.setAddressLine(0, stringBuffer.toString());
                 }
-                TiebaApplication.this.a(TiebaApplication.this.D, "", TiebaApplication.this.F);
+                TiebaApplication.this.a(TiebaApplication.this.C, "", TiebaApplication.this.E);
             }
         }
 
@@ -1593,41 +1593,41 @@ public class TiebaApplication extends com.baidu.adp.a.b {
         }
     }
 
-    public void aP() {
+    public void aN() {
         if (this.c.hasMessages(5)) {
             this.c.removeMessages(5);
         }
-        if (this.E != null) {
-            this.E.removeUpdates(this.aA);
+        if (this.D != null) {
+            this.D.removeUpdates(this.aB);
         }
-        if (this.A && this.B != null && this.B.isStarted()) {
-            this.B.stop();
+        if (this.z && this.A != null && this.A.isStarted()) {
+            this.A.stop();
         }
-        if (this.G != null) {
-            this.G.cancel();
+        if (this.F != null) {
+            this.F.cancel();
         }
     }
 
-    public Address aQ() {
-        return this.F;
+    public Address aO() {
+        return this.E;
     }
 
     public void a(int i2, String str, Address address) {
         if (this.c.hasMessages(5)) {
             this.c.removeMessages(5);
         }
-        if (this.H != null) {
+        if (this.G != null) {
             int i3 = 0;
             while (true) {
                 int i4 = i3;
-                if (i4 < this.H.size()) {
-                    bj bjVar = this.H.get(i4).get();
-                    if (bjVar != null) {
-                        bjVar.a(i2, str, address);
+                if (i4 < this.G.size()) {
+                    bl blVar = this.G.get(i4).get();
+                    if (blVar != null) {
+                        blVar.a(i2, str, address);
                     }
                     i3 = i4 + 1;
                 } else {
-                    this.H.clear();
+                    this.G.clear();
                     return;
                 }
             }
@@ -1635,37 +1635,37 @@ public class TiebaApplication extends com.baidu.adp.a.b {
     }
 
     public void b(long j) {
-        this.s = j;
+        this.r = j;
         com.baidu.tieba.sharedPref.b.a().b("message_id", j);
     }
 
     public void a(int i2, int i3, String str) {
-        if (this.I == null) {
-            this.I = Executors.newSingleThreadExecutor();
+        if (this.H == null) {
+            this.H = Executors.newSingleThreadExecutor();
         }
-        com.baidu.tieba.util.bo.a(getClass().getName(), "pv_addImagePv", "img_num=" + i2 + " img_total" + i3);
+        com.baidu.adp.lib.g.e.a(getClass().getName(), "pv_addImagePv", "img_num=" + i2 + " img_total" + i3);
         com.baidu.tieba.account.au auVar = new com.baidu.tieba.account.au(i2, i3);
         auVar.a(str);
-        this.I.execute(auVar);
+        this.H.execute(auVar);
     }
 
-    public boolean aR() {
-        return this.aB;
+    public boolean aP() {
+        return this.aC;
     }
 
     public void x(boolean z) {
-        this.aB = z;
+        this.aC = z;
         sendBroadcast(new Intent("com.baidu.tieba.broadcast.newversion"));
     }
 
-    public static boolean aS() {
-        if (g().aR()) {
-            return Long.valueOf(new Date().getTime()).longValue() - Long.valueOf(g().H()).longValue() > 86400000;
+    public static boolean aQ() {
+        if (h().aP()) {
+            return Long.valueOf(new Date().getTime()).longValue() - Long.valueOf(h().G()).longValue() > 86400000;
         }
         return false;
     }
 
-    public long aT() {
+    public long aR() {
         return com.baidu.tieba.sharedPref.b.a().a("last_notify_sound_time", 0L);
     }
 
@@ -1677,16 +1677,16 @@ public class TiebaApplication extends com.baidu.adp.a.b {
         com.baidu.tieba.sharedPref.b.a().b("kn_vote_cd", i2);
     }
 
-    public int aU() {
+    public int aS() {
         return com.baidu.tieba.sharedPref.b.a().a("networkcore_type", 1);
     }
 
     public void k(int i2) {
-        com.baidu.tieba.util.bc.a(i2);
+        com.baidu.tieba.util.bg.a(i2);
         com.baidu.tieba.sharedPref.b.a().b("networkcore_type", i2);
     }
 
-    public int aV() {
+    public int aT() {
         return com.baidu.tieba.sharedPref.b.a().a("keepalive_wifi", 1);
     }
 
@@ -1694,7 +1694,7 @@ public class TiebaApplication extends com.baidu.adp.a.b {
         com.baidu.tieba.sharedPref.b.a().b("keepalive_wifi", i2);
     }
 
-    public int aW() {
+    public int aU() {
         return com.baidu.tieba.sharedPref.b.a().a("keepalive_nonwifi", 1);
     }
 
@@ -1702,16 +1702,24 @@ public class TiebaApplication extends com.baidu.adp.a.b {
         com.baidu.tieba.sharedPref.b.a().b("keepalive_nonwifi", i2);
     }
 
-    public void t(String str) {
+    public void s(String str) {
         com.baidu.tieba.sharedPref.b.a().b("socket_reconn_strategy", str);
     }
 
-    public void u(String str) {
+    public void t(String str) {
         com.baidu.tieba.sharedPref.b.a().b("socket_heartbeat_strategy", str);
     }
 
-    public void v(String str) {
+    public void u(String str) {
         com.baidu.tieba.sharedPref.b.a().b("socket_getmsg_strategy", str);
+    }
+
+    public void y(boolean z) {
+        com.baidu.tieba.sharedPref.b.a().b("is_spring_egg", z);
+    }
+
+    public boolean aV() {
+        return com.baidu.tieba.sharedPref.b.a().a("is_spring_egg", false);
     }
 
     public void a(int[] iArr) {
@@ -1726,7 +1734,7 @@ public class TiebaApplication extends com.baidu.adp.a.b {
         }
     }
 
-    public int[] aX() {
+    public int[] aW() {
         String[] split;
         String a = com.baidu.tieba.sharedPref.b.a().a("socket_time_out", (String) null);
         if (a == null || (split = a.split("\\|")) == null || split.length != 3) {
@@ -1738,13 +1746,13 @@ public class TiebaApplication extends com.baidu.adp.a.b {
             try {
                 iArr[i2] = Integer.valueOf(split[i2]).intValue();
             } catch (Exception e) {
-                com.baidu.adp.lib.h.e.a(e.getMessage());
+                com.baidu.adp.lib.g.e.a(e.getMessage());
             }
         }
         return iArr;
     }
 
-    public int[] aY() {
+    public int[] aX() {
         int[] iArr = new int[0];
         try {
             String a = com.baidu.tieba.sharedPref.b.a().a("socket_reconn_strategy", "");
@@ -1761,7 +1769,7 @@ public class TiebaApplication extends com.baidu.adp.a.b {
         return iArr;
     }
 
-    public int[] aZ() {
+    public int[] aY() {
         int[] iArr = new int[0];
         try {
             String a = com.baidu.tieba.sharedPref.b.a().a("socket_heartbeat_strategy", "");
@@ -1778,7 +1786,7 @@ public class TiebaApplication extends com.baidu.adp.a.b {
         return iArr;
     }
 
-    public int[] ba() {
+    public int[] aZ() {
         int[] iArr = new int[0];
         try {
             String a = com.baidu.tieba.sharedPref.b.a().a("socket_getmsg_strategy", "");
@@ -1803,19 +1811,19 @@ public class TiebaApplication extends com.baidu.adp.a.b {
         com.baidu.tieba.sharedPref.b.a().b("kn_vote_rate", i2);
     }
 
-    public void w(String str) {
+    public void v(String str) {
         com.baidu.tieba.sharedPref.b.a().b("push_channel_id", str);
     }
 
-    public String bb() {
+    public String ba() {
         return com.baidu.tieba.sharedPref.b.a().a("push_channel_userId", "");
     }
 
-    public void x(String str) {
+    public void w(String str) {
         com.baidu.tieba.sharedPref.b.a().b("push_channel_userId", str);
     }
 
-    public String bc() {
+    public String bb() {
         return com.baidu.tieba.sharedPref.b.a().a("push_channel_id", "");
     }
 
@@ -1823,7 +1831,7 @@ public class TiebaApplication extends com.baidu.adp.a.b {
         com.baidu.tieba.sharedPref.b.a().b("nearbygroup_date", j);
     }
 
-    public long bd() {
+    public long bc() {
         return com.baidu.tieba.sharedPref.b.a().a("nearbygroup_date", 0L);
     }
 
@@ -1831,11 +1839,19 @@ public class TiebaApplication extends com.baidu.adp.a.b {
         com.baidu.tieba.sharedPref.b.a().b("banner_date", j);
     }
 
-    public long be() {
+    public long bd() {
         return com.baidu.tieba.sharedPref.b.a().a("banner_date", 0L);
     }
 
-    public void y(String str) {
+    public void f(long j) {
+        com.baidu.tieba.sharedPref.b.a().b("group_banner_date", j);
+    }
+
+    public long be() {
+        return com.baidu.tieba.sharedPref.b.a().a("group_banner_date", 0L);
+    }
+
+    public void x(String str) {
         com.baidu.tieba.sharedPref.b.a().b("location_lat", str);
     }
 
@@ -1843,32 +1859,40 @@ public class TiebaApplication extends com.baidu.adp.a.b {
         return com.baidu.tieba.sharedPref.b.a().a("location_lat", "");
     }
 
-    public void z(String str) {
+    public void y(String str) {
         com.baidu.tieba.sharedPref.b.a().b("location_lng", str);
     }
 
-    public String bg() {
+    public boolean bg() {
+        return com.baidu.tieba.sharedPref.b.a().a("location_shared", false);
+    }
+
+    public void z(boolean z) {
+        com.baidu.tieba.sharedPref.b.a().b("location_shared", z);
+    }
+
+    public String bh() {
         return com.baidu.tieba.sharedPref.b.a().a("location_lng", "");
     }
 
-    public void A(String str) {
+    public void z(String str) {
         com.baidu.tieba.sharedPref.b.a().b("location_pos", str);
     }
 
-    public com.baidu.adp.lib.cache.s<String> bh() {
-        if (this.V == null) {
-            this.V = BdCacheService.c().a("tb.global", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.NO_EVICT, 1);
+    public com.baidu.adp.lib.cache.s<String> bi() {
+        if (this.U == null) {
+            this.U = BdCacheService.c().a("tb.global", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.NO_EVICT, 1);
         }
-        return this.V;
+        return this.U;
     }
 
     public void p(int i2) {
-        int max = Math.max((int) (UtilHelper.a(g()) * 0.28f), i2);
-        com.baidu.adp.lib.h.e.c("set pic cache size to :" + (max / LocationClientOption.MIN_SCAN_SPAN) + "KB. needed:" + (i2 / LocationClientOption.MIN_SCAN_SPAN) + "KB.");
+        int max = Math.max((int) (UtilHelper.a(h()) * 0.28f), i2);
+        com.baidu.adp.lib.g.e.c("set pic cache size to :" + (max / LocationClientOption.MIN_SCAN_SPAN) + "KB. needed:" + (i2 / LocationClientOption.MIN_SCAN_SPAN) + "KB.");
         com.baidu.tbadk.imageManager.d.a().b(max);
     }
 
-    public int bi() {
+    public int bj() {
         return this.al;
     }
 
@@ -1881,15 +1905,19 @@ public class TiebaApplication extends com.baidu.adp.a.b {
         this.am = i2;
     }
 
-    public int bj() {
+    public boolean bk() {
+        return this.V;
+    }
+
+    public int bl() {
         return this.am;
     }
 
-    public boolean bk() {
+    public boolean bm() {
         return this.an;
     }
 
-    public void y(boolean z) {
+    public void A(boolean z) {
         this.an = z;
     }
 
@@ -1897,7 +1925,7 @@ public class TiebaApplication extends com.baidu.adp.a.b {
         this.ao = personChangeData;
     }
 
-    public PersonChangeData bl() {
+    public PersonChangeData bn() {
         return this.ao;
     }
 }

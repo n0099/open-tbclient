@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
 import android.text.TextUtils;
 import com.baidu.tieba.im.SingleRunnable;
+import com.baidu.tieba.util.by;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f extends SingleRunnable<Boolean> {
@@ -47,6 +48,7 @@ public class f extends SingleRunnable<Boolean> {
             }
             return z;
         } catch (Exception e) {
+            by.a(e, "GroupMsgDao.updateState", new Object[0]);
             e.printStackTrace();
             return z;
         }

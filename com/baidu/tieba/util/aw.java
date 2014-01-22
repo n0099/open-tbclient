@@ -1,20 +1,37 @@
 package com.baidu.tieba.util;
 
-import android.os.Handler;
-import android.os.Message;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
+import android.media.MediaScannerConnection;
+import android.net.Uri;
 /* loaded from: classes.dex */
-public final class aw extends Handler {
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        super.handleMessage(message);
-        try {
-            NetWorkCore netWorkCore = (NetWorkCore) message.obj;
-            if (netWorkCore != null) {
-                netWorkCore.r();
-            }
-        } catch (Exception e) {
-            bo.b(getClass().getName(), "initNetWorkCore", e.getMessage());
+public class aw implements MediaScannerConnection.MediaScannerConnectionClient {
+    private MediaScannerConnection a;
+    private Context b;
+    private String c;
+    private String d;
+
+    public aw(Context context) {
+        this.b = context;
+    }
+
+    public void a(String str) {
+        this.c = str;
+        String substring = this.c.substring(this.c.lastIndexOf("."));
+        this.d = "image/jpeg";
+        if (substring.equals(".gif")) {
+            this.d = "image/gif";
         }
+        this.a = new MediaScannerConnection(this.b, this);
+        this.a.connect();
+    }
+
+    @Override // android.media.MediaScannerConnection.MediaScannerConnectionClient
+    public void onMediaScannerConnected() {
+        this.a.scanFile(this.c, this.d);
+    }
+
+    @Override // android.media.MediaScannerConnection.OnScanCompletedListener
+    public void onScanCompleted(String str, Uri uri) {
+        this.a.disconnect();
     }
 }

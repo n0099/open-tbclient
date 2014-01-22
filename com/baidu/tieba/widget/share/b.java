@@ -15,11 +15,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.cloudsdk.social.core.MediaType;
 import com.baidu.cloudsdk.social.share.ShareContent;
-import com.baidu.mobstat.StatService;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.bm;
-import com.baidu.zeus.Headers;
+import com.baidu.tieba.util.bu;
+import com.baidu.tieba.util.by;
 import com.slidingmenu.lib.R;
 import java.util.HashMap;
 /* loaded from: classes.dex */
@@ -93,7 +92,7 @@ public class b implements View.OnClickListener {
     }
 
     private Location c() {
-        LocationManager locationManager = (LocationManager) this.b.getSystemService(Headers.LOCATION);
+        LocationManager locationManager = (LocationManager) this.b.getSystemService("location");
         Criteria criteria = new Criteria();
         criteria.setAccuracy(1);
         criteria.setAltitudeRequired(false);
@@ -119,7 +118,7 @@ public class b implements View.OnClickListener {
 
     public void a() {
         if (!UtilHelper.b()) {
-            com.baidu.adp.lib.h.g.a(this.b, (int) R.string.share_on_no_network);
+            com.baidu.adp.lib.g.g.a(this.b, (int) R.string.share_on_no_network);
             return;
         }
         this.n = new AlertDialog.Builder(this.b).create();
@@ -149,7 +148,7 @@ public class b implements View.OnClickListener {
                 this.p = true;
                 d dVar = new d(this.b, this.r);
                 switch (view.getId()) {
-                    case R.id.iconWeixinTimeline /* 2131101082 */:
+                    case R.id.iconWeixinTimeline /* 2131101199 */:
                         a("share_to_pyq");
                         b(MediaType.WEIXIN_TIMELINE);
                         ShareContent a = a(MediaType.WEIXIN_TIMELINE);
@@ -158,7 +157,7 @@ public class b implements View.OnClickListener {
                             return;
                         }
                         return;
-                    case R.id.iconWeixin /* 2131101083 */:
+                    case R.id.iconWeixin /* 2131101200 */:
                         a("share_to_weixin");
                         b(MediaType.WEIXIN_FRIEND);
                         ShareContent a2 = a(MediaType.WEIXIN_FRIEND);
@@ -167,7 +166,7 @@ public class b implements View.OnClickListener {
                             return;
                         }
                         return;
-                    case R.id.iconQZone /* 2131101084 */:
+                    case R.id.iconQZone /* 2131101201 */:
                         a("share_to_qzone");
                         b(MediaType.QZONE);
                         ShareContent a3 = a(MediaType.QZONE);
@@ -176,7 +175,7 @@ public class b implements View.OnClickListener {
                             return;
                         }
                         return;
-                    case R.id.iconQQWeibo /* 2131101085 */:
+                    case R.id.iconQQWeibo /* 2131101202 */:
                         a("share_to_qweibo");
                         b(MediaType.QQWEIBO);
                         ShareContent a4 = a(MediaType.QQWEIBO);
@@ -185,7 +184,7 @@ public class b implements View.OnClickListener {
                             return;
                         }
                         return;
-                    case R.id.iconSinaWeibo /* 2131101086 */:
+                    case R.id.iconSinaWeibo /* 2131101203 */:
                         a("share_to_sweibo");
                         b(MediaType.SINAWEIBO);
                         ShareContent a5 = a(MediaType.SINAWEIBO);
@@ -194,7 +193,7 @@ public class b implements View.OnClickListener {
                             return;
                         }
                         return;
-                    case R.id.iconRenren /* 2131101087 */:
+                    case R.id.iconRenren /* 2131101204 */:
                         a("share_to_renren");
                         b(MediaType.RENREN);
                         ShareContent a6 = a(MediaType.RENREN);
@@ -203,10 +202,10 @@ public class b implements View.OnClickListener {
                             return;
                         }
                         return;
-                    case R.id.customViewBox /* 2131101088 */:
+                    case R.id.customViewBox /* 2131101205 */:
                     default:
                         return;
-                    case R.id.btnShareCancel /* 2131101089 */:
+                    case R.id.btnShareCancel /* 2131101206 */:
                         a("share_cancel");
                         this.r.b();
                         return;
@@ -230,7 +229,7 @@ public class b implements View.OnClickListener {
             this.p = true;
             if (this.q != null) {
                 String str = this.q.get(mediaType);
-                if (!bm.c(str)) {
+                if (!bu.c(str)) {
                     a(str);
                 }
             }
@@ -238,9 +237,7 @@ public class b implements View.OnClickListener {
     }
 
     private void a(String str) {
-        if (TiebaApplication.g().s()) {
-            StatService.onEvent(this.b, str, "click", 1);
-        }
+        by.a(this.b, str, "click", 1, new Object[0]);
     }
 
     private void d() {
@@ -251,7 +248,7 @@ public class b implements View.OnClickListener {
         a(this.j, R.drawable.icon_unite_share_sina, R.color.share_to, R.drawable.icon_unite_share_sina_1, R.color.share_to_1);
         a(this.k, R.drawable.icon_unite_share_renren, R.color.share_to, R.drawable.icon_unite_share_renren_1, R.color.share_to_1);
         int paddingLeft = this.d.getPaddingLeft();
-        if (TiebaApplication.g().an() == 1) {
+        if (TiebaApplication.h().al() == 1) {
             this.e.setBackgroundResource(R.drawable.bg_unite_popup_share_down_1);
             this.d.setBackgroundResource(R.drawable.bg_unite_popup_share_up_1);
             this.d.setTextColor(this.b.getResources().getColor(R.color.share_to_1));
@@ -268,11 +265,11 @@ public class b implements View.OnClickListener {
     }
 
     private void a(TextView textView, int i, int i2, int i3, int i4) {
-        int an = TiebaApplication.g().an();
-        if (an != 1) {
+        int al = TiebaApplication.h().al();
+        if (al != 1) {
             i3 = i;
         }
-        if (an != 1) {
+        if (al != 1) {
             i4 = i2;
         }
         Drawable drawable = this.b.getResources().getDrawable(i3);

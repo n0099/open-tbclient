@@ -1,8 +1,6 @@
 package com.baidu.tieba.person;
 
 import android.view.View;
-import com.baidu.mobstat.StatService;
-import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.pb.NewPbActivity;
 /* loaded from: classes.dex */
 class ao implements View.OnClickListener {
@@ -24,8 +22,8 @@ class ao implements View.OnClickListener {
         } else {
             NewPbActivity.a(this.b.a, this.a.g(), this.a.h(), "");
         }
-        if (this.b.b.a() != null && TiebaApplication.g().s()) {
-            StatService.onEvent(this.b.a, "his_threads_item", "click", 1);
+        if (this.b.b.a() != null) {
+            com.baidu.tieba.util.by.a(this.b.a, "his_threads_item", "click", 1, new Object[0]);
         }
     }
 }

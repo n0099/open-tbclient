@@ -10,9 +10,9 @@ import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class CommonImageLayout extends ViewGroup {
     private static com.baidu.tieba.util.i j;
-    public bs b;
-    public bs c;
-    public bs d;
+    public ci b;
+    public ci c;
+    public ci d;
     private com.baidu.tieba.data.aj[] k;
     private int l;
     private boolean m;
@@ -32,7 +32,7 @@ public class CommonImageLayout extends ViewGroup {
 
     private void b() {
         if (a < 0.0f) {
-            a = com.baidu.adp.lib.h.g.b(this.o) / 320.0f;
+            a = com.baidu.adp.lib.g.g.b(this.o) / 320.0f;
             for (int i2 = 0; i2 < e.length; i2++) {
                 float[] fArr = e;
                 fArr[i2] = fArr[i2] * a;
@@ -52,9 +52,9 @@ public class CommonImageLayout extends ViewGroup {
         this.p = "other";
         this.o = context;
         b();
-        this.b = new bs(context);
-        this.c = new bs(context);
-        this.d = new bs(context);
+        this.b = new ci(context);
+        this.c = new ci(context);
+        this.d = new ci(context);
         this.b.setScaleType(ImageView.ScaleType.CENTER_CROP);
         this.c.setScaleType(ImageView.ScaleType.CENTER_CROP);
         this.d.setScaleType(ImageView.ScaleType.CENTER_CROP);
@@ -277,7 +277,7 @@ public class CommonImageLayout extends ViewGroup {
                 b = null;
                 tbImageView.setDefaultResource(R.drawable.pic_video);
                 tbImageView.setNightDefaultResource(R.drawable.pic_video_1);
-                tbImageView.setOnClickListener(new n(this, ajVar));
+                tbImageView.setOnClickListener(new r(this, ajVar));
             } else {
                 tbImageView.setDefaultResource(R.drawable.pic_baidu_logo_d);
                 tbImageView.setNightDefaultResource(R.drawable.pic_baidu_logo_d_1);

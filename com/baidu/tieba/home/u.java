@@ -81,7 +81,7 @@ public class u {
             try {
                 a(new JSONObject(str));
             } catch (Exception e) {
-                com.baidu.tieba.util.bo.b(getClass().getName(), "parserJson", e.getMessage());
+                com.baidu.adp.lib.g.e.b(getClass().getName(), "parserJson", e.getMessage());
             }
         }
     }
@@ -108,7 +108,7 @@ public class u {
                         vVar.e(true);
                     }
                     this.l.add(vVar);
-                    TiebaApplication.g().a(vVar.b(), vVar.m(), -1);
+                    TiebaApplication.h().a(vVar.b(), vVar.m(), -1);
                 } else {
                     vVar.a(false);
                     vVar.b(true);
@@ -151,14 +151,14 @@ public class u {
                                 this.n.put(vVar.a() + "", vVar);
                             } else {
                                 this.l.add(vVar);
-                                TiebaApplication.g().a(vVar.b(), vVar.m(), -1);
+                                TiebaApplication.h().a(vVar.b(), vVar.m(), -1);
                             }
                             this.k.add(vVar);
                         }
                     }
                 }
             } catch (Exception e) {
-                com.baidu.tieba.util.bo.b(getClass().getName(), "parserJson", e.getMessage());
+                com.baidu.adp.lib.g.e.b(getClass().getName(), "parserJson", e.getMessage());
             }
         }
     }

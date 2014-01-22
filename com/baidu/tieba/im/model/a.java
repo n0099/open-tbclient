@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.model;
 
-import com.baidu.tieba.im.message.ay;
+import com.baidu.tieba.im.message.bg;
 /* loaded from: classes.dex */
 public class a extends com.baidu.adp.a.d {
     private int c;
@@ -13,8 +13,8 @@ public class a extends com.baidu.adp.a.d {
     private String j;
     private int k;
     private int l;
-    private com.baidu.tieba.im.message.y a = null;
-    private ay b = null;
+    private com.baidu.tieba.im.message.aa a = null;
+    private bg b = null;
     private int m = -1;
 
     public void a(int i) {
@@ -71,36 +71,36 @@ public class a extends com.baidu.adp.a.d {
         this.m = i;
     }
 
-    private com.baidu.tieba.im.message.y c() {
-        com.baidu.tieba.im.message.y yVar = new com.baidu.tieba.im.message.y();
-        yVar.a(this.c);
-        yVar.a(this.d);
-        yVar.b(this.e);
-        yVar.c(this.f);
-        yVar.d(this.g);
-        yVar.e(this.h);
-        yVar.f(this.i);
-        yVar.g(this.j);
-        yVar.b(this.k);
-        yVar.c(this.l);
+    private com.baidu.tieba.im.message.aa c() {
+        com.baidu.tieba.im.message.aa aaVar = new com.baidu.tieba.im.message.aa();
+        aaVar.a(this.c);
+        aaVar.a(this.d);
+        aaVar.b(this.e);
+        aaVar.c(this.f);
+        aaVar.d(this.g);
+        aaVar.e(this.h);
+        aaVar.f(this.i);
+        aaVar.g(this.j);
+        aaVar.b(this.k);
+        aaVar.c(this.l);
         switch (this.m) {
             case 1011:
-                yVar.h("neargp");
+                aaVar.h("neargp");
                 break;
             case 1012:
-                yVar.h("mygp");
+                aaVar.h("mygp");
                 break;
             case 1013:
-                yVar.h("bargp");
+                aaVar.h("bargp");
                 break;
             case 1014:
-                yVar.h("");
+                aaVar.h("");
                 break;
             default:
-                yVar.h("");
+                aaVar.h("");
                 break;
         }
-        return yVar;
+        return aaVar;
     }
 
     public void a() {

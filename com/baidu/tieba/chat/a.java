@@ -13,9 +13,8 @@ import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.chat.RecentChatFriendData;
 import com.baidu.tieba.im.chat.personaltalk.PersonalSettingItemData;
 import com.baidu.tieba.im.groupInfo.GroupSettingItemData;
-import com.baidu.tieba.util.bl;
-import com.baidu.tieba.util.bm;
-import com.baidu.tieba.util.bo;
+import com.baidu.tieba.util.bs;
+import com.baidu.tieba.util.bu;
 import com.baidu.tieba.view.HeadImageView;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
@@ -52,7 +51,7 @@ public class a extends BaseAdapter {
                     try {
                         this.g.get(i2).setVisibility(8);
                     } catch (Exception e) {
-                        bo.b(getClass().getName(), "releaseProgressBar", e.getMessage());
+                        com.baidu.adp.lib.g.e.b(getClass().getName(), "releaseProgressBar", e.getMessage());
                     }
                     i = i2 + 1;
                 } else {
@@ -70,7 +69,7 @@ public class a extends BaseAdapter {
         this.i.clear();
         this.i.addAll(list);
         if (TiebaApplication.B()) {
-            com.baidu.adp.lib.h.e.d("mRecentChatData.size():" + this.i.size());
+            com.baidu.adp.lib.g.e.d("mRecentChatData.size():" + this.i.size());
             if (this.i.size() <= 0) {
                 this.b.e(true);
             } else {
@@ -131,7 +130,7 @@ public class a extends BaseAdapter {
             cVar = cVar2;
             view2 = view;
         }
-        int an = TiebaApplication.g().an();
+        int al = TiebaApplication.h().al();
         long itemId = getItemId(i);
         if (itemId == -1) {
             ((ViewGroup) view2).setBackgroundDrawable(null);
@@ -144,11 +143,11 @@ public class a extends BaseAdapter {
                 cVar.h.setText(R.string.frs_pre);
                 cVar.i.setVisibility(8);
             }
-            if (an == 1) {
-                bl.e((View) cVar.h, (int) R.drawable.btn_w_square_1);
+            if (al == 1) {
+                bs.e((View) cVar.h, (int) R.drawable.btn_w_square_1);
                 cVar.h.setTextColor(-8682095);
             } else {
-                bl.e((View) cVar.h, (int) R.drawable.btn_w_square);
+                bs.e((View) cVar.h, (int) R.drawable.btn_w_square);
                 cVar.h.setTextColor(-14277082);
             }
         } else if (itemId == -2) {
@@ -162,20 +161,20 @@ public class a extends BaseAdapter {
                 cVar.h.setText(R.string.frs_next);
                 cVar.i.setVisibility(8);
             }
-            if (an == 1) {
-                bl.e((View) cVar.h, (int) R.drawable.btn_w_square_1);
+            if (al == 1) {
+                bs.e((View) cVar.h, (int) R.drawable.btn_w_square_1);
                 cVar.h.setTextColor(-8682095);
             } else {
-                bl.e((View) cVar.h, (int) R.drawable.btn_w_square);
+                bs.e((View) cVar.h, (int) R.drawable.btn_w_square);
                 cVar.h.setTextColor(-14277082);
             }
         } else {
-            if (an == 1) {
-                bl.e(view2, (int) R.drawable.list_selector_1);
+            if (al == 1) {
+                bs.e(view2, (int) R.drawable.list_selector_1);
             } else {
-                bl.e(view2, (int) R.drawable.list_selector_divider1);
+                bs.e(view2, (int) R.drawable.list_selector_divider1);
             }
-            com.baidu.adp.lib.h.e.d("count:" + getCount());
+            com.baidu.adp.lib.g.e.d("count:" + getCount());
             cVar.a.setVisibility(0);
             cVar.g.setVisibility(8);
             RecentChatFriendData recentChatFriendData = (RecentChatFriendData) getItem(i);
@@ -187,11 +186,11 @@ public class a extends BaseAdapter {
                     date.setTime(recentChatFriendData.getServerTime());
                     String str = "";
                     if (recentChatFriendData.getServerTime() != 0) {
-                        str = bm.f(date);
+                        str = bu.e(date);
                     }
                     cVar.e.setText(str);
                     c(cVar, recentChatFriendData);
-                    a(cVar, an, recentChatFriendData);
+                    a(cVar, al, recentChatFriendData);
                     if (String.valueOf(String.valueOf(2)).equals(recentChatFriendData.getOwnerName())) {
                         if (recentChatFriendData.getUnReadCount() >= 30) {
                             if (this.b != null) {
@@ -220,7 +219,7 @@ public class a extends BaseAdapter {
                     cVar.j.setVisibility(8);
                 } else if (!groupSetting.isAcceptNotify()) {
                     cVar.j.setVisibility(0);
-                    if (TiebaApplication.g().an() == 1) {
+                    if (TiebaApplication.h().al() == 1) {
                         cVar.j.setImageResource(R.drawable.icon_news_stop_1);
                     } else {
                         cVar.j.setImageResource(R.drawable.icon_news_stop);
@@ -243,7 +242,7 @@ public class a extends BaseAdapter {
         } else if (String.valueOf(1).equals(recentChatFriendData.getOwnerName())) {
             cVar.d.setText(recentChatFriendData.getMsgContent());
         } else {
-            com.baidu.adp.lib.h.e.d(recentChatFriendData.getMsgContent());
+            com.baidu.adp.lib.g.e.d(recentChatFriendData.getMsgContent());
             if (TextUtils.isEmpty(recentChatFriendData.getMsgContent())) {
                 cVar.d.setText((CharSequence) null);
             } else {
@@ -257,11 +256,11 @@ public class a extends BaseAdapter {
         String str;
         int i3 = 0;
         int unReadCount = recentChatFriendData.getUnReadCount();
-        com.baidu.adp.lib.h.e.d("type:" + recentChatFriendData.getOwnerName() + "  count:" + unReadCount);
+        com.baidu.adp.lib.g.e.d("type:" + recentChatFriendData.getOwnerName() + "  count:" + unReadCount);
         if (unReadCount > 0) {
             cVar.f.setVisibility(0);
             String valueOf = unReadCount > 99 ? "..." : String.valueOf(unReadCount);
-            if (TiebaApplication.g().N() == 0) {
+            if (TiebaApplication.h().M() == 0) {
                 str = "";
                 i2 = 0;
             } else {
@@ -273,7 +272,7 @@ public class a extends BaseAdapter {
             } else if (String.valueOf(3).equals(recentChatFriendData.getOwnerName())) {
                 str = "";
             } else if (String.valueOf(1).equals(recentChatFriendData.getOwnerName())) {
-                if (!TiebaApplication.g().aa()) {
+                if (!TiebaApplication.h().Z()) {
                     str = "";
                 } else {
                     GroupSettingItemData groupSettingItemData = (GroupSettingItemData) recentChatFriendData.getGroupSetting();
@@ -285,7 +284,7 @@ public class a extends BaseAdapter {
                 }
             } else {
                 if (String.valueOf(4).equals(recentChatFriendData.getOwnerName())) {
-                    if (!TiebaApplication.g().Z()) {
+                    if (!TiebaApplication.h().Y()) {
                         str = "";
                     } else {
                         PersonalSettingItemData personalSettingItemData = (PersonalSettingItemData) recentChatFriendData.getGroupSetting();
@@ -339,15 +338,15 @@ public class a extends BaseAdapter {
     }
 
     private void c(c cVar, RecentChatFriendData recentChatFriendData) {
-        com.baidu.adp.lib.h.e.d("ownername:" + recentChatFriendData.getOwnerName());
+        com.baidu.adp.lib.g.e.d("ownername:" + recentChatFriendData.getOwnerName());
         if (String.valueOf(2).equals(recentChatFriendData.getOwnerName())) {
             cVar.b.setDrawBorder(false);
             cVar.b.setAutoChangeStyle(false);
             cVar.b.setTag(recentChatFriendData.getOwnerName());
-            if (TiebaApplication.g().an() == 1) {
-                cVar.b.setImageBitmap(com.baidu.tieba.util.m.a((int) R.drawable.icon_new_test_1));
+            if (TiebaApplication.h().al() == 1) {
+                cVar.b.setImageBitmap(com.baidu.tieba.util.n.a((int) R.drawable.icon_new_test_1));
             } else {
-                cVar.b.setImageBitmap(com.baidu.tieba.util.m.a((int) R.drawable.icon_new_test));
+                cVar.b.setImageBitmap(com.baidu.tieba.util.n.a((int) R.drawable.icon_new_test));
             }
             cVar.b.setUserName(String.valueOf(2));
             cVar.b.setUserId(recentChatFriendData.getFriendId());
@@ -359,10 +358,10 @@ public class a extends BaseAdapter {
             cVar.b.setTag(recentChatFriendData.getOwnerName());
             cVar.b.setUserName(String.valueOf(3));
             cVar.b.setUserId(recentChatFriendData.getFriendId());
-            if (TiebaApplication.g().an() == 1) {
-                cVar.b.setImageBitmap(com.baidu.tieba.util.m.a((int) R.drawable.icon_new_trends_1));
+            if (TiebaApplication.h().al() == 1) {
+                cVar.b.setImageBitmap(com.baidu.tieba.util.n.a((int) R.drawable.icon_new_trends_1));
             } else {
-                cVar.b.setImageBitmap(com.baidu.tieba.util.m.a((int) R.drawable.icon_new_trends));
+                cVar.b.setImageBitmap(com.baidu.tieba.util.n.a((int) R.drawable.icon_new_trends));
             }
             cVar.b.setIsRound(false);
             cVar.b.invalidate();
@@ -377,15 +376,15 @@ public class a extends BaseAdapter {
                 if (d != null) {
                     d.a(cVar.b);
                 } else {
-                    cVar.b.setImageBitmap(com.baidu.tieba.util.m.a((int) R.drawable.avatar_poto_defaul140));
+                    cVar.b.setImageBitmap(com.baidu.tieba.util.n.a((int) R.drawable.avatar_poto_defaul140));
                 }
             } else if (TextUtils.isEmpty(friendPortrait)) {
-                cVar.b.setImageBitmap(com.baidu.tieba.util.m.a((int) R.drawable.avatar_poto_defaul140));
+                cVar.b.setImageBitmap(com.baidu.tieba.util.n.a((int) R.drawable.avatar_poto_defaul140));
             }
             cVar.b.setClickable(false);
             cVar.b.setTag(recentChatFriendData.getFriendPortrait());
             cVar.b.setUserId(recentChatFriendData.getFriendId());
-            com.baidu.adp.lib.h.e.d("groupid:" + recentChatFriendData.getFriendId() + " groupHeadUrl:" + recentChatFriendData.getFriendPortrait() + " groupName:" + recentChatFriendData.getFriendName());
+            com.baidu.adp.lib.g.e.d("groupid:" + recentChatFriendData.getFriendId() + " groupHeadUrl:" + recentChatFriendData.getFriendPortrait() + " groupName:" + recentChatFriendData.getFriendName());
             cVar.b.setUserName(String.valueOf(1));
             cVar.b.setIsRound(false);
             cVar.b.invalidate();
@@ -399,10 +398,10 @@ public class a extends BaseAdapter {
                 if (c != null) {
                     c.a(cVar.b);
                 } else {
-                    cVar.b.setImageBitmap(com.baidu.tieba.util.m.a((int) R.drawable.person_photo));
+                    cVar.b.setImageBitmap(com.baidu.tieba.util.n.a((int) R.drawable.person_photo));
                 }
             } else if (TextUtils.isEmpty(friendPortrait2)) {
-                cVar.b.setImageBitmap(com.baidu.tieba.util.m.a((int) R.drawable.person_photo));
+                cVar.b.setImageBitmap(com.baidu.tieba.util.n.a((int) R.drawable.person_photo));
             }
             cVar.b.setTag(recentChatFriendData.getFriendPortrait());
             cVar.b.setUserId(recentChatFriendData.getFriendId());

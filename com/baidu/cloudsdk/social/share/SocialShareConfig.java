@@ -12,11 +12,25 @@ public class SocialShareConfig extends BaseConfig {
     private static SocialShareConfig a;
     private List b;
     private List c;
+    private List d;
 
     private SocialShareConfig(Context context) {
         super(context);
         this.b = new ArrayList();
         this.c = new ArrayList();
+        this.d = new ArrayList();
+    }
+
+    public static void clean() {
+        if (a != null) {
+            a.c.clear();
+            a.mIntItems.clear();
+            a.d.clear();
+            a.mStringResources.clear();
+            a.b.clear();
+            a.mContext = null;
+            a = null;
+        }
     }
 
     public static SocialShareConfig getInstance(Context context) {
@@ -34,6 +48,10 @@ public class SocialShareConfig extends BaseConfig {
 
     public List getExcludedMediaTypesInShareMenu() {
         return this.c;
+    }
+
+    public List getNoSupportedPackages() {
+        return this.d;
     }
 
     public List getSupportedMediaTypes() {
@@ -65,6 +83,19 @@ public class SocialShareConfig extends BaseConfig {
                 try {
                     this.c.add(MediaType.fromString(optJSONArray2.optString(i2)));
                 } catch (Exception e2) {
+                }
+            }
+        }
+        JSONArray optJSONArray3 = jSONObject.optJSONArray("no_supported_packages_in_others");
+        if (optJSONArray3 != null) {
+            int length3 = optJSONArray3.length();
+            if (length3 > 0) {
+                this.d = new ArrayList();
+            }
+            for (int i3 = 0; i3 < length3; i3++) {
+                try {
+                    this.d.add(optJSONArray3.optString(i3));
+                } catch (Exception e3) {
                 }
             }
         }

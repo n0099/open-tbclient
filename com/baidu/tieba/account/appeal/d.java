@@ -1,6 +1,6 @@
 package com.baidu.tieba.account.appeal;
 
-import com.baidu.tieba.util.bm;
+import com.baidu.tieba.util.bu;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 class d implements h {
@@ -18,6 +18,6 @@ class d implements h {
 
     @Override // com.baidu.tieba.account.appeal.h
     public void b(AppealData appealData) {
-        this.a.a.a(!bm.c(appealData.errMsg) ? appealData.errMsg : this.a.a.getString(R.string.appeal_post_failure), false);
+        this.a.a.a(!bu.c(appealData.errMsg) ? appealData.errMsg : this.a.a.getString(R.string.appeal_post_failure), false);
     }
 }

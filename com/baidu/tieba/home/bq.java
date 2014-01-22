@@ -64,7 +64,7 @@ public class bq extends FrameLayout {
 
     @Override // android.widget.FrameLayout, android.view.View
     protected void onMeasure(int i, int i2) {
-        super.onMeasure(i, View.MeasureSpec.makeMeasureSpec(com.baidu.adp.lib.h.g.a(this.c, 180.0f), 1073741824));
+        super.onMeasure(i, View.MeasureSpec.makeMeasureSpec(com.baidu.adp.lib.g.g.a(this.c, 180.0f), 1073741824));
     }
 
     @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View
@@ -73,7 +73,7 @@ public class bq extends FrameLayout {
         int measuredWidth = this.d.getMeasuredWidth();
         int measuredHeight = this.d.getMeasuredHeight();
         int i6 = i5 - (measuredWidth / 2);
-        int a = com.baidu.adp.lib.h.g.a(this.c, 16.0f);
+        int a = com.baidu.adp.lib.g.g.a(this.c, 16.0f);
         int i7 = measuredHeight + a;
         this.d.layout(i6, a, measuredWidth + i6, i7);
         int measuredWidth2 = this.e.getMeasuredWidth();
@@ -85,12 +85,12 @@ public class bq extends FrameLayout {
         int measuredWidth3 = this.f.getMeasuredWidth();
         int measuredHeight4 = this.f.getMeasuredHeight();
         int i10 = i5 - (measuredWidth3 / 2);
-        int a2 = i9 + com.baidu.adp.lib.h.g.a(this.c, 10.0f);
+        int a2 = i9 + com.baidu.adp.lib.g.g.a(this.c, 10.0f);
         this.f.layout(i10, a2, measuredWidth3 + i10, measuredHeight4 + a2);
         int measuredWidth4 = this.g.getMeasuredWidth();
         int measuredHeight5 = this.g.getMeasuredHeight();
         int i11 = i5 - (measuredWidth4 / 2);
-        int a3 = com.baidu.adp.lib.h.g.a(this.c, 125.0f);
+        int a3 = com.baidu.adp.lib.g.g.a(this.c, 125.0f);
         int i12 = measuredHeight5 + a3;
         this.g.layout(i11, a3, measuredWidth4 + i11, i12);
         int measuredWidth5 = this.h.getMeasuredWidth();
@@ -105,7 +105,7 @@ public class bq extends FrameLayout {
     private void c() {
         removeCallbacks(this.k);
         removeCallbacks(this.l);
-        boolean z = TiebaApplication.g().an() == 1;
+        boolean z = TiebaApplication.h().al() == 1;
         switch (this.a) {
             case 0:
                 this.d.setClickable(true);

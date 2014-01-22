@@ -2,12 +2,13 @@ package com.baidu.tieba.person;
 
 import android.widget.ProgressBar;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tieba.TiebaApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends BdAsyncTask<Object, String, com.baidu.tieba.model.h> {
     final /* synthetic */ EditBarActivity a;
-    private com.baidu.tieba.util.at b;
+    private com.baidu.tieba.util.ax b;
 
     private g(EditBarActivity editBarActivity) {
         this.a = editBarActivity;
@@ -44,29 +45,29 @@ public class g extends BdAsyncTask<Object, String, com.baidu.tieba.model.h> {
             if (str == null && (n = com.baidu.tieba.b.a.a().n()) != null) {
                 c((Object[]) new String[]{n.a(TiebaApplication.A())});
             }
-            this.b = new com.baidu.tieba.util.at(com.baidu.tieba.data.h.a + "c/f/forum/like");
+            this.b = new com.baidu.tieba.util.ax(com.baidu.tieba.data.h.a + "c/f/forum/like");
             str2 = this.a.o;
             if (str2 != null) {
-                com.baidu.tieba.util.at atVar = this.b;
+                com.baidu.tieba.util.ax axVar = this.b;
                 str4 = this.a.o;
-                atVar.a("uid", str4);
+                axVar.a(SapiAccountManager.SESSION_UID, str4);
             }
-            String l = this.b.l();
-            if (!this.b.c()) {
+            String m = this.b.m();
+            if (!this.b.d()) {
                 return null;
             }
             hVar = new com.baidu.tieba.model.h();
             try {
-                hVar.a(l);
+                hVar.a(m);
                 str3 = this.a.o;
                 if (str3 == null) {
-                    a(l);
+                    a(m);
                     return hVar;
                 }
                 return hVar;
             } catch (Exception e2) {
                 e = e2;
-                com.baidu.tieba.util.bo.b(getClass().getName(), "doInBackground", e.getMessage());
+                com.baidu.adp.lib.g.e.b(getClass().getName(), "doInBackground", e.getMessage());
                 return hVar;
             }
         } catch (Exception e3) {
@@ -117,9 +118,9 @@ public class g extends BdAsyncTask<Object, String, com.baidu.tieba.model.h> {
         progressBar.setVisibility(8);
         this.a.h = null;
         if (this.b != null) {
-            if (!this.b.c() || hVar == null) {
+            if (!this.b.d() || hVar == null) {
                 this.a.a(true);
-                this.a.showToast(this.b.i());
+                this.a.showToast(this.b.j());
                 return;
             }
             hVar2 = this.a.a;
@@ -137,7 +138,7 @@ public class g extends BdAsyncTask<Object, String, com.baidu.tieba.model.h> {
     public void cancel() {
         ProgressBar progressBar;
         if (this.b != null) {
-            this.b.j();
+            this.b.k();
             this.b = null;
         }
         progressBar = this.a.g;

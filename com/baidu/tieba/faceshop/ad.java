@@ -7,7 +7,7 @@ import com.baidu.gson.GsonBuilder;
 /* loaded from: classes.dex */
 public class ad extends BdAsyncTask<Object, FacePackageDownloadData, FacePackageDownloadData> {
     final /* synthetic */ ac a;
-    private com.baidu.tieba.util.at b;
+    private com.baidu.tieba.util.ax b;
     private String c;
 
     public ad(ac acVar, String str) {
@@ -26,23 +26,23 @@ public class ad extends BdAsyncTask<Object, FacePackageDownloadData, FacePackage
         float f;
         try {
             if (this.c != null && this.c.length() > 0) {
-                this.b = new com.baidu.tieba.util.at(com.baidu.tieba.data.h.a + "c/e/faces/dpack");
+                this.b = new com.baidu.tieba.util.ax(com.baidu.tieba.data.h.a + "c/e/faces/dpack");
                 this.b.a("pid", this.c);
-                com.baidu.tieba.util.at atVar = this.b;
+                com.baidu.tieba.util.ax axVar = this.b;
                 i = this.a.c;
-                atVar.a("scr_w", String.valueOf(i));
-                com.baidu.tieba.util.at atVar2 = this.b;
+                axVar.a("scr_w", String.valueOf(i));
+                com.baidu.tieba.util.ax axVar2 = this.b;
                 i2 = this.a.d;
-                atVar2.a("scr_h", String.valueOf(i2));
-                com.baidu.tieba.util.at atVar3 = this.b;
+                axVar2.a("scr_h", String.valueOf(i2));
+                com.baidu.tieba.util.ax axVar3 = this.b;
                 f = this.a.e;
-                atVar3.a("scr_dip", String.valueOf(f));
-                String l = this.b.l();
+                axVar3.a("scr_dip", String.valueOf(f));
+                String m = this.b.m();
                 Gson create = new GsonBuilder().create();
-                this.a.b = (FacePackageDownloadData) create.fromJson(l, (Class<Object>) FacePackageDownloadData.class);
+                this.a.b = (FacePackageDownloadData) create.fromJson(m, (Class<Object>) FacePackageDownloadData.class);
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.h.e.b(getClass().getName(), "doInBackground", e.toString());
+            com.baidu.adp.lib.g.e.b(getClass().getName(), "doInBackground", e.toString());
         }
         facePackageDownloadData = this.a.b;
         return facePackageDownloadData;
@@ -63,7 +63,7 @@ public class ad extends BdAsyncTask<Object, FacePackageDownloadData, FacePackage
     public void cancel() {
         super.cancel(true);
         if (this.b != null) {
-            this.b.j();
+            this.b.k();
             this.b = null;
         }
         this.a.a = null;

@@ -1,38 +1,45 @@
 package com.baidu.tieba.pb;
 
 import android.widget.ImageView;
-import com.baidu.adp.widget.ImageView.BDImageView;
 import com.baidu.adp.widget.ListView.BdListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class dn implements com.baidu.tbadk.imageManager.c {
-    final /* synthetic */ cs a;
+    final /* synthetic */ cr a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public dn(cs csVar) {
-        this.a = csVar;
+    public dn(cr crVar) {
+        this.a = crVar;
     }
 
     @Override // com.baidu.tbadk.imageManager.c
     public void a(com.baidu.adp.widget.ImageView.d dVar, String str, boolean z) {
         BdListView bdListView;
+        eb ebVar;
+        eb ebVar2;
         bdListView = this.a.i;
         ImageView imageView = (ImageView) bdListView.findViewWithTag(str);
         if (dVar == null) {
-            if (imageView != null && (imageView instanceof com.baidu.tieba.view.bg)) {
-                ((com.baidu.tieba.view.bg) imageView).a(false);
+            if (imageView != null && (imageView instanceof com.baidu.tieba.view.bu)) {
+                ((com.baidu.tieba.view.bu) imageView).a(false);
+                return;
             }
-        } else if (imageView != null) {
-            if (imageView instanceof com.baidu.tieba.view.bg) {
-                ((com.baidu.tieba.view.bg) imageView).a(true);
-                if (!((com.baidu.tieba.view.bg) imageView).getIsLoaded()) {
-                    imageView.invalidate();
+            return;
+        }
+        if (imageView != null) {
+            if (imageView instanceof com.baidu.tieba.view.bu) {
+                ((com.baidu.tieba.view.bu) imageView).a(true);
+            }
+            imageView.invalidate();
+        }
+        if (this.a.y()) {
+            ebVar = this.a.r;
+            if (ebVar != null) {
+                ebVar2 = this.a.r;
+                ImageView imageView2 = (ImageView) ebVar2.n().findViewWithTag(str);
+                if (imageView2 != null) {
+                    imageView2.invalidate();
                 }
-            } else if (imageView instanceof BDImageView) {
-                imageView.setImageBitmap(dVar.h());
-                imageView.invalidate();
-            } else {
-                imageView.invalidate();
             }
         }
     }

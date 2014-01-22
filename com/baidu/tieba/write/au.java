@@ -23,18 +23,18 @@ class au implements View.OnClickListener {
         Bitmap bitmap;
         Bitmap bitmap2;
         boolean b;
-        z = this.a.y;
+        z = this.a.x;
         if (!z) {
-            i = this.a.z;
+            i = this.a.y;
             if (i == 12003) {
                 Intent intent = new Intent();
-                progressBar = this.a.g;
+                progressBar = this.a.f;
                 if (progressBar.getVisibility() != 0) {
-                    z2 = this.a.x;
+                    z2 = this.a.w;
                     if (z2) {
-                        bitmap = this.a.p;
+                        bitmap = this.a.o;
                         if (bitmap != null) {
-                            bitmap2 = this.a.p;
+                            bitmap2 = this.a.o;
                             if (!bitmap2.isRecycled()) {
                                 String str = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
                                 b = this.a.b(str);

@@ -38,7 +38,7 @@ public class ImageActivity extends com.baidu.tieba.j {
     private NavigationBar l = null;
     private MultiImageView m = null;
     private View.OnClickListener n = null;
-    private com.baidu.tieba.view.e o = null;
+    private com.baidu.tieba.view.a o = null;
     private android.support.v4.view.bq p = null;
     private AlphaAnimation q = null;
     private boolean r = true;
@@ -127,7 +127,7 @@ public class ImageActivity extends com.baidu.tieba.j {
     @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        TiebaApplication.g().a((com.baidu.tieba.j) this);
+        TiebaApplication.h().a((com.baidu.tieba.j) this);
         setContentView(R.layout.image_activity_2);
         a(bundle);
         e();
@@ -156,7 +156,7 @@ public class ImageActivity extends com.baidu.tieba.j {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (i == 1) {
-            this.m.setBackgroundColor(com.baidu.tieba.util.bl.d(i));
+            this.m.setBackgroundColor(com.baidu.tieba.util.bs.d(i));
         } else {
             this.m.setBackgroundColor(-16777216);
         }
@@ -198,7 +198,7 @@ public class ImageActivity extends com.baidu.tieba.j {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j, android.app.Activity
     public void onDestroy() {
-        TiebaApplication.g().b((com.baidu.tieba.j) this);
+        TiebaApplication.h().b((com.baidu.tieba.j) this);
         a(this.d, this.d);
         h();
         this.m.c();
@@ -240,7 +240,7 @@ public class ImageActivity extends com.baidu.tieba.j {
         this.i.setClickable(false);
         this.m = (MultiImageView) findViewById(R.id.viewpager);
         this.m.setIsFromCDN(this.C);
-        this.m.setPageMargin(com.baidu.adp.lib.h.g.a((Context) this, 8.0f));
+        this.m.setPageMargin(com.baidu.adp.lib.g.g.a((Context) this, 8.0f));
         this.m.a(2, com.baidu.tieba.data.h.i() * com.baidu.tieba.data.h.i());
         this.m.setOnPageChangeListener(this.p);
         this.m.setUrlData(this.c);
@@ -367,7 +367,7 @@ public class ImageActivity extends com.baidu.tieba.j {
                     for (Map.Entry<String, Boolean> entry : this.w.entrySet()) {
                         i = entry.getValue().booleanValue() ? i + 1 : i;
                     }
-                    TiebaApplication.g().a(i, this.w.size(), this.A);
+                    TiebaApplication.h().a(i, this.w.size(), this.A);
                     this.w.clear();
                 }
             }
@@ -377,7 +377,7 @@ public class ImageActivity extends com.baidu.tieba.j {
     private String a(String str) {
         int lastIndexOf;
         int indexOf;
-        String e = com.baidu.tieba.util.bm.e(str);
+        String e = com.baidu.tieba.util.bu.e(str);
         if (e != null) {
             if (e.indexOf(".baidu.com") != -1 && (lastIndexOf = e.lastIndexOf("/")) != -1 && (indexOf = e.indexOf(".", lastIndexOf)) != -1) {
                 return e.substring(lastIndexOf + 1, indexOf);

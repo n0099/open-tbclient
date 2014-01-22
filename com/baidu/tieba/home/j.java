@@ -8,7 +8,7 @@ import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class j extends BdAsyncTask<com.baidu.tieba.data.ae, Integer, String> {
     final /* synthetic */ EnterForumActivity a;
-    private com.baidu.tieba.util.at b = null;
+    private com.baidu.tieba.util.ax b = null;
     private com.baidu.tieba.data.ae c;
 
     public j(EnterForumActivity enterForumActivity, com.baidu.tieba.data.ae aeVar) {
@@ -25,16 +25,16 @@ public class j extends BdAsyncTask<com.baidu.tieba.data.ae, Integer, String> {
         if (aeVar != null) {
             try {
                 if (aeVar.a() != null && aeVar.b() != null) {
-                    this.b = new com.baidu.tieba.util.at(com.baidu.tieba.data.h.a + "c/c/forum/unfavo");
+                    this.b = new com.baidu.tieba.util.ax(com.baidu.tieba.data.h.a + "c/c/forum/unfavo");
                     this.b.a("fid", aeVar.a());
                     this.b.a("kw", aeVar.b());
                     this.b.e(true);
-                    this.b.l();
+                    this.b.m();
                     return null;
                 }
                 return null;
             } catch (Exception e) {
-                com.baidu.tieba.util.bo.b(getClass().getName(), "doInBackground", e.getMessage());
+                com.baidu.adp.lib.g.e.b(getClass().getName(), "doInBackground", e.getMessage());
                 return null;
             }
         }
@@ -51,16 +51,16 @@ public class j extends BdAsyncTask<com.baidu.tieba.data.ae, Integer, String> {
         super.a((j) str);
         this.a.b = null;
         if (this.b != null) {
-            if (this.b.c()) {
+            if (this.b.d()) {
                 baseFragmentActivity2 = this.a.g;
                 baseFragmentActivity2.a(this.a.a(R.string.success));
-                TiebaApplication.g().h(true);
+                TiebaApplication.h().h(true);
                 lVar = this.a.a;
                 lVar.e();
                 return;
             }
             baseFragmentActivity = this.a.g;
-            baseFragmentActivity.a(this.b.i());
+            baseFragmentActivity.a(this.b.j());
         }
     }
 
@@ -72,7 +72,7 @@ public class j extends BdAsyncTask<com.baidu.tieba.data.ae, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         if (this.b != null) {
-            this.b.j();
+            this.b.k();
             this.b = null;
         }
         this.a.b = null;

@@ -17,33 +17,33 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class GroupSettingActivity extends com.baidu.tieba.j implements com.baidu.adp.widget.BdSwitchView.c, com.baidu.tieba.im.c.l, com.baidu.tieba.im.messageCenter.g {
-    private com.baidu.tieba.im.model.am c;
+    private com.baidu.tieba.im.model.ao c;
     private com.baidu.tieba.im.a<Boolean> f;
-    private ac a = null;
-    private z b = null;
-    private com.baidu.tieba.im.model.aj d = null;
-    private y e = null;
-    private final DialogInterface.OnClickListener g = new x(this);
+    private av a = null;
+    private as b = null;
+    private com.baidu.tieba.im.model.al d = null;
+    private ar e = null;
+    private final DialogInterface.OnClickListener g = new aq(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.a = new ac(this);
-        this.b = new z();
-        this.c = new com.baidu.tieba.im.model.am();
+        this.a = new av(this);
+        this.b = new as();
+        this.c = new com.baidu.tieba.im.model.ao();
         a();
         this.a.a(this.b.a());
         this.a.a(this.g);
         this.a.b(a(this.b.e()));
         this.a.e();
-        this.f = new q(this);
+        this.f = new aj(this);
         this.b.a(this.f);
         b();
     }
 
     private void b() {
-        this.e = new y(this);
+        this.e = new ar(this);
         com.baidu.tieba.im.messageCenter.e.a().a(103103, this.e);
         com.baidu.tieba.im.messageCenter.e.a().a(103102, this);
         com.baidu.tieba.im.messageCenter.e.a().a(103112, this);
@@ -109,7 +109,7 @@ public class GroupSettingActivity extends com.baidu.tieba.j implements com.baidu
             } else if (view.equals(this.a.a())) {
                 finish();
             } else if (view.equals(this.a.j())) {
-                new AlertDialog.Builder(this).setTitle(R.string.alerm_title).setIcon((Drawable) null).setCancelable(false).setMessage(R.string.alert_clear_cache_group).setPositiveButton(R.string.alert_yes_button, new s(this)).setNegativeButton(R.string.alert_no_button, new r(this)).create().show();
+                new AlertDialog.Builder(this).setTitle(R.string.alerm_title).setIcon((Drawable) null).setCancelable(false).setMessage(R.string.alert_clear_cache_group).setPositiveButton(R.string.alert_yes_button, new al(this)).setNegativeButton(R.string.alert_no_button, new ak(this)).create().show();
             } else if (view == this.a.h()) {
                 this.a.v();
             }
@@ -163,34 +163,34 @@ public class GroupSettingActivity extends com.baidu.tieba.j implements com.baidu
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(com.baidu.tieba.im.message.o oVar) {
-        if (oVar instanceof com.baidu.tieba.im.message.cc) {
-            com.baidu.tieba.im.message.cc ccVar = (com.baidu.tieba.im.message.cc) oVar;
-            if (oVar.u() == 103112) {
-                if (ccVar.i()) {
+    public void a(com.baidu.tieba.im.message.q qVar) {
+        if (qVar instanceof com.baidu.tieba.im.message.cr) {
+            com.baidu.tieba.im.message.cr crVar = (com.baidu.tieba.im.message.cr) qVar;
+            if (qVar.w() == 103112) {
+                if (crVar.k()) {
                     hideProgressBar();
                     showToast(R.string.neterror);
                     return;
                 }
                 hideProgressBar();
                 showToast(R.string.group_quit_suc);
-                com.baidu.tieba.im.m.a(new v(this), new w(this));
-            } else if (oVar.u() == 103102) {
-                if (ccVar.i()) {
+                com.baidu.tieba.im.m.a(new ao(this), new ap(this));
+            } else if (qVar.w() == 103102) {
+                if (crVar.k()) {
                     hideProgressBar();
-                    showToast(ccVar.k());
+                    showToast(crVar.m());
                     return;
                 }
                 hideProgressBar();
                 showToast(R.string.group_add_group_switch_success);
                 this.b.b(this.c.h());
-            } else if (oVar.u() == 103104) {
+            } else if (qVar.w() == 103104) {
                 hideProgressBar();
-                if (ccVar.i()) {
-                    a(ccVar.k(), ccVar.j());
+                if (crVar.k()) {
+                    a(crVar.m(), crVar.l());
                     return;
                 }
-                com.baidu.tieba.ap.a(this, "dismiss_group_success");
+                com.baidu.tieba.as.a(this, "dismiss_group_success");
                 com.baidu.tieba.im.db.a.a(this.b.c(), null);
                 showToast(R.string.group_dismiss_success, false);
                 finish();
@@ -267,7 +267,7 @@ public class GroupSettingActivity extends com.baidu.tieba.j implements com.baidu
                 String string = jSONObject.getJSONObject("eventParam").getString("groupId");
                 if (jSONObject.getString("eventId").equals("107") && string.equals(this.b.c())) {
                     finish();
-                    com.baidu.adp.lib.h.e.d("dismiss suc");
+                    com.baidu.adp.lib.g.e.d("dismiss suc");
                 }
             } catch (JSONException e) {
                 e.printStackTrace();

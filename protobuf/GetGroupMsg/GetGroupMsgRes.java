@@ -87,7 +87,7 @@ public final class GetGroupMsgRes {
                                 z3 = z4;
                                 z2 = z5;
                                 break;
-                            case 18:
+                            case Im.GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
                                 if (!(z5 & true)) {
                                     this.msgList_ = new ArrayList();
                                     z = z5 | true;
@@ -301,10 +301,13 @@ public final class GetGroupMsgRes {
 
     /* loaded from: classes.dex */
     public final class DataRes extends GeneratedMessageLite implements k {
+        public static final int ALLOWEGGS_FIELD_NUMBER = 2;
         public static final int GROUPMSG_FIELD_NUMBER = 1;
         public static Parser<DataRes> PARSER = new i();
         private static final DataRes a = new DataRes(true);
         private static final long serialVersionUID = 0;
+        private int allowEggs_;
+        private int bitField0_;
         private List<GroupMsg> groupMsg_;
         private byte memoizedIsInitialized;
         private int memoizedSerializedSize;
@@ -330,7 +333,7 @@ public final class GetGroupMsgRes {
             return a;
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r3v4, resolved type: java.util.List<protobuf.GetGroupMsg.GetGroupMsgRes$GroupMsg> */
+        /* JADX DEBUG: Multi-variable search result rejected for r3v7, resolved type: java.util.List<protobuf.GetGroupMsg.GetGroupMsgRes$GroupMsg> */
         /* JADX WARN: Multi-variable type inference failed */
         private DataRes(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
             boolean z = false;
@@ -354,6 +357,10 @@ public final class GetGroupMsgRes {
                                     }
                                     this.groupMsg_.add(codedInputStream.readMessage(GroupMsg.PARSER, extensionRegistryLite));
                                     break;
+                                case 16:
+                                    this.bitField0_ |= 1;
+                                    this.allowEggs_ = codedInputStream.readInt32();
+                                    break;
                                 default:
                                     if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
                                         z = true;
@@ -362,11 +369,11 @@ public final class GetGroupMsgRes {
                                         break;
                                     }
                             }
-                        } catch (IOException e) {
-                            throw new InvalidProtocolBufferException(e.getMessage()).setUnfinishedMessage(this);
+                        } catch (InvalidProtocolBufferException e) {
+                            throw e.setUnfinishedMessage(this);
                         }
-                    } catch (InvalidProtocolBufferException e2) {
-                        throw e2.setUnfinishedMessage(this);
+                    } catch (IOException e2) {
+                        throw new InvalidProtocolBufferException(e2.getMessage()).setUnfinishedMessage(this);
                     }
                 } finally {
                     if (z2 & true) {
@@ -406,8 +413,17 @@ public final class GetGroupMsgRes {
             return this.groupMsg_.get(i);
         }
 
+        public boolean hasAllowEggs() {
+            return (this.bitField0_ & 1) == 1;
+        }
+
+        public int getAllowEggs() {
+            return this.allowEggs_;
+        }
+
         private void a() {
             this.groupMsg_ = Collections.emptyList();
+            this.allowEggs_ = 0;
         }
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -426,12 +442,14 @@ public final class GetGroupMsgRes {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < this.groupMsg_.size()) {
-                    codedOutputStream.writeMessage(1, this.groupMsg_.get(i2));
-                    i = i2 + 1;
-                } else {
-                    return;
+                if (i2 >= this.groupMsg_.size()) {
+                    break;
                 }
+                codedOutputStream.writeMessage(1, this.groupMsg_.get(i2));
+                i = i2 + 1;
+            }
+            if ((this.bitField0_ & 1) == 1) {
+                codedOutputStream.writeInt32(2, this.allowEggs_);
             }
         }
 
@@ -442,6 +460,9 @@ public final class GetGroupMsgRes {
                 i = 0;
                 for (int i2 = 0; i2 < this.groupMsg_.size(); i2++) {
                     i += CodedOutputStream.computeMessageSize(1, this.groupMsg_.get(i2));
+                }
+                if ((this.bitField0_ & 1) == 1) {
+                    i += CodedOutputStream.computeInt32Size(2, this.allowEggs_);
                 }
                 this.memoizedSerializedSize = i;
             }
@@ -573,7 +594,7 @@ public final class GetGroupMsgRes {
                                 this.bitField0_ |= 1;
                                 z = z2;
                                 break;
-                            case 18:
+                            case Im.GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
                                 j builder2 = (this.bitField0_ & 2) == 2 ? this.data_.toBuilder() : null;
                                 this.data_ = (DataRes) codedInputStream.readMessage(DataRes.PARSER, extensionRegistryLite);
                                 if (builder2 != null) {

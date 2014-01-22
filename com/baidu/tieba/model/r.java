@@ -12,7 +12,7 @@ public class r extends BdAsyncTask<Boolean, String, o> {
     final /* synthetic */ o b;
     private int e;
     private com.baidu.tieba.data.ba f;
-    private com.baidu.tieba.util.at c = null;
+    private com.baidu.tieba.util.ax c = null;
     private String d = null;
     Boolean a = false;
 
@@ -51,13 +51,13 @@ public class r extends BdAsyncTask<Boolean, String, o> {
             }
             this.b.f = 0;
         }
-        this.c = new com.baidu.tieba.util.at(com.baidu.tieba.data.h.a + "c/f/post/threadstore");
+        this.c = new com.baidu.tieba.util.ax(com.baidu.tieba.data.h.a + "c/f/post/threadstore");
         this.c.a(PushConstants.EXTRA_USER_ID, TiebaApplication.A());
         this.c.a("offset", String.valueOf(this.e));
         this.c.a("rn", String.valueOf(20));
-        this.d = this.c.l();
+        this.d = this.c.m();
         this.f.a(this.d);
-        if (this.c.c()) {
+        if (this.c.d()) {
             oVar.a(this.d);
             if (this.e == 0 && this.a.booleanValue()) {
                 a(this.d);
@@ -100,7 +100,7 @@ public class r extends BdAsyncTask<Boolean, String, o> {
     public void cancel() {
         super.cancel(true);
         if (this.c != null) {
-            this.c.j();
+            this.c.k();
         }
         this.b.b = null;
     }
@@ -130,10 +130,10 @@ public class r extends BdAsyncTask<Boolean, String, o> {
             i2 = i;
         }
         if (this.b.a != null) {
-            if (this.c.c()) {
+            if (this.c.d()) {
                 this.b.a.a(0, this.f.b(), false);
             } else {
-                this.b.a.a(3, this.c.i());
+                this.b.a.a(3, this.c.j());
             }
         }
         this.b.h = false;

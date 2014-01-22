@@ -1,10 +1,10 @@
 package com.baidu.tieba.pb;
 
-import android.view.MotionEvent;
-import android.view.View;
+import android.text.Editable;
+import android.text.TextWatcher;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cp implements View.OnTouchListener {
+public class cp implements TextWatcher {
     final /* synthetic */ com.baidu.tieba.editortool.t a;
     final /* synthetic */ PbEditorToolView b;
 
@@ -14,12 +14,16 @@ public class cp implements View.OnTouchListener {
         this.a = tVar;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        if (motionEvent.getAction() == 1) {
-            this.b.c.requestFocus();
-            this.a.a(12, null);
-        }
-        return false;
+    @Override // android.text.TextWatcher
+    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    }
+
+    @Override // android.text.TextWatcher
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    }
+
+    @Override // android.text.TextWatcher
+    public void afterTextChanged(Editable editable) {
+        this.a.a(18, null);
     }
 }

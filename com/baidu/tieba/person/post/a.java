@@ -10,8 +10,8 @@ import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.person.post.PersonPostReplyModel;
 import com.baidu.tieba.person.post.PersonPostThreadModel;
-import com.baidu.tieba.util.bl;
-import com.baidu.tieba.util.bm;
+import com.baidu.tieba.util.bs;
+import com.baidu.tieba.util.bu;
 import com.baidu.tieba.view.HeadImageView;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
@@ -41,7 +41,7 @@ class a implements View.OnClickListener {
         this.h = (ColumnLayout) view.findViewById(R.id.item_header);
         this.i = (ColumnLayout) view.findViewById(R.id.item_footer);
         this.m = new com.baidu.tieba.util.i(view.getContext());
-        int a = com.baidu.adp.lib.h.g.a(view.getContext(), 42.0f);
+        int a = com.baidu.adp.lib.g.g.a(view.getContext(), 42.0f);
         this.m.a(a, a);
         if (this.g != null) {
             this.g.setOnClickListener(this);
@@ -57,7 +57,7 @@ class a implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.forum_name /* 2131101027 */:
+            case R.id.forum_name /* 2131101142 */:
                 FrsActivity.a(view.getContext(), (String) view.getTag(), "");
                 return;
             default:
@@ -145,22 +145,22 @@ class a implements View.OnClickListener {
             strArr[0] = String.valueOf(post.thread_id);
             strArr[1] = String.valueOf(post.content[0].post_id);
             strArr[2] = String.valueOf(post.content[0].post_type);
-            String b = bm.b(post.create_time * 1000);
+            String a = bu.a(post.create_time * 1000);
             String str8 = post.forum_name;
             str7 = String.valueOf(post.reply_num);
             str5 = str8;
-            str2 = b;
+            str2 = a;
             str3 = str4;
         } else if (obj instanceof PersonPostThreadModel.PostList) {
             PersonPostThreadModel.PostList postList = (PersonPostThreadModel.PostList) obj;
             str4 = postList.user_name;
             strArr[0] = String.valueOf(postList.thread_id);
             strArr[1] = String.valueOf(postList.post_id);
-            String b2 = bm.b(postList.create_time * 1000);
+            String a2 = bu.a(postList.create_time * 1000);
             String str9 = postList.forum_name;
             str7 = String.valueOf(postList.reply_num);
             str5 = str9;
-            str2 = b2;
+            str2 = a2;
             str3 = str4;
         } else {
             str6 = 0;
@@ -191,21 +191,18 @@ class a implements View.OnClickListener {
         if (k != null && !k.equals(str)) {
             j = null;
         }
-        if (j == null) {
-            j = this.m.c(str);
-        }
         if (j != null) {
             this.b.setImageBitmap(j.h());
             k = str;
             return;
         }
-        this.m.b(str, new b(this, str));
+        this.m.c(str, new b(this, str));
     }
 
     public void a(int i) {
-        bl.c(this.e, i);
-        bl.c(this.d, i);
-        if (TiebaApplication.g().an() == 1) {
+        bs.c(this.e, i);
+        bs.c(this.d, i);
+        if (TiebaApplication.h().al() == 1) {
             a(this.h, R.drawable.bg_list_top_1);
             a(this.g, R.drawable.bg_list_border_1);
             a(this.i, R.drawable.bg_list_bottom_1);

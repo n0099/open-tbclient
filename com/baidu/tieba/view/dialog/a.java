@@ -2,216 +2,222 @@ package com.baidu.tieba.view.dialog;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import com.baidu.tieba.BaseFragmentActivity;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.j;
-import com.baidu.tieba.util.bl;
 import com.slidingmenu.lib.R;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a {
-    private static final HashMap<Integer, Integer[]> m = new HashMap<>(2);
-    private String a;
-    private List<Object> b;
-    private c c;
-    private LayoutInflater d;
-    private Activity e;
-    private ViewGroup f;
-    private ViewGroup g;
-    private TextView h;
-    private int i = -1;
-    private int j = -1;
-    private boolean k = false;
-    private AlertDialog l;
+    private String b;
+    private View c;
+    private String d;
+    private String e;
+    private String f;
+    private String g;
+    private c h;
+    private c i;
+    private c j;
+    private AlertDialog k;
+    private Activity l;
+    private ViewGroup m;
+    private LayoutInflater n;
+    private int a = -1;
+    private boolean o = false;
+    private boolean p = true;
 
-    static {
-        m.put(0, new Integer[]{Integer.valueOf((int) R.drawable.dialg_alert_btn_bg), Integer.valueOf((int) R.drawable.dialog_bdalert_button_textcolor_pressed)});
-        m.put(1, new Integer[]{Integer.valueOf((int) R.drawable.btn_blue_square), Integer.valueOf((int) R.color.share_copy_pb_url)});
-    }
-
-    public a(Activity activity) {
-        this.e = activity;
-        this.d = (LayoutInflater) activity.getSystemService("layout_inflater");
-        this.f = (ViewGroup) this.d.inflate(R.layout.dialog_bdlist, (ViewGroup) null);
-        this.h = (TextView) this.f.findViewById(R.id.dialog_title);
-        this.g = (ViewGroup) this.f.findViewById(R.id.dialog_content);
-    }
-
-    public a a(Object[] objArr, c cVar) {
-        if (objArr != null && objArr.length > 0) {
-            return a(Arrays.asList(objArr), cVar);
-        }
-        return this;
-    }
-
-    public a a(List<Object> list, c cVar) {
-        if (list != null && list.size() > 0) {
-            this.b = list;
-            if (cVar != null) {
-                this.c = cVar;
-            }
-        }
+    public a a(View view) {
+        this.c = view;
         return this;
     }
 
     public a a(int i) {
-        this.i = i;
+        if (this.l != null) {
+            this.d = this.l.getResources().getString(i);
+        }
         return this;
     }
 
-    public a b(int i) {
-        this.j = i;
+    public a a(int i, c cVar) {
+        if (this.l != null) {
+            this.e = this.l.getResources().getString(i);
+            this.h = cVar;
+        }
         return this;
+    }
+
+    public a b(int i, c cVar) {
+        if (this.l != null) {
+            this.f = this.l.getResources().getString(i);
+            this.i = cVar;
+        }
+        return this;
+    }
+
+    public a a(boolean z) {
+        this.p = z;
+        return this;
+    }
+
+    public a(Activity activity) {
+        this.l = activity;
+        this.n = (LayoutInflater) activity.getSystemService("layout_inflater");
+        this.m = (ViewGroup) this.n.inflate(R.layout.dialog_bdalert, (ViewGroup) null);
     }
 
     public a a() {
-        if (!this.k) {
-            this.k = true;
+        boolean z;
+        boolean z2;
+        boolean z3 = true;
+        if (!this.o) {
+            this.o = true;
             d();
-            if (!TextUtils.isEmpty(this.a)) {
-                this.h.setText(this.a);
-                this.h.setVisibility(0);
-                bl.f(this.g, (int) R.drawable.bg_unite_popup_share_down);
+            TextView textView = (TextView) this.m.findViewById(R.id.title);
+            LinearLayout linearLayout = (LinearLayout) this.m.findViewById(R.id.content);
+            TextView textView2 = (TextView) this.m.findViewById(R.id.message);
+            Button button = (Button) this.m.findViewById(R.id.yes);
+            Button button2 = (Button) this.m.findViewById(R.id.no);
+            Button button3 = (Button) this.m.findViewById(R.id.cancel);
+            if (!TextUtils.isEmpty(this.b)) {
+                textView.setText(this.b);
             } else {
-                this.h.setVisibility(8);
-                bl.f(this.g, (int) R.drawable.bg_unite_popup);
+                textView.setVisibility(8);
             }
-            if (this.b != null && this.b.size() > 0) {
-                int size = this.b.size();
-                for (int i = 0; i < size; i++) {
-                    d(i);
+            if (this.c != null) {
+                linearLayout.removeAllViews();
+                linearLayout.addView(this.c);
+            }
+            if (!TextUtils.isEmpty(this.d)) {
+                textView2.setText(this.d);
+            }
+            if (TextUtils.isEmpty(this.e)) {
+                z = false;
+            } else {
+                button.setText(this.e);
+                if (this.h != null) {
+                    button.setOnClickListener(new b(this, this, this.h));
+                }
+                z = true;
+            }
+            if (TextUtils.isEmpty(this.f)) {
+                z2 = false;
+            } else {
+                button2.setText(this.f);
+                if (this.i != null) {
+                    button2.setOnClickListener(new b(this, this, this.i));
+                }
+                z2 = true;
+            }
+            if (TextUtils.isEmpty(this.g)) {
+                z3 = false;
+            } else {
+                button3.setText(this.g);
+                if (this.j != null) {
+                    button3.setOnClickListener(new b(this, this, this.j));
                 }
             }
-        }
-        return this;
-    }
-
-    public a b() {
-        if (!this.k) {
-            throw new RuntimeException("Dialog must be created by function create()!");
-        }
-        if (this.l != null) {
-            this.l.show();
-        } else {
-            this.l = new AlertDialog.Builder(this.e).create();
-            this.l.setCanceledOnTouchOutside(true);
-            this.l.show();
-            Window window = this.l.getWindow();
-            if (this.i == -1) {
-                this.i = R.style.dialog_ani_b2t;
-            }
-            window.setWindowAnimations(this.i);
-            if (this.j != -1) {
-                this.j = 80;
-            }
-            window.setGravity(this.j);
-            window.setLayout(-1, -2);
-            window.setContentView(this.f);
+            a(z, z2, z3, button, button2, button3);
         }
         return this;
     }
 
     private void d() {
-        int an = TiebaApplication.g().an();
-        if (this.e instanceof j) {
-            j jVar = (j) this.e;
-            jVar.getLayoutMode().a(an == 1);
-            jVar.getLayoutMode().a(this.f);
-        } else if (this.e instanceof BaseFragmentActivity) {
-            BaseFragmentActivity baseFragmentActivity = (BaseFragmentActivity) this.e;
-            baseFragmentActivity.a().a(an == 1);
-            baseFragmentActivity.a().a(this.f);
+        int al = TiebaApplication.h().al();
+        if (this.l instanceof j) {
+            j jVar = (j) this.l;
+            jVar.getLayoutMode().a(al == 1);
+            jVar.getLayoutMode().a((View) this.m);
+        } else if (this.l instanceof BaseFragmentActivity) {
+            BaseFragmentActivity baseFragmentActivity = (BaseFragmentActivity) this.l;
+            baseFragmentActivity.a().a(al == 1);
+            baseFragmentActivity.a().a((View) this.m);
         }
+    }
+
+    private void a(boolean z, boolean z2, boolean z3, Button button, Button button2, Button button3) {
+        boolean[] zArr = {z2, z, z3};
+        Button[] buttonArr = {button2, button, button3};
+        ArrayList arrayList = new ArrayList();
+        for (int i = 0; i < 3; i++) {
+            if (zArr[i]) {
+                arrayList.add(buttonArr[i]);
+                buttonArr[i].setVisibility(0);
+            } else {
+                buttonArr[i].setVisibility(8);
+            }
+        }
+        if (arrayList.size() == 3) {
+            int i2 = 0;
+            while (true) {
+                int i3 = i2;
+                if (i3 >= 3) {
+                    break;
+                }
+                a((Button) arrayList.get(i3), 70, i3 == 2 ? 0 : 10);
+                i2 = i3 + 1;
+            }
+        }
+        if (arrayList.size() == 2) {
+            int i4 = 0;
+            while (true) {
+                int i5 = i4;
+                if (i5 >= 2) {
+                    break;
+                }
+                a((Button) arrayList.get(i5), SocialAPIErrorCodes.ERROR_MISS_ACCESS_TOKEN, i5 == 1 ? 0 : 10);
+                i4 = i5 + 1;
+            }
+        }
+        if (arrayList.size() == 1) {
+            a((Button) arrayList.get(0), 230, 0);
+        }
+    }
+
+    private void a(Button button, int i, int i2) {
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) button.getLayoutParams();
+        layoutParams.width = a(this.l, i);
+        layoutParams.rightMargin = i2;
+        button.setLayoutParams(layoutParams);
+    }
+
+    public a b() {
+        if (!this.o) {
+            throw new RuntimeException("Dialog must be created by function create()!");
+        }
+        if (this.k != null) {
+            this.k.show();
+        } else {
+            this.k = new AlertDialog.Builder(this.l).create();
+            this.k.setCanceledOnTouchOutside(this.p);
+            this.k.show();
+            Window window = this.k.getWindow();
+            if (this.a == -1) {
+                this.a = 17;
+            }
+            window.setGravity(this.a);
+            window.setLayout(-2, -2);
+            window.setContentView(this.m);
+        }
+        return this;
     }
 
     public void c() {
-        if (this.l != null) {
-            this.l.dismiss();
+        if (this.k != null) {
+            this.k.dismiss();
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:17:0x009f  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    private View d(int i) {
-        String valueOf;
-        int i2;
-        int i3;
-        View inflate = LayoutInflater.from(this.e).inflate(R.layout.dialog_bdlist_item, this.g, false);
-        Button button = (Button) inflate.findViewById(R.id.dialog_item_btn);
-        Object obj = this.b.get(i);
-        String str = "";
-        int intValue = m.get(0)[0].intValue();
-        int intValue2 = m.get(0)[1].intValue();
-        if (obj instanceof Object[]) {
-            Object[] objArr = (Object[]) obj;
-            int length = objArr.length;
-            if (length > 0) {
-                str = String.valueOf(objArr[0]);
-            }
-            if (length > 1) {
-                try {
-                    if (Integer.parseInt(String.valueOf(objArr[1])) == 1) {
-                        i2 = m.get(1)[0].intValue();
-                        try {
-                            i3 = m.get(1)[1].intValue();
-                        } catch (Exception e) {
-                            e = e;
-                            e.printStackTrace();
-                            valueOf = str;
-                            button.setText(valueOf);
-                            bl.f((View) button, i2);
-                            bl.a(button, intValue2, 3);
-                            if (this.c != null) {
-                            }
-                            this.g.addView(inflate);
-                            return inflate;
-                        }
-                    } else {
-                        i3 = intValue2;
-                        i2 = intValue;
-                    }
-                    intValue2 = i3;
-                } catch (Exception e2) {
-                    e = e2;
-                    i2 = intValue;
-                }
-            } else {
-                i2 = intValue;
-            }
-            valueOf = str;
-        } else {
-            valueOf = String.valueOf(obj);
-            i2 = intValue;
-        }
-        button.setText(valueOf);
-        bl.f((View) button, i2);
-        bl.a(button, intValue2, 3);
-        if (this.c != null) {
-            button.setOnClickListener(new b(this, i, button));
-        }
-        this.g.addView(inflate);
-        return inflate;
-    }
-
-    public View c(int i) {
-        if (this.g == null) {
-            return null;
-        }
-        int childCount = this.g.getChildCount();
-        if (i < 0 || i > childCount - 1) {
-            return null;
-        }
-        return this.g.getChildAt(i);
+    private int a(Context context, float f) {
+        return (int) ((context.getResources().getDisplayMetrics().density * f) + 0.5f);
     }
 }

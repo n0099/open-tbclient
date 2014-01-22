@@ -1,35 +1,21 @@
 package com.baidu.tieba.im.c;
+
+import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
+import java.util.LinkedList;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class s extends com.baidu.tieba.im.message.o {
-    private long a;
-    private long b;
-    private long c;
+public class s implements com.baidu.tieba.im.a<LinkedList<GroupNewsPojo>> {
+    final /* synthetic */ m a;
 
-    public long a() {
-        return this.c;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public s(m mVar) {
+        this.a = mVar;
     }
 
-    public void a(long j) {
-        this.c = j;
-    }
-
-    public long b() {
-        return this.b;
-    }
-
-    public void b(long j) {
-        this.b = j;
-    }
-
-    public long c() {
-        return this.a;
-    }
-
-    public void c(long j) {
-        this.a = j;
-    }
-
-    public s() {
-        e(202006);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.a
+    public void a(LinkedList<GroupNewsPojo> linkedList) {
+        this.a.a(linkedList);
+        this.a.b(linkedList);
     }
 }

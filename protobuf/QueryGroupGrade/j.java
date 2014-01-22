@@ -14,6 +14,8 @@ public final class j extends GeneratedMessageLite.Builder<QueryGroupGradeRes.Dat
     private int a;
     private Im.GroupInfo b = Im.GroupInfo.getDefaultInstance();
     private List<Im.GradeInfo> c = Collections.emptyList();
+    private QueryGroupGradeRes.MemberPerm d = QueryGroupGradeRes.MemberPerm.getDefaultInstance();
+    private List<Im.GradeInfo> e = Collections.emptyList();
 
     private j() {
         g();
@@ -34,6 +36,10 @@ public final class j extends GeneratedMessageLite.Builder<QueryGroupGradeRes.Dat
         this.a &= -2;
         this.c = Collections.emptyList();
         this.a &= -3;
+        this.d = QueryGroupGradeRes.MemberPerm.getDefaultInstance();
+        this.a &= -5;
+        this.e = Collections.emptyList();
+        this.a &= -9;
         return this;
     }
 
@@ -63,14 +69,24 @@ public final class j extends GeneratedMessageLite.Builder<QueryGroupGradeRes.Dat
     /* renamed from: e */
     public QueryGroupGradeRes.DataRes buildPartial() {
         QueryGroupGradeRes.DataRes dataRes = new QueryGroupGradeRes.DataRes(this);
-        int i = (this.a & 1) != 1 ? 0 : 1;
+        int i = this.a;
+        int i2 = (i & 1) != 1 ? 0 : 1;
         dataRes.groupInfo_ = this.b;
         if ((this.a & 2) == 2) {
             this.c = Collections.unmodifiableList(this.c);
             this.a &= -3;
         }
         dataRes.gradeInfos_ = this.c;
-        dataRes.bitField0_ = i;
+        if ((i & 4) == 4) {
+            i2 |= 2;
+        }
+        dataRes.memberPerm_ = this.d;
+        if ((this.a & 8) == 8) {
+            this.e = Collections.unmodifiableList(this.e);
+            this.a &= -9;
+        }
+        dataRes.memberGradeInfos_ = this.e;
+        dataRes.bitField0_ = i2;
         return dataRes;
     }
 
@@ -79,7 +95,10 @@ public final class j extends GeneratedMessageLite.Builder<QueryGroupGradeRes.Dat
     public j mergeFrom(QueryGroupGradeRes.DataRes dataRes) {
         List list;
         List list2;
-        List<Im.GradeInfo> list3;
+        List list3;
+        List<Im.GradeInfo> list4;
+        List list5;
+        List<Im.GradeInfo> list6;
         if (dataRes != QueryGroupGradeRes.DataRes.getDefaultInstance()) {
             if (dataRes.hasGroupInfo()) {
                 a(dataRes.getGroupInfo());
@@ -87,14 +106,30 @@ public final class j extends GeneratedMessageLite.Builder<QueryGroupGradeRes.Dat
             list = dataRes.gradeInfos_;
             if (!list.isEmpty()) {
                 if (this.c.isEmpty()) {
-                    list3 = dataRes.gradeInfos_;
-                    this.c = list3;
+                    list6 = dataRes.gradeInfos_;
+                    this.c = list6;
                     this.a &= -3;
                 } else {
                     i();
-                    List<Im.GradeInfo> list4 = this.c;
-                    list2 = dataRes.gradeInfos_;
-                    list4.addAll(list2);
+                    List<Im.GradeInfo> list7 = this.c;
+                    list5 = dataRes.gradeInfos_;
+                    list7.addAll(list5);
+                }
+            }
+            if (dataRes.hasMemberPerm()) {
+                a(dataRes.getMemberPerm());
+            }
+            list2 = dataRes.memberGradeInfos_;
+            if (!list2.isEmpty()) {
+                if (this.e.isEmpty()) {
+                    list4 = dataRes.memberGradeInfos_;
+                    this.e = list4;
+                    this.a &= -9;
+                } else {
+                    j();
+                    List<Im.GradeInfo> list8 = this.e;
+                    list3 = dataRes.memberGradeInfos_;
+                    list8.addAll(list3);
                 }
             }
         }
@@ -158,6 +193,23 @@ public final class j extends GeneratedMessageLite.Builder<QueryGroupGradeRes.Dat
         if ((this.a & 2) != 2) {
             this.c = new ArrayList(this.c);
             this.a |= 2;
+        }
+    }
+
+    public j a(QueryGroupGradeRes.MemberPerm memberPerm) {
+        if ((this.a & 4) == 4 && this.d != QueryGroupGradeRes.MemberPerm.getDefaultInstance()) {
+            this.d = QueryGroupGradeRes.MemberPerm.newBuilder(this.d).mergeFrom(memberPerm).buildPartial();
+        } else {
+            this.d = memberPerm;
+        }
+        this.a |= 4;
+        return this;
+    }
+
+    private void j() {
+        if ((this.a & 8) != 8) {
+            this.e = new ArrayList(this.e);
+            this.a |= 8;
         }
     }
 }

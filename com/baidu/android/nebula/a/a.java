@@ -1,8 +1,5 @@
 package com.baidu.android.nebula.a;
 
-import com.baidu.browser.core.util.BdUtil;
-import com.baidu.browser.explorer.BdWebErrorView;
-import com.baidu.browser.webpool.BdWebPoolView;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
@@ -10,18 +7,18 @@ public class a {
     private static final Map a = new HashMap();
     private Map b = new HashMap();
     private StringBuilder c = new StringBuilder();
-    private int d = BdWebErrorView.ERROR_CODE_404;
+    private int d = 404;
     private String e = "HTTP/1.1";
 
     static {
-        a.put(new Integer((int) BdWebPoolView.DELAYED_TIME), "OK");
-        a.put(new Integer((int) BdWebErrorView.ERROR_CODE_404), "Page Not Found");
-        a.put(new Integer((int) BdWebErrorView.ERROR_CODE_500), "Intenal Error");
+        a.put(new Integer(200), "OK");
+        a.put(new Integer(404), "Page Not Found");
+        a.put(new Integer(500), "Intenal Error");
     }
 
     public a() {
         this.b.put("Content-Type", "text/html");
-        this.b.put("Content-Encoding", BdUtil.UTF8);
+        this.b.put("Content-Encoding", "utf-8");
     }
 
     public Map a() {

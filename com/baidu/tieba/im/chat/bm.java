@@ -1,27 +1,18 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tieba.im.model.MsglistModel;
-import com.baidu.tieba.voice.VoiceManager;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bm implements ch {
-    final /* synthetic */ ba a;
+public class bm implements View.OnClickListener {
+    final /* synthetic */ bk a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bm(ba baVar) {
-        this.a = baVar;
+    public bm(bk bkVar) {
+        this.a = bkVar;
     }
 
-    @Override // com.baidu.tieba.im.chat.ch
-    public void a(VoiceManager.VoiceModel voiceModel) {
-        MsglistModel msglistModel;
-        if (voiceModel != null) {
-            msglistModel = this.a.h;
-            msglistModel.a(voiceModel.voiceId, voiceModel.duration);
-        }
-    }
-
-    @Override // com.baidu.tieba.im.chat.ch
-    public void a() {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.a.c.a(view, 4, this.a.f, 0L);
     }
 }

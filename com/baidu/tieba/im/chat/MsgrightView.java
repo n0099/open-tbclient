@@ -10,7 +10,7 @@ import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.view.HeadImageShaderView;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class MsgrightView extends ap {
+public class MsgrightView extends bk {
     private static final String p = MsgrightView.class.getName();
     protected TextView o;
     private ProgressBar q;
@@ -25,29 +25,29 @@ public class MsgrightView extends ap {
         this.r = (ImageButton) a(R.id.btn_msgitem_resend);
         this.s = (HeadImageShaderView) a(R.id.img_msgitem_photo);
         this.s.setAutoChangeStyle(false);
-        this.s.setOnClickListener(new ci(this));
+        this.s.setOnClickListener(new ca(this));
     }
 
-    @Override // com.baidu.tieba.im.chat.ap
+    @Override // com.baidu.tieba.im.chat.bk
     public void a(View view, com.baidu.tieba.im.message.b bVar) {
-        if (bVar.m() != null && bVar.m().getStatus() != null && (bVar.m().getStatus().shortValue() == 3 || bVar.m().getStatus().shortValue() == 2)) {
+        if (bVar.n() != null && bVar.n().getStatus() != null && (bVar.n().getStatus().shortValue() == 3 || bVar.n().getStatus().shortValue() == 2)) {
             if (this.o.getVisibility() != 8) {
                 this.o.setVisibility(8);
                 this.k.setColorFilter(0, PorterDuff.Mode.SRC_ATOP);
             }
-        } else if (bVar.d() >= 100 || !bVar.c()) {
+        } else if (bVar.e() >= 100 || !bVar.d()) {
             if (this.o.getVisibility() != 8) {
                 this.o.setVisibility(8);
                 this.k.setColorFilter(0, PorterDuff.Mode.SRC_ATOP);
             }
         } else {
-            this.k.setColorFilter(TiebaApplication.g().getResources().getColor(R.color.image_uploading_cover), PorterDuff.Mode.SRC_ATOP);
-            this.o.setText(bVar.d() + "%");
+            this.k.setColorFilter(TiebaApplication.h().getResources().getColor(R.color.image_uploading_cover), PorterDuff.Mode.SRC_ATOP);
+            this.o.setText(bVar.e() + "%");
             this.o.setVisibility(0);
         }
     }
 
-    @Override // com.baidu.tieba.im.chat.ap
+    @Override // com.baidu.tieba.im.chat.bk
     public void b(View view, com.baidu.tieba.im.message.b bVar) {
         String str = null;
         super.b(view, bVar);
@@ -65,22 +65,17 @@ public class MsgrightView extends ap {
         }
         try {
             a(bVar);
-            if (bVar.f() != null) {
-                this.s.setUserId(bVar.f().getId());
+            if (bVar.g() != null) {
+                this.s.setUserId(bVar.g().getId());
                 if (TiebaApplication.B()) {
                     str = com.baidu.tieba.im.i.b();
                 }
             }
-            com.baidu.adp.widget.ImageView.d c = this.e.c(str);
-            if (c != null) {
-                c.a(this.s.getHeadImageView());
-            } else {
-                this.e.b(str, new cj(this));
-            }
+            this.e.c(str, new cb(this));
             this.q.setVisibility(8);
             this.r.setVisibility(8);
-            if (bVar.m() != null && bVar.m().getStatus() != null) {
-                switch (bVar.m().getStatus().shortValue()) {
+            if (bVar.n() != null && bVar.n().getStatus() != null) {
+                switch (bVar.n().getStatus().shortValue()) {
                     case 1:
                         this.q.setVisibility(0);
                         break;
@@ -93,13 +88,13 @@ public class MsgrightView extends ap {
                 }
             }
             if (this.r.getVisibility() == 0) {
-                this.r.setOnClickListener(new ck(this));
+                this.r.setOnClickListener(new cc(this));
             }
             this.j.setVisibility(8);
             c(8);
             this.l.setVisibility(8);
             this.m.setVisibility(8);
-            switch (bVar.h()) {
+            switch (bVar.i()) {
                 case 1:
                     a(bVar, p);
                     return;
@@ -112,13 +107,13 @@ public class MsgrightView extends ap {
                     this.l.setVisibility(0);
                     return;
                 case 4:
-                    a(bVar, true, p);
+                    a(bVar, true);
                     return;
                 default:
                     return;
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.h.e.b("MsgrightView", "setData", "error = " + e.getMessage());
+            com.baidu.adp.lib.g.e.b("MsgrightView", "setData", "error = " + e.getMessage());
         }
     }
 }

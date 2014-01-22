@@ -14,9 +14,9 @@ public class ad implements com.baidu.tieba.im.messageCenter.g {
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(com.baidu.tieba.im.message.o oVar) {
-        if (oVar != null && oVar.u() == -124) {
-            this.a.a(oVar);
+    public void a(com.baidu.tieba.im.message.q qVar) {
+        if (qVar != null && qVar.w() == -124) {
+            this.a.a(qVar);
         }
     }
 }

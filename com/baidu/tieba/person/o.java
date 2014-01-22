@@ -19,8 +19,8 @@ public class o implements View.OnClickListener {
         int i;
         EditHeadImageView editHeadImageView;
         int i2;
-        int i3;
         boolean a;
+        int i3;
         String str = "tieba_head_image";
         i = this.a.i;
         if (i != 0) {
@@ -31,18 +31,17 @@ public class o implements View.OnClickListener {
         Bitmap a2 = editHeadImageView.a(i2);
         if (a2 != null) {
             a = this.a.a(str, a2);
-            if (!a) {
-                return;
+            if (a) {
+                i3 = this.a.i;
+                if (i3 == 0) {
+                    this.a.d();
+                    return;
+                }
+                com.baidu.tieba.im.model.ag agVar = new com.baidu.tieba.im.model.ag(com.baidu.tieba.util.ad.c("tieba_group_image"), 0, 0, 0, 0);
+                agVar.a(new p(this));
+                agVar.a();
+                this.a.showLoadingDialog(this.a.getString(R.string.uploading));
             }
         }
-        i3 = this.a.i;
-        if (i3 == 0) {
-            this.a.d();
-            return;
-        }
-        com.baidu.tieba.im.model.ae aeVar = new com.baidu.tieba.im.model.ae(com.baidu.tieba.util.aa.c("tieba_group_image"), 0, 0, 0, 0);
-        aeVar.a(new p(this));
-        aeVar.a();
-        this.a.showLoadingDialog(this.a.getString(R.string.uploading));
     }
 }

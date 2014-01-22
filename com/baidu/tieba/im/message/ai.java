@@ -1,16 +1,18 @@
 package com.baidu.tieba.im.message;
 
 import com.google.protobuf.MessageLite;
-import protobuf.QueryGroupUserList.QueryGroupUserListReq;
+import protobuf.QueryGroupDetail.QueryGroupDetailReq;
 /* loaded from: classes.dex */
-public class ai extends o implements com.baidu.tieba.im.coder.g {
+public class ai extends q implements com.baidu.tieba.im.coder.g {
     private long a;
     private int b;
     private int c;
     private int d;
+    private int e;
+    private String f;
 
     public ai() {
-        e(103005);
+        e(103004);
     }
 
     public long b() {
@@ -45,8 +47,24 @@ public class ai extends o implements com.baidu.tieba.im.coder.g {
         this.d = i;
     }
 
+    public int f() {
+        return this.e;
+    }
+
+    public void d(int i) {
+        this.e = i;
+    }
+
+    public String g() {
+        return this.f;
+    }
+
+    public void a(String str) {
+        this.f = str;
+    }
+
     @Override // com.baidu.tieba.im.coder.g
     public MessageLite a() {
-        return QueryGroupUserListReq.QueryGroupUserListReqIdl.newBuilder().a(QueryGroupUserListReq.DataReq.newBuilder().a((int) b()).b(c()).d(e()).c(d()).build()).build();
+        return QueryGroupDetailReq.QueryGroupDetailReqIdl.newBuilder().a(QueryGroupDetailReq.DataReq.newBuilder().d(e()).e(f()).b(c()).c(d()).a(g()).a((int) b()).build()).build();
     }
 }

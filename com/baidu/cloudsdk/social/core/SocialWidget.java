@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import com.baidu.cloudsdk.common.http.AsyncHttpClient;
 import com.baidu.cloudsdk.common.http.RequestParams;
 import com.baidu.cloudsdk.common.util.Validator;
+import com.p;
 /* loaded from: classes.dex */
 public abstract class SocialWidget {
     private static final String a = SocialWidget.class.getName();
@@ -25,9 +26,9 @@ public abstract class SocialWidget {
 
     private void a(String str) {
         RequestParams requestParams = new RequestParams();
-        requestParams.put(SocialConstants.PARAM_BDUSS, str);
+        requestParams.put("bduss", str);
         requestParams.put(SocialConstants.PARAM_CLIENT_ID, this.mClientId);
-        requestParams.put(SocialConstants.PARAM_GRANT_TYPE, SocialConstants.PARAM_BDUSS);
+        requestParams.put(SocialConstants.PARAM_GRANT_TYPE, "bduss");
         new AsyncHttpClient().post(null, "https://openapi.baidu.com/social/oauth/2.0/token", requestParams, new p(this));
     }
 

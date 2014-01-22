@@ -53,7 +53,7 @@ public class LocalViewSize {
     }
 
     public int b() {
-        int b = com.baidu.adp.lib.h.g.b(this.b);
+        int b = com.baidu.adp.lib.g.g.b(this.b);
         if (b >= 1080) {
             return 1080;
         }
@@ -62,8 +62,8 @@ public class LocalViewSize {
 
     public ImageSize c() {
         int i = 240;
-        int b = com.baidu.adp.lib.h.g.b(this.b);
-        com.baidu.adp.lib.h.e.c("=======getEquipmentWidth:" + b);
+        int b = com.baidu.adp.lib.g.g.b(this.b);
+        com.baidu.adp.lib.g.e.c("=======getEquipmentWidth:" + b);
         if (b < 240) {
             i = b / 3;
         } else if (b <= 320) {
@@ -81,8 +81,8 @@ public class LocalViewSize {
 
     public ImageSize d() {
         ImageSize imageSize = new ImageSize();
-        imageSize.height = com.baidu.adp.lib.h.g.c(this.b);
-        imageSize.width = com.baidu.adp.lib.h.g.b(this.b);
+        imageSize.height = com.baidu.adp.lib.g.g.c(this.b);
+        imageSize.width = com.baidu.adp.lib.g.g.b(this.b);
         return imageSize;
     }
 

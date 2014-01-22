@@ -40,7 +40,7 @@ public class d extends e {
         this.a.a().a(i == 1);
         this.a.a().a(this.c);
         this.d.c(i);
-        this.g.c(i);
+        this.g.d(i);
         this.e.a(i);
     }
 }

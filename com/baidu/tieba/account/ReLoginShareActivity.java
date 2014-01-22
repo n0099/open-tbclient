@@ -12,7 +12,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import com.baidu.cloudsdk.social.core.SocialConstants;
+import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tieba.MainTabActivity;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.UpdateDialog;
@@ -39,8 +39,8 @@ public class ReLoginShareActivity extends com.baidu.tieba.j {
     public static void a(Activity activity, String str, String str2, String str3, int i) {
         Intent intent = new Intent(activity, ReLoginShareActivity.class);
         intent.putExtra("user_name", str);
-        intent.putExtra(SocialConstants.PARAM_BDUSS, str2);
-        intent.putExtra("ptoken", str3);
+        intent.putExtra("bduss", str2);
+        intent.putExtra(SapiAccountManager.SESSION_PTOKEN, str3);
         intent.putExtra("locate_type", i);
         activity.startActivity(intent);
     }
@@ -58,24 +58,24 @@ public class ReLoginShareActivity extends com.baidu.tieba.j {
     private void a() {
         Intent intent = getIntent();
         this.f = intent.getStringExtra("user_name");
-        this.g = intent.getStringExtra(SocialConstants.PARAM_BDUSS);
-        this.h = intent.getStringExtra("ptoken");
+        this.g = intent.getStringExtra("bduss");
+        this.h = intent.getStringExtra(SapiAccountManager.SESSION_PTOKEN);
     }
 
     @Override // android.app.Activity
     protected void onRestoreInstanceState(Bundle bundle) {
         super.onRestoreInstanceState(bundle);
         this.f = bundle.getString("user_name");
-        this.g = bundle.getString(SocialConstants.PARAM_BDUSS);
-        this.h = bundle.getString("ptoken");
+        this.g = bundle.getString("bduss");
+        this.h = bundle.getString(SapiAccountManager.SESSION_PTOKEN);
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
         bundle.putString("user_name", this.f);
-        bundle.putString(SocialConstants.PARAM_BDUSS, this.g);
-        bundle.putString("ptoken", this.h);
+        bundle.putString("bduss", this.g);
+        bundle.putString(SapiAccountManager.SESSION_PTOKEN, this.h);
     }
 
     private void b() {
@@ -96,9 +96,9 @@ public class ReLoginShareActivity extends com.baidu.tieba.j {
         super.onChangeSkinType(i);
         a(0, this.f, null);
         this.k.c(i);
-        com.baidu.tieba.util.bl.a((TextView) this.c, i);
-        com.baidu.tieba.util.bl.a(this.a, i);
-        com.baidu.tieba.util.bl.b(this.d, i);
+        com.baidu.tieba.util.bs.a((TextView) this.c, i);
+        com.baidu.tieba.util.bs.a(this.a, i);
+        com.baidu.tieba.util.bs.b(this.d, i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -174,7 +174,7 @@ public class ReLoginShareActivity extends com.baidu.tieba.j {
     public void d() {
         if (this.g != null && this.h != null) {
             this.j = false;
-            bd.a(this.f, this.g, this.h, this.m, true);
+            bd.b(this.f, this.g, this.h, this.m, true);
         }
     }
 
@@ -185,11 +185,11 @@ public class ReLoginShareActivity extends com.baidu.tieba.j {
             TiebaApplication.a(accountData, getBaseContext());
         }
         MainTabActivity.c(this, getIntent().getIntExtra("locate_type", -1));
-        if (TiebaApplication.g().as() && TiebaApplication.g().au() != null) {
-            UpdateDialog.a(TiebaApplication.g(), TiebaApplication.g().au(), TiebaApplication.g().at());
+        if (TiebaApplication.h().aq() && TiebaApplication.h().as() != null) {
+            UpdateDialog.a(TiebaApplication.h(), TiebaApplication.h().as(), TiebaApplication.h().ar());
         }
-        if (TiebaApplication.g().as() && TiebaApplication.g().au() != null) {
-            UpdateDialog.a(TiebaApplication.g(), TiebaApplication.g().au(), TiebaApplication.g().at());
+        if (TiebaApplication.h().aq() && TiebaApplication.h().as() != null) {
+            UpdateDialog.a(TiebaApplication.h(), TiebaApplication.h().as(), TiebaApplication.h().ar());
         }
     }
 }

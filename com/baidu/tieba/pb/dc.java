@@ -1,19 +1,18 @@
 package com.baidu.tieba.pb;
 
-import android.widget.FrameLayout;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class dc implements Runnable {
-    final /* synthetic */ db a;
+public class dc implements View.OnClickListener {
+    final /* synthetic */ cr a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public dc(db dbVar) {
-        this.a = dbVar;
+    public dc(cr crVar) {
+        this.a = crVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        FrameLayout frameLayout;
-        frameLayout = this.a.b.h;
-        frameLayout.removeView(this.a.a);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.a.j();
     }
 }

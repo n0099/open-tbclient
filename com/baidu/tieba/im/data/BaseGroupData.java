@@ -1,10 +1,10 @@
 package com.baidu.tieba.im.data;
 
-import com.baidu.tieba.util.ap;
+import com.baidu.tieba.util.as;
 import java.io.Serializable;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class BaseGroupData extends ap implements Serializable {
+public class BaseGroupData extends as implements Serializable {
     private static final long serialVersionUID = 5616188082014345808L;
     private String album;
     private long authorId;
@@ -178,7 +178,7 @@ public class BaseGroupData extends ap implements Serializable {
         this.groupType = i;
     }
 
-    @Override // com.baidu.tieba.util.ap, com.baidu.tieba.util.ar
+    @Override // com.baidu.tieba.util.as, com.baidu.tieba.util.au
     public LinkedList<String> getImageUrl() {
         LinkedList<String> linkedList = new LinkedList<>();
         linkedList.add(this.portrait);

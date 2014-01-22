@@ -2,8 +2,7 @@ package com.baidu.tieba.data;
 
 import android.graphics.Color;
 import com.baidu.android.pushservice.PushConstants;
-import com.baidu.tieba.util.bm;
-import com.baidu.tieba.util.bo;
+import com.baidu.tieba.util.bu;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class aw {
@@ -56,14 +55,14 @@ public class aw {
                 this.f.parserJson(jSONObject.optJSONObject("author"));
                 this.g = jSONObject.optString(PushConstants.EXTRA_CONTENT);
                 this.d = jSONObject.optString("fname");
-                this.c = bm.a(this.c, (Color) null);
-                String a = bm.a(this.g, (Color) null);
+                this.c = bu.a(this.c, (Color) null);
+                String a = bu.a(this.g, (Color) null);
                 if (!a.equals(this.g)) {
                     this.g = a;
                     this.i = false;
                 }
             } catch (Exception e) {
-                bo.b("PostData", "parserJson", "error = " + e.getMessage());
+                com.baidu.adp.lib.g.e.b("PostData", "parserJson", "error = " + e.getMessage());
             }
         }
     }

@@ -77,7 +77,7 @@ public class MainSharedPrefProvider extends ContentProvider {
         intent.setAction("com.baidu.tieba.broadcast.changeSharedPref");
         intent.putExtra("intent_key", str);
         intent.putExtra("intent_value", str2);
-        TiebaApplication.g().sendBroadcast(intent);
+        TiebaApplication.h().sendBroadcast(intent);
     }
 
     private boolean a(String str) {
@@ -95,8 +95,8 @@ public class MainSharedPrefProvider extends ContentProvider {
 
     private SharedPreferences a() {
         try {
-            if (TiebaApplication.g() != null) {
-                return TiebaApplication.g().getSharedPreferences("common_settings", 0);
+            if (TiebaApplication.h() != null) {
+                return TiebaApplication.h().getSharedPreferences("common_settings", 0);
             }
             return null;
         } catch (Exception e) {

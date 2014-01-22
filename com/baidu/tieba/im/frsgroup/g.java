@@ -10,6 +10,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import com.baidu.tieba.view.NavigationBar;
+import com.baidu.tieba.view.NoNetworkView;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class g extends com.baidu.adp.a.e {
@@ -30,6 +31,7 @@ public class g extends com.baidu.adp.a.e {
     private ViewGroup[] p;
     private ProgressBar q;
     private boolean r;
+    private NoNetworkView s;
 
     public g(FrsGroupActivity frsGroupActivity) {
         super(frsGroupActivity);
@@ -47,6 +49,7 @@ public class g extends com.baidu.adp.a.e {
         this.e = this.f.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.a.getString(R.string.frsgroup_create));
         this.d.setOnClickListener(frsGroupActivity);
         this.e.setOnClickListener(frsGroupActivity);
+        this.s = (NoNetworkView) frsGroupActivity.findViewById(R.id.view_no_network);
     }
 
     private void b(FrsGroupActivity frsGroupActivity) {
@@ -114,6 +117,9 @@ public class g extends com.baidu.adp.a.e {
         this.a.a().a(i == 1);
         this.a.a().a(this.c);
         this.f.c(i);
+        if (this.s != null) {
+            this.s.a(i);
+        }
     }
 
     @Override // com.baidu.adp.a.e

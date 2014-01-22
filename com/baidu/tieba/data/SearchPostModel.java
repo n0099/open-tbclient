@@ -1,6 +1,5 @@
 package com.baidu.tieba.data;
 
-import com.baidu.tieba.util.bo;
 import java.io.Serializable;
 import java.util.ArrayList;
 import org.json.JSONArray;
@@ -47,7 +46,7 @@ public class SearchPostModel implements Serializable {
         try {
             parserJson(new JSONObject(str));
         } catch (Exception e) {
-            bo.b("SearchPostModel", "parserJson", "error = " + e.getMessage());
+            com.baidu.adp.lib.g.e.b("SearchPostModel", "parserJson", "error = " + e.getMessage());
         }
     }
 
@@ -69,7 +68,7 @@ public class SearchPostModel implements Serializable {
                 this.hasPre = optJSONObject.optInt("has_prev") != 0;
                 this.currentPage = optJSONObject.optInt("current_page");
             } catch (Exception e) {
-                bo.b("SearchPostModel", "parserJson", "error = " + e.getMessage());
+                com.baidu.adp.lib.g.e.b("SearchPostModel", "parserJson", "error = " + e.getMessage());
             }
         }
     }

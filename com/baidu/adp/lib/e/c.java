@@ -3,7 +3,7 @@ package com.baidu.adp.lib.e;
 import android.content.Context;
 import android.util.SparseArray;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.asyncTask.BdAsyncTaskType;
+import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallelType;
 import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes.dex */
@@ -72,7 +72,7 @@ public class c {
         }
     }
 
-    public Object a(String str, int i, b bVar, Context context, f fVar, BdAsyncTaskType bdAsyncTaskType, int i2) {
+    public Object a(String str, int i, b bVar, Context context, f fVar, BdAsyncTaskParallelType bdAsyncTaskParallelType, int i2) {
         boolean z;
         BdAsyncTask<?, ?, ?> bdAsyncTask;
         Object a;
@@ -106,13 +106,12 @@ public class c {
                 ((e) bdAsyncTask).a(dVar, fVar);
             } else {
                 e eVar = new e(this, str, i, dVar, fVar);
-                if (bdAsyncTaskType != null) {
-                    eVar.setType(bdAsyncTaskType);
+                if (bdAsyncTaskParallelType != null) {
+                    eVar.setType(bdAsyncTaskParallelType);
                 }
                 eVar.setPriority(i2);
                 eVar.setKey(str + context.getClass().getName());
                 if (context != null) {
-                    eVar.setTag(context.getClass().getName());
                 }
                 eVar.setImmediatelyExecut(z);
                 eVar.execute(new String[0]);

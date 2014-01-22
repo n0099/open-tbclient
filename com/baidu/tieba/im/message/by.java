@@ -1,70 +1,57 @@
 package com.baidu.tieba.im.message;
 
-import com.baidu.tieba.im.data.BaseGroupData;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import protobuf.Im;
-import protobuf.SearchGroup.SearchGroupRes;
+import protobuf.UpdateClientInfo.UpdateClientInfoRes;
 /* loaded from: classes.dex */
-public class by extends cc implements com.baidu.tieba.im.coder.f {
-    private long a;
-    private List<BaseGroupData> b;
-    private List<com.baidu.adp.lib.cache.t<String>> c;
+public class by extends cr implements com.baidu.tieba.im.coder.f {
+    private List<GroupUpdateMessage> a;
 
     public by() {
-        super(103007);
-        this.b = new ArrayList();
-        this.c = new ArrayList();
+        super(1001);
     }
 
-    public List<BaseGroupData> a() {
-        return this.b;
+    public List<GroupUpdateMessage> a() {
+        return this.a;
     }
 
-    public void a(List<BaseGroupData> list) {
-        this.b = list;
-    }
-
-    public void b(List<com.baidu.adp.lib.cache.t<String>> list) {
-        this.c = list;
-    }
-
-    public void a(long j) {
-        this.a = j;
+    public void a(List<GroupUpdateMessage> list) {
+        this.a = list;
     }
 
     @Override // com.baidu.tieba.im.coder.f
-    public void a(LinkedList<o> linkedList, byte[] bArr, int i) {
-        SearchGroupRes.SearchGroupResIdl parseFrom = SearchGroupRes.SearchGroupResIdl.parseFrom(bArr);
+    public void a(LinkedList<q> linkedList, byte[] bArr, int i) {
+        UpdateClientInfoRes.UpdateClientInfoResIdl parseFrom = UpdateClientInfoRes.UpdateClientInfoResIdl.parseFrom(bArr);
         g(parseFrom.getError().getErrorno());
         c(parseFrom.getError().getUsermsg());
         linkedList.add(this);
-        if (!i()) {
-            LinkedList linkedList2 = new LinkedList();
-            Im.GroupInfo group = parseFrom.getData().getGroup();
-            if (group != null) {
-                BaseGroupData baseGroupData = new BaseGroupData();
-                baseGroupData.setGroupId(group.getGroupId());
-                baseGroupData.setName(group.getName());
-                baseGroupData.setIntro(group.getIntro());
-                baseGroupData.setPortrait(group.getPortrait());
-                baseGroupData.setPosition(group.getPosition());
-                baseGroupData.setLng(String.valueOf(group.getLng()));
-                baseGroupData.setLat(String.valueOf(group.getLat()));
-                baseGroupData.setNotice(group.getNotice());
-                baseGroupData.setAlbum(group.getAlbum());
-                baseGroupData.setStatus(group.getStatus());
-                baseGroupData.setAuthorId(group.getAuthorId());
-                baseGroupData.setAuthorName(group.getAuthorName());
-                baseGroupData.setCreateTime(group.getCreateTime());
-                baseGroupData.setMaxMemberNum(group.getMaxMemberNum());
-                baseGroupData.setMemberNum(group.getMemberNum());
-                baseGroupData.setGroupType(group.getGroupType());
-                baseGroupData.setForumId(group.getForumId());
-                linkedList2.add(baseGroupData);
+        if (!k()) {
+            a(new ArrayList());
+            int groupInfoCount = parseFrom.getData().getGroupInfoCount();
+            for (int i2 = 0; i2 < groupInfoCount; i2++) {
+                Im.GroupInfo groupInfo = parseFrom.getData().getGroupInfo(i2);
+                GroupUpdateMessage groupUpdateMessage = new GroupUpdateMessage();
+                groupUpdateMessage.setGroupId(groupInfo.getGroupId());
+                groupUpdateMessage.setGroupType(groupInfo.getGroupType());
+                groupUpdateMessage.setLastMsgId(groupInfo.getLastMsgId());
+                groupUpdateMessage.setName(groupInfo.getName());
+                groupUpdateMessage.setPortrait(groupInfo.getPortrait());
+                groupUpdateMessage.setGrade(groupInfo.getGrade());
+                groupUpdateMessage.setAuthorId(String.valueOf(groupInfo.getAuthorId()));
+                groupUpdateMessage.setAuthorName(groupInfo.getAuthorName());
+                groupUpdateMessage.setForumId(String.valueOf(groupInfo.getForumId()));
+                a().add(groupUpdateMessage);
             }
-            a(linkedList2);
+            Im.UserInfo userInfo = parseFrom.getData().getUserInfo();
+            if (userInfo != null) {
+                ct ctVar = new ct();
+                if (userInfo != null) {
+                    ctVar.a(userInfo.getPortrait());
+                }
+                linkedList.add(ctVar);
+            }
         }
     }
 }

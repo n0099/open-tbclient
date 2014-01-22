@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import com.baidu.android.common.security.AESUtil;
 import com.baidu.android.common.security.Base64;
-import com.baidu.browser.core.util.BdUtil;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
 import org.json.JSONArray;
@@ -29,7 +28,7 @@ public class o implements Runnable {
             jSONArray.put(uVar.d());
         }
         try {
-            String encode = Base64.encode(AESUtil.encrypt("0925458709122426", "0925458709122426", jSONArray.toString().getBytes()), BdUtil.UTF8);
+            String encode = Base64.encode(AESUtil.encrypt("0925458709122426", "0925458709122426", jSONArray.toString().getBytes()), "utf-8");
             context = this.b.b;
             StringBuilder sb = new StringBuilder();
             context2 = this.b.b;

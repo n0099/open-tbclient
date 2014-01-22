@@ -4,9 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.common.security.Base64;
-import com.baidu.browser.core.util.BdUtil;
 import com.baidu.cloudsdk.social.core.SocialConstants;
-import com.baidu.zeus.NotificationProxy;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
@@ -57,7 +55,7 @@ public final class a {
         a[0] = 117;
         a[1] = 123;
         try {
-            return Base64.encode(a, BdUtil.UTF8);
+            return Base64.encode(a, "utf-8");
         } catch (UnsupportedEncodingException e) {
             Log.e("AppListPostRequest", "--- encrypt : Base64 Fail!");
             return null;
@@ -68,7 +66,7 @@ public final class a {
     public void a(InputStream inputStream) {
         JSONObject jSONObject;
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        byte[] bArr = new byte[NotificationProxy.MAX_URL_LENGTH];
+        byte[] bArr = new byte[1024];
         while (true) {
             int read = inputStream.read(bArr, 0, 100);
             if (read <= 0) {
@@ -76,7 +74,7 @@ public final class a {
             }
             byteArrayOutputStream.write(bArr, 0, read);
         }
-        JSONObject jSONObject2 = new JSONObject(new String(byteArrayOutputStream.toByteArray(), BdUtil.UTF8));
+        JSONObject jSONObject2 = new JSONObject(new String(byteArrayOutputStream.toByteArray(), "utf-8"));
         this.f.k();
         if (jSONObject2.has("status")) {
             this.f.a(jSONObject2.getInt("status"));

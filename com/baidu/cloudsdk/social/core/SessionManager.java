@@ -128,13 +128,20 @@ public final class SessionManager {
 
     private SessionManager(Context context) {
         Validator.notNull(context, "context");
-        this.c = context;
+        this.c = context.getApplicationContext();
         this.b = context.getSharedPreferences("com.baidu.cloudsdk.social.SESSION", 0);
     }
 
     private void a() {
         CookieSyncManager.createInstance(this.c);
         CookieManager.getInstance().removeAllCookie();
+    }
+
+    public static void clean() {
+        if (a != null) {
+            a.c = null;
+            a = null;
+        }
     }
 
     public static SessionManager getInstance(Context context) {

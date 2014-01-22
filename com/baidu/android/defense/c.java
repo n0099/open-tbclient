@@ -12,7 +12,6 @@ import com.baidu.android.defense.push.d;
 import com.baidu.android.defense.push.f;
 import com.baidu.android.defense.push.i;
 import com.baidu.android.pushservice.PushConstants;
-import com.baidu.browser.core.util.BdUtil;
 import java.io.UnsupportedEncodingException;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -116,7 +115,7 @@ public final class c {
             }
             if (bytes != null) {
                 try {
-                    String str = new String(bytes, BdUtil.UTF8);
+                    String str = new String(bytes, "utf-8");
                     if (new JSONObject(str).getInt("message_type") != 1 || (a2 = f.a(this.b).a(str)) == null) {
                         return;
                     }

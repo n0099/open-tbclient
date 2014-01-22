@@ -1,12 +1,16 @@
 package com.baidu.cloudsdk.common.util;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.WindowManager;
 import com.baidu.android.common.security.Base64;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.cloudsdk.social.core.SocialConstants;
@@ -22,10 +26,12 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class Utils {
     public static String base64Encode(String str) {
+        Validator.notNull(str, "str");
         return base64Encode(str.getBytes());
     }
 
     public static String base64Encode(byte[] bArr) {
+        Validator.notNull(bArr, "data");
         try {
             return Base64.encode(bArr, "US-ASCII");
         } catch (UnsupportedEncodingException e) {
@@ -117,6 +123,18 @@ public final class Utils {
         return objArr == null || objArr.length == 0;
     }
 
+    public static boolean isNetWorkAvaliable(Context context) {
+        NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
+        if (activeNetworkInfo == null) {
+            return false;
+        }
+        int type = activeNetworkInfo.getType();
+        if (type != 1 && type != 0) {
+            return false;
+        }
+        return activeNetworkInfo.isConnected();
+    }
+
     public static boolean isUrl(Uri uri) {
         String scheme;
         return (uri == null || (scheme = uri.getScheme()) == null || (!scheme.equalsIgnoreCase("http") && !scheme.equalsIgnoreCase("https"))) ? false : true;
@@ -144,5 +162,11 @@ public final class Utils {
         } catch (NoSuchAlgorithmException e) {
         }
         return sb.toString();
+    }
+
+    public static void setBrightness(Dialog dialog, int i) {
+        WindowManager.LayoutParams attributes = dialog.getWindow().getAttributes();
+        attributes.screenBrightness = Float.valueOf(i).floatValue() * 0.003921569f;
+        dialog.getWindow().setAttributes(attributes);
     }
 }

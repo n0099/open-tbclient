@@ -1,25 +1,38 @@
 package com.baidu.tieba.view;
 
-import android.widget.RelativeLayout;
+import android.content.Context;
+import android.view.View;
+import android.widget.Button;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.util.UtilHelper;
 /* loaded from: classes.dex */
-public class au extends RelativeLayout {
-    public int a;
-    private av b;
+class au implements View.OnClickListener {
+    final /* synthetic */ GroupBannerView a;
 
-    public void setOnKeyStateChangedListener(av avVar) {
-        this.b = avVar;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public au(GroupBannerView groupBannerView) {
+        this.a = groupBannerView;
     }
 
-    @Override // android.view.View
-    protected void onSizeChanged(int i, int i2, int i3, int i4) {
-        super.onSizeChanged(i, i2, i3, i4);
-        this.a = Math.max(Math.max(i4, i2), this.a);
-        if (i4 != 0 && this.b != null) {
-            if (i4 > i2) {
-                this.b.a(0);
-            } else if (i4 < i2 && i2 >= this.a) {
-                this.b.a(1);
-            }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Button button;
+        Context context;
+        String str;
+        Context context2;
+        button = this.a.b;
+        if (view == button) {
+            context2 = this.a.c;
+            com.baidu.tieba.as.a(context2, "group_tab_banner_close");
+            this.a.e = true;
+            this.a.setVisibility(8);
+            TiebaApplication.h().f(System.currentTimeMillis());
+            return;
         }
+        context = this.a.c;
+        com.baidu.tieba.as.a(context, "group_tab_banner_click");
+        Context context3 = this.a.getContext();
+        str = this.a.g;
+        UtilHelper.a(context3, str, null, null);
     }
 }

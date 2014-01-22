@@ -82,9 +82,13 @@ public class BdSwitchView extends FrameLayout {
     }
 
     private void e() {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.b.getLayoutParams();
-        layoutParams.width = this.b.getBackground().getIntrinsicWidth();
-        this.b.setLayoutParams(layoutParams);
+        if (this.b != null && this.b.getBackground() != null) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.b.getLayoutParams();
+            layoutParams.width = this.b.getBackground().getIntrinsicWidth();
+            this.b.setLayoutParams(layoutParams);
+            return;
+        }
+        com.baidu.adp.lib.g.e.a("mSwitchImage is null or mSwitchImage.getBackground() is null");
     }
 
     @Override // android.view.View

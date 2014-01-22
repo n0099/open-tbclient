@@ -4,6 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.cloudsdk.social.core.SocialConstants;
+import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.AccountData;
 import com.baidu.tieba.util.DatabaseService;
@@ -12,7 +13,7 @@ import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class bz extends BdAsyncTask<Boolean, bx, bx> {
     final /* synthetic */ bx a;
-    private com.baidu.tieba.util.at b;
+    private com.baidu.tieba.util.ax b;
     private volatile boolean c;
     private boolean d;
 
@@ -44,23 +45,23 @@ public class bz extends BdAsyncTask<Boolean, bx, bx> {
                 bxVar = null;
             }
             if (!this.c && this.a.b() != null) {
-                this.b = new com.baidu.tieba.util.at(com.baidu.tieba.data.h.a + "c/u/user/profile");
-                this.b.a("uid", this.a.b());
+                this.b = new com.baidu.tieba.util.ax(com.baidu.tieba.data.h.a + "c/u/user/profile");
+                this.b.a(SapiAccountManager.SESSION_UID, this.a.b());
                 this.b.a("need_post_count", SocialConstants.TRUE);
-                String l = this.b.l();
-                if (this.b.c()) {
+                String m = this.b.m();
+                if (this.b.d()) {
                     context = this.a.p;
                     bx bxVar2 = new bx(context);
-                    bxVar2.b(l);
+                    bxVar2.b(m);
                     if (this.a.c()) {
-                        DatabaseService.h(l);
-                        AccountData F = TiebaApplication.F();
-                        if (F == null) {
+                        DatabaseService.h(m);
+                        AccountData E = TiebaApplication.E();
+                        if (E == null) {
                             return null;
                         }
                         if (bxVar2.d() != null && !TextUtils.isEmpty(bxVar2.d().getPortrait())) {
-                            DatabaseService.c(F.getAccount(), bxVar2.d().getPortrait());
-                            F.setPortrait(bxVar2.d().getPortrait());
+                            DatabaseService.c(E.getAccount(), bxVar2.d().getPortrait());
+                            E.setPortrait(bxVar2.d().getPortrait());
                             return bxVar2;
                         }
                         return bxVar2;
@@ -71,7 +72,7 @@ public class bz extends BdAsyncTask<Boolean, bx, bx> {
             }
             return bxVar;
         } catch (Exception e2) {
-            com.baidu.tieba.util.bo.b(getClass().getName(), "doInBackground", e2.getMessage());
+            com.baidu.adp.lib.g.e.b(getClass().getName(), "doInBackground", e2.getMessage());
             return null;
         }
     }
@@ -119,7 +120,7 @@ public class bz extends BdAsyncTask<Boolean, bx, bx> {
             return;
         }
         if (this.b != null && this.d) {
-            this.a.setErrorString(this.b.i());
+            this.a.setErrorString(this.b.j());
         } else {
             bx bxVar3 = this.a;
             context = this.a.p;
@@ -136,7 +137,7 @@ public class bz extends BdAsyncTask<Boolean, bx, bx> {
         super.cancel(true);
         this.c = true;
         if (this.b != null) {
-            this.b.j();
+            this.b.k();
             this.b = null;
         }
         this.a.n = null;

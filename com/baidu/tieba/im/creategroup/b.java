@@ -101,13 +101,13 @@ public class b implements x {
 
     @Override // com.baidu.tieba.im.creategroup.x
     public void i() {
-        this.a.getLayoutMode().a(TiebaApplication.g().an() == 1);
+        this.a.getLayoutMode().a(TiebaApplication.h().al() == 1);
         this.a.getLayoutMode().a(this.b);
         o();
     }
 
     private void o() {
-        if (TiebaApplication.g().an() == 1) {
+        if (TiebaApplication.h().al() == 1) {
             if (this.g) {
                 Drawable drawable = this.a.getResources().getDrawable(R.drawable.icon_jq_lbs_s_1);
                 drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());

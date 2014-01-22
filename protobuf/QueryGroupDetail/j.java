@@ -1,6 +1,5 @@
 package protobuf.QueryGroupDetail;
 
-import com.baidu.zeus.bouncycastle.DERTags;
 import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
@@ -21,6 +20,9 @@ public final class j extends GeneratedMessageLite.Builder<QueryGroupDetailRes.Da
     private int g;
     private int h;
     private int i;
+    private int j;
+    private int k;
+    private int l;
 
     private j() {
         g();
@@ -53,6 +55,12 @@ public final class j extends GeneratedMessageLite.Builder<QueryGroupDetailRes.Da
         this.a &= -65;
         this.i = 0;
         this.a &= -129;
+        this.j = 0;
+        this.a &= -257;
+        this.k = 0;
+        this.a &= -513;
+        this.l = 0;
+        this.a &= -1025;
         return this;
     }
 
@@ -111,10 +119,22 @@ public final class j extends GeneratedMessageLite.Builder<QueryGroupDetailRes.Da
             i2 |= 16;
         }
         dataRes.isGroupManager_ = this.h;
-        if ((i & DERTags.TAGGED) == 128) {
+        if ((i & 128) == 128) {
             i2 |= 32;
         }
         dataRes.hideRecommendGroup_ = this.i;
+        if ((i & 256) == 256) {
+            i2 |= 64;
+        }
+        dataRes.canCreateMember_ = this.j;
+        if ((i & 512) == 512) {
+            i2 |= 128;
+        }
+        dataRes.alreadyCreateNum_ = this.k;
+        if ((i & 1024) == 1024) {
+            i2 |= 256;
+        }
+        dataRes.leftCreateNum_ = this.l;
         dataRes.bitField0_ = i2;
         return dataRes;
     }
@@ -172,6 +192,15 @@ public final class j extends GeneratedMessageLite.Builder<QueryGroupDetailRes.Da
             }
             if (dataRes.hasHideRecommendGroup()) {
                 e(dataRes.getHideRecommendGroup());
+            }
+            if (dataRes.hasCanCreateMember()) {
+                f(dataRes.getCanCreateMember());
+            }
+            if (dataRes.hasAlreadyCreateNum()) {
+                g(dataRes.getAlreadyCreateNum());
+            }
+            if (dataRes.hasLeftCreateNum()) {
+                h(dataRes.getLeftCreateNum());
             }
         }
         return this;
@@ -269,8 +298,26 @@ public final class j extends GeneratedMessageLite.Builder<QueryGroupDetailRes.Da
     }
 
     public j e(int i) {
-        this.a |= DERTags.TAGGED;
+        this.a |= 128;
         this.i = i;
+        return this;
+    }
+
+    public j f(int i) {
+        this.a |= 256;
+        this.j = i;
+        return this;
+    }
+
+    public j g(int i) {
+        this.a |= 512;
+        this.k = i;
+        return this;
+    }
+
+    public j h(int i) {
+        this.a |= 1024;
+        this.l = i;
         return this;
     }
 }

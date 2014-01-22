@@ -29,9 +29,9 @@ class ak implements TimePickerDialog.OnTimeSetListener {
         } else if (this.a == R.id.no_disturb_end_time || this.a == R.id.no_disturb_start_time) {
             String str = ((i < 10 ? SocialConstants.FALSE : "") + i) + ":" + ((i2 < 10 ? SocialConstants.FALSE : "") + i2);
             if (this.a == R.id.no_disturb_start_time) {
-                this.b.p(str);
+                this.b.o(str);
             } else {
-                this.b.q(str);
+                this.b.p(str);
             }
             alVar = this.c.a;
             alVar.f();

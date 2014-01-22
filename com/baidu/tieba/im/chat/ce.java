@@ -1,22 +1,25 @@
 package com.baidu.tieba.im.chat;
 
-import android.view.View;
-import android.widget.Button;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.im.SingleRunnable;
+import com.baidu.tieba.im.data.UserData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ce implements View.OnClickListener {
-    final /* synthetic */ bs a;
+public class ce extends SingleRunnable<Void> {
+    final /* synthetic */ UserData a;
+    final /* synthetic */ PersonalChatActivity b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ce(bs bsVar) {
-        this.a = bsVar;
+    public ce(PersonalChatActivity personalChatActivity, UserData userData) {
+        this.b = personalChatActivity;
+        this.a = userData;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Button button;
-        this.a.M();
-        button = this.a.x;
-        button.postDelayed(new cf(this), 100L);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.SingleRunnable
+    /* renamed from: a */
+    public Void b() {
+        com.baidu.tieba.im.chat.personaltalk.a.a(TiebaApplication.A(), PersonalChatActivity.b, this.a);
+        return null;
     }
 }

@@ -1,5 +1,6 @@
 package com.baidu.tieba.more;
 
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -28,7 +29,7 @@ public class an extends com.baidu.adp.a.e {
 
     public void a(int i) {
         this.g.getLayoutMode().a(i == 1);
-        this.g.getLayoutMode().a(this.c);
+        this.g.getLayoutMode().a((View) this.c);
         this.a.c(i);
         this.f.a(i);
     }

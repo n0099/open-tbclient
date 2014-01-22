@@ -10,16 +10,15 @@ import android.widget.LinearLayout;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.BaseFragment;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.aq;
-import com.baidu.tieba.util.bo;
-import com.baidu.tieba.view.bw;
+import com.baidu.tieba.at;
+import com.baidu.tieba.view.cm;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class AtMeFragment extends BaseFragment implements com.baidu.adp.widget.ListView.b {
-    private bw c;
+    private cm c;
     private LinearLayout d;
     private com.baidu.tieba.home.o e;
-    private aq f;
+    private at f;
     private int g;
     private j a = null;
     private BdListView b = null;
@@ -29,12 +28,12 @@ public class AtMeFragment extends BaseFragment implements com.baidu.adp.widget.L
     public View a(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         this.g = -1;
         View inflate = layoutInflater.inflate(R.layout.at_me_activity, viewGroup, false);
-        this.c = new bw(i());
+        this.c = new cm(i());
         this.c.a(this);
         this.b = (BdListView) inflate.findViewById(R.id.atme_lv);
         this.b.setPullRefresh(this.c);
         this.d = (LinearLayout) inflate.findViewById(R.id.bodyNotLogin);
-        this.f = new aq(inflate, (int) R.drawable.individual_center_news, (int) R.drawable.individual_center_news_1);
+        this.f = new at(inflate, (int) R.drawable.individual_center_news, (int) R.drawable.individual_center_news_1);
         this.a = new j(this, 2, new a(this));
         this.a.a(this.b);
         this.a.a(this.f);
@@ -44,8 +43,8 @@ public class AtMeFragment extends BaseFragment implements com.baidu.adp.widget.L
     }
 
     @Override // com.baidu.tieba.BaseFragment
-    public void c(int i) {
-        super.c(i);
+    public void d(int i) {
+        super.d(i);
         if (this.g != i) {
             this.g = i;
             if (n()) {
@@ -56,7 +55,7 @@ public class AtMeFragment extends BaseFragment implements com.baidu.adp.widget.L
                     } else {
                         this.b.setDivider(new ColorDrawable(j().getColor(R.color.night_divider)));
                     }
-                    this.b.setDividerHeight(com.baidu.adp.lib.h.g.a((Context) i(), 1.0f));
+                    this.b.setDividerHeight(com.baidu.adp.lib.g.g.a((Context) i(), 1.0f));
                 } else {
                     this.b.setCacheColorHint(j().getColor(17170445));
                     if (this.f.c()) {
@@ -64,7 +63,7 @@ public class AtMeFragment extends BaseFragment implements com.baidu.adp.widget.L
                     } else {
                         this.b.setDivider(new ColorDrawable(j().getColor(R.color.day_divider)));
                     }
-                    this.b.setDividerHeight(com.baidu.adp.lib.h.g.a((Context) i(), 1.0f));
+                    this.b.setDividerHeight(com.baidu.adp.lib.g.g.a((Context) i(), 1.0f));
                 }
                 this.f.a(i);
                 if (this.c != null) {
@@ -130,11 +129,11 @@ public class AtMeFragment extends BaseFragment implements com.baidu.adp.widget.L
         if (this.e == null) {
             this.e = new com.baidu.tieba.home.o(i(), a(R.string.login_msg_tab), a(R.string.login_msg_form), 3);
             this.d.addView(this.e.e());
-            this.e.b(TiebaApplication.g().an());
+            this.e.b(TiebaApplication.h().al());
         } else {
             ((ViewGroup) this.e.e().getParent()).removeAllViews();
             this.d.addView(this.e.e());
-            this.e.b(TiebaApplication.g().an());
+            this.e.b(TiebaApplication.h().al());
         }
         this.b.setVisibility(8);
         this.d.setVisibility(0);
@@ -150,7 +149,7 @@ public class AtMeFragment extends BaseFragment implements com.baidu.adp.widget.L
             }
             System.gc();
         } catch (Exception e) {
-            bo.b(getClass().getName(), "onDestroy", e.toString());
+            com.baidu.adp.lib.g.e.b(getClass().getName(), "onDestroy", e.toString());
         }
     }
 

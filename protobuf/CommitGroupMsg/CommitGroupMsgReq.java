@@ -9,6 +9,7 @@ import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.Parser;
 import java.io.IOException;
 import java.io.InputStream;
+import protobuf.Im;
 /* loaded from: classes.dex */
 public final class CommitGroupMsgReq {
 
@@ -74,11 +75,11 @@ public final class CommitGroupMsgReq {
                                     this.bitField0_ |= 2;
                                     this.msgType_ = codedInputStream.readInt32();
                                     break;
-                                case 26:
+                                case Im.GroupInfo.NICKNAME_FIELD_NUMBER /* 26 */:
                                     this.bitField0_ |= 4;
                                     this.content_ = codedInputStream.readBytes();
                                     break;
-                                case 32:
+                                case Im.GroupInfo.ISNEWLYCREATE_FIELD_NUMBER /* 32 */:
                                     this.bitField0_ |= 8;
                                     this.duration_ = codedInputStream.readInt32();
                                     break;

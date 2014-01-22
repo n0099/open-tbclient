@@ -8,7 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.tieba.im.message.cc;
+import com.baidu.tieba.im.message.cr;
+import com.baidu.tieba.im.message.q;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class NetWorkDebugActivity extends Activity implements com.baidu.tieba.im.messageCenter.g {
@@ -68,28 +69,28 @@ public class NetWorkDebugActivity extends Activity implements com.baidu.tieba.im
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(com.baidu.tieba.im.message.o oVar) {
-        if (oVar instanceof cc) {
-            cc ccVar = (cc) oVar;
-            int j = ccVar.j();
-            String k = ccVar.k();
-            if (oVar.u() == 1001) {
-                if (ccVar.i()) {
-                    a("on msg acked:" + ccVar + "\nerrCode:" + ccVar.j() + "\nerrMsg:" + ccVar.k());
+    public void a(q qVar) {
+        if (qVar instanceof cr) {
+            cr crVar = (cr) qVar;
+            int l = crVar.l();
+            String m = crVar.m();
+            if (qVar.w() == 1001) {
+                if (crVar.k()) {
+                    a("on msg acked:" + crVar + "\nerrCode:" + crVar.l() + "\nerrMsg:" + crVar.m());
                 } else {
-                    a("failed to send msg:" + oVar + "\nerrCode:" + j + "\nerrMsg:" + k);
+                    a("failed to send msg:" + qVar + "\nerrCode:" + l + "\nerrMsg:" + m);
                 }
-            } else if (oVar.u() == 202001) {
-                if (ccVar.i()) {
-                    a("failed to send msg:" + oVar + "\nerrCode:" + j + "\nerrMsg:" + k);
+            } else if (qVar.w() == 202001) {
+                if (crVar.k()) {
+                    a("failed to send msg:" + qVar + "\nerrCode:" + l + "\nerrMsg:" + m);
                 } else {
-                    a("on msg acked:" + ccVar);
+                    a("on msg acked:" + crVar);
                 }
-            } else if (oVar.u() == 205001) {
-                if (ccVar.i()) {
-                    a("failed to send msg:" + oVar + "\nerrCode:" + j + "\nerrMsg:" + k);
+            } else if (qVar.w() == 205001) {
+                if (crVar.k()) {
+                    a("failed to send msg:" + qVar + "\nerrCode:" + l + "\nerrMsg:" + m);
                 } else {
-                    a("on msg acked:" + ccVar);
+                    a("on msg acked:" + crVar);
                 }
             }
         }

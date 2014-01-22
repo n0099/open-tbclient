@@ -1,30 +1,19 @@
 package com.baidu.tieba.pb;
 
-import android.os.Handler;
-import android.view.animation.Animation;
-import android.widget.ImageView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.FrameLayout;
 /* loaded from: classes.dex */
-public class de implements Animation.AnimationListener {
-    final /* synthetic */ ImageView a;
-    final /* synthetic */ cs b;
+class de implements Runnable {
+    final /* synthetic */ dd a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public de(cs csVar, ImageView imageView) {
-        this.b = csVar;
-        this.a = imageView;
+    public de(dd ddVar) {
+        this.a = ddVar;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        new Handler().post(new df(this));
+    @Override // java.lang.Runnable
+    public void run() {
+        FrameLayout frameLayout;
+        frameLayout = this.a.b.h;
+        frameLayout.removeView(this.a.a);
     }
 }

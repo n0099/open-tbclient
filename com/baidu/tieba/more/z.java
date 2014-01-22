@@ -1,7 +1,7 @@
 package com.baidu.tieba.more;
 
 import android.content.DialogInterface;
-import com.baidu.tieba.util.bn;
+import com.baidu.tieba.util.bx;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class z implements DialogInterface.OnClickListener {
@@ -30,6 +30,6 @@ public class z implements DialogInterface.OnClickListener {
         }
         this.a.C();
         this.a.q();
-        bn.a().h();
+        bx.a().h();
     }
 }

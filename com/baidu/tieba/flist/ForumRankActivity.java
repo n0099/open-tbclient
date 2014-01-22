@@ -18,10 +18,11 @@ import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.ForumInfoData;
 import com.baidu.tieba.forumdetail.ForumDetailActivity;
 import com.baidu.tieba.model.ax;
-import com.baidu.tieba.util.ar;
-import com.baidu.tieba.util.bl;
+import com.baidu.tieba.util.an;
+import com.baidu.tieba.util.au;
+import com.baidu.tieba.util.bs;
 import com.baidu.tieba.view.NavigationBar;
-import com.baidu.tieba.view.bw;
+import com.baidu.tieba.view.cm;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class ForumRankActivity extends com.baidu.tieba.j {
@@ -33,14 +34,14 @@ public class ForumRankActivity extends com.baidu.tieba.j {
     private com.baidu.tieba.util.i f = null;
     private ax g = null;
     private LinearLayout h = null;
-    private bw i = null;
+    private cm i = null;
     private FrameLayout j = null;
     private TextView k = null;
     private Handler l = null;
     private String m = null;
     private boolean n = false;
     private com.baidu.adp.a.g o = new ae(this);
-    private ar p = new af(this);
+    private au p = new af(this);
     private AbsListView.OnScrollListener q = new ag(this);
     private Runnable r = new ah(this);
 
@@ -70,17 +71,17 @@ public class ForumRankActivity extends com.baidu.tieba.j {
         this.e = new TbImageView(this);
         this.e.setScaleType(ImageView.ScaleType.CENTER_CROP);
         this.f = new com.baidu.tieba.util.i(this);
-        int b = com.baidu.adp.lib.h.g.b(this);
+        int b = com.baidu.adp.lib.g.g.b(this);
         this.f.a(b, b);
         this.d = (NavigationBar) findViewById(R.id.view_navigation_bar);
         this.d.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.a = (BdListView) findViewById(R.id.list);
-        this.e.setLayoutParams(new AbsListView.LayoutParams(com.baidu.adp.lib.h.g.b(this), (int) (com.baidu.adp.lib.h.g.b(this) * 0.5d)));
+        this.e.setLayoutParams(new AbsListView.LayoutParams(com.baidu.adp.lib.g.g.b(this), (int) (com.baidu.adp.lib.g.g.b(this) * 0.5d)));
         this.a.setOnScrollListener(this.q);
         this.e.setVisibility(8);
         this.h = (LinearLayout) getLayoutInflater().inflate(R.layout.forum_list_forum_footer, (ViewGroup) null);
         this.h.setOnClickListener(new ac(this));
-        this.i = new bw(this);
+        this.i = new cm(this);
         this.a.setPullRefresh(this.i);
         this.i.a(new ad(this));
         this.j = (FrameLayout) findViewById(R.id.empty_textview_container);
@@ -117,10 +118,10 @@ public class ForumRankActivity extends com.baidu.tieba.j {
     private void b() {
         ForumInfoData[] a = this.c.a();
         for (int i = 0; i < a.length; i++) {
-            int e = TiebaApplication.g().e(a[i].forum_name);
-            if (e == 1) {
+            int d = TiebaApplication.h().d(a[i].forum_name);
+            if (d == 1) {
                 a[i].is_like = 1;
-            } else if (e == -1) {
+            } else if (d == -1) {
                 a[i].is_like = 0;
             }
         }
@@ -132,7 +133,7 @@ public class ForumRankActivity extends com.baidu.tieba.j {
     public void onResume() {
         super.onResume();
         b();
-        com.baidu.tieba.util.ak.a(this.a, this.f, 0, -1);
+        an.a(this.a, this.f, 0, -1);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -157,14 +158,12 @@ public class ForumRankActivity extends com.baidu.tieba.j {
         this.d.c(i);
         if (i == 1) {
             this.a.setBackgroundColor(getResources().getColor(R.color.skin_1_common_bg));
-            this.a.setDivider(getResources().getDrawable(R.color.ht_title_top_sep_line_1));
-            this.a.setDividerHeight(com.baidu.adp.lib.h.g.a((Context) this, 1.0f));
+            this.c.a(true);
         } else {
             this.a.setBackgroundColor(getResources().getColor(R.color.backgroundcolor));
-            this.a.setDivider(getResources().getDrawable(R.color.ht_title_top_sep_line));
-            this.a.setDividerHeight(com.baidu.adp.lib.h.g.a((Context) this, 1.0f));
+            this.c.a(false);
         }
-        bl.b(findViewById(R.id.root_view), i);
+        bs.b(findViewById(R.id.root_view), i);
         this.i.a(i);
         if (i == 1) {
             this.c.a(R.drawable.btn_add_end_1, R.drawable.btn_add_1);

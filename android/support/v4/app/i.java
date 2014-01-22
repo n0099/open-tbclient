@@ -1,7 +1,6 @@
 package android.support.v4.app;
 
 import android.util.Log;
-import com.baidu.zeus.bouncycastle.DERTags;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -29,7 +28,7 @@ public final class i extends ae implements Runnable {
     int o = -1;
 
     public String toString() {
-        StringBuilder sb = new StringBuilder((int) DERTags.TAGGED);
+        StringBuilder sb = new StringBuilder(128);
         sb.append("BackStackEntry{");
         sb.append(Integer.toHexString(System.identityHashCode(this)));
         if (this.o >= 0) {

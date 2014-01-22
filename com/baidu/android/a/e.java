@@ -9,7 +9,6 @@ import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.Xml;
 import com.baidu.android.common.net.ProxyHttpClient;
-import com.baidu.browser.core.util.BdUtil;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
@@ -192,7 +191,7 @@ public class e {
         }
         arrayList.add(new BasicNameValuePair("version", jSONObject.toString()));
         try {
-            UrlEncodedFormEntity urlEncodedFormEntity = new UrlEncodedFormEntity(arrayList, BdUtil.UTF8);
+            UrlEncodedFormEntity urlEncodedFormEntity = new UrlEncodedFormEntity(arrayList, "utf-8");
             try {
                 urlEncodedFormEntity.setContentType("application/x-www-form-urlencoded");
                 return urlEncodedFormEntity;

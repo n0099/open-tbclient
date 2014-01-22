@@ -1,10 +1,14 @@
 package com.baidu.tieba.frs;
 
+import android.app.Activity;
+import android.content.DialogInterface;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.data.ForumData;
+import com.baidu.tieba.account.LoginActivity;
+import com.baidu.tieba.model.ci;
 import com.slidingmenu.lib.R;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class n implements ae {
+public class n implements DialogInterface.OnClickListener {
     final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,40 +16,21 @@ class n implements ae {
         this.a = frsActivity;
     }
 
-    @Override // com.baidu.tieba.frs.ae
-    public void a(com.baidu.tieba.model.am amVar, com.baidu.tieba.model.an anVar) {
-        bo boVar;
-        bo boVar2;
-        bo boVar3;
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        ci ciVar;
         com.baidu.tieba.model.ak akVar;
         com.baidu.tieba.model.ak akVar2;
-        bo boVar4;
-        com.baidu.tieba.model.ak akVar3;
-        com.baidu.tieba.model.ak akVar4;
-        if (amVar.a) {
-            boVar3 = this.a.n;
-            boVar3.a(this.a.getString(R.string.add_fan_sucess));
+        dialogInterface.dismiss();
+        String A = TiebaApplication.A();
+        if (A != null && A.length() > 0) {
+            ciVar = this.a.y;
             akVar = this.a.w;
-            akVar.f().b(1);
+            String name = akVar.b().getName();
             akVar2 = this.a.w;
-            akVar2.f().c(amVar.c);
-            boVar4 = this.a.n;
-            akVar3 = this.a.w;
-            ForumData a = akVar3.a();
-            akVar4 = this.a.w;
-            boVar4.a(1, a, akVar4, false);
-            TiebaApplication.g().h(true);
+            ciVar.a(name, Long.valueOf(akVar2.b().getId()).longValue());
             return;
         }
-        if (anVar.d == null || anVar.d.length() <= 0) {
-            boVar = this.a.n;
-            boVar.a(this.a.getString(R.string.add_fan_error));
-        } else {
-            boVar2 = this.a.n;
-            boVar2.a(anVar.d);
-        }
-        if (anVar.c == 120002) {
-            this.a.B();
-        }
+        LoginActivity.a((Activity) this.a, this.a.getString(R.string.login_to_use), true, 11036);
     }
 }

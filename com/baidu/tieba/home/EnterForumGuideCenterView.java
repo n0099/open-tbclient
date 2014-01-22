@@ -68,7 +68,7 @@ public class EnterForumGuideCenterView extends RelativeLayout {
 
     public void a(int i) {
         if (c(i)) {
-            com.baidu.tieba.util.bl.a(this, i);
+            com.baidu.tieba.util.bs.a(this, i);
             if (i == 1) {
                 this.a.setBackgroundResource(R.drawable.pic_go_ba_1);
                 this.b.setTextColor(-8815226);
@@ -88,7 +88,7 @@ public class EnterForumGuideCenterView extends RelativeLayout {
     }
 
     public void a() {
-        a(TiebaApplication.g().an());
+        a(TiebaApplication.h().al());
     }
 
     public void b() {

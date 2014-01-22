@@ -101,35 +101,35 @@ public class EmotionTabContentView extends LinearLayout implements bq {
         int i;
         this.b = writableEmotionGroup;
         int d = this.b.d();
-        int h = writableEmotionGroup.h();
-        int i2 = writableEmotionGroup.i();
-        if (h != 0 && i2 != 0) {
-            int i3 = d / (h * i2);
-            int i4 = d % (h * i2) == 0 ? i3 : i3 + 1;
-            if (i4 > 1) {
+        int j = writableEmotionGroup.j();
+        int k = writableEmotionGroup.k();
+        if (j != 0 && k != 0) {
+            int i2 = d / (j * k);
+            int i3 = d % (j * k) == 0 ? i2 : i2 + 1;
+            if (i3 > 1) {
                 this.n.setVisibility(0);
-                this.n.setCount(i4);
+                this.n.setCount(i3);
                 this.n.setPosition(0.0f);
             } else {
                 this.n.setVisibility(4);
             }
             ArrayList arrayList = new ArrayList();
-            for (int i5 = 0; i5 < i4; i5++) {
+            for (int i4 = 0; i4 < i3; i4++) {
                 GridView gridView = new GridView(getContext());
-                gridView.setNumColumns(writableEmotionGroup.h());
+                gridView.setNumColumns(writableEmotionGroup.j());
                 gridView.setVerticalSpacing(0);
                 gridView.setHorizontalSpacing(0);
                 gridView.setSelector(R.color.transparent);
                 gridView.setSelection(-1);
-                if (i5 < i4 - 1) {
-                    i = h * i2;
+                if (i4 < i3 - 1) {
+                    i = j * k;
                 } else {
-                    i = d - ((h * i2) * (i4 - 1));
+                    i = d - ((j * k) * (i3 - 1));
                 }
-                int i6 = i5 * h * i2;
+                int i5 = i4 * j * k;
                 gridView.setOnItemLongClickListener(new g(this));
-                gridView.setOnItemClickListener(new h(this, i6));
-                gridView.setAdapter((ListAdapter) new j(this, getContext(), i, i6));
+                gridView.setOnItemClickListener(new h(this, i5));
+                gridView.setAdapter((ListAdapter) new j(this, getContext(), i, i5));
                 arrayList.add(gridView);
             }
             this.a.setAdapter(new FaceViewPagerAdapter(arrayList));
@@ -257,21 +257,21 @@ public class EmotionTabContentView extends LinearLayout implements bq {
     }
 
     @Override // android.support.v4.view.bq
-    public void onPageScrolled(int i, float f, int i2) {
+    public void a(int i, float f, int i2) {
         if (this.n != null) {
             this.n.setPosition(i + f);
         }
     }
 
     @Override // android.support.v4.view.bq
-    public void onPageSelected(int i) {
+    public void a_(int i) {
     }
 
     @Override // android.support.v4.view.bq
-    public void onPageScrollStateChanged(int i) {
+    public void b(int i) {
     }
 
-    public void a(int i) {
+    public void c(int i) {
         this.q = i;
         if (i == 1) {
             this.e.setBackgroundResource(R.drawable.bg_expression_bubble_1);

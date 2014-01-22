@@ -1,23 +1,84 @@
 package com.baidu.tieba.pb;
 
-import android.view.View;
-import android.widget.AdapterView;
+import android.graphics.Bitmap;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+import com.baidu.tieba.recommend.WebviewHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ep implements AdapterView.OnItemLongClickListener {
-    final /* synthetic */ ed a;
+public class ep extends WebViewClient {
+    final /* synthetic */ WebActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ep(ed edVar) {
-        this.a = edVar;
+    public ep(WebActivity webActivity) {
+        this.a = webActivity;
     }
 
-    @Override // android.widget.AdapterView.OnItemLongClickListener
-    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
-        if (this.a.K != null) {
-            this.a.K.onLongClick(view);
-            return false;
+    @Override // android.webkit.WebViewClient
+    public void onPageFinished(WebView webView, String str) {
+        ImageView imageView;
+        ImageView imageView2;
+        ProgressBar progressBar;
+        ImageView imageView3;
+        ImageView imageView4;
+        ImageView imageView5;
+        super.onPageFinished(webView, str);
+        if (this.a.a.canGoBack()) {
+            imageView5 = this.a.g;
+            imageView5.setEnabled(true);
+        } else {
+            imageView = this.a.g;
+            imageView.setEnabled(false);
         }
-        return false;
+        if (this.a.a.canGoForward()) {
+            imageView4 = this.a.h;
+            imageView4.setEnabled(true);
+        } else {
+            imageView2 = this.a.h;
+            imageView2.setEnabled(false);
+        }
+        progressBar = this.a.j;
+        progressBar.setVisibility(8);
+        imageView3 = this.a.i;
+        imageView3.setVisibility(0);
+    }
+
+    @Override // android.webkit.WebViewClient
+    public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
+        ImageView imageView;
+        ImageView imageView2;
+        ProgressBar progressBar;
+        ImageView imageView3;
+        ImageView imageView4;
+        ImageView imageView5;
+        super.onPageStarted(webView, str, bitmap);
+        if (this.a.a.canGoBack()) {
+            imageView5 = this.a.g;
+            imageView5.setEnabled(true);
+        } else {
+            imageView = this.a.g;
+            imageView.setEnabled(false);
+        }
+        if (this.a.a.canGoForward()) {
+            imageView4 = this.a.h;
+            imageView4.setEnabled(true);
+        } else {
+            imageView2 = this.a.h;
+            imageView2.setEnabled(false);
+        }
+        progressBar = this.a.j;
+        progressBar.setVisibility(0);
+        imageView3 = this.a.i;
+        imageView3.setVisibility(4);
+    }
+
+    @Override // android.webkit.WebViewClient
+    public boolean shouldOverrideUrlLoading(WebView webView, String str) {
+        if ((this.a.f == null || !this.a.f.a(str)) && !WebviewHelper.commonJumpHelper(this.a, str)) {
+            return super.shouldOverrideUrlLoading(webView, str);
+        }
+        return true;
     }
 }

@@ -7,7 +7,7 @@ import com.baidu.gson.GsonBuilder;
 public class bg extends BdAsyncTask<Object, FaceShopData, FaceShopData> {
     final /* synthetic */ be a;
     private int b;
-    private com.baidu.tieba.util.at c;
+    private com.baidu.tieba.util.ax c;
     private volatile boolean d;
 
     private bg(be beVar) {
@@ -28,32 +28,32 @@ public class bg extends BdAsyncTask<Object, FaceShopData, FaceShopData> {
         this.b = ((Integer) objArr[0]).intValue();
         try {
             if (!this.d) {
-                this.c = new com.baidu.tieba.util.at(com.baidu.tieba.data.h.a + "c/e/faces/getpacklist");
+                this.c = new com.baidu.tieba.util.ax(com.baidu.tieba.data.h.a + "c/e/faces/getpacklist");
                 if (this.b == 1) {
                     this.a.c = 0;
                 } else if (this.b == 2) {
                     be.a(this.a);
                 }
-                com.baidu.tieba.util.at atVar = this.c;
+                com.baidu.tieba.util.ax axVar = this.c;
                 i = this.a.f;
-                atVar.a("scr_w", String.valueOf(i));
-                com.baidu.tieba.util.at atVar2 = this.c;
+                axVar.a("scr_w", String.valueOf(i));
+                com.baidu.tieba.util.ax axVar2 = this.c;
                 i2 = this.a.g;
-                atVar2.a("scr_h", String.valueOf(i2));
-                com.baidu.tieba.util.at atVar3 = this.c;
+                axVar2.a("scr_h", String.valueOf(i2));
+                com.baidu.tieba.util.ax axVar3 = this.c;
                 f = this.a.h;
-                atVar3.a("scr_dip", String.valueOf(f));
-                com.baidu.tieba.util.at atVar4 = this.c;
+                axVar3.a("scr_dip", String.valueOf(f));
+                com.baidu.tieba.util.ax axVar4 = this.c;
                 i3 = this.a.c;
-                atVar4.a("offset", String.valueOf(i3));
+                axVar4.a("offset", String.valueOf(i3));
                 this.c.a("limit", String.valueOf(10));
-                com.baidu.tieba.util.at atVar5 = this.c;
+                com.baidu.tieba.util.ax axVar5 = this.c;
                 str = this.a.d;
-                atVar5.a("st_type", str);
-                return (FaceShopData) new GsonBuilder().create().fromJson(this.c.l(), (Class<Object>) FaceShopData.class);
+                axVar5.a("st_type", str);
+                return (FaceShopData) new GsonBuilder().create().fromJson(this.c.m(), (Class<Object>) FaceShopData.class);
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.h.e.b(getClass().getName(), "doInBackground", e.toString());
+            com.baidu.adp.lib.g.e.b(getClass().getName(), "doInBackground", e.toString());
         }
         return null;
     }
@@ -86,7 +86,7 @@ public class bg extends BdAsyncTask<Object, FaceShopData, FaceShopData> {
         super.cancel(true);
         this.d = true;
         if (this.c != null) {
-            this.c.j();
+            this.c.k();
             this.c = null;
         }
         this.a.b = null;

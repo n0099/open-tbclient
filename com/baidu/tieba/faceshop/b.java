@@ -2,7 +2,7 @@ package com.baidu.tieba.faceshop;
 
 import android.view.View;
 import android.widget.AdapterView;
-import com.baidu.tieba.util.bl;
+import com.baidu.tieba.util.bs;
 import com.slidingmenu.lib.R;
 import java.util.List;
 /* loaded from: classes.dex */
@@ -36,13 +36,13 @@ class b implements AdapterView.OnItemClickListener {
                         if (eVar.a.equals(str)) {
                             list4 = this.a.b;
                             if (list4.contains(str)) {
-                                bl.d(gVar.a, (int) R.drawable.btn_expression_choose_n);
+                                bs.d(gVar.a, (int) R.drawable.btn_expression_choose_n);
                                 list5 = this.a.b;
                                 list5.remove(str);
                                 this.a.b(str);
                                 eVar.c = false;
                             } else {
-                                bl.d(gVar.a, (int) R.drawable.btn_expression_choose_s);
+                                bs.d(gVar.a, (int) R.drawable.btn_expression_choose_s);
                                 this.a.a(str);
                                 eVar.c = true;
                             }

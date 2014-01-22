@@ -15,7 +15,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.browser.webpool.BdWebPoolView;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tbadk.widget.TbImageView;
 import java.util.ArrayList;
@@ -94,8 +93,8 @@ public class TbRichTextView extends LinearLayout {
         this.l = -1;
         this.m = -16777216;
         this.n = -9989158;
-        this.o = BdWebPoolView.DELAYED_TIME;
-        this.p = BdWebPoolView.DELAYED_TIME;
+        this.o = 200;
+        this.p = 200;
         this.q = null;
         this.r = 0;
         this.s = 0;
@@ -127,8 +126,8 @@ public class TbRichTextView extends LinearLayout {
         this.l = -1;
         this.m = -16777216;
         this.n = -9989158;
-        this.o = BdWebPoolView.DELAYED_TIME;
-        this.p = BdWebPoolView.DELAYED_TIME;
+        this.o = 200;
+        this.p = 200;
         this.q = null;
         this.r = 0;
         this.s = 0;
@@ -307,7 +306,7 @@ public class TbRichTextView extends LinearLayout {
             return false;
         }
         imageView.setTag(c.f());
-        int[] a2 = com.baidu.adp.lib.h.g.a(c.c(), c.b(), i, i2);
+        int[] a2 = com.baidu.adp.lib.g.g.a(c.c(), c.b(), i, i2);
         if (a2 != null) {
             boolean z = !this.v;
             if (z && (imageView instanceof TbImageView)) {
@@ -392,7 +391,7 @@ public class TbRichTextView extends LinearLayout {
             gifView = this.f.a();
         }
         if (gifView == null || gifView.getParent() != null) {
-            com.baidu.adp.lib.h.e.c("TbRichTextView", "getGifView", "Pool's full, create new one.");
+            com.baidu.adp.lib.g.e.c("TbRichTextView", "getGifView", "Pool's full, create new one.");
             return new GifView(getContext());
         }
         return gifView;
@@ -402,7 +401,7 @@ public class TbRichTextView extends LinearLayout {
         com.baidu.adp.widget.ImageView.d c;
         gifView.setTag(cVar.g().c);
         gifView.setTbRichTextEmotionInfo(cVar.g());
-        com.baidu.adp.lib.h.e.e("TbRichTextView", "initGifView", "c:" + cVar.g());
+        com.baidu.adp.lib.g.e.e("TbRichTextView", "initGifView", "c:" + cVar.g());
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) gifView.getLayoutParams();
         if (layoutParams == null || layoutParams.width != cVar.g().f || layoutParams.height != cVar.g().g) {
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(cVar.g().f, cVar.g().g);
@@ -430,7 +429,7 @@ public class TbRichTextView extends LinearLayout {
     private View getVoiceView() {
         View a2 = this.d != null ? this.d.a() : null;
         if (a2 == null || a2.getParent() != null) {
-            com.baidu.adp.lib.h.e.d("voice view is null");
+            com.baidu.adp.lib.g.e.d("voice view is null");
             if (this.w != -1) {
                 a2 = this.x.inflate(this.w, (ViewGroup) null);
             }

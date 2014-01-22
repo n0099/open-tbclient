@@ -12,13 +12,13 @@ class bc implements DialogInterface.OnClickListener {
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
-        cs csVar;
-        cs csVar2;
+        cr crVar;
+        cr crVar2;
         NewPbActivity newPbActivity = this.a;
-        csVar = this.a.z;
-        newPbActivity.A = csVar.ae();
-        csVar2 = this.a.z;
-        csVar2.j();
+        crVar = this.a.A;
+        newPbActivity.B = crVar.ae();
+        crVar2 = this.a.A;
+        crVar2.j();
         if (i == 0) {
             com.baidu.tieba.write.bb.a(this.a);
         } else if (i == 1) {

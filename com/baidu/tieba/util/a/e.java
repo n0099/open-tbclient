@@ -2,22 +2,16 @@ package com.baidu.tieba.util.a;
 
 import com.baidu.tieba.data.h;
 import com.baidu.tieba.util.DatabaseService;
-import com.baidu.tieba.util.at;
-import com.baidu.tieba.util.bn;
-import com.baidu.tieba.util.bo;
+import com.baidu.tieba.util.ax;
+import com.baidu.tieba.util.bx;
 import com.baidu.tieba.util.i;
 import com.baidu.tieba.util.l;
-import com.baidu.tieba.util.m;
+import com.baidu.tieba.util.n;
 /* loaded from: classes.dex */
 public class e extends a {
     @Override // com.baidu.tieba.util.a.a
     public Object a(String str, i iVar) {
-        com.baidu.adp.widget.ImageView.d b = com.baidu.tbadk.imageManager.d.a().b(str);
-        if (bn.a().b()) {
-        }
-        if (b == null || b.e()) {
-        }
-        return b;
+        return com.baidu.tbadk.imageManager.d.a().b(str);
     }
 
     @Override // com.baidu.tieba.util.a.a
@@ -27,7 +21,7 @@ public class e extends a {
             com.baidu.tbadk.imageManager.g d = com.baidu.tbadk.imageManager.d.d(str);
             int i = lVar.d;
             String a2 = iVar.a(d.a);
-            synchronized (m.a) {
+            synchronized (n.a) {
                 if (i == 1) {
                     a = DatabaseService.b(a2, d.b);
                 } else {
@@ -54,7 +48,7 @@ public class e extends a {
                     return null;
                 }
                 if (lVar.i != null) {
-                    if (bn.a().b()) {
+                    if (bx.a().b()) {
                     }
                     if (lVar.i.e()) {
                     }
@@ -76,7 +70,7 @@ public class e extends a {
         } else if (i == 1) {
             str2 = h.o() + d.a;
         }
-        lVar.a = new at(iVar.a, str2);
+        lVar.a = new ax(iVar.a, str2);
         lVar.a.a(iVar.f(), 3);
         if (iVar.h != null) {
             int i2 = 0;
@@ -89,21 +83,21 @@ public class e extends a {
                 i2 = i3 + 1;
             }
         }
-        byte[] k = lVar.a.k();
-        if (k == null || !lVar.a.c() || lVar.j) {
+        byte[] l = lVar.a.l();
+        if (l == null || !lVar.a.d() || lVar.n) {
             return null;
         }
         String a = iVar.a(d.a);
-        synchronized (m.a) {
-            if (lVar.j) {
+        synchronized (n.a) {
+            if (lVar.n) {
                 return null;
             }
-            lVar.e = m.a(k);
+            lVar.e = n.a(l);
             if (lVar.e == null) {
                 return null;
             }
-            lVar.h = com.baidu.adp.lib.h.g.a(k);
-            if (lVar.j) {
+            lVar.h = com.baidu.adp.lib.g.g.a(l);
+            if (lVar.n) {
                 return null;
             }
             int i4 = 80;
@@ -111,26 +105,26 @@ public class e extends a {
                 i4 = h.p();
             }
             if (lVar.e.getWidth() > i4 || lVar.e.getHeight() > i4) {
-                bo.a(1, getClass().getName(), "doInBackground", "photo_too_big:" + String.valueOf(lVar.e.getWidth() + "*" + String.valueOf(lVar.e.getHeight())));
-                com.baidu.tbadk.imageManager.d.a().c(m.a(lVar.e) * 2);
-                lVar.e = m.a(lVar.e, i4);
+                com.baidu.adp.lib.g.e.b(getClass().getName(), "doInBackground", "photo_too_big:" + String.valueOf(lVar.e.getWidth() + "*" + String.valueOf(lVar.e.getHeight())));
+                com.baidu.tbadk.imageManager.d.a().c(n.a(lVar.e) * 2);
+                lVar.e = n.a(lVar.e, i4);
             }
-            if (lVar.j) {
+            if (lVar.n) {
                 return null;
             }
-            com.baidu.tbadk.imageManager.d.a().c(m.a(lVar.e) * 2);
-            lVar.e = m.a(lVar.e, 7.0f);
-            if (lVar.j) {
+            com.baidu.tbadk.imageManager.d.a().c(n.a(lVar.e) * 2);
+            lVar.e = n.a(lVar.e, 7.0f);
+            if (lVar.n) {
                 return null;
             }
             lVar.i = new com.baidu.adp.widget.ImageView.d(lVar.e, false, str);
             lVar.i.b = d.b;
             a(d.a, lVar.i);
-            if (lVar.j) {
+            if (lVar.n) {
                 return null;
             }
             eVar.d(lVar);
-            if (lVar.j) {
+            if (lVar.n) {
                 return null;
             }
             if (i == 1) {

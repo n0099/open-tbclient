@@ -2,12 +2,10 @@ package com.baidu.tieba.c;
 
 import android.os.Handler;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.browser.explorer.BdExplorePopView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.aa;
-import com.baidu.tieba.util.at;
-import com.baidu.tieba.util.bm;
-import com.baidu.tieba.util.bo;
+import com.baidu.tieba.util.ad;
+import com.baidu.tieba.util.ax;
+import com.baidu.tieba.util.bu;
 import com.slidingmenu.lib.R;
 import java.io.File;
 import java.io.FileInputStream;
@@ -18,7 +16,7 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class i extends BdAsyncTask<a, a, Integer> {
     final /* synthetic */ g a;
-    private at b = new at();
+    private ax b = new ax();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(g gVar) {
@@ -36,7 +34,7 @@ public class i extends BdAsyncTask<a, a, Integer> {
         a aVar4;
         a aVar5;
         super.c();
-        this.b.j();
+        this.b.k();
         aVar = g.b;
         aVar.a(4);
         aVar2 = g.b;
@@ -76,31 +74,31 @@ public class i extends BdAsyncTask<a, a, Integer> {
         if (aVarArr[0].m() == null || aVarArr[0].m().c(aVarArr[0])) {
             if (!new File(aVarArr[0].e()).exists()) {
                 this.b.a(aVarArr[0].d());
-                at atVar = this.b;
+                ax axVar = this.b;
                 String str = aVarArr[0].a() + "_" + aVarArr[0].b() + ".tmp";
                 handler = this.a.f;
-                if (!Boolean.valueOf(atVar.a(str, handler, 900002, 3, BdExplorePopView.SELECTION_TOP_DUR)).booleanValue()) {
+                if (!Boolean.valueOf(axVar.a(str, handler, 900002, 3, 3000)).booleanValue()) {
                     return 3;
                 }
-                File d = aa.d(aVarArr[0].a() + "_" + aVarArr[0].b() + ".tmp");
+                File d = ad.d(aVarArr[0].a() + "_" + aVarArr[0].b() + ".tmp");
                 if (d == null) {
                     return 1;
                 }
-                if (!aa.f(d.getAbsolutePath(), aVarArr[0].e())) {
+                if (!ad.f(d.getAbsolutePath(), aVarArr[0].e())) {
                     return 1;
                 }
             }
-            if (!bm.c(aVarArr[0].l())) {
+            if (!bu.c(aVarArr[0].l())) {
                 try {
                     fileInputStream = new FileInputStream(aVarArr[0].e());
                     try {
-                        if (!bm.a(fileInputStream).toLowerCase().equals(aVarArr[0].l().toLowerCase())) {
+                        if (!bu.a(fileInputStream).toLowerCase().equals(aVarArr[0].l().toLowerCase())) {
                             if (fileInputStream != null) {
                                 try {
                                     fileInputStream.close();
                                     return 4;
                                 } catch (IOException e) {
-                                    bo.c(e.getMessage());
+                                    com.baidu.adp.lib.g.e.d(e.getMessage());
                                     return 4;
                                 }
                             }
@@ -109,20 +107,20 @@ public class i extends BdAsyncTask<a, a, Integer> {
                             try {
                                 fileInputStream.close();
                             } catch (IOException e2) {
-                                bo.c(e2.getMessage());
+                                com.baidu.adp.lib.g.e.d(e2.getMessage());
                             }
                         }
                     } catch (FileNotFoundException e3) {
                         e = e3;
                         fileInputStream2 = fileInputStream;
                         try {
-                            bo.c(e.getMessage());
+                            com.baidu.adp.lib.g.e.d(e.getMessage());
                             if (fileInputStream2 != null) {
                                 try {
                                     fileInputStream2.close();
                                     return 4;
                                 } catch (IOException e4) {
-                                    bo.c(e4.getMessage());
+                                    com.baidu.adp.lib.g.e.d(e4.getMessage());
                                     return 4;
                                 }
                             }
@@ -134,7 +132,7 @@ public class i extends BdAsyncTask<a, a, Integer> {
                                 try {
                                     fileInputStream.close();
                                 } catch (IOException e5) {
-                                    bo.c(e5.getMessage());
+                                    com.baidu.adp.lib.g.e.d(e5.getMessage());
                                 }
                             }
                             throw th;
@@ -184,7 +182,7 @@ public class i extends BdAsyncTask<a, a, Integer> {
         a aVar18;
         a aVar19;
         super.a((i) num);
-        bo.c("download:result_code::" + num);
+        com.baidu.adp.lib.g.e.d("download:result_code::" + num);
         if (num.intValue() == 0) {
             aVar11 = g.b;
             if (aVar11.m() != null) {
@@ -199,7 +197,7 @@ public class i extends BdAsyncTask<a, a, Integer> {
             aVar12.a(0);
             StringBuilder append = new StringBuilder().append("download_file:success:");
             aVar13 = g.b;
-            bo.c(append.append(aVar13.e()).toString());
+            com.baidu.adp.lib.g.e.d(append.append(aVar13.e()).toString());
             aVar14 = g.b;
             if (aVar14.m() != null) {
                 aVar15 = g.b;
@@ -210,16 +208,16 @@ public class i extends BdAsyncTask<a, a, Integer> {
         } else {
             switch (num.intValue()) {
                 case 1:
-                    string = TiebaApplication.g().getString(R.string.download_fail);
+                    string = TiebaApplication.h().getString(R.string.download_fail);
                     break;
                 case 2:
-                    string = TiebaApplication.g().getString(R.string.download_fail);
+                    string = TiebaApplication.h().getString(R.string.download_fail);
                     break;
                 case 3:
-                    string = TiebaApplication.g().getString(R.string.download_fail_net);
+                    string = TiebaApplication.h().getString(R.string.download_fail_net);
                     break;
                 case 4:
-                    string = TiebaApplication.g().getString(R.string.download_fail);
+                    string = TiebaApplication.h().getString(R.string.download_fail);
                     break;
                 default:
                     string = null;
@@ -247,7 +245,7 @@ public class i extends BdAsyncTask<a, a, Integer> {
             }
             StringBuilder append2 = new StringBuilder().append("download_file:fail:");
             aVar5 = g.b;
-            bo.c(append2.append(aVar5.e()).toString());
+            com.baidu.adp.lib.g.e.d(append2.append(aVar5.e()).toString());
         }
         a unused = g.b = null;
         list = g.c;

@@ -19,6 +19,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import com.baidu.location.LocationClientOption;
 import com.baidu.tieba.data.RegistData;
 import com.baidu.tieba.view.NavigationBar;
@@ -112,7 +113,7 @@ public class Register2Activity extends com.baidu.tieba.j {
         if (this.N != null) {
             this.N.cancel();
         }
-        com.baidu.tieba.util.bo.a("Register2Activity", "onDestroy", "onDestroy");
+        com.baidu.adp.lib.g.e.a("Register2Activity", "onDestroy", "onDestroy");
     }
 
     private void h() {
@@ -162,7 +163,7 @@ public class Register2Activity extends com.baidu.tieba.j {
         this.w = (EditText) findViewById(R.id.edit_vcode);
         this.w.addTextChangedListener(this.R);
         g();
-        ShowSoftKeyPadDelay(this.t, 150);
+        ShowSoftKeyPadDelay(this.t, SocialAPIErrorCodes.ERROR_AUTHORIZATION_CANCELED);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -170,8 +171,8 @@ public class Register2Activity extends com.baidu.tieba.j {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.M.c(i);
-        com.baidu.tieba.util.bl.a(this.b, i);
-        com.baidu.tieba.util.bl.c(this.a, i);
+        com.baidu.tieba.util.bs.a(this.b, i);
+        com.baidu.tieba.util.bs.c(this.a, i);
         n();
         k();
     }
@@ -353,7 +354,7 @@ public class Register2Activity extends com.baidu.tieba.j {
     protected void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (i == c && i2 == -1) {
-            com.baidu.tieba.util.bo.a("Register2Activity", "onActivityResult", "onActivityResult");
+            com.baidu.adp.lib.g.e.a("Register2Activity", "onActivityResult", "onActivityResult");
             setResult(-1);
             finish();
         }

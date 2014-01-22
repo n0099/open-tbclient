@@ -3,7 +3,6 @@ package com.baidu.android.nebula.b;
 import android.content.Context;
 import android.os.Process;
 import com.baidu.android.common.net.ProxyHttpClient;
-import com.baidu.browser.core.util.BdUtil;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
@@ -33,7 +32,7 @@ public class i implements Runnable {
         ArrayList arrayList = new ArrayList();
         arrayList.add(new BasicNameValuePair("needsdata", this.c));
         try {
-            UrlEncodedFormEntity urlEncodedFormEntity = new UrlEncodedFormEntity(arrayList, BdUtil.UTF8);
+            UrlEncodedFormEntity urlEncodedFormEntity = new UrlEncodedFormEntity(arrayList, "utf-8");
             try {
                 urlEncodedFormEntity.setContentType("application/x-www-form-urlencoded");
                 return urlEncodedFormEntity;

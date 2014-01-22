@@ -5,7 +5,7 @@ public interface d {
 
     void a();
 
-    void a(int i, int i2);
+    void a(int i, int i2, String str, String str2);
 
     void b(String str);
 }

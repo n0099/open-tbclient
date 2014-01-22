@@ -1,10 +1,7 @@
 package protobuf;
 
-import com.baidu.cloudsdk.common.imgloader.ImageManager;
 import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import com.baidu.location.BDLocation;
-import com.baidu.zeus.NotificationProxy;
-import com.baidu.zeus.bouncycastle.DERTags;
 import com.google.protobuf.ByteString;
 import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.CodedOutputStream;
@@ -72,7 +69,7 @@ public final class Im {
                                     this.bitField0_ |= 1;
                                     this.errorno_ = codedInputStream.readInt32();
                                     break;
-                                case 18:
+                                case GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
                                     this.bitField0_ |= 2;
                                     this.usermsg_ = codedInputStream.readBytes();
                                     break;
@@ -525,11 +522,11 @@ public final class Im {
                                     this.bitField0_ |= 2;
                                     this.canCreateNormal_ = codedInputStream.readInt32();
                                     break;
-                                case 24:
+                                case GroupInfo.ISHIDEPOSITION_FIELD_NUMBER /* 24 */:
                                     this.bitField0_ |= 4;
                                     this.canCreateOfficial_ = codedInputStream.readInt32();
                                     break;
-                                case 32:
+                                case GroupInfo.ISNEWLYCREATE_FIELD_NUMBER /* 32 */:
                                     this.bitField0_ |= 8;
                                     this.canCreatePersonal_ = codedInputStream.readInt32();
                                     break;
@@ -545,8 +542,8 @@ public final class Im {
                                     this.bitField0_ |= 64;
                                     this.createPersonalTip_ = codedInputStream.readBytes();
                                     break;
-                                case DERTags.APPLICATION /* 64 */:
-                                    this.bitField0_ |= DERTags.TAGGED;
+                                case 64:
+                                    this.bitField0_ |= 128;
                                     this.canCreateNormalNum_ = codedInputStream.readInt32();
                                     break;
                                 case 72:
@@ -554,7 +551,7 @@ public final class Im {
                                     this.canCreateOfficialNum_ = codedInputStream.readInt32();
                                     break;
                                 case com.baidu.loginshare.e.i /* 80 */:
-                                    this.bitField0_ |= ImageManager.DEFAULT_MAX_CACHEABLE_SIZE;
+                                    this.bitField0_ |= 512;
                                     this.canCreatePersonalNum_ = codedInputStream.readInt32();
                                     break;
                                 default:
@@ -700,7 +697,7 @@ public final class Im {
         }
 
         public boolean hasCanCreateNormalNum() {
-            return (this.bitField0_ & DERTags.TAGGED) == 128;
+            return (this.bitField0_ & 128) == 128;
         }
 
         public int getCanCreateNormalNum() {
@@ -716,7 +713,7 @@ public final class Im {
         }
 
         public boolean hasCanCreatePersonalNum() {
-            return (this.bitField0_ & ImageManager.DEFAULT_MAX_CACHEABLE_SIZE) == 512;
+            return (this.bitField0_ & 512) == 512;
         }
 
         public int getCanCreatePersonalNum() {
@@ -770,13 +767,13 @@ public final class Im {
             if ((this.bitField0_ & 64) == 64) {
                 codedOutputStream.writeBytes(7, getCreatePersonalTipBytes());
             }
-            if ((this.bitField0_ & DERTags.TAGGED) == 128) {
+            if ((this.bitField0_ & 128) == 128) {
                 codedOutputStream.writeInt32(8, this.canCreateNormalNum_);
             }
             if ((this.bitField0_ & 256) == 256) {
                 codedOutputStream.writeInt32(9, this.canCreateOfficialNum_);
             }
-            if ((this.bitField0_ & ImageManager.DEFAULT_MAX_CACHEABLE_SIZE) == 512) {
+            if ((this.bitField0_ & 512) == 512) {
                 codedOutputStream.writeInt32(10, this.canCreatePersonalNum_);
             }
         }
@@ -804,13 +801,13 @@ public final class Im {
                 if ((this.bitField0_ & 64) == 64) {
                     i += CodedOutputStream.computeBytesSize(7, getCreatePersonalTipBytes());
                 }
-                if ((this.bitField0_ & DERTags.TAGGED) == 128) {
+                if ((this.bitField0_ & 128) == 128) {
                     i += CodedOutputStream.computeInt32Size(8, this.canCreateNormalNum_);
                 }
                 if ((this.bitField0_ & 256) == 256) {
                     i += CodedOutputStream.computeInt32Size(9, this.canCreateOfficialNum_);
                 }
-                if ((this.bitField0_ & ImageManager.DEFAULT_MAX_CACHEABLE_SIZE) == 512) {
+                if ((this.bitField0_ & 512) == 512) {
                     i += CodedOutputStream.computeInt32Size(10, this.canCreatePersonalNum_);
                 }
                 this.memoizedSerializedSize = i;
@@ -939,11 +936,11 @@ public final class Im {
                                     this.bitField0_ |= 1;
                                     this.icon_ = codedInputStream.readBytes();
                                     break;
-                                case 18:
+                                case GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
                                     this.bitField0_ |= 2;
                                     this.name_ = codedInputStream.readBytes();
                                     break;
-                                case 26:
+                                case GroupInfo.NICKNAME_FIELD_NUMBER /* 26 */:
                                     this.bitField0_ |= 4;
                                     this.url_ = codedInputStream.readBytes();
                                     break;
@@ -1255,19 +1252,19 @@ public final class Im {
                                 z3 = z4;
                                 z2 = z5;
                                 break;
-                            case 18:
+                            case GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
                                 this.bitField0_ |= 2;
                                 this.userName_ = codedInputStream.readBytes();
                                 z3 = z4;
                                 z2 = z5;
                                 break;
-                            case 26:
+                            case GroupInfo.NICKNAME_FIELD_NUMBER /* 26 */:
                                 this.bitField0_ |= 4;
                                 this.nickName_ = codedInputStream.readBytes();
                                 z3 = z4;
                                 z2 = z5;
                                 break;
-                            case 34:
+                            case GroupInfo.ISMEMBERGROUP_FIELD_NUMBER /* 34 */:
                                 this.bitField0_ |= 8;
                                 this.portrait_ = codedInputStream.readBytes();
                                 z3 = z4;
@@ -1292,7 +1289,7 @@ public final class Im {
                                 z2 = z5;
                                 break;
                             case BDLocation.TypeCacheLocation /* 65 */:
-                                this.bitField0_ |= DERTags.TAGGED;
+                                this.bitField0_ |= 128;
                                 this.lat_ = codedInputStream.readDouble();
                                 z3 = z4;
                                 z2 = z5;
@@ -1304,13 +1301,13 @@ public final class Im {
                                 z2 = z5;
                                 break;
                             case com.baidu.loginshare.e.i /* 80 */:
-                                this.bitField0_ |= ImageManager.DEFAULT_MAX_CACHEABLE_SIZE;
+                                this.bitField0_ |= 512;
                                 this.loginTime_ = codedInputStream.readInt32();
                                 z3 = z4;
                                 z2 = z5;
                                 break;
                             case 88:
-                                this.bitField0_ |= NotificationProxy.MAX_URL_LENGTH;
+                                this.bitField0_ |= 1024;
                                 this.lastReplyTime_ = codedInputStream.readInt32();
                                 z3 = z4;
                                 z2 = z5;
@@ -1534,7 +1531,7 @@ public final class Im {
         }
 
         public boolean hasLat() {
-            return (this.bitField0_ & DERTags.TAGGED) == 128;
+            return (this.bitField0_ & 128) == 128;
         }
 
         public double getLat() {
@@ -1550,7 +1547,7 @@ public final class Im {
         }
 
         public boolean hasLoginTime() {
-            return (this.bitField0_ & ImageManager.DEFAULT_MAX_CACHEABLE_SIZE) == 512;
+            return (this.bitField0_ & 512) == 512;
         }
 
         public int getLoginTime() {
@@ -1558,7 +1555,7 @@ public final class Im {
         }
 
         public boolean hasLastReplyTime() {
-            return (this.bitField0_ & NotificationProxy.MAX_URL_LENGTH) == 1024;
+            return (this.bitField0_ & 1024) == 1024;
         }
 
         public int getLastReplyTime() {
@@ -1652,16 +1649,16 @@ public final class Im {
             if ((this.bitField0_ & 64) == 64) {
                 codedOutputStream.writeDouble(7, this.lng_);
             }
-            if ((this.bitField0_ & DERTags.TAGGED) == 128) {
+            if ((this.bitField0_ & 128) == 128) {
                 codedOutputStream.writeDouble(8, this.lat_);
             }
             if ((this.bitField0_ & 256) == 256) {
                 codedOutputStream.writeInt32(9, this.inTime_);
             }
-            if ((this.bitField0_ & ImageManager.DEFAULT_MAX_CACHEABLE_SIZE) == 512) {
+            if ((this.bitField0_ & 512) == 512) {
                 codedOutputStream.writeInt32(10, this.loginTime_);
             }
-            if ((this.bitField0_ & NotificationProxy.MAX_URL_LENGTH) == 1024) {
+            if ((this.bitField0_ & 1024) == 1024) {
                 codedOutputStream.writeInt32(11, this.lastReplyTime_);
             }
             if ((this.bitField0_ & 2048) == 2048) {
@@ -1706,16 +1703,16 @@ public final class Im {
                 if ((this.bitField0_ & 64) == 64) {
                     computeInt32Size += CodedOutputStream.computeDoubleSize(7, this.lng_);
                 }
-                if ((this.bitField0_ & DERTags.TAGGED) == 128) {
+                if ((this.bitField0_ & 128) == 128) {
                     computeInt32Size += CodedOutputStream.computeDoubleSize(8, this.lat_);
                 }
                 if ((this.bitField0_ & 256) == 256) {
                     computeInt32Size += CodedOutputStream.computeInt32Size(9, this.inTime_);
                 }
-                if ((this.bitField0_ & ImageManager.DEFAULT_MAX_CACHEABLE_SIZE) == 512) {
+                if ((this.bitField0_ & 512) == 512) {
                     computeInt32Size += CodedOutputStream.computeInt32Size(10, this.loginTime_);
                 }
-                if ((this.bitField0_ & NotificationProxy.MAX_URL_LENGTH) == 1024) {
+                if ((this.bitField0_ & 1024) == 1024) {
                     computeInt32Size += CodedOutputStream.computeInt32Size(11, this.lastReplyTime_);
                 }
                 if ((this.bitField0_ & 2048) == 2048) {
@@ -1807,14 +1804,18 @@ public final class Im {
     /* loaded from: classes.dex */
     public final class MaskInfo extends GeneratedMessageLite implements s {
         public static final int MASKGIDS_FIELD_NUMBER = 2;
+        public static final int MASKUIDS_FIELD_NUMBER = 4;
         public static final int REMINDMASK_FIELD_NUMBER = 3;
+        public static final int SHIELDSTATUS_FIELD_NUMBER = 5;
         public static final int USERID_FIELD_NUMBER = 1;
         private static final long serialVersionUID = 0;
         private int bitField0_;
         private Object maskGids_;
+        private Object maskUids_;
         private byte memoizedIsInitialized;
         private int memoizedSerializedSize;
         private int remindMask_;
+        private int shieldStatus_;
         private long userId_;
         public static Parser<MaskInfo> PARSER = new q();
         private static final MaskInfo a = new MaskInfo(true);
@@ -1858,13 +1859,21 @@ public final class Im {
                                     this.bitField0_ |= 1;
                                     this.userId_ = codedInputStream.readInt64();
                                     break;
-                                case 18:
+                                case GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
                                     this.bitField0_ |= 2;
                                     this.maskGids_ = codedInputStream.readBytes();
                                     break;
-                                case 24:
+                                case GroupInfo.ISHIDEPOSITION_FIELD_NUMBER /* 24 */:
                                     this.bitField0_ |= 4;
                                     this.remindMask_ = codedInputStream.readInt32();
+                                    break;
+                                case GroupInfo.ISMEMBERGROUP_FIELD_NUMBER /* 34 */:
+                                    this.bitField0_ |= 8;
+                                    this.maskUids_ = codedInputStream.readBytes();
+                                    break;
+                                case 40:
+                                    this.bitField0_ |= 16;
+                                    this.shieldStatus_ = codedInputStream.readInt32();
                                     break;
                                 default:
                                     if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
@@ -1938,10 +1947,47 @@ public final class Im {
             return this.remindMask_;
         }
 
+        public boolean hasMaskUids() {
+            return (this.bitField0_ & 8) == 8;
+        }
+
+        public String getMaskUids() {
+            Object obj = this.maskUids_;
+            if (obj instanceof String) {
+                return (String) obj;
+            }
+            ByteString byteString = (ByteString) obj;
+            String stringUtf8 = byteString.toStringUtf8();
+            if (byteString.isValidUtf8()) {
+                this.maskUids_ = stringUtf8;
+            }
+            return stringUtf8;
+        }
+
+        public ByteString getMaskUidsBytes() {
+            Object obj = this.maskUids_;
+            if (obj instanceof String) {
+                ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
+                this.maskUids_ = copyFromUtf8;
+                return copyFromUtf8;
+            }
+            return (ByteString) obj;
+        }
+
+        public boolean hasShieldStatus() {
+            return (this.bitField0_ & 16) == 16;
+        }
+
+        public int getShieldStatus() {
+            return this.shieldStatus_;
+        }
+
         private void a() {
             this.userId_ = 0L;
             this.maskGids_ = "";
             this.remindMask_ = 0;
+            this.maskUids_ = "";
+            this.shieldStatus_ = 0;
         }
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -1966,6 +2012,12 @@ public final class Im {
             if ((this.bitField0_ & 4) == 4) {
                 codedOutputStream.writeInt32(3, this.remindMask_);
             }
+            if ((this.bitField0_ & 8) == 8) {
+                codedOutputStream.writeBytes(4, getMaskUidsBytes());
+            }
+            if ((this.bitField0_ & 16) == 16) {
+                codedOutputStream.writeInt32(5, this.shieldStatus_);
+            }
         }
 
         @Override // com.google.protobuf.MessageLite
@@ -1978,6 +2030,12 @@ public final class Im {
                 }
                 if ((this.bitField0_ & 4) == 4) {
                     i += CodedOutputStream.computeInt32Size(3, this.remindMask_);
+                }
+                if ((this.bitField0_ & 8) == 8) {
+                    i += CodedOutputStream.computeBytesSize(4, getMaskUidsBytes());
+                }
+                if ((this.bitField0_ & 16) == 16) {
+                    i += CodedOutputStream.computeInt32Size(5, this.shieldStatus_);
                 }
                 this.memoizedSerializedSize = i;
             }
@@ -2072,6 +2130,7 @@ public final class Im {
         public static final int INTRO_FIELD_NUMBER = 4;
         public static final int ISGROUPMANAGER_FIELD_NUMBER = 28;
         public static final int ISHIDEPOSITION_FIELD_NUMBER = 24;
+        public static final int ISMEMBERGROUP_FIELD_NUMBER = 34;
         public static final int ISNEWLYCREATE_FIELD_NUMBER = 32;
         public static final int ISRECENTLYREPLY_FIELD_NUMBER = 33;
         public static final int LASTMSGID_FIELD_NUMBER = 21;
@@ -2108,6 +2167,7 @@ public final class Im {
         private Object intro_;
         private int isGroupManager_;
         private int isHidePosition_;
+        private int isMemberGroup_;
         private int isNewlyCreate_;
         private int isRecentlyReply_;
         private long lastMsgId_;
@@ -2170,11 +2230,11 @@ public final class Im {
                                     this.bitField0_ |= 2;
                                     this.forumId_ = codedInputStream.readInt32();
                                     break;
-                                case 26:
+                                case NICKNAME_FIELD_NUMBER /* 26 */:
                                     this.bitField0_ |= 4;
                                     this.name_ = codedInputStream.readBytes();
                                     break;
-                                case 34:
+                                case ISMEMBERGROUP_FIELD_NUMBER /* 34 */:
                                     this.bitField0_ |= 8;
                                     this.intro_ = codedInputStream.readBytes();
                                     break;
@@ -2191,7 +2251,7 @@ public final class Im {
                                     this.business_ = codedInputStream.readBytes();
                                     break;
                                 case BDLocation.TypeCacheLocation /* 65 */:
-                                    this.bitField0_ |= DERTags.TAGGED;
+                                    this.bitField0_ |= 128;
                                     this.lng_ = codedInputStream.readDouble();
                                     break;
                                 case 73:
@@ -2199,18 +2259,18 @@ public final class Im {
                                     this.lat_ = codedInputStream.readDouble();
                                     break;
                                 case 82:
-                                    this.bitField0_ |= ImageManager.DEFAULT_MAX_CACHEABLE_SIZE;
+                                    this.bitField0_ |= 512;
                                     this.notice_ = codedInputStream.readBytes();
                                     break;
                                 case 90:
-                                    this.bitField0_ |= NotificationProxy.MAX_URL_LENGTH;
+                                    this.bitField0_ |= 1024;
                                     this.album_ = codedInputStream.readBytes();
                                     break;
                                 case 96:
                                     this.bitField0_ |= 2048;
                                     this.status_ = codedInputStream.readInt32();
                                     break;
-                                case 104:
+                                case SocialAPIErrorCodes.ERROR_INVALID_SIGNATURE /* 104 */:
                                     this.bitField0_ |= CodedOutputStream.DEFAULT_BUFFER_SIZE;
                                     this.flag_ = codedInputStream.readInt32();
                                     break;
@@ -2234,7 +2294,7 @@ public final class Im {
                                     this.bitField0_ |= 131072;
                                     this.maxMemberNum_ = codedInputStream.readInt32();
                                     break;
-                                case 152:
+                                case SocialAPIErrorCodes.ERROR_BIND_API_NOT_BIND_TO_CURRENT_USER /* 152 */:
                                     this.bitField0_ |= 262144;
                                     this.memberNum_ = codedInputStream.readInt32();
                                     break;
@@ -2293,6 +2353,10 @@ public final class Im {
                                 case 264:
                                     this.bitField1_ |= 1;
                                     this.isRecentlyReply_ = codedInputStream.readInt32();
+                                    break;
+                                case 272:
+                                    this.bitField1_ |= 2;
+                                    this.isMemberGroup_ = codedInputStream.readInt32();
                                     break;
                                 default:
                                     if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
@@ -2475,7 +2539,7 @@ public final class Im {
         }
 
         public boolean hasLng() {
-            return (this.bitField0_ & DERTags.TAGGED) == 128;
+            return (this.bitField0_ & 128) == 128;
         }
 
         public double getLng() {
@@ -2491,7 +2555,7 @@ public final class Im {
         }
 
         public boolean hasNotice() {
-            return (this.bitField0_ & ImageManager.DEFAULT_MAX_CACHEABLE_SIZE) == 512;
+            return (this.bitField0_ & 512) == 512;
         }
 
         public String getNotice() {
@@ -2518,7 +2582,7 @@ public final class Im {
         }
 
         public boolean hasAlbum() {
-            return (this.bitField0_ & NotificationProxy.MAX_URL_LENGTH) == 1024;
+            return (this.bitField0_ & 1024) == 1024;
         }
 
         public String getAlbum() {
@@ -2815,6 +2879,14 @@ public final class Im {
             return this.isRecentlyReply_;
         }
 
+        public boolean hasIsMemberGroup() {
+            return (this.bitField1_ & 2) == 2;
+        }
+
+        public int getIsMemberGroup() {
+            return this.isMemberGroup_;
+        }
+
         private void a() {
             this.groupId_ = 0;
             this.forumId_ = 0;
@@ -2849,6 +2921,7 @@ public final class Im {
             this.forumShowName_ = "";
             this.isNewlyCreate_ = 0;
             this.isRecentlyReply_ = 0;
+            this.isMemberGroup_ = 0;
         }
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -2885,16 +2958,16 @@ public final class Im {
             if ((this.bitField0_ & 64) == 64) {
                 codedOutputStream.writeBytes(7, getBusinessBytes());
             }
-            if ((this.bitField0_ & DERTags.TAGGED) == 128) {
+            if ((this.bitField0_ & 128) == 128) {
                 codedOutputStream.writeDouble(8, this.lng_);
             }
             if ((this.bitField0_ & 256) == 256) {
                 codedOutputStream.writeDouble(9, this.lat_);
             }
-            if ((this.bitField0_ & ImageManager.DEFAULT_MAX_CACHEABLE_SIZE) == 512) {
+            if ((this.bitField0_ & 512) == 512) {
                 codedOutputStream.writeBytes(10, getNoticeBytes());
             }
-            if ((this.bitField0_ & NotificationProxy.MAX_URL_LENGTH) == 1024) {
+            if ((this.bitField0_ & 1024) == 1024) {
                 codedOutputStream.writeBytes(11, getAlbumBytes());
             }
             if ((this.bitField0_ & 2048) == 2048) {
@@ -2963,6 +3036,9 @@ public final class Im {
             if ((this.bitField1_ & 1) == 1) {
                 codedOutputStream.writeInt32(33, this.isRecentlyReply_);
             }
+            if ((this.bitField1_ & 2) == 2) {
+                codedOutputStream.writeInt32(34, this.isMemberGroup_);
+            }
         }
 
         @Override // com.google.protobuf.MessageLite
@@ -2988,16 +3064,16 @@ public final class Im {
                 if ((this.bitField0_ & 64) == 64) {
                     i += CodedOutputStream.computeBytesSize(7, getBusinessBytes());
                 }
-                if ((this.bitField0_ & DERTags.TAGGED) == 128) {
+                if ((this.bitField0_ & 128) == 128) {
                     i += CodedOutputStream.computeDoubleSize(8, this.lng_);
                 }
                 if ((this.bitField0_ & 256) == 256) {
                     i += CodedOutputStream.computeDoubleSize(9, this.lat_);
                 }
-                if ((this.bitField0_ & ImageManager.DEFAULT_MAX_CACHEABLE_SIZE) == 512) {
+                if ((this.bitField0_ & 512) == 512) {
                     i += CodedOutputStream.computeBytesSize(10, getNoticeBytes());
                 }
-                if ((this.bitField0_ & NotificationProxy.MAX_URL_LENGTH) == 1024) {
+                if ((this.bitField0_ & 1024) == 1024) {
                     i += CodedOutputStream.computeBytesSize(11, getAlbumBytes());
                 }
                 if ((this.bitField0_ & 2048) == 2048) {
@@ -3066,6 +3142,9 @@ public final class Im {
                 if ((this.bitField1_ & 1) == 1) {
                     i += CodedOutputStream.computeInt32Size(33, this.isRecentlyReply_);
                 }
+                if ((this.bitField1_ & 2) == 2) {
+                    i += CodedOutputStream.computeInt32Size(34, this.isMemberGroup_);
+                }
                 this.memoizedSerializedSize = i;
             }
             return i;
@@ -3118,7 +3197,9 @@ public final class Im {
         }
 
         public static i newBuilder() {
-            return i.f();
+            i h;
+            h = i.h();
+            return h;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -3194,15 +3275,15 @@ public final class Im {
                                     this.bitField0_ |= 1;
                                     this.grade_ = codedInputStream.readInt32();
                                     break;
-                                case 18:
+                                case GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
                                     this.bitField0_ |= 2;
                                     this.intro_ = codedInputStream.readBytes();
                                     break;
-                                case 24:
+                                case GroupInfo.ISHIDEPOSITION_FIELD_NUMBER /* 24 */:
                                     this.bitField0_ |= 4;
                                     this.thresholdDay_ = codedInputStream.readInt32();
                                     break;
-                                case 32:
+                                case GroupInfo.ISNEWLYCREATE_FIELD_NUMBER /* 32 */:
                                     this.bitField0_ |= 8;
                                     this.maxMemberNum_ = codedInputStream.readInt32();
                                     break;
@@ -3484,12 +3565,12 @@ public final class Im {
                                 this.groupId_ = codedInputStream.readInt32();
                                 z = z2;
                                 break;
-                            case 24:
+                            case GroupInfo.ISHIDEPOSITION_FIELD_NUMBER /* 24 */:
                                 this.bitField0_ |= 4;
                                 this.msgType_ = codedInputStream.readInt32();
                                 z = z2;
                                 break;
-                            case 32:
+                            case GroupInfo.ISNEWLYCREATE_FIELD_NUMBER /* 32 */:
                                 this.bitField0_ |= 8;
                                 this.userId_ = codedInputStream.readInt64();
                                 z = z2;
@@ -3509,8 +3590,8 @@ public final class Im {
                                 this.duration_ = codedInputStream.readInt32();
                                 z = z2;
                                 break;
-                            case DERTags.APPLICATION /* 64 */:
-                                this.bitField0_ |= DERTags.TAGGED;
+                            case 64:
+                                this.bitField0_ |= 128;
                                 this.createTime_ = codedInputStream.readInt32();
                                 z = z2;
                                 break;
@@ -3520,17 +3601,17 @@ public final class Im {
                                 z = z2;
                                 break;
                             case 82:
-                                ag builder = (this.bitField0_ & ImageManager.DEFAULT_MAX_CACHEABLE_SIZE) == 512 ? this.userInfo_.toBuilder() : null;
+                                ag builder = (this.bitField0_ & 512) == 512 ? this.userInfo_.toBuilder() : null;
                                 this.userInfo_ = (UserInfo) codedInputStream.readMessage(UserInfo.PARSER, extensionRegistryLite);
                                 if (builder != null) {
                                     builder.mergeFrom(this.userInfo_);
                                     this.userInfo_ = builder.buildPartial();
                                 }
-                                this.bitField0_ |= ImageManager.DEFAULT_MAX_CACHEABLE_SIZE;
+                                this.bitField0_ |= 512;
                                 z = z2;
                                 break;
                             case 88:
-                                this.bitField0_ |= NotificationProxy.MAX_URL_LENGTH;
+                                this.bitField0_ |= 1024;
                                 this.toUid_ = codedInputStream.readInt64();
                                 z = z2;
                                 break;
@@ -3650,7 +3731,7 @@ public final class Im {
         }
 
         public boolean hasCreateTime() {
-            return (this.bitField0_ & DERTags.TAGGED) == 128;
+            return (this.bitField0_ & 128) == 128;
         }
 
         public int getCreateTime() {
@@ -3666,7 +3747,7 @@ public final class Im {
         }
 
         public boolean hasUserInfo() {
-            return (this.bitField0_ & ImageManager.DEFAULT_MAX_CACHEABLE_SIZE) == 512;
+            return (this.bitField0_ & 512) == 512;
         }
 
         public UserInfo getUserInfo() {
@@ -3674,7 +3755,7 @@ public final class Im {
         }
 
         public boolean hasToUid() {
-            return (this.bitField0_ & NotificationProxy.MAX_URL_LENGTH) == 1024;
+            return (this.bitField0_ & 1024) == 1024;
         }
 
         public long getToUid() {
@@ -3738,16 +3819,16 @@ public final class Im {
             if ((this.bitField0_ & 64) == 64) {
                 codedOutputStream.writeInt32(7, this.duration_);
             }
-            if ((this.bitField0_ & DERTags.TAGGED) == 128) {
+            if ((this.bitField0_ & 128) == 128) {
                 codedOutputStream.writeInt32(8, this.createTime_);
             }
             if ((this.bitField0_ & 256) == 256) {
                 codedOutputStream.writeInt64(9, this.recordId_);
             }
-            if ((this.bitField0_ & ImageManager.DEFAULT_MAX_CACHEABLE_SIZE) == 512) {
+            if ((this.bitField0_ & 512) == 512) {
                 codedOutputStream.writeMessage(10, this.userInfo_);
             }
-            if ((this.bitField0_ & NotificationProxy.MAX_URL_LENGTH) == 1024) {
+            if ((this.bitField0_ & 1024) == 1024) {
                 codedOutputStream.writeInt64(11, this.toUid_);
             }
             if ((this.bitField0_ & 2048) == 2048) {
@@ -3778,16 +3859,16 @@ public final class Im {
                 if ((this.bitField0_ & 64) == 64) {
                     i += CodedOutputStream.computeInt32Size(7, this.duration_);
                 }
-                if ((this.bitField0_ & DERTags.TAGGED) == 128) {
+                if ((this.bitField0_ & 128) == 128) {
                     i += CodedOutputStream.computeInt32Size(8, this.createTime_);
                 }
                 if ((this.bitField0_ & 256) == 256) {
                     i += CodedOutputStream.computeInt64Size(9, this.recordId_);
                 }
-                if ((this.bitField0_ & ImageManager.DEFAULT_MAX_CACHEABLE_SIZE) == 512) {
+                if ((this.bitField0_ & 512) == 512) {
                     i += CodedOutputStream.computeMessageSize(10, this.userInfo_);
                 }
-                if ((this.bitField0_ & NotificationProxy.MAX_URL_LENGTH) == 1024) {
+                if ((this.bitField0_ & 1024) == 1024) {
                     i += CodedOutputStream.computeInt64Size(11, this.toUid_);
                 }
                 if ((this.bitField0_ & 2048) == 2048) {
@@ -3923,7 +4004,7 @@ public final class Im {
                                     this.bitField0_ |= 2;
                                     this.msgId_ = codedInputStream.readInt64();
                                     break;
-                                case 24:
+                                case GroupInfo.ISHIDEPOSITION_FIELD_NUMBER /* 24 */:
                                     this.bitField0_ |= 4;
                                     this.pushTime_ = codedInputStream.readInt64();
                                     break;
@@ -4354,11 +4435,11 @@ public final class Im {
                                     this.bitField0_ |= 1;
                                     this.smallurl_ = codedInputStream.readBytes();
                                     break;
-                                case 18:
+                                case GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
                                     this.bitField0_ |= 2;
                                     this.bigurl_ = codedInputStream.readBytes();
                                     break;
-                                case 26:
+                                case GroupInfo.NICKNAME_FIELD_NUMBER /* 26 */:
                                     this.bitField0_ |= 4;
                                     this.picId_ = codedInputStream.readBytes();
                                     break;

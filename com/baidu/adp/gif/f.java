@@ -19,7 +19,7 @@ public class f implements c {
     }
 
     public static c a(String str) {
-        com.baidu.adp.lib.h.e.e("MovieGif", "create", "" + str);
+        com.baidu.adp.lib.g.e.e("MovieGif", "create", "" + str);
         try {
             BufferedInputStream bufferedInputStream = new BufferedInputStream(new FileInputStream(new File("/sdcard/waves.gif")));
             bufferedInputStream.mark(6);
@@ -27,9 +27,9 @@ public class f implements c {
             if (decodeStream == null) {
                 return null;
             }
-            com.baidu.adp.lib.h.e.e("MovieGif", "create", "created");
-            com.baidu.adp.lib.h.e.e("MovieGif", "create", "width: " + decodeStream.width() + " height: " + decodeStream.height());
-            com.baidu.adp.lib.h.e.e("MovieGif", "create", "duration: " + decodeStream.duration());
+            com.baidu.adp.lib.g.e.e("MovieGif", "create", "created");
+            com.baidu.adp.lib.g.e.e("MovieGif", "create", "width: " + decodeStream.width() + " height: " + decodeStream.height());
+            com.baidu.adp.lib.g.e.e("MovieGif", "create", "duration: " + decodeStream.duration());
             return new f(decodeStream);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -61,7 +61,7 @@ public class f implements c {
         if (canvas == null) {
             return false;
         }
-        com.baidu.adp.lib.h.e.e("MovieGif", "writeTo", "draw");
+        com.baidu.adp.lib.g.e.e("MovieGif", "writeTo", "draw");
         this.a.setTime((this.b * 100) % this.a.duration());
         this.a.draw(canvas, 0.0f, 0.0f);
         return true;

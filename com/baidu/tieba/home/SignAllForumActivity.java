@@ -87,7 +87,7 @@ public class SignAllForumActivity extends com.baidu.tieba.j implements com.baidu
         a();
         Intent intent = getIntent();
         if (intent.hasExtra("signall_noyify_click") && intent.getBooleanExtra("signall_noyify_click", false)) {
-            com.baidu.tieba.ap.a(this, "signall_noyify_click");
+            com.baidu.tieba.as.a(this, "signall_noyify_click");
         }
     }
 
@@ -95,20 +95,20 @@ public class SignAllForumActivity extends com.baidu.tieba.j implements com.baidu
     @Override // com.baidu.tieba.j, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (TiebaApplication.g().j() > 0 && this.a != null && this.a.h() != null && this.a.h().j() != null) {
+        if (TiebaApplication.h().j() > 0 && this.a != null && this.a.h() != null && this.a.h().j() != null) {
             u h = this.a.h();
-            TiebaApplication g = TiebaApplication.g();
+            TiebaApplication h2 = TiebaApplication.h();
             ArrayList<v> m = h.m();
             ArrayList<v> l = h.l();
             Iterator<v> it = m.iterator();
             while (it.hasNext()) {
                 v next = it.next();
                 String b = next.b();
-                if (g.b(b)) {
-                    int c = g.c(b);
+                if (h2.a(b)) {
+                    int b2 = h2.b(b);
                     next.a(1);
                     next.a(true);
-                    next.d(c);
+                    next.d(b2);
                     next.b(false);
                     next.c(false);
                     it.remove();
@@ -185,7 +185,7 @@ public class SignAllForumActivity extends com.baidu.tieba.j implements com.baidu
                     showToast(R.string.neterror);
                 }
             }
-            com.baidu.tieba.ap.a(this, "signall_click");
+            com.baidu.tieba.as.a(this, "signall_click");
         }
     }
 
@@ -203,7 +203,7 @@ public class SignAllForumActivity extends com.baidu.tieba.j implements com.baidu
         v vVar;
         if (this.a.i().getItemViewType(i) == 0 && (vVar = this.a.h().j().get(i / 2)) != null) {
             FrsActivity.a(this, vVar.b(), "signallforum");
-            com.baidu.tieba.ap.a(this, "signall_frs_click");
+            com.baidu.tieba.as.a(this, "signall_frs_click");
         }
     }
 

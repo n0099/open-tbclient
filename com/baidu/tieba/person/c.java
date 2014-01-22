@@ -14,7 +14,7 @@ public class c extends BdAsyncTask<Integer, String, String> {
     private int c;
     private int d;
     private String e;
-    private com.baidu.tieba.util.at f;
+    private com.baidu.tieba.util.ax f;
 
     public c(AllPostActivity allPostActivity, int i, int i2, int i3, String str) {
         this.a = allPostActivity;
@@ -43,23 +43,23 @@ public class c extends BdAsyncTask<Integer, String, String> {
             } else {
                 str = com.baidu.tieba.data.h.a + "c/u/feed/otherpost";
             }
-            this.f = new com.baidu.tieba.util.at(str);
+            this.f = new com.baidu.tieba.util.ax(str);
             this.f.a("type", String.valueOf(this.b));
             this.f.a("pn", String.valueOf(this.c));
             if (!z) {
                 this.f.a(PushConstants.EXTRA_USER_ID, this.e);
             }
-            String l = this.f.l();
-            if (this.f.c()) {
+            String m2 = this.f.m();
+            if (this.f.d()) {
                 if (z && this.d == 0) {
-                    b(l);
-                    return l;
+                    b(m2);
+                    return m2;
                 }
-                return l;
+                return m2;
             }
             return null;
         } catch (Exception e) {
-            com.baidu.tieba.util.bo.b(getClass().getName(), "", "MyPostAsyncTask.doInBackground error = " + e.getMessage());
+            com.baidu.adp.lib.g.e.b(getClass().getName(), "", "MyPostAsyncTask.doInBackground error = " + e.getMessage());
             return null;
         }
     }
@@ -153,9 +153,9 @@ public class c extends BdAsyncTask<Integer, String, String> {
                         return;
                     }
                 }
-                this.a.showToast(this.f.i());
+                this.a.showToast(this.f.j());
             } catch (Exception e) {
-                com.baidu.tieba.util.bo.b(getClass().getName(), "", "MyPostAsyncTask.onPostExecute error = " + e.getMessage());
+                com.baidu.adp.lib.g.e.b(getClass().getName(), "", "MyPostAsyncTask.onPostExecute error = " + e.getMessage());
             }
         }
     }
@@ -164,7 +164,7 @@ public class c extends BdAsyncTask<Integer, String, String> {
     public void cancel() {
         ProgressBar progressBar;
         if (this.f != null) {
-            this.f.j();
+            this.f.k();
         }
         this.a.g = null;
         this.a.i = false;

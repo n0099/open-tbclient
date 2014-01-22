@@ -6,38 +6,38 @@ import com.baidu.tieba.data.AccountData;
 /* loaded from: classes.dex */
 public class aa {
     private static final String b = com.baidu.tieba.data.h.a + "c/c/forum/msign";
-    private com.baidu.tieba.util.at a = null;
+    private com.baidu.tieba.util.ax a = null;
 
     public String a(String str) {
-        AccountData F = TiebaApplication.F();
+        AccountData E = TiebaApplication.E();
         String str2 = null;
-        if (F != null) {
-            str2 = F.getID();
+        if (E != null) {
+            str2 = E.getID();
         }
-        this.a = new com.baidu.tieba.util.at(b);
+        this.a = new com.baidu.tieba.util.ax(b);
         this.a.a(PushConstants.EXTRA_USER_ID, str2);
         this.a.a("forum_ids", str);
         this.a.c(true);
         this.a.e(true);
-        return this.a.l();
+        return this.a.m();
     }
 
     public void a() {
         if (this.a != null) {
-            this.a.j();
+            this.a.k();
         }
     }
 
     public boolean b() {
         if (this.a != null) {
-            return this.a.c();
+            return this.a.d();
         }
         return false;
     }
 
     public String c() {
         if (this.a != null) {
-            return this.a.i();
+            return this.a.j();
         }
         return null;
     }

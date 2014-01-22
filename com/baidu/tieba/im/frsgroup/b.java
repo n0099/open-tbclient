@@ -13,19 +13,19 @@ class b implements com.baidu.adp.widget.ListView.b {
 
     @Override // com.baidu.adp.widget.ListView.b
     public void a(boolean z) {
-        com.baidu.tieba.im.model.c cVar;
-        com.baidu.tieba.im.model.c cVar2;
+        com.baidu.tieba.im.model.d dVar;
+        com.baidu.tieba.im.model.d dVar2;
         int i;
         BdListView bdListView;
-        cVar = this.a.b;
-        if (!cVar.h() || !z) {
-            cVar2 = this.a.b;
-            if (cVar2.i()) {
+        dVar = this.a.b;
+        if (!dVar.h() || !z) {
+            dVar2 = this.a.b;
+            if (dVar2.i()) {
                 i = this.a.Y;
                 if (i == com.baidu.tieba.im.d.c.a()) {
                     bdListView = this.a.d;
                     bdListView.a();
-                    this.a.b(R.string.frsgroup_hot_cannot_refresh_tip);
+                    this.a.c(R.string.frsgroup_hot_cannot_refresh_tip);
                     return;
                 }
             }

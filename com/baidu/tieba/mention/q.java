@@ -7,9 +7,8 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.BaseFragmentActivity;
 import com.baidu.tieba.model.bj;
-import com.baidu.tieba.util.at;
-import com.baidu.tieba.util.bm;
-import com.baidu.tieba.util.bo;
+import com.baidu.tieba.util.ax;
+import com.baidu.tieba.util.bu;
 import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -19,7 +18,7 @@ public class q extends BdAsyncTask<Object, Integer, bj> {
     private String c;
     private ArrayList<BasicNameValuePair> d;
     private f e;
-    private at b = null;
+    private ax b = null;
     private bj f = null;
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -69,12 +68,12 @@ public class q extends BdAsyncTask<Object, Integer, bj> {
                 this.f = new bj();
                 this.f.a(a);
                 if (!this.f.a()) {
-                    bo.e("MentionAsyncTask", "doInBackground", "cache data format err");
+                    com.baidu.adp.lib.g.e.e("MentionAsyncTask", "doInBackground", "cache data format err");
                     this.f = null;
                     pVar3 = this.a.j;
                     pVar3.b();
                 } else {
-                    bo.e("MentionAsyncTask", "doInBackground", "cache data.size: " + String.valueOf(a.length()));
+                    com.baidu.adp.lib.g.e.e("MentionAsyncTask", "doInBackground", "cache data.size: " + String.valueOf(a.length()));
                     c((Object[]) new Integer[]{0});
                 }
             }
@@ -82,25 +81,25 @@ public class q extends BdAsyncTask<Object, Integer, bj> {
         try {
             str = this.a.o;
         } catch (Exception e) {
-            bo.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
+            com.baidu.adp.lib.g.e.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
         }
-        if (bm.c(str)) {
+        if (bu.c(str)) {
             return null;
         }
-        this.b = new at(this.c);
+        this.b = new ax(this.c);
         this.b.a(this.d);
-        at atVar = this.b;
+        ax axVar = this.b;
         activity = this.a.c;
-        atVar.a(activity);
-        String l = this.b.l();
-        if (this.b.c() && l != null) {
+        axVar.a(activity);
+        String m = this.b.m();
+        if (this.b.d() && m != null) {
             this.f = new bj();
-            this.f.a(l);
+            this.f.a(m);
             if (this.f.a()) {
                 i = this.a.n;
                 if (i != 4) {
                     pVar2 = this.a.j;
-                    pVar2.a(l);
+                    pVar2.a(m);
                 }
             } else {
                 this.f = null;
@@ -166,11 +165,11 @@ public class q extends BdAsyncTask<Object, Integer, bj> {
         int i;
         a(false);
         if (this.b != null) {
-            if (!this.b.d() || bjVar == null) {
+            if (!this.b.e() || bjVar == null) {
                 fragment = this.a.b;
                 android.support.v4.app.n i2 = fragment.i();
                 if (i2 != null && (i2 instanceof BaseFragmentActivity)) {
-                    com.baidu.adp.lib.h.g.a((Context) ((BaseFragmentActivity) i2), this.b.i());
+                    com.baidu.adp.lib.g.g.a((Context) ((BaseFragmentActivity) i2), this.b.j());
                 }
             } else {
                 j jVar = this.a;
@@ -184,7 +183,7 @@ public class q extends BdAsyncTask<Object, Integer, bj> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         if (this.b != null) {
-            this.b.j();
+            this.b.k();
         }
         a(false);
         this.a.k = null;

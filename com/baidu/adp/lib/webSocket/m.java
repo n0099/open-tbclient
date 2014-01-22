@@ -31,7 +31,7 @@ public class m {
         this.d = strArr;
         this.c = list;
         if (k()) {
-            com.baidu.adp.lib.h.e.d("----ws init " + str);
+            com.baidu.adp.lib.g.e.d("----ws init " + str);
         }
     }
 
@@ -42,13 +42,13 @@ public class m {
 
     public boolean b() {
         if (k()) {
-            com.baidu.adp.lib.h.g.a();
-            com.baidu.adp.lib.h.e.d("----open");
+            com.baidu.adp.lib.g.g.a();
+            com.baidu.adp.lib.g.e.d("----open");
         }
         if (this.f != null) {
             if (this.f.e() || this.f.f()) {
                 if (k()) {
-                    com.baidu.adp.lib.h.e.d("----WebSocketConnection connecting");
+                    com.baidu.adp.lib.g.e.d("----WebSocketConnection connecting");
                 }
                 return true;
             }
@@ -73,7 +73,7 @@ public class m {
             this.f = null;
             oVar.a(i, (String) null);
             if (this.f != null) {
-                com.baidu.adp.lib.h.e.a("close is opened and thread is leaded!!!");
+                com.baidu.adp.lib.g.e.a("close is opened and thread is leaded!!!");
                 this.f = null;
             }
         }
@@ -85,21 +85,21 @@ public class m {
 
     public boolean d() {
         if (k()) {
-            com.baidu.adp.lib.h.g.a();
+            com.baidu.adp.lib.g.g.a();
         }
         return (this.f == null || !this.f.f() || this.f.d()) ? false : true;
     }
 
     public boolean e() {
         if (k()) {
-            com.baidu.adp.lib.h.g.a();
+            com.baidu.adp.lib.g.g.a();
         }
         return this.f != null && this.f.f();
     }
 
     public boolean f() {
         if (k()) {
-            com.baidu.adp.lib.h.g.a();
+            com.baidu.adp.lib.g.g.a();
         }
         return this.f != null && this.f.e();
     }
@@ -108,7 +108,7 @@ public class m {
         boolean z = false;
         synchronized (this) {
             if (dVar != null) {
-                com.baidu.adp.lib.h.g.a();
+                com.baidu.adp.lib.g.g.a();
                 if (this.f != null) {
                     z = this.f.a(dVar);
                 } else if (dVar != null) {

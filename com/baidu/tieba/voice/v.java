@@ -26,7 +26,7 @@ public class v implements Runnable {
         if (handler != null) {
             handler2 = this.c.p;
             handler2.removeCallbacks(this.c.c);
-            if (com.baidu.adp.lib.h.m.a(str)) {
+            if (com.baidu.adp.lib.g.m.a(str)) {
                 handler4 = this.c.p;
                 handler4.post(new w(this));
                 return;

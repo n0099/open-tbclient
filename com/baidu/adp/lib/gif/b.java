@@ -1,7 +1,6 @@
 package com.baidu.adp.lib.gif;
 
 import android.graphics.Bitmap;
-import com.baidu.zeus.bouncycastle.DERTags;
 import com.google.protobuf.CodedOutputStream;
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -604,7 +603,7 @@ public class b extends Thread {
         this.t = t();
         this.u = t();
         int l = l();
-        this.o = (l & DERTags.TAGGED) != 0;
+        this.o = (l & 128) != 0;
         this.p = (l & 64) != 0;
         this.q = 2 << (l & 7);
         if (this.o) {
@@ -666,7 +665,7 @@ public class b extends Thread {
         this.a = t();
         this.b = t();
         int l = l();
-        this.e = (l & DERTags.TAGGED) != 0;
+        this.e = (l & 128) != 0;
         this.f = 2 << (l & 7);
         this.k = l();
         this.n = l();

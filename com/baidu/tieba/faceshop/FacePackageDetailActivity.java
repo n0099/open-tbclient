@@ -7,7 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.account.LoginActivity;
-import com.baidu.tieba.util.bm;
+import com.baidu.tieba.util.bu;
+import com.baidu.tieba.view.br;
 import com.slidingmenu.lib.R;
 import java.util.List;
 /* loaded from: classes.dex */
@@ -17,7 +18,7 @@ public class FacePackageDetailActivity extends com.baidu.tieba.j implements com.
     private ac c;
     private j d;
     private boolean e = false;
-    private com.baidu.tieba.view.bf f = new r(this);
+    private br f = new r(this);
     private com.baidu.tieba.m g = new s(this);
 
     public static void a(Context context, String str, boolean z, String str2) {
@@ -54,7 +55,7 @@ public class FacePackageDetailActivity extends com.baidu.tieba.j implements com.
             this.a.c(getIntent().getStringExtra("st_type"));
             this.a.b(getIntent().getStringExtra("pkg_id"));
             this.a.a(getIntent().getBooleanExtra("is_downloading", false));
-            com.baidu.tieba.ap.a(this, getIntent().getStringExtra("st_type"));
+            com.baidu.tieba.as.a(this, getIntent().getStringExtra("st_type"));
         }
         this.a.a(this.g);
     }
@@ -83,14 +84,14 @@ public class FacePackageDetailActivity extends com.baidu.tieba.j implements com.
                     switch (this.a.d()) {
                         case 2:
                         case 3:
-                            com.baidu.tieba.ap.a(this, "emotion_package_detail_free");
+                            com.baidu.tieba.as.a(this, "emotion_package_detail_free");
                             String b = this.a.b();
                             com.baidu.tieba.c.a aVar = new com.baidu.tieba.c.a(this.a.e());
                             aVar.a(1);
                             aVar.d((String) null);
                             aVar.b(11);
                             com.baidu.tieba.c.d.a().a(aVar);
-                            if (!bm.c(b)) {
+                            if (!bu.c(b)) {
                                 if (this.a.a() != null && this.a.a().facePackage != null) {
                                     a(this.a.e(), this.a.a().facePackage.pname, b);
                                     break;
@@ -103,7 +104,7 @@ public class FacePackageDetailActivity extends com.baidu.tieba.j implements com.
                             }
                             break;
                         case 4:
-                            com.baidu.tieba.ap.a(this, "emotion_package_detail_buy");
+                            com.baidu.tieba.as.a(this, "emotion_package_detail_buy");
                             b();
                             break;
                     }
@@ -199,7 +200,7 @@ public class FacePackageDetailActivity extends com.baidu.tieba.j implements com.
             if (i == 10001) {
                 String stringExtra = intent.getStringExtra("tag_order_id");
                 if (this.a.a().facePackage != null) {
-                    if (bm.c(stringExtra)) {
+                    if (bu.c(stringExtra)) {
                         stringExtra = this.a.f();
                     }
                     this.b.e();
@@ -218,10 +219,10 @@ public class FacePackageDetailActivity extends com.baidu.tieba.j implements com.
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(com.baidu.tieba.im.message.o oVar) {
+    public void a(com.baidu.tieba.im.message.q qVar) {
         List<com.baidu.tieba.c.a> a;
         com.baidu.tieba.c.a aVar;
-        if (this.a != null && this.a.a() != null && this.b != null && oVar.u() == -122 && (oVar instanceof com.baidu.tieba.c.b) && (a = ((com.baidu.tieba.c.b) oVar).a()) != null) {
+        if (this.a != null && this.a.a() != null && this.b != null && qVar.w() == -122 && (qVar instanceof com.baidu.tieba.c.b) && (a = ((com.baidu.tieba.c.b) qVar).a()) != null) {
             FacePackageData facePackageData = this.a.a().facePackage;
             if (a.size() >= 1 && (aVar = a.get(0)) != null && aVar.a().equals(this.a.e())) {
                 int f = aVar.f();
@@ -229,7 +230,7 @@ public class FacePackageDetailActivity extends com.baidu.tieba.j implements com.
                     facePackageData.downloaded = 1;
                     facePackageData.downloading = 0;
                 } else if (f == 2 || f == 4) {
-                    if (!bm.c(aVar.n())) {
+                    if (!bu.c(aVar.n())) {
                         showToast(aVar.n());
                     }
                     if (this.c != null) {

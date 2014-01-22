@@ -1,48 +1,42 @@
 package com.baidu.tieba.util;
-
-import java.util.ArrayList;
-import java.util.Hashtable;
 /* loaded from: classes.dex */
-public class ac extends Thread {
-    private int a;
-    private String b;
-    private Hashtable<String, Integer> c;
+public class ac {
+    private StringBuilder a;
 
-    public ac(Hashtable<String, Integer> hashtable) {
-        this.a = 3;
-        this.b = null;
-        this.c = null;
-        this.a = 3;
-        this.c = hashtable;
+    public ac() {
+        this.a = null;
+        this.a = null;
     }
 
-    public ac(int i, String str) {
-        this.a = 3;
-        this.b = null;
-        this.c = null;
-        this.a = i;
-        this.b = str;
-    }
-
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
-        ArrayList<String> y;
-        super.run();
-        try {
-            if (this.a == 3) {
-                if (this.c != null && (y = DatabaseService.y()) != null) {
-                    int size = y.size();
-                    for (int i = 0; i < size; i++) {
-                        this.c.put(y.get(i), 1);
-                    }
-                }
-            } else if (this.a == 2) {
-                DatabaseService.s(this.b);
-            } else if (this.a == 1) {
-                DatabaseService.r(this.b);
+    public void a(String str, Object obj) {
+        if (!bu.c(str) && obj != null) {
+            if (this.a == null) {
+                this.a = new StringBuilder();
+                this.a.append(str);
+                this.a.append("=");
+                this.a.append(obj.toString());
+                return;
             }
-        } catch (Exception e) {
-            bo.b(getClass().getName(), "run", e.getMessage());
+            this.a.append("|");
+            this.a.append(str);
+            this.a.append("=");
+            this.a.append(obj.toString());
         }
+    }
+
+    public void a(ac acVar) {
+        if (acVar != null) {
+            if (this.a == null) {
+                this.a = new StringBuilder();
+                this.a.append(acVar.toString());
+                return;
+            }
+            this.a.append("|");
+            this.a.append(acVar.toString());
+        }
+    }
+
+    public String toString() {
+        return this.a != null ? this.a.toString() : "";
     }
 }

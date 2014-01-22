@@ -4,7 +4,6 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.IBinder;
-import com.baidu.tieba.util.bo;
 import java.io.File;
 import java.util.Date;
 /* loaded from: classes.dex */
@@ -43,10 +42,31 @@ public class ClearTempService extends Service {
     public void a(File file) {
         File[] listFiles = file.listFiles();
         long time = new Date().getTime();
+        int length = listFiles.length > 500 ? listFiles.length - 300 : 0;
+        if (listFiles != null) {
+            for (int i = 0; i < listFiles.length && !this.a; i++) {
+                File file2 = listFiles[i];
+                if (file2.isDirectory()) {
+                    a(file2);
+                } else if (length > 0 && i < length) {
+                    if (!file2.delete()) {
+                        com.baidu.adp.lib.g.e.b(getClass().getName(), "run", "list[i].delete error");
+                    }
+                } else if (time - listFiles[i].lastModified() > 259200000 && !file2.delete()) {
+                    com.baidu.adp.lib.g.e.b(getClass().getName(), "run", "list[i].delete error");
+                }
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void b(File file) {
+        File[] listFiles = file.listFiles();
+        long time = new Date().getTime();
         if (listFiles != null) {
             for (int i = 0; i < listFiles.length && !this.a; i++) {
                 if (time - listFiles[i].lastModified() > 259200000 && !listFiles[i].delete()) {
-                    bo.b(getClass().getName(), "run", "list[i].delete error");
+                    com.baidu.adp.lib.g.e.b(getClass().getName(), "run", "list[i].delete error");
                 }
             }
         }

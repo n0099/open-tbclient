@@ -1,27 +1,22 @@
 package com.baidu.tieba.view;
 
-import android.app.Dialog;
-import android.content.Context;
-import android.view.MotionEvent;
 import android.view.View;
-import com.slidingmenu.lib.R;
+import android.widget.AdapterView;
 /* loaded from: classes.dex */
-public class bd extends Dialog {
-    public bd(Context context) {
-        super(context, R.style.common_alert_dialog);
+class bd implements AdapterView.OnItemClickListener {
+    final /* synthetic */ com.baidu.tieba.pb.ag a;
+    final /* synthetic */ ImagePbPagerAdapter b;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bd(ImagePbPagerAdapter imagePbPagerAdapter, com.baidu.tieba.pb.ag agVar) {
+        this.b = imagePbPagerAdapter;
+        this.a = agVar;
     }
 
-    @Override // android.app.Dialog
-    public void setContentView(View view) {
-        super.setContentView(view);
-    }
-
-    @Override // android.app.Dialog, android.view.Window.Callback
-    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        boolean dispatchTouchEvent = super.dispatchTouchEvent(motionEvent);
-        if (!dispatchTouchEvent && motionEvent.getAction() == 0) {
-            dismiss();
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+        if (this.a != null && this.a.b() && j == this.a.getCount() - 1) {
+            this.b.a(this.a.d(), this.a.e().c(), 10, this.a);
         }
-        return dispatchTouchEvent;
     }
 }

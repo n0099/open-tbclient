@@ -1,15 +1,32 @@
 package com.baidu.adp.lib.g;
 
-import java.util.Random;
+import android.content.ActivityNotFoundException;
+import android.content.Context;
+import android.content.Intent;
 /* loaded from: classes.dex */
 public class c {
-    private static Random a = new Random();
+    Context a;
 
-    public static String a() {
+    public c(Context context) {
+        a(context);
+    }
+
+    private void a(Context context) {
+        this.a = context;
+    }
+
+    public void a() {
+        Intent intent = new Intent();
+        intent.setAction("android.settings.LOCATION_SOURCE_SETTINGS");
+        intent.setFlags(268435456);
         try {
-            return Long.toHexString(Math.abs(a.nextLong()));
-        } catch (Exception e) {
-            return Long.toHexString(System.currentTimeMillis());
+            this.a.startActivity(intent);
+        } catch (ActivityNotFoundException e) {
+            intent.setAction("android.settings.SETTINGS");
+            try {
+                this.a.startActivity(intent);
+            } catch (Exception e2) {
+            }
         }
     }
 }

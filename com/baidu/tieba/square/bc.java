@@ -1,17 +1,20 @@
 package com.baidu.tieba.square;
 
-import android.content.DialogInterface;
+import android.app.AlertDialog;
+import android.view.View;
+import com.slidingmenu.lib.R;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bc implements DialogInterface.OnClickListener {
-    final /* synthetic */ bb a;
+public class bc implements View.OnClickListener {
+    final /* synthetic */ SquareSearchActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bc(bb bbVar) {
-        this.a = bbVar;
+    public bc(SquareSearchActivity squareSearchActivity) {
+        this.a = squareSearchActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        dialogInterface.cancel();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        new AlertDialog.Builder(this.a).setTitle("提醒").setIcon(R.drawable.dialogue_quit).setMessage("确认清除搜索记录？").setPositiveButton("确认", new be(this)).setNegativeButton("取消", new bd(this)).create().show();
     }
 }

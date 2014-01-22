@@ -2,9 +2,8 @@ package com.baidu.tieba.data.emotions;
 
 import android.graphics.Bitmap;
 import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.aa;
-import com.baidu.tieba.util.bo;
-import com.baidu.zeus.NotificationProxy;
+import com.baidu.tieba.util.ad;
+import com.baidu.tieba.util.p;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -24,17 +23,17 @@ public class d {
     }
 
     public static boolean a(String str, String str2, InputStream inputStream) {
-        return aa.a(new StringBuilder().append(".emotions/").append(str).toString(), str2, inputStream) != null;
+        return ad.a(new StringBuilder().append(".emotions/").append(str).toString(), str2, inputStream) != null;
     }
 
     public static Bitmap a(String str, String str2) {
-        return aa.c(".emotions/" + str, str2);
+        return ad.c(".emotions/" + str, str2);
     }
 
     public static com.baidu.adp.widget.ImageView.d b(String str, String str2) {
-        File file = new File(aa.a + "/tieba/.emotions/" + str + "/", str2);
+        File file = new File(ad.a + "/tieba/.emotions/" + str + "/", str2);
         if (file.exists()) {
-            if (!UtilHelper.a((int) NotificationProxy.MAX_URL_LENGTH)) {
+            if (!UtilHelper.a(1024)) {
                 Bitmap a = a(str, str2);
                 if (a != null) {
                     return new com.baidu.adp.widget.ImageView.d(a, false, str2);
@@ -47,7 +46,7 @@ public class d {
     }
 
     public static byte[] c(String str, String str2) {
-        return aa.d(".emotions/" + str, str2);
+        return ad.d(".emotions/" + str, str2);
     }
 
     public static boolean a(String str) {
@@ -60,7 +59,7 @@ public class d {
     }
 
     public static boolean a(String str, String str2, String str3) {
-        String str4 = aa.a + "/tieba/.emotions/" + str + "/";
+        String str4 = ad.a + "/tieba/.emotions/" + str + "/";
         File file = new File(str4, str2);
         if (!file.exists()) {
             return false;
@@ -70,11 +69,11 @@ public class d {
             if (file2.delete() && file.renameTo(file2)) {
                 return true;
             }
-            return aa.e(file.getAbsolutePath(), file2.getAbsolutePath());
+            return ad.e(file.getAbsolutePath(), file2.getAbsolutePath());
         } else if (file.renameTo(file2)) {
             return true;
         } else {
-            return aa.e(file.getAbsolutePath(), file2.getAbsolutePath());
+            return ad.e(file.getAbsolutePath(), file2.getAbsolutePath());
         }
     }
 
@@ -89,19 +88,19 @@ public class d {
                         break;
                     } else if (!nextEntry.isDirectory()) {
                         String name = nextEntry.getName();
-                        bo.c("zip file name:" + name);
+                        com.baidu.adp.lib.g.e.d("zip file name:" + name);
                         a(str, name, zipInputStream);
                     } else {
-                        bo.c("zip file dir:" + nextEntry.getName());
+                        com.baidu.adp.lib.g.e.d("zip file dir:" + nextEntry.getName());
                     }
                 } catch (Throwable th) {
                     th = th;
-                    com.baidu.tieba.util.o.a((InputStream) zipInputStream);
+                    p.a((InputStream) zipInputStream);
                     throw th;
                 }
             }
             zipInputStream.close();
-            com.baidu.tieba.util.o.a((InputStream) zipInputStream);
+            p.a((InputStream) zipInputStream);
             byte[] c = c(str, "map.txt");
             if (c == null) {
                 throw new FileNotFoundException("map.txt file not exsit!");

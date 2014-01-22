@@ -1,5 +1,6 @@
 package com.baidu.tieba.recommend;
 
+import android.app.Activity;
 import android.view.View;
 import com.baidu.tieba.util.UtilHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -16,6 +17,8 @@ public class k implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        UtilHelper.a(this.b.i, this.a.a(), null, null);
+        Activity activity;
+        activity = this.b.i;
+        UtilHelper.a(activity, this.a.a(), null, null);
     }
 }

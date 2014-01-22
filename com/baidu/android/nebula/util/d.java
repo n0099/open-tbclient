@@ -10,7 +10,6 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import com.baidu.android.common.util.CommonParam;
-import com.baidu.browser.core.util.BdUtil;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -55,7 +54,7 @@ public final class d {
 
     private String b(String str) {
         try {
-            return URLEncoder.encode(str, BdUtil.UTF8);
+            return URLEncoder.encode(str, "utf-8");
         } catch (UnsupportedEncodingException e) {
             return "";
         }

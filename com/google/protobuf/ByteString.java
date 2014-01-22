@@ -77,7 +77,10 @@ public abstract class ByteString implements Iterable<Byte> {
     }
 
     public boolean isEmpty() {
-        return size() == 0;
+        if (size() == 0) {
+            return true;
+        }
+        return $assertionsDisabled;
     }
 
     public ByteString substring(int i) {
@@ -85,7 +88,10 @@ public abstract class ByteString implements Iterable<Byte> {
     }
 
     public boolean startsWith(ByteString byteString) {
-        return size() >= byteString.size() && substring(0, byteString.size()).equals(byteString);
+        if (size() < byteString.size() || !substring(0, byteString.size()).equals(byteString)) {
+            return $assertionsDisabled;
+        }
+        return true;
     }
 
     public static ByteString copyFrom(byte[] bArr, int i, int i2) {
@@ -239,7 +245,7 @@ public abstract class ByteString implements Iterable<Byte> {
     }
 
     public static Output newOutput() {
-        return new Output(128);
+        return new Output(CONCATENATE_BY_COPY_SIZE);
     }
 
     /* loaded from: classes.dex */

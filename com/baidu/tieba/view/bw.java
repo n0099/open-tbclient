@@ -1,27 +1,30 @@
 package com.baidu.tieba.view;
-
-import android.content.Context;
-import android.widget.TextView;
-import com.slidingmenu.lib.R;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bw extends com.baidu.adp.widget.ListView.a {
-    public bw(Context context) {
-        super(context);
+public class bw extends com.baidu.tieba.util.bv {
+    final /* synthetic */ ProgressCountDownView a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bw(ProgressCountDownView progressCountDownView, long j, long j2) {
+        super(j, j2);
+        this.a = progressCountDownView;
     }
 
-    public void a(int i) {
-        TextView d = d();
-        TextView c = c();
-        if (d != null && c != null) {
-            if (i == 1) {
-                int color = h().getResources().getColor(R.color.adp_pullview_night);
-                d.setTextColor(color);
-                c.setTextColor(color);
-                return;
-            }
-            int color2 = h().getResources().getColor(R.color.adp_pullview_day);
-            d.setTextColor(color2);
-            c.setTextColor(color2);
+    @Override // com.baidu.tieba.util.bv
+    public void a(long j) {
+        this.a.a(j);
+        this.a.b(j);
+    }
+
+    @Override // com.baidu.tieba.util.bv
+    public void a() {
+        bx bxVar;
+        bx bxVar2;
+        bxVar = this.a.g;
+        if (bxVar != null) {
+            bxVar2 = this.a.g;
+            bxVar2.a();
         }
     }
 }

@@ -41,7 +41,7 @@ class s extends Handler {
                 notificationManager.notify(10, notification4);
             }
         } else if (message.what == 1) {
-            UtilHelper.a(TiebaApplication.g(), (String) message.obj);
+            UtilHelper.a(TiebaApplication.h(), (String) message.obj);
             this.a.stopSelf();
         }
     }

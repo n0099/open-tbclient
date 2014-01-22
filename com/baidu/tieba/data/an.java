@@ -1,6 +1,5 @@
 package com.baidu.tieba.data;
 
-import com.baidu.tieba.util.bo;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class an {
@@ -75,7 +74,7 @@ public class an {
                 this.f = jSONObject.optInt("has_more", 0);
                 this.g = jSONObject.optInt("has_prev", 0);
             } catch (Exception e) {
-                bo.b("PageData", "parserJson", "error = " + e.getMessage());
+                com.baidu.adp.lib.g.e.b("PageData", "parserJson", "error = " + e.getMessage());
             }
         }
     }

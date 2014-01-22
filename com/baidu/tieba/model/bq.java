@@ -42,7 +42,7 @@ public class bq extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.ax> {
                 i = i2 + 1;
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.bo.b(getClass().getName(), "doInBackground", e.toString());
+            com.baidu.adp.lib.g.e.b(getClass().getName(), "doInBackground", e.toString());
             return null;
         }
     }

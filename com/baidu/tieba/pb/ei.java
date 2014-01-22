@@ -1,17 +1,18 @@
 package com.baidu.tieba.pb;
-
-import android.content.DialogInterface;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ei implements DialogInterface.OnClickListener {
-    final /* synthetic */ ef a;
+public class ei implements Runnable {
+    final /* synthetic */ String a;
+    final /* synthetic */ eb b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ei(ef efVar) {
-        this.a = efVar;
+    public ei(eb ebVar, String str) {
+        this.b = ebVar;
+        this.a = str;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        dialogInterface.dismiss();
+    @Override // java.lang.Runnable
+    public void run() {
+        this.b.a(this.a);
     }
 }

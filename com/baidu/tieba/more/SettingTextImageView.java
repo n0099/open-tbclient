@@ -25,14 +25,14 @@ public class SettingTextImageView extends FrameLayout {
         this.a = context;
         d();
         a(attributeSet);
-        a(TiebaApplication.g().an());
+        a(TiebaApplication.h().al());
     }
 
     public SettingTextImageView(Context context) {
         super(context);
         this.a = context;
         d();
-        a(TiebaApplication.g().an());
+        a(TiebaApplication.h().al());
     }
 
     public void a(int i) {
@@ -79,7 +79,7 @@ public class SettingTextImageView extends FrameLayout {
             this.d.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
             this.d.setDefaultResource(0);
             this.d.setNightDefaultResource(0);
-            this.d.setImageBitmap(com.baidu.tieba.util.m.a((int) R.drawable.person_photo));
+            this.d.setImageBitmap(com.baidu.tieba.util.n.a((int) R.drawable.person_photo));
         }
     }
 
@@ -95,7 +95,7 @@ public class SettingTextImageView extends FrameLayout {
     }
 
     private void a(AttributeSet attributeSet) {
-        TypedArray obtainStyledAttributes = this.a.obtainStyledAttributes(attributeSet, com.baidu.tieba.au.SettingView);
+        TypedArray obtainStyledAttributes = this.a.obtainStyledAttributes(attributeSet, com.baidu.tieba.ax.SettingView);
         String string = obtainStyledAttributes.getString(0);
         int color = obtainStyledAttributes.getColor(1, -1);
         if (string != null) {

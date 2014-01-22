@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.db.pojo;
 
 import android.text.TextUtils;
-import com.baidu.adp.lib.h.e;
+import com.baidu.adp.lib.g.e;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.im.groupUpdates.UpdatesItemData;
 import com.baidu.tieba.im.groupUpdates.m;
@@ -60,9 +60,9 @@ public class GroupNewsPojo implements Serializable {
                 str2 = "group_event_info";
             }
             setCmd(str2);
-            setContent(bVar.j());
-            setTime(bVar.o() * 1000);
-            setNotice_id(String.valueOf(bVar.k()));
+            setContent(bVar.k());
+            setTime(bVar.p() * 1000);
+            setNotice_id(String.valueOf(bVar.l()));
             a();
             String content = getContent();
             if (!TextUtils.isEmpty(content)) {

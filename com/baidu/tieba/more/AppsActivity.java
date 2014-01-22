@@ -8,10 +8,9 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.browser.core.util.BdUtil;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tieba.util.DatabaseService;
-import com.baidu.tieba.util.bl;
+import com.baidu.tieba.util.bs;
 import com.baidu.tieba.view.BaseWebView;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
@@ -74,12 +73,12 @@ public class AppsActivity extends com.baidu.tieba.j {
     @Override // com.baidu.tieba.j
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        bl.a(this.h, i);
-        bl.a(this.b, i);
-        bl.d(this.i, i);
-        bl.a(this.c, i);
-        bl.e(this.j, i);
-        bl.b(this.g, i);
+        bs.a(this.h, i);
+        bs.a(this.b, i);
+        bs.d(this.i, i);
+        bs.a(this.c, i);
+        bs.e(this.j, i);
+        bs.b(this.g, i);
     }
 
     private void c() {
@@ -104,7 +103,7 @@ public class AppsActivity extends com.baidu.tieba.j {
             return false;
         }
         this.f.setVisibility(8);
-        this.b.loadDataWithBaseURL(com.baidu.tieba.data.h.a, b, "text/html", BdUtil.UTF8, "");
+        this.b.loadDataWithBaseURL(com.baidu.tieba.data.h.a, b, "text/html", "utf-8", "");
         return true;
     }
 }

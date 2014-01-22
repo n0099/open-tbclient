@@ -9,16 +9,16 @@ import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.person.PersonInfoActivity;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class PersonalTalkSettingActivity extends com.baidu.tieba.j implements com.baidu.adp.widget.BdSwitchView.c, n {
-    private o a;
-    private k b;
+public class PersonalTalkSettingActivity extends com.baidu.tieba.j implements com.baidu.adp.widget.BdSwitchView.c, o {
+    private p a;
+    private l b;
     private long c;
 
     public static void a(long j) {
-        Intent intent = new Intent(TiebaApplication.g().getApplicationContext(), PersonalTalkSettingActivity.class);
+        Intent intent = new Intent(TiebaApplication.h().getApplicationContext(), PersonalTalkSettingActivity.class);
         intent.addFlags(268435456);
         intent.putExtra("userId", j);
-        TiebaApplication.g().getApplicationContext().startActivity(intent);
+        TiebaApplication.h().getApplicationContext().startActivity(intent);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -52,11 +52,11 @@ public class PersonalTalkSettingActivity extends com.baidu.tieba.j implements co
         } else {
             this.c = bundle.getLong("userId");
         }
-        this.b = new k(this, this, this.c);
+        this.b = new l(this, this, this.c);
     }
 
     private void b() {
-        this.a = new o(this);
+        this.a = new p(this);
         this.a.a(this);
     }
 
@@ -71,22 +71,22 @@ public class PersonalTalkSettingActivity extends com.baidu.tieba.j implements co
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.user_info_lin /* 2131100919 */:
+            case R.id.user_info_lin /* 2131101034 */:
                 if (this.b != null && this.b.b() != null) {
                     PersonInfoActivity.a(this, String.valueOf(this.c), this.b.b().getName());
                     return;
                 }
                 return;
-            case R.id.remove_from_black_man /* 2131100927 */:
-                new AlertDialog.Builder(this).setMessage(getString(R.string.add_black_alert, new Object[]{this.b.b().getName()})).setPositiveButton(R.string.alert_yes_button, new c(this)).setNegativeButton(R.string.alert_no_button, new b(this)).create().show();
+            case R.id.remove_from_black_man /* 2131101041 */:
+                new AlertDialog.Builder(this).setMessage(getString(R.string.add_black_alert, new Object[]{this.b.b().getName()})).setPositiveButton(R.string.alert_yes_button, new d(this)).setNegativeButton(R.string.alert_no_button, new c(this)).create().show();
                 return;
-            case R.id.st_delete_talk_history /* 2131100930 */:
-                new AlertDialog.Builder(this).setMessage(getString(R.string.remove_personal_history, new Object[]{this.b.b().getName()})).setPositiveButton(R.string.alert_yes_button, new e(this)).setNegativeButton(R.string.alert_no_button, new d(this)).create().show();
+            case R.id.st_delete_talk_history /* 2131101044 */:
+                new AlertDialog.Builder(this).setMessage(getString(R.string.remove_personal_history, new Object[]{this.b.b().getName()})).setPositiveButton(R.string.alert_yes_button, new f(this)).setNegativeButton(R.string.alert_no_button, new e(this)).create().show();
                 return;
-            case R.id.add_to_black /* 2131100931 */:
-                new AlertDialog.Builder(this).setMessage(getString(R.string.remove_black_alert, new Object[]{this.b.b().getName()})).setPositiveButton(R.string.alert_yes_button, new i(this)).setNegativeButton(R.string.alert_no_button, new h(this)).create().show();
+            case R.id.add_to_black /* 2131101045 */:
+                new AlertDialog.Builder(this).setMessage(getString(R.string.remove_black_alert, new Object[]{this.b.b().getName()})).setPositiveButton(R.string.alert_yes_button, new j(this)).setNegativeButton(R.string.alert_no_button, new i(this)).create().show();
                 return;
-            case R.id.change_attention /* 2131100932 */:
+            case R.id.change_attention /* 2131101046 */:
                 this.b.e();
                 return;
             default:
@@ -94,7 +94,7 @@ public class PersonalTalkSettingActivity extends com.baidu.tieba.j implements co
         }
     }
 
-    @Override // com.baidu.tieba.im.chat.personaltalk.n
+    @Override // com.baidu.tieba.im.chat.personaltalk.o
     public void a() {
         closeLoadingDialog();
         if (this.a != null && this.b != null) {
@@ -105,6 +105,6 @@ public class PersonalTalkSettingActivity extends com.baidu.tieba.j implements co
     @Override // com.baidu.adp.widget.BdSwitchView.c
     public void a(View view, BdSwitchView.SwitchState switchState) {
         this.b.a(switchState == BdSwitchView.SwitchState.ON);
-        new j(this, switchState).execute(new Void[0]);
+        new k(this, switchState).execute(new Void[0]);
     }
 }

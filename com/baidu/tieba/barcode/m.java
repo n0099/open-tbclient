@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-import com.baidu.tieba.util.bo;
 import com.google.zxing.BinaryBitmap;
 import com.google.zxing.DecodeHintType;
 import com.google.zxing.MultiFormatReader;
@@ -65,7 +64,7 @@ final class m extends Handler {
         }
         Handler b = this.a.b();
         if (result != null) {
-            bo.e(getClass().getName(), "decode", "Found barcode in " + (System.currentTimeMillis() - currentTimeMillis) + " ms");
+            com.baidu.adp.lib.g.e.e(getClass().getName(), "decode", "Found barcode in " + (System.currentTimeMillis() - currentTimeMillis) + " ms");
             if (b != null) {
                 Message obtain = Message.obtain(b, R.id.decode_succeeded, result);
                 Bundle bundle = new Bundle();

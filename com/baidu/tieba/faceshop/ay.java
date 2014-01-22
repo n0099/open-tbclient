@@ -34,13 +34,13 @@ public class ay extends BaseAdapter {
 
     public ay(Context context) {
         this.c = context;
-        d = com.baidu.adp.lib.h.g.b(context);
+        d = com.baidu.adp.lib.g.g.b(context);
         this.e = d - (context.getResources().getDimensionPixelSize(R.dimen.faceshop_page_padding) * 2);
         this.f = (int) (this.e * 0.38495576f);
         this.g = new com.baidu.tieba.util.i(context);
         this.g.a(this.e, this.f);
-        this.h = com.baidu.tieba.util.m.a((int) R.drawable.bg_content_download_down).getWidth();
-        this.i = com.baidu.tieba.util.m.a((int) R.drawable.bg_content_download_up).getWidth();
+        this.h = com.baidu.tieba.util.n.a((int) R.drawable.bg_content_download_down).getWidth();
+        this.i = com.baidu.tieba.util.n.a((int) R.drawable.bg_content_download_up).getWidth();
         this.k = null;
         this.l = null;
     }
@@ -88,18 +88,18 @@ public class ay extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         int itemViewType = getItemViewType(i);
-        int an = TiebaApplication.g().an();
+        int al = TiebaApplication.h().al();
         if (view == null) {
             view = a(itemViewType, viewGroup);
         }
         bc bcVar = (bc) view.getTag();
         if (this.c instanceof com.baidu.tieba.j) {
-            ((com.baidu.tieba.j) this.c).getLayoutMode().a(an == 1);
+            ((com.baidu.tieba.j) this.c).getLayoutMode().a(al == 1);
             ((com.baidu.tieba.j) this.c).getLayoutMode().a(view);
         }
         a(i, bcVar);
         a(bcVar);
-        a(bcVar, an);
+        a(bcVar, al);
         return view;
     }
 
@@ -156,7 +156,7 @@ public class ay extends BaseAdapter {
                     bcVar.c.setTag(bdVar);
                 }
             } catch (Exception e) {
-                com.baidu.adp.lib.h.e.b(getClass().getName(), "fillItemView", e.toString());
+                com.baidu.adp.lib.g.e.b(getClass().getName(), "fillItemView", e.toString());
             }
         }
     }
@@ -295,7 +295,7 @@ public class ay extends BaseAdapter {
     }
 
     public void b(int i) {
-        com.baidu.tieba.ap.a(this.c, "emotion_package_list_free");
+        com.baidu.tieba.as.a(this.c, "emotion_package_list_free");
         FacePackageData facePackageData = (FacePackageData) getItem(i);
         if (facePackageData != null) {
             facePackageData.buyStatus = 1;
@@ -304,7 +304,7 @@ public class ay extends BaseAdapter {
     }
 
     public void c(int i) {
-        com.baidu.tieba.ap.a(this.c, "emotion_package_list_buy");
+        com.baidu.tieba.as.a(this.c, "emotion_package_list_buy");
         FacePackageData facePackageData = (FacePackageData) getItem(i);
         if (this.b != null) {
             com.baidu.tieba.j jVar = (com.baidu.tieba.j) this.c;

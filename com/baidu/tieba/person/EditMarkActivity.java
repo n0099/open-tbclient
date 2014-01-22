@@ -43,7 +43,7 @@ public class EditMarkActivity extends com.baidu.tieba.j implements com.baidu.adp
         } else if (this.a.g() == 0 || this.a.k() < 0) {
             this.a.a((Boolean) true);
         } else {
-            this.b.g();
+            this.b.f();
             this.a.j();
         }
     }
@@ -52,7 +52,7 @@ public class EditMarkActivity extends com.baidu.tieba.j implements com.baidu.adp
     @Override // com.baidu.tieba.j, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.b.j();
+        this.b.i();
         this.a.l();
     }
 
@@ -62,7 +62,7 @@ public class EditMarkActivity extends com.baidu.tieba.j implements com.baidu.adp
             this.b.b();
         } else if (view.getId() == this.b.c()) {
             int intValue = ((Integer) view.getTag()).intValue();
-            this.b.h();
+            this.b.g();
             if (!this.a.b(intValue)) {
                 this.b.e();
             }
@@ -116,7 +116,7 @@ public class EditMarkActivity extends com.baidu.tieba.j implements com.baidu.adp
                         this.a.f().get(this.c).setPostId(markData.getPostId());
                         this.a.f().get(this.c).setHostMode(markData.getHostMode());
                         this.a.f().get(this.c).setSequence(markData.getSequence());
-                        this.b.i();
+                        this.b.h();
                         return;
                     }
                     return;
@@ -128,7 +128,7 @@ public class EditMarkActivity extends com.baidu.tieba.j implements com.baidu.adp
                 case 17001:
                     if (this.a.f().size() > this.c && this.c >= 0) {
                         this.a.f().remove(this.c);
-                        this.b.i();
+                        this.b.h();
                         return;
                     }
                     return;
@@ -142,10 +142,8 @@ public class EditMarkActivity extends com.baidu.tieba.j implements com.baidu.adp
     public void a(boolean z) {
         if (this.a != null && this.b != null) {
             this.a.d();
-            this.b.f();
             this.b.a(true);
-            this.d = null;
-            this.a.a((Boolean) true);
+            this.a.a((Boolean) false);
         }
     }
 

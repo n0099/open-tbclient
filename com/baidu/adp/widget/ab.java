@@ -3,6 +3,7 @@ package com.baidu.adp.widget;
 import android.os.SystemClock;
 import android.util.Log;
 import com.baidu.android.pushservice.PushConstants;
+import com.baidu.sapi2.shell.SapiErrorCode;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -62,7 +63,7 @@ public class ab {
         this.h.h = (int) (a.a(this.c, this.a, false) + this.d);
         this.h.invalidate();
         aaVar = this.h.u;
-        aaVar.sendEmptyMessageAtTime(-101, this.f);
+        aaVar.sendEmptyMessageAtTime(SapiErrorCode.SENT_SUCCEED, this.f);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -85,7 +86,7 @@ public class ab {
         this.h.h = (int) (a.a(this.c, this.a, false) + this.d);
         this.h.invalidate();
         aaVar = this.h.u;
-        aaVar.sendEmptyMessageAtTime(-104, this.f);
+        aaVar.sendEmptyMessageAtTime(SapiErrorCode.GETTING_CERT, this.f);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -108,7 +109,7 @@ public class ab {
         this.h.h = (int) (a.a(this.c, this.a, false) + this.d);
         this.h.invalidate();
         aaVar = this.h.u;
-        aaVar.sendEmptyMessageAtTime(-105, this.f);
+        aaVar.sendEmptyMessageAtTime(SapiErrorCode.GET_CERT_FAIL, this.f);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -135,11 +136,11 @@ public class ab {
         i2 = this.h.h;
         this.d = i2;
         aaVar = this.h.u;
-        aaVar.removeMessages(-104);
+        aaVar.removeMessages(SapiErrorCode.GETTING_CERT);
         Log.d("Animator", "@animateTopOpen " + this.c);
         Log.d("Animator", "@animateTopOpen " + f);
         aaVar2 = this.h.u;
-        aaVar2.sendEmptyMessageAtTime(-104, this.f);
+        aaVar2.sendEmptyMessageAtTime(SapiErrorCode.GETTING_CERT, this.f);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -168,9 +169,9 @@ public class ab {
         Log.d("Animator", "@animateBottomOpen " + this.c);
         Log.d("Animator", "@animateBottomOpen " + f);
         aaVar = this.h.u;
-        aaVar.removeMessages(-105);
+        aaVar.removeMessages(SapiErrorCode.GET_CERT_FAIL);
         aaVar2 = this.h.u;
-        aaVar2.sendEmptyMessageAtTime(-105, this.f);
+        aaVar2.sendEmptyMessageAtTime(SapiErrorCode.GET_CERT_FAIL, this.f);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -236,8 +237,8 @@ public class ab {
         Log.d("Animator", "@animateBottom " + this.c);
         Log.d("Animator", "@animateBottom " + f);
         aaVar = this.h.u;
-        aaVar.removeMessages(-101);
+        aaVar.removeMessages(SapiErrorCode.SENT_SUCCEED);
         aaVar2 = this.h.u;
-        aaVar2.sendEmptyMessageAtTime(-101, this.f);
+        aaVar2.sendEmptyMessageAtTime(SapiErrorCode.SENT_SUCCEED, this.f);
     }
 }

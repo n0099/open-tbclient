@@ -105,6 +105,6 @@ class bl implements View.OnClickListener {
             this.a.setResult(0);
         }
         this.a.finish();
-        com.baidu.tieba.util.bo.a("Register2Activity", "mButtonBack", "onClick");
+        com.baidu.adp.lib.g.e.a("Register2Activity", "mButtonBack", "onClick");
     }
 }

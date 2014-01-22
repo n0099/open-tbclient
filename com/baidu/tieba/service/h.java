@@ -1,8 +1,7 @@
 package com.baidu.tieba.service;
 
 import cn.jingling.lib.file.Shared;
-import com.baidu.tieba.util.aa;
-import com.baidu.tieba.util.bo;
+import com.baidu.tieba.util.ad;
 import java.io.File;
 import java.io.FileWriter;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -34,7 +33,7 @@ public class h implements Runnable {
         FileWriter fileWriter = null;
         fileWriter = null;
         try {
-            File g = aa.g("performance_sample.log");
+            File g = ad.g("performance_sample.log");
             if (g == null || g.length() > 51200) {
                 this.a.b();
             } else {
@@ -94,10 +93,10 @@ public class h implements Runnable {
                         try {
                             fileWriter.close();
                         } catch (Exception e) {
-                            bo.b(getClass().getName(), "sampleRunnable", th.toString());
+                            com.baidu.adp.lib.g.e.b(getClass().getName(), "sampleRunnable", th.toString());
                         }
                     }
-                    bo.b(getClass().getName(), "sampleRunnable", th.toString());
+                    com.baidu.adp.lib.g.e.b(getClass().getName(), "sampleRunnable", th.toString());
                     this.a.stopSelf();
                 }
             }

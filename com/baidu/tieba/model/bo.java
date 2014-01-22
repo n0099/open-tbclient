@@ -269,7 +269,7 @@ public class bo extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.ao> {
                 return aoVar2;
             }
         } catch (Exception e2) {
-            com.baidu.tieba.util.bo.b("PbAsyncTask", "doInBackground", "error = " + e2.getMessage());
+            com.baidu.adp.lib.g.e.b("PbAsyncTask", "doInBackground", "error = " + e2.getMessage());
             return null;
         }
     }

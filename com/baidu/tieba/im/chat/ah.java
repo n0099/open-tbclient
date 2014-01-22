@@ -1,15 +1,20 @@
 package com.baidu.tieba.im.chat;
+
+import com.baidu.tieba.TiebaApplication;
 /* loaded from: classes.dex */
-public class ah {
-    public static long a(long j) {
-        return 1 + j;
+class ah implements com.baidu.tieba.im.widget.h {
+    final /* synthetic */ ag a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ah(ag agVar) {
+        this.a = agVar;
     }
 
-    public static long b(long j) {
-        return 100 * j;
-    }
-
-    public static long c(long j) {
-        return j / 100;
+    @Override // com.baidu.tieba.im.widget.h
+    public void a() {
+        TiebaApplication.h().y(false);
+        com.baidu.tieba.im.message.aq aqVar = new com.baidu.tieba.im.message.aq();
+        aqVar.a(com.baidu.adp.lib.f.b.a(GroupChatActivity.b, 0));
+        com.baidu.tieba.im.messageCenter.e.a().a(aqVar);
     }
 }

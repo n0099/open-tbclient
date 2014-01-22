@@ -1,6 +1,5 @@
 package protobuf.QueryGroupDetail;
 
-import com.baidu.zeus.bouncycastle.DERTags;
 import com.google.protobuf.ByteString;
 import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.CodedOutputStream;
@@ -21,22 +20,28 @@ public final class QueryGroupDetailRes {
 
     /* loaded from: classes.dex */
     public final class DataRes extends GeneratedMessageLite implements k {
+        public static final int ALREADYCREATENUM_FIELD_NUMBER = 10;
+        public static final int CANCREATEMEMBER_FIELD_NUMBER = 9;
         public static final int CANJOINGROUPNUM_FIELD_NUMBER = 5;
         public static final int GROUP_FIELD_NUMBER = 1;
         public static final int HIDERECOMMENDGROUP_FIELD_NUMBER = 8;
         public static final int ISGROUPMANAGER_FIELD_NUMBER = 7;
         public static final int ISJOIN_FIELD_NUMBER = 6;
         public static final int JOINGROUPNUM_FIELD_NUMBER = 4;
+        public static final int LEFTCREATENUM_FIELD_NUMBER = 11;
         public static final int MEMBER_FIELD_NUMBER = 3;
         public static final int PHOTO_FIELD_NUMBER = 2;
         private static final long serialVersionUID = 0;
+        private int alreadyCreateNum_;
         private int bitField0_;
+        private int canCreateMember_;
         private int canJoinGroupNum_;
         private Im.GroupInfo group_;
         private int hideRecommendGroup_;
         private int isGroupManager_;
         private int isJoin_;
         private int joinGroupNum_;
+        private int leftCreateNum_;
         private List<Im.UserInfo> member_;
         private byte memoizedIsInitialized;
         private int memoizedSerializedSize;
@@ -107,7 +112,7 @@ public final class QueryGroupDetailRes {
                                 continue;
                                 z6 = z2;
                                 z5 = z;
-                            case 18:
+                            case Im.GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
                                 if (!(z6 & true)) {
                                     this.photo_ = new ArrayList();
                                     z4 = z6 | true;
@@ -140,7 +145,7 @@ public final class QueryGroupDetailRes {
                                     makeExtensionsImmutable();
                                     throw th;
                                 }
-                            case 26:
+                            case Im.GroupInfo.NICKNAME_FIELD_NUMBER /* 26 */:
                                 if (!(z6 & true)) {
                                     this.member_ = new ArrayList();
                                     z3 = z6 | true;
@@ -154,7 +159,7 @@ public final class QueryGroupDetailRes {
                                 continue;
                                 z6 = z2;
                                 z5 = z;
-                            case 32:
+                            case Im.GroupInfo.ISNEWLYCREATE_FIELD_NUMBER /* 32 */:
                                 this.bitField0_ |= 2;
                                 this.joinGroupNum_ = codedInputStream.readInt32();
                                 z = z5;
@@ -186,9 +191,33 @@ public final class QueryGroupDetailRes {
                                 continue;
                                 z6 = z2;
                                 z5 = z;
-                            case DERTags.APPLICATION /* 64 */:
+                            case 64:
                                 this.bitField0_ |= 32;
                                 this.hideRecommendGroup_ = codedInputStream.readInt32();
+                                z = z5;
+                                z2 = z6;
+                                continue;
+                                z6 = z2;
+                                z5 = z;
+                            case 72:
+                                this.bitField0_ |= 64;
+                                this.canCreateMember_ = codedInputStream.readInt32();
+                                z = z5;
+                                z2 = z6;
+                                continue;
+                                z6 = z2;
+                                z5 = z;
+                            case com.baidu.loginshare.e.i /* 80 */:
+                                this.bitField0_ |= 128;
+                                this.alreadyCreateNum_ = codedInputStream.readInt32();
+                                z = z5;
+                                z2 = z6;
+                                continue;
+                                z6 = z2;
+                                z5 = z;
+                            case 88:
+                                this.bitField0_ |= 256;
+                                this.leftCreateNum_ = codedInputStream.readInt32();
                                 break;
                             default:
                                 if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
@@ -319,6 +348,30 @@ public final class QueryGroupDetailRes {
             return this.hideRecommendGroup_;
         }
 
+        public boolean hasCanCreateMember() {
+            return (this.bitField0_ & 64) == 64;
+        }
+
+        public int getCanCreateMember() {
+            return this.canCreateMember_;
+        }
+
+        public boolean hasAlreadyCreateNum() {
+            return (this.bitField0_ & 128) == 128;
+        }
+
+        public int getAlreadyCreateNum() {
+            return this.alreadyCreateNum_;
+        }
+
+        public boolean hasLeftCreateNum() {
+            return (this.bitField0_ & 256) == 256;
+        }
+
+        public int getLeftCreateNum() {
+            return this.leftCreateNum_;
+        }
+
         private void a() {
             this.group_ = Im.GroupInfo.getDefaultInstance();
             this.photo_ = Collections.emptyList();
@@ -328,6 +381,9 @@ public final class QueryGroupDetailRes {
             this.isJoin_ = 0;
             this.isGroupManager_ = 0;
             this.hideRecommendGroup_ = 0;
+            this.canCreateMember_ = 0;
+            this.alreadyCreateNum_ = 0;
+            this.leftCreateNum_ = 0;
         }
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -367,6 +423,15 @@ public final class QueryGroupDetailRes {
             if ((this.bitField0_ & 32) == 32) {
                 codedOutputStream.writeInt32(8, this.hideRecommendGroup_);
             }
+            if ((this.bitField0_ & 64) == 64) {
+                codedOutputStream.writeInt32(9, this.canCreateMember_);
+            }
+            if ((this.bitField0_ & 128) == 128) {
+                codedOutputStream.writeInt32(10, this.alreadyCreateNum_);
+            }
+            if ((this.bitField0_ & 256) == 256) {
+                codedOutputStream.writeInt32(11, this.leftCreateNum_);
+            }
         }
 
         @Override // com.google.protobuf.MessageLite
@@ -394,6 +459,15 @@ public final class QueryGroupDetailRes {
                 }
                 if ((this.bitField0_ & 32) == 32) {
                     i += CodedOutputStream.computeInt32Size(8, this.hideRecommendGroup_);
+                }
+                if ((this.bitField0_ & 64) == 64) {
+                    i += CodedOutputStream.computeInt32Size(9, this.canCreateMember_);
+                }
+                if ((this.bitField0_ & 128) == 128) {
+                    i += CodedOutputStream.computeInt32Size(10, this.alreadyCreateNum_);
+                }
+                if ((this.bitField0_ & 256) == 256) {
+                    i += CodedOutputStream.computeInt32Size(11, this.leftCreateNum_);
                 }
                 this.memoizedSerializedSize = i;
             }
@@ -525,7 +599,7 @@ public final class QueryGroupDetailRes {
                                 this.bitField0_ |= 1;
                                 z = z2;
                                 break;
-                            case 18:
+                            case Im.GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
                                 j builder2 = (this.bitField0_ & 2) == 2 ? this.data_.toBuilder() : null;
                                 this.data_ = (DataRes) codedInputStream.readMessage(DataRes.PARSER, extensionRegistryLite);
                                 if (builder2 != null) {

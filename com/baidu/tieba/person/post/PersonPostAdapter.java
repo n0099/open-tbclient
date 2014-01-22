@@ -11,9 +11,9 @@ public class PersonPostAdapter extends FragmentPagerAdapter {
     public PersonPostAdapter(PersonPostActivity personPostActivity) {
         super(personPostActivity.getSupportFragmentManager());
         Bundle bundle = new Bundle();
-        bundle.putString("key_uid", personPostActivity.b());
-        bundle.putString("key_portrait_url", personPostActivity.d());
-        bundle.putString("key_empty_view_text", personPostActivity.e());
+        bundle.putString("key_uid", personPostActivity.c());
+        bundle.putString("key_portrait_url", personPostActivity.e());
+        bundle.putString("key_empty_view_text", personPostActivity.f());
         this.b = new PersonReplyFragment();
         this.b.g(bundle);
         this.a = new PersonThreadFragment();

@@ -50,15 +50,15 @@ public final class SocialAPIErrorCodes {
                 return "invalid referer";
             case 12:
                 return "request third platform failed";
-            case 100:
+            case ERROR_MISS_PARAMETER /* 100 */:
                 return "some required parameter is missing";
-            case 101:
+            case ERROR_INVALID_CLIENT_ID /* 101 */:
                 return "invalid client id";
-            case 102:
+            case ERROR_INVALID_SESSION_KEY /* 102 */:
                 return "invalid session key";
-            case 104:
+            case ERROR_INVALID_SIGNATURE /* 104 */:
                 return "invalid signature";
-            case 105:
+            case ERROR_MANY_PARAMETER /* 105 */:
                 return "too many parameters";
             case ERROR_INVALID_SIGNATURE_ALGORITHM /* 106 */:
                 return "invalid signature algorithm";
@@ -92,11 +92,11 @@ public final class SocialAPIErrorCodes {
                 return "upload file_size too large";
             case ERROR_INVALID_UPLOAD_FILE /* 125 */:
                 return "invalid uploaded file";
-            case 150:
+            case ERROR_AUTHORIZATION_CANCELED /* 150 */:
                 return "user cancelled authorization";
-            case 151:
+            case ERROR_BIND_API_ALREADY_BIND_TO_CURRENT_USER /* 151 */:
                 return "api already bind to current user";
-            case 152:
+            case ERROR_BIND_API_NOT_BIND_TO_CURRENT_USER /* 152 */:
                 return "api not bind to current user";
             default:
                 return "unknown error";

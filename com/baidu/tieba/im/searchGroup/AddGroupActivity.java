@@ -6,15 +6,15 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
-import com.baidu.tieba.ap;
+import com.baidu.tieba.as;
 import com.baidu.tieba.im.data.BaseGroupData;
 import com.baidu.tieba.im.groupInfo.GroupInfoActivity;
-import com.baidu.tieba.im.model.al;
+import com.baidu.tieba.im.model.an;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class AddGroupActivity extends com.baidu.tieba.j {
     private b a = null;
-    private al b = null;
+    private an b = null;
     private com.baidu.tieba.im.messageCenter.g c = new a(this);
 
     public static void a(Activity activity) {
@@ -28,7 +28,7 @@ public class AddGroupActivity extends com.baidu.tieba.j {
         if (getIntent() != null) {
         }
         this.a = new b(this);
-        this.b = new al();
+        this.b = new an();
         com.baidu.tieba.im.messageCenter.e.a().a(103007, this.c);
     }
 
@@ -45,7 +45,7 @@ public class AddGroupActivity extends com.baidu.tieba.j {
         if (view == this.a.f()) {
             finish();
         } else if (view == this.a.e()) {
-            ap.a(this, "add_group_searchbtn_click");
+            as.a(this, "add_group_searchbtn_click");
             if (view.getTag() instanceof String) {
                 a((String) view.getTag());
             }

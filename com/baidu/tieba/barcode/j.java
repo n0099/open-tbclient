@@ -5,10 +5,8 @@ import android.graphics.Bitmap;
 import android.text.TextUtils;
 import android.widget.ProgressBar;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.mobstat.StatService;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.aa;
-import com.baidu.tieba.util.bo;
+import com.baidu.tieba.util.ad;
+import com.baidu.tieba.util.by;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j extends BdAsyncTask<Object, Integer, Bitmap> {
@@ -31,21 +29,21 @@ public class j extends BdAsyncTask<Object, Integer, Bitmap> {
         Bitmap c;
         Bitmap bitmap = null;
         try {
-            c = aa.c(null, "tieba_resized_image");
+            c = ad.c(null, "tieba_resized_image");
         } catch (Exception e) {
             e = e;
         }
         try {
             if (isCancelled() && c != null && !c.isRecycled()) {
                 c.recycle();
-            } else if (c == null || com.baidu.tieba.util.m.b(c, com.baidu.adp.lib.h.g.a((Context) this.a, 63.5f)) != null) {
+            } else if (c == null || com.baidu.tieba.util.n.b(c, com.baidu.adp.lib.g.g.a((Context) this.a, 63.5f)) != null) {
                 bitmap = c;
             }
         } catch (Exception e2) {
             bitmap = c;
             e = e2;
             e.printStackTrace();
-            bo.b(getClass().getName(), "GetImageTask", e.toString());
+            com.baidu.adp.lib.g.e.b(getClass().getName(), "GetImageTask", e.toString());
             return bitmap;
         }
         return bitmap;
@@ -88,9 +86,7 @@ public class j extends BdAsyncTask<Object, Integer, Bitmap> {
                 if (TextUtils.isEmpty(a) && !bitmap.isRecycled()) {
                     bitmap.recycle();
                 }
-                if (TiebaApplication.g().s()) {
-                    StatService.onEvent(this.a, "2d_code_scan_local", "onclick");
-                }
+                by.a(this.a, "2d_code_scan_local", "onclick", 1, new Object[0]);
                 this.a.a(a);
             }
             progressBar = this.a.k;

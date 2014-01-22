@@ -85,7 +85,7 @@ public class a extends c<byte[]> {
             return true;
         } catch (Throwable th) {
             this.a.a(th);
-            com.baidu.adp.lib.h.e.a(getClass(), "failed to clear from " + str, th);
+            com.baidu.adp.lib.g.e.a(getClass(), "failed to clear from " + str, th);
             return false;
         }
     }

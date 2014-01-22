@@ -12,7 +12,7 @@ import java.util.List;
 public class UserIconBox extends LinearLayout {
     com.baidu.tbadk.imageManager.c a;
     private com.baidu.adp.lib.d.b<TbImageView> b;
-    private ci c;
+    private cy c;
     private Context d;
     private com.baidu.tieba.util.i e;
     private LinearLayout.LayoutParams f;
@@ -23,7 +23,7 @@ public class UserIconBox extends LinearLayout {
         this.b = null;
         this.c = null;
         this.g = null;
-        this.a = new cg(this);
+        this.a = new cw(this);
         a(context);
     }
 
@@ -32,7 +32,7 @@ public class UserIconBox extends LinearLayout {
         this.b = null;
         this.c = null;
         this.g = null;
-        this.a = new cg(this);
+        this.a = new cw(this);
         a(context);
     }
 
@@ -41,15 +41,15 @@ public class UserIconBox extends LinearLayout {
         setOrientation(0);
         setGravity(16);
         this.e = new com.baidu.tieba.util.i(this.d);
-        if (this.d instanceof cj) {
-            cj cjVar = (cj) this.d;
-            this.b = cjVar.G();
-            if (cjVar.c() != null && this.c == null) {
-                this.c = new ci(cjVar.a());
-                cjVar.c().setRecyclerListener(this.c);
+        if (this.d instanceof cz) {
+            cz czVar = (cz) this.d;
+            this.b = czVar.G();
+            if (czVar.c() != null && this.c == null) {
+                this.c = new cy(czVar.a());
+                czVar.c().setRecyclerListener(this.c);
             }
         }
-        setOnHierarchyChangeListener(new cf(this));
+        setOnHierarchyChangeListener(new cv(this));
     }
 
     private LinearLayout.LayoutParams a(int i, int i2, int i3) {
@@ -106,6 +106,6 @@ public class UserIconBox extends LinearLayout {
     }
 
     public static com.baidu.adp.lib.d.b<TbImageView> a(Context context, int i) {
-        return new com.baidu.adp.lib.d.b<>(new ch(context), i, 0);
+        return new com.baidu.adp.lib.d.b<>(new cx(context), i, 0);
     }
 }

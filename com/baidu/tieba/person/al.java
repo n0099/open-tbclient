@@ -19,7 +19,7 @@ public class al implements RadioGroup.OnCheckedChangeListener {
         int i2;
         String str2;
         switch (i) {
-            case R.id.all_tab /* 2131100807 */:
+            case R.id.all_tab /* 2131100920 */:
                 Intent intent = new Intent(this.a, AllPostActivity.class);
                 str = this.a.i;
                 if (str != null) {
@@ -30,8 +30,8 @@ public class al implements RadioGroup.OnCheckedChangeListener {
                 intent.putExtra("user_sex", i2);
                 this.a.a("all", intent);
                 return;
-            case R.id.thread_tab /* 2131100808 */:
-            case R.id.reply_tab /* 2131100809 */:
+            case R.id.thread_tab /* 2131100921 */:
+            case R.id.reply_tab /* 2131100922 */:
             default:
                 return;
         }

@@ -44,7 +44,7 @@ public class AccountRestoreActivity extends com.baidu.tieba.j {
 
     public void initCookie() {
         try {
-            Token a = a.a(TiebaApplication.E());
+            Token a = a.a(TiebaApplication.D());
             CookieSyncManager.createInstance(this);
             CookieManager cookieManager = CookieManager.getInstance();
             cookieManager.setAcceptCookie(true);

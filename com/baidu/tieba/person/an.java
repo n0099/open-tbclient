@@ -16,7 +16,7 @@ class an implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (this.a.f() != null) {
-            FrsActivity.a(this.b.a, this.a.f(), (String) null);
+            FrsActivity.a(this.b.a, this.a.f(), null);
         }
     }
 }

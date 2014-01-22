@@ -23,7 +23,7 @@ public class ch {
         try {
             a(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.tieba.util.bo.b(getClass().getName(), "parserJson", e.getMessage());
+            com.baidu.adp.lib.g.e.b(getClass().getName(), "parserJson", e.getMessage());
         }
     }
 
@@ -32,7 +32,7 @@ public class ch {
             try {
                 this.a.parserJson(jSONObject.optJSONObject("version"));
                 this.b.a(jSONObject.optJSONObject("client"));
-                com.baidu.tieba.util.p.a(jSONObject.optString("client_ip", null));
+                com.baidu.tieba.util.q.a(jSONObject.optString("client_ip", null));
                 this.c.a(jSONObject.optJSONObject("config"));
                 this.d.parserJson(jSONObject.optJSONObject("combine_download"));
                 this.e.a(jSONObject.optJSONObject("mainbar"));
@@ -47,12 +47,12 @@ public class ch {
                     }
                 }
                 this.g = jSONObject.optInt("faceshop_version");
-                if (this.g > TiebaApplication.g().bi()) {
-                    TiebaApplication.g().r(this.g);
-                    TiebaApplication.g().y(true);
+                if (this.g > TiebaApplication.h().bj()) {
+                    TiebaApplication.h().r(this.g);
+                    TiebaApplication.h().A(true);
                 }
             } catch (Exception e) {
-                com.baidu.tieba.util.bo.b(getClass().getName(), "parserJson", e.getMessage());
+                com.baidu.adp.lib.g.e.b(getClass().getName(), "parserJson", e.getMessage());
             }
         }
     }

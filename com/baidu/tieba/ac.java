@@ -13,9 +13,9 @@ class ac implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         String str;
-        str = this.a.m;
-        if (!str.equals(GuideActivity.b)) {
-            this.a.a();
+        str = this.a.c;
+        if (!str.equals("from_about_page")) {
+            this.a.b();
         }
         this.a.closeActivity();
     }

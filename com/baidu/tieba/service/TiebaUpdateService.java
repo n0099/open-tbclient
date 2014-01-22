@@ -10,8 +10,7 @@ import android.os.IBinder;
 import android.widget.RemoteViews;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.VersionData;
-import com.baidu.tieba.util.aa;
-import com.baidu.tieba.util.bo;
+import com.baidu.tieba.util.ad;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class TiebaUpdateService extends Service {
@@ -45,9 +44,9 @@ public class TiebaUpdateService extends Service {
     }
 
     public Notification a() {
-        PendingIntent activity = PendingIntent.getActivity(TiebaApplication.g(), 0, new Intent(), 0);
+        PendingIntent activity = PendingIntent.getActivity(TiebaApplication.h(), 0, new Intent(), 0);
         Notification notification = new Notification(17301633, null, System.currentTimeMillis());
-        notification.contentView = new RemoteViews(TiebaApplication.g().getPackageName(), (int) R.layout.notify_item);
+        notification.contentView = new RemoteViews(TiebaApplication.h().getPackageName(), (int) R.layout.notify_item);
         notification.contentView.setProgressBar(R.id.progress, 100, 0, false);
         notification.contentIntent = activity;
         notification.flags = 32;
@@ -75,7 +74,7 @@ public class TiebaUpdateService extends Service {
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         boolean z;
-        bo.a(getClass().getName(), "onStart", "onStart");
+        com.baidu.adp.lib.g.e.a(getClass().getName(), "onStart", "onStart");
         if (!h) {
             h = true;
             if (intent != null && intent.getBooleanExtra("update", false)) {
@@ -84,7 +83,7 @@ public class TiebaUpdateService extends Service {
                 if (versionData != null) {
                     this.c.contentView.setTextViewText(R.id.info, String.format(getString(R.string.tieba_downloading), this.f.getNew_version()));
                     this.c.contentView.setTextViewText(R.id.schedule, "0/0");
-                    if (aa.d(this.f.getNew_file()) != null) {
+                    if (ad.d(this.f.getNew_file()) != null) {
                         this.k.sendMessageDelayed(this.k.obtainMessage(1, this.f), 100L);
                     } else if (this.e == null) {
                         this.e = new u(this, this.f);
@@ -107,7 +106,7 @@ public class TiebaUpdateService extends Service {
                     if (z) {
                         this.d.contentView.setTextViewText(R.id.info, getString(R.string.is_downloading));
                         this.d.contentView.setTextViewText(R.id.schedule, "0/0");
-                        if (aa.d(this.a) != null) {
+                        if (ad.d(this.a) != null) {
                             this.l.sendMessageDelayed(this.l.obtainMessage(2, this.f), 100L);
                         } else if (this.g == null) {
                             this.g = new v(this, this.i);

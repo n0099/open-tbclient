@@ -10,11 +10,12 @@ import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tieba.BaseFragmentActivity;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.util.UtilHelper;
+import com.baidu.tieba.util.ce;
 import com.baidu.tieba.view.HeadImageView;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class i extends BaseAdapter implements com.baidu.tieba.view.an {
+public class i extends BaseAdapter implements com.baidu.tieba.view.bb {
     private final Context b;
     private at c;
     private com.baidu.tieba.util.i d;
@@ -24,7 +25,7 @@ public class i extends BaseAdapter implements com.baidu.tieba.view.an {
     public i(Context context) {
         this.b = context;
         this.d = new com.baidu.tieba.util.i(context);
-        int a = com.baidu.adp.lib.h.g.a(context, 45.0f);
+        int a = com.baidu.adp.lib.g.g.a(context, 45.0f);
         this.d.a(a, a);
     }
 
@@ -50,28 +51,28 @@ public class i extends BaseAdapter implements com.baidu.tieba.view.an {
         int itemViewType = getItemViewType(i);
         if (view == null) {
             view = a(i, viewGroup, itemViewType);
-            com.baidu.tieba.util.bu.b(view);
+            ce.b(view);
         }
         if (itemViewType == 0) {
             if (this.c != null) {
                 ((TextView) view.findViewById(R.id.title)).setText(this.c.e());
             }
         } else if (itemViewType == 2) {
-            com.baidu.tieba.util.bu.a(view);
+            ce.a(view);
             a(viewGroup, (n) view.getTag(), i, "all");
         } else if (itemViewType == 1) {
-            com.baidu.tieba.util.bu.a(view);
+            ce.a(view);
             a(viewGroup, (n) view.getTag(), i, "normal");
         }
-        int an = TiebaApplication.g().an();
+        int al = TiebaApplication.h().al();
         BaseFragmentActivity baseFragmentActivity = (BaseFragmentActivity) this.b;
-        baseFragmentActivity.a().a(an == 1);
+        baseFragmentActivity.a().a(al == 1);
         baseFragmentActivity.a().a(view);
         if (itemViewType == 0) {
             View findViewById2 = view.findViewById(R.id.post_recommend_line_up);
             View findViewById3 = view.findViewById(R.id.post_recommend_line_down);
             if (findViewById2 != null && findViewById3 != null) {
-                if (an == 1) {
+                if (al == 1) {
                     findViewById2.setBackgroundColor(this.b.getResources().getColor(R.color.square_dividing_line_1));
                     findViewById3.setBackgroundColor(this.b.getResources().getColor(R.color.square_dividing_line_1));
                 } else {
@@ -80,7 +81,7 @@ public class i extends BaseAdapter implements com.baidu.tieba.view.an {
                 }
             }
         } else if (itemViewType == 1 && (findViewById = view.findViewById(R.id.bar_folder_item_bottom_line)) != null) {
-            if (an == 1) {
+            if (al == 1) {
                 findViewById.setBackgroundColor(this.b.getResources().getColor(R.color.square_dividing_line_1));
             } else {
                 findViewById.setBackgroundColor(this.b.getResources().getColor(R.color.square_dividing_line));
@@ -141,13 +142,7 @@ public class i extends BaseAdapter implements com.baidu.tieba.view.an {
         }
         if (asVar.e != null) {
             nVar.a.setTag(asVar.e);
-            com.baidu.adp.widget.ImageView.d d = this.d.d(asVar.e);
-            if (d != null) {
-                nVar.a.setImageBitmap(d.h());
-                nVar.a.invalidate();
-                return;
-            }
-            this.d.a(asVar.e, new k(this, viewGroup));
+            this.d.b(asVar.e, new k(this, viewGroup));
         }
     }
 
@@ -181,19 +176,19 @@ public class i extends BaseAdapter implements com.baidu.tieba.view.an {
         return this.b;
     }
 
-    @Override // com.baidu.tieba.view.an
+    @Override // com.baidu.tieba.view.bb
     public void d() {
         this.d.d();
     }
 
-    @Override // com.baidu.tieba.view.an
+    @Override // com.baidu.tieba.view.bb
     public void a(View view, int i, int i2) {
         while (i <= i2) {
             if (getItemViewType(i) == 1) {
                 this.d.a();
                 as asVar = this.c.d().get(i - 1);
                 if (asVar.e != null && this.d.d(asVar.e) == null) {
-                    this.d.a(asVar.e, new m(this, view));
+                    this.d.b(asVar.e, new m(this, view));
                 }
             }
             i++;

@@ -1,6 +1,5 @@
 package com.baidu.tieba.data;
 
-import com.baidu.tieba.util.bo;
 import java.util.ArrayList;
 import java.util.HashMap;
 import org.json.JSONArray;
@@ -18,7 +17,7 @@ public class x {
                         this.b = new HashMap<>();
                     }
                 } catch (Exception e) {
-                    bo.b("FriendData", "parserFreindJson", "error = " + e.getMessage());
+                    com.baidu.adp.lib.g.e.b("FriendData", "parserFreindJson", "error = " + e.getMessage());
                     return;
                 }
             }
@@ -42,7 +41,7 @@ public class x {
         try {
             a(new JSONObject(str), true);
         } catch (Exception e) {
-            bo.b("FriendData", "parserFreindJson", "error = " + e.getMessage());
+            com.baidu.adp.lib.g.e.b("FriendData", "parserFreindJson", "error = " + e.getMessage());
         }
     }
 

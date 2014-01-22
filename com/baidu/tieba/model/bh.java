@@ -7,7 +7,7 @@ import com.baidu.tieba.data.MarkData;
 /* loaded from: classes.dex */
 public class bh extends BdAsyncTask<Boolean, Integer, Boolean> {
     final /* synthetic */ bg a;
-    private com.baidu.tieba.util.at b = null;
+    private com.baidu.tieba.util.ax b = null;
     private boolean c;
     private com.baidu.tieba.data.ba d;
 
@@ -32,23 +32,23 @@ public class bh extends BdAsyncTask<Boolean, Integer, Boolean> {
         MarkData markData2;
         MarkData markData3;
         if (this.c) {
-            this.b = new com.baidu.tieba.util.at(com.baidu.tieba.data.h.a + "c/c/post/addstore");
+            this.b = new com.baidu.tieba.util.ax(com.baidu.tieba.data.h.a + "c/c/post/addstore");
             o oVar = new o();
             markData3 = this.a.b;
             oVar.a(markData3);
             this.b.a("data", oVar.a(0, 1));
         } else {
-            this.b = new com.baidu.tieba.util.at(com.baidu.tieba.data.h.a + "c/c/post/rmstore");
-            com.baidu.tieba.util.at atVar = this.b;
+            this.b = new com.baidu.tieba.util.ax(com.baidu.tieba.data.h.a + "c/c/post/rmstore");
+            com.baidu.tieba.util.ax axVar = this.b;
             markData = this.a.b;
-            atVar.a(PushConstants.EXTRA_USER_ID, markData.getAccount());
-            com.baidu.tieba.util.at atVar2 = this.b;
+            axVar.a(PushConstants.EXTRA_USER_ID, markData.getAccount());
+            com.baidu.tieba.util.ax axVar2 = this.b;
             markData2 = this.a.b;
-            atVar2.a("tid", markData2.getId());
+            axVar2.a("tid", markData2.getId());
         }
-        this.d.a(this.b.l());
+        this.d.a(this.b.m());
         boolean z = this.d.a() == 0;
-        if (this.b.c() && z) {
+        if (this.b.d() && z) {
             return true;
         }
         return false;
@@ -58,7 +58,7 @@ public class bh extends BdAsyncTask<Boolean, Integer, Boolean> {
     public void cancel() {
         super.cancel(true);
         if (this.b != null) {
-            this.b.j();
+            this.b.k();
         }
         this.a.c = null;
     }
@@ -81,12 +81,12 @@ public class bh extends BdAsyncTask<Boolean, Integer, Boolean> {
         } else {
             biVar = this.a.d;
             if (biVar != null) {
-                if (this.b == null || this.b.c()) {
+                if (this.b == null || this.b.d()) {
                     biVar2 = this.a.d;
                     biVar2.a(false, this.c, this.d.b());
                 } else {
                     biVar3 = this.a.d;
-                    biVar3.a(false, this.c, this.b.i());
+                    biVar3.a(false, this.c, this.b.j());
                 }
             }
         }

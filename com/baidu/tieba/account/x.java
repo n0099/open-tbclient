@@ -11,6 +11,7 @@ import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import com.baidu.tieba.data.AccountData;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
@@ -108,7 +109,7 @@ public class x {
             attributes.width = -1;
             attributes.height = -1;
             this.b.getWindow().setAttributes(attributes);
-            this.j.ShowSoftKeyPadDelay(this.c, 150);
+            this.j.ShowSoftKeyPadDelay(this.c, SocialAPIErrorCodes.ERROR_AUTHORIZATION_CANCELED);
             this.c.requestFocus();
         }
     }

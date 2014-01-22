@@ -8,15 +8,14 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
-import com.baidu.adp.lib.h.g;
+import com.baidu.adp.lib.g.g;
 import com.baidu.cloudsdk.social.core.MediaType;
 import com.baidu.cloudsdk.social.share.ShareContent;
-import com.baidu.mobstat.StatService;
-import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.h;
 import com.baidu.tieba.im.chat.LocalViewSize;
 import com.baidu.tieba.j;
-import com.baidu.tieba.util.aa;
+import com.baidu.tieba.util.ad;
+import com.baidu.tieba.util.by;
 import com.slidingmenu.lib.R;
 import java.text.MessageFormat;
 import java.util.HashMap;
@@ -52,7 +51,7 @@ public class GroupCardActivity extends j implements View.OnClickListener {
     }
 
     public boolean a() {
-        if (aa.a()) {
+        if (ad.a()) {
             return true;
         }
         this.d.a(0, getString(R.string.voice_error_sdcard));
@@ -71,17 +70,13 @@ public class GroupCardActivity extends j implements View.OnClickListener {
         super.onClick(view);
         if (view == this.d.g()) {
             if (a() && this.i != null) {
-                if (TiebaApplication.g().s()) {
-                    StatService.onEvent(this, "group_card_save", "click", 1);
-                }
+                by.a(this, "group_card_save", "click", 1, new Object[0]);
                 this.e.a(this.i);
             }
         } else if (view == this.d.i()) {
             finish();
         } else if (view == this.d.h()) {
-            if (TiebaApplication.g().s()) {
-                StatService.onEvent(this, "group_card_share", "click", 1);
-            }
+            by.a(this, "group_card_share", "click", 1, new Object[0]);
             b();
         }
     }
@@ -113,7 +108,7 @@ public class GroupCardActivity extends j implements View.OnClickListener {
             } else if (this.h.startsWith("http")) {
                 shareContent.setImageUri(Uri.parse(this.h));
             } else {
-                shareContent.setImageData(aa.c(null, "tieba_group_image"));
+                shareContent.setImageData(ad.c(null, "tieba_group_image"));
             }
         } catch (Throwable th) {
         }

@@ -1,8 +1,5 @@
 package protobuf;
 
-import com.baidu.cloudsdk.common.imgloader.ImageManager;
-import com.baidu.zeus.NotificationProxy;
-import com.baidu.zeus.bouncycastle.DERTags;
 import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.CodedOutputStream;
 import com.google.protobuf.ExtensionRegistryLite;
@@ -129,20 +126,20 @@ public final class ag extends GeneratedMessageLite.Builder<Im.UserInfo, ag> impl
             i2 |= 64;
         }
         userInfo.lng_ = this.h;
-        if ((i & DERTags.TAGGED) == 128) {
-            i2 |= DERTags.TAGGED;
+        if ((i & 128) == 128) {
+            i2 |= 128;
         }
         userInfo.lat_ = this.i;
         if ((i & 256) == 256) {
             i2 |= 256;
         }
         userInfo.inTime_ = this.j;
-        if ((i & ImageManager.DEFAULT_MAX_CACHEABLE_SIZE) == 512) {
-            i2 |= ImageManager.DEFAULT_MAX_CACHEABLE_SIZE;
+        if ((i & 512) == 512) {
+            i2 |= 512;
         }
         userInfo.loginTime_ = this.k;
-        if ((i & NotificationProxy.MAX_URL_LENGTH) == 1024) {
-            i2 |= NotificationProxy.MAX_URL_LENGTH;
+        if ((i & 1024) == 1024) {
+            i2 |= 1024;
         }
         userInfo.lastReplyTime_ = this.l;
         if ((i & 2048) == 2048) {
@@ -299,7 +296,7 @@ public final class ag extends GeneratedMessageLite.Builder<Im.UserInfo, ag> impl
     }
 
     public ag b(double d) {
-        this.a |= DERTags.TAGGED;
+        this.a |= 128;
         this.i = d;
         return this;
     }
@@ -311,13 +308,13 @@ public final class ag extends GeneratedMessageLite.Builder<Im.UserInfo, ag> impl
     }
 
     public ag d(int i) {
-        this.a |= ImageManager.DEFAULT_MAX_CACHEABLE_SIZE;
+        this.a |= 512;
         this.k = i;
         return this;
     }
 
     public ag e(int i) {
-        this.a |= NotificationProxy.MAX_URL_LENGTH;
+        this.a |= 1024;
         this.l = i;
         return this;
     }

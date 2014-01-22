@@ -1,6 +1,5 @@
 package com.baidu.tieba.data;
 
-import com.baidu.tieba.util.bo;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class z {
@@ -87,7 +86,7 @@ public class z {
                     this.j = optJSONObject3.optInt("height", 0);
                 }
             } catch (Exception e) {
-                bo.b("FrsStarData", "parserJson", "error = " + e.getMessage());
+                com.baidu.adp.lib.g.e.b("FrsStarData", "parserJson", "error = " + e.getMessage());
             }
         }
     }

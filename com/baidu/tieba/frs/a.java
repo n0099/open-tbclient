@@ -26,7 +26,7 @@ public class a {
                 this.b = jSONObject.optString("badge_url", "");
                 this.c = jSONObject.optString("webview");
             } catch (Exception e) {
-                com.baidu.tieba.util.bo.b("BadgeData", "parserJson", "error = " + e.getMessage());
+                com.baidu.adp.lib.g.e.b("BadgeData", "parserJson", "error = " + e.getMessage());
             }
         }
     }

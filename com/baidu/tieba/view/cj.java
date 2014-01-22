@@ -1,12 +1,21 @@
 package com.baidu.tieba.view;
 
-import android.widget.ListView;
-import com.baidu.tbadk.widget.TbImageView;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public interface cj {
-    com.baidu.adp.lib.d.b<TbImageView> G();
+public class cj implements View.OnClickListener {
+    final /* synthetic */ TbCheckBox a;
 
-    int a();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public cj(TbCheckBox tbCheckBox) {
+        this.a = tbCheckBox;
+    }
 
-    ListView c();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        boolean d;
+        TbCheckBox tbCheckBox = this.a;
+        d = this.a.d();
+        tbCheckBox.setChecked(!d);
+    }
 }

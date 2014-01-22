@@ -3,8 +3,9 @@ package com.baidu.mobstat;
 import android.content.Context;
 import android.os.Handler;
 import android.os.HandlerThread;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class c {
+public class c {
     private static Handler b;
     private static HandlerThread a = new HandlerThread("EventHandleThread");
     private static c c = new c();

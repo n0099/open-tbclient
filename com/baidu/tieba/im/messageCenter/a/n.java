@@ -1,17 +1,17 @@
 package com.baidu.tieba.im.messageCenter.a;
 
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.im.message.bn;
+import com.baidu.tieba.im.message.bx;
 /* loaded from: classes.dex */
 public class n extends com.baidu.tieba.im.messageCenter.a {
     @Override // com.baidu.tieba.im.messageCenter.a
-    public com.baidu.tieba.im.message.o a(com.baidu.tieba.im.message.o oVar, com.baidu.tieba.im.coder.d dVar) {
-        if (oVar != null && (oVar instanceof bn)) {
-            bn bnVar = (bn) oVar;
-            if (!bnVar.i() && (bnVar.a() == null || bnVar.a().getOffset() == 0)) {
+    public com.baidu.tieba.im.message.q a(com.baidu.tieba.im.message.q qVar, com.baidu.tieba.im.coder.d dVar) {
+        if (qVar != null && (qVar instanceof bx)) {
+            bx bxVar = (bx) qVar;
+            if (!bxVar.k() && (bxVar.a() == null || bxVar.a().getOffset() == 0)) {
                 String str = "";
-                if (TiebaApplication.F() != null) {
-                    str = TiebaApplication.F().getID();
+                if (TiebaApplication.E() != null) {
+                    str = TiebaApplication.E().getID();
                 }
                 l.a(com.baidu.tieba.b.a.a().r(), "p_nearby_group_info" + str, dVar);
             }

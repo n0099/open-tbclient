@@ -1,7 +1,6 @@
 package com.baidu.tieba.flist;
 
 import android.os.Handler;
-import com.baidu.tieba.util.bo;
 /* loaded from: classes.dex */
 class h implements f {
     final /* synthetic */ ForumListActivity a;
@@ -17,16 +16,16 @@ class h implements f {
         Runnable runnable;
         Handler handler2;
         Runnable runnable2;
-        bo.e("ForumListActivity", "callback", "start");
+        com.baidu.adp.lib.g.e.e("ForumListActivity", "callback", "start");
         if (!z || i != 0) {
-            bo.e("ForumListActivity", "callback", "dir menu not ok");
+            com.baidu.adp.lib.g.e.e("ForumListActivity", "callback", "dir menu not ok");
             if (!z2) {
                 this.a.c.d();
                 return;
             }
             return;
         }
-        bo.e("ForumListActivity", "callback", "dir menu ok");
+        com.baidu.adp.lib.g.e.e("ForumListActivity", "callback", "dir menu ok");
         zVar.e.add(0, zVar);
         if (this.a.c.x != null) {
             this.a.c.x.a(zVar);

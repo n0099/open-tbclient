@@ -8,7 +8,7 @@ import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ap extends BdAsyncTask<String, Integer, Bitmap> {
-    com.baidu.tieba.util.at a;
+    com.baidu.tieba.util.ax a;
     final /* synthetic */ LoginActivity b;
     private volatile boolean c;
 
@@ -27,7 +27,7 @@ public class ap extends BdAsyncTask<String, Integer, Bitmap> {
     public void cancel() {
         this.b.O = null;
         if (this.a != null) {
-            this.a.j();
+            this.a.k();
             this.a = null;
         }
         this.c = true;
@@ -50,8 +50,8 @@ public class ap extends BdAsyncTask<String, Integer, Bitmap> {
         if (str == null || str.length() <= 0 || this.c) {
             return null;
         }
-        this.a = new com.baidu.tieba.util.at(str);
-        return com.baidu.tieba.util.m.a(this.a.k());
+        this.a = new com.baidu.tieba.util.ax(str);
+        return com.baidu.tieba.util.n.a(this.a.l());
     }
 
     /* JADX DEBUG: Method merged with bridge method */

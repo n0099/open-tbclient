@@ -3,6 +3,7 @@ package com.baidu.tieba.model;
 import android.content.Context;
 import android.graphics.Bitmap;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -21,7 +22,7 @@ public class bd extends BdAsyncTask<String, com.baidu.tieba.data.ah, Boolean> {
         ArrayList arrayList;
         Context context;
         Context context2;
-        com.baidu.tieba.util.bn a = com.baidu.tieba.util.bn.a();
+        com.baidu.tieba.util.bx a = com.baidu.tieba.util.bx.a();
         arrayList = this.a.b;
         Iterator it = arrayList.iterator();
         boolean z = true;
@@ -32,7 +33,7 @@ public class bd extends BdAsyncTask<String, com.baidu.tieba.data.ah, Boolean> {
                     context = this.a.c;
                     com.baidu.tieba.motu_gallery.b.a(context, ahVar.d, a.e(), a.e());
                     context2 = this.a.c;
-                    Bitmap a2 = com.baidu.tieba.motu_gallery.b.a(context2, ahVar.d, 150, 150);
+                    Bitmap a2 = com.baidu.tieba.motu_gallery.b.a(context2, ahVar.d, SocialAPIErrorCodes.ERROR_AUTHORIZATION_CANCELED, SocialAPIErrorCodes.ERROR_AUTHORIZATION_CANCELED);
                     if (a2 != null) {
                         ahVar.e = a2;
                     }

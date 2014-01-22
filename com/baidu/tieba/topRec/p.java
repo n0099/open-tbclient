@@ -2,8 +2,8 @@ package com.baidu.tieba.topRec;
 
 import android.app.Activity;
 import android.view.View;
+import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.bo;
 /* loaded from: classes.dex */
 public class p {
     Activity a;
@@ -22,13 +22,13 @@ public class p {
     }
 
     public void a(View view) {
-        if (!a() && TiebaApplication.g().an() == 0) {
+        if (!a() && TiebaApplication.h().al() == 0) {
             com.baidu.adp.lib.guide.g gVar = new com.baidu.adp.lib.guide.g();
-            gVar.a(view).a(150).b(true);
+            gVar.a(view).a(SocialAPIErrorCodes.ERROR_AUTHORIZATION_CANCELED).b(true);
             q qVar = new q(this);
             gVar.a(qVar).a(new r(this));
             gVar.a().a(this.a);
-            bo.e("TOPRECTipCover", "show", "done");
+            com.baidu.adp.lib.g.e.e("TOPRECTipCover", "show", "done");
             b();
         }
     }

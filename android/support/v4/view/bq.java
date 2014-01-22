@@ -1,9 +1,9 @@
 package android.support.v4.view;
 /* loaded from: classes.dex */
 public interface bq {
-    void onPageScrollStateChanged(int i);
+    void a(int i, float f, int i2);
 
-    void onPageScrolled(int i, float f, int i2);
+    void a_(int i);
 
-    void onPageSelected(int i);
+    void b(int i);
 }

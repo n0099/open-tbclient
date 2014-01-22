@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Handler;
 import android.util.Log;
 import com.baidu.location.LocationClientOption;
+import com.baidu.tieba.util.by;
 import com.baidu.tieba.voice.VoiceManager;
 import com.baidu.tieba.voice.service.MediaService;
 import com.slidingmenu.lib.R;
@@ -46,8 +47,11 @@ public class ab extends BroadcastReceiver {
         VoiceManager.VoiceModel voiceModel12;
         Handler handler4;
         VoiceManager.VoiceModel voiceModel13;
-        ad m5;
         VoiceManager.VoiceModel voiceModel14;
+        VoiceManager.VoiceModel voiceModel15;
+        VoiceManager.VoiceModel voiceModel16;
+        ad m5;
+        VoiceManager.VoiceModel voiceModel17;
         Handler handler5;
         Runnable runnable;
         voiceModel = this.a.v;
@@ -65,15 +69,23 @@ public class ab extends BroadcastReceiver {
                             handler5.removeCallbacks(runnable);
                         }
                         try {
-                            voiceModel13 = this.a.v;
-                            voiceModel13.voice_status = 3;
+                            voiceModel16 = this.a.v;
+                            voiceModel16.voice_status = 3;
                             m5 = this.a.m();
                             if (m5 != null) {
-                                voiceModel14 = this.a.v;
-                                m5.a(voiceModel14);
+                                voiceModel17 = this.a.v;
+                                m5.a(voiceModel17);
                             }
                         } catch (Exception e) {
-                            e.printStackTrace();
+                            com.baidu.tieba.util.ac acVar = new com.baidu.tieba.util.ac();
+                            voiceModel13 = this.a.v;
+                            if (voiceModel13 != null) {
+                                voiceModel14 = this.a.v;
+                                acVar.a("id", voiceModel14.getId());
+                                voiceModel15 = this.a.v;
+                                acVar.a("from", voiceModel15.from);
+                            }
+                            by.b("", -1112, "mVoicePlayerReceiver.onReceive exception: " + e.getMessage(), acVar.toString());
                         }
                     }
                 }
@@ -103,9 +115,9 @@ public class ab extends BroadcastReceiver {
                     this.a.v = null;
                     z2 = this.a.M;
                     if (z2 && m3 != null) {
-                        VoiceManager.VoiceModel voiceModel15 = m3.getVoiceModel();
-                        if (voiceModel15 != null) {
-                            voiceModel15.curr_time = intent.getIntExtra("com.baidu.msg.curr_time", 0);
+                        VoiceManager.VoiceModel voiceModel18 = m3.getVoiceModel();
+                        if (voiceModel18 != null) {
+                            voiceModel18.curr_time = intent.getIntExtra("com.baidu.msg.curr_time", 0);
                         }
                         handler = this.a.p;
                         if (handler != null) {
@@ -149,7 +161,7 @@ public class ab extends BroadcastReceiver {
                     } else {
                         a = ak.a(R.string.voice_err_play);
                     }
-                    m.b(5, a);
+                    m.a(5, a);
                 }
                 voiceModel2 = this.a.v;
                 if (voiceModel2 != null) {

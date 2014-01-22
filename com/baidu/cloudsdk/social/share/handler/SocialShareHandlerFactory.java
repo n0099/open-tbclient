@@ -2,6 +2,11 @@ package com.baidu.cloudsdk.social.share.handler;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.ab;
+import com.ae;
+import com.ag;
+import com.an;
+import com.ao;
 import com.baidu.cloudsdk.common.util.Validator;
 import com.baidu.cloudsdk.social.core.MediaType;
 import com.baidu.cloudsdk.social.core.SocialConfig;
@@ -26,24 +31,24 @@ public class SocialShareHandlerFactory {
         MediaType fromString = MediaType.fromString(str);
         switch (fromString) {
             case WEIXIN:
-                return new ap(this.a, this.d);
+                return new an(this.a, this.d);
             case WEIXIN_FRIEND:
             case WEIXIN_TIMELINE:
                 if (TextUtils.isEmpty(this.c)) {
                     throw new IllegalArgumentException("no client_id provided for weixin");
                 }
-                return new aq(this.a, this.c, fromString == MediaType.WEIXIN_TIMELINE);
+                return new ao(this.a, this.c, fromString == MediaType.WEIXIN_TIMELINE);
             case QQFRIEND:
             case SMS:
             case EMAIL:
             case OTHERS:
-                return new ai(this.a, str);
+                return new ag(this.a, str);
             case BATCHSHARE:
                 return new CloudBatchShareHandler(this.a, this.b, null);
             case COPYLINK:
-                return new ag(this.a);
+                return new ae(this.a);
             default:
-                return new ae(this.a, this.b, fromString);
+                return new ab(this.a, this.b, fromString);
         }
     }
 }

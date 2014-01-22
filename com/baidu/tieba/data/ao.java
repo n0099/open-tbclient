@@ -1,8 +1,6 @@
 package com.baidu.tieba.data;
 
 import android.content.Context;
-import com.baidu.tieba.util.bo;
-import com.baidu.zeus.Headers;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import org.json.JSONArray;
@@ -112,7 +110,7 @@ public class ao {
         try {
             a(new JSONObject(str), context);
         } catch (Exception e) {
-            bo.b("PbData", "parserJson", "error = " + e.getMessage());
+            com.baidu.adp.lib.g.e.b("PbData", "parserJson", "error = " + e.getMessage());
         }
     }
 
@@ -120,7 +118,7 @@ public class ao {
         try {
             a(new JSONObject(str));
         } catch (Exception e) {
-            bo.b("PbData", "parserJson", "error = " + e.getMessage());
+            com.baidu.adp.lib.g.e.b("PbData", "parserJson", "error = " + e.getMessage());
         }
     }
 
@@ -144,12 +142,12 @@ public class ao {
                 }
                 this.d.a(jSONObject.optJSONObject("page"));
                 this.e.parserJson(jSONObject.optJSONObject("anti"));
-                this.f.a(jSONObject.optJSONObject(Headers.LOCATION));
+                this.f.a(jSONObject.optJSONObject("location"));
                 this.g = jSONObject.optInt("has_floor") == 1;
                 this.h = jSONObject.optJSONObject("user").optInt("is_manager", 0);
                 this.j.parserJson(jSONObject.optJSONObject("user"));
             } catch (Exception e) {
-                bo.b("PbData", "parserJson", "error = " + e.getMessage());
+                com.baidu.adp.lib.g.e.b("PbData", "parserJson", "error = " + e.getMessage());
             }
         }
     }

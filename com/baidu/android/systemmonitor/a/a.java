@@ -12,7 +12,6 @@ import com.baidu.android.nebula.util.BDLocationManager;
 import com.baidu.android.systemmonitor.devicestatistic.a.f;
 import com.baidu.android.systemmonitor.freqstatistic.e;
 import com.baidu.android.systemmonitor.freqstatistic.k;
-import com.baidu.zeus.Headers;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -203,7 +202,7 @@ public final class a {
             jSONObject.put("basebandversion", com.baidu.android.systemmonitor.c.d.h());
             jSONObject.put("kernelversion", com.baidu.android.systemmonitor.c.d.g());
             jSONObject.put("operator", com.baidu.android.systemmonitor.c.d.d(this.b));
-            jSONObject.put(Headers.LOCATION, BDLocationManager.c(this.b.getApplicationContext()));
+            jSONObject.put("location", BDLocationManager.c(this.b.getApplicationContext()));
             jSONObject.put("nettype", String.valueOf(com.baidu.android.systemmonitor.c.d.b(this.b)));
             jSONObject.put("ip", com.baidu.android.systemmonitor.c.d.d());
         } catch (JSONException e3) {
@@ -260,7 +259,7 @@ public final class a {
                 jSONObject.put("startlevel", String.valueOf(((com.baidu.android.systemmonitor.devicestatistic.a.e) fVar).b));
                 jSONObject.put("stoplevel", String.valueOf(((com.baidu.android.systemmonitor.devicestatistic.a.e) fVar).c));
                 jSONObject.put("nettype", String.valueOf(((com.baidu.android.systemmonitor.devicestatistic.a.e) fVar).d));
-                jSONObject.put(Headers.LOCATION, ((com.baidu.android.systemmonitor.devicestatistic.a.e) fVar).a);
+                jSONObject.put("location", ((com.baidu.android.systemmonitor.devicestatistic.a.e) fVar).a);
                 jSONArray.put(jSONObject);
             }
         } catch (Exception e) {

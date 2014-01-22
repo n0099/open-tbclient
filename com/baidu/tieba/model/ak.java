@@ -15,26 +15,31 @@ public class ak {
     private AntiData c;
     private com.baidu.tieba.data.an d;
     private com.baidu.tieba.data.z e;
-    private UserData f;
-    private com.baidu.tieba.data.c g;
-    private int h = 0;
-    private com.baidu.tieba.frs.af i = null;
-    private com.baidu.tieba.frs.ae j = null;
-    private boolean k = false;
-    private ao l = null;
-    private al m = null;
-    private boolean n = false;
+    private boolean f;
+    private UserData g;
+    private com.baidu.tieba.data.c h;
+    private int i = 0;
+    private com.baidu.tieba.frs.ab j = null;
+    private com.baidu.tieba.frs.aa k = null;
+    private boolean l = false;
+    private ao m = null;
+    private al n = null;
+    private boolean o = false;
 
-    public ak() {
-        k();
+    public boolean a() {
+        return this.f;
     }
 
-    private void k() {
+    public ak() {
+        l();
+    }
+
+    private void l() {
         this.a = new ForumData();
         this.b = new ArrayList<>();
         this.d = new com.baidu.tieba.data.an();
         this.e = new com.baidu.tieba.data.z();
-        this.f = new UserData();
+        this.g = new UserData();
         a(new AntiData());
         a(new com.baidu.tieba.data.c());
     }
@@ -51,40 +56,40 @@ public class ak {
         this.a.setSignData(signData);
     }
 
-    public ForumData a() {
+    public ForumData b() {
         return this.a;
     }
 
-    public ArrayList<com.baidu.tieba.data.bb> b() {
+    public ArrayList<com.baidu.tieba.data.bb> c() {
         return this.b;
     }
 
-    public UserData c() {
-        return this.f;
+    public UserData d() {
+        return this.g;
     }
 
     public void a(AntiData antiData) {
         this.c = antiData;
     }
 
-    public AntiData d() {
+    public AntiData e() {
         return this.c;
     }
 
-    public com.baidu.tieba.data.an e() {
+    public com.baidu.tieba.data.an f() {
         return this.d;
     }
 
-    public com.baidu.tieba.data.z f() {
+    public com.baidu.tieba.data.z g() {
         return this.e;
     }
 
     public void a(boolean z) {
-        this.k = z;
+        this.l = z;
     }
 
-    public boolean g() {
-        return this.k;
+    public boolean h() {
+        return this.l;
     }
 
     public void a(String str) {
@@ -97,8 +102,9 @@ public class ak {
     public void a(JSONObject jSONObject) {
         try {
             a(jSONObject.optInt("is_new_url", 0));
+            this.f = jSONObject.optInt("fortune_bag", 0) == 1;
             JSONObject optJSONObject = jSONObject.optJSONObject("forum");
-            k();
+            l();
             this.a.parserJson(optJSONObject);
             JSONArray optJSONArray = jSONObject.optJSONArray("thread_list");
             if (optJSONArray != null) {
@@ -110,45 +116,45 @@ public class ak {
                 }
             }
             this.c.parserJson(jSONObject.optJSONObject("anti"));
-            this.g.a(jSONObject.optJSONObject("group"));
+            this.h.a(jSONObject.optJSONObject("group"));
             this.d.a(jSONObject.optJSONObject("page"));
             this.e.a(jSONObject.optJSONObject("frs_star"));
             this.e.j().a(optJSONObject.optJSONObject("superboy"));
-            this.f.parserJson(jSONObject.optJSONObject("user"));
+            this.g.parserJson(jSONObject.optJSONObject("user"));
         } catch (Exception e) {
         }
     }
 
     public void a(String str, ArrayList<BasicNameValuePair> arrayList, int i, boolean z, String str2) {
-        if (this.l != null) {
-            this.l.cancel();
-            this.l = null;
+        if (this.m != null) {
+            this.m.cancel();
+            this.m = null;
         }
-        this.n = z;
-        this.l = new ao(this, str, arrayList, i, str2);
-        this.l.setPriority(3);
-        this.l.execute(str, arrayList);
+        this.o = z;
+        this.m = new ao(this, str, arrayList, i, str2);
+        this.m.setPriority(3);
+        this.m.execute(str, arrayList);
     }
 
     public void b(String str) {
-        if (this.m != null) {
-            this.m.cancel();
-            this.m = null;
+        if (this.n != null) {
+            this.n.cancel();
+            this.n = null;
         }
-        ForumData a = a();
-        this.m = new al(this, a.getId(), a.getName(), str);
-        this.m.setPriority(2);
-        this.m.execute(com.baidu.tieba.data.h.a + "c/c/user/fansno");
+        ForumData b = b();
+        this.n = new al(this, b.getId(), b.getName(), str);
+        this.n.setPriority(2);
+        this.n.execute(com.baidu.tieba.data.h.a + "c/c/user/fansno");
     }
 
-    public void h() {
-        if (this.l != null) {
-            this.l.cancel();
-            this.l = null;
-        }
+    public void i() {
         if (this.m != null) {
             this.m.cancel();
             this.m = null;
+        }
+        if (this.n != null) {
+            this.n.cancel();
+            this.n = null;
         }
     }
 
@@ -162,27 +168,27 @@ public class ak {
         a(agVar);
     }
 
-    public void a(com.baidu.tieba.frs.af afVar) {
-        this.i = afVar;
+    public void a(com.baidu.tieba.frs.ab abVar) {
+        this.j = abVar;
     }
 
-    public void a(com.baidu.tieba.frs.ae aeVar) {
-        this.j = aeVar;
+    public void a(com.baidu.tieba.frs.aa aaVar) {
+        this.k = aaVar;
     }
 
-    public int i() {
-        return this.h;
+    public int j() {
+        return this.i;
     }
 
     public void a(int i) {
-        this.h = i;
+        this.i = i;
     }
 
-    public com.baidu.tieba.data.c j() {
-        return this.g;
+    public com.baidu.tieba.data.c k() {
+        return this.h;
     }
 
     public void a(com.baidu.tieba.data.c cVar) {
-        this.g = cVar;
+        this.h = cVar;
     }
 }

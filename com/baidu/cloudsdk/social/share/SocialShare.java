@@ -5,19 +5,24 @@ import android.view.View;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.cloudsdk.BaiduException;
 import com.baidu.cloudsdk.IBaiduListener;
+import com.baidu.cloudsdk.common.imgloader.ImageManager;
 import com.baidu.cloudsdk.common.util.Validator;
+import com.baidu.cloudsdk.social.core.SessionManager;
+import com.baidu.cloudsdk.social.core.SocialConfig;
 import com.baidu.cloudsdk.social.core.SocialWidget;
 import com.baidu.cloudsdk.social.core.WidgetStatisticsManager;
+import com.baidu.cloudsdk.social.oauth.SocialOAuthActivity;
 import com.baidu.cloudsdk.social.share.handler.CloudBatchShareHandler;
 import com.baidu.cloudsdk.social.share.handler.ISocialShareHandler;
 import com.baidu.cloudsdk.social.share.handler.SocialShareHandlerFactory;
 import com.baidu.cloudsdk.social.share.handler.SocialShareStatisticsManager;
-import com.baidu.cloudsdk.social.share.ui.ShareUIWidget;
+import com.baidu.cloudsdk.social.share.uiwithlayout.ShareUIWidget;
 /* loaded from: classes.dex */
 public class SocialShare extends SocialWidget {
     private static SocialShare a;
     private Theme b;
     private View c;
+    private ShareUIWidget d;
 
     /* loaded from: classes.dex */
     public enum Theme {
@@ -29,6 +34,18 @@ public class SocialShare extends SocialWidget {
     private SocialShare(Context context) {
         super(context);
         this.b = Theme.LIGHT;
+    }
+
+    public static void clean() {
+        if (a != null) {
+            SessionManager.clean();
+            SocialShareConfig.clean();
+            SocialConfig.clean();
+            ImageManager.clean();
+            SocialOAuthActivity.setListener(null);
+            a.mContext = null;
+            a = null;
+        }
     }
 
     public static SocialShare getInstance(Context context) {
@@ -44,9 +61,19 @@ public class SocialShare extends SocialWidget {
         return this.c;
     }
 
+    public Theme getTheme() {
+        return this.b;
+    }
+
     @Override // com.baidu.cloudsdk.social.core.SocialWidget
     protected WidgetStatisticsManager getWidgetStatisticsManager() {
         return SocialShareStatisticsManager.getInstance(this.mContext);
+    }
+
+    public void hide() {
+        if (this.d != null) {
+            this.d.hide();
+        }
     }
 
     public SocialShare setParentView(View view) {
@@ -93,6 +120,10 @@ public class SocialShare extends SocialWidget {
             throw new NullPointerException("no valid parent view specified");
         }
         this.b = theme;
-        ShareUIWidget.getInstance(getContext()).show(this.c, shareContent, theme, iBaiduListener, z);
+        if (this.d == null) {
+            this.d = new ShareUIWidget(this.mContext);
+        }
+        this.d.setContext(this.mContext);
+        this.d.show(this.c, shareContent, theme, iBaiduListener, z);
     }
 }

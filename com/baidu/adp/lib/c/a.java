@@ -5,11 +5,9 @@ import android.location.Address;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Handler;
-import com.baidu.browser.explorer.BdWebErrorView;
 import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
-import com.baidu.zeus.Headers;
 import java.lang.ref.SoftReference;
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
@@ -69,9 +67,9 @@ public class a {
 
     private void c() {
         try {
-            this.k = (LocationManager) this.o.getSystemService(Headers.LOCATION);
+            this.k = (LocationManager) this.o.getSystemService("location");
         } catch (Exception e) {
-            com.baidu.adp.lib.h.e.a(e.getMessage());
+            com.baidu.adp.lib.g.e.a(e.getMessage());
         }
         try {
             if (this.e) {
@@ -81,14 +79,14 @@ public class a {
                 locationClientOption.setProdName(this.h);
                 locationClientOption.setAddrType("all");
                 locationClientOption.setCoorType("bd09ll");
-                locationClientOption.setScanSpan(BdWebErrorView.ERROR_CODE_500);
+                locationClientOption.setScanSpan(500);
                 locationClientOption.disableCache(this.i);
                 this.f = new LocationClient(this.o);
                 this.f.registerLocationListener(this.g);
                 this.f.setLocOption(locationClientOption);
             }
         } catch (Exception e2) {
-            com.baidu.adp.lib.h.e.a(e2.getMessage());
+            com.baidu.adp.lib.g.e.a(e2.getMessage());
         }
     }
 
@@ -135,7 +133,7 @@ public class a {
             try {
                 this.k.removeUpdates(this.q);
             } catch (Exception e) {
-                com.baidu.adp.lib.h.e.a("error : " + e.getMessage());
+                com.baidu.adp.lib.g.e.a("error : " + e.getMessage());
             }
         }
         if (this.f != null && this.f.isStarted()) {

@@ -1,9 +1,9 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.mobstat.StatService;
-import com.baidu.tieba.TiebaApplication;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ba implements com.baidu.adp.widget.ScrollView.n {
+public class ba implements View.OnClickListener {
     final /* synthetic */ FrsImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,13 +11,15 @@ class ba implements com.baidu.adp.widget.ScrollView.n {
         this.a = frsImageActivity;
     }
 
-    @Override // com.baidu.adp.widget.ScrollView.n
-    public void a() {
-        if (TiebaApplication.g().s()) {
-            StatService.onEvent(this.a, "frs_pulldown", "frsclick", 1);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        int i;
+        int i2;
+        i = this.a.i;
+        if (i > 240) {
+            FrsImageActivity frsImageActivity = this.a;
+            i2 = this.a.i;
+            frsImageActivity.c(i2 - 240);
         }
-        this.a.q = null;
-        this.a.p = true;
-        this.a.c(1);
     }
 }

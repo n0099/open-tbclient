@@ -1,6 +1,7 @@
 package com.baidu.tieba.faceshop;
 
 import android.os.Handler;
+import android.view.View;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.LinearLayout;
@@ -10,7 +11,8 @@ import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.util.UtilHelper;
 import com.baidu.tieba.view.NavigationBar;
 import com.baidu.tieba.view.NoNetworkView;
-import com.baidu.tieba.view.bw;
+import com.baidu.tieba.view.br;
+import com.baidu.tieba.view.cm;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -23,7 +25,7 @@ public class bh {
     private BdListView f;
     private ay g;
     private NoNetworkView h;
-    private bw i;
+    private cm i;
     private bk j;
     private com.baidu.tieba.util.i k;
     private Handler l;
@@ -42,7 +44,7 @@ public class bh {
         this.e = this.d.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, jVar.getResources().getString(R.string.manage));
         this.h = (NoNetworkView) jVar.findViewById(R.id.view_no_network);
         this.f = (BdListView) jVar.findViewById(R.id.face_shop_list);
-        this.i = new bw(jVar);
+        this.i = new cm(jVar);
         this.g = new ay(jVar);
         this.j = new bk(this, jVar);
         this.f.setAdapter((ListAdapter) this.g);
@@ -102,12 +104,12 @@ public class bh {
         this.f.setOnSrollToBottomListener(rVar);
     }
 
-    public void a(com.baidu.tieba.view.bf bfVar) {
-        this.h.a(bfVar);
+    public void a(br brVar) {
+        this.h.a(brVar);
     }
 
-    public void b(com.baidu.tieba.view.bf bfVar) {
-        this.h.b(bfVar);
+    public void b(br brVar) {
+        this.h.b(brVar);
     }
 
     public void d() {
@@ -139,7 +141,7 @@ public class bh {
     /* JADX INFO: Access modifiers changed from: private */
     public void n() {
         if (this.m) {
-            com.baidu.tieba.util.ak.a(this.f, this.g.b(), 0, -1);
+            com.baidu.tieba.util.an.a(this.f, this.g.b(), 0, -1);
         }
     }
 
@@ -175,7 +177,7 @@ public class bh {
 
     public void a(int i) {
         this.b.getLayoutMode().a(i == 1);
-        this.b.getLayoutMode().a(this.c);
+        this.b.getLayoutMode().a((View) this.c);
         if (this.d != null) {
             this.d.c(i);
         }

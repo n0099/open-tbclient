@@ -1,6 +1,5 @@
 package com.baidu.adp.lib.webSocket;
 
-import com.baidu.zeus.NotificationProxy;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.InetSocketAddress;
@@ -24,7 +23,7 @@ class i implements g {
         this.a.setTcpNoDelay(amVar.d());
         this.b = this.a.getInputStream();
         this.c = this.a.getOutputStream();
-        this.d = new byte[NotificationProxy.MAX_URL_LENGTH];
+        this.d = new byte[1024];
     }
 
     @Override // com.baidu.adp.lib.webSocket.g
@@ -32,12 +31,12 @@ class i implements g {
         try {
             this.b.close();
         } catch (Exception e) {
-            com.baidu.adp.lib.h.e.a(e.getMessage());
+            com.baidu.adp.lib.g.e.a(e.getMessage());
         }
         try {
             this.c.close();
         } catch (Exception e2) {
-            com.baidu.adp.lib.h.e.a(e2.getMessage());
+            com.baidu.adp.lib.g.e.a(e2.getMessage());
         }
         if (this.a != null) {
             this.a.close();

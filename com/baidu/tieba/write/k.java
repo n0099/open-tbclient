@@ -10,8 +10,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.MetaData;
-import com.baidu.tieba.util.bl;
-import com.baidu.tieba.util.bo;
+import com.baidu.tieba.util.bs;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
@@ -35,7 +34,7 @@ public class k extends BaseAdapter {
                     try {
                         this.i.get(i2).setVisibility(8);
                     } catch (Exception e) {
-                        bo.b(getClass().getName(), "releaseProgressBar", e.getMessage());
+                        com.baidu.adp.lib.g.e.b(getClass().getName(), "releaseProgressBar", e.getMessage());
                     }
                     i = i2 + 1;
                 } else {
@@ -151,7 +150,7 @@ public class k extends BaseAdapter {
                             c.a(mVar.a);
                         } else {
                             mVar.a.setTag(portrait);
-                            mVar.a.setImageBitmap(com.baidu.tieba.util.m.a((int) R.drawable.photo));
+                            mVar.a.setImageBitmap(com.baidu.tieba.util.n.a((int) R.drawable.photo));
                         }
                         mVar.b.setText(this.d.get(i).getName_show());
                     }
@@ -162,13 +161,13 @@ public class k extends BaseAdapter {
                     mVar.b.setText(this.e.getString(R.string.load_more));
                     mVar.d.setVisibility(8);
                 }
-                int an = TiebaApplication.g().an();
-                if (an == 1) {
-                    bl.e(view, (int) R.drawable.list_selector_1);
+                int al = TiebaApplication.h().al();
+                if (al == 1) {
+                    bs.e(view, (int) R.drawable.list_selector_1);
                 } else {
-                    bl.e(view, (int) R.drawable.list_selector_divider1);
+                    bs.e(view, (int) R.drawable.list_selector_divider1);
                 }
-                if (an == 1) {
+                if (al == 1) {
                     mVar.b.setTextColor(-8153171);
                     mVar.c.setTextColor(-11446171);
                     if (mVar.e != null) {
@@ -182,7 +181,7 @@ public class k extends BaseAdapter {
                     }
                 }
             } catch (Exception e) {
-                com.baidu.adp.lib.h.e.a(e.getMessage());
+                com.baidu.adp.lib.g.e.a(e.getMessage());
             }
         }
         return view;

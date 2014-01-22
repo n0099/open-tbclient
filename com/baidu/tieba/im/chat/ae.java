@@ -1,21 +1,9 @@
 package com.baidu.tieba.im.chat;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
 /* loaded from: classes.dex */
-public class ae implements DialogInterface.OnClickListener {
-    final /* synthetic */ ac a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ae(ac acVar) {
-        this.a = acVar;
-    }
-
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        AlertDialog alertDialog;
-        alertDialog = this.a.o;
-        alertDialog.dismiss();
-    }
+public class ae {
+    public String a;
+    public CommonMsgPojo b;
+    public int c;
 }

@@ -4,8 +4,8 @@ import android.app.AlertDialog;
 import android.graphics.drawable.Drawable;
 import com.baidu.tieba.im.data.AddGroupInfoData;
 import com.baidu.tieba.im.message.GroupUpdateMessage;
-import com.baidu.tieba.im.message.ay;
-import com.baidu.tieba.im.message.y;
+import com.baidu.tieba.im.message.aa;
+import com.baidu.tieba.im.message.bg;
 import com.slidingmenu.lib.R;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -19,21 +19,21 @@ public class k implements com.baidu.tieba.im.messageCenter.g {
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(com.baidu.tieba.im.message.o oVar) {
+    public void a(com.baidu.tieba.im.message.q qVar) {
         boolean z;
-        if (oVar != null && oVar.u() == 103101) {
+        if (qVar != null && qVar.w() == 103101) {
             this.a.a(false);
-            if (!(oVar instanceof ay)) {
+            if (!(qVar instanceof bg)) {
                 this.a.showToast(R.string.group_create_fail);
                 return;
             }
-            ay ayVar = (ay) oVar;
-            if (ayVar.i()) {
-                this.a.a(ayVar.k(), ayVar.j());
+            bg bgVar = (bg) qVar;
+            if (bgVar.k()) {
+                this.a.a(bgVar.m(), bgVar.l());
                 return;
             }
-            y yVar = (y) ayVar.l();
-            AddGroupInfoData a = ayVar.a();
+            aa aaVar = (aa) bgVar.n();
+            AddGroupInfoData a = bgVar.a();
             if (a == null) {
                 this.a.showToast(R.string.group_create_fail);
                 return;
@@ -41,8 +41,8 @@ public class k implements com.baidu.tieba.im.messageCenter.g {
             int groupId = a.getGroupId();
             GroupUpdateMessage groupUpdateMessage = new GroupUpdateMessage();
             groupUpdateMessage.setGroupId(groupId);
-            groupUpdateMessage.setName(yVar.c());
-            groupUpdateMessage.setPortrait(yVar.e());
+            groupUpdateMessage.setName(aaVar.c());
+            groupUpdateMessage.setPortrait(aaVar.e());
             groupUpdateMessage.setLastMsgId(0L);
             groupUpdateMessage.setAuthorId(String.valueOf(a.getAuthorId()));
             List<GroupUpdateMessage> m = com.baidu.tieba.im.c.a.h().m();

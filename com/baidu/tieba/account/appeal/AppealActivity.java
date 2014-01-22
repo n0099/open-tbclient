@@ -8,6 +8,7 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.android.pushservice.PushConstants;
+import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
@@ -44,11 +45,11 @@ public class AppealActivity extends com.baidu.tieba.j {
         this.c = (TextView) findViewById(R.id.forbid_reason);
         this.d = (TextView) findViewById(R.id.appeal_reason);
         this.e = (TextView) findViewById(R.id.remain_text_count);
-        this.e.setText(String.valueOf(150));
+        this.e.setText(String.valueOf((int) SocialAPIErrorCodes.ERROR_AUTHORIZATION_CANCELED));
         this.d.setFocusable(true);
         this.d.setFocusableInTouchMode(true);
         this.d.requestFocus();
-        com.baidu.adp.lib.h.g.b(this, this.d);
+        com.baidu.adp.lib.g.g.b(this, this.d);
         this.d.addTextChangedListener(this.i);
         a();
     }

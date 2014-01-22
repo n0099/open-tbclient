@@ -1,7 +1,5 @@
 package protobuf.AddGroup;
 
-import com.baidu.cloudsdk.common.imgloader.ImageManager;
-import com.baidu.zeus.bouncycastle.DERTags;
 import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
@@ -112,16 +110,16 @@ public final class f extends GeneratedMessageLite.Builder<AddGroupReq.DataReq, f
             i2 |= 64;
         }
         dataReq.lng_ = this.h;
-        if ((i & DERTags.TAGGED) == 128) {
-            i2 |= DERTags.TAGGED;
+        if ((i & 128) == 128) {
+            i2 |= 128;
         }
         dataReq.lat_ = this.i;
         if ((i & 256) == 256) {
             i2 |= 256;
         }
         dataReq.groupType_ = this.j;
-        if ((i & ImageManager.DEFAULT_MAX_CACHEABLE_SIZE) == 512) {
-            i2 |= ImageManager.DEFAULT_MAX_CACHEABLE_SIZE;
+        if ((i & 512) == 512) {
+            i2 |= 512;
         }
         dataReq.flag_ = this.k;
         dataReq.bitField0_ = i2;
@@ -269,7 +267,7 @@ public final class f extends GeneratedMessageLite.Builder<AddGroupReq.DataReq, f
     }
 
     public f b(double d) {
-        this.a |= DERTags.TAGGED;
+        this.a |= 128;
         this.i = d;
         return this;
     }
@@ -281,7 +279,7 @@ public final class f extends GeneratedMessageLite.Builder<AddGroupReq.DataReq, f
     }
 
     public f c(int i) {
-        this.a |= ImageManager.DEFAULT_MAX_CACHEABLE_SIZE;
+        this.a |= 512;
         this.k = i;
         return this;
     }

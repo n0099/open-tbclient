@@ -43,7 +43,7 @@ public class i implements be {
         ArrayList arrayList;
         as asVar;
         c = this.a.c(str);
-        if (c == null || com.baidu.tieba.util.bm.c(c.getPassword())) {
+        if (c == null || com.baidu.tieba.util.bu.c(c.getPassword())) {
             i = this.a.f;
             arrayList = this.a.e;
             if (i < arrayList.size()) {

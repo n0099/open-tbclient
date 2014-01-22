@@ -1,21 +1,23 @@
 package com.baidu.tieba.im.chat;
+
+import android.view.View;
+import android.widget.Button;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i implements com.baidu.tieba.im.a<Boolean> {
-    final /* synthetic */ com.baidu.tieba.im.message.s a;
-    final /* synthetic */ a b;
+public class i implements View.OnClickListener {
+    final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public i(a aVar, com.baidu.tieba.im.message.s sVar) {
-        this.b = aVar;
-        this.a = sVar;
+    public i(a aVar) {
+        this.a = aVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    public void a(Boolean bool) {
-        this.a.f(System.currentTimeMillis());
-        com.baidu.tieba.im.messageCenter.e.a().a(this.a);
-        com.baidu.adp.lib.h.e.d("SHANG sendMessage to queue");
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Button button;
+        this.a.Q();
+        this.a.S();
+        button = this.a.s;
+        button.postDelayed(new j(this), 100L);
     }
 }

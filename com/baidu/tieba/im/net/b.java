@@ -6,8 +6,7 @@ import com.baidu.adp.lib.webSocket.m;
 import com.baidu.location.LocationClientOption;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.im.j;
-import com.baidu.tieba.log.i;
-import com.baidu.tieba.util.bo;
+import com.baidu.tieba.util.by;
 /* loaded from: classes.dex */
 public class b {
     private boolean a = false;
@@ -28,40 +27,40 @@ public class b {
             this.a = true;
             this.d.removeMessages(1);
             if (m.a().e()) {
-                com.baidu.adp.lib.h.e.d("启动重连策略失败，  WebSocketClient opened");
+                com.baidu.adp.lib.g.e.d("启动重连策略失败，  WebSocketClient opened");
                 b("in Opened");
                 return;
             }
             a();
-            com.baidu.adp.lib.h.e.d("启动重连策略");
+            com.baidu.adp.lib.g.e.d("启动重连策略");
             this.b = 0;
             if (this.c != null && this.c.length >= 1) {
-                bo.b("start reconnStrategy... the first will be delay" + this.c[0]);
+                com.baidu.adp.lib.g.e.c("start reconnStrategy... the first will be delay" + this.c[0]);
                 this.d.sendMessageDelayed(this.d.obtainMessage(1), this.c[0] * LocationClientOption.MIN_SCAN_SPAN);
                 return;
             }
-            bo.b("don't have reconnStrategy!");
+            com.baidu.adp.lib.g.e.c("don't have reconnStrategy!");
             return;
         }
-        com.baidu.adp.lib.h.e.d("重连策略正在运行中， 再次启动无效");
-        com.baidu.tieba.log.a.b(i.a(str, "ReConnStrategy:start", "in Running,so failed"));
+        com.baidu.adp.lib.g.e.d("重连策略正在运行中， 再次启动无效");
+        by.b(str, "ReConnStrategy:start", "in Running,so failed");
     }
 
     private void a() {
-        int[] aY = TiebaApplication.g().aY();
-        if (aY == null || aY.length == 0) {
-            aY = j.b;
+        int[] aX = TiebaApplication.h().aX();
+        if (aX == null || aX.length == 0) {
+            aX = j.b;
         }
-        this.c = aY;
+        this.c = aX;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void b(String str) {
         if (this.a) {
-            com.baidu.tieba.log.a.b(i.a(str, "ReConnStrategy:stop", "succ"));
+            by.b(str, "ReConnStrategy:stop", "succ");
             this.a = false;
             this.b = 0;
-            bo.b("stop reconnStrategy");
+            com.baidu.adp.lib.g.e.c("stop reconnStrategy");
             this.d.removeMessages(1);
         }
     }

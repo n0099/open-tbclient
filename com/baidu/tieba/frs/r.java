@@ -1,14 +1,10 @@
 package com.baidu.tieba.frs;
 
-import android.app.Activity;
-import android.content.DialogInterface;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.account.LoginActivity;
-import com.baidu.tieba.model.ci;
-import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.GridView;
 /* loaded from: classes.dex */
-public class r implements DialogInterface.OnClickListener {
+class r implements AdapterView.OnItemClickListener {
     final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -16,21 +12,17 @@ public class r implements DialogInterface.OnClickListener {
         this.a = frsActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        ci ciVar;
-        com.baidu.tieba.model.ak akVar;
-        com.baidu.tieba.model.ak akVar2;
-        dialogInterface.dismiss();
-        String A = TiebaApplication.A();
-        if (A != null && A.length() > 0) {
-            ciVar = this.a.y;
-            akVar = this.a.w;
-            String name = akVar.a().getName();
-            akVar2 = this.a.w;
-            ciVar.a(name, Long.valueOf(akVar2.a().getId()).longValue());
-            return;
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+        bk bkVar;
+        if (i >= 0) {
+            bkVar = this.a.n;
+            bkVar.i(i);
+            this.a.u = true;
+            this.a.t = ((com.baidu.tieba.data.aa) ((GridView) adapterView).getAdapter().getItem(i)).b();
+            this.a.i = 1;
+            this.a.e = 3;
+            this.a.A();
         }
-        LoginActivity.a((Activity) this.a, this.a.getString(R.string.login_to_use), true, 11036);
     }
 }

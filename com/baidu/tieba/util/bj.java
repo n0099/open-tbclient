@@ -1,9 +1,18 @@
 package com.baidu.tieba.util;
+
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
 /* loaded from: classes.dex */
-public class bj {
-    public int a;
-    public long b;
-    public int c;
-    public int d;
-    public int e;
+class bj extends BroadcastReceiver {
+    final /* synthetic */ bh a;
+
+    private bj(bh bhVar) {
+        this.a = bhVar;
+    }
+
+    @Override // android.content.BroadcastReceiver
+    public void onReceive(Context context, Intent intent) {
+        this.a.b();
+    }
 }

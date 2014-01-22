@@ -3,21 +3,26 @@ package com.baidu.cloudsdk.social.oauth;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
+import com.baidu.cloudsdk.BaiduException;
 import com.baidu.cloudsdk.IBaiduListener;
-import com.baidu.cloudsdk.common.util.Validator;
+import com.baidu.cloudsdk.common.util.Utils;
 import com.baidu.cloudsdk.social.core.SocialConstants;
+import com.baidu.cloudsdk.social.share.SocialShareConfig;
+import com.bp;
+import com.bq;
+import com.u;
 /* loaded from: classes.dex */
 public class SocialOAuthActivity extends Activity {
     private static IBaiduListener a;
     private String b;
     private String c;
-    private cb e;
+    private bp e;
     private boolean d = false;
     private IBaiduListener f = new u(this);
 
     public static synchronized void setListener(IBaiduListener iBaiduListener) {
         synchronized (SocialOAuthActivity.class) {
-            Validator.notNull(iBaiduListener, "listener");
             a = iBaiduListener;
         }
     }
@@ -36,30 +41,59 @@ public class SocialOAuthActivity extends Activity {
 
     @Override // android.app.Activity
     protected void onCreate(Bundle bundle) {
+        Intent intent;
         super.onCreate(bundle);
-        if (bundle == null) {
-            bundle = getIntent().getExtras();
+        if (bundle == null && (intent = getIntent()) != null) {
+            bundle = intent.getExtras();
         }
         if (bundle == null) {
             finish();
-            return;
+        } else if (!Utils.isNetWorkAvaliable(this)) {
+            Toast.makeText(this, SocialShareConfig.getInstance(this).getString("network_not_avaliable"), 0).show();
+            if (a != null) {
+                a.onError(new BaiduException("Network not Avaliable"));
+            }
+            finish();
+        } else {
+            this.b = bundle.getString(SocialConstants.PARAM_MEDIA_TYPE);
+            this.c = bundle.getString(SocialConstants.PARAM_CLIENT_ID);
+            this.d = bundle.getBoolean(SocialConstants.PARAM_ACTIVITY_STATE_FLAG);
+            this.e = new bq(this, this.c, this.f).a(this.b);
+            if (this.d) {
+                return;
+            }
+            this.e.a();
         }
-        this.b = bundle.getString(SocialConstants.PARAM_MEDIA_TYPE);
-        this.c = bundle.getString(SocialConstants.PARAM_CLIENT_ID);
-        this.d = bundle.getBoolean(SocialConstants.PARAM_ACTIVITY_STATE_FLAG);
-        this.e = new cc(this, this.c, this.f).a(this.b);
-        if (this.d) {
-            return;
-        }
-        this.e.f();
     }
 
     @Override // android.app.Activity
     protected void onDestroy() {
         if (this.e != null) {
-            this.e.a();
+            this.e.e();
         }
         super.onDestroy();
+    }
+
+    @Override // android.app.Activity
+    protected void onPause() {
+        super.onPause();
+    }
+
+    @Override // android.app.Activity
+    protected void onRestoreInstanceState(Bundle bundle) {
+        super.onRestoreInstanceState(bundle);
+        if (a != null) {
+            a.onCancel();
+        }
+        if (this.e != null) {
+            this.e.e();
+        }
+        finish();
+    }
+
+    @Override // android.app.Activity
+    protected void onResume() {
+        super.onResume();
     }
 
     @Override // android.app.Activity

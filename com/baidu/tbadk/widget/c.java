@@ -5,7 +5,7 @@ import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.view.MotionEvent;
 import android.widget.TextView;
-import com.baidu.adp.lib.h.e;
+import com.baidu.adp.lib.g.e;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class c extends TextView {

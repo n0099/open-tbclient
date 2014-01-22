@@ -8,7 +8,7 @@ import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class q extends BdAsyncTask<Boolean, Integer, Boolean> {
     final /* synthetic */ o a;
-    private com.baidu.tieba.util.at b = null;
+    private com.baidu.tieba.util.ax b = null;
     private String c;
     private int d;
     private com.baidu.tieba.data.ba e;
@@ -27,18 +27,18 @@ public class q extends BdAsyncTask<Boolean, Integer, Boolean> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public Boolean a(Boolean... boolArr) {
-        this.b = new com.baidu.tieba.util.at(com.baidu.tieba.data.h.a + "c/c/post/rmstore");
+        this.b = new com.baidu.tieba.util.ax(com.baidu.tieba.data.h.a + "c/c/post/rmstore");
         this.b.a(PushConstants.EXTRA_USER_ID, TiebaApplication.A());
         this.b.a("tid", this.c);
-        this.e.a(this.b.l());
-        return this.b.c() && this.e.a() == 0;
+        this.e.a(this.b.m());
+        return this.b.d() && this.e.a() == 0;
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         super.cancel(true);
         if (this.b != null) {
-            this.b.j();
+            this.b.k();
         }
         this.a.d = null;
         if (this.a.a != null) {
@@ -62,10 +62,10 @@ public class q extends BdAsyncTask<Boolean, Integer, Boolean> {
                 arrayList2.remove(this.d);
                 o.b(this.a);
             }
-        } else if (this.b.c()) {
+        } else if (this.b.d()) {
             str = this.e.b();
         } else {
-            str = this.b.i();
+            str = this.b.j();
         }
         if (this.a.a != null) {
             this.a.a.a(2, bool, str);

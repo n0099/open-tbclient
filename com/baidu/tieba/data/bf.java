@@ -1,6 +1,5 @@
 package com.baidu.tieba.data;
 
-import com.baidu.tieba.util.bo;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class bf {
@@ -29,7 +28,7 @@ public class bf {
             }
             a(optJSONObject);
         } catch (Exception e) {
-            bo.b("VcodeInfoData", "parserJson", "error = " + e.getMessage());
+            com.baidu.adp.lib.g.e.b("VcodeInfoData", "parserJson", "error = " + e.getMessage());
         }
     }
 
@@ -40,7 +39,7 @@ public class bf {
                 this.b = jSONObject.optString("vcode_pic_url");
                 this.c = jSONObject.optString("vcode_type");
             } catch (Exception e) {
-                bo.b("VcodeInfoData", "parserJson", "error = " + e.getMessage());
+                com.baidu.adp.lib.g.e.b("VcodeInfoData", "parserJson", "error = " + e.getMessage());
             }
         }
     }

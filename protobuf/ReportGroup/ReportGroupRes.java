@@ -60,7 +60,7 @@ public final class ReportGroupRes {
                             case 0:
                                 z = true;
                                 break;
-                            case 34:
+                            case Im.GroupInfo.ISMEMBERGROUP_FIELD_NUMBER /* 34 */:
                                 if ((this.bitField0_ & 1) != 1) {
                                     cVar = null;
                                 } else {

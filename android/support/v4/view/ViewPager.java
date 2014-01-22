@@ -29,6 +29,7 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import protobuf.Im;
 /* loaded from: classes.dex */
 public class ViewPager extends ViewGroup {
     private boolean A;
@@ -93,15 +94,15 @@ public class ViewPager extends ViewGroup {
     /* loaded from: classes.dex */
     public class SimpleOnPageChangeListener implements bq {
         @Override // android.support.v4.view.bq
-        public void onPageScrolled(int i, float f, int i2) {
+        public void a(int i, float f, int i2) {
         }
 
         @Override // android.support.v4.view.bq
-        public void onPageSelected(int i) {
+        public void a_(int i) {
         }
 
         @Override // android.support.v4.view.bq
-        public void onPageScrollStateChanged(int i) {
+        public void b(int i) {
         }
     }
 
@@ -179,7 +180,7 @@ public class ViewPager extends ViewGroup {
                 b(i != 0);
             }
             if (this.W != null) {
-                this.W.onPageScrollStateChanged(i);
+                this.W.b(i);
             }
         }
     }
@@ -295,10 +296,10 @@ public class ViewPager extends ViewGroup {
             if (this.S) {
                 this.i = i;
                 if (z3 && this.W != null) {
-                    this.W.onPageSelected(i);
+                    this.W.a_(i);
                 }
                 if (z3 && this.Z != null) {
-                    this.Z.onPageSelected(i);
+                    this.Z.a_(i);
                 }
                 requestLayout();
                 return;
@@ -319,19 +320,19 @@ public class ViewPager extends ViewGroup {
         if (z) {
             a(i3, 0, i2);
             if (z2 && this.W != null) {
-                this.W.onPageSelected(i);
+                this.W.a_(i);
             }
             if (z2 && this.Z != null) {
-                this.Z.onPageSelected(i);
+                this.Z.a_(i);
                 return;
             }
             return;
         }
         if (z2 && this.W != null) {
-            this.W.onPageSelected(i);
+            this.W.a_(i);
         }
         if (z2 && this.Z != null) {
-            this.Z.onPageSelected(i);
+            this.Z.a_(i);
         }
         a(false);
         scrollTo(i3, 0);
@@ -1266,10 +1267,10 @@ public class ViewPager extends ViewGroup {
             }
         }
         if (this.W != null) {
-            this.W.onPageScrolled(i, f, i2);
+            this.W.a(i, f, i2);
         }
         if (this.Z != null) {
-            this.Z.onPageScrolled(i, f, i2);
+            this.Z.a(i, f, i2);
         }
         if (this.ab != null) {
             int scrollX2 = getScrollX();
@@ -1727,9 +1728,9 @@ public class ViewPager extends ViewGroup {
             return false;
         }
         switch (keyEvent.getKeyCode()) {
-            case 21:
+            case Im.GroupInfo.LASTMSGID_FIELD_NUMBER /* 21 */:
                 return c(17);
-            case 22:
+            case Im.GroupInfo.GRADE_FIELD_NUMBER /* 22 */:
                 return c(66);
             case BDLocation.TypeGpsLocation /* 61 */:
                 if (Build.VERSION.SDK_INT < 11) {

@@ -1,6 +1,6 @@
 package com.baidu.tieba.pb;
 
-import com.baidu.browser.webpool.BdWebPoolView;
+import com.baidu.sapi2.shell.SapiErrorCode;
 import com.baidu.tieba.view.MultiImageView;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -64,10 +64,10 @@ public class d implements c {
                 }
                 multiImageView5 = this.a.m;
                 multiImageView5.setUrlData(arrayList);
-                ImageActivity.b(this.a, (int) BdWebPoolView.DELAYED_TIME);
+                ImageActivity.b(this.a, 200);
                 multiImageView6 = this.a.m;
                 multiImageView7 = this.a.m;
-                multiImageView6.a(multiImageView7.getCurrentItem() - 200, false);
+                multiImageView6.a(multiImageView7.getCurrentItem() + SapiErrorCode.NETWORK_FAILED, false);
             }
         }
         this.a.f();

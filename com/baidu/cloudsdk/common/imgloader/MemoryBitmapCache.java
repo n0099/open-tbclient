@@ -1,10 +1,12 @@
 package com.baidu.cloudsdk.common.imgloader;
 
 import android.graphics.Bitmap;
+import com.bh;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes.dex */
-public class MemoryBitmapCache implements bn {
+public class MemoryBitmapCache implements bh {
     private int a;
     private IEvictPolicy b;
     private Map c;
@@ -146,7 +148,18 @@ public class MemoryBitmapCache implements bn {
         return this;
     }
 
-    @Override // defpackage.bn
+    public synchronized void a() {
+        Iterator it = this.c.keySet().iterator();
+        while (it.hasNext()) {
+            a aVar = (a) this.c.get((String) it.next());
+            if (aVar != null && aVar.a != null && !aVar.a.isRecycled()) {
+                aVar.a.recycle();
+            }
+            it.remove();
+        }
+    }
+
+    @Override // com.bh
     public synchronized void a(String str, Bitmap bitmap) {
         if (!c(str)) {
             if (this.c.size() >= this.a) {
@@ -162,7 +175,7 @@ public class MemoryBitmapCache implements bn {
 
     public synchronized void b(String str) {
         a aVar = (a) this.c.remove(str);
-        if (aVar != null && aVar.a != null) {
+        if (aVar != null && aVar.a != null && !aVar.a.isRecycled()) {
             aVar.a.recycle();
         }
     }

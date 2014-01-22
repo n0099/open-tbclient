@@ -12,7 +12,7 @@ import com.baidu.tieba.BaseFragment;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.util.UtilHelper;
 import com.baidu.tieba.view.PbListView;
-import com.baidu.tieba.view.bw;
+import com.baidu.tieba.view.cm;
 import com.slidingmenu.lib.R;
 import java.util.Timer;
 /* loaded from: classes.dex */
@@ -23,7 +23,7 @@ public class PersonThreadFragment extends BaseFragment implements AbsListView.On
     private String d;
     private PbListView e;
     private View f;
-    private bw g;
+    private cm g;
     private int h;
     private boolean i = false;
     private boolean Y = true;
@@ -41,7 +41,7 @@ public class PersonThreadFragment extends BaseFragment implements AbsListView.On
         this.d = h().getString("key_uid");
         this.b = new q(i(), this.d, h().getString("key_portrait_url"));
         this.a.a.setAdapter((ListAdapter) this.b);
-        this.g = new bw(i());
+        this.g = new cm(i());
         this.g.a(new t(this));
         this.a.a.setPullRefresh(this.g);
         this.b.a(this);
@@ -52,11 +52,11 @@ public class PersonThreadFragment extends BaseFragment implements AbsListView.On
     }
 
     @Override // com.baidu.tieba.BaseFragment
-    public void c(int i) {
-        super.c(i);
+    public void d(int i) {
+        super.d(i);
         if (n()) {
             TextView textView = (TextView) this.f.findViewById(R.id.pb_more_text);
-            if (TiebaApplication.g().an() == 1) {
+            if (TiebaApplication.h().al() == 1) {
                 textView.setTextColor(j().getColor(R.color.person_post_header_uname_1));
             } else {
                 textView.setTextColor(j().getColor(R.color.person_post_header_uname));
@@ -97,7 +97,7 @@ public class PersonThreadFragment extends BaseFragment implements AbsListView.On
             this.a.a.setEmptyView(null);
             this.a.c.setVisibility(8);
             if (a(personPostThreadModel)) {
-                if (TiebaApplication.g().an() == 1) {
+                if (TiebaApplication.h().al() == 1) {
                     this.a.b.setTextColor(j().getColor(R.color.person_post_header_uname_1));
                 } else {
                     this.a.b.setTextColor(j().getColor(R.color.person_post_header_uname));
@@ -110,7 +110,7 @@ public class PersonThreadFragment extends BaseFragment implements AbsListView.On
                     if (personPostThreadModel.post_list.size() == 0) {
                         this.a.a.setEmptyView(this.a.b);
                     }
-                    com.baidu.adp.lib.h.g.a((Context) i(), personPostThreadModel.getErrorString());
+                    com.baidu.adp.lib.g.g.a((Context) i(), personPostThreadModel.getErrorString());
                 }
                 if (personPostThreadModel.post_list.size() < 20) {
                     if (UtilHelper.b()) {
@@ -137,7 +137,7 @@ public class PersonThreadFragment extends BaseFragment implements AbsListView.On
             return true;
         }
         this.b = null;
-        com.baidu.adp.lib.h.g.b((Context) i(), (int) R.string.his_post_not_available);
+        com.baidu.adp.lib.g.g.b((Context) i(), (int) R.string.his_post_not_available);
         new Timer().schedule(new u(this), 2000L);
         this.f.setVisibility(4);
         return false;

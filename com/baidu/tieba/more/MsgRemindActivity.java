@@ -8,9 +8,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.CompoundButton;
 import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
-import com.baidu.mobstat.StatService;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.util.DatabaseService;
+import com.baidu.tieba.util.by;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class MsgRemindActivity extends com.baidu.tieba.j implements View.OnClickListener, CompoundButton.OnCheckedChangeListener, com.baidu.adp.widget.BdSwitchView.c {
@@ -39,46 +39,46 @@ public class MsgRemindActivity extends com.baidu.tieba.j implements View.OnClick
     public void a(View view, BdSwitchView.SwitchState switchState) {
         if (view == this.a.g()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
-                TiebaApplication.g().i(true);
+                TiebaApplication.h().i(true);
             } else {
-                TiebaApplication.g().i(false);
+                TiebaApplication.h().i(false);
             }
         } else if (view == this.a.h()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
-                TiebaApplication.g().r(true);
+                TiebaApplication.h().r(true);
                 this.a.e();
                 this.a.b(true);
                 return;
             }
-            TiebaApplication.g().r(false);
+            TiebaApplication.h().r(false);
             this.a.b(false);
         } else if (view == this.a.i()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
-                TiebaApplication.g().b(300);
+                TiebaApplication.h().b(300);
                 this.a.c(true);
                 return;
             }
-            TiebaApplication.g().b(0);
+            TiebaApplication.h().b(0);
             this.a.c(false);
         } else if (view == this.a.k()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
-                TiebaApplication.g().k(true);
+                TiebaApplication.h().k(true);
                 this.a.a(true);
                 return;
             }
-            TiebaApplication.g().k(false);
+            TiebaApplication.h().k(false);
             this.a.a(false);
         } else if (view == this.a.o()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
-                TiebaApplication.g().j(true);
+                TiebaApplication.h().j(true);
             } else {
-                TiebaApplication.g().j(false);
+                TiebaApplication.h().j(false);
             }
         } else if (view == this.a.p()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
-                TiebaApplication.g().l(true);
+                TiebaApplication.h().l(true);
             } else {
-                TiebaApplication.g().l(false);
+                TiebaApplication.h().l(false);
             }
         }
     }
@@ -111,12 +111,12 @@ public class MsgRemindActivity extends com.baidu.tieba.j implements View.OnClick
     @Override // android.app.Activity
     protected void onPrepareDialog(int i, Dialog dialog) {
         if (dialog instanceof TimePickerDialog) {
-            TiebaApplication g = TiebaApplication.g();
+            TiebaApplication h = TiebaApplication.h();
             if (i == R.id.sign_remind) {
-                ((TimePickerDialog) dialog).updateTime(g.ad(), g.ae());
+                ((TimePickerDialog) dialog).updateTime(h.ac(), h.ad());
                 return;
             } else if (i == R.id.no_disturb_start_time || i == R.id.no_disturb_end_time) {
-                String[] split = i == R.id.no_disturb_start_time ? g.R().split(":") : g.S().split(":");
+                String[] split = i == R.id.no_disturb_start_time ? h.Q().split(":") : h.R().split(":");
                 ((TimePickerDialog) dialog).updateTime(Integer.parseInt(split[0]), Integer.parseInt(split[1]));
                 return;
             } else {
@@ -128,17 +128,17 @@ public class MsgRemindActivity extends com.baidu.tieba.j implements View.OnClick
 
     @Override // android.app.Activity
     protected Dialog onCreateDialog(int i) {
-        com.baidu.tieba.view.k kVar = new com.baidu.tieba.view.k(this, new ak(this, i, TiebaApplication.g()), 0, 0, true);
+        com.baidu.tieba.view.g gVar = new com.baidu.tieba.view.g(this, new ak(this, i, TiebaApplication.h()), 0, 0, true);
         if (i == R.id.sign_remind) {
-            kVar.setTitle(R.string.sign_remind);
+            gVar.setTitle(R.string.sign_remind);
         } else if (i == R.id.no_disturb_end_time) {
-            kVar.setTitle(R.string.no_disturb_end_time);
+            gVar.setTitle(R.string.no_disturb_end_time);
         } else if (i == R.id.no_disturb_start_time) {
-            kVar.setTitle(R.string.no_disturb_start_time);
+            gVar.setTitle(R.string.no_disturb_start_time);
         }
-        kVar.setButton(-1, getString(R.string.alert_yes_button), kVar);
-        kVar.setButton(-2, getString(R.string.alert_no_button), kVar);
-        return kVar;
+        gVar.setButton(-1, getString(R.string.alert_yes_button), gVar);
+        gVar.setButton(-2, getString(R.string.alert_no_button), gVar);
+        return gVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -151,48 +151,45 @@ public class MsgRemindActivity extends com.baidu.tieba.j implements View.OnClick
     @Override // android.widget.CompoundButton.OnCheckedChangeListener
     public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
         switch (compoundButton.getId()) {
-            case R.id.check_replyme /* 2131100779 */:
+            case R.id.check_replyme /* 2131100892 */:
                 if (z) {
-                    TiebaApplication.g().o(true);
+                    TiebaApplication.h().o(true);
                     return;
                 } else {
-                    TiebaApplication.g().o(false);
+                    TiebaApplication.h().o(false);
                     return;
                 }
-            case R.id.check_atme /* 2131100780 */:
+            case R.id.check_atme /* 2131100893 */:
                 if (z) {
-                    TiebaApplication.g().n(true);
+                    TiebaApplication.h().n(true);
                     return;
                 } else {
-                    TiebaApplication.g().n(false);
+                    TiebaApplication.h().n(false);
                     return;
                 }
-            case R.id.check_newfans /* 2131100781 */:
+            case R.id.check_newfans /* 2131100894 */:
                 if (z) {
-                    TiebaApplication.g().m(true);
+                    TiebaApplication.h().m(true);
                     return;
                 } else {
-                    TiebaApplication.g().m(false);
+                    TiebaApplication.h().m(false);
                     return;
                 }
-            case R.id.check_chatmessage /* 2131100782 */:
+            case R.id.check_chatmessage /* 2131100895 */:
                 if (z) {
-                    TiebaApplication.g().p(true);
+                    TiebaApplication.h().p(true);
                     return;
                 } else {
-                    TiebaApplication.g().p(false);
+                    TiebaApplication.h().p(false);
                     return;
                 }
-            case R.id.check_groupmessage /* 2131100783 */:
+            case R.id.check_groupmessage /* 2131100896 */:
                 if (z) {
-                    TiebaApplication.g().q(true);
+                    TiebaApplication.h().q(true);
                     return;
                 }
-                TiebaApplication.g().q(false);
-                if (TiebaApplication.g().s()) {
-                    StatService.onEvent(this, "group_message_remind", "check_click", 1);
-                    return;
-                }
+                TiebaApplication.h().q(false);
+                by.a(this, "group_message_remind", "check_click", 1, new Object[0]);
                 return;
             default:
                 return;

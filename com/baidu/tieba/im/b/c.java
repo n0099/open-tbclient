@@ -1,14 +1,13 @@
 package com.baidu.tieba.im.b;
 
 import android.os.Handler;
-import com.baidu.browser.webpool.BdWebPoolView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.im.chat.ah;
+import com.baidu.tieba.im.chat.ba;
 import com.baidu.tieba.im.data.GroupMidData;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.m;
-import com.baidu.tieba.im.message.p;
-import com.baidu.tieba.log.i;
+import com.baidu.tieba.im.message.r;
+import com.baidu.tieba.util.by;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -30,7 +29,7 @@ public class c implements com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMessa
         boolean z;
         LinkedList linkedList;
         boolean z2;
-        p n;
+        r n;
         LinkedList linkedList2;
         LinkedList linkedList3;
         String str;
@@ -52,7 +51,7 @@ public class c implements com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMessa
                 j4 = this.a.u;
                 if (j4 > 0) {
                     j5 = this.a.u;
-                    long b = ah.b(j5 - 1);
+                    long b = ba.b(j5 - 1);
                     j6 = this.a.t;
                     ImMessageCenterPojo imMessageCenterPojo = concurrentHashMap.get(String.valueOf(j6));
                     if (imMessageCenterPojo == null) {
@@ -68,7 +67,7 @@ public class c implements com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMessa
                 }
             }
             if (m.a() > 10) {
-                com.baidu.adp.lib.h.e.c("----pull message, but TiebaIMSingleExecutor.QueueSize too big");
+                com.baidu.adp.lib.g.e.c("----pull message, but TiebaIMSingleExecutor.QueueSize too big");
                 handler = this.a.p;
                 handler2 = this.a.p;
                 handler.sendMessageDelayed(handler2.obtainMessage(2), 2000L);
@@ -77,7 +76,7 @@ public class c implements com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMessa
             this.a.f = com.baidu.tieba.im.messageCenter.e.a().b(202003);
             z = this.a.f;
             if (!z) {
-                if (TiebaApplication.g().aC()) {
+                if (TiebaApplication.h().aA()) {
                     long currentTimeMillis = System.currentTimeMillis();
                     j2 = this.a.l;
                     if (currentTimeMillis - j2 > 60000) {
@@ -88,13 +87,13 @@ public class c implements com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMessa
                                 a.i(this.a);
                                 StringBuilder append = new StringBuilder().append("----background pull skip. no pull count ");
                                 i2 = this.a.k;
-                                com.baidu.adp.lib.h.e.c(append.append(i2).toString());
+                                com.baidu.adp.lib.g.e.c(append.append(i2).toString());
                                 return;
                             }
                         }
                     }
                 }
-                com.baidu.adp.lib.h.e.c("----real pull msg.");
+                com.baidu.adp.lib.g.e.c("----real pull msg.");
                 this.a.k = 0;
                 linkedList = this.a.h;
                 linkedList.clear();
@@ -109,13 +108,13 @@ public class c implements com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMessa
                 for (String str2 : concurrentHashMap.keySet()) {
                     ImMessageCenterPojo imMessageCenterPojo3 = concurrentHashMap.get(str2);
                     if (imMessageCenterPojo3.getIs_delete() == 0) {
-                        long c = ah.c(imMessageCenterPojo3.getPulled_msgId());
-                        com.baidu.adp.lib.h.e.d("see online1 see pull1:" + imMessageCenterPojo3.getGid() + "lastMsgId:" + c);
+                        long c = ba.c(imMessageCenterPojo3.getPulled_msgId());
+                        com.baidu.adp.lib.g.e.d("see online1 see pull1:" + imMessageCenterPojo3.getGid() + "lastMsgId:" + c);
                         if (c != 0) {
                             GroupMidData groupMidData = new GroupMidData();
                             groupMidData.setGroupId(Integer.parseInt(imMessageCenterPojo3.getGid()));
                             groupMidData.setLastMsgId(c);
-                            com.baidu.adp.lib.h.e.d("see online1 see pull2:" + groupMidData.getGroupId() + " mid:" + c);
+                            com.baidu.adp.lib.g.e.d("see online1 see pull2:" + groupMidData.getGroupId() + " mid:" + c);
                             linkedList4 = this.a.h;
                             linkedList4.add(groupMidData);
                         }
@@ -125,7 +124,7 @@ public class c implements com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMessa
                 linkedList2 = this.a.h;
                 g.addAll(linkedList2);
                 this.a.g = System.currentTimeMillis();
-                StringBuilder sb = new StringBuilder((int) BdWebPoolView.DELAYED_TIME);
+                StringBuilder sb = new StringBuilder(200);
                 linkedList3 = this.a.h;
                 Iterator it = linkedList3.iterator();
                 while (it.hasNext()) {
@@ -135,9 +134,9 @@ public class c implements com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMessa
                     sb.append(groupMidData2.getLastMsgId());
                     sb.append("|");
                 }
-                com.baidu.adp.lib.h.e.a("pull msg======" + ((Object) sb));
+                int v = n.v();
                 str = this.a.i;
-                com.baidu.tieba.log.a.b(i.a(202003, 0, str, "MessageSync-send-pullmsg", "succ", 0, "", 0L, 0, sb.toString()));
+                by.a(202003, v, str, "MessageSync-send-pullmsg", "succ", 0, "", 0L, 0, sb.toString());
                 com.baidu.tieba.im.messageCenter.e.a().a(n);
             }
         }

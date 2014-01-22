@@ -23,18 +23,18 @@ public class g extends Handler {
         super.handleMessage(message);
         switch (message.what) {
             case 2:
-                handler = a.b().p;
+                handler = a.c().p;
                 handler.removeMessages(2);
-                a.b().h();
+                a.c().i();
                 return;
             case 3:
-                handler2 = a.b().p;
+                handler2 = a.c().p;
                 handler2.removeMessages(3);
-                a.b().h();
-                handler3 = a.b().p;
-                handler4 = a.b().p;
+                a.c().i();
+                handler3 = a.c().p;
+                handler4 = a.c().p;
                 Message obtainMessage = handler4.obtainMessage(3);
-                i = a.b().e;
+                i = a.c().e;
                 handler3.sendMessageDelayed(obtainMessage, i);
                 return;
             default:

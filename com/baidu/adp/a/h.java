@@ -22,7 +22,7 @@ public class h extends SQLiteOpenHelper {
             sQLiteDatabase.execSQL(str);
             return true;
         } catch (Throwable th) {
-            com.baidu.adp.lib.h.e.a(getClass(), str, th);
+            com.baidu.adp.lib.g.e.a(getClass(), str, th);
             return false;
         }
     }

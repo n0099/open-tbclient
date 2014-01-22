@@ -9,7 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.cloudsdk.social.core.SocialConstants;
-import com.baidu.mobstat.StatService;
+import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import com.baidu.tieba.BaseFragment;
 import com.baidu.tieba.BaseFragmentActivity;
 import com.baidu.tieba.CommonWebviewActivity;
@@ -21,6 +21,7 @@ import com.baidu.tieba.data.AntiData;
 import com.baidu.tieba.data.PersonChangeData;
 import com.baidu.tieba.data.UserData;
 import com.baidu.tieba.im.chat.PersonalChatActivity;
+import com.baidu.tieba.im.message.co;
 import com.baidu.tieba.more.AccountActivity;
 import com.baidu.tieba.person.post.PersonPostActivity;
 import com.baidu.tieba.util.AntiHelper;
@@ -38,7 +39,7 @@ public class PersonInfoActivity extends BaseFragment implements com.baidu.tieba.
     private Boolean f = false;
     private PersonChangeData h = null;
     private AlertDialog i = null;
-    private com.baidu.tieba.view.dialog.a Y = null;
+    private com.baidu.tieba.view.dialog.d Y = null;
     private br Z = null;
     private AlertDialog aa = null;
     private boolean ab = false;
@@ -204,13 +205,11 @@ public class PersonInfoActivity extends BaseFragment implements com.baidu.tieba.
         } else if (F()) {
             this.f = Boolean.valueOf(this.d.c());
             if (this.d.b() == null || this.d.b().length() <= 0) {
-                if (TiebaApplication.g().s()) {
-                    StatService.onEvent(this.g, "home_login_show", "loginshow", 1);
-                }
+                com.baidu.tieba.util.by.a(this.g, "home_login_show", "loginshow", 1, new Object[0]);
                 if (TiebaApplication.A() != null) {
                     this.d.a(true);
                     this.d.a(TiebaApplication.A());
-                    this.d.c(TiebaApplication.G());
+                    this.d.c(TiebaApplication.F());
                     H();
                     a();
                     if (this.a != null) {
@@ -241,8 +240,8 @@ public class PersonInfoActivity extends BaseFragment implements com.baidu.tieba.
     }
 
     @Override // com.baidu.tieba.BaseFragment
-    public void c(int i) {
-        super.c(i);
+    public void d(int i) {
+        super.d(i);
         if (this.f.booleanValue()) {
             if (this.a != null) {
                 this.a.a(i, this.d);
@@ -277,7 +276,7 @@ public class PersonInfoActivity extends BaseFragment implements com.baidu.tieba.
     }
 
     private void M() {
-        this.Y = new com.baidu.tieba.view.dialog.a(this.g);
+        this.Y = new com.baidu.tieba.view.dialog.d(this.g);
         this.Y.a(new Object[]{this.g.getString(this.e.b() == 1 ? R.string.delete_to_black_list : R.string.add_to_black_list), new Object[]{this.g.getString(R.string.cancel), 1}}, new bp(this)).a(R.style.dialog_ani_b2t).b(80).a();
     }
 
@@ -358,9 +357,7 @@ public class PersonInfoActivity extends BaseFragment implements com.baidu.tieba.
                 } else if (view == this.a.h()) {
                     PersonListActivity.a(this.g, false, TiebaApplication.A(), d != null ? d.getSex() : 0);
                 } else if (view == this.a.i()) {
-                    if (TiebaApplication.g().s()) {
-                        StatService.onEvent(this.g, "personal_my_threads", "click", 1);
-                    }
+                    com.baidu.tieba.util.by.a(this.g, "personal_my_threads", "click", 1, new Object[0]);
                     if (this.d != null && this.d.d() != null) {
                         PersonPostActivity.a(this.g, TiebaApplication.A(), 0, this.d.d().getPortrait());
                     }
@@ -372,7 +369,7 @@ public class PersonInfoActivity extends BaseFragment implements com.baidu.tieba.
                         personChangeData.setSex(this.d.d().getSex());
                         personChangeData.setPortrait(this.d.d().getPortrait());
                     }
-                    PersonChangeActivity.a(this.g, 101, personChangeData, true);
+                    PersonChangeActivity.a(this.g, SocialAPIErrorCodes.ERROR_INVALID_CLIENT_ID, personChangeData, true);
                 } else if (view == this.a.k() && (a = this.d.a()) != null) {
                     AntiHelper.a(this.g, a, AntiHelper.OperationType.ACCOUNT_RESTORE, AntiHelper.PageType.PERSON_INFO);
                 }
@@ -384,9 +381,7 @@ public class PersonInfoActivity extends BaseFragment implements com.baidu.tieba.
                 }
             } else if (view == this.b.h()) {
                 if (d != null) {
-                    if (TiebaApplication.g().s()) {
-                        StatService.onEvent(this.g, "personal_his_threads", "click", 1);
-                    }
+                    com.baidu.tieba.util.by.a(this.g, "personal_his_threads", "click", 1, new Object[0]);
                     PersonPostActivity.a(this.g, d.getId(), d.getSex(), this.d.d().getPortrait());
                 }
             } else if (view == this.b.i()) {
@@ -406,7 +401,7 @@ public class PersonInfoActivity extends BaseFragment implements com.baidu.tieba.
                     }
                 }
             } else if (view == this.b.f()) {
-                com.baidu.tieba.ap.a(this.g, "person_info_send_message");
+                com.baidu.tieba.as.a(this.g, "person_info_send_message");
                 new com.baidu.tieba.account.av("pchat", "3").start();
                 if (d != null) {
                     if (TiebaApplication.A() == null || TiebaApplication.A().length() <= 0) {
@@ -425,9 +420,7 @@ public class PersonInfoActivity extends BaseFragment implements com.baidu.tieba.
     }
 
     private void Q() {
-        if (TiebaApplication.g().s()) {
-            StatService.onEvent(this.g, "enter_chat", "personclick", 1);
-        }
+        com.baidu.tieba.util.by.a(this.g, "enter_chat", "personclick", 1, new Object[0]);
         try {
             PersonalChatActivity.a(this.g, Long.parseLong(this.d.d().getId()), this.d.d().getName(), this.d.d().getPortrait(), this.d.d().getSex(), null);
         } catch (Exception e) {
@@ -464,7 +457,7 @@ public class PersonInfoActivity extends BaseFragment implements com.baidu.tieba.
                 if (TiebaApplication.A() != null) {
                     this.d.a(true);
                     this.d.a(TiebaApplication.A());
-                    this.d.c(TiebaApplication.G());
+                    this.d.c(TiebaApplication.F());
                     H();
                     a();
                 }
@@ -474,10 +467,10 @@ public class PersonInfoActivity extends BaseFragment implements com.baidu.tieba.
                 P();
             } else if (i == 12002) {
                 if (intent != null) {
-                    EditHeadActivity.a(i(), 12002, 12009, intent.getData(), TiebaApplication.F());
+                    EditHeadActivity.a(i(), 12002, 12009, intent.getData(), TiebaApplication.E());
                 }
             } else if (i == 12001) {
-                EditHeadActivity.a(i(), 12001, 12010, null, TiebaApplication.F());
+                EditHeadActivity.a(i(), 12001, 12010, null, TiebaApplication.E());
             } else if (i == 12010 || i == 12009) {
                 if (this.h != null) {
                     this.h.setPhotoChanged(true);
@@ -543,24 +536,24 @@ public class PersonInfoActivity extends BaseFragment implements com.baidu.tieba.
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(com.baidu.tieba.im.message.o oVar) {
-        if (oVar == null) {
+    public void a(com.baidu.tieba.im.message.q qVar) {
+        if (qVar == null) {
             this.ab = false;
             return;
         }
-        if (oVar.u() == 104102 && (oVar instanceof com.baidu.tieba.im.message.ca)) {
-            com.baidu.tieba.im.message.ca caVar = (com.baidu.tieba.im.message.ca) oVar;
-            com.baidu.tieba.im.message.o l = caVar.l();
-            if (l != null && (l instanceof com.baidu.tieba.im.message.aw)) {
-                com.baidu.tieba.im.message.aw awVar = (com.baidu.tieba.im.message.aw) l;
-                if (awVar.b() == 10) {
-                    if (awVar.c() == 1) {
+        if (qVar.w() == 104102 && (qVar instanceof co)) {
+            co coVar = (co) qVar;
+            com.baidu.tieba.im.message.q n = coVar.n();
+            if (n != null && (n instanceof com.baidu.tieba.im.message.bd)) {
+                com.baidu.tieba.im.message.bd bdVar = (com.baidu.tieba.im.message.bd) n;
+                if (bdVar.b() == 10) {
+                    if (bdVar.c() == 1) {
                         this.e.b(1);
                     } else {
                         this.e.b(0);
                     }
-                    if (caVar.i()) {
-                        a(caVar.k());
+                    if (coVar.k()) {
+                        a(coVar.m());
                         return;
                     }
                     if (this.e.b() == 1) {
@@ -577,8 +570,8 @@ public class PersonInfoActivity extends BaseFragment implements com.baidu.tieba.
             } else {
                 return;
             }
-        } else if (oVar.u() == 104104 && (oVar instanceof com.baidu.tieba.im.message.az)) {
-            this.e.b(((com.baidu.tieba.im.message.az) oVar).a() ? 1 : 0);
+        } else if (qVar.w() == 104104 && (qVar instanceof com.baidu.tieba.im.message.bi)) {
+            this.e.b(((com.baidu.tieba.im.message.bi) qVar).a() ? 1 : 0);
             if (this.ab) {
                 L();
             }
@@ -587,13 +580,13 @@ public class PersonInfoActivity extends BaseFragment implements com.baidu.tieba.
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b(com.baidu.tieba.im.message.o oVar) {
-        if (oVar != null) {
-            if (!(oVar instanceof com.baidu.tieba.im.message.r)) {
-                com.baidu.adp.lib.h.e.a("transform error");
+    public void b(com.baidu.tieba.im.message.q qVar) {
+        if (qVar != null) {
+            if (!(qVar instanceof com.baidu.tieba.im.message.t)) {
+                com.baidu.adp.lib.g.e.a("transform error");
                 return;
             }
-            int c2 = ((com.baidu.tieba.im.message.r) oVar).c();
+            int c2 = ((com.baidu.tieba.im.message.t) qVar).c();
             if (this.d != null) {
                 this.d.a(c2);
             }

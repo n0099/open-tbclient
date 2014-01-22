@@ -7,11 +7,11 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
-import com.baidu.tieba.im.model.am;
+import com.baidu.tieba.im.model.ao;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class UpdateGroupActivity extends com.baidu.tieba.j {
-    private am d;
+    private ao d;
     private a c = null;
     private int e = 1;
     private d f = null;
@@ -44,7 +44,7 @@ public class UpdateGroupActivity extends com.baidu.tieba.j {
         int intExtra2 = intent.getIntExtra("group_id", 0);
         String stringExtra = intent.getStringExtra("group_text");
         a(intExtra, intExtra2);
-        this.d = new am();
+        this.d = new ao();
         this.c.a(stringExtra);
         this.c.a(this.b);
         this.c.b(this.a);

@@ -3,7 +3,6 @@ package com.baidu.tieba.faceshop;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.emotions.MyEmotionGroupData;
-import com.baidu.tieba.util.bo;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -34,7 +33,7 @@ public class c extends BdAsyncTask<List<String>, Integer, Boolean> {
             myEmotionGroupData.setGroupId(str);
             myEmotionGroupData.setUid(TiebaApplication.A());
             if (com.baidu.tieba.data.emotions.j.a().a(myEmotionGroupData)) {
-                bo.c("delete my emotion:" + myEmotionGroupData.getId());
+                com.baidu.adp.lib.g.e.d("delete my emotion:" + myEmotionGroupData.getId());
                 i = i2 + 1;
             } else {
                 i = i2;

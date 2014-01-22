@@ -1,59 +1,41 @@
 package com.baidu.cloudsdk.common.imgloader;
 
-import android.graphics.Bitmap;
+import android.content.Context;
+import android.net.Uri;
 import android.os.AsyncTask;
-import com.baidu.zeus.NotificationProxy;
-import com.google.protobuf.CodedOutputStream;
+import android.util.Log;
+import com.baidu.android.pushservice.PushConstants;
 import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 /* loaded from: classes.dex */
 public class CompressBitmapTask extends AsyncTask {
-    private int a;
-    private int b;
-    private ICompressBitmapListener c;
+    private Context a;
+    private ICompressBitmapListener b;
 
     /* loaded from: classes.dex */
     public interface ICompressBitmapListener {
         void onComplete(ByteArrayOutputStream byteArrayOutputStream);
     }
 
-    public CompressBitmapTask(int i, int i2, ICompressBitmapListener iCompressBitmapListener) {
-        this.a = i;
-        this.b = i2;
-        this.c = iCompressBitmapListener;
+    public CompressBitmapTask(Context context, ICompressBitmapListener iCompressBitmapListener) {
+        this.a = context;
+        this.b = iCompressBitmapListener;
     }
 
-    public CompressBitmapTask(ICompressBitmapListener iCompressBitmapListener) {
-        this.a = CodedOutputStream.DEFAULT_BUFFER_SIZE;
-        this.b = NotificationProxy.MAX_URL_LENGTH;
-        this.c = iCompressBitmapListener;
-    }
-
-    private Bitmap a(Bitmap bitmap) {
-        int i;
-        int i2;
-        int width = bitmap.getWidth();
-        int height = bitmap.getHeight();
-        if (width > height) {
-            i2 = this.b;
-            i = (height * i2) / width;
-        } else {
-            i = this.b;
-            i2 = (width * i) / height;
+    private InputStream a(Uri uri) {
+        try {
+        } catch (IOException e) {
+            Log.e("CompressBitmap", "IOexception");
+            e.printStackTrace();
         }
-        return Bitmap.createScaledBitmap(bitmap, i2, i, true);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    public ByteArrayOutputStream doInBackground(Bitmap... bitmapArr) {
-        Bitmap bitmap = bitmapArr[0];
-        if (((bitmap.getHeight() * bitmap.getWidth()) * 4) / NotificationProxy.MAX_URL_LENGTH > this.a) {
-            bitmap = a(bitmap);
+        if (uri.getScheme() == null) {
+            return new FileInputStream(new File(uri.toString()));
         }
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        if (bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream)) {
-            return byteArrayOutputStream;
+        if ((uri.getScheme().equalsIgnoreCase(PushConstants.EXTRA_CONTENT) || uri.getScheme().equalsIgnoreCase("file")) && this.a != null) {
+            return this.a.getContentResolver().openInputStream(uri);
         }
         return null;
     }
@@ -61,9 +43,34 @@ public class CompressBitmapTask extends AsyncTask {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
+    public ByteArrayOutputStream doInBackground(Uri... uriArr) {
+        InputStream a;
+        if (uriArr[0] == null || (a = a(uriArr[0])) == null) {
+            return null;
+        }
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        byte[] bArr = new byte[1024];
+        while (true) {
+            try {
+                int read = a.read(bArr);
+                if (read == -1) {
+                    a.close();
+                    return byteArrayOutputStream;
+                }
+                byteArrayOutputStream.write(bArr, 0, read);
+            } catch (IOException e) {
+                e.printStackTrace();
+                return byteArrayOutputStream;
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // android.os.AsyncTask
     public void onPostExecute(ByteArrayOutputStream byteArrayOutputStream) {
-        if (this.c != null) {
-            this.c.onComplete(byteArrayOutputStream);
+        if (this.b != null) {
+            this.b.onComplete(byteArrayOutputStream);
         }
     }
 }

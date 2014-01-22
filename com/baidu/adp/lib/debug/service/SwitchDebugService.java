@@ -14,7 +14,6 @@ import android.widget.Toast;
 import com.baidu.adp.f;
 import com.baidu.adp.lib.debug.DebugConfigActivity;
 import com.baidu.adp.lib.debug.b;
-import com.baidu.browser.explorer.BdWebErrorView;
 import com.baidu.location.LocationClientOption;
 import java.io.IOException;
 import java.util.List;
@@ -26,7 +25,7 @@ public class SwitchDebugService extends Service implements SensorEventListener {
     private static int c = 15;
     private static int d = LocationClientOption.MIN_SCAN_SPAN;
     private static int e = 4;
-    private static int f = BdWebErrorView.ERROR_CODE_500;
+    private static int f = 500;
     public static Properties a = null;
     private SensorManager g = null;
     private Vibrator h = null;

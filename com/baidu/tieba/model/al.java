@@ -7,7 +7,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class al extends BdAsyncTask<String, Integer, Boolean> {
     final /* synthetic */ ak a;
-    private com.baidu.tieba.util.at b = null;
+    private com.baidu.tieba.util.ax b = null;
     private String c;
     private String d;
     private String e;
@@ -26,16 +26,16 @@ public class al extends BdAsyncTask<String, Integer, Boolean> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public Boolean a(String... strArr) {
         try {
-            this.b = new com.baidu.tieba.util.at(strArr[0]);
+            this.b = new com.baidu.tieba.util.ax(strArr[0]);
             this.b.a("fid", this.c);
             this.b.a("kw", this.d);
             this.b.a("is_like", this.e);
             this.b.e(true);
-            String l = this.b.l();
-            if (this.b.d()) {
+            String m = this.b.m();
+            if (this.b.e()) {
                 if (this.e.equals(SocialConstants.FALSE)) {
                     try {
-                        JSONObject jSONObject = new JSONObject(l);
+                        JSONObject jSONObject = new JSONObject(m);
                         JSONObject optJSONObject = jSONObject.optJSONObject("like_data");
                         if (optJSONObject.optInt("is_success", 0) == 1) {
                             this.f.d = optJSONObject.optInt("level_id", 0);
@@ -49,22 +49,22 @@ public class al extends BdAsyncTask<String, Integer, Boolean> {
                         }
                         this.a.a(this.f);
                     } catch (Exception e) {
-                        com.baidu.tieba.util.bo.b(getClass().getName(), "doInBackground", e.getMessage());
+                        com.baidu.adp.lib.g.e.b(getClass().getName(), "doInBackground", e.getMessage());
                     }
                 }
-                if (this.b.c()) {
+                if (this.b.d()) {
                     try {
-                        JSONObject jSONObject2 = new JSONObject(l);
+                        JSONObject jSONObject2 = new JSONObject(m);
                         this.f.c = jSONObject2.optInt("num");
                         this.f.a = true;
                     } catch (Exception e2) {
-                        com.baidu.tieba.util.bo.b(getClass().getName(), "doInBackground", e2.getMessage());
+                        com.baidu.adp.lib.g.e.b(getClass().getName(), "doInBackground", e2.getMessage());
                     }
                 }
             }
             return false;
         } catch (Exception e3) {
-            com.baidu.tieba.util.bo.b(getClass().getName(), "", "AddFanAsyncTask.doInBackground error = " + e3.getMessage());
+            com.baidu.adp.lib.g.e.b(getClass().getName(), "", "AddFanAsyncTask.doInBackground error = " + e3.getMessage());
             return false;
         }
     }
@@ -73,9 +73,9 @@ public class al extends BdAsyncTask<String, Integer, Boolean> {
     public void cancel() {
         super.cancel(true);
         if (this.b != null) {
-            this.b.j();
+            this.b.k();
         }
-        this.a.m = null;
+        this.a.n = null;
         this.a.a(false);
     }
 
@@ -83,18 +83,18 @@ public class al extends BdAsyncTask<String, Integer, Boolean> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(Boolean bool) {
-        com.baidu.tieba.frs.ae aeVar;
-        com.baidu.tieba.frs.ae aeVar2;
-        this.a.m = null;
+        com.baidu.tieba.frs.aa aaVar;
+        com.baidu.tieba.frs.aa aaVar2;
+        this.a.n = null;
         this.a.a(false);
         if (this.b != null) {
             an anVar = new an(this.a);
-            anVar.d = this.b.i();
-            anVar.c = this.b.e();
-            aeVar = this.a.j;
-            if (aeVar != null) {
-                aeVar2 = this.a.j;
-                aeVar2.a(this.f, anVar);
+            anVar.d = this.b.j();
+            anVar.c = this.b.f();
+            aaVar = this.a.k;
+            if (aaVar != null) {
+                aaVar2 = this.a.k;
+                aaVar2.a(this.f, anVar);
             }
         }
     }

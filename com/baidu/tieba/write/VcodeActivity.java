@@ -12,7 +12,7 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tieba.data.WriteData;
-import com.baidu.tieba.util.bl;
+import com.baidu.tieba.util.bs;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
@@ -96,11 +96,11 @@ public class VcodeActivity extends com.baidu.tieba.j {
     public void onChangeSkinType(int i) {
         int i2;
         super.onChangeSkinType(i);
-        bl.a(this.l, i);
+        bs.a(this.l, i);
         this.a.c(i);
-        bl.h(this.d, i);
+        bs.h(this.d, i);
         if (i == 1) {
-            i2 = bl.a(i);
+            i2 = bs.a(i);
         } else {
             i2 = -12895429;
         }

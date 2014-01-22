@@ -2,8 +2,9 @@ package com.baidu.tieba.im.coder;
 
 import android.util.SparseArray;
 import com.baidu.tieba.im.k;
-import com.baidu.tieba.im.message.o;
-import com.baidu.tieba.util.ah;
+import com.baidu.tieba.im.message.q;
+import com.baidu.tieba.util.ak;
+import com.baidu.tieba.util.p;
 import com.google.protobuf.MessageLite;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -33,21 +34,21 @@ public class c {
         this.b = new SparseArray<>();
     }
 
-    public byte[] a(o oVar, int i, boolean z) {
+    public byte[] a(q qVar, int i, boolean z) {
         MessageLite messageLite = null;
         try {
-            if (oVar instanceof g) {
-                messageLite = ((g) oVar).a();
+            if (qVar instanceof g) {
+                messageLite = ((g) qVar).a();
             }
             byte[] byteArray = messageLite.toByteArray();
             if (byteArray != null && z) {
                 byteArray = b(byteArray, 0, byteArray.length);
             }
-            boolean b = e.a().b(oVar.u());
+            boolean b = e.a().b(qVar.w());
             if (byteArray != null && b) {
-                byteArray = com.baidu.tieba.im.d.e.a(e.a().c(), byteArray);
+                byteArray = com.baidu.tieba.im.d.f.a(e.a().c(), byteArray);
             }
-            return b.a(b, z, oVar.u(), i, byteArray);
+            return b.a(b, z, qVar.w(), i, byteArray);
         } catch (Exception e) {
             throw new CoderException(k.l);
         }
@@ -63,7 +64,7 @@ public class c {
                 throw new CoderException(k.i);
             }
             try {
-                dVar.b = com.baidu.tieba.im.d.e.a(e.a().c(), dVar.b, dVar.c, dVar.d);
+                dVar.b = com.baidu.tieba.im.d.f.a(e.a().c(), dVar.b, dVar.c, dVar.d);
                 dVar.c = 0;
                 dVar.d = dVar.b.length;
             } catch (Exception e) {
@@ -99,7 +100,7 @@ public class c {
         return dVar;
     }
 
-    public List<o> a(int i, byte[] bArr, int i2, int i3) {
+    public List<q> a(int i, byte[] bArr, int i2, int i3) {
         Class<?> cls = this.b.get(i);
         if (cls == null) {
             throw new CoderException(k.c);
@@ -108,8 +109,8 @@ public class c {
             bArr = ByteBuffer.wrap(bArr, i2, i3).array();
         }
         try {
-            LinkedList<o> linkedList = new LinkedList<>();
-            com.baidu.adp.lib.h.e.d("decode cmd:" + i);
+            LinkedList<q> linkedList = new LinkedList<>();
+            com.baidu.adp.lib.g.e.d("decode cmd:" + i);
             ((f) cls.newInstance()).a(linkedList, bArr, i);
             return linkedList;
         } catch (Exception e) {
@@ -121,12 +122,12 @@ public class c {
         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr, i, i2);
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         try {
-            ah.b(byteArrayInputStream, byteArrayOutputStream);
+            ak.b(byteArrayInputStream, byteArrayOutputStream);
             byteArrayOutputStream.flush();
             return byteArrayOutputStream.toByteArray();
         } finally {
-            com.baidu.tieba.util.o.a((OutputStream) byteArrayOutputStream);
-            com.baidu.tieba.util.o.a((InputStream) byteArrayInputStream);
+            p.a((OutputStream) byteArrayOutputStream);
+            p.a((InputStream) byteArrayInputStream);
         }
     }
 
@@ -134,12 +135,12 @@ public class c {
         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr, i, i2);
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         try {
-            ah.a(byteArrayInputStream, byteArrayOutputStream);
+            ak.a(byteArrayInputStream, byteArrayOutputStream);
             byteArrayOutputStream.flush();
             return byteArrayOutputStream.toByteArray();
         } finally {
-            com.baidu.tieba.util.o.a((OutputStream) byteArrayOutputStream);
-            com.baidu.tieba.util.o.a((InputStream) byteArrayInputStream);
+            p.a((OutputStream) byteArrayOutputStream);
+            p.a((InputStream) byteArrayInputStream);
         }
     }
 

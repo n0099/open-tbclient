@@ -36,7 +36,7 @@ class am implements Runnable {
                 }
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.bo.b(getClass().getName(), "mSuggestRunnble.run", "error = " + e.getMessage());
+            com.baidu.adp.lib.g.e.b(getClass().getName(), "mSuggestRunnble.run", "error = " + e.getMessage());
         }
     }
 }

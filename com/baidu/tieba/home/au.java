@@ -16,7 +16,7 @@ import org.apache.http.message.BasicNameValuePair;
 public class au extends BdAsyncTask<Object, Integer, SearchPostModel> {
     ArrayList<BasicNameValuePair> a;
     final /* synthetic */ SearchActivity b;
-    private com.baidu.tieba.util.at c = null;
+    private com.baidu.tieba.util.ax c = null;
     private String d;
 
     public au(SearchActivity searchActivity, String str, ArrayList<BasicNameValuePair> arrayList) {
@@ -38,7 +38,7 @@ public class au extends BdAsyncTask<Object, Integer, SearchPostModel> {
         textView.setVisibility(8);
         SearchActivity searchActivity = this.b;
         editText = this.b.c;
-        com.baidu.adp.lib.h.g.a(searchActivity, editText);
+        com.baidu.adp.lib.g.g.a(searchActivity, editText);
         listView = this.b.p;
         if (listView.getVisibility() != 0) {
             progressBar = this.b.s;
@@ -55,24 +55,24 @@ public class au extends BdAsyncTask<Object, Integer, SearchPostModel> {
         Exception e;
         String str;
         try {
-            this.c = new com.baidu.tieba.util.at(this.d);
+            this.c = new com.baidu.tieba.util.ax(this.d);
             Iterator<BasicNameValuePair> it = this.a.iterator();
             while (it.hasNext()) {
                 this.c.a(it.next());
             }
-            String l = this.c.l();
-            if (!this.c.c() || l == null) {
+            String m = this.c.m();
+            if (!this.c.d() || m == null) {
                 return null;
             }
             searchPostModel = new SearchPostModel();
             try {
-                searchPostModel.parserJson(l);
+                searchPostModel.parserJson(m);
                 str = this.b.A;
                 DatabaseService.n(str);
                 return searchPostModel;
             } catch (Exception e2) {
                 e = e2;
-                com.baidu.tieba.util.bo.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
+                com.baidu.adp.lib.g.e.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
                 return searchPostModel;
             }
         } catch (Exception e3) {
@@ -95,7 +95,7 @@ public class au extends BdAsyncTask<Object, Integer, SearchPostModel> {
         azVar.a(0);
         azVar2 = this.b.r;
         azVar2.notifyDataSetChanged();
-        if (searchPostModel != null && this.c != null && this.c.c()) {
+        if (searchPostModel != null && this.c != null && this.c.d()) {
             this.b.x = searchPostModel;
             azVar3 = this.b.r;
             azVar3.notifyDataSetChanged();
@@ -110,7 +110,7 @@ public class au extends BdAsyncTask<Object, Integer, SearchPostModel> {
     public void cancel() {
         ProgressBar progressBar;
         if (this.c != null) {
-            this.c.j();
+            this.c.k();
             this.c = null;
         }
         progressBar = this.b.s;

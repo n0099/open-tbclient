@@ -1,8 +1,6 @@
 package protobuf.AddGroup;
 
-import com.baidu.cloudsdk.common.imgloader.ImageManager;
 import com.baidu.location.BDLocation;
-import com.baidu.zeus.bouncycastle.DERTags;
 import com.google.protobuf.ByteString;
 import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.CodedOutputStream;
@@ -12,6 +10,7 @@ import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.Parser;
 import java.io.IOException;
 import java.io.InputStream;
+import protobuf.Im;
 /* loaded from: classes.dex */
 public final class AddGroupReq {
 
@@ -83,15 +82,15 @@ public final class AddGroupReq {
                                     this.bitField0_ |= 1;
                                     this.forumId_ = codedInputStream.readInt32();
                                     break;
-                                case 18:
+                                case Im.GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
                                     this.bitField0_ |= 2;
                                     this.name_ = codedInputStream.readBytes();
                                     break;
-                                case 26:
+                                case Im.GroupInfo.NICKNAME_FIELD_NUMBER /* 26 */:
                                     this.bitField0_ |= 4;
                                     this.intro_ = codedInputStream.readBytes();
                                     break;
-                                case 34:
+                                case Im.GroupInfo.ISMEMBERGROUP_FIELD_NUMBER /* 34 */:
                                     this.bitField0_ |= 8;
                                     this.portrait_ = codedInputStream.readBytes();
                                     break;
@@ -108,7 +107,7 @@ public final class AddGroupReq {
                                     this.lng_ = codedInputStream.readDouble();
                                     break;
                                 case BDLocation.TypeCacheLocation /* 65 */:
-                                    this.bitField0_ |= DERTags.TAGGED;
+                                    this.bitField0_ |= 128;
                                     this.lat_ = codedInputStream.readDouble();
                                     break;
                                 case 72:
@@ -116,7 +115,7 @@ public final class AddGroupReq {
                                     this.groupType_ = codedInputStream.readInt32();
                                     break;
                                 case com.baidu.loginshare.e.i /* 80 */:
-                                    this.bitField0_ |= ImageManager.DEFAULT_MAX_CACHEABLE_SIZE;
+                                    this.bitField0_ |= 512;
                                     this.flag_ = codedInputStream.readInt32();
                                     break;
                                 default:
@@ -300,7 +299,7 @@ public final class AddGroupReq {
         }
 
         public boolean hasLat() {
-            return (this.bitField0_ & DERTags.TAGGED) == 128;
+            return (this.bitField0_ & 128) == 128;
         }
 
         public double getLat() {
@@ -316,7 +315,7 @@ public final class AddGroupReq {
         }
 
         public boolean hasFlag() {
-            return (this.bitField0_ & ImageManager.DEFAULT_MAX_CACHEABLE_SIZE) == 512;
+            return (this.bitField0_ & 512) == 512;
         }
 
         public int getFlag() {
@@ -370,13 +369,13 @@ public final class AddGroupReq {
             if ((this.bitField0_ & 64) == 64) {
                 codedOutputStream.writeDouble(7, this.lng_);
             }
-            if ((this.bitField0_ & DERTags.TAGGED) == 128) {
+            if ((this.bitField0_ & 128) == 128) {
                 codedOutputStream.writeDouble(8, this.lat_);
             }
             if ((this.bitField0_ & 256) == 256) {
                 codedOutputStream.writeInt32(9, this.groupType_);
             }
-            if ((this.bitField0_ & ImageManager.DEFAULT_MAX_CACHEABLE_SIZE) == 512) {
+            if ((this.bitField0_ & 512) == 512) {
                 codedOutputStream.writeInt32(10, this.flag_);
             }
         }
@@ -404,13 +403,13 @@ public final class AddGroupReq {
                 if ((this.bitField0_ & 64) == 64) {
                     i += CodedOutputStream.computeDoubleSize(7, this.lng_);
                 }
-                if ((this.bitField0_ & DERTags.TAGGED) == 128) {
+                if ((this.bitField0_ & 128) == 128) {
                     i += CodedOutputStream.computeDoubleSize(8, this.lat_);
                 }
                 if ((this.bitField0_ & 256) == 256) {
                     i += CodedOutputStream.computeInt32Size(9, this.groupType_);
                 }
-                if ((this.bitField0_ & ImageManager.DEFAULT_MAX_CACHEABLE_SIZE) == 512) {
+                if ((this.bitField0_ & 512) == 512) {
                     i += CodedOutputStream.computeInt32Size(10, this.flag_);
                 }
                 this.memoizedSerializedSize = i;

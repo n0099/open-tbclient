@@ -2,7 +2,6 @@ package com.baidu.tieba.c;
 
 import com.baidu.tieba.data.emotions.EmotionGroupData;
 import com.baidu.tieba.data.emotions.l;
-import com.baidu.tieba.util.bo;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -59,7 +58,7 @@ public class c implements f {
                                     fileInputStream.close();
                                     return false;
                                 } catch (IOException e) {
-                                    bo.c("download:after load::error:" + e.getMessage());
+                                    com.baidu.adp.lib.g.e.d("download:after load::error:" + e.getMessage());
                                     return false;
                                 }
                             }
@@ -85,19 +84,19 @@ public class c implements f {
                         try {
                             fileInputStream.close();
                         } catch (IOException e2) {
-                            bo.c("download:after load::error:" + e2.getMessage());
+                            com.baidu.adp.lib.g.e.d("download:after load::error:" + e2.getMessage());
                         }
                     }
                     return true;
                 } catch (Exception e3) {
                     e = e3;
-                    bo.c("download:after load::error:" + e.getMessage());
+                    com.baidu.adp.lib.g.e.d("download:after load::error:" + e.getMessage());
                     if (fileInputStream != null) {
                         try {
                             fileInputStream.close();
                             return false;
                         } catch (IOException e4) {
-                            bo.c("download:after load::error:" + e4.getMessage());
+                            com.baidu.adp.lib.g.e.d("download:after load::error:" + e4.getMessage());
                             return false;
                         }
                     }
@@ -109,7 +108,7 @@ public class c implements f {
                     try {
                         fileInputStream.close();
                     } catch (IOException e5) {
-                        bo.c("download:after load::error:" + e5.getMessage());
+                        com.baidu.adp.lib.g.e.d("download:after load::error:" + e5.getMessage());
                     }
                 }
                 throw th;

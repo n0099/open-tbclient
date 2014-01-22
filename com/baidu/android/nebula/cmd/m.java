@@ -59,7 +59,7 @@ public final class m {
     }
 
     private void f() {
-        if (!Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED) || Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED_READ_ONLY)) {
+        if (!Environment.getExternalStorageState().equals("mounted") || Environment.getExternalStorageState().equals("mounted_ro")) {
             return;
         }
         this.b = new File(Environment.getExternalStorageDirectory(), ".0fc503e97dcd994232bb6a1f62b7db95");

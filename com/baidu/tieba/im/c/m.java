@@ -1,16 +1,18 @@
 package com.baidu.tieba.im.c;
 
 import android.text.TextUtils;
+import com.baidu.sapi2.shell.SapiErrorCode;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.im.chat.GroupChatActivity;
 import com.baidu.tieba.im.chat.PersonalChatActivity;
-import com.baidu.tieba.im.chat.ba;
+import com.baidu.tieba.im.chat.snapGroup.SnapGroupChatActivity;
 import com.baidu.tieba.im.data.GroupIdTypeData;
 import com.baidu.tieba.im.data.SystemMsgData;
-import com.baidu.tieba.im.db.ad;
+import com.baidu.tieba.im.db.ae;
 import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.groupUpdates.UpdatesItemData;
+import com.baidu.tieba.util.by;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -25,15 +27,15 @@ public class m implements com.baidu.tieba.im.messageCenter.g {
     private Map<String, LinkedList<WeakReference<l>>> b = new HashMap();
     private String c;
 
-    public static m a() {
-        if (a == null) {
-            synchronized (m.class) {
-                if (a == null) {
-                    a = new m();
-                }
+    public static synchronized m a() {
+        m mVar;
+        synchronized (m.class) {
+            if (a == null) {
+                a = new m();
             }
+            mVar = a;
         }
-        return a;
+        return mVar;
     }
 
     public void b() {
@@ -79,15 +81,15 @@ public class m implements com.baidu.tieba.im.messageCenter.g {
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(com.baidu.tieba.im.message.o oVar) {
-        if (oVar != null) {
-            com.baidu.adp.lib.h.e.d("cmd:" + oVar.u());
-            switch (oVar.u()) {
-                case -100:
-                    a((com.baidu.tieba.im.data.b) oVar);
+    public void a(com.baidu.tieba.im.message.q qVar) {
+        if (qVar != null) {
+            com.baidu.adp.lib.g.e.d("cmd:" + qVar.w());
+            switch (qVar.w()) {
+                case SapiErrorCode.ERROR_UNKNOWN /* -100 */:
+                    a((com.baidu.tieba.im.data.c) qVar);
                     return;
                 case 202006:
-                    a((s) oVar);
+                    a((u) qVar);
                     return;
                 default:
                     return;
@@ -95,30 +97,30 @@ public class m implements com.baidu.tieba.im.messageCenter.g {
         }
     }
 
-    private void a(s sVar) {
-        if (sVar != null) {
-            com.baidu.adp.lib.h.e.d("cmd: " + sVar.u() + "groupId: " + sVar.c());
-            String valueOf = String.valueOf(sVar.c());
-            com.baidu.tieba.log.a.b(com.baidu.tieba.log.i.a(202006, 0, "server push new", "PushNotifyManager-push_notify", "succ", 0, "", 0L, 0, "gid:" + valueOf));
+    private void a(u uVar) {
+        if (uVar != null) {
+            com.baidu.adp.lib.g.e.d("cmd: " + uVar.w() + "groupId: " + uVar.c());
+            String valueOf = String.valueOf(uVar.c());
+            by.a(202006, 0, "server push new", "PushNotifyManager-push_notify", "succ", 0, "", 0L, 0, "gid:" + valueOf);
             if (!TextUtils.isEmpty(valueOf)) {
-                com.baidu.tieba.im.b.a.b().a(sVar.c(), sVar.b(), sVar.a());
+                com.baidu.tieba.im.b.a.c().a(uVar.c(), uVar.b(), uVar.a());
             }
         }
     }
 
     public void c() {
-        com.baidu.tieba.im.b.a.b().h();
+        com.baidu.tieba.im.b.a.c().i();
     }
 
-    private void a(com.baidu.tieba.im.data.b bVar) {
+    private void a(com.baidu.tieba.im.data.c cVar) {
         GroupIdTypeData a2;
-        if (bVar != null && (a2 = bVar.a()) != null) {
+        if (cVar != null && (a2 = cVar.a()) != null) {
             int groupType = a2.getGroupType();
-            com.baidu.adp.lib.h.e.d("type  " + groupType);
+            com.baidu.adp.lib.g.e.d("type  " + groupType);
             if (1 == groupType) {
                 this.c = String.valueOf(a2.getGroupId());
-                com.baidu.adp.lib.h.e.d("systemGroupId:" + this.c);
-                a(bVar, groupType);
+                com.baidu.adp.lib.g.e.d("systemGroupId:" + this.c);
+                a(cVar, groupType);
                 return;
             }
             if (1 != groupType) {
@@ -128,14 +130,13 @@ public class m implements com.baidu.tieba.im.messageCenter.g {
 
     public void a(CommonMsgPojo commonMsgPojo) {
         boolean z;
-        boolean b;
         if (commonMsgPojo != null) {
-            com.baidu.tieba.im.message.e chatMessage = commonMsgPojo.toChatMessage();
+            com.baidu.tieba.im.message.g chatMessage = commonMsgPojo.toChatMessage();
             if (chatMessage != null) {
                 SystemMsgData i = com.baidu.tieba.im.d.d.i(chatMessage);
                 z = i == null || i.getIsSelf();
                 if (TiebaApplication.B()) {
-                    if (chatMessage.f().getId().equals(TiebaApplication.A()) && chatMessage.h() != 11) {
+                    if (chatMessage.g().getId().equals(TiebaApplication.A()) && chatMessage.i() != 11) {
                         z = false;
                     }
                 }
@@ -145,42 +146,40 @@ public class m implements com.baidu.tieba.im.messageCenter.g {
             if (commonMsgPojo.getRead_flag() == 0) {
                 z = false;
             }
-            if (!TiebaApplication.g().aa() && !commonMsgPojo.isPrivate()) {
+            if (!TiebaApplication.h().Z() && !commonMsgPojo.isPrivate()) {
                 z = false;
             }
-            if (!TiebaApplication.g().Z() && commonMsgPojo.isPrivate()) {
+            if (!TiebaApplication.h().Y() && commonMsgPojo.isPrivate()) {
                 z = false;
             }
             String gid = commonMsgPojo.getGid();
-            if (!TextUtils.isEmpty(gid) && GroupChatActivity.a && gid.equals(ba.c)) {
+            if (!TextUtils.isEmpty(gid) && GroupChatActivity.a && gid.equals(GroupChatActivity.b)) {
                 z = false;
-            } else if (!TextUtils.isEmpty(gid) && PersonalChatActivity.a && gid.equals(ba.d)) {
+            } else if (!TextUtils.isEmpty(gid) && PersonalChatActivity.a && gid.equals(PersonalChatActivity.b)) {
+                z = false;
+            } else if (!TextUtils.isEmpty(gid) && SnapGroupChatActivity.l && gid.equals(SnapGroupChatActivity.m)) {
                 z = false;
             }
             k e = a.h().e(gid);
             if (e != null) {
-                b = e.isAcceptNotify();
-            } else if (commonMsgPojo.isPrivate()) {
-                b = com.baidu.tieba.im.chat.personaltalk.a.b(TiebaApplication.A(), commonMsgPojo.getGid());
-            } else {
-                b = com.baidu.tieba.im.chat.personaltalk.a.b(TiebaApplication.A(), commonMsgPojo.getGid());
+                boolean isAcceptNotify = e.isAcceptNotify();
+                if (z && !isAcceptNotify) {
+                    z = false;
+                }
+                a.h().b(z, new n(this));
+                return;
             }
-            if (z && !b) {
-                z = false;
-            }
-        } else {
-            z = true;
+            com.baidu.tieba.im.chat.personaltalk.a.a(TiebaApplication.A(), commonMsgPojo.getGid(), new o(this, z));
         }
-        a.h().b(z, new n(this));
     }
 
     public void a(boolean z) {
-        a.h().b(z, new o(this));
+        a.h().b(z, new q(this));
     }
 
     public void a(GroupNewsPojo groupNewsPojo) {
         LinkedList<WeakReference<l>> linkedList = this.b.get("group_msg_arrived");
-        com.baidu.adp.lib.h.e.d("dispatch group chat ");
+        com.baidu.adp.lib.g.e.d("dispatch group chat ");
         int i = 0;
         if (linkedList != null && !linkedList.isEmpty()) {
             Iterator<WeakReference<l>> it = linkedList.iterator();
@@ -193,11 +192,11 @@ public class m implements com.baidu.tieba.im.messageCenter.g {
                 i = i;
             }
         }
-        com.baidu.adp.lib.h.e.d("dispatch group chat: " + i + " times");
+        com.baidu.adp.lib.g.e.d("dispatch group chat: " + i + " times");
     }
 
-    private void a(com.baidu.tieba.im.data.b bVar, int i) {
-        com.baidu.tieba.im.m.a(new p(this, bVar, i), new q(this));
+    private void a(com.baidu.tieba.im.data.c cVar, int i) {
+        com.baidu.tieba.im.m.a(new r(this, cVar, i), new s(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -218,20 +217,20 @@ public class m implements com.baidu.tieba.im.messageCenter.g {
         if (a2 != null) {
             String groupId = a2.getGroupId();
             if (!TextUtils.isEmpty(groupId)) {
-                ad.a().a(new r(this, groupId, a2));
+                ae.a().a(new t(this, groupId, a2));
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public LinkedList<GroupNewsPojo> b(com.baidu.tieba.im.data.b bVar, int i) {
+    public LinkedList<GroupNewsPojo> b(com.baidu.tieba.im.data.c cVar, int i) {
         long j;
         GroupNewsPojo groupNewsPojo;
         if (1 != i) {
             return null;
         }
         try {
-            LinkedList<GroupNewsPojo> a2 = a(bVar.b());
+            LinkedList<GroupNewsPojo> a2 = a(cVar.b());
             if (a2 == null || a2.isEmpty()) {
                 return null;
             }
@@ -241,14 +240,14 @@ public class m implements com.baidu.tieba.im.messageCenter.g {
             } else {
                 j = Long.parseLong(groupNewsPojo.getNotice_id());
             }
-            com.baidu.adp.lib.h.e.d(" lastDBMid:" + j);
+            com.baidu.adp.lib.g.e.d(" lastDBMid:" + j);
             LinkedList<GroupNewsPojo> linkedList = new LinkedList<>();
             Iterator<GroupNewsPojo> it = a2.iterator();
             while (it.hasNext()) {
                 GroupNewsPojo next = it.next();
                 if (!TextUtils.isEmpty(next.getNotice_id())) {
                     long parseLong = Long.parseLong(next.getNotice_id());
-                    com.baidu.adp.lib.h.e.d(" lastDBMid:" + j + " mid:" + parseLong);
+                    com.baidu.adp.lib.g.e.d(" lastDBMid:" + j + " mid:" + parseLong);
                     if (parseLong > j) {
                         linkedList.add(next);
                     }
@@ -259,7 +258,7 @@ public class m implements com.baidu.tieba.im.messageCenter.g {
             while (it2.hasNext()) {
                 GroupNewsPojo next2 = it2.next();
                 if (next2 != null) {
-                    com.baidu.adp.lib.h.e.d("system lastmid pull:" + next2.getNotice_id());
+                    com.baidu.adp.lib.g.e.d("system lastmid pull:" + next2.getNotice_id());
                     if (next2.getCmd().equals("apply_join_group")) {
                         a.g();
                     } else if ("group_intro_change' , 'group_level_up' , 'group_name_change' , 'group_notice_change' , 'dismiss_group' , 'kick_out' , 'group_event_info".contains(next2.getCmd())) {
@@ -289,7 +288,7 @@ public class m implements com.baidu.tieba.im.messageCenter.g {
                 GroupNewsPojo next = it.next();
                 if (next != null) {
                     LinkedList<WeakReference<l>> linkedList2 = this.b.get(next.getCmd());
-                    com.baidu.adp.lib.h.e.d("dispatch system cmd:" + next.getCmd());
+                    com.baidu.adp.lib.g.e.d("dispatch system cmd:" + next.getCmd());
                     int i = 0;
                     if (linkedList2 != null && !linkedList2.isEmpty()) {
                         Iterator<WeakReference<l>> it2 = linkedList2.iterator();
@@ -302,52 +301,52 @@ public class m implements com.baidu.tieba.im.messageCenter.g {
                             i = i;
                         }
                     }
-                    com.baidu.adp.lib.h.e.d("dispatch system cmd:" + next.getCmd() + " " + i + " times");
+                    com.baidu.adp.lib.g.e.d("dispatch system cmd:" + next.getCmd() + " " + i + " times");
                 }
             }
         }
     }
 
-    private static LinkedList<GroupNewsPojo> a(com.baidu.tieba.im.data.e eVar) {
+    private static LinkedList<GroupNewsPojo> a(com.baidu.tieba.im.data.f fVar) {
         List<com.baidu.tieba.im.message.b> a2;
-        if (eVar == null || (a2 = eVar.a()) == null || a2.size() == 0) {
+        if (fVar == null || (a2 = fVar.a()) == null || a2.size() == 0) {
             return null;
         }
         LinkedList<GroupNewsPojo> linkedList = new LinkedList<>();
-        com.baidu.adp.lib.h.e.d("size:" + a2.size());
+        com.baidu.adp.lib.g.e.d("size:" + a2.size());
         int i = 0;
         for (com.baidu.tieba.im.message.b bVar : a2) {
             int i2 = i + 1;
-            com.baidu.adp.lib.h.e.d("idx:" + i + "  cmd:" + bVar.u() + " content:" + bVar.j());
+            com.baidu.adp.lib.g.e.d("idx:" + i + "  cmd:" + bVar.w() + " content:" + bVar.k());
             GroupNewsPojo a3 = a(bVar);
             if (a3 != null) {
                 linkedList.add(a3);
             }
             i = i2;
         }
-        com.baidu.adp.lib.h.e.d("after convert size:" + linkedList.size());
+        com.baidu.adp.lib.g.e.d("after convert size:" + linkedList.size());
         return linkedList;
     }
 
     private static GroupNewsPojo a(com.baidu.tieba.im.message.b bVar) {
         UpdatesItemData a2;
-        String j = bVar.j();
-        if (TextUtils.isEmpty(j)) {
-            com.baidu.adp.lib.h.e.d(" system message content is null or empty");
+        String k = bVar.k();
+        if (TextUtils.isEmpty(k)) {
+            com.baidu.adp.lib.g.e.d(" system message content is null or empty");
             return null;
         }
         try {
-            com.baidu.adp.lib.h.e.d("system msg:" + bVar.j());
-            if (j.startsWith("[")) {
-                com.baidu.adp.lib.h.e.d("system msg content is no json");
+            com.baidu.adp.lib.g.e.d("system msg:" + bVar.k());
+            if (k.startsWith("[")) {
+                com.baidu.adp.lib.g.e.d("system msg content is no json");
                 return null;
             }
-            String optString = new JSONObject(j).optString("eventId");
+            String optString = new JSONObject(k).optString("eventId");
             if (TextUtils.isEmpty(optString)) {
-                com.baidu.adp.lib.h.e.d(" system message content no eventId");
+                com.baidu.adp.lib.g.e.d(" system message content no eventId");
                 return null;
             }
-            com.baidu.adp.lib.h.e.d("system message content eventID is " + optString);
+            com.baidu.adp.lib.g.e.d("system message content eventID is " + optString);
             GroupNewsPojo groupNewsPojo = new GroupNewsPojo(bVar, optString);
             groupNewsPojo.setOriginalPushMsg(bVar);
             String cmd = groupNewsPojo.getCmd();
@@ -356,21 +355,21 @@ public class m implements com.baidu.tieba.im.messageCenter.g {
                 if (a3 != null && !TextUtils.isEmpty(a3.getGroupName())) {
                     String groupId = a3.getGroupId();
                     if (!TextUtils.isEmpty(groupId)) {
-                        com.baidu.adp.lib.h.e.d("update msg group name" + a3.getGroupName());
+                        com.baidu.adp.lib.g.e.d("update msg group name" + a3.getGroupName());
                         com.baidu.tieba.im.db.t.a().b(groupId, a3.getGroupName());
                     }
                 }
             } else if (!TextUtils.isEmpty(cmd) && cmd.equals("group_head_change") && (a2 = com.baidu.tieba.im.groupUpdates.m.a(groupNewsPojo)) != null) {
                 String groupId2 = a2.getGroupId();
                 if (!TextUtils.isEmpty(groupId2) && !TextUtils.isEmpty(a2.getGroupHeadUrl())) {
-                    com.baidu.adp.lib.h.e.d("update msg group head" + a2.getGroupHeadUrl());
+                    com.baidu.adp.lib.g.e.d("update msg group head" + a2.getGroupHeadUrl());
                     com.baidu.tieba.im.db.t.a().c(groupId2, a2.getGroupHeadUrl());
                 }
             }
             return groupNewsPojo;
         } catch (JSONException e) {
             e.printStackTrace();
-            com.baidu.adp.lib.h.e.d("system message convert json error happen");
+            com.baidu.adp.lib.g.e.d("system message convert json error happen");
             return null;
         }
     }

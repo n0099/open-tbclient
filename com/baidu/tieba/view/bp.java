@@ -1,25 +1,27 @@
 package com.baidu.tieba.view;
 
-import android.view.animation.Animation;
+import android.app.Dialog;
+import android.content.Context;
+import android.view.MotionEvent;
+import android.view.View;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class bp implements Animation.AnimationListener {
-    final /* synthetic */ ShutDownValidateTipView a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bp(ShutDownValidateTipView shutDownValidateTipView) {
-        this.a = shutDownValidateTipView;
+public class bp extends Dialog {
+    public bp(Context context) {
+        super(context, R.style.common_alert_dialog);
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
+    @Override // android.app.Dialog
+    public void setContentView(View view) {
+        super.setContentView(view);
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        this.a.setVisibility(8);
+    @Override // android.app.Dialog, android.view.Window.Callback
+    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
+        boolean dispatchTouchEvent = super.dispatchTouchEvent(motionEvent);
+        if (!dispatchTouchEvent && motionEvent.getAction() == 0) {
+            dismiss();
+        }
+        return dispatchTouchEvent;
     }
 }

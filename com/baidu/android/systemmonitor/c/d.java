@@ -58,7 +58,7 @@ public final class d {
     }
 
     public static boolean a() {
-        return Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED);
+        return Environment.getExternalStorageState().equals("mounted");
     }
 
     public static boolean a(Context context) {

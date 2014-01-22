@@ -14,6 +14,6 @@ public class l implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        com.baidu.adp.lib.h.g.a(this.a.getContext(), (int) R.string.emotion_cant_show);
+        com.baidu.adp.lib.g.g.a(this.a.getContext(), (int) R.string.emotion_cant_show);
     }
 }

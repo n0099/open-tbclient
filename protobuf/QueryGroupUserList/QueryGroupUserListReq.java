@@ -9,6 +9,7 @@ import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.Parser;
 import java.io.IOException;
 import java.io.InputStream;
+import protobuf.Im;
 /* loaded from: classes.dex */
 public final class QueryGroupUserListReq {
 
@@ -72,11 +73,11 @@ public final class QueryGroupUserListReq {
                                     this.bitField0_ |= 2;
                                     this.offset_ = codedInputStream.readInt32();
                                     break;
-                                case 24:
+                                case Im.GroupInfo.ISHIDEPOSITION_FIELD_NUMBER /* 24 */:
                                     this.bitField0_ |= 4;
                                     this.rn_ = codedInputStream.readInt32();
                                     break;
-                                case 32:
+                                case Im.GroupInfo.ISNEWLYCREATE_FIELD_NUMBER /* 32 */:
                                     this.bitField0_ |= 8;
                                     this.orderType_ = codedInputStream.readInt32();
                                     break;

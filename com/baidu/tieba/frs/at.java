@@ -1,9 +1,9 @@
 package com.baidu.tieba.frs;
 
-import android.content.DialogInterface;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
-public class at implements DialogInterface.OnClickListener {
+class at implements com.baidu.tbadk.imageManager.c {
     final /* synthetic */ FrsImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,8 +11,17 @@ public class at implements DialogInterface.OnClickListener {
         this.a = frsImageActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        dialogInterface.dismiss();
+    @Override // com.baidu.tbadk.imageManager.c
+    public void a(com.baidu.adp.widget.ImageView.d dVar, String str, boolean z) {
+        bi biVar;
+        try {
+            biVar = this.a.l;
+            View findViewWithTag = biVar.e().a(2).findViewWithTag(str);
+            if (findViewWithTag != null && (findViewWithTag instanceof TbImageView)) {
+                findViewWithTag.invalidate();
+            }
+        } catch (Exception e) {
+            com.baidu.adp.lib.g.e.b(getClass().getName(), "imageLoaded", e.getMessage());
+        }
     }
 }

@@ -1,24 +1,22 @@
 package com.baidu.tieba.frs;
-
-import com.baidu.tieba.model.cj;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bh implements cj {
+public class bh implements com.baidu.tieba.im.messageCenter.g {
     final /* synthetic */ FrsImageActivity a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bh(FrsImageActivity frsImageActivity) {
+    private bh(FrsImageActivity frsImageActivity) {
         this.a = frsImageActivity;
     }
 
-    @Override // com.baidu.tieba.model.cj
-    public void a(String str, long j) {
-        com.baidu.tieba.model.ar arVar;
-        arVar = this.a.q;
-        arVar.a().setLike(0);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ bh(FrsImageActivity frsImageActivity, ao aoVar) {
+        this(frsImageActivity);
     }
 
-    @Override // com.baidu.tieba.model.cj
-    public void b(String str, long j) {
+    @Override // com.baidu.tieba.im.messageCenter.g
+    public void a(com.baidu.tieba.im.message.q qVar) {
+        if (qVar != null && qVar.w() == -124) {
+            this.a.a(qVar);
+        }
     }
 }

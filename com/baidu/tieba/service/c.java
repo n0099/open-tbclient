@@ -4,14 +4,12 @@ import android.app.ActivityManager;
 import android.content.Intent;
 import android.text.TextUtils;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.browser.explorer.BdWebErrorView;
-import com.baidu.mobstat.StatService;
 import com.baidu.tieba.LogoActivity;
 import com.baidu.tieba.MainTabActivity;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.ap;
+import com.baidu.tieba.as;
 import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.bp;
+import com.baidu.tieba.util.by;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends BdAsyncTask<String, Integer, String> {
@@ -41,18 +39,16 @@ public class c extends BdAsyncTask<String, Integer, String> {
         String stringExtra = this.b.getStringExtra("link");
         long j = this.b.getExtras().getLong("message_id");
         if (!TextUtils.isEmpty(string) && !TextUtils.isEmpty(stringExtra)) {
-            if (TiebaApplication.g().s()) {
-                StatService.onEvent(TiebaApplication.g().getApplicationContext(), "cl_push_noti:" + string, "msgID:" + j);
-            }
-            bp.a(j, 2, stringExtra, string);
+            by.a(TiebaApplication.h().getApplicationContext(), "cl_push_noti:" + string, "msgID:" + j);
+            by.a(j, 2, stringExtra, string);
         }
-        for (ActivityManager.RunningTaskInfo runningTaskInfo : ((ActivityManager) TiebaApplication.g().getSystemService("activity")).getRunningTasks(BdWebErrorView.ERROR_CODE_500)) {
+        for (ActivityManager.RunningTaskInfo runningTaskInfo : ((ActivityManager) TiebaApplication.h().getSystemService("activity")).getRunningTasks(500)) {
             if (runningTaskInfo.baseActivity.getClassName().startsWith(this.a.getPackageName())) {
-                com.baidu.adp.lib.h.e.d("see noti goto maintab app active");
+                com.baidu.adp.lib.g.e.d("see noti goto maintab app active");
                 if (5 == this.b.getIntExtra("class", -1)) {
-                    com.baidu.adp.lib.h.e.d("see noti goto maintab");
+                    com.baidu.adp.lib.g.e.d("see noti goto maintab");
                     if (!runningTaskInfo.topActivity.getClassName().equalsIgnoreCase(MainTabActivity.class.getName())) {
-                        com.baidu.adp.lib.h.e.d("see noti goto maintab new");
+                        com.baidu.adp.lib.g.e.d("see noti goto maintab new");
                         this.b.putExtra("class", 11);
                     }
                 } else if (10 == this.b.getIntExtra("class", -1)) {
@@ -65,7 +61,7 @@ public class c extends BdAsyncTask<String, Integer, String> {
         if (this.b.getExtras().getBoolean("is_notify", false)) {
             a(i);
         }
-        com.baidu.adp.lib.h.e.d("see noti goto maintab app not active");
+        com.baidu.adp.lib.g.e.d("see noti goto maintab app not active");
         str = DealIntentService.c;
         return str;
     }
@@ -120,13 +116,13 @@ public class c extends BdAsyncTask<String, Integer, String> {
     private void b(int i) {
         switch (i) {
             case 6:
-                StatService.onEvent(this.a.getBaseContext(), "notify_to_pk_before", "click");
+                by.a(this.a.getBaseContext(), "notify_to_pk_before", "click");
                 return;
             case 7:
-                StatService.onEvent(this.a.getBaseContext(), "notify_to_pk_end", "click");
+                by.a(this.a.getBaseContext(), "notify_to_pk_end", "click");
                 return;
             case 8:
-                StatService.onEvent(this.a.getBaseContext(), "notify_to_vote_list", "click");
+                by.a(this.a.getBaseContext(), "notify_to_vote_list", "click");
                 return;
             case 9:
             case 10:
@@ -136,7 +132,7 @@ public class c extends BdAsyncTask<String, Integer, String> {
             default:
                 return;
             case 14:
-                ap.a(this.a.getBaseContext(), "notify_group_event_click");
+                as.a(this.a.getBaseContext(), "notify_group_event_click");
                 return;
         }
     }

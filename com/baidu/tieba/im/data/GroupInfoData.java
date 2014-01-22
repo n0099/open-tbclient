@@ -1,11 +1,11 @@
 package com.baidu.tieba.im.data;
 
 import android.text.TextUtils;
-import com.baidu.tieba.util.ap;
+import com.baidu.tieba.util.as;
 import java.io.Serializable;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class GroupInfoData extends ap implements Serializable {
+public class GroupInfoData extends as implements Serializable {
     private static final long serialVersionUID = 5616188082014345808L;
     private int authorId;
     private int authorIsMeizhi;
@@ -17,6 +17,7 @@ public class GroupInfoData extends ap implements Serializable {
     private int groupId;
     private String intro;
     private int isGroupManager;
+    private boolean isMemGroup;
     private int maxMemberNum;
     private int memberNum;
     private String name;
@@ -138,11 +139,19 @@ public class GroupInfoData extends ap implements Serializable {
         this.forumShowName = str;
     }
 
+    public boolean isMemGroup() {
+        return this.isMemGroup;
+    }
+
+    public void setMemGroup(boolean z) {
+        this.isMemGroup = z;
+    }
+
     public String toString() {
         return "GroupInfoData [isManager=" + this.isGroupManager + ", groupId=" + this.groupId + ", forumId=" + this.forumId + ", name=" + this.name + ", intro=" + this.intro + ", portrait=" + this.portrait + ", maxMemberNum=" + this.maxMemberNum + ", memberNum=" + this.memberNum + ", authorId=" + this.authorId + ", authorName=" + this.authorName + "]";
     }
 
-    @Override // com.baidu.tieba.util.ap, com.baidu.tieba.util.ar
+    @Override // com.baidu.tieba.util.as, com.baidu.tieba.util.au
     public LinkedList<String> getImageUrl() {
         LinkedList<String> linkedList = new LinkedList<>();
         linkedList.add(this.portrait);

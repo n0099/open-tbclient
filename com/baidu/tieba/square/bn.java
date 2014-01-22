@@ -1,9 +1,8 @@
 package com.baidu.tieba.square;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.EditText;
 /* loaded from: classes.dex */
-public class bn implements View.OnFocusChangeListener {
+class bn implements Runnable {
     final /* synthetic */ SquareSearchActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,10 +10,14 @@ public class bn implements View.OnFocusChangeListener {
         this.a = squareSearchActivity;
     }
 
-    @Override // android.view.View.OnFocusChangeListener
-    public void onFocusChange(View view, boolean z) {
-        if (!z) {
-            com.baidu.adp.lib.h.g.a(this.a, view);
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        EditText editText;
+        EditText editText2;
+        editText = this.a.c;
+        editText.requestFocus();
+        SquareSearchActivity squareSearchActivity = this.a;
+        editText2 = this.a.c;
+        com.baidu.adp.lib.g.g.b(squareSearchActivity, editText2);
     }
 }

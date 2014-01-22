@@ -1,50 +1,21 @@
 package com.baidu.tieba.frs;
 
-import android.content.DialogInterface;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.pb.NewPbActivity;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.util.NetWorkCore;
 /* loaded from: classes.dex */
-public class h implements DialogInterface.OnClickListener {
-    final /* synthetic */ com.baidu.tieba.data.bb a;
-    final /* synthetic */ FrsActivity b;
+class h implements Runnable {
+    final /* synthetic */ String a;
+    final /* synthetic */ g b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public h(FrsActivity frsActivity, com.baidu.tieba.data.bb bbVar) {
-        this.b = frsActivity;
-        this.a = bbVar;
+    public h(g gVar, String str) {
+        this.b = gVar;
+        this.a = str;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        String str;
-        String str2;
-        boolean z;
-        bo boVar;
-        switch (i) {
-            case 0:
-                str = this.b.l;
-                if (str != null) {
-                    FrsActivity frsActivity = this.b;
-                    com.baidu.tieba.data.bb bbVar = this.a;
-                    str2 = this.b.f;
-                    z = this.b.m;
-                    NewPbActivity.a(frsActivity, bbVar, str2, null, 18003, true, false, z);
-                    break;
-                }
-                break;
-            case 1:
-                this.b.c(this.a);
-                break;
-            case 2:
-                this.b.d(this.a);
-                break;
-        }
-        com.baidu.tieba.util.bk aw = TiebaApplication.g().aw();
-        if (aw != null && !aw.b(this.a.a())) {
-            aw.a(this.a.a());
-        }
-        boVar = this.b.n;
-        boVar.r();
+    @Override // java.lang.Runnable
+    public void run() {
+        NetWorkCore netWorkCore = new NetWorkCore(new com.baidu.tieba.util.bl());
+        netWorkCore.b(this.a);
+        netWorkCore.w();
     }
 }

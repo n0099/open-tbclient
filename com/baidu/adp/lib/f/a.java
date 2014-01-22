@@ -2,7 +2,7 @@ package com.baidu.adp.lib.f;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import com.baidu.adp.lib.h.e;
+import com.baidu.adp.lib.g.e;
 import java.io.Closeable;
 /* loaded from: classes.dex */
 public class a {

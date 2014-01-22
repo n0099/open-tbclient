@@ -4,10 +4,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import com.baidu.mobstat.StatService;
 import com.baidu.tieba.MainTabActivity;
-import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.model.ax;
+import com.baidu.tieba.util.by;
 import com.slidingmenu.lib.R;
 import java.util.LinkedList;
 import java.util.List;
@@ -157,11 +156,9 @@ public class TopRecActivity extends com.baidu.tieba.j {
         } else if (view == this.a.b()) {
             if (this.j != 0) {
                 showToast(getString(R.string.top_rec_like_finish_a) + this.j + getString(R.string.top_rec_like_finish_b));
-                if (TiebaApplication.g().s()) {
-                    StatService.onEvent(this, "top_rec_have_like", "people_number", 1);
-                }
-            } else if (TiebaApplication.g().s()) {
-                StatService.onEvent(this, "top_rec_no_like", "people_number", 1);
+                by.a(this, "top_rec_have_like", "people_number", 1, new Object[0]);
+            } else {
+                by.a(this, "top_rec_no_like", "people_number", 1, new Object[0]);
             }
             finish();
             MainTabActivity.a(this, 1);
@@ -194,11 +191,9 @@ public class TopRecActivity extends com.baidu.tieba.j {
         super.onBackPressed();
         if (this.j != 0) {
             showToast(getString(R.string.top_rec_like_finish_a) + this.j + getString(R.string.top_rec_like_finish_b));
-            if (TiebaApplication.g().s()) {
-                StatService.onEvent(this, "top_rec_have_like", "people_number", 1);
-            }
-        } else if (TiebaApplication.g().s()) {
-            StatService.onEvent(this, "top_rec_no_like", "people_number", 1);
+            by.a(this, "top_rec_have_like", "people_number", 1, new Object[0]);
+        } else {
+            by.a(this, "top_rec_no_like", "people_number", 1, new Object[0]);
         }
         finish();
         MainTabActivity.a(this, 1);

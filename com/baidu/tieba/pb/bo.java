@@ -18,7 +18,7 @@ class bo implements View.OnLongClickListener {
         SparseArray sparseArray;
         com.baidu.tieba.model.bg bgVar;
         boolean z;
-        cs csVar;
+        cr crVar;
         DialogInterface.OnClickListener onClickListener;
         com.baidu.tieba.model.bm bmVar;
         try {
@@ -30,23 +30,23 @@ class bo implements View.OnLongClickListener {
         if (sparseArray != null) {
             this.a.b = (com.baidu.tieba.data.as) sparseArray.get(R.id.tag_clip_board);
             if (this.a.b != null) {
-                bgVar = this.a.u;
+                bgVar = this.a.v;
                 if (bgVar.a() && this.a.b.d() != null) {
                     String d = this.a.b.d();
-                    bmVar = this.a.t;
+                    bmVar = this.a.u;
                     if (d.equals(bmVar.k())) {
                         z = true;
                         boolean booleanValue = ((Boolean) sparseArray.get(R.id.tag_is_subpb)).booleanValue();
-                        csVar = this.a.z;
-                        onClickListener = this.a.ab;
-                        csVar.a(onClickListener, z, booleanValue);
+                        crVar = this.a.A;
+                        onClickListener = this.a.ac;
+                        crVar.a(onClickListener, z, booleanValue);
                     }
                 }
                 z = false;
                 boolean booleanValue2 = ((Boolean) sparseArray.get(R.id.tag_is_subpb)).booleanValue();
-                csVar = this.a.z;
-                onClickListener = this.a.ab;
-                csVar.a(onClickListener, z, booleanValue2);
+                crVar = this.a.A;
+                onClickListener = this.a.ac;
+                crVar.a(onClickListener, z, booleanValue2);
             }
         }
         return true;

@@ -1,6 +1,5 @@
 package com.baidu.tieba.data;
 
-import com.baidu.tieba.util.bo;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class UserData extends MetaData {
@@ -12,6 +11,7 @@ public class UserData extends MetaData {
     private int is_bawu;
     private String password = null;
     private int is_like = 0;
+    private boolean isManager = false;
     private String ip = null;
     private String BDUSS = null;
     private int level_id = 0;
@@ -36,6 +36,10 @@ public class UserData extends MetaData {
         return this.is_like;
     }
 
+    public boolean getIsManager() {
+        return this.isManager;
+    }
+
     public String getIp() {
         return this.ip;
     }
@@ -50,7 +54,7 @@ public class UserData extends MetaData {
         try {
             parserJson(new JSONObject(str));
         } catch (Exception e) {
-            bo.b("PostData", "parserJson", "error = " + e.getMessage());
+            com.baidu.adp.lib.g.e.b("PostData", "parserJson", "error = " + e.getMessage());
         }
     }
 
@@ -73,22 +77,27 @@ public class UserData extends MetaData {
                 this.posts_num = jSONObject.optInt("post_num", 0);
                 this.is_bawu = jSONObject.optInt("is_bawu", 0);
                 this.bawu_type = jSONObject.optString("bawu_type");
+                if (jSONObject.optInt("is_manager", 0) == 1) {
+                    this.isManager = true;
+                } else {
+                    this.isManager = false;
+                }
             }
         } catch (Exception e) {
-            bo.b("PostData", "parserJson", "error = " + e.getMessage());
+            com.baidu.adp.lib.g.e.b("PostData", "parserJson", "error = " + e.getMessage());
         }
     }
 
     @Override // com.baidu.tieba.data.MetaData
     public void logPrint() {
         super.logPrint();
-        bo.d(getClass().getName(), "logPrint", "ip = " + this.ip);
-        bo.d(getClass().getName(), "logPrint", "BDUSS = " + this.BDUSS);
-        bo.d(getClass().getName(), "logPrint", "level_id = " + String.valueOf(this.level_id));
-        bo.d(getClass().getName(), "logPrint", "fans_num = " + String.valueOf(this.fans_num));
-        bo.d(getClass().getName(), "logPrint", "concern_num = " + String.valueOf(this.concern_num));
-        bo.d(getClass().getName(), "logPrint", "sex = " + String.valueOf(this.sex));
-        bo.d(getClass().getName(), "logPrint", "intro = " + this.intro);
+        com.baidu.adp.lib.g.e.d(getClass().getName(), "logPrint", "ip = " + this.ip);
+        com.baidu.adp.lib.g.e.d(getClass().getName(), "logPrint", "BDUSS = " + this.BDUSS);
+        com.baidu.adp.lib.g.e.d(getClass().getName(), "logPrint", "level_id = " + String.valueOf(this.level_id));
+        com.baidu.adp.lib.g.e.d(getClass().getName(), "logPrint", "fans_num = " + String.valueOf(this.fans_num));
+        com.baidu.adp.lib.g.e.d(getClass().getName(), "logPrint", "concern_num = " + String.valueOf(this.concern_num));
+        com.baidu.adp.lib.g.e.d(getClass().getName(), "logPrint", "sex = " + String.valueOf(this.sex));
+        com.baidu.adp.lib.g.e.d(getClass().getName(), "logPrint", "intro = " + this.intro);
     }
 
     public void setFans_num(int i) {
@@ -169,5 +178,10 @@ public class UserData extends MetaData {
 
     public String getBawu_type() {
         return this.bawu_type;
+    }
+
+    @Override // com.baidu.tieba.data.MetaData
+    public String toString() {
+        return "UserData{ip='" + this.ip + "', level_id=" + this.level_id + ", BDUSS='" + this.BDUSS + "', fans_num=" + this.fans_num + ", concern_num=" + this.concern_num + ", like_bars=" + this.like_bars + ", sex=" + this.sex + ", intro='" + this.intro + "', have_attention=" + this.have_attention + ", password='" + this.password + "', is_like=" + this.is_like + ", posts_num=" + this.posts_num + ", is_bawu=" + this.is_bawu + ", bawu_type='" + this.bawu_type + "', isManager=" + this.isManager + "}:" + super.toString();
     }
 }

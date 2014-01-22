@@ -5,26 +5,18 @@ import android.content.SharedPreferences;
 import com.baidu.cloudsdk.common.util.Validator;
 /* loaded from: classes.dex */
 public class WidgetPreferenceManager {
-    private static WidgetPreferenceManager a;
-    private SharedPreferences b;
+    private SharedPreferences a;
 
-    private WidgetPreferenceManager(Context context) {
+    public WidgetPreferenceManager(Context context) {
         Validator.notNull(context, "context");
-        this.b = context.getSharedPreferences("com.baidu.cloudsdk.social.WIDGET", 0);
-    }
-
-    public static WidgetPreferenceManager getInstance(Context context) {
-        if (a == null) {
-            a = new WidgetPreferenceManager(context);
-        }
-        return a;
+        this.a = context.getSharedPreferences("com.baidu.cloudsdk.social.WIDGET", 0);
     }
 
     public boolean isWidgetActivated(String str) {
-        return this.b.getBoolean(str, false);
+        return this.a.getBoolean(str, false);
     }
 
     public void setWidgetActivated(String str) {
-        this.b.edit().putBoolean(str, true).commit();
+        this.a.edit().putBoolean(str, true).commit();
     }
 }

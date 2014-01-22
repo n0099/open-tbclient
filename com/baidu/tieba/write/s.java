@@ -15,7 +15,7 @@ import com.slidingmenu.lib.R;
 public class s extends BdAsyncTask<Integer, Integer, bf> {
     final /* synthetic */ VcodeActivity a;
     private WriteData b;
-    private com.baidu.tieba.util.at c = null;
+    private com.baidu.tieba.util.ax c = null;
     private String d = null;
 
     public s(VcodeActivity vcodeActivity, WriteData writeData) {
@@ -29,8 +29,8 @@ public class s extends BdAsyncTask<Integer, Integer, bf> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public bf a(Integer... numArr) {
         EditText editText;
-        Address aQ;
-        this.c = new com.baidu.tieba.util.at();
+        Address aO;
+        this.c = new com.baidu.tieba.util.ax();
         this.c.a("anonymous", SocialConstants.FALSE);
         this.c.a("fid", this.b.getForumId());
         this.c.a("kw", this.b.getForumName());
@@ -54,8 +54,8 @@ public class s extends BdAsyncTask<Integer, Integer, bf> {
         if (this.b.getType() == 0) {
             this.c.a(com.baidu.tieba.data.h.a + "c/c/thread/add");
             this.c.a("title", this.b.getTitle());
-            if (!com.baidu.tieba.data.h.h().equals(this.a.getIntent().getStringExtra("forum_id")) && TiebaApplication.g().t() && (aQ = TiebaApplication.g().aQ()) != null) {
-                this.c.a("lbs", String.valueOf(aQ.getLatitude()) + "," + String.valueOf(aQ.getLongitude()));
+            if (!com.baidu.tieba.data.h.h().equals(this.a.getIntent().getStringExtra("forum_id")) && TiebaApplication.h().t() && (aO = TiebaApplication.h().aO()) != null) {
+                this.c.a("lbs", String.valueOf(aO.getLatitude()) + "," + String.valueOf(aO.getLongitude()));
             }
         } else {
             this.c.a(com.baidu.tieba.data.h.a + "c/c/post/add");
@@ -66,7 +66,7 @@ public class s extends BdAsyncTask<Integer, Integer, bf> {
                 this.c.a("floor_num", String.valueOf(this.b.getFloorNum()));
             }
         }
-        this.d = this.c.l();
+        this.d = this.c.m();
         return null;
     }
 
@@ -75,7 +75,7 @@ public class s extends BdAsyncTask<Integer, Integer, bf> {
         this.a.h = null;
         this.a.closeLoadingDialog();
         if (this.c != null) {
-            this.c.j();
+            this.c.k();
         }
         super.cancel(true);
     }
@@ -91,18 +91,18 @@ public class s extends BdAsyncTask<Integer, Integer, bf> {
         this.a.closeLoadingDialog();
         this.a.h = null;
         if (this.c != null) {
-            if (this.c.c()) {
+            if (this.c.d()) {
                 ErrorData errorData = new ErrorData();
                 errorData.parserJson(this.d);
                 if (errorData.getError_msg() == null || errorData.getError_msg().length() <= 0) {
-                    this.a.showToast(TiebaApplication.g().getString(R.string.send_success));
+                    this.a.showToast(TiebaApplication.h().getString(R.string.send_success));
                 } else {
                     this.a.showToast(errorData.getError_msg());
                 }
                 this.a.setResult(-1, this.a.getIntent());
                 this.a.finish();
             } else {
-                if (this.c.e() == 5 || this.c.e() == 6) {
+                if (this.c.f() == 5 || this.c.f() == 6) {
                     bf bfVar2 = new bf();
                     bfVar2.a(this.d);
                     if (bfVar2.b() != null) {
@@ -117,7 +117,7 @@ public class s extends BdAsyncTask<Integer, Integer, bf> {
                     editText = this.a.f;
                     editText.setText((CharSequence) null);
                 }
-                this.a.showToast(this.c.i());
+                this.a.showToast(this.c.j());
             }
         }
         super.a((s) bfVar);

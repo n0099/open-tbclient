@@ -1,25 +1,27 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aa extends BdAsyncTask<Void, Void, Void> {
-    final /* synthetic */ boolean a;
-    final /* synthetic */ z b;
+public class aa implements com.baidu.tieba.im.a<Boolean> {
+    final /* synthetic */ com.baidu.tieba.im.data.c a;
+    final /* synthetic */ String b;
+    final /* synthetic */ CommonMsgPojo c;
+    final /* synthetic */ int d;
+    final /* synthetic */ q e;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aa(z zVar, boolean z) {
-        this.b = zVar;
-        this.a = z;
+    public aa(q qVar, com.baidu.tieba.im.data.c cVar, String str, CommonMsgPojo commonMsgPojo, int i) {
+        this.e = qVar;
+        this.a = cVar;
+        this.b = str;
+        this.c = commonMsgPojo;
+        this.d = i;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public Void a(Void... voidArr) {
-        com.baidu.tieba.im.groupInfo.u.b(TiebaApplication.A(), this.b.c(), this.a);
-        com.baidu.tieba.im.c.a.h().a(this.b.c());
-        return null;
+    @Override // com.baidu.tieba.im.a
+    public void a(Boolean bool) {
+        this.e.a(this.a, this.b, this.c, this.d);
     }
 }

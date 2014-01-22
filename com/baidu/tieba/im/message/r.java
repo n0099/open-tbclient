@@ -1,29 +1,29 @@
 package com.baidu.tieba.im.message;
+
+import com.baidu.tieba.im.data.GroupMidData;
+import com.baidu.tieba.im.messageCenter.IDuplicateProcess;
+import com.google.protobuf.MessageLite;
+import java.util.List;
+import protobuf.GetGroupMsg.GetGroupMsgReq;
+import protobuf.Im;
 /* loaded from: classes.dex */
-public class r extends cc {
-    private int a = 0;
-    private int b = 0;
-    private int c = 0;
-    private int d = 0;
-    private int e = 0;
+public class r extends q implements com.baidu.tieba.im.coder.g, IDuplicateProcess {
+    private List<GroupMidData> a;
+    private int b;
+    private int c;
+    private int d;
+    private int e;
+    private String f;
 
     public r() {
-        super.e(-124);
-    }
-
-    public int a() {
-        return this.a;
-    }
-
-    public void a(int i) {
-        this.a = i;
+        e(202003);
     }
 
     public int b() {
         return this.b;
     }
 
-    public void b(int i) {
+    public void a(int i) {
         this.b = i;
     }
 
@@ -31,7 +31,7 @@ public class r extends cc {
         return this.c;
     }
 
-    public void c(int i) {
+    public void b(int i) {
         this.c = i;
     }
 
@@ -39,7 +39,7 @@ public class r extends cc {
         return this.d;
     }
 
-    public void d(int i) {
+    public void c(int i) {
         this.d = i;
     }
 
@@ -47,7 +47,38 @@ public class r extends cc {
         return this.e;
     }
 
-    public void f(int i) {
+    public void d(int i) {
         this.e = i;
+    }
+
+    public String f() {
+        return this.f;
+    }
+
+    public List<GroupMidData> g() {
+        return this.a;
+    }
+
+    public void a(List<GroupMidData> list) {
+        this.a = list;
+    }
+
+    @Override // com.baidu.tieba.im.messageCenter.IDuplicateProcess
+    public IDuplicateProcess.RemoveState h() {
+        return IDuplicateProcess.RemoveState.REMOVE_ME;
+    }
+
+    @Override // com.baidu.tieba.im.messageCenter.IDuplicateProcess
+    public boolean a(q qVar) {
+        return true;
+    }
+
+    @Override // com.baidu.tieba.im.coder.g
+    public MessageLite a() {
+        protobuf.GetGroupMsg.c a = GetGroupMsgReq.DataReq.newBuilder().b(c()).a(b()).d(e()).c(d()).a(f());
+        for (GroupMidData groupMidData : g()) {
+            a.a(Im.GroupLastId.newBuilder().a(groupMidData.getGroupId()).a(groupMidData.getLastMsgId()));
+        }
+        return GetGroupMsgReq.GetGroupMsgReqIdl.newBuilder().a(com.baidu.tieba.im.i.a()).a(a.build()).build();
     }
 }

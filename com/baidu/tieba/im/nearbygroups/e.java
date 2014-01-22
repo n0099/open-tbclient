@@ -2,7 +2,7 @@ package com.baidu.tieba.im.nearbygroups;
 
 import android.location.Address;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.im.model.ad;
+import com.baidu.tieba.im.model.af;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 class e implements com.baidu.adp.lib.c.d {
@@ -22,24 +22,24 @@ class e implements com.baidu.adp.lib.c.d {
         k kVar5;
         k kVar6;
         k kVar7;
-        ad adVar;
-        ad adVar2;
-        ad adVar3;
+        af afVar;
+        af afVar2;
+        af afVar3;
         if (i == 0) {
             if (address != null) {
                 kVar7 = this.a.b;
                 kVar7.b(false);
                 String valueOf = String.valueOf(address.getLatitude());
                 String valueOf2 = String.valueOf(address.getLongitude());
-                TiebaApplication.g().y(valueOf);
-                TiebaApplication.g().z(valueOf2);
-                TiebaApplication.g().A(address.getAdminArea());
-                adVar = this.a.c;
-                adVar.b(valueOf);
-                adVar2 = this.a.c;
-                adVar2.a(valueOf2);
-                adVar3 = this.a.c;
-                adVar3.h();
+                TiebaApplication.h().x(valueOf);
+                TiebaApplication.h().y(valueOf2);
+                TiebaApplication.h().z(address.getAdminArea());
+                afVar = this.a.c;
+                afVar.b(valueOf);
+                afVar2 = this.a.c;
+                afVar2.a(valueOf2);
+                afVar3 = this.a.c;
+                afVar3.h();
             }
         } else if (i == 1 || i == 2) {
             kVar = this.a.b;

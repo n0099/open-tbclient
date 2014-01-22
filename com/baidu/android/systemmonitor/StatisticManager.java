@@ -76,7 +76,7 @@ public final class StatisticManager implements NoProGuard {
                 localServerSocket = sLock;
             } else {
                 try {
-                    sLock = new LocalServerSocket(Util.toMd5(("Statistic_" + ((int) com.baidu.android.systemmonitor.c.b.a)).getBytes(), false));
+                    sLock = new LocalServerSocket(Util.toMd5(("Statistic_" + ((int) com.baidu.android.systemmonitor.c.b.a)).getBytes(), DEBUG));
                 } catch (Exception e) {
                 }
                 localServerSocket = sLock;
@@ -98,9 +98,9 @@ public final class StatisticManager implements NoProGuard {
         if (j.a(this.mContext).a()) {
             if (com.baidu.android.systemmonitor.c.d.t(this.mContext) == 1) {
                 this.mStartStamp = com.baidu.android.systemmonitor.c.b.a(this.mContext, true);
-                this.mStopStamp = com.baidu.android.systemmonitor.c.b.a(this.mContext, false);
+                this.mStopStamp = com.baidu.android.systemmonitor.c.b.a(this.mContext, (boolean) DEBUG);
                 com.baidu.android.systemmonitor.c.b.a(this.mContext, System.currentTimeMillis(), true);
-                com.baidu.android.systemmonitor.c.b.a(this.mContext, 0L, false);
+                com.baidu.android.systemmonitor.c.b.a(this.mContext, 0L, DEBUG);
                 if (this.mStartStamp != 0 && this.mStopStamp != 0 && this.mStartStamp < this.mStopStamp) {
                     com.baidu.android.systemmonitor.devicestatistic.a.c cVar = new com.baidu.android.systemmonitor.devicestatistic.a.c(this.mStartStamp);
                     cVar.a = this.mStopStamp;
@@ -166,7 +166,10 @@ public final class StatisticManager implements NoProGuard {
     }
 
     public static boolean isActive() {
-        return sLock != null;
+        if (sLock != null) {
+            return true;
+        }
+        return DEBUG;
     }
 
     private void registerStatisticReceivers() {
@@ -216,7 +219,7 @@ public final class StatisticManager implements NoProGuard {
         } else if ("android.intent.action.ACTION_POWER_CONNECTED".equals(str)) {
             handlePowerConnectAction(true);
         } else if ("android.intent.action.ACTION_POWER_DISCONNECTED".equals(str)) {
-            handlePowerConnectAction(false);
+            handlePowerConnectAction(DEBUG);
         } else if ("com.baidu.systemmonitor.getstoreinfo".equals(str)) {
             handleGetStoreinfoAction();
         }

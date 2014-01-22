@@ -1,35 +1,39 @@
 package com.baidu.tieba.im.message;
+
+import java.util.LinkedList;
+import protobuf.QueryPrize.QueryPrizeRes;
 /* loaded from: classes.dex */
-public class cd extends o {
-    private String a;
+public class cd extends cr implements com.baidu.tieba.im.coder.f {
+    private int a;
     private String b;
-    private int c = 0;
+    private QueryPrizeRes.PrizeInfo c;
 
     public cd() {
-        e(-104);
+        e(103013);
     }
 
-    public String a() {
-        return this.b;
+    @Override // com.baidu.tieba.im.coder.f
+    public void a(LinkedList<q> linkedList, byte[] bArr, int i) {
+        QueryPrizeRes.QueryPrizeResIdl parseFrom = QueryPrizeRes.QueryPrizeResIdl.parseFrom(bArr);
+        g(parseFrom.getError().getErrorno());
+        c(parseFrom.getError().getUsermsg());
+        linkedList.add(this);
+        if (!k()) {
+            this.a = parseFrom.getData().getMsgInOneDay();
+            this.b = parseFrom.getData().getNoSendMsgTip();
+            this.c = parseFrom.getData().getPrize();
+        }
     }
 
-    public void a(String str) {
-        this.b = str;
-    }
-
-    public String b() {
+    public int a() {
         return this.a;
     }
 
-    public void b(String str) {
-        this.a = str;
+    public String b() {
+        return this.b;
     }
 
-    public int c() {
+    public QueryPrizeRes.PrizeInfo c() {
         return this.c;
-    }
-
-    public void a(int i) {
-        this.c = i;
     }
 }

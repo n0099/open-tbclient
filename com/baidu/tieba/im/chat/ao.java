@@ -1,35 +1,22 @@
 package com.baidu.tieba.im.chat;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.text.method.LinkMovementMethod;
-import android.widget.TextView;
-import com.slidingmenu.lib.R;
+import com.baidu.tieba.im.SingleRunnable;
 /* loaded from: classes.dex */
-public class ao extends com.baidu.adp.a.c<com.baidu.tieba.im.message.b> {
-    private TextView c;
+class ao extends SingleRunnable<Void> {
+    final /* synthetic */ GroupSettingActivity a;
 
-    public ao(Context context) {
-        super(context, R.layout.msg_msgmid_view);
-        this.c = null;
-        e();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ao(GroupSettingActivity groupSettingActivity) {
+        this.a = groupSettingActivity;
     }
 
-    private void e() {
-        this.c = (TextView) a(R.id.tex_msgcontent);
-        this.c.setMovementMethod(LinkMovementMethod.getInstance());
-    }
-
-    public void a(com.baidu.tieba.im.message.b bVar) {
-        if (bVar == null) {
-            this.c.setText((CharSequence) null);
-            return;
-        }
-        String g = com.baidu.tieba.im.d.d.g(bVar);
-        if (!TextUtils.isEmpty(g)) {
-            this.c.setText(g);
-        } else {
-            this.c.setText((CharSequence) null);
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.SingleRunnable
+    /* renamed from: a */
+    public Void b() {
+        as asVar;
+        asVar = this.a.b;
+        com.baidu.tieba.im.db.a.a(asVar.c());
+        return null;
     }
 }

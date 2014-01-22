@@ -20,12 +20,12 @@ public class l implements c {
         Activity activity;
         Activity activity2;
         switch (view.getId()) {
-            case R.id.portrait /* 2131099863 */:
+            case R.id.portrait /* 2131099861 */:
                 activity2 = this.a.e;
                 activity2.finish();
                 return;
-            case R.id.item_header /* 2131100159 */:
-            case R.id.original_post_title /* 2131101025 */:
+            case R.id.item_header /* 2131100217 */:
+            case R.id.original_post_title /* 2131101140 */:
                 String[] strArr = (String[]) view.getTag();
                 if (strArr != null) {
                     if (SocialConstants.FALSE.equals(strArr[2]) || strArr[1] == null) {
@@ -37,7 +37,7 @@ public class l implements c {
                     }
                 }
                 return;
-            case R.id.username /* 2131101029 */:
+            case R.id.username /* 2131101144 */:
                 activity = this.a.e;
                 activity.finish();
                 return;

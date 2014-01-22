@@ -73,7 +73,7 @@ public class bt extends bu {
         this.K.removeView(this.O);
         this.D.addView(this.L);
         this.n.addView(this.O);
-        this.I = TiebaApplication.g().an();
+        this.I = TiebaApplication.h().al();
         this.P = (LinearLayout) q.findViewById(R.id.place_holder1);
         this.Q = (LinearLayout) q.findViewById(R.id.place_holder2);
         this.J.getResources().getDimensionPixelSize(R.dimen.person_bookmark_icon_margin_top);
@@ -218,20 +218,20 @@ public class bt extends bu {
     }
 
     private void b(int i, com.baidu.tieba.model.bx bxVar) {
-        int an = TiebaApplication.g().an();
+        int al = TiebaApplication.h().al();
         long h = bxVar.h();
         if (h > 0) {
             this.aa.setVisibility(0);
             if (h <= 9) {
-                a(this.aa, an, R.drawable.icon_news_head_prompt_one_1, R.drawable.icon_news_head_prompt_one);
+                a(this.aa, al, R.drawable.icon_news_head_prompt_one_1, R.drawable.icon_news_head_prompt_one);
                 this.aa.setText(String.valueOf(h));
                 return;
             } else if (h > 9 && h <= 99) {
-                a(this.aa, an, R.drawable.icon_news_head_prompt_two_1, R.drawable.icon_news_head_prompt_two);
+                a(this.aa, al, R.drawable.icon_news_head_prompt_two_1, R.drawable.icon_news_head_prompt_two);
                 this.aa.setText(String.valueOf(h));
                 return;
             } else if (h > 99) {
-                a(this.aa, an, R.drawable.icon_news_head_prompt_more_1, R.drawable.icon_news_head_prompt_more);
+                a(this.aa, al, R.drawable.icon_news_head_prompt_more_1, R.drawable.icon_news_head_prompt_more);
                 return;
             } else {
                 return;

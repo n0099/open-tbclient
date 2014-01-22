@@ -1,10 +1,9 @@
 package com.baidu.tieba.im.chat.personaltalk;
 
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import java.util.concurrent.ConcurrentHashMap;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.im.db.ae;
+import com.baidu.tieba.im.net.TiebaSocketLinkService;
 /* loaded from: classes.dex */
-public class g implements com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMessageCenterPojo>> {
+class g implements com.baidu.tieba.im.a<Boolean> {
     final /* synthetic */ f a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,15 +13,13 @@ public class g implements com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMessa
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.a
-    public void a(ConcurrentHashMap<String, ImMessageCenterPojo> concurrentHashMap) {
+    public void a(Boolean bool) {
         long j;
-        if (concurrentHashMap != null) {
-            j = this.a.a.a.c;
-            ImMessageCenterPojo imMessageCenterPojo = concurrentHashMap.get(String.valueOf(j));
-            if (imMessageCenterPojo != null) {
-                imMessageCenterPojo.setLast_content(" ");
-                imMessageCenterPojo.setLast_user_name(" ");
-            }
-        }
+        this.a.a.closeLoadingDialog();
+        com.baidu.tieba.im.messageCenter.e.a().e(new com.baidu.tieba.im.message.h());
+        ae.a().a(new h(this));
+        StringBuilder append = new StringBuilder().append("clear cache by person:");
+        j = this.a.a.c;
+        TiebaSocketLinkService.a(true, append.append(j).toString());
     }
 }

@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.tieba.util.by;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class t {
@@ -27,6 +28,10 @@ public class t {
 
     public synchronized void a(ImMessageCenterPojo imMessageCenterPojo, com.baidu.tieba.im.a<Boolean> aVar) {
         com.baidu.tieba.im.m.a(new u(this, imMessageCenterPojo), aVar);
+    }
+
+    public synchronized void a(String str, com.baidu.tieba.im.a<Boolean> aVar) {
+        com.baidu.tieba.im.m.a(new v(this, str), aVar);
     }
 
     public synchronized Boolean a(ImMessageCenterPojo imMessageCenterPojo) {
@@ -55,6 +60,7 @@ public class t {
                 }
             } catch (Exception e) {
                 e.printStackTrace();
+                by.a(e, "ImMessageCenterDao.CreatGroupSync", new Object[0]);
                 z = false;
             }
         }
@@ -71,23 +77,28 @@ public class t {
             return false;
         } catch (Exception e) {
             e.printStackTrace();
+            by.a(e, "ImMessageCenterDao.deleteByGid", new Object[0]);
             return false;
         }
     }
 
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:19:0x00c6 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r2v0, types: [android.database.sqlite.SQLiteDatabase] */
+    /* JADX WARN: Type inference failed for: r2v1, types: [android.database.Cursor] */
+    /* JADX WARN: Type inference failed for: r2v2 */
     public LinkedList<ImMessageCenterPojo> b() {
         Cursor cursor;
-        Throwable th;
         LinkedList<ImMessageCenterPojo> linkedList = new LinkedList<>();
-        SQLiteDatabase a2 = s.a();
-        if (a2 == null) {
-            return null;
-        }
+        ?? a2 = s.a();
         try {
-            cursor = a2.rawQuery("select * from tb_message_center ORDER BY gid", null);
-            if (cursor != null) {
-                while (cursor.moveToNext()) {
-                    try {
+            if (a2 == 0) {
+                return null;
+            }
+            try {
+                cursor = a2.rawQuery("select * from tb_message_center ORDER BY gid", null);
+                if (cursor != null) {
+                    while (cursor.moveToNext()) {
                         try {
                             ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
                             imMessageCenterPojo.setExt(cursor.getString(cursor.getColumnIndex("ext")));
@@ -104,31 +115,30 @@ public class t {
                         } catch (Exception e) {
                             e = e;
                             e.printStackTrace();
-                            com.baidu.tieba.util.o.a(cursor);
+                            by.a(e, "ImMessageCenterDao.getAllRecentMsg", new Object[0]);
+                            com.baidu.tieba.util.p.a(cursor);
                             return null;
                         }
-                    } catch (Throwable th2) {
-                        th = th2;
-                        com.baidu.tieba.util.o.a(cursor);
-                        throw th;
                     }
                 }
+                com.baidu.tieba.util.p.a(cursor);
+                return linkedList;
+            } catch (Exception e2) {
+                e = e2;
+                cursor = null;
+            } catch (Throwable th) {
+                a2 = 0;
+                th = th;
+                com.baidu.tieba.util.p.a((Cursor) a2);
+                throw th;
             }
-            com.baidu.tieba.util.o.a(cursor);
-            return linkedList;
-        } catch (Exception e2) {
-            e = e2;
-            cursor = null;
-        } catch (Throwable th3) {
-            cursor = null;
-            th = th3;
-            com.baidu.tieba.util.o.a(cursor);
-            throw th;
+        } catch (Throwable th2) {
+            th = th2;
         }
     }
 
     public synchronized void a(LinkedList<ImMessageCenterPojo> linkedList, com.baidu.tieba.im.a<Void> aVar) {
-        com.baidu.tieba.im.m.a(new v(this, linkedList), aVar);
+        com.baidu.tieba.im.m.a(new w(this, linkedList), aVar);
     }
 
     public void a(String str, boolean z) {
@@ -144,12 +154,13 @@ public class t {
             }
         } catch (Exception e) {
             e.printStackTrace();
+            by.a(e, "ImMessageCenterDao.updateGroupMsgVisiblity", new Object[0]);
         }
     }
 
     public void a(String str, String str2) {
         if (!TextUtils.isEmpty(str)) {
-            com.baidu.tieba.im.m.a(new w(this, str, str2), null);
+            com.baidu.tieba.im.m.a(new x(this, str, str2), null);
         }
     }
 
@@ -160,10 +171,11 @@ public class t {
                 ContentValues contentValues = new ContentValues();
                 contentValues.put("group_name", str2);
                 a2.update("tb_message_center", contentValues, "gid=?", new String[]{str});
-                com.baidu.tieba.im.m.a(new x(this), new y(this, str, str2));
+                com.baidu.tieba.im.m.a(new y(this), new z(this, str, str2));
             }
         } catch (Exception e) {
             e.printStackTrace();
+            by.a(e, "ImMessageCenterDao.updateGroupMsgNameSync", new Object[0]);
         }
     }
 
@@ -174,10 +186,11 @@ public class t {
                 ContentValues contentValues = new ContentValues();
                 contentValues.put("group_head", str2);
                 a2.update("tb_message_center", contentValues, "gid=?", new String[]{str});
-                com.baidu.tieba.im.m.a(new aa(this), new ab(this, str, str2));
+                com.baidu.tieba.im.m.a(new ab(this), new ac(this, str, str2));
             }
         } catch (Exception e) {
             e.printStackTrace();
+            by.a(e, "ImMessageCenterDao.updateGroupHeadSync", new Object[0]);
         }
     }
 
@@ -191,6 +204,7 @@ public class t {
             }
         } catch (Exception e) {
             e.printStackTrace();
+            by.a(e, "ImMessageCenterDao.updateIsDelete", new Object[0]);
         }
     }
 

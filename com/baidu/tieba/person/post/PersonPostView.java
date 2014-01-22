@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.bl;
+import com.baidu.tieba.util.bs;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
@@ -33,14 +33,14 @@ public class PersonPostView implements bq {
         this.b.setOnPageChangeListener(this);
     }
 
-    public void a(int i) {
-        bl.b(this.a, i);
+    public void c(int i) {
+        bs.b(this.a, i);
         this.f.c(i);
-        b(this.e);
+        d(this.e);
     }
 
-    public void b(int i) {
-        boolean z = TiebaApplication.g().an() == 1;
+    public void d(int i) {
+        boolean z = TiebaApplication.h().al() == 1;
         switch (i) {
             case 1:
                 if (z) {
@@ -50,8 +50,8 @@ public class PersonPostView implements bq {
                     this.c.setTextColor(this.c.getContext().getResources().getColor(R.color.navi_multiview_text_s));
                     this.d.setTextColor(this.d.getContext().getResources().getColor(R.color.navi_multiview_text_n));
                 }
-                bl.e((View) this.c, z ? R.drawable.btn_jin_ba_s_1 : R.drawable.btn_jin_ba_s);
-                bl.e((View) this.d, z ? R.drawable.btn_jin_qun_n_1 : R.drawable.btn_jin_qun_n);
+                bs.e((View) this.c, z ? R.drawable.btn_jin_ba_s_1 : R.drawable.btn_jin_ba_s);
+                bs.e((View) this.d, z ? R.drawable.btn_jin_qun_n_1 : R.drawable.btn_jin_qun_n);
                 return;
             case 2:
                 if (z) {
@@ -61,8 +61,8 @@ public class PersonPostView implements bq {
                     this.c.setTextColor(this.c.getContext().getResources().getColor(R.color.navi_multiview_text_n));
                     this.d.setTextColor(this.d.getContext().getResources().getColor(R.color.navi_multiview_text_s));
                 }
-                bl.e((View) this.c, z ? R.drawable.btn_jin_ba_n_1 : R.drawable.btn_jin_ba_n);
-                bl.e((View) this.d, z ? R.drawable.btn_jin_qun_s_1 : R.drawable.btn_jin_qun_s);
+                bs.e((View) this.c, z ? R.drawable.btn_jin_ba_n_1 : R.drawable.btn_jin_ba_n);
+                bs.e((View) this.d, z ? R.drawable.btn_jin_qun_s_1 : R.drawable.btn_jin_qun_s);
                 return;
             default:
                 return;
@@ -70,21 +70,21 @@ public class PersonPostView implements bq {
     }
 
     @Override // android.support.v4.view.bq
-    public void onPageScrolled(int i, float f, int i2) {
+    public void a(int i, float f, int i2) {
     }
 
     @Override // android.support.v4.view.bq
-    public void onPageSelected(int i) {
+    public void a_(int i) {
         this.e = i + 1;
         if (this.e == 1) {
-            b(1);
+            d(1);
         } else if (this.e == 2) {
-            b(2);
+            d(2);
         }
     }
 
     @Override // android.support.v4.view.bq
-    public void onPageScrollStateChanged(int i) {
+    public void b(int i) {
         if (i == 0 && this.g != null) {
             this.g.a(this.e - 1);
         }

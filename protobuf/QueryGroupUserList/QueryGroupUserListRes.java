@@ -81,7 +81,7 @@ public final class QueryGroupUserListRes {
                                 z = z4;
                                 z2 = z5;
                                 break;
-                            case 18:
+                            case Im.GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
                                 if (!(z5 & true)) {
                                     this.userList_ = new ArrayList();
                                     z3 = z5 | true;
@@ -109,7 +109,7 @@ public final class QueryGroupUserListRes {
                                     makeExtensionsImmutable();
                                     throw th;
                                 }
-                            case 26:
+                            case Im.GroupInfo.NICKNAME_FIELD_NUMBER /* 26 */:
                                 if ((this.bitField0_ & 2) != 2) {
                                     ajVar = null;
                                 } else {
@@ -380,7 +380,7 @@ public final class QueryGroupUserListRes {
                                 this.bitField0_ |= 1;
                                 z = z2;
                                 break;
-                            case 18:
+                            case Im.GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
                                 j builder2 = (this.bitField0_ & 2) == 2 ? this.data_.toBuilder() : null;
                                 this.data_ = (DataRes) codedInputStream.readMessage(DataRes.PARSER, extensionRegistryLite);
                                 if (builder2 != null) {

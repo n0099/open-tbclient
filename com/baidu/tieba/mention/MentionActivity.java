@@ -13,13 +13,14 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.cloudsdk.social.core.SocialConstants;
-import com.baidu.mobstat.StatService;
 import com.baidu.tieba.BaseFragment;
 import com.baidu.tieba.BaseFragmentActivity;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.chat.ChatListFragment;
 import com.baidu.tieba.im.chat.PersonalChatActivity;
-import com.baidu.tieba.util.bl;
+import com.baidu.tieba.util.bs;
+import com.baidu.tieba.util.by;
+import com.baidu.tieba.util.bz;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
@@ -60,7 +61,7 @@ public class MentionActivity extends BaseFragment implements bq {
         context.startActivity(intent);
     }
 
-    public void d(int i) {
+    public void e(int i) {
         this.ah = i;
     }
 
@@ -93,7 +94,7 @@ public class MentionActivity extends BaseFragment implements bq {
 
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
     public void r() {
-        this.a = TiebaApplication.g().an();
+        this.a = TiebaApplication.h().al();
         super.r();
         if (F()) {
             if (this.e == 0) {
@@ -104,37 +105,41 @@ public class MentionActivity extends BaseFragment implements bq {
             }
             if (this.ad) {
                 this.ad = false;
-                e(0);
+                f(0);
             } else if (b) {
                 b = false;
                 if (this.ah != 11) {
-                    e(0);
+                    f(0);
                 } else if (s.a().m() > 0) {
-                    e(1);
+                    f(1);
                 } else if (s.a().n() > 0) {
-                    e(2);
+                    f(2);
                 }
             } else {
-                f(this.e);
+                g(this.e);
             }
         }
     }
 
-    private void f(int i) {
+    private void g(int i) {
+        Fragment a;
         if (i == 1) {
-            Fragment a = this.ac.a(this.e);
-            if (a instanceof ReplyMeFragment) {
-                ((ReplyMeFragment) a).a();
+            Fragment a2 = this.ac.a(this.e);
+            if (a2 instanceof ReplyMeFragment) {
+                ((ReplyMeFragment) a2).a();
             } else {
-                com.baidu.adp.lib.h.e.a("ReplyMeFragment selected error, can not update data.");
+                com.baidu.adp.lib.g.e.a("ReplyMeFragment selected error, can not update data.");
             }
         } else if (i == 2) {
-            Fragment a2 = this.ac.a(this.e);
-            if (a2 instanceof AtMeFragment) {
-                ((AtMeFragment) a2).a();
+            Fragment a3 = this.ac.a(this.e);
+            if (a3 instanceof AtMeFragment) {
+                ((AtMeFragment) a3).a();
             } else {
-                com.baidu.adp.lib.h.e.a("AtMeFragment selected error, can not update data.");
+                com.baidu.adp.lib.g.e.a("AtMeFragment selected error, can not update data.");
             }
+        }
+        if (this.ac != null && (a = this.ac.a(i)) != null) {
+            bz.a(a.getClass().getName());
         }
     }
 
@@ -215,23 +220,23 @@ public class MentionActivity extends BaseFragment implements bq {
                 i = h.getInt("type", 0);
             }
         }
-        e(i);
+        f(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(View view) {
         for (int i = 0; i < this.c.length; i++) {
             if (this.c[i] == view) {
-                e(i);
+                f(i);
                 return;
             }
         }
     }
 
-    protected void e(int i) {
+    protected void f(int i) {
         if (i >= 0 && i < this.f && this.e != i) {
             this.e = i;
-            f(i);
+            g(i);
             this.aa.setCurrentItem(i);
             String str = null;
             if (i == 0) {
@@ -241,8 +246,8 @@ public class MentionActivity extends BaseFragment implements bq {
             } else if (i == 2) {
                 str = "msg_atme_tab_click";
             }
-            if (str != null && TiebaApplication.g().s()) {
-                StatService.onEvent(this.af, str, "click", 1);
+            if (str != null) {
+                by.a(this.af, str, "click", 1, new Object[0]);
             }
             a();
             a(i, true);
@@ -250,7 +255,7 @@ public class MentionActivity extends BaseFragment implements bq {
     }
 
     @Override // com.baidu.tieba.BaseFragment
-    public void c(int i) {
+    public void d(int i) {
         int i2 = 0;
         if (i == 1) {
             if (TiebaApplication.B()) {
@@ -263,7 +268,7 @@ public class MentionActivity extends BaseFragment implements bq {
         } else {
             this.aa.setBackgroundColor(this.af.getResources().getColor(R.color.bg_page_setting));
         }
-        bl.a(this.i, i);
+        bs.a(this.i, i);
         this.h.c(i);
         if (i == 1) {
             for (TextView textView : this.d) {
@@ -295,7 +300,7 @@ public class MentionActivity extends BaseFragment implements bq {
     }
 
     private void a() {
-        boolean z = TiebaApplication.g().an() == 1;
+        boolean z = TiebaApplication.h().al() == 1;
         for (int i = 0; i < this.c.length; i++) {
             TextView textView = this.c[i];
             if (i == this.e) {
@@ -313,7 +318,7 @@ public class MentionActivity extends BaseFragment implements bq {
         for (int i = 0; i < iArr.length; i++) {
             TextView textView = this.d[i];
             int i2 = iArr[i];
-            if (!g(i)) {
+            if (!h(i)) {
                 textView.setVisibility(8);
             } else if (i2 <= 0) {
                 textView.setVisibility(8);
@@ -338,20 +343,20 @@ public class MentionActivity extends BaseFragment implements bq {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private boolean g(int i) {
+    private boolean h(int i) {
         switch (i) {
             case 0:
-                return TiebaApplication.g().Z() || TiebaApplication.g().aa();
+                return TiebaApplication.h().Y() || TiebaApplication.h().Z();
             case 1:
-                if (!TiebaApplication.g().Y()) {
+                if (!TiebaApplication.h().X()) {
                     return false;
                 }
-                if (TiebaApplication.g().X()) {
+                if (TiebaApplication.h().W()) {
                     return false;
                 }
                 break;
             case 2:
-                if (TiebaApplication.g().X()) {
+                if (TiebaApplication.h().W()) {
                 }
                 break;
         }
@@ -383,14 +388,14 @@ public class MentionActivity extends BaseFragment implements bq {
     }
 
     @Override // android.support.v4.view.bq
-    public void onPageScrolled(int i, float f, int i2) {
+    public void a(int i, float f, int i2) {
     }
 
     @Override // android.support.v4.view.bq
-    public void onPageSelected(int i) {
+    public void a_(int i) {
         if (i >= 0 && i < this.f && i != this.e) {
             this.e = i;
-            f(this.e);
+            g(this.e);
             String str = null;
             if (i == 0) {
                 str = "msg_chat_tab_click";
@@ -399,8 +404,8 @@ public class MentionActivity extends BaseFragment implements bq {
             } else if (i == 2) {
                 str = "msg_atme_tab_click";
             }
-            if (str != null && TiebaApplication.g().s()) {
-                StatService.onEvent(this.af, str, "click", 1);
+            if (str != null) {
+                by.a(this.af, str, "click", 1, new Object[0]);
             }
             a();
             a(i, true);
@@ -408,18 +413,18 @@ public class MentionActivity extends BaseFragment implements bq {
     }
 
     @Override // android.support.v4.view.bq
-    public void onPageScrollStateChanged(int i) {
+    public void b(int i) {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(com.baidu.tieba.im.message.o oVar) {
-        if (oVar != null) {
-            if (!(oVar instanceof com.baidu.tieba.im.message.r)) {
-                com.baidu.adp.lib.h.e.a("transform error");
+    public void a(com.baidu.tieba.im.message.q qVar) {
+        if (qVar != null) {
+            if (!(qVar instanceof com.baidu.tieba.im.message.t)) {
+                com.baidu.adp.lib.g.e.a("transform error");
                 return;
             }
-            com.baidu.tieba.im.message.r rVar = (com.baidu.tieba.im.message.r) oVar;
-            a(new int[]{rVar.d(), rVar.a(), rVar.b()});
+            com.baidu.tieba.im.message.t tVar = (com.baidu.tieba.im.message.t) qVar;
+            a(new int[]{tVar.d(), tVar.a(), tVar.b()});
         }
     }
 }

@@ -34,7 +34,7 @@ public class aj implements TextWatcher {
         String str2;
         this.a.d();
         str = this.a.f;
-        if (!com.baidu.tieba.util.bm.c(str)) {
+        if (!com.baidu.tieba.util.bu.c(str)) {
             String obj = editable.toString();
             str2 = this.a.f;
             if (obj.equals(str2)) {

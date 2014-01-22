@@ -8,7 +8,6 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.text.TextUtils;
-import com.baidu.browser.core.util.BdUtil;
 import java.io.UnsupportedEncodingException;
 import java.net.URISyntaxException;
 import java.net.URLDecoder;
@@ -39,7 +38,7 @@ class j extends BroadcastReceiver {
             try {
                 ScanDownloadFile scanDownloadFile = this.b.a;
                 str4 = this.b.a.mIntentStr;
-                scanDownloadFile.mIntentStr = URLDecoder.decode(str4, BdUtil.UTF8);
+                scanDownloadFile.mIntentStr = URLDecoder.decode(str4, "utf-8");
             } catch (UnsupportedEncodingException e) {
             }
             context2 = this.b.a.mContext;

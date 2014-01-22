@@ -4,13 +4,14 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
-import protobuf.Im;
 import protobuf.QueryGroupGrade.QueryGroupGradeRes;
 /* loaded from: classes.dex */
-public final class m extends GeneratedMessageLite.Builder<QueryGroupGradeRes.QueryGroupGradeResIdl, m> implements n {
+public final class m extends GeneratedMessageLite.Builder<QueryGroupGradeRes.MemberPerm, m> implements n {
     private int a;
-    private Im.Error b = Im.Error.getDefaultInstance();
-    private QueryGroupGradeRes.DataRes c = QueryGroupGradeRes.DataRes.getDefaultInstance();
+    private int b;
+    private int c;
+    private int d;
+    private int e;
 
     private m() {
         g();
@@ -27,10 +28,14 @@ public final class m extends GeneratedMessageLite.Builder<QueryGroupGradeRes.Que
     /* renamed from: a */
     public m clear() {
         super.clear();
-        this.b = Im.Error.getDefaultInstance();
+        this.b = 0;
         this.a &= -2;
-        this.c = QueryGroupGradeRes.DataRes.getDefaultInstance();
+        this.c = 0;
         this.a &= -3;
+        this.d = 0;
+        this.a &= -5;
+        this.e = 0;
+        this.a &= -9;
         return this;
     }
 
@@ -42,14 +47,14 @@ public final class m extends GeneratedMessageLite.Builder<QueryGroupGradeRes.Que
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
     /* renamed from: c */
-    public QueryGroupGradeRes.QueryGroupGradeResIdl getDefaultInstanceForType() {
-        return QueryGroupGradeRes.QueryGroupGradeResIdl.getDefaultInstance();
+    public QueryGroupGradeRes.MemberPerm getDefaultInstanceForType() {
+        return QueryGroupGradeRes.MemberPerm.getDefaultInstance();
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
     /* renamed from: d */
-    public QueryGroupGradeRes.QueryGroupGradeResIdl build() {
-        QueryGroupGradeRes.QueryGroupGradeResIdl buildPartial = buildPartial();
+    public QueryGroupGradeRes.MemberPerm build() {
+        QueryGroupGradeRes.MemberPerm buildPartial = buildPartial();
         if (!buildPartial.isInitialized()) {
             throw newUninitializedMessageException(buildPartial);
         }
@@ -58,28 +63,42 @@ public final class m extends GeneratedMessageLite.Builder<QueryGroupGradeRes.Que
 
     @Override // com.google.protobuf.MessageLite.Builder
     /* renamed from: e */
-    public QueryGroupGradeRes.QueryGroupGradeResIdl buildPartial() {
-        QueryGroupGradeRes.QueryGroupGradeResIdl queryGroupGradeResIdl = new QueryGroupGradeRes.QueryGroupGradeResIdl(this);
+    public QueryGroupGradeRes.MemberPerm buildPartial() {
+        QueryGroupGradeRes.MemberPerm memberPerm = new QueryGroupGradeRes.MemberPerm(this);
         int i = this.a;
         int i2 = (i & 1) != 1 ? 0 : 1;
-        queryGroupGradeResIdl.error_ = this.b;
+        memberPerm.isAuthor_ = this.b;
         if ((i & 2) == 2) {
             i2 |= 2;
         }
-        queryGroupGradeResIdl.data_ = this.c;
-        queryGroupGradeResIdl.bitField0_ = i2;
-        return queryGroupGradeResIdl;
+        memberPerm.canCreateMember_ = this.c;
+        if ((i & 4) == 4) {
+            i2 |= 4;
+        }
+        memberPerm.alreadyCreateNum_ = this.d;
+        if ((i & 8) == 8) {
+            i2 |= 8;
+        }
+        memberPerm.leftCreateNum_ = this.e;
+        memberPerm.bitField0_ = i2;
+        return memberPerm;
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public m mergeFrom(QueryGroupGradeRes.QueryGroupGradeResIdl queryGroupGradeResIdl) {
-        if (queryGroupGradeResIdl != QueryGroupGradeRes.QueryGroupGradeResIdl.getDefaultInstance()) {
-            if (queryGroupGradeResIdl.hasError()) {
-                a(queryGroupGradeResIdl.getError());
+    public m mergeFrom(QueryGroupGradeRes.MemberPerm memberPerm) {
+        if (memberPerm != QueryGroupGradeRes.MemberPerm.getDefaultInstance()) {
+            if (memberPerm.hasIsAuthor()) {
+                a(memberPerm.getIsAuthor());
             }
-            if (queryGroupGradeResIdl.hasData()) {
-                a(queryGroupGradeResIdl.getData());
+            if (memberPerm.hasCanCreateMember()) {
+                b(memberPerm.getCanCreateMember());
+            }
+            if (memberPerm.hasAlreadyCreateNum()) {
+                c(memberPerm.getAlreadyCreateNum());
+            }
+            if (memberPerm.hasLeftCreateNum()) {
+                d(memberPerm.getLeftCreateNum());
             }
         }
         return this;
@@ -97,54 +116,58 @@ public final class m extends GeneratedMessageLite.Builder<QueryGroupGradeRes.Que
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public m mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
-        QueryGroupGradeRes.QueryGroupGradeResIdl queryGroupGradeResIdl;
+        QueryGroupGradeRes.MemberPerm memberPerm;
         Throwable th;
         try {
             try {
-                QueryGroupGradeRes.QueryGroupGradeResIdl parsePartialFrom = QueryGroupGradeRes.QueryGroupGradeResIdl.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                QueryGroupGradeRes.MemberPerm parsePartialFrom = QueryGroupGradeRes.MemberPerm.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
                 if (parsePartialFrom != null) {
                     mergeFrom(parsePartialFrom);
                 }
                 return this;
             } catch (Throwable th2) {
                 th = th2;
-                queryGroupGradeResIdl = null;
-                if (queryGroupGradeResIdl != null) {
-                    mergeFrom(queryGroupGradeResIdl);
+                memberPerm = null;
+                if (memberPerm != null) {
+                    mergeFrom(memberPerm);
                 }
                 throw th;
             }
         } catch (InvalidProtocolBufferException e) {
-            QueryGroupGradeRes.QueryGroupGradeResIdl queryGroupGradeResIdl2 = (QueryGroupGradeRes.QueryGroupGradeResIdl) e.getUnfinishedMessage();
+            QueryGroupGradeRes.MemberPerm memberPerm2 = (QueryGroupGradeRes.MemberPerm) e.getUnfinishedMessage();
             try {
                 throw e;
             } catch (Throwable th3) {
-                queryGroupGradeResIdl = queryGroupGradeResIdl2;
+                memberPerm = memberPerm2;
                 th = th3;
-                if (queryGroupGradeResIdl != null) {
+                if (memberPerm != null) {
                 }
                 throw th;
             }
         }
     }
 
-    public m a(Im.Error error) {
-        if ((this.a & 1) == 1 && this.b != Im.Error.getDefaultInstance()) {
-            this.b = Im.Error.newBuilder(this.b).mergeFrom(error).buildPartial();
-        } else {
-            this.b = error;
-        }
+    public m a(int i) {
         this.a |= 1;
+        this.b = i;
         return this;
     }
 
-    public m a(QueryGroupGradeRes.DataRes dataRes) {
-        if ((this.a & 2) == 2 && this.c != QueryGroupGradeRes.DataRes.getDefaultInstance()) {
-            this.c = QueryGroupGradeRes.DataRes.newBuilder(this.c).mergeFrom(dataRes).buildPartial();
-        } else {
-            this.c = dataRes;
-        }
+    public m b(int i) {
         this.a |= 2;
+        this.c = i;
+        return this;
+    }
+
+    public m c(int i) {
+        this.a |= 4;
+        this.d = i;
+        return this;
+    }
+
+    public m d(int i) {
+        this.a |= 8;
+        this.e = i;
         return this;
     }
 }

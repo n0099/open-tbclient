@@ -3,7 +3,6 @@ package com.baidu.tieba.data;
 import android.content.Context;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.cloudsdk.social.core.SocialConstants;
-import com.baidu.tieba.util.bo;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -106,7 +105,7 @@ public class ab {
                 this.e.b(this.n);
             }
         } catch (Exception e) {
-            bo.b(getClass().getName(), "paserJson", e.toString());
+            com.baidu.adp.lib.g.e.b(getClass().getName(), "paserJson", e.toString());
         }
     }
 }

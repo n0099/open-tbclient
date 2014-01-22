@@ -1,6 +1,5 @@
 package com.baidu.tieba.data;
 
-import com.baidu.tieba.util.bo;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ae {
@@ -45,7 +44,7 @@ public class ae {
                 this.c = jSONObject.optInt("level_id", 0);
                 this.e = jSONObject.optString("avatar", "");
             } catch (Exception e) {
-                bo.b("BrowseForumData", "parserJson", "error = " + e.getMessage());
+                com.baidu.adp.lib.g.e.b("BrowseForumData", "parserJson", "error = " + e.getMessage());
             }
         }
     }

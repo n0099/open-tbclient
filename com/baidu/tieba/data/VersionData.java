@@ -1,8 +1,7 @@
 package com.baidu.tieba.data;
 
 import android.webkit.URLUtil;
-import com.baidu.tieba.util.bm;
-import com.baidu.tieba.util.bo;
+import com.baidu.tieba.util.bu;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -62,7 +61,7 @@ public class VersionData implements Serializable {
         try {
             parserJson(new JSONObject(str));
         } catch (Exception e) {
-            bo.b(getClass().getName(), "parserJson", e.getMessage());
+            com.baidu.adp.lib.g.e.b(getClass().getName(), "parserJson", e.getMessage());
         }
     }
 
@@ -72,7 +71,7 @@ public class VersionData implements Serializable {
                 this.force_update = jSONObject.optInt("force_update", 0);
                 this.new_ver = jSONObject.optString("new_version", null);
                 String optString = jSONObject.optString("new_four_version", null);
-                if (!bm.c(optString)) {
+                if (!bu.c(optString)) {
                     this.new_ver = optString;
                 }
                 this.url = jSONObject.optString("new_version_url");
@@ -83,16 +82,16 @@ public class VersionData implements Serializable {
                     this.new_file = "tieba_" + this.new_ver + ".apk";
                 }
             } catch (Exception e) {
-                bo.b(getClass().getName(), "parserJson", e.getMessage());
+                com.baidu.adp.lib.g.e.b(getClass().getName(), "parserJson", e.getMessage());
             }
         }
     }
 
     public void logPrint() {
-        bo.d("VersionData", "logPrint", "force_update = " + String.valueOf(this.force_update));
-        bo.d("VersionData", "logPrint", "new_ver = " + this.new_ver);
-        bo.d("VersionData", "logPrint", "has_new_ver = " + String.valueOf(this.has_new_ver));
-        bo.d("VersionData", "logPrint", "url = " + this.url);
+        com.baidu.adp.lib.g.e.d("VersionData", "logPrint", "force_update = " + String.valueOf(this.force_update));
+        com.baidu.adp.lib.g.e.d("VersionData", "logPrint", "new_ver = " + this.new_ver);
+        com.baidu.adp.lib.g.e.d("VersionData", "logPrint", "has_new_ver = " + String.valueOf(this.has_new_ver));
+        com.baidu.adp.lib.g.e.d("VersionData", "logPrint", "url = " + this.url);
     }
 
     public void setClient_id(String str) {

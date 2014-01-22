@@ -1,6 +1,5 @@
 package com.baidu.tieba.data;
 
-import com.baidu.tieba.util.bo;
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.json.JSONArray;
@@ -40,7 +39,7 @@ public class af {
                     }
                     this.a.add(aeVar);
                 } catch (Exception e) {
-                    bo.b("LikeForumListData", "parserJson", "error = " + e.getMessage());
+                    com.baidu.adp.lib.g.e.b("LikeForumListData", "parserJson", "error = " + e.getMessage());
                     return;
                 }
             }

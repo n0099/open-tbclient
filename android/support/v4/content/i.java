@@ -2,7 +2,6 @@ package android.support.v4.content;
 
 import android.content.BroadcastReceiver;
 import android.content.IntentFilter;
-import com.baidu.zeus.bouncycastle.DERTags;
 /* loaded from: classes.dex */
 class i {
     final IntentFilter a;
@@ -16,7 +15,7 @@ class i {
     }
 
     public String toString() {
-        StringBuilder sb = new StringBuilder((int) DERTags.TAGGED);
+        StringBuilder sb = new StringBuilder(128);
         sb.append("Receiver{");
         sb.append(this.b);
         sb.append(" filter=");

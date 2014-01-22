@@ -1,44 +1,19 @@
 package com.baidu.tieba.im.message;
+
+import java.util.LinkedList;
+import protobuf.QuitChatroom.QuitChatroomRes;
 /* loaded from: classes.dex */
-public class cf extends o {
-    private boolean a;
-    private String b;
-    private String c;
-    private boolean d;
-
+public class cf extends cr implements com.baidu.tieba.im.coder.f {
     public cf() {
-        super.e(-118);
+        e(106102);
     }
 
-    public boolean a() {
-        return this.a;
-    }
-
-    public void a(boolean z) {
-        this.a = z;
-    }
-
-    public String b() {
-        return this.b;
-    }
-
-    public void a(String str) {
-        this.b = str;
-    }
-
-    public String c() {
-        return this.c;
-    }
-
-    public void b(String str) {
-        this.c = str;
-    }
-
-    public boolean d() {
-        return this.d;
-    }
-
-    public void b(boolean z) {
-        this.d = z;
+    @Override // com.baidu.tieba.im.coder.f
+    public void a(LinkedList<q> linkedList, byte[] bArr, int i) {
+        QuitChatroomRes.QuitChatroomResIdl parseFrom = QuitChatroomRes.QuitChatroomResIdl.parseFrom(bArr);
+        g(parseFrom.getError().getErrorno());
+        c(parseFrom.getError().getUsermsg());
+        e(i);
+        linkedList.add(this);
     }
 }

@@ -17,14 +17,14 @@ import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.view.ChildViewPager;
-import com.baidu.tieba.view.an;
+import com.baidu.tieba.view.bb;
 import com.slidingmenu.lib.R;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 /* loaded from: classes.dex */
-public class h extends com.baidu.adp.widget.u implements an {
+public class h extends com.baidu.adp.widget.u implements bb {
     int a;
     int b;
     int c;
@@ -47,11 +47,11 @@ public class h extends com.baidu.adp.widget.u implements an {
         this.f = new ChildViewPager(activity);
         this.f.setOnSingleTouchListener(new i(this));
         Resources resources = activity.getResources();
-        this.a = (int) (com.baidu.adp.lib.h.g.b(activity) - (resources.getDimension(R.dimen.daily_recommend_banner_X_DIS) * 2.0f));
+        this.a = (int) (com.baidu.adp.lib.g.g.b(activity) - (resources.getDimension(R.dimen.daily_recommend_banner_X_DIS) * 2.0f));
         this.b = (int) ((this.a * resources.getDimension(R.dimen.daily_recommend_banner_height)) / resources.getDimension(R.dimen.daily_recommend_banner_width));
         this.f.setLayoutParams(new AbsListView.LayoutParams(-1, this.b + ((int) (resources.getDimension(R.dimen.daily_recommend_banner_Y_DIS) * 2.0f))));
         this.f.setOnPageChangeListener(new j(this));
-        this.c = this.a - com.baidu.adp.lib.h.g.a((Context) this.i, 4.0f);
+        this.c = this.a - com.baidu.adp.lib.g.g.a((Context) this.i, 4.0f);
         this.d = (int) ((this.c * resources.getDimension(R.dimen.daily_recommend_advice_height)) / resources.getDimension(R.dimen.daily_recommend_advice_width));
         this.h = new com.baidu.tieba.util.i(this.i);
         this.h.a(this.c, this.d);
@@ -148,7 +148,7 @@ public class h extends com.baidu.adp.widget.u implements an {
     }
 
     public void a(s sVar, int i) {
-        boolean z = TiebaApplication.g().an() == 1;
+        boolean z = TiebaApplication.h().al() == 1;
         if (this.n.get(i).a == 1) {
             com.baidu.tieba.data.q qVar = (com.baidu.tieba.data.q) this.n.get(i).b;
             Date date = new Date();
@@ -174,7 +174,7 @@ public class h extends com.baidu.adp.widget.u implements an {
     }
 
     public void a(r rVar, int i) {
-        boolean z = TiebaApplication.g().an() == 1;
+        boolean z = TiebaApplication.h().al() == 1;
         if (this.n.get(i).a == 2) {
             com.baidu.tieba.data.p pVar = (com.baidu.tieba.data.p) this.n.get(i).b;
             int paddingLeft = rVar.c.getPaddingLeft();
@@ -201,7 +201,7 @@ public class h extends com.baidu.adp.widget.u implements an {
     }
 
     public void a(o oVar, int i) {
-        boolean z = TiebaApplication.g().an() == 1;
+        boolean z = TiebaApplication.h().al() == 1;
         if (this.n.get(i).a == 3) {
             com.baidu.tieba.data.p pVar = (com.baidu.tieba.data.p) this.n.get(i).b;
             int paddingLeft = oVar.b.getPaddingLeft();
@@ -220,7 +220,7 @@ public class h extends com.baidu.adp.widget.u implements an {
                 layoutParams.height = this.d;
                 oVar.f.setLayoutParams(layoutParams);
                 oVar.f.setTag(pVar.e());
-                this.h.a(pVar.e(), new l(this, oVar.f));
+                this.h.b(pVar.e(), new l(this, oVar.f));
             }
             int paddingLeft2 = oVar.g.getPaddingLeft();
             int paddingRight2 = oVar.g.getPaddingRight();
@@ -243,7 +243,7 @@ public class h extends com.baidu.adp.widget.u implements an {
         }
     }
 
-    @Override // com.baidu.tieba.view.an
+    @Override // com.baidu.tieba.view.bb
     public void d() {
         if (this.h != null) {
             this.h.d();
@@ -253,7 +253,7 @@ public class h extends com.baidu.adp.widget.u implements an {
         }
     }
 
-    @Override // com.baidu.tieba.view.an
+    @Override // com.baidu.tieba.view.bb
     public void a(View view, int i, int i2) {
         if (this.g != null) {
             this.g.a(this.f, 0, 0);
@@ -261,7 +261,7 @@ public class h extends com.baidu.adp.widget.u implements an {
         while (i < getCount() && i < i2) {
             q item = getItem(i);
             if (item.a == 3) {
-                this.h.a(((com.baidu.tieba.data.p) item.b).e(), new n(this, view));
+                this.h.b(((com.baidu.tieba.data.p) item.b).e(), new n(this, view));
             }
             i++;
         }
@@ -327,7 +327,7 @@ public class h extends com.baidu.adp.widget.u implements an {
         }
         q qVar = this.n.get(i);
         TextView textView = (TextView) view.findViewById(R.id.time);
-        boolean z = TiebaApplication.g().an() == 1;
+        boolean z = TiebaApplication.h().al() == 1;
         Date date2 = new Date();
         try {
             date = this.l.parse(qVar.c);
@@ -349,7 +349,6 @@ public class h extends com.baidu.adp.widget.u implements an {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: a */
     public q getItem(int i) {

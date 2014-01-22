@@ -3,6 +3,7 @@ package com.baidu.tieba.im.groupInfo;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -82,7 +83,7 @@ public class PhotoWallView extends FrameLayout {
         this.f.setVisibility(8);
         this.g = (LinearLayout) findViewById(R.id.lay_hint_text);
         this.h = (TextView) findViewById(R.id.hint_text);
-        this.i = com.baidu.adp.lib.h.g.b(this.c);
+        this.i = com.baidu.adp.lib.g.g.b(this.c);
         this.j = new com.baidu.tieba.util.i(this.c);
     }
 
@@ -107,7 +108,7 @@ public class PhotoWallView extends FrameLayout {
                 }
             }
             if (z) {
-                com.baidu.adp.lib.h.e.d("equal");
+                com.baidu.adp.lib.g.e.d("equal");
                 return;
             }
             if (this.n == null) {
@@ -135,7 +136,7 @@ public class PhotoWallView extends FrameLayout {
                     bDImageView = bDImageView2;
                 }
                 bDImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                if (TiebaApplication.g().an() == 1) {
+                if (TiebaApplication.h().al() == 1) {
                     bDImageView.setBackgroundResource(R.drawable.image_group_qzl_1);
                 } else {
                     bDImageView.setBackgroundResource(R.drawable.image_group_qzl);
@@ -181,7 +182,7 @@ public class PhotoWallView extends FrameLayout {
                 this.b[size3] = bDImageView4;
             }
             bDImageView4.setImageBitmap(null);
-            if (TiebaApplication.g().an() == 1) {
+            if (TiebaApplication.h().al() == 1) {
                 bDImageView4.setBackgroundResource(R.drawable.add_group_frd_1);
             } else {
                 bDImageView4.setBackgroundResource(R.drawable.add_group_frd);
@@ -218,12 +219,7 @@ public class PhotoWallView extends FrameLayout {
             this.j = new com.baidu.tieba.util.i(this.c);
         }
         this.j.d(true);
-        com.baidu.adp.widget.ImageView.d a = this.j.a(str, new ad(this, bDImageView));
-        if (a != null) {
-            bDImageView.setBackgroundDrawable(null);
-            bDImageView.setImageBitmap(null);
-            a.a(bDImageView);
-        }
+        this.j.b(str, new ad(this, bDImageView));
     }
 
     private LinearLayout.LayoutParams a(int i) {
@@ -266,6 +262,6 @@ public class PhotoWallView extends FrameLayout {
     }
 
     public void a(int i, com.baidu.tieba.j jVar) {
-        jVar.getLayoutMode().a(this.d);
+        jVar.getLayoutMode().a((View) this.d);
     }
 }

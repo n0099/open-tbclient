@@ -1,24 +1,21 @@
 package com.baidu.tieba.im.chat;
 
-import android.widget.AbsListView;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.im.SingleRunnable;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bx implements AbsListView.OnScrollListener {
-    final /* synthetic */ bs a;
+public class bx extends SingleRunnable<Boolean> {
+    final /* synthetic */ MsglistActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bx(bs bsVar) {
-        this.a = bsVar;
+    public bx(MsglistActivity msglistActivity) {
+        this.a = msglistActivity;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
-        this.a.M();
-        this.a.N();
-        this.a.O();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.SingleRunnable
+    /* renamed from: a */
+    public Boolean b() {
+        return Boolean.valueOf(com.baidu.tieba.im.chat.personaltalk.a.b(TiebaApplication.A(), String.valueOf(this.a.e.b().getUserId())));
     }
 }

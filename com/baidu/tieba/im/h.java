@@ -1,9 +1,8 @@
 package com.baidu.tieba.im;
 
 import com.baidu.tieba.im.SingleRunnable;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h implements Runnable {
+class h implements Runnable {
     final /* synthetic */ a a;
     final /* synthetic */ Object b;
     final /* synthetic */ SingleRunnable.UIHandler c;

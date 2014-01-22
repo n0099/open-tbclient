@@ -52,7 +52,7 @@ public class HotThreadPagerAdapter extends android.support.v4.view.ae {
         textView3.setVisibility(0);
         textView3.setText(threadInfo.forumName + this.c.getString(R.string.bar));
         textView4.setText(String.valueOf(threadInfo.replyNum));
-        if (TiebaApplication.g().an() == 1) {
+        if (TiebaApplication.h().al() == 1) {
             textView.setTextColor(this.c.getResources().getColor(R.color.square_forum_barfolder_name_1));
             textView2.setTextColor(this.c.getResources().getColor(R.color.square_forum_barfolder_description_1));
             textView3.setTextColor(this.c.getResources().getColor(R.color.sqaure_post_info_text_1));

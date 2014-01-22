@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.account.LoginActivity;
-import com.baidu.tieba.util.bl;
+import com.baidu.tieba.util.bs;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
@@ -70,7 +70,7 @@ public class ForbidActivity extends com.baidu.tieba.j {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i) {
-        boolean z = TiebaApplication.g().an() == 1;
+        boolean z = TiebaApplication.h().al() == 1;
         int i2 = !z ? R.drawable.btn_prohibit_day_n : R.drawable.btn_prohibit_day_n_1;
         int i3 = !z ? R.color.appeal_com_text : R.color.appeal_com_text_1;
         int i4 = !z ? R.drawable.btn_prohibit_day_s : R.drawable.btn_prohibit_day_s_1;
@@ -78,10 +78,10 @@ public class ForbidActivity extends com.baidu.tieba.j {
         for (int i6 = 0; i6 < 3; i6++) {
             RadioButton radioButton = (RadioButton) this.b.getChildAt(i6);
             if (radioButton.getId() == i) {
-                bl.e((View) radioButton, i4);
+                bs.e((View) radioButton, i4);
                 radioButton.setTextColor(getResources().getColor(i5));
             } else {
-                bl.e((View) radioButton, i2);
+                bs.e((View) radioButton, i2);
                 radioButton.setTextColor(getResources().getColor(i3));
             }
         }
@@ -96,6 +96,6 @@ public class ForbidActivity extends com.baidu.tieba.j {
         getLayoutMode().a(findViewById);
         this.a.c(i);
         this.i.setDivider(getResources().getDrawable(z ? R.drawable.forbid_list_divider_1 : R.drawable.forbid_list_divider));
-        this.i.setDividerHeight(com.baidu.adp.lib.h.g.a((Context) this, 1.0f));
+        this.i.setDividerHeight(com.baidu.adp.lib.g.g.a((Context) this, 1.0f));
     }
 }

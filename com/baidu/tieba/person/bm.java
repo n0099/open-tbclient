@@ -1,8 +1,6 @@
 package com.baidu.tieba.person;
 
-import com.baidu.mobstat.StatService;
 import com.baidu.tieba.BaseFragmentActivity;
-import com.baidu.tieba.TiebaApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bm extends com.baidu.adp.a.g {
@@ -16,12 +14,12 @@ public class bm extends com.baidu.adp.a.g {
     @Override // com.baidu.adp.a.g
     public void a(Object obj) {
         com.baidu.tieba.model.bx bxVar;
+        BaseFragmentActivity baseFragmentActivity;
         Boolean bool;
         com.baidu.tieba.model.bx bxVar2;
         com.baidu.tieba.model.bx bxVar3;
         com.baidu.tieba.model.bx bxVar4;
         com.baidu.tieba.model.bx bxVar5;
-        BaseFragmentActivity baseFragmentActivity;
         com.baidu.tieba.model.bx bxVar6;
         com.baidu.tieba.model.bx bxVar7;
         com.baidu.tieba.model.bx bxVar8;
@@ -40,10 +38,8 @@ public class bm extends com.baidu.adp.a.g {
                 return;
             }
         }
-        if (TiebaApplication.g().s()) {
-            baseFragmentActivity = this.a.g;
-            StatService.onEvent(baseFragmentActivity, "person_info_pv", "infopv", 1);
-        }
+        baseFragmentActivity = this.a.g;
+        com.baidu.tieba.util.by.a(baseFragmentActivity, "person_info_pv", "infopv", 1, new Object[0]);
         bool = this.a.f;
         if (bool.booleanValue()) {
             if (this.a.a != null) {

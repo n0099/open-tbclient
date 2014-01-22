@@ -24,7 +24,7 @@ public class SubPbLayout extends ViewGroup {
     private cc d;
     private com.baidu.tieba.data.as e;
     private View f;
-    private Queue<dz> g;
+    private Queue<dx> g;
     private View h;
     private ViewGroup.MarginLayoutParams i;
 
@@ -80,9 +80,9 @@ public class SubPbLayout extends ViewGroup {
             boolean z = false;
             View childAt = getChildAt(i4);
             if (childAt == null || childAt.equals(this.h)) {
-                com.baidu.tieba.util.bo.e("SubPbLayout", "onMeasure", "Item View Created for position: " + i4);
+                com.baidu.adp.lib.g.e.e("SubPbLayout", "onMeasure", "Item View Created for position: " + i4);
                 View b = this.d.b();
-                this.g.offer(new dz(i4, b));
+                this.g.offer(new dx(i4, b));
                 z = true;
                 view = b;
             } else {
@@ -120,9 +120,9 @@ public class SubPbLayout extends ViewGroup {
         }
         if (a != null && this.e.j() > a.size()) {
             a(getContext(), (TextView) this.h.findViewById(R.id.sub_pb_more_text), this.e.j() - a.size());
-            this.h.setBackgroundResource(TiebaApplication.g().an() == 1 ? R.drawable.bg_floor_new_foot_1 : R.drawable.bg_floor_new_foot);
+            this.h.setBackgroundResource(TiebaApplication.h().al() == 1 ? R.drawable.bg_floor_new_foot_1 : R.drawable.bg_floor_new_foot);
             ImageView imageView = (ImageView) this.h.findViewById(R.id.image);
-            if (TiebaApplication.g().an() == 1) {
+            if (TiebaApplication.h().al() == 1) {
                 imageView.setBackgroundResource(R.drawable.icon_downward_1);
             } else {
                 imageView.setBackgroundResource(R.drawable.icon_downward);
@@ -149,9 +149,9 @@ public class SubPbLayout extends ViewGroup {
         if (this.e != null) {
             int size = this.g.size();
             for (int i6 = 0; i6 < size; i6++) {
-                dz poll = this.g.poll();
+                dx poll = this.g.poll();
                 if (poll.b.getParent() == null) {
-                    com.baidu.tieba.util.bo.e("SubPbLayout", "onLayout", "add to position: " + poll.a);
+                    com.baidu.adp.lib.g.e.e("SubPbLayout", "onLayout", "add to position: " + poll.a);
                     addViewInLayout(poll.b, poll.a, this.i, true);
                 }
             }
@@ -187,11 +187,11 @@ public class SubPbLayout extends ViewGroup {
     }
 
     public static void a(Context context, TextView textView, int i) {
-        String string = TiebaApplication.g().getString(R.string.sub_pb_load_more);
+        String string = TiebaApplication.h().getString(R.string.sub_pb_load_more);
         String valueOf = String.valueOf(i);
         int indexOf = string.indexOf("%d");
         SpannableString spannableString = new SpannableString(string.replace("%d", valueOf));
-        if (TiebaApplication.g().an() == 1) {
+        if (TiebaApplication.h().al() == 1) {
             spannableString.setSpan(new ForegroundColorSpan(context.getResources().getColor(R.color.sub_pb_more_text_1)), indexOf, valueOf.length() + indexOf, 33);
             textView.setTextColor(context.getResources().getColor(R.color.sub_pb_more_text_1));
         } else {

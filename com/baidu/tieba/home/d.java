@@ -9,7 +9,7 @@ import com.baidu.cloudsdk.social.core.SocialConstants;
 /* loaded from: classes.dex */
 public class d extends BdAsyncTask<String, Integer, Bitmap> {
     final /* synthetic */ CreateBarActivity a;
-    private com.baidu.tieba.util.at b;
+    private com.baidu.tieba.util.ax b;
     private volatile boolean c;
 
     private d(CreateBarActivity createBarActivity) {
@@ -29,7 +29,7 @@ public class d extends BdAsyncTask<String, Integer, Bitmap> {
         super.cancel(true);
         this.c = true;
         if (this.b != null) {
-            this.b.j();
+            this.b.k();
         }
         progressBar = this.a.n;
         progressBar.setVisibility(8);
@@ -41,15 +41,15 @@ public class d extends BdAsyncTask<String, Integer, Bitmap> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public Bitmap a(String... strArr) {
         try {
-            this.b = new com.baidu.tieba.util.at(com.baidu.tieba.data.h.a + "c/f/anti/vcode");
+            this.b = new com.baidu.tieba.util.ax(com.baidu.tieba.data.h.a + "c/f/anti/vcode");
             this.b.a("fid", SocialConstants.FALSE);
             this.b.a("pub_type", SocialConstants.FALSE);
             this.b.a("fname", "");
             this.b.a("tid", SocialConstants.FALSE);
-            String l = this.b.l();
-            if (this.b.c()) {
+            String m = this.b.m();
+            if (this.b.d()) {
                 com.baidu.tieba.data.bf bfVar = new com.baidu.tieba.data.bf();
-                bfVar.a(l);
+                bfVar.a(m);
                 if (bfVar.b() == null || bfVar.b().length() <= 0) {
                     return null;
                 }
@@ -57,12 +57,12 @@ public class d extends BdAsyncTask<String, Integer, Bitmap> {
                 if (this.c) {
                     return null;
                 }
-                this.b = new com.baidu.tieba.util.at(bfVar.b());
-                return com.baidu.tieba.util.m.a(this.b.k());
+                this.b = new com.baidu.tieba.util.ax(bfVar.b());
+                return com.baidu.tieba.util.n.a(this.b.l());
             }
             return null;
         } catch (Exception e) {
-            com.baidu.tieba.util.bo.b(getClass().getName(), "doInBackground", e.getMessage());
+            com.baidu.adp.lib.g.e.b(getClass().getName(), "doInBackground", e.getMessage());
             return null;
         }
     }

@@ -3,17 +3,21 @@ package com.baidu.cloudsdk.social.share.handler;
 import android.content.Context;
 import android.location.Location;
 import android.net.Uri;
+import android.widget.Toast;
+import com.aa;
 import com.baidu.cloudsdk.BaiduAPIResponseHandler;
 import com.baidu.cloudsdk.BaiduException;
 import com.baidu.cloudsdk.IBaiduListener;
 import com.baidu.cloudsdk.common.http.AsyncHttpClient;
 import com.baidu.cloudsdk.common.http.MultipartRequestParams;
-import com.baidu.cloudsdk.common.imgloader.ImageManager;
+import com.baidu.cloudsdk.common.imgloader.CompressBitmapTask;
 import com.baidu.cloudsdk.common.util.Utils;
 import com.baidu.cloudsdk.social.core.SessionManager;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.cloudsdk.social.share.ShareContent;
-import com.baidu.cloudsdk.social.share.ui.ShareDialog;
+import com.baidu.cloudsdk.social.share.SocialShareConfig;
+import com.baidu.cloudsdk.social.share.uiwithlayout.ShareDialog;
+import com.bv;
 import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +34,7 @@ public class CloudBatchShareHandler implements ISocialShareHandler {
     private String[] a;
     protected String mClientId;
     protected Context mContext;
+    public ShareDialog mShareDialog;
 
     public CloudBatchShareHandler(Context context, String str, String[] strArr) {
         this.mContext = context;
@@ -38,7 +43,7 @@ public class CloudBatchShareHandler implements ISocialShareHandler {
     }
 
     private void a(Uri uri, MultipartRequestParams multipartRequestParams, IBaiduListener iBaiduListener) {
-        ImageManager.getInstance().loadImage(this.mContext, uri, new ac(this, multipartRequestParams, iBaiduListener));
+        new CompressBitmapTask(this.mContext, new aa(this, multipartRequestParams, iBaiduListener)).execute(uri);
     }
 
     private void a(ShareContent shareContent, List list, IBaiduListener iBaiduListener) {
@@ -79,12 +84,19 @@ public class CloudBatchShareHandler implements ISocialShareHandler {
         multipartRequestParams.put(PARAM_TITLE, shareContent.getTitle());
         multipartRequestParams.put("content", shareContent.getContent());
         multipartRequestParams.put("url", shareContent.getLinkUrl());
+        SocialShareConfig socialShareConfig = SocialShareConfig.getInstance(this.mContext);
+        if (!Utils.isNetWorkAvaliable(this.mContext)) {
+            Toast.makeText(this.mContext, socialShareConfig.getString("network_not_avaliable_cannotshare"), 0).show();
+            iBaiduListener.onError(new BaiduException("Network not avaliable"));
+            return;
+        }
+        Toast.makeText(this.mContext, socialShareConfig.getString("sharing"), 0).show();
         Location location = shareContent.getLocation();
         if (location != null) {
             multipartRequestParams.put(PARAM_LONG, String.valueOf(location.getLongitude()));
             multipartRequestParams.put(PARAM_LAT, String.valueOf(location.getLatitude()));
         }
-        SocialShareStatisticsManager.getInstance(this.mContext).setCommonParams(multipartRequestParams);
+        SocialShareStatisticsManager.setCommonParams(this.mContext, multipartRequestParams);
         byte[] compressedImageData = shareContent.getCompressedImageData();
         if (!Utils.isEmpty(compressedImageData)) {
             multipartRequestParams.put(PARAM_PIC, new ByteArrayInputStream(compressedImageData));
@@ -113,7 +125,9 @@ public class CloudBatchShareHandler implements ISocialShareHandler {
     @Override // com.baidu.cloudsdk.social.share.handler.ISocialShareHandler
     public void share(ShareContent shareContent, IBaiduListener iBaiduListener, boolean z) {
         if (z) {
-            new ShareDialog(this.mContext, shareContent, iBaiduListener).show();
+            this.mShareDialog = new ShareDialog(this.mContext, shareContent, iBaiduListener);
+            this.mShareDialog.show();
+            this.mShareDialog.setOnDismissListener(new bv(this));
             return;
         }
         Map all = SessionManager.getInstance(this.mContext).getAll();

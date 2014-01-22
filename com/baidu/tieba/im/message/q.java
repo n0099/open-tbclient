@@ -1,16 +1,18 @@
 package com.baidu.tieba.im.message;
 /* loaded from: classes.dex */
-public class q extends cc {
+public abstract class q {
     private int a;
+    private int b = com.baidu.tieba.im.messageCenter.r.a().b();
 
-    public void a(int i) {
+    public int v() {
+        return this.b;
+    }
+
+    public int w() {
+        return this.a;
+    }
+
+    public void e(int i) {
         this.a = i;
-    }
-
-    public q() {
-    }
-
-    public q(int i) {
-        super(i);
     }
 }

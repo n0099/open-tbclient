@@ -1,22 +1,23 @@
 package com.baidu.tieba.im.chat;
-
-import android.view.MotionEvent;
-import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class by implements View.OnTouchListener {
-    final /* synthetic */ bs a;
+public class by implements com.baidu.tieba.im.a<Boolean> {
+    final /* synthetic */ MsglistActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public by(bs bsVar) {
-        this.a = bsVar;
+    public by(MsglistActivity msglistActivity) {
+        this.a = msglistActivity;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        this.a.M();
-        this.a.N();
-        this.a.O();
-        return false;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.a
+    public void a(Boolean bool) {
+        if (bool != null) {
+            if (bool.booleanValue()) {
+                this.a.d.I();
+            } else {
+                this.a.d.J();
+            }
+        }
     }
 }

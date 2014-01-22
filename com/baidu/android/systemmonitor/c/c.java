@@ -9,7 +9,6 @@ import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Build;
 import android.text.format.Formatter;
-import com.baidu.zeus.bouncycastle.DERTags;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.security.MessageDigest;
@@ -202,7 +201,7 @@ public final class c {
         if (applicationInfo == null) {
             aVar.g = false;
         } else if ((applicationInfo.flags & 1) == 1) {
-            if ((applicationInfo.flags & DERTags.TAGGED) == 128) {
+            if ((applicationInfo.flags & 128) == 128) {
                 aVar.a(true);
             }
             aVar.g = true;

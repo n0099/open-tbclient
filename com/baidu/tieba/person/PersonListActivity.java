@@ -16,7 +16,6 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.mobstat.StatService;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.UserData;
 import com.baidu.tieba.im.chat.PersonalChatActivity;
@@ -65,7 +64,7 @@ public class PersonListActivity extends com.baidu.tieba.j {
     @Override // com.baidu.tieba.j
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        com.baidu.tieba.util.bl.b(this.i, i);
+        com.baidu.tieba.util.bs.b(this.i, i);
         this.j.c(i);
         this.e.notifyDataSetChanged();
         TextView textView = (TextView) this.c.findViewById(R.id.person_num);
@@ -213,9 +212,7 @@ public class PersonListActivity extends com.baidu.tieba.j {
     public void c() {
         UserData userData;
         if (this.e != null && this.e.getItemViewType(this.a) == 0 && (userData = (UserData) this.e.getItem(this.a)) != null && userData.getId() != null && userData.getName() != null && !userData.getId().equals(TiebaApplication.A())) {
-            if (TiebaApplication.g().s()) {
-                StatService.onEvent(this, "enter_chat", "personlistclick", 1);
-            }
+            com.baidu.tieba.util.by.a(this, "enter_chat", "personlistclick", 1, new Object[0]);
             try {
                 PersonalChatActivity.a(this, Long.parseLong(userData.getId()), userData.getName(), userData.getPortrait(), userData.getSex(), null);
             } catch (Exception e) {

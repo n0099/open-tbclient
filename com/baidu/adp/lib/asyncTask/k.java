@@ -44,15 +44,23 @@ public abstract class k implements Runnable {
         }
     }
 
-    public String e() {
+    public int e() {
         try {
             return this.a.b().getTag();
         } catch (Exception e) {
-            return null;
+            return 0;
         }
     }
 
-    public String f() {
+    public int f() {
+        try {
+            return this.a.b().getParallelTag();
+        } catch (Exception e) {
+            return 0;
+        }
+    }
+
+    public String g() {
         try {
             return this.a.b().getKey();
         } catch (Exception e) {
@@ -60,15 +68,15 @@ public abstract class k implements Runnable {
         }
     }
 
-    public BdAsyncTaskType g() {
+    public BdAsyncTaskParallelType h() {
         try {
             return this.a.b().getType();
         } catch (Exception e) {
-            return BdAsyncTaskType.MAX_PARALLEL;
+            return BdAsyncTaskParallelType.MAX_PARALLEL;
         }
     }
 
-    public boolean h() {
+    public boolean i() {
         try {
             return this.a.b().isSelfExecute();
         } catch (Exception e) {
@@ -76,7 +84,7 @@ public abstract class k implements Runnable {
         }
     }
 
-    public boolean i() {
+    public boolean j() {
         try {
             return this.a.b().isImmediatelyExecut();
         } catch (Exception e) {

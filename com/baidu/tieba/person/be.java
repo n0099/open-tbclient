@@ -40,7 +40,7 @@ public class be extends BdAsyncTask<Object, Integer, Bitmap> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: d */
     public Bitmap a(Object... objArr) {
-        return com.baidu.tieba.util.aa.c(null, "tieba_head_image");
+        return com.baidu.tieba.util.ad.c(null, "tieba_head_image");
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask

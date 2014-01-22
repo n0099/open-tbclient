@@ -10,12 +10,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import com.baidu.tieba.view.av;
 import com.baidu.tieba.voice.RecordVoiceBnt;
 import com.baidu.tieba.voice.VoiceManager;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class EditorToolComponetContainer extends RelativeLayout implements av {
+public class EditorToolComponetContainer extends RelativeLayout {
     protected Context a;
     protected ToolMoreView b;
     protected EmotionTabHost c;
@@ -101,14 +100,14 @@ public class EditorToolComponetContainer extends RelativeLayout implements av {
 
     public void a(View view) {
         if (view != null) {
-            com.baidu.adp.lib.h.g.b(this.a, view);
+            com.baidu.adp.lib.g.g.b(this.a, view);
             this.h = true;
         }
     }
 
     public void b(View view) {
         if (view != null) {
-            com.baidu.adp.lib.h.g.a(this.a, view);
+            com.baidu.adp.lib.g.g.a(this.a, view);
             this.h = false;
         }
     }
@@ -173,7 +172,7 @@ public class EditorToolComponetContainer extends RelativeLayout implements av {
     }
 
     public void s() {
-        this.d.E();
+        this.d.F();
     }
 
     public void t() {
@@ -190,15 +189,6 @@ public class EditorToolComponetContainer extends RelativeLayout implements av {
 
     public boolean u() {
         return this.h;
-    }
-
-    @Override // com.baidu.tieba.view.av
-    public void a(int i) {
-        if (i == 1) {
-            this.h = false;
-        } else if (i == 0) {
-            this.h = true;
-        }
     }
 
     public boolean v() {
@@ -231,7 +221,7 @@ public class EditorToolComponetContainer extends RelativeLayout implements av {
         this.c.setShowBigEmotion(!z);
     }
 
-    public void b(int i) {
+    public void a(int i) {
         this.c.b(i);
     }
 }

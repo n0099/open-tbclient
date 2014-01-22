@@ -10,7 +10,6 @@ import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import com.baidu.android.common.util.CommonParam;
 import com.baidu.android.pushservice.PushConstants;
-import com.baidu.browser.core.util.BdUtil;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
@@ -139,7 +138,7 @@ public final class d {
         arrayList.add(new BasicNameValuePair("mobile_density", valueOf4));
         arrayList.add(new BasicNameValuePair("bindtype", String.valueOf(this.e)));
         try {
-            return new UrlEncodedFormEntity(arrayList, BdUtil.UTF8);
+            return new UrlEncodedFormEntity(arrayList, "utf-8");
         } catch (UnsupportedEncodingException e3) {
             return null;
         }
@@ -168,7 +167,7 @@ public final class d {
         arrayList.add(new BasicNameValuePair(SocialConstants.PARAM_CLIENT_ID, "Zq8wwbvNemxR4qGmWGhE6sva"));
         arrayList.add(new BasicNameValuePair("client_secret", "iq1WKpTUQYoplQqGUmu6iVtU0vkKN41I"));
         try {
-            urlEncodedFormEntity = new UrlEncodedFormEntity(arrayList, BdUtil.UTF8);
+            urlEncodedFormEntity = new UrlEncodedFormEntity(arrayList, "utf-8");
         } catch (UnsupportedEncodingException e) {
             urlEncodedFormEntity = null;
         }

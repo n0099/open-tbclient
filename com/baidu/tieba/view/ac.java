@@ -1,33 +1,50 @@
 package com.baidu.tieba.view;
 
-import android.app.Activity;
-import android.text.TextUtils;
+import android.content.Context;
 import android.view.View;
-import com.baidu.tieba.CommonWebviewActivity;
-import com.slidingmenu.lib.R;
+import android.widget.TextView;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.faceshop.FacePackageDetailActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ac implements View.OnClickListener {
-    final /* synthetic */ FrsHeaderView a;
+    final /* synthetic */ ab a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ac(FrsHeaderView frsHeaderView) {
-        this.a = frsHeaderView;
+    public ac(ab abVar) {
+        this.a = abVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        String str;
-        Activity activity;
-        Activity activity2;
-        String str2;
-        str = this.a.aj;
-        if (!TextUtils.isEmpty(str)) {
-            activity = this.a.E;
-            activity2 = this.a.E;
-            String string = activity2.getString(R.string.frs_badge_intro);
-            str2 = this.a.aj;
-            CommonWebviewActivity.a(activity, string, str2, true);
+        TextView textView;
+        com.baidu.tieba.data.y yVar;
+        com.baidu.tieba.data.y yVar2;
+        Context context;
+        com.baidu.tieba.data.y yVar3;
+        ae aeVar;
+        ae aeVar2;
+        textView = this.a.c;
+        if (view == textView) {
+            this.a.g = true;
+            this.a.setVisibility(8);
+            TiebaApplication.h().e(System.currentTimeMillis());
+            aeVar = this.a.h;
+            if (aeVar != null) {
+                aeVar2 = this.a.h;
+                aeVar2.a(true);
+                return;
+            }
+            return;
+        }
+        yVar = this.a.f;
+        if (yVar != null) {
+            yVar2 = this.a.f;
+            if (yVar2.a() == 1) {
+                context = this.a.d;
+                yVar3 = this.a.f;
+                FacePackageDetailActivity.a(context, yVar3.c(), false, "banner");
+            }
         }
     }
 }

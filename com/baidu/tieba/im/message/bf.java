@@ -1,71 +1,36 @@
 package com.baidu.tieba.im.message;
 
-import com.baidu.tieba.im.data.GroupInfoData;
-import com.baidu.tieba.im.data.GroupPermData;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import protobuf.Im;
-import protobuf.QueryGroupsByFid.QueryGroupsByFidRes;
+import com.baidu.tieba.im.messageCenter.IDuplicateProcess;
+import com.google.protobuf.MessageLite;
+import protobuf.QueryUserPermission.QueryUserPermissionReq;
 /* loaded from: classes.dex */
-public class bf extends cc implements com.baidu.tieba.im.coder.f {
-    private List<GroupInfoData> a;
-    private GroupPermData b;
+public class bf extends q implements com.baidu.tieba.im.coder.g, IDuplicateProcess {
+    private long a;
 
-    public List<GroupInfoData> a() {
+    public bf() {
+        e(103008);
+    }
+
+    public long b() {
         return this.a;
     }
 
-    public void a(List<GroupInfoData> list) {
-        this.a = list;
+    public void a(long j) {
+        this.a = j;
     }
 
-    public GroupPermData b() {
-        return this.b;
+    @Override // com.baidu.tieba.im.coder.g
+    public MessageLite a() {
+        return QueryUserPermissionReq.QueryUserPermissionReqIdl.newBuilder().a(QueryUserPermissionReq.DataReq.newBuilder().a((int) b()).build()).build();
     }
 
-    public void a(GroupPermData groupPermData) {
-        this.b = groupPermData;
+    @Override // com.baidu.tieba.im.messageCenter.IDuplicateProcess
+    public IDuplicateProcess.RemoveState h() {
+        return IDuplicateProcess.RemoveState.REMOVE_ME;
     }
 
-    @Override // com.baidu.tieba.im.coder.f
-    public void a(LinkedList<o> linkedList, byte[] bArr, int i) {
-        QueryGroupsByFidRes.QueryGroupsByFidResIdl parseFrom = QueryGroupsByFidRes.QueryGroupsByFidResIdl.parseFrom(bArr);
-        e(i);
-        g(parseFrom.getError().getErrorno());
-        c(parseFrom.getError().getUsermsg());
-        linkedList.add(this);
-        if (!i()) {
-            a(new ArrayList());
-            int groupsCount = parseFrom.getData().getGroupsCount();
-            for (int i2 = 0; i2 < groupsCount; i2++) {
-                Im.GroupInfo groups = parseFrom.getData().getGroups(i2);
-                GroupInfoData groupInfoData = new GroupInfoData();
-                groupInfoData.setAuthorId(groups.getAuthorId());
-                groupInfoData.setAuthorIsMeizhi(groups.getAuthorIsMeizhi());
-                groupInfoData.setAuthorName(groups.getAuthorName());
-                groupInfoData.setForumId(groups.getForumId());
-                groupInfoData.setForumName("");
-                groupInfoData.setGrade(groups.getGrade());
-                groupInfoData.setGroupId(groups.getGroupId());
-                groupInfoData.setIntro(groups.getIntro());
-                groupInfoData.setIsGroupManager(0);
-                groupInfoData.setMaxMemberNum(groups.getMaxMemberNum());
-                groupInfoData.setMemberNum(groups.getMemberNum());
-                groupInfoData.setName(groups.getName());
-                groupInfoData.setPortrait(groups.getPortrait());
-                a().add(groupInfoData);
-            }
-            Im.GroupPermission groupPerm = parseFrom.getData().getGroupPerm();
-            GroupPermData groupPermData = new GroupPermData();
-            groupPermData.setCanCreateNormal(groupPerm.getCanCreateNormal());
-            groupPermData.setCanCreateOfficial(groupPerm.getCanCreateOfficial());
-            groupPermData.setCanCreatePersonal(groupPerm.getCanCreatePersonal());
-            groupPermData.setCreateNormalTip(groupPerm.getCreateNormalTip());
-            groupPermData.setCreateOfficialTip(groupPerm.getCreateOfficialTip());
-            groupPermData.setCreatePersonalTip(groupPerm.getCreatePersonalTip());
-            groupPermData.setIsManager(groupPerm.getIsForumManager());
-            a(groupPermData);
-        }
+    @Override // com.baidu.tieba.im.messageCenter.IDuplicateProcess
+    public boolean a(q qVar) {
+        return true;
     }
 }

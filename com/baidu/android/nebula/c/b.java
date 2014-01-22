@@ -1,7 +1,6 @@
 package com.baidu.android.nebula.c;
 
 import com.baidu.android.common.logging.Log;
-import com.baidu.browser.webpool.BdWebPoolView;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.ServerSocket;
@@ -34,7 +33,7 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
         int read;
-        ByteBuffer allocate = ByteBuffer.allocate(BdWebPoolView.DELAYED_TIME);
+        ByteBuffer allocate = ByteBuffer.allocate(200);
         do {
             this.f.select();
             Iterator<SelectionKey> it = this.f.selectedKeys().iterator();

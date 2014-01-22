@@ -47,7 +47,7 @@ public class aq {
                     this.f = optJSONObject.optInt("current_count", 0);
                 }
             } catch (Exception e) {
-                com.baidu.tieba.util.bo.b(getClass().getName(), "parserJson", "error = " + e.getMessage());
+                com.baidu.adp.lib.g.e.b(getClass().getName(), "parserJson", "error = " + e.getMessage());
             }
         }
     }

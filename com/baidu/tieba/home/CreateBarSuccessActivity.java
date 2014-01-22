@@ -57,9 +57,9 @@ public class CreateBarSuccessActivity extends com.baidu.tieba.j {
     @Override // com.baidu.tieba.j
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        com.baidu.tieba.util.bl.a(this.e, i);
-        com.baidu.tieba.util.bl.a(this.a, i);
-        com.baidu.tieba.util.bl.d(this.b, i);
+        com.baidu.tieba.util.bs.a(this.e, i);
+        com.baidu.tieba.util.bs.a(this.a, i);
+        com.baidu.tieba.util.bs.d(this.b, i);
         String string = getString(R.string.create_bar_info1);
         int length = string.length();
         String str = string + this.d + getString(R.string.create_bar_info2);

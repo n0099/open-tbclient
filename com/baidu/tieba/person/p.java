@@ -4,7 +4,7 @@ import android.content.Intent;
 import com.baidu.tieba.im.data.PhotoUrlData;
 import com.baidu.tieba.im.data.UploadPicData2;
 /* loaded from: classes.dex */
-class p implements com.baidu.tieba.im.model.ah {
+class p implements com.baidu.tieba.im.model.aj {
     final /* synthetic */ o a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +12,7 @@ class p implements com.baidu.tieba.im.model.ah {
         this.a = oVar;
     }
 
-    @Override // com.baidu.tieba.im.model.ah
+    @Override // com.baidu.tieba.im.model.aj
     public void a(String str, UploadPicData2 uploadPicData2) {
         this.a.a.closeLoadingDialog();
         Intent intent = this.a.a.getIntent();

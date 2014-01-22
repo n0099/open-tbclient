@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.BaseFragment;
 import com.baidu.tieba.view.PbListView;
-import com.baidu.tieba.view.bw;
+import com.baidu.tieba.view.cm;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class PersonReplyFragment extends BaseFragment implements AbsListView.OnScrollListener {
@@ -21,7 +21,7 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
     private j c;
     private ProgressBar d;
     private TextView f;
-    private bw g;
+    private cm g;
     private PbListView h;
     private View i;
     private boolean e = false;
@@ -41,7 +41,7 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
 
     @Override // android.support.v4.app.Fragment
     public void a(View view, Bundle bundle) {
-        this.g = new bw(i());
+        this.g = new cm(i());
         this.b.setPullRefresh(this.g);
         this.g.a(new o(this));
         this.b.setOnScrollListener(this);
@@ -81,8 +81,8 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
     }
 
     @Override // com.baidu.tieba.BaseFragment
-    public void c(int i) {
-        super.c(i);
+    public void d(int i) {
+        super.d(i);
         if (n()) {
             TextView textView = (TextView) this.i.findViewById(R.id.pb_more_text);
             if (i == 1) {

@@ -4,11 +4,11 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.text.TextUtils;
-import com.baidu.adp.lib.h.e;
+import com.baidu.adp.lib.g.e;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.util.DatabaseService;
-import com.baidu.tieba.util.bo;
-import com.baidu.tieba.util.o;
+import com.baidu.tieba.util.by;
+import com.baidu.tieba.util.p;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
@@ -41,7 +41,8 @@ public class a {
             }
             e.d("affectedRows:" + update + " msg.ownerName:" + recentChatFriendData.ownerName + " msg.ownerId:" + recentChatFriendData.ownerId + " unreadCount" + recentChatFriendData.getUnReadCount());
         } catch (Throwable th) {
-            bo.b("DatabaseService", "addOrUpdateRecentChatFriend", th.getMessage());
+            by.a(th, "ChatDBManager.addOrUpdateRecentChatFriend", new Object[0]);
+            e.b("DatabaseService", "addOrUpdateRecentChatFriend", th.getMessage());
         }
     }
 
@@ -75,11 +76,12 @@ public class a {
             return linkedList;
         } catch (Throwable th) {
             try {
-                bo.b("DatabaseService", "listRecentChatFriends", th.getMessage());
-                o.a(cursor);
+                by.a(th, "ChatDBManager.listRecentChatFriends", new Object[0]);
+                e.b("DatabaseService", "listRecentChatFriends", th.getMessage());
+                p.a(cursor);
                 return new LinkedList();
             } finally {
-                o.a(cursor);
+                p.a(cursor);
             }
         }
     }
@@ -118,10 +120,11 @@ public class a {
             } catch (Throwable th) {
                 th = th;
                 try {
-                    bo.b("DatabaseService", "listRecentChatFriends", th.getMessage());
+                    by.a(th, "ChatDBManager.getGroupNewsInfo", new Object[0]);
+                    e.b("DatabaseService", "listRecentChatFriends", th.getMessage());
                     return null;
                 } finally {
-                    o.a(cursor);
+                    p.a(cursor);
                 }
             }
         } catch (Throwable th2) {
@@ -136,7 +139,8 @@ public class a {
         try {
             a.delete("chat_recent_friends", "ownerId = ? and friendId = ?", new String[]{str, str2});
         } catch (Throwable th) {
-            bo.b("DatabaseService", "deleteChatMessagesByFriendId", th.getMessage());
+            by.a(th, "ChatDBManager.deleteRecentChatMessage", new Object[0]);
+            e.b("DatabaseService", "deleteChatMessagesByFriendId", th.getMessage());
         }
     }
 }

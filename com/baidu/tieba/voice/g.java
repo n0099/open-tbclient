@@ -2,6 +2,7 @@ package com.baidu.tieba.voice;
 
 import android.os.Handler;
 import android.os.Message;
+import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 final class g implements Handler.Callback {
@@ -46,7 +47,7 @@ final class g implements Handler.Callback {
             case 3:
                 rVar9 = f.d;
                 if (rVar9 != null) {
-                    if (com.baidu.adp.lib.h.b.b()) {
+                    if (com.baidu.adp.lib.g.b.b()) {
                         rVar11 = f.d;
                         rVar11.a(message.what, ak.a(R.string.voice_err_create_file_fail));
                     } else {
@@ -107,7 +108,7 @@ final class g implements Handler.Callback {
                     rVar13 = f.d;
                     rVar13.a(message.what, ak.a(R.string.voice_record_short_tip));
                     r unused7 = f.d = null;
-                    com.baidu.adp.lib.h.e.c("----record too short......");
+                    com.baidu.adp.lib.g.e.c("----record too short......");
                     break;
                 }
                 break;
@@ -119,7 +120,7 @@ final class g implements Handler.Callback {
                     break;
                 }
                 break;
-            case 100:
+            case SocialAPIErrorCodes.ERROR_MISS_PARAMETER /* 100 */:
                 rVar7 = f.d;
                 if (rVar7 != null) {
                     rVar8 = f.d;

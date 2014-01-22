@@ -19,7 +19,7 @@ public class d implements DialogInterface.OnClickListener {
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
         ProgressBar progressBar;
-        com.baidu.tieba.im.d.h.a((Context) this.b, this.a, false);
+        com.baidu.tieba.im.d.i.a((Context) this.b, this.a, false);
         Intent intent = new Intent();
         intent.putExtra("result", this.a);
         this.b.setResult(-1, intent);

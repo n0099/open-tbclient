@@ -15,10 +15,8 @@ public class an implements ac {
 
     @Override // com.baidu.tieba.account.ac
     public void a(AccountData accountData) {
-        AccountData accountData2;
         DatabaseService.a(accountData);
-        accountData2 = this.a.P;
-        TiebaApplication.a(accountData2, this.a.getBaseContext());
+        TiebaApplication.a(accountData, this.a.getBaseContext());
         this.a.a();
     }
 }

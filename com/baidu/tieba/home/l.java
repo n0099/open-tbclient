@@ -15,7 +15,7 @@ import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.view.NavigationBar;
 import com.baidu.tieba.view.NoNetworkView;
 import com.baidu.tieba.view.SearchBoxView;
-import com.baidu.zeus.Headers;
+import com.baidu.tieba.view.cm;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class l extends com.baidu.adp.a.e {
@@ -30,7 +30,7 @@ public class l extends com.baidu.adp.a.e {
     private RelativeLayout j;
     private NavigationBar k;
     private SearchBoxView l;
-    private com.baidu.tieba.view.bw m;
+    private cm m;
     private EnterForumGuideCenterView n;
     private EnterForumGuideBottomView o;
     private o p;
@@ -90,11 +90,11 @@ public class l extends com.baidu.adp.a.e {
         this.d.setOnKeyListener(onKeyListener);
         this.d.setOnItemClickListener(enterForumActivity);
         this.d.setOnScrollListener(enterForumActivity);
-        this.m = new com.baidu.tieba.view.bw(baseFragmentActivity);
+        this.m = new cm(baseFragmentActivity);
         this.d.setPullRefresh(this.m);
-        com.baidu.tieba.view.w wVar = new com.baidu.tieba.view.w(this.a);
-        wVar.setHeightDip(30);
-        this.d.addFooterView(wVar);
+        com.baidu.tieba.view.aa aaVar = new com.baidu.tieba.view.aa(this.a);
+        aaVar.setHeightDip(30);
+        this.d.addFooterView(aaVar);
         this.p = new o(this.a, this.a.getString(R.string.login_block_tip), this.a.getResources().getString(R.string.login_home_tab), 1);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
         layoutParams.addRule(14);
@@ -156,7 +156,7 @@ public class l extends com.baidu.adp.a.e {
             try {
                 this.e.a(rVar);
             } catch (Exception e) {
-                com.baidu.tieba.util.bo.b(getClass().getName(), Headers.REFRESH, e.getMessage());
+                com.baidu.adp.lib.g.e.b(getClass().getName(), "refresh", e.getMessage());
                 return;
             }
         }
@@ -236,7 +236,7 @@ public class l extends com.baidu.adp.a.e {
 
     public void c(int i) {
         this.a.a().a(i == 1);
-        this.a.a().a(this.i);
+        this.a.a().a((View) this.i);
         this.p.b(i);
         this.k.c(i);
         w();
@@ -300,7 +300,7 @@ public class l extends com.baidu.adp.a.e {
         if (z) {
             this.s = z2;
             this.t = str;
-            if ((TiebaApplication.A() == null || TiebaApplication.G() == null) ? false : true) {
+            if ((TiebaApplication.A() == null || TiebaApplication.F() == null) ? false : true) {
                 this.u.setVisibility(0);
                 return;
             }

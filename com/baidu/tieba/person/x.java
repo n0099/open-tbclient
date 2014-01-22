@@ -6,15 +6,11 @@ import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class x extends BdAsyncTask<String, Integer, String> {
     final /* synthetic */ EditHeadActivity a;
-    private com.baidu.tieba.util.at b;
-    private com.baidu.tieba.data.f c;
-    private com.baidu.tieba.util.n d;
+    private com.baidu.tieba.util.ax b;
 
     private x(EditHeadActivity editHeadActivity) {
         this.a = editHeadActivity;
         this.b = null;
-        this.c = null;
-        this.d = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -34,7 +30,7 @@ public class x extends BdAsyncTask<String, Integer, String> {
     public String a(String... strArr) {
         String str;
         Exception e;
-        this.b = new com.baidu.tieba.util.at(com.baidu.tieba.data.h.a + "c/c/img/portrait");
+        this.b = new com.baidu.tieba.util.ax(com.baidu.tieba.data.h.a + "c/c/img/portrait");
         try {
             str = this.b.b("tieba_head_image");
         } catch (Exception e2) {
@@ -42,13 +38,13 @@ public class x extends BdAsyncTask<String, Integer, String> {
             e = e2;
         }
         try {
-            if (this.b.c()) {
+            if (this.b.d()) {
                 return str;
             }
             return null;
         } catch (Exception e3) {
             e = e3;
-            com.baidu.tieba.util.bo.b(getClass().getName(), "doInBackground", e.getMessage());
+            com.baidu.adp.lib.g.e.b(getClass().getName(), "doInBackground", e.getMessage());
             return str;
         }
     }
@@ -56,9 +52,9 @@ public class x extends BdAsyncTask<String, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         this.a.closeLoadingDialog();
-        this.a.v = null;
+        this.a.u = null;
         if (this.b != null) {
-            this.b.j();
+            this.b.k();
         }
         super.cancel(true);
     }
@@ -69,13 +65,13 @@ public class x extends BdAsyncTask<String, Integer, String> {
     public void a(String str) {
         this.a.closeLoadingDialog();
         if (this.b != null) {
-            if (this.b.c()) {
+            if (this.b.d()) {
                 this.a.setResult(-1);
                 this.a.finish();
                 this.a.showToast(this.a.getString(R.string.upload_head_ok));
                 return;
             }
-            this.a.showToast(this.b.i());
+            this.a.showToast(this.b.j());
         }
     }
 }

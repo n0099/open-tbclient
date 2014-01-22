@@ -4,6 +4,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.MetaData;
 import java.util.HashMap;
@@ -12,7 +13,7 @@ import java.util.Iterator;
 /* loaded from: classes.dex */
 public class i extends BdAsyncTask<String, Integer, com.baidu.tieba.data.ay> {
     final /* synthetic */ AtListActivity a;
-    private com.baidu.tieba.util.at b;
+    private com.baidu.tieba.util.ax b;
     private String c;
 
     private i(AtListActivity atListActivity) {
@@ -51,22 +52,22 @@ public class i extends BdAsyncTask<String, Integer, com.baidu.tieba.data.ay> {
     public com.baidu.tieba.data.ay a(String... strArr) {
         com.baidu.tieba.model.d dVar;
         this.c = strArr[0];
-        this.b = new com.baidu.tieba.util.at();
+        this.b = new com.baidu.tieba.util.ax();
         if (this.c == null || this.c.length() <= 0) {
             return null;
         }
         this.b.a(com.baidu.tieba.data.h.a + "c/u/follow/sug");
-        this.b.a("uid", TiebaApplication.A());
+        this.b.a(SapiAccountManager.SESSION_UID, TiebaApplication.A());
         this.b.a("q", this.c);
-        String l = this.b.l();
-        if (this.b.c()) {
+        String m = this.b.m();
+        if (this.b.d()) {
             com.baidu.tieba.data.ay ayVar = new com.baidu.tieba.data.ay();
             dVar = this.a.h;
             com.baidu.tieba.data.x a = dVar.a();
             if (a != null) {
-                ayVar.a(l, a.b());
+                ayVar.a(m, a.b());
             } else {
-                ayVar.a(l, (HashMap<String, String>) null);
+                ayVar.a(m, (HashMap<String, String>) null);
             }
             if (AtListActivity.a != null && AtListActivity.a.size() > 0) {
                 Iterator<MetaData> it = ayVar.a().iterator();
@@ -102,7 +103,7 @@ public class i extends BdAsyncTask<String, Integer, com.baidu.tieba.data.ay> {
         ListView listView;
         progressBar = this.a.k;
         progressBar.setVisibility(8);
-        if (this.b.c() && this.c != null) {
+        if (this.b.d() && this.c != null) {
             editText = this.a.b;
             if (editText.getText().toString().equals(this.c)) {
                 if (!ayVar.a().isEmpty()) {
@@ -119,7 +120,7 @@ public class i extends BdAsyncTask<String, Integer, com.baidu.tieba.data.ay> {
                 super.a((i) ayVar);
             }
         }
-        this.a.showToast(this.b.i());
+        this.a.showToast(this.b.j());
         super.a((i) ayVar);
     }
 }

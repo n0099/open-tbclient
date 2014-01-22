@@ -75,27 +75,27 @@ public class aa extends BaseAdapter {
             view = a(i, itemViewType);
         }
         ac acVar = (ac) view.getTag();
-        int an = TiebaApplication.g().an();
+        int al = TiebaApplication.h().al();
         int count = getCount();
         BaseFragmentActivity baseFragmentActivity = (BaseFragmentActivity) this.b;
-        baseFragmentActivity.a().a(an == 1);
+        baseFragmentActivity.a().a(al == 1);
         baseFragmentActivity.a().a(view);
         if (count > 2) {
             if (i == 0) {
-                if (an == 1) {
+                if (al == 1) {
                     acVar.d.setBackgroundResource(R.drawable.bg_hot_up_1);
                 } else {
                     acVar.d.setBackgroundResource(R.drawable.bg_hot_up);
                 }
             } else if (i == count - 2) {
-                if (an == 1) {
+                if (al == 1) {
                     acVar.d.setBackgroundResource(R.drawable.bg_hot_down_1);
                 } else {
                     acVar.d.setBackgroundResource(R.drawable.bg_hot_down);
                 }
             }
         } else if (count == 2 && i == 0) {
-            if (an == 1) {
+            if (al == 1) {
                 acVar.d.setBackgroundResource(R.drawable.bg_hot_1);
             } else {
                 acVar.d.setBackgroundResource(R.drawable.bg_hot);
@@ -133,9 +133,9 @@ public class aa extends BaseAdapter {
             inflate.setTag(acVar);
             return inflate;
         } else if (i2 == 1) {
-            com.baidu.tieba.view.w wVar = new com.baidu.tieba.view.w(this.b);
-            wVar.setHeightPx(this.b.getResources().getDimensionPixelSize(R.dimen.square_forum_list_paddingBottom));
-            return wVar;
+            com.baidu.tieba.view.aa aaVar = new com.baidu.tieba.view.aa(this.b);
+            aaVar.setHeightPx(this.b.getResources().getDimensionPixelSize(R.dimen.square_forum_list_paddingBottom));
+            return aaVar;
         } else {
             return null;
         }

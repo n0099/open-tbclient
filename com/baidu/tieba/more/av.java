@@ -21,7 +21,7 @@ public class av extends com.baidu.adp.a.d {
     }
 
     public void a(boolean z) {
-        TiebaApplication.g().s(z);
+        TiebaApplication.h().s(z);
     }
 
     @Override // com.baidu.adp.a.d

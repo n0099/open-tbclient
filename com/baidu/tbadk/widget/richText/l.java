@@ -16,7 +16,7 @@ public final class l implements com.baidu.adp.lib.d.c<TextView> {
     @Override // com.baidu.adp.lib.d.c
     /* renamed from: b */
     public TextView a() {
-        com.baidu.adp.lib.h.e.d("pool make TextView");
+        com.baidu.adp.lib.g.e.d("pool make TextView");
         return new com.baidu.tbadk.widget.c(this.a);
     }
 

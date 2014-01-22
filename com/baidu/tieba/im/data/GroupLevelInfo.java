@@ -6,10 +6,16 @@ import java.util.List;
 public class GroupLevelInfo implements Serializable {
     private static final long serialVersionUID = -1233726007002267351L;
     private int activeDay;
+    private int alreadyCreateMemGroup;
+    private boolean canCreateMember;
     private int grade;
     private long groupId;
+    private boolean isGroupAuthor;
+    private boolean isMemGroup;
+    private int leftCreateMemGroup;
     private List<LevelInfo> levelInfos;
     private String name;
+    private List<LevelInfo> vipLevelInfos;
 
     public long getGroupId() {
         return this.groupId;
@@ -49,6 +55,14 @@ public class GroupLevelInfo implements Serializable {
 
     public void setLevelInfos(List<LevelInfo> list) {
         this.levelInfos = list;
+    }
+
+    public List<LevelInfo> getVipLevelInfos() {
+        return this.vipLevelInfos;
+    }
+
+    public void setVipLevelInfos(List<LevelInfo> list) {
+        this.vipLevelInfos = list;
     }
 
     public String toString() {
@@ -98,5 +112,45 @@ public class GroupLevelInfo implements Serializable {
         public String toString() {
             return "LevelInfo [grade=" + this.grade + ", intro=" + this.intro + ", thresholdDay=" + this.thresholdDay + ", maxMemberNum=" + this.maxMemberNum + "]";
         }
+    }
+
+    public boolean isMemGroup() {
+        return this.isMemGroup;
+    }
+
+    public void setMemGroup(boolean z) {
+        this.isMemGroup = z;
+    }
+
+    public boolean isGroupAuthor() {
+        return this.isGroupAuthor;
+    }
+
+    public void setGroupAuthor(boolean z) {
+        this.isGroupAuthor = z;
+    }
+
+    public boolean isCanCreateMember() {
+        return this.canCreateMember;
+    }
+
+    public void setCanCreateMember(boolean z) {
+        this.canCreateMember = z;
+    }
+
+    public int getAlreadyCreateMemGroup() {
+        return this.alreadyCreateMemGroup;
+    }
+
+    public void setAlreadyCreateMemGroup(int i) {
+        this.alreadyCreateMemGroup = i;
+    }
+
+    public int getLeftCreateMemGroup() {
+        return this.leftCreateMemGroup;
+    }
+
+    public void setLeftCreateMemGroup(int i) {
+        this.leftCreateMemGroup = i;
     }
 }

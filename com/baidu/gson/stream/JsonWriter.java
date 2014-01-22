@@ -1,6 +1,5 @@
 package com.baidu.gson.stream;
 
-import com.baidu.zeus.bouncycastle.DERTags;
 import java.io.Closeable;
 import java.io.Flushable;
 import java.io.IOException;
@@ -8,7 +7,7 @@ import java.io.Writer;
 /* loaded from: classes.dex */
 public class JsonWriter implements Closeable, Flushable {
     private static final String[] HTML_SAFE_REPLACEMENT_CHARS;
-    private static final String[] REPLACEMENT_CHARS = new String[DERTags.TAGGED];
+    private static final String[] REPLACEMENT_CHARS = new String[128];
     private String deferredName;
     private boolean htmlSafe;
     private String indent;

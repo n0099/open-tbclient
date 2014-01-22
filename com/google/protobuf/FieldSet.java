@@ -10,6 +10,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import protobuf.Im;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<FieldDescriptorType>> {
@@ -63,7 +64,7 @@ public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<Fiel
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public FieldSet<FieldDescriptorType> m252clone() {
+    public FieldSet<FieldDescriptorType> m249clone() {
         FieldSet<FieldDescriptorType> newFieldSet = newFieldSet();
         int i = 0;
         while (true) {
@@ -333,43 +334,162 @@ public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<Fiel
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: com.google.protobuf.FieldSet$1  reason: invalid class name */
+    /* loaded from: classes.dex */
+    public /* synthetic */ class AnonymousClass1 {
+        static final /* synthetic */ int[] $SwitchMap$com$google$protobuf$WireFormat$FieldType = new int[WireFormat.FieldType.values().length];
+
+        static {
+            try {
+                $SwitchMap$com$google$protobuf$WireFormat$FieldType[WireFormat.FieldType.DOUBLE.ordinal()] = 1;
+            } catch (NoSuchFieldError e) {
+            }
+            try {
+                $SwitchMap$com$google$protobuf$WireFormat$FieldType[WireFormat.FieldType.FLOAT.ordinal()] = 2;
+            } catch (NoSuchFieldError e2) {
+            }
+            try {
+                $SwitchMap$com$google$protobuf$WireFormat$FieldType[WireFormat.FieldType.INT64.ordinal()] = 3;
+            } catch (NoSuchFieldError e3) {
+            }
+            try {
+                $SwitchMap$com$google$protobuf$WireFormat$FieldType[WireFormat.FieldType.UINT64.ordinal()] = 4;
+            } catch (NoSuchFieldError e4) {
+            }
+            try {
+                $SwitchMap$com$google$protobuf$WireFormat$FieldType[WireFormat.FieldType.INT32.ordinal()] = 5;
+            } catch (NoSuchFieldError e5) {
+            }
+            try {
+                $SwitchMap$com$google$protobuf$WireFormat$FieldType[WireFormat.FieldType.FIXED64.ordinal()] = 6;
+            } catch (NoSuchFieldError e6) {
+            }
+            try {
+                $SwitchMap$com$google$protobuf$WireFormat$FieldType[WireFormat.FieldType.FIXED32.ordinal()] = 7;
+            } catch (NoSuchFieldError e7) {
+            }
+            try {
+                $SwitchMap$com$google$protobuf$WireFormat$FieldType[WireFormat.FieldType.BOOL.ordinal()] = 8;
+            } catch (NoSuchFieldError e8) {
+            }
+            try {
+                $SwitchMap$com$google$protobuf$WireFormat$FieldType[WireFormat.FieldType.STRING.ordinal()] = 9;
+            } catch (NoSuchFieldError e9) {
+            }
+            try {
+                $SwitchMap$com$google$protobuf$WireFormat$FieldType[WireFormat.FieldType.BYTES.ordinal()] = 10;
+            } catch (NoSuchFieldError e10) {
+            }
+            try {
+                $SwitchMap$com$google$protobuf$WireFormat$FieldType[WireFormat.FieldType.UINT32.ordinal()] = 11;
+            } catch (NoSuchFieldError e11) {
+            }
+            try {
+                $SwitchMap$com$google$protobuf$WireFormat$FieldType[WireFormat.FieldType.SFIXED32.ordinal()] = 12;
+            } catch (NoSuchFieldError e12) {
+            }
+            try {
+                $SwitchMap$com$google$protobuf$WireFormat$FieldType[WireFormat.FieldType.SFIXED64.ordinal()] = 13;
+            } catch (NoSuchFieldError e13) {
+            }
+            try {
+                $SwitchMap$com$google$protobuf$WireFormat$FieldType[WireFormat.FieldType.SINT32.ordinal()] = 14;
+            } catch (NoSuchFieldError e14) {
+            }
+            try {
+                $SwitchMap$com$google$protobuf$WireFormat$FieldType[WireFormat.FieldType.SINT64.ordinal()] = 15;
+            } catch (NoSuchFieldError e15) {
+            }
+            try {
+                $SwitchMap$com$google$protobuf$WireFormat$FieldType[WireFormat.FieldType.GROUP.ordinal()] = 16;
+            } catch (NoSuchFieldError e16) {
+            }
+            try {
+                $SwitchMap$com$google$protobuf$WireFormat$FieldType[WireFormat.FieldType.MESSAGE.ordinal()] = 17;
+            } catch (NoSuchFieldError e17) {
+            }
+            try {
+                $SwitchMap$com$google$protobuf$WireFormat$FieldType[WireFormat.FieldType.ENUM.ordinal()] = 18;
+            } catch (NoSuchFieldError e18) {
+            }
+            $SwitchMap$com$google$protobuf$WireFormat$JavaType = new int[WireFormat.JavaType.values().length];
+            try {
+                $SwitchMap$com$google$protobuf$WireFormat$JavaType[WireFormat.JavaType.INT.ordinal()] = 1;
+            } catch (NoSuchFieldError e19) {
+            }
+            try {
+                $SwitchMap$com$google$protobuf$WireFormat$JavaType[WireFormat.JavaType.LONG.ordinal()] = 2;
+            } catch (NoSuchFieldError e20) {
+            }
+            try {
+                $SwitchMap$com$google$protobuf$WireFormat$JavaType[WireFormat.JavaType.FLOAT.ordinal()] = 3;
+            } catch (NoSuchFieldError e21) {
+            }
+            try {
+                $SwitchMap$com$google$protobuf$WireFormat$JavaType[WireFormat.JavaType.DOUBLE.ordinal()] = 4;
+            } catch (NoSuchFieldError e22) {
+            }
+            try {
+                $SwitchMap$com$google$protobuf$WireFormat$JavaType[WireFormat.JavaType.BOOLEAN.ordinal()] = 5;
+            } catch (NoSuchFieldError e23) {
+            }
+            try {
+                $SwitchMap$com$google$protobuf$WireFormat$JavaType[WireFormat.JavaType.STRING.ordinal()] = 6;
+            } catch (NoSuchFieldError e24) {
+            }
+            try {
+                $SwitchMap$com$google$protobuf$WireFormat$JavaType[WireFormat.JavaType.BYTE_STRING.ordinal()] = 7;
+            } catch (NoSuchFieldError e25) {
+            }
+            try {
+                $SwitchMap$com$google$protobuf$WireFormat$JavaType[WireFormat.JavaType.ENUM.ordinal()] = 8;
+            } catch (NoSuchFieldError e26) {
+            }
+            try {
+                $SwitchMap$com$google$protobuf$WireFormat$JavaType[WireFormat.JavaType.MESSAGE.ordinal()] = 9;
+            } catch (NoSuchFieldError e27) {
+            }
+        }
+    }
+
     public static Object readPrimitiveField(CodedInputStream codedInputStream, WireFormat.FieldType fieldType) {
-        switch (fieldType) {
-            case DOUBLE:
+        switch (AnonymousClass1.$SwitchMap$com$google$protobuf$WireFormat$FieldType[fieldType.ordinal()]) {
+            case 1:
                 return Double.valueOf(codedInputStream.readDouble());
-            case FLOAT:
+            case 2:
                 return Float.valueOf(codedInputStream.readFloat());
-            case INT64:
+            case 3:
                 return Long.valueOf(codedInputStream.readInt64());
-            case UINT64:
+            case 4:
                 return Long.valueOf(codedInputStream.readUInt64());
-            case INT32:
+            case 5:
                 return Integer.valueOf(codedInputStream.readInt32());
-            case FIXED64:
+            case 6:
                 return Long.valueOf(codedInputStream.readFixed64());
-            case FIXED32:
+            case 7:
                 return Integer.valueOf(codedInputStream.readFixed32());
-            case BOOL:
+            case 8:
                 return Boolean.valueOf(codedInputStream.readBool());
-            case STRING:
+            case 9:
                 return codedInputStream.readString();
-            case BYTES:
+            case 10:
                 return codedInputStream.readBytes();
-            case UINT32:
+            case 11:
                 return Integer.valueOf(codedInputStream.readUInt32());
-            case SFIXED32:
+            case 12:
                 return Integer.valueOf(codedInputStream.readSFixed32());
-            case SFIXED64:
+            case 13:
                 return Long.valueOf(codedInputStream.readSFixed64());
-            case SINT32:
+            case 14:
                 return Integer.valueOf(codedInputStream.readSInt32());
-            case SINT64:
+            case 15:
                 return Long.valueOf(codedInputStream.readSInt64());
-            case GROUP:
+            case 16:
                 throw new IllegalArgumentException("readPrimitiveField() cannot handle nested groups.");
-            case MESSAGE:
+            case 17:
                 throw new IllegalArgumentException("readPrimitiveField() cannot handle embedded messages.");
-            case ENUM:
+            case Im.GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
                 throw new IllegalArgumentException("readPrimitiveField() cannot handle enums.");
             default:
                 throw new RuntimeException("There is no way to get here, but the compiler thinks otherwise.");
@@ -420,59 +540,59 @@ public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<Fiel
     }
 
     private static void writeElementNoTag(CodedOutputStream codedOutputStream, WireFormat.FieldType fieldType, Object obj) {
-        switch (fieldType) {
-            case DOUBLE:
+        switch (AnonymousClass1.$SwitchMap$com$google$protobuf$WireFormat$FieldType[fieldType.ordinal()]) {
+            case 1:
                 codedOutputStream.writeDoubleNoTag(((Double) obj).doubleValue());
                 return;
-            case FLOAT:
+            case 2:
                 codedOutputStream.writeFloatNoTag(((Float) obj).floatValue());
                 return;
-            case INT64:
+            case 3:
                 codedOutputStream.writeInt64NoTag(((Long) obj).longValue());
                 return;
-            case UINT64:
+            case 4:
                 codedOutputStream.writeUInt64NoTag(((Long) obj).longValue());
                 return;
-            case INT32:
+            case 5:
                 codedOutputStream.writeInt32NoTag(((Integer) obj).intValue());
                 return;
-            case FIXED64:
+            case 6:
                 codedOutputStream.writeFixed64NoTag(((Long) obj).longValue());
                 return;
-            case FIXED32:
+            case 7:
                 codedOutputStream.writeFixed32NoTag(((Integer) obj).intValue());
                 return;
-            case BOOL:
+            case 8:
                 codedOutputStream.writeBoolNoTag(((Boolean) obj).booleanValue());
                 return;
-            case STRING:
+            case 9:
                 codedOutputStream.writeStringNoTag((String) obj);
                 return;
-            case BYTES:
+            case 10:
                 codedOutputStream.writeBytesNoTag((ByteString) obj);
                 return;
-            case UINT32:
+            case 11:
                 codedOutputStream.writeUInt32NoTag(((Integer) obj).intValue());
                 return;
-            case SFIXED32:
+            case 12:
                 codedOutputStream.writeSFixed32NoTag(((Integer) obj).intValue());
                 return;
-            case SFIXED64:
+            case 13:
                 codedOutputStream.writeSFixed64NoTag(((Long) obj).longValue());
                 return;
-            case SINT32:
+            case 14:
                 codedOutputStream.writeSInt32NoTag(((Integer) obj).intValue());
                 return;
-            case SINT64:
+            case 15:
                 codedOutputStream.writeSInt64NoTag(((Long) obj).longValue());
                 return;
-            case GROUP:
+            case 16:
                 codedOutputStream.writeGroupNoTag((MessageLite) obj);
                 return;
-            case MESSAGE:
+            case 17:
                 codedOutputStream.writeMessageNoTag((MessageLite) obj);
                 return;
-            case ENUM:
+            case Im.GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
                 codedOutputStream.writeEnumNoTag(((Internal.EnumLite) obj).getNumber());
                 return;
             default:
@@ -551,45 +671,45 @@ public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<Fiel
     }
 
     private static int computeElementSizeNoTag(WireFormat.FieldType fieldType, Object obj) {
-        switch (fieldType) {
-            case DOUBLE:
+        switch (AnonymousClass1.$SwitchMap$com$google$protobuf$WireFormat$FieldType[fieldType.ordinal()]) {
+            case 1:
                 return CodedOutputStream.computeDoubleSizeNoTag(((Double) obj).doubleValue());
-            case FLOAT:
+            case 2:
                 return CodedOutputStream.computeFloatSizeNoTag(((Float) obj).floatValue());
-            case INT64:
+            case 3:
                 return CodedOutputStream.computeInt64SizeNoTag(((Long) obj).longValue());
-            case UINT64:
+            case 4:
                 return CodedOutputStream.computeUInt64SizeNoTag(((Long) obj).longValue());
-            case INT32:
+            case 5:
                 return CodedOutputStream.computeInt32SizeNoTag(((Integer) obj).intValue());
-            case FIXED64:
+            case 6:
                 return CodedOutputStream.computeFixed64SizeNoTag(((Long) obj).longValue());
-            case FIXED32:
+            case 7:
                 return CodedOutputStream.computeFixed32SizeNoTag(((Integer) obj).intValue());
-            case BOOL:
+            case 8:
                 return CodedOutputStream.computeBoolSizeNoTag(((Boolean) obj).booleanValue());
-            case STRING:
+            case 9:
                 return CodedOutputStream.computeStringSizeNoTag((String) obj);
-            case BYTES:
+            case 10:
                 return CodedOutputStream.computeBytesSizeNoTag((ByteString) obj);
-            case UINT32:
+            case 11:
                 return CodedOutputStream.computeUInt32SizeNoTag(((Integer) obj).intValue());
-            case SFIXED32:
+            case 12:
                 return CodedOutputStream.computeSFixed32SizeNoTag(((Integer) obj).intValue());
-            case SFIXED64:
+            case 13:
                 return CodedOutputStream.computeSFixed64SizeNoTag(((Long) obj).longValue());
-            case SINT32:
+            case 14:
                 return CodedOutputStream.computeSInt32SizeNoTag(((Integer) obj).intValue());
-            case SINT64:
+            case 15:
                 return CodedOutputStream.computeSInt64SizeNoTag(((Long) obj).longValue());
-            case GROUP:
+            case 16:
                 return CodedOutputStream.computeGroupSizeNoTag((MessageLite) obj);
-            case MESSAGE:
+            case 17:
                 if (obj instanceof LazyField) {
                     return CodedOutputStream.computeLazyFieldSizeNoTag((LazyField) obj);
                 }
                 return CodedOutputStream.computeMessageSizeNoTag((MessageLite) obj);
-            case ENUM:
+            case Im.GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
                 return CodedOutputStream.computeEnumSizeNoTag(((Internal.EnumLite) obj).getNumber());
             default:
                 throw new RuntimeException("There is no way to get here, but the compiler thinks otherwise.");

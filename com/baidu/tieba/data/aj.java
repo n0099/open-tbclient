@@ -1,6 +1,5 @@
 package com.baidu.tieba.data;
 
-import com.baidu.tieba.util.bo;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class aj {
@@ -39,7 +38,7 @@ public class aj {
                     this.c = jSONObject.optString("vsrc");
                 }
             } catch (Exception e) {
-                bo.b(getClass().getName(), "parserJson", "error=" + e.toString());
+                com.baidu.adp.lib.g.e.b(getClass().getName(), "parserJson", "error=" + e.toString());
             }
         }
     }

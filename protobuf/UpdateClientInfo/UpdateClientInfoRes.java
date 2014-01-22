@@ -109,7 +109,7 @@ public final class UpdateClientInfoRes {
                                     makeExtensionsImmutable();
                                     throw th;
                                 }
-                            case 18:
+                            case Im.GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
                                 ag builder = (this.bitField0_ & 1) == 1 ? this.userInfo_.toBuilder() : null;
                                 this.userInfo_ = (Im.UserInfo) codedInputStream.readMessage(Im.UserInfo.PARSER, extensionRegistryLite);
                                 if (builder != null) {
@@ -120,7 +120,7 @@ public final class UpdateClientInfoRes {
                                 z3 = z6;
                                 z2 = z7;
                                 break;
-                            case 26:
+                            case Im.GroupInfo.NICKNAME_FIELD_NUMBER /* 26 */:
                                 r builder2 = (this.bitField0_ & 2) == 2 ? this.maskInfo_.toBuilder() : null;
                                 this.maskInfo_ = (Im.MaskInfo) codedInputStream.readMessage(Im.MaskInfo.PARSER, extensionRegistryLite);
                                 if (builder2 != null) {
@@ -131,7 +131,7 @@ public final class UpdateClientInfoRes {
                                 z3 = z6;
                                 z2 = z7;
                                 break;
-                            case 32:
+                            case Im.GroupInfo.ISNEWLYCREATE_FIELD_NUMBER /* 32 */:
                                 if (!(z7 & true)) {
                                     this.heartbeatInterval_ = new ArrayList();
                                     z4 = z7 | true;
@@ -143,7 +143,7 @@ public final class UpdateClientInfoRes {
                                 z2 = z4;
                                 z3 = z9;
                                 break;
-                            case 34:
+                            case Im.GroupInfo.ISMEMBERGROUP_FIELD_NUMBER /* 34 */:
                                 int pushLimit = codedInputStream.pushLimit(codedInputStream.readRawVarint32());
                                 if ((z7 & true) || codedInputStream.getBytesUntilLimit() <= 0) {
                                     z = z7;
@@ -433,7 +433,7 @@ public final class UpdateClientInfoRes {
                                 this.bitField0_ |= 1;
                                 z = z2;
                                 break;
-                            case 18:
+                            case Im.GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
                                 j builder2 = (this.bitField0_ & 2) == 2 ? this.data_.toBuilder() : null;
                                 this.data_ = (DataRes) codedInputStream.readMessage(DataRes.PARSER, extensionRegistryLite);
                                 if (builder2 != null) {

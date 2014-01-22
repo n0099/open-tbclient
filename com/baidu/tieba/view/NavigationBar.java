@@ -48,7 +48,7 @@ public class NavigationBar extends RelativeLayout {
         this.a = true;
         this.i = 0;
         this.j = 0;
-        this.k = new bc(this);
+        this.k = new bo(this);
         a(context);
     }
 
@@ -57,7 +57,7 @@ public class NavigationBar extends RelativeLayout {
         this.a = true;
         this.i = 0;
         this.j = 0;
-        this.k = new bc(this);
+        this.k = new bo(this);
         a(context);
     }
 
@@ -66,7 +66,7 @@ public class NavigationBar extends RelativeLayout {
         this.a = true;
         this.i = 0;
         this.j = 0;
-        this.k = new bc(this);
+        this.k = new bo(this);
         a(context);
     }
 
@@ -85,7 +85,7 @@ public class NavigationBar extends RelativeLayout {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a() {
-        setPadding(com.baidu.adp.lib.h.g.a(this.f, getResources().getDimension(R.dimen.navi_padding_left)), com.baidu.adp.lib.h.g.a(this.f, getResources().getDimension(R.dimen.navi_padding_top)), com.baidu.adp.lib.h.g.a(this.f, getResources().getDimension(R.dimen.navi_padding_right)), com.baidu.adp.lib.h.g.a(this.f, getResources().getDimension(R.dimen.navi_padding_bottom)));
+        setPadding(com.baidu.adp.lib.g.g.a(this.f, getResources().getDimension(R.dimen.navi_padding_left)), com.baidu.adp.lib.g.g.a(this.f, getResources().getDimension(R.dimen.navi_padding_top)), com.baidu.adp.lib.g.g.a(this.f, getResources().getDimension(R.dimen.navi_padding_right)), com.baidu.adp.lib.g.g.a(this.f, getResources().getDimension(R.dimen.navi_padding_bottom)));
     }
 
     @Override // android.widget.RelativeLayout, android.view.View
@@ -223,11 +223,11 @@ public class NavigationBar extends RelativeLayout {
         if (this.f instanceof com.baidu.tieba.j) {
             com.baidu.tieba.j jVar = (com.baidu.tieba.j) this.f;
             jVar.getLayoutMode().a(i == 1);
-            jVar.getLayoutMode().a(this);
+            jVar.getLayoutMode().a((View) this);
         } else if (this.f instanceof BaseFragmentActivity) {
             BaseFragmentActivity baseFragmentActivity = (BaseFragmentActivity) this.f;
             baseFragmentActivity.a().a(i == 1);
-            baseFragmentActivity.a().a(this);
+            baseFragmentActivity.a().a((View) this);
         }
     }
 }

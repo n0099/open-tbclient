@@ -12,15 +12,15 @@ import android.webkit.CookieSyncManager;
 import android.webkit.WebView;
 import com.baidu.loginshare.Token;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.bl;
-import com.baidu.tieba.util.bm;
+import com.baidu.tieba.util.bs;
+import com.baidu.tieba.util.bu;
 import com.baidu.tieba.view.BaseWebView;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
-public class FaceBuyWebViewActivity extends com.baidu.tieba.j implements com.baidu.tieba.view.h, com.baidu.tieba.view.i, com.baidu.tieba.view.j {
+public class FaceBuyWebViewActivity extends com.baidu.tieba.j implements com.baidu.tieba.view.d, com.baidu.tieba.view.e, com.baidu.tieba.view.f {
     private static final Pattern h = Pattern.compile("[?|&]order_id=(\\w+)&+");
     private BaseWebView a;
     private NavigationBar b;
@@ -116,7 +116,7 @@ public class FaceBuyWebViewActivity extends com.baidu.tieba.j implements com.bai
             this.b.c(i);
         }
         if (this.a != null) {
-            bl.a(this.a, i);
+            bs.a(this.a, i);
         }
     }
 
@@ -131,7 +131,7 @@ public class FaceBuyWebViewActivity extends com.baidu.tieba.j implements com.bai
 
     public void a() {
         try {
-            Token a = com.baidu.tieba.account.a.a(TiebaApplication.E());
+            Token a = com.baidu.tieba.account.a.a(TiebaApplication.D());
             CookieSyncManager.createInstance(this);
             CookieManager cookieManager = CookieManager.getInstance();
             cookieManager.setAcceptCookie(true);
@@ -158,10 +158,10 @@ public class FaceBuyWebViewActivity extends com.baidu.tieba.j implements com.bai
         this.g.show();
     }
 
-    @Override // com.baidu.tieba.view.h
+    @Override // com.baidu.tieba.view.d
     public boolean a(WebView webView, String str) {
         if (str != null) {
-            if (bm.c(str) || bm.c(this.d)) {
+            if (bu.c(str) || bu.c(this.d)) {
                 return false;
             }
             if (str.toLowerCase().contains(this.d.toLowerCase())) {
@@ -176,7 +176,7 @@ public class FaceBuyWebViewActivity extends com.baidu.tieba.j implements com.bai
                         closeActivity();
                         return true;
                     } catch (Exception e) {
-                        com.baidu.adp.lib.h.e.b(getClass().getName(), "shouldOverrideUrlLoading", e.toString());
+                        com.baidu.adp.lib.g.e.b(getClass().getName(), "shouldOverrideUrlLoading", e.toString());
                     }
                 }
             }
@@ -184,12 +184,12 @@ public class FaceBuyWebViewActivity extends com.baidu.tieba.j implements com.bai
         return false;
     }
 
-    @Override // com.baidu.tieba.view.i
+    @Override // com.baidu.tieba.view.e
     public void b(WebView webView, String str) {
         hideProgressBar();
     }
 
-    @Override // com.baidu.tieba.view.j
+    @Override // com.baidu.tieba.view.f
     public void c(WebView webView, String str) {
         showProgressBar();
     }

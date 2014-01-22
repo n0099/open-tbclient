@@ -9,6 +9,7 @@ import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.Parser;
 import java.io.IOException;
 import java.io.InputStream;
+import protobuf.Im;
 /* loaded from: classes.dex */
 public final class DelGroupMsgsReq {
 
@@ -64,7 +65,7 @@ public final class DelGroupMsgsReq {
                                     this.bitField0_ |= 1;
                                     this.groupId_ = codedInputStream.readInt32();
                                     break;
-                                case 18:
+                                case Im.GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
                                     this.bitField0_ |= 2;
                                     this.msgIds_ = codedInputStream.readBytes();
                                     break;

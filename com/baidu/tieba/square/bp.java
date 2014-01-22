@@ -1,10 +1,7 @@
 package com.baidu.tieba.square;
-
-import android.view.View;
-import android.widget.EditText;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bp implements View.OnClickListener {
+public class bp implements com.baidu.tieba.view.bi {
     final /* synthetic */ SquareSearchActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,10 +9,9 @@ public class bp implements View.OnClickListener {
         this.a = squareSearchActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        EditText editText;
-        editText = this.a.c;
-        editText.setText("");
+    @Override // com.baidu.tieba.view.bi
+    public void a(boolean z) {
+        com.baidu.adp.lib.g.e.e("simon", "onSoftKeyboardShown", String.valueOf(z));
+        this.a.G = z;
     }
 }

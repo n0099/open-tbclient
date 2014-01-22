@@ -8,7 +8,7 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* loaded from: classes.dex */
 public class j extends BdAsyncTask<String, Integer, com.baidu.tieba.data.x> {
     final /* synthetic */ AtListActivity a;
-    private com.baidu.tieba.util.at b;
+    private com.baidu.tieba.util.ax b;
 
     private j(AtListActivity atListActivity) {
         this.a = atListActivity;
@@ -33,7 +33,7 @@ public class j extends BdAsyncTask<String, Integer, com.baidu.tieba.data.x> {
     public void cancel() {
         ProgressBar progressBar;
         if (this.b != null) {
-            this.b.j();
+            this.b.k();
         }
         this.a.g = null;
         progressBar = this.a.k;
@@ -45,14 +45,14 @@ public class j extends BdAsyncTask<String, Integer, com.baidu.tieba.data.x> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public com.baidu.tieba.data.x a(String... strArr) {
-        this.b = new com.baidu.tieba.util.at();
+        this.b = new com.baidu.tieba.util.ax();
         this.b.a(com.baidu.tieba.data.h.a + "c/u/follow/list");
-        String l = this.b.l();
-        if (!this.b.c()) {
+        String m = this.b.m();
+        if (!this.b.d()) {
             return null;
         }
         com.baidu.tieba.data.x xVar = new com.baidu.tieba.data.x();
-        xVar.a(l);
+        xVar.a(m);
         return xVar;
     }
 
@@ -73,7 +73,7 @@ public class j extends BdAsyncTask<String, Integer, com.baidu.tieba.data.x> {
         this.a.g = null;
         progressBar = this.a.k;
         progressBar.setVisibility(8);
-        if (this.b.c()) {
+        if (this.b.d()) {
             dVar = this.a.h;
             dVar.a(xVar);
             kVar = this.a.i;
@@ -108,7 +108,7 @@ public class j extends BdAsyncTask<String, Integer, com.baidu.tieba.data.x> {
                 return;
             }
         } else {
-            this.a.showToast(this.b.i());
+            this.a.showToast(this.b.j());
         }
         super.a((j) xVar);
     }

@@ -1,51 +1,91 @@
 package com.baidu.tieba.view;
 
-import android.app.Activity;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ImageView;
-import android.widget.ListAdapter;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import com.slidingmenu.lib.R;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class ab {
-    private View a;
-    private GoodGridView b;
-    private ImageView c;
-    private Activity d;
+public class ab extends RelativeLayout {
+    private static ArrayList<ab> b = new ArrayList<>();
+    View.OnClickListener a;
+    private TextView c;
+    private Context d;
+    private com.baidu.tieba.util.i e;
+    private com.baidu.tieba.data.y f;
+    private boolean g;
+    private ae h;
 
-    public ab(Activity activity) {
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        this.d = null;
-        this.d = activity;
-        this.a = LayoutInflater.from(activity).inflate(R.layout.dialog_good, (ViewGroup) null);
-        this.b = (GoodGridView) this.a.findViewById(R.id.good_gridview);
-        this.c = (ImageView) this.a.findViewById(R.id.divider_line);
+    public ab(Context context) {
+        super(context);
+        this.e = null;
+        this.f = null;
+        this.g = false;
+        this.a = new ac(this);
+        a(context);
     }
 
-    public void a(com.baidu.tieba.frs.ap apVar) {
-        this.b.setAdapter((ListAdapter) apVar);
+    public void a(Context context) {
+        this.d = context;
+        ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(R.layout.frs_bannerview, this);
+        this.c = (TextView) findViewById(R.id.btn_close);
+        this.c.setOnClickListener(this.a);
+        setOnClickListener(this.a);
     }
 
-    public void a(AdapterView.OnItemClickListener onItemClickListener) {
-        this.b.setOnItemClickListener(onItemClickListener);
+    public void setBannerCloseListener(ae aeVar) {
+        this.h = aeVar;
     }
 
-    public View a() {
-        return this.a;
-    }
-
-    public void a(int i) {
-        if (i == 1) {
-            this.b.setBackgroundResource(R.color.frs_goodheader_bg_1);
-            this.c.setBackgroundResource(R.color.frs_goodheader_line_end_1);
-            return;
+    public void setData(com.baidu.tieba.data.y yVar) {
+        this.f = yVar;
+        if (this.g) {
+            setVisibility(8);
+        } else if (yVar != null && yVar != null && yVar.a() == 1 && !TextUtils.isEmpty(yVar.b())) {
+            setVisibility(0);
+            setImageUrl(yVar.b());
+        } else {
+            setVisibility(8);
         }
-        this.b.setBackgroundDrawable(null);
-        this.b.setBackgroundColor(-1);
-        this.c.setBackgroundResource(R.color.frs_goodheader_line_end);
+    }
+
+    public void setImageUrl(String str) {
+        if (this.e == null) {
+            this.e = new com.baidu.tieba.util.i(this.d);
+            this.e.d(true);
+        }
+        this.e.b(str, new ad(this));
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void setImg(com.baidu.adp.widget.ImageView.d dVar) {
+        Bitmap h;
+        if (dVar != null && (h = dVar.h()) != null) {
+            setBackgroundDrawable(new BitmapDrawable(h));
+        }
+    }
+
+    public void a() {
+        if (this.e != null) {
+            this.e.d();
+            this.e = null;
+        }
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    protected void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        b.add(this);
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        b.remove(this);
     }
 }

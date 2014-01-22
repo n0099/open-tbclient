@@ -13,7 +13,7 @@ class bk implements com.baidu.tbadk.widget.richText.r {
 
     @Override // com.baidu.tbadk.widget.richText.r
     public void onClick(View view, String str, int i) {
-        cs csVar;
+        cr crVar;
         com.baidu.tieba.model.bm bmVar;
         com.baidu.tbadk.widget.richText.a a;
         int i2;
@@ -22,13 +22,13 @@ class bk implements com.baidu.tbadk.widget.richText.r {
         String a2;
         String a3;
         try {
-            csVar = this.a.z;
-            if (csVar.a(view, str) != null) {
-                bmVar = this.a.t;
+            crVar = this.a.A;
+            if (crVar.a(view, str) != null) {
+                bmVar = this.a.u;
                 com.baidu.tieba.data.ao l = bmVar.l();
                 a = this.a.a(str, i);
                 ArrayList<com.baidu.tbadk.widget.richText.c> a4 = a.a();
-                i2 = this.a.X;
+                i2 = this.a.Y;
                 com.baidu.tbadk.widget.richText.c cVar = a4.get(i2);
                 if (cVar != null) {
                     ArrayList arrayList = new ArrayList();
@@ -83,7 +83,7 @@ class bk implements com.baidu.tbadk.widget.richText.r {
                 }
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.bo.b("PbAdapter", "ImageOnClickListener", "error = " + e.getMessage());
+            com.baidu.adp.lib.g.e.b("PbAdapter", "ImageOnClickListener", "error = " + e.getMessage());
         }
     }
 }

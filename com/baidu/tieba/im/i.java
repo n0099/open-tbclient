@@ -4,7 +4,8 @@ import android.content.Context;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.AccountData;
 import com.baidu.tieba.im.chat.LocalViewSize;
-import com.baidu.tieba.im.db.ag;
+import com.baidu.tieba.im.chat.q;
+import com.baidu.tieba.im.db.ah;
 import com.baidu.tieba.im.messageCenter.PingManager;
 import com.baidu.tieba.im.net.TiebaSocketLinkService;
 import com.baidu.tieba.mention.ad;
@@ -26,14 +27,14 @@ public class i {
         LocalViewSize.a().a(tiebaApplication);
         com.baidu.tieba.im.messageCenter.b.a(tiebaApplication);
         com.baidu.tieba.im.messageCenter.o.a(tiebaApplication);
-        com.baidu.tieba.im.b.a.b().a(tiebaApplication);
+        com.baidu.tieba.im.b.a.c().a(tiebaApplication);
         com.baidu.tieba.im.c.m.a().b();
-        com.baidu.tieba.im.chat.a.b().a();
-        ag.a().b();
+        q.b().a();
+        ah.a().b();
         TiebaSocketLinkService.a();
         TiebaSocketLinkService.a(false, "TiebaImApplication init");
         a = Thread.currentThread().getId();
-        com.baidu.adp.lib.h.e.d("=====uid:" + TiebaApplication.A() + " cuid:" + a());
+        com.baidu.adp.lib.g.e.d("=====uid:" + TiebaApplication.A() + " cuid:" + a());
     }
 
     public static void a(AccountData accountData, Context context) {
@@ -50,8 +51,8 @@ public class i {
         String str;
         synchronized (i.class) {
             if (c == null) {
-                String o = TiebaApplication.g().o();
-                String packageName = TiebaApplication.g().getPackageName();
+                String o = TiebaApplication.h().o();
+                String packageName = TiebaApplication.h().getPackageName();
                 c = o + "|" + packageName + com.baidu.tieba.data.h.j();
             }
             str = c;
@@ -60,10 +61,10 @@ public class i {
     }
 
     public static String b() {
-        AccountData F = TiebaApplication.F();
-        if (F == null) {
+        AccountData E = TiebaApplication.E();
+        if (E == null) {
             return null;
         }
-        return F.getPortrait();
+        return E.getPortrait();
     }
 }

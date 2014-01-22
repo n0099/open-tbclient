@@ -21,7 +21,7 @@ public class e extends BaseAdapter {
     public void a(List<UpdatesItemData> list) {
         if (list != null) {
             this.b = list;
-            com.baidu.adp.lib.h.e.d("size:" + this.b.size());
+            com.baidu.adp.lib.g.e.d("size:" + this.b.size());
             notifyDataSetChanged();
         }
     }

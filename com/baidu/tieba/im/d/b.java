@@ -42,4 +42,16 @@ public class b {
         create.show();
         return create;
     }
+
+    public static AlertDialog a(Context context, DialogInterface.OnClickListener onClickListener, DialogInterface.OnClickListener onClickListener2) {
+        AlertDialog create = new AlertDialog.Builder(context).setTitle(R.string.del_post_tip).setMessage(R.string.rand_chat_waiting_quit_message).setPositiveButton(R.string.rand_chat_waiting_quit_yes, onClickListener).setNegativeButton(R.string.rand_chat_waiting_quit_no, onClickListener2).create();
+        create.show();
+        return create;
+    }
+
+    public static AlertDialog b(Context context, DialogInterface.OnClickListener onClickListener, DialogInterface.OnClickListener onClickListener2) {
+        AlertDialog create = new AlertDialog.Builder(context).setMessage(R.string.rand_chat_waiting_change_dialog).setPositiveButton(R.string.alert_yes_btn, onClickListener).setNeutralButton(R.string.alert_no_button, onClickListener2).create();
+        create.show();
+        return create;
+    }
 }

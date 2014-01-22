@@ -1,18 +1,27 @@
 package com.baidu.tieba.im.chat;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class ar implements View.OnClickListener {
-    final /* synthetic */ ap a;
+public class ar implements com.baidu.tieba.im.messageCenter.g {
+    final /* synthetic */ GroupSettingActivity a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ar(ap apVar) {
-        this.a = apVar;
+    public ar(GroupSettingActivity groupSettingActivity) {
+        this.a = groupSettingActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.a.c.a(view, 4, this.a.f, 0L);
+    @Override // com.baidu.tieba.im.messageCenter.g
+    public void a(com.baidu.tieba.im.message.q qVar) {
+        if (qVar != null && qVar.w() == 103103) {
+            if (!(qVar instanceof com.baidu.tieba.im.message.ch)) {
+                this.a.showToast(R.string.group_report_fail);
+                return;
+            }
+            com.baidu.tieba.im.message.ch chVar = (com.baidu.tieba.im.message.ch) qVar;
+            if (chVar.k()) {
+                this.a.a(chVar.m(), chVar.l());
+            } else {
+                this.a.showToast(R.string.group_report_success);
+            }
+        }
     }
 }

@@ -29,7 +29,7 @@ public class ai implements View.OnClickListener {
         inputMethodManager2 = this.a.e;
         editText2 = this.a.h;
         writeActivity2.HidenSoftKeyPad(inputMethodManager2, editText2);
-        editorToolComponetContainer = this.a.B;
+        editorToolComponetContainer = this.a.z;
         editorToolComponetContainer.k();
         this.a.m();
     }

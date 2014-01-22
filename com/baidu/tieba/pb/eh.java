@@ -1,16 +1,25 @@
 package com.baidu.tieba.pb;
+
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class eh implements Runnable {
-    final /* synthetic */ eg a;
+public class eh implements Runnable {
+    final /* synthetic */ int a;
+    final /* synthetic */ View b;
+    final /* synthetic */ eb c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public eh(eg egVar) {
-        this.a = egVar;
+    public eh(eb ebVar, int i, View view) {
+        this.c = ebVar;
+        this.a = i;
+        this.b = view;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.a.d.a.c(this.a.a);
-        this.a.d.a.a(this.a.b, this.a.c);
+        int[] iArr = new int[2];
+        this.c.L.getLocationInWindow(iArr);
+        this.c.c.setSelectionFromTop(this.a + 1, iArr[1] - this.b.getHeight());
+        this.c.c.invalidate();
     }
 }

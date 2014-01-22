@@ -9,6 +9,7 @@ import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.Parser;
 import java.io.IOException;
 import java.io.InputStream;
+import protobuf.Im;
 /* loaded from: classes.dex */
 public final class QueryUserPermissionReq {
 
@@ -245,7 +246,7 @@ public final class QueryUserPermissionReq {
                             case 0:
                                 z = true;
                                 break;
-                            case 18:
+                            case Im.GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
                                 if ((this.bitField0_ & 1) != 1) {
                                     cVar = null;
                                 } else {

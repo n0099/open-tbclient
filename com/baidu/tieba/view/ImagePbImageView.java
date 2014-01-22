@@ -77,13 +77,13 @@ public class ImagePbImageView extends ImageView {
         this.f = new RectF();
         this.g = false;
         this.h = false;
-        this.i = com.baidu.tieba.util.m.a((int) R.drawable.image_pb_next);
+        this.i = com.baidu.tieba.util.n.a((int) R.drawable.image_pb_next);
         this.j = null;
         this.k = null;
         this.l = null;
         this.m = null;
         this.n = -1;
-        this.o = new ao(this);
+        this.o = new bc(this);
         c();
     }
 
@@ -97,13 +97,13 @@ public class ImagePbImageView extends ImageView {
         this.f = new RectF();
         this.g = false;
         this.h = false;
-        this.i = com.baidu.tieba.util.m.a((int) R.drawable.image_pb_next);
+        this.i = com.baidu.tieba.util.n.a((int) R.drawable.image_pb_next);
         this.j = null;
         this.k = null;
         this.l = null;
         this.m = null;
         this.n = -1;
-        this.o = new ao(this);
+        this.o = new bc(this);
         c();
     }
 
@@ -117,13 +117,13 @@ public class ImagePbImageView extends ImageView {
         this.f = new RectF();
         this.g = false;
         this.h = false;
-        this.i = com.baidu.tieba.util.m.a((int) R.drawable.image_pb_next);
+        this.i = com.baidu.tieba.util.n.a((int) R.drawable.image_pb_next);
         this.j = null;
         this.k = null;
         this.l = null;
         this.m = null;
         this.n = -1;
-        this.o = new ao(this);
+        this.o = new bc(this);
         c();
     }
 
@@ -138,15 +138,15 @@ public class ImagePbImageView extends ImageView {
         com.baidu.adp.widget.ImageView.d c = com.baidu.tbadk.imageManager.d.a().c(((String) getTag()) + "_big");
         if (c == null) {
             this.g = false;
-            if (TiebaApplication.g().an() == 1) {
+            if (TiebaApplication.h().al() == 1) {
                 if (this.m == null) {
-                    this.l = new com.baidu.adp.widget.ImageView.d(com.baidu.tieba.util.m.a((int) R.drawable.image_default_1), false, null);
+                    this.l = new com.baidu.adp.widget.ImageView.d(com.baidu.tieba.util.n.a((int) R.drawable.image_default_1), false, null);
                     this.m = new SoftReference<>(this.l);
                 }
                 dVar = this.m.get();
             } else {
                 if (this.k == null) {
-                    this.j = new com.baidu.adp.widget.ImageView.d(com.baidu.tieba.util.m.a((int) R.drawable.image_default), false, null);
+                    this.j = new com.baidu.adp.widget.ImageView.d(com.baidu.tieba.util.n.a((int) R.drawable.image_default), false, null);
                     this.k = new SoftReference<>(this.j);
                 }
                 dVar = this.k.get();
@@ -160,7 +160,7 @@ public class ImagePbImageView extends ImageView {
             if (this.n >= 0) {
                 this.d.setAlpha(255 - ((this.n * 255) / 10));
             }
-            int a = com.baidu.adp.lib.h.g.a(getContext(), 8.0f);
+            int a = com.baidu.adp.lib.g.g.a(getContext(), 8.0f);
             int c2 = dVar.c();
             int d = dVar.d();
             int width = getWidth() - a;
@@ -179,7 +179,7 @@ public class ImagePbImageView extends ImageView {
             }
             this.c.postTranslate(f, f2);
             dVar.a(canvas, this.c, this.d);
-            if (this.g && TiebaApplication.g().an() == 1) {
+            if (this.g && TiebaApplication.h().al() == 1) {
                 this.f.set(f, f2, c2 + f, d + f2);
                 canvas.drawRect(this.f, this.e);
             }

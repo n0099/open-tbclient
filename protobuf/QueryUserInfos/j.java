@@ -1,8 +1,5 @@
 package protobuf.QueryUserInfos;
 
-import com.baidu.cloudsdk.common.imgloader.ImageManager;
-import com.baidu.zeus.NotificationProxy;
-import com.baidu.zeus.bouncycastle.DERTags;
 import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.CodedOutputStream;
 import com.google.protobuf.ExtensionRegistryLite;
@@ -132,20 +129,20 @@ public final class j extends GeneratedMessageLite.Builder<QueryUserInfosRes.Data
             i2 |= 64;
         }
         dataRes.sex_ = this.h;
-        if ((i & DERTags.TAGGED) == 128) {
-            i2 |= DERTags.TAGGED;
+        if ((i & 128) == 128) {
+            i2 |= 128;
         }
         dataRes.hasConcerned_ = this.i;
         if ((i & 256) == 256) {
             i2 |= 256;
         }
         dataRes.isBlacklist_ = this.j;
-        if ((i & ImageManager.DEFAULT_MAX_CACHEABLE_SIZE) == 512) {
-            i2 |= ImageManager.DEFAULT_MAX_CACHEABLE_SIZE;
+        if ((i & 512) == 512) {
+            i2 |= 512;
         }
         dataRes.meizhiLevel_ = this.k;
-        if ((i & NotificationProxy.MAX_URL_LENGTH) == 1024) {
-            i2 |= NotificationProxy.MAX_URL_LENGTH;
+        if ((i & 1024) == 1024) {
+            i2 |= 1024;
         }
         dataRes.userType_ = this.l;
         if ((i & 2048) == 2048) {
@@ -306,7 +303,7 @@ public final class j extends GeneratedMessageLite.Builder<QueryUserInfosRes.Data
     }
 
     public j b(int i) {
-        this.a |= DERTags.TAGGED;
+        this.a |= 128;
         this.i = i;
         return this;
     }
@@ -318,13 +315,13 @@ public final class j extends GeneratedMessageLite.Builder<QueryUserInfosRes.Data
     }
 
     public j d(int i) {
-        this.a |= ImageManager.DEFAULT_MAX_CACHEABLE_SIZE;
+        this.a |= 512;
         this.k = i;
         return this;
     }
 
     public j e(int i) {
-        this.a |= NotificationProxy.MAX_URL_LENGTH;
+        this.a |= 1024;
         this.l = i;
         return this;
     }

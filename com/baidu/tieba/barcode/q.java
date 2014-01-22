@@ -2,7 +2,6 @@ package com.baidu.tieba.barcode;
 
 import android.app.Activity;
 import android.os.AsyncTask;
-import com.baidu.tieba.util.bo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class q extends AsyncTask<Object, Object, Object> {
@@ -18,7 +17,7 @@ public final class q extends AsyncTask<Object, Object, Object> {
         Activity activity2;
         try {
             Thread.sleep(300000L);
-            bo.a(getClass().getName(), "doInBackground", "Finishing activity due to inactivity");
+            com.baidu.adp.lib.g.e.a(getClass().getName(), "doInBackground", "Finishing activity due to inactivity");
             activity = this.a.a;
             activity.setResult(0);
             activity2 = this.a.a;

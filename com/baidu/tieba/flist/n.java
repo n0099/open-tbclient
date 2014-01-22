@@ -1,6 +1,7 @@
 package com.baidu.tieba.flist;
 
 import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tieba.util.an;
 /* loaded from: classes.dex */
 class n implements Runnable {
     final /* synthetic */ ForumListActivity a;
@@ -19,11 +20,11 @@ class n implements Runnable {
         if (i == 0) {
             BdListView bdListView = this.a.c.h;
             iVar2 = this.a.r;
-            com.baidu.tieba.util.ak.a(bdListView, iVar2, 1, -1);
+            an.a(bdListView, iVar2, 1, -1);
             return;
         }
         BdListView bdListView2 = this.a.c.i;
         iVar = this.a.r;
-        com.baidu.tieba.util.ak.a(bdListView2, iVar, 1, -1);
+        an.a(bdListView2, iVar, 1, -1);
     }
 }

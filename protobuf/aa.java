@@ -12,11 +12,6 @@ public final class aa extends GeneratedMessageLite.Builder<Im.PusherMsgInfo, aa>
     private long c;
     private long d;
 
-    /* JADX DEBUG: Method not inlined, still used in: [protobuf.Im.PusherMsgInfo.newBuilder():protobuf.aa] */
-    public static /* synthetic */ aa f() {
-        return h();
-    }
-
     private aa() {
         g();
     }

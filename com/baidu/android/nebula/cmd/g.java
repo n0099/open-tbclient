@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Process;
 import com.baidu.android.common.logging.Log;
 import com.baidu.android.common.net.ProxyHttpClient;
-import com.baidu.browser.core.util.BdUtil;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.util.EntityUtils;
@@ -41,7 +40,7 @@ public class g extends Thread {
         try {
             HttpResponse execute = proxyHttpClient.execute(new HttpGet(this.c.toString()));
             if (execute.getStatusLine().getStatusCode() == 200) {
-                String entityUtils = EntityUtils.toString(execute.getEntity(), BdUtil.UTF8);
+                String entityUtils = EntityUtils.toString(execute.getEntity(), "utf-8");
                 if (!isInterrupted()) {
                     this.a = new b(this.b, new JSONArray(entityUtils));
                     this.a.start();

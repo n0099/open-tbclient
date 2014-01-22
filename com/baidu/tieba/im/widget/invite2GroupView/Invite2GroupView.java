@@ -7,7 +7,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tieba.im.data.InviteMsgData;
-import com.baidu.tieba.im.db.ad;
+import com.baidu.tieba.im.db.ae;
 import com.baidu.tieba.view.HeadImageView;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
@@ -59,6 +59,6 @@ public final class Invite2GroupView extends LinearLayout {
         this.b.setTag(this.e.getPortrait());
         this.c.setText(this.e.getNotice());
         setOnClickListener(new b(this));
-        ad.a().a(new c(this));
+        ae.a().a(new c(this));
     }
 }

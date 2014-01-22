@@ -29,7 +29,7 @@ public class h extends Dialog {
 
     public void a() {
         this.d = this.c.inflate(R.layout.face_buy_loading, (ViewGroup) null);
-        this.a = TiebaApplication.g().an();
+        this.a = TiebaApplication.h().al();
         setContentView(this.d, new LinearLayout.LayoutParams(getContext().getResources().getDimensionPixelSize(R.dimen.faceshop_buy_dialog_width), getContext().getResources().getDimensionPixelSize(R.dimen.faceshop_buy_dialog_height)));
         setCancelable(false);
         c();
@@ -38,7 +38,7 @@ public class h extends Dialog {
     public void b() {
         ForegroundColorSpan foregroundColorSpan;
         this.d = this.c.inflate(R.layout.face_buy_fail, (ViewGroup) null);
-        this.a = TiebaApplication.g().an();
+        this.a = TiebaApplication.h().al();
         String string = getContext().getResources().getString(R.string.query_buy_fail_tel);
         this.e = new SpannableString(string);
         if (this.a == 1) {

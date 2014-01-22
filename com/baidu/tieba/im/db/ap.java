@@ -6,25 +6,17 @@ import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes.dex */
 public class ap implements com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMessageCenterPojo>> {
     final /* synthetic */ String a;
-    final /* synthetic */ com.baidu.tieba.im.a b;
-    final /* synthetic */ ag c;
+    final /* synthetic */ ah b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ap(ag agVar, String str, com.baidu.tieba.im.a aVar) {
-        this.c = agVar;
+    public ap(ah ahVar, String str) {
+        this.b = ahVar;
         this.a = str;
-        this.b = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.a
     public void a(ConcurrentHashMap<String, ImMessageCenterPojo> concurrentHashMap) {
-        ImMessageCenterPojo imMessageCenterPojo;
-        if (concurrentHashMap != null && (imMessageCenterPojo = concurrentHashMap.get(this.a)) != null) {
-            imMessageCenterPojo.setUnread_count(0);
-        }
-        if (this.b != null) {
-            this.b.a(null);
-        }
+        concurrentHashMap.remove(this.a);
     }
 }

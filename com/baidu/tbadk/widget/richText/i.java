@@ -5,12 +5,11 @@ import android.graphics.Rect;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.style.ImageSpan;
-import com.baidu.browser.webpool.BdWebPoolView;
-import com.baidu.cloudsdk.common.imgloader.ImageManager;
+import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.imageManager.TbFaceManager;
-import com.baidu.zeus.bouncycastle.DERTags;
 import java.util.ArrayList;
 import org.json.JSONObject;
+import protobuf.Im;
 /* loaded from: classes.dex */
 public class i {
     private int a = 0;
@@ -185,9 +184,9 @@ public class i {
                 return null;
             case 16:
                 return c(context);
-            case 32:
+            case Im.GroupInfo.ISNEWLYCREATE_FIELD_NUMBER /* 32 */:
                 return a(context, arrayList);
-            case DERTags.TAGGED /* 128 */:
+            case 128:
                 return b(context, arrayList);
             case 256:
                 return b(context);
@@ -203,15 +202,15 @@ public class i {
             } else if (this.a == 512) {
                 this.d = new t(jSONObject);
             } else if (this.a == 16) {
-                this.b = new b(jSONObject.optString("text"), jSONObject.optString("uid"));
+                this.b = new b(jSONObject.optString("text"), jSONObject.optString(SapiAccountManager.SESSION_UID));
             } else if (this.a == 17) {
                 this.e = new e();
                 this.e.c = String.format("#(%s)", jSONObject.optString("c"));
                 this.e.b = jSONObject.optString("dynamic");
                 this.e.a = jSONObject.optString("static");
                 this.e.d = this.a;
-                this.e.f = jSONObject.optInt("width", BdWebPoolView.DELAYED_TIME);
-                this.e.g = jSONObject.optInt("height", BdWebPoolView.DELAYED_TIME);
+                this.e.f = jSONObject.optInt("width", 200);
+                this.e.g = jSONObject.optInt("height", 200);
                 this.e.h = jSONObject.optString("packet_name", "");
                 this.e.i = jSONObject.optString("icon");
                 String[] split = this.e.b.split("/");
@@ -222,7 +221,7 @@ public class i {
                     }
                 }
                 String str2 = split[i].split("_")[0];
-                com.baidu.adp.lib.h.e.e("TbRichTextView", "onClick", str2);
+                com.baidu.adp.lib.g.e.e("TbRichTextView", "onClick", str2);
                 this.e.e = str2;
             } else {
                 this.b = new b(jSONObject);
@@ -242,7 +241,7 @@ public class i {
                 this.b.c();
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.h.e.a(e.getMessage());
+            com.baidu.adp.lib.g.e.a(e.getMessage());
         }
     }
 
@@ -266,11 +265,11 @@ public class i {
             default:
                 return 0;
             case 8:
-                return DERTags.TAGGED;
+                return 128;
             case 9:
                 return 256;
             case 10:
-                return ImageManager.DEFAULT_MAX_CACHEABLE_SIZE;
+                return 512;
             case 11:
                 return 17;
         }

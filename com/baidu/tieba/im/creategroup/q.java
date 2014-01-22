@@ -54,7 +54,7 @@ public class q extends BaseAdapter {
     }
 
     private void a(View view) {
-        this.b.getLayoutMode().a(TiebaApplication.g().an() == 1);
+        this.b.getLayoutMode().a(TiebaApplication.h().al() == 1);
         this.b.getLayoutMode().a(view);
     }
 }

@@ -3,6 +3,7 @@ package com.baidu.tieba.person;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
@@ -12,23 +13,23 @@ import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.MarkData;
 import com.baidu.tieba.view.NavigationBar;
+import com.baidu.tieba.view.cm;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class aa {
     EditMarkActivity a;
     private BdListView c;
-    private com.baidu.tieba.view.bw d;
+    private cm d;
     private FrameLayout e;
     private com.baidu.tieba.home.ab f;
     private TextView g;
     private LinearLayout h;
     private ProgressBar i;
-    private NavigationBar m;
+    private NavigationBar l;
     private Dialog j = null;
-    private int k = 0;
     DialogInterface.OnClickListener b = null;
-    private boolean l = false;
+    private boolean k = false;
 
     public aa(EditMarkActivity editMarkActivity) {
         this.a = null;
@@ -46,17 +47,17 @@ public class aa {
         this.f = new com.baidu.tieba.home.ab(editMarkActivity);
         this.f.d(false);
         this.f.b();
-        this.d = new com.baidu.tieba.view.bw(editMarkActivity);
+        this.d = new cm(editMarkActivity);
         this.d.a(editMarkActivity);
         this.c = (BdListView) editMarkActivity.findViewById(R.id.list);
         this.c.setAdapter((ListAdapter) this.f);
         this.c.setPullRefresh(this.d);
         this.c.setOnSrollToBottomListener(editMarkActivity);
         this.c.setOnItemClickListener(editMarkActivity);
-        this.m = (NavigationBar) editMarkActivity.findViewById(R.id.view_navigation_bar);
-        this.m.a(editMarkActivity.getResources().getString(R.string.my_mark));
-        this.m.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.g = this.m.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, editMarkActivity.getResources().getString(R.string.edit));
+        this.l = (NavigationBar) editMarkActivity.findViewById(R.id.view_navigation_bar);
+        this.l.a(editMarkActivity.getResources().getString(R.string.my_mark));
+        this.l.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.g = this.l.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, editMarkActivity.getResources().getString(R.string.edit));
         this.g.setOnClickListener(editMarkActivity);
         this.g.setVisibility(4);
         this.f.a(editMarkActivity);
@@ -74,13 +75,13 @@ public class aa {
         if (!this.f.c()) {
             this.f.e(true);
             this.g.setText(R.string.done);
-            com.baidu.tieba.util.bl.h(this.g, TiebaApplication.g().an());
+            com.baidu.tieba.util.bs.h(this.g, TiebaApplication.h().al());
             this.f.notifyDataSetChanged();
             return;
         }
         this.f.e(false);
         this.g.setText(R.string.edit);
-        com.baidu.tieba.util.bl.j(this.g, TiebaApplication.g().an());
+        com.baidu.tieba.util.bs.j(this.g, TiebaApplication.h().al());
         this.f.notifyDataSetChanged();
     }
 
@@ -113,7 +114,6 @@ public class aa {
             if (oVar.h() == 0 && !z && oVar.g() > 0) {
                 a(this.a.getString(R.string.no_more_mark));
             }
-            this.k = oVar.g();
             if (oVar.h() < 20) {
                 this.f.a(false);
                 this.f.c(!oVar.e());
@@ -134,36 +134,22 @@ public class aa {
                 this.e.setVisibility(0);
                 this.c.setVisibility(8);
             }
-        } else if (this.k > 0) {
-            this.g.setVisibility(0);
-            this.e.setVisibility(8);
-            this.c.setVisibility(0);
-            this.f.c(false);
-            this.f.notifyDataSetChanged();
-        } else {
-            this.g.setVisibility(4);
-            this.e.setVisibility(0);
-            this.c.setVisibility(8);
         }
         this.f.b(false);
         this.i.setVisibility(8);
-        if (z && !l()) {
+        if (z && !k()) {
             d();
         }
-        if (l()) {
+        if (k()) {
             a(false);
         }
-    }
-
-    public void f() {
-        this.f.a((ArrayList<MarkData>) null);
     }
 
     public void a(String str) {
         this.a.showToast(str);
     }
 
-    public void g() {
+    public void f() {
         this.a.showLoadingDialog(this.a.getString(R.string.syncing));
     }
 
@@ -176,12 +162,12 @@ public class aa {
             this.a.showToast(str);
         }
         if (z2) {
-            m();
+            l();
         }
         this.f.notifyDataSetChanged();
     }
 
-    public void h() {
+    public void g() {
         this.i.setVisibility(0);
     }
 
@@ -213,7 +199,7 @@ public class aa {
         }
     }
 
-    private void m() {
+    private void l() {
         if (this.j == null) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this.a);
             builder.setTitle(this.a.getString(R.string.sync_mark_fail));
@@ -229,19 +215,19 @@ public class aa {
     }
 
     public void b(int i) {
-        this.m.c(i);
-        this.a.getLayoutMode().a(this.h);
+        this.l.c(i);
+        this.a.getLayoutMode().a((View) this.h);
         if (this.d != null) {
             this.d.a(i);
         }
     }
 
-    public void i() {
+    public void h() {
         this.f.b();
         this.f.notifyDataSetChanged();
     }
 
-    public void j() {
+    public void i() {
         if (this.j != null) {
             this.j.dismiss();
             this.j = null;
@@ -252,17 +238,17 @@ public class aa {
         this.f.a();
     }
 
-    public void k() {
+    public void j() {
         if (this.c != null) {
             this.c.a();
         }
     }
 
-    public boolean l() {
-        return this.l;
+    public boolean k() {
+        return this.k;
     }
 
     public void a(boolean z) {
-        this.l = z;
+        this.k = z;
     }
 }

@@ -33,7 +33,7 @@ public class g implements AdapterView.OnItemClickListener {
             intent.putExtras(bundle);
             AtListActivity atListActivity = this.a;
             editText = this.a.b;
-            com.baidu.adp.lib.h.g.a(atListActivity, editText);
+            com.baidu.adp.lib.g.g.a(atListActivity, editText);
             this.a.setResult(-1, intent);
             this.a.finish();
         }

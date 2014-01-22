@@ -1,23 +1,31 @@
 package com.baidu.tieba.util;
 
+import android.content.Context;
+import android.text.style.ClickableSpan;
 import android.view.View;
+import com.baidu.tieba.pb.NewPbActivity;
 /* loaded from: classes.dex */
-class am implements bw {
-    final /* synthetic */ String a;
-    final /* synthetic */ al b;
+public class am extends ClickableSpan {
+    private Context a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public am(al alVar, String str) {
-        this.b = alVar;
-        this.a = str;
+    public am(Context context) {
+        this.a = null;
+        this.a = context;
     }
 
-    @Override // com.baidu.tieba.util.bw
-    public boolean a(View view) {
-        if (this.a.equals(view.getTag())) {
-            view.invalidate();
-            return false;
-        }
-        return false;
+    @Override // android.text.style.ClickableSpan
+    public void onClick(View view) {
+    }
+
+    public Context a() {
+        return this.a;
+    }
+
+    public void a(String str) {
+        UtilHelper.c(this.a, str);
+    }
+
+    public void b(String str) {
+        NewPbActivity.a(this.a, str, (String) null, (String) null);
     }
 }

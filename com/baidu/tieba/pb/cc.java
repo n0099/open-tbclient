@@ -117,8 +117,8 @@ public class cc extends BaseAdapter {
         cdVar.d = (TextView) inflate.findViewById(R.id.time);
         cdVar.e = (Button) inflate.findViewById(R.id.manage_btn);
         cdVar.f = (TbRichTextView) inflate.findViewById(R.id.richText);
-        cdVar.f.setTextSize(com.baidu.tieba.data.h.t());
-        if (TiebaApplication.g().an() == 1) {
+        cdVar.f.setTextSize(com.baidu.tieba.data.h.s());
+        if (TiebaApplication.h().al() == 1) {
             cdVar.d.setTextColor(this.b.getResources().getColor(R.color.subpb_listitem_time_1));
             cdVar.f.setTextColor(this.b.getResources().getColor(R.color.gray_night_3));
         } else {
@@ -137,34 +137,34 @@ public class cc extends BaseAdapter {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(com.baidu.tieba.data.as asVar, cd cdVar, boolean z, boolean z2) {
-        int an = TiebaApplication.g().an();
+        int al = TiebaApplication.h().al();
         if (z2 && !z) {
             int dimensionPixelSize = this.b.getResources().getDimensionPixelSize(R.dimen.default_size_22);
             int dimensionPixelSize2 = this.b.getResources().getDimensionPixelSize(R.dimen.default_gap_8);
             int dimensionPixelSize3 = this.b.getResources().getDimensionPixelSize(R.dimen.default_gap_8);
             int dimensionPixelSize4 = this.b.getResources().getDimensionPixelSize(R.dimen.default_gap_10);
-            cdVar.a.setBackgroundResource(an == 1 ? R.drawable.subpb_list_item_full_bg_1 : R.drawable.subpb_list_item_full_bg);
+            cdVar.a.setBackgroundResource(al == 1 ? R.drawable.subpb_list_item_full_bg_1 : R.drawable.subpb_list_item_full_bg);
             cdVar.a.setPadding(dimensionPixelSize2, dimensionPixelSize, dimensionPixelSize3, dimensionPixelSize4);
         } else if (z2) {
             int dimensionPixelSize5 = this.b.getResources().getDimensionPixelSize(R.dimen.default_size_22);
             int dimensionPixelSize6 = this.b.getResources().getDimensionPixelSize(R.dimen.default_gap_8);
             int dimensionPixelSize7 = this.b.getResources().getDimensionPixelSize(R.dimen.default_gap_8);
             int dimensionPixelSize8 = this.b.getResources().getDimensionPixelSize(R.dimen.default_gap_10);
-            cdVar.a.setBackgroundResource(an == 1 ? R.drawable.subpb_list_item_top_bg_1 : R.drawable.subpb_list_item_top_bg);
+            cdVar.a.setBackgroundResource(al == 1 ? R.drawable.subpb_list_item_top_bg_1 : R.drawable.subpb_list_item_top_bg);
             cdVar.a.setPadding(dimensionPixelSize6, dimensionPixelSize5, dimensionPixelSize7, dimensionPixelSize8);
         } else if (z) {
             int dimensionPixelSize9 = this.b.getResources().getDimensionPixelSize(R.dimen.default_size_10);
             int dimensionPixelSize10 = this.b.getResources().getDimensionPixelSize(R.dimen.default_gap_8);
             int dimensionPixelSize11 = this.b.getResources().getDimensionPixelSize(R.dimen.default_gap_8);
             int dimensionPixelSize12 = this.b.getResources().getDimensionPixelSize(R.dimen.default_gap_10);
-            cdVar.a.setBackgroundResource(an == 1 ? R.drawable.subpb_list_item_middle_bg_1 : R.drawable.subpb_list_item_middle_bg);
+            cdVar.a.setBackgroundResource(al == 1 ? R.drawable.subpb_list_item_middle_bg_1 : R.drawable.subpb_list_item_middle_bg);
             cdVar.a.setPadding(dimensionPixelSize10, dimensionPixelSize9, dimensionPixelSize11, dimensionPixelSize12);
         } else {
             int dimensionPixelSize13 = this.b.getResources().getDimensionPixelSize(R.dimen.default_size_10);
             int dimensionPixelSize14 = this.b.getResources().getDimensionPixelSize(R.dimen.default_gap_8);
             int dimensionPixelSize15 = this.b.getResources().getDimensionPixelSize(R.dimen.default_gap_8);
             int dimensionPixelSize16 = this.b.getResources().getDimensionPixelSize(R.dimen.default_gap_10);
-            cdVar.a.setBackgroundResource(an == 1 ? R.drawable.subpb_list_item_foot_bg_1 : R.drawable.subpb_list_item_foot_bg);
+            cdVar.a.setBackgroundResource(al == 1 ? R.drawable.subpb_list_item_foot_bg_1 : R.drawable.subpb_list_item_foot_bg);
             cdVar.a.setPadding(dimensionPixelSize14, dimensionPixelSize13, dimensionPixelSize15, dimensionPixelSize16);
         }
         cdVar.a.invalidate();
@@ -177,7 +177,7 @@ public class cc extends BaseAdapter {
         if (cdVar != null && asVar != null) {
             a(asVar, cdVar, z, z2);
             cdVar.c.setTag(null);
-            int an = TiebaApplication.g().an();
+            int al = TiebaApplication.h().al();
             if (asVar.g() != null) {
                 String name = asVar.g().getName();
                 String id = asVar.g().getId();
@@ -196,17 +196,17 @@ public class cc extends BaseAdapter {
                     c.a(cdVar.c);
                 } else {
                     cdVar.c.setTag(portrait);
-                    cdVar.c.setImageBitmap(com.baidu.tieba.util.m.a((int) R.drawable.photo));
+                    cdVar.c.setImageBitmap(com.baidu.tieba.util.n.a((int) R.drawable.photo));
                 }
             }
-            if (TiebaApplication.g().an() == 1) {
+            if (TiebaApplication.h().al() == 1) {
                 cdVar.f.setLinkTextColor(this.b.getResources().getColor(R.color.common_link_text_1));
             } else {
                 cdVar.f.setLinkTextColor(this.b.getResources().getColor(R.color.common_link_text));
             }
             cdVar.f.setVoiceViewRes(R.layout.voice_play_btn);
             cdVar.f.setText(asVar.h());
-            cdVar.d.setText(com.baidu.tieba.util.bm.b(asVar.f()));
+            cdVar.d.setText(com.baidu.tieba.util.bu.a(asVar.f()));
             String id2 = asVar.g().getId();
             if (this.f != 0) {
                 boolean z6 = id2 == null || !id2.equals(TiebaApplication.A());
@@ -234,14 +234,14 @@ public class cc extends BaseAdapter {
             }
             if (z4 && z5) {
                 cdVar.e.setVisibility(0);
-                if (an == 1) {
+                if (al == 1) {
                     cdVar.e.setCompoundDrawablesWithIntrinsicBounds(R.drawable.btn_floor_manage_n_1, 0, 0, 0);
                 } else {
                     cdVar.e.setCompoundDrawablesWithIntrinsicBounds(R.drawable.btn_floor_manage_n, 0, 0, 0);
                 }
             } else if (z4) {
                 cdVar.e.setVisibility(0);
-                if (an == 1) {
+                if (al == 1) {
                     cdVar.e.setCompoundDrawablesWithIntrinsicBounds(R.drawable.btn_floor_delete_n_1, 0, 0, 0);
                 } else {
                     cdVar.e.setCompoundDrawablesWithIntrinsicBounds(R.drawable.btn_floor_delete_n, 0, 0, 0);

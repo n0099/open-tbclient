@@ -2,7 +2,6 @@ package com.baidu.tieba.flist;
 
 import android.widget.ImageView;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.browser.webpool.BdWebPoolView;
 import com.baidu.gson.JsonParseException;
 import com.baidu.tieba.flist.ForumListModel;
 import com.slidingmenu.lib.R;
@@ -113,8 +112,8 @@ public class q extends BdAsyncTask<Void, Void, ForumListModel> {
                 i4 = this.b.l;
                 imageView5.setImageResource(i4);
                 requestParams = this.b.A;
-                requestParams.rn = BdWebPoolView.DELAYED_TIME;
-                this.b.o = BdWebPoolView.DELAYED_TIME;
+                requestParams.rn = 200;
+                this.b.o = 200;
             }
         }
         this.b.c.o.setEnabled(true);

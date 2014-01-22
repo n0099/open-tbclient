@@ -25,7 +25,7 @@ public class b implements Runnable {
                     wait(3000L);
                 }
             } catch (Exception e) {
-                com.baidu.adp.lib.h.e.a("BdLogger", "write error ", e);
+                com.baidu.adp.lib.g.e.a("BdLogger", "write error ", e);
             }
         }
         atomicBoolean = this.a.a;

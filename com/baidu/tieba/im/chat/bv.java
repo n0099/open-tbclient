@@ -1,20 +1,21 @@
 package com.baidu.tieba.im.chat;
 
-import android.view.View;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.im.SingleRunnable;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bv implements View.OnClickListener {
-    final /* synthetic */ bs a;
+public class bv extends SingleRunnable<Boolean> {
+    final /* synthetic */ MsglistActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bv(bs bsVar) {
-        this.a = bsVar;
+    public bv(MsglistActivity msglistActivity) {
+        this.a = msglistActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.a.N();
-        this.a.P();
-        this.a.S();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.SingleRunnable
+    /* renamed from: a */
+    public Boolean b() {
+        return Boolean.valueOf(com.baidu.tieba.im.groupInfo.u.b(TiebaApplication.A(), String.valueOf(this.a.e.a().getGroupId())));
     }
 }

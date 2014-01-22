@@ -1,34 +1,30 @@
 package com.baidu.tieba.pb;
 
-import com.baidu.mobstat.StatService;
-import com.baidu.tieba.TiebaApplication;
+import android.os.Handler;
+import android.view.animation.Animation;
+import android.widget.ImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class da implements com.baidu.tieba.editortool.t {
-    final /* synthetic */ com.baidu.tieba.editortool.t a;
-    final /* synthetic */ cs b;
+public class da implements Animation.AnimationListener {
+    final /* synthetic */ ImageView a;
+    final /* synthetic */ cr b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public da(cs csVar, com.baidu.tieba.editortool.t tVar) {
-        this.b = csVar;
-        this.a = tVar;
+    public da(cr crVar, ImageView imageView) {
+        this.b = crVar;
+        this.a = imageView;
     }
 
-    @Override // com.baidu.tieba.editortool.t
-    public void a(int i, Object obj) {
-        PbEditor pbEditor;
-        PbEditor pbEditor2;
-        NewPbActivity newPbActivity;
-        if (i == 33) {
-            pbEditor = this.b.aq;
-            if (!pbEditor.h()) {
-                pbEditor2 = this.b.aq;
-                if (!pbEditor2.j() && TiebaApplication.g().s()) {
-                    newPbActivity = this.b.g;
-                    StatService.onEvent(newPbActivity, "pb_reply", "pbclick", 1);
-                }
-            }
-        }
-        this.a.a(i, obj);
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        new Handler().post(new db(this));
     }
 }

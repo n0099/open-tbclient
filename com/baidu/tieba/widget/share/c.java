@@ -16,7 +16,7 @@ public class c implements a {
     public void a() {
         Context context;
         context = this.a.b;
-        com.baidu.adp.lib.h.g.a(context, (int) R.string.auth_account_success);
+        com.baidu.adp.lib.g.g.a(context, (int) R.string.auth_account_success);
     }
 
     @Override // com.baidu.tieba.widget.share.a
@@ -27,7 +27,7 @@ public class c implements a {
     public void c() {
         Context context;
         context = this.a.b;
-        com.baidu.adp.lib.h.g.a(context, (int) R.string.share_success);
+        com.baidu.adp.lib.g.g.a(context, (int) R.string.share_success);
     }
 
     @Override // com.baidu.tieba.widget.share.a

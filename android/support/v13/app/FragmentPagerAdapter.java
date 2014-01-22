@@ -39,8 +39,8 @@ public abstract class FragmentPagerAdapter extends ae {
             this.mCurTransaction.add(viewGroup.getId(), findFragmentByTag, makeFragmentName(viewGroup.getId(), itemId));
         }
         if (findFragmentByTag != this.mCurrentPrimaryItem) {
-            FragmentCompat.setMenuVisibility(findFragmentByTag, false);
-            FragmentCompat.setUserVisibleHint(findFragmentByTag, false);
+            FragmentCompat.setMenuVisibility(findFragmentByTag, DEBUG);
+            FragmentCompat.setUserVisibleHint(findFragmentByTag, DEBUG);
         }
         return findFragmentByTag;
     }
@@ -58,8 +58,8 @@ public abstract class FragmentPagerAdapter extends ae {
         Fragment fragment = (Fragment) obj;
         if (fragment != this.mCurrentPrimaryItem) {
             if (this.mCurrentPrimaryItem != null) {
-                FragmentCompat.setMenuVisibility(this.mCurrentPrimaryItem, false);
-                FragmentCompat.setUserVisibleHint(this.mCurrentPrimaryItem, false);
+                FragmentCompat.setMenuVisibility(this.mCurrentPrimaryItem, DEBUG);
+                FragmentCompat.setUserVisibleHint(this.mCurrentPrimaryItem, DEBUG);
             }
             if (fragment != null) {
                 FragmentCompat.setMenuVisibility(fragment, true);
@@ -80,7 +80,10 @@ public abstract class FragmentPagerAdapter extends ae {
 
     @Override // android.support.v4.view.ae
     public boolean isViewFromObject(View view, Object obj) {
-        return ((Fragment) obj).getView() == view;
+        if (((Fragment) obj).getView() == view) {
+            return true;
+        }
+        return DEBUG;
     }
 
     @Override // android.support.v4.view.ae

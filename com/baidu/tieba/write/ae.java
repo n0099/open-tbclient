@@ -46,27 +46,27 @@ class ae implements View.OnFocusChangeListener {
             }
         }
         if (z) {
-            this.a.H = true;
+            this.a.F = true;
             this.a.n();
-            writeEditorToolButtonContainer = this.a.A;
+            writeEditorToolButtonContainer = this.a.y;
             writeEditorToolButtonContainer.c();
-            editorToolComponetContainer = this.a.B;
+            editorToolComponetContainer = this.a.z;
             editText2 = this.a.f;
             editorToolComponetContainer.c(editText2);
         }
         editText3 = this.a.h;
         if (view == editText3) {
             if (z) {
-                this.a.H = false;
+                this.a.F = false;
                 writeData2 = this.a.b;
                 if (writeData2.getType() == 0) {
                     editText6 = this.a.h;
                     editText6.setHint((CharSequence) null);
                 }
                 this.a.n();
-                writeEditorToolButtonContainer2 = this.a.A;
+                writeEditorToolButtonContainer2 = this.a.y;
                 writeEditorToolButtonContainer2.c();
-                editorToolComponetContainer2 = this.a.B;
+                editorToolComponetContainer2 = this.a.z;
                 editText5 = this.a.h;
                 editorToolComponetContainer2.c(editText5);
                 return;

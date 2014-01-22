@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import com.baidu.tieba.BaseFragment;
 import com.baidu.tieba.BaseFragmentActivity;
 import com.baidu.tieba.TiebaApplication;
@@ -94,7 +95,7 @@ public class MoreDiscoveryActivity extends BaseFragment {
     @Override // com.baidu.tieba.BaseFragment, android.view.View.OnClickListener
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.user_info /* 2131100698 */:
+            case R.id.user_info /* 2131100796 */:
                 if (e && this.c != null) {
                     if (TiebaApplication.B()) {
                         UserData a = this.c.a();
@@ -107,36 +108,29 @@ public class MoreDiscoveryActivity extends BaseFragment {
                     return;
                 }
                 return;
-            case R.id.user_photo /* 2131100699 */:
-            case R.id.user_layout /* 2131100700 */:
-            case R.id.user_signature /* 2131100701 */:
-            case R.id.user_login /* 2131100702 */:
-            case R.id.user_remind /* 2131100703 */:
-            default:
-                return;
-            case R.id.my_collection /* 2131100704 */:
+            case R.id.my_collection /* 2131100803 */:
                 if (TiebaApplication.A() != null && TiebaApplication.A().length() > 0) {
-                    EditMarkActivity.a(this.a, 102);
+                    EditMarkActivity.a(this.a, (int) SocialAPIErrorCodes.ERROR_INVALID_SESSION_KEY);
                     this.c.a(true);
                     return;
                 }
                 LoginActivity.a((Activity) this.a, (String) null, true, 103);
                 return;
-            case R.id.member_benefits /* 2131100705 */:
+            case R.id.member_benefits /* 2131100806 */:
                 com.baidu.tieba.sharedPref.b.a().b("has_shown_member_benifit", true);
                 if (!TiebaApplication.B()) {
-                    LoginActivity.a((Activity) this.a, (String) null, true, 104);
+                    LoginActivity.a((Activity) this.a, (String) null, true, (int) SocialAPIErrorCodes.ERROR_INVALID_SIGNATURE);
                     return;
                 }
                 com.baidu.tieba.sharedPref.b.a().b("has_shown_member_benifit", true);
-                ForumTopicActivity.a(this.a, a(R.string.member_benefits), com.baidu.tieba.data.h.b + com.baidu.tieba.data.h.d + com.baidu.tieba.data.h.j());
+                ForumTopicActivity.a(this.a, a(R.string.member_benefits), com.baidu.tieba.data.h.b + "mo/q/tbeanwireless?_client_version=" + com.baidu.tieba.data.h.j());
                 return;
-            case R.id.face_store /* 2131100706 */:
-                TiebaApplication.g().q(TiebaApplication.g().bj());
-                TiebaApplication.g().y(false);
+            case R.id.face_store /* 2131100808 */:
+                TiebaApplication.h().q(TiebaApplication.h().bl());
+                TiebaApplication.h().A(false);
                 FaceShopActivity.a(this.a, "faceshop_from_more");
                 return;
-            case R.id.settings /* 2131100707 */:
+            case R.id.settings /* 2131100811 */:
                 if (this.c != null) {
                     PersonChangeData personChangeData = new PersonChangeData();
                     if (this.c.a() != null) {
@@ -144,16 +138,18 @@ public class MoreDiscoveryActivity extends BaseFragment {
                         personChangeData.setIntro(this.c.a().getIntro());
                         personChangeData.setPortrait(this.c.a().getPortrait());
                     }
-                    MoreActivity.a(this.a, 101, personChangeData);
+                    MoreActivity.a(this.a, SocialAPIErrorCodes.ERROR_INVALID_CLIENT_ID, personChangeData);
                     return;
                 }
+                return;
+            default:
                 return;
         }
     }
 
     @Override // com.baidu.tieba.BaseFragment
-    public void c(int i) {
-        super.c(i);
+    public void d(int i) {
+        super.d(i);
         this.b.a(i);
     }
 
@@ -164,14 +160,14 @@ public class MoreDiscoveryActivity extends BaseFragment {
             if (i == 11003) {
                 if (TiebaApplication.A() != null) {
                     this.c.a(TiebaApplication.A());
-                    this.c.b(TiebaApplication.G());
+                    this.c.b(TiebaApplication.F());
                     H();
                     J();
                 }
             } else if (i == 103) {
-                EditMarkActivity.a(this.a, 102);
+                EditMarkActivity.a(this.a, (int) SocialAPIErrorCodes.ERROR_INVALID_SESSION_KEY);
             } else if (i == 104) {
-                ForumTopicActivity.a(this.a, a(R.string.member_benefits), com.baidu.tieba.data.h.b + com.baidu.tieba.data.h.d + com.baidu.tieba.data.h.j());
+                ForumTopicActivity.a(this.a, a(R.string.member_benefits), com.baidu.tieba.data.h.b + "mo/q/tbeanwireless?_client_version=" + com.baidu.tieba.data.h.j());
             }
         }
     }
@@ -190,7 +186,7 @@ public class MoreDiscoveryActivity extends BaseFragment {
                     }
                 }
             }
-            TiebaApplication.g().a((PersonChangeData) null);
+            TiebaApplication.h().a((PersonChangeData) null);
         }
     }
 
@@ -204,7 +200,7 @@ public class MoreDiscoveryActivity extends BaseFragment {
         if (F()) {
             if (this.b != null) {
                 this.b.b();
-                this.b.a(TiebaApplication.g().bk());
+                this.b.a(TiebaApplication.h().bm());
             }
             if (d) {
                 J();
@@ -219,9 +215,9 @@ public class MoreDiscoveryActivity extends BaseFragment {
                 if (!this.c.h()) {
                     J();
                 }
-                PersonChangeData bl = TiebaApplication.g().bl();
-                if (bl != null) {
-                    a(bl);
+                PersonChangeData bn = TiebaApplication.h().bn();
+                if (bn != null) {
+                    a(bn);
                 }
                 if (com.baidu.tieba.mention.s.a().o() != this.c.c()) {
                     this.c.a(com.baidu.tieba.mention.s.a().o());
@@ -251,17 +247,17 @@ public class MoreDiscoveryActivity extends BaseFragment {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(com.baidu.tieba.im.message.o oVar) {
+    public void a(com.baidu.tieba.im.message.q qVar) {
         boolean z;
         boolean z2 = true;
-        if (oVar != null) {
-            if (!(oVar instanceof com.baidu.tieba.im.message.r)) {
-                com.baidu.adp.lib.h.e.a("transform error");
+        if (qVar != null) {
+            if (!(qVar instanceof com.baidu.tieba.im.message.t)) {
+                com.baidu.adp.lib.g.e.a("transform error");
                 return;
             }
-            com.baidu.tieba.im.message.r rVar = (com.baidu.tieba.im.message.r) oVar;
-            int c = rVar.c();
-            int e2 = rVar.e();
+            com.baidu.tieba.im.message.t tVar = (com.baidu.tieba.im.message.t) qVar;
+            int c = tVar.c();
+            int e2 = tVar.e();
             if (this.c != null) {
                 if (c != this.c.c()) {
                     this.c.a(c);

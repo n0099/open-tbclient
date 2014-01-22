@@ -5,7 +5,7 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* loaded from: classes.dex */
 public class p extends BdAsyncTask<Object, Integer, t> {
     final /* synthetic */ BarFolderSecondDirActivity a;
-    private com.baidu.tieba.util.at b;
+    private com.baidu.tieba.util.ax b;
 
     private p(BarFolderSecondDirActivity barFolderSecondDirActivity) {
         this.a = barFolderSecondDirActivity;
@@ -29,25 +29,25 @@ public class p extends BdAsyncTask<Object, Integer, t> {
         qVar = this.a.i;
         t a = qVar.a();
         try {
-            this.b = new com.baidu.tieba.util.at(com.baidu.tieba.data.h.a + "c/f/forum/seconddir");
-            com.baidu.tieba.util.at atVar = this.b;
+            this.b = new com.baidu.tieba.util.ax(com.baidu.tieba.data.h.a + "c/f/forum/seconddir");
+            com.baidu.tieba.util.ax axVar = this.b;
             str = this.a.l;
-            atVar.a("menu_name", str);
-            com.baidu.tieba.util.at atVar2 = this.b;
+            axVar.a("menu_name", str);
+            com.baidu.tieba.util.ax axVar2 = this.b;
             str2 = this.a.m;
-            atVar2.a("menu_type", str2);
-            com.baidu.tieba.util.at atVar3 = this.b;
+            axVar2.a("menu_type", str2);
+            com.baidu.tieba.util.ax axVar3 = this.b;
             str3 = this.a.n;
-            atVar3.a("menu_id", str3);
-            String l = this.b.l();
-            if (this.b.c()) {
-                a.b(l);
+            axVar3.a("menu_id", str3);
+            String m = this.b.m();
+            if (this.b.d()) {
+                a.b(m);
             } else {
-                a.a(this.b.i());
+                a.a(this.b.j());
             }
         } catch (Exception e) {
             a.a(e.getMessage());
-            com.baidu.tieba.util.bo.b(getClass().getName(), "doInBackground", e.getMessage());
+            com.baidu.adp.lib.g.e.b(getClass().getName(), "doInBackground", e.getMessage());
         }
         return a;
     }
@@ -63,7 +63,7 @@ public class p extends BdAsyncTask<Object, Integer, t> {
     public void cancel() {
         super.cancel(true);
         if (this.b != null) {
-            this.b.j();
+            this.b.k();
             this.b = null;
         }
         this.a.a(null, true);

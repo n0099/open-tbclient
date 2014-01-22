@@ -1,7 +1,6 @@
 package com.baidu.tbadk.widget.richText;
 
 import android.content.Context;
-import com.baidu.cloudsdk.common.imgloader.ImageManager;
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.json.JSONArray;
@@ -54,7 +53,7 @@ public class a {
         try {
             return new JSONArray(str);
         } catch (Exception e) {
-            com.baidu.adp.lib.h.e.a(e.getMessage());
+            com.baidu.adp.lib.g.e.a(e.getMessage());
             return null;
         }
     }
@@ -102,7 +101,7 @@ public class a {
                         this.c.add(cVar);
                         cVar = null;
                     }
-                    c cVar4 = new c(ImageManager.DEFAULT_MAX_CACHEABLE_SIZE);
+                    c cVar4 = new c(512);
                     cVar4.a(next.c());
                     this.c.add(cVar4);
                 } else if (next.a() == 17) {
@@ -142,7 +141,11 @@ public class a {
         StringBuilder sb = new StringBuilder(100);
         Iterator<c> it = this.c.iterator();
         while (it.hasNext()) {
-            sb.append(it.next().toString());
+            c next = it.next();
+            sb.append(next.toString());
+            if (next.a() == 8) {
+                sb.append(" ");
+            }
         }
         return sb.toString();
     }

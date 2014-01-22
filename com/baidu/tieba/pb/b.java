@@ -7,7 +7,7 @@ import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class b extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.ac> {
     final /* synthetic */ a a;
-    private com.baidu.tieba.util.at b = null;
+    private com.baidu.tieba.util.ax b = null;
     private String c;
     private String d;
     private int e;
@@ -36,10 +36,10 @@ public class b extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.ac> {
     public com.baidu.tieba.data.ac a(Object... objArr) {
         String str;
         boolean z;
-        this.b = new com.baidu.tieba.util.at(com.baidu.tieba.data.h.a + "c/f/pb/picpage");
-        com.baidu.tieba.util.at atVar = this.b;
+        this.b = new com.baidu.tieba.util.ax(com.baidu.tieba.data.h.a + "c/f/pb/picpage");
+        com.baidu.tieba.util.ax axVar = this.b;
         str = this.a.e;
-        atVar.a("kw", str);
+        axVar.a("kw", str);
         this.b.a("tid", this.c);
         if (this.d != null) {
             this.b.a("pic_id", this.d);
@@ -51,19 +51,19 @@ public class b extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.ac> {
             this.b.a("not_see_lz", String.valueOf(1));
         }
         this.b.c(false);
-        String l = this.b.l();
-        if (!this.b.c()) {
+        String m = this.b.m();
+        if (!this.b.d()) {
             return null;
         }
         com.baidu.tieba.data.ac acVar = new com.baidu.tieba.data.ac();
-        acVar.a(l, true);
+        acVar.a(m, true);
         return acVar;
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         if (this.b != null) {
-            this.b.j();
+            this.b.k();
         }
         this.a.h = null;
         super.cancel(true);
@@ -105,8 +105,8 @@ public class b extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.ac> {
             cVar3 = this.a.l;
             if (cVar3 != null) {
                 if (this.b != null) {
-                    i4 = this.b.e();
-                    str4 = this.d == null ? this.b.i() : null;
+                    i4 = this.b.f();
+                    str4 = this.d == null ? this.b.j() : null;
                 } else {
                     i4 = -1;
                     str4 = null;

@@ -1,6 +1,5 @@
 package com.baidu.tieba.data;
 
-import com.baidu.tieba.util.bo;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -50,7 +49,7 @@ public class az {
                 }
             }
         } catch (Exception e) {
-            bo.b("SupperBoyData", "parserJson", "error = " + e.getMessage());
+            com.baidu.adp.lib.g.e.b("SupperBoyData", "parserJson", "error = " + e.getMessage());
         }
     }
 

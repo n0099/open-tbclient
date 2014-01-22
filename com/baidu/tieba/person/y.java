@@ -28,7 +28,7 @@ class y extends com.baidu.tieba.m {
         try {
             if (((Integer) objArr[0]).intValue() == 0) {
                 aaVar6 = this.b.b;
-                aaVar6.k();
+                aaVar6.j();
                 if (objArr[1] != null && (objArr[1] instanceof String)) {
                     r1 = (String) objArr[1];
                 }
@@ -40,7 +40,7 @@ class y extends com.baidu.tieba.m {
                 editMarkActivity.d = oVar5.f();
             } else if (((Integer) objArr[0]).intValue() == 3) {
                 aaVar4 = this.b.b;
-                aaVar4.k();
+                aaVar4.j();
                 if (objArr[1] != null && (objArr[1] instanceof String)) {
                     r1 = (String) objArr[1];
                 }
@@ -67,7 +67,7 @@ class y extends com.baidu.tieba.m {
                 aaVar.a(booleanValue, str, oVar.f());
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.h.e.d(e.getMessage());
+            com.baidu.adp.lib.g.e.d(e.getMessage());
         }
     }
 }

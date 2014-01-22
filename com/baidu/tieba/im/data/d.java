@@ -1,46 +1,95 @@
 package com.baidu.tieba.im.data;
 
-import com.baidu.tieba.util.bo;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONException;
+import com.baidu.android.pushservice.PushConstants;
+import com.baidu.tieba.util.as;
+import com.baidu.tieba.view.cl;
+import java.util.LinkedList;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class d {
-    private ArrayList<c> b;
-    private int a = 0;
-    private boolean c = false;
+public class d extends as implements cl {
+    private String a;
+    private String b;
+    private String c;
+    private String d;
+    private String e;
+    private boolean f = false;
 
-    public ArrayList<c> a() {
-        return this.b;
+    public String a() {
+        return this.a;
     }
 
     public void a(String str) {
-        c a;
+        this.a = str;
+    }
+
+    public String b() {
+        return this.b;
+    }
+
+    public void b(String str) {
+        this.b = str;
+    }
+
+    public void c(String str) {
+        this.c = str;
+    }
+
+    public String c() {
+        return this.d;
+    }
+
+    public void d(String str) {
+        this.d = str;
+    }
+
+    public void e(String str) {
+        this.e = str;
+    }
+
+    public static d a(JSONObject jSONObject) {
+        if (jSONObject == null) {
+            return null;
+        }
         try {
-            JSONObject jSONObject = new JSONObject(str);
-            this.a = jSONObject.optInt("total_count", 0);
-            JSONArray optJSONArray = jSONObject.optJSONArray("res_user_infos");
-            if (optJSONArray != null) {
-                this.b = new ArrayList<>();
-                int length = optJSONArray.length();
-                for (int i = 0; i < length; i++) {
-                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                    if (optJSONObject != null && (a = c.a(optJSONObject)) != null) {
-                        this.b.add(a);
-                    }
-                }
-            }
-        } catch (JSONException e) {
-            bo.b("InviteFriendListData", "parserJson", "error = " + e.getMessage());
+            d dVar = new d();
+            dVar.a(jSONObject.optString(PushConstants.EXTRA_USER_ID, ""));
+            dVar.b(jSONObject.optString("user_name", ""));
+            dVar.c(jSONObject.optString("user_nickname", ""));
+            dVar.d(jSONObject.optString("portrait", ""));
+            dVar.e(jSONObject.optString("sex", ""));
+            return dVar;
+        } catch (Exception e) {
+            com.baidu.adp.lib.g.e.b("InviteFriendData", "parserJson", "error = " + e.getMessage());
+            return null;
         }
     }
 
-    public boolean b() {
-        return this.c;
+    public boolean a(d dVar) {
+        if (dVar == null || dVar.a() == null || a() == null) {
+            return false;
+        }
+        return dVar.a().equals(a());
     }
 
+    @Override // com.baidu.tieba.util.as, com.baidu.tieba.util.au
+    public LinkedList<String> getImageUrl() {
+        return null;
+    }
+
+    @Override // com.baidu.tieba.util.as, com.baidu.tieba.util.au
+    public LinkedList<String> getPhotoUrl() {
+        LinkedList<String> linkedList = new LinkedList<>();
+        linkedList.add(this.d);
+        return linkedList;
+    }
+
+    @Override // com.baidu.tieba.view.cl
+    public boolean d() {
+        return this.f;
+    }
+
+    @Override // com.baidu.tieba.view.cl
     public void a(boolean z) {
-        this.c = z;
+        this.f = z;
     }
 }

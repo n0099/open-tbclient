@@ -1,23 +1,51 @@
 package com.baidu.tieba.im.message;
 
-import java.util.LinkedList;
-import protobuf.CommitGroupMsg.CommitGroupMsgRes;
+import com.baidu.tieba.im.messageCenter.IDuplicateProcess;
+import com.google.protobuf.MessageLite;
+import protobuf.Im;
+import protobuf.UpdateGroup.UpdateGroupReq;
 /* loaded from: classes.dex */
-public class ba extends bc {
+public abstract class ba extends q implements com.baidu.tieba.im.coder.g, IDuplicateProcess {
+    public int a;
+    private int b;
+
+    protected abstract void a(protobuf.i iVar);
+
     public ba() {
-        e(202001);
+        e(103102);
     }
 
-    @Override // com.baidu.tieba.im.coder.f
-    public void a(LinkedList<o> linkedList, byte[] bArr, int i) {
-        CommitGroupMsgRes.CommitGroupMsgResIdl parseFrom = CommitGroupMsgRes.CommitGroupMsgResIdl.parseFrom(bArr);
-        g(parseFrom.getError().getErrorno());
-        c(parseFrom.getError().getUsermsg());
-        linkedList.add(this);
-        if (!i()) {
-            a(com.baidu.tieba.im.chat.ah.b(parseFrom.getData().getMsgId()));
-            b(parseFrom.getData().getRecordId());
-            a(String.valueOf(parseFrom.getData().getGroupId()));
-        }
+    public int d() {
+        return this.b;
+    }
+
+    public void a(int i) {
+        this.b = i;
+    }
+
+    public int e() {
+        return this.a;
+    }
+
+    public void b(int i) {
+        this.a = i;
+    }
+
+    @Override // com.baidu.tieba.im.messageCenter.IDuplicateProcess
+    public IDuplicateProcess.RemoveState h() {
+        return IDuplicateProcess.RemoveState.REMOVE_ME;
+    }
+
+    @Override // com.baidu.tieba.im.messageCenter.IDuplicateProcess
+    public boolean a(q qVar) {
+        return true;
+    }
+
+    @Override // com.baidu.tieba.im.coder.g
+    public MessageLite a() {
+        protobuf.i newBuilder = Im.GroupInfo.newBuilder();
+        newBuilder.a(d());
+        a(newBuilder);
+        return UpdateGroupReq.UpdateGroupReqIdl.newBuilder().a(newBuilder.build()).build();
     }
 }

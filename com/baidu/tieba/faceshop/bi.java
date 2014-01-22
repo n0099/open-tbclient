@@ -14,7 +14,7 @@ public class bi implements Runnable {
         try {
             this.a.n();
         } catch (Exception e) {
-            com.baidu.adp.lib.h.e.b(getClass().getName(), "run", e.toString());
+            com.baidu.adp.lib.g.e.b(getClass().getName(), "run", e.toString());
         }
     }
 }

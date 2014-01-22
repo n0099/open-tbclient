@@ -26,6 +26,7 @@ import com.baidu.location.LocationClientOption;
 import com.slidingmenu.lib.SlidingMenu;
 import java.util.ArrayList;
 import java.util.List;
+import protobuf.Im;
 /* loaded from: classes.dex */
 public class CustomViewAbove extends ViewGroup {
     private static final boolean DEBUG = false;
@@ -101,13 +102,13 @@ public class CustomViewAbove extends ViewGroup {
         this.mCurrentTime = 0L;
         this.mIgnoredViews = new ArrayList();
         this.mTouchMode = 0;
-        this.mQuickReturn = false;
+        this.mQuickReturn = DEBUG;
         this.mScrollX = 0.0f;
         initCustomViewAbove();
     }
 
     void initCustomViewAbove() {
-        setWillNotDraw(false);
+        setWillNotDraw(DEBUG);
         setDescendantFocusability(262144);
         setFocusable(true);
         Context context = getContext();
@@ -126,7 +127,7 @@ public class CustomViewAbove extends ViewGroup {
                             CustomViewAbove.this.mViewBehind.setChildrenEnabled(true);
                             return;
                         case 1:
-                            CustomViewAbove.this.mViewBehind.setChildrenEnabled(false);
+                            CustomViewAbove.this.mViewBehind.setChildrenEnabled(CustomViewAbove.DEBUG);
                             return;
                         default:
                             return;
@@ -138,11 +139,11 @@ public class CustomViewAbove extends ViewGroup {
     }
 
     public void setCurrentItem(int i) {
-        setCurrentItemInternal(i, true, false);
+        setCurrentItemInternal(i, true, DEBUG);
     }
 
     public void setCurrentItem(int i, boolean z) {
-        setCurrentItemInternal(i, z, false);
+        setCurrentItemInternal(i, z, DEBUG);
     }
 
     public int getCurrentItem() {
@@ -155,7 +156,7 @@ public class CustomViewAbove extends ViewGroup {
 
     void setCurrentItemInternal(int i, boolean z, boolean z2, int i2) {
         if (!z2 && this.mCurItem == i) {
-            setScrollingCacheEnabled(false);
+            setScrollingCacheEnabled(DEBUG);
             return;
         }
         int menuPage = this.mViewBehind.getMenuPage(i);
@@ -237,7 +238,10 @@ public class CustomViewAbove extends ViewGroup {
     }
 
     public boolean isMenuOpen() {
-        return this.mCurItem == 0 || this.mCurItem == 2;
+        if (this.mCurItem == 0 || this.mCurItem == 2) {
+            return true;
+        }
+        return DEBUG;
     }
 
     private boolean isInIgnoredView(MotionEvent motionEvent) {
@@ -248,7 +252,7 @@ public class CustomViewAbove extends ViewGroup {
                 return true;
             }
         }
-        return false;
+        return DEBUG;
     }
 
     public int getBehindWidth() {
@@ -284,7 +288,7 @@ public class CustomViewAbove extends ViewGroup {
     void smoothScrollTo(int i, int i2, int i3) {
         int i4;
         if (getChildCount() == 0) {
-            setScrollingCacheEnabled(false);
+            setScrollingCacheEnabled(DEBUG);
             return;
         }
         int scrollX = getScrollX();
@@ -398,7 +402,7 @@ public class CustomViewAbove extends ViewGroup {
 
     private void completeScroll() {
         if (this.mScrolling) {
-            setScrollingCacheEnabled(false);
+            setScrollingCacheEnabled(DEBUG);
             this.mScroller.abortAnimation();
             int scrollX = getScrollX();
             int scrollY = getScrollY();
@@ -415,7 +419,7 @@ public class CustomViewAbove extends ViewGroup {
                 this.mClosedListener.onClosed();
             }
         }
-        this.mScrolling = false;
+        this.mScrolling = DEBUG;
     }
 
     public void setTouchMode(int i) {
@@ -435,10 +439,13 @@ public class CustomViewAbove extends ViewGroup {
             case 0:
                 return this.mViewBehind.marginTouchAllowed(this.mContent, x);
             case 1:
-                return !isInIgnoredView(motionEvent);
+                if (isInIgnoredView(motionEvent)) {
+                    return DEBUG;
+                }
+                return true;
             case 2:
             default:
-                return false;
+                return DEBUG;
         }
     }
 
@@ -463,7 +470,7 @@ public class CustomViewAbove extends ViewGroup {
             int action = motionEvent.getAction() & 255;
             if (action == 3 || action == 1 || (action != 0 && this.mIsUnableToDrag)) {
                 endDrag();
-                return false;
+                return DEBUG;
             }
             switch (action) {
                 case 0:
@@ -475,8 +482,8 @@ public class CustomViewAbove extends ViewGroup {
                         this.mLastMotionX = c;
                         this.mLastMotionY = z.d(motionEvent, b);
                         if (thisTouchAllowed(motionEvent)) {
-                            this.mIsBeingDragged = false;
-                            this.mIsUnableToDrag = false;
+                            this.mIsBeingDragged = DEBUG;
+                            this.mIsUnableToDrag = DEBUG;
                             if (isMenuOpen() && this.mViewBehind.menuTouchInQuickReturn(this.mContent, this.mCurItem, motionEvent.getX() + this.mScrollX)) {
                                 this.mQuickReturn = true;
                                 break;
@@ -500,9 +507,12 @@ public class CustomViewAbove extends ViewGroup {
                 }
                 this.mVelocityTracker.addMovement(motionEvent);
             }
-            return this.mIsBeingDragged || this.mQuickReturn;
+            if (this.mIsBeingDragged || this.mQuickReturn) {
+                return true;
+            }
+            return DEBUG;
         }
-        return false;
+        return DEBUG;
     }
 
     @Override // android.view.View
@@ -557,7 +567,7 @@ public class CustomViewAbove extends ViewGroup {
                         if (!this.mIsBeingDragged) {
                             determineDrag(motionEvent);
                             if (this.mIsUnableToDrag) {
-                                return false;
+                                return DEBUG;
                             }
                         }
                         if (this.mIsBeingDragged) {
@@ -603,9 +613,9 @@ public class CustomViewAbove extends ViewGroup {
                 }
                 return true;
             }
-            return false;
+            return DEBUG;
         }
-        return false;
+        return DEBUG;
     }
 
     private void determineDrag(MotionEvent motionEvent) {
@@ -677,13 +687,13 @@ public class CustomViewAbove extends ViewGroup {
 
     private void startDrag() {
         this.mIsBeingDragged = true;
-        this.mQuickReturn = false;
+        this.mQuickReturn = DEBUG;
     }
 
     private void endDrag() {
-        this.mQuickReturn = false;
-        this.mIsBeingDragged = false;
-        this.mIsUnableToDrag = false;
+        this.mQuickReturn = DEBUG;
+        this.mIsBeingDragged = DEBUG;
+        this.mIsUnableToDrag = DEBUG;
         this.mActivePointerId = -1;
         if (this.mVelocityTracker != null) {
             this.mVelocityTracker.recycle();
@@ -709,36 +719,42 @@ public class CustomViewAbove extends ViewGroup {
                 }
             }
         }
-        return z && aq.a(view, -i);
+        if (z && aq.a(view, -i)) {
+            return true;
+        }
+        return DEBUG;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchKeyEvent(KeyEvent keyEvent) {
-        return super.dispatchKeyEvent(keyEvent) || executeKeyEvent(keyEvent);
+        if (super.dispatchKeyEvent(keyEvent) || executeKeyEvent(keyEvent)) {
+            return true;
+        }
+        return DEBUG;
     }
 
     public boolean executeKeyEvent(KeyEvent keyEvent) {
         if (keyEvent.getAction() != 0) {
-            return false;
+            return DEBUG;
         }
         switch (keyEvent.getKeyCode()) {
-            case 21:
+            case Im.GroupInfo.LASTMSGID_FIELD_NUMBER /* 21 */:
                 return arrowScroll(17);
-            case 22:
+            case Im.GroupInfo.GRADE_FIELD_NUMBER /* 22 */:
                 return arrowScroll(66);
             case BDLocation.TypeGpsLocation /* 61 */:
                 if (Build.VERSION.SDK_INT < 11) {
-                    return false;
+                    return DEBUG;
                 }
                 if (s.a(keyEvent)) {
                     return arrowScroll(2);
                 }
                 if (!s.a(keyEvent, 1)) {
-                    return false;
+                    return DEBUG;
                 }
                 return arrowScroll(1);
             default:
-                return false;
+                return DEBUG;
         }
     }
 
@@ -781,7 +797,7 @@ public class CustomViewAbove extends ViewGroup {
             setCurrentItem(this.mCurItem - 1, true);
             return true;
         }
-        return false;
+        return DEBUG;
     }
 
     boolean pageRight() {
@@ -789,6 +805,6 @@ public class CustomViewAbove extends ViewGroup {
             setCurrentItem(this.mCurItem + 1, true);
             return true;
         }
-        return false;
+        return DEBUG;
     }
 }

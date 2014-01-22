@@ -1,6 +1,5 @@
 package protobuf.UpdateClientInfo;
 
-import com.baidu.zeus.bouncycastle.DERTags;
 import com.google.protobuf.ByteString;
 import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
@@ -106,8 +105,8 @@ public final class c extends GeneratedMessageLite.Builder<UpdateClientInfoReq.Da
             i2 |= 64;
         }
         dataReq.height_ = this.h;
-        if ((i & DERTags.TAGGED) == 128) {
-            i2 |= DERTags.TAGGED;
+        if ((i & 128) == 128) {
+            i2 |= 128;
         }
         dataReq.unreadMsg_ = this.i;
         dataReq.bitField0_ = i2;
@@ -244,7 +243,7 @@ public final class c extends GeneratedMessageLite.Builder<UpdateClientInfoReq.Da
     }
 
     public c c(int i) {
-        this.a |= DERTags.TAGGED;
+        this.a |= 128;
         this.i = i;
         return this;
     }

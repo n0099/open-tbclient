@@ -4,17 +4,15 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
-import com.baidu.mobstat.StatService;
-import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.im.data.BaseGroupData;
 import com.baidu.tieba.im.groupInfo.GroupInfoActivity;
-import com.baidu.tieba.im.message.by;
-import com.baidu.tieba.im.model.al;
-import com.baidu.tieba.util.ak;
+import com.baidu.tieba.im.message.ck;
+import com.baidu.tieba.im.model.an;
+import com.baidu.tieba.util.by;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class SearchGroupActivity extends com.baidu.tieba.j implements View.OnClickListener {
-    protected al a;
+    protected an a;
     private g b;
     private com.baidu.tieba.im.messageCenter.g c = new d(this);
 
@@ -23,7 +21,7 @@ public class SearchGroupActivity extends com.baidu.tieba.j implements View.OnCli
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.b = new g(this);
-        this.a = new al();
+        this.a = new an();
         com.baidu.tieba.im.messageCenter.e.a().a(103007, this.c);
     }
 
@@ -64,7 +62,7 @@ public class SearchGroupActivity extends com.baidu.tieba.j implements View.OnCli
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.home_bt_search_s /* 2131100418 */:
+            case R.id.home_bt_search_s /* 2131100483 */:
                 if (view.getTag() instanceof String) {
                     a((String) view.getTag());
                     return;
@@ -79,7 +77,7 @@ public class SearchGroupActivity extends com.baidu.tieba.j implements View.OnCli
         if (!TextUtils.isEmpty(str) && TextUtils.isDigitsOnly(str)) {
             try {
                 this.b.d();
-                this.b.a((by) null);
+                this.b.a((ck) null);
                 this.a.a(Integer.parseInt(str));
                 return;
             } catch (NumberFormatException e) {
@@ -96,9 +94,7 @@ public class SearchGroupActivity extends com.baidu.tieba.j implements View.OnCli
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         BaseGroupData item;
         if (this.b != null && this.b.a() != null && this.b.a().a(i) && (item = this.b.a().getItem(i)) != null) {
-            if (TiebaApplication.g().s()) {
-                StatService.onEvent(this, "search_group_item", "click", 1);
-            }
+            by.a(this, "search_group_item", "click", 1, new Object[0]);
             GroupInfoActivity.a(this, item.getGroupId(), 0);
         }
     }
@@ -106,7 +102,7 @@ public class SearchGroupActivity extends com.baidu.tieba.j implements View.OnCli
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a() {
         if (this.b != null && this.b.a() != null) {
-            ak.a(this.b.a, this.b.a().a(), 0, -1);
+            com.baidu.tieba.util.an.a(this.b.a, this.b.a().a(), 0, -1);
         }
     }
 }

@@ -40,8 +40,8 @@ public class v extends a {
         super.onLayout(z, i, i2, i3, i4);
         if (this.e.getTip() != null) {
             TextView tip = this.e.getTip();
-            int right = this.e.getRight() - com.baidu.adp.lib.h.g.a(this.a, 14.0f);
-            int top = this.e.getTop() - com.baidu.adp.lib.h.g.a(this.a, 2.0f);
+            int right = this.e.getRight() - com.baidu.adp.lib.g.g.a(this.a, 14.0f);
+            int top = this.e.getTop() - com.baidu.adp.lib.g.g.a(this.a, 2.0f);
             this.e.getTip().layout(right, top, tip.getMeasuredWidth() + right, tip.getMeasuredHeight() + top);
         }
     }

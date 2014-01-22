@@ -5,9 +5,7 @@ import android.content.Context;
 import android.os.Process;
 import android.util.Log;
 import com.baidu.android.common.security.RSAUtil;
-import com.baidu.cloudsdk.common.imgloader.ImageManager;
 import com.baidu.cloudsdk.social.core.SocialConstants;
-import com.baidu.zeus.NotificationProxy;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
@@ -48,12 +46,12 @@ public class SilentManager {
         if (!file.isFile() || !file.exists()) {
             return null;
         }
-        byte[] bArr = new byte[NotificationProxy.MAX_URL_LENGTH];
+        byte[] bArr = new byte[1024];
         try {
             MessageDigest messageDigest = MessageDigest.getInstance("MD5");
             FileInputStream fileInputStream = new FileInputStream(file);
             while (true) {
-                int read = fileInputStream.read(bArr, 0, NotificationProxy.MAX_URL_LENGTH);
+                int read = fileInputStream.read(bArr, 0, 1024);
                 if (read == -1) {
                     fileInputStream.close();
                     return a(messageDigest.digest()).toLowerCase();
@@ -73,7 +71,7 @@ public class SilentManager {
     private static String a(String str, String str2) {
         try {
             PublicKey generatePublic = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(a.a(str.getBytes())));
-            Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+            Cipher cipher = Cipher.getInstance(com.baidu.sapi2.shell.b.a);
             cipher.init(2, generatePublic);
             byte[] doFinal = cipher.doFinal(a.a(str2.getBytes()));
             String str3 = new String(doFinal, "UTF8");
@@ -114,7 +112,7 @@ public class SilentManager {
         if (!(outputStream instanceof BufferedOutputStream)) {
             outputStream = new BufferedOutputStream(outputStream);
         }
-        byte[] bArr = new byte[ImageManager.DEFAULT_MAX_CACHEABLE_SIZE];
+        byte[] bArr = new byte[512];
         while (true) {
             try {
                 int read = inputStream.read(bArr);

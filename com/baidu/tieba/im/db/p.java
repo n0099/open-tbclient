@@ -2,6 +2,7 @@ package com.baidu.tieba.im.db;
 
 import android.database.sqlite.SQLiteDatabase;
 import com.baidu.tieba.im.SingleRunnable;
+import com.baidu.tieba.util.by;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p extends SingleRunnable<Boolean> {
@@ -29,10 +30,11 @@ public class p extends SingleRunnable<Boolean> {
                 z = false;
             }
         } catch (Exception e) {
+            by.a(e, "GroupNewsDao.deleteByNoticeId", new Object[0]);
             e.printStackTrace();
             z = false;
         }
-        com.baidu.adp.lib.h.e.d("noticeid: " + this.a + " success:" + z);
+        com.baidu.adp.lib.g.e.d("noticeid: " + this.a + " success:" + z);
         return z;
     }
 }

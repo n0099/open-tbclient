@@ -22,7 +22,7 @@ public class g extends BroadcastReceiver {
         } else if ("com.baidu.moplus.systemmonitor.pathrefresh".equals(action)) {
             this.a.e();
             this.a.b();
-        } else if (!Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())) {
+        } else if (!"mounted".equals(Environment.getExternalStorageState())) {
             this.a.c();
         } else {
             this.a.d();

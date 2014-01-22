@@ -11,21 +11,25 @@ public class l {
     public volatile Bitmap e;
     public boolean g;
     public volatile com.baidu.adp.widget.ImageView.d i;
-    public boolean k;
-    public boolean l;
-    public Map<String, Object> m;
-    public volatile at a = null;
-    public boolean f = true;
+    public boolean o;
+    public boolean p;
+    public Map<String, Object> q;
+    public volatile ax a = null;
+    public boolean f = false;
     public volatile boolean h = false;
-    public boolean j = false;
-    private boolean n = false;
+    public byte[] j = null;
+    public String k = null;
+    public String l = null;
+    public String m = null;
+    public boolean n = false;
+    private boolean r = false;
 
     public boolean a() {
-        return this.n;
+        return this.r;
     }
 
     public void a(boolean z) {
-        this.n = z;
+        this.r = z;
     }
 
     public l(String str, int i, com.baidu.tbadk.imageManager.c cVar, boolean z, boolean z2, boolean z3, Map<String, Object> map) {
@@ -34,22 +38,22 @@ public class l {
         this.d = 0;
         this.e = null;
         this.g = false;
-        this.k = false;
-        this.l = false;
+        this.o = false;
+        this.p = false;
         this.c = str;
         this.d = i;
         this.b = new HashSet<>();
         this.b.add(cVar);
         this.e = null;
         this.g = z;
-        this.l = z2;
-        this.k = z3;
-        this.m = map;
+        this.p = z2;
+        this.o = z3;
+        this.q = map;
     }
 
     public String b() {
         Object obj;
-        return (this.d != 6 || this.m == null || (obj = this.m.get("em_sharp_text")) == null) ? this.c : obj.toString();
+        return (this.d != 6 || this.q == null || (obj = this.q.get("em_sharp_text")) == null) ? this.c : obj.toString();
     }
 
     public void a(com.baidu.tbadk.imageManager.c cVar) {
@@ -60,9 +64,9 @@ public class l {
     }
 
     public void c() {
-        this.j = true;
+        this.n = true;
         if (this.a != null) {
-            this.a.j();
+            this.a.k();
         }
     }
 

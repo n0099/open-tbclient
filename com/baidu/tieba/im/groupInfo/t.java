@@ -25,7 +25,7 @@ public class t implements DialogInterface.OnClickListener {
             groupInfoActivity2 = this.b.a;
             groupInfoActivity2.showToast(R.string.copy_success);
         } catch (Exception e) {
-            com.baidu.adp.lib.h.e.a("copy group number failed");
+            com.baidu.adp.lib.g.e.a("copy group number failed");
         }
     }
 }

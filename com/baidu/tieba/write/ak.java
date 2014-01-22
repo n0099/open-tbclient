@@ -33,7 +33,7 @@ public class ak implements DialogInterface.OnClickListener {
         writeData3 = this.a.b;
         DatabaseService.b(writeData3);
         this.a.showToast(R.string.draft_save_success);
-        handler = this.a.s;
+        handler = this.a.r;
         handler.postDelayed(new al(this), 1000L);
     }
 }

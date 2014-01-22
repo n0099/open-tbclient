@@ -15,13 +15,13 @@ class ab implements DialogInterface.OnClickListener {
     public void onClick(DialogInterface dialogInterface, int i) {
         switch (i) {
             case 0:
-                TiebaApplication.g().c(1);
+                TiebaApplication.h().c(1);
                 break;
             case 1:
-                TiebaApplication.g().c(2);
+                TiebaApplication.h().c(2);
                 break;
             case 2:
-                TiebaApplication.g().c(3);
+                TiebaApplication.h().c(3);
                 break;
         }
         this.a.t();

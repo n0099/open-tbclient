@@ -1,124 +1,191 @@
 package com.baidu.tieba.view;
 
-import android.graphics.Canvas;
-import android.graphics.Matrix;
-import android.graphics.Rect;
+import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
+import android.text.SpannableString;
+import android.text.style.ImageSpan;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import com.baidu.tbadk.widget.TbImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.tieba.data.IconData;
+import com.baidu.tieba.voice.PlayVoiceBnt;
+import com.baidu.tieba.voice.VoiceManager;
 import com.slidingmenu.lib.R;
+import java.util.ArrayList;
+import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class af extends TbImageView {
-    private int b;
-    private int c;
-    private boolean d;
-    private boolean e;
-    private ViewGroup.LayoutParams f;
-    private Rect g;
+public class af {
+    private Context a;
+    private View.OnClickListener h;
+    private int b = 200;
+    private boolean c = true;
+    private boolean d = false;
+    private float e = 0.4f;
+    private LinkedList<IconData> f = null;
+    private LinkedList<IconData> g = null;
+    private ah i = new ah(this, null);
 
-    public boolean e() {
-        return this.d;
+    public af(Context context) {
+        this.a = context;
+        this.h = new ag(this, context);
     }
 
-    public void setIsWifi(boolean z) {
-        this.e = z;
-        if (this.e) {
-            super.setSuffix("_small");
-        } else {
-            super.setSuffix("_mobile");
-        }
-    }
-
-    public void setPicNum(int i) {
-        this.c = i;
-    }
-
-    public void setType(int i) {
+    public void a(int i, boolean z, float f) {
         this.b = i;
-        if (i == 5) {
-            setDefaultResource(R.drawable.pic_video);
-            setNightDefaultResource(R.drawable.pic_video_1);
-            setDefaultScaleType(ImageView.ScaleType.FIT_CENTER);
-            return;
-        }
-        setDefaultResource(R.drawable.pic_image_h_not);
-        setNightDefaultResource(R.drawable.pic_image_h_not_1);
-        setDefaultScaleType(ImageView.ScaleType.CENTER_INSIDE);
+        this.c = z;
+        this.e = f;
     }
 
-    @Override // com.baidu.adp.widget.ImageView.BDImageView
-    public Rect getBitmapRect() {
-        return this.g;
+    public void a(boolean z) {
+        this.d = z;
     }
 
-    @Override // com.baidu.adp.widget.ImageView.BDImageView
-    protected Matrix b(com.baidu.adp.widget.ImageView.d dVar) {
-        float f;
+    public void a(View view, com.baidu.tieba.data.w wVar) {
+        ai aiVar;
         int i;
-        int i2;
-        int c = dVar.c();
-        int d = dVar.d();
-        int width = getWidth();
-        int height = getHeight();
-        if (c == 0 || d == 0 || width == 0 || height == 0) {
-            return null;
-        }
-        if (this.c == 1) {
-            if (c < (width * 3) / 10.0d || !this.e) {
-                f = 1.0f;
+        int i2 = 0;
+        if (view.getTag() != null && (aiVar = (ai) view.getTag()) != null) {
+            aiVar.c.setText(wVar.c() + this.a.getResources().getString(R.string.forum_name_suffix));
+            aiVar.c.setTag(wVar.c());
+            if (wVar.j() > 0) {
+                aiVar.d.setText(b(view, wVar));
             } else {
-                f = width / c;
+                aiVar.d.setText(wVar.e());
             }
-        } else if (c < ((float) ((width * 3) / 10.0d))) {
-            f = 1.0f;
-        } else {
-            f = width / c;
-        }
-        Matrix matrix = new Matrix();
-        matrix.setScale(f, f);
-        int i3 = ((int) (c * f)) - 1;
-        int i4 = ((int) (f * d)) - 1;
-        if (i4 <= 1.25d * height) {
-            i = 0;
-            i2 = 0;
-        } else {
-            i = 0;
-            i2 = (int) ((0.5d * height) - (0.4d * i4));
-            if (i2 > 0) {
-                i2 = 0;
+            this.f = wVar.m();
+            if (aiVar.o != null) {
+                aiVar.o.a(this.f, 3, this.a.getResources().getDimensionPixelSize(R.dimen.forumfeed_icon_width), this.a.getResources().getDimensionPixelSize(R.dimen.forumfeed_icon_height), this.a.getResources().getDimensionPixelSize(R.dimen.forumfeed_icon_margin));
             }
+            this.g = wVar.a();
+            if (aiVar.p != null) {
+                aiVar.p.a(this.g, 2, this.a.getResources().getDimensionPixelSize(R.dimen.small_icon_width), this.a.getResources().getDimensionPixelSize(R.dimen.small_icon_height), this.a.getResources().getDimensionPixelSize(R.dimen.small_icon_margin));
+            }
+            if (this.g != null && this.g.size() > 0) {
+                aiVar.f.setPadding(0, 0, 0, 0);
+            } else {
+                aiVar.f.setPadding(this.a.getResources().getDimensionPixelSize(R.dimen.listview_item_padding), 0, 0, 0);
+            }
+            aiVar.f.setText(wVar.g());
+            aiVar.h.setText(String.valueOf(wVar.f()));
+            aiVar.g.setText(com.baidu.tieba.util.bu.a(wVar.h() * 1000));
+            if (wVar.i() != null && wVar.i().trim().length() > 0) {
+                aiVar.e.setText(wVar.i());
+                aiVar.e.setVisibility(0);
+            } else {
+                aiVar.e.setText((CharSequence) null);
+                aiVar.e.setVisibility(8);
+            }
+            aiVar.k = wVar.b();
+            aiVar.l = wVar.d();
+            ArrayList<VoiceManager.VoiceModel> l = wVar.l();
+            if (l != null && l.size() > 0) {
+                aiVar.j.setVisibility(0);
+                VoiceManager.VoiceModel voiceModel = l.get(0);
+                aiVar.j.setVoiceModel(voiceModel);
+                aiVar.j.setTag(voiceModel);
+                aiVar.j.c();
+            } else {
+                aiVar.j.setVisibility(8);
+            }
+            if (com.baidu.tieba.e.a.a().f()) {
+                aiVar.i.setVisibility(0);
+                ArrayList<com.baidu.tieba.data.aj> k = wVar.k();
+                if (k != null) {
+                    if (k.size() > 0) {
+                        int size = k.size();
+                        int i3 = size > 3 ? 3 : size;
+                        if (i3 > 0) {
+                            com.baidu.tieba.data.aj[] ajVarArr = new com.baidu.tieba.data.aj[i3];
+                            int i4 = 0;
+                            while (i2 < k.size() && i4 < i3) {
+                                if (k.get(i2).a() == 3 || k.get(i2).a() == 5) {
+                                    ajVarArr[i4] = k.get(i2);
+                                    i = i4 + 1;
+                                } else {
+                                    i = i4;
+                                }
+                                i2++;
+                                i4 = i;
+                            }
+                            aiVar.i.setShowBig(this.c);
+                            aiVar.i.setData(ajVarArr);
+                            aiVar.i.setImageFrom("other");
+                            aiVar.i.setFromCDN(this.d);
+                        }
+                    } else {
+                        aiVar.i.setVisibility(8);
+                    }
+                }
+            } else {
+                aiVar.i.setVisibility(8);
+            }
+            aiVar.n = this.c;
+            view.setTag(aiVar);
         }
-        matrix.postTranslate(i, i2);
-        int i5 = width - i3;
-        if (height - i4 > 3 || i5 > 3) {
-            this.f = getLayoutParams();
-            int i6 = i3 > this.f.width ? this.f.width : i3;
-            int i7 = i4 > this.f.height ? this.f.height : i4;
-            this.f.width = i6;
-            this.f.height = i7;
-            setLayoutParams(this.f);
-        }
-        if (this.g == null) {
-            this.g = new Rect();
-        }
-        int i8 = i3 + 0 + 1;
-        int i9 = i4 + i2 + 1;
-        int i10 = i < 0 ? 0 : i;
-        if (i8 > width) {
-            i8 = width;
-        }
-        int i11 = i2 < 0 ? 0 : i2;
-        int i12 = i9 > height ? height : i9;
-        this.g.left = i10;
-        this.g.right = i8;
-        this.g.top = i11;
-        this.g.bottom = i12;
-        return matrix;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.widget.ImageView.BDImageView, android.widget.ImageView, android.view.View
-    public void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
+    private SpannableString b(View view, com.baidu.tieba.data.w wVar) {
+        Drawable drawable = view.getResources().getDrawable(R.drawable.icon_elite);
+        drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+        ImageSpan imageSpan = new ImageSpan(drawable, 1);
+        SpannableString spannableString = new SpannableString("  " + ((Object) wVar.e()));
+        spannableString.setSpan(imageSpan, 0, 1, 18);
+        return spannableString;
+    }
+
+    public View a() {
+        ai aiVar = new ai(this);
+        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.a).inflate(R.layout.forum_feed_item, (ViewGroup) null);
+        aiVar.a = (LinearLayout) linearLayout.findViewById(R.id.layoutForumTop);
+        aiVar.b = (RelativeLayout) linearLayout.findViewById(R.id.layoutForumBottom);
+        aiVar.c = (TextView) linearLayout.findViewById(R.id.textHomeListFrsName);
+        aiVar.d = (TextView) linearLayout.findViewById(R.id.textHomeListTitle);
+        aiVar.e = (TextView) linearLayout.findViewById(R.id.textHomeListAbstract);
+        aiVar.f = (TextView) linearLayout.findViewById(R.id.textHomeListAuthor);
+        aiVar.o = (UserIconBox) linearLayout.findViewById(R.id.user_icon_box);
+        aiVar.p = (UserIconBox) linearLayout.findViewById(R.id.user_tshow_icon_box);
+        aiVar.g = (TextView) linearLayout.findViewById(R.id.textHomeListTime);
+        aiVar.h = (TextView) linearLayout.findViewById(R.id.textHomeListRplyNum);
+        aiVar.i = (CommonImageLayout) linearLayout.findViewById(R.id.layoutFeedImage);
+        aiVar.j = (PlayVoiceBnt) linearLayout.findViewById(R.id.abstract_voice);
+        aiVar.c.setOnClickListener(this.h);
+        linearLayout.setOnClickListener(this.h);
+        linearLayout.setTag(aiVar);
+        return linearLayout;
+    }
+
+    public void a(int i, View view) {
+        ai aiVar;
+        if (view != null && (aiVar = (ai) view.getTag()) != null && aiVar.m != i) {
+            switch (i) {
+                case 1:
+                    b(aiVar);
+                    break;
+                default:
+                    a(aiVar);
+                    break;
+            }
+            aiVar.m = i;
+        }
+    }
+
+    private void a(ai aiVar) {
+        Resources resources = this.a.getResources();
+        aiVar.a.setBackgroundResource(R.drawable.forumfeed_frs_list_item_top_bg);
+        com.baidu.tieba.util.bs.e((View) aiVar.c, (int) R.drawable.bg_label);
+        aiVar.h.setCompoundDrawablesWithIntrinsicBounds(resources.getDrawable(R.drawable.icon_little_comment_s), (Drawable) null, (Drawable) null, (Drawable) null);
+        aiVar.b.setBackgroundResource(R.drawable.forumfeed_frs_list_item_foot_bg);
+    }
+
+    private void b(ai aiVar) {
+        Resources resources = this.a.getResources();
+        aiVar.a.setBackgroundResource(R.drawable.forumfeed_frs_list_item_top_bg_1);
+        com.baidu.tieba.util.bs.e((View) aiVar.c, (int) R.drawable.bg_label_1);
+        aiVar.h.setCompoundDrawablesWithIntrinsicBounds(resources.getDrawable(R.drawable.icon_little_comment_s_1), (Drawable) null, (Drawable) null, (Drawable) null);
+        aiVar.b.setBackgroundResource(R.drawable.forumfeed_frs_list_item_foot_bg_1);
     }
 }

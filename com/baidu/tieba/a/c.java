@@ -11,6 +11,6 @@ public class c extends n {
         a("topic", SocialConstants.FALSE);
         a("recommend", SocialConstants.FALSE);
         a(c);
-        return this.a.l();
+        return this.a.m();
     }
 }

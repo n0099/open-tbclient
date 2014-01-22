@@ -1,0 +1,22 @@
+package com.baidu.tieba.im.widget;
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes.dex */
+public class f implements com.baidu.tbadk.gif.b {
+    final /* synthetic */ EggBreakerView a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public f(EggBreakerView eggBreakerView) {
+        this.a = eggBreakerView;
+    }
+
+    @Override // com.baidu.tbadk.gif.b
+    public void a() {
+        h hVar;
+        h hVar2;
+        hVar = this.a.d;
+        if (hVar != null) {
+            hVar2 = this.a.d;
+            hVar2.a();
+        }
+    }
+}

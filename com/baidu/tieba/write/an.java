@@ -20,17 +20,17 @@ public class an implements View.OnClickListener {
         LinearLayout linearLayout;
         NavigationBar navigationBar3;
         LinearLayout linearLayout2;
-        navigationBar = this.a.o;
+        navigationBar = this.a.n;
         if (navigationBar.getVisibility() == 0) {
-            navigationBar3 = this.a.o;
+            navigationBar3 = this.a.n;
             navigationBar3.setVisibility(8);
-            linearLayout2 = this.a.m;
+            linearLayout2 = this.a.l;
             linearLayout2.setVisibility(8);
             return;
         }
-        navigationBar2 = this.a.o;
+        navigationBar2 = this.a.n;
         navigationBar2.setVisibility(0);
-        linearLayout = this.a.m;
+        linearLayout = this.a.l;
         linearLayout.setVisibility(0);
     }
 }

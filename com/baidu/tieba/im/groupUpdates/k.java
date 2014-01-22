@@ -1,7 +1,6 @@
 package com.baidu.tieba.im.groupUpdates;
 
 import android.view.View;
-import com.baidu.browser.webpool.BdWebPoolView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements View.OnLongClickListener {
@@ -20,7 +19,7 @@ public class k implements View.OnLongClickListener {
         updatesActivity = this.a.l;
         view2 = this.a.c;
         updatesItemData = this.a.m;
-        updatesActivity.b(view2, BdWebPoolView.DELAYED_TIME, 0, 0L, updatesItemData);
+        updatesActivity.b(view2, 200, 0, 0L, updatesItemData);
         return true;
     }
 }

@@ -1,14 +1,15 @@
 package com.baidu.tieba.im.db.pojo;
 
 import android.text.TextUtils;
+import com.baidu.adp.lib.g.e;
 import com.baidu.gson.Gson;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.UserData;
-import com.baidu.tieba.im.chat.a;
+import com.baidu.tieba.im.chat.q;
 import com.baidu.tieba.im.d.d;
 import com.baidu.tieba.im.data.MsgLocalData;
 import com.baidu.tieba.im.message.b;
-import com.baidu.tieba.im.message.e;
+import com.baidu.tieba.im.message.g;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class CommonMsgPojo implements Serializable {
@@ -72,23 +73,27 @@ public class CommonMsgPojo implements Serializable {
         this.isPrivate = false;
         this.gson = new Gson();
         if (bVar != null) {
-            if (bVar instanceof e) {
-                this.gid = ((e) bVar).t();
+            if (bVar instanceof g) {
+                this.gid = ((g) bVar).u();
             } else {
-                this.gid = String.valueOf(a.a);
+                this.gid = String.valueOf(q.a);
             }
-            this.mid = bVar.k();
-            this.uid = bVar.f().getId();
-            this.toUid = String.valueOf(bVar.b());
-            this.user_info_data = bVar.f();
-            this.to_user_info_data = bVar.g();
-            this.to_user_info = this.gson.toJson(bVar.g());
-            this.create_time = bVar.o();
-            this.msg_type = bVar.h();
-            this.msg_status = bVar.m().getStatus().shortValue();
-            this.content = bVar.j();
+            this.mid = bVar.l();
+            if (bVar.g() != null) {
+                this.uid = bVar.g().getId();
+            }
+            this.toUid = String.valueOf(bVar.c());
+            this.user_info_data = bVar.g();
+            this.to_user_info_data = bVar.h();
+            this.to_user_info = this.gson.toJson(bVar.h());
+            this.create_time = bVar.p();
+            this.msg_type = bVar.i();
+            if (bVar.n() != null) {
+                this.msg_status = bVar.n().getStatus().shortValue();
+            }
+            this.content = bVar.k();
             this.is_delete = 0;
-            this.rid = bVar.i();
+            this.rid = bVar.j();
             checkRidAndSelf();
         }
     }
@@ -132,15 +137,15 @@ public class CommonMsgPojo implements Serializable {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public e toChatMessage() {
+    public g toChatMessage() {
         Exception exc;
         long j;
         long j2;
-        UserData f;
         UserData g;
+        UserData h;
         long j3;
         long j4 = 0;
-        e eVar = new e();
+        g gVar = new g();
         try {
             long parseLong = (this.uid == null || this.uid.length() <= 0) ? 0L : Long.parseLong(this.uid);
             try {
@@ -152,78 +157,78 @@ public class CommonMsgPojo implements Serializable {
                 exc = e;
                 exc.printStackTrace();
                 j2 = 0;
-                eVar.b(this.gid);
-                eVar.c(this.mid);
-                eVar.d(j);
-                eVar.a(j2);
-                eVar.b(this.rid);
+                gVar.b(this.gid);
+                gVar.d(this.mid);
+                gVar.e(j);
+                gVar.b(j2);
+                gVar.c(this.rid);
                 if (this.user_info_data == null) {
                 }
-                eVar.a(this.user_info_data);
+                gVar.a(this.user_info_data);
                 if (this.to_user_info_data == null) {
                 }
-                eVar.b(this.to_user_info_data);
-                eVar.b((UserData) this.gson.fromJson(this.to_user_info, (Class<Object>) UserData.class));
-                eVar.e(this.create_time);
-                eVar.b((int) ((short) this.msg_type));
+                gVar.b(this.to_user_info_data);
+                gVar.b((UserData) this.gson.fromJson(this.to_user_info, (Class<Object>) UserData.class));
+                gVar.f(this.create_time);
+                gVar.b((int) ((short) this.msg_type));
                 MsgLocalData msgLocalData = new MsgLocalData();
                 msgLocalData.setStatus(Short.valueOf((short) this.msg_status));
-                eVar.a(msgLocalData);
-                eVar.a(this.content);
-                f = eVar.f();
-                if (f != null) {
-                }
-                g = eVar.g();
+                gVar.a(msgLocalData);
+                gVar.a(this.content);
+                g = gVar.g();
                 if (g != null) {
                 }
-                d.f(eVar);
-                return eVar;
+                h = gVar.h();
+                if (h != null) {
+                }
+                d.f(gVar);
+                return gVar;
             }
         } catch (Exception e2) {
             exc = e2;
             j = 0;
         }
-        eVar.b(this.gid);
-        eVar.c(this.mid);
-        eVar.d(j);
-        eVar.a(j2);
-        eVar.b(this.rid);
+        gVar.b(this.gid);
+        gVar.d(this.mid);
+        gVar.e(j);
+        gVar.b(j2);
+        gVar.c(this.rid);
         if (this.user_info_data == null) {
             this.user_info_data = (UserData) this.gson.fromJson(this.user_info, (Class<Object>) UserData.class);
         }
-        eVar.a(this.user_info_data);
+        gVar.a(this.user_info_data);
         if (this.to_user_info_data == null) {
             this.to_user_info_data = (UserData) this.gson.fromJson(this.to_user_info, (Class<Object>) UserData.class);
         }
-        eVar.b(this.to_user_info_data);
-        eVar.b((UserData) this.gson.fromJson(this.to_user_info, (Class<Object>) UserData.class));
-        eVar.e(this.create_time);
-        eVar.b((int) ((short) this.msg_type));
+        gVar.b(this.to_user_info_data);
+        gVar.b((UserData) this.gson.fromJson(this.to_user_info, (Class<Object>) UserData.class));
+        gVar.f(this.create_time);
+        gVar.b((int) ((short) this.msg_type));
         MsgLocalData msgLocalData2 = new MsgLocalData();
         msgLocalData2.setStatus(Short.valueOf((short) this.msg_status));
-        eVar.a(msgLocalData2);
-        eVar.a(this.content);
-        f = eVar.f();
-        if (f != null) {
-            try {
-                j3 = Long.parseLong(f.getId());
-            } catch (Exception e3) {
-                com.baidu.adp.lib.h.e.a("error" + e3.getMessage());
-                j3 = 0;
-            }
-            eVar.d(j3);
-        }
-        g = eVar.g();
+        gVar.a(msgLocalData2);
+        gVar.a(this.content);
+        g = gVar.g();
         if (g != null) {
             try {
-                j4 = Long.parseLong(g.getId());
-            } catch (Exception e4) {
-                com.baidu.adp.lib.h.e.a("error" + e4.getMessage());
+                j3 = Long.parseLong(g.getId());
+            } catch (Exception e3) {
+                e.a("error" + e3.getMessage());
+                j3 = 0;
             }
-            eVar.a(j4);
+            gVar.e(j3);
         }
-        d.f(eVar);
-        return eVar;
+        h = gVar.h();
+        if (h != null) {
+            try {
+                j4 = Long.parseLong(h.getId());
+            } catch (Exception e4) {
+                e.a("error" + e4.getMessage());
+            }
+            gVar.b(j4);
+        }
+        d.f(gVar);
+        return gVar;
     }
 
     public String getGid() {

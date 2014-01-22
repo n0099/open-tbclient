@@ -29,14 +29,14 @@ public class MsgImageActivity extends com.baidu.tieba.j {
     private ProgressBar a = null;
     private ArrayList<String> b = null;
     private int c = 0;
-    private an d = null;
+    private bh d = null;
     private TextView e = null;
     private ImageView f = null;
     private TextView h = null;
     private NavigationBar i = null;
     private MultiImageView j = null;
     private View.OnClickListener k = null;
-    private com.baidu.tieba.view.e l = null;
+    private com.baidu.tieba.view.a l = null;
     private android.support.v4.view.bq m = null;
     private AlphaAnimation n = null;
     private boolean o = true;
@@ -70,7 +70,7 @@ public class MsgImageActivity extends com.baidu.tieba.j {
     @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        TiebaApplication.g().a((com.baidu.tieba.j) this);
+        TiebaApplication.h().a((com.baidu.tieba.j) this);
         setContentView(R.layout.image_activity_2);
         a(bundle);
         a();
@@ -89,7 +89,7 @@ public class MsgImageActivity extends com.baidu.tieba.j {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (i == 1) {
-            this.j.setBackgroundColor(com.baidu.tieba.util.bl.d(i));
+            this.j.setBackgroundColor(com.baidu.tieba.util.bs.d(i));
         } else {
             this.j.setBackgroundColor(-16777216);
         }
@@ -133,7 +133,7 @@ public class MsgImageActivity extends com.baidu.tieba.j {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j, android.app.Activity
     public void onDestroy() {
-        TiebaApplication.g().b((com.baidu.tieba.j) this);
+        TiebaApplication.h().b((com.baidu.tieba.j) this);
         super.onDestroy();
     }
 
@@ -150,9 +150,9 @@ public class MsgImageActivity extends com.baidu.tieba.j {
     }
 
     private void a() {
-        this.k = new ai(this);
-        this.m = new ak(this);
-        this.l = new al(this);
+        this.k = new bc(this);
+        this.m = new be(this);
+        this.l = new bf(this);
         this.i = (NavigationBar) findViewById(R.id.navigation_bar);
         this.g = (FrameLayout) this.i.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.image_activity_save_button, this.k);
         if (this.w) {
@@ -164,7 +164,7 @@ public class MsgImageActivity extends com.baidu.tieba.j {
         this.h = this.i.a("");
         this.e.setClickable(false);
         this.j = (MultiImageView) findViewById(R.id.viewpager);
-        this.j.setPageMargin(com.baidu.adp.lib.h.g.a((Context) this, 8.0f));
+        this.j.setPageMargin(com.baidu.adp.lib.g.g.a((Context) this, 8.0f));
         this.j.a(2, com.baidu.tieba.data.h.i() * com.baidu.tieba.data.h.i());
         this.j.setOnPageChangeListener(this.m);
         this.j.setItemOnclickListener(this.k);
@@ -220,16 +220,16 @@ public class MsgImageActivity extends com.baidu.tieba.j {
             this.b.add(this.r);
             this.v = intent.getIntExtra("chat_mode", 0);
             this.c = 0;
-            com.baidu.adp.lib.h.e.d("curImgUrl:" + this.r + " groupId:" + this.s);
+            com.baidu.adp.lib.g.e.d("curImgUrl:" + this.r + " groupId:" + this.s);
         } else if (bundle != null) {
-            com.baidu.adp.lib.h.e.d(" have savedInstanceState");
+            com.baidu.adp.lib.g.e.d(" have savedInstanceState");
             this.b = bundle.getStringArrayList(SocialConstants.PARAM_URL);
             this.c = bundle.getInt("index", -1);
             this.s = bundle.getString("id");
             this.v = bundle.getInt("chat_mode", 0);
             this.w = bundle.getBoolean("isSingle", false);
         } else {
-            com.baidu.adp.lib.h.e.d(" not have savedInstanceState");
+            com.baidu.adp.lib.g.e.d(" not have savedInstanceState");
         }
         this.u = new HashMap<>();
     }
@@ -238,11 +238,11 @@ public class MsgImageActivity extends com.baidu.tieba.j {
         if (TextUtils.isEmpty(this.s)) {
             finish();
         }
-        am amVar = new am(this);
-        if (this.v == 0) {
-            a.b().a(this.s, amVar);
+        bg bgVar = new bg(this);
+        if (this.v == 0 || this.v == 2) {
+            q.b().a(this.s, bgVar);
         } else {
-            a.b().b(this.s, amVar);
+            q.b().b(this.s, bgVar);
         }
     }
 

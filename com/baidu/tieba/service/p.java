@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.util.aa;
+import com.baidu.tieba.util.ad;
 import com.baidu.tieba.write.bb;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -47,14 +47,14 @@ public class p extends BdAsyncTask<Object, Integer, Boolean> {
             throw th;
         }
         if (a != null) {
-            if (aa.a((String) null, "tieba_resized_image", a, 80) != null) {
+            if (ad.a((String) null, "tieba_resized_image", a, 80) != null) {
                 int i4 = 100;
                 i2 = this.d.g;
                 if (i2 > 0) {
                     i4 = this.d.g;
                 }
-                Bitmap a2 = com.baidu.tieba.util.m.a(a, i4);
-                if (a2 == null || aa.a((String) null, "tieba_resized_image_display", a2, 80) == null) {
+                Bitmap a2 = com.baidu.tieba.util.n.a(a, i4);
+                if (a2 == null || ad.a((String) null, "tieba_resized_image_display", a2, 80) == null) {
                     this.c = this.d.getString(R.string.error_sd_error);
                 }
             } else {

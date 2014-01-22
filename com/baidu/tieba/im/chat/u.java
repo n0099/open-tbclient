@@ -1,20 +1,26 @@
 package com.baidu.tieba.im.chat;
 
-import com.slidingmenu.lib.R;
+import android.text.TextUtils;
+import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class u implements com.baidu.tieba.im.a<Boolean> {
-    final /* synthetic */ s a;
+public class u implements com.baidu.tieba.im.a<Void> {
+    final /* synthetic */ String a;
+    final /* synthetic */ CommonMsgPojo b;
+    final /* synthetic */ q c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public u(s sVar) {
-        this.a = sVar;
+    public u(q qVar, String str, CommonMsgPojo commonMsgPojo) {
+        this.c = qVar;
+        this.a = str;
+        this.b = commonMsgPojo;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.a
-    public void a(Boolean bool) {
-        this.a.a.closeLoadingDialog();
-        com.baidu.tieba.im.messageCenter.e.a().e(new com.baidu.tieba.im.message.f());
-        this.a.a.showToast(R.string.cash_del_suc, false);
+    public void a(Void r3) {
+        if (!TextUtils.isEmpty(this.a) && !TextUtils.isEmpty(com.baidu.tieba.im.c.m.a().d()) && !this.a.equals(com.baidu.tieba.im.c.m.a().d())) {
+            com.baidu.tieba.im.c.m.a().a(this.b);
+        }
     }
 }

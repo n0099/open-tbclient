@@ -39,7 +39,7 @@ public class cd extends BaseAdapter {
                     try {
                         this.i.get(i2).setVisibility(8);
                     } catch (Exception e) {
-                        com.baidu.tieba.util.bo.b(getClass().getName(), "releaseProgressBar", e.getMessage());
+                        com.baidu.adp.lib.g.e.b(getClass().getName(), "releaseProgressBar", e.getMessage());
                     }
                     i = i2 + 1;
                 } else {
@@ -192,22 +192,22 @@ public class cd extends BaseAdapter {
                         c.a(cfVar.a);
                     } else {
                         cfVar.a.setTag(portrait);
-                        cfVar.a.setImageBitmap(com.baidu.tieba.util.m.a((int) R.drawable.photo));
+                        cfVar.a.setImageBitmap(com.baidu.tieba.util.n.a((int) R.drawable.photo));
                     }
                     cfVar.c.setText(this.d.get(i).getName_show());
                     cfVar.d.setText(this.d.get(i).getIntro());
                     cfVar.e.setTag(Integer.valueOf(i));
-                    if (TiebaApplication.g().an() == 1) {
+                    if (TiebaApplication.h().al() == 1) {
                         cfVar.c.setTextColor(-8682095);
                         cfVar.d.setTextColor(-11446171);
-                        com.baidu.tieba.util.bl.e(cfVar.b, (int) R.drawable.person_list_item_info_selector_1);
-                        com.baidu.tieba.util.bl.e((View) cfVar.e, (int) R.drawable.person_list_item_chat_selector_1);
+                        com.baidu.tieba.util.bs.e(cfVar.b, (int) R.drawable.person_list_item_info_selector_1);
+                        com.baidu.tieba.util.bs.e((View) cfVar.e, (int) R.drawable.person_list_item_chat_selector_1);
                         cfVar.e.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_att_chat_1, 0, 0, 0);
                     } else {
                         cfVar.c.setTextColor(-14277082);
                         cfVar.d.setTextColor(-6842215);
-                        com.baidu.tieba.util.bl.e(cfVar.b, (int) R.drawable.person_list_item_info_selector);
-                        com.baidu.tieba.util.bl.e((View) cfVar.e, (int) R.drawable.person_list_item_chat_selector);
+                        com.baidu.tieba.util.bs.e(cfVar.b, (int) R.drawable.person_list_item_info_selector);
+                        com.baidu.tieba.util.bs.e((View) cfVar.e, (int) R.drawable.person_list_item_chat_selector);
                         cfVar.e.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_att_chat, 0, 0, 0);
                     }
                 }
@@ -218,8 +218,8 @@ public class cd extends BaseAdapter {
                 cfVar.c.setText(this.e.getString(R.string.load_more));
                 cfVar.f.setVisibility(8);
             }
-            if (TiebaApplication.g().an() == 1) {
-                cfVar.c.setTextColor(com.baidu.tieba.util.bl.a(1));
+            if (TiebaApplication.h().al() == 1) {
+                cfVar.c.setTextColor(com.baidu.tieba.util.bs.a(1));
                 if (cfVar.g != null) {
                     cfVar.g.setTextColor(this.e.getResources().getColor(R.color.person_post_header_uname_1));
                 }

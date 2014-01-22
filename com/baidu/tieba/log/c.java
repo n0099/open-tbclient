@@ -24,7 +24,7 @@ public class c implements Runnable {
                 atomicBoolean3 = this.b.a;
                 atomicBoolean3.set(false);
             } catch (Exception e) {
-                com.baidu.adp.lib.h.e.a("BdLogger", "write error ", e);
+                com.baidu.adp.lib.g.e.a("BdLogger", "write error ", e);
                 atomicBoolean = this.b.a;
                 atomicBoolean.set(false);
             }

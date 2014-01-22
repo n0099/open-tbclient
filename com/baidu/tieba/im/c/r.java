@@ -1,28 +1,28 @@
 package com.baidu.tieba.im.c;
 
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.im.groupUpdates.UpdatesItemData;
-import java.util.concurrent.ConcurrentHashMap;
+import com.baidu.tieba.im.SingleRunnable;
+import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
+import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class r implements com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMessageCenterPojo>> {
-    final /* synthetic */ String a;
-    final /* synthetic */ UpdatesItemData b;
+public class r extends SingleRunnable<LinkedList<GroupNewsPojo>> {
+    final /* synthetic */ com.baidu.tieba.im.data.c a;
+    final /* synthetic */ int b;
     final /* synthetic */ m c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public r(m mVar, String str, UpdatesItemData updatesItemData) {
+    public r(m mVar, com.baidu.tieba.im.data.c cVar, int i) {
         this.c = mVar;
-        this.a = str;
-        this.b = updatesItemData;
+        this.a = cVar;
+        this.b = i;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    public void a(ConcurrentHashMap<String, ImMessageCenterPojo> concurrentHashMap) {
-        ImMessageCenterPojo imMessageCenterPojo = concurrentHashMap.get(this.a);
-        if (imMessageCenterPojo != null) {
-            imMessageCenterPojo.setGroup_head(this.b.getGroupHeadUrl());
-        }
+    @Override // com.baidu.tieba.im.SingleRunnable
+    /* renamed from: a */
+    public LinkedList<GroupNewsPojo> b() {
+        LinkedList<GroupNewsPojo> b;
+        b = this.c.b(this.a, this.b);
+        return b;
     }
 }

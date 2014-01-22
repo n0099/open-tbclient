@@ -34,16 +34,16 @@ public class ap {
         this.c = 0;
     }
 
-    public void a(com.baidu.tieba.util.at atVar) {
-        if (atVar != null) {
+    public void a(com.baidu.tieba.util.ax axVar) {
+        if (axVar != null) {
             if (this.a != 0) {
-                atVar.a("ctime", String.valueOf(this.a));
+                axVar.a("ctime", String.valueOf(this.a));
             }
             if (this.b != 0) {
-                atVar.a("data_size", String.valueOf(this.b));
+                axVar.a("data_size", String.valueOf(this.b));
             }
             if (this.c != 0) {
-                atVar.a("net_error", String.valueOf(this.c));
+                axVar.a("net_error", String.valueOf(this.c));
             }
         }
     }

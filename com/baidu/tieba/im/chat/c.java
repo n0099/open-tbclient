@@ -1,21 +1,34 @@
 package com.baidu.tieba.im.chat;
+
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.EditText;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class c implements com.baidu.tieba.im.a<Boolean> {
-    final /* synthetic */ com.baidu.tieba.im.message.ba a;
-    final /* synthetic */ a b;
+public class c implements View.OnTouchListener {
+    final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public c(a aVar, com.baidu.tieba.im.message.ba baVar) {
-        this.b = aVar;
-        this.a = baVar;
+    public c(a aVar) {
+        this.a = aVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    public void a(Boolean bool) {
-        if (this.a != null) {
-            this.b.d(this.a);
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        EditText editText;
+        if (motionEvent.getAction() == 1) {
+            editText = this.a.E;
+            editText.setCursorVisible(true);
+            this.a.Q();
+        } else if (motionEvent.getAction() == 0) {
+            this.a.X();
+            if (this.a.d.getVisibility() == 0) {
+                this.a.R();
+                this.a.U();
+                this.a.W();
+                return true;
+            }
         }
+        return false;
     }
 }

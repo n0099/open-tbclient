@@ -1,7 +1,6 @@
 package com.baidu.tieba.data;
 
 import com.baidu.cloudsdk.social.core.SocialConstants;
-import com.baidu.tieba.util.bo;
 import java.io.Serializable;
 import java.util.ArrayList;
 import org.json.JSONArray;
@@ -210,7 +209,7 @@ public class ForumData implements Serializable {
         try {
             parserJson(new JSONObject(str));
         } catch (Exception e) {
-            bo.b("ForumData", "parserJson", "error = " + e.getMessage());
+            com.baidu.adp.lib.g.e.b("ForumData", "parserJson", "error = " + e.getMessage());
         }
     }
 
@@ -291,28 +290,28 @@ public class ForumData implements Serializable {
                 }
                 this.mFrsBannerData.a(jSONObject.getJSONObject("banner"));
             } catch (Exception e) {
-                bo.b("ForumData", "parserJson", "error = " + e.getMessage());
+                com.baidu.adp.lib.g.e.b("ForumData", "parserJson", "error = " + e.getMessage());
             }
         }
     }
 
     public void logPrint() {
-        bo.d("ForumData", "logPrint", "id = " + this.id);
-        bo.d("ForumData", "logPrint", "name = " + this.name);
-        bo.d("ForumData", "logPrint", "first_class = " + this.first_class);
-        bo.d("ForumData", "logPrint", "second_class = " + this.second_class);
-        bo.d("ForumData", "logPrint", "is_exists = " + String.valueOf(this.is_exists));
-        bo.d("ForumData", "logPrint", "is_forbidden = " + String.valueOf(this.is_forbidden));
-        bo.d("ForumData", "logPrint", "thread_num = " + String.valueOf(this.thread_num));
-        bo.d("ForumData", "logPrint", "post_num = " + String.valueOf(this.post_num));
-        bo.d("ForumData", "logPrint", "member_num = " + String.valueOf(this.member_num));
-        bo.d("ForumData", "logPrint", "is_like = " + String.valueOf(this.is_like));
-        bo.d("ForumData", "logPrint", "user_level = " + String.valueOf(this.user_level));
+        com.baidu.adp.lib.g.e.d("ForumData", "logPrint", "id = " + this.id);
+        com.baidu.adp.lib.g.e.d("ForumData", "logPrint", "name = " + this.name);
+        com.baidu.adp.lib.g.e.d("ForumData", "logPrint", "first_class = " + this.first_class);
+        com.baidu.adp.lib.g.e.d("ForumData", "logPrint", "second_class = " + this.second_class);
+        com.baidu.adp.lib.g.e.d("ForumData", "logPrint", "is_exists = " + String.valueOf(this.is_exists));
+        com.baidu.adp.lib.g.e.d("ForumData", "logPrint", "is_forbidden = " + String.valueOf(this.is_forbidden));
+        com.baidu.adp.lib.g.e.d("ForumData", "logPrint", "thread_num = " + String.valueOf(this.thread_num));
+        com.baidu.adp.lib.g.e.d("ForumData", "logPrint", "post_num = " + String.valueOf(this.post_num));
+        com.baidu.adp.lib.g.e.d("ForumData", "logPrint", "member_num = " + String.valueOf(this.member_num));
+        com.baidu.adp.lib.g.e.d("ForumData", "logPrint", "is_like = " + String.valueOf(this.is_like));
+        com.baidu.adp.lib.g.e.d("ForumData", "logPrint", "user_level = " + String.valueOf(this.user_level));
         int i = 0;
         while (true) {
             int i2 = i;
             if (i2 < this.managers.size()) {
-                bo.d("ForumData", "logPrint", "managers" + String.valueOf(i2) + " = " + this.managers.get(i2));
+                com.baidu.adp.lib.g.e.d("ForumData", "logPrint", "managers" + String.valueOf(i2) + " = " + this.managers.get(i2));
                 this.managers.get(i2);
                 i = i2 + 1;
             } else {

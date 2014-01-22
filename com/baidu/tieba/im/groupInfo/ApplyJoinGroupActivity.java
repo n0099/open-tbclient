@@ -12,9 +12,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.browser.explorer.BdWebErrorView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.bl;
+import com.baidu.tieba.util.bs;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
@@ -117,7 +116,7 @@ public class ApplyJoinGroupActivity extends com.baidu.tieba.j implements com.bai
             intent.putExtra("groupID", str);
             intent.putExtra("alreadJoinCount", i);
             intent.putExtra("canJoinCount", i2);
-            com.baidu.adp.lib.h.e.d("get intent groupID:" + str);
+            com.baidu.adp.lib.g.e.d("get intent groupID:" + str);
             context.startActivity(intent);
         }
     }
@@ -131,7 +130,7 @@ public class ApplyJoinGroupActivity extends com.baidu.tieba.j implements com.bai
             intent.putExtra("inviteUserId", j);
             intent.putExtra("defaultUserMsg", str2);
             intent.putExtra("joinType", q);
-            com.baidu.adp.lib.h.e.d("get intent groupID:" + str);
+            com.baidu.adp.lib.g.e.d("get intent groupID:" + str);
             context.startActivity(intent);
         }
     }
@@ -143,7 +142,7 @@ public class ApplyJoinGroupActivity extends com.baidu.tieba.j implements com.bai
             intent.putExtra("inviteUserId", j);
             intent.putExtra("defaultUserMsg", str2);
             intent.putExtra("joinType", q);
-            com.baidu.adp.lib.h.e.d("get intent groupID:" + str);
+            com.baidu.adp.lib.g.e.d("get intent groupID:" + str);
             context.startActivity(intent);
         }
     }
@@ -174,7 +173,7 @@ public class ApplyJoinGroupActivity extends com.baidu.tieba.j implements com.bai
         this.g.setVisibility(8);
         this.h.setVisibility(8);
         this.b.addTextChangedListener(this.j);
-        ShowSoftKeyPadDelay(this.b, BdWebErrorView.ERROR_CODE_500);
+        ShowSoftKeyPadDelay(this.b, 500);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -184,11 +183,11 @@ public class ApplyJoinGroupActivity extends com.baidu.tieba.j implements com.bai
         getLayoutMode().a(i == 1);
         getLayoutMode().a(this.a);
         this.s.c(i);
-        bl.g(this.f, 0);
+        bs.g(this.f, 0);
     }
 
     private boolean f() {
-        return TiebaApplication.g().an() == 1;
+        return TiebaApplication.h().al() == 1;
     }
 
     void b() {
@@ -212,23 +211,23 @@ public class ApplyJoinGroupActivity extends com.baidu.tieba.j implements com.bai
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(com.baidu.tieba.im.message.o oVar) {
-        if (oVar != null && (oVar instanceof aj)) {
-            aj ajVar = (aj) oVar;
-            int j = ajVar.j();
-            String k = ajVar.k();
-            if (ajVar.i()) {
-                String string = TextUtils.isEmpty(k) ? getString(R.string.group_apply_fail) : k;
-                com.baidu.adp.lib.h.e.d("apply add group" + oVar.toString() + "err:" + j + " errMsg" + string);
+    public void a(com.baidu.tieba.im.message.q qVar) {
+        if (qVar != null && (qVar instanceof aj)) {
+            aj ajVar = (aj) qVar;
+            int l = ajVar.l();
+            String m = ajVar.m();
+            if (ajVar.k()) {
+                String string = TextUtils.isEmpty(m) ? getString(R.string.group_apply_fail) : m;
+                com.baidu.adp.lib.g.e.d("apply add group" + qVar.toString() + "err:" + l + " errMsg" + string);
                 this.f.setEnabled(true);
                 showToast(string);
                 return;
             }
-            if (TextUtils.isEmpty(k)) {
-                k = getString(R.string.group_apply_succ);
+            if (TextUtils.isEmpty(m)) {
+                m = getString(R.string.group_apply_succ);
             }
-            showToast(k, false);
-            if (j == 0) {
+            showToast(m, false);
+            if (l == 0) {
                 u.a(TiebaApplication.A(), this.k, true);
                 finish();
             }

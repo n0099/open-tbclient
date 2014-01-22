@@ -19,7 +19,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.cloudsdk.social.core.SocialConstants;
-import com.baidu.zeus.bouncycastle.DERTags;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -438,7 +437,7 @@ public class n extends Activity {
 
     private static String viewToString(View view) {
         String resourcePackageName;
-        StringBuilder sb = new StringBuilder((int) DERTags.TAGGED);
+        StringBuilder sb = new StringBuilder(128);
         sb.append(view.getClass().getName());
         sb.append('{');
         sb.append(Integer.toHexString(System.identityHashCode(view)));

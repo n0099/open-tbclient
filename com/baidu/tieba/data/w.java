@@ -6,7 +6,6 @@ import android.text.SpannableString;
 import android.text.style.ImageSpan;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.location.LocationClientOption;
-import com.baidu.tieba.util.bo;
 import com.baidu.tieba.voice.VoiceManager;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
@@ -15,7 +14,7 @@ import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class w extends com.baidu.tieba.util.ap {
+public class w extends com.baidu.tieba.util.as {
     private String a;
     private String b;
     private String c;
@@ -111,7 +110,7 @@ public class w extends com.baidu.tieba.util.ap {
                 }
                 a(optString);
             } catch (Exception e) {
-                bo.b(w.class.getName(), "parserJson", "error = " + e.getMessage());
+                com.baidu.adp.lib.g.e.b(w.class.getName(), "parserJson", "error = " + e.getMessage());
             }
         }
     }
@@ -135,7 +134,7 @@ public class w extends com.baidu.tieba.util.ap {
                 SpannableString spannableString2 = new SpannableString(sb.toString() + str);
                 int i2 = 0;
                 for (int i3 = 0; i3 < arrayList.size(); i3++) {
-                    Bitmap a = com.baidu.tieba.util.m.a(((Integer) arrayList.get(i3)).intValue());
+                    Bitmap a = com.baidu.tieba.util.n.a(((Integer) arrayList.get(i3)).intValue());
                     BitmapDrawable bitmapDrawable = new BitmapDrawable(a);
                     bitmapDrawable.setBounds(0, 0, a.getWidth(), a.getHeight());
                     spannableString2.setSpan(new ImageSpan(bitmapDrawable, 1), i2, i2 + 1, 33);
@@ -197,7 +196,7 @@ public class w extends com.baidu.tieba.util.ap {
         return this.q;
     }
 
-    @Override // com.baidu.tieba.util.ap, com.baidu.tieba.util.ar
+    @Override // com.baidu.tieba.util.as, com.baidu.tieba.util.au
     public LinkedList<String> getImageUrl() {
         if (this.m == null) {
             return null;

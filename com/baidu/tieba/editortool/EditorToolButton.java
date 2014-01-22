@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.tieba.au;
+import com.baidu.tieba.ax;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class EditorToolButton extends ImageView {
@@ -41,7 +41,7 @@ public class EditorToolButton extends ImageView {
         this.f = false;
         this.g = 0;
         this.b = context;
-        this.c = this.b.obtainStyledAttributes(attributeSet, au.custom_state).getBoolean(1, false);
+        this.c = this.b.obtainStyledAttributes(attributeSet, ax.custom_state).getBoolean(1, false);
     }
 
     @Override // android.widget.ImageView, android.view.View

@@ -29,7 +29,7 @@ public class g {
                 this.d = Integer.valueOf(split[0]).intValue();
                 this.e = Integer.valueOf(split[1]).intValue();
             } catch (Exception e) {
-                com.baidu.adp.lib.h.e.a(e.getMessage());
+                com.baidu.adp.lib.g.e.a(e.getMessage());
             }
             if (this.d <= 0) {
                 this.d = 1;

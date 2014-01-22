@@ -1,24 +1,16 @@
 package com.baidu.tieba.view;
-
-import android.app.Activity;
-import android.view.View;
-import com.baidu.tieba.forumdetail.ForumDetailActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ad implements View.OnClickListener {
-    final /* synthetic */ FrsHeaderView a;
+public class ad implements com.baidu.tbadk.imageManager.c {
+    final /* synthetic */ ab a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ad(FrsHeaderView frsHeaderView) {
-        this.a = frsHeaderView;
+    public ad(ab abVar) {
+        this.a = abVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Activity activity;
-        String str;
-        activity = this.a.E;
-        str = this.a.G;
-        ForumDetailActivity.a(activity, str, ForumDetailActivity.FromType.FRS);
+    @Override // com.baidu.tbadk.imageManager.c
+    public void a(com.baidu.adp.widget.ImageView.d dVar, String str, boolean z) {
+        this.a.setImg(dVar);
     }
 }

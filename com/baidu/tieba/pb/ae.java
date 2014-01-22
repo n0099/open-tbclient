@@ -15,7 +15,7 @@ import org.json.JSONObject;
 public class ae extends BdAsyncTask<Integer, Integer, String> {
     final /* synthetic */ ImagePbActivity a;
     private WriteData b;
-    private com.baidu.tieba.util.at c = null;
+    private com.baidu.tieba.util.ax c = null;
     private boolean d = false;
 
     public ae(ImagePbActivity imagePbActivity, WriteData writeData) {
@@ -31,7 +31,7 @@ public class ae extends BdAsyncTask<Integer, Integer, String> {
         if (this.d) {
             return null;
         }
-        this.c = new com.baidu.tieba.util.at(com.baidu.tieba.data.h.a + "c/c/post/add");
+        this.c = new com.baidu.tieba.util.ax(com.baidu.tieba.data.h.a + "c/c/post/add");
         this.c.a("anonymous", SocialConstants.FALSE);
         this.c.a("fid", this.b.getForumId());
         this.c.a("kw", this.b.getForumName());
@@ -41,13 +41,13 @@ public class ae extends BdAsyncTask<Integer, Integer, String> {
         if (this.b.getVcode() != null && this.b.getVcode().length() > 0) {
             this.c.a("vcode", this.b.getVcode());
         }
-        if (TiebaApplication.g().aq() < 3) {
+        if (TiebaApplication.h().ao() < 3) {
             this.c.a("vcode_tag", "11");
         }
         this.c.a("quote_id", this.b.getFloor());
         this.c.a("floor_num", String.valueOf(this.b.getFloorNum()));
         this.c.e(true);
-        return this.c.l();
+        return this.c.m();
     }
 
     private void a(AntiData antiData, String str) {
@@ -55,7 +55,7 @@ public class ae extends BdAsyncTask<Integer, Integer, String> {
             antiData.setBlock_forum_name(this.b.getForumName());
             antiData.setBlock_forum_id(this.b.getForumId());
             antiData.setUser_id(TiebaApplication.A());
-            antiData.setUser_name(TiebaApplication.G());
+            antiData.setUser_name(TiebaApplication.F());
             AntiHelper.a(this.a, antiData, AntiHelper.OperationType.REPLY, AntiHelper.PageType.IMAGE_PB);
             return;
         }
@@ -105,10 +105,10 @@ public class ae extends BdAsyncTask<Integer, Integer, String> {
             } catch (Exception e2) {
                 antiData = null;
             }
-            if (this.c.c()) {
+            if (this.c.d()) {
                 this.a.h();
             } else {
-                a(this.c.e(), this.c.i(), str, antiData);
+                a(this.c.f(), this.c.j(), str, antiData);
             }
         }
     }
@@ -119,7 +119,7 @@ public class ae extends BdAsyncTask<Integer, Integer, String> {
         this.a.closeLoadingDialog();
         this.d = true;
         if (this.c != null) {
-            this.c.j();
+            this.c.k();
         }
         super.cancel(true);
     }

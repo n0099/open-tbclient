@@ -1,7 +1,6 @@
 package com.baidu.tieba.data;
 
 import com.baidu.cloudsdk.social.core.SocialConstants;
-import com.baidu.tieba.util.bo;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class s {
@@ -32,7 +31,7 @@ public class s {
                 this.h = jSONObject.optString("desc");
                 this.i = jSONObject.optString("avatar", "");
             } catch (Exception e) {
-                bo.b("LikeForumData", "parserJson", "error = " + e.getMessage());
+                com.baidu.adp.lib.g.e.b("LikeForumData", "parserJson", "error = " + e.getMessage());
             }
         }
     }

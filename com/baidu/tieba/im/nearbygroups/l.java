@@ -1,9 +1,8 @@
 package com.baidu.tieba.im.nearbygroups;
 
 import com.baidu.adp.widget.ListView.q;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class l implements q {
+class l implements q {
     final /* synthetic */ k a;
 
     /* JADX INFO: Access modifiers changed from: package-private */

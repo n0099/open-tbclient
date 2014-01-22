@@ -1,7 +1,6 @@
 package com.baidu.tieba.data;
 
 import com.baidu.android.pushservice.PushConstants;
-import com.baidu.tieba.util.bo;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ak {
@@ -51,7 +50,7 @@ public class ak {
         try {
             a(new JSONObject(str).optJSONObject(PushConstants.EXTRA_PUSH_MESSAGE));
         } catch (Exception e) {
-            bo.b("MessageData", "parserJson", "error = " + e.getMessage());
+            com.baidu.adp.lib.g.e.b("MessageData", "parserJson", "error = " + e.getMessage());
         }
     }
 
@@ -64,7 +63,7 @@ public class ak {
                 this.d = jSONObject.optInt("pletter", 0);
                 this.e = jSONObject.optInt("bookmark", 0);
             } catch (Exception e) {
-                bo.b("MessageData", "parserJson", "error = " + e.getMessage());
+                com.baidu.adp.lib.g.e.b("MessageData", "parserJson", "error = " + e.getMessage());
             }
         }
     }

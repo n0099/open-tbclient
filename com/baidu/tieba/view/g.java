@@ -1,29 +1,46 @@
 package com.baidu.tieba.view;
 
+import android.app.TimePickerDialog;
 import android.content.Context;
-import android.webkit.WebView;
-import com.baidu.tieba.util.UtilHelper;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.DialogInterface;
 /* loaded from: classes.dex */
-public class g implements h {
-    final /* synthetic */ BaseWebView a;
+public class g extends TimePickerDialog {
+    private int a;
+    private int b;
+    private boolean c;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public g(BaseWebView baseWebView) {
-        this.a = baseWebView;
+    public g(Context context, TimePickerDialog.OnTimeSetListener onTimeSetListener, int i, int i2, boolean z) {
+        super(context, onTimeSetListener, i, i2, z);
+        this.a = -1;
+        this.b = -1;
+        this.c = false;
+        this.a = i;
+        this.b = i2;
     }
 
-    @Override // com.baidu.tieba.view.h
-    public boolean a(WebView webView, String str) {
-        Context context;
-        if (str != null) {
-            try {
-                context = this.a.c;
-                UtilHelper.e(context, str);
-            } catch (Exception e) {
-                com.baidu.tieba.util.bo.a(getClass().getName(), "shouldOverrideUrlLoading", e.toString());
-            }
+    @Override // android.app.TimePickerDialog
+    public void updateTime(int i, int i2) {
+        super.updateTime(i, i2);
+        this.a = i;
+        this.b = i2;
+        this.c = false;
+    }
+
+    @Override // android.app.TimePickerDialog, android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        if (i == -1) {
+            this.c = true;
+        } else if (this.a >= 0 && this.b >= 0) {
+            updateTime(this.a, this.b);
         }
-        return true;
+        super.onClick(dialogInterface, i);
+    }
+
+    @Override // android.app.Dialog
+    protected void onStop() {
+        if (!this.c) {
+            updateTime(this.a, this.b);
+        }
+        super.onStop();
     }
 }

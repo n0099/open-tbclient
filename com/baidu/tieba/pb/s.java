@@ -4,7 +4,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class s implements com.baidu.tieba.view.aw {
+class s implements com.baidu.tieba.view.bh {
     final /* synthetic */ ImagePbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +12,7 @@ class s implements com.baidu.tieba.view.aw {
         this.a = imagePbActivity;
     }
 
-    @Override // com.baidu.tieba.view.aw
+    @Override // com.baidu.tieba.view.bh
     public void a(int i) {
         LinearLayout linearLayout;
         Button button;

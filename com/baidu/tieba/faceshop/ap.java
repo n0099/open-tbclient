@@ -6,7 +6,7 @@ import com.baidu.gson.GsonBuilder;
 /* loaded from: classes.dex */
 public class ap extends BdAsyncTask<Object, FacePurchaseRecordsData, FacePurchaseRecordsData> {
     final /* synthetic */ an a;
-    private com.baidu.tieba.util.at b;
+    private com.baidu.tieba.util.ax b;
 
     private ap(an anVar) {
         this.a = anVar;
@@ -18,14 +18,26 @@ public class ap extends BdAsyncTask<Object, FacePurchaseRecordsData, FacePurchas
     /* renamed from: d */
     public FacePurchaseRecordsData a(Object... objArr) {
         String str;
+        int i;
+        int i2;
+        float f;
         try {
-            this.b = new com.baidu.tieba.util.at(com.baidu.tieba.data.h.a + "c/e/faces/getpackhis");
-            com.baidu.tieba.util.at atVar = this.b;
+            this.b = new com.baidu.tieba.util.ax(com.baidu.tieba.data.h.a + "c/e/faces/getpackhis");
+            com.baidu.tieba.util.ax axVar = this.b;
             str = this.a.b;
-            atVar.a("st_type", str);
-            return (FacePurchaseRecordsData) new GsonBuilder().create().fromJson(this.b.l(), (Class<Object>) FacePurchaseRecordsData.class);
+            axVar.a("st_type", str);
+            com.baidu.tieba.util.ax axVar2 = this.b;
+            i = this.a.c;
+            axVar2.a("scr_w", String.valueOf(i));
+            com.baidu.tieba.util.ax axVar3 = this.b;
+            i2 = this.a.d;
+            axVar3.a("scr_h", String.valueOf(i2));
+            com.baidu.tieba.util.ax axVar4 = this.b;
+            f = this.a.e;
+            axVar4.a("scr_dip", String.valueOf(f));
+            return (FacePurchaseRecordsData) new GsonBuilder().create().fromJson(this.b.m(), (Class<Object>) FacePurchaseRecordsData.class);
         } catch (Exception e) {
-            com.baidu.adp.lib.h.e.b(getClass().getName(), "doInBackground", e.toString());
+            com.baidu.adp.lib.g.e.b(getClass().getName(), "doInBackground", e.toString());
             return null;
         }
     }
@@ -45,7 +57,7 @@ public class ap extends BdAsyncTask<Object, FacePurchaseRecordsData, FacePurchas
     public void cancel() {
         super.cancel(true);
         if (this.b != null) {
-            this.b.j();
+            this.b.k();
         }
         this.a.a = null;
     }

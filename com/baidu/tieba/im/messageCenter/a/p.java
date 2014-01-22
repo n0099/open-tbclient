@@ -1,15 +1,15 @@
 package com.baidu.tieba.im.messageCenter.a;
 
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.im.message.bj;
+import com.baidu.tieba.im.message.bt;
 /* loaded from: classes.dex */
 public class p extends com.baidu.tieba.im.messageCenter.a {
     @Override // com.baidu.tieba.im.messageCenter.a
-    public com.baidu.tieba.im.message.o a(com.baidu.tieba.im.message.o oVar, com.baidu.tieba.im.coder.d dVar) {
-        if (oVar != null && (oVar instanceof bj) && !((bj) oVar).i()) {
+    public com.baidu.tieba.im.message.q a(com.baidu.tieba.im.message.q qVar, com.baidu.tieba.im.coder.d dVar) {
+        if (qVar != null && (qVar instanceof bt) && !((bt) qVar).k()) {
             String str = "";
-            if (TiebaApplication.F() != null) {
-                str = TiebaApplication.F().getID();
+            if (TiebaApplication.E() != null) {
+                str = TiebaApplication.E().getID();
             }
             l.a(com.baidu.tieba.b.a.a().r(), "p_group_info" + str, dVar);
         }

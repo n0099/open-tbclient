@@ -49,7 +49,7 @@ public class DottedLine extends ImageView {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         if (this.b == null) {
-            com.baidu.adp.lib.h.e.d("The bitmap not set by setNight() yet.");
+            com.baidu.adp.lib.g.e.d("The bitmap not set by setNight() yet.");
             return;
         }
         int width = getWidth() - getPaddingRight();

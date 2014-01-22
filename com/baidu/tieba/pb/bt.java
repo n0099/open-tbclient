@@ -1,6 +1,6 @@
 package com.baidu.tieba.pb;
 /* loaded from: classes.dex */
-class bt implements cm {
+class bt implements cl {
     final /* synthetic */ NewPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -8,15 +8,15 @@ class bt implements cm {
         this.a = newPbActivity;
     }
 
-    @Override // com.baidu.tieba.pb.cm
+    @Override // com.baidu.tieba.pb.cl
     public void a(String str) {
-        cs csVar;
-        cs csVar2;
-        if (!com.baidu.tieba.util.bm.c(str)) {
-            csVar = this.a.z;
-            if (com.baidu.tieba.util.bm.c(csVar.J())) {
-                csVar2 = this.a.z;
-                csVar2.d(str);
+        cr crVar;
+        cr crVar2;
+        if (!com.baidu.tieba.util.bu.c(str)) {
+            crVar = this.a.A;
+            if (com.baidu.tieba.util.bu.c(crVar.J())) {
+                crVar2 = this.a.A;
+                crVar2.d(str);
             }
         }
     }

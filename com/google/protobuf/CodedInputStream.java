@@ -1,7 +1,6 @@
 package com.google.protobuf;
 
 import cn.jingling.lib.file.Shared;
-import com.baidu.zeus.bouncycastle.DERTags;
 import com.google.protobuf.MessageLite;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -269,7 +268,7 @@ public final class CodedInputStream {
     }
 
     public static int readRawVarint32(int i, InputStream inputStream) {
-        if ((i & DERTags.TAGGED) != 0) {
+        if ((i & 128) != 0) {
             i &= 127;
             int i2 = 7;
             while (true) {
@@ -279,17 +278,17 @@ public final class CodedInputStream {
                         throw InvalidProtocolBufferException.truncatedMessage();
                     }
                     i |= (read & 127) << i2;
-                    if ((read & DERTags.TAGGED) == 0) {
+                    if ((read & 128) == 0) {
                         break;
                     }
                     i2 += 7;
                 } else {
-                    while (i2 < 64) {
+                    while (i2 < DEFAULT_RECURSION_LIMIT) {
                         int read2 = inputStream.read();
                         if (read2 == -1) {
                             throw InvalidProtocolBufferException.truncatedMessage();
                         }
-                        if ((read2 & DERTags.TAGGED) != 0) {
+                        if ((read2 & 128) != 0) {
                             i2 += 7;
                         }
                     }
@@ -302,7 +301,7 @@ public final class CodedInputStream {
 
     public long readRawVarint64() {
         long j = 0;
-        for (int i = 0; i < 64; i += 7) {
+        for (int i = 0; i < DEFAULT_RECURSION_LIMIT; i += 7) {
             byte readRawByte = readRawByte();
             j |= (readRawByte & Byte.MAX_VALUE) << i;
             if ((readRawByte & 128) == 0) {
@@ -332,7 +331,7 @@ public final class CodedInputStream {
 
     private CodedInputStream(byte[] bArr, int i, int i2) {
         this.currentLimit = Shared.INFINITY;
-        this.recursionLimit = 64;
+        this.recursionLimit = DEFAULT_RECURSION_LIMIT;
         this.sizeLimit = DEFAULT_SIZE_LIMIT;
         this.buffer = bArr;
         this.bufferSize = i + i2;
@@ -343,7 +342,7 @@ public final class CodedInputStream {
 
     private CodedInputStream(InputStream inputStream) {
         this.currentLimit = Shared.INFINITY;
-        this.recursionLimit = 64;
+        this.recursionLimit = DEFAULT_RECURSION_LIMIT;
         this.sizeLimit = DEFAULT_SIZE_LIMIT;
         this.buffer = new byte[4096];
         this.bufferSize = 0;

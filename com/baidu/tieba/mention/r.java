@@ -6,10 +6,8 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tieba.data.AntiData;
 import com.baidu.tieba.data.ao;
 import com.baidu.tieba.data.as;
-import com.baidu.tieba.data.ax;
 import com.baidu.tieba.model.cf;
-import com.baidu.tieba.util.at;
-import com.baidu.tieba.util.bo;
+import com.baidu.tieba.util.ax;
 import com.baidu.tieba.write.WriteActivity;
 import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
@@ -18,7 +16,7 @@ import org.apache.http.message.BasicNameValuePair;
 public class r extends BdAsyncTask<Object, Integer, String> {
     ArrayList<BasicNameValuePair> a;
     final /* synthetic */ j b;
-    private at c;
+    private ax c;
     private String d;
     private String e;
     private int f;
@@ -35,11 +33,11 @@ public class r extends BdAsyncTask<Object, Integer, String> {
     /* renamed from: d */
     public String a(Object... objArr) {
         try {
-            this.c = new at(this.d);
+            this.c = new ax(this.d);
             this.c.a(this.a);
-            return this.c.l();
+            return this.c.m();
         } catch (Exception e) {
-            bo.b("PostAsyncTask", "doInBackground", "error = " + e.getMessage());
+            com.baidu.adp.lib.g.e.b("PostAsyncTask", "doInBackground", "error = " + e.getMessage());
             return null;
         }
     }
@@ -53,7 +51,7 @@ public class r extends BdAsyncTask<Object, Integer, String> {
         Activity activity3;
         Activity activity4;
         try {
-            if (this.c != null && this.c.c()) {
+            if (this.c != null && this.c.d()) {
                 if (this.f == 1) {
                     ao aoVar = new ao();
                     aoVar.b(str);
@@ -67,7 +65,7 @@ public class r extends BdAsyncTask<Object, Integer, String> {
                 }
                 if (this.f == 2) {
                     activity2 = this.b.c;
-                    ax a = new cf(activity2, str).a();
+                    com.baidu.tieba.data.ax a = new cf(activity2, str).a();
                     String id = a.h().getId();
                     String name = a.h().getName();
                     String a2 = a.m().a();
@@ -79,7 +77,7 @@ public class r extends BdAsyncTask<Object, Integer, String> {
                 }
             } else if (this.c != null) {
                 activity = this.b.c;
-                com.baidu.adp.lib.h.g.a((Context) activity, this.c.i());
+                com.baidu.adp.lib.g.g.a((Context) activity, this.c.j());
             }
         } catch (Exception e2) {
         }
@@ -89,7 +87,7 @@ public class r extends BdAsyncTask<Object, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         if (this.c != null) {
-            this.c.j();
+            this.c.k();
         }
         super.cancel(true);
     }

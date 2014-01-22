@@ -9,7 +9,6 @@ import android.os.Build;
 import com.baidu.android.systemmonitor.c.c;
 import com.baidu.android.systemmonitor.freqstatistic.d;
 import com.baidu.android.systemmonitor.freqstatistic.e;
-import com.baidu.zeus.bouncycastle.DERTags;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes.dex */
 public final class AppManager {
@@ -136,7 +135,7 @@ public final class AppManager {
             } catch (NoSuchFieldException e3) {
             }
             if (packageInfo.applicationInfo != null) {
-                if ((packageInfo.applicationInfo.flags & DERTags.TAGGED) == 128) {
+                if ((packageInfo.applicationInfo.flags & 128) == 128) {
                     aVar.g = true;
                     aVar.a(true);
                 } else if ((packageInfo.applicationInfo.flags & 1) == 1) {

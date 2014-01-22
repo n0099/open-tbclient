@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ListView;
-import com.baidu.mobstat.StatService;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.BaseFragment;
 import com.baidu.tieba.BaseFragmentActivity;
@@ -18,14 +17,14 @@ import com.baidu.tieba.account.Register2Activity;
 import com.baidu.tieba.model.aa;
 import com.baidu.tieba.model.ac;
 import com.baidu.tieba.util.UtilHelper;
+import com.baidu.tieba.util.by;
 import com.baidu.tieba.view.UserIconBox;
-import com.baidu.tieba.view.cj;
+import com.baidu.tieba.view.cz;
 import com.baidu.tieba.voice.VoiceManager;
 import com.baidu.tieba.voice.af;
-import com.baidu.zeus.Headers;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class ForumFeedActivity extends BaseFragment implements cj {
+public class ForumFeedActivity extends BaseFragment implements cz {
     private VoiceManager a;
     private aa b;
     private i c;
@@ -139,8 +138,8 @@ public class ForumFeedActivity extends BaseFragment implements cj {
     }
 
     @Override // com.baidu.tieba.BaseFragment
-    public void c(int i) {
-        super.c(i);
+    public void d(int i) {
+        super.d(i);
         if (this.c != null) {
             this.c.a(i);
         }
@@ -211,9 +210,9 @@ public class ForumFeedActivity extends BaseFragment implements cj {
                 this.c.i();
             }
             if (this.b.i() == 1) {
-                StatService.onEvent(this.f, "forum_feed_refresh", Headers.REFRESH, 1);
+                by.a(this.f, "forum_feed_refresh", "refresh", 1, new Object[0]);
             } else if (this.b.i() == 2) {
-                StatService.onEvent(this.f, "forum_feed_loadmore", "load_more", 1);
+                by.a(this.f, "forum_feed_loadmore", "load_more", 1, new Object[0]);
             }
         } else if (this.c != null) {
             this.c.g();
@@ -242,7 +241,7 @@ public class ForumFeedActivity extends BaseFragment implements cj {
     }
 
     private boolean N() {
-        return (TiebaApplication.A() == null || TiebaApplication.G() == null) ? false : true;
+        return (TiebaApplication.A() == null || TiebaApplication.F() == null) ? false : true;
     }
 
     private void O() {
@@ -282,18 +281,18 @@ public class ForumFeedActivity extends BaseFragment implements cj {
         if (this.d != null) {
             frameLayout.removeView(this.d);
         }
-        int an = TiebaApplication.g().an();
-        this.d = f.a(this.f, j().getString(R.string.forum_feed_login_tip), an, this);
+        int al = TiebaApplication.h().al();
+        this.d = f.a(this.f, j().getString(R.string.forum_feed_login_tip), al, this);
         this.g.setVisibility(8);
         frameLayout.addView(this.d);
     }
 
-    @Override // com.baidu.tieba.view.cj
+    @Override // com.baidu.tieba.view.cz
     public ListView c() {
         return this.c.m();
     }
 
-    @Override // com.baidu.tieba.view.cj
+    @Override // com.baidu.tieba.view.cz
     public int a() {
         if (this.c == null) {
             return 0;
@@ -301,7 +300,7 @@ public class ForumFeedActivity extends BaseFragment implements cj {
         return this.c.n();
     }
 
-    @Override // com.baidu.tieba.view.cj
+    @Override // com.baidu.tieba.view.cz
     public com.baidu.adp.lib.d.b<TbImageView> G() {
         return this.i;
     }

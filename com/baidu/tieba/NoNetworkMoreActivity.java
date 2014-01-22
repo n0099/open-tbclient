@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.baidu.tieba.util.bs;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class NoNetworkMoreActivity extends j {
@@ -58,9 +59,9 @@ public class NoNetworkMoreActivity extends j {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j
     public void onChangeSkinType(int i) {
-        com.baidu.tieba.util.bl.a(this.b, i);
-        com.baidu.tieba.util.bl.a(this.c, i);
-        com.baidu.tieba.util.bl.d(this.a, i);
-        com.baidu.tieba.util.bl.e(this.d, i);
+        bs.a(this.b, i);
+        bs.a(this.c, i);
+        bs.d(this.a, i);
+        bs.e(this.d, i);
     }
 }

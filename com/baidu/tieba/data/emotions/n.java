@@ -16,6 +16,6 @@ public class n implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
         this.b.b = this.a;
-        com.baidu.tieba.im.messageCenter.e.a().d(new com.baidu.tieba.im.message.d(-120));
+        com.baidu.tieba.im.messageCenter.e.a().d(new com.baidu.tieba.im.message.e(-120));
     }
 }

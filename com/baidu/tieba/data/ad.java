@@ -1,7 +1,6 @@
 package com.baidu.tieba.data;
 
 import android.content.Context;
-import com.baidu.tieba.util.bo;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -56,7 +55,7 @@ public class ad {
         try {
             a(new JSONObject(str));
         } catch (Exception e) {
-            bo.b(getClass().getName(), "paserJson", e.toString());
+            com.baidu.adp.lib.g.e.b(getClass().getName(), "paserJson", e.toString());
         }
     }
 
@@ -85,7 +84,7 @@ public class ad {
             this.b = jSONObject.optInt("comment_amount", 0);
             this.c.setTbs(jSONObject.getJSONObject("tbs").optString("common"));
         } catch (Exception e) {
-            bo.b(getClass().getName(), "paserJson", e.toString());
+            com.baidu.adp.lib.g.e.b(getClass().getName(), "paserJson", e.toString());
         }
     }
 }

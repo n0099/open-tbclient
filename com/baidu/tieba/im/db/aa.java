@@ -1,20 +1,22 @@
 package com.baidu.tieba.im.db;
 
-import com.baidu.tieba.im.SingleRunnable;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes.dex */
-public class aa extends SingleRunnable<Void> {
-    final /* synthetic */ t a;
+class aa implements com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMessageCenterPojo>> {
+    final /* synthetic */ z a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aa(t tVar) {
-        this.a = tVar;
+    public aa(z zVar) {
+        this.a = zVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.SingleRunnable
-    /* renamed from: a */
-    public Void b() {
-        return null;
+    @Override // com.baidu.tieba.im.a
+    public void a(ConcurrentHashMap<String, ImMessageCenterPojo> concurrentHashMap) {
+        ImMessageCenterPojo imMessageCenterPojo = concurrentHashMap.get(this.a.a);
+        if (imMessageCenterPojo != null) {
+            imMessageCenterPojo.setGroup_name(this.a.b);
+        }
     }
 }

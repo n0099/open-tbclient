@@ -1,30 +1,40 @@
 package com.baidu.tieba.view;
 
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.tieba.voice.PlayVoiceBnt;
+import android.content.Context;
+import android.view.View;
 /* loaded from: classes.dex */
-public class aa {
-    public LinearLayout a;
-    public RelativeLayout b;
-    public TextView c;
-    public TextView d;
-    public TextView e;
-    public TextView f;
-    public TextView g;
-    public TextView h;
-    public CommonImageLayout i;
-    public PlayVoiceBnt j;
-    public String k;
-    public String l;
-    public int m;
-    public boolean n;
-    public UserIconBox o;
-    public UserIconBox p = null;
-    final /* synthetic */ x q;
+public class aa extends View {
+    private int a;
+    private int b;
 
-    public aa(x xVar) {
-        this.q = xVar;
+    public aa(Context context) {
+        super(context);
+        this.a = 0;
+        this.b = 0;
+    }
+
+    @Override // android.view.View
+    protected void onMeasure(int i, int i2) {
+        if (this.b == 0) {
+            setMeasuredDimension(i & 1073741823, this.a);
+        } else if (this.a == 0) {
+            setMeasuredDimension(this.b, 1073741823 & i2);
+        }
+    }
+
+    public void setHeightPx(int i) {
+        this.a = i;
+    }
+
+    public void setWidthPx(int i) {
+        this.b = i;
+    }
+
+    public void setHeightDip(int i) {
+        this.a = com.baidu.adp.lib.g.g.a(getContext(), i);
+    }
+
+    public void setWidthDip(int i) {
+        this.b = com.baidu.adp.lib.g.g.a(getContext(), i);
     }
 }

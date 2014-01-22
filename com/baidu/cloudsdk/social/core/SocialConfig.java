@@ -28,6 +28,18 @@ public final class SocialConfig extends BaseConfig {
         this.d = new ArrayList();
     }
 
+    public static void clean() {
+        if (a != null) {
+            a.b.clear();
+            a.c.clear();
+            a.mIntItems.clear();
+            a.d.clear();
+            a.mStringResources.clear();
+            a.mContext = null;
+            a = null;
+        }
+    }
+
     public static SocialConfig getInstance(Context context) {
         if (a == null) {
             a = new SocialConfig(context);

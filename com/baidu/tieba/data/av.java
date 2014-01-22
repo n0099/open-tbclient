@@ -1,7 +1,6 @@
 package com.baidu.tieba.data;
 
 import com.baidu.android.pushservice.PushConstants;
-import com.baidu.tieba.util.bo;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class av {
@@ -38,7 +37,7 @@ public class av {
         try {
             a(new JSONObject(str));
         } catch (Exception e) {
-            bo.b("MssageData", "parserJson", "error = " + e.getMessage());
+            com.baidu.adp.lib.g.e.b("MssageData", "parserJson", "error = " + e.getMessage());
         }
     }
 
@@ -51,7 +50,7 @@ public class av {
                 this.d = jSONObject.optString("to");
                 this.e = jSONObject.optString("stat");
             } catch (Exception e) {
-                bo.b("MssageData", "parserJson", "error = " + e.getMessage());
+                com.baidu.adp.lib.g.e.b("MssageData", "parserJson", "error = " + e.getMessage());
             }
         }
     }

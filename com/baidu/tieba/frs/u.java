@@ -1,10 +1,9 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.mobstat.StatService;
-import com.baidu.tieba.TiebaApplication;
-import com.slidingmenu.lib.SlidingMenu;
+import android.view.View;
+import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
-class u implements SlidingMenu.OnOpenedListener {
+class u implements com.baidu.tbadk.imageManager.c {
     final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,10 +11,31 @@ class u implements SlidingMenu.OnOpenedListener {
         this.a = frsActivity;
     }
 
-    @Override // com.slidingmenu.lib.SlidingMenu.OnOpenedListener
-    public void onOpened() {
-        if (TiebaApplication.g().s()) {
-            StatService.onEvent(this.a, "frs_total_more", "frsclick", 1);
+    @Override // com.baidu.tbadk.imageManager.c
+    public void a(com.baidu.adp.widget.ImageView.d dVar, String str, boolean z) {
+        bk bkVar;
+        bk bkVar2;
+        bk bkVar3;
+        if (dVar != null) {
+            bkVar = this.a.n;
+            if (bkVar != null) {
+                bkVar2 = this.a.n;
+                if (bkVar2.D() != null) {
+                    bkVar3 = this.a.n;
+                    View findViewWithTag = bkVar3.D().findViewWithTag(str);
+                    if (findViewWithTag != null) {
+                        if (findViewWithTag instanceof TbImageView) {
+                            TbImageView tbImageView = (TbImageView) findViewWithTag;
+                            if (!tbImageView.getIsLoaded()) {
+                                tbImageView.invalidate();
+                                return;
+                            }
+                            return;
+                        }
+                        findViewWithTag.invalidate();
+                    }
+                }
+            }
         }
     }
 }

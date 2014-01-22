@@ -5,6 +5,7 @@ import com.baidu.cloudsdk.IBaiduListener;
 import com.baidu.cloudsdk.assets.AssetFileUtils;
 import com.baidu.cloudsdk.common.http.AsyncHttpClient;
 import com.baidu.cloudsdk.common.util.Validator;
+import com.o;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -14,7 +15,6 @@ import org.json.JSONObject;
 public abstract class BaseConfig {
     protected Context mContext;
     protected Map mStringResources = new HashMap();
-    protected Map mAssetFiles = new HashMap();
     protected Map mIntItems = new HashMap();
     private boolean a = false;
 
@@ -37,13 +37,9 @@ public abstract class BaseConfig {
         if (optJSONObject != null) {
             copyStringFromJsonObject2Map(optJSONObject, this.mStringResources);
         }
-        JSONObject optJSONObject2 = jSONObject.optJSONObject("files");
+        JSONObject optJSONObject2 = jSONObject.optJSONObject("ints");
         if (optJSONObject2 != null) {
-            copyStringFromJsonObject2Map(optJSONObject2, this.mAssetFiles);
-        }
-        JSONObject optJSONObject3 = jSONObject.optJSONObject("ints");
-        if (optJSONObject3 != null) {
-            copyIntegerFromJsonObject2Map(optJSONObject3, this.mIntItems);
+            copyIntegerFromJsonObject2Map(optJSONObject2, this.mIntItems);
         }
         loadSelfDefinedConfigItems(jSONObject);
     }
@@ -63,10 +59,6 @@ public abstract class BaseConfig {
             String next = keys.next();
             map.put(next, jSONObject.optString(next));
         }
-    }
-
-    public String getAssetFileName(String str) {
-        return (String) this.mAssetFiles.get(str);
     }
 
     protected abstract String getDefaultConfigFile();
@@ -105,5 +97,9 @@ public abstract class BaseConfig {
     }
 
     protected void loadSelfDefinedConfigItems(JSONObject jSONObject) {
+    }
+
+    public void putInt(String str, int i) {
+        this.mIntItems.put(str, Integer.valueOf(i));
     }
 }

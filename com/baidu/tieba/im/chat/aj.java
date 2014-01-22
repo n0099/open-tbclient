@@ -1,34 +1,24 @@
 package com.baidu.tieba.im.chat;
-
-import android.view.animation.Animation;
-import com.baidu.tieba.view.NavigationBar;
 /* loaded from: classes.dex */
-class aj implements Animation.AnimationListener {
-    final /* synthetic */ ai a;
+class aj implements com.baidu.tieba.im.a<Boolean> {
+    final /* synthetic */ GroupSettingActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aj(ai aiVar) {
-        this.a = aiVar;
+    public aj(GroupSettingActivity groupSettingActivity) {
+        this.a = groupSettingActivity;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        boolean z;
-        NavigationBar navigationBar;
-        this.a.a.o = true;
-        z = this.a.a.p;
-        if (z) {
-            this.a.a.p = false;
-            navigationBar = this.a.a.i;
-            navigationBar.setVisibility(8);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.a
+    public void a(Boolean bool) {
+        av avVar;
+        av avVar2;
+        if (bool == null || !bool.equals(true)) {
+            avVar = this.a.a;
+            avVar.u().b();
+            return;
         }
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
+        avVar2 = this.a.a;
+        avVar2.u().a();
     }
 }

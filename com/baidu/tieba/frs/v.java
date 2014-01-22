@@ -1,10 +1,8 @@
 package com.baidu.tieba.frs;
 
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.GridView;
 /* loaded from: classes.dex */
-class v implements AdapterView.OnItemClickListener {
+class v implements com.baidu.tbadk.imageManager.c {
     final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,17 +10,15 @@ class v implements AdapterView.OnItemClickListener {
         this.a = frsActivity;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        bo boVar;
-        if (i >= 0) {
-            boVar = this.a.n;
-            boVar.i(i);
-            this.a.u = true;
-            this.a.t = ((com.baidu.tieba.data.aa) ((GridView) adapterView).getAdapter().getItem(i)).b();
-            this.a.i = 1;
-            this.a.e = 3;
-            this.a.C();
+    @Override // com.baidu.tbadk.imageManager.c
+    public void a(com.baidu.adp.widget.ImageView.d dVar, String str, boolean z) {
+        bk bkVar;
+        if (dVar != null) {
+            bkVar = this.a.n;
+            View d = bkVar.d(str);
+            if (d != null) {
+                d.invalidate();
+            }
         }
     }
 }

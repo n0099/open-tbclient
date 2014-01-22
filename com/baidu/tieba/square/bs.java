@@ -1,10 +1,11 @@
 package com.baidu.tieba.square;
 
-import android.widget.CompoundButton;
-import android.widget.RadioButton;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.widget.Button;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bs implements CompoundButton.OnCheckedChangeListener {
+public class bs implements TextWatcher {
     final /* synthetic */ SquareSearchActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,19 +13,44 @@ public class bs implements CompoundButton.OnCheckedChangeListener {
         this.a = squareSearchActivity;
     }
 
-    @Override // android.widget.CompoundButton.OnCheckedChangeListener
-    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-        RadioButton radioButton;
-        RadioButton radioButton2;
-        RadioButton radioButton3;
-        if (z) {
-            this.a.a(1);
-            radioButton = this.a.k;
-            radioButton.setChecked(false);
-            radioButton2 = this.a.k;
-            radioButton2.setSelected(false);
-            radioButton3 = this.a.l;
-            radioButton3.setSelected(true);
+    @Override // android.text.TextWatcher
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+        String str;
+        int i4;
+        int i5;
+        this.a.C = charSequence.toString();
+        str = this.a.C;
+        if (str.trim().length() > 0) {
+            i5 = this.a.D;
+            if (i5 == 0) {
+                this.a.h();
+                return;
+            }
+            return;
         }
+        this.a.a();
+        i4 = this.a.D;
+        if (i4 == 0) {
+            this.a.f();
+        } else {
+            this.a.g();
+        }
+    }
+
+    @Override // android.text.TextWatcher
+    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    }
+
+    @Override // android.text.TextWatcher
+    public void afterTextChanged(Editable editable) {
+        Button button;
+        Button button2;
+        if (editable.toString().trim().length() == 0) {
+            button2 = this.a.d;
+            button2.setVisibility(8);
+            return;
+        }
+        button = this.a.d;
+        button.setVisibility(0);
     }
 }

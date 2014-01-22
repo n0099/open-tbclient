@@ -70,18 +70,18 @@ public class MyPostActivity extends ActivityGroup {
     @Override // android.app.ActivityGroup, android.app.Activity
     protected void onResume() {
         super.onResume();
-        if (TiebaApplication.g().an() != this.a) {
-            this.a = TiebaApplication.g().an();
+        if (TiebaApplication.h().al() != this.a) {
+            this.a = TiebaApplication.h().al();
             a(this.a);
         }
     }
 
     public void a(int i) {
-        com.baidu.tieba.util.bl.a(this.b, i);
-        com.baidu.tieba.util.bl.d(this.c, i);
-        com.baidu.tieba.util.bl.e(this.f, i);
-        com.baidu.tieba.util.bl.a(this.d, i);
-        com.baidu.tieba.util.bl.b(this.e, i);
+        com.baidu.tieba.util.bs.a(this.b, i);
+        com.baidu.tieba.util.bs.d(this.c, i);
+        com.baidu.tieba.util.bs.e(this.f, i);
+        com.baidu.tieba.util.bs.a(this.d, i);
+        com.baidu.tieba.util.bs.b(this.e, i);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

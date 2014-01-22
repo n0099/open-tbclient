@@ -4,8 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import com.baidu.cloudsdk.social.core.SocialConstants;
-import com.baidu.mobstat.StatService;
-import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.util.by;
 /* loaded from: classes.dex */
 public class ForumDetailActivity extends com.baidu.tieba.j {
     private e a = null;
@@ -33,9 +32,7 @@ public class ForumDetailActivity extends com.baidu.tieba.j {
         super.onCreate(bundle);
         a();
         b();
-        if (TiebaApplication.g().s()) {
-            StatService.onEvent(this, getIntent().getStringExtra("from_type").equals(FromType.FRS.toString()) ? "detail_from_frs" : "detail_from_bar_dir", "click", 1);
-        }
+        by.a(this, getIntent().getStringExtra("from_type").equals(FromType.FRS.toString()) ? "detail_from_frs" : "detail_from_bar_dir", "click", 1, new Object[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

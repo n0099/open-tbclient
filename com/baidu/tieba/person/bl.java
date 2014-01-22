@@ -1,8 +1,6 @@
 package com.baidu.tieba.person;
 
-import com.baidu.mobstat.StatService;
 import com.baidu.tieba.BaseFragmentActivity;
-import com.baidu.tieba.TiebaApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bl implements com.baidu.adp.widget.ScrollView.n {
@@ -16,10 +14,8 @@ public class bl implements com.baidu.adp.widget.ScrollView.n {
     @Override // com.baidu.adp.widget.ScrollView.n
     public void a() {
         BaseFragmentActivity baseFragmentActivity;
-        if (TiebaApplication.g().s()) {
-            baseFragmentActivity = this.a.g;
-            StatService.onEvent(baseFragmentActivity, "person_info_pull", "infopull", 1);
-        }
+        baseFragmentActivity = this.a.g;
+        com.baidu.tieba.util.by.a(baseFragmentActivity, "person_info_pull", "infopull", 1, new Object[0]);
         this.a.a();
     }
 }

@@ -1,47 +1,43 @@
 package com.baidu.tieba.im.message;
 
 import com.google.protobuf.MessageLite;
-import protobuf.UpdateMaskInfo.UpdateMaskInfoReq;
+import protobuf.UpdateChatroomTopic.UpdateChatroomTopicReq;
 /* loaded from: classes.dex */
-public class aw extends o implements com.baidu.tieba.im.coder.g {
+public class aw extends q implements com.baidu.tieba.im.coder.g {
     private int a;
-    private int b;
+    private String b;
     private String c;
 
     public aw() {
-        e(104102);
-    }
-
-    @Override // com.baidu.tieba.im.coder.g
-    public MessageLite a() {
-        return UpdateMaskInfoReq.UpdateMaskInfoReqIdl.newBuilder().a(UpdateMaskInfoReq.DataReq.newBuilder().a(b()).b(c()).a(d()).build()).build();
-    }
-
-    public int b() {
-        return this.a;
+        e(106103);
     }
 
     public void a(int i) {
         this.a = i;
     }
 
-    public int c() {
+    public void a(String str) {
+        this.b = str;
+    }
+
+    public void b(String str) {
+        this.c = str;
+    }
+
+    public int b() {
+        return this.a;
+    }
+
+    public String c() {
         return this.b;
-    }
-
-    public void b(int i) {
-        this.b = i;
-    }
-
-    public void a(boolean z) {
-        this.b = z ? 1 : 0;
     }
 
     public String d() {
         return this.c;
     }
 
-    public void a(String str) {
-        this.c = str;
+    @Override // com.baidu.tieba.im.coder.g
+    public MessageLite a() {
+        return UpdateChatroomTopicReq.UpdateChatroomTopicReqIdl.newBuilder().a(UpdateChatroomTopicReq.DataReq.newBuilder().a(b()).a(c()).b(d()).build()).build();
     }
 }

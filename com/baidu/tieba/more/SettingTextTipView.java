@@ -27,7 +27,7 @@ public class SettingTextTipView extends FrameLayout {
         this.b = context;
         e();
         a(attributeSet);
-        a(TiebaApplication.g().an());
+        a(TiebaApplication.h().al());
     }
 
     public SettingTextTipView(Context context) {
@@ -35,7 +35,7 @@ public class SettingTextTipView extends FrameLayout {
         this.a = true;
         this.b = context;
         e();
-        a(TiebaApplication.g().an());
+        a(TiebaApplication.h().al());
     }
 
     public void b() {
@@ -99,7 +99,7 @@ public class SettingTextTipView extends FrameLayout {
     }
 
     protected void a(AttributeSet attributeSet) {
-        TypedArray obtainStyledAttributes = this.b.obtainStyledAttributes(attributeSet, com.baidu.tieba.au.SettingView);
+        TypedArray obtainStyledAttributes = this.b.obtainStyledAttributes(attributeSet, com.baidu.tieba.ax.SettingView);
         String string = obtainStyledAttributes.getString(0);
         int color = obtainStyledAttributes.getColor(1, -1);
         String string2 = obtainStyledAttributes.getString(3);

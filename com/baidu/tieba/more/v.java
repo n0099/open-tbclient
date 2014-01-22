@@ -3,7 +3,6 @@ package com.baidu.tieba.more;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.browser.core.util.BdUtil;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tieba.util.DatabaseService;
 import com.baidu.tieba.view.BaseWebView;
@@ -12,7 +11,7 @@ import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class v extends BdAsyncTask<Object, Integer, String> {
     final /* synthetic */ AppsActivity a;
-    private com.baidu.tieba.util.at b = null;
+    private com.baidu.tieba.util.ax b = null;
     private String c;
 
     public v(AppsActivity appsActivity, String str) {
@@ -43,17 +42,17 @@ public class v extends BdAsyncTask<Object, Integer, String> {
         if (this.c == null) {
             return null;
         }
-        this.b = new com.baidu.tieba.util.at(this.c);
+        this.b = new com.baidu.tieba.util.ax(this.c);
         this.b.b(false);
         this.b.a("client", SocialConstants.ANDROID_CLIENT_TYPE);
-        return this.b.l();
+        return this.b.m();
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         ProgressBar progressBar;
         if (this.b != null) {
-            this.b.j();
+            this.b.k();
         }
         progressBar = this.a.f;
         progressBar.setVisibility(8);
@@ -73,7 +72,7 @@ public class v extends BdAsyncTask<Object, Integer, String> {
         BaseWebView baseWebView3;
         progressBar = this.a.f;
         progressBar.setVisibility(8);
-        if (this.b == null || !this.b.d() || str == null || str.length() <= 0) {
+        if (this.b == null || !this.b.e() || str == null || str.length() <= 0) {
             d = this.a.d();
             if (!d && str == null) {
                 baseWebView2 = this.a.b;
@@ -85,12 +84,12 @@ public class v extends BdAsyncTask<Object, Integer, String> {
             }
             String string = this.a.getString(R.string.server_404);
             baseWebView = this.a.b;
-            baseWebView.loadDataWithBaseURL(com.baidu.tieba.data.h.a, string, "text/html", BdUtil.UTF8, "");
+            baseWebView.loadDataWithBaseURL(com.baidu.tieba.data.h.a, string, "text/html", "utf-8", "");
             return;
         }
         DatabaseService.a(str, 7);
         com.baidu.tieba.sharedPref.b.a().b("app_inverval", System.currentTimeMillis());
         baseWebView3 = this.a.b;
-        baseWebView3.loadDataWithBaseURL(com.baidu.tieba.data.h.a, str, "text/html", BdUtil.UTF8, "");
+        baseWebView3.loadDataWithBaseURL(com.baidu.tieba.data.h.a, str, "text/html", "utf-8", "");
     }
 }

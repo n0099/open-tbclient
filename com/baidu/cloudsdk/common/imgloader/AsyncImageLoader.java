@@ -7,7 +7,6 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.util.Log;
 import com.baidu.android.pushservice.PushConstants;
-import com.baidu.zeus.bouncycastle.DERTags;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FilterInputStream;
@@ -16,9 +15,10 @@ import java.io.InputStream;
 import java.net.URL;
 /* loaded from: classes.dex */
 public class AsyncImageLoader extends AsyncTask {
-    private static final String a = AsyncImageLoader.class.getSimpleName();
-    private Context b;
-    private IAsyncImageLoaderListener c;
+    private static final String b = AsyncImageLoader.class.getSimpleName();
+    private int a;
+    private Context c;
+    private IAsyncImageLoaderListener d;
 
     /* loaded from: classes.dex */
     public interface IAsyncImageLoaderListener {
@@ -49,16 +49,18 @@ public class AsyncImageLoader extends AsyncTask {
         }
     }
 
-    public AsyncImageLoader(Context context, IAsyncImageLoaderListener iAsyncImageLoaderListener) {
-        this.b = context;
-        this.c = iAsyncImageLoaderListener;
+    public AsyncImageLoader(Context context, int i, IAsyncImageLoaderListener iAsyncImageLoaderListener) {
+        this.a = 19656;
+        this.c = context.getApplicationContext();
+        this.d = iAsyncImageLoaderListener;
+        this.a = i;
     }
 
     private static int a(BitmapFactory.Options options, int i, int i2) {
         double d = options.outWidth;
         double d2 = options.outHeight;
         int ceil = i2 == -1 ? 1 : (int) Math.ceil(Math.sqrt((d * d2) / i2));
-        int min = i == -1 ? DERTags.TAGGED : (int) Math.min(Math.floor(d / i), Math.floor(d2 / i));
+        int min = i == -1 ? 128 : (int) Math.min(Math.floor(d / i), Math.floor(d2 / i));
         if (min < ceil) {
             return ceil;
         }
@@ -71,7 +73,7 @@ public class AsyncImageLoader extends AsyncTask {
     private InputStream a(Uri uri) {
         try {
         } catch (IOException e) {
-            Log.e(a, "IOexception");
+            Log.e(b, "IOexception");
             e.printStackTrace();
         }
         if (uri.getScheme() == null) {
@@ -80,8 +82,8 @@ public class AsyncImageLoader extends AsyncTask {
         if (uri.getScheme().equalsIgnoreCase("http") || uri.getScheme().equalsIgnoreCase("https")) {
             return new URL(uri.toString()).openStream();
         }
-        if ((uri.getScheme().equalsIgnoreCase(PushConstants.EXTRA_CONTENT) || uri.getScheme().equalsIgnoreCase("file")) && this.b != null) {
-            return this.b.getContentResolver().openInputStream(uri);
+        if ((uri.getScheme().equalsIgnoreCase(PushConstants.EXTRA_CONTENT) || uri.getScheme().equalsIgnoreCase("file")) && this.c != null) {
+            return this.c.getContentResolver().openInputStream(uri);
         }
         return null;
     }
@@ -110,7 +112,7 @@ public class AsyncImageLoader extends AsyncTask {
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inJustDecodeBounds = true;
         BitmapFactory.decodeStream(a2, null, options);
-        options.inSampleSize = computeSampleSize(options, -1, 1048576);
+        options.inSampleSize = computeSampleSize(options, -1, this.a);
         options.inJustDecodeBounds = false;
         InputStream a3 = a(uri);
         if (a3 != null) {
@@ -119,12 +121,12 @@ public class AsyncImageLoader extends AsyncTask {
                 try {
                     a3.close();
                 } catch (IOException e) {
-                    Log.e(a, "IO exception");
+                    Log.e(b, "IO exception");
                     e.printStackTrace();
                 }
                 return decodeStream;
             } catch (OutOfMemoryError e2) {
-                Log.e(a, "out of memory err no bitmap found");
+                Log.e(b, "out of memory err no bitmap found");
                 e2.printStackTrace();
                 return null;
             }
@@ -136,8 +138,9 @@ public class AsyncImageLoader extends AsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
     public void onPostExecute(Bitmap bitmap) {
-        if (this.c != null) {
-            this.c.onComplete(bitmap);
+        if (this.d != null) {
+            this.d.onComplete(bitmap);
         }
+        this.c = null;
     }
 }

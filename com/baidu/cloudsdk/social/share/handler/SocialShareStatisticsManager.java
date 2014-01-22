@@ -35,23 +35,8 @@ public class SocialShareStatisticsManager extends WidgetStatisticsManager {
         requestParams.put(SocialConstants.PARAM_MEDIA_TYPE, str2);
         requestParams.put(SocialConstants.PARAM_CLIENT_TYPE, SocialConstants.ANDROID_CLIENT_TYPE);
         requestParams.put(SocialConstants.PARAM_URL, str);
-        setCommonParams(requestParams);
+        setCommonParams(this.mContext, requestParams);
         new AsyncHttpClient().get(null, "http://openapi.baidu.com/social/api/2.0/share/back/url", requestParams, httpResponseHandler);
-    }
-
-    @Override // com.baidu.cloudsdk.social.core.WidgetStatisticsManager
-    protected String getWidgetName() {
-        return "share";
-    }
-
-    @Override // com.baidu.cloudsdk.social.core.WidgetStatisticsManager
-    protected String getWidgetVersion() {
-        return "2.1.0";
-    }
-
-    @Override // com.baidu.cloudsdk.social.core.WidgetStatisticsManager
-    protected String getWidgetVersionFlag() {
-        return "i";
     }
 
     public void statistics(MediaType mediaType, ShareContent shareContent) {
@@ -66,7 +51,7 @@ public class SocialShareStatisticsManager extends WidgetStatisticsManager {
         requestParams.put(SocialConstants.PARAM_CLIENT_TYPE, SocialConstants.ANDROID_CLIENT_TYPE);
         requestParams.put(SocialConstants.PARAM_MEDIA_TYPE, str);
         requestParams.put(SocialConstants.PARAM_URL, shareContent.getLinkUrl());
-        setCommonParams(requestParams);
+        setCommonParams(this.mContext, requestParams);
         new AsyncHttpClient().get(null, "http://openapi.baidu.com/social/api/2.0/share/statistics", requestParams, null);
     }
 }

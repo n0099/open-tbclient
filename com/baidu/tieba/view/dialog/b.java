@@ -1,25 +1,23 @@
 package com.baidu.tieba.view.dialog;
 
 import android.view.View;
-import android.widget.Button;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b implements View.OnClickListener {
-    final /* synthetic */ int a;
-    final /* synthetic */ Button b;
-    final /* synthetic */ a c;
+class b implements View.OnClickListener {
+    final /* synthetic */ a a;
+    private a b;
+    private c c;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public b(a aVar, int i, Button button) {
-        this.c = aVar;
-        this.a = i;
-        this.b = button;
+    public b(a aVar, a aVar2, c cVar) {
+        this.a = aVar;
+        this.b = aVar2;
+        this.c = cVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        c cVar;
-        cVar = this.c.c;
-        cVar.a(this.c, this.a, this.b);
+        if (this.c != null) {
+            this.c.onClick(this.b);
+        }
+        this.a.c();
     }
 }

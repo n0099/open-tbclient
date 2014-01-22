@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import com.baidu.android.common.security.RSAUtil;
 import com.baidu.android.silentupdate.a;
-import com.baidu.browser.core.util.BdUtil;
+import com.baidu.sapi2.shell.b;
 import java.io.UnsupportedEncodingException;
 import java.security.KeyFactory;
 import java.security.PublicKey;
@@ -100,7 +100,7 @@ public class PushConstants {
 
     public static String rsaEncrypt(String str) {
         try {
-            return a.a(a(str.getBytes(), b, 1024), BdUtil.UTF8);
+            return a.a(a(str.getBytes(), b, a), "utf-8");
         } catch (UnsupportedEncodingException e) {
             return null;
         } catch (Exception e2) {
@@ -161,7 +161,7 @@ public class PushConstants {
 
     private static byte[] a(byte[] bArr, String str, int i) {
         PublicKey generatePublic = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(a.a(str.getBytes())));
-        Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+        Cipher cipher = Cipher.getInstance(b.a);
         cipher.init(1, generatePublic);
         int i2 = i / 8;
         int i3 = i2 - 11;

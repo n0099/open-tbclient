@@ -108,17 +108,17 @@ public class bu extends BdAsyncTask<Integer, Integer, String> {
         bt btVar2;
         bt btVar3;
         super.a((bu) str);
-        com.baidu.tieba.util.bo.e(getClass().getName(), "onPostExecute", "result:" + str);
+        com.baidu.adp.lib.g.e.e(getClass().getName(), "onPostExecute", "result:" + str);
         this.a.a = null;
         if (!this.d) {
             if (str == null) {
                 btVar = this.a.c;
-                btVar.a(false, TiebaApplication.g().getString(R.string.neterror), null, null, null);
+                btVar.a(false, TiebaApplication.h().getString(R.string.neterror), null, null, null);
             } else if (this.b.a()) {
                 ErrorData errorData = new ErrorData();
                 errorData.parserJson(this.c);
                 if (errorData.getError_msg() == null || errorData.getError_msg().length() <= 0) {
-                    errorData.setError_msg(TiebaApplication.g().getString(R.string.send_success));
+                    errorData.setError_msg(TiebaApplication.h().getString(R.string.send_success));
                     btVar2 = this.a.c;
                     if (btVar2 != null) {
                         AntiData e = (this.b == null || !this.b.a()) ? null : this.b.e();

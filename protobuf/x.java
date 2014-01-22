@@ -12,11 +12,6 @@ public final class x extends GeneratedMessageLite.Builder<Im.Photo, x> implement
     private Object c = "";
     private Object d = "";
 
-    /* JADX DEBUG: Method not inlined, still used in: [protobuf.Im.Photo.newBuilder():protobuf.x] */
-    public static /* synthetic */ x f() {
-        return h();
-    }
-
     private x() {
         g();
     }

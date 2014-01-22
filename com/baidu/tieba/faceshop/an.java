@@ -1,8 +1,22 @@
 package com.baidu.tieba.faceshop;
+
+import com.baidu.tieba.TiebaApplication;
 /* loaded from: classes.dex */
 public class an extends com.baidu.adp.a.d {
     private ap a;
     private String b;
+    private int c;
+    private int d;
+    private float e;
+
+    public an() {
+        this.c = 0;
+        this.d = 0;
+        TiebaApplication h = TiebaApplication.h();
+        this.c = com.baidu.adp.lib.g.g.b(h);
+        this.d = com.baidu.adp.lib.g.g.c(h);
+        this.e = h.getResources().getDisplayMetrics().density;
+    }
 
     public void a(String str) {
         this.b = str;

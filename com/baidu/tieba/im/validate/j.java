@@ -1,7 +1,6 @@
 package com.baidu.tieba.im.validate;
 
 import android.view.View;
-import com.baidu.browser.webpool.BdWebPoolView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements View.OnLongClickListener {
@@ -20,7 +19,7 @@ public class j implements View.OnLongClickListener {
         validateActivity = this.a.i;
         view2 = this.a.c;
         validateItemData = this.a.j;
-        validateActivity.b(view2, BdWebPoolView.DELAYED_TIME, 0, 0L, validateItemData);
+        validateActivity.b(view2, 200, 0, 0L, validateItemData);
         return true;
     }
 }

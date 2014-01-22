@@ -50,9 +50,9 @@ class s extends Handler {
                 this.a.j = true;
                 return;
             }
-            UtilHelper.a(TiebaApplication.g(), versionData.getNew_file());
+            UtilHelper.a(TiebaApplication.h(), versionData.getNew_file());
             if (this.a.a != null && this.a.a.length() > 4) {
-                TiebaApplication.g().m(this.a.a);
+                TiebaApplication.h().l(this.a.a);
             }
             this.a.stopSelf();
         }

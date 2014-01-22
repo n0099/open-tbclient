@@ -1,21 +1,37 @@
 package com.baidu.tieba.view;
 
-import android.app.Activity;
 import android.view.View;
-import com.baidu.tieba.barcode.CaptureActivity;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bm implements View.OnClickListener {
-    final /* synthetic */ SearchBoxView a;
+public class bm implements y {
+    final /* synthetic */ MultiImageView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bm(SearchBoxView searchBoxView) {
-        this.a = searchBoxView;
+    public bm(MultiImageView multiImageView) {
+        this.a = multiImageView;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Activity activity;
-        activity = this.a.a;
-        CaptureActivity.a(activity, 16003);
+    @Override // com.baidu.tieba.view.y
+    public void a(u uVar) {
+        GalleryViewPager galleryViewPager;
+        boolean z;
+        GalleryViewPager galleryViewPager2;
+        GalleryViewPager galleryViewPager3;
+        galleryViewPager = this.a.e;
+        if (uVar == galleryViewPager.getCurrentView()) {
+            z = this.a.l;
+            if (z) {
+                galleryViewPager2 = this.a.e;
+                int childCount = galleryViewPager2.getChildCount();
+                for (int i = 0; i < childCount; i++) {
+                    galleryViewPager3 = this.a.e;
+                    View childAt = galleryViewPager3.getChildAt(i);
+                    if (childAt != null && (childAt instanceof cq) && ((cq) childAt).getImageView() != uVar) {
+                        ((cq) childAt).d();
+                    }
+                }
+            }
+            uVar.e();
+        }
     }
 }

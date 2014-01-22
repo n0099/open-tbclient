@@ -17,6 +17,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Stack;
 /* loaded from: classes.dex */
 public class e {
     private Resources c;
@@ -98,7 +99,7 @@ public class e {
                     dVar.r(a[1]);
                     z = true;
                 }
-                if (z && com.baidu.tieba.data.h.v() && (a2 = com.baidu.adp.lib.f.b.a(attributeValue.substring(1), 0)) != 0) {
+                if (z && com.baidu.tieba.data.h.u() && (a2 = com.baidu.adp.lib.f.b.a(attributeValue.substring(1), 0)) != 0) {
                     dVar.a(attributeName + "=" + this.c.getResourceName(a2));
                 }
             }
@@ -106,7 +107,7 @@ public class e {
                 if (!TextUtils.isEmpty(dVar.g()) && this.a != null && !this.a.containsKey(dVar.g())) {
                     this.a.put(dVar.g(), dVar);
                 } else if (TextUtils.isEmpty(dVar.g())) {
-                    com.baidu.adp.lib.h.e.a(dVar.toString() + " PLEASE SET ID!!!");
+                    com.baidu.adp.lib.g.e.a(dVar.toString() + " PLEASE SET ID!!!");
                 } else if (this.a.containsKey(dVar.g())) {
                 }
             }
@@ -129,94 +130,130 @@ public class e {
         if (resourceName != null) {
             int identifier = resources.getIdentifier(resourceName + "_1", null, null);
             if (identifier == 0) {
-                com.baidu.adp.lib.h.e.a(resourceName + " 缺少夜间资源,使用了日间资源");
+                com.baidu.adp.lib.g.e.a(resourceName + " 缺少夜间资源,使用了日间资源");
                 return i;
             }
             return identifier;
         }
-        com.baidu.adp.lib.h.e.a(i + " cann't find name");
+        com.baidu.adp.lib.g.e.a(i + " cann't find name");
         return i;
     }
 
     public void a(View view) {
         if (view != null) {
-            String str = "@" + view.getId();
-            if (this.a != null && this.a.containsKey(str)) {
-                d dVar = this.a.get(str);
-                if (view instanceof TextView) {
-                    if (dVar.n() != 0) {
-                        ((TextView) view).setTextColor(this.c.getColorStateList(this.b ? dVar.n() : dVar.m()));
-                    }
-                    if (dVar.q() != 0) {
-                        ((TextView) view).setTextAppearance(view.getContext(), this.b ? dVar.q() : dVar.r());
-                    }
-                    if (dVar.d() != 0) {
-                        ((TextView) view).setCompoundDrawablesWithIntrinsicBounds((Drawable) null, this.c.getDrawable(this.b ? dVar.d() : dVar.c()), (Drawable) null, (Drawable) null);
-                    }
-                    if (dVar.b() != 0) {
-                        ((TextView) view).setCompoundDrawablesWithIntrinsicBounds(this.c.getDrawable(this.b ? dVar.b() : dVar.a()), (Drawable) null, (Drawable) null, (Drawable) null);
-                    }
-                    if (dVar.i() != 0) {
-                        ((TextView) view).setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, this.c.getDrawable(this.b ? dVar.i() : dVar.h()), (Drawable) null);
-                    }
-                } else if (view instanceof ImageButton) {
-                    if (dVar.o() != 0) {
-                        Drawable drawable = this.c.getDrawable(this.b ? dVar.o() : dVar.p());
-                        if (drawable != null) {
-                            ((ImageView) view).setImageDrawable(drawable);
+            Stack stack = new Stack();
+            stack.push(view);
+            while (!stack.isEmpty()) {
+                View view2 = (View) stack.pop();
+                if (view2 instanceof ViewGroup) {
+                    a((ViewGroup) view2);
+                    if (!(view2 instanceof AdapterView)) {
+                        int childCount = ((ViewGroup) view2).getChildCount();
+                        for (int i = 0; i < childCount; i++) {
+                            stack.push(((ViewGroup) view2).getChildAt(i));
                         }
                     }
-                } else if (view instanceof ImageView) {
-                    if (dVar.o() != 0) {
-                        Drawable drawable2 = this.c.getDrawable(this.b ? dVar.o() : dVar.p());
-                        if (drawable2 != null) {
-                            ((ImageView) view).setImageDrawable(drawable2);
-                        }
-                    }
-                } else if (view instanceof AdapterView) {
-                    if ((view instanceof ListView) && dVar.f() != 0) {
-                        ListView listView = (ListView) view;
-                        int dividerHeight = listView.getDividerHeight();
-                        listView.setDivider(this.c.getDrawable(this.b ? dVar.f() : dVar.e()));
-                        listView.setDividerHeight(dividerHeight);
-                    }
-                    Adapter adapter = ((AdapterView) view).getAdapter();
-                    if (adapter != null && (adapter instanceof BaseAdapter)) {
-                        ((BaseAdapter) adapter).notifyDataSetChanged();
-                    }
-                } else if ((view instanceof ProgressBar) && dVar.t() != 0) {
-                    Drawable drawable3 = this.c.getDrawable(this.b ? dVar.t() : dVar.s());
-                    if (drawable3 != null) {
-                        ((ProgressBar) view).setProgressDrawable(drawable3);
-                    }
-                }
-                if (dVar.l() != 0) {
-                    int paddingLeft = view.getPaddingLeft();
-                    int paddingTop = view.getPaddingTop();
-                    int paddingRight = view.getPaddingRight();
-                    int paddingBottom = view.getPaddingBottom();
-                    int l = this.b ? dVar.l() : dVar.k();
-                    String resourceTypeName = this.c.getResourceTypeName(l);
-                    if (resourceTypeName != null && resourceTypeName.equals("color")) {
-                        view.setBackgroundColor(this.c.getColor(l));
-                        com.baidu.adp.lib.h.e.d("type:" + resourceTypeName + ",id:" + dVar.g() + ",name:" + dVar.j());
-                    } else {
-                        view.setBackgroundResource(l);
-                        com.baidu.adp.lib.h.e.d("type:" + resourceTypeName + ",id:" + dVar.g() + ",name:" + dVar.j());
-                    }
-                    view.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
+                } else {
+                    b(view2);
                 }
             }
-            if (view instanceof ViewGroup) {
-                int childCount = ((ViewGroup) view).getChildCount();
-                for (int i = 0; i < childCount; i++) {
-                    try {
-                        a(((ViewGroup) view).getChildAt(i));
-                    } catch (Exception e) {
-                        com.baidu.adp.lib.h.e.b(e.class.getName(), "onModeChanged", e.getMessage());
-                        return;
+        }
+    }
+
+    private void a(ViewGroup viewGroup) {
+        String str = "@" + viewGroup.getId();
+        if (this.a != null && this.a.containsKey(str)) {
+            d dVar = this.a.get(str);
+            if (viewGroup instanceof AdapterView) {
+                if ((viewGroup instanceof ListView) && dVar.f() != 0) {
+                    ListView listView = (ListView) viewGroup;
+                    int dividerHeight = listView.getDividerHeight();
+                    listView.setDivider(this.c.getDrawable(this.b ? dVar.f() : dVar.e()));
+                    listView.setDividerHeight(dividerHeight);
+                }
+                Adapter adapter = ((AdapterView) viewGroup).getAdapter();
+                if (adapter != null && (adapter instanceof BaseAdapter)) {
+                    ((BaseAdapter) adapter).notifyDataSetChanged();
+                }
+            }
+            if (dVar.l() != 0) {
+                int paddingLeft = viewGroup.getPaddingLeft();
+                int paddingTop = viewGroup.getPaddingTop();
+                int paddingRight = viewGroup.getPaddingRight();
+                int paddingBottom = viewGroup.getPaddingBottom();
+                int l = this.b ? dVar.l() : dVar.k();
+                String resourceTypeName = this.c.getResourceTypeName(l);
+                if (resourceTypeName != null && resourceTypeName.equals("color")) {
+                    int color = this.c.getColor(l);
+                    viewGroup.setBackgroundColor(color);
+                    com.baidu.adp.lib.g.e.d("type:" + resourceTypeName + ",id:" + dVar.g() + ",name:" + dVar.j());
+                    if (color == 0) {
+                        com.baidu.adp.lib.g.e.a("name = " + dVar.j() + " background color is missing");
+                    }
+                } else {
+                    viewGroup.setBackgroundResource(l);
+                    com.baidu.adp.lib.g.e.d("type:" + resourceTypeName + ",id:" + dVar.g() + ",name:" + dVar.j());
+                }
+                viewGroup.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
+            }
+        }
+    }
+
+    private void b(View view) {
+        String str = "@" + view.getId();
+        if (this.a != null && this.a.containsKey(str)) {
+            d dVar = this.a.get(str);
+            if (view instanceof TextView) {
+                if (dVar.n() != 0) {
+                    ((TextView) view).setTextColor(this.c.getColorStateList(this.b ? dVar.n() : dVar.m()));
+                }
+                if (dVar.q() != 0) {
+                    ((TextView) view).setTextAppearance(view.getContext(), this.b ? dVar.q() : dVar.r());
+                }
+                if (dVar.d() != 0) {
+                    ((TextView) view).setCompoundDrawablesWithIntrinsicBounds((Drawable) null, this.c.getDrawable(this.b ? dVar.d() : dVar.c()), (Drawable) null, (Drawable) null);
+                }
+                if (dVar.b() != 0) {
+                    ((TextView) view).setCompoundDrawablesWithIntrinsicBounds(this.c.getDrawable(this.b ? dVar.b() : dVar.a()), (Drawable) null, (Drawable) null, (Drawable) null);
+                }
+                if (dVar.i() != 0) {
+                    ((TextView) view).setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, this.c.getDrawable(this.b ? dVar.i() : dVar.h()), (Drawable) null);
+                }
+            } else if (view instanceof ImageButton) {
+                if (dVar.o() != 0) {
+                    Drawable drawable = this.c.getDrawable(this.b ? dVar.o() : dVar.p());
+                    if (drawable != null) {
+                        ((ImageView) view).setImageDrawable(drawable);
                     }
                 }
+            } else if (view instanceof ImageView) {
+                if (dVar.o() != 0) {
+                    Drawable drawable2 = this.c.getDrawable(this.b ? dVar.o() : dVar.p());
+                    if (drawable2 != null) {
+                        ((ImageView) view).setImageDrawable(drawable2);
+                    }
+                }
+            } else if ((view instanceof ProgressBar) && dVar.t() != 0) {
+                Drawable drawable3 = this.c.getDrawable(this.b ? dVar.t() : dVar.s());
+                if (drawable3 != null) {
+                    ((ProgressBar) view).setProgressDrawable(drawable3);
+                }
+            }
+            if (dVar.l() != 0) {
+                int paddingLeft = view.getPaddingLeft();
+                int paddingTop = view.getPaddingTop();
+                int paddingRight = view.getPaddingRight();
+                int paddingBottom = view.getPaddingBottom();
+                int l = this.b ? dVar.l() : dVar.k();
+                String resourceTypeName = this.c.getResourceTypeName(l);
+                if (resourceTypeName != null && resourceTypeName.equals("color")) {
+                    view.setBackgroundColor(this.c.getColor(l));
+                    com.baidu.adp.lib.g.e.d("type:" + resourceTypeName + ",id:" + dVar.g() + ",name:" + dVar.j());
+                } else {
+                    view.setBackgroundResource(l);
+                    com.baidu.adp.lib.g.e.d("type:" + resourceTypeName + ",id:" + dVar.g() + ",name:" + dVar.j());
+                }
+                view.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
             }
         }
     }

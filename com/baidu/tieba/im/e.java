@@ -13,9 +13,9 @@ class e implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         NetWorkDebugActivity.a("begin send-----------");
-        com.baidu.tieba.im.message.e eVar = new com.baidu.tieba.im.message.e();
-        eVar.a("123456");
-        com.baidu.tieba.im.messageCenter.e.a().a(eVar);
+        com.baidu.tieba.im.message.g gVar = new com.baidu.tieba.im.message.g();
+        gVar.a("123456");
+        com.baidu.tieba.im.messageCenter.e.a().a(gVar);
         NetWorkDebugActivity.a("end send-----------");
         NetWorkDebugActivity.a("wait callback call-----------");
     }

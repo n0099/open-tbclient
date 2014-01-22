@@ -1,28 +1,25 @@
 package com.baidu.tieba.pb;
+
+import android.widget.ImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class em implements com.baidu.tieba.editortool.t {
-    final /* synthetic */ com.baidu.tieba.editortool.t a;
-    final /* synthetic */ ed b;
+public class em implements com.baidu.tbadk.imageManager.c {
+    final /* synthetic */ eb a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public em(ed edVar, com.baidu.tieba.editortool.t tVar) {
-        this.b = edVar;
-        this.a = tVar;
+    public em(eb ebVar) {
+        this.a = ebVar;
     }
 
-    @Override // com.baidu.tieba.editortool.t
-    public void a(int i, Object obj) {
-        if (i == 0) {
-            this.a.a(26, obj);
-        } else if (i == 10) {
-            this.a.a(27, obj);
-        } else if (i == 34) {
-            this.b.q.setEnabled(true);
-        } else if (i == 33) {
-            this.b.q.setEnabled(false);
-        } else {
-            this.a.a(i, obj);
+    @Override // com.baidu.tbadk.imageManager.c
+    public void a(com.baidu.adp.widget.ImageView.d dVar, String str, boolean z) {
+        if (dVar != null) {
+            ImageView imageView = (ImageView) this.a.c.findViewWithTag(str);
+            while (imageView != null) {
+                imageView.setTag(null);
+                dVar.a(imageView);
+                imageView = (ImageView) this.a.c.findViewWithTag(str);
+            }
         }
     }
 }

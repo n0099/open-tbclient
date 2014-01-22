@@ -12,7 +12,7 @@ public class CopyOfLog {
     static File logFile;
 
     public CopyOfLog() {
-        if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
+        if (Environment.getExternalStorageState().equals("mounted")) {
             try {
                 SDFile = Environment.getExternalStorageDirectory();
                 logFile = new File(String.valueOf(SDFile.getAbsolutePath()) + File.separator + "myMatrix.txt");

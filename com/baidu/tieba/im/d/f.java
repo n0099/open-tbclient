@@ -1,47 +1,57 @@
 package com.baidu.tieba.im.d;
+
+import com.baidu.android.common.security.RSAUtil;
+import java.math.BigInteger;
+import java.nio.charset.Charset;
+import java.security.KeyFactory;
+import java.security.PublicKey;
+import java.security.SecureRandom;
+import java.security.spec.X509EncodedKeySpec;
+import javax.crypto.Cipher;
+import javax.crypto.SecretKey;
+import javax.crypto.SecretKeyFactory;
+import javax.crypto.spec.PBEKeySpec;
 /* loaded from: classes.dex */
 public class f {
-    public static String a(int i) {
-        switch (i) {
-            case -85:
-                return "定位失败了，右上角点下刷新吧~";
-            case -84:
-                return "录音发生错误";
-            case -52:
-            case -7:
-            case -2:
-            case -1:
-                return "你的网络状况不大好，请稍后重试";
-            case -51:
-                return "未知错误";
-            case -48:
-                return "创建私聊不成功，请稍后再试";
-            case -47:
-                return "内容不合适，请修改下吧";
-            case -46:
-                return "内容不能为空，请修改下吧";
-            case -45:
-                return "最多允许20个表情，请修改下吧";
-            case -42:
-                return "发的太频繁啦";
-            case -41:
-                return "录音太短啦";
-            case -40:
-                return "操作违规";
-            case -26:
-                return "存储卡已满，请清理文件";
-            case -25:
-                return "存储卡读写失败";
-            case -24:
-                return "你的存储卡被USB占用，请更改数据线连接方式";
-            case -23:
-                return "无法找到存储卡";
-            case -3:
-                return "数据转换失败";
-            case 0:
-                return null;
-            default:
-                return "未定义错误";
+    public static final Charset a = Charset.forName("UTF-8");
+    private static final byte[] b = {-92, 11, -56, 52, -42, -107, -13, 19};
+
+    public static PublicKey a(byte[] bArr) {
+        return KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(bArr));
+    }
+
+    public static byte[] a(PublicKey publicKey, byte[] bArr) {
+        Cipher cipher = Cipher.getInstance(com.baidu.sapi2.shell.b.a);
+        cipher.init(1, publicKey);
+        return cipher.doFinal(bArr);
+    }
+
+    public static SecretKey a(String str) {
+        SecretKeyFactory secretKeyFactory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
+        char[] cArr = new char[str.length()];
+        for (int i = 0; i < cArr.length; i++) {
+            cArr[i] = (char) (((byte) str.charAt(i)) & 255);
         }
+        return secretKeyFactory.generateSecret(new PBEKeySpec(cArr, b, 5, 256));
+    }
+
+    public static byte[] a(SecretKey secretKey, byte[] bArr) {
+        Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
+        cipher.init(1, secretKey);
+        return cipher.doFinal(bArr);
+    }
+
+    public static byte[] a(SecretKey secretKey, byte[] bArr, int i, int i2) {
+        Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
+        cipher.init(2, secretKey);
+        return cipher.doFinal(bArr, i, i2);
+    }
+
+    public static String a(int i) {
+        String bigInteger = new BigInteger(i * 5, new SecureRandom()).toString(36);
+        if (bigInteger.length() > i) {
+            return bigInteger.substring(0, bigInteger.length());
+        }
+        return bigInteger;
     }
 }

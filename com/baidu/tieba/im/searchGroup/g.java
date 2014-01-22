@@ -7,9 +7,10 @@ import android.widget.ListAdapter;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import com.baidu.tieba.im.data.BaseGroupData;
-import com.baidu.tieba.im.message.by;
-import com.baidu.tieba.util.bl;
+import com.baidu.tieba.im.message.ck;
+import com.baidu.tieba.util.bs;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 import java.util.LinkedList;
@@ -60,7 +61,7 @@ public class g {
         this.e.setInputType(2);
         this.e.requestFocus();
         this.e.setOnEditorActionListener(new l(this));
-        this.b.ShowSoftKeyPadDelay(this.e, 150);
+        this.b.ShowSoftKeyPadDelay(this.e, SocialAPIErrorCodes.ERROR_AUTHORIZATION_CANCELED);
     }
 
     private void f() {
@@ -73,7 +74,7 @@ public class g {
     public void a(int i) {
         this.b.getLayoutMode().a(false);
         this.b.getLayoutMode().a(this.c);
-        bl.a(this.c, 0);
+        bs.a(this.c, 0);
         this.d.c(0);
         this.h.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.pic_search_fruitless, 0, 0);
     }
@@ -90,10 +91,10 @@ public class g {
         }
     }
 
-    public void a(by byVar) {
+    public void a(ck ckVar) {
         List<BaseGroupData> linkedList = new LinkedList<>();
-        if (byVar != null && byVar.a() != null) {
-            linkedList = byVar.a();
+        if (ckVar != null && ckVar.a() != null) {
+            linkedList = ckVar.a();
         }
         this.j.a(linkedList);
     }

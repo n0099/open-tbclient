@@ -1,6 +1,5 @@
 package protobuf.UpdateClientInfo;
 
-import com.baidu.zeus.bouncycastle.DERTags;
 import com.google.protobuf.ByteString;
 import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.CodedOutputStream;
@@ -78,11 +77,11 @@ public final class UpdateClientInfoReq {
                                     this.bitField0_ |= 1;
                                     this.bduss_ = codedInputStream.readBytes();
                                     break;
-                                case 18:
+                                case Im.GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
                                     this.bitField0_ |= 2;
                                     this.device_ = codedInputStream.readBytes();
                                     break;
-                                case 26:
+                                case Im.GroupInfo.NICKNAME_FIELD_NUMBER /* 26 */:
                                     this.bitField0_ |= 4;
                                     this.secretKey_ = codedInputStream.readBytes();
                                     break;
@@ -102,8 +101,8 @@ public final class UpdateClientInfoReq {
                                     this.bitField0_ |= 64;
                                     this.height_ = codedInputStream.readInt32();
                                     break;
-                                case DERTags.APPLICATION /* 64 */:
-                                    this.bitField0_ |= DERTags.TAGGED;
+                                case 64:
+                                    this.bitField0_ |= 128;
                                     this.unreadMsg_ = codedInputStream.readInt32();
                                     break;
                                 default:
@@ -230,7 +229,7 @@ public final class UpdateClientInfoReq {
         }
 
         public boolean hasUnreadMsg() {
-            return (this.bitField0_ & DERTags.TAGGED) == 128;
+            return (this.bitField0_ & 128) == 128;
         }
 
         public int getUnreadMsg() {
@@ -282,7 +281,7 @@ public final class UpdateClientInfoReq {
             if ((this.bitField0_ & 64) == 64) {
                 codedOutputStream.writeInt32(7, this.height_);
             }
-            if ((this.bitField0_ & DERTags.TAGGED) == 128) {
+            if ((this.bitField0_ & 128) == 128) {
                 codedOutputStream.writeInt32(8, this.unreadMsg_);
             }
         }
@@ -310,7 +309,7 @@ public final class UpdateClientInfoReq {
                 if ((this.bitField0_ & 64) == 64) {
                     i += CodedOutputStream.computeInt32Size(7, this.height_);
                 }
-                if ((this.bitField0_ & DERTags.TAGGED) == 128) {
+                if ((this.bitField0_ & 128) == 128) {
                     i += CodedOutputStream.computeInt32Size(8, this.unreadMsg_);
                 }
                 this.memoizedSerializedSize = i;
@@ -439,7 +438,7 @@ public final class UpdateClientInfoReq {
                                 this.cuid_ = codedInputStream.readBytes();
                                 z = z2;
                                 break;
-                            case 18:
+                            case Im.GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
                                 if ((this.bitField0_ & 2) != 2) {
                                     cVar = null;
                                 } else {

@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.widget.FrameLayout;
 import com.baidu.android.pushservice.PushConstants;
+import com.baidu.sapi2.shell.SapiErrorCode;
 import java.util.List;
 /* loaded from: classes.dex */
 public class VerticalTranslateLayout extends FrameLayout {
@@ -154,9 +155,9 @@ public class VerticalTranslateLayout extends FrameLayout {
                     this.q = x;
                     this.r = y;
                     this.u.removeMessages(-100);
-                    this.u.removeMessages(-104);
-                    this.u.removeMessages(-101);
-                    this.u.removeMessages(-105);
+                    this.u.removeMessages(SapiErrorCode.GETTING_CERT);
+                    this.u.removeMessages(SapiErrorCode.SENT_SUCCEED);
+                    this.u.removeMessages(SapiErrorCode.GET_CERT_FAIL);
                     return false;
                 case 1:
                 default:

@@ -13,6 +13,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.view.NavigationBar;
+import com.baidu.tieba.view.cm;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
@@ -24,7 +25,7 @@ public class bu extends com.baidu.adp.a.e {
     private bq f;
     private ProgressBar g;
     private BdListView h;
-    private com.baidu.tieba.view.bw i;
+    private cm i;
     private bg j;
     private u k;
     private View l;
@@ -43,7 +44,7 @@ public class bu extends com.baidu.adp.a.e {
         this.d.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new bv(this));
         this.h = (BdListView) this.c.findViewById(R.id.signallforum_list);
         this.h.setOnItemClickListener(jVar);
-        this.i = new com.baidu.tieba.view.bw(jVar);
+        this.i = new cm(jVar);
         this.h.setPullRefresh(this.i);
         this.o = (TextView) this.c.getLayoutInflater().inflate(R.layout.signallforum_maxcount_warning, (ViewGroup) null);
         this.h.addFooterView(this.o);
@@ -65,7 +66,7 @@ public class bu extends com.baidu.adp.a.e {
     public void a(int i) {
         Resources resources = this.c.getResources();
         this.c.getLayoutMode().a(i == 1);
-        this.c.getLayoutMode().a(this.e);
+        this.c.getLayoutMode().a((View) this.e);
         this.c.getLayoutMode().a(this.o);
         if (i == 1) {
             this.e.setBackgroundColor(-13618114);

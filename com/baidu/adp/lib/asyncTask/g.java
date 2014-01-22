@@ -40,24 +40,28 @@ public class g implements Executor {
     public synchronized void execute(Runnable runnable) {
         if (runnable instanceof m) {
             j jVar = new j(this, (m) runnable);
-            if (jVar.h()) {
+            if (jVar.i()) {
                 new Thread(jVar).start();
-            } else if (jVar.i()) {
+            } else if (jVar.j()) {
                 a(jVar);
             } else {
-                int size = this.f.size();
-                int i = 0;
-                while (i < size && this.f.get(i).d() >= jVar.d()) {
-                    i++;
-                }
-                this.f.add(i, jVar);
+                c(jVar);
                 b((k) null);
             }
         }
     }
 
+    private synchronized void c(k kVar) {
+        int size = this.f.size();
+        int i = 0;
+        while (i < size && this.f.get(i).d() >= kVar.d()) {
+            i++;
+        }
+        this.f.add(i, kVar);
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void c(k kVar) {
+    public synchronized void d(k kVar) {
         k poll;
         this.g.remove(kVar);
         this.h.add(kVar);
@@ -68,9 +72,13 @@ public class g implements Executor {
     }
 
     protected synchronized void a(k kVar) {
-        this.g.add(kVar);
-        a.execute(kVar);
-        this.i.sendMessageDelayed(this.i.obtainMessage(1, kVar), 60000L);
+        if (new l(this, this.g).a(kVar)) {
+            this.g.add(kVar);
+            a.execute(kVar);
+            this.i.sendMessageDelayed(this.i.obtainMessage(1, kVar), 60000L);
+        } else {
+            c(kVar);
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -83,17 +91,17 @@ public class g implements Executor {
         int size = this.g.size();
         if (size >= 5) {
             if (b) {
-                com.baidu.adp.lib.h.e.d(a().toString());
+                com.baidu.adp.lib.g.e.d(a().toString());
             }
         } else {
             k peek = this.f.peek();
             if (peek == null) {
                 if (b) {
-                    com.baidu.adp.lib.h.e.d(a().toString());
+                    com.baidu.adp.lib.g.e.d(a().toString());
                 }
             } else if (size >= 4 && peek.d() == 1) {
                 if (b) {
-                    com.baidu.adp.lib.h.e.d(a().toString());
+                    com.baidu.adp.lib.g.e.d(a().toString());
                 }
             } else {
                 l lVar = new l(this, this.g);
@@ -115,34 +123,55 @@ public class g implements Executor {
                     }
                 }
                 if (b) {
-                    com.baidu.adp.lib.h.e.d(a().toString());
+                    com.baidu.adp.lib.g.e.d(a().toString());
                 }
             }
         }
     }
 
-    public synchronized void a(String str) {
-        b(str);
-        a(this.g, false, str);
-        a(this.h, false, str);
+    public synchronized void a(int i) {
+        b(i);
+        a(this.g, false, i);
+        a(this.h, false, i);
         if (b) {
-            com.baidu.adp.lib.h.e.d(a().toString());
+            com.baidu.adp.lib.g.e.d(a().toString());
         }
     }
 
-    public synchronized void b(String str) {
-        a(this.f, true, str);
+    public synchronized void a(int i, String str) {
+        b(i, str);
+        a(this.g, false, i, str);
+        a(this.h, false, i, str);
         if (b) {
-            com.baidu.adp.lib.h.e.d(a().toString());
+            com.baidu.adp.lib.g.e.d(a().toString());
         }
     }
 
-    private void a(LinkedList<k> linkedList, boolean z, String str) {
+    public synchronized void b(int i) {
+        a(this.f, true, i);
+        if (b) {
+            com.baidu.adp.lib.g.e.d(a().toString());
+        }
+    }
+
+    public synchronized void b(int i, String str) {
+        a(this.f, true, i, str);
+        if (b) {
+            com.baidu.adp.lib.g.e.d(a().toString());
+        }
+    }
+
+    private void a(LinkedList<k> linkedList, boolean z, int i) {
+        a(linkedList, z, i, null);
+    }
+
+    private void a(LinkedList<k> linkedList, boolean z, int i, String str) {
         Iterator<k> it = linkedList.iterator();
         while (it.hasNext()) {
             k next = it.next();
-            String e2 = next.e();
-            if (e2 != null && e2.equals(str)) {
+            int e2 = next.e();
+            String g = next.g();
+            if (e2 == i && (str == null || str.equals(g))) {
                 if (z) {
                     it.remove();
                 }
@@ -164,11 +193,11 @@ public class g implements Executor {
             }
         }
         if (b) {
-            com.baidu.adp.lib.h.e.d(a().toString());
+            com.baidu.adp.lib.g.e.d(a().toString());
         }
     }
 
-    public synchronized BdAsyncTask<?, ?, ?> c(String str) {
+    public synchronized BdAsyncTask<?, ?, ?> a(String str) {
         BdAsyncTask<?, ?, ?> a2;
         a2 = a(this.f, str);
         if (a2 == null) {
@@ -177,11 +206,29 @@ public class g implements Executor {
         return a2;
     }
 
-    public synchronized BdAsyncTask<?, ?, ?> d(String str) {
+    public synchronized LinkedList<BdAsyncTask<?, ?, ?>> c(int i, String str) {
+        LinkedList<BdAsyncTask<?, ?, ?>> linkedList;
+        linkedList = new LinkedList<>();
+        linkedList.addAll(a(this.f, i, str));
+        linkedList.addAll(a(this.g, i, str));
+        linkedList.addAll(a(this.h, i, str));
+        return linkedList;
+    }
+
+    public synchronized LinkedList<BdAsyncTask<?, ?, ?>> c(int i) {
+        LinkedList<BdAsyncTask<?, ?, ?>> linkedList;
+        linkedList = new LinkedList<>();
+        linkedList.addAll(a(this.f, i));
+        linkedList.addAll(a(this.g, i));
+        linkedList.addAll(a(this.h, i));
+        return linkedList;
+    }
+
+    public synchronized BdAsyncTask<?, ?, ?> b(String str) {
         return a(this.f, str);
     }
 
-    public synchronized BdAsyncTask<?, ?, ?> e(String str) {
+    public synchronized BdAsyncTask<?, ?, ?> c(String str) {
         return a(this.g, str);
     }
 
@@ -192,11 +239,42 @@ public class g implements Executor {
         Iterator<k> it = linkedList.iterator();
         while (it.hasNext()) {
             k next = it.next();
-            String f = next.f();
-            if (f != null && f.equals(str)) {
+            String g = next.g();
+            if (g != null && g.equals(str)) {
                 return next.c();
             }
         }
         return null;
+    }
+
+    public LinkedList<BdAsyncTask<?, ?, ?>> a(LinkedList<k> linkedList, int i) {
+        if (linkedList == null) {
+            return null;
+        }
+        LinkedList<BdAsyncTask<?, ?, ?>> linkedList2 = new LinkedList<>();
+        Iterator<k> it = linkedList.iterator();
+        while (it.hasNext()) {
+            k next = it.next();
+            if (next.e() == i && next.c() != null) {
+                linkedList2.add(next.c());
+            }
+        }
+        return linkedList2;
+    }
+
+    public LinkedList<BdAsyncTask<?, ?, ?>> a(LinkedList<k> linkedList, int i, String str) {
+        if (linkedList == null) {
+            return null;
+        }
+        LinkedList<BdAsyncTask<?, ?, ?>> linkedList2 = new LinkedList<>();
+        Iterator<k> it = linkedList.iterator();
+        while (it.hasNext()) {
+            k next = it.next();
+            String g = next.g();
+            if (g != null && g.equals(str) && next.e() == i && next.c() != null) {
+                linkedList2.add(next.c());
+            }
+        }
+        return linkedList2;
     }
 }

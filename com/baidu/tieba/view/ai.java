@@ -1,24 +1,30 @@
 package com.baidu.tieba.view;
 
-import android.app.Activity;
-import android.view.View;
-import com.baidu.tieba.forumdetail.ForumDetailActivity;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.tieba.voice.PlayVoiceBnt;
 /* loaded from: classes.dex */
-public class ai implements View.OnClickListener {
-    final /* synthetic */ ag a;
+public class ai {
+    public LinearLayout a;
+    public RelativeLayout b;
+    public TextView c;
+    public TextView d;
+    public TextView e;
+    public TextView f;
+    public TextView g;
+    public TextView h;
+    public CommonImageLayout i;
+    public PlayVoiceBnt j;
+    public String k;
+    public String l;
+    public int m;
+    public boolean n;
+    public UserIconBox o;
+    public UserIconBox p = null;
+    final /* synthetic */ af q;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ai(ag agVar) {
-        this.a = agVar;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Activity activity;
-        String str;
-        activity = this.a.D;
-        str = this.a.F;
-        ForumDetailActivity.a(activity, str, ForumDetailActivity.FromType.FRS);
+    public ai(af afVar) {
+        this.q = afVar;
     }
 }

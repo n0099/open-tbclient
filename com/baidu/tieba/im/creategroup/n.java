@@ -9,8 +9,8 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.ad;
-import com.baidu.tieba.util.bl;
+import com.baidu.tieba.util.ag;
+import com.baidu.tieba.util.bs;
 import com.baidu.tieba.view.NavigationBar;
 import com.baidu.tieba.view.NoSwipeableViewPager;
 import com.slidingmenu.lib.R;
@@ -45,7 +45,7 @@ public class n extends com.baidu.adp.a.e {
     private TextView t;
     private AlertDialog u;
     private NoSwipeableViewPager v;
-    private ad w;
+    private ag w;
     private int x;
     private int y;
     private int z;
@@ -256,7 +256,7 @@ public class n extends com.baidu.adp.a.e {
     }
 
     private void S() {
-        this.w = new ad(this.a);
+        this.w = new ag(this.a);
         J();
     }
 
@@ -372,19 +372,19 @@ public class n extends com.baidu.adp.a.e {
     }
 
     private void U() {
-        if (TiebaApplication.g().an() == 1) {
+        if (TiebaApplication.h().al() == 1) {
             if (this.n) {
-                bl.e((View) this.t, (int) R.drawable.navi_done_text_bg_1);
+                bs.e((View) this.t, (int) R.drawable.navi_done_text_bg_1);
                 this.t.setTextColor(this.a.getResources().getColorStateList(R.color.navi_done_text_1));
                 return;
             }
-            bl.e((View) this.t, (int) R.drawable.btn_titlebar_finish_d_1);
+            bs.e((View) this.t, (int) R.drawable.btn_titlebar_finish_d_1);
             this.t.setTextColor(this.a.getResources().getColor(R.color.navi_done_text_d_1));
         } else if (this.n) {
-            bl.e((View) this.t, (int) R.drawable.navi_done_text_bg);
+            bs.e((View) this.t, (int) R.drawable.navi_done_text_bg);
             this.t.setTextColor(this.a.getResources().getColorStateList(R.color.navi_done_text));
         } else {
-            bl.e((View) this.t, (int) R.drawable.btn_titlebar_finish_d);
+            bs.e((View) this.t, (int) R.drawable.btn_titlebar_finish_d);
             this.t.setTextColor(this.a.getResources().getColor(R.color.navi_done_text_d));
         }
     }
@@ -519,7 +519,7 @@ public class n extends com.baidu.adp.a.e {
     public void a(int i) {
         this.a.getLayoutMode().a(i == 1);
         this.a.getLayoutMode().a(this.r);
-        bl.a(this.r, i);
+        bs.a(this.r, i);
         this.q.c(i);
         U();
     }

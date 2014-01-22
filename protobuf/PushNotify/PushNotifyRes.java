@@ -71,7 +71,7 @@ public final class PushNotifyRes {
                                 this.cmd_ = codedInputStream.readInt32();
                                 z = z2;
                                 break;
-                            case 18:
+                            case Im.GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
                                 if ((this.bitField0_ & 2) != 2) {
                                     aaVar = null;
                                 } else {
@@ -292,7 +292,7 @@ public final class PushNotifyRes {
                                     this.bitField0_ |= 1;
                                     this.pushTime_ = codedInputStream.readInt64();
                                     break;
-                                case 18:
+                                case Im.GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
                                     if (!(z2 & true)) {
                                         this.multiMsg_ = new ArrayList();
                                         z2 |= true;

@@ -188,7 +188,7 @@ public class BDImageView2 extends ImageView {
             }
             matrix = this.d;
         } else {
-            image = new d(com.baidu.adp.lib.h.a.a().a(this.a), false, null);
+            image = new d(com.baidu.adp.lib.g.a.a().a(this.a), false, null);
             if (this.c == null) {
                 this.c = a(image);
             }

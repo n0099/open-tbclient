@@ -15,7 +15,7 @@ public class g implements android.support.v4.view.bq {
     }
 
     @Override // android.support.v4.view.bq
-    public void onPageSelected(int i) {
+    public void a_(int i) {
         boolean z;
         a aVar;
         MultiImageView multiImageView;
@@ -44,11 +44,11 @@ public class g implements android.support.v4.view.bq {
     }
 
     @Override // android.support.v4.view.bq
-    public void onPageScrolled(int i, float f, int i2) {
+    public void a(int i, float f, int i2) {
     }
 
     @Override // android.support.v4.view.bq
-    public void onPageScrollStateChanged(int i) {
+    public void b(int i) {
         long j;
         ArrayList arrayList;
         int i2;

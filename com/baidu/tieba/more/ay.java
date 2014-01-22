@@ -28,7 +28,7 @@ public class ay extends BdAsyncTask<String, Integer, String> {
             gVar2 = this.a.mLoadDataCallBack;
             gVar2.a(MoreModel.TaskType.DO_CLEAR);
         }
-        com.baidu.tieba.im.db.ad.a().c();
+        com.baidu.tieba.im.db.ae.a().c();
         com.baidu.tieba.im.c.a.h().f();
         com.baidu.tieba.im.c.a.h().b((RecentChatFriendData) null);
         com.baidu.tieba.im.c.a.h().c((RecentChatFriendData) null);

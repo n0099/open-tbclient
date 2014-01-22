@@ -8,18 +8,26 @@ import com.baidu.cloudsdk.common.imgloader.AsyncImageLoader;
 import com.baidu.cloudsdk.common.imgloader.MemoryBitmapCache;
 import com.baidu.cloudsdk.common.util.Utils;
 import com.baidu.cloudsdk.common.util.Validator;
+import com.bg;
+import com.j;
 /* loaded from: classes.dex */
 public class ImageManager {
     public static final int DEFAULT_HIT_COUNT_REQUIRED = 1;
-    public static final int DEFAULT_MAX_CACHEABLE_SIZE = 512;
     public static final int DEFAULT_MAX_MEMCACHE_SIZE = 20;
     public static final String DEFAULT_STORAGE_PATH = Environment.getExternalStorageDirectory().getPath() + "/baidu/.imagecache/";
     private static ImageManager d;
-    private int c = DEFAULT_MAX_CACHEABLE_SIZE;
+    private int c = 19656;
     private MemoryBitmapCache a = new MemoryBitmapCache(20);
-    private bm b = new bm(DEFAULT_STORAGE_PATH, 1, this.c, this.a);
+    private bg b = new bg(DEFAULT_STORAGE_PATH, 1, this.c, this.a);
 
     private ImageManager() {
+    }
+
+    public static void clean() {
+        if (d != null) {
+            d.a.a();
+            d = null;
+        }
     }
 
     public static ImageManager getInstance() {
@@ -46,7 +54,7 @@ public class ImageManager {
         if (a != null) {
             iAsyncImageLoaderListener.onComplete(a);
         } else {
-            new AsyncImageLoader(context, new j(this, uri, md5, iAsyncImageLoaderListener)).execute(uri);
+            new AsyncImageLoader(context, this.c, new j(this, uri, md5, iAsyncImageLoaderListener)).execute(uri);
         }
     }
 
@@ -55,14 +63,14 @@ public class ImageManager {
         return this;
     }
 
-    public ImageManager setMaxCachableSize(int i) {
-        this.c = i;
-        this.b.a(i);
+    public ImageManager setMaxMemCacheSize(int i) {
+        this.a.a(i);
         return this;
     }
 
-    public ImageManager setMaxMemCacheSize(int i) {
-        this.a.a(i);
+    public ImageManager setMaxNumOfPixels(int i) {
+        this.c = i;
+        this.b.a(i);
         return this;
     }
 

@@ -4,7 +4,7 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m {
-    List<com.baidu.tieba.im.message.o> a;
+    List<com.baidu.tieba.im.message.q> a;
     p b;
     final /* synthetic */ l c;
 

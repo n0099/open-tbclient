@@ -11,11 +11,6 @@ public final class l extends GeneratedMessageLite.Builder<Im.GroupLastId, l> imp
     private int b;
     private long c;
 
-    /* JADX DEBUG: Method not inlined, still used in: [protobuf.Im.GroupLastId.newBuilder():protobuf.l] */
-    public static /* synthetic */ l f() {
-        return h();
-    }
-
     private l() {
         g();
     }

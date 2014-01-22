@@ -32,9 +32,9 @@ public class u extends BdAsyncTask<String, Void, Bitmap> {
     public void b() {
         ProgressBar progressBar;
         TextView textView;
-        progressBar = this.a.o;
+        progressBar = this.a.n;
         progressBar.setVisibility(0);
-        textView = this.a.k;
+        textView = this.a.j;
         textView.setClickable(false);
     }
 
@@ -54,7 +54,7 @@ public class u extends BdAsyncTask<String, Void, Bitmap> {
         this.b = strArr[0];
         bitmap = this.a.h;
         if (bitmap == null) {
-            bitmap9 = this.a.x;
+            bitmap9 = this.a.w;
             if (bitmap9 == null) {
                 return null;
             }
@@ -65,10 +65,10 @@ public class u extends BdAsyncTask<String, Void, Bitmap> {
             this.e = true;
         }
         if (this.d.booleanValue() || this.e.booleanValue()) {
-            bitmap2 = this.a.x;
+            bitmap2 = this.a.w;
             if (bitmap2 != null) {
-                bitmap5 = this.a.x;
-                bitmap6 = this.a.x;
+                bitmap5 = this.a.w;
+                bitmap6 = this.a.w;
                 this.c = bitmap5.copy(bitmap6.getConfig(), true);
             } else {
                 bitmap3 = this.a.h;
@@ -81,9 +81,9 @@ public class u extends BdAsyncTask<String, Void, Bitmap> {
             this.c = bitmap7.copy(bitmap8.getConfig(), true);
         }
         if (this.d.booleanValue()) {
-            this.c = com.baidu.tieba.util.m.d(this.c, Integer.parseInt(this.b));
+            this.c = com.baidu.tieba.util.n.d(this.c, Integer.parseInt(this.b));
         } else if (this.e.booleanValue()) {
-            this.c = com.baidu.tieba.util.m.f(this.c, Integer.parseInt(this.b));
+            this.c = com.baidu.tieba.util.n.f(this.c, Integer.parseInt(this.b));
         } else {
             this.c = FilterFactory.createOneKeyFilter(this.a, this.b).apply(this.a, this.c);
         }
@@ -96,15 +96,15 @@ public class u extends BdAsyncTask<String, Void, Bitmap> {
         TextView textView;
         Bitmap bitmap;
         if (this.c != null && !this.c.isRecycled()) {
-            bitmap = this.a.x;
+            bitmap = this.a.w;
             if (bitmap != this.c) {
                 this.c.recycle();
             }
         }
         this.c = null;
-        progressBar = this.a.o;
+        progressBar = this.a.n;
         progressBar.setVisibility(8);
-        textView = this.a.k;
+        textView = this.a.j;
         textView.setClickable(true);
         super.cancel(true);
     }
@@ -132,14 +132,14 @@ public class u extends BdAsyncTask<String, Void, Bitmap> {
         Bitmap bitmap8;
         Bitmap bitmap9;
         EditHeadImageView editHeadImageView2;
-        progressBar = this.a.o;
+        progressBar = this.a.n;
         progressBar.setVisibility(8);
-        textView = this.a.k;
+        textView = this.a.j;
         textView.setClickable(true);
-        textView2 = this.a.k;
+        textView2 = this.a.j;
         textView2.setEnabled(true);
         if (bitmap != null && !bitmap.isRecycled()) {
-            this.a.E = true;
+            this.a.D = true;
             if (this.d.booleanValue() || this.e.booleanValue()) {
                 editHeadImageView = this.a.g;
                 editHeadImageView.setImageBitmap(bitmap);
@@ -149,29 +149,29 @@ public class u extends BdAsyncTask<String, Void, Bitmap> {
                 }
                 EditHeadActivity editHeadActivity = this.a;
                 bitmap3 = this.a.h;
-                editHeadActivity.h = com.baidu.tieba.util.m.a(bitmap3, 750);
+                editHeadActivity.h = com.baidu.tieba.util.n.a(bitmap3, 750);
                 if (this.d.booleanValue()) {
                     EditHeadActivity editHeadActivity2 = this.a;
                     bitmap5 = this.a.h;
-                    editHeadActivity2.h = com.baidu.tieba.util.m.d(bitmap5, Integer.parseInt(this.b));
+                    editHeadActivity2.h = com.baidu.tieba.util.n.d(bitmap5, Integer.parseInt(this.b));
                 } else if (this.e.booleanValue()) {
                     EditHeadActivity editHeadActivity3 = this.a;
                     bitmap4 = this.a.h;
-                    editHeadActivity3.h = com.baidu.tieba.util.m.f(bitmap4, Integer.parseInt(this.b));
+                    editHeadActivity3.h = com.baidu.tieba.util.n.f(bitmap4, Integer.parseInt(this.b));
                 }
             } else {
                 editHeadImageView2 = this.a.g;
                 editHeadImageView2.a(bitmap);
             }
-            bitmap7 = this.a.x;
+            bitmap7 = this.a.w;
             if (bitmap7 != null) {
-                bitmap8 = this.a.x;
+                bitmap8 = this.a.w;
                 if (!bitmap8.isRecycled()) {
-                    bitmap9 = this.a.x;
+                    bitmap9 = this.a.w;
                     bitmap9.recycle();
                 }
             }
-            this.a.x = bitmap;
+            this.a.w = bitmap;
         }
     }
 }

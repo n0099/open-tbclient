@@ -12,7 +12,7 @@ import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class s extends BdAsyncTask<String, Integer, com.baidu.tieba.model.be> {
     final /* synthetic */ ActivationActivity a;
-    private com.baidu.tieba.util.at b;
+    private com.baidu.tieba.util.ax b;
 
     private s(ActivationActivity activationActivity) {
         this.a = activationActivity;
@@ -37,40 +37,40 @@ public class s extends BdAsyncTask<String, Integer, com.baidu.tieba.model.be> {
         RegistData registData6;
         RegistData registData7;
         try {
-            this.b = new com.baidu.tieba.util.at(com.baidu.tieba.data.h.a + "c/s/regreal");
-            com.baidu.tieba.util.at atVar = this.b;
+            this.b = new com.baidu.tieba.util.ax(com.baidu.tieba.data.h.a + "c/s/regreal");
+            com.baidu.tieba.util.ax axVar = this.b;
             registData = this.a.p;
-            atVar.a("un", registData.getName());
-            com.baidu.tieba.util.at atVar2 = this.b;
+            axVar.a("un", registData.getName());
+            com.baidu.tieba.util.ax axVar2 = this.b;
             registData2 = this.a.p;
-            atVar2.a("phonenum", registData2.getPhone());
-            com.baidu.tieba.util.at atVar3 = this.b;
+            axVar2.a("phonenum", registData2.getPhone());
+            com.baidu.tieba.util.ax axVar3 = this.b;
             registData3 = this.a.p;
-            atVar3.a("passwd", registData3.getPsw());
+            axVar3.a("passwd", registData3.getPsw());
             registData4 = this.a.p;
             if (registData4.getVcode() != null) {
-                com.baidu.tieba.util.at atVar4 = this.b;
+                com.baidu.tieba.util.ax axVar4 = this.b;
                 registData7 = this.a.p;
-                atVar4.a("vcode", registData7.getVcode());
+                axVar4.a("vcode", registData7.getVcode());
             }
             registData5 = this.a.p;
             if (registData5.getVcodeMd5() != null) {
-                com.baidu.tieba.util.at atVar5 = this.b;
+                com.baidu.tieba.util.ax axVar5 = this.b;
                 registData6 = this.a.p;
-                atVar5.a("vcode_md5", registData6.getVcodeMd5());
+                axVar5.a("vcode_md5", registData6.getVcodeMd5());
             }
-            com.baidu.tieba.util.at atVar6 = this.b;
+            com.baidu.tieba.util.ax axVar6 = this.b;
             editText = this.a.i;
-            atVar6.a("smscode", editText.getText().toString());
-            String l = this.b.l();
-            if (this.b.c()) {
+            axVar6.a("smscode", editText.getText().toString());
+            String m = this.b.m();
+            if (this.b.d()) {
                 com.baidu.tieba.model.be beVar = new com.baidu.tieba.model.be();
-                beVar.a(l);
+                beVar.a(m);
                 return beVar;
             }
             return null;
         } catch (Exception e) {
-            com.baidu.tieba.util.bo.b(getClass().getName(), "doInBackground", e.getMessage());
+            com.baidu.adp.lib.g.e.b(getClass().getName(), "doInBackground", e.getMessage());
             return null;
         }
     }
@@ -102,14 +102,14 @@ public class s extends BdAsyncTask<String, Integer, com.baidu.tieba.model.be> {
             this.a.a(beVar);
             return;
         }
-        String i3 = this.b.i();
-        if (i3 != null && i3.length() > 0) {
+        String j = this.b.j();
+        if (j != null && j.length() > 0) {
             textView = this.a.h;
             textView.setVisibility(0);
             textView2 = this.a.h;
-            textView2.setText(i3);
+            textView2.setText(j);
         }
-        if (this.b.e() == 26) {
+        if (this.b.f() == 26) {
             this.a.y = 26;
             linearLayout = this.a.c;
             linearLayout.setBackgroundResource(R.drawable.pass_input_wrong);
@@ -163,7 +163,7 @@ public class s extends BdAsyncTask<String, Integer, com.baidu.tieba.model.be> {
             relativeLayout.setEnabled(true);
         }
         if (this.b != null) {
-            this.b.j();
+            this.b.k();
         }
         this.a.a(true);
         super.cancel(true);

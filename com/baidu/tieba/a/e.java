@@ -27,22 +27,22 @@ public class e extends n {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.n
     public String b() {
-        String l = this.a.l();
-        if (this.a.c()) {
+        String m = this.a.m();
+        if (this.a.d()) {
             this.b = new NewErrorData();
-            this.b.parserJson(l);
+            this.b.parserJson(m);
         } else {
             this.b = new NewErrorData();
-            this.b.errmsg = this.a.i();
-            this.b.errno = this.a.e();
+            this.b.errmsg = this.a.j();
+            this.b.errno = this.a.f();
         }
-        return l;
+        return m;
     }
 
     @Override // com.baidu.tieba.n
     public void a() {
         if (this.a != null) {
-            this.a.j();
+            this.a.k();
         }
     }
 

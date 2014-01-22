@@ -1,6 +1,5 @@
 package com.google.zxing.qrcode.encoder;
 
-import com.baidu.browser.webpool.BdWebPoolView;
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 import com.google.zxing.qrcode.decoder.Mode;
 import com.google.zxing.qrcode.decoder.Version;
@@ -34,7 +33,7 @@ public final class QRCode {
     }
 
     public String toString() {
-        StringBuilder sb = new StringBuilder((int) BdWebPoolView.DELAYED_TIME);
+        StringBuilder sb = new StringBuilder(200);
         sb.append("<<\n");
         sb.append(" mode: ");
         sb.append(this.mode);

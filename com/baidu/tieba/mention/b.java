@@ -2,10 +2,10 @@ package com.baidu.tieba.mention;
 
 import android.view.View;
 import android.widget.ImageView;
-import com.baidu.mobstat.StatService;
 import com.baidu.tieba.BaseFragmentActivity;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.account.av;
+import com.baidu.tieba.util.by;
 import com.baidu.tieba.write.AtListActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -24,13 +24,11 @@ public class b implements View.OnClickListener {
         BaseFragmentActivity baseFragmentActivity2;
         imageView = this.a.Y;
         if (view == imageView && TiebaApplication.B()) {
-            if (TiebaApplication.g().s()) {
-                baseFragmentActivity2 = this.a.af;
-                StatService.onEvent(baseFragmentActivity2, "msg_newchat_tab_c", "click", 1);
-            }
-            new av("pchat", "2").start();
             baseFragmentActivity = this.a.af;
-            AtListActivity.a(baseFragmentActivity, 12011);
+            by.a(baseFragmentActivity, "msg_newchat_tab_c", "click", 1, new Object[0]);
+            new av("pchat", "2").start();
+            baseFragmentActivity2 = this.a.af;
+            AtListActivity.a(baseFragmentActivity2, 12011);
         }
     }
 }

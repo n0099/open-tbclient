@@ -1,8 +1,6 @@
 package com.baidu.tieba;
-
-import android.view.View;
 /* loaded from: classes.dex */
-class ab implements View.OnClickListener {
+class ab implements aj {
     final /* synthetic */ GuideActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,13 +8,12 @@ class ab implements View.OnClickListener {
         this.a = guideActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        String str;
-        str = this.a.m;
-        if (!str.equals(GuideActivity.b)) {
-            this.a.a();
-        }
-        this.a.closeActivity();
+    @Override // com.baidu.tieba.aj
+    public void a() {
+        this.a.b();
+    }
+
+    @Override // com.baidu.tieba.aj
+    public void b() {
     }
 }

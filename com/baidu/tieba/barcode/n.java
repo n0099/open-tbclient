@@ -2,7 +2,6 @@ package com.baidu.tieba.barcode;
 
 import android.os.Handler;
 import android.os.Looper;
-import com.baidu.tieba.util.bo;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.DecodeHintType;
 import com.google.zxing.ResultPointCallback;
@@ -34,7 +33,7 @@ public final class n extends Thread {
             this.b.put(DecodeHintType.CHARACTER_SET, str);
         }
         this.b.put(DecodeHintType.NEED_RESULT_POINT_CALLBACK, resultPointCallback);
-        bo.a(getClass().getName(), "DecodeThread", "Hints: " + this.b);
+        com.baidu.adp.lib.g.e.a(getClass().getName(), "DecodeThread", "Hints: " + this.b);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

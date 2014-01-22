@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
 import android.text.TextUtils;
 import com.baidu.tieba.im.SingleRunnable;
+import com.baidu.tieba.util.by;
 /* loaded from: classes.dex */
 class i extends SingleRunnable<Boolean> {
     final /* synthetic */ String a;
@@ -21,17 +22,25 @@ class i extends SingleRunnable<Boolean> {
     @Override // com.baidu.tieba.im.SingleRunnable
     /* renamed from: a */
     public Boolean b() {
+        boolean z;
         if (TextUtils.isEmpty(this.a)) {
             return false;
         }
-        SQLiteDatabase a = s.a();
-        String str = "tb_group_msg_" + this.a;
-        if (a != null) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("is_delete", (Integer) 1);
-            a.update(str, contentValues, "mid=?", new String[]{this.b});
-            return true;
+        try {
+            SQLiteDatabase a = s.a();
+            String str = "tb_group_msg_" + this.a;
+            if (a != null) {
+                ContentValues contentValues = new ContentValues();
+                contentValues.put("is_delete", (Integer) 1);
+                a.update(str, contentValues, "mid=?", new String[]{this.b});
+                z = true;
+            } else {
+                z = false;
+            }
+            return z;
+        } catch (Exception e) {
+            by.a(e, "GroupMsgDao.markDeleteMsgByMid", new Object[0]);
+            return false;
         }
-        return false;
     }
 }

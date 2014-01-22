@@ -11,7 +11,7 @@ public class m {
 
     public static <T> void a(SingleRunnable<T> singleRunnable, a<T> aVar) {
         if (a() > 5) {
-            com.baidu.adp.lib.h.e.b("TiebaIMSingleExecutor queue size - " + a());
+            com.baidu.adp.lib.g.e.b("TiebaIMSingleExecutor queue size - " + a());
         }
         if (singleRunnable != null) {
             singleRunnable.a(aVar);

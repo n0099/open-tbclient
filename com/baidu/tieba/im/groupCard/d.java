@@ -6,9 +6,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import com.baidu.adp.a.e;
-import com.baidu.adp.lib.h.g;
-import com.baidu.tieba.im.d.f;
-import com.baidu.tieba.util.bl;
+import com.baidu.adp.lib.g.g;
+import com.baidu.tieba.util.bs;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
@@ -73,7 +72,7 @@ public class d extends e {
             g.a((Context) this.c, str);
             return;
         }
-        String a = f.a(i);
+        String a = com.baidu.tieba.im.d.g.a(i);
         if (a != null && a.length() > 0) {
             g.a((Context) this.c, a);
         }
@@ -114,7 +113,7 @@ public class d extends e {
     public void a(int i) {
         this.c.getLayoutMode().a(i == 1);
         this.c.getLayoutMode().a(this.a);
-        bl.a(this.a, i);
+        bs.a(this.a, i);
         this.i.c(i);
     }
 }

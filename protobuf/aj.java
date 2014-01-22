@@ -11,11 +11,6 @@ public final class aj extends GeneratedMessageLite.Builder<Im.UserPermission, aj
     private int b;
     private int c;
 
-    /* JADX DEBUG: Method not inlined, still used in: [protobuf.Im.UserPermission.newBuilder():protobuf.aj] */
-    public static /* synthetic */ aj f() {
-        return h();
-    }
-
     private aj() {
         g();
     }

@@ -14,7 +14,7 @@ public class aq extends BdAsyncTask<Object, Integer, com.baidu.tieba.model.be> {
     ArrayList<BasicNameValuePair> a;
     final /* synthetic */ LoginActivity b;
     private String d;
-    private com.baidu.tieba.util.at c = null;
+    private com.baidu.tieba.util.ax c = null;
     private String e = null;
 
     public aq(LoginActivity loginActivity, String str, ArrayList<BasicNameValuePair> arrayList) {
@@ -57,22 +57,23 @@ public class aq extends BdAsyncTask<Object, Integer, com.baidu.tieba.model.be> {
         com.baidu.tieba.model.be beVar;
         Exception e;
         try {
-            this.c = new com.baidu.tieba.util.at(this.d);
+            this.c = new com.baidu.tieba.util.ax(this.d);
             this.c.a(this.a);
-            this.e = this.c.l();
+            this.e = this.c.m();
             if (this.e != null) {
-                com.baidu.tieba.util.bo.a("LoginAsyncTask", "doInBackground", "data: " + this.e);
+                com.baidu.adp.lib.g.e.a("LoginAsyncTask", "doInBackground", "data: " + this.e);
             }
-            if (!this.c.c() || this.e == null) {
+            if (!this.c.d() || this.e == null) {
                 return null;
             }
             beVar = new com.baidu.tieba.model.be();
             try {
                 beVar.a(this.e);
+                this.b.P = bw.a(a.a(beVar.a().getBDUSS()));
                 return beVar;
             } catch (Exception e2) {
                 e = e2;
-                com.baidu.tieba.util.bo.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
+                com.baidu.adp.lib.g.e.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
                 return beVar;
             }
         } catch (Exception e3) {
@@ -104,11 +105,11 @@ public class aq extends BdAsyncTask<Object, Integer, com.baidu.tieba.model.be> {
             this.b.N = beVar;
             this.b.h();
         } else if (this.c != null) {
-            if ((!this.c.d() || this.c.e() != 5) && this.c.e() != 6) {
+            if ((!this.c.e() || this.c.f() != 5) && this.c.f() != 6) {
                 textView2 = this.b.G;
                 textView2.setVisibility(0);
                 textView3 = this.b.G;
-                textView3.setText(this.c.i());
+                textView3.setText(this.c.j());
                 textView4 = this.b.H;
                 textView4.setVisibility(8);
                 this.b.i();
@@ -119,7 +120,7 @@ public class aq extends BdAsyncTask<Object, Integer, com.baidu.tieba.model.be> {
                     textView5 = this.b.G;
                     textView5.setVisibility(0);
                     textView6 = this.b.G;
-                    textView6.setText(this.c.i());
+                    textView6.setText(this.c.j());
                     textView7 = this.b.H;
                     textView7.setVisibility(8);
                     this.b.i();
@@ -145,7 +146,7 @@ public class aq extends BdAsyncTask<Object, Integer, com.baidu.tieba.model.be> {
         TextView textView;
         super.cancel(true);
         if (this.c != null) {
-            this.c.j();
+            this.c.k();
             this.c = null;
         }
         progressBar = this.b.w;

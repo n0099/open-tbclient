@@ -3,7 +3,7 @@ package com.baidu.tieba.a;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.NewErrorData;
 import com.baidu.tieba.n;
-import com.baidu.tieba.util.bn;
+import com.baidu.tieba.util.bx;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class d extends n {
@@ -16,26 +16,26 @@ public class d extends n {
         a("rn", String.valueOf(20));
         this.a.e(true);
         a(e);
-        int b = com.baidu.adp.lib.h.g.b(TiebaApplication.g());
-        int c = com.baidu.adp.lib.h.g.c(TiebaApplication.g());
+        int b = com.baidu.adp.lib.g.g.b(TiebaApplication.h());
+        int c = com.baidu.adp.lib.g.g.c(TiebaApplication.h());
         float f = b / 320.0f;
-        int i = bn.a().b() ? 2 : 1;
+        int i = bx.a().b() ? 2 : 1;
         this.a.a("scr_w", String.valueOf(b));
         this.a.a("scr_h", String.valueOf(c));
         this.a.a("scr_dip", String.valueOf(f));
         this.a.a("q_type", String.valueOf(i));
-        String l = this.a.l();
-        if (this.a.c()) {
+        String m = this.a.m();
+        if (this.a.d()) {
             this.b = new NewErrorData();
-            this.b.parserJson(l);
-            return l;
-        } else if (this.a.d()) {
-            this.c = this.a.e();
-            this.d = this.a.i();
+            this.b.parserJson(m);
+            return m;
+        } else if (this.a.e()) {
+            this.c = this.a.f();
+            this.d = this.a.j();
             return null;
         } else {
             this.c = -1;
-            this.d = TiebaApplication.g().getResources().getString(R.string.neterror);
+            this.d = TiebaApplication.h().getResources().getString(R.string.neterror);
             return null;
         }
     }

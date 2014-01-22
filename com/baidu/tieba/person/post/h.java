@@ -3,14 +3,14 @@ package com.baidu.tieba.person.post;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.gson.GsonBuilder;
 import com.baidu.gson.JsonParseException;
-import com.baidu.tieba.util.at;
-import com.baidu.tieba.util.bo;
+import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.tieba.util.ax;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class h extends BdAsyncTask<Void, Void, PersonPostThreadModel> {
     private WeakReference<g> a;
     private boolean b;
-    private at c;
+    private ax c;
 
     public h(g gVar, boolean z) {
         this.a = new WeakReference<>(gVar);
@@ -23,29 +23,29 @@ public class h extends BdAsyncTask<Void, Void, PersonPostThreadModel> {
         String str;
         int i;
         PersonPostThreadModel personPostThreadModel;
-        this.c = new at(com.baidu.tieba.data.h.a + "c/u/feed/userpost");
-        at atVar = this.c;
+        this.c = new ax(com.baidu.tieba.data.h.a + "c/u/feed/userpost");
+        ax axVar = this.c;
         str = PersonPostThreadModel.b;
-        atVar.a("uid", String.valueOf(str));
-        at atVar2 = this.c;
+        axVar.a(SapiAccountManager.SESSION_UID, String.valueOf(str));
+        ax axVar2 = this.c;
         i = PersonPostThreadModel.a;
-        atVar2.a("pn", String.valueOf(i));
+        axVar2.a("pn", String.valueOf(i));
         this.c.a("rn", String.valueOf(20));
         this.c.a("is_thread", String.valueOf(1));
         this.c.a("need_content", String.valueOf(1));
-        String l = this.c.l();
-        bo.e("PersonPostThreadModel", "doInBackground", l);
+        String m = this.c.m();
+        com.baidu.adp.lib.g.e.e("PersonPostThreadModel", "doInBackground", m);
         try {
-            personPostThreadModel = (PersonPostThreadModel) new GsonBuilder().create().fromJson(l, (Class<Object>) PersonPostThreadModel.class);
+            personPostThreadModel = (PersonPostThreadModel) new GsonBuilder().create().fromJson(m, (Class<Object>) PersonPostThreadModel.class);
         } catch (JsonParseException e) {
-            bo.e("PersonPostThreadModel", "doInBackground", e.getMessage());
+            com.baidu.adp.lib.g.e.e("PersonPostThreadModel", "doInBackground", e.getMessage());
             personPostThreadModel = null;
         }
         if (personPostThreadModel == null) {
             personPostThreadModel = new PersonPostThreadModel();
         }
-        personPostThreadModel.setErrorCode(this.c.e());
-        personPostThreadModel.setErrorString(this.c.i());
+        personPostThreadModel.setErrorCode(this.c.f());
+        personPostThreadModel.setErrorString(this.c.j());
         return personPostThreadModel;
     }
 
@@ -63,7 +63,7 @@ public class h extends BdAsyncTask<Void, Void, PersonPostThreadModel> {
     public void cancel() {
         super.cancel();
         if (this.c != null) {
-            this.c.j();
+            this.c.k();
         }
         PersonPostThreadModel.sFetchThreadAsyncTask = null;
     }

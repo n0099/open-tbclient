@@ -6,9 +6,9 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import com.baidu.tieba.im.message.aw;
-import com.baidu.tieba.im.message.bg;
-import com.baidu.tieba.im.message.ca;
+import com.baidu.tieba.im.message.bd;
+import com.baidu.tieba.im.message.bq;
+import com.baidu.tieba.im.message.co;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class IMBlackListActivity extends com.baidu.tieba.j implements com.baidu.tieba.im.messageCenter.g {
@@ -78,22 +78,22 @@ public class IMBlackListActivity extends com.baidu.tieba.j implements com.baidu.
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(com.baidu.tieba.im.message.o oVar) {
-        ca caVar;
-        com.baidu.tieba.im.message.o l;
+    public void a(com.baidu.tieba.im.message.q qVar) {
+        co coVar;
+        com.baidu.tieba.im.message.q n;
         this.b.e();
         closeLoadingDialog();
-        if (oVar != null) {
-            if (oVar.u() == 104103 && (oVar instanceof bg)) {
-                bg bgVar = (bg) oVar;
-                if (bgVar.i()) {
-                    showToast(bgVar.k());
+        if (qVar != null) {
+            if (qVar.w() == 104103 && (qVar instanceof bq)) {
+                bq bqVar = (bq) qVar;
+                if (bqVar.k()) {
+                    showToast(bqVar.m());
                 } else {
-                    this.b.a(bgVar.b());
+                    this.b.a(bqVar.b());
                 }
-            } else if (oVar.u() == 104102 && (oVar instanceof ca) && (l = (caVar = (ca) oVar).l()) != null && (l instanceof aw) && ((aw) l).b() == 10) {
-                if (caVar.i()) {
-                    showToast(caVar.k());
+            } else if (qVar.w() == 104102 && (qVar instanceof co) && (n = (coVar = (co) qVar).n()) != null && (n instanceof bd) && ((bd) n).b() == 10) {
+                if (coVar.k()) {
+                    showToast(coVar.m());
                     return;
                 }
                 showToast(getString(R.string.black_list_remove_success));

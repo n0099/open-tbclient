@@ -31,7 +31,7 @@ public class d implements Runnable {
                 int a = this.a.a();
                 i = this.a.h;
                 int i4 = a + i;
-                com.baidu.adp.lib.h.e.a(getClass(), "TestVoice2", "elapsedTime=" + i4);
+                com.baidu.adp.lib.g.e.a(getClass(), "TestVoice2", "elapsedTime=" + i4);
                 i2 = this.a.i;
                 if (i4 != i2) {
                     this.a.i = i4;

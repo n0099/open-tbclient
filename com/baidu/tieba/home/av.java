@@ -11,7 +11,7 @@ import org.apache.http.message.BasicNameValuePair;
 public class av extends BdAsyncTask<Object, Integer, cg> {
     BasicNameValuePair a;
     final /* synthetic */ SearchActivity b;
-    private com.baidu.tieba.util.at c = null;
+    private com.baidu.tieba.util.ax c = null;
     private String d;
 
     public av(SearchActivity searchActivity, String str, BasicNameValuePair basicNameValuePair, boolean z) {
@@ -44,19 +44,19 @@ public class av extends BdAsyncTask<Object, Integer, cg> {
         cg cgVar;
         Exception e;
         try {
-            this.c = new com.baidu.tieba.util.at(this.d);
+            this.c = new com.baidu.tieba.util.ax(this.d);
             this.c.a(this.a);
-            String l = this.c.l();
-            if (!this.c.c() || l == null) {
+            String m = this.c.m();
+            if (!this.c.d() || m == null) {
                 return null;
             }
             cgVar = new cg();
             try {
-                cgVar.a(l);
+                cgVar.a(m);
                 return cgVar;
             } catch (Exception e2) {
                 e = e2;
-                com.baidu.tieba.util.bo.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
+                com.baidu.adp.lib.g.e.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
                 return cgVar;
             }
         } catch (Exception e3) {
@@ -84,7 +84,7 @@ public class av extends BdAsyncTask<Object, Integer, cg> {
     public void cancel() {
         ProgressBar progressBar;
         if (this.c != null) {
-            this.c.j();
+            this.c.k();
             this.c = null;
         }
         progressBar = this.b.s;

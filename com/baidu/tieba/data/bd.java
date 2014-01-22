@@ -1,6 +1,5 @@
 package com.baidu.tieba.data;
 
-import com.baidu.tieba.util.bo;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -24,7 +23,7 @@ public class bd {
             this.b = jSONObject.getString("title_link");
             this.c = jSONObject.getString("author");
             this.d = jSONObject.getInt("id");
-            bo.c("TOPNotice:title:" + this.a + " link:" + this.b);
+            com.baidu.adp.lib.g.e.d("TOPNotice:title:" + this.a + " link:" + this.b);
         } catch (JSONException e) {
             e.printStackTrace();
         }

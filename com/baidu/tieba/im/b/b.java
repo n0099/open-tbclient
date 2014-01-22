@@ -13,13 +13,13 @@ public class b implements com.baidu.tieba.im.net.a {
 
     @Override // com.baidu.tieba.im.net.a
     public boolean a(int i, String str) {
-        this.a.e();
+        this.a.f();
         return false;
     }
 
     @Override // com.baidu.tieba.im.net.a
     public void a(Map<String, String> map) {
-        this.a.d();
+        this.a.e();
     }
 
     @Override // com.baidu.tieba.im.net.a

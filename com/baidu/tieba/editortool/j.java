@@ -73,10 +73,10 @@ public class j extends BaseAdapter {
         int measuredWidth = viewGroup.getMeasuredWidth();
         int measuredHeight = viewGroup.getMeasuredHeight();
         writableEmotionGroup = this.a.b;
-        int h = measuredWidth / writableEmotionGroup.h();
+        int j = measuredWidth / writableEmotionGroup.j();
         writableEmotionGroup2 = this.a.b;
         LinearLayout linearLayout3 = (LinearLayout) linearLayout;
-        linearLayout3.setLayoutParams(new AbsListView.LayoutParams(h, measuredHeight / writableEmotionGroup2.i()));
+        linearLayout3.setLayoutParams(new AbsListView.LayoutParams(j, measuredHeight / writableEmotionGroup2.k()));
         BDImageView bDImageView2 = (BDImageView) linearLayout3.getChildAt(0);
         i2 = this.a.q;
         bDImageView2.setBackgroundResource(i2 == 1 ? R.drawable.btn_choose_face_selector_1 : R.drawable.btn_choose_face_selector);

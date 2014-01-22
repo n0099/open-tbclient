@@ -1,8 +1,6 @@
 package com.baidu.tieba.mention;
 
-import android.widget.ImageView;
 import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tieba.util.bo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements Runnable {
@@ -23,8 +21,6 @@ public class k implements Runnable {
         f fVar2;
         String portrait;
         f fVar3;
-        BdListView bdListView3;
-        BdListView bdListView4;
         try {
             bdListView = this.a.e;
             int firstVisiblePosition = bdListView.getFirstVisiblePosition();
@@ -45,26 +41,14 @@ public class k implements Runnable {
                     com.baidu.tieba.data.u uVar = (com.baidu.tieba.data.u) fVar2.getItem(i4);
                     if (uVar != null && (portrait = uVar.i().getPortrait()) != null && portrait.length() > 0) {
                         fVar3 = this.a.f;
-                        com.baidu.adp.widget.ImageView.d b = fVar3.e().b(portrait, new l(this));
-                        if (b != null) {
-                            bdListView3 = this.a.e;
-                            ImageView imageView = (ImageView) bdListView3.findViewWithTag(portrait);
-                            while (imageView != null) {
-                                imageView.setTag(null);
-                                if (imageView != null) {
-                                    b.a(imageView);
-                                }
-                                bdListView4 = this.a.e;
-                                imageView = (ImageView) bdListView4.findViewWithTag(portrait);
-                            }
-                        }
+                        fVar3.e().c(portrait, new l(this));
                     }
                 } else {
                     return;
                 }
             }
         } catch (Exception e) {
-            bo.b("MentionView", "mGetImageRunnble.run", "error = " + e.getMessage());
+            com.baidu.adp.lib.g.e.b("MentionView", "mGetImageRunnble.run", "error = " + e.getMessage());
         }
     }
 }

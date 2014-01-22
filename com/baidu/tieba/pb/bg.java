@@ -15,8 +15,8 @@ public class bg implements DialogInterface.OnClickListener {
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
-        if (!com.baidu.tieba.util.aa.a()) {
-            this.a.showToast(com.baidu.tieba.util.aa.b());
+        if (!com.baidu.tieba.util.ad.a()) {
+            this.a.showToast(com.baidu.tieba.util.ad.b());
         } else {
             FileDownloader.a(this.a, "http://bcscdn.baidu.com/videoandroid/baiduvideo_4099e.apk", null, this.a.getString(R.string.download_baidu_video));
         }

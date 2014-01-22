@@ -7,7 +7,7 @@ import android.view.View;
 import com.baidu.tieba.im.friend.IMBlackListActivity;
 /* loaded from: classes.dex */
 public class SecretSettingActivity extends com.baidu.tieba.j implements View.OnClickListener {
-    private com.baidu.tieba.im.model.l a;
+    private com.baidu.tieba.im.model.m a;
     private an b;
     private com.baidu.tieba.im.messageCenter.g c = new am(this);
 
@@ -31,7 +31,7 @@ public class SecretSettingActivity extends com.baidu.tieba.j implements View.OnC
     }
 
     private void b() {
-        this.a = new com.baidu.tieba.im.model.l();
+        this.a = new com.baidu.tieba.im.model.m();
     }
 
     private void c() {

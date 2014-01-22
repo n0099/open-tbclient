@@ -3,8 +3,7 @@ package com.baidu.tieba.mention;
 import android.view.View;
 import com.baidu.tieba.model.bv;
 import com.baidu.tieba.pb.ImageActivity;
-import com.baidu.tieba.util.bm;
-import com.baidu.tieba.util.bo;
+import com.baidu.tieba.util.bu;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -30,7 +29,7 @@ public class y implements View.OnClickListener {
                     stringBuffer.append("size=");
                     stringBuffer.append(com.baidu.tieba.data.h.i());
                     stringBuffer.append("&src=");
-                    stringBuffer.append(bm.d(this.b.get(i).e()));
+                    stringBuffer.append(bu.d(this.b.get(i).e()));
                     arrayList.add(stringBuffer.toString());
                 }
             }
@@ -39,7 +38,7 @@ public class y implements View.OnClickListener {
             bvVar = this.a.l;
             ImageActivity.a(postActivity, arrayList, i2, bvVar);
         } catch (Exception e) {
-            bo.b("PbAdapter", "ImageOnClickListener", "error = " + e.getMessage());
+            com.baidu.adp.lib.g.e.b("PbAdapter", "ImageOnClickListener", "error = " + e.getMessage());
         }
     }
 }

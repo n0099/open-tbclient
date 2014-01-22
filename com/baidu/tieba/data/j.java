@@ -5,9 +5,9 @@ import android.graphics.drawable.BitmapDrawable;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.style.ImageSpan;
+import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.imageManager.TbFaceManager;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.bo;
 import com.slidingmenu.lib.R;
 import java.util.regex.Pattern;
 import org.json.JSONObject;
@@ -79,10 +79,10 @@ public class j {
                 return spannableString;
             case 2:
                 SpannableString spannableString2 = new SpannableString(this.b + " ");
-                com.baidu.adp.widget.ImageView.d k2 = TiebaApplication.g().k(this.b);
-                if (k2 != null) {
-                    BitmapDrawable i = k2.i();
-                    i.setBounds(0, 0, k2.c(), k2.d());
+                com.baidu.adp.widget.ImageView.d j2 = TiebaApplication.h().j(this.b);
+                if (j2 != null) {
+                    BitmapDrawable i = j2.i();
+                    i.setBounds(0, 0, j2.c(), j2.d());
                     spannableString2.setSpan(new ImageSpan(i, 1), 0, this.b.length(), 33);
                     return spannableString2;
                 }
@@ -120,15 +120,15 @@ public class j {
             return null;
         }
         SpannableString spannableString = new SpannableString(this.b + " ");
-        com.baidu.adp.widget.ImageView.d k2 = TiebaApplication.g().k(this.b);
-        if (k2 != null) {
-            BitmapDrawable i3 = k2.i();
+        com.baidu.adp.widget.ImageView.d j2 = TiebaApplication.h().j(this.b);
+        if (j2 != null) {
+            BitmapDrawable i3 = j2.i();
             if (i - i2 > 0) {
-                d = k2.d() + ((i - i2) >> 1);
+                d = j2.d() + ((i - i2) >> 1);
             } else {
-                d = k2.d();
+                d = j2.d();
             }
-            i3.setBounds(0, 0, k2.c(), d);
+            i3.setBounds(0, 0, j2.c(), d);
             spannableString.setSpan(new ImageSpan(i3, 1), 0, this.b.length(), 33);
         }
         return spannableString;
@@ -166,7 +166,7 @@ public class j {
                     }
                 } else if (this.a == 4) {
                     this.b = jSONObject.optString("text");
-                    this.g = jSONObject.optString("uid");
+                    this.g = jSONObject.optString(SapiAccountManager.SESSION_UID);
                 } else if (this.a == 11) {
                     this.c = jSONObject.optString("c");
                 } else {
@@ -182,7 +182,7 @@ public class j {
                     this.g = this.g.replaceAll("\n", "");
                 }
             } catch (Exception e2) {
-                bo.b("ContentData", "parserJson", "error = " + e2.getMessage());
+                com.baidu.adp.lib.g.e.b("ContentData", "parserJson", "error = " + e2.getMessage());
             }
         }
     }

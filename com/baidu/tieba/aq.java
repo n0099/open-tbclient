@@ -1,73 +1,22 @@
 package com.baidu.tieba;
-
-import android.app.Activity;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.slidingmenu.lib.R;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aq {
-    private LinearLayout a;
-    private ImageView b;
-    private TextView c;
-    private int d;
-    private int e;
-    private int f = -1;
+public class aq implements com.baidu.tieba.im.messageCenter.g {
+    final /* synthetic */ MainTabActivity a;
 
-    public aq(View view, int i, int i2) {
-        this.d = i;
-        this.e = i2;
-        if (view != null) {
-            this.a = (LinearLayout) view.findViewById(R.id.no_data_container);
-            this.b = (ImageView) view.findViewById(R.id.no_data_image);
-            this.c = (TextView) view.findViewById(R.id.no_data_image_text);
+    private aq(MainTabActivity mainTabActivity) {
+        this.a = mainTabActivity;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ aq(MainTabActivity mainTabActivity, ap apVar) {
+        this(mainTabActivity);
+    }
+
+    @Override // com.baidu.tieba.im.messageCenter.g
+    public void a(com.baidu.tieba.im.message.q qVar) {
+        if (qVar != null && qVar.w() == -124) {
+            this.a.a(qVar);
         }
-    }
-
-    public aq(Activity activity, int i, int i2) {
-        this.d = i;
-        this.e = i2;
-        this.a = (LinearLayout) activity.findViewById(R.id.no_data_container);
-        this.b = (ImageView) activity.findViewById(R.id.no_data_image);
-        this.c = (TextView) activity.findViewById(R.id.no_data_image_text);
-    }
-
-    public void a(int i) {
-        if (i != this.f) {
-            this.f = i;
-            if (i == 1) {
-                this.b.setImageResource(this.e);
-                this.c.setTextColor(com.baidu.tieba.util.bl.a(i));
-                return;
-            }
-            this.b.setImageResource(this.d);
-            this.c.setTextColor(-5065030);
-        }
-    }
-
-    public void a() {
-        a(TiebaApplication.g().an());
-    }
-
-    public void b() {
-        this.b.setImageDrawable(null);
-        this.f = -1;
-    }
-
-    public void b(int i) {
-        this.a.setVisibility(i);
-        if (i == 8) {
-            this.b.setImageDrawable(null);
-            this.b.setVisibility(8);
-            this.f = -1;
-            return;
-        }
-        this.b.setVisibility(0);
-        a(TiebaApplication.g().an());
-    }
-
-    public boolean c() {
-        return this.a.getVisibility() != 8;
     }
 }

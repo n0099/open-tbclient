@@ -38,7 +38,7 @@ public class l {
 
     public static void a(ValidateItemData validateItemData, com.baidu.tieba.im.a<Boolean> aVar) {
         if (validateItemData != null) {
-            com.baidu.adp.lib.h.e.d("lastmid:" + validateItemData.getNotice_id());
+            com.baidu.adp.lib.g.e.d("lastmid:" + validateItemData.getNotice_id());
             com.baidu.tieba.im.db.l.a().b(validateItemData.getNotice_id(), aVar);
         }
     }
@@ -90,7 +90,7 @@ public class l {
                     validateItemData.setPortrait(optJSONObject.optString("portrait"));
                     String optString = optJSONObject.optString("groupId");
                     validateItemData.setGroupId(optString);
-                    com.baidu.adp.lib.h.e.d("getGroupInfo gid:" + optString);
+                    com.baidu.adp.lib.g.e.d("getGroupInfo gid:" + optString);
                     a(validateItemData, optString);
                     validateItemData.setUserId(optJSONObject.optString("userId"));
                     validateItemData.setInviterUserId(optJSONObject.optLong("inviteUserId"));

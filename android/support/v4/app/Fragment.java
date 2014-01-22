@@ -19,7 +19,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
-import com.baidu.zeus.bouncycastle.DERTags;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -163,7 +162,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     }
 
     public String toString() {
-        StringBuilder sb = new StringBuilder((int) DERTags.TAGGED);
+        StringBuilder sb = new StringBuilder(128);
         android.support.v4.b.a.a(this, sb);
         if (this.o >= 0) {
             sb.append(" #");
@@ -209,6 +208,10 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
 
     public final String a(int i) {
         return j().getString(i);
+    }
+
+    public final String a(int i, Object... objArr) {
+        return j().getString(i, objArr);
     }
 
     public final t k() {

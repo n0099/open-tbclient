@@ -1,58 +1,49 @@
 package com.baidu.tieba.im.d;
 
-import android.text.Editable;
-import android.text.TextUtils;
-import android.widget.EditText;
+import cn.jingling.lib.file.ImageFile;
 /* loaded from: classes.dex */
 public class g {
-    public static int a(EditText editText) {
-        if (editText == null) {
-            return 0;
+    public static String a(int i) {
+        switch (i) {
+            case -85:
+                return "定位失败了，右上角点下刷新吧~";
+            case -84:
+                return "录音发生错误";
+            case -52:
+            case ImageFile.SDCARD_FULL /* -7 */:
+            case -2:
+            case -1:
+                return "你的网络状况不大好，请稍后重试";
+            case -51:
+                return "未知错误";
+            case -48:
+                return "创建私聊不成功，请稍后再试";
+            case -47:
+                return "内容不合适，请修改下吧";
+            case -46:
+                return "内容不能为空，请修改下吧";
+            case -45:
+                return "最多允许20个表情，请修改下吧";
+            case -42:
+                return "发的太频繁啦";
+            case -41:
+                return "录音太短啦";
+            case -40:
+                return "操作违规";
+            case -26:
+                return "存储卡已满，请清理文件";
+            case -25:
+                return "存储卡读写失败";
+            case -24:
+                return "你的存储卡被USB占用，请更改数据线连接方式";
+            case -23:
+                return "无法找到存储卡";
+            case -3:
+                return "数据转换失败";
+            case 0:
+                return null;
+            default:
+                return "未定义错误";
         }
-        return a(editText.getText());
-    }
-
-    public static int a(Editable editable) {
-        if (editable == null) {
-            return 0;
-        }
-        return a(editable.toString());
-    }
-
-    public static int a(char c) {
-        if (b(c)) {
-            return 1;
-        }
-        return 2;
-    }
-
-    public static boolean b(char c) {
-        return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || ((c >= '0' && c <= '9') || c == ' ');
-    }
-
-    public static int a(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return 0;
-        }
-        int i = 0;
-        for (int i2 = 0; i2 < str.length(); i2++) {
-            if (b(str.charAt(i2))) {
-                i++;
-            } else {
-                i += 2;
-            }
-        }
-        return i;
-    }
-
-    public static boolean b(EditText editText) {
-        String obj = editText.getText().toString();
-        int length = obj.length();
-        String trim = obj.trim();
-        if (trim.length() < length) {
-            editText.setText(trim);
-            return false;
-        }
-        return true;
     }
 }

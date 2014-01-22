@@ -15,9 +15,9 @@ class ad implements View.OnClickListener {
     public void onClick(View view) {
         EditorToolComponetContainer editorToolComponetContainer;
         EditorToolComponetContainer editorToolComponetContainer2;
-        editorToolComponetContainer = this.a.B;
+        editorToolComponetContainer = this.a.z;
         if (editorToolComponetContainer.j()) {
-            editorToolComponetContainer2 = this.a.B;
+            editorToolComponetContainer2 = this.a.z;
             editorToolComponetContainer2.k();
         }
     }

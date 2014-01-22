@@ -1,12 +1,9 @@
 package com.baidu.tieba.im.frsgroup;
 
-import android.view.View;
-import android.widget.AdapterView;
-import com.baidu.tieba.im.data.UserData;
-import java.util.ArrayList;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tieba.util.an;
 /* loaded from: classes.dex */
-public class n implements AdapterView.OnItemLongClickListener {
+class n implements Runnable {
     final /* synthetic */ MembersActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,30 +11,13 @@ public class n implements AdapterView.OnItemLongClickListener {
         this.a = membersActivity;
     }
 
-    @Override // android.widget.AdapterView.OnItemLongClickListener
-    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
-        aa aaVar;
-        com.baidu.tieba.im.model.m mVar;
-        aa aaVar2;
-        aaVar = this.a.b;
-        if (aaVar.i().d()) {
-            return false;
-        }
-        mVar = this.a.c;
-        if (mVar.b()) {
-            aaVar2 = this.a.b;
-            UserData userData = (UserData) aaVar2.i().getItem(i);
-            if (userData != null) {
-                if (userData.getPermission().isController()) {
-                    return false;
-                }
-                long userId = userData.getUserId();
-                ArrayList arrayList = new ArrayList();
-                arrayList.add(Long.valueOf(userId));
-                com.baidu.tieba.im.d.b.a(this.a, new o(this, arrayList), new p(this));
-            }
-            return true;
-        }
-        return false;
+    @Override // java.lang.Runnable
+    public void run() {
+        ac acVar;
+        ac acVar2;
+        acVar = this.a.b;
+        BdListView l = acVar.l();
+        acVar2 = this.a.b;
+        an.a(l, acVar2.i().e(), 1, 0);
     }
 }

@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.baidu.tieba.BaseFragmentActivity;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.im.data.GroupInfoData;
+import com.baidu.tieba.util.bs;
 import com.baidu.tieba.view.HeadImageView;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
@@ -62,23 +63,24 @@ public class a extends BaseAdapter {
         b bVar;
         if (view == null || view.getTag() == null || !(view.getTag() instanceof b)) {
             view = LayoutInflater.from(this.a.i()).inflate(R.layout.im_group_list_item, viewGroup, false);
-            bVar = new b();
-            bVar.a = (LinearLayout) view.findViewById(R.id.click_head);
-            bVar.b = (LinearLayout) view.findViewById(R.id.list_item_content);
-            bVar.c = (HeadImageView) view.findViewById(R.id.item_head);
-            bVar.d = (TextView) view.findViewById(R.id.item_group_name);
-            bVar.e = (TextView) view.findViewById(R.id.item_group_num);
-            bVar.f = (TextView) view.findViewById(R.id.item_introduce);
-            bVar.g = (TextView) view.findViewById(R.id.list_more_title);
-            bVar.h = (TextView) view.findViewById(R.id.isCreator);
-            bVar.i = (ImageView) view.findViewById(R.id.item_grade1);
-            bVar.j = (ImageView) view.findViewById(R.id.item_grade2);
-            bVar.k = (ImageView) view.findViewById(R.id.item_grade3);
-            bVar.l = new ImageView[4];
-            bVar.l[1] = bVar.i;
-            bVar.l[2] = bVar.j;
-            bVar.l[3] = bVar.k;
-            view.setTag(bVar);
+            b bVar2 = new b();
+            bVar2.a = (LinearLayout) view.findViewById(R.id.click_head);
+            bVar2.b = (LinearLayout) view.findViewById(R.id.list_item_content);
+            bVar2.c = (HeadImageView) view.findViewById(R.id.item_head);
+            bVar2.d = (TextView) view.findViewById(R.id.item_group_name);
+            bVar2.e = (TextView) view.findViewById(R.id.item_group_num);
+            bVar2.f = (TextView) view.findViewById(R.id.item_introduce);
+            bVar2.g = (TextView) view.findViewById(R.id.list_more_title);
+            bVar2.h = (TextView) view.findViewById(R.id.isCreator);
+            bVar2.i = (ImageView) view.findViewById(R.id.item_grade1);
+            bVar2.j = (ImageView) view.findViewById(R.id.item_grade2);
+            bVar2.k = (ImageView) view.findViewById(R.id.item_grade3);
+            bVar2.l = new ImageView[4];
+            bVar2.l[1] = bVar2.i;
+            bVar2.l[2] = bVar2.j;
+            bVar2.l[3] = bVar2.k;
+            view.setTag(bVar2);
+            bVar = bVar2;
         } else {
             bVar = (b) view.getTag();
         }
@@ -87,7 +89,7 @@ public class a extends BaseAdapter {
         bVar.c.setDefaultResource(R.drawable.avatar_poto_defaul140);
         bVar.c.setNightDefaultResource(R.drawable.avatar_poto_defaul140_1);
         bVar.c.setDrawBorder(true);
-        bVar.c.setRadius(com.baidu.adp.lib.h.g.a((Context) this.a.i(), 5.0f));
+        bVar.c.setRadius(com.baidu.adp.lib.g.g.a((Context) this.a.i(), 5.0f));
         if (groupInfoData != null) {
             String portrait = groupInfoData.getPortrait();
             if (!TextUtils.isEmpty(portrait)) {
@@ -105,8 +107,14 @@ public class a extends BaseAdapter {
             }
             a(bVar.l, groupInfoData.getGrade());
         }
-        ((BaseFragmentActivity) this.a.i()).a().a(TiebaApplication.g().an() == 1);
+        ((BaseFragmentActivity) this.a.i()).a().a(TiebaApplication.h().al() == 1);
         ((BaseFragmentActivity) this.a.i()).a().a(view);
+        if (groupInfoData != null && groupInfoData.isMemGroup()) {
+            bs.a(bVar.d, R.color.im_group_vip_text, 1);
+            bs.d(bVar.i, (int) R.drawable.icon_vip_grade_big_small_s);
+            bs.d(bVar.j, (int) R.drawable.icon_vip_grade_big_small_s);
+            bs.d(bVar.k, (int) R.drawable.icon_vip_grade_big_small_s);
+        }
         return view;
     }
 

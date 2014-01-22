@@ -8,7 +8,7 @@ import com.baidu.tieba.TiebaApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends BdAsyncTask<String, Integer, ch> {
-    com.baidu.tieba.util.at a;
+    com.baidu.tieba.util.ax a;
     final /* synthetic */ a b;
 
     private c(a aVar) {
@@ -30,35 +30,35 @@ public class c extends BdAsyncTask<String, Integer, ch> {
         Exception e;
         Context context;
         try {
-            this.a = new com.baidu.tieba.util.at(com.baidu.tieba.data.h.a + "c/s/sync");
+            this.a = new com.baidu.tieba.util.ax(com.baidu.tieba.data.h.a + "c/s/sync");
             this.a.a("_os_version", Build.VERSION.RELEASE);
             StringBuffer stringBuffer = new StringBuffer(15);
-            stringBuffer.append(String.valueOf(com.baidu.adp.lib.h.g.b(TiebaApplication.g())));
+            stringBuffer.append(String.valueOf(com.baidu.adp.lib.g.g.b(TiebaApplication.h())));
             stringBuffer.append(",");
-            stringBuffer.append(String.valueOf(com.baidu.adp.lib.h.g.c(TiebaApplication.g())));
+            stringBuffer.append(String.valueOf(com.baidu.adp.lib.g.g.c(TiebaApplication.h())));
             this.a.a("_phone_screen", stringBuffer.toString());
-            if (TiebaApplication.g().N() > 0) {
+            if (TiebaApplication.h().M() > 0) {
                 this.a.a("_msg_status", SocialConstants.FALSE);
             } else {
                 this.a.a("_msg_status", SocialConstants.TRUE);
             }
-            String l = this.a.l();
-            if (!this.a.c()) {
+            String m = this.a.m();
+            if (!this.a.d()) {
                 return null;
             }
             chVar = new ch();
             try {
-                chVar.a(l);
-                if (TiebaApplication.L() == null && chVar.d().a() != null && chVar.d().a().length() > 0) {
+                chVar.a(m);
+                if (TiebaApplication.K() == null && chVar.d().a() != null && chVar.d().a().length() > 0) {
                     context = this.b.c;
                     TiebaApplication.a(context, chVar.d().a());
-                    TiebaApplication.o(chVar.d().a());
+                    TiebaApplication.n(chVar.d().a());
                     return chVar;
                 }
                 return chVar;
             } catch (Exception e2) {
                 e = e2;
-                com.baidu.tieba.util.bo.b(getClass().getName(), "doInBackground", e.getMessage());
+                com.baidu.adp.lib.g.e.b(getClass().getName(), "doInBackground", e.getMessage());
                 return chVar;
             }
         } catch (Exception e3) {
@@ -71,7 +71,7 @@ public class c extends BdAsyncTask<String, Integer, ch> {
     public void cancel() {
         this.b.b = null;
         if (this.a != null) {
-            this.a.j();
+            this.a.k();
         }
         super.cancel(true);
     }

@@ -44,7 +44,7 @@ public class b extends com.baidu.adp.a.d {
         this.c.b("&t=" + f);
         this.c.b(true);
         this.c.a(i, i2);
-        return this.c.a(this.e, cVar);
+        return this.c.a(this.e, cVar, false);
     }
 
     public void a(Bitmap bitmap) {

@@ -5,7 +5,6 @@ import android.os.Handler;
 import android.os.Message;
 import android.os.Process;
 import com.baidu.adp.lib.voice.Amrnb;
-import com.baidu.tieba.util.bo;
 import com.google.protobuf.CodedOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -69,7 +68,7 @@ public class c implements Runnable {
             this.b = new AudioTrack(VoiceManager.i, 8000, 2, 2, Math.min(AudioTrack.getMinBufferSize(8000, 2, 2) * 8, (int) CodedOutputStream.DEFAULT_BUFFER_SIZE), 1);
         } catch (IllegalArgumentException e) {
             this.b = null;
-            bo.b("AmrAudioPlayerRunnable", "init new AudioTrack", "error = " + e.getMessage());
+            com.baidu.adp.lib.g.e.b("AmrAudioPlayerRunnable", "init new AudioTrack", "error = " + e.getMessage());
         }
         a = 1;
     }
@@ -200,7 +199,7 @@ public class c implements Runnable {
             try {
                 fileInputStream2.close();
                 this.e.decoderDeinit();
-                com.baidu.adp.lib.h.e.c("-----gf : decoderDeinit");
+                com.baidu.adp.lib.g.e.c("-----gf : decoderDeinit");
             } catch (Exception e3) {
                 fileInputStream = fileInputStream2;
                 if (this.f != null) {
@@ -210,7 +209,7 @@ public class c implements Runnable {
                     try {
                         fileInputStream.close();
                     } catch (Exception e4) {
-                        com.baidu.adp.lib.h.e.b("AudioPlayer", "play", "error = " + e4.getMessage());
+                        com.baidu.adp.lib.g.e.b("AudioPlayer", "play", "error = " + e4.getMessage());
                     }
                 }
                 a = 3;

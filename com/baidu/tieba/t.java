@@ -9,7 +9,7 @@ import java.io.File;
 /* loaded from: classes.dex */
 class t extends BdAsyncTask<String, Integer, Boolean> {
     final /* synthetic */ FileDownloader a;
-    private com.baidu.tieba.util.at b = null;
+    private com.baidu.tieba.util.ax b = null;
     private volatile boolean c = false;
     private String d;
     private String e;
@@ -29,12 +29,12 @@ class t extends BdAsyncTask<String, Integer, Boolean> {
         Boolean bool = false;
         while (!this.c) {
             try {
-                this.b = new com.baidu.tieba.util.at(this.d);
+                this.b = new com.baidu.tieba.util.ax(this.d);
                 handler = this.a.d;
                 bool = Boolean.valueOf(this.b.a(this.e + ".tmp", handler, 900002));
-                if (bool.booleanValue() || this.b.e() == -2) {
+                if (bool.booleanValue() || this.b.f() == -2) {
                     break;
-                } else if (!this.b.o()) {
+                } else if (!this.b.p()) {
                     try {
                         Thread.sleep(10000L);
                     } catch (Exception e2) {
@@ -44,9 +44,9 @@ class t extends BdAsyncTask<String, Integer, Boolean> {
             }
         }
         if (bool.booleanValue()) {
-            com.baidu.tieba.util.aa.j(this.e);
-            File d = com.baidu.tieba.util.aa.d(this.e + ".tmp");
-            if (d != null && (e = com.baidu.tieba.util.aa.e(this.e)) != null) {
+            com.baidu.tieba.util.ad.j(this.e);
+            File d = com.baidu.tieba.util.ad.d(this.e + ".tmp");
+            if (d != null && (e = com.baidu.tieba.util.ad.e(this.e)) != null) {
                 if (!d.renameTo(e)) {
                 }
             }
@@ -60,7 +60,7 @@ class t extends BdAsyncTask<String, Integer, Boolean> {
         this.a.c = null;
         this.c = true;
         if (this.b != null) {
-            this.b.j();
+            this.b.k();
         }
     }
 

@@ -26,29 +26,29 @@ public class af extends BdAsyncTask<String, Integer, String> {
             }
             String str = this.a.G.h().get(this.a.J).b() + "_big";
             if (str != null && str.length() > 0 && this.a.G != null) {
-                String f = com.baidu.tieba.util.bm.f(str);
+                String f = com.baidu.tieba.util.bu.f(str);
                 if (f != null) {
                     String str2 = f + ".jpg";
                     int i = 0;
-                    while (com.baidu.tieba.util.aa.b(str2) && i < 10000) {
+                    while (com.baidu.tieba.util.ad.b(str2) && i < 10000) {
                         i++;
                         str2 = f + String.valueOf(Math.round(Math.random() * 9.9999999E7d)) + ".jpg";
                     }
                     com.baidu.adp.widget.ImageView.d c = com.baidu.tbadk.imageManager.d.a().c(str);
                     if (c != null) {
-                        str2 = com.baidu.tieba.util.aa.a((String) null, str2, c.h(), 80);
+                        str2 = com.baidu.tieba.util.ad.a((String) null, str2, c.h(), 80);
                     }
                     if (str2 != null) {
-                        new com.baidu.tieba.util.as(this.a).a(str2);
+                        new com.baidu.tieba.util.aw(this.a).a(str2);
                         return this.a.getString(R.string.save_image_to_album);
                     }
-                    return com.baidu.tieba.util.aa.b();
+                    return com.baidu.tieba.util.ad.b();
                 }
                 return this.a.getString(R.string.save_error);
             }
             return this.a.getString(R.string.save_error);
         } catch (Exception e) {
-            com.baidu.tieba.util.bo.b("SaveImageAsyncTask", "doInBackground", "error" + e.getMessage());
+            com.baidu.adp.lib.g.e.b("SaveImageAsyncTask", "doInBackground", "error" + e.getMessage());
             return this.a.getString(R.string.save_error);
         }
     }

@@ -1,21 +1,19 @@
 package com.baidu.tieba.im.chat;
+
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bo implements com.baidu.tieba.im.a<Void> {
-    final /* synthetic */ ba a;
-
-    private bo(ba baVar) {
-        this.a = baVar;
-    }
+public class bo implements View.OnLongClickListener {
+    final /* synthetic */ bk a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ bo(ba baVar, bb bbVar) {
-        this(baVar);
+    public bo(bk bkVar) {
+        this.a = bkVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    public void a(Void r4) {
-        com.baidu.tieba.im.c.a.h().b(false, (com.baidu.tieba.im.a<Void>) null);
+    @Override // android.view.View.OnLongClickListener
+    public boolean onLongClick(View view) {
+        this.a.d.b(view, 3, this.a.f, 0L);
+        return true;
     }
 }

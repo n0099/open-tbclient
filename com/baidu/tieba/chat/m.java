@@ -18,7 +18,7 @@ public class m implements com.baidu.adp.widget.ListView.b {
             this.a.a(1, 3);
         }
         if (!UtilHelper.b()) {
-            this.a.b(R.string.neterror);
+            this.a.c(R.string.neterror);
         }
     }
 }

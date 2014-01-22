@@ -30,7 +30,7 @@ class bk extends com.baidu.adp.widget.ListView.c {
         this.f = this.e.findViewById(R.id.pb_more_view);
         this.f.setVisibility(8);
         this.d = (ProgressBar) this.e.findViewById(R.id.progress);
-        a(TiebaApplication.g().an());
+        a(TiebaApplication.h().al());
         this.f.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         return this.e;
     }

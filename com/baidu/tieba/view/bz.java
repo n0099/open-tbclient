@@ -1,27 +1,17 @@
 package com.baidu.tieba.view;
 
-import android.content.Context;
-import android.widget.TextView;
-import com.slidingmenu.lib.R;
+import android.view.View;
 /* loaded from: classes.dex */
-public class bz extends com.baidu.adp.widget.ScrollView.r {
-    public bz(Context context) {
-        super(context);
+class bz implements View.OnClickListener {
+    final /* synthetic */ SearchBar a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bz(SearchBar searchBar) {
+        this.a = searchBar;
     }
 
-    public void a(int i) {
-        TextView d = d();
-        TextView c = c();
-        if (d != null && c != null) {
-            if (i == 1) {
-                int color = h().getResources().getColor(R.color.adp_pullview_night);
-                d.setTextColor(color);
-                c.setTextColor(color);
-                return;
-            }
-            int color2 = h().getResources().getColor(R.color.adp_pullview_day);
-            d.setTextColor(color2);
-            c.setTextColor(color2);
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.a.setSearchText("");
     }
 }

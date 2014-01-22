@@ -12,14 +12,14 @@ class bd extends com.baidu.adp.a.g {
 
     @Override // com.baidu.adp.a.g
     public void a(Object obj) {
-        cs csVar;
+        cr crVar;
         com.baidu.tieba.model.bs bsVar;
         if (obj instanceof Bitmap) {
             Bitmap bitmap = (Bitmap) obj;
             if (obj != null) {
-                csVar = this.a.z;
-                csVar.a(bitmap);
-                bsVar = this.a.v;
+                crVar = this.a.A;
+                crVar.a(bitmap);
+                bsVar = this.a.w;
                 bsVar.a(true);
             }
         }

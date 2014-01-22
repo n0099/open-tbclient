@@ -7,7 +7,7 @@ import org.json.JSONObject;
 public class as extends BdAsyncTask<Object, Integer, JSONObject> {
     final /* synthetic */ ar a;
     private int b;
-    private com.baidu.tieba.util.at c = null;
+    private com.baidu.tieba.util.ax c = null;
 
     public as(ar arVar, int i) {
         this.a = arVar;
@@ -30,28 +30,28 @@ public class as extends BdAsyncTask<Object, Integer, JSONObject> {
         String str2;
         String str3;
         try {
-            this.c = new com.baidu.tieba.util.at(com.baidu.tieba.data.h.a + "c/f/frs/photolist");
+            this.c = new com.baidu.tieba.util.ax(com.baidu.tieba.data.h.a + "c/f/frs/photolist");
             str = this.a.i;
             if (str != null) {
-                com.baidu.tieba.util.at atVar = this.c;
+                com.baidu.tieba.util.ax axVar = this.c;
                 str3 = this.a.i;
-                atVar.a("st_type", str3);
+                axVar.a("st_type", str3);
             }
-            com.baidu.tieba.util.at atVar2 = this.c;
+            com.baidu.tieba.util.ax axVar2 = this.c;
             str2 = this.a.j;
-            atVar2.a("kw", str2);
+            axVar2.a("kw", str2);
             this.c.a("bs", String.valueOf(this.b));
             this.c.a("be", String.valueOf((this.b + 240) - 1));
             this.c.a("an", String.valueOf(30));
-            String l = this.c.l();
-            jSONObject = new JSONObject(l);
+            String m = this.c.m();
+            jSONObject = new JSONObject(m);
             try {
-                if (this.c.c()) {
-                    this.a.a(l);
+                if (this.c.d()) {
+                    this.a.a(m);
                 }
             } catch (Exception e2) {
                 e = e2;
-                com.baidu.tieba.util.bo.b(getClass().getName(), "doInBackground", e.getMessage());
+                com.baidu.adp.lib.g.e.b(getClass().getName(), "doInBackground", e.getMessage());
                 return jSONObject;
             }
         } catch (Exception e3) {
@@ -65,35 +65,35 @@ public class as extends BdAsyncTask<Object, Integer, JSONObject> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(JSONObject jSONObject) {
-        com.baidu.tieba.frs.bk bkVar;
-        com.baidu.tieba.frs.bk bkVar2;
+        com.baidu.tieba.frs.bg bgVar;
+        com.baidu.tieba.frs.bg bgVar2;
         super.a((as) jSONObject);
         this.a.k = null;
-        bkVar = this.a.m;
-        if (bkVar != null) {
+        bgVar = this.a.m;
+        if (bgVar != null) {
             at atVar = new at(this.a);
             if (this.c != null) {
                 atVar.a = true;
-                atVar.b = this.c.d();
-                atVar.c = this.c.e();
-                atVar.d = this.c.i();
-                atVar.e = this.c.b();
+                atVar.b = this.c.e();
+                atVar.c = this.c.f();
+                atVar.d = this.c.j();
+                atVar.e = this.c.c();
             }
-            bkVar2 = this.a.m;
-            bkVar2.a(this.b, jSONObject, atVar);
+            bgVar2 = this.a.m;
+            bgVar2.a(this.b, jSONObject, atVar);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void b() {
-        com.baidu.tieba.frs.bk bkVar;
-        com.baidu.tieba.frs.bk bkVar2;
+        com.baidu.tieba.frs.bg bgVar;
+        com.baidu.tieba.frs.bg bgVar2;
         super.b();
-        bkVar = this.a.m;
-        if (bkVar != null) {
-            bkVar2 = this.a.m;
-            bkVar2.a(0);
+        bgVar = this.a.m;
+        if (bgVar != null) {
+            bgVar2 = this.a.m;
+            bgVar2.a(0);
         }
     }
 
@@ -101,7 +101,7 @@ public class as extends BdAsyncTask<Object, Integer, JSONObject> {
     public void cancel() {
         super.cancel(true);
         if (this.c != null) {
-            this.c.j();
+            this.c.k();
             this.c = null;
         }
         this.a.k = null;

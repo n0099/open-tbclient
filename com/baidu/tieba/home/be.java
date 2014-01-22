@@ -67,7 +67,7 @@ class be implements bo {
                     alertDialog3.show();
                 }
             } else if (blVar.e() != 0) {
-                com.baidu.adp.lib.h.g.a((Context) this.a, blVar.f());
+                com.baidu.adp.lib.g.g.a((Context) this.a, blVar.f());
             } else {
                 this.a.showToast(R.string.signallforum_error);
             }

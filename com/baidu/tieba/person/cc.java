@@ -4,6 +4,7 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.UserData;
 import com.slidingmenu.lib.R;
@@ -15,7 +16,7 @@ public class cc extends BdAsyncTask<String, com.baidu.tieba.data.aq, com.baidu.t
     private String b;
     private boolean c;
     private int d;
-    private com.baidu.tieba.util.at e = null;
+    private com.baidu.tieba.util.ax e = null;
     private boolean f;
 
     public cc(PersonListActivity personListActivity, String str, boolean z, int i, boolean z2) {
@@ -43,7 +44,7 @@ public class cc extends BdAsyncTask<String, com.baidu.tieba.data.aq, com.baidu.t
         cd cdVar2;
         cd cdVar3;
         if (this.e != null) {
-            this.e.j();
+            this.e.k();
         }
         cdVar = this.a.e;
         if (cdVar != null) {
@@ -66,7 +67,7 @@ public class cc extends BdAsyncTask<String, com.baidu.tieba.data.aq, com.baidu.t
         com.baidu.tieba.model.ca caVar2;
         com.baidu.tieba.model.ca caVar3;
         com.baidu.tieba.model.ca caVar4;
-        this.e = new com.baidu.tieba.util.at();
+        this.e = new com.baidu.tieba.util.ax();
         com.baidu.tieba.data.aq aqVar = null;
         if (this.f) {
             caVar3 = this.a.h;
@@ -82,20 +83,20 @@ public class cc extends BdAsyncTask<String, com.baidu.tieba.data.aq, com.baidu.t
             this.e.a(com.baidu.tieba.data.h.a + "c/u/fans/page");
         }
         if (this.b != null && !this.b.equals(TiebaApplication.A())) {
-            this.e.a("uid", this.b);
+            this.e.a(SapiAccountManager.SESSION_UID, this.b);
         }
         if (this.d != 0) {
             this.e.a("pn", String.valueOf(this.d));
         }
-        String l = this.e.l();
-        if (this.e.c()) {
+        String m = this.e.m();
+        if (this.e.d()) {
             aqVar = new com.baidu.tieba.data.aq();
-            aqVar.a(l);
+            aqVar.a(m);
             if (aqVar.a().d() == 1) {
                 caVar = this.a.h;
                 if (caVar != null) {
                     caVar2 = this.a.h;
-                    caVar2.a(l, this.c);
+                    caVar2.a(m, this.c);
                 }
             }
         }
@@ -129,11 +130,11 @@ public class cc extends BdAsyncTask<String, com.baidu.tieba.data.aq, com.baidu.t
         progressBar.setVisibility(8);
         this.a.g = null;
         if (this.e != null) {
-            if (this.e.c()) {
+            if (this.e.d()) {
                 a(aqVar, false);
             } else {
                 a(aqVar, true);
-                this.a.showToast(this.e.i());
+                this.a.showToast(this.e.j());
             }
             super.a((cc) aqVar);
         }

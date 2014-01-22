@@ -18,17 +18,17 @@ public class ar implements View.OnClickListener {
         ProgressBar progressBar;
         Bitmap bitmap;
         Bitmap bitmap2;
-        progressBar = this.a.g;
+        progressBar = this.a.f;
         if (progressBar.getVisibility() != 0) {
             bitmap = this.a.c;
             if (bitmap == null) {
-                bitmap2 = this.a.p;
+                bitmap2 = this.a.o;
                 if (bitmap2 == null) {
                     return;
                 }
             }
             if (view.getTag() != null) {
-                this.a.x = false;
+                this.a.w = false;
                 this.a.a(view.getTag().toString());
             }
         }

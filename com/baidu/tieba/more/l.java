@@ -16,12 +16,12 @@ public class l extends Thread {
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         super.run();
-        com.baidu.tieba.util.at atVar = new com.baidu.tieba.util.at(com.baidu.tieba.data.h.a + "c/s/logout");
-        atVar.c(false);
-        atVar.a(false);
-        atVar.a("BDUSS", this.b);
-        atVar.a("channel_id", TiebaApplication.g().bc());
-        atVar.a("channel_uid", TiebaApplication.g().bb());
-        atVar.l();
+        com.baidu.tieba.util.ax axVar = new com.baidu.tieba.util.ax(com.baidu.tieba.data.h.a + "c/s/logout");
+        axVar.c(false);
+        axVar.a(false);
+        axVar.a("BDUSS", this.b);
+        axVar.a("channel_id", TiebaApplication.h().bb());
+        axVar.a("channel_uid", TiebaApplication.h().ba());
+        axVar.m();
     }
 }

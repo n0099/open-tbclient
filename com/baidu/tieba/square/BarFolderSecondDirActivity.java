@@ -5,7 +5,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ProgressBar;
-import com.baidu.mobstat.StatService;
 import com.baidu.tieba.MainTabActivity;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
@@ -29,7 +28,7 @@ public class BarFolderSecondDirActivity extends com.baidu.tieba.a {
         c();
         e();
         d();
-        StatService.onEvent(this, "category_2", "enter");
+        com.baidu.tieba.util.by.a(this, "category_2", "enter");
     }
 
     protected void c() {
@@ -44,7 +43,7 @@ public class BarFolderSecondDirActivity extends com.baidu.tieba.a {
     @Override // com.baidu.tieba.a, com.baidu.tieba.j
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        com.baidu.tieba.util.bl.c(this.k, i);
+        com.baidu.tieba.util.bs.c(this.k, i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

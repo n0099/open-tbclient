@@ -20,7 +20,7 @@ public class y implements android.support.v4.view.bq {
     }
 
     @Override // android.support.v4.view.bq
-    public void onPageScrolled(int i, float f, int i2) {
+    public void a(int i, float f, int i2) {
         IndicatorView indicatorView;
         CarouselRecommendView.CarouselRecommendPagerAdapter carouselRecommendPagerAdapter;
         ArrayList arrayList;
@@ -52,11 +52,11 @@ public class y implements android.support.v4.view.bq {
     }
 
     @Override // android.support.v4.view.bq
-    public void onPageSelected(int i) {
+    public void a_(int i) {
     }
 
     @Override // android.support.v4.view.bq
-    public void onPageScrollStateChanged(int i) {
+    public void b(int i) {
         ViewPager viewPager;
         CarouselRecommendView.CarouselRecommendPagerAdapter carouselRecommendPagerAdapter;
         ViewPager viewPager2;

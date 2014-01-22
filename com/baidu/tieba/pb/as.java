@@ -14,28 +14,28 @@ class as implements AbsListView.OnScrollListener {
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScrollStateChanged(AbsListView absListView, int i) {
         Handler handler;
-        cs csVar;
+        cr crVar;
         Handler handler2;
         Handler handler3;
         Handler handler4;
         Handler handler5;
-        handler = this.a.s;
+        handler = this.a.t;
         if (handler != null) {
-            handler5 = this.a.s;
+            handler5 = this.a.t;
             handler5.removeMessages(0);
         }
-        this.a.K = i;
+        this.a.L = i;
         if (i == 0) {
-            handler2 = this.a.s;
+            handler2 = this.a.t;
             if (handler2 != null) {
-                handler3 = this.a.s;
-                handler4 = this.a.s;
+                handler3 = this.a.t;
+                handler4 = this.a.t;
                 handler3.sendMessageDelayed(handler4.obtainMessage(0), 300L);
             }
         }
         if (i == 2 || i == 1) {
-            csVar = this.a.z;
-            csVar.Z();
+            crVar = this.a.A;
+            crVar.Z();
         }
     }
 

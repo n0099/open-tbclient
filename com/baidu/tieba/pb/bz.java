@@ -60,9 +60,9 @@ public class bz extends BaseAdapter {
     }
 
     private void f() {
-        this.e = Math.min(com.baidu.adp.lib.h.g.a(this.b, 427.0f), 640);
+        this.e = Math.min(com.baidu.adp.lib.g.g.a(this.b, 427.0f), 640);
         g();
-        this.s = TiebaApplication.g().an();
+        this.s = TiebaApplication.h().al();
     }
 
     private void g() {
@@ -158,7 +158,7 @@ public class bz extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         ListView c;
-        this.s = TiebaApplication.g().an();
+        this.s = TiebaApplication.h().al();
         if (view == null) {
             view = a(viewGroup);
         }
@@ -203,7 +203,7 @@ public class bz extends BaseAdapter {
         cbVar.j.setOnLongClickListener(this.o);
         cbVar.m.setOnLongClickListener(this.o);
         if (this.r < 0) {
-            this.r = (((com.baidu.adp.lib.h.g.b(this.b) - inflate.getPaddingLeft()) - inflate.getPaddingRight()) - cbVar.j.getPaddingLeft()) - cbVar.j.getPaddingRight();
+            this.r = (((com.baidu.adp.lib.g.g.b(this.b) - inflate.getPaddingLeft()) - inflate.getPaddingRight()) - cbVar.j.getPaddingLeft()) - cbVar.j.getPaddingRight();
         }
         cbVar.k.setOnTouchListener(this.p);
         cbVar.j.setOnTouchListener(this.p);
@@ -211,7 +211,7 @@ public class bz extends BaseAdapter {
         this.r = this.e > this.r ? this.r : this.e;
         cbVar.j.setMaxImageWidth(this.r);
         cbVar.j.setMaxImageHeight((int) (this.r * 1.618f));
-        cbVar.j.setTextSize(com.baidu.tieba.data.h.r());
+        cbVar.j.setTextSize(com.baidu.tieba.data.h.q());
         if (!this.d) {
             cbVar.b.setVisibility(8);
         }
@@ -258,11 +258,11 @@ public class bz extends BaseAdapter {
                 z3 = true;
             }
             Resources resources = this.b.getResources();
-            cbVar.f.setText(com.baidu.tieba.util.bm.b(asVar.f()));
+            cbVar.f.setText(com.baidu.tieba.util.bu.a(asVar.f()));
             if (asVar.e() == 1) {
                 cbVar.h.setVisibility(8);
             }
-            if (this.f != null && this.f.equals(asVar.g().getId())) {
+            if (this.f != null && !this.f.equals(SocialConstants.FALSE) && this.f.equals(asVar.g().getId())) {
                 cbVar.g.setVisibility(0);
                 if (this.s == 1) {
                     cbVar.g.setImageResource(R.drawable.icon_floorhost_1);
@@ -286,7 +286,7 @@ public class bz extends BaseAdapter {
                 }
             }
             cbVar.e.setText(String.valueOf(asVar.e()) + resources.getString(R.string.floor));
-            if (TiebaApplication.g().an() == 1) {
+            if (TiebaApplication.h().al() == 1) {
                 cbVar.a.setBackgroundResource(R.drawable.bg_floor_new_middle_1);
                 cbVar.j.setVideoImageId(R.drawable.pic_video_1);
                 cbVar.j.setTextColor(this.b.getResources().getColor(R.color.pb_listitem_content_1));
@@ -340,7 +340,7 @@ public class bz extends BaseAdapter {
                 if (level_id != 0 && isLike != 0) {
                     cbVar.d.setVisibility(0);
                     cbVar.d.setText(String.valueOf(level_id));
-                    cbVar.d.setBackgroundResource(com.baidu.tieba.util.m.b(level_id));
+                    cbVar.d.setBackgroundResource(com.baidu.tieba.util.n.b(level_id));
                     i2 = 2;
                     cbVar.d.setOnClickListener(null);
                 } else {
@@ -375,7 +375,7 @@ public class bz extends BaseAdapter {
                 c.a(cbVar.b);
             } else {
                 cbVar.b.setTag(portrait);
-                cbVar.b.setImageBitmap(com.baidu.tieba.util.m.a((int) R.drawable.photo));
+                cbVar.b.setImageBitmap(com.baidu.tieba.util.n.a((int) R.drawable.photo));
             }
             if (this.s == 1) {
                 cbVar.j.setLinkTextColor(this.b.getResources().getColor(R.color.common_link_text_1));
@@ -427,7 +427,7 @@ public class bz extends BaseAdapter {
                     }
                 }
             }
-            if (TiebaApplication.g().an() == 1) {
+            if (TiebaApplication.h().al() == 1) {
                 cbVar.i.setTextColor(this.b.getResources().getColor(R.color.common_link_text_1));
             } else {
                 cbVar.i.setTextColor(this.b.getResources().getColor(R.color.common_link_text));
@@ -435,7 +435,7 @@ public class bz extends BaseAdapter {
             if (z2 && z) {
                 cbVar.i.setVisibility(0);
                 cbVar.i.setText(R.string.manage);
-                if (TiebaApplication.g().an() == 1) {
+                if (TiebaApplication.h().al() == 1) {
                     cbVar.i.setCompoundDrawablesWithIntrinsicBounds(R.drawable.btn_manage_n_1, 0, 0, 0);
                 } else {
                     cbVar.i.setCompoundDrawablesWithIntrinsicBounds(R.drawable.btn_manage_n, 0, 0, 0);
@@ -443,7 +443,7 @@ public class bz extends BaseAdapter {
             } else if (z2) {
                 cbVar.i.setVisibility(0);
                 cbVar.i.setText(R.string.delete);
-                if (TiebaApplication.g().an() == 1) {
+                if (TiebaApplication.h().al() == 1) {
                     cbVar.i.setCompoundDrawablesWithIntrinsicBounds(R.drawable.btn_delete_n_1, 0, 0, 0);
                 } else {
                     cbVar.i.setCompoundDrawablesWithIntrinsicBounds(R.drawable.btn_delete_n, 0, 0, 0);
@@ -490,11 +490,11 @@ public class bz extends BaseAdapter {
     }
 
     public static void a(Context context, TextView textView, int i) {
-        String string = TiebaApplication.g().getString(R.string.sub_pb_load_more);
+        String string = TiebaApplication.h().getString(R.string.sub_pb_load_more);
         String valueOf = String.valueOf(i);
         int indexOf = string.indexOf("%d");
         SpannableString spannableString = new SpannableString(string.replace("%d", valueOf));
-        if (TiebaApplication.g().an() == 1) {
+        if (TiebaApplication.h().al() == 1) {
             spannableString.setSpan(new ForegroundColorSpan(context.getResources().getColor(R.color.sub_pb_more_text_1)), indexOf, valueOf.length() + indexOf, 33);
             textView.setTextColor(context.getResources().getColor(R.color.sub_pb_more_text_1));
         } else {

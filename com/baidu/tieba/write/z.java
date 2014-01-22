@@ -31,14 +31,14 @@ public class z implements com.baidu.tieba.editortool.t {
         } else if (i == 9) {
             this.a.j();
         } else if (i == 4) {
-            str = this.a.z;
+            str = this.a.x;
             if (str != null) {
-                str2 = this.a.z;
+                str2 = this.a.x;
                 if (str2.length() > 0) {
                     WriteActivity writeActivity = this.a;
-                    str3 = this.a.z;
+                    str3 = this.a.x;
                     writeActivity.showToast(str3);
-                    writeEditorToolButtonContainer2 = this.a.A;
+                    writeEditorToolButtonContainer2 = this.a.y;
                     writeEditorToolButtonContainer2.setAudioFocusable(false);
                 }
             }
@@ -47,7 +47,7 @@ public class z implements com.baidu.tieba.editortool.t {
         } else if (i == 6) {
             this.a.j();
         } else if (i == 7) {
-            writeEditorToolButtonContainer = this.a.A;
+            writeEditorToolButtonContainer = this.a.y;
             writeEditorToolButtonContainer.setImageFocusable(false);
             alertDialog = this.a.i;
             alertDialog.show();

@@ -4,6 +4,8 @@ import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tieba.data.MarkData;
 import com.baidu.tieba.util.DatabaseService;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -49,9 +51,6 @@ public class o {
     }
 
     public void d() {
-        if (this.e != null) {
-            this.e.clear();
-        }
         this.g = 0;
         this.f = 0;
         this.h = true;
@@ -72,6 +71,7 @@ public class o {
     public void b(ArrayList<MarkData> arrayList) {
         if (this.e != null && arrayList != null) {
             this.e.addAll(arrayList);
+            m();
         }
     }
 
@@ -122,7 +122,7 @@ public class o {
                 i5--;
                 i4 = i3;
             } catch (Exception e) {
-                com.baidu.tieba.util.bo.b(getClass().getName(), "toJson", e.toString());
+                com.baidu.adp.lib.g.e.b(getClass().getName(), "toJson", e.toString());
                 jSONArray = null;
             }
         }
@@ -137,7 +137,7 @@ public class o {
         try {
             a(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.tieba.util.bo.b(getClass().getName(), "parserJson", e.toString());
+            com.baidu.adp.lib.g.e.b(getClass().getName(), "parserJson", e.toString());
         }
     }
 
@@ -148,7 +148,7 @@ public class o {
         try {
             jSONObject = new JSONObject(str);
         } catch (Exception e) {
-            com.baidu.tieba.util.bo.b(getClass().getName(), "parserJson", e.toString());
+            com.baidu.adp.lib.g.e.b(getClass().getName(), "parserJson", e.toString());
             arrayList = null;
         }
         if (jSONObject.optJSONObject("error").optString("errno").equals(SocialConstants.FALSE)) {
@@ -174,7 +174,7 @@ public class o {
                 }
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.bo.b(getClass().getName(), "parserJson", e.toString());
+            com.baidu.adp.lib.g.e.b(getClass().getName(), "parserJson", e.toString());
         }
     }
 
@@ -231,5 +231,17 @@ public class o {
 
     public void a(com.baidu.tieba.m mVar) {
         this.a = mVar;
+    }
+
+    private void m() {
+        if (this.e != null) {
+            HashSet hashSet = new HashSet();
+            Iterator<MarkData> it = this.e.iterator();
+            while (it.hasNext()) {
+                if (!hashSet.add(it.next().getId())) {
+                    it.remove();
+                }
+            }
+        }
     }
 }

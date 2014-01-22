@@ -26,9 +26,9 @@ public class g {
 
     public static void a() {
         try {
-            a = com.baidu.adp.lib.g.a.a().c();
+            a = com.baidu.adp.lib.stats.g.a().b();
         } catch (Exception e) {
-            com.baidu.adp.lib.h.e.d(e.getMessage());
+            com.baidu.adp.lib.g.e.d(e.getMessage());
         }
     }
 

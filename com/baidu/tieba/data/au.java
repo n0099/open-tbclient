@@ -28,7 +28,7 @@ public class au extends ClickableSpan {
     @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
     public void updateDrawState(TextPaint textPaint) {
         if (this.d != null) {
-            if (TiebaApplication.g().an() == 1) {
+            if (TiebaApplication.h().al() == 1) {
                 textPaint.setColor(this.d.getResources().getColor(R.color.common_link_text_1));
             } else {
                 textPaint.setColor(this.d.getResources().getColor(R.color.common_link_text));

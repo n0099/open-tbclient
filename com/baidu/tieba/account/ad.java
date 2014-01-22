@@ -8,7 +8,7 @@ import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class ad extends BdAsyncTask<String, Integer, com.baidu.tieba.data.d> {
     final /* synthetic */ x a;
-    private com.baidu.tieba.util.at b = null;
+    private com.baidu.tieba.util.ax b = null;
     private String c;
     private String d;
 
@@ -36,14 +36,14 @@ public class ad extends BdAsyncTask<String, Integer, com.baidu.tieba.data.d> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public com.baidu.tieba.data.d a(String... strArr) {
-        this.b = new com.baidu.tieba.util.at(this.c);
+        this.b = new com.baidu.tieba.util.ax(this.c);
         this.b.a("un", this.d);
-        String l = this.b.l();
-        if (!this.b.d() || this.b.e() != 36) {
+        String m = this.b.m();
+        if (!this.b.e() || this.b.f() != 36) {
             return null;
         }
         com.baidu.tieba.data.d dVar = new com.baidu.tieba.data.d();
-        dVar.a(l);
+        dVar.a(m);
         return dVar;
     }
 
@@ -60,19 +60,19 @@ public class ad extends BdAsyncTask<String, Integer, com.baidu.tieba.data.d> {
         progressBar.setVisibility(8);
         button = this.a.k;
         button.setEnabled(true);
-        if (!this.b.d()) {
-            this.a.b(this.b.i());
-        } else if (this.b.e() == 0) {
+        if (!this.b.e()) {
+            this.a.b(this.b.j());
+        } else if (this.b.f() == 0) {
             x xVar = this.a;
             jVar = this.a.j;
             xVar.b(jVar.getString(R.string.name_not_use));
-        } else if (this.b.e() == 36) {
-            this.a.b(this.b.i());
+        } else if (this.b.f() == 36) {
+            this.a.b(this.b.j());
             if (dVar != null) {
                 this.a.a(dVar.b());
             }
         } else {
-            this.a.b(this.b.i());
+            this.a.b(this.b.j());
         }
     }
 

@@ -1,22 +1,33 @@
 package com.baidu.tieba.view;
 
+import android.app.Activity;
+import android.text.TextUtils;
 import android.view.View;
-import android.widget.AdapterView;
+import com.baidu.tieba.CommonWebviewActivity;
+import com.slidingmenu.lib.R;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ap implements AdapterView.OnItemClickListener {
-    final /* synthetic */ com.baidu.tieba.pb.ag a;
-    final /* synthetic */ ImagePbPagerAdapter b;
+public class ap implements View.OnClickListener {
+    final /* synthetic */ ao a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ap(ImagePbPagerAdapter imagePbPagerAdapter, com.baidu.tieba.pb.ag agVar) {
-        this.b = imagePbPagerAdapter;
-        this.a = agVar;
+    public ap(ao aoVar) {
+        this.a = aoVar;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        if (this.a != null && this.a.b() && j == this.a.getCount() - 1) {
-            this.b.a(this.a.d(), this.a.e().c(), 10, this.a);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        String str;
+        Activity activity;
+        Activity activity2;
+        String str2;
+        str = this.a.aq;
+        if (!TextUtils.isEmpty(str)) {
+            activity = this.a.y;
+            activity2 = this.a.y;
+            String string = activity2.getString(R.string.frs_badge_intro);
+            str2 = this.a.aq;
+            CommonWebviewActivity.a(activity, string, str2, true);
         }
     }
 }

@@ -8,11 +8,11 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
-import com.baidu.tieba.util.ag;
+import com.baidu.tieba.util.aj;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
-public class GroupAddressLocateActivity extends com.baidu.tieba.j implements AdapterView.OnItemClickListener, com.baidu.adp.widget.BdSwitchView.c, ag {
+public class GroupAddressLocateActivity extends com.baidu.tieba.j implements AdapterView.OnItemClickListener, com.baidu.adp.widget.BdSwitchView.c, aj {
     private boolean c = false;
     private boolean d = false;
     private String e = null;
@@ -130,7 +130,7 @@ public class GroupAddressLocateActivity extends com.baidu.tieba.j implements Ada
         return this.i;
     }
 
-    @Override // com.baidu.tieba.util.ag
+    @Override // com.baidu.tieba.util.aj
     public void a(String str, List<String> list, double d, double d2) {
         this.j.b(String.valueOf(d));
         this.j.a(String.valueOf(d2));
@@ -153,12 +153,12 @@ public class GroupAddressLocateActivity extends com.baidu.tieba.j implements Ada
         }
     }
 
-    @Override // com.baidu.tieba.util.ag
+    @Override // com.baidu.tieba.util.aj
     public void a() {
         this.j.j();
     }
 
-    @Override // com.baidu.tieba.util.ag
+    @Override // com.baidu.tieba.util.aj
     public void b() {
         this.j.k();
     }

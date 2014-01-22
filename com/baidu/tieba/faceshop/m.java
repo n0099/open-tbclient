@@ -6,7 +6,7 @@ import com.baidu.gson.GsonBuilder;
 /* loaded from: classes.dex */
 public class m extends BdAsyncTask<Object, FaceBuyData, FaceBuyData> {
     final /* synthetic */ j a;
-    private com.baidu.tieba.util.at b;
+    private com.baidu.tieba.util.ax b;
 
     private m(j jVar) {
         this.a = jVar;
@@ -19,11 +19,11 @@ public class m extends BdAsyncTask<Object, FaceBuyData, FaceBuyData> {
     public FaceBuyData a(Object... objArr) {
         String obj = objArr[0].toString();
         try {
-            this.b = new com.baidu.tieba.util.at(com.baidu.tieba.data.h.a + "c/e/faces/buyfacepack");
+            this.b = new com.baidu.tieba.util.ax(com.baidu.tieba.data.h.a + "c/e/faces/buyfacepack");
             this.b.a("pid", obj);
-            return (FaceBuyData) new GsonBuilder().create().fromJson(this.b.l(), (Class<Object>) FaceBuyData.class);
+            return (FaceBuyData) new GsonBuilder().create().fromJson(this.b.m(), (Class<Object>) FaceBuyData.class);
         } catch (Exception e) {
-            com.baidu.adp.lib.h.e.b(getClass().getName(), "doInBackground", e.toString());
+            com.baidu.adp.lib.g.e.b(getClass().getName(), "doInBackground", e.toString());
             return null;
         }
     }
@@ -33,7 +33,7 @@ public class m extends BdAsyncTask<Object, FaceBuyData, FaceBuyData> {
         com.baidu.adp.a.g gVar;
         super.cancel(true);
         if (this.b != null) {
-            this.b.j();
+            this.b.k();
         }
         this.a.a = null;
         gVar = this.a.mLoadDataCallBack;

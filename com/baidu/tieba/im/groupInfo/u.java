@@ -15,14 +15,14 @@ public class u {
             a.clear();
         }
         String str = "";
-        if (TiebaApplication.F() != null) {
-            str = TiebaApplication.F().getID();
+        if (TiebaApplication.E() != null) {
+            str = TiebaApplication.E().getID();
         }
         if (str != null && str.length() != 0) {
             String str2 = str + "@";
             synchronized (a) {
                 com.baidu.adp.lib.cache.s<String> t = com.baidu.tieba.b.a.a().t();
-                List<com.baidu.adp.lib.cache.t<String>> a3 = com.baidu.adp.lib.h.j.a(t);
+                List<com.baidu.adp.lib.cache.t<String>> a3 = com.baidu.adp.lib.g.j.a(t);
                 if (a3 != null) {
                     for (com.baidu.adp.lib.cache.t<String> tVar : a3) {
                         String str3 = tVar.a;
@@ -41,7 +41,7 @@ public class u {
             return null;
         }
         String str4 = str + "@" + str2;
-        com.baidu.adp.lib.h.e.d("key is:" + str4);
+        com.baidu.adp.lib.g.e.d("key is:" + str4);
         synchronized (a) {
             str3 = a.get(str4);
         }
@@ -49,7 +49,7 @@ public class u {
             a();
         }
         if (TextUtils.isEmpty(str3)) {
-            com.baidu.adp.lib.h.e.d("key is:" + str4 + " value is:" + str3);
+            com.baidu.adp.lib.g.e.d("key is:" + str4 + " value is:" + str3);
             GroupSettingItemData groupSettingItemData = new GroupSettingItemData();
             groupSettingItemData.setUid(str);
             groupSettingItemData.setGid(str2);
@@ -63,23 +63,23 @@ public class u {
 
     public static void a(GroupSettingItemData groupSettingItemData) {
         if (groupSettingItemData == null) {
-            com.baidu.adp.lib.h.e.d("value is null");
+            com.baidu.adp.lib.g.e.d("value is null");
             return;
         }
         String uid = groupSettingItemData.getUid();
         String gid = groupSettingItemData.getGid();
         if (TextUtils.isEmpty(uid) || TextUtils.isEmpty(gid)) {
-            com.baidu.adp.lib.h.e.a(" key value is null");
-            if (com.baidu.tieba.data.h.v()) {
+            com.baidu.adp.lib.g.e.a(" key value is null");
+            if (com.baidu.tieba.data.h.u()) {
                 throw new RuntimeException("key param is null");
             }
             return;
         }
         com.baidu.adp.lib.cache.s<String> t = com.baidu.tieba.b.a.a().t();
         String str = uid + "@" + gid;
-        com.baidu.adp.lib.h.e.d(" key value is " + str);
+        com.baidu.adp.lib.g.e.d(" key value is " + str);
         String json = new Gson().toJson(groupSettingItemData);
-        com.baidu.adp.lib.h.e.d(" json value is " + json);
+        com.baidu.adp.lib.g.e.d(" json value is " + json);
         synchronized (a) {
             a.put(str, json);
         }
@@ -128,7 +128,7 @@ public class u {
         if (a2 == null) {
             return false;
         }
-        com.baidu.adp.lib.h.e.d("uid:" + str + " gid:" + str2 + "is in" + a2.isInGroup());
+        com.baidu.adp.lib.g.e.d("uid:" + str + " gid:" + str2 + "is in" + a2.isInGroup());
         return a2.isInGroup();
     }
 

@@ -2,7 +2,7 @@ package com.baidu.tieba.person.post;
 
 import android.view.View;
 import android.widget.TextView;
-import com.baidu.tieba.util.bl;
+import com.baidu.tieba.util.bs;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 class s extends a {
@@ -21,7 +21,7 @@ class s extends a {
     @Override // com.baidu.tieba.person.post.a
     public void a(int i) {
         super.a(i);
-        bl.c(this.g, i);
-        bl.d(this.h, i);
+        bs.c(this.g, i);
+        bs.d(this.h, i);
     }
 }

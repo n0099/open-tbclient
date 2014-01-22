@@ -6,7 +6,7 @@ import com.baidu.cloudsdk.social.core.SocialConstants;
 /* loaded from: classes.dex */
 public class ae extends BdAsyncTask<String, Integer, String> {
     final /* synthetic */ ad a;
-    private com.baidu.tieba.util.at b = null;
+    private com.baidu.tieba.util.ax b = null;
     private String c;
     private String d;
     private String e;
@@ -37,7 +37,7 @@ public class ae extends BdAsyncTask<String, Integer, String> {
         } else {
             str = str2 + "c/c/bawu/delpost";
         }
-        this.b = new com.baidu.tieba.util.at(str);
+        this.b = new com.baidu.tieba.util.ax(str);
         this.b.a("fid", this.c);
         this.b.a("word", this.d);
         this.b.a("z", this.e);
@@ -66,18 +66,18 @@ public class ae extends BdAsyncTask<String, Integer, String> {
             this.b.a("is_vipdel", SocialConstants.FALSE);
         }
         this.b.e(true);
-        this.b.l();
-        if (this.b.c()) {
+        this.b.m();
+        if (this.b.d()) {
             return null;
         }
-        return this.b.i();
+        return this.b.j();
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         com.baidu.adp.a.g gVar;
         if (this.b != null) {
-            this.b.j();
+            this.b.k();
         }
         this.a.a = null;
         super.cancel(true);

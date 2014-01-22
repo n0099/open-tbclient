@@ -1,29 +1,21 @@
 package com.baidu.tieba.im.chat;
-
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import java.util.concurrent.ConcurrentHashMap;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class t implements com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMessageCenterPojo>> {
-    final /* synthetic */ s a;
+public class t implements com.baidu.tieba.im.a<Boolean> {
+    final /* synthetic */ com.baidu.tieba.im.message.bm a;
+    final /* synthetic */ q b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public t(s sVar) {
-        this.a = sVar;
+    public t(q qVar, com.baidu.tieba.im.message.bm bmVar) {
+        this.b = qVar;
+        this.a = bmVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.a
-    public void a(ConcurrentHashMap<String, ImMessageCenterPojo> concurrentHashMap) {
-        z zVar;
-        z zVar2;
-        if (concurrentHashMap != null) {
-            zVar = this.a.a.b;
-            if (zVar != null) {
-                zVar2 = this.a.a.b;
-                ImMessageCenterPojo imMessageCenterPojo = concurrentHashMap.get(zVar2.c());
-                imMessageCenterPojo.setLast_content(" ");
-                imMessageCenterPojo.setLast_user_name(" ");
-            }
+    public void a(Boolean bool) {
+        if (this.a != null) {
+            this.b.d(this.a);
         }
     }
 }

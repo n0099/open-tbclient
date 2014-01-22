@@ -6,12 +6,12 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import com.baidu.android.pushservice.PushConstants;
-import com.baidu.tieba.im.message.bb;
+import com.baidu.tieba.im.message.bk;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class InviteFriendListActivity extends com.baidu.tieba.j implements View.OnClickListener, com.baidu.tieba.im.messageCenter.g {
     private t a;
-    private com.baidu.tieba.im.model.g b;
+    private com.baidu.tieba.im.model.h b;
     private com.baidu.adp.a.g c = new l(this);
 
     public static void a(Context context, int i, int i2) {
@@ -52,7 +52,7 @@ public class InviteFriendListActivity extends com.baidu.tieba.j implements View.
     }
 
     private void b() {
-        this.b = new com.baidu.tieba.im.model.g();
+        this.b = new com.baidu.tieba.im.model.h();
         this.b.setLoadDataCallBack(this.c);
     }
 
@@ -86,13 +86,13 @@ public class InviteFriendListActivity extends com.baidu.tieba.j implements View.
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(com.baidu.tieba.im.message.o oVar) {
+    public void a(com.baidu.tieba.im.message.q qVar) {
         closeLoadingDialog();
-        if (oVar != null && oVar.u() == 205002 && (oVar instanceof bb)) {
+        if (qVar != null && qVar.w() == 205002 && (qVar instanceof bk)) {
             try {
-                bb bbVar = (bb) oVar;
-                if (bbVar.i()) {
-                    showToast(bbVar.k());
+                bk bkVar = (bk) qVar;
+                if (bkVar.k()) {
+                    showToast(bkVar.m());
                 } else {
                     showToast(getString(R.string.send_success), false);
                     new Handler().postDelayed(new n(this), 400L);

@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.searchGroup;
 
-import com.baidu.tieba.im.message.by;
-import com.baidu.tieba.im.message.o;
+import com.baidu.tieba.im.message.ck;
+import com.baidu.tieba.im.message.q;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 class d implements com.baidu.tieba.im.messageCenter.g {
@@ -13,28 +13,28 @@ class d implements com.baidu.tieba.im.messageCenter.g {
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(o oVar) {
+    public void a(q qVar) {
         g gVar;
         g gVar2;
         g gVar3;
         gVar = this.a.b;
         gVar.b();
-        if (oVar == null) {
+        if (qVar == null) {
             this.a.showToast(R.string.neterror);
-        } else if (oVar.u() == 103007) {
+        } else if (qVar.w() == 103007) {
             try {
-                if (oVar instanceof by) {
-                    by byVar = (by) oVar;
-                    if (!byVar.i()) {
+                if (qVar instanceof ck) {
+                    ck ckVar = (ck) qVar;
+                    if (!ckVar.k()) {
                         gVar3 = this.a.b;
-                        gVar3.a(byVar);
+                        gVar3.a(ckVar);
                         this.a.a();
                     }
                     gVar2 = this.a.b;
                     gVar2.c();
                 }
             } catch (Exception e) {
-                com.baidu.adp.lib.h.e.c("ResponseGroupInfoMessage invalid");
+                com.baidu.adp.lib.g.e.c("ResponseGroupInfoMessage invalid");
             }
         }
     }

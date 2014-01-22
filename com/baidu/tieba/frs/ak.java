@@ -1,16 +1,27 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.view.animation.Animation;
 /* loaded from: classes.dex */
-class ak {
-    LinearLayout a;
-    TextView b;
-    View c;
-    final /* synthetic */ ah d;
+class ak implements Animation.AnimationListener {
+    final /* synthetic */ com.baidu.adp.lib.guide.d a;
+    final /* synthetic */ ai b;
 
-    private ak(ah ahVar) {
-        this.d = ahVar;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ak(ai aiVar, com.baidu.adp.lib.guide.d dVar) {
+        this.b = aiVar;
+        this.a = dVar;
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        this.a.a();
     }
 }

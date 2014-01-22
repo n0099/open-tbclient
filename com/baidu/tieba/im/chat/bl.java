@@ -1,25 +1,19 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.im.SingleRunnable;
-import com.baidu.tieba.im.data.UserData;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bl extends SingleRunnable<Void> {
-    final /* synthetic */ UserData a;
-    final /* synthetic */ ba b;
+public class bl implements View.OnLongClickListener {
+    final /* synthetic */ bk a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bl(ba baVar, UserData userData) {
-        this.b = baVar;
-        this.a = userData;
+    public bl(bk bkVar) {
+        this.a = bkVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.SingleRunnable
-    /* renamed from: a */
-    public Void b() {
-        com.baidu.tieba.im.chat.personaltalk.a.a(TiebaApplication.A(), ba.d, this.a);
-        return null;
+    @Override // android.view.View.OnLongClickListener
+    public boolean onLongClick(View view) {
+        this.a.d.b(view, 5, this.a.f, 0L);
+        return true;
     }
 }

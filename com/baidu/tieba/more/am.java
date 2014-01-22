@@ -1,8 +1,9 @@
 package com.baidu.tieba.more;
 
 import android.text.TextUtils;
-import com.baidu.tieba.im.message.bg;
-import com.baidu.tieba.im.message.ca;
+import com.baidu.tieba.im.message.bd;
+import com.baidu.tieba.im.message.bq;
+import com.baidu.tieba.im.message.co;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 class am implements com.baidu.tieba.im.messageCenter.g {
@@ -14,27 +15,27 @@ class am implements com.baidu.tieba.im.messageCenter.g {
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(com.baidu.tieba.im.message.o oVar) {
+    public void a(com.baidu.tieba.im.message.q qVar) {
         an anVar;
         an anVar2;
         an anVar3;
         an anVar4;
         anVar = this.a.b;
         anVar.g();
-        if (oVar.u() == 104103) {
-            if (!(oVar instanceof bg)) {
+        if (qVar.w() == 104103) {
+            if (!(qVar instanceof bq)) {
                 this.a.showToast(R.string.neterror);
                 return;
             }
-            bg bgVar = (bg) oVar;
-            com.baidu.tieba.im.message.o l = bgVar.l();
-            if (!(l instanceof com.baidu.tieba.im.message.ad)) {
+            bq bqVar = (bq) qVar;
+            com.baidu.tieba.im.message.q n = bqVar.n();
+            if (!(n instanceof com.baidu.tieba.im.message.ah)) {
                 this.a.showToast(R.string.neterror);
-            } else if (((com.baidu.tieba.im.message.ad) l).b() == 8) {
-                if (bgVar.i()) {
-                    if (bgVar.j() > 0) {
-                        if (!TextUtils.isEmpty(bgVar.k())) {
-                            this.a.showToast(bgVar.k());
+            } else if (((com.baidu.tieba.im.message.ah) n).b() == 8) {
+                if (bqVar.k()) {
+                    if (bqVar.l() > 0) {
+                        if (!TextUtils.isEmpty(bqVar.m())) {
+                            this.a.showToast(bqVar.m());
                             return;
                         }
                         return;
@@ -42,30 +43,30 @@ class am implements com.baidu.tieba.im.messageCenter.g {
                     this.a.showToast(R.string.neterror);
                     return;
                 }
-                boolean z = bgVar.a() != 0;
+                boolean z = bqVar.a() != 0;
                 anVar4 = this.a.b;
                 anVar4.i().setSelected(z);
             }
-        } else if (oVar.u() == 104102) {
-            if (!(oVar instanceof ca)) {
+        } else if (qVar.w() == 104102) {
+            if (!(qVar instanceof co)) {
                 this.a.showToast(R.string.neterror);
                 return;
             }
-            ca caVar = (ca) oVar;
-            com.baidu.tieba.im.message.o l2 = caVar.l();
-            if (!(l2 instanceof com.baidu.tieba.im.message.aw)) {
+            co coVar = (co) qVar;
+            com.baidu.tieba.im.message.q n2 = coVar.n();
+            if (!(n2 instanceof bd)) {
                 this.a.showToast(R.string.neterror);
-            } else if (((com.baidu.tieba.im.message.aw) l2).b() == 8) {
-                if (!caVar.i()) {
+            } else if (((bd) n2).b() == 8) {
+                if (!coVar.k()) {
                     anVar2 = this.a.b;
                     Object tag = anVar2.i().getTag();
                     if (tag != null && (tag instanceof Boolean)) {
                         anVar3 = this.a.b;
                         anVar3.i().setSelected(((Boolean) tag).booleanValue());
                     }
-                } else if (caVar.j() > 0) {
-                    if (!TextUtils.isEmpty(caVar.k())) {
-                        this.a.showToast(caVar.k());
+                } else if (coVar.l() > 0) {
+                    if (!TextUtils.isEmpty(coVar.m())) {
+                        this.a.showToast(coVar.m());
                     }
                 } else {
                     this.a.showToast(R.string.neterror);

@@ -1,25 +1,9 @@
 package com.baidu.tieba.frs;
 
-import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class bg extends com.baidu.adp.a.g {
-    final /* synthetic */ FrsImageActivity a;
+public interface bg {
+    void a(int i);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bg(FrsImageActivity frsImageActivity) {
-        this.a = frsImageActivity;
-    }
-
-    @Override // com.baidu.adp.a.g
-    public void a(Object obj) {
-        com.baidu.tieba.model.ar arVar;
-        if (obj != null && (obj instanceof com.baidu.tieba.data.ag)) {
-            arVar = this.a.q;
-            arVar.a().setLike(1);
-            this.a.showToast(this.a.getString(R.string.like_success));
-            return;
-        }
-        this.a.showToast(this.a.getString(R.string.had_liked_forum));
-    }
+    void a(int i, JSONObject jSONObject, com.baidu.tieba.model.at atVar);
 }

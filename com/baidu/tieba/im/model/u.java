@@ -2,13 +2,13 @@ package com.baidu.tieba.im.model;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class u implements com.baidu.tieba.im.a<Boolean> {
-    final /* synthetic */ com.baidu.tieba.im.message.s a;
+    final /* synthetic */ com.baidu.tieba.im.message.g a;
     final /* synthetic */ MsglistModel b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public u(MsglistModel msglistModel, com.baidu.tieba.im.message.s sVar) {
+    public u(MsglistModel msglistModel, com.baidu.tieba.im.message.g gVar) {
         this.b = msglistModel;
-        this.a = sVar;
+        this.a = gVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

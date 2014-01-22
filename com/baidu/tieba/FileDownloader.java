@@ -42,9 +42,9 @@ public class FileDownloader extends Service {
     }
 
     public Notification a() {
-        PendingIntent activity = PendingIntent.getActivity(TiebaApplication.g(), 0, new Intent(), 0);
+        PendingIntent activity = PendingIntent.getActivity(TiebaApplication.h(), 0, new Intent(), 0);
         Notification notification = new Notification(17301633, null, System.currentTimeMillis());
-        notification.contentView = new RemoteViews(TiebaApplication.g().getPackageName(), (int) R.layout.notify_item);
+        notification.contentView = new RemoteViews(TiebaApplication.h().getPackageName(), (int) R.layout.notify_item);
         notification.contentView.setProgressBar(R.id.progress, 100, 0, false);
         notification.contentIntent = activity;
         notification.flags = 32;
@@ -77,7 +77,7 @@ public class FileDownloader extends Service {
             } else {
                 a = a(stringExtra2);
             }
-            if (com.baidu.tieba.util.aa.d(a) != null) {
+            if (com.baidu.tieba.util.ad.d(a) != null) {
                 this.d.sendMessageDelayed(this.d.obtainMessage(1, a), 100L);
             } else if (this.c == null) {
                 this.c = new t(this, stringExtra2, a);

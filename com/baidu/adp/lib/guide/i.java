@@ -9,6 +9,7 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
+import protobuf.Im;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i extends ViewGroup {
@@ -112,7 +113,7 @@ public class i extends ViewGroup {
                         break;
                 }
                 this.c.offset((int) ((jVar.c * f) + 0.5f), (int) ((jVar.d * f) + 0.5f));
-                com.baidu.adp.lib.h.e.e("MaskView", "onLayout", "child layout to: " + this.c);
+                com.baidu.adp.lib.g.e.e("MaskView", "onLayout", "child layout to: " + this.c);
                 childAt.layout((int) this.c.left, (int) this.c.top, (int) this.c.right, (int) this.c.bottom);
             }
         }
@@ -124,7 +125,7 @@ public class i extends ViewGroup {
                 rectF.left = this.a.left;
                 rectF.right = rectF.left + view.getMeasuredWidth();
                 return;
-            case 32:
+            case Im.GroupInfo.ISNEWLYCREATE_FIELD_NUMBER /* 32 */:
                 rectF.left = (this.a.width() - view.getMeasuredWidth()) / 2.0f;
                 rectF.right = (this.a.width() + view.getMeasuredWidth()) / 2.0f;
                 rectF.offset(this.a.left, 0.0f);
@@ -144,7 +145,7 @@ public class i extends ViewGroup {
                 rectF.top = this.a.top;
                 rectF.bottom = rectF.top + view.getMeasuredHeight();
                 return;
-            case 32:
+            case Im.GroupInfo.ISNEWLYCREATE_FIELD_NUMBER /* 32 */:
                 rectF.top = (this.a.width() - view.getMeasuredHeight()) / 2.0f;
                 rectF.bottom = (this.a.width() + view.getMeasuredHeight()) / 2.0f;
                 rectF.offset(0.0f, this.a.top);
@@ -161,22 +162,22 @@ public class i extends ViewGroup {
     private void b() {
         this.e.reset();
         this.e.addRect(this.a, Path.Direction.CW);
-        com.baidu.adp.lib.h.e.e("MaskView", "resetOutPath", "target rect = " + this.a);
+        com.baidu.adp.lib.g.e.e("MaskView", "resetOutPath", "target rect = " + this.a);
         this.e.addRect(this.b, Path.Direction.CW);
-        com.baidu.adp.lib.h.e.e("MaskView", "resetOutPath", "fulling rect = " + this.b);
+        com.baidu.adp.lib.g.e.e("MaskView", "resetOutPath", "fulling rect = " + this.b);
     }
 
     public void a(Rect rect) {
         this.a.set(rect);
         b();
-        com.baidu.adp.lib.h.e.e("MaskView", "settargetRect", "target rect = " + this.a);
+        com.baidu.adp.lib.g.e.e("MaskView", "settargetRect", "target rect = " + this.a);
         invalidate();
     }
 
     public void b(Rect rect) {
         this.b.set(rect);
         b();
-        com.baidu.adp.lib.h.e.e("MaskView", "setFullingRect", "fulling rect = " + this.b);
+        com.baidu.adp.lib.g.e.e("MaskView", "setFullingRect", "fulling rect = " + this.b);
         this.f = true;
         invalidate();
     }

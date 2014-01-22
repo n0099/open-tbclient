@@ -5,8 +5,6 @@ import android.text.TextUtils;
 import com.baidu.android.common.security.Base64;
 import com.baidu.android.common.util.CommonParam;
 import com.baidu.android.moplus.util.NoProGuard;
-import com.baidu.browser.core.util.BdUtil;
-import com.baidu.browser.webpool.BdWebPoolView;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import java.security.KeyFactory;
 import java.security.PrivateKey;
@@ -34,28 +32,28 @@ public class GetCuid implements NoProGuard, n {
 
     public static byte[] decryptByPrivateKey(byte[] bArr, String str) {
         PrivateKey generatePrivate = KeyFactory.getInstance("RSA").generatePrivate(new PKCS8EncodedKeySpec(Base64.decode(str.getBytes())));
-        Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+        Cipher cipher = Cipher.getInstance(com.baidu.sapi2.shell.b.a);
         cipher.init(2, generatePrivate);
         return cipher.doFinal(bArr);
     }
 
     public static byte[] decryptByPublicKey(byte[] bArr, String str) {
         PublicKey generatePublic = KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(Base64.decode(str.getBytes(), 0)));
-        Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+        Cipher cipher = Cipher.getInstance(com.baidu.sapi2.shell.b.a);
         cipher.init(2, generatePublic);
         return cipher.doFinal(bArr);
     }
 
     public static byte[] encryptByPrivateKey(byte[] bArr, String str) {
         PrivateKey generatePrivate = KeyFactory.getInstance("RSA").generatePrivate(new PKCS8EncodedKeySpec(Base64.decode(str.getBytes(), 0)));
-        Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+        Cipher cipher = Cipher.getInstance(com.baidu.sapi2.shell.b.a);
         cipher.init(1, generatePrivate);
         return cipher.doFinal(bArr);
     }
 
     public byte[] encryptByPublicKey(byte[] bArr, String str) {
         PublicKey generatePublic = KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(Base64.decode(str.getBytes())));
-        Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+        Cipher cipher = Cipher.getInstance(com.baidu.sapi2.shell.b.a);
         cipher.init(1, generatePublic);
         return cipher.doFinal(bArr);
     }
@@ -92,7 +90,7 @@ public class GetCuid implements NoProGuard, n {
             if (TextUtils.equals(str4, SocialConstants.TRUE)) {
                 try {
                     str = str4;
-                    str2 = new String(Base64.encode(encryptByPublicKey(cuid.getBytes(), RSA_PUBLIC_KEY), BdUtil.UTF8));
+                    str2 = new String(Base64.encode(encryptByPublicKey(cuid.getBytes(), RSA_PUBLIC_KEY), "utf-8"));
                 } catch (Exception e) {
                     System.out.println("加密失败：" + e.getMessage());
                     str = SocialConstants.FALSE;
@@ -119,7 +117,7 @@ public class GetCuid implements NoProGuard, n {
         aVar.a("text/javascript");
         aVar.a().put("Cache-Control", "no-cache");
         aVar.b(str3 + " && " + str3 + "(" + jSONObject.toString() + ");");
-        aVar.a(BdWebPoolView.DELAYED_TIME);
+        aVar.a(200);
         a.a(this.mErrcode);
     }
 

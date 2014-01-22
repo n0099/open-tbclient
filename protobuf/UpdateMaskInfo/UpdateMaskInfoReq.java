@@ -9,6 +9,7 @@ import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.Parser;
 import java.io.IOException;
 import java.io.InputStream;
+import protobuf.Im;
 /* loaded from: classes.dex */
 public final class UpdateMaskInfoReq {
 
@@ -70,7 +71,7 @@ public final class UpdateMaskInfoReq {
                                     this.bitField0_ |= 2;
                                     this.isMask_ = codedInputStream.readUInt32();
                                     break;
-                                case 26:
+                                case Im.GroupInfo.NICKNAME_FIELD_NUMBER /* 26 */:
                                     this.bitField0_ |= 4;
                                     this.list_ = codedInputStream.readBytes();
                                     break;

@@ -1,6 +1,6 @@
 package com.baidu.adp.lib.voice;
 
-import com.baidu.adp.lib.h.e;
+import com.baidu.adp.lib.g.e;
 import java.io.File;
 /* loaded from: classes.dex */
 public class Amrnb {

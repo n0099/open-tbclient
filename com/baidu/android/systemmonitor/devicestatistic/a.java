@@ -66,7 +66,7 @@ public final class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d() {
-        if (Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())) {
+        if ("mounted".equals(Environment.getExternalStorageState())) {
             if (this.d == null) {
                 this.d = new HashMap();
             }
@@ -82,7 +82,7 @@ public final class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        if (Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())) {
+        if ("mounted".equals(Environment.getExternalStorageState())) {
             if (this.d == null) {
                 this.d = new HashMap();
             }

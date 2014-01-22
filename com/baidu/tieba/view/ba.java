@@ -1,37 +1,31 @@
 package com.baidu.tieba.view;
 
-import android.view.View;
+import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ba implements u {
-    final /* synthetic */ MultiImageView a;
+public class ba implements com.baidu.tbadk.imageManager.c {
+    final /* synthetic */ HorizontalPanelView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ba(MultiImageView multiImageView) {
-        this.a = multiImageView;
+    public ba(HorizontalPanelView horizontalPanelView) {
+        this.a = horizontalPanelView;
     }
 
-    @Override // com.baidu.tieba.view.u
-    public void a(q qVar) {
-        GalleryViewPager galleryViewPager;
-        boolean z;
-        GalleryViewPager galleryViewPager2;
-        GalleryViewPager galleryViewPager3;
-        galleryViewPager = this.a.e;
-        if (qVar == galleryViewPager.getCurrentView()) {
-            z = this.a.l;
-            if (z) {
-                galleryViewPager2 = this.a.e;
-                int childCount = galleryViewPager2.getChildCount();
-                for (int i = 0; i < childCount; i++) {
-                    galleryViewPager3 = this.a.e;
-                    View childAt = galleryViewPager3.getChildAt(i);
-                    if (childAt != null && (childAt instanceof ca) && ((ca) childAt).getImageView() != qVar) {
-                        ((ca) childAt).d();
-                    }
+    @Override // com.baidu.tbadk.imageManager.c
+    public void a(com.baidu.adp.widget.ImageView.d dVar, String str, boolean z) {
+        List<HeadImageView> list;
+        if (dVar != null) {
+            list = this.a.g;
+            for (HeadImageView headImageView : list) {
+                if (str.equals(headImageView.getUrl())) {
+                    dVar.a(headImageView);
                 }
             }
-            qVar.e();
+            return;
         }
+        if (("HorizontalPanelView not Portrait" + str) == null) {
+            str = "not url";
+        }
+        com.baidu.adp.lib.g.e.a(str);
     }
 }

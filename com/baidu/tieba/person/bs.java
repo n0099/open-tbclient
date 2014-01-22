@@ -82,7 +82,7 @@ public class bs extends bu {
         this.O = (TextView) q.findViewById(R.id.guest_btn_attention_text);
         this.P = (LinearLayout) q.findViewById(R.id.guest_btn_send_message);
         this.Q = (TextView) q.findViewById(R.id.guest_btn_send_message_text);
-        this.I = TiebaApplication.g().an();
+        this.I = TiebaApplication.h().al();
         this.R = (LinearLayout) q.findViewById(R.id.guest_forums);
         this.S = (ImageView) q.findViewById(R.id.guest_forums_image);
         this.T = (TextView) q.findViewById(R.id.guest_forums_text);
@@ -221,7 +221,7 @@ public class bs extends bu {
 
     private void h(com.baidu.tieba.model.bx bxVar) {
         BitmapDrawable bitmapDrawable;
-        this.I = TiebaApplication.g().an();
+        this.I = TiebaApplication.h().al();
         if (this.J == 1) {
             this.O.setText(R.string.attention_cancel);
             this.O.setCompoundDrawables(null, null, null, null);
@@ -236,12 +236,12 @@ public class bs extends bu {
         }
         this.O.setText(R.string.attention);
         if (this.I == 1) {
-            com.baidu.tieba.util.bl.e(this.N, (int) R.drawable.btn_attention_to_bg_night_selector);
+            com.baidu.tieba.util.bs.e(this.N, (int) R.drawable.btn_attention_to_bg_night_selector);
             bitmapDrawable = (BitmapDrawable) this.b.getResources().getDrawable(R.drawable.btn_icon_follow_1);
             bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
             this.O.setTextColor(this.b.getResources().getColor(R.color.person_attention_1));
         } else {
-            com.baidu.tieba.util.bl.e(this.N, (int) R.drawable.btn_attention_to_bg_selector);
+            com.baidu.tieba.util.bs.e(this.N, (int) R.drawable.btn_attention_to_bg_selector);
             bitmapDrawable = (BitmapDrawable) this.b.getResources().getDrawable(R.drawable.btn_icon_follow);
             bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
             this.O.setTextColor(this.b.getResources().getColor(R.color.person_attention));
@@ -254,9 +254,9 @@ public class bs extends bu {
         super.a(i, bxVar);
         h(bxVar);
         if (i == 1) {
-            com.baidu.tieba.util.bl.e(this.P, (int) R.drawable.btn_send_message_bg_night_selector);
+            com.baidu.tieba.util.bs.e(this.P, (int) R.drawable.btn_send_message_bg_night_selector);
         } else {
-            com.baidu.tieba.util.bl.e(this.P, (int) R.drawable.btn_send_message_bg_selector);
+            com.baidu.tieba.util.bs.e(this.P, (int) R.drawable.btn_send_message_bg_selector);
         }
     }
 

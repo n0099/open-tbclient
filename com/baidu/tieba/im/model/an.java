@@ -1,8 +1,13 @@
 package com.baidu.tieba.im.model;
+
+import com.baidu.tieba.im.message.av;
 /* loaded from: classes.dex */
 public class an extends com.baidu.adp.a.d {
-    private static final String a = an.class.getName();
-    private ao b;
+    public void a(int i) {
+        av avVar = new av();
+        avVar.a(i);
+        com.baidu.tieba.im.messageCenter.e.a().a(avVar);
+    }
 
     @Override // com.baidu.adp.a.d
     protected boolean LoadData() {
@@ -12,14 +17,5 @@ public class an extends com.baidu.adp.a.d {
     @Override // com.baidu.adp.a.d
     public boolean cancelLoadData() {
         return false;
-    }
-
-    public void a(String str, long j) {
-        if (this.b != null) {
-            this.b.cancel();
-            this.b = null;
-        }
-        this.b = new ao(this, str, j);
-        this.b.execute(new Object[0]);
     }
 }

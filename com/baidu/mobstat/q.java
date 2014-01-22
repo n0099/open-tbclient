@@ -16,8 +16,6 @@ import android.telephony.gsm.GsmCellLocation;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
 import cn.jingling.lib.file.Shared;
-import com.baidu.zeus.Headers;
-import com.baidu.zeus.bouncycastle.DERTags;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -25,9 +23,8 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.util.zip.GZIPOutputStream;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class q {
+final class q {
     public static int a(Context context) {
         DisplayMetrics displayMetrics = new DisplayMetrics();
         try {
@@ -41,7 +38,7 @@ public final class q {
     public static String a(Context context, String str) {
         String str2 = "";
         try {
-            ApplicationInfo applicationInfo = context.getPackageManager().getApplicationInfo(context.getPackageName(), DERTags.TAGGED);
+            ApplicationInfo applicationInfo = context.getPackageManager().getApplicationInfo(context.getPackageName(), 128);
             if (applicationInfo != null) {
                 Object obj = applicationInfo.metaData != null ? applicationInfo.metaData.get(str) : null;
                 if (obj == null) {
@@ -173,7 +170,7 @@ public final class q {
     public static String f(Context context) {
         try {
             if (com.baidu.mobstat.a.a.e(context, "android.permission.ACCESS_FINE_LOCATION")) {
-                Location lastKnownLocation = ((LocationManager) context.getSystemService(Headers.LOCATION)).getLastKnownLocation("gps");
+                Location lastKnownLocation = ((LocationManager) context.getSystemService("location")).getLastKnownLocation("gps");
                 com.baidu.mobstat.a.b.a("stat", "location: " + lastKnownLocation);
                 if (lastKnownLocation != null) {
                     return String.format("%s_%s_%s", Long.valueOf(lastKnownLocation.getTime()), Double.valueOf(lastKnownLocation.getLongitude()), Double.valueOf(lastKnownLocation.getLatitude()));

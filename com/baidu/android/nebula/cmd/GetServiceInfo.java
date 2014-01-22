@@ -2,7 +2,6 @@ package com.baidu.android.nebula.cmd;
 
 import android.content.Context;
 import com.baidu.android.moplus.util.NoProGuard;
-import com.baidu.browser.webpool.BdWebPoolView;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -59,7 +58,7 @@ public class GetServiceInfo implements NoProGuard, n {
         aVar.a("text/javascript");
         aVar.a().put("Cache-Control", "no-cache");
         aVar.b(str + " && " + str + "(" + jSONObject.toString() + ");");
-        aVar.a(BdWebPoolView.DELAYED_TIME);
+        aVar.a(200);
         a.a(this.mErrcode);
     }
 

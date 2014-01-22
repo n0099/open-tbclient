@@ -1,22 +1,38 @@
 package com.baidu.tieba;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes.dex */
-public class an implements com.baidu.tieba.im.messageCenter.g {
-    final /* synthetic */ MainTabActivity a;
 
-    private an(MainTabActivity mainTabActivity) {
-        this.a = mainTabActivity;
-    }
+import android.graphics.Bitmap;
+import android.view.animation.AlphaAnimation;
+import android.widget.ImageView;
+import com.slidingmenu.lib.R;
+/* loaded from: classes.dex */
+class an implements Runnable {
+    final /* synthetic */ LogoActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ an(MainTabActivity mainTabActivity, am amVar) {
-        this(mainTabActivity);
+    public an(LogoActivity logoActivity) {
+        this.a = logoActivity;
     }
 
-    @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(com.baidu.tieba.im.message.o oVar) {
-        if (oVar != null && oVar.u() == -124) {
-            this.a.a(oVar);
+    @Override // java.lang.Runnable
+    public void run() {
+        Bitmap bitmap;
+        ImageView imageView;
+        ImageView imageView2;
+        Bitmap bitmap2;
+        ImageView imageView3;
+        AlphaAnimation alphaAnimation;
+        this.a.e = com.baidu.tieba.util.n.a(this.a, (int) R.drawable.logo);
+        bitmap = this.a.e;
+        if (bitmap != null) {
+            imageView = this.a.d;
+            if (imageView != null) {
+                imageView2 = this.a.d;
+                bitmap2 = this.a.e;
+                imageView2.setImageBitmap(bitmap2);
+                imageView3 = this.a.d;
+                alphaAnimation = this.a.f;
+                imageView3.startAnimation(alphaAnimation);
+            }
         }
     }
 }

@@ -9,14 +9,14 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AbsListView;
 import cn.jingling.lib.file.Shared;
-import com.baidu.tieba.ap;
+import com.baidu.tieba.as;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.frsgroup.GroupLevelActivity;
 import com.baidu.tieba.im.groupInfo.GroupInfoActivity;
 import com.baidu.tieba.im.groupInfo.af;
 import com.baidu.tieba.im.groupInfo.ai;
-import com.baidu.tieba.im.message.cc;
-import com.baidu.tieba.im.message.o;
+import com.baidu.tieba.im.message.cr;
+import com.baidu.tieba.im.message.q;
 import com.baidu.tieba.mention.s;
 import com.baidu.tieba.util.UtilHelper;
 import com.slidingmenu.lib.R;
@@ -165,11 +165,11 @@ public class UpdatesActivity extends com.baidu.tieba.j implements AbsListView.On
                 af afVar = new af();
                 afVar.a(Integer.parseInt(com.baidu.tieba.im.c.m.a().d()));
                 afVar.a("" + (Long.parseLong(updatesItemData.getNotice_id()) / 100));
-                com.baidu.adp.lib.h.e.d("del group info request: gid" + updatesItemData.getGroupId() + " msgid:" + updatesItemData.getNotice_id() + " systemGid:" + afVar.b());
+                com.baidu.adp.lib.g.e.d("del group info request: gid" + updatesItemData.getGroupId() + " msgid:" + updatesItemData.getNotice_id() + " systemGid:" + afVar.b());
                 com.baidu.tieba.im.messageCenter.e.a().a(afVar);
             } catch (Exception e) {
                 e.printStackTrace();
-                com.baidu.adp.lib.h.e.a(e.getMessage());
+                com.baidu.adp.lib.g.e.a(e.getMessage());
             }
         }
     }
@@ -184,7 +184,7 @@ public class UpdatesActivity extends com.baidu.tieba.j implements AbsListView.On
                 af afVar = new af();
                 afVar.a(Integer.parseInt(d));
                 afVar.a(str);
-                com.baidu.adp.lib.h.e.d("del group info request: " + str);
+                com.baidu.adp.lib.g.e.d("del group info request: " + str);
                 com.baidu.tieba.im.messageCenter.e.a().a(afVar);
             }
         }
@@ -207,16 +207,16 @@ public class UpdatesActivity extends com.baidu.tieba.j implements AbsListView.On
     public void a(View view, int i, int i2, long j, UpdatesItemData updatesItemData) {
         if (updatesItemData != null && 101 == i && !b()) {
             String groupId = updatesItemData.getGroupId();
-            com.baidu.adp.lib.h.e.d("go to level gid:" + groupId);
+            com.baidu.adp.lib.g.e.d("go to level gid:" + groupId);
             String updatesType = updatesItemData.getUpdatesType();
-            com.baidu.adp.lib.h.e.d("updateType:" + updatesType);
+            com.baidu.adp.lib.g.e.d("updateType:" + updatesType);
             if (!TextUtils.isEmpty(updatesType)) {
                 try {
                     if (updatesType.equals("group_level_up")) {
                         GroupLevelActivity.a(this, Long.parseLong(groupId));
                     } else if (!updatesType.equals("dismiss_group")) {
                         if (updatesType.equals("group_event_info")) {
-                            ap.a(this, "update_activity_group_event_click");
+                            as.a(this, "update_activity_group_event_click");
                             UtilHelper.a(this, updatesItemData.getEventLink(), null, null);
                         } else {
                             GroupInfoActivity.a(this, Long.parseLong(groupId), 0);
@@ -307,16 +307,16 @@ public class UpdatesActivity extends com.baidu.tieba.j implements AbsListView.On
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(o oVar) {
+    public void a(q qVar) {
         this.b.a(false);
-        if (oVar != null && (oVar instanceof cc) && 202004 == oVar.u()) {
-            ai aiVar = (ai) oVar;
-            af afVar = (af) aiVar.l();
-            if (aiVar.i()) {
-                com.baidu.adp.lib.h.e.a("del group info err:" + aiVar.k());
+        if (qVar != null && (qVar instanceof cr) && 202004 == qVar.w()) {
+            ai aiVar = (ai) qVar;
+            af afVar = (af) aiVar.n();
+            if (aiVar.k()) {
+                com.baidu.adp.lib.g.e.a("del group info err:" + aiVar.m());
                 return;
             }
-            com.baidu.adp.lib.h.e.d("del group info: gid" + afVar.b() + " msgid:" + afVar.c());
+            com.baidu.adp.lib.g.e.d("del group info: gid" + afVar.b() + " msgid:" + afVar.c());
             if (this.i != null) {
                 m.a(this.i, this.e);
                 this.i = null;

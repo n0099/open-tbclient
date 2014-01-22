@@ -7,11 +7,15 @@ import java.util.ArrayList;
 public class e extends WritableEmotionGroup {
     private String a;
     private String b;
-    private ArrayList<String> c = new ArrayList<>();
+    private int c;
+    private int d;
+    private ArrayList<String> e = new ArrayList<>();
 
     public e(EmotionGroupData emotionGroupData) {
         this.a = emotionGroupData.groupId;
         this.b = emotionGroupData.groupName;
+        this.c = emotionGroupData.width;
+        this.d = emotionGroupData.height;
         b();
     }
 
@@ -26,23 +30,23 @@ public class e extends WritableEmotionGroup {
         if (a2 != null) {
             b(new com.baidu.adp.widget.ImageView.d(a2, false));
         }
-        this.c.clear();
+        this.e.clear();
         for (EmotionData emotionData : j.a().b(this.a)) {
-            this.c.add(emotionData.sharpText);
+            this.e.add(emotionData.sharpText);
         }
     }
 
     @Override // com.baidu.tieba.data.emotions.WritableEmotionGroup
     public String a(int i) {
-        if (i >= this.c.size()) {
+        if (i >= this.e.size()) {
             return null;
         }
-        return this.c.get(i);
+        return this.e.get(i);
     }
 
     @Override // com.baidu.tieba.data.emotions.WritableEmotionGroup
     public boolean a(String str) {
-        return this.c.contains(str);
+        return this.e.contains(str);
     }
 
     @Override // com.baidu.tieba.data.emotions.WritableEmotionGroup
@@ -66,7 +70,7 @@ public class e extends WritableEmotionGroup {
 
     @Override // com.baidu.tieba.data.emotions.WritableEmotionGroup
     public int d() {
-        return this.c.size();
+        return this.e.size();
     }
 
     @Override // com.baidu.tieba.data.emotions.WritableEmotionGroup
@@ -77,5 +81,15 @@ public class e extends WritableEmotionGroup {
     @Override // com.baidu.tieba.data.emotions.WritableEmotionGroup
     public String f() {
         return this.b;
+    }
+
+    @Override // com.baidu.tieba.data.emotions.WritableEmotionGroup
+    public int g() {
+        return this.c;
+    }
+
+    @Override // com.baidu.tieba.data.emotions.WritableEmotionGroup
+    public int h() {
+        return this.d;
     }
 }

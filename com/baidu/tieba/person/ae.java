@@ -98,7 +98,7 @@ public class ae extends com.baidu.adp.a.d {
         try {
             a(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.tieba.util.bo.b(getClass().getName(), "parserJson", "error = " + e.getMessage());
+            com.baidu.adp.lib.g.e.b(getClass().getName(), "parserJson", "error = " + e.getMessage());
         }
     }
 
@@ -109,7 +109,7 @@ public class ae extends com.baidu.adp.a.d {
                 this.a.parserJson(jSONObject.optJSONObject("user"));
                 this.k = true;
             } catch (Exception e) {
-                com.baidu.tieba.util.bo.b(getClass().getName(), "parserJson", "error = " + e.getMessage());
+                com.baidu.adp.lib.g.e.b(getClass().getName(), "parserJson", "error = " + e.getMessage());
             }
         }
     }

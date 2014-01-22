@@ -1,11 +1,11 @@
 package com.baidu.tieba.im.friend;
 
 import com.baidu.tieba.view.TbCheckBox;
-import com.baidu.tieba.view.bu;
+import com.baidu.tieba.view.ck;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class y implements bu {
+public class y implements ck {
     final /* synthetic */ t a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,14 +13,14 @@ public class y implements bu {
         this.a = tVar;
     }
 
-    @Override // com.baidu.tieba.view.bu
+    @Override // com.baidu.tieba.view.ck
     public void a(TbCheckBox tbCheckBox, boolean z, Object obj) {
         InviteFriendCandidateList inviteFriendCandidateList;
         InviteFriendListActivity inviteFriendListActivity;
         InviteFriendListActivity inviteFriendListActivity2;
         int i;
         this.a.k();
-        if (obj != null && (obj instanceof com.baidu.tieba.im.data.c)) {
+        if (obj != null && (obj instanceof com.baidu.tieba.im.data.d)) {
             if (z) {
                 int n = this.a.n();
                 inviteFriendCandidateList = this.a.l;
@@ -31,13 +31,13 @@ public class y implements bu {
                     i = this.a.p;
                     inviteFriendListActivity.showToast(String.format(string, Integer.valueOf(i)));
                     tbCheckBox.setChecked(false);
-                    ((com.baidu.tieba.im.data.c) obj).a(false);
+                    ((com.baidu.tieba.im.data.d) obj).a(false);
                     return;
                 }
-                this.a.a((com.baidu.tieba.im.data.c) obj);
+                this.a.a((com.baidu.tieba.im.data.d) obj);
                 return;
             }
-            this.a.b((com.baidu.tieba.im.data.c) obj);
+            this.a.b((com.baidu.tieba.im.data.d) obj);
         }
     }
 }

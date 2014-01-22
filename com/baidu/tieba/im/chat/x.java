@@ -1,32 +1,21 @@
 package com.baidu.tieba.im.chat;
-
-import android.content.DialogInterface;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class x implements DialogInterface.OnClickListener {
-    final /* synthetic */ GroupSettingActivity a;
+public class x implements com.baidu.tieba.im.a<Boolean> {
+    final /* synthetic */ com.baidu.tieba.im.message.g a;
+    final /* synthetic */ q b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public x(GroupSettingActivity groupSettingActivity) {
-        this.a = groupSettingActivity;
+    public x(q qVar, com.baidu.tieba.im.message.g gVar) {
+        this.b = qVar;
+        this.a = gVar;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        com.baidu.tieba.im.model.aj ajVar;
-        com.baidu.tieba.im.model.aj ajVar2;
-        z zVar;
-        com.baidu.tieba.im.model.aj ajVar3;
-        com.baidu.tieba.im.model.aj ajVar4;
-        ajVar = this.a.d;
-        if (ajVar == null) {
-            this.a.d = new com.baidu.tieba.im.model.aj();
-        }
-        ajVar2 = this.a.d;
-        zVar = this.a.b;
-        ajVar2.a(Integer.parseInt(zVar.c()));
-        ajVar3 = this.a.d;
-        ajVar3.b(i);
-        ajVar4 = this.a.d;
-        ajVar4.a();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.a
+    public void a(Boolean bool) {
+        this.a.g(System.currentTimeMillis());
+        com.baidu.tieba.im.messageCenter.e.a().a(this.a);
+        com.baidu.adp.lib.g.e.d("SHANG sendMessage to queue");
     }
 }

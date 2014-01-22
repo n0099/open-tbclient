@@ -1,12 +1,14 @@
 package com.baidu.tieba.im.b;
 
+import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.im.c.m;
-import com.baidu.tieba.im.db.ad;
+import com.baidu.tieba.im.db.ae;
 import com.baidu.tieba.im.message.GroupUpdateMessage;
-import com.baidu.tieba.im.message.bo;
-import com.baidu.tieba.im.message.cc;
-import com.baidu.tieba.im.message.o;
-import com.baidu.tieba.log.i;
+import com.baidu.tieba.im.message.ca;
+import com.baidu.tieba.im.message.cl;
+import com.baidu.tieba.im.message.cr;
+import com.baidu.tieba.im.message.q;
+import com.baidu.tieba.util.by;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.Map;
@@ -25,45 +27,57 @@ public class e implements com.baidu.tieba.im.messageCenter.g {
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(o oVar) {
+    public void a(q qVar) {
+        long j;
+        long j2;
         Map a;
-        if (oVar != null) {
-            if (oVar.u() == 1003) {
-                if ((oVar instanceof cc) && !((cc) oVar).i()) {
+        if (qVar != null) {
+            if (qVar.w() == 1003) {
+                if ((qVar instanceof cr) && !((cr) qVar).k()) {
                     this.a.m();
                 }
-            } else if (oVar.u() == 202003) {
+            } else if (qVar.w() == 202003) {
                 this.a.j = System.currentTimeMillis();
-                a = this.a.a(oVar);
+                j = this.a.j;
+                j2 = this.a.g;
+                by.b(j - j2);
+                if (qVar instanceof ca) {
+                    int b = ((ca) qVar).b();
+                    TiebaApplication.h().y(b == 1);
+                    if (b == 1) {
+                        com.baidu.tieba.im.messageCenter.e.a().d(new cl());
+                    }
+                }
+                a = this.a.a(qVar);
                 if (a == null || a.size() <= 0) {
                     this.a.k();
                 } else {
                     this.a.a(a);
                 }
-            } else if (oVar.u() == 1001) {
-                if (!(oVar instanceof bo)) {
-                    this.a.a(oVar.u(), -1, (String) null);
+            } else if (qVar.w() == 1001) {
+                if (!(qVar instanceof com.baidu.tieba.im.message.by)) {
+                    this.a.a(qVar.w(), -1, (String) null);
                     return;
                 }
-                bo boVar = (bo) oVar;
-                if (boVar.i()) {
-                    this.a.a(oVar.u(), boVar.j(), boVar.k());
+                com.baidu.tieba.im.message.by byVar = (com.baidu.tieba.im.message.by) qVar;
+                if (byVar.k()) {
+                    this.a.a(qVar.w(), byVar.l(), byVar.m());
                     return;
                 }
                 LinkedList linkedList = new LinkedList();
                 LinkedHashMap<String, Long> linkedHashMap = new LinkedHashMap<>();
                 LinkedList linkedList2 = new LinkedList();
                 this.a.j();
-                com.baidu.tieba.log.a.b(i.a(1001, 0, null, "online succ", null, boVar.j(), boVar.k()));
-                if (boVar.a() != null) {
-                    com.baidu.tieba.im.c.a.h().a(boVar.a());
-                    for (GroupUpdateMessage groupUpdateMessage : boVar.a()) {
+                by.a(1001, 0, null, "online succ", null, byVar.l(), byVar.m());
+                if (byVar.a() != null) {
+                    com.baidu.tieba.im.c.a.h().a(byVar.a());
+                    for (GroupUpdateMessage groupUpdateMessage : byVar.a()) {
                         if (groupUpdateMessage != null) {
                             linkedList.add(String.valueOf(groupUpdateMessage.getGroupId()));
                             if (groupUpdateMessage.getGroupType() == 6) {
-                                if (groupUpdateMessage.getGroupId() != 0 && com.baidu.tieba.im.chat.a.a != groupUpdateMessage.getGroupId()) {
-                                    com.baidu.tieba.im.chat.a.a(groupUpdateMessage.getGroupId());
-                                    com.baidu.adp.lib.h.e.d("see online1 gid Online=" + groupUpdateMessage.getGroupId());
+                                if (groupUpdateMessage.getGroupId() != 0 && com.baidu.tieba.im.chat.q.a != groupUpdateMessage.getGroupId()) {
+                                    com.baidu.tieba.im.chat.q.a(groupUpdateMessage.getGroupId());
+                                    com.baidu.adp.lib.g.e.d("see online1 gid Online=" + groupUpdateMessage.getGroupId());
                                 }
                             } else {
                                 linkedHashMap.put(String.valueOf(groupUpdateMessage.getGroupId()), Long.valueOf(groupUpdateMessage.getLastMsgId()));
@@ -75,12 +89,12 @@ public class e implements com.baidu.tieba.im.messageCenter.g {
                     }
                     com.baidu.tieba.im.db.d.a().a(linkedHashMap, (com.baidu.tieba.im.a<Void>) null);
                 }
-                ad.a().a(new f(this, boVar, linkedList2, linkedList));
-            } else if (oVar.u() == -11 && (oVar instanceof com.baidu.tieba.im.message.a)) {
-                if (((com.baidu.tieba.im.message.a) oVar).a()) {
-                    this.a.g();
+                ae.a().a(new f(this, byVar, linkedList2, linkedList));
+            } else if (qVar.w() == -11 && (qVar instanceof com.baidu.tieba.im.message.a)) {
+                if (((com.baidu.tieba.im.message.a) qVar).a()) {
+                    this.a.h();
                 } else {
-                    this.a.f();
+                    this.a.g();
                 }
             }
         }

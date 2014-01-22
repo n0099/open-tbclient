@@ -1,33 +1,25 @@
 package com.baidu.tieba.view;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.tbadk.widget.TbImageView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.animation.Animation;
 /* loaded from: classes.dex */
-public class cf implements ViewGroup.OnHierarchyChangeListener {
-    final /* synthetic */ UserIconBox a;
+class cf implements Animation.AnimationListener {
+    final /* synthetic */ ShutDownValidateTipView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cf(UserIconBox userIconBox) {
-        this.a = userIconBox;
+    public cf(ShutDownValidateTipView shutDownValidateTipView) {
+        this.a = shutDownValidateTipView;
     }
 
-    @Override // android.view.ViewGroup.OnHierarchyChangeListener
-    public void onChildViewRemoved(View view, View view2) {
-        com.baidu.adp.lib.d.b bVar;
-        com.baidu.adp.lib.d.b bVar2;
-        com.baidu.adp.lib.h.e.d("pool return child");
-        if (view2 instanceof TbImageView) {
-            bVar = this.a.b;
-            if (bVar != null) {
-                bVar2 = this.a.b;
-                bVar2.a((com.baidu.adp.lib.d.b) ((TbImageView) view2));
-            }
-        }
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
     }
 
-    @Override // android.view.ViewGroup.OnHierarchyChangeListener
-    public void onChildViewAdded(View view, View view2) {
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        this.a.setVisibility(8);
     }
 }

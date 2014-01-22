@@ -1,6 +1,5 @@
 package com.baidu.tieba.data;
 
-import com.baidu.tieba.util.bo;
 import java.util.ArrayList;
 import java.util.HashMap;
 import org.json.JSONArray;
@@ -31,7 +30,7 @@ public class ay {
                 }
             }
         } catch (Exception e) {
-            bo.b("AtListModel", "parserSuggestJson", "error = " + e.getMessage());
+            com.baidu.adp.lib.g.e.b("AtListModel", "parserSuggestJson", "error = " + e.getMessage());
         }
     }
 
@@ -39,7 +38,7 @@ public class ay {
         try {
             a(new JSONObject(str), hashMap);
         } catch (Exception e) {
-            bo.b("AtListModel", "parserSuggestJson", "error = " + e.getMessage());
+            com.baidu.adp.lib.g.e.b("AtListModel", "parserSuggestJson", "error = " + e.getMessage());
         }
     }
 

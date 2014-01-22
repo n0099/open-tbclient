@@ -174,14 +174,14 @@ public class ab extends BaseAdapter {
                 view4 = view;
                 adVar = (ad) view.getTag();
             }
-            int an = TiebaApplication.g().an();
-            this.a.getLayoutMode().a(an == 1);
+            int al = TiebaApplication.h().al();
+            this.a.getLayoutMode().a(al == 1);
             this.a.getLayoutMode().a(view4);
             if (getItemViewType(i) == 1) {
                 if (this.i) {
                     adVar.b.setVisibility(0);
                     adVar.a.setText(this.a.getString(R.string.loading));
-                    if (an == 1) {
+                    if (al == 1) {
                         adVar.a.setTextColor(this.a.getResources().getColor(R.color.pb_more_txt_1));
                     } else {
                         adVar.a.setTextColor(this.a.getResources().getColor(R.color.pb_more_txt));
@@ -189,7 +189,7 @@ public class ab extends BaseAdapter {
                 } else if (!this.j) {
                     adVar.b.setVisibility(8);
                     adVar.a.setText(this.a.getString(R.string.no_more_mark));
-                    if (an == 1) {
+                    if (al == 1) {
                         adVar.a.setTextColor(this.a.getResources().getColor(R.color.pb_list_morebutton_nomore_text_1));
                     } else {
                         adVar.a.setTextColor(this.a.getResources().getColor(R.color.pb_list_morebutton_nomore_text));
@@ -197,7 +197,7 @@ public class ab extends BaseAdapter {
                 } else {
                     adVar.b.setVisibility(8);
                     adVar.a.setText(this.a.getString(R.string.load_more));
-                    if (an == 1) {
+                    if (al == 1) {
                         adVar.a.setTextColor(this.a.getResources().getColor(R.color.pb_more_txt_1));
                     } else {
                         adVar.a.setTextColor(this.a.getResources().getColor(R.color.pb_more_txt));
@@ -227,7 +227,7 @@ public class ab extends BaseAdapter {
                         a(aeVar, false);
                     }
                     int replyNum = markData.getReplyNum();
-                    if (replyNum == 0) {
+                    if (replyNum < 0) {
                         aeVar.b.setVisibility(8);
                         aeVar.a.setVisibility(8);
                     } else {
@@ -235,9 +235,16 @@ public class ab extends BaseAdapter {
                         aeVar.b.setVisibility(0);
                         aeVar.b.setText(String.valueOf(replyNum));
                     }
-                    aeVar.d.setText(markData.getTitle());
+                    String title = markData.getTitle();
+                    if (!TextUtils.isEmpty(title)) {
+                        aeVar.d.setText(title);
+                    } else {
+                        aeVar.d.setText("");
+                    }
                     if (!TextUtils.isEmpty(markData.getForumName())) {
                         aeVar.e.setText(markData.getForumName() + this.a.getString(R.string.bar));
+                    } else {
+                        aeVar.e.setText("");
                     }
                     aeVar.h.setOnClickListener(this.h);
                     aeVar.h.setFocusable(false);
@@ -250,7 +257,7 @@ public class ab extends BaseAdapter {
         } catch (Exception e2) {
             view2 = view3;
             exc = e2;
-            com.baidu.tieba.util.bo.b(getClass().getName(), "", "MarkAdapter.getView error = " + exc.getMessage());
+            com.baidu.adp.lib.g.e.b(getClass().getName(), "", "MarkAdapter.getView error = " + exc.getMessage());
             return view2;
         }
         return view2;

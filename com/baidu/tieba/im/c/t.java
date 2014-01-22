@@ -1,20 +1,28 @@
 package com.baidu.tieba.im.c;
 
-import java.util.LinkedList;
-import protobuf.PushNotify.PushNotifyRes;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.tieba.im.groupUpdates.UpdatesItemData;
+import java.util.concurrent.ConcurrentHashMap;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class t implements com.baidu.tieba.im.coder.f {
-    @Override // com.baidu.tieba.im.coder.f
-    public void a(LinkedList<com.baidu.tieba.im.message.o> linkedList, byte[] bArr, int i) {
-        PushNotifyRes.PushNotifyResIdl parseFrom = PushNotifyRes.PushNotifyResIdl.parseFrom(bArr);
-        int multiMsgCount = parseFrom.getMultiMsgCount();
-        for (int i2 = 0; i2 < multiMsgCount; i2++) {
-            PushNotifyRes.PusherMsg multiMsg = parseFrom.getMultiMsg(i2);
-            s sVar = new s();
-            sVar.c(multiMsg.getData().getGroupId());
-            sVar.b(multiMsg.getData().getMsgId());
-            sVar.a(multiMsg.getData().getPushTime());
-            linkedList.add(sVar);
+public class t implements com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMessageCenterPojo>> {
+    final /* synthetic */ String a;
+    final /* synthetic */ UpdatesItemData b;
+    final /* synthetic */ m c;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public t(m mVar, String str, UpdatesItemData updatesItemData) {
+        this.c = mVar;
+        this.a = str;
+        this.b = updatesItemData;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.a
+    public void a(ConcurrentHashMap<String, ImMessageCenterPojo> concurrentHashMap) {
+        ImMessageCenterPojo imMessageCenterPojo = concurrentHashMap.get(this.a);
+        if (imMessageCenterPojo != null) {
+            imMessageCenterPojo.setGroup_head(this.b.getGroupHeadUrl());
         }
     }
 }

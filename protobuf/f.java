@@ -13,11 +13,6 @@ public final class f extends GeneratedMessageLite.Builder<Im.GradeInfo, f> imple
     private int d;
     private int e;
 
-    /* JADX DEBUG: Method not inlined, still used in: [protobuf.Im.GradeInfo.newBuilder():protobuf.f] */
-    public static /* synthetic */ f f() {
-        return h();
-    }
-
     private f() {
         g();
     }

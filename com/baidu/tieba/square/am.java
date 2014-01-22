@@ -15,25 +15,25 @@ public class am implements aw {
 
     @Override // com.baidu.tieba.square.aw
     public void a(boolean z, String str, ar arVar) {
-        by byVar;
+        bz bzVar;
         boolean z2;
         BaseFragmentActivity baseFragmentActivity;
-        by byVar2;
-        by byVar3;
+        bz bzVar2;
+        bz bzVar3;
         boolean z3;
-        by byVar4;
-        by byVar5;
+        bz bzVar4;
+        bz bzVar5;
         av avVar;
         Handler handler;
         Runnable runnable;
         Handler handler2;
         Runnable runnable2;
-        byVar = this.a.b;
-        byVar.a(true, "");
+        bzVar = this.a.b;
+        bzVar.a(true, "");
         if (z && arVar != null) {
-            byVar5 = this.a.b;
+            bzVar5 = this.a.b;
             avVar = this.a.c;
-            byVar5.a(avVar.a());
+            bzVar5.a(avVar.a());
             handler = this.a.g;
             runnable = this.a.h;
             handler.removeCallbacks(runnable);
@@ -46,12 +46,12 @@ public class am implements aw {
         z2 = this.a.e;
         if (z2) {
             this.a.e = false;
-            byVar4 = this.a.b;
-            byVar4.g();
+            bzVar4 = this.a.b;
+            bzVar4.g();
         }
         if (!UtilHelper.b()) {
-            byVar3 = this.a.b;
-            byVar3.h();
+            bzVar3 = this.a.b;
+            bzVar3.h();
             z3 = this.a.d;
             if (!z3) {
                 this.a.I();
@@ -61,7 +61,7 @@ public class am implements aw {
         }
         baseFragmentActivity = this.a.f;
         baseFragmentActivity.a(str);
-        byVar2 = this.a.b;
-        byVar2.i();
+        bzVar2 = this.a.b;
+        bzVar2.i();
     }
 }

@@ -10,7 +10,7 @@ import android.graphics.RectF;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.widget.ImageView;
-import com.baidu.adp.lib.h.g;
+import com.baidu.adp.lib.g.g;
 import com.baidu.adp.widget.v;
 import com.baidu.adp.widget.w;
 import com.baidu.adp.widget.x;

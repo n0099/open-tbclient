@@ -12,11 +12,6 @@ public final class ad extends GeneratedMessageLite.Builder<Im.TshowInfo, ad> imp
     private Object c = "";
     private Object d = "";
 
-    /* JADX DEBUG: Method not inlined, still used in: [protobuf.Im.TshowInfo.newBuilder():protobuf.ad] */
-    public static /* synthetic */ ad f() {
-        return h();
-    }
-
     private ad() {
         g();
     }

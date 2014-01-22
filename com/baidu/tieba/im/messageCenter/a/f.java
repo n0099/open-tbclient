@@ -1,40 +1,40 @@
 package com.baidu.tieba.im.messageCenter.a;
 
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.im.message.ae;
-import com.baidu.tieba.im.message.bh;
-import com.baidu.tieba.im.message.cc;
+import com.baidu.tieba.im.message.ai;
+import com.baidu.tieba.im.message.br;
+import com.baidu.tieba.im.message.cr;
 /* loaded from: classes.dex */
 public class f extends com.baidu.tieba.im.messageCenter.d {
     @Override // com.baidu.tieba.im.messageCenter.d
-    public cc a(com.baidu.tieba.im.message.o oVar) {
-        if (oVar == null || !(oVar instanceof ae)) {
-            return a(103004, oVar);
+    public cr a(com.baidu.tieba.im.message.q qVar) {
+        if (qVar == null || !(qVar instanceof ai)) {
+            return a(103004, qVar);
         }
-        ae aeVar = (ae) oVar;
-        int u = aeVar.u();
+        ai aiVar = (ai) qVar;
+        int w = aiVar.w();
         String str = "";
-        if (TiebaApplication.F() != null) {
-            str = TiebaApplication.F().getID();
+        if (TiebaApplication.E() != null) {
+            str = TiebaApplication.E().getID();
         }
-        byte[] a = com.baidu.tieba.b.a.a().q().a("group_info" + str + aeVar.b());
+        byte[] a = com.baidu.tieba.b.a.a().q().a("group_info" + str + aiVar.b());
         if (a != null) {
-            cc a2 = l.a(103004, a);
+            cr a2 = l.a(103004, a);
             if (a2 == null) {
-                return a(u, oVar);
+                return a(w, qVar);
             }
-            a2.e(u);
-            a2.a(oVar);
+            a2.e(w);
+            a2.a(qVar);
             return a2;
         }
-        return a(u, oVar);
+        return a(w, qVar);
     }
 
-    private bh a(int i, com.baidu.tieba.im.message.o oVar) {
-        bh bhVar = new bh();
-        bhVar.e(i);
-        bhVar.g(-18);
-        bhVar.a(oVar);
-        return bhVar;
+    private br a(int i, com.baidu.tieba.im.message.q qVar) {
+        br brVar = new br();
+        brVar.e(i);
+        brVar.g(-18);
+        brVar.a(qVar);
+        return brVar;
     }
 }

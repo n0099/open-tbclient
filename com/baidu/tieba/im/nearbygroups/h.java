@@ -54,10 +54,10 @@ public class h implements a {
 
     public void a(int i) {
         this.d.getLayoutMode().a(i == 1);
-        this.d.getLayoutMode().a(this.a);
+        this.d.getLayoutMode().a((View) this.a);
     }
 
     public void c() {
-        a(TiebaApplication.g().an());
+        a(TiebaApplication.h().al());
     }
 }

@@ -1,8 +1,9 @@
 package com.baidu.tieba.person;
 
 import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class aj implements View.OnClickListener {
+public class aj implements View.OnClickListener {
     final /* synthetic */ MyPostActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */

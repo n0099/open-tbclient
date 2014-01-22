@@ -10,9 +10,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import com.baidu.adp.lib.h.g;
+import com.baidu.adp.lib.g.g;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.im.data.GroupInfoData;
+import com.baidu.tieba.util.bs;
 import com.baidu.tieba.util.i;
 import com.baidu.tieba.view.HeadImageView;
 import com.slidingmenu.lib.R;
@@ -172,8 +173,14 @@ public class HotGroupAdapter extends BaseAdapter {
                 }
                 a(aVar.o, item.getGrade());
             }
-            this.a.a().a(TiebaApplication.g().an() == 1);
+            this.a.a().a(TiebaApplication.h().al() == 1);
             this.a.a().a(view);
+            if (item != null && item.isMemGroup()) {
+                bs.a(aVar.i, R.color.im_group_vip_text, 1);
+                bs.d(aVar.l, (int) R.drawable.icon_vip_grade_big_small_s);
+                bs.d(aVar.m, (int) R.drawable.icon_vip_grade_big_small_s);
+                bs.d(aVar.n, (int) R.drawable.icon_vip_grade_big_small_s);
+            }
         }
         return view;
     }

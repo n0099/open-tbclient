@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.validate;
 
 import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tieba.util.ak;
+import com.baidu.tieba.util.an;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements Runnable {
@@ -19,6 +19,6 @@ public class e implements Runnable {
         nVar = this.a.b;
         BdListView f = nVar.f();
         iVar = this.a.h;
-        ak.a(f, iVar, 0, 1);
+        an.a(f, iVar, 0, 1);
     }
 }

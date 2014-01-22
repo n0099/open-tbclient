@@ -1,9 +1,8 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.util.by;
 /* loaded from: classes.dex */
-class aw implements com.baidu.tbadk.imageManager.c {
+class aw implements com.baidu.adp.widget.ScrollView.n {
     final /* synthetic */ FrsImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,17 +10,11 @@ class aw implements com.baidu.tbadk.imageManager.c {
         this.a = frsImageActivity;
     }
 
-    @Override // com.baidu.tbadk.imageManager.c
-    public void a(com.baidu.adp.widget.ImageView.d dVar, String str, boolean z) {
-        bm bmVar;
-        try {
-            bmVar = this.a.l;
-            View findViewWithTag = bmVar.e().a(1).findViewWithTag(str);
-            if (findViewWithTag != null && (findViewWithTag instanceof TbImageView)) {
-                findViewWithTag.invalidate();
-            }
-        } catch (Exception e) {
-            com.baidu.tieba.util.bo.b(getClass().getName(), "imageLoaded", e.getMessage());
-        }
+    @Override // com.baidu.adp.widget.ScrollView.n
+    public void a() {
+        by.a(this.a, "frs_pulldown", "frsclick", 1, new Object[0]);
+        this.a.q = null;
+        this.a.p = true;
+        this.a.c(1);
     }
 }

@@ -31,9 +31,9 @@ public class h extends com.baidu.adp.a.g {
             this.b.showToast(this.a.getErrorString());
         } else if (((ag) obj) != null) {
             this.b.showToast(this.b.getString(R.string.like_success));
-            TiebaApplication g = TiebaApplication.g();
+            TiebaApplication h = TiebaApplication.h();
             forumDetailData = this.d.f;
-            g.f(forumDetailData.forumInfo.forumName);
+            h.e(forumDetailData.forumInfo.forumName);
             this.d.b(true);
             this.d.a(this.c);
         } else {

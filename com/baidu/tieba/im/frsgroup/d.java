@@ -17,7 +17,7 @@ class d implements View.OnClickListener {
         frsGroupActivity = this.a.a;
         if (frsGroupActivity != null) {
             frsGroupActivity2 = this.a.a;
-            frsGroupActivity2.f();
+            frsGroupActivity2.g();
         }
     }
 }

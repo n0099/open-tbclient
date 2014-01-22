@@ -1,23 +1,34 @@
 package com.baidu.tieba.im.frsgroup;
 
-import android.content.DialogInterface;
-import java.util.List;
+import android.view.View;
+import android.widget.AdapterView;
+import com.baidu.tieba.im.data.UserData;
+import com.baidu.tieba.person.PersonInfoActivity;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class o implements DialogInterface.OnClickListener {
-    final /* synthetic */ List a;
-    final /* synthetic */ n b;
+public class o implements AdapterView.OnItemClickListener {
+    final /* synthetic */ MembersActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public o(n nVar, List list) {
-        this.b = nVar;
-        this.a = list;
+    public o(MembersActivity membersActivity) {
+        this.a = membersActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        com.baidu.tieba.im.model.m mVar;
-        MembersActivity membersActivity = this.b.a;
-        mVar = this.b.a.c;
-        membersActivity.a(mVar.f(), this.a);
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+        ac acVar;
+        acVar = this.a.b;
+        y i2 = acVar.i();
+        UserData userData = (UserData) i2.getItem(i);
+        if (userData != null) {
+            if (i2.d()) {
+                if (!userData.getPermission().isController()) {
+                    i2.a(Long.valueOf(userData.getUserId()));
+                    return;
+                }
+                return;
+            }
+            PersonInfoActivity.a(this.a, userData.getUserId() + "", userData.getUserName());
+        }
     }
 }

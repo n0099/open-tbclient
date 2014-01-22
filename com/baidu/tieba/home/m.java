@@ -27,9 +27,9 @@ public class m implements View.OnClickListener {
         } else {
             baseFragmentActivity = this.a.a;
             str = this.a.t;
-            com.baidu.adp.lib.h.g.a((Context) baseFragmentActivity, str);
+            com.baidu.adp.lib.g.g.a((Context) baseFragmentActivity, str);
         }
         baseFragmentActivity2 = this.a.a;
-        com.baidu.tieba.ap.a(baseFragmentActivity2, "signall_enter_click");
+        com.baidu.tieba.as.a(baseFragmentActivity2, "signall_enter_click");
     }
 }

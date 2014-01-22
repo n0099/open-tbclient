@@ -14,30 +14,30 @@ class ao implements com.baidu.tieba.model.bi {
 
     @Override // com.baidu.tieba.model.bi
     public void a(boolean z, boolean z2, String str) {
-        cs csVar;
+        cr crVar;
         com.baidu.tieba.model.bg bgVar;
         com.baidu.tieba.model.bm bmVar;
         com.baidu.tieba.model.bm bmVar2;
-        cs csVar2;
+        cr crVar2;
         com.baidu.tieba.model.bm bmVar3;
         com.baidu.tieba.model.bg bgVar2;
-        csVar = this.a.z;
-        csVar.s();
+        crVar = this.a.A;
+        crVar.s();
         if (z) {
-            bgVar = this.a.u;
+            bgVar = this.a.v;
             bgVar.a(z2);
-            bmVar = this.a.t;
+            bmVar = this.a.u;
             bmVar.c(z2);
-            bmVar2 = this.a.t;
+            bmVar2 = this.a.u;
             if (bmVar2.t()) {
                 this.a.t();
             } else {
-                csVar2 = this.a.z;
-                bmVar3 = this.a.t;
-                csVar2.a(bmVar3.l());
+                crVar2 = this.a.A;
+                bmVar3 = this.a.u;
+                crVar2.a(bmVar3.l());
             }
             if (z2) {
-                bgVar2 = this.a.u;
+                bgVar2 = this.a.v;
                 MarkData b = bgVar2.b();
                 if (b != null) {
                     this.a.showToast(MessageFormat.format(this.a.getString(R.string.add_mark_on_pb), Integer.valueOf(b.getFloor())));

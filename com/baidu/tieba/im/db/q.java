@@ -3,6 +3,7 @@ package com.baidu.tieba.im.db;
 import android.database.sqlite.SQLiteDatabase;
 import com.baidu.tieba.im.SingleRunnable;
 import com.baidu.tieba.im.groupUpdates.UpdatesItemData;
+import com.baidu.tieba.util.by;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -29,7 +30,7 @@ public class q extends SingleRunnable<Boolean> {
                 return false;
             }
             int size = this.a.size();
-            com.baidu.adp.lib.h.e.d("size:" + size);
+            com.baidu.adp.lib.g.e.d("size:" + size);
             for (int i = 0; i < size; i++) {
                 UpdatesItemData updatesItemData = (UpdatesItemData) this.a.get(i);
                 if (updatesItemData != null) {
@@ -38,6 +39,7 @@ public class q extends SingleRunnable<Boolean> {
             }
             return false;
         } catch (Exception e) {
+            by.a(e, "GroupNewsDao.deleteByUpdatesData", new Object[0]);
             e.printStackTrace();
             return false;
         }

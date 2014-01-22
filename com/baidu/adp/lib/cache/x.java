@@ -10,8 +10,8 @@ public class x<T> extends v<T> {
         try {
             return (T) super.a(str);
         } catch (Throwable th) {
-            if (com.baidu.adp.lib.h.e.a()) {
-                com.baidu.adp.lib.h.e.a(getClass(), "failed to get cache:" + str, th);
+            if (com.baidu.adp.lib.g.e.a()) {
+                com.baidu.adp.lib.g.e.a(getClass(), "failed to get cache:" + str, th);
             }
             return null;
         }
@@ -22,8 +22,8 @@ public class x<T> extends v<T> {
         try {
             return super.b(str);
         } catch (Throwable th) {
-            if (com.baidu.adp.lib.h.e.a()) {
-                com.baidu.adp.lib.h.e.a(getClass(), "failed to get cache:" + str, th);
+            if (com.baidu.adp.lib.g.e.a()) {
+                com.baidu.adp.lib.g.e.a(getClass(), "failed to get cache:" + str, th);
             }
             return null;
         }
@@ -34,8 +34,8 @@ public class x<T> extends v<T> {
         try {
             super.a(str, t, j);
         } catch (Throwable th) {
-            if (com.baidu.adp.lib.h.e.a()) {
-                com.baidu.adp.lib.h.e.a(getClass(), "failed to store cache key:" + str + ", value:" + t, th);
+            if (com.baidu.adp.lib.g.e.a()) {
+                com.baidu.adp.lib.g.e.a(getClass(), "failed to store cache key:" + str + ", value:" + t, th);
             }
         }
     }
@@ -45,8 +45,8 @@ public class x<T> extends v<T> {
         try {
             super.c(str);
         } catch (Throwable th) {
-            if (com.baidu.adp.lib.h.e.a()) {
-                com.baidu.adp.lib.h.e.a(getClass(), "failed to remove cache:" + str, th);
+            if (com.baidu.adp.lib.g.e.a()) {
+                com.baidu.adp.lib.g.e.a(getClass(), "failed to remove cache:" + str, th);
             }
         }
     }

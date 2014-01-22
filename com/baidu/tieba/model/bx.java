@@ -4,6 +4,7 @@ import android.content.Context;
 import com.baidu.tieba.data.AntiData;
 import com.baidu.tieba.data.PersonChangeData;
 import com.baidu.tieba.data.UserData;
+import com.baidu.tieba.im.message.cv;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class bx extends com.baidu.adp.a.d implements com.baidu.tieba.im.messageCenter.g {
@@ -92,7 +93,7 @@ public class bx extends com.baidu.adp.a.d implements com.baidu.tieba.im.messageC
         try {
             a(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.tieba.util.bo.b(getClass().getName(), "parserJson", "error = " + e.getMessage());
+            com.baidu.adp.lib.g.e.b(getClass().getName(), "parserJson", "error = " + e.getMessage());
         }
     }
 
@@ -104,7 +105,7 @@ public class bx extends com.baidu.adp.a.d implements com.baidu.tieba.im.messageC
                 this.l = new AntiData();
                 this.l.parserJson(jSONObject.optJSONObject("anti_stat"));
             } catch (Exception e) {
-                com.baidu.tieba.util.bo.b(getClass().getName(), "parserJson", "error = " + e.getMessage());
+                com.baidu.adp.lib.g.e.b(getClass().getName(), "parserJson", "error = " + e.getMessage());
             }
         }
     }
@@ -182,18 +183,18 @@ public class bx extends com.baidu.adp.a.d implements com.baidu.tieba.im.messageC
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(com.baidu.tieba.im.message.o oVar) {
-        if (oVar != null) {
-            switch (oVar.u()) {
+    public void a(com.baidu.tieba.im.message.q qVar) {
+        if (qVar != null) {
+            switch (qVar.w()) {
                 case -118:
-                    if ((oVar instanceof com.baidu.tieba.im.message.cf) && d() != null) {
-                        com.baidu.tieba.im.message.cf cfVar = (com.baidu.tieba.im.message.cf) oVar;
-                        if (d().getId() != null && d().getId().equals(cfVar.c())) {
-                            d().setHave_attention(cfVar.d() ? 1 : 0);
+                    if ((qVar instanceof cv) && d() != null) {
+                        cv cvVar = (cv) qVar;
+                        if (d().getId() != null && d().getId().equals(cvVar.c())) {
+                            d().setHave_attention(cvVar.d() ? 1 : 0);
                             this.mLoadDataMode = 3;
-                            setErrorString(cfVar.b());
+                            setErrorString(cvVar.b());
                             if (this.mLoadDataCallBack != null) {
-                                this.mLoadDataCallBack.a(Boolean.valueOf(cfVar.a()));
+                                this.mLoadDataCallBack.a(Boolean.valueOf(cvVar.a()));
                                 return;
                             }
                             return;

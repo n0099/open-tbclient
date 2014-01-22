@@ -1,7 +1,6 @@
 package com.baidu.tieba.data;
 
 import com.baidu.cloudsdk.social.core.SocialConstants;
-import com.baidu.tieba.util.bo;
 import java.util.Date;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -33,7 +32,7 @@ public abstract class a {
             b(new JSONObject(str));
         } catch (Exception e) {
             a("你的网络状况不大好，请稍后重试");
-            bo.a("error = " + e.getMessage());
+            com.baidu.adp.lib.g.e.a("error = " + e.getMessage());
         }
     }
 
@@ -59,7 +58,7 @@ public abstract class a {
             a(jSONObject);
         } catch (Exception e) {
             a("你的网络状况不大好，请稍后重试");
-            bo.a("error = " + e.getMessage());
+            com.baidu.adp.lib.g.e.a("error = " + e.getMessage());
         }
     }
 }

@@ -56,7 +56,7 @@ public class d implements Runnable {
         arrayList.add(new BasicNameValuePair(k, this.d));
         try {
             HttpPost httpPost = new HttpPost(this.b);
-            httpPost.setEntity(new UrlEncodedFormEntity(arrayList, "utf-8"));
+            httpPost.setEntity(new UrlEncodedFormEntity(arrayList, l));
             this.e.execute(httpPost);
         } catch (Exception e) {
             Log.d("loginshare", "exception = " + e.toString());

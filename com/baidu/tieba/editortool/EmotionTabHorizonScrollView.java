@@ -89,8 +89,8 @@ public class EmotionTabHorizonScrollView extends HorizontalScrollView {
         this.a.addView(linearLayout, this.k);
         WritableEmotionGroup.EmotionGroupType c = writableEmotionGroup.c();
         if (c == WritableEmotionGroup.EmotionGroupType.LOCAL) {
-            if (writableEmotionGroup.g() != null) {
-                writableEmotionGroup.g().a(bDImageView);
+            if (writableEmotionGroup.i() != null) {
+                writableEmotionGroup.i().a(bDImageView);
             }
             linearLayout.setOnClickListener(new o(this, this.a.getChildCount() - 2, null));
         } else if (c == WritableEmotionGroup.EmotionGroupType.PROMOTION) {
@@ -100,8 +100,8 @@ public class EmotionTabHorizonScrollView extends HorizontalScrollView {
             linearLayout.setOnClickListener(new p(this, writableEmotionGroup.e(), null));
         } else if (c == WritableEmotionGroup.EmotionGroupType.BIG_EMOTION) {
             if (this.m) {
-                if (writableEmotionGroup.g() != null) {
-                    writableEmotionGroup.g().a(bDImageView);
+                if (writableEmotionGroup.i() != null) {
+                    writableEmotionGroup.i().a(bDImageView);
                 }
                 linearLayout.setOnClickListener(new o(this, this.a.getChildCount() - 2, null));
             } else {
@@ -129,7 +129,7 @@ public class EmotionTabHorizonScrollView extends HorizontalScrollView {
         linearLayout.setPadding(0, getResources().getDimensionPixelSize(R.dimen.default_gap_6), 0, 0);
         frameLayout.addView(linearLayout, new FrameLayout.LayoutParams(-1, -1));
         this.j = new TextView(getContext());
-        if (TiebaApplication.g().bk()) {
+        if (TiebaApplication.h().bm()) {
             this.j.setVisibility(0);
         } else {
             this.j.setVisibility(8);
@@ -165,8 +165,8 @@ public class EmotionTabHorizonScrollView extends HorizontalScrollView {
                 return;
             }
             linearLayout.setOnClickListener(new o(this, i2 - 1, null));
-            if (writableEmotionGroup.g() != null) {
-                writableEmotionGroup.g().a(bDImageView);
+            if (writableEmotionGroup.i() != null) {
+                writableEmotionGroup.i().a(bDImageView);
             }
         }
     }
@@ -181,8 +181,8 @@ public class EmotionTabHorizonScrollView extends HorizontalScrollView {
             linearLayout.setSelected(true);
             BDImageView bDImageView = (BDImageView) linearLayout.getChildAt(0);
             WritableEmotionGroup writableEmotionGroup = this.c.get(this.b);
-            if (writableEmotionGroup.g() != null) {
-                writableEmotionGroup.g().a(bDImageView);
+            if (writableEmotionGroup.i() != null) {
+                writableEmotionGroup.i().a(bDImageView);
             }
         }
     }

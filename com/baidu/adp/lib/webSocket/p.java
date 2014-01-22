@@ -54,7 +54,7 @@ public class p extends Handler {
             }
             k7 = this.a.k();
             if (k7) {
-                com.baidu.adp.lib.h.e.d("could not call onTextMessage() .. handler already NULL");
+                com.baidu.adp.lib.g.e.d("could not call onTextMessage() .. handler already NULL");
             }
         } else if (message.obj instanceof af) {
             af afVar = (af) message.obj;
@@ -66,7 +66,7 @@ public class p extends Handler {
             }
             k6 = this.a.k();
             if (k6) {
-                com.baidu.adp.lib.h.e.d("could not call onRawTextMessage() .. handler already NULL");
+                com.baidu.adp.lib.g.e.d("could not call onRawTextMessage() .. handler already NULL");
             }
         } else if (message.obj instanceof t) {
             t tVar = (t) message.obj;
@@ -78,13 +78,13 @@ public class p extends Handler {
             }
             k5 = this.a.k();
             if (k5) {
-                com.baidu.adp.lib.h.e.d("could not call onBinaryMessage() .. handler already NULL");
+                com.baidu.adp.lib.g.e.d("could not call onBinaryMessage() .. handler already NULL");
             }
         } else if (message.obj instanceof ac) {
             ac acVar = (ac) message.obj;
             k4 = this.a.k();
             if (k4) {
-                com.baidu.adp.lib.h.e.d("WebSockets Ping received");
+                com.baidu.adp.lib.g.e.d("WebSockets Ping received");
             }
             ad adVar = new ad();
             adVar.a = acVar.a;
@@ -98,7 +98,7 @@ public class p extends Handler {
             }
             k3 = this.a.k();
             if (k3) {
-                com.baidu.adp.lib.h.e.d("WebSockets Pong received");
+                com.baidu.adp.lib.g.e.d("WebSockets Pong received");
             }
         } else if (message.obj instanceof v) {
             this.a.a(1, (String) null);
@@ -106,7 +106,7 @@ public class p extends Handler {
             aj ajVar = (aj) message.obj;
             k = this.a.k();
             if (k) {
-                com.baidu.adp.lib.h.e.d("opening handshake received");
+                com.baidu.adp.lib.g.e.d("opening handshake received");
             }
             if (ajVar.a) {
                 lVar11 = this.a.n;
@@ -125,7 +125,7 @@ public class p extends Handler {
                 }
                 k2 = this.a.k();
                 if (k2) {
-                    com.baidu.adp.lib.h.e.d("could not call onOpen() .. handler already NULL");
+                    com.baidu.adp.lib.g.e.d("could not call onOpen() .. handler already NULL");
                 }
                 this.a.a(6, "handler already NULL");
             }

@@ -3,7 +3,7 @@ package com.baidu.tieba.widget.share;
 import android.content.Context;
 import android.net.Uri;
 import com.baidu.cloudsdk.social.share.ShareContent;
-import com.baidu.tieba.util.bm;
+import com.baidu.tieba.util.bu;
 /* loaded from: classes.dex */
 public class ShareJsBridge {
     private Context mContext;
@@ -17,7 +17,7 @@ public class ShareJsBridge {
         shareContent.setTitle(str);
         shareContent.setContent(str2);
         shareContent.setLinkUrl(str4);
-        if (!bm.c(str3)) {
+        if (!bu.c(str3)) {
             shareContent.setImageUri(Uri.parse(str3));
         }
         b bVar = new b(this.mContext);

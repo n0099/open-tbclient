@@ -10,6 +10,7 @@ import com.baidu.android.pushservice.PushConstants;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.groupUpdates.UpdatesItemData;
 import com.baidu.tieba.im.validate.ValidateItemData;
+import com.baidu.tieba.util.by;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -58,9 +59,10 @@ public class l {
             if (!TextUtils.isEmpty(str) && a2 != null) {
                 ContentValues contentValues = new ContentValues();
                 contentValues.put("content_status", (Integer) 2);
-                com.baidu.adp.lib.h.e.d("count:" + a2.update("tb_group_news", contentValues, "cmd=?", new String[]{str}) + " cmd:" + str);
+                com.baidu.adp.lib.g.e.d("count:" + a2.update("tb_group_news", contentValues, "cmd=?", new String[]{str}) + " cmd:" + str);
             }
         } catch (Exception e) {
+            by.a(e, "GroupNewsDao.markReadByCmd", new Object[0]);
             e.printStackTrace();
         }
     }
@@ -72,23 +74,23 @@ public class l {
             SQLiteDatabase a2 = s.a();
             if (a2 != null) {
                 try {
-                    try {
-                        String format = String.format("select count(*) from tb_group_news WHERE cmd IN ( '%1$s' ) and content_status = %2$s", str, "" + i);
-                        com.baidu.adp.lib.h.e.d("sql:" + format);
-                        cursor = a2.rawQuery(format, null);
-                        if (cursor.moveToFirst()) {
-                            i2 = cursor.getInt(0);
-                        } else {
-                            i2 = -1;
-                        }
-                        com.baidu.tieba.util.o.a(cursor);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                        com.baidu.tieba.util.o.a(cursor);
+                    String format = String.format("select count(*) from tb_group_news WHERE cmd IN ( '%1$s' ) and content_status = %2$s", str, "" + i);
+                    com.baidu.adp.lib.g.e.d("sql:" + format);
+                    cursor = a2.rawQuery(format, null);
+                    if (cursor.moveToFirst()) {
+                        i2 = cursor.getInt(0);
+                    } else {
+                        i2 = -1;
                     }
-                } catch (SQLiteException e2) {
+                    com.baidu.tieba.util.p.a(cursor);
+                } catch (SQLiteException e) {
+                    by.a(e, "GroupNewsDao.getNewCountByCmd", new Object[0]);
+                    e.printStackTrace();
+                    com.baidu.tieba.util.p.a(cursor);
+                } catch (Exception e2) {
+                    by.a(e2, "GroupNewsDao.getNewCountByCmd", new Object[0]);
                     e2.printStackTrace();
-                    com.baidu.tieba.util.o.a(cursor);
+                    com.baidu.tieba.util.p.a(cursor);
                 }
             }
         }
@@ -104,21 +106,23 @@ public class l {
                 try {
                     try {
                         String format = String.format("select count(*) from tb_group_news WHERE cmd IN ( '%1$s' )", str);
-                        com.baidu.adp.lib.h.e.d("sql:" + format);
+                        com.baidu.adp.lib.g.e.d("sql:" + format);
                         cursor = a2.rawQuery(format, null);
                         if (cursor.moveToFirst()) {
                             i = cursor.getInt(0);
                         } else {
                             i = -1;
                         }
-                        com.baidu.tieba.util.o.a(cursor);
-                    } catch (Exception e) {
+                        com.baidu.tieba.util.p.a(cursor);
+                    } catch (SQLiteException e) {
+                        by.a(e, "GroupNewsDao.getCountByCmd", new Object[0]);
                         e.printStackTrace();
-                        com.baidu.tieba.util.o.a(cursor);
+                        com.baidu.tieba.util.p.a(cursor);
                     }
-                } catch (SQLiteException e2) {
+                } catch (Exception e2) {
+                    by.a(e2, "GroupNewsDao.getCountByCmd", new Object[0]);
                     e2.printStackTrace();
-                    com.baidu.tieba.util.o.a(cursor);
+                    com.baidu.tieba.util.p.a(cursor);
                 }
             }
         }
@@ -167,6 +171,7 @@ public class l {
                         a2.endTransaction();
                         return bool;
                     } catch (Exception e) {
+                        by.a(e, "GroupNewsDao.updateData", new Object[0]);
                         e.printStackTrace();
                         a2.endTransaction();
                         return false;
@@ -197,21 +202,21 @@ public class l {
                     if (j <= 0) {
                         if (TextUtils.isEmpty(str)) {
                             String str2 = "select * from tb_group_news ORDER BY time DESC LIMIT " + i + " OFFSET " + i2;
-                            com.baidu.adp.lib.h.e.d("sql:" + str2);
+                            com.baidu.adp.lib.g.e.d("sql:" + str2);
                             cursor = a2.rawQuery(str2, null);
                         } else {
                             String format = String.format("select * from tb_group_news WHERE cmd IN ( '%1$s' ) ORDER BY time DESC LIMIT " + i + " OFFSET " + i2, str);
-                            com.baidu.adp.lib.h.e.d("sql:" + format);
+                            com.baidu.adp.lib.g.e.d("sql:" + format);
                             cursor = a2.rawQuery(format, null);
-                            com.baidu.adp.lib.h.e.d(" test sql:" + format);
+                            com.baidu.adp.lib.g.e.d(" test sql:" + format);
                         }
                     } else if (TextUtils.isEmpty(str)) {
                         String str3 = "select * from tb_group_news WHERE time <=? ORDER BY time DESC LIMIT " + i + " OFFSET " + i2;
-                        com.baidu.adp.lib.h.e.d("sql:" + str3);
+                        com.baidu.adp.lib.g.e.d("sql:" + str3);
                         cursor = a2.rawQuery(str3, new String[]{String.valueOf(j)});
                     } else {
                         String str4 = "select * from tb_group_news WHERE time <=? AND cmd IN ( ? ) ORDER BY time DESC LIMIT " + i + " OFFSET " + i2;
-                        com.baidu.adp.lib.h.e.d("sql:" + str4);
+                        com.baidu.adp.lib.g.e.d("sql:" + str4);
                         cursor = a2.rawQuery(str4, new String[]{String.valueOf(j), str});
                     }
                     if (cursor != null) {
@@ -227,10 +232,11 @@ public class l {
                             linkedList.add(groupNewsPojo);
                         }
                     }
-                    com.baidu.tieba.util.o.a(cursor);
+                    com.baidu.tieba.util.p.a(cursor);
                 } catch (Exception e) {
+                    by.a(e, "GroupNewsDao.getAllByCmd", new Object[0]);
                     e.printStackTrace();
-                    com.baidu.tieba.util.o.a(cursor);
+                    com.baidu.tieba.util.p.a(cursor);
                 }
                 linkedList = b(linkedList);
             }
@@ -242,7 +248,7 @@ public class l {
         LinkedList<GroupNewsPojo> linkedList2 = new LinkedList<>();
         ArrayList arrayList = new ArrayList();
         int size = linkedList.size();
-        com.baidu.adp.lib.h.e.d("before unique size:" + size);
+        com.baidu.adp.lib.g.e.d("before unique size:" + size);
         for (int i = 0; i < size; i++) {
             GroupNewsPojo groupNewsPojo = linkedList.get(i);
             boolean z = false;
@@ -260,7 +266,7 @@ public class l {
             for (int i3 = 0; i3 < size2; i3++) {
                 b((String) arrayList.get(i3), 3);
             }
-            com.baidu.adp.lib.h.e.d("after unique size:" + linkedList2.size());
+            com.baidu.adp.lib.g.e.d("after unique size:" + linkedList2.size());
         }
         return linkedList2;
     }
@@ -280,6 +286,7 @@ public class l {
                     z = false;
                 }
             } catch (Exception e) {
+                by.a(e, "GroupNewsDao.deleteByGidAndCmd", new Object[0]);
                 e.printStackTrace();
                 z = false;
             }
@@ -293,13 +300,14 @@ public class l {
         try {
             a2 = s.a();
         } catch (Exception e) {
+            by.a(e, "GroupNewsDao.hideByNoticeIdSync", new Object[0]);
             e.printStackTrace();
         }
         if (!TextUtils.isEmpty(str) && a2 != null) {
             ContentValues contentValues = new ContentValues();
             contentValues.put("content_status", (Integer) 3);
             i2 = a2.update("tb_group_news", contentValues, "notice_id= ?", new String[]{str});
-            com.baidu.adp.lib.h.e.d("count:" + i2);
+            com.baidu.adp.lib.g.e.d("count:" + i2);
         }
         i2 = 0;
         return i2;
@@ -309,34 +317,47 @@ public class l {
         com.baidu.tieba.im.m.a(new q(this, list), aVar);
     }
 
+    /* JADX WARN: Code restructure failed: missing block: B:6:0x0015, code lost:
+        if (r7.c == null) goto L7;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     private long a(GroupNewsPojo groupNewsPojo) {
-        if (this.c == null) {
-            this.c = r.a(this.b.toString());
+        long j = -1;
+        try {
             if (this.c == null) {
-                return -1L;
+                this.c = r.a(this.b.toString());
             }
+            SQLiteDatabase a2 = s.a();
+            if (a2 == null || !a2.isOpen()) {
+                by.a("GroupNewsDao.insertByStatement", -10, "db is invalid", new Object[0]);
+                b();
+            } else {
+                this.c.clearBindings();
+                r.a(this.c, 1, groupNewsPojo.getCmd());
+                r.a(this.c, 2, groupNewsPojo.getContent());
+                this.c.bindLong(3, groupNewsPojo.getContent_status());
+                r.a(this.c, 4, groupNewsPojo.getExt());
+                r.a(this.c, 5, groupNewsPojo.getGid());
+                r.a(this.c, 6, groupNewsPojo.getNotice_id());
+                this.c.bindLong(7, groupNewsPojo.getTime());
+                j = this.c.executeInsert();
+            }
+        } catch (Exception e) {
+            by.a(e, "GroupNewsDao.insertByStatement", new Object[0]);
         }
-        SQLiteDatabase a2 = s.a();
-        if (a2 == null || !a2.isOpen()) {
-            this.c.close();
-            this.c = null;
-            return -1L;
-        }
-        this.c.clearBindings();
-        r.a(this.c, 1, groupNewsPojo.getCmd());
-        r.a(this.c, 2, groupNewsPojo.getContent());
-        this.c.bindLong(3, groupNewsPojo.getContent_status());
-        r.a(this.c, 4, groupNewsPojo.getExt());
-        r.a(this.c, 5, groupNewsPojo.getGid());
-        r.a(this.c, 6, groupNewsPojo.getNotice_id());
-        this.c.bindLong(7, groupNewsPojo.getTime());
-        return this.c.executeInsert();
+        return j;
     }
 
     public void b() {
-        if (this.c != null) {
-            this.c.close();
-            this.c = null;
+        try {
+            if (this.c != null) {
+                this.c.close();
+                this.c = null;
+            }
+        } catch (Exception e) {
+            by.a(e, "GroupNewsDao.resetStatement", new Object[0]);
         }
     }
 }

@@ -38,7 +38,7 @@ public class e {
                 this.a.hideSoftInputFromWindow(view.getWindowToken(), 2);
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.h.e.b(getClass().getName(), "HidenSoftKeyPad", "error = " + e.getMessage());
+            com.baidu.adp.lib.g.e.b(getClass().getName(), "HidenSoftKeyPad", "error = " + e.getMessage());
         }
     }
 
@@ -46,7 +46,7 @@ public class e {
         try {
             g_().showSoftInput(view, 0);
         } catch (Exception e) {
-            com.baidu.adp.lib.h.e.b(getClass().getName(), "ShowSoftKeyPad", "error = " + e.getMessage());
+            com.baidu.adp.lib.g.e.b(getClass().getName(), "ShowSoftKeyPad", "error = " + e.getMessage());
         }
     }
 

@@ -1,25 +1,27 @@
 package com.baidu.tieba.im.chat.personaltalk;
 
-import com.baidu.tieba.im.db.ad;
-import com.baidu.tieba.im.net.TiebaSocketLinkService;
+import android.content.DialogInterface;
+import com.baidu.tieba.im.db.au;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class f implements com.baidu.tieba.im.a<Boolean> {
-    final /* synthetic */ e a;
+public class f implements DialogInterface.OnClickListener {
+    final /* synthetic */ PersonalTalkSettingActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public f(e eVar) {
-        this.a = eVar;
+    public f(PersonalTalkSettingActivity personalTalkSettingActivity) {
+        this.a = personalTalkSettingActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    public void a(Boolean bool) {
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
         long j;
-        this.a.a.closeLoadingDialog();
-        com.baidu.tieba.im.messageCenter.e.a().e(new com.baidu.tieba.im.message.f());
-        ad.a().a(new g(this));
-        StringBuilder append = new StringBuilder().append("clear cache by person:");
-        j = this.a.a.c;
-        TiebaSocketLinkService.a(true, append.append(j).toString());
+        long j2;
+        this.a.showLoadingDialog(null);
+        StringBuilder append = new StringBuilder().append("see del person :");
+        j = this.a.c;
+        com.baidu.adp.lib.g.e.d(append.append(j).toString());
+        au a = au.a();
+        j2 = this.a.c;
+        a.a(String.valueOf(j2), new g(this));
     }
 }

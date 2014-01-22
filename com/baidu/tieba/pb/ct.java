@@ -1,33 +1,26 @@
 package com.baidu.tieba.pb;
 
-import android.view.MotionEvent;
 import android.view.View;
+import com.baidu.tieba.view.PbListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ct implements com.baidu.tieba.d.b {
-    final /* synthetic */ cs a;
+public class ct implements View.OnClickListener {
+    final /* synthetic */ cr a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ct(cs csVar) {
-        this.a = csVar;
+    public ct(cr crVar) {
+        this.a = crVar;
     }
 
-    @Override // com.baidu.tieba.d.b
-    public boolean a(View view, MotionEvent motionEvent) {
-        this.a.j(false);
-        this.a.b(view);
-        this.a.j(true);
-        return true;
-    }
-
-    @Override // com.baidu.tieba.d.b
-    public boolean b(View view, MotionEvent motionEvent) {
-        return false;
-    }
-
-    @Override // com.baidu.tieba.d.b
-    public boolean c(View view, MotionEvent motionEvent) {
-        this.a.Z();
-        return false;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        PbListView pbListView;
+        boolean z;
+        pbListView = this.a.as;
+        pbListView.c();
+        by byVar = this.a.f;
+        z = this.a.at;
+        byVar.a(z);
+        this.a.ai();
     }
 }

@@ -5,7 +5,6 @@ import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import com.baidu.browser.webpool.BdWebPoolView;
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
 public class TripleTbImageView extends ViewGroup {
@@ -33,7 +32,7 @@ public class TripleTbImageView extends ViewGroup {
         addView(this.b);
         addView(this.c);
         addView(this.d);
-        this.f = com.baidu.adp.lib.h.g.a(context, 6.0f);
+        this.f = com.baidu.adp.lib.g.g.a(context, 6.0f);
         if (g == null) {
             g = new com.baidu.tieba.util.i(context);
         }
@@ -66,54 +65,30 @@ public class TripleTbImageView extends ViewGroup {
                 g.a(300, 300);
                 break;
             case 3:
-                g.a(BdWebPoolView.DELAYED_TIME, BdWebPoolView.DELAYED_TIME);
+                g.a(200, 200);
                 break;
         }
         if (length == 1) {
             String str = (String) objArr[0];
             this.b.setTag(str);
-            com.baidu.adp.widget.ImageView.d a2 = g.a(str, new x(this, str));
-            if (a2 != null) {
-                this.b.setTag(str);
-                a(this.b, a2);
-            }
+            g.b(str, new x(this, str));
             this.c.setTag(null);
             this.d.setTag(null);
         } else if (length == 2) {
             String str2 = (String) objArr[0];
             this.b.setTag(str2);
-            com.baidu.adp.widget.ImageView.d a3 = g.a(str2, new y(this, str2));
-            if (a3 != null) {
-                this.b.setTag(str2);
-                a(this.b, a3);
-            }
+            g.b(str2, new y(this, str2));
             String str3 = (String) objArr[1];
-            com.baidu.adp.widget.ImageView.d a4 = g.a(str3, new z(this, str3));
-            if (a4 != null) {
-                this.c.setTag(str3);
-                a(this.c, a4);
-            }
+            g.b(str3, new z(this, str3));
             this.d.setTag(null);
         } else if (length == 3) {
             String str4 = (String) objArr[0];
             this.b.setTag(str4);
-            com.baidu.adp.widget.ImageView.d a5 = g.a(str4, new aa(this, str4));
-            if (a5 != null) {
-                this.b.setTag(str4);
-                a(this.b, a5);
-            }
+            g.b(str4, new aa(this, str4));
             String str5 = (String) objArr[1];
-            com.baidu.adp.widget.ImageView.d a6 = g.a(str5, new ab(this, str5));
-            if (a6 != null) {
-                this.c.setTag(str5);
-                a(this.c, a6);
-            }
+            g.b(str5, new ab(this, str5));
             String str6 = (String) objArr[2];
-            com.baidu.adp.widget.ImageView.d a7 = g.a(str6, new ac(this, str6));
-            if (a7 != null) {
-                this.d.setTag(str6);
-                a(this.d, a7);
-            }
+            g.b(str6, new ac(this, str6));
         }
         requestLayout();
         invalidate();

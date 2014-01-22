@@ -10,16 +10,16 @@ class ax extends com.baidu.adp.a.g {
 
     @Override // com.baidu.adp.a.g
     public void a(Object obj) {
-        cs csVar;
+        cr crVar;
         com.baidu.tieba.model.ad adVar;
         com.baidu.tieba.model.ad adVar2;
         com.baidu.tieba.model.ad adVar3;
         com.baidu.tieba.model.bm bmVar;
         if (obj != null) {
-            adVar2 = this.a.y;
+            adVar2 = this.a.z;
             switch (adVar2.getLoadDataMode()) {
                 case 0:
-                    bmVar = this.a.t;
+                    bmVar = this.a.u;
                     bmVar.v();
                     this.a.a((com.baidu.tieba.model.af) obj);
                     return;
@@ -31,7 +31,7 @@ class ax extends com.baidu.adp.a.g {
                 case 4:
                 case 5:
                     NewPbActivity newPbActivity = this.a;
-                    adVar3 = this.a.y;
+                    adVar3 = this.a.z;
                     newPbActivity.a(adVar3.getLoadDataMode(), (com.baidu.tieba.model.aj) obj);
                     return;
                 case 6:
@@ -41,8 +41,8 @@ class ax extends com.baidu.adp.a.g {
                     return;
             }
         }
-        csVar = this.a.z;
-        adVar = this.a.y;
-        csVar.a(adVar.getLoadDataMode(), false, (String) null, false);
+        crVar = this.a.A;
+        adVar = this.a.z;
+        crVar.a(adVar.getLoadDataMode(), false, (String) null, false);
     }
 }

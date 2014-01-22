@@ -25,7 +25,7 @@ public class WebSocketWriter extends Handler {
         this.e = amVar;
         this.f = new c(amVar.b() + 14, 262144);
         if (e()) {
-            com.baidu.adp.lib.h.e.d("created");
+            com.baidu.adp.lib.g.e.d("created");
         }
     }
 
@@ -239,13 +239,13 @@ public class WebSocketWriter extends Handler {
             }
         } catch (SocketException e) {
             if (e()) {
-                com.baidu.adp.lib.h.e.d("run() : SocketException (" + e.toString() + ")");
+                com.baidu.adp.lib.g.e.d("run() : SocketException (" + e.toString() + ")");
             }
             d(new w(e));
         } catch (Exception e2) {
             if (e()) {
                 e2.printStackTrace();
-                com.baidu.adp.lib.h.e.c("----WebSocketWriter.handleMessage error. e:" + e2.getMessage());
+                com.baidu.adp.lib.g.e.c("----WebSocketWriter.handleMessage error. e:" + e2.getMessage());
             }
             d(new y(e2));
         }
@@ -259,10 +259,10 @@ public class WebSocketWriter extends Handler {
         try {
             this.d.a();
         } catch (Exception e2) {
-            com.baidu.adp.lib.h.e.a("error:" + e2.getMessage());
+            com.baidu.adp.lib.g.e.a("error:" + e2.getMessage());
         }
         if (e()) {
-            com.baidu.adp.lib.h.e.d("ended");
+            com.baidu.adp.lib.g.e.d("ended");
         }
     }
 

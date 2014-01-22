@@ -1,141 +1,202 @@
 package com.baidu.tieba.frs;
 
-import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
 import android.view.View;
-import com.baidu.mobstat.StatService;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.mention.MentionActivity;
+import com.baidu.tieba.view.NavigationBar;
+import com.baidu.tieba.view.NoNetworkView;
+import com.baidu.tieba.view.WaterFallView;
+import com.baidu.tieba.view.cp;
+import com.baidu.tieba.view.dc;
 import com.slidingmenu.lib.R;
+import com.slidingmenu.lib.SlidingMenu;
 /* loaded from: classes.dex */
-class bi implements View.OnClickListener {
-    final /* synthetic */ FrsImageActivity a;
+public class bi {
+    private com.baidu.tieba.j a;
+    private View.OnClickListener b;
+    private LinearLayout c = null;
+    private bq d = null;
+    private SlidingMenu e = null;
+    private WaterFallView f = null;
+    private cp g = null;
+    private ProgressBar h = null;
+    private ImageView i = null;
+    private ImageView j = null;
+    private View k = null;
+    private TextView l = null;
+    private TextView m = null;
+    private com.baidu.tieba.view.br n = null;
+    private NoNetworkView o;
+    private NavigationBar p;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bi(FrsImageActivity frsImageActivity) {
+    public bi(FrsImageActivity frsImageActivity, View.OnClickListener onClickListener) {
+        this.a = null;
+        this.b = null;
         this.a = frsImageActivity;
+        this.b = onClickListener;
+        l();
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        bm bmVar;
-        bm bmVar2;
-        bm bmVar3;
-        bm bmVar4;
-        bm bmVar5;
-        bm bmVar6;
-        bm bmVar7;
-        bm bmVar8;
-        boolean z;
-        String str;
-        String str2;
-        String str3;
-        String str4;
-        String str5;
-        String str6;
-        bm bmVar9;
-        bm bmVar10;
-        bmVar = this.a.l;
-        if (view == bmVar.c()) {
-            this.a.a(0);
+    private void l() {
+        this.a.setContentView(R.layout.frs_image_activity);
+        this.d = new bq(this.a);
+        this.d.a(R.id.show_image);
+        this.c = (LinearLayout) this.a.findViewById(R.id.container);
+        this.e = new SlidingMenu(this.a);
+        this.e.setMode(1);
+        this.e.setTouchModeAbove(1);
+        this.e.setBehindOffset(com.baidu.adp.lib.g.g.a((Context) this.a, 48.0f));
+        this.e.setBehindScrollScale(0.5f);
+        this.e.setFadeDegree(0.35f);
+        this.e.attachToActivity(this.a, 1);
+        this.e.setMenu(this.d.a());
+        this.p = (NavigationBar) this.a.findViewById(R.id.view_navigation_bar);
+        this.m = this.p.a("");
+        this.i = this.p.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.b);
+        this.j = this.p.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, NavigationBar.ControlType.EDIT_BUTTON, this.b);
+        this.k = this.p.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.nb_item_frs_more, (View.OnClickListener) null).findViewById(R.id.frs_top_more);
+        this.k.setOnClickListener(this.b);
+        this.f = (WaterFallView) this.a.findViewById(R.id.water_fall);
+        this.g = new cp(this.a);
+        this.f.setCustomHeaderView(this.g);
+        this.h = (ProgressBar) this.a.findViewById(R.id.progress);
+        this.d.a(this.b);
+        this.l = (TextView) this.a.findViewById(R.id.frs_more_mes_text);
+        this.o = (NoNetworkView) this.a.findViewById(R.id.view_no_network);
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public TextView a() {
+        return this.m;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ImageView b() {
+        return this.i;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ImageView c() {
+        return this.j;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public View d() {
+        return this.k;
+    }
+
+    public WaterFallView e() {
+        return this.f;
+    }
+
+    public void a(boolean z) {
+        if (z) {
+            this.h.setVisibility(0);
         } else {
-            bmVar2 = this.a.l;
-            if (view == bmVar2.a()) {
-                bmVar6 = this.a.l;
-                bmVar6.e().scrollTo(0, 0);
+            this.h.setVisibility(8);
+        }
+    }
+
+    public void a(com.baidu.tieba.view.br brVar) {
+        this.n = brVar;
+        if (this.o != null) {
+            this.o.a(this.n);
+        }
+    }
+
+    public void a(dc dcVar) {
+        this.f.setOnScrollListener(dcVar);
+    }
+
+    public void a(SlidingMenu.OnClosedListener onClosedListener) {
+        this.e.setOnClosedListener(onClosedListener);
+    }
+
+    public void a(SlidingMenu.OnOpenedListener onOpenedListener) {
+        this.e.setOnOpenedListener(onOpenedListener);
+    }
+
+    public bq f() {
+        return this.d;
+    }
+
+    public SlidingMenu g() {
+        return this.e;
+    }
+
+    public void h() {
+        this.o.setVisibility(0);
+    }
+
+    public void i() {
+        this.o.setVisibility(8);
+    }
+
+    public void b(boolean z) {
+        this.e.showMenu(z);
+    }
+
+    public void a(String str) {
+        this.m.setText(str + this.a.getString(R.string.forum));
+    }
+
+    public AlertDialog j() {
+        String[] strArr = {this.a.getString(R.string.take_photo), this.a.getString(R.string.album)};
+        AlertDialog.Builder builder = new AlertDialog.Builder(this.a);
+        builder.setTitle(this.a.getString(R.string.operation));
+        builder.setItems(strArr, new bj(this));
+        AlertDialog create = builder.create();
+        create.setCanceledOnTouchOutside(true);
+        return create;
+    }
+
+    public void a(com.baidu.tieba.model.ap apVar) {
+        this.d.a(apVar);
+        long a = apVar.a() + apVar.b();
+        boolean z = TiebaApplication.h().al() == 1;
+        if (a > 0) {
+            this.l.setVisibility(0);
+            if (a < 10) {
+                this.l.setText(String.valueOf(a));
+                this.l.setBackgroundResource(z ? R.drawable.icon_news_head_prompt_one_1 : R.drawable.icon_news_head_prompt_one);
+                return;
+            } else if (a < 100) {
+                this.l.setText(String.valueOf(a));
+                this.l.setBackgroundResource(z ? R.drawable.icon_news_head_prompt_two_1 : R.drawable.icon_news_head_prompt_two);
+                return;
             } else {
-                bmVar3 = this.a.l;
-                if (view == bmVar3.b()) {
-                    this.a.closeActivity();
-                } else {
-                    bmVar4 = this.a.l;
-                    if (view == bmVar4.d()) {
-                        if (TiebaApplication.g().s()) {
-                            StatService.onEvent(this.a, "frs_more", "frsclick", 1);
-                        }
-                        bmVar5 = this.a.l;
-                        bmVar5.b(true);
-                    }
-                }
+                this.l.setText("   ");
+                this.l.setBackgroundResource(z ? R.drawable.icon_news_head_prompt_more_1 : R.drawable.icon_news_head_prompt_more);
+                return;
             }
         }
-        switch (view.getId()) {
-            case R.id.show_image /* 2131099898 */:
-                this.a.o = false;
-                if (TiebaApplication.g().s()) {
-                    StatService.onEvent(this.a, "frs_image", "frsclick", 1);
-                }
-                bmVar7 = this.a.l;
-                if (bmVar7.g().isMenuShowing()) {
-                    bmVar8 = this.a.l;
-                    bmVar8.g().toggle(true);
-                    z = this.a.o;
-                    if (z) {
-                        this.a.o = false;
-                        this.a.c(1);
-                        return;
-                    }
-                    return;
-                }
-                return;
-            case R.id.show_all /* 2131100320 */:
-                this.a.o = false;
-                TiebaApplication g = TiebaApplication.g();
-                str3 = this.a.b;
-                g.j(str3);
-                FrsImageActivity frsImageActivity = this.a;
-                str4 = this.a.b;
-                FrsActivity.a(frsImageActivity, str4, null, 0);
-                this.a.a();
-                return;
-            case R.id.show_good /* 2131100322 */:
-                this.a.o = false;
-                if (TiebaApplication.g().s()) {
-                    StatService.onEvent(this.a, "frs_good", "frsclick", 1);
-                }
-                TiebaApplication g2 = TiebaApplication.g();
-                str = this.a.b;
-                g2.j(str);
-                FrsImageActivity frsImageActivity2 = this.a;
-                str2 = this.a.b;
-                FrsActivity.b(frsImageActivity2, str2, null);
-                this.a.a();
-                return;
-            case R.id.add_to_window_layout /* 2131100331 */:
-                FrsImageActivity frsImageActivity3 = this.a;
-                str5 = this.a.b;
-                frsImageActivity3.b(str5);
-                return;
-            case R.id.message_layout /* 2131100335 */:
-                String A = TiebaApplication.A();
-                if (A != null && A.length() > 0) {
-                    if (TiebaApplication.g().s()) {
-                        StatService.onEvent(this.a, "frs_message", "frsclick", 1);
-                    }
-                    MentionActivity.a((Activity) this.a, 18002);
-                    return;
-                }
-                return;
-            case R.id.like_forum_name /* 2131100340 */:
-                if (TiebaApplication.g().s()) {
-                    StatService.onEvent(this.a, "frs_likeforum", "frsclick", 1);
-                }
-                String str7 = (String) view.getTag();
-                str6 = this.a.b;
-                if (str7.equals(str6)) {
-                    this.a.o = false;
-                    bmVar9 = this.a.l;
-                    if (bmVar9.g().isMenuShowing()) {
-                        bmVar10 = this.a.l;
-                        bmVar10.g().toggle(true);
-                        return;
-                    }
-                    return;
-                }
-                FrsActivity.a(this.a, str7, (String) null);
-                this.a.a();
-                return;
-            default:
-                return;
+        this.l.setVisibility(4);
+    }
+
+    public void a(int i) {
+        this.a.getLayoutMode().a(i == 1);
+        this.a.getLayoutMode().a((View) this.c);
+        this.d.b(i);
+        this.f.d(i);
+        this.g.a(i);
+        this.p.c(i);
+        if (this.o != null) {
+            this.o.a(i);
         }
+    }
+
+    public void k() {
+        if (this.o != null && this.n != null) {
+            this.o.b(this.n);
+        }
+    }
+
+    public void c(boolean z) {
+        this.d.a(z);
     }
 }

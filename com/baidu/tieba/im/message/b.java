@@ -1,103 +1,99 @@
 package com.baidu.tieba.im.message;
 
+import com.baidu.tieba.data.IconData;
 import com.baidu.tieba.data.UserData;
 import com.baidu.tieba.im.data.MsgCacheData;
 import com.baidu.tieba.im.data.MsgLocalData;
+import java.util.LinkedList;
 /* loaded from: classes.dex */
-public abstract class b extends o implements com.baidu.tieba.im.coder.g, com.baidu.tieba.im.messageCenter.c {
+public abstract class b extends q implements com.baidu.tieba.im.coder.g, com.baidu.tieba.im.messageCenter.c {
     public boolean a;
-    private int b;
-    private Object c;
-    private String d;
-    private long e;
+    private long b;
+    private int c;
+    private Object d;
+    private String e;
     private long f;
     private long g;
-    private int h;
+    private long h;
     private int i;
-    private long j;
-    private UserData k;
+    private int j;
+    private long k;
     private UserData l;
-    private MsgLocalData m;
-    private transient MsgCacheData n;
-    private long p;
-    private long s;
-    private int o = 0;
-    private boolean q = true;
-    private boolean r = false;
+    private UserData m;
+    private MsgLocalData n;
+    private transient MsgCacheData o;
+    private long q;
+    private long t;
+    private LinkedList<IconData> u;
+    private int p = 0;
+    private boolean r = true;
+    private boolean s = false;
 
     public long b() {
-        return this.p;
+        return this.b;
     }
 
     public void a(long j) {
-        this.p = j;
+        this.b = j;
     }
 
-    public boolean c() {
-        return this.r;
+    public long c() {
+        return this.q;
+    }
+
+    public void b(long j) {
+        this.q = j;
+    }
+
+    public boolean d() {
+        return this.s;
     }
 
     public void a(boolean z) {
-        this.r = z;
+        this.s = z;
     }
 
-    public int d() {
-        return this.o;
+    public int e() {
+        return this.p;
     }
 
     public void a(int i) {
-        this.o = i;
+        this.p = i;
     }
 
-    public Object e() {
-        return this.c;
+    public Object f() {
+        return this.d;
     }
 
     public void a(Object obj) {
-        this.c = obj;
-    }
-
-    public UserData f() {
-        return this.k;
-    }
-
-    public void a(UserData userData) {
-        this.k = userData;
+        this.d = obj;
     }
 
     public UserData g() {
         return this.l;
     }
 
-    public void b(UserData userData) {
+    public void a(UserData userData) {
         this.l = userData;
     }
 
-    public int h() {
-        return this.b;
+    public UserData h() {
+        return this.m;
+    }
+
+    public void b(UserData userData) {
+        this.m = userData;
+    }
+
+    public int i() {
+        return this.c;
     }
 
     public void b(int i) {
-        this.b = i;
+        this.c = i;
     }
 
-    public long i() {
-        return this.e;
-    }
-
-    public void b(long j) {
-        this.e = j;
-    }
-
-    public String j() {
-        return this.d;
-    }
-
-    public void a(String str) {
-        this.d = str;
-    }
-
-    public long k() {
+    public long j() {
         return this.f;
     }
 
@@ -105,72 +101,92 @@ public abstract class b extends o implements com.baidu.tieba.im.coder.g, com.bai
         this.f = j;
     }
 
+    public String k() {
+        return this.e;
+    }
+
+    public void a(String str) {
+        this.e = str;
+    }
+
     public long l() {
-        return this.j;
-    }
-
-    public void d(long j) {
-        this.j = j;
-    }
-
-    public MsgLocalData m() {
-        return this.m;
-    }
-
-    public void a(MsgLocalData msgLocalData) {
-        this.m = msgLocalData;
-    }
-
-    public MsgCacheData n() {
-        return this.n;
-    }
-
-    public void a(MsgCacheData msgCacheData) {
-        this.n = msgCacheData;
-    }
-
-    public long o() {
         return this.g;
     }
 
-    public void e(long j) {
+    public void d(long j) {
         this.g = j;
     }
 
-    public int p() {
+    public long m() {
+        return this.k;
+    }
+
+    public void e(long j) {
+        this.k = j;
+    }
+
+    public MsgLocalData n() {
+        return this.n;
+    }
+
+    public void a(MsgLocalData msgLocalData) {
+        this.n = msgLocalData;
+    }
+
+    public MsgCacheData o() {
+        return this.o;
+    }
+
+    public void a(MsgCacheData msgCacheData) {
+        this.o = msgCacheData;
+    }
+
+    public long p() {
         return this.h;
     }
 
-    public void c(int i) {
-        this.h = i;
+    public void f(long j) {
+        this.h = j;
     }
 
     public int q() {
         return this.i;
     }
 
-    public void d(int i) {
+    public void c(int i) {
         this.i = i;
     }
 
-    public boolean r() {
-        return this.q;
+    public int r() {
+        return this.j;
+    }
+
+    public void d(int i) {
+        this.j = i;
+    }
+
+    public boolean s() {
+        return this.r;
     }
 
     public void b(boolean z) {
-        this.q = z;
+        this.r = z;
     }
 
-    public long s() {
-        return this.s;
+    public long t() {
+        return this.t;
     }
 
-    public void f(long j) {
-        this.s = j;
+    public void g(long j) {
+        this.t = j;
     }
 
     @Override // com.baidu.tieba.im.messageCenter.c
-    public boolean a(o oVar) {
-        return oVar != null && (oVar instanceof b) && ((b) oVar).i() == this.e;
+    public boolean a(q qVar) {
+        return qVar != null && (qVar instanceof b) && ((b) qVar).j() == this.f;
+    }
+
+    public String toString() {
+        return "ChatMessage{msgType=" + this.c + ", objContent=" + this.d + ", content='" + this.e + "', recordId=" + this.f + ", msgId=" + this.g + ", time=" + this.h + ", width=" + this.i + ", height=" + this.j + ", userId=" + this.k + ", userInfo=" + this.l + ", toUserInfo=" + this.m + ", localData=" + this.n + ", cacheData=" + this.o + ", progressValue=" + this.p + ", mToUserId=" + this.q + ", isGifLoadSuccess=" + this.r + ", isUploading=" + this.s + ", logTime=" + this.t + ", mTShowIconInfo=" + this.u + '}';
     }
 }

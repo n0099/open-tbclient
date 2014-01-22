@@ -4,7 +4,7 @@ import android.content.Context;
 import android.text.TextPaint;
 import android.text.style.ClickableSpan;
 import android.view.View;
-import com.baidu.zeus.bouncycastle.DERTags;
+import protobuf.Im;
 /* loaded from: classes.dex */
 public class h extends ClickableSpan {
     private Context a;
@@ -45,13 +45,13 @@ public class h extends ClickableSpan {
                 case 16:
                     jVar.a(this.a, this.c);
                     return;
-                case 32:
+                case Im.GroupInfo.ISNEWLYCREATE_FIELD_NUMBER /* 32 */:
                     jVar.c(this.a, this.c);
                     return;
-                case DERTags.APPLICATION /* 64 */:
+                case 64:
                     jVar.d(this.a, this.c);
                     return;
-                case DERTags.TAGGED /* 128 */:
+                case 128:
                     jVar.e(this.a, this.c);
                     return;
                 case 256:

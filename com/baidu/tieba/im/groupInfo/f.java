@@ -14,7 +14,7 @@ public class f implements bq {
     }
 
     @Override // android.support.v4.view.bq
-    public void onPageSelected(int i) {
+    public void a_(int i) {
         int i2;
         GroupImageActivity groupImageActivity = this.a;
         i2 = this.a.c;
@@ -24,11 +24,11 @@ public class f implements bq {
     }
 
     @Override // android.support.v4.view.bq
-    public void onPageScrolled(int i, float f, int i2) {
+    public void a(int i, float f, int i2) {
     }
 
     @Override // android.support.v4.view.bq
-    public void onPageScrollStateChanged(int i) {
+    public void b(int i) {
         long j;
         ArrayList arrayList;
         int i2;

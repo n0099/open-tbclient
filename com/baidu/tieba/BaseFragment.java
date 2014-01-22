@@ -10,10 +10,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
+import com.baidu.tieba.util.bz;
 /* loaded from: classes.dex */
 public abstract class BaseFragment extends Fragment implements DialogInterface.OnClickListener, View.OnClickListener, View.OnLongClickListener, AbsListView.OnScrollListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener {
     private int a = -1;
-    private com.baidu.tieba.util.r b;
+    private com.baidu.tieba.util.s b;
 
     @Override // android.support.v4.app.Fragment
     public void a(Activity activity) {
@@ -27,7 +28,7 @@ public abstract class BaseFragment extends Fragment implements DialogInterface.O
 
     @Override // android.support.v4.app.Fragment
     public void a(Bundle bundle) {
-        this.b = com.baidu.tieba.util.r.a();
+        this.b = com.baidu.tieba.util.s.a();
         super.a(bundle);
     }
 
@@ -43,19 +44,19 @@ public abstract class BaseFragment extends Fragment implements DialogInterface.O
             if (name.startsWith(i().getApplicationContext().getPackageName() + ".im") || name.startsWith(str2)) {
                 this.b.a(str, 2000);
             } else {
-                com.baidu.adp.lib.h.g.a((Context) i(), str);
+                com.baidu.adp.lib.g.g.a((Context) i(), str);
             }
         }
     }
 
-    public void b(int i) {
+    public void c(int i) {
         if (i() != null) {
             String name = getClass().getName();
             String str = i().getApplicationContext().getPackageName() + ".chat";
             if (name.startsWith(i().getApplicationContext().getPackageName() + ".im") || name.startsWith(str)) {
                 this.b.a(i, 2000);
             } else {
-                com.baidu.adp.lib.h.g.a((Context) i(), i);
+                com.baidu.adp.lib.g.g.a((Context) i(), i);
             }
         }
     }
@@ -71,9 +72,12 @@ public abstract class BaseFragment extends Fragment implements DialogInterface.O
             this.b.c();
         }
         super.r();
-        if (F() && TiebaApplication.g().an() != this.a) {
-            this.a = TiebaApplication.g().an();
-            c(this.a);
+        if (F()) {
+            if (TiebaApplication.h().al() != this.a) {
+                this.a = TiebaApplication.h().al();
+                d(this.a);
+            }
+            bz.a(getClass().getName());
         }
     }
 
@@ -103,7 +107,7 @@ public abstract class BaseFragment extends Fragment implements DialogInterface.O
         super.b();
     }
 
-    public void c(int i) {
+    public void d(int i) {
     }
 
     @Override // android.widget.AbsListView.OnScrollListener

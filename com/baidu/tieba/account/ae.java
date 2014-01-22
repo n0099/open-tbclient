@@ -10,7 +10,7 @@ import com.baidu.tieba.util.DatabaseService;
 /* loaded from: classes.dex */
 public class ae extends BdAsyncTask<String, Integer, com.baidu.tieba.data.d> {
     final /* synthetic */ x a;
-    private com.baidu.tieba.util.at b = null;
+    private com.baidu.tieba.util.ax b = null;
     private String c;
     private String d;
 
@@ -51,9 +51,9 @@ public class ae extends BdAsyncTask<String, Integer, com.baidu.tieba.data.d> {
         button = this.a.o;
         button.setEnabled(true);
         if (dVar == null) {
-            this.a.b(this.b.i());
+            this.a.b(this.b.j());
         } else if (dVar.a().getName() == null) {
-            this.a.b(this.b.i());
+            this.a.b(this.b.j());
             this.a.a(dVar.b());
         } else {
             this.a.e();
@@ -109,19 +109,19 @@ public class ae extends BdAsyncTask<String, Integer, com.baidu.tieba.data.d> {
         AccountData accountData5;
         AccountData accountData6;
         try {
-            this.b = new com.baidu.tieba.util.at(this.c);
+            this.b = new com.baidu.tieba.util.ax(this.c);
             this.b.a("un", this.d);
-            com.baidu.tieba.util.at atVar = this.b;
+            com.baidu.tieba.util.ax axVar = this.b;
             accountData = this.a.t;
-            atVar.a("BDUSS", accountData.getBDUSS());
+            axVar.a("BDUSS", accountData.getBDUSS());
             this.b.c(false);
-            String l = this.b.l();
-            if (this.b.d()) {
-                dVar = this.b.e();
+            String m = this.b.m();
+            if (this.b.e()) {
+                dVar = this.b.f();
                 try {
                     if (dVar == 0) {
                         com.baidu.tieba.data.d dVar2 = new com.baidu.tieba.data.d();
-                        dVar2.a(l);
+                        dVar2.a(m);
                         String name = dVar2.a().getName();
                         String bduss = dVar2.a().getBDUSS();
                         dVar = dVar2;
@@ -141,17 +141,17 @@ public class ae extends BdAsyncTask<String, Integer, com.baidu.tieba.data.d> {
                                 dVar = dVar2;
                             }
                         }
-                    } else if (this.b.e() == 36) {
+                    } else if (this.b.f() == 36) {
                         com.baidu.tieba.data.d dVar3 = new com.baidu.tieba.data.d();
-                        dVar3.a(l);
+                        dVar3.a(m);
                         dVar = dVar3;
-                    } else if (this.b.e() == 1) {
+                    } else if (this.b.f() == 1) {
                         this.a.e();
                     }
                     return dVar;
                 } catch (Exception e2) {
                     e = e2;
-                    com.baidu.tieba.util.bo.b(getClass().getName(), "doInBackground", e.getMessage());
+                    com.baidu.adp.lib.g.e.b(getClass().getName(), "doInBackground", e.getMessage());
                     return dVar;
                 }
             }

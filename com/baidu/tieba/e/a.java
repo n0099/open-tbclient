@@ -1,7 +1,7 @@
 package com.baidu.tieba.e;
 
 import com.baidu.tieba.sharedPref.b;
-import com.baidu.tieba.util.bn;
+import com.baidu.tieba.util.bx;
 /* loaded from: classes.dex */
 public class a {
     private static a a;
@@ -47,7 +47,7 @@ public class a {
 
     public boolean d() {
         if (this.b == 0) {
-            if (bn.a().c()) {
+            if (bx.a().c()) {
                 return true;
             }
         } else if (this.b == 1) {
@@ -83,8 +83,8 @@ public class a {
         if (this.f != i) {
             this.f = i;
             b.a().b("view_image_quality", i);
-            bn.a().f();
-            bn.a().g();
+            bx.a().f();
+            bx.a().g();
         }
     }
 

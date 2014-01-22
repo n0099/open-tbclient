@@ -1,26 +1,26 @@
 package com.baidu.tieba.im.chat;
 
-import android.text.TextUtils;
-import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
+import android.widget.EditText;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e implements com.baidu.tieba.im.a<Void> {
-    final /* synthetic */ String a;
-    final /* synthetic */ CommonMsgPojo b;
-    final /* synthetic */ a c;
+public class e implements Runnable {
+    final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public e(a aVar, String str, CommonMsgPojo commonMsgPojo) {
-        this.c = aVar;
-        this.a = str;
-        this.b = commonMsgPojo;
+    public e(a aVar) {
+        this.a = aVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    public void a(Void r3) {
-        if (!TextUtils.isEmpty(this.a) && !TextUtils.isEmpty(com.baidu.tieba.im.c.m.a().d()) && !this.a.equals(com.baidu.tieba.im.c.m.a().d())) {
-            com.baidu.tieba.im.c.m.a().a(this.b);
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        EditText editText;
+        EditText editText2;
+        EditText editText3;
+        editText = this.a.E;
+        editText.requestFocus();
+        editText2 = this.a.E;
+        int length = editText2.getText().toString().length();
+        editText3 = this.a.E;
+        editText3.setSelection(length);
     }
 }

@@ -1,8 +1,9 @@
 package com.baidu.tieba.recommend;
 
+import android.app.Activity;
 import android.view.View;
-import com.baidu.mobstat.StatService;
 import com.baidu.tieba.util.UtilHelper;
+import com.baidu.tieba.util.by;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements View.OnClickListener {
@@ -17,7 +18,11 @@ public class m implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        StatService.onEvent(this.b.i, "recommend_to_pb", "click");
-        UtilHelper.a(this.b.i, this.a.a(), null, null);
+        Activity activity;
+        Activity activity2;
+        activity = this.b.i;
+        by.a(activity, "recommend_to_pb", "click");
+        activity2 = this.b.i;
+        UtilHelper.a(activity2, this.a.a(), null, null);
     }
 }

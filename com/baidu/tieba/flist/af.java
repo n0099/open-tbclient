@@ -1,9 +1,9 @@
 package com.baidu.tieba.flist;
 
-import com.baidu.tieba.util.ap;
+import com.baidu.tieba.util.as;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-class af extends ap {
+class af extends as {
     final /* synthetic */ ForumRankActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,7 +11,7 @@ class af extends ap {
         this.a = forumRankActivity;
     }
 
-    @Override // com.baidu.tieba.util.ap, com.baidu.tieba.util.ar
+    @Override // com.baidu.tieba.util.as, com.baidu.tieba.util.au
     public LinkedList<String> getImageUrl() {
         String str;
         String str2;

@@ -1,6 +1,5 @@
 package com.google.protobuf;
 
-import com.baidu.zeus.bouncycastle.DERTags;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -549,7 +548,7 @@ public final class CodedOutputStream {
 
     public void writeRawVarint32(int i) {
         while ((i & (-128)) != 0) {
-            writeRawByte((i & 127) | DERTags.TAGGED);
+            writeRawByte((i & 127) | 128);
             i >>>= 7;
         }
         writeRawByte(i);
@@ -570,7 +569,7 @@ public final class CodedOutputStream {
 
     public void writeRawVarint64(long j) {
         while (((-128) & j) != 0) {
-            writeRawByte((((int) j) & 127) | DERTags.TAGGED);
+            writeRawByte((((int) j) & 127) | 128);
             j >>>= 7;
         }
         writeRawByte((int) j);

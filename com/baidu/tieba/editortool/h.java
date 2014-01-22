@@ -22,6 +22,8 @@ public class h implements AdapterView.OnItemClickListener {
         WritableEmotionGroup writableEmotionGroup2;
         WritableEmotionGroup writableEmotionGroup3;
         WritableEmotionGroup writableEmotionGroup4;
+        WritableEmotionGroup writableEmotionGroup5;
+        WritableEmotionGroup writableEmotionGroup6;
         t tVar2;
         adapterView.setSelection(-1);
         int i2 = this.a + i;
@@ -36,6 +38,10 @@ public class h implements AdapterView.OnItemClickListener {
             qVar.b(writableEmotionGroup3.f());
             writableEmotionGroup4 = this.b.b;
             qVar.c(writableEmotionGroup4.e());
+            writableEmotionGroup5 = this.b.b;
+            qVar.a(writableEmotionGroup5.g());
+            writableEmotionGroup6 = this.b.b;
+            qVar.b(writableEmotionGroup6.h());
             tVar2 = this.b.p;
             tVar2.a(20, qVar);
         }

@@ -1,92 +1,62 @@
 package com.baidu.tieba.im.db;
 
-import android.database.Cursor;
+import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
-import android.text.TextUtils;
-import com.baidu.cloudsdk.social.core.SocialConstants;
+import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.im.SingleRunnable;
-import java.util.Iterator;
-import java.util.LinkedList;
+import com.baidu.tieba.util.by;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aw extends SingleRunnable<Void> {
-    final /* synthetic */ LinkedList a;
-    final /* synthetic */ as b;
+public class aw extends SingleRunnable<Boolean> {
+    final /* synthetic */ long a;
+    final /* synthetic */ long b;
+    final /* synthetic */ String c;
+    final /* synthetic */ int e;
+    final /* synthetic */ String f;
+    final /* synthetic */ au g;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aw(as asVar, LinkedList linkedList) {
-        this.b = asVar;
-        this.a = linkedList;
+    public aw(au auVar, long j, long j2, String str, int i, String str2) {
+        this.g = auVar;
+        this.a = j;
+        this.b = j2;
+        this.c = str;
+        this.e = i;
+        this.f = str2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Removed duplicated region for block: B:23:0x004c  */
     @Override // com.baidu.tieba.im.SingleRunnable
     /* renamed from: a */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public Void b() {
-        Cursor cursor;
-        Iterator it;
-        if (this.a != null && this.a.size() != 0) {
-            SQLiteDatabase a = s.a();
-            LinkedList linkedList = new LinkedList();
-            if (a != null) {
-                try {
-                    cursor = a.rawQuery("select * from sqlite_master where type='table'", null);
-                    if (cursor != null) {
-                        try {
-                            try {
-                                cursor.moveToFirst();
-                                while (cursor.moveToNext()) {
-                                    linkedList.add(cursor.getString(cursor.getColumnIndex(SocialConstants.PARAM_MEDIA_UNAME)));
-                                }
-                            } catch (Exception e) {
-                                e = e;
-                                e.printStackTrace();
-                                com.baidu.tieba.util.o.a(cursor);
-                                it = this.a.iterator();
-                                while (it.hasNext()) {
-                                }
-                                return null;
-                            }
-                        } catch (Throwable th) {
-                            th = th;
-                            com.baidu.tieba.util.o.a(cursor);
-                            throw th;
-                        }
-                    }
-                } catch (Exception e2) {
-                    e = e2;
-                    cursor = null;
-                    e.printStackTrace();
-                    com.baidu.tieba.util.o.a(cursor);
-                    it = this.a.iterator();
-                    while (it.hasNext()) {
-                    }
-                    return null;
-                } catch (Throwable th2) {
-                    th = th2;
-                    cursor = null;
-                    com.baidu.tieba.util.o.a(cursor);
-                    throw th;
-                }
-            } else {
-                cursor = null;
-            }
-            com.baidu.adp.lib.h.e.d("haveTables:" + linkedList);
-            com.baidu.tieba.util.o.a(cursor);
-            it = this.a.iterator();
-            while (it.hasNext()) {
-                String str = (String) it.next();
-                if (TextUtils.isEmpty(str)) {
-                    com.baidu.adp.lib.h.e.a("gid is null");
-                } else if (!linkedList.contains(str)) {
-                    this.b.d(str);
-                }
-            }
+    public Boolean b() {
+        boolean z;
+        if (this.a == 0 || this.b == 0 || TiebaApplication.A() == null) {
+            return false;
         }
-        return null;
+        String valueOf = String.valueOf(this.a);
+        if (TiebaApplication.A().equals(valueOf)) {
+            valueOf = String.valueOf(this.b);
+        }
+        String str = "tb_private_msg_" + valueOf;
+        try {
+            SQLiteDatabase a = s.a();
+            if (a == null) {
+                z = false;
+            } else {
+                ContentValues contentValues = new ContentValues();
+                contentValues.put("mid", this.c);
+                contentValues.put("msg_status", Integer.valueOf(this.e));
+                if (a.update(str, contentValues, "mid=?", new String[]{this.f}) > 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+            }
+            return z;
+        } catch (Exception e) {
+            by.a(e, "PersonalMsgDao.updateState", new Object[0]);
+            e.printStackTrace();
+            return false;
+        }
     }
 }

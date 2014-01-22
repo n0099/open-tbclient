@@ -1,8 +1,9 @@
 package com.baidu.tieba.im.db;
 
 import com.baidu.tieba.im.SingleRunnable;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class k extends SingleRunnable<Boolean> {
+public class k extends SingleRunnable<Boolean> {
     final /* synthetic */ String a;
     final /* synthetic */ d b;
 

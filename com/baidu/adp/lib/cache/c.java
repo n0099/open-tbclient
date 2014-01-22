@@ -47,7 +47,7 @@ public abstract class c<T> {
             return a(this.a.a(), str);
         } catch (Throwable th) {
             this.a.a(th);
-            com.baidu.adp.lib.h.e.a(getClass(), str, th);
+            com.baidu.adp.lib.g.e.a(getClass(), str, th);
             return null;
         }
     }
@@ -70,7 +70,7 @@ public abstract class c<T> {
             }
         } catch (Throwable th) {
             this.a.a(th);
-            com.baidu.adp.lib.h.e.a(getClass(), "failed to insert " + mVar.a + " to db.", th);
+            com.baidu.adp.lib.g.e.a(getClass(), "failed to insert " + mVar.a + " to db.", th);
         }
     }
 
@@ -89,7 +89,7 @@ public abstract class c<T> {
             return this.a.a().delete(this.b, "m_key = ?", new String[]{str});
         } catch (Throwable th) {
             this.a.a(th);
-            com.baidu.adp.lib.h.e.a(getClass(), "failed to delete " + str + " from db.", th);
+            com.baidu.adp.lib.g.e.a(getClass(), "failed to delete " + str + " from db.", th);
             return 0;
         }
     }
@@ -136,7 +136,7 @@ public abstract class c<T> {
             } catch (Throwable th) {
                 try {
                     this.a.a(th);
-                    com.baidu.adp.lib.h.e.a(getClass(), "performEvict", th);
+                    com.baidu.adp.lib.g.e.a(getClass(), "performEvict", th);
                 } finally {
                     com.baidu.adp.lib.f.a.a(cursor);
                     this.d.d();
@@ -166,7 +166,7 @@ public abstract class c<T> {
             } catch (Throwable th) {
                 try {
                     this.a.a(th);
-                    com.baidu.adp.lib.h.e.a(getClass(), "performPump", th);
+                    com.baidu.adp.lib.g.e.a(getClass(), "performPump", th);
                 } finally {
                     com.baidu.adp.lib.f.a.a(cursor);
                     this.c.d();

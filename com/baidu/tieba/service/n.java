@@ -4,15 +4,14 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.ak;
-import com.baidu.tieba.util.at;
-import com.baidu.tieba.util.bo;
+import com.baidu.tieba.util.ax;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n extends BdAsyncTask<String, Integer, ak> {
     int b;
     final /* synthetic */ TiebaMessageService c;
-    at a = null;
-    private TiebaApplication d = TiebaApplication.g();
+    ax a = null;
+    private TiebaApplication d = TiebaApplication.h();
     private String e = TiebaApplication.A();
 
     public n(TiebaMessageService tiebaMessageService, int i) {
@@ -38,19 +37,19 @@ public class n extends BdAsyncTask<String, Integer, ak> {
             akVar = null;
             e = e2;
         }
-        if (this.d.ab() && this.e != null && this.e.length() > 0) {
-            this.a = new at(com.baidu.tieba.data.h.a + "c/s/msg");
+        if (this.d.aa() && this.e != null && this.e.length() > 0) {
+            this.a = new ax(com.baidu.tieba.data.h.a + "c/s/msg");
             if (this.b == 2) {
                 this.a.a("bookmark", SocialConstants.TRUE);
             }
-            String l = this.a.l();
-            if (this.a.c()) {
+            String m = this.a.m();
+            if (this.a.d()) {
                 akVar = new ak();
                 try {
-                    akVar.a(l);
+                    akVar.a(m);
                 } catch (Exception e3) {
                     e = e3;
-                    bo.b(getClass().getName(), "doInBackground", e.getMessage());
+                    com.baidu.adp.lib.g.e.b(getClass().getName(), "doInBackground", e.getMessage());
                     return akVar;
                 }
             } else {
@@ -66,7 +65,7 @@ public class n extends BdAsyncTask<String, Integer, ak> {
         this.c.a = null;
         this.c.b = null;
         if (this.a != null) {
-            this.a.j();
+            this.a.k();
         }
         super.cancel(true);
     }
@@ -86,7 +85,7 @@ public class n extends BdAsyncTask<String, Integer, ak> {
                 }
             }
         } catch (Exception e) {
-            bo.b(getClass().getName(), "onPostExecute", e.getMessage());
+            com.baidu.adp.lib.g.e.b(getClass().getName(), "onPostExecute", e.getMessage());
         }
     }
 }

@@ -3,17 +3,17 @@ package com.baidu.tieba;
 import com.baidu.tieba.data.NewErrorData;
 /* loaded from: classes.dex */
 public class n {
-    protected com.baidu.tieba.util.at a;
+    protected com.baidu.tieba.util.ax a;
     protected NewErrorData b = null;
 
     public n() {
         this.a = null;
-        this.a = new com.baidu.tieba.util.at();
+        this.a = new com.baidu.tieba.util.ax();
     }
 
     public void a() {
         if (this.a != null) {
-            this.a.j();
+            this.a.k();
         }
     }
 
@@ -28,22 +28,22 @@ public class n {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public String b() {
-        String l = this.a.l();
+        String m = this.a.m();
         this.b = new NewErrorData();
-        this.b.parserJson(l);
-        return l;
+        this.b.parserJson(m);
+        return m;
     }
 
     public boolean c() {
         if (this.a != null) {
-            return this.a.c();
+            return this.a.d();
         }
         return false;
     }
 
     public String d() {
         if (this.a != null) {
-            return this.a.i();
+            return this.a.j();
         }
         return null;
     }

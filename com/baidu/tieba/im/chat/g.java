@@ -1,29 +1,22 @@
 package com.baidu.tieba.im.chat;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
+import android.view.MotionEvent;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g implements com.baidu.tieba.im.a<LinkedList<String>> {
-    final /* synthetic */ ag a;
-    final /* synthetic */ a b;
+public class g implements View.OnTouchListener {
+    final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public g(a aVar, ag agVar) {
-        this.b = aVar;
-        this.a = agVar;
+    public g(a aVar) {
+        this.a = aVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    public void a(LinkedList<String> linkedList) {
-        ArrayList<String> arrayList = new ArrayList<>();
-        while (!linkedList.isEmpty()) {
-            String a = com.baidu.tieba.im.d.d.a(linkedList.removeLast(), true);
-            if (a != null) {
-                arrayList.add(a);
-            }
-        }
-        this.a.a(arrayList);
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        this.a.P();
+        this.a.Q();
+        this.a.R();
+        return false;
     }
 }

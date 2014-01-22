@@ -5,8 +5,7 @@ import android.widget.ProgressBar;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tieba.data.ao;
 import com.baidu.tieba.model.bv;
-import com.baidu.tieba.util.at;
-import com.baidu.tieba.util.bo;
+import com.baidu.tieba.util.ax;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
@@ -15,7 +14,7 @@ import org.apache.http.message.BasicNameValuePair;
 public class z extends BdAsyncTask<Object, Integer, ao> {
     ArrayList<BasicNameValuePair> a;
     final /* synthetic */ PostActivity b;
-    private at c = null;
+    private ax c = null;
     private String d;
 
     public z(PostActivity postActivity, String str, ArrayList<BasicNameValuePair> arrayList) {
@@ -41,13 +40,13 @@ public class z extends BdAsyncTask<Object, Integer, ao> {
     public ao a(Object... objArr) {
         ao aoVar = null;
         try {
-            this.c = new at(this.d);
+            this.c = new ax(this.d);
             this.c.a(this.a);
-            String l = this.c.l();
-            if (this.c.c()) {
+            String m = this.c.m();
+            if (this.c.d()) {
                 ao aoVar2 = new ao();
                 try {
-                    aoVar2.b(l);
+                    aoVar2.b(m);
                     int size = aoVar2.e().size();
                     for (int i = 0; i < size; i++) {
                         aoVar2.e().get(i).b(this.b);
@@ -57,7 +56,7 @@ public class z extends BdAsyncTask<Object, Integer, ao> {
                 } catch (Exception e) {
                     aoVar = aoVar2;
                     e = e;
-                    bo.b("PostAsyncTask", "doInBackground", "error = " + e.getMessage());
+                    com.baidu.adp.lib.g.e.b("PostAsyncTask", "doInBackground", "error = " + e.getMessage());
                     return aoVar;
                 }
             }
@@ -80,16 +79,16 @@ public class z extends BdAsyncTask<Object, Integer, ao> {
                 bvVar = this.b.l;
                 bvVar.a(aoVar);
             } else if (this.c != null) {
-                if (this.c.d()) {
-                    this.b.showToast(this.c.i());
-                    if (this.c.e() == 4 || this.c.e() == 28 || this.c.e() == 29) {
+                if (this.c.e()) {
+                    this.b.showToast(this.c.j());
+                    if (this.c.f() == 4 || this.c.f() == 28 || this.c.f() == 29) {
                         this.b.finish();
                         return;
                     }
                 } else {
                     AlertDialog.Builder builder = new AlertDialog.Builder(this.b);
                     builder.setTitle(this.b.getString(R.string.error));
-                    builder.setMessage(this.c.i());
+                    builder.setMessage(this.c.j());
                     builder.setPositiveButton(this.b.getString(R.string.retry), new aa(this));
                     builder.setNegativeButton(this.b.getString(R.string.cancel), new ab(this));
                     builder.create().show();
@@ -111,7 +110,7 @@ public class z extends BdAsyncTask<Object, Integer, ao> {
     public void cancel() {
         ProgressBar progressBar;
         if (this.c != null) {
-            this.c.j();
+            this.c.k();
         }
         progressBar = this.b.f;
         progressBar.setVisibility(8);

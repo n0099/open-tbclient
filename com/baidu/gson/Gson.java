@@ -50,7 +50,7 @@ public final class Gson {
     private final Map<TypeToken<?>, TypeAdapter<?>> typeTokenCache;
 
     public Gson() {
-        this(Excluder.DEFAULT, FieldNamingPolicy.IDENTITY, Collections.emptyMap(), false, false, false, true, false, false, LongSerializationPolicy.DEFAULT, Collections.emptyList());
+        this(Excluder.DEFAULT, FieldNamingPolicy.IDENTITY, Collections.emptyMap(), DEFAULT_JSON_NON_EXECUTABLE, DEFAULT_JSON_NON_EXECUTABLE, DEFAULT_JSON_NON_EXECUTABLE, true, DEFAULT_JSON_NON_EXECUTABLE, DEFAULT_JSON_NON_EXECUTABLE, LongSerializationPolicy.DEFAULT, Collections.emptyList());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -209,7 +209,7 @@ public final class Gson {
         TypeAdapter<T> typeAdapter = (TypeAdapter<T>) this.typeTokenCache.get(typeToken);
         if (typeAdapter == null) {
             Map<TypeToken<?>, FutureTypeAdapter<?>> map = this.calls.get();
-            boolean z = false;
+            boolean z = DEFAULT_JSON_NON_EXECUTABLE;
             if (map == null) {
                 HashMap hashMap2 = new HashMap();
                 this.calls.set(hashMap2);
@@ -417,7 +417,7 @@ public final class Gson {
         try {
             try {
                 jsonReader.peek();
-                z = false;
+                z = DEFAULT_JSON_NON_EXECUTABLE;
                 return getAdapter(TypeToken.get(type)).read(jsonReader);
             } catch (EOFException e) {
                 if (!z) {

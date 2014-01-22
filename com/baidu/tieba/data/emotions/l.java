@@ -5,7 +5,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.aa;
+import com.baidu.tieba.util.ad;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -32,12 +32,12 @@ public class l {
             this.c = new k();
         }
         arrayList.add(this.c);
-        if (aa.a()) {
+        if (ad.a()) {
             for (MyEmotionGroupData myEmotionGroupData : j.a().c(TiebaApplication.A())) {
                 EmotionGroupData a2 = j.a().a(myEmotionGroupData.groupId);
                 if (a2 != null) {
                     e eVar = new e(a2);
-                    if (eVar.g() != null) {
+                    if (eVar.i() != null) {
                         arrayList.add(eVar);
                     }
                 }

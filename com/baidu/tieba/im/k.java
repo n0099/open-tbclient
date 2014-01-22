@@ -1,12 +1,13 @@
 package com.baidu.tieba.im;
 
+import com.baidu.sapi2.shell.SapiErrorCode;
 import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class k {
     public static int a = 110000;
     private static int w = -100000000;
-    public static final int b = w - 200;
+    public static final int b = w + SapiErrorCode.NETWORK_FAILED;
     public static final int c = w - 201;
     public static final int d = w - 210;
     public static final int e = w - 211;
@@ -30,7 +31,7 @@ public class k {
 
     public static String a(int i2) {
         int i3 = w - i2;
-        TiebaApplication g2 = TiebaApplication.g();
-        return (i3 <= 199 || i3 >= 300) ? g2.getString(R.string.im_error_default) : g2.getString(R.string.im_error_codec);
+        TiebaApplication h2 = TiebaApplication.h();
+        return (i3 <= 199 || i3 >= 300) ? h2.getString(R.string.im_error_default) : h2.getString(R.string.im_error_codec);
     }
 }

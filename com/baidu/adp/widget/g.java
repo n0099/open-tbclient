@@ -2,6 +2,7 @@ package com.baidu.adp.widget;
 
 import android.os.Handler;
 import android.os.Message;
+import com.baidu.sapi2.shell.SapiErrorCode;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends Handler {
@@ -17,23 +18,23 @@ public class g extends Handler {
         hVar = this.a.t;
         if (hVar.g) {
             switch (message.what) {
-                case -105:
+                case SapiErrorCode.GET_CERT_FAIL /* -105 */:
                     hVar5 = this.a.t;
                     hVar5.d();
                     return;
-                case -104:
+                case SapiErrorCode.GETTING_CERT /* -104 */:
                     hVar2 = this.a.t;
                     hVar2.c();
                     return;
-                case -103:
-                case -102:
+                case SapiErrorCode.INVALID_ARG /* -103 */:
+                case SapiErrorCode.NOT_INIT /* -102 */:
                 default:
                     return;
-                case -101:
+                case SapiErrorCode.SENT_SUCCEED /* -101 */:
                     hVar3 = this.a.t;
                     hVar3.b();
                     return;
-                case -100:
+                case SapiErrorCode.ERROR_UNKNOWN /* -100 */:
                     hVar4 = this.a.t;
                     hVar4.a();
                     return;

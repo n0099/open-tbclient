@@ -19,10 +19,10 @@ public class o implements View.OnClickListener {
                 this.a.finish();
                 return;
             case R.id.refresh /* 2131099837 */:
-                TiebaApplication.g().g(0);
+                TiebaApplication.h().g(0);
                 this.a.a();
                 return;
-            case R.id.common_webview_item /* 2131099955 */:
+            case R.id.common_webview_item /* 2131100008 */:
                 this.a.a();
                 return;
             default:

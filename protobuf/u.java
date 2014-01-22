@@ -1,8 +1,5 @@
 package protobuf;
 
-import com.baidu.cloudsdk.common.imgloader.ImageManager;
-import com.baidu.zeus.NotificationProxy;
-import com.baidu.zeus.bouncycastle.DERTags;
 import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
@@ -119,20 +116,20 @@ public final class u extends GeneratedMessageLite.Builder<Im.MsgInfo, u> impleme
             i2 |= 64;
         }
         msgInfo.duration_ = this.h;
-        if ((i & DERTags.TAGGED) == 128) {
-            i2 |= DERTags.TAGGED;
+        if ((i & 128) == 128) {
+            i2 |= 128;
         }
         msgInfo.createTime_ = this.i;
         if ((i & 256) == 256) {
             i2 |= 256;
         }
         msgInfo.recordId_ = this.j;
-        if ((i & ImageManager.DEFAULT_MAX_CACHEABLE_SIZE) == 512) {
-            i2 |= ImageManager.DEFAULT_MAX_CACHEABLE_SIZE;
+        if ((i & 512) == 512) {
+            i2 |= 512;
         }
         msgInfo.userInfo_ = this.k;
-        if ((i & NotificationProxy.MAX_URL_LENGTH) == 1024) {
-            i2 |= NotificationProxy.MAX_URL_LENGTH;
+        if ((i & 1024) == 1024) {
+            i2 |= 1024;
         }
         msgInfo.toUid_ = this.l;
         if ((i & 2048) == 2048) {
@@ -270,7 +267,7 @@ public final class u extends GeneratedMessageLite.Builder<Im.MsgInfo, u> impleme
     }
 
     public u e(int i) {
-        this.a |= DERTags.TAGGED;
+        this.a |= 128;
         this.i = i;
         return this;
     }
@@ -282,17 +279,17 @@ public final class u extends GeneratedMessageLite.Builder<Im.MsgInfo, u> impleme
     }
 
     public u a(Im.UserInfo userInfo) {
-        if ((this.a & ImageManager.DEFAULT_MAX_CACHEABLE_SIZE) == 512 && this.k != Im.UserInfo.getDefaultInstance()) {
+        if ((this.a & 512) == 512 && this.k != Im.UserInfo.getDefaultInstance()) {
             this.k = Im.UserInfo.newBuilder(this.k).mergeFrom(userInfo).buildPartial();
         } else {
             this.k = userInfo;
         }
-        this.a |= ImageManager.DEFAULT_MAX_CACHEABLE_SIZE;
+        this.a |= 512;
         return this;
     }
 
     public u d(long j) {
-        this.a |= NotificationProxy.MAX_URL_LENGTH;
+        this.a |= 1024;
         this.l = j;
         return this;
     }

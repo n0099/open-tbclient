@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
-import com.baidu.mobstat.StatService;
+import com.baidu.tieba.util.ce;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
@@ -35,7 +35,7 @@ public class BarFolderFirstDirActivity extends com.baidu.tieba.j {
         a();
         a(bundle);
         b();
-        StatService.onEvent(this, "category_1", "enter");
+        com.baidu.tieba.util.by.a(this, "category_1", "enter");
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -54,7 +54,7 @@ public class BarFolderFirstDirActivity extends com.baidu.tieba.j {
         this.a.setAdapter((ListAdapter) this.e);
         this.d = (ProgressBar) findViewById(R.id.progress);
         this.b = (ViewGroup) findViewById(R.id.body_container);
-        com.baidu.tieba.util.bu.b(this.b);
+        ce.b(this.b);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -113,8 +113,8 @@ public class BarFolderFirstDirActivity extends com.baidu.tieba.j {
             this.a.invalidateViews();
         }
         if (this.b != null) {
-            com.baidu.tieba.util.bu.a(this.b, i);
+            ce.a(this.b, i);
         }
-        com.baidu.tieba.util.bl.b(findViewById(R.id.root_view), i);
+        com.baidu.tieba.util.bs.b(findViewById(R.id.root_view), i);
     }
 }

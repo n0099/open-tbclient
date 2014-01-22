@@ -83,11 +83,11 @@ public final class GetGroupMsgReq {
                                     this.bitField0_ |= 2;
                                     this.height_ = codedInputStream.readInt32();
                                     break;
-                                case 24:
+                                case Im.GroupInfo.ISHIDEPOSITION_FIELD_NUMBER /* 24 */:
                                     this.bitField0_ |= 4;
                                     this.smallWidth_ = codedInputStream.readInt32();
                                     break;
-                                case 32:
+                                case Im.GroupInfo.ISNEWLYCREATE_FIELD_NUMBER /* 32 */:
                                     this.bitField0_ |= 8;
                                     this.smallHeight_ = codedInputStream.readInt32();
                                     break;
@@ -414,7 +414,7 @@ public final class GetGroupMsgReq {
                                 this.cuid_ = codedInputStream.readBytes();
                                 z = z2;
                                 break;
-                            case 18:
+                            case Im.GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
                                 if ((this.bitField0_ & 2) != 2) {
                                     cVar = null;
                                 } else {

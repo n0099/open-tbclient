@@ -1,10 +1,10 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.compatible.CompatibleUtile;
-import com.baidu.tieba.view.BaseViewPager;
-import com.slidingmenu.lib.R;
+import android.os.Handler;
+import android.os.Message;
+import android.widget.FrameLayout;
 /* loaded from: classes.dex */
-class aa implements com.baidu.tieba.view.e {
+class aa extends Handler {
     final /* synthetic */ GuideActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,18 +12,28 @@ class aa implements com.baidu.tieba.view.e {
         this.a = guideActivity;
     }
 
-    @Override // com.baidu.tieba.view.e
-    public void a(int i) {
-        BaseViewPager baseViewPager;
-        BaseViewPager baseViewPager2;
-        if (i == 0) {
-            baseViewPager = this.a.i;
-            if (baseViewPager != null) {
-                baseViewPager2 = this.a.i;
-                baseViewPager2.setOnScrollOutListener(null);
-            }
-            this.a.a();
-            CompatibleUtile.setAnim(this.a, 0, R.anim.left);
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        boolean z;
+        FrameLayout frameLayout;
+        super.handleMessage(message);
+        switch (message.what) {
+            case 1:
+                this.a.f();
+                return;
+            case 2:
+                frameLayout = this.a.i;
+                frameLayout.setVisibility(8);
+                return;
+            case 3:
+                z = this.a.l;
+                if (!z) {
+                    this.a.e();
+                }
+                this.a.l = true;
+                return;
+            default:
+                return;
         }
     }
 }

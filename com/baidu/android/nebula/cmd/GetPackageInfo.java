@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.text.TextUtils;
 import com.baidu.android.moplus.util.NoProGuard;
-import com.baidu.browser.webpool.BdWebPoolView;
 import java.util.ArrayList;
 import java.util.Map;
 import org.json.JSONArray;
@@ -82,7 +81,7 @@ public class GetPackageInfo implements NoProGuard, n {
         aVar.a("text/javascript");
         aVar.a().put("Cache-Control", "no-cache");
         aVar.b(str + " && " + str + "(" + jSONObject.toString() + ");");
-        aVar.a(BdWebPoolView.DELAYED_TIME);
+        aVar.a(200);
         a.a(this.mErrcode);
     }
 

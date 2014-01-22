@@ -20,9 +20,9 @@ public class v implements View.OnTouchListener {
         EditorToolComponetContainer editorToolComponetContainer;
         EditText editText;
         if (motionEvent.getAction() == 1) {
-            writeEditorToolButtonContainer = this.a.A;
+            writeEditorToolButtonContainer = this.a.y;
             writeEditorToolButtonContainer.c();
-            editorToolComponetContainer = this.a.B;
+            editorToolComponetContainer = this.a.z;
             editText = this.a.h;
             editorToolComponetContainer.c(editText);
             return false;

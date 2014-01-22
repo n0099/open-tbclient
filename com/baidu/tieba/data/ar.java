@@ -1,6 +1,5 @@
 package com.baidu.tieba.data;
 
-import com.baidu.tieba.util.bo;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ar {
@@ -17,7 +16,7 @@ public class ar {
                 this.c = jSONObject.optString("small_head_url");
                 a(jSONObject.optString("big_head_url"));
             } catch (Exception e) {
-                bo.b("PlayerInfoData", "parserJson", "error = " + e.getMessage());
+                com.baidu.adp.lib.g.e.b("PlayerInfoData", "parserJson", "error = " + e.getMessage());
             }
         }
     }

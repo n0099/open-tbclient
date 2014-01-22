@@ -1,121 +1,84 @@
 package com.baidu.tieba.square;
 
-import android.widget.EditText;
-import android.widget.ListView;
+import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.data.SearchPostModel;
-import com.baidu.tieba.util.DatabaseService;
-import com.slidingmenu.lib.R;
-import java.util.ArrayList;
-import java.util.Iterator;
+import com.baidu.tieba.model.BarSuggestModel;
 import org.apache.http.message.BasicNameValuePair;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bu extends BdAsyncTask<Object, Integer, SearchPostModel> {
-    ArrayList<BasicNameValuePair> a;
+public class bu extends BdAsyncTask<Object, Integer, BarSuggestModel> {
+    BasicNameValuePair a;
     final /* synthetic */ SquareSearchActivity b;
-    private com.baidu.tieba.util.at c = null;
+    private com.baidu.tieba.util.ax c = null;
     private String d;
 
-    public bu(SquareSearchActivity squareSearchActivity, String str, ArrayList<BasicNameValuePair> arrayList) {
+    public bu(SquareSearchActivity squareSearchActivity, String str, BasicNameValuePair basicNameValuePair, boolean z) {
         this.b = squareSearchActivity;
         this.d = null;
         this.a = null;
         this.d = str;
-        this.a = arrayList;
+        this.a = basicNameValuePair;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void b() {
-        TextView textView;
-        EditText editText;
-        ListView listView;
         ProgressBar progressBar;
+        TextView textView;
+        FrameLayout frameLayout;
+        progressBar = this.b.u;
+        progressBar.setVisibility(0);
         textView = this.b.x;
         textView.setVisibility(8);
-        SquareSearchActivity squareSearchActivity = this.b;
-        editText = this.b.c;
-        com.baidu.adp.lib.h.g.a(squareSearchActivity, editText);
-        listView = this.b.q;
-        if (listView.getVisibility() != 0) {
-            progressBar = this.b.u;
-            progressBar.setVisibility(0);
-        }
+        frameLayout = this.b.n;
+        frameLayout.setVisibility(8);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: d */
-    public SearchPostModel a(Object... objArr) {
-        SearchPostModel searchPostModel;
-        Exception e;
-        String str;
+    public BarSuggestModel a(Object... objArr) {
         try {
-            this.c = new com.baidu.tieba.util.at(this.d);
-            Iterator<BasicNameValuePair> it = this.a.iterator();
-            while (it.hasNext()) {
-                this.c.a(it.next());
-            }
-            String l = this.c.l();
-            if (!this.c.c() || l == null) {
+            this.c = new com.baidu.tieba.util.ax(this.d);
+            this.c.a(this.a);
+            String m = this.c.m();
+            if (m == null) {
                 return null;
             }
-            searchPostModel = new SearchPostModel();
-            try {
-                searchPostModel.parserJson(l);
-                str = this.b.C;
-                DatabaseService.n(str);
-                return searchPostModel;
-            } catch (Exception e2) {
-                e = e2;
-                com.baidu.tieba.util.bo.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
-                return searchPostModel;
-            }
-        } catch (Exception e3) {
-            searchPostModel = null;
-            e = e3;
+            return BarSuggestModel.parserJson(m);
+        } catch (Exception e) {
+            com.baidu.adp.lib.g.e.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
+            return null;
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(SearchPostModel searchPostModel) {
+    public void a(BarSuggestModel barSuggestModel) {
         ProgressBar progressBar;
-        com.baidu.tieba.home.az azVar;
-        com.baidu.tieba.home.az azVar2;
-        com.baidu.tieba.home.az azVar3;
         progressBar = this.b.u;
         progressBar.setVisibility(8);
-        azVar = this.b.t;
-        azVar.a(0);
-        azVar2 = this.b.t;
-        azVar2.notifyDataSetChanged();
-        if (searchPostModel != null && this.c != null && this.c.c()) {
-            this.b.z = searchPostModel;
-            azVar3 = this.b.t;
-            azVar3.notifyDataSetChanged();
+        if (barSuggestModel != null) {
+            this.b.y = barSuggestModel;
             this.b.i();
-        } else {
-            this.b.showToast(this.b.getString(R.string.neterror));
+        } else if (this.c != null) {
         }
-        this.b.B = null;
+        this.b.A = null;
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         ProgressBar progressBar;
         if (this.c != null) {
-            this.c.j();
+            this.c.k();
             this.c = null;
         }
         progressBar = this.b.u;
         progressBar.setVisibility(8);
-        this.b.B = null;
         super.cancel(true);
     }
 }

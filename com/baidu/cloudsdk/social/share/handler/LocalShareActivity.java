@@ -3,6 +3,7 @@ package com.baidu.cloudsdk.social.share.handler;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import com.ag;
 import com.baidu.cloudsdk.IBaiduListener;
 import com.baidu.cloudsdk.ProxyActivityListener;
 import com.baidu.cloudsdk.social.core.SocialConstants;
@@ -12,14 +13,14 @@ public class LocalShareActivity extends Activity {
     private String a;
     private int b;
     private ShareContent c;
-    private ai d;
+    private ag d;
     private IBaiduListener e;
 
     @Override // android.app.Activity
     protected void onActivityResult(int i, int i2, Intent intent) {
         if (this.d != null) {
             this.d.onActivityResult(i, i2, intent);
-            ai.a(i);
+            ag.a(i);
             return;
         }
         super.onActivityResult(i, i2, intent);
@@ -38,12 +39,12 @@ public class LocalShareActivity extends Activity {
         }
         this.a = bundle.getString(SocialConstants.PARAM_MEDIA_TYPE);
         this.b = bundle.getInt(SocialConstants.PARAM_REQUEST_CODE);
-        this.c = (ShareContent) bundle.getParcelable(ai.PARAM_SHARE_CONTENT);
+        this.c = (ShareContent) bundle.getParcelable(ag.PARAM_SHARE_CONTENT);
         if (this.a == null || this.b == 0 || this.c == null) {
             finish();
             return;
         }
-        this.e = ai.a(this.b);
+        this.e = ag.a(this.b);
         ProxyActivityListener proxyActivityListener = new ProxyActivityListener(this, this.e);
         this.d = new LocalShareHandlerFactory(this).newInstance(this.a, this.b, proxyActivityListener);
         this.d.share(this.c, proxyActivityListener, false);
@@ -60,7 +61,7 @@ public class LocalShareActivity extends Activity {
         super.onSaveInstanceState(bundle);
         bundle.putString(SocialConstants.PARAM_MEDIA_TYPE, this.a);
         bundle.putInt(SocialConstants.PARAM_REQUEST_CODE, this.b);
-        bundle.putParcelable(ai.PARAM_SHARE_CONTENT, this.c);
-        ai.a(this.b, this.e);
+        bundle.putParcelable(ag.PARAM_SHARE_CONTENT, this.c);
+        ag.a(this.b, this.e);
     }
 }

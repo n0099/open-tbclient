@@ -1,6 +1,7 @@
 package com.baidu.tieba.im.groupUpdates;
 
 import android.view.View;
+import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements View.OnClickListener {
@@ -19,6 +20,6 @@ public class j implements View.OnClickListener {
         updatesActivity = this.a.l;
         view2 = this.a.c;
         updatesItemData = this.a.m;
-        updatesActivity.a(view2, 101, 0, 0L, updatesItemData);
+        updatesActivity.a(view2, SocialAPIErrorCodes.ERROR_INVALID_CLIENT_ID, 0, 0L, updatesItemData);
     }
 }

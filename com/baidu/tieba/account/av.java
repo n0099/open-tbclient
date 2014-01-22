@@ -31,26 +31,26 @@ public class av extends Thread {
         } else {
             str = "c/s/pv";
         }
-        com.baidu.tieba.util.at atVar = new com.baidu.tieba.util.at(com.baidu.tieba.data.h.a + str);
+        com.baidu.tieba.util.ax axVar = new com.baidu.tieba.util.ax(com.baidu.tieba.data.h.a + str);
         if (this.c) {
             str2 = null;
         } else {
-            str2 = com.baidu.tieba.util.bd.a().d();
-            if (!com.baidu.tieba.util.bm.c(str2)) {
-                com.baidu.tieba.util.bd.a().c();
-                atVar.a("st_record", str2);
+            str2 = com.baidu.tieba.util.bh.a().d();
+            if (!com.baidu.tieba.util.bu.c(str2)) {
+                com.baidu.tieba.util.bh.a().c();
+                axVar.a("st_record", str2);
             }
         }
-        atVar.a("st_type", this.a);
+        axVar.a("st_type", this.a);
         if (this.b != null) {
-            atVar.a("st_param", this.b);
+            axVar.a("st_param", this.b);
         }
-        atVar.l();
+        axVar.m();
         if (this.c) {
             return;
         }
-        if (!atVar.c() || atVar.e() != 0) {
-            com.baidu.tieba.util.bd.a().b(str2);
+        if (!axVar.d() || axVar.f() != 0) {
+            com.baidu.tieba.util.bh.a().b(str2);
         }
     }
 }

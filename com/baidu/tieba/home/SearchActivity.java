@@ -14,6 +14,7 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.SearchPostModel;
 import com.baidu.tieba.frs.FrsActivity;
@@ -69,9 +70,9 @@ public class SearchActivity extends com.baidu.tieba.j {
     public void onDestroy() {
         super.onDestroy();
         if (this.B == 0) {
-            TiebaApplication.g().b(true);
+            TiebaApplication.h().b(true);
         } else {
-            TiebaApplication.g().b(false);
+            TiebaApplication.h().b(false);
         }
         c();
         a();
@@ -134,8 +135,8 @@ public class SearchActivity extends com.baidu.tieba.j {
         this.c.setText("");
         this.c.requestFocus();
         f();
-        ShowSoftKeyPadDelay(this.c, 150);
-        if (TiebaApplication.g().r()) {
+        ShowSoftKeyPadDelay(this.c, SocialAPIErrorCodes.ERROR_AUTHORIZATION_CANCELED);
+        if (TiebaApplication.h().r()) {
             this.i.setChecked(true);
             a(0);
             return;
@@ -246,7 +247,7 @@ public class SearchActivity extends com.baidu.tieba.j {
                     this.z.execute(new Object[0]);
                 }
             } catch (Exception e) {
-                com.baidu.tieba.util.bo.b(getClass().getName(), "startSearchPost.run", "error = " + e.getMessage());
+                com.baidu.adp.lib.g.e.b(getClass().getName(), "startSearchPost.run", "error = " + e.getMessage());
             }
         }
     }
@@ -308,7 +309,7 @@ public class SearchActivity extends com.baidu.tieba.j {
                 }
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.bo.b(getClass().getName(), "", "HomeActivity.refresh error = " + e.getMessage());
+            com.baidu.adp.lib.g.e.b(getClass().getName(), "", "HomeActivity.refresh error = " + e.getMessage());
         }
     }
 
@@ -317,29 +318,29 @@ public class SearchActivity extends com.baidu.tieba.j {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.l.c(i);
-        com.baidu.tieba.util.bl.a(this.n, i);
-        com.baidu.tieba.util.bl.a(this.p, i);
-        com.baidu.tieba.util.bl.a(this.g, i);
+        com.baidu.tieba.util.bs.a(this.n, i);
+        com.baidu.tieba.util.bs.a(this.p, i);
+        com.baidu.tieba.util.bs.a(this.g, i);
         if (i == 1) {
             this.c.setTextColor(-11446171);
             this.c.setHintTextColor(-11446171);
             this.t.setTextColor(getResources().getColor(R.color.search_text_content_night));
             this.a.setImageResource(R.drawable.icon_head_bar_search_1);
-            com.baidu.tieba.util.bl.e((View) this.t, (int) R.drawable.btn_w_square_1);
-            com.baidu.tieba.util.bl.e(this.f, (int) R.drawable.inputbox_top_1);
+            com.baidu.tieba.util.bs.e((View) this.t, (int) R.drawable.btn_w_square_1);
+            com.baidu.tieba.util.bs.e(this.f, (int) R.drawable.inputbox_top_1);
             this.h.setBackgroundColor(getResources().getColor(R.color.navi_bg_1));
             this.k.setTextColor(getResources().getColorStateList(R.color.search_tab_btn_color_1));
             this.i.setTextColor(getResources().getColorStateList(R.color.search_tab_btn_color_1));
             this.j.setTextColor(getResources().getColorStateList(R.color.search_tab_btn_color_1));
-            com.baidu.tieba.util.bl.e((View) this.k, (int) R.drawable.search_baidu_btn_drawable_1);
-            com.baidu.tieba.util.bl.e((View) this.i, (int) R.drawable.search_forum_btn_drawable_1);
-            com.baidu.tieba.util.bl.e((View) this.j, (int) R.drawable.search_post_btn_drawable_1);
+            com.baidu.tieba.util.bs.e((View) this.k, (int) R.drawable.search_baidu_btn_drawable_1);
+            com.baidu.tieba.util.bs.e((View) this.i, (int) R.drawable.search_forum_btn_drawable_1);
+            com.baidu.tieba.util.bs.e((View) this.j, (int) R.drawable.search_post_btn_drawable_1);
             this.v.setTextColor(-11446171);
             this.v.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.pic_search_fruitless_1, 0, 0);
-            com.baidu.tieba.util.bl.e((View) this.d, (int) R.drawable.search_delete_button_1);
+            com.baidu.tieba.util.bs.e((View) this.d, (int) R.drawable.search_delete_button_1);
             return;
         }
-        com.baidu.tieba.util.bl.e((View) this.d, (int) R.drawable.search_delete_button);
+        com.baidu.tieba.util.bs.e((View) this.d, (int) R.drawable.search_delete_button);
         this.a.setImageResource(R.drawable.icon_head_bar_search);
         this.k.setTextColor(getResources().getColorStateList(R.color.search_tab_btn_color));
         this.i.setTextColor(getResources().getColorStateList(R.color.search_tab_btn_color));
@@ -347,12 +348,12 @@ public class SearchActivity extends com.baidu.tieba.j {
         this.c.setTextColor(-10066329);
         this.c.setHintTextColor(-4144186);
         this.t.setTextColor(getResources().getColor(R.color.reg_font_color));
-        com.baidu.tieba.util.bl.e((View) this.t, (int) R.drawable.btn_w_square);
-        com.baidu.tieba.util.bl.e(this.f, (int) R.drawable.inputbox_top);
+        com.baidu.tieba.util.bs.e((View) this.t, (int) R.drawable.btn_w_square);
+        com.baidu.tieba.util.bs.e(this.f, (int) R.drawable.inputbox_top);
         this.h.setBackgroundColor(getResources().getColor(R.color.navi_bg));
-        com.baidu.tieba.util.bl.e((View) this.k, (int) R.drawable.search_baidu_btn_drawable);
-        com.baidu.tieba.util.bl.e((View) this.i, (int) R.drawable.search_forum_btn_drawable);
-        com.baidu.tieba.util.bl.e((View) this.j, (int) R.drawable.search_post_btn_drawable);
+        com.baidu.tieba.util.bs.e((View) this.k, (int) R.drawable.search_baidu_btn_drawable);
+        com.baidu.tieba.util.bs.e((View) this.i, (int) R.drawable.search_forum_btn_drawable);
+        com.baidu.tieba.util.bs.e((View) this.j, (int) R.drawable.search_post_btn_drawable);
         this.v.setTextColor(-3618616);
         this.v.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.pic_search_fruitless, 0, 0);
     }

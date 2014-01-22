@@ -6,7 +6,7 @@ import com.baidu.tieba.data.SignData;
 /* loaded from: classes.dex */
 public class bz extends BdAsyncTask<Object, Integer, SignData> {
     final /* synthetic */ bw a;
-    private volatile com.baidu.tieba.util.at b;
+    private volatile com.baidu.tieba.util.ax b;
 
     private bz(bw bwVar) {
         this.a = bwVar;
@@ -30,21 +30,21 @@ public class bz extends BdAsyncTask<Object, Integer, SignData> {
         String str3;
         String str4;
         try {
-            this.b = new com.baidu.tieba.util.at(com.baidu.tieba.data.h.a + "c/c/forum/sign");
-            com.baidu.tieba.util.at atVar = this.b;
+            this.b = new com.baidu.tieba.util.ax(com.baidu.tieba.data.h.a + "c/c/forum/sign");
+            com.baidu.tieba.util.ax axVar = this.b;
             str = this.a.a;
-            atVar.a("kw", str);
-            com.baidu.tieba.util.at atVar2 = this.b;
+            axVar.a("kw", str);
+            com.baidu.tieba.util.ax axVar2 = this.b;
             str2 = this.a.b;
-            atVar2.a("fid", str2);
+            axVar2.a("fid", str2);
             this.b.e(true);
-            String l = this.b.l();
-            if (!this.b.d() || !this.b.c()) {
+            String m = this.b.m();
+            if (!this.b.e() || !this.b.d()) {
                 return null;
             }
             signData = new SignData();
             try {
-                signData.parserJson(l);
+                signData.parserJson(m);
                 str3 = this.a.b;
                 signData.setForumId(str3);
                 str4 = this.a.a;
@@ -52,7 +52,7 @@ public class bz extends BdAsyncTask<Object, Integer, SignData> {
                 return signData;
             } catch (Exception e2) {
                 e = e2;
-                com.baidu.tieba.util.bo.b(getClass().getName(), "doInBackground", e.getMessage());
+                com.baidu.adp.lib.g.e.b(getClass().getName(), "doInBackground", e.getMessage());
                 return signData;
             }
         } catch (Exception e3) {
@@ -66,7 +66,7 @@ public class bz extends BdAsyncTask<Object, Integer, SignData> {
         by byVar;
         String str;
         if (this.b != null) {
-            this.b.j();
+            this.b.k();
         }
         this.a.c = null;
         super.cancel(true);
@@ -89,8 +89,8 @@ public class bz extends BdAsyncTask<Object, Integer, SignData> {
             byVar.a(signData);
             return;
         }
-        this.a.mErrorCode = this.b.e();
-        this.a.mErrorString = this.b.i();
+        this.a.mErrorCode = this.b.f();
+        this.a.mErrorString = this.b.j();
         byVar2 = this.a.d;
         str = this.a.b;
         str2 = this.a.mErrorString;

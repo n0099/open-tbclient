@@ -40,7 +40,7 @@ public class i extends com.baidu.adp.a.d {
 
     private void a(String str, String str2, com.baidu.tieba.im.a<Void> aVar, boolean z) {
         com.baidu.tieba.data.chat.c.a().a(str, str2);
-        com.baidu.tieba.im.db.ad.a().a(new j(this, str2, z, aVar));
+        com.baidu.tieba.im.db.ae.a().a(new j(this, str2, z, aVar));
     }
 
     public List<RecentChatFriendData> a() {

@@ -2,14 +2,13 @@ package com.baidu.tieba.a;
 
 import com.baidu.tieba.data.AudioInfoData;
 import com.baidu.tieba.util.DatabaseService;
-import com.baidu.tieba.util.aa;
-import com.baidu.tieba.util.at;
-import com.baidu.tieba.util.bm;
-import com.baidu.tieba.util.bo;
+import com.baidu.tieba.util.ad;
+import com.baidu.tieba.util.ax;
+import com.baidu.tieba.util.bu;
 import java.io.File;
 /* loaded from: classes.dex */
 public class a {
-    private at a;
+    private ax a;
     private b b;
     private com.baidu.tieba.data.f c;
     private String d;
@@ -26,17 +25,17 @@ public class a {
             if (file == null || !file.exists()) {
                 return null;
             }
-            this.a = new at(com.baidu.tieba.data.h.a + this.d);
+            this.a = new ax(com.baidu.tieba.data.h.a + this.d);
             return a(str, file);
         } catch (Exception e) {
-            bo.b(getClass().getName(), "upload", e.getMessage());
+            com.baidu.adp.lib.g.e.b(getClass().getName(), "upload", e.getMessage());
             return null;
         }
     }
 
     private com.baidu.tieba.data.f a(String str, File file) {
         String a;
-        String a2 = bm.a(aa.a(file));
+        String a2 = bu.a(ad.a(file));
         if (a2 != null && a2.length() > 0) {
             a2 = a2.toLowerCase();
         }
@@ -65,19 +64,19 @@ public class a {
     }
 
     private String a(String str, com.baidu.tieba.data.e eVar) {
-        this.a = new at(com.baidu.tieba.data.h.a + this.e);
+        this.a = new ax(com.baidu.tieba.data.h.a + this.e);
         this.a.a("voice_md5", eVar.a());
-        String l = this.a.l();
-        if (l == null || !this.a.c()) {
+        String m = this.a.m();
+        if (m == null || !this.a.d()) {
             eVar.a((int) a(eVar.b()));
             DatabaseService.a(eVar);
-            this.c.a(this.a.e());
-            this.c.a(this.a.i());
+            this.c.a(this.a.f());
+            this.c.a(this.a.j());
             this.c.a(false);
             return null;
         }
         DatabaseService.o(str);
-        return l;
+        return m;
     }
 
     private long a(long j) {

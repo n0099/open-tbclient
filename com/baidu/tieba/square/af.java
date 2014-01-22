@@ -11,7 +11,7 @@ import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
-public class af extends ViewGroup implements com.baidu.tbadk.imageManager.c, com.baidu.tieba.view.an {
+public class af extends ViewGroup implements com.baidu.tbadk.imageManager.c, com.baidu.tieba.view.bb {
     private Context a;
     private LayoutInflater b;
     private final int c;
@@ -44,7 +44,7 @@ public class af extends ViewGroup implements com.baidu.tbadk.imageManager.c, com
         this.m = null;
         this.n = null;
         this.a = context;
-        this.e = com.baidu.adp.lib.h.g.b(context);
+        this.e = com.baidu.adp.lib.g.g.b(context);
         this.c = context.getResources().getDimensionPixelSize(R.dimen.square_page_padding);
         this.d = context.getResources().getDimensionPixelSize(R.dimen.square_forum_topic_margin);
         this.f = context.getResources().getDimensionPixelSize(R.dimen.square_forum_topic_paddingBottom);
@@ -150,14 +150,14 @@ public class af extends ViewGroup implements com.baidu.tbadk.imageManager.c, com
         }
     }
 
-    @Override // com.baidu.tieba.view.an
+    @Override // com.baidu.tieba.view.bb
     public void d() {
         if (this.m != null) {
             this.m.d();
         }
     }
 
-    @Override // com.baidu.tieba.view.an
+    @Override // com.baidu.tieba.view.bb
     public void a(View view, int i, int i2) {
         this.n = view;
         try {
@@ -173,10 +173,7 @@ public class af extends ViewGroup implements com.baidu.tbadk.imageManager.c, com
                                 if (view != null) {
                                     ((HeadImageView) this.n.findViewWithTag(a)).setDefaultScaleType(ImageView.ScaleType.CENTER);
                                 }
-                                com.baidu.adp.widget.ImageView.d a2 = this.m.a(a, this);
-                                if (a2 != null) {
-                                    a(a2.j());
-                                }
+                                this.m.b(a, this);
                             }
                             i3 = i4 + 1;
                         } else {
@@ -186,7 +183,7 @@ public class af extends ViewGroup implements com.baidu.tbadk.imageManager.c, com
                 }
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.bo.b("ForumsTopicsRecommendView", "mGetImageRunnble.run", "error = " + e.getMessage());
+            com.baidu.adp.lib.g.e.b("ForumsTopicsRecommendView", "mGetImageRunnble.run", "error = " + e.getMessage());
         }
     }
 

@@ -148,31 +148,31 @@ public class az extends BaseAdapter {
                 bbVar = (bb) view.getTag();
                 bcVar = null;
             }
-            int an = TiebaApplication.g().an();
+            int al = TiebaApplication.h().al();
             if (getItemViewType(i) == 0) {
                 com.baidu.tieba.data.aw awVar = (com.baidu.tieba.data.aw) getItem(i);
                 if (awVar != null) {
                     bcVar.d.setText(awVar.d() + this.b.getString(R.string.bar));
-                    bcVar.a.setText(com.baidu.tieba.util.bm.b(awVar.g()));
+                    bcVar.a.setText(com.baidu.tieba.util.bu.a(awVar.g()));
                     if (awVar.f() == null || awVar.f().length() < 1) {
                         bcVar.e.setVisibility(8);
                     } else {
                         bcVar.e.setVisibility(0);
-                        bcVar.b.setText(Html.fromHtml(com.baidu.tieba.util.bm.a(awVar.f(), (Color) null)));
+                        bcVar.b.setText(Html.fromHtml(com.baidu.tieba.util.bu.a(awVar.f(), (Color) null)));
                     }
-                    bcVar.c.setText(Html.fromHtml(com.baidu.tieba.util.bm.a(awVar.e(), (Color) null)));
-                    com.baidu.tieba.util.bl.b(bcVar.b, an);
-                    if (an == 0) {
-                        com.baidu.tieba.util.bl.e(bcVar.e, (int) R.drawable.search_replay_back);
+                    bcVar.c.setText(Html.fromHtml(com.baidu.tieba.util.bu.a(awVar.e(), (Color) null)));
+                    com.baidu.tieba.util.bs.b(bcVar.b, al);
+                    if (al == 0) {
+                        com.baidu.tieba.util.bs.e(bcVar.e, (int) R.drawable.search_replay_back);
                         bcVar.d.setTextColor(this.b.getResources().getColor(R.color.search_text_forum));
                         bcVar.a.setTextColor(this.b.getResources().getColor(R.color.search_text_forum));
                         bcVar.b.setTextColor(this.b.getResources().getColor(R.color.search_text_content));
                     } else {
-                        com.baidu.tieba.util.bl.e(bcVar.e, (int) R.drawable.search_replay_back_1);
-                        bcVar.d.setTextColor(com.baidu.tieba.util.bl.c(an));
-                        bcVar.a.setTextColor(com.baidu.tieba.util.bl.c(an));
-                        bcVar.b.setTextColor(com.baidu.tieba.util.bl.a(an));
-                        bcVar.c.setTextColor(com.baidu.tieba.util.bl.b(an));
+                        com.baidu.tieba.util.bs.e(bcVar.e, (int) R.drawable.search_replay_back_1);
+                        bcVar.d.setTextColor(com.baidu.tieba.util.bs.c(al));
+                        bcVar.a.setTextColor(com.baidu.tieba.util.bs.c(al));
+                        bcVar.b.setTextColor(com.baidu.tieba.util.bs.a(al));
+                        bcVar.c.setTextColor(com.baidu.tieba.util.bs.b(al));
                     }
                 }
             } else if (getItemId(i) == -1) {
@@ -183,7 +183,7 @@ public class az extends BaseAdapter {
                     bbVar.b.setVisibility(8);
                     bbVar.a.setText(this.b.getString(R.string.pre_page));
                 }
-                com.baidu.tieba.util.bl.b(bbVar.a, an);
+                com.baidu.tieba.util.bs.b(bbVar.a, al);
             } else {
                 if (this.c == 2) {
                     bbVar.b.setVisibility(0);
@@ -192,7 +192,7 @@ public class az extends BaseAdapter {
                     bbVar.b.setVisibility(8);
                     bbVar.a.setText(this.b.getString(R.string.next_page));
                 }
-                com.baidu.tieba.util.bl.b(bbVar.a, an);
+                com.baidu.tieba.util.bs.b(bbVar.a, al);
             }
         }
         return view;

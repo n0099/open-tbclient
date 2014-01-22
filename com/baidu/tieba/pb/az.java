@@ -1,7 +1,4 @@
 package com.baidu.tieba.pb;
-
-import com.baidu.mobstat.StatService;
-import com.baidu.tieba.TiebaApplication;
 /* loaded from: classes.dex */
 class az implements com.baidu.adp.widget.ListView.b {
     final /* synthetic */ NewPbActivity a;
@@ -14,13 +11,13 @@ class az implements com.baidu.adp.widget.ListView.b {
     @Override // com.baidu.adp.widget.ListView.b
     public void a(boolean z) {
         com.baidu.tieba.model.bm bmVar;
-        cs csVar;
-        bmVar = this.a.t;
+        cr crVar;
+        bmVar = this.a.u;
         if (!bmVar.b(true)) {
-            csVar = this.a.z;
-            csVar.t();
-        } else if (TiebaApplication.g().s()) {
-            StatService.onEvent(this.a, "pb_pulldown", "pbclick", 1);
+            crVar = this.a.A;
+            crVar.t();
+            return;
         }
+        com.baidu.tieba.util.by.a(this.a, "pb_pulldown", "pbclick", 1, new Object[0]);
     }
 }

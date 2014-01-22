@@ -6,7 +6,6 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import cn.jingling.lib.filters.FilterFactory;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.browser.explorer.BdWebErrorView;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -33,9 +32,9 @@ public class av extends BdAsyncTask<String, Void, Bitmap> {
     public void b() {
         ProgressBar progressBar;
         TextView textView;
-        progressBar = this.a.g;
+        progressBar = this.a.f;
         progressBar.setVisibility(0);
-        textView = this.a.e;
+        textView = this.a.d;
         textView.setClickable(false);
     }
 
@@ -58,7 +57,7 @@ public class av extends BdAsyncTask<String, Void, Bitmap> {
         this.b = strArr[0];
         bitmap = this.a.c;
         if (bitmap == null) {
-            bitmap12 = this.a.p;
+            bitmap12 = this.a.o;
             if (bitmap12 == null) {
                 return null;
             }
@@ -69,12 +68,12 @@ public class av extends BdAsyncTask<String, Void, Bitmap> {
             this.e = true;
         }
         if (this.d.booleanValue() || this.e.booleanValue()) {
-            bitmap2 = this.a.p;
+            bitmap2 = this.a.o;
             if (bitmap2 != null) {
-                bitmap6 = this.a.p;
+                bitmap6 = this.a.o;
                 if (!bitmap6.isRecycled()) {
-                    bitmap7 = this.a.p;
-                    bitmap8 = this.a.p;
+                    bitmap7 = this.a.o;
+                    bitmap8 = this.a.o;
                     this.c = bitmap7.copy(bitmap8.getConfig(), true);
                 }
             }
@@ -94,12 +93,12 @@ public class av extends BdAsyncTask<String, Void, Bitmap> {
         }
         if (this.c != null) {
             if (this.c.getWidth() > 900 || this.c.getHeight() > 900) {
-                this.c = com.baidu.tieba.util.m.a(this.c, (int) BdWebErrorView.ERROR_CODE_900);
+                this.c = com.baidu.tieba.util.n.a(this.c, 900);
             }
             if (this.d.booleanValue()) {
-                this.c = com.baidu.tieba.util.m.d(this.c, Integer.parseInt(this.b));
+                this.c = com.baidu.tieba.util.n.d(this.c, Integer.parseInt(this.b));
             } else if (this.e.booleanValue()) {
-                this.c = com.baidu.tieba.util.m.f(this.c, Integer.parseInt(this.b));
+                this.c = com.baidu.tieba.util.n.f(this.c, Integer.parseInt(this.b));
             } else {
                 this.c = FilterFactory.createOneKeyFilter(this.a, this.b).apply(this.a, this.c);
             }
@@ -114,15 +113,15 @@ public class av extends BdAsyncTask<String, Void, Bitmap> {
         TextView textView;
         Bitmap bitmap;
         if (this.c != null && !this.c.isRecycled()) {
-            bitmap = this.a.p;
+            bitmap = this.a.o;
             if (bitmap != this.c) {
                 this.c.recycle();
             }
         }
         this.c = null;
-        progressBar = this.a.g;
+        progressBar = this.a.f;
         progressBar.setVisibility(8);
-        textView = this.a.e;
+        textView = this.a.d;
         textView.setClickable(true);
         super.cancel(true);
     }
@@ -149,12 +148,12 @@ public class av extends BdAsyncTask<String, Void, Bitmap> {
         Bitmap bitmap8;
         Bitmap bitmap9;
         Bitmap bitmap10;
-        progressBar = this.a.g;
+        progressBar = this.a.f;
         progressBar.setVisibility(8);
-        textView = this.a.e;
+        textView = this.a.d;
         textView.setClickable(true);
         if (bitmap != null && !bitmap.isRecycled()) {
-            this.a.x = true;
+            this.a.w = true;
             imageView = this.a.b;
             imageView.setImageBitmap(bitmap);
             bitmap2 = this.a.c;
@@ -165,26 +164,26 @@ public class av extends BdAsyncTask<String, Void, Bitmap> {
                 }
                 WriteImageActivity writeImageActivity = this.a;
                 bitmap7 = this.a.c;
-                writeImageActivity.c = com.baidu.tieba.util.m.a(bitmap7, (int) BdWebErrorView.ERROR_CODE_900);
+                writeImageActivity.c = com.baidu.tieba.util.n.a(bitmap7, 900);
                 if (this.d.booleanValue()) {
                     WriteImageActivity writeImageActivity2 = this.a;
                     bitmap9 = this.a.c;
-                    writeImageActivity2.c = com.baidu.tieba.util.m.d(bitmap9, Integer.parseInt(this.b));
+                    writeImageActivity2.c = com.baidu.tieba.util.n.d(bitmap9, Integer.parseInt(this.b));
                 } else if (this.e.booleanValue()) {
                     WriteImageActivity writeImageActivity3 = this.a;
                     bitmap8 = this.a.c;
-                    writeImageActivity3.c = com.baidu.tieba.util.m.f(bitmap8, Integer.parseInt(this.b));
+                    writeImageActivity3.c = com.baidu.tieba.util.n.f(bitmap8, Integer.parseInt(this.b));
                 }
             }
-            bitmap3 = this.a.p;
+            bitmap3 = this.a.o;
             if (bitmap3 != null) {
-                bitmap4 = this.a.p;
+                bitmap4 = this.a.o;
                 if (!bitmap4.isRecycled()) {
-                    bitmap5 = this.a.p;
+                    bitmap5 = this.a.o;
                     bitmap5.recycle();
                 }
             }
-            this.a.p = bitmap;
+            this.a.o = bitmap;
         }
     }
 }

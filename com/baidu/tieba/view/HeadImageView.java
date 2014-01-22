@@ -26,9 +26,10 @@ public class HeadImageView extends TbImageView {
     private boolean l;
     private boolean m;
     private boolean n;
-    private int o;
+    private String o;
     private int p;
-    private boolean q;
+    private int q;
+    private boolean r;
 
     public HeadImageView(Context context) {
         this(context, null, 0);
@@ -46,15 +47,16 @@ public class HeadImageView extends TbImageView {
         this.d = null;
         this.m = true;
         this.n = false;
-        this.o = 0;
+        this.o = null;
         this.p = 0;
-        this.q = false;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.baidu.tieba.au.HeadImageView);
+        this.q = 0;
+        this.r = false;
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.baidu.tieba.ax.HeadImageView);
         this.k = obtainStyledAttributes.getFloat(0, -1.0f);
         obtainStyledAttributes.recycle();
-        this.j = com.baidu.adp.lib.h.g.a(context, 5.0f);
-        this.o = this.j;
-        this.p = com.baidu.adp.lib.h.g.a(context, 200.0f);
+        this.j = com.baidu.adp.lib.g.g.a(context, 5.0f);
+        this.p = this.j;
+        this.q = com.baidu.adp.lib.g.g.a(context, 200.0f);
         this.g = new RectF();
         this.h = new RectF();
         this.i = (int) ((getResources().getDisplayMetrics().density * 1.0f) + 0.5d);
@@ -66,7 +68,7 @@ public class HeadImageView extends TbImageView {
         this.f = new Paint();
         this.f.setColor(1275068416);
         this.f.setAntiAlias(true);
-        TypedArray obtainStyledAttributes2 = context.obtainStyledAttributes(attributeSet, com.baidu.tieba.au.HeadImageView);
+        TypedArray obtainStyledAttributes2 = context.obtainStyledAttributes(attributeSet, com.baidu.tieba.ax.HeadImageView);
         if (obtainStyledAttributes2.getBoolean(1, true)) {
             setIsRound(this.n);
         }
@@ -93,7 +95,15 @@ public class HeadImageView extends TbImageView {
     }
 
     public void setAutoChangeStyle(boolean z) {
-        this.q = z;
+        this.r = z;
+    }
+
+    public void setUrl(String str) {
+        this.o = str;
+    }
+
+    public String getUrl() {
+        return this.o;
     }
 
     public void setUserId(String str) {
@@ -119,7 +129,7 @@ public class HeadImageView extends TbImageView {
             this.l = false;
             return;
         }
-        if (Build.VERSION.SDK_INT < 11 && getMeasuredWidth() > com.baidu.adp.lib.h.g.a(getContext(), 100.0f)) {
+        if (Build.VERSION.SDK_INT < 11 && getMeasuredWidth() > com.baidu.adp.lib.g.g.a(getContext(), 100.0f)) {
             setImageDrawable(new com.baidu.adp.widget.w(getResources(), null, this, bitmap, this.j, null));
         } else {
             setImageDrawable(new com.baidu.adp.widget.x(getResources(), null, this, bitmap, this.j, null));
@@ -137,7 +147,7 @@ public class HeadImageView extends TbImageView {
 
     public void e() {
         if (this.l) {
-            if (this.b != TiebaApplication.g().an()) {
+            if (this.b != TiebaApplication.h().al()) {
                 invalidate();
             }
         }
@@ -148,14 +158,14 @@ public class HeadImageView extends TbImageView {
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         if (this.l) {
-            int an = TiebaApplication.g().an();
+            int al = TiebaApplication.h().al();
             if (f()) {
                 canvas.drawRoundRect(this.g, this.j, this.j, this.e);
-                if (this.q && an == 1) {
+                if (this.r && al == 1) {
                     canvas.drawRoundRect(this.h, this.j, this.j, this.f);
                 }
             }
-            this.b = an;
+            this.b = al;
         }
     }
 
@@ -171,10 +181,10 @@ public class HeadImageView extends TbImageView {
         Drawable drawable;
         this.n = z;
         if (this.n) {
-            this.j = this.p;
+            this.j = this.q;
             setRadius(this.j);
         } else {
-            this.j = this.o;
+            this.j = this.p;
             setRadius(this.j);
         }
         if (this.l && (drawable = getDrawable()) != null && (drawable instanceof com.baidu.adp.widget.x)) {

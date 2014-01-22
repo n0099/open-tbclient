@@ -5,7 +5,7 @@ import android.os.Message;
 import com.baidu.tieba.TiebaApplication;
 /* loaded from: classes.dex */
 class m extends Handler {
-    long a = TiebaApplication.g().N();
+    long a = TiebaApplication.h().M();
     long b = 0;
     final /* synthetic */ TiebaMessageService c;
 
@@ -29,7 +29,7 @@ class m extends Handler {
                     this.c.a(1);
                 }
                 TiebaMessageService.b(this.c);
-                if (TiebaApplication.av()) {
+                if (TiebaApplication.at()) {
                     handler2 = this.c.f;
                     handler2.sendEmptyMessageDelayed(1, this.a * 1000);
                     return;

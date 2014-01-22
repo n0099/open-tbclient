@@ -1,21 +1,20 @@
 package com.baidu.tieba.im.chat;
+
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class d implements com.baidu.tieba.im.a<Boolean> {
-    final /* synthetic */ com.baidu.tieba.im.message.bd a;
-    final /* synthetic */ a b;
+public class d implements View.OnClickListener {
+    final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d(a aVar, com.baidu.tieba.im.message.bd bdVar) {
-        this.b = aVar;
-        this.a = bdVar;
+    public d(a aVar) {
+        this.a = aVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    public void a(Boolean bool) {
-        if (this.a != null) {
-            this.b.d(this.a);
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.a.Q();
+        this.a.S();
+        this.a.V();
     }
 }

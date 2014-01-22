@@ -1,5 +1,6 @@
 package com.baidu.tieba.pb;
 
+import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a {
@@ -72,7 +73,7 @@ public class a {
         if (abVar.j() != null && abVar.j().length() > 0) {
             return abVar.j();
         }
-        StringBuilder sb = new StringBuilder(150);
+        StringBuilder sb = new StringBuilder((int) SocialAPIErrorCodes.ERROR_AUTHORIZATION_CANCELED);
         if (abVar.g() * abVar.f() > com.baidu.tieba.data.h.i() * com.baidu.tieba.data.h.i()) {
             double sqrt = Math.sqrt((com.baidu.tieba.data.h.i() * com.baidu.tieba.data.h.i()) / (abVar.g() * abVar.f()));
             sb.append("width=");
@@ -86,7 +87,7 @@ public class a {
             sb.append(String.valueOf(abVar.g()));
         }
         sb.append("&src=");
-        sb.append(com.baidu.tieba.util.bm.d(abVar.b()));
+        sb.append(com.baidu.tieba.util.bu.d(abVar.b()));
         return sb.toString();
     }
 }

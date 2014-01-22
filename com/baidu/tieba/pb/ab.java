@@ -10,7 +10,7 @@ import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class ab extends BdAsyncTask<Object, Integer, String> {
     final /* synthetic */ ImagePbActivity a;
-    private com.baidu.tieba.util.at b;
+    private com.baidu.tieba.util.ax b;
     private ArrayList<BasicNameValuePair> c;
     private String d;
     private boolean f;
@@ -33,16 +33,16 @@ public class ab extends BdAsyncTask<Object, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: d */
     public String a(Object... objArr) {
-        this.b = new com.baidu.tieba.util.at(this.d);
+        this.b = new com.baidu.tieba.util.ax(this.d);
         this.b.a(this.c);
-        this.e = this.b.l();
+        this.e = this.b.m();
         return this.e;
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         if (this.b != null) {
-            this.b.j();
+            this.b.k();
         }
         this.a.b = null;
         this.a.a(false);
@@ -62,12 +62,12 @@ public class ab extends BdAsyncTask<Object, Integer, String> {
         boolean z;
         super.a((ab) str);
         if (!this.g) {
-            if (this.b != null && this.b.d() && this.a.G != null) {
-                if (this.b.c()) {
+            if (this.b != null && this.b.e() && this.a.G != null) {
+                if (this.b.d()) {
                     if (!this.a.G.a()) {
                         this.a.G.a(this.e, true);
                     }
-                    com.baidu.tieba.util.bo.a(getClass().getName(), "onPostExecute", "" + this.a.G.h().size());
+                    com.baidu.adp.lib.g.e.a(getClass().getName(), "onPostExecute", "" + this.a.G.h().size());
                     com.baidu.tieba.data.ac acVar2 = this.a.G;
                     str2 = this.a.C;
                     acVar2.c(str2);
@@ -76,11 +76,11 @@ public class ab extends BdAsyncTask<Object, Integer, String> {
                     imagePbPagerAdapter2 = this.a.z;
                     imagePbPagerAdapter2.notifyDataSetChanged();
                     myOnPageChangeListener = this.a.K;
-                    myOnPageChangeListener.onPageSelected(this.a.J);
+                    myOnPageChangeListener.a_(this.a.J);
                     z = this.a.B;
                     if (z) {
-                        this.a.Q.removeCallbacks(this.a.R);
-                        this.a.Q.post(this.a.R);
+                        this.a.R.removeCallbacks(this.a.S);
+                        this.a.R.post(this.a.S);
                     } else if (this.f) {
                         this.a.b(1);
                     } else {

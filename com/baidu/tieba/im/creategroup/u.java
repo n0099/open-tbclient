@@ -11,8 +11,8 @@ import android.widget.ListAdapter;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.more.SettingTextSwitchView;
-import com.baidu.tieba.util.ad;
-import com.baidu.tieba.util.bl;
+import com.baidu.tieba.util.ag;
+import com.baidu.tieba.util.bs;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
@@ -37,7 +37,7 @@ public class u extends com.baidu.adp.a.e {
     private String s;
     private boolean t;
     private t u;
-    private ad v;
+    private ag v;
     private String w;
     private String x;
     private DialogInterface.OnClickListener y;
@@ -156,7 +156,7 @@ public class u extends com.baidu.adp.a.e {
     }
 
     private void s() {
-        this.v = new ad(this.e);
+        this.v = new ag(this.e);
         a();
     }
 
@@ -259,7 +259,7 @@ public class u extends com.baidu.adp.a.e {
     public void a(int i) {
         this.e.getLayoutMode().a(i == 1);
         this.e.getLayoutMode().a(this.d);
-        bl.b(this.d, i);
+        bs.b(this.d, i);
         this.c.c(i);
         if (i == 1) {
             this.d.setBackgroundResource(R.color.group_info_bg_1);

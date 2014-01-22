@@ -1,6 +1,5 @@
 package com.baidu.tieba.data;
 
-import com.baidu.tieba.util.bo;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -20,7 +19,7 @@ public class v {
         try {
             a(new JSONObject(str));
         } catch (Exception e) {
-            bo.b("ForumFeedData", "parserJson", "error = " + e.getMessage());
+            com.baidu.adp.lib.g.e.b("ForumFeedData", "parserJson", "error = " + e.getMessage());
         }
     }
 
@@ -46,7 +45,7 @@ public class v {
                     a(optJSONArray.length() == 0);
                 }
             } catch (Exception e) {
-                bo.b("ForumFeedData", "parserJson", "error = " + e.getMessage());
+                com.baidu.adp.lib.g.e.b("ForumFeedData", "parserJson", "error = " + e.getMessage());
             }
         }
     }

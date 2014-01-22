@@ -4,9 +4,10 @@ import android.os.Handler;
 import android.os.Message;
 import com.baidu.location.LocationClientOption;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.im.message.cc;
-import com.baidu.tieba.im.message.t;
+import com.baidu.tieba.im.message.cr;
+import com.baidu.tieba.im.message.v;
 import com.baidu.tieba.im.net.TiebaSocketLinkService;
+import com.baidu.tieba.util.by;
 /* loaded from: classes.dex */
 public class PingManager extends Handler {
     private static PingManager a = null;
@@ -14,7 +15,7 @@ public class PingManager extends Handler {
     private int c = 180000;
     private int d = 900000;
     private int e = this.d;
-    private t f = null;
+    private v f = null;
     private g g = null;
 
     public static PingManager a() {
@@ -50,7 +51,7 @@ public class PingManager extends Handler {
 
     public boolean a(boolean z, String str) {
         if ((z || System.currentTimeMillis() - this.b >= 180000) && TiebaSocketLinkService.c()) {
-            com.baidu.tieba.log.a.b(com.baidu.tieba.log.i.a(1003, 0, str, "send ping", null, 0, null));
+            by.a(1003, 0, str, "send ping", null, 0, null);
             this.b = System.currentTimeMillis();
             e.a().a(this.f, -3, 0, false);
             return true;
@@ -69,7 +70,7 @@ public class PingManager extends Handler {
     }
 
     public void d() {
-        this.f = new t();
+        this.f = new v();
         e();
         this.g = new n(this);
         e.a().a(-11, this.g);
@@ -77,8 +78,8 @@ public class PingManager extends Handler {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(cc ccVar) {
-        if (ccVar != null && ccVar.j() != 0) {
+    public void a(cr crVar) {
+        if (crVar != null && crVar.l() != 0) {
             TiebaSocketLinkService.a(7, "ping error");
         }
     }
@@ -92,15 +93,15 @@ public class PingManager extends Handler {
                 this.e = this.c;
                 a("switchToForeground");
             }
-            com.baidu.adp.lib.h.e.d("pingManager mCurrentInterval = " + this.e);
+            com.baidu.adp.lib.g.e.d("pingManager mCurrentInterval = " + this.e);
         }
     }
 
     public void e() {
-        int[] aZ = TiebaApplication.g().aZ();
-        if (aZ.length == 2) {
-            this.c = aZ[0] * LocationClientOption.MIN_SCAN_SPAN;
-            this.d = aZ[1] * LocationClientOption.MIN_SCAN_SPAN;
+        int[] aY = TiebaApplication.h().aY();
+        if (aY.length == 2) {
+            this.c = aY[0] * LocationClientOption.MIN_SCAN_SPAN;
+            this.d = aY[1] * LocationClientOption.MIN_SCAN_SPAN;
             if (this.c < 180000) {
                 this.c = 180000;
             }

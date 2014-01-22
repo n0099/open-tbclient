@@ -20,7 +20,6 @@ import com.baidu.android.moplus.MoPlusReceiver;
 import com.baidu.android.moplus.MoPlusService;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.systemmonitor.c.d;
-import com.baidu.zeus.bouncycastle.DERTags;
 import com.google.protobuf.CodedOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -232,7 +231,7 @@ public final class b {
     public static String b(Context context, String str, String str2) {
         ApplicationInfo applicationInfo;
         try {
-            applicationInfo = context.getPackageManager().getApplicationInfo(str, DERTags.TAGGED);
+            applicationInfo = context.getPackageManager().getApplicationInfo(str, 128);
         } catch (PackageManager.NameNotFoundException e) {
             Log.e("getMetaDataString", "--- " + str + " GetMetaData Exception:\r\n", e);
             applicationInfo = null;
@@ -318,7 +317,7 @@ public final class b {
     public static boolean c(Context context, String str, String str2) {
         ApplicationInfo applicationInfo;
         try {
-            applicationInfo = context.getPackageManager().getApplicationInfo(str, DERTags.TAGGED);
+            applicationInfo = context.getPackageManager().getApplicationInfo(str, 128);
         } catch (PackageManager.NameNotFoundException e) {
             Log.e("getMetaDataBoolean", "--- " + str + " GetMetaData Exception:\r\n", e);
             applicationInfo = null;
@@ -348,7 +347,7 @@ public final class b {
     public static boolean d(Context context, String str) {
         ApplicationInfo applicationInfo;
         try {
-            applicationInfo = context.getPackageManager().getApplicationInfo(str, DERTags.TAGGED);
+            applicationInfo = context.getPackageManager().getApplicationInfo(str, 128);
         } catch (PackageManager.NameNotFoundException e) {
             Log.e("isBaiduApp", "--- " + str + " GetMetaData Exception:\r\n", e);
             applicationInfo = null;
@@ -400,7 +399,7 @@ public final class b {
     public static boolean e(Context context, String str) {
         ApplicationInfo applicationInfo;
         try {
-            applicationInfo = context.getPackageManager().getApplicationInfo(str, DERTags.TAGGED);
+            applicationInfo = context.getPackageManager().getApplicationInfo(str, 128);
         } catch (PackageManager.NameNotFoundException e) {
             Log.e("isEnableInternal", "--- " + str + " GetMetaData Exception:\r\n", e);
             applicationInfo = null;

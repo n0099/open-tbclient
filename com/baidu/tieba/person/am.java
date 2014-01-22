@@ -79,7 +79,7 @@ public class am extends BaseAdapter {
         aq aqVar2 = null;
         try {
             int itemViewType = getItemViewType(i);
-            int an = TiebaApplication.g().an();
+            int al = TiebaApplication.h().al();
             if (view == null) {
                 LayoutInflater from = LayoutInflater.from(this.a);
                 if (itemViewType == 0) {
@@ -87,7 +87,7 @@ public class am extends BaseAdapter {
                     arVar2 = new ar(this);
                     arVar2.b = (TextView) view.findViewById(R.id.time_text);
                     arVar2.a = (ImageView) view.findViewById(R.id.time_icon);
-                    if (an == 1) {
+                    if (al == 1) {
                         arVar2.a.setBackgroundResource(R.drawable.icon_time_node_1);
                         arVar2.b.setTextColor(-11446171);
                     }
@@ -101,7 +101,7 @@ public class am extends BaseAdapter {
                     aqVar3.d = (TextView) view.findViewById(R.id.post_time);
                     aqVar3.e = (TextView) view.findViewById(R.id.forum);
                     aqVar3.b = (ImageView) view.findViewById(R.id.post_icon);
-                    if (an == 1) {
+                    if (al == 1) {
                         aqVar3.a.setBackgroundResource(R.drawable.time_line_node_content_bg_skin_1);
                     }
                     view.setTag(aqVar3);
@@ -113,7 +113,7 @@ public class am extends BaseAdapter {
                     ap apVar3 = new ap(this);
                     apVar3.a = (TextView) view.findViewById(R.id.page_text);
                     apVar3.b = (ProgressBar) view.findViewById(R.id.progress);
-                    if (an == 1) {
+                    if (al == 1) {
                         apVar3.a.setTextColor(-8682095);
                     }
                     view.setTag(apVar3);
@@ -158,14 +158,14 @@ public class am extends BaseAdapter {
                     aqVar.e.setText(blVar.f() + this.a.getString(R.string.forum));
                     aqVar.e.setOnClickListener(new an(this, blVar));
                     if (blVar.a() == 2) {
-                        if (an == 1) {
+                        if (al == 1) {
                             aqVar.b.setBackgroundResource(R.drawable.icon_thread_node_1);
                         } else {
                             aqVar.b.setBackgroundResource(R.drawable.icon_thread_node);
                         }
                         string = this.a.getString(R.string.add_thread);
                     } else {
-                        if (an == 1) {
+                        if (al == 1) {
                             aqVar.b.setBackgroundResource(R.drawable.icon_reply_node_1);
                         } else {
                             aqVar.b.setBackgroundResource(R.drawable.icon_reply_node);
@@ -176,7 +176,7 @@ public class am extends BaseAdapter {
                     if (parseInt <= 0) {
                         aqVar.c.setText(string + blVar.c());
                         aqVar.c.setTextSize(2, 15.0f);
-                        if (an == 1) {
+                        if (al == 1) {
                             aqVar.c.setTextColor(-8682095);
                         } else {
                             aqVar.c.setTextColor(-14277082);
@@ -196,9 +196,9 @@ public class am extends BaseAdapter {
                         sb.append(this.a.getString(R.string.reply_suffix));
                         int length2 = sb.toString().length();
                         SpannableString spannableString = new SpannableString(sb.toString());
-                        spannableString.setSpan(new AbsoluteSizeSpan(com.baidu.adp.lib.h.g.a(this.a, 15.0f)), 0, length, 18);
-                        spannableString.setSpan(new AbsoluteSizeSpan(com.baidu.adp.lib.h.g.a(this.a, 12.0f)), length + 1, length2, 18);
-                        if (an == 1) {
+                        spannableString.setSpan(new AbsoluteSizeSpan(com.baidu.adp.lib.g.g.a(this.a, 15.0f)), 0, length, 18);
+                        spannableString.setSpan(new AbsoluteSizeSpan(com.baidu.adp.lib.g.g.a(this.a, 12.0f)), length + 1, length2, 18);
+                        if (al == 1) {
                             spannableString.setSpan(new ForegroundColorSpan(-8682095), 0, length, 18);
                             spannableString.setSpan(new ForegroundColorSpan(-11446171), length + 1, length2, 18);
                         } else {
@@ -224,7 +224,7 @@ public class am extends BaseAdapter {
             } catch (Exception e) {
                 view2 = view3;
                 exc = e;
-                com.baidu.tieba.util.bo.b(getClass().getName(), "", "MyPostListAdapter.getView error = " + exc.getMessage());
+                com.baidu.adp.lib.g.e.b(getClass().getName(), "", "MyPostListAdapter.getView error = " + exc.getMessage());
                 return view2;
             }
         } catch (Exception e2) {
@@ -242,7 +242,7 @@ public class am extends BaseAdapter {
                     try {
                         this.c.get(i2).setVisibility(8);
                     } catch (Exception e) {
-                        com.baidu.tieba.util.bo.b(getClass().getName(), "releaseProgressBar", e.getMessage());
+                        com.baidu.adp.lib.g.e.b(getClass().getName(), "releaseProgressBar", e.getMessage());
                     }
                     i = i2 + 1;
                 } else {

@@ -1,21 +1,19 @@
 package com.baidu.tieba.im.chat;
-
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.im.SingleRunnable;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ab extends SingleRunnable<Boolean> {
-    final /* synthetic */ z a;
+public class ab implements com.baidu.tieba.im.a<Boolean> {
+    final /* synthetic */ com.baidu.tieba.im.message.cr a;
+    final /* synthetic */ q b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ab(z zVar) {
-        this.a = zVar;
+    public ab(q qVar, com.baidu.tieba.im.message.cr crVar) {
+        this.b = qVar;
+        this.a = crVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.SingleRunnable
-    /* renamed from: a */
-    public Boolean b() {
-        return Boolean.valueOf(com.baidu.tieba.im.groupInfo.u.b(TiebaApplication.A(), this.a.c()));
+    @Override // com.baidu.tieba.im.a
+    public void a(Boolean bool) {
+        this.b.d(this.a);
     }
 }

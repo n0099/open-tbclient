@@ -1,12 +1,12 @@
 package com.baidu.tieba.faceshop;
 
 import com.baidu.gson.annotations.SerializedName;
-import com.baidu.tieba.util.bm;
+import com.baidu.tieba.util.bu;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class FacePackageData extends com.baidu.tieba.util.ap implements Serializable {
+public class FacePackageData extends com.baidu.tieba.util.as implements Serializable {
     private static final long serialVersionUID = 0;
     @SerializedName("banner_url")
     public String bannerUrl;
@@ -44,13 +44,13 @@ public class FacePackageData extends com.baidu.tieba.util.ap implements Serializ
     public long downloadNow = 0;
     public String orderId = "";
 
-    @Override // com.baidu.tieba.util.ap, com.baidu.tieba.util.ar
+    @Override // com.baidu.tieba.util.as, com.baidu.tieba.util.au
     public LinkedList<String> getImageUrl() {
         LinkedList<String> linkedList = new LinkedList<>();
-        if (!bm.c(this.bannerUrl)) {
+        if (!bu.c(this.bannerUrl)) {
             linkedList.add(this.bannerUrl);
         }
-        if (!bm.c(this.newIcon)) {
+        if (!bu.c(this.newIcon)) {
             linkedList.add(this.newIcon);
         }
         return linkedList;

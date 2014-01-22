@@ -1,8 +1,6 @@
 package com.baidu.tieba.flist;
 
-import com.baidu.browser.webpool.BdWebPoolView;
 import com.baidu.tieba.flist.ForumListModel;
-import com.baidu.tieba.util.bo;
 /* loaded from: classes.dex */
 class j implements com.baidu.adp.widget.ListView.b {
     final /* synthetic */ ForumListActivity a;
@@ -33,7 +31,7 @@ class j implements com.baidu.adp.widget.ListView.b {
                     requestParams = this.a.A;
                     requestParams.recommend_type = 0;
                     requestParams2 = this.a.A;
-                    requestParams2.rn = BdWebPoolView.DELAYED_TIME;
+                    requestParams2.rn = 200;
                     uVar = this.a.G;
                     requestParams3 = this.a.A;
                     uVar.a(requestParams3);
@@ -45,18 +43,18 @@ class j implements com.baidu.adp.widget.ListView.b {
                     if (z4) {
                         this.a.n = 50;
                     } else {
-                        this.a.n = BdWebPoolView.DELAYED_TIME;
+                        this.a.n = 200;
                     }
-                    bo.e("ForumListActivity", "pull down", "left refresh");
+                    com.baidu.adp.lib.g.e.e("ForumListActivity", "pull down", "left refresh");
                     new r(this.a, null).execute(new Void[0]);
                 } else if (this.a.c.d.getCurrentItem() == 1) {
                     z3 = this.a.C;
                     if (z3) {
                         this.a.o = 50;
                     } else {
-                        this.a.o = BdWebPoolView.DELAYED_TIME;
+                        this.a.o = 200;
                     }
-                    bo.e("ForumListActivity", "pull down", "right refresh");
+                    com.baidu.adp.lib.g.e.e("ForumListActivity", "pull down", "right refresh");
                     new q(this.a, null).execute(new Void[0]);
                 }
             }

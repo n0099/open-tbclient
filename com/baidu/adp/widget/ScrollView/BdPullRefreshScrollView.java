@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
-import com.baidu.browser.webpool.BdWebPoolView;
 /* loaded from: classes.dex */
 public class BdPullRefreshScrollView extends ScrollView {
     protected View a;
@@ -43,8 +42,8 @@ public class BdPullRefreshScrollView extends ScrollView {
         super(context);
         this.c = State.RESET;
         this.e = Mode.getDefault();
-        this.f = BdWebPoolView.DELAYED_TIME;
-        this.g = BdWebPoolView.DELAYED_TIME;
+        this.f = 200;
+        this.g = 200;
         this.h = -1000.0f;
         this.u = false;
         this.v = false;
@@ -57,8 +56,8 @@ public class BdPullRefreshScrollView extends ScrollView {
         super(context, attributeSet);
         this.c = State.RESET;
         this.e = Mode.getDefault();
-        this.f = BdWebPoolView.DELAYED_TIME;
-        this.g = BdWebPoolView.DELAYED_TIME;
+        this.f = 200;
+        this.g = 200;
         this.h = -1000.0f;
         this.u = false;
         this.v = false;
@@ -71,8 +70,8 @@ public class BdPullRefreshScrollView extends ScrollView {
         super(context);
         this.c = State.RESET;
         this.e = Mode.getDefault();
-        this.f = BdWebPoolView.DELAYED_TIME;
-        this.g = BdWebPoolView.DELAYED_TIME;
+        this.f = 200;
+        this.g = 200;
         this.h = -1000.0f;
         this.u = false;
         this.v = false;
@@ -86,8 +85,8 @@ public class BdPullRefreshScrollView extends ScrollView {
         super(context);
         this.c = State.RESET;
         this.e = Mode.getDefault();
-        this.f = BdWebPoolView.DELAYED_TIME;
-        this.g = BdWebPoolView.DELAYED_TIME;
+        this.f = 200;
+        this.g = 200;
         this.h = -1000.0f;
         this.u = false;
         this.v = false;
@@ -103,8 +102,8 @@ public class BdPullRefreshScrollView extends ScrollView {
             this.e = Mode.mapIntToValue(obtainStyledAttributes.getInteger(0, 0));
         }
         this.b = ViewConfiguration.get(context).getScaledTouchSlop();
-        this.f = obtainStyledAttributes.getInteger(4, BdWebPoolView.DELAYED_TIME);
-        this.g = obtainStyledAttributes.getInteger(5, BdWebPoolView.DELAYED_TIME);
+        this.f = obtainStyledAttributes.getInteger(4, 200);
+        this.g = obtainStyledAttributes.getInteger(5, 200);
         LayoutInflater.from(context).inflate(com.baidu.adp.e.adp_pull_refresh_scroll_view, (ViewGroup) this, true);
         this.j = (FrameLayout) findViewById(com.baidu.adp.d.head_ly);
         this.k = (FrameLayout) findViewById(com.baidu.adp.d.foot_ly);

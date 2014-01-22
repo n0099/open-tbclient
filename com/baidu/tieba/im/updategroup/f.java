@@ -26,7 +26,7 @@ public class f extends g {
 
     @Override // com.baidu.tieba.im.updategroup.a
     public void g() {
-        a(this.c.length(), com.baidu.tieba.im.d.g.a(this.c), 2, 20);
+        a(this.c.length(), com.baidu.tieba.im.d.h.a(this.c), 2, 20);
     }
 
     @Override // com.baidu.tieba.im.updategroup.a

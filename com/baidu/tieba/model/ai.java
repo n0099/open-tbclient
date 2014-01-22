@@ -10,7 +10,7 @@ public class ai extends BdAsyncTask<String, String, Boolean> {
     ArrayList<com.baidu.tieba.data.aa> a;
     String b;
     final /* synthetic */ ad c;
-    private com.baidu.tieba.util.at d = null;
+    private com.baidu.tieba.util.ax d = null;
     private String e;
     private String f;
     private String g;
@@ -32,7 +32,7 @@ public class ai extends BdAsyncTask<String, String, Boolean> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public Boolean a(String... strArr) {
-        this.d = new com.baidu.tieba.util.at(strArr[0]);
+        this.d = new com.baidu.tieba.util.ax(strArr[0]);
         this.d.a("word", this.f);
         if (this.h != 6) {
             this.d.a("fid", this.e);
@@ -49,18 +49,18 @@ public class ai extends BdAsyncTask<String, String, Boolean> {
             }
         }
         this.d.e(true);
-        String l = this.d.l();
-        if (this.d.c()) {
+        String m = this.d.m();
+        if (this.d.d()) {
             if (this.h == 6) {
                 try {
-                    JSONArray optJSONArray = new JSONObject(l).optJSONArray("cates");
+                    JSONArray optJSONArray = new JSONObject(m).optJSONArray("cates");
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         com.baidu.tieba.data.aa aaVar = new com.baidu.tieba.data.aa();
                         aaVar.a(optJSONArray.optJSONObject(i));
                         this.a.add(aaVar);
                     }
                 } catch (Exception e) {
-                    com.baidu.tieba.util.bo.b(getClass().getName(), "doInBackground", e.getMessage());
+                    com.baidu.adp.lib.g.e.b(getClass().getName(), "doInBackground", e.getMessage());
                     return false;
                 }
             }
@@ -89,7 +89,7 @@ public class ai extends BdAsyncTask<String, String, Boolean> {
                 ajVar.c = this.a;
             }
         } else {
-            ajVar.b = this.d.i();
+            ajVar.b = this.d.j();
         }
         gVar = this.c.mLoadDataCallBack;
         gVar.a(ajVar);
@@ -99,7 +99,7 @@ public class ai extends BdAsyncTask<String, String, Boolean> {
     public void cancel() {
         com.baidu.adp.a.g gVar;
         if (this.d != null) {
-            this.d.j();
+            this.d.k();
         }
         this.c.c = null;
         super.cancel(true);

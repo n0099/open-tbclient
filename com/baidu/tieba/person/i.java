@@ -89,7 +89,7 @@ public class i extends BaseAdapter {
                 } catch (Exception e) {
                     view2 = view3;
                     exc = e;
-                    com.baidu.tieba.util.bo.b(getClass().getName(), "getView", exc.getMessage());
+                    com.baidu.adp.lib.g.e.b(getClass().getName(), "getView", exc.getMessage());
                     return view2;
                 }
             } else {
@@ -123,8 +123,8 @@ public class i extends BaseAdapter {
                     kVar.e.setVisibility(8);
                 }
             }
-            if (TiebaApplication.g().an() == 1) {
-                int a = com.baidu.tieba.util.bl.a(1);
+            if (TiebaApplication.h().al() == 1) {
+                int a = com.baidu.tieba.util.bs.a(1);
                 kVar.a.setTextColor(a);
                 kVar.c.setTextColor(a);
             } else {

@@ -2,6 +2,7 @@ package com.baidu.tieba.faceshop;
 
 import android.graphics.Bitmap;
 import android.os.Handler;
+import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.GridView;
 import android.widget.ImageView;
@@ -13,6 +14,7 @@ import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.util.UtilHelper;
 import com.baidu.tieba.view.NavigationBar;
 import com.baidu.tieba.view.NoNetworkView;
+import com.baidu.tieba.view.br;
 import com.slidingmenu.lib.R;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
@@ -62,14 +64,14 @@ public class z {
         this.l = (FrameLayout) this.c.findViewById(R.id.face_package_downloading);
         this.m = (ImageView) this.c.findViewById(R.id.face_package_downloading_up);
         this.n = (ImageView) this.c.findViewById(R.id.face_package_downloading_cancel);
-        this.b = TiebaApplication.g().an();
+        this.b = TiebaApplication.h().al();
         this.u = new com.baidu.tieba.util.i(jVar);
         this.u.a(jVar.getResources().getDimensionPixelSize(R.dimen.faceshop_cover_width), jVar.getResources().getDimensionPixelSize(R.dimen.faceshop_cover_height));
         this.v = new Handler();
         this.j.setOnClickListener(jVar);
         this.n.setOnClickListener(jVar);
-        Bitmap a = com.baidu.tieba.util.m.a((int) R.drawable.bg_content_buy_bar_down);
-        Bitmap a2 = com.baidu.tieba.util.m.a((int) R.drawable.bg_content_buy_bar_up);
+        Bitmap a = com.baidu.tieba.util.n.a((int) R.drawable.bg_content_buy_bar_down);
+        Bitmap a2 = com.baidu.tieba.util.n.a((int) R.drawable.bg_content_buy_bar_up);
         this.q = a.getWidth();
         this.p = a2.getWidth();
         this.r = this.a.getResources().getDimensionPixelSize(R.dimen.faceshop_page_padding);
@@ -84,7 +86,7 @@ public class z {
 
     private void b(FacePackageData facePackageData) {
         if (facePackageData != null && facePackageData.faceList != null) {
-            this.s.setLayoutParams(new LinearLayout.LayoutParams(-1, ((com.baidu.adp.lib.h.g.b(this.a) - (this.r * 2)) / 4) * ((int) Math.ceil(facePackageData.faceList.size() / 4.0f))));
+            this.s.setLayoutParams(new LinearLayout.LayoutParams(-1, ((com.baidu.adp.lib.g.g.b(this.a) - (this.r * 2)) / 4) * ((int) Math.ceil(facePackageData.faceList.size() / 4.0f))));
         }
     }
 
@@ -150,19 +152,19 @@ public class z {
             this.u.a();
             String obj = this.f.getTag().toString();
             if (this.u.d(obj) == null) {
-                this.u.a(obj, new ab(this));
+                this.u.b(obj, new ab(this));
             } else {
                 this.f.invalidate();
             }
         }
     }
 
-    public void a(com.baidu.tieba.view.bf bfVar) {
-        this.e.a(bfVar);
+    public void a(br brVar) {
+        this.e.a(brVar);
     }
 
-    public void b(com.baidu.tieba.view.bf bfVar) {
-        this.e.b(bfVar);
+    public void b(br brVar) {
+        this.e.b(brVar);
     }
 
     public void c(w wVar) {
@@ -278,7 +280,7 @@ public class z {
 
     public void a(int i) {
         this.a.getLayoutMode().a(i == 1);
-        this.a.getLayoutMode().a(this.c);
+        this.a.getLayoutMode().a((View) this.c);
         if (this.d != null) {
             this.d.c(i);
         }

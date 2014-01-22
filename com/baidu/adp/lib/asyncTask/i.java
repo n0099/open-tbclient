@@ -20,7 +20,7 @@ public class i extends Handler {
         super.handleMessage(message);
         if (message.what == 1) {
             if (message.obj != null && (message.obj instanceof k)) {
-                this.a.c((k) message.obj);
+                this.a.d((k) message.obj);
             }
         } else if (message.what == 2 && message.obj != null && (message.obj instanceof k)) {
             this.a.b((k) message.obj);

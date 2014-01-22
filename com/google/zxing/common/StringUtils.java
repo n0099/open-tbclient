@@ -1,6 +1,5 @@
 package com.google.zxing.common;
 
-import com.baidu.zeus.bouncycastle.DERTags;
 import com.google.zxing.DecodeHintType;
 import java.util.Map;
 /* loaded from: classes.dex */
@@ -14,7 +13,7 @@ public final class StringUtils {
     private static final String UTF8 = "UTF8";
 
     static {
-        ASSUME_SHIFT_JIS = SHIFT_JIS.equalsIgnoreCase(PLATFORM_DEFAULT_ENCODING) || EUC_JP.equalsIgnoreCase(PLATFORM_DEFAULT_ENCODING);
+        ASSUME_SHIFT_JIS = (SHIFT_JIS.equalsIgnoreCase(PLATFORM_DEFAULT_ENCODING) || EUC_JP.equalsIgnoreCase(PLATFORM_DEFAULT_ENCODING)) ? true : ASSUME_SHIFT_JIS;
     }
 
     private StringUtils() {
@@ -48,7 +47,7 @@ public final class StringUtils {
             int i12 = 0;
             int i13 = 0;
             int i14 = 0;
-            boolean z5 = bArr.length > 3 && bArr[0] == -17 && bArr[1] == -69 && bArr[2] == -65;
+            boolean z5 = (bArr.length > 3 && bArr[0] == -17 && bArr[1] == -69 && bArr[2] == -65) ? true : ASSUME_SHIFT_JIS;
             int i15 = 0;
             int i16 = 0;
             int i17 = 0;
@@ -57,13 +56,13 @@ public final class StringUtils {
                 int i18 = bArr[i15] & 255;
                 if (z6) {
                     if (i6 > 0) {
-                        if ((i18 & DERTags.TAGGED) == 0) {
+                        if ((i18 & 128) == 0) {
                             z = false;
                         } else {
                             i6--;
                             z = z6;
                         }
-                    } else if ((i18 & DERTags.TAGGED) != 0) {
+                    } else if ((i18 & 128) != 0) {
                         if ((i18 & 64) == 0) {
                             z = false;
                         } else {
@@ -202,9 +201,9 @@ public final class StringUtils {
                 i13 = i5;
                 i17 = i312;
             }
-            boolean z7 = (!z6 || i6 <= 0) ? z6 : false;
+            boolean z7 = (!z6 || i6 <= 0) ? z6 : ASSUME_SHIFT_JIS;
             if (z4 && i10 > 0) {
-                z4 = false;
+                z4 = ASSUME_SHIFT_JIS;
             }
             if (z7 && (z5 || i7 + i8 + i9 > 0)) {
                 return UTF8;

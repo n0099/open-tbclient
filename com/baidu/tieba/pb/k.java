@@ -42,11 +42,11 @@ public class k implements Runnable {
                 imagePbPagerAdapter2.d().a(z2);
                 for (int i4 = i; i4 <= i2; i4++) {
                     imagePbPagerAdapter3 = this.a.z;
-                    imagePbPagerAdapter3.d().a(this.a.G.h().get(i4).b(), new l(this));
+                    imagePbPagerAdapter3.d().b(this.a.G.h().get(i4).b(), new l(this));
                 }
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.bo.b("ImagePbActivity", "mGetImageRunnble.run", "error = " + e.getMessage());
+            com.baidu.adp.lib.g.e.b("ImagePbActivity", "mGetImageRunnble.run", "error = " + e.getMessage());
         }
     }
 }

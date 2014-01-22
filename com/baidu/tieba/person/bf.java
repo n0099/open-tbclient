@@ -10,7 +10,7 @@ import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class bf extends BdAsyncTask<String, Integer, String> {
     final /* synthetic */ PersonChangeActivity a;
-    private com.baidu.tieba.util.at b = null;
+    private com.baidu.tieba.util.ax b = null;
     private com.baidu.tieba.model.bw c;
 
     public bf(PersonChangeActivity personChangeActivity, com.baidu.tieba.model.bw bwVar) {
@@ -23,7 +23,7 @@ public class bf extends BdAsyncTask<String, Integer, String> {
     public void cancel() {
         this.a.B = null;
         if (this.b != null) {
-            this.b.j();
+            this.b.k();
         }
         super.cancel(true);
     }
@@ -36,7 +36,7 @@ public class bf extends BdAsyncTask<String, Integer, String> {
         this.a.B = null;
         this.a.closeLoadingDialog();
         if (this.b != null) {
-            if (this.b.c()) {
+            if (this.b.d()) {
                 this.a.showToast(this.a.getString(R.string.success));
                 Intent intent = new Intent();
                 bool = this.a.b;
@@ -45,11 +45,11 @@ public class bf extends BdAsyncTask<String, Integer, String> {
                 } else {
                     intent.putExtra("data", this.c.a());
                 }
-                TiebaApplication.g().a(this.c.a());
+                TiebaApplication.h().a(this.c.a());
                 this.a.setResult(-1, intent);
                 this.a.finish();
             } else {
-                this.a.showToast(this.b.i());
+                this.a.showToast(this.b.j());
             }
         }
         super.a((bf) str);
@@ -71,11 +71,11 @@ public class bf extends BdAsyncTask<String, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public String a(String... strArr) {
         if (this.c != null) {
-            this.b = new com.baidu.tieba.util.at(com.baidu.tieba.data.h.a + "c/c/profile/modify");
+            this.b = new com.baidu.tieba.util.ax(com.baidu.tieba.data.h.a + "c/c/profile/modify");
             this.b.a("sex", String.valueOf(this.c.a().getSex()));
             this.b.a("intro", this.c.a().getIntro());
-            this.b.n();
-            if (this.b.c()) {
+            this.b.o();
+            if (this.b.d()) {
                 DatabaseService.f();
             }
         }

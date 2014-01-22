@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
+import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.account.LoginActivity;
 import com.baidu.tieba.data.AntiData;
@@ -60,7 +61,7 @@ public class MoreActivity extends com.baidu.tieba.j implements com.baidu.adp.wid
     public void onResume() {
         super.onResume();
         if (TiebaApplication.n()) {
-            if (TiebaApplication.A() == null || TiebaApplication.G() == null || TiebaApplication.G().equals("BaiduUser")) {
+            if (TiebaApplication.A() == null || TiebaApplication.F() == null || TiebaApplication.F().equals("BaiduUser")) {
                 this.a.e();
             } else {
                 this.a.a();
@@ -105,7 +106,7 @@ public class MoreActivity extends com.baidu.tieba.j implements com.baidu.adp.wid
         super.onActivityResult(i, i2, intent);
         if (i2 == -1) {
             switch (i) {
-                case 101:
+                case SocialAPIErrorCodes.ERROR_INVALID_CLIENT_ID /* 101 */:
                     PersonChangeData personChangeData = (PersonChangeData) intent.getSerializableExtra("data");
                     this.b.a(personChangeData);
                     this.b.a(true);
@@ -119,7 +120,7 @@ public class MoreActivity extends com.baidu.tieba.j implements com.baidu.adp.wid
                                 this.a.a(c);
                                 return;
                             } else {
-                                this.d.c(portrait, new ae(this));
+                                this.d.a(portrait, new ae(this));
                                 return;
                             }
                         }
@@ -189,13 +190,13 @@ public class MoreActivity extends com.baidu.tieba.j implements com.baidu.adp.wid
     /* JADX INFO: Access modifiers changed from: private */
     public void f() {
         String str;
-        String str2 = com.baidu.tieba.data.h.i;
+        String str2 = com.baidu.tieba.data.h.g;
         if (str2.indexOf("?") < 0) {
             str2 = str2 + "?";
         } else if (!str2.endsWith("?") && !str2.endsWith("&")) {
             str2 = str2 + "&";
         }
-        if (TiebaApplication.g().an() == 1) {
+        if (TiebaApplication.h().al() == 1) {
             str = str2 + "night_type=1";
         } else {
             str = str2 + "night_type=0";
@@ -231,7 +232,7 @@ public class MoreActivity extends com.baidu.tieba.j implements com.baidu.adp.wid
     public void j() {
         String A = TiebaApplication.A();
         if (A != null && A.length() > 0) {
-            PersonChangeActivity.a(this, 101, this.b.b(), false);
+            PersonChangeActivity.a(this, SocialAPIErrorCodes.ERROR_INVALID_CLIENT_ID, this.b.b(), false);
         }
     }
 

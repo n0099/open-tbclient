@@ -12,10 +12,10 @@ public class ac extends com.baidu.adp.a.d {
     public ac() {
         this.c = 0;
         this.d = 0;
-        TiebaApplication g = TiebaApplication.g();
-        this.c = com.baidu.adp.lib.h.g.b(g);
-        this.d = com.baidu.adp.lib.h.g.c(g);
-        this.e = g.getResources().getDisplayMetrics().density;
+        TiebaApplication h = TiebaApplication.h();
+        this.c = com.baidu.adp.lib.g.g.b(h);
+        this.d = com.baidu.adp.lib.g.g.c(h);
+        this.e = h.getResources().getDisplayMetrics().density;
     }
 
     public void a(String str) {

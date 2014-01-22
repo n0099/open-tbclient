@@ -17,6 +17,7 @@ import com.baidu.tieba.data.UserData;
 import com.baidu.tieba.view.HeadImageView;
 import com.baidu.tieba.view.NavigationBar;
 import com.baidu.tieba.view.UserIconBox;
+import com.baidu.tieba.view.cp;
 import com.slidingmenu.lib.R;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
@@ -41,7 +42,7 @@ public class bu extends com.baidu.adp.a.e {
     protected LinearLayout j;
     protected TextView k;
     protected BdPullRefreshScrollView l;
-    protected com.baidu.tieba.view.bz m;
+    protected cp m;
     protected LinearLayout n;
     protected HeadImageView o;
     protected HeadImageView p;
@@ -102,7 +103,7 @@ public class bu extends com.baidu.adp.a.e {
         this.v = (ProgressBar) this.d.findViewById(R.id.progress);
         this.j = (LinearLayout) this.d.findViewById(R.id.parent);
         this.l = (BdPullRefreshScrollView) this.d.findViewById(R.id.scrollview);
-        this.m = new com.baidu.tieba.view.bz(baseFragmentActivity);
+        this.m = new cp(baseFragmentActivity);
         this.l.setCustomHeaderView(this.m);
         this.D = (LinearLayout) this.d.findViewById(R.id.operation_buttons);
         this.o = (HeadImageView) this.d.findViewById(R.id.photo);
@@ -144,7 +145,7 @@ public class bu extends com.baidu.adp.a.e {
             this.i.setVisibility(0);
             this.h.setVisibility(8);
             this.f.setVisibility(4);
-            int a = com.baidu.adp.lib.h.g.a((Context) this.a, 7.0f);
+            int a = com.baidu.adp.lib.g.g.a((Context) this.a, 7.0f);
             this.w.setPadding(a, 0, a, 0);
         } else {
             this.n.setVisibility(0);
@@ -159,7 +160,7 @@ public class bu extends com.baidu.adp.a.e {
         this.o.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
         this.o.setDefaultResource(0);
         this.o.setNightDefaultResource(0);
-        this.o.setImageBitmap(com.baidu.tieba.util.m.a((int) R.drawable.person_photo));
+        this.o.setImageBitmap(com.baidu.tieba.util.n.a((int) R.drawable.person_photo));
     }
 
     public void a(com.baidu.tieba.model.bx bxVar) {
@@ -215,7 +216,7 @@ public class bu extends com.baidu.adp.a.e {
     public void a(int i, com.baidu.tieba.model.bx bxVar) {
         this.B = bxVar.b();
         this.a.a().a(i == 1);
-        this.a.a().a(this.j);
+        this.a.a().a((View) this.j);
         this.e.c(i);
         this.o.e();
         this.m.a(i);
@@ -259,7 +260,7 @@ public class bu extends com.baidu.adp.a.e {
         if (bxVar != null && bxVar.d() != null && (portrait = bxVar.d().getPortrait()) != null && portrait.length() > 0) {
             com.baidu.adp.widget.ImageView.d c = bxVar.f().c(portrait);
             if (c == null) {
-                bxVar.f().c(portrait, new bv(this));
+                bxVar.f().a(portrait, new bv(this));
                 return;
             }
             this.o.setImageResource(0);

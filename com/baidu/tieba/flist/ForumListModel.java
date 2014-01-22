@@ -4,8 +4,7 @@ import android.content.Context;
 import com.baidu.gson.GsonBuilder;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.ForumInfoData;
-import com.baidu.tieba.util.at;
-import com.baidu.tieba.util.bo;
+import com.baidu.tieba.util.ax;
 import java.io.Serializable;
 import java.util.Arrays;
 /* loaded from: classes.dex */
@@ -60,18 +59,18 @@ public class ForumListModel extends com.baidu.adp.a.d implements Serializable {
             i = (requestParams.menu_type == 2 || !requestParams.menu_name.equals(requestParams.parent_menu_name)) ? 137 : 136;
         }
         b = requestParams.menu_name;
-        at atVar = new at(context, com.baidu.tieba.data.h.a + "c/f/forum/forumrank");
-        atVar.a("rn", String.valueOf(requestParams.rn));
-        atVar.a("offset", String.valueOf(requestParams.offset));
-        atVar.a("recommend_type", String.valueOf(requestParams.recommend_type));
-        atVar.a("menu_name", requestParams.menu_name);
-        atVar.a("menu_type", String.valueOf(i));
-        String l = atVar.l();
-        a = atVar.d();
-        bo.e("DataProvider", "fetch", "fetched raw string\n" + l);
-        ForumListModel forumListModel = (ForumListModel) new GsonBuilder().create().fromJson(l, (Class<Object>) ForumListModel.class);
+        ax axVar = new ax(context, com.baidu.tieba.data.h.a + "c/f/forum/forumrank");
+        axVar.a("rn", String.valueOf(requestParams.rn));
+        axVar.a("offset", String.valueOf(requestParams.offset));
+        axVar.a("recommend_type", String.valueOf(requestParams.recommend_type));
+        axVar.a("menu_name", requestParams.menu_name);
+        axVar.a("menu_type", String.valueOf(i));
+        String m2 = axVar.m();
+        a = axVar.e();
+        com.baidu.adp.lib.g.e.e("DataProvider", "fetch", "fetched raw string\n" + m2);
+        ForumListModel forumListModel = (ForumListModel) new GsonBuilder().create().fromJson(m2, (Class<Object>) ForumListModel.class);
         if (requestParams.rn == 200 && requestParams.recommend_type == 0 && ((i == 9 || i == 136 || requestParams.menu_type == 2) && forumListModel != null && forumListModel.recommend_list_left != null && forumListModel.recommend_list_right != null && forumListModel.editor_recommend != null && forumListModel.forum_class != null && (m = com.baidu.tieba.b.a.a().m()) != null)) {
-            m.a(TiebaApplication.A() + "_" + b + "_list", l, 86400000L);
+            m.a(TiebaApplication.A() + "_" + b + "_list", m2, 86400000L);
         }
         return forumListModel;
     }

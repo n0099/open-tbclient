@@ -14,19 +14,19 @@ class bs implements Handler.Callback {
     @Override // android.os.Handler.Callback
     public boolean handleMessage(Message message) {
         com.baidu.tieba.model.bm bmVar;
-        cs csVar;
-        cs csVar2;
+        cr crVar;
+        cr crVar2;
         switch (message.what) {
             case 0:
-                csVar2 = this.a.z;
-                csVar2.ac();
+                crVar2 = this.a.A;
+                crVar2.ac();
                 return false;
             case 1:
-                csVar = this.a.z;
-                csVar.ab();
+                crVar = this.a.A;
+                crVar.ab();
                 return false;
             case 2:
-                bmVar = this.a.t;
+                bmVar = this.a.u;
                 if (bmVar.t()) {
                     this.a.t();
                     return false;

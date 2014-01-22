@@ -13,5 +13,21 @@ public class v implements DialogInterface.OnClickListener {
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
+        com.baidu.tieba.im.model.n nVar;
+        ac acVar;
+        int i2 = 0;
+        switch (i) {
+            case 1:
+                i2 = 1;
+                break;
+            case 2:
+                i2 = 2;
+                break;
+        }
+        nVar = this.a.c;
+        nVar.a(i2);
+        acVar = this.a.b;
+        acVar.c(i);
+        this.a.g();
     }
 }

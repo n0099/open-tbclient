@@ -11,11 +11,11 @@ import com.baidu.tieba.widget.share.ShareJsBridge;
 /* loaded from: classes.dex */
 public class BaseWebView extends WebView {
     private WebViewClient a;
-    private h b;
+    private d b;
     private Context c;
-    private h d;
-    private j e;
-    private i f;
+    private d d;
+    private f e;
+    private e f;
 
     public BaseWebView(Context context) {
         super(context);
@@ -57,7 +57,7 @@ public class BaseWebView extends WebView {
         UtilHelper.a(getSettings());
         this.a = new MyWebViewClient();
         setWebViewClient(this.a);
-        setOnLongClickListener(new f(this));
+        setOnLongClickListener(new b(this));
     }
 
     /* loaded from: classes.dex */
@@ -102,19 +102,19 @@ public class BaseWebView extends WebView {
         }
     }
 
-    public void setOnLoadUrlListener(h hVar) {
-        this.b = hVar;
+    public void setOnLoadUrlListener(d dVar) {
+        this.b = dVar;
     }
 
-    public void setOnPageStartedListener(j jVar) {
-        this.e = jVar;
+    public void setOnPageStartedListener(f fVar) {
+        this.e = fVar;
     }
 
-    public void setOnPageFinishedListener(i iVar) {
-        this.f = iVar;
+    public void setOnPageFinishedListener(e eVar) {
+        this.f = eVar;
     }
 
     private void b() {
-        this.d = new g(this);
+        this.d = new c(this);
     }
 }

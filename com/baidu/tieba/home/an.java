@@ -14,7 +14,7 @@ public class an implements View.OnFocusChangeListener {
     @Override // android.view.View.OnFocusChangeListener
     public void onFocusChange(View view, boolean z) {
         if (!z) {
-            com.baidu.adp.lib.h.g.a(this.a, view);
+            com.baidu.adp.lib.g.g.a(this.a, view);
         }
     }
 }

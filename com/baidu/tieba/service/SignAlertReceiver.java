@@ -12,7 +12,7 @@ import com.slidingmenu.lib.R;
 public class SignAlertReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        TiebaApplication g;
+        TiebaApplication h;
         if (intent.getAction().equals("com.baidu.tieba.broadcast.signalert")) {
             try {
                 Intent intent2 = new Intent(context, DealIntentService.class);
@@ -34,10 +34,10 @@ public class SignAlertReceiver extends BroadcastReceiver {
                     notification.defaults &= -2;
                     notification.defaults &= -3;
                 } else {
-                    if (!TiebaApplication.g().U()) {
+                    if (!TiebaApplication.h().T()) {
                         notification.defaults &= -3;
                     }
-                    if (!TiebaApplication.g().T()) {
+                    if (!TiebaApplication.h().S()) {
                         notification.defaults &= -2;
                     } else {
                         notification.audioStreamType = 5;
@@ -45,19 +45,19 @@ public class SignAlertReceiver extends BroadcastReceiver {
                 }
                 notification.flags |= 16;
                 ((NotificationManager) context.getSystemService("notification")).notify(12, notification);
-                g = TiebaApplication.g();
+                h = TiebaApplication.h();
             } catch (Throwable th) {
                 try {
-                    if (com.baidu.adp.lib.h.e.a()) {
-                        com.baidu.adp.lib.h.e.a(th.getMessage());
+                    if (com.baidu.adp.lib.g.e.a()) {
+                        com.baidu.adp.lib.g.e.a(th.getMessage());
                     }
-                    g = TiebaApplication.g();
+                    h = TiebaApplication.h();
                 } catch (Throwable th2) {
-                    TiebaApplication.g().af();
+                    TiebaApplication.h().ae();
                     throw th2;
                 }
             }
-            g.af();
+            h.ae();
         }
     }
 }

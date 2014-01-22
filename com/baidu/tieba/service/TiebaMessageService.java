@@ -6,7 +6,6 @@ import android.os.Handler;
 import android.os.IBinder;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.ak;
-import com.baidu.tieba.util.bo;
 /* loaded from: classes.dex */
 public class TiebaMessageService extends Service {
     private n a = null;
@@ -45,7 +44,7 @@ public class TiebaMessageService extends Service {
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
-        if (!TiebaApplication.g().ab()) {
+        if (!TiebaApplication.h().aa()) {
             stopSelf();
             return;
         }
@@ -70,7 +69,7 @@ public class TiebaMessageService extends Service {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i) {
         try {
-            if (TiebaApplication.A() != null && TiebaApplication.G() != null) {
+            if (TiebaApplication.A() != null && TiebaApplication.F() != null) {
                 if (i == 1 || i == 3) {
                     if (this.a != null) {
                         this.a.cancel();
@@ -89,23 +88,23 @@ public class TiebaMessageService extends Service {
                 }
             }
         } catch (Exception e) {
-            bo.b(getClass().getName(), "getMsg", e.getMessage());
+            com.baidu.adp.lib.g.e.b(getClass().getName(), "getMsg", e.getMessage());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(int i) {
         if (this.c != null && this.c.a() >= 0 && this.c.b() >= 0 && this.c.c() >= 0 && this.c.d() >= 0 && this.c.e() >= 0) {
-            if (!TiebaApplication.g().Y()) {
+            if (!TiebaApplication.h().X()) {
                 this.c.a(0);
             }
-            if (!TiebaApplication.g().X()) {
+            if (!TiebaApplication.h().W()) {
                 this.c.b(0);
             }
-            if (!TiebaApplication.g().W()) {
+            if (!TiebaApplication.h().V()) {
                 this.c.c(0);
             }
-            if (!TiebaApplication.g().Z()) {
+            if (!TiebaApplication.h().Y()) {
                 this.c.d(0);
             }
             Intent intent = new Intent("com.baidu.tieba.broadcast.service");
@@ -119,7 +118,7 @@ public class TiebaMessageService extends Service {
                 intent.putExtra("new_bookmark", this.c.e());
             }
             sendBroadcast(intent);
-            bo.a(getClass().getName(), "broadcastMsg", "sendBroadcast: " + String.format("%d %d %d %d", Integer.valueOf(this.c.a()), Integer.valueOf(this.c.b()), Integer.valueOf(this.c.c()), Integer.valueOf(this.c.e())));
+            com.baidu.adp.lib.g.e.a(getClass().getName(), "broadcastMsg", "sendBroadcast: " + String.format("%d %d %d %d", Integer.valueOf(this.c.a()), Integer.valueOf(this.c.b()), Integer.valueOf(this.c.c()), Integer.valueOf(this.c.e())));
         }
     }
 }

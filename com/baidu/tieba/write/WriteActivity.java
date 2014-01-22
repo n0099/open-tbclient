@@ -36,16 +36,16 @@ import com.baidu.tieba.model.bc;
 import com.baidu.tieba.service.TiebaPrepareImageService;
 import com.baidu.tieba.util.DatabaseService;
 import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.bl;
-import com.baidu.tieba.util.bo;
+import com.baidu.tieba.util.bs;
 import com.baidu.tieba.view.NavigationBar;
+import com.baidu.tieba.view.bn;
 import com.baidu.tieba.voice.VoiceManager;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class WriteActivity extends com.baidu.tieba.j implements com.baidu.tieba.voice.af {
-    private com.baidu.tieba.util.i E;
-    private VoiceManager J;
-    private Toast y;
+    private com.baidu.tieba.util.i C;
+    private VoiceManager H;
+    private Toast w;
     private WriteData b = null;
     private boolean c = false;
     private boolean d = false;
@@ -63,23 +63,21 @@ public class WriteActivity extends com.baidu.tieba.j implements com.baidu.tieba.
     private am o = null;
     private DialogInterface.OnCancelListener p = null;
     private AlertDialog q = null;
-    private Bitmap r = null;
-    private Handler s = new Handler();
-    private boolean t = false;
-    private boolean u = false;
-    private String v = null;
-    private RelativeLayout w = null;
-    private LinearLayout x = null;
-    private String z = null;
-    private WriteEditorToolButtonContainer A = null;
-    private EditorToolComponetContainer B = null;
-    private WriteImagePreview C = null;
-    private LinearLayout D = null;
-    private Runnable F = new t(this);
-    private View.OnClickListener G = new ad(this);
-    private boolean H = true;
-    private View.OnFocusChangeListener I = new ae(this);
-    private bc K = new ac(this);
+    private Handler r = new Handler();
+    private boolean s = false;
+    private String t = null;
+    private RelativeLayout u = null;
+    private LinearLayout v = null;
+    private String x = null;
+    private WriteEditorToolButtonContainer y = null;
+    private EditorToolComponetContainer z = null;
+    private WriteImagePreview A = null;
+    private LinearLayout B = null;
+    private Runnable D = new t(this);
+    private View.OnClickListener E = new ad(this);
+    private boolean F = true;
+    private View.OnFocusChangeListener G = new ae(this);
+    private bc I = new ac(this);
 
     @Override // com.baidu.tieba.j
     public void showLoadingDialog(String str, DialogInterface.OnCancelListener onCancelListener) {
@@ -89,10 +87,10 @@ public class WriteActivity extends com.baidu.tieba.j implements com.baidu.tieba.
 
     /* JADX INFO: Access modifiers changed from: private */
     public void n() {
-        if (!this.H) {
-            this.A.a();
+        if (!this.F) {
+            this.y.a();
         } else {
-            this.A.b();
+            this.y.b();
         }
     }
 
@@ -112,7 +110,7 @@ public class WriteActivity extends com.baidu.tieba.j implements com.baidu.tieba.
     @Override // com.baidu.tieba.j, android.app.Activity
     public void onStop() {
         super.onStop();
-        this.B.t();
+        this.z.t();
         d_().f(this);
     }
 
@@ -139,7 +137,7 @@ public class WriteActivity extends com.baidu.tieba.j implements com.baidu.tieba.
 
     private static void a(Activity activity, int i, String str, String str2, String str3, String str4, int i2, AntiData antiData, int i3, boolean z, boolean z2, String str5, boolean z3, boolean z4, String str6) {
         if (antiData != null && antiData.getIfpost() == 0) {
-            com.baidu.adp.lib.h.g.a((Context) activity, antiData.getForbid_info());
+            com.baidu.adp.lib.g.g.a((Context) activity, antiData.getForbid_info());
             return;
         }
         Intent intent = new Intent(activity, WriteActivity.class);
@@ -179,7 +177,7 @@ public class WriteActivity extends com.baidu.tieba.j implements com.baidu.tieba.
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.e = (InputMethodManager) getSystemService("input_method");
-        this.E = new com.baidu.tieba.util.i(this);
+        this.C = new com.baidu.tieba.util.i(this);
         a(bundle);
         p();
     }
@@ -193,15 +191,15 @@ public class WriteActivity extends com.baidu.tieba.j implements com.baidu.tieba.
             this.o = null;
         }
         r();
-        this.C.c();
-        TiebaApplication.g().aP();
+        this.A.c();
+        TiebaApplication.h().aN();
         super.onDestroy();
         d_().g(this);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void o() {
-        if (this.b != null && this.b.getType() == 2 && this.u) {
+        if (this.b != null && this.b.getType() == 2 && this.s) {
             finish();
         } else if (this.q != null && (this.f.getText().toString().length() > 0 || this.h.getText().toString().length() > 0)) {
             if (this.d) {
@@ -240,9 +238,9 @@ public class WriteActivity extends com.baidu.tieba.j implements com.baidu.tieba.
     @Override // com.baidu.tieba.j, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            if (this.B.j()) {
-                this.A.c();
-                this.B.k();
+            if (this.z.j()) {
+                this.y.c();
+                this.z.k();
                 return false;
             }
             o();
@@ -258,9 +256,9 @@ public class WriteActivity extends com.baidu.tieba.j implements com.baidu.tieba.
         int color2;
         super.onChangeSkinType(i);
         getLayoutMode().a(i == 1);
-        getLayoutMode().a(this.w);
+        getLayoutMode().a((View) this.u);
         this.k.c(i);
-        bl.h(this.m, i);
+        bs.h(this.m, i);
         n();
         if (i == 1) {
             this.f.setBackgroundColor(getResources().getColor(R.color.write_title_bg_1));
@@ -275,13 +273,13 @@ public class WriteActivity extends com.baidu.tieba.j implements com.baidu.tieba.
             color = getResources().getColor(R.color.write_text);
             color2 = getResources().getColor(R.color.write_hint_text);
         }
-        this.A.a(i);
+        this.y.a(i);
         this.f.setTextColor(color);
         this.h.setTextColor(color);
         a(this.f, color2);
         a(this.h, color2);
         t();
-        this.B.b(i);
+        this.z.a(i);
     }
 
     private void a(EditText editText, int i) {
@@ -300,15 +298,15 @@ public class WriteActivity extends com.baidu.tieba.j implements com.baidu.tieba.
         this.n = this.k.a("");
         this.l = this.k.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.m = this.k.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(R.string.send));
-        this.m.setOnFocusChangeListener(this.I);
-        this.x = (LinearLayout) findViewById(R.id.tool_view);
-        this.w = (RelativeLayout) findViewById(R.id.parent);
+        this.m.setOnFocusChangeListener(this.G);
+        this.v = (LinearLayout) findViewById(R.id.tool_view);
+        this.u = (RelativeLayout) findViewById(R.id.parent);
         a();
         this.g = (FrameLayout) findViewById(R.id.interval_view);
-        f();
-        this.s.postDelayed(this.F, 200L);
+        e();
+        this.r.postDelayed(this.D, 200L);
         g();
-        this.l.setOnFocusChangeListener(this.I);
+        this.l.setOnFocusChangeListener(this.G);
         this.l.setOnClickListener(new af(this));
         k();
         h();
@@ -335,8 +333,8 @@ public class WriteActivity extends com.baidu.tieba.j implements com.baidu.tieba.
     }
 
     protected void a() {
-        this.C = (WriteImagePreview) findViewById(R.id.image_preview);
-        this.C.setOnActionListener(new ag(this));
+        this.A = (WriteImagePreview) findViewById(R.id.image_preview);
+        this.A.setOnActionListener(new ag(this));
     }
 
     protected void b() {
@@ -360,10 +358,10 @@ public class WriteActivity extends com.baidu.tieba.j implements com.baidu.tieba.
         this.q = builder.create();
     }
 
-    protected void f() {
+    protected void e() {
         this.f = (EditText) findViewById(R.id.post_title);
-        this.f.setOnClickListener(this.G);
-        this.f.setOnFocusChangeListener(this.I);
+        this.f.setOnClickListener(this.E);
+        this.f.setOnFocusChangeListener(this.G);
         if (this.b.getType() == 0) {
             if (this.b.getTitle() != null) {
                 this.f.setText(this.b.getTitle());
@@ -378,13 +376,13 @@ public class WriteActivity extends com.baidu.tieba.j implements com.baidu.tieba.
 
     protected void g() {
         this.h = (EditText) findViewById(R.id.post_content);
-        this.h.setOnClickListener(this.G);
+        this.h.setOnClickListener(this.E);
         if (this.b.getContent() != null && this.b.getContent().length() > 0) {
             this.h.setText(TbFaceManager.a().a(this, this.b.getContent()));
         } else if (this.b.getType() == 2) {
-            if (this.u) {
-                if (this.v != null && this.v.length() > 0) {
-                    this.h.setText(getString(R.string.reply_sub_floor, new Object[]{this.v}));
+            if (this.s) {
+                if (this.t != null && this.t.length() > 0) {
+                    this.h.setText(getString(R.string.reply_sub_floor, new Object[]{this.t}));
                     this.h.setSelection(this.h.getText().length());
                 }
             } else if (this.b.getFloorNum() > 0) {
@@ -414,67 +412,67 @@ public class WriteActivity extends com.baidu.tieba.j implements com.baidu.tieba.
             stringBuffer.append(":");
             this.h.setText(stringBuffer);
         }
-        this.h.setOnFocusChangeListener(this.I);
+        this.h.setOnFocusChangeListener(this.G);
         this.h.setOnTouchListener(new v(this));
         this.h.addTextChangedListener(new w(this));
     }
 
     protected void h() {
-        this.B = (EditorToolComponetContainer) findViewById(R.id.tool_group);
-        this.B.setFrom(1);
-        this.B.setOnActionListener(new x(this));
+        this.z = (EditorToolComponetContainer) findViewById(R.id.tool_group);
+        this.z.setFrom(1);
+        this.z.setOnActionListener(new x(this));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void i() {
-        this.A.c();
-        if (this.B.j()) {
-            this.B.k();
+        this.y.c();
+        if (this.z.j()) {
+            this.z.k();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void j() {
-        this.B.c(this.h);
+        this.z.c(this.h);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(int i) {
-        if (this.B.j()) {
+        if (this.z.j()) {
             b(i);
             return;
         }
-        this.B.b(this.f);
-        this.B.b(this.h);
+        this.z.b(this.f);
+        this.z.b(this.h);
         new Handler().postDelayed(new y(this, i), 200L);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void b(int i) {
         if (i == 2) {
-            this.B.m();
+            this.z.m();
         } else if (i == 5) {
-            this.B.n();
+            this.z.n();
         } else if (i == 8) {
-            this.B.o();
+            this.z.o();
         }
     }
 
     protected void k() {
-        this.A = (WriteEditorToolButtonContainer) findViewById(R.id.write_eidtor_tool_buttons);
-        this.D = (LinearLayout) findViewById(R.id.mGallery);
-        this.A.b();
-        this.A.setAtFocusable(false);
-        this.A.setOnActionListener(new z(this));
+        this.y = (WriteEditorToolButtonContainer) findViewById(R.id.write_eidtor_tool_buttons);
+        this.B = (LinearLayout) findViewById(R.id.mGallery);
+        this.y.b();
+        this.y.setAtFocusable(false);
+        this.y.setOnActionListener(new z(this));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(com.baidu.tieba.editortool.q qVar) {
         if (((ImageSpan[]) this.h.getText().getSpans(0, this.h.getText().length(), ImageSpan.class)).length >= 10) {
-            if (this.y == null) {
-                this.y = Toast.makeText(this, (int) R.string.too_many_face, 0);
+            if (this.w == null) {
+                this.w = Toast.makeText(this, (int) R.string.too_many_face, 0);
             }
-            this.y.show();
+            this.w.show();
             return;
         }
         String a = qVar.a();
@@ -482,7 +480,7 @@ public class WriteActivity extends com.baidu.tieba.j implements com.baidu.tieba.
         if (a != null) {
             int selectionStart = this.h.getSelectionStart();
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(a);
-            com.baidu.adp.widget.ImageView.d a2 = this.E.a(a, false, (com.baidu.tbadk.imageManager.c) new aa(this, spannableStringBuilder, selectionStart, b));
+            com.baidu.adp.widget.ImageView.d a2 = this.C.a(a, false, (com.baidu.tbadk.imageManager.c) new aa(this, spannableStringBuilder, selectionStart, b));
             if (a2 != null) {
                 a(spannableStringBuilder, selectionStart, a2, b);
             }
@@ -492,10 +490,10 @@ public class WriteActivity extends com.baidu.tieba.j implements com.baidu.tieba.
     /* JADX INFO: Access modifiers changed from: private */
     public void a(SpannableStringBuilder spannableStringBuilder, int i, com.baidu.adp.widget.ImageView.d dVar, WritableEmotionGroup.EmotionGroupType emotionGroupType) {
         Bitmap h = dVar.h();
-        com.baidu.tieba.view.bb bbVar = new com.baidu.tieba.view.bb(h);
-        bbVar.setBounds(0, 0, h.getWidth() + 1, h.getHeight());
-        bbVar.setGravity(3);
-        spannableStringBuilder.setSpan(new ImageSpan(bbVar, 0), 0, spannableStringBuilder.length(), 33);
+        bn bnVar = new bn(h);
+        bnVar.setBounds(0, 0, h.getWidth() + 1, h.getHeight());
+        bnVar.setGravity(3);
+        spannableStringBuilder.setSpan(new ImageSpan(bnVar, 0), 0, spannableStringBuilder.length(), 33);
         this.h.getText().insert(i, spannableStringBuilder);
     }
 
@@ -510,9 +508,9 @@ public class WriteActivity extends com.baidu.tieba.j implements com.baidu.tieba.
             str = this.b.getForumName();
         }
         if (com.baidu.tieba.f.a.a(str, bool)) {
-            this.A.a(true);
+            this.y.a(true);
         } else {
-            this.A.a(false);
+            this.y.a(false);
         }
     }
 
@@ -526,7 +524,7 @@ public class WriteActivity extends com.baidu.tieba.j implements com.baidu.tieba.
                 this.q.dismiss();
             }
         } catch (Exception e) {
-            bo.b(getClass().getName(), "closeDialog", e.getMessage());
+            com.baidu.adp.lib.g.e.b(getClass().getName(), "closeDialog", e.getMessage());
         }
     }
 
@@ -538,7 +536,7 @@ public class WriteActivity extends com.baidu.tieba.j implements com.baidu.tieba.
                 bool = Boolean.valueOf(intent.getBooleanExtra("enable_audio", true));
             }
             if (intent.hasExtra("disable_audio_message")) {
-                this.z = intent.getStringExtra("disable_audio_message");
+                this.x = intent.getStringExtra("disable_audio_message");
             }
         }
         return bool;
@@ -550,16 +548,16 @@ public class WriteActivity extends com.baidu.tieba.j implements com.baidu.tieba.
         if (this.b.getType() == 0) {
             trim = this.f.getText().toString().trim();
         } else {
-            if (this.C.f()) {
+            if (this.A.f()) {
                 trim = SocialConstants.TRUE;
             } else {
                 trim = this.h.getText().toString().trim();
             }
-            if (this.B.q()) {
+            if (this.z.q()) {
                 trim = SocialConstants.TRUE;
             }
         }
-        if (this.C.b() || trim == null || trim.length() <= 0) {
+        if (this.A.b() || trim == null || trim.length() <= 0) {
             this.m.setEnabled(false);
             if (this.mSkinType == 1) {
             }
@@ -583,8 +581,8 @@ public class WriteActivity extends com.baidu.tieba.j implements com.baidu.tieba.
             intExtra = bundle.getInt("floor_num", 0);
             this.b.setFloorNum(intExtra);
             this.c = bundle.getBoolean("feed_back", false);
-            this.u = bundle.getBoolean("reply_sub_pb", false);
-            this.v = bundle.getString("sub_user_name");
+            this.s = bundle.getBoolean("reply_sub_pb", false);
+            this.t = bundle.getString("sub_user_name");
         } else {
             Intent intent = getIntent();
             this.b.setType(intent.getIntExtra("type", 0));
@@ -595,8 +593,8 @@ public class WriteActivity extends com.baidu.tieba.j implements com.baidu.tieba.
             intExtra = intent.getIntExtra("floor_num", 0);
             this.b.setFloorNum(intExtra);
             this.c = intent.getBooleanExtra("feed_back", false);
-            this.u = intent.getBooleanExtra("reply_sub_pb", false);
-            this.v = intent.getStringExtra("sub_user_name");
+            this.s = intent.getBooleanExtra("reply_sub_pb", false);
+            this.t = intent.getStringExtra("sub_user_name");
         }
         WriteData a = DatabaseService.a(this.b.getType(), this.b.getForumId(), this.b.getThreadId(), this.b.getFloor());
         if (a != null) {
@@ -605,15 +603,15 @@ public class WriteActivity extends com.baidu.tieba.j implements com.baidu.tieba.
             this.b.setHaveDraft(true);
         }
         this.j = new com.baidu.tieba.model.ba(this);
-        this.j.a(this.K);
+        this.j.a(this.I);
     }
 
     private void u() {
         if (getIntent().getBooleanExtra("refresh_pic", false)) {
             if (getIntent().getStringExtra("file_name") != null) {
-                this.C.a(getIntent().getStringExtra("file_name"));
+                this.A.a(getIntent().getStringExtra("file_name"));
             } else {
-                this.C.a("tieba_resized_image_display");
+                this.A.a("tieba_resized_image_display");
             }
         }
     }
@@ -626,7 +624,7 @@ public class WriteActivity extends com.baidu.tieba.j implements com.baidu.tieba.
         bundle.putString("thread_id", this.b.getThreadId());
         bundle.putString("floor_id", this.b.getFloor());
         bundle.putInt("floor_num", this.b.getFloorNum());
-        bundle.putBoolean("reply_sub_pb", this.u);
+        bundle.putBoolean("reply_sub_pb", this.s);
         if (this.c) {
             bundle.putBoolean("feed_back", true);
         }
@@ -662,25 +660,25 @@ public class WriteActivity extends com.baidu.tieba.j implements com.baidu.tieba.
         if (i2 == -1) {
             if (i == 12003) {
                 if (intent.getBooleanExtra("delete", false)) {
-                    this.C.e();
+                    this.A.e();
                     return;
                 }
                 if (intent.getBooleanExtra("change", false)) {
                     if (intent.getStringExtra("file_name") != null) {
-                        this.C.a(intent.getStringExtra("file_name"));
+                        this.A.a(intent.getStringExtra("file_name"));
                     } else {
-                        this.C.a("tieba_resized_image");
+                        this.A.a("tieba_resized_image");
                     }
                 }
                 t();
             } else if (i == 12010 || i == 12009) {
                 if (intent.getStringExtra("file_name") != null) {
-                    this.C.a(intent.getStringExtra("file_name"));
+                    this.A.a(intent.getStringExtra("file_name"));
                 } else {
-                    this.C.a("tieba_resized_image");
+                    this.A.a("tieba_resized_image");
                 }
                 t();
-                if (!this.B.j()) {
+                if (!this.z.j()) {
                     ShowSoftKeyPadDelay(this.h, 300);
                 }
             } else if (i == 12004) {
@@ -693,7 +691,7 @@ public class WriteActivity extends com.baidu.tieba.j implements com.baidu.tieba.
                 setResult(-1);
                 finish();
             } else {
-                this.C.c();
+                this.A.c();
                 if (i == 12002) {
                     if (intent != null && intent.getData() != null) {
                         WriteImageActivity.a(this, 12002, 12009, intent.getData(), null, null, null);
@@ -733,10 +731,10 @@ public class WriteActivity extends com.baidu.tieba.j implements com.baidu.tieba.
 
     @Override // com.baidu.tieba.voice.af
     public synchronized VoiceManager d_() {
-        if (this.J == null) {
-            this.J = VoiceManager.c();
+        if (this.H == null) {
+            this.H = VoiceManager.c();
         }
-        return this.J;
+        return this.H;
     }
 
     @Override // com.baidu.tieba.voice.af

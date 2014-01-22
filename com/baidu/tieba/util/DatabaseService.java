@@ -7,7 +7,6 @@ import android.database.sqlite.SQLiteDatabaseCorruptException;
 import android.database.sqlite.SQLiteException;
 import android.graphics.Bitmap;
 import android.text.TextUtils;
-import com.baidu.browser.explorer.BdWebErrorView;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.AccountData;
@@ -29,15 +28,18 @@ public class DatabaseService {
         SDCARD
     }
 
-    public static void a(Throwable th) {
-        if (th != null && (th instanceof SQLiteException) && (((SQLiteException) th) instanceof SQLiteDatabaseCorruptException)) {
-            com.baidu.adp.lib.h.e.b("database corrupted.  recreate!");
-            try {
-                v.a(TiebaApplication.g());
-            } catch (Throwable th2) {
-                com.baidu.adp.lib.h.e.a("failed to drop database. msg:" + th2.getMessage());
+    public static void a(Throwable th, String str) {
+        if (th != null) {
+            by.a(th, str, new Object[0]);
+            if ((th instanceof SQLiteException) && (((SQLiteException) th) instanceof SQLiteDatabaseCorruptException)) {
+                com.baidu.adp.lib.g.e.b("database corrupted.  recreate!");
+                try {
+                    w.a(TiebaApplication.h());
+                } catch (Throwable th2) {
+                    com.baidu.adp.lib.g.e.a("failed to drop database. msg:" + th2.getMessage());
+                }
+                c = null;
             }
-            c = null;
         }
     }
 
@@ -46,9 +48,10 @@ public class DatabaseService {
             this.e = DatabaseLocation.INNER;
             if (c == null || !c.isOpen()) {
                 try {
-                    c = new v(TiebaApplication.g()).getWritableDatabase();
+                    c = new w(TiebaApplication.h()).getWritableDatabase();
                 } catch (Exception e) {
-                    bo.b("DatabaseService", "DatabaseService", "error = " + e.getMessage());
+                    by.a(e, "DatabaseService", new Object[0]);
+                    com.baidu.adp.lib.g.e.b("DatabaseService", "DatabaseService", "error = " + e.getMessage());
                 }
             }
         }
@@ -61,14 +64,15 @@ public class DatabaseService {
                 if (this.e != DatabaseLocation.INNER || c == null || !c.isOpen()) {
                     try {
                         if (this.e == DatabaseLocation.SDCARD) {
-                            w wVar = new w();
-                            wVar.a(new y(this));
-                            d = wVar.a();
+                            x xVar = new x();
+                            xVar.a(new z(this));
+                            d = xVar.a();
                         } else {
-                            c = new v(TiebaApplication.g()).getWritableDatabase();
+                            c = new w(TiebaApplication.h()).getWritableDatabase();
                         }
                     } catch (Exception e) {
-                        bo.b("DatabaseService", "DatabaseService", "error = " + e.getMessage());
+                        by.a(e, "DatabaseService", new Object[0]);
+                        com.baidu.adp.lib.g.e.b("DatabaseService", "DatabaseService", "error = " + e.getMessage());
                     }
                 }
             }
@@ -79,13 +83,16 @@ public class DatabaseService {
         try {
             if (this.e == DatabaseLocation.SDCARD && d != null) {
                 d.execSQL(str);
+                return true;
             } else if (this.e == DatabaseLocation.INNER && c != null) {
                 c.execSQL(str);
+                return true;
+            } else {
+                return true;
             }
-            return true;
         } catch (Exception e) {
-            bo.a(3, "DatabaseService", "ExecSQL", str + "   error = " + e.getMessage());
-            return false;
+            com.baidu.adp.lib.g.e.b(getClass().getName(), "ExecSQL", str + "   error = " + e.getMessage());
+            throw e;
         }
     }
 
@@ -103,25 +110,25 @@ public class DatabaseService {
             }
             return true;
         } catch (Exception e) {
-            bo.b("DatabaseService", "ExecSQL", "error = " + e.getMessage());
-            bo.b("DatabaseService", "ExecSQL", str);
-            return false;
+            com.baidu.adp.lib.g.e.b("DatabaseService", "ExecSQL", "error = " + e.getMessage());
+            com.baidu.adp.lib.g.e.b("DatabaseService", "ExecSQL", str);
+            throw e;
         }
     }
 
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:16:0x004b -> B:7:0x0010). Please submit an issue!!! */
     public Cursor a(String str, String[] strArr) {
         try {
-        } catch (Exception e) {
-            bo.b("DatabaseService", "rawQuery", "error = " + e.getMessage() + " sql = " + str);
-        }
-        if (this.e == DatabaseLocation.SDCARD && d != null) {
-            return d.rawQuery(str, strArr);
-        }
-        if (this.e == DatabaseLocation.INNER && c != null) {
+            if (this.e == DatabaseLocation.SDCARD && d != null) {
+                return d.rawQuery(str, strArr);
+            }
+            if (this.e != DatabaseLocation.INNER || c == null) {
+                return null;
+            }
             return c.rawQuery(str, strArr);
+        } catch (Exception e) {
+            com.baidu.adp.lib.g.e.b("DatabaseService", "rawQuery", "error = " + e.getMessage() + " sql = " + str);
+            throw e;
         }
-        return null;
     }
 
     public static com.baidu.tieba.util.a.f a(String str, long j) {
@@ -136,23 +143,22 @@ public class DatabaseService {
         return a("user_icon", str, 0L);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [311=5, 312=5, 314=5] */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:56:0x00b4 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r2v0, types: [com.baidu.tieba.util.DatabaseService$DatabaseLocation] */
-    /* JADX WARN: Type inference failed for: r2v1, types: [android.database.Cursor] */
-    /* JADX WARN: Type inference failed for: r2v2 */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [326=5, 327=5, 329=5, 330=5] */
+    /* JADX WARN: Removed duplicated region for block: B:74:0x0143 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     private static com.baidu.tieba.util.a.f a(String str, String str2, long j) {
         Cursor cursor;
+        Throwable th;
         com.baidu.tieba.util.a.f fVar = null;
         if (str2 != null) {
-            ?? r2 = DatabaseLocation.SDCARD;
-            DatabaseService databaseService = new DatabaseService(r2);
-            try {
-                if (databaseService != null) {
-                    try {
-                        cursor = databaseService.a("select * from " + str + " where key = ?", new String[]{str2});
-                        if (cursor != null) {
+            DatabaseService databaseService = new DatabaseService(DatabaseLocation.SDCARD);
+            if (databaseService != null) {
+                try {
+                    cursor = databaseService.a("select * from " + str + " where key = ?", new String[]{str2});
+                    if (cursor != null) {
+                        try {
                             try {
                                 if (cursor.moveToFirst()) {
                                     long j2 = cursor.getLong(3);
@@ -160,17 +166,19 @@ public class DatabaseService {
                                         if (j2 == 0 || j == 0 || j <= j2) {
                                             com.baidu.tieba.util.a.f fVar2 = new com.baidu.tieba.util.a.f();
                                             try {
-                                                fVar2.a = m.a(cursor.getBlob(1));
+                                                fVar2.a = n.a(cursor.getBlob(1));
                                                 fVar2.b = j2;
                                                 fVar = fVar2;
                                             } catch (Exception e) {
                                                 fVar = fVar2;
                                                 e = e;
-                                                bo.b("DatabaseService", "getPhoto", "error = " + e.getMessage());
+                                                com.baidu.adp.lib.g.e.b("DatabaseService", "getPhoto", "error = " + e.getMessage());
+                                                by.a(e, "DatabaseService.getPhoto" + str, new Object[0]);
                                                 if (cursor != null) {
                                                     try {
                                                         cursor.close();
                                                     } catch (Exception e2) {
+                                                        by.a(e2, "DatabaseService.getPhoto" + str + "close cursor", new Object[0]);
                                                     }
                                                 }
                                                 return fVar;
@@ -179,51 +187,58 @@ public class DatabaseService {
                                             try {
                                                 cursor.close();
                                             } catch (Exception e3) {
+                                                by.a(e3, "DatabaseService.getPhoto" + str + "close cursor", new Object[0]);
                                             }
                                         }
                                     } else if (cursor != null) {
                                         try {
                                             cursor.close();
                                         } catch (Exception e4) {
+                                            by.a(e4, "DatabaseService.getPhoto" + str + "close cursor", new Object[0]);
                                         }
                                     }
                                 }
                             } catch (Exception e5) {
                                 e = e5;
                             }
-                        }
-                    } catch (Exception e6) {
-                        e = e6;
-                        cursor = null;
-                    } catch (Throwable th) {
-                        r2 = 0;
-                        th = th;
-                        if (r2 != 0) {
-                            try {
-                                r2.close();
-                            } catch (Exception e7) {
+                        } catch (Throwable th2) {
+                            th = th2;
+                            if (cursor != null) {
+                                try {
+                                    cursor.close();
+                                } catch (Exception e6) {
+                                    by.a(e6, "DatabaseService.getPhoto" + str + "close cursor", new Object[0]);
+                                }
                             }
+                            throw th;
                         }
-                        throw th;
                     }
-                } else {
+                } catch (Exception e7) {
+                    e = e7;
                     cursor = null;
-                }
-                if (cursor != null) {
-                    try {
-                        cursor.close();
-                    } catch (Exception e8) {
+                } catch (Throwable th3) {
+                    cursor = null;
+                    th = th3;
+                    if (cursor != null) {
                     }
+                    throw th;
                 }
-            } catch (Throwable th2) {
-                th = th2;
+            } else {
+                cursor = null;
+            }
+            if (cursor != null) {
+                try {
+                    cursor.close();
+                } catch (Exception e8) {
+                    by.a(e8, "DatabaseService.getPhoto" + str + "close cursor", new Object[0]);
+                }
             }
         }
         return fVar;
     }
 
     public static void a(String str, Bitmap bitmap, long j) {
-        a("pb_photo", BdWebErrorView.ERROR_CODE_500, str, bitmap, j);
+        a("pb_photo", 500, str, bitmap, j);
     }
 
     public static void a(String str, Bitmap bitmap) {
@@ -231,74 +246,87 @@ public class DatabaseService {
     }
 
     public static void b(String str, Bitmap bitmap, long j) {
-        a("friend_photo", BdWebErrorView.ERROR_CODE_500, str, bitmap, j);
+        a("friend_photo", 500, str, bitmap, j);
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: com.baidu.tieba.util.DatabaseService$DatabaseLocation */
-    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:55:0x01a6 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     private static void a(String str, int i, String str2, Bitmap bitmap, long j) {
+        Cursor cursor;
+        int i2;
         Cursor a2;
-        Cursor cursor = null;
+        Cursor cursor2 = null;
         if (str2 != null) {
-            DatabaseLocation databaseLocation = DatabaseLocation.SDCARD;
-            DatabaseService databaseService = new DatabaseService(databaseLocation);
-            try {
-                if (databaseService != null) {
-                    try {
-                        Cursor a3 = databaseService.a("select count(*) from " + str, (String[]) null);
-                        if (a3 != null) {
+            DatabaseService databaseService = new DatabaseService(DatabaseLocation.SDCARD);
+            if (databaseService != null) {
+                try {
+                    Cursor a3 = databaseService.a("select count(*) from " + str, (String[]) null);
+                    if (a3 != null) {
+                        try {
                             try {
-                                r0 = a3.moveToFirst() ? a3.getInt(0) : 0;
+                                i2 = a3.moveToFirst() ? a3.getInt(0) : 0;
                                 a3.close();
                             } catch (Exception e) {
                                 e = e;
-                                bo.b("DatabaseService", "cashPhoto", "error = " + e.getMessage());
-                                if (0 != 0) {
+                                com.baidu.adp.lib.g.e.b("DatabaseService", "cashPhoto", "error = " + e.getMessage());
+                                by.a(e, "DatabaseService.cashPhoto" + str, new Object[0]);
+                                if (cursor != null) {
                                     try {
                                         cursor.close();
                                         return;
                                     } catch (Exception e2) {
+                                        by.a(e2, "DatabaseService.cashPhoto" + str + "close cursor", new Object[0]);
                                         return;
                                     }
                                 }
                                 return;
                             }
-                        }
-                        if (r0 >= i && (a2 = databaseService.a("select * from " + str + " order by date asc limit 1", (String[]) null)) != null) {
-                            a2.moveToFirst();
-                            databaseService.a("delete from " + str + " where key=?", (Object[]) new String[]{a2.getString(0)});
-                            a2.close();
-                        }
-                        Cursor a4 = databaseService.a("select * from " + str + " where key = ?", new String[]{str2});
-                        if (a4 != null) {
-                            if (a4.moveToFirst()) {
-                                databaseService.a("delete from " + str + " where key=?", (Object[]) new String[]{str2});
+                        } catch (Throwable th) {
+                            th = th;
+                            if (cursor != null) {
+                                try {
+                                    cursor.close();
+                                } catch (Exception e3) {
+                                    by.a(e3, "DatabaseService.cashPhoto" + str + "close cursor", new Object[0]);
+                                }
                             }
-                            a4.close();
+                            throw th;
                         }
-                        databaseService.a("Insert into " + str + "(key,image,date,stamp) values(?,?,?,?)", new Object[]{str2, m.c(bitmap, 80), Long.valueOf(new Date().getTime()), Long.valueOf(j)});
-                    } catch (Exception e3) {
-                        e = e3;
-                    } catch (Throwable th) {
-                        th = th;
-                        if (cursor != null) {
-                            try {
-                                cursor.close();
-                            } catch (Exception e4) {
-                            }
+                    } else {
+                        i2 = 0;
+                    }
+                    if (i2 >= i && (a2 = databaseService.a("select * from " + str + " order by date asc limit 1", (String[]) null)) != null) {
+                        a2.moveToFirst();
+                        databaseService.a("delete from " + str + " where key=?", (Object[]) new String[]{a2.getString(0)});
+                        a2.close();
+                    }
+                    Cursor a4 = databaseService.a("select * from " + str + " where key = ?", new String[]{str2});
+                    if (a4 != null) {
+                        if (a4.moveToFirst()) {
+                            databaseService.a("delete from " + str + " where key=?", (Object[]) new String[]{str2});
                         }
-                        throw th;
+                        a4.close();
                     }
-                }
-                if (0 != 0) {
-                    try {
-                        cursor.close();
-                    } catch (Exception e5) {
+                    databaseService.a("Insert into " + str + "(key,image,date,stamp) values(?,?,?,?)", new Object[]{str2, n.c(bitmap, 80), Long.valueOf(new Date().getTime()), Long.valueOf(j)});
+                } catch (Exception e4) {
+                    e = e4;
+                    cursor = null;
+                } catch (Throwable th2) {
+                    th = th2;
+                    cursor = null;
+                    if (cursor != null) {
                     }
+                    throw th;
                 }
-            } catch (Throwable th2) {
-                th = th2;
-                cursor = databaseLocation;
+            }
+            if (0 != 0) {
+                try {
+                    cursor2.close();
+                } catch (Exception e5) {
+                    by.a(e5, "DatabaseService.cashPhoto" + str + "close cursor", new Object[0]);
+                }
             }
         }
     }
@@ -382,28 +410,24 @@ public class DatabaseService {
                 databaseService.a("delete from cash_data where type=? and account=?", (Object[]) new String[]{String.valueOf(i), TiebaApplication.A()});
                 databaseService.a("Insert into cash_data(account,type,data) values(?,?,?)", new Object[]{TiebaApplication.A(), Integer.valueOf(i), str});
             } catch (Exception e) {
-                bo.b("DatabaseService", "cachData", "error = " + e.getMessage());
+                com.baidu.adp.lib.g.e.b("DatabaseService", "cachData", "error = " + e.getMessage());
+                by.a(e, "DatabaseService.cashData" + i, new Object[0]);
             }
         }
     }
 
     private static void c(int i) {
-        if (TiebaApplication.A() != null) {
-            DatabaseService databaseService = new DatabaseService();
-            if (databaseService != null) {
-                try {
-                    databaseService.a("delete from cash_data where type=? and account=?", (Object[]) new String[]{String.valueOf(i), TiebaApplication.A()});
-                } catch (Exception e) {
-                    bo.b("DatabaseService", "cachData", "error = " + e.getMessage());
-                }
+        DatabaseService databaseService;
+        if (TiebaApplication.A() != null && (databaseService = new DatabaseService()) != null) {
+            try {
+                databaseService.a("delete from cash_data where type=? and account=?", (Object[]) new String[]{String.valueOf(i), TiebaApplication.A()});
+            } catch (Exception e) {
+                com.baidu.adp.lib.g.e.b("DatabaseService", "cachData", "error = " + e.getMessage());
+                by.a(e, "DatabaseService.delCachData" + i, new Object[0]);
             }
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:50:0x006e A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     private static String d(int i) {
         Cursor cursor;
         String str;
@@ -420,32 +444,35 @@ public class DatabaseService {
                     try {
                         try {
                             str = cursor.moveToFirst() ? cursor.getString(2) : null;
-                            try {
-                                cursor.close();
-                            } catch (Exception e2) {
-                                e = e2;
-                                bo.b("DatabaseService", "getCachData", "error = " + e.getMessage());
-                                if (cursor != null) {
-                                    try {
-                                        cursor.close();
-                                    } catch (Exception e3) {
-                                    }
-                                }
-                                return str;
-                            }
-                        } catch (Throwable th) {
-                            th = th;
+                        } catch (Exception e2) {
+                            str = null;
+                            e = e2;
+                        }
+                        try {
+                            cursor.close();
+                        } catch (Exception e3) {
+                            e = e3;
+                            com.baidu.adp.lib.g.e.b("DatabaseService", "getCachData", "error = " + e.getMessage());
+                            by.a(e, "DatabaseService.getCachData" + i, new Object[0]);
                             if (cursor != null) {
                                 try {
                                     cursor.close();
                                 } catch (Exception e4) {
+                                    by.a(e4, "DatabaseService.getCachData" + i + "close cursor", new Object[0]);
                                 }
                             }
-                            throw th;
+                            return str;
                         }
-                    } catch (Exception e5) {
-                        str = null;
-                        e = e5;
+                    } catch (Throwable th) {
+                        th = th;
+                        if (cursor != null) {
+                            try {
+                                cursor.close();
+                            } catch (Exception e5) {
+                                by.a(e5, "DatabaseService.getCachData" + i + "close cursor", new Object[0]);
+                            }
+                        }
+                        throw th;
                     }
                 } else {
                     str = null;
@@ -458,9 +485,6 @@ public class DatabaseService {
             } catch (Throwable th2) {
                 th = th2;
                 cursor = null;
-                if (cursor != null) {
-                }
-                throw th;
             }
         } else {
             cursor2 = null;
@@ -470,6 +494,7 @@ public class DatabaseService {
             try {
                 cursor2.close();
             } catch (Exception e7) {
+                by.a(e7, "DatabaseService.getCachData" + i + "close cursor", new Object[0]);
             }
         }
         return str;
@@ -485,7 +510,8 @@ public class DatabaseService {
                 databaseService.a("delete from cash_data where type=? and account=?", (Object[]) new String[]{String.valueOf(i), str2});
                 databaseService.a("Insert into cash_data(account,type,data) values(?,?,?)", new Object[]{str2, Integer.valueOf(i), str});
             } catch (Exception e) {
-                bo.b("DatabaseService", "cachData", "error = " + e.getMessage());
+                com.baidu.adp.lib.g.e.b("DatabaseService", "cachData", "error = " + e.getMessage());
+                by.a(e, "DatabaseService.cashData" + i, new Object[0]);
             }
         }
     }
@@ -499,7 +525,8 @@ public class DatabaseService {
             try {
                 databaseService.a("delete from cash_data where type=? and account=?", (Object[]) new String[]{String.valueOf(i), str});
             } catch (Exception e) {
-                bo.b("DatabaseService", "cachData", "error = " + e.getMessage());
+                com.baidu.adp.lib.g.e.b("DatabaseService", "cachData", "error = " + e.getMessage());
+                by.a(e, "DatabaseService.delCachData" + i, new Object[0]);
             }
         }
     }
@@ -509,75 +536,89 @@ public class DatabaseService {
         String str2;
         Exception e;
         Cursor cursor2;
-        Cursor cursor3 = null;
         if (str == null || str.length() == 0) {
             str = SocialConstants.FALSE;
         }
         DatabaseService databaseService = new DatabaseService();
-        try {
-            if (databaseService != null) {
-                try {
-                    cursor = databaseService.a("select * from cash_data where type = ? and account=?", new String[]{String.valueOf(i), str});
-                    if (cursor != null) {
+        if (databaseService != null) {
+            try {
+                cursor = databaseService.a("select * from cash_data where type = ? and account=?", new String[]{String.valueOf(i), str});
+                if (cursor != null) {
+                    try {
                         try {
                             str2 = cursor.moveToFirst() ? cursor.getString(2) : null;
+                        } catch (Exception e2) {
+                            str2 = null;
+                            e = e2;
+                        }
+                        try {
+                            cursor.close();
+                        } catch (Exception e3) {
+                            e = e3;
+                            com.baidu.adp.lib.g.e.b("DatabaseService", "getCachData", "error = " + e.getMessage());
+                            by.a(e, "DatabaseService.getCachData" + i, new Object[0]);
+                            if (cursor != null) {
+                                try {
+                                    cursor.close();
+                                } catch (Exception e4) {
+                                    by.a(e4, "DatabaseService.getCachData" + i + "close cursor", new Object[0]);
+                                }
+                            }
+                            return str2;
+                        }
+                    } catch (Throwable th) {
+                        th = th;
+                        if (cursor != null) {
                             try {
                                 cursor.close();
-                            } catch (Exception e2) {
-                                e = e2;
-                                bo.b("DatabaseService", "getCachData", "error = " + e.getMessage());
-                                if (cursor != null) {
-                                    try {
-                                        cursor.close();
-                                    } catch (Exception e3) {
-                                    }
-                                }
-                                return str2;
+                            } catch (Exception e5) {
+                                by.a(e5, "DatabaseService.getCachData" + i + "close cursor", new Object[0]);
                             }
-                        } catch (Exception e4) {
-                            str2 = null;
-                            e = e4;
                         }
-                    } else {
-                        str2 = null;
+                        throw th;
                     }
-                    cursor2 = null;
-                } catch (Exception e5) {
-                    cursor = null;
+                } else {
                     str2 = null;
-                    e = e5;
-                } catch (Throwable th) {
-                    th = th;
-                    if (0 != 0) {
-                        try {
-                            cursor3.close();
-                        } catch (Exception e6) {
-                        }
-                    }
-                    throw th;
                 }
-            } else {
                 cursor2 = null;
+            } catch (Exception e6) {
+                cursor = null;
                 str2 = null;
+                e = e6;
+            } catch (Throwable th2) {
+                th = th2;
+                cursor = null;
             }
-            if (0 != 0) {
-                try {
-                    cursor2.close();
-                } catch (Exception e7) {
-                }
-            }
-            return str2;
-        } catch (Throwable th2) {
-            th = th2;
+        } else {
+            cursor2 = null;
+            str2 = null;
         }
+        if (0 != 0) {
+            try {
+                cursor2.close();
+            } catch (Exception e7) {
+                by.a(e7, "DatabaseService.getCachData" + i + "close cursor", new Object[0]);
+            }
+        }
+        return str2;
     }
 
     public static boolean k(String str) {
-        return new DatabaseService().a("delete from account_data where account=?", (Object[]) new String[]{str}).booleanValue();
+        try {
+            return new DatabaseService().a("delete from account_data where account=?", (Object[]) new String[]{str}).booleanValue();
+        } catch (Exception e) {
+            by.a(e, "DatabaseService.delAccountData", new Object[0]);
+            return false;
+        }
     }
 
     private static boolean a(AccountData accountData, DatabaseService databaseService) {
-        return databaseService.a("Insert into account_data(id,account,password,bduss,isactive,tbs,time,portrait) values(?,?,?,?,?,?,?,?)", new Object[]{accountData.getID(), accountData.getAccount(), accountData.getPassword(), accountData.getBDUSS(), Integer.valueOf(accountData.getIsActive()), accountData.getTbs(), Long.valueOf(new Date().getTime()), accountData.getPortrait()}).booleanValue();
+        try {
+            return databaseService.a("Insert into account_data(id,account,password,bduss,isactive,tbs,time,portrait) values(?,?,?,?,?,?,?,?)", new Object[]{accountData.getID(), accountData.getAccount(), accountData.getPassword(), accountData.getBDUSS(), Integer.valueOf(accountData.getIsActive()), accountData.getTbs(), Long.valueOf(new Date().getTime()), accountData.getPortrait()}).booleanValue();
+        } catch (Exception e) {
+            by.a(e, "DatabaseService.addAccountData", new Object[0]);
+            return false;
+        }
     }
 
     public static void a(AccountData accountData) {
@@ -590,14 +631,15 @@ public class DatabaseService {
                 try {
                     if (!k(accountData.getAccount()) || !a(accountData, databaseService)) {
                         if (!databaseService.a("DROP TABLE IF EXISTS account_data")) {
-                            a(TiebaApplication.g());
+                            a(TiebaApplication.h());
                             databaseService = new DatabaseService();
                         }
                         databaseService.a("CREATE TABLE if not exists account_data(id,account,password,bduss,isactive int,tbs,time,portrait varchar(255))");
                         a(accountData, databaseService);
                     }
                 } catch (Exception e) {
-                    bo.b("DatabaseService", "saveAccountData", "error = " + e.getMessage());
+                    com.baidu.adp.lib.g.e.b("DatabaseService", "saveAccountData", "error = " + e.getMessage());
+                    by.a(e, "DatabaseService.saveAccountData", new Object[0]);
                 }
             }
         }
@@ -609,7 +651,8 @@ public class DatabaseService {
             try {
                 databaseService.a("update account_data set isactive=0 where isactive=1");
             } catch (Exception e) {
-                bo.b("DatabaseService", "clearActiveAccount", "error = " + e.getMessage());
+                com.baidu.adp.lib.g.e.b("DatabaseService", "clearActiveAccount", "error = " + e.getMessage());
+                by.a(e, "DatabaseService.clearActiveAccount", new Object[0]);
             }
         }
     }
@@ -621,29 +664,36 @@ public class DatabaseService {
             try {
                 databaseService.a("update account_data set isactive=1 where account=?", (Object[]) new String[]{accountData.getAccount()});
             } catch (Exception e) {
-                bo.b("DatabaseService", "clearActiveAccount", "error = " + e.getMessage());
+                com.baidu.adp.lib.g.e.b("DatabaseService", "clearActiveAccount", "error = " + e.getMessage());
+                by.a(e, "DatabaseService.setActiveAccount", new Object[0]);
             }
         }
     }
 
     public static void b(String str, String str2) {
-        DatabaseService databaseService;
-        if (str != null && str2 != null && (databaseService = new DatabaseService()) != null) {
-            try {
-                databaseService.a("update account_data set bduss=? where account=?", (Object[]) new String[]{str2, str});
-            } catch (Exception e) {
-                bo.b("DatabaseService", "updateAccountToken", "error = " + e.getMessage());
+        if (str != null && str2 != null) {
+            DatabaseService databaseService = new DatabaseService();
+            if (databaseService != null) {
+                try {
+                    databaseService.a("update account_data set bduss=? where account=?", (Object[]) new String[]{str2, str});
+                } catch (Exception e) {
+                    com.baidu.adp.lib.g.e.b("DatabaseService", "updateAccountToken", "error = " + e.getMessage());
+                    by.a(e, "DatabaseService.updateAccountToken", new Object[0]);
+                }
             }
         }
     }
 
     public static void c(String str, String str2) {
-        DatabaseService databaseService;
-        if (str != null && str2 != null && (databaseService = new DatabaseService()) != null) {
-            try {
-                databaseService.a("update account_data set portrait=? where account=?", (Object[]) new String[]{str2, str});
-            } catch (Exception e) {
-                bo.b("DatabaseService", "updateAccountPortrait", "error = " + e.getMessage());
+        if (str != null && str2 != null) {
+            DatabaseService databaseService = new DatabaseService();
+            if (databaseService != null) {
+                try {
+                    databaseService.a("update account_data set portrait=? where account=?", (Object[]) new String[]{str2, str});
+                } catch (Exception e) {
+                    com.baidu.adp.lib.g.e.b("DatabaseService", "updateAccountPortrait", "error = " + e.getMessage());
+                    by.a(e, "DatabaseService.updateAccountPortrait", new Object[0]);
+                }
             }
         }
     }
@@ -673,11 +723,13 @@ public class DatabaseService {
                                 arrayList.add(accountData);
                             } catch (Exception e) {
                                 e = e;
-                                bo.b("DatabaseService", "getAllAccountData", "error = " + e.getMessage());
+                                com.baidu.adp.lib.g.e.b("DatabaseService", "getAllAccountData", "error = " + e.getMessage());
+                                by.a(e, "DatabaseService.getAllAccountData", new Object[0]);
                                 if (cursor != null) {
                                     try {
                                         cursor.close();
                                     } catch (Exception e2) {
+                                        by.a(e2, "DatabaseService.getAllAccountData close cursor", new Object[0]);
                                     }
                                 }
                                 return arrayList;
@@ -695,6 +747,7 @@ public class DatabaseService {
                         try {
                             cursor3.close();
                         } catch (Exception e4) {
+                            by.a(e4, "DatabaseService.getAllAccountData close cursor", new Object[0]);
                         }
                     }
                     throw th;
@@ -706,6 +759,7 @@ public class DatabaseService {
                 try {
                     cursor2.close();
                 } catch (Exception e5) {
+                    by.a(e5, "DatabaseService.getAllAccountData close cursor", new Object[0]);
                 }
             }
             return arrayList;
@@ -714,10 +768,13 @@ public class DatabaseService {
         }
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, MOVE_EXCEPTION, INVOKE, MOVE_EXCEPTION] complete} */
+    /* JADX WARN: Removed duplicated region for block: B:36:0x001f A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public static int m() {
+        int i;
         Cursor cursor = null;
-        int i = 0;
         DatabaseService databaseService = new DatabaseService();
         try {
             if (databaseService != null) {
@@ -725,22 +782,33 @@ public class DatabaseService {
                     cursor = databaseService.a("select count(*) from account_data", (String[]) null);
                     if (cursor != null && cursor.moveToFirst()) {
                         i = cursor.getInt(0);
+                        if (cursor != null) {
+                            try {
+                                cursor.close();
+                            } catch (Exception e) {
+                                by.a(e, "DatabaseService.getAccountNum close cursor", new Object[0]);
+                                return i;
+                            }
+                        }
+                        return i;
                     }
-                } catch (Exception e) {
-                    bo.b("DatabaseService", "getAccountNum", e.getMessage());
+                } catch (Exception e2) {
+                    com.baidu.adp.lib.g.e.b("DatabaseService", "getAccountNum", e2.getMessage());
+                    by.a(e2, "DatabaseService.getAccountNum", new Object[0]);
                     if (cursor != null) {
                         try {
                             cursor.close();
-                        } catch (Exception e2) {
+                            return 0;
+                        } catch (Exception e3) {
+                            by.a(e3, "DatabaseService.getAccountNum close cursor", new Object[0]);
+                            return 0;
                         }
                     }
+                    return 0;
                 }
             }
+            i = 0;
             if (cursor != null) {
-                try {
-                    cursor.close();
-                } catch (Exception e3) {
-                }
             }
             return i;
         } catch (Throwable th) {
@@ -748,13 +816,14 @@ public class DatabaseService {
                 try {
                     cursor.close();
                 } catch (Exception e4) {
+                    by.a(e4, "DatabaseService.getAccountNum close cursor", new Object[0]);
                 }
             }
             throw th;
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:42:0x009a A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:49:0x00b3 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -787,11 +856,13 @@ public class DatabaseService {
                                     exc = e;
                                     accountData = accountData2;
                                     try {
-                                        bo.b("DatabaseService", "getActiveAccountData", "error = " + exc.getMessage());
+                                        com.baidu.adp.lib.g.e.b("DatabaseService", "getActiveAccountData", "error = " + exc.getMessage());
+                                        by.a(exc, "DatabaseService.getActiveAccountData", new Object[0]);
                                         if (cursor2 != null) {
                                             try {
                                                 cursor2.close();
                                             } catch (Exception e2) {
+                                                by.a(e2, "DatabaseService.getActiveAccountData close cursor", new Object[0]);
                                             }
                                         }
                                         return accountData;
@@ -810,6 +881,7 @@ public class DatabaseService {
                                 try {
                                     cursor.close();
                                 } catch (Exception e3) {
+                                    by.a(e3, "DatabaseService.getActiveAccountData close cursor", new Object[0]);
                                 }
                             }
                             throw th;
@@ -836,13 +908,13 @@ public class DatabaseService {
             try {
                 cursor.close();
             } catch (Exception e6) {
+                by.a(e6, "DatabaseService.getActiveAccountData close cursor", new Object[0]);
             }
         }
         return accountData;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:53:0x0091 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:56:0x009b A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:54:0x00a3 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -851,12 +923,13 @@ public class DatabaseService {
         AccountData accountData;
         Exception e;
         Cursor cursor2;
+        Cursor cursor3 = null;
         DatabaseService databaseService = new DatabaseService();
-        if (databaseService != null) {
-            try {
-                cursor = databaseService.a("select * from account_data where account=?", new String[]{str});
-                if (cursor != null) {
-                    try {
+        try {
+            if (databaseService != null) {
+                try {
+                    cursor = databaseService.a("select * from account_data where account=?", new String[]{str});
+                    if (cursor != null) {
                         try {
                             if (cursor.moveToFirst()) {
                                 AccountData accountData2 = new AccountData();
@@ -873,7 +946,8 @@ public class DatabaseService {
                                 } catch (Exception e2) {
                                     e = e2;
                                     accountData = accountData2;
-                                    bo.b("DatabaseService", "getAccountData", "error = " + e.getMessage());
+                                    com.baidu.adp.lib.g.e.b("DatabaseService", "getAccountData", "error = " + e.getMessage());
+                                    by.a(e, "DatabaseService.getAccountData", new Object[0]);
                                     if (cursor != null) {
                                     }
                                     return accountData;
@@ -885,55 +959,55 @@ public class DatabaseService {
                                 cursor.close();
                             } catch (Exception e3) {
                                 e = e3;
-                                bo.b("DatabaseService", "getAccountData", "error = " + e.getMessage());
+                                com.baidu.adp.lib.g.e.b("DatabaseService", "getAccountData", "error = " + e.getMessage());
+                                by.a(e, "DatabaseService.getAccountData", new Object[0]);
                                 if (cursor != null) {
                                     try {
                                         cursor.close();
                                     } catch (Exception e4) {
+                                        by.a(e4, "DatabaseService.getAccountData close cursor", new Object[0]);
                                     }
                                 }
                                 return accountData;
                             }
-                        } catch (Throwable th) {
-                            th = th;
-                            if (cursor != null) {
-                                try {
-                                    cursor.close();
-                                } catch (Exception e5) {
-                                }
-                            }
-                            throw th;
+                        } catch (Exception e5) {
+                            accountData = null;
+                            e = e5;
                         }
-                    } catch (Exception e6) {
+                    } else {
                         accountData = null;
-                        e = e6;
                     }
-                } else {
+                    cursor2 = null;
+                } catch (Exception e6) {
+                    cursor = null;
                     accountData = null;
+                    e = e6;
+                } catch (Throwable th) {
+                    th = th;
+                    if (0 != 0) {
+                        try {
+                            cursor3.close();
+                        } catch (Exception e7) {
+                            by.a(e7, "DatabaseService.getAccountData close cursor", new Object[0]);
+                        }
+                    }
+                    throw th;
                 }
+            } else {
                 cursor2 = null;
-            } catch (Exception e7) {
-                cursor = null;
                 accountData = null;
-                e = e7;
-            } catch (Throwable th2) {
-                th = th2;
-                cursor = null;
-                if (cursor != null) {
+            }
+            if (0 != 0) {
+                try {
+                    cursor2.close();
+                } catch (Exception e8) {
+                    by.a(e8, "DatabaseService.getAccountData close cursor", new Object[0]);
                 }
-                throw th;
             }
-        } else {
-            cursor2 = null;
-            accountData = null;
+            return accountData;
+        } catch (Throwable th2) {
+            th = th2;
         }
-        if (0 != 0) {
-            try {
-                cursor2.close();
-            } catch (Exception e8) {
-            }
-        }
-        return accountData;
     }
 
     public static ArrayList<String> o() {
@@ -944,10 +1018,6 @@ public class DatabaseService {
         return e(1);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:54:0x0013 A[EXC_TOP_SPLITTER, LOOP:0: B:54:0x0013->B:59:0x0013, LOOP_START, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     private static ArrayList<String> e(int i) {
         Cursor a2;
         Cursor cursor;
@@ -960,66 +1030,64 @@ public class DatabaseService {
                     switch (i) {
                         case 0:
                             a2 = databaseService.a("select * from search_data order by time desc limit 10", (String[]) null);
-                            if (a2 != null) {
-                                while (a2.moveToNext()) {
-                                    try {
-                                        String string = a2.getString(0);
-                                        if (string != null && string.length() > 0) {
-                                            arrayList.add(string);
-                                        }
-                                    } catch (Exception e) {
-                                        e = e;
-                                        cursor2 = a2;
-                                        bo.b("DatabaseService", "getAllSearchData", "error = " + e.getMessage());
-                                        if (cursor2 != null) {
-                                            try {
-                                                cursor2.close();
-                                            } catch (Exception e2) {
-                                            }
-                                        }
-                                        return arrayList;
-                                    } catch (Throwable th) {
-                                        th = th;
-                                        cursor2 = a2;
-                                        break;
-                                    }
-                                }
-                                a2.close();
-                            }
-                            cursor = null;
                             break;
                         case 1:
                             a2 = databaseService.a("select * from search_post_data order by time desc limit 10", (String[]) null);
-                            if (a2 != null) {
-                            }
-                            cursor = null;
                             break;
                         default:
                             a2 = null;
-                            if (a2 != null) {
-                            }
-                            cursor = null;
                             break;
                     }
-                } catch (Exception e3) {
-                    e = e3;
+                    if (a2 != null) {
+                        while (a2.moveToNext()) {
+                            try {
+                                String string = a2.getString(0);
+                                if (string != null && string.length() > 0) {
+                                    arrayList.add(string);
+                                }
+                            } catch (Exception e) {
+                                e = e;
+                                cursor2 = a2;
+                                com.baidu.adp.lib.g.e.b("DatabaseService", "getAllSearchData", "error = " + e.getMessage());
+                                by.a(e, "DatabaseService.getAllSearchData", new Object[0]);
+                                if (cursor2 != null) {
+                                    try {
+                                        cursor2.close();
+                                    } catch (Exception e2) {
+                                        by.a(e2, "DatabaseService.getAllSearchData close cursor", new Object[0]);
+                                    }
+                                }
+                                return arrayList;
+                            } catch (Throwable th) {
+                                th = th;
+                                cursor2 = a2;
+                                if (cursor2 != null) {
+                                    try {
+                                        cursor2.close();
+                                    } catch (Exception e3) {
+                                        by.a(e3, "DatabaseService.getAllSearchData close cursor", new Object[0]);
+                                    }
+                                }
+                                throw th;
+                            }
+                        }
+                        a2.close();
+                    }
+                    cursor = null;
+                } catch (Throwable th2) {
+                    th = th2;
                 }
-            } catch (Throwable th2) {
-                th = th2;
+            } catch (Exception e4) {
+                e = e4;
             }
-            if (cursor2 != null) {
-                try {
-                    cursor2.close();
-                } catch (Exception e4) {
-                }
-            }
-            throw th;
+        } else {
+            cursor = null;
         }
-        cursor = null;
         if (0 != 0) {
             try {
                 cursor.close();
             } catch (Exception e5) {
+                by.a(e5, "DatabaseService.getAllSearchData close cursor", new Object[0]);
             }
         }
         return arrayList;
@@ -1033,23 +1101,27 @@ public class DatabaseService {
         d(1, str);
     }
 
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:11:0x003c -> B:17:0x0011). Please submit an issue!!! */
     private static void d(int i, String str) {
         DatabaseService databaseService = new DatabaseService();
-        if (databaseService != null && str != null) {
-            try {
-                Date date = new Date();
-                switch (i) {
-                    case 0:
-                        databaseService.a("delete from search_data where key=?", (Object[]) new String[]{str});
-                        databaseService.a("Insert into search_data(key,account,time) values(?,?,?)", new Object[]{str, TiebaApplication.A(), Long.valueOf(date.getTime())});
-                        break;
-                    case 1:
-                        databaseService.a("delete from search_post_data where key=?", (Object[]) new String[]{str});
-                        databaseService.a("Insert into search_post_data(key,account,time) values(?,?,?)", new Object[]{str, TiebaApplication.A(), Long.valueOf(date.getTime())});
-                        break;
+        if (databaseService != null) {
+            if (str != null) {
+                try {
+                    Date date = new Date();
+                    switch (i) {
+                        case 0:
+                            databaseService.a("delete from search_data where key=?", (Object[]) new String[]{str});
+                            databaseService.a("Insert into search_data(key,account,time) values(?,?,?)", new Object[]{str, TiebaApplication.A(), Long.valueOf(date.getTime())});
+                            break;
+                        case 1:
+                            databaseService.a("delete from search_post_data where key=?", (Object[]) new String[]{str});
+                            databaseService.a("Insert into search_post_data(key,account,time) values(?,?,?)", new Object[]{str, TiebaApplication.A(), Long.valueOf(date.getTime())});
+                            break;
+                    }
+                } catch (Exception e) {
+                    com.baidu.adp.lib.g.e.b("DatabaseService", "saveSearchData", "error = " + e.getMessage());
+                    by.a(e, "DatabaseService.saveOneSearchData", new Object[0]);
                 }
-            } catch (Exception e) {
-                bo.b("DatabaseService", "saveSearchData", "error = " + e.getMessage());
             }
         }
     }
@@ -1078,31 +1150,32 @@ public class DatabaseService {
                         return;
                 }
             } catch (Exception e) {
-                bo.b("DatabaseService", "delAllSearchData", "error = " + e.getMessage());
+                com.baidu.adp.lib.g.e.b("DatabaseService", "delAllSearchData", "error = " + e.getMessage());
+                by.a(e, "DatabaseService.delAllSearchData", new Object[0]);
             }
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:52:0x0121 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:44:0x0146 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r2v0, types: [com.baidu.tieba.util.DatabaseService] */
+    /* JADX WARN: Type inference failed for: r2v1, types: [android.database.Cursor] */
+    /* JADX WARN: Type inference failed for: r2v3 */
     public static ArrayList<MarkData> s() {
         Cursor cursor;
-        Throwable th;
         Exception e;
         Cursor cursor2 = null;
         if (TiebaApplication.A() == null) {
             return null;
         }
-        DatabaseService databaseService = new DatabaseService();
+        ?? databaseService = new DatabaseService();
         ArrayList<MarkData> arrayList = new ArrayList<>();
-        if (databaseService != null) {
-            try {
-                cursor = databaseService.a("select * from mark_data where account=? order by time desc", new String[]{TiebaApplication.A()});
-                if (cursor != null) {
-                    while (cursor.moveToNext()) {
-                        try {
+        try {
+            if (databaseService != 0) {
+                try {
+                    cursor = databaseService.a("select * from mark_data where account=? order by time desc", new String[]{TiebaApplication.A()});
+                    if (cursor != null) {
+                        while (cursor.moveToNext()) {
                             try {
                                 MarkData markData = new MarkData();
                                 markData.setId(cursor.getString(0));
@@ -1122,49 +1195,50 @@ public class DatabaseService {
                                 arrayList.add(markData);
                             } catch (Exception e2) {
                                 e = e2;
-                                bo.b("DatabaseService", "getAllMarkData", "error = " + e.getMessage());
+                                com.baidu.adp.lib.g.e.b("DatabaseService", "getAllMarkData", "error = " + e.getMessage());
+                                by.a(e, "DatabaseService.getAllMarkData", new Object[0]);
                                 if (cursor != null) {
                                     try {
                                         cursor.close();
                                     } catch (Exception e3) {
+                                        by.a(e3, "DatabaseService.getAllMarkData close cursor", new Object[0]);
                                     }
                                 }
-                                bo.a("DatabaseService", "getAllMarkData", "success = " + String.valueOf(arrayList.size()));
+                                com.baidu.adp.lib.g.e.a("DatabaseService", "getAllMarkData", "success = " + String.valueOf(arrayList.size()));
                                 return arrayList;
                             }
-                        } catch (Throwable th2) {
-                            th = th2;
-                            if (cursor != null) {
-                                try {
-                                    cursor.close();
-                                } catch (Exception e4) {
-                                }
-                            }
-                            throw th;
+                        }
+                        cursor.close();
+                    }
+                    a((Boolean) false);
+                } catch (Exception e4) {
+                    cursor = null;
+                    e = e4;
+                } catch (Throwable th) {
+                    databaseService = 0;
+                    th = th;
+                    if (databaseService != 0) {
+                        try {
+                            databaseService.close();
+                        } catch (Exception e5) {
+                            by.a(e5, "DatabaseService.getAllMarkData close cursor", new Object[0]);
                         }
                     }
-                    cursor.close();
+                    throw th;
                 }
-                a((Boolean) false);
-            } catch (Exception e5) {
-                cursor = null;
-                e = e5;
-            } catch (Throwable th3) {
-                cursor = null;
-                th = th3;
-                if (cursor != null) {
+            }
+            if (0 != 0) {
+                try {
+                    cursor2.close();
+                } catch (Exception e6) {
+                    by.a(e6, "DatabaseService.getAllMarkData close cursor", new Object[0]);
                 }
-                throw th;
             }
+            com.baidu.adp.lib.g.e.a("DatabaseService", "getAllMarkData", "success = " + String.valueOf(arrayList.size()));
+            return arrayList;
+        } catch (Throwable th2) {
+            th = th2;
         }
-        if (0 != 0) {
-            try {
-                cursor2.close();
-            } catch (Exception e6) {
-            }
-        }
-        bo.a("DatabaseService", "getAllMarkData", "success = " + String.valueOf(arrayList.size()));
-        return arrayList;
     }
 
     public static void a(Boolean bool) {
@@ -1187,7 +1261,8 @@ public class DatabaseService {
                     databaseService.a("delete from draft_box where account=? and type=? and thread_id=? and floor_id=?", new Object[]{TiebaApplication.A(), 2, writeData.getThreadId(), writeData.getFloor()});
                 }
             } catch (Exception e) {
-                bo.b("DatabaseService", "deleteDraftBox", "error = " + e.getMessage());
+                com.baidu.adp.lib.g.e.b("DatabaseService", "deleteDraftBox", "error = " + e.getMessage());
+                by.a(e, "DatabaseService.deleteDraftBox", new Object[0]);
             }
         }
     }
@@ -1197,7 +1272,8 @@ public class DatabaseService {
         try {
             new DatabaseService().a("delete from draft_box where time<?", new Object[]{Long.valueOf(time)});
         } catch (Exception e) {
-            bo.b("DatabaseService", "delMouthAgoDraft", "error = " + e.getMessage());
+            com.baidu.adp.lib.g.e.b("DatabaseService", "delMouthAgoDraft", "error = " + e.getMessage());
+            by.a(e, "DatabaseService.delOverdueDraft", new Object[0]);
         }
     }
 
@@ -1207,17 +1283,18 @@ public class DatabaseService {
             try {
                 new DatabaseService().a("Insert into draft_box(account,type,forum_id,forum_name,thread_id,floor_id,title,content,time) values(?,?,?,?,?,?,?,?,?)", new Object[]{TiebaApplication.A(), Integer.valueOf(writeData.getType()), writeData.getForumId(), writeData.getForumName(), writeData.getThreadId(), writeData.getFloor(), writeData.getTitle(), writeData.getContent(), Long.valueOf(new Date().getTime())});
             } catch (Exception e) {
-                bo.b("DatabaseService", "saveDraftBox", "error = " + e.getMessage());
+                com.baidu.adp.lib.g.e.b("DatabaseService", "saveDraftBox", "error = " + e.getMessage());
+                by.a(e, "DatabaseService.saveDraftBox", new Object[0]);
             }
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:29:0x00c6 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:40:0x00d6 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:8:0x002a */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:14:0x005d */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:40:0x00f4 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:8:0x002b */
     /* JADX DEBUG: Multi-variable search result rejected for r0v15, resolved type: com.baidu.tieba.data.WriteData */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:51:0x00ce A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:45:0x00e5 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Type inference failed for: r0v0, types: [android.database.Cursor] */
     /* JADX WARN: Type inference failed for: r0v14 */
     /* JADX WARN: Type inference failed for: r0v16 */
@@ -1264,11 +1341,13 @@ public class DatabaseService {
                                 } catch (Exception e) {
                                     writeData = writeData2;
                                     e = e;
-                                    bo.b("DatabaseService", "getDraftBox", "error = " + e.getMessage());
+                                    com.baidu.adp.lib.g.e.b("DatabaseService", "getDraftBox", "error = " + e.getMessage());
+                                    by.a(e, "DatabaseService.getDraftBox", new Object[0]);
                                     if (cursor != null) {
                                         try {
                                             cursor.close();
                                         } catch (Exception e2) {
+                                            by.a(e2, "DatabaseService.getDraftBox close cursor", new Object[0]);
                                         }
                                     }
                                     return writeData;
@@ -1282,6 +1361,7 @@ public class DatabaseService {
                         try {
                             cursor.close();
                         } catch (Exception e4) {
+                            by.a(e4, "DatabaseService.getDraftBox close cursor", new Object[0]);
                         }
                     }
                 } catch (Throwable th2) {
@@ -1290,6 +1370,7 @@ public class DatabaseService {
                         try {
                             writeData.close();
                         } catch (Exception e5) {
+                            by.a(e5, "DatabaseService.getDraftBox close cursor", new Object[0]);
                         }
                     }
                     throw th;
@@ -1314,26 +1395,27 @@ public class DatabaseService {
                 databaseService.a("delete from setting where account=?", new Object[]{TiebaApplication.A()});
                 Object[] objArr = new Object[10];
                 objArr[0] = TiebaApplication.A();
-                objArr[1] = Integer.valueOf(TiebaApplication.g().N());
-                objArr[2] = Integer.valueOf(TiebaApplication.g().W() ? 1 : 0);
-                objArr[3] = Integer.valueOf(TiebaApplication.g().Y() ? 1 : 0);
-                objArr[4] = Integer.valueOf(TiebaApplication.g().X() ? 1 : 0);
-                objArr[5] = Integer.valueOf(TiebaApplication.g().V());
-                objArr[6] = Integer.valueOf(TiebaApplication.g().Z() ? 1 : 0);
-                objArr[7] = Integer.valueOf(TiebaApplication.g().Q() ? 1 : 0);
-                objArr[8] = TiebaApplication.g().R();
-                objArr[9] = TiebaApplication.g().S();
+                objArr[1] = Integer.valueOf(TiebaApplication.h().M());
+                objArr[2] = Integer.valueOf(TiebaApplication.h().V() ? 1 : 0);
+                objArr[3] = Integer.valueOf(TiebaApplication.h().X() ? 1 : 0);
+                objArr[4] = Integer.valueOf(TiebaApplication.h().W() ? 1 : 0);
+                objArr[5] = Integer.valueOf(TiebaApplication.h().U());
+                objArr[6] = Integer.valueOf(TiebaApplication.h().Y() ? 1 : 0);
+                objArr[7] = Integer.valueOf(TiebaApplication.h().P() ? 1 : 0);
+                objArr[8] = TiebaApplication.h().Q();
+                objArr[9] = TiebaApplication.h().R();
                 databaseService.a("Insert into setting(account,frequency,fans_switch,reply_me_switch,at_me_switch,remind_tone,msg_chat_switch,nodisturb_switch,nodisturb_start_time,nodisturb_end_time) values(?,?,?,?,?,?,?,?,?,?)", objArr);
             } catch (Exception e) {
-                bo.b("DatabaseService", "saveDraftBox", "error = " + e.getMessage());
+                com.baidu.adp.lib.g.e.b("DatabaseService", "saveDraftBox", "error = " + e.getMessage());
+                by.a(e, "DatabaseService.saveSettingData", new Object[0]);
             }
         }
     }
 
     public static void v() {
-        bo.a("databaseService", "getSetting", TiebaApplication.G());
-        if (TiebaApplication.A() == null || TiebaApplication.A().length() <= 0 || TiebaApplication.G() == null) {
-            TiebaApplication.g().b(0);
+        com.baidu.adp.lib.g.e.a("databaseService", "getSetting", TiebaApplication.F());
+        if (TiebaApplication.A() == null || TiebaApplication.A().length() <= 0 || TiebaApplication.F() == null) {
+            TiebaApplication.h().b(0);
             return;
         }
         Cursor cursor = null;
@@ -1341,69 +1423,72 @@ public class DatabaseService {
             try {
                 Cursor a2 = new DatabaseService().a("select * from setting where account=?", new String[]{TiebaApplication.A()});
                 if (a2 != null && a2.moveToFirst()) {
-                    TiebaApplication.g().b(a2.getInt(1));
+                    TiebaApplication.h().b(a2.getInt(1));
                     if (a2.getInt(2) == 0) {
-                        TiebaApplication.g().m(false);
+                        TiebaApplication.h().m(false);
                     } else {
-                        TiebaApplication.g().m(true);
+                        TiebaApplication.h().m(true);
                     }
                     if (a2.getInt(3) == 0) {
-                        TiebaApplication.g().o(false);
+                        TiebaApplication.h().o(false);
                     } else {
-                        TiebaApplication.g().o(true);
+                        TiebaApplication.h().o(true);
                     }
                     if (a2.getInt(4) == 0) {
-                        TiebaApplication.g().n(false);
+                        TiebaApplication.h().n(false);
                     } else {
-                        TiebaApplication.g().n(true);
+                        TiebaApplication.h().n(true);
                     }
-                    TiebaApplication.g().a(a2.getInt(5));
+                    TiebaApplication.h().a(a2.getInt(5));
                     if (a2.getInt(6) == 0) {
-                        TiebaApplication.g().p(false);
+                        TiebaApplication.h().p(false);
                     } else {
-                        TiebaApplication.g().p(true);
+                        TiebaApplication.h().p(true);
                     }
                     if (a2.getInt(7) == 0) {
-                        TiebaApplication.g().k(false);
+                        TiebaApplication.h().k(false);
                     } else {
-                        TiebaApplication.g().k(true);
+                        TiebaApplication.h().k(true);
                     }
                     String string = a2.getString(8);
                     if (TextUtils.isEmpty(string)) {
-                        TiebaApplication.g().p("23:00");
+                        TiebaApplication.h().o("23:00");
                     } else {
-                        TiebaApplication.g().p(string);
+                        TiebaApplication.h().o(string);
                     }
                     String string2 = a2.getString(9);
                     if (TextUtils.isEmpty(string2)) {
-                        TiebaApplication.g().q("09:00");
+                        TiebaApplication.h().p("09:00");
                     } else {
-                        TiebaApplication.g().q(string2);
+                        TiebaApplication.h().p(string2);
                     }
                 } else {
-                    TiebaApplication.g().b(300);
-                    TiebaApplication.g().m(true);
-                    TiebaApplication.g().o(true);
-                    TiebaApplication.g().n(true);
-                    TiebaApplication.g().j(true);
-                    TiebaApplication.g().l(false);
-                    TiebaApplication.g().p(true);
-                    TiebaApplication.g().k(false);
-                    TiebaApplication.g().p("23:00");
-                    TiebaApplication.g().q("09:00");
+                    TiebaApplication.h().b(300);
+                    TiebaApplication.h().m(true);
+                    TiebaApplication.h().o(true);
+                    TiebaApplication.h().n(true);
+                    TiebaApplication.h().j(true);
+                    TiebaApplication.h().l(false);
+                    TiebaApplication.h().p(true);
+                    TiebaApplication.h().k(false);
+                    TiebaApplication.h().o("23:00");
+                    TiebaApplication.h().p("09:00");
                 }
                 if (a2 != null) {
                     try {
                         a2.close();
                     } catch (Exception e) {
+                        by.a(e, "DatabaseService.getSettingData close cursor", new Object[0]);
                     }
                 }
             } catch (Exception e2) {
-                bo.b("DatabaseService", "getDraftBox", "error = " + e2.getMessage());
+                com.baidu.adp.lib.g.e.b("DatabaseService", "getDraftBox", "error = " + e2.getMessage());
+                by.a(e2, "DatabaseService.getSettingData", new Object[0]);
                 if (0 != 0) {
                     try {
                         cursor.close();
                     } catch (Exception e3) {
+                        by.a(e3, "DatabaseService.getSettingData close cursor", new Object[0]);
                     }
                 }
             }
@@ -1412,6 +1497,7 @@ public class DatabaseService {
                 try {
                     cursor.close();
                 } catch (Exception e4) {
+                    by.a(e4, "DatabaseService.getSettingData close cursor", new Object[0]);
                 }
             }
             throw th;
@@ -1424,7 +1510,8 @@ public class DatabaseService {
             try {
                 databaseService.a("delete from chunk_upload_data where strftime('%s','now') - time > 48 * 3600 and account=?", (Object[]) new String[]{TiebaApplication.A()});
             } catch (Exception e) {
-                bo.b("DatabaseService", "delChunkUploadData", "error = " + e.getMessage());
+                com.baidu.adp.lib.g.e.b("DatabaseService", "delChunkUploadData", "error = " + e.getMessage());
+                by.a(e, "DatabaseService.delOverdueChunkUploadData", new Object[0]);
             }
         }
     }
@@ -1436,7 +1523,8 @@ public class DatabaseService {
                 try {
                     databaseService.a("delete from chunk_upload_data where md5=? and account=?", (Object[]) new String[]{str, TiebaApplication.A()});
                 } catch (Exception e) {
-                    bo.b("DatabaseService", "delChunkUploadData", "error = " + e.getMessage());
+                    com.baidu.adp.lib.g.e.b("DatabaseService", "delChunkUploadData", "error = " + e.getMessage());
+                    by.a(e, "DatabaseService.delChunkUploadData", new Object[0]);
                 }
             }
         }
@@ -1455,13 +1543,14 @@ public class DatabaseService {
             databaseService.a("delete from chunk_upload_data where md5=? and account=?", (Object[]) new String[]{eVar.a(), TiebaApplication.A()});
             return databaseService.a("Insert into chunk_upload_data(md5,total_length,chunk_no,account,time) values(?,?,?,?,?)", new Object[]{eVar.a(), Long.valueOf(eVar.b()), Integer.valueOf(eVar.c()), TiebaApplication.A(), Long.valueOf(date.getTime() / 1000)}).booleanValue();
         } catch (Exception e) {
-            bo.b("DatabaseService", "saveChunkUploadData", "error = " + e.getMessage());
+            com.baidu.adp.lib.g.e.b("DatabaseService", "saveChunkUploadData", "error = " + e.getMessage());
+            by.a(e, "DatabaseService.saveChunkUploadData", new Object[0]);
             return false;
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:56:0x0073 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:59:0x007d A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:55:0x0096 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:59:0x0085 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -1492,11 +1581,13 @@ public class DatabaseService {
                                     eVar = eVar2;
                                     cursor = a2;
                                     try {
-                                        bo.b("DatabaseService", "getChunkUploadDataByMd5", "error = " + e.getMessage());
+                                        com.baidu.adp.lib.g.e.b("DatabaseService", "getChunkUploadDataByMd5", "error = " + e.getMessage());
+                                        by.a(e, "DatabaseService.getChunkUploadDataByMd5", new Object[0]);
                                         if (cursor != null) {
                                             try {
                                                 cursor.close();
                                             } catch (Exception e3) {
+                                                by.a(e3, "DatabaseService.getChunkUploadDataByMd5 close cursor", new Object[0]);
                                             }
                                         }
                                         return eVar;
@@ -1517,6 +1608,7 @@ public class DatabaseService {
                                 try {
                                     cursor.close();
                                 } catch (Exception e4) {
+                                    by.a(e4, "DatabaseService.getChunkUploadDataByMd5 close cursor", new Object[0]);
                                 }
                             }
                             throw th;
@@ -1531,7 +1623,8 @@ public class DatabaseService {
                     } catch (Exception e6) {
                         e = e6;
                         cursor = a2;
-                        bo.b("DatabaseService", "getChunkUploadDataByMd5", "error = " + e.getMessage());
+                        com.baidu.adp.lib.g.e.b("DatabaseService", "getChunkUploadDataByMd5", "error = " + e.getMessage());
+                        by.a(e, "DatabaseService.getChunkUploadDataByMd5", new Object[0]);
                         if (cursor != null) {
                         }
                         return eVar;
@@ -1556,6 +1649,7 @@ public class DatabaseService {
             try {
                 cursor2.close();
             } catch (Exception e8) {
+                by.a(e8, "DatabaseService.getChunkUploadDataByMd5 close cursor", new Object[0]);
             }
         }
         return eVar;
@@ -1568,7 +1662,7 @@ public class DatabaseService {
             } catch (Exception e) {
             }
             try {
-                aa.j("tieba_database.db");
+                ad.j("tieba_database.db");
             } catch (Exception e2) {
             }
             d = null;
@@ -1584,23 +1678,26 @@ public class DatabaseService {
             try {
                 context.deleteDatabase("baidu_tieba.db");
             } catch (Exception e2) {
-                bo.b("DatabaseService", "deletDatebase", "error = " + e2.getMessage());
+                com.baidu.adp.lib.g.e.b("DatabaseService", "deletDatebase", "error = " + e2.getMessage());
             }
             c = null;
         }
     }
 
     public static void q(String str) {
-        DatabaseService databaseService;
-        if (str != null && (databaseService = new DatabaseService()) != null) {
-            try {
-                databaseService.a("delete from cash_data where account=?", (Object[]) new String[]{str});
-                databaseService.a("delete from mark_data where account=?", (Object[]) new String[]{str});
-                databaseService.a("delete from draft_box where account=?", new Object[]{str});
-                databaseService.a("delete from account_data where id=?", new Object[]{str});
-                databaseService.a("delete from setting where account=?", new Object[]{str});
-            } catch (Exception e) {
-                bo.b("DatabaseService", "deleteAccountAllInfo", e.getMessage());
+        if (str != null) {
+            DatabaseService databaseService = new DatabaseService();
+            if (databaseService != null) {
+                try {
+                    databaseService.a("delete from cash_data where account=?", (Object[]) new String[]{str});
+                    databaseService.a("delete from mark_data where account=?", (Object[]) new String[]{str});
+                    databaseService.a("delete from draft_box where account=?", new Object[]{str});
+                    databaseService.a("delete from account_data where id=?", new Object[]{str});
+                    databaseService.a("delete from setting where account=?", new Object[]{str});
+                } catch (Exception e) {
+                    com.baidu.adp.lib.g.e.b("DatabaseService", "deleteAccountAllInfo", e.getMessage());
+                    by.a(e, "DatabaseService.deleteAccountAllInfo", new Object[0]);
+                }
             }
         }
     }
@@ -1612,17 +1709,14 @@ public class DatabaseService {
                 databaseService.a("delete from cash_data where type=?", (Object[]) new String[]{String.valueOf(i)});
                 return databaseService.a("Insert into cash_data(type ,account ,data ) values(?,?,?)", (Object[]) new String[]{String.valueOf(i), "", str}).booleanValue();
             } catch (Exception e) {
-                bo.b("DatabaseService", "cashHostspot", "error = " + e.getMessage());
+                com.baidu.adp.lib.g.e.b("DatabaseService", "cashHostspot", "error = " + e.getMessage());
+                by.a(e, "DatabaseService.cashNoAccountData" + i, new Object[0]);
                 return false;
             }
         }
         return false;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:47:0x005e A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public static String b(int i) {
         Cursor cursor;
         Exception e;
@@ -1636,32 +1730,35 @@ public class DatabaseService {
                     try {
                         try {
                             str = cursor.moveToFirst() ? cursor.getString(2) : null;
-                            try {
-                                cursor.close();
-                            } catch (Exception e2) {
-                                e = e2;
-                                bo.b("DatabaseService", "getHotspot", "error = " + e.getMessage());
-                                if (cursor != null) {
-                                    try {
-                                        cursor.close();
-                                    } catch (Exception e3) {
-                                    }
-                                }
-                                return str;
-                            }
-                        } catch (Throwable th) {
-                            th = th;
+                        } catch (Exception e2) {
+                            str = null;
+                            e = e2;
+                        }
+                        try {
+                            cursor.close();
+                        } catch (Exception e3) {
+                            e = e3;
+                            com.baidu.adp.lib.g.e.b("DatabaseService", "getHotspot", "error = " + e.getMessage());
+                            by.a(e, "DatabaseService.getNoAccountData" + i, new Object[0]);
                             if (cursor != null) {
                                 try {
                                     cursor.close();
                                 } catch (Exception e4) {
+                                    by.a(e4, "DatabaseService.getNoAccountData" + i + "close cursor", new Object[0]);
                                 }
                             }
-                            throw th;
+                            return str;
                         }
-                    } catch (Exception e5) {
-                        str = null;
-                        e = e5;
+                    } catch (Throwable th) {
+                        th = th;
+                        if (cursor != null) {
+                            try {
+                                cursor.close();
+                            } catch (Exception e5) {
+                                by.a(e5, "DatabaseService.getNoAccountData" + i + "close cursor", new Object[0]);
+                            }
+                        }
+                        throw th;
                     }
                 } else {
                     str = null;
@@ -1674,9 +1771,6 @@ public class DatabaseService {
             } catch (Throwable th2) {
                 th = th2;
                 cursor = null;
-                if (cursor != null) {
-                }
-                throw th;
             }
         } else {
             str = null;
@@ -1686,6 +1780,7 @@ public class DatabaseService {
             try {
                 cursor2.close();
             } catch (Exception e7) {
+                by.a(e7, "DatabaseService.getNoAccountData" + i + "close cursor", new Object[0]);
             }
         }
         return str;
@@ -1698,7 +1793,8 @@ public class DatabaseService {
                 databaseService.a("delete from frs_image_forums where forum_name=?", (Object[]) new String[]{str});
                 databaseService.a("Insert into frs_image_forums(forum_name) values(?)", new Object[]{str});
             } catch (Exception e) {
-                bo.b("DatabaseService", "insertFrsImageForum", e.getMessage());
+                com.baidu.adp.lib.g.e.b("DatabaseService", "insertFrsImageForum", e.getMessage());
+                by.a(e, "DatabaseService.insertFrsImageForum", new Object[0]);
             }
         }
     }
@@ -1710,7 +1806,8 @@ public class DatabaseService {
                 try {
                     databaseService.a("delete from frs_image_forums where forum_name=?", (Object[]) new String[]{str});
                 } catch (Exception e) {
-                    bo.b("DatabaseService", "delFrsImageForum", e.getMessage());
+                    com.baidu.adp.lib.g.e.b("DatabaseService", "delFrsImageForum", e.getMessage());
+                    by.a(e, "DatabaseService.delFrsImageForum", new Object[0]);
                 }
             }
         }
@@ -1734,11 +1831,13 @@ public class DatabaseService {
                                     arrayList.add(cursor.getString(0));
                                 } catch (Exception e2) {
                                     e = e2;
-                                    bo.b("DatabaseService", "getAllFrsImageForums", e.getMessage());
+                                    com.baidu.adp.lib.g.e.b("DatabaseService", "getAllFrsImageForums", e.getMessage());
+                                    by.a(e, "DatabaseService.getAllFrsImageForums", new Object[0]);
                                     if (cursor != null) {
                                         try {
                                             cursor.close();
                                         } catch (Exception e3) {
+                                            by.a(e3, "DatabaseService.getAllFrsImageForums close cursor", new Object[0]);
                                             e3.printStackTrace();
                                         }
                                     }
@@ -1756,6 +1855,7 @@ public class DatabaseService {
                             try {
                                 cursor.close();
                             } catch (Exception e5) {
+                                by.a(e5, "DatabaseService.getAllFrsImageForums close cursor", new Object[0]);
                                 e5.printStackTrace();
                             }
                         }
@@ -1781,6 +1881,7 @@ public class DatabaseService {
             try {
                 cursor2.close();
             } catch (Exception e7) {
+                by.a(e7, "DatabaseService.getAllFrsImageForums close cursor", new Object[0]);
                 e7.printStackTrace();
             }
         }

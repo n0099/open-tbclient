@@ -27,7 +27,7 @@ public class bp extends BdAsyncTask<String, Integer, bl> {
     public bl a(String... strArr) {
         bl blVar;
         this.b = new aa();
-        if (UtilHelper.g(TiebaApplication.g().getApplicationContext()) != UtilHelper.NetworkStateInfo.UNAVAIL) {
+        if (UtilHelper.g(TiebaApplication.h().getApplicationContext()) != UtilHelper.NetworkStateInfo.UNAVAIL) {
             this.a.c = a(strArr[0]);
             blVar = this.a.c;
             return blVar;

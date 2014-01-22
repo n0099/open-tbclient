@@ -28,9 +28,9 @@ public class k extends BaseAdapter {
     }
 
     public void a() {
-        this.d = com.baidu.adp.lib.h.g.a((Context) this.a, 8.0f);
-        this.c = com.baidu.adp.lib.h.g.a((Context) this.a, 10.0f);
-        this.e = com.baidu.adp.lib.h.g.a((Context) this.a, 12.0f);
+        this.d = com.baidu.adp.lib.g.g.a((Context) this.a, 8.0f);
+        this.c = com.baidu.adp.lib.g.g.a((Context) this.a, 10.0f);
+        this.e = com.baidu.adp.lib.g.g.a((Context) this.a, 12.0f);
     }
 
     public void a(com.baidu.tieba.data.af afVar) {
@@ -63,7 +63,7 @@ public class k extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         ca caVar;
-        int an = TiebaApplication.g().an();
+        int al = TiebaApplication.h().al();
         if (view == null) {
             view = a((ca) null);
         }
@@ -73,9 +73,9 @@ public class k extends BaseAdapter {
             caVar = (ca) view.getTag();
         }
         if (caVar != null && this.b != null && this.b.a() != null) {
-            this.a.a().a(an == 1);
+            this.a.a().a(al == 1);
             this.a.a().a(view);
-            b(an, caVar);
+            b(al, caVar);
             a(i, caVar);
             if (i >= 0) {
                 if (i * 2 < this.b.a().size()) {
@@ -128,12 +128,12 @@ public class k extends BaseAdapter {
     private void b(int i, ca caVar) {
         if (caVar != null && caVar.b(i)) {
             if (i == 1) {
-                com.baidu.tieba.util.bl.e(caVar.b, (int) R.drawable.home_like_item_bg_1);
-                com.baidu.tieba.util.bl.e(caVar.f.b, (int) R.drawable.home_like_item_bg_1);
+                com.baidu.tieba.util.bs.e(caVar.b, (int) R.drawable.home_like_item_bg_1);
+                com.baidu.tieba.util.bs.e(caVar.f.b, (int) R.drawable.home_like_item_bg_1);
                 return;
             }
-            com.baidu.tieba.util.bl.e(caVar.b, (int) R.drawable.home_like_item_bg);
-            com.baidu.tieba.util.bl.e(caVar.f.b, (int) R.drawable.home_like_item_bg);
+            com.baidu.tieba.util.bs.e(caVar.b, (int) R.drawable.home_like_item_bg);
+            com.baidu.tieba.util.bs.e(caVar.f.b, (int) R.drawable.home_like_item_bg);
         }
     }
 
@@ -160,7 +160,7 @@ public class k extends BaseAdapter {
                 return;
             }
             caVar.d.setVisibility(0);
-            caVar.d.setBackgroundResource(com.baidu.tieba.util.m.b(d));
+            caVar.d.setBackgroundResource(com.baidu.tieba.util.n.b(d));
             caVar.d.setText(String.valueOf(aeVar.d()));
         }
     }

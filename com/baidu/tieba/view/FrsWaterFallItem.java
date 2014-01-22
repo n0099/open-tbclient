@@ -83,8 +83,8 @@ public class FrsWaterFallItem extends LinearLayout {
         this.a = new TextPaint(1);
         this.p = new Paint();
         this.p.setAntiAlias(true);
-        this.j = com.baidu.adp.lib.h.g.a(getContext(), 5.0f);
-        this.k = com.baidu.adp.lib.h.g.a(getContext(), 2.0f);
+        this.j = com.baidu.adp.lib.g.g.a(getContext(), 5.0f);
+        this.k = com.baidu.adp.lib.g.g.a(getContext(), 2.0f);
         this.m = getContext().getResources().getDimensionPixelSize(R.dimen.default_gap_14);
         this.n = getContext().getResources().getDimensionPixelSize(R.dimen.default_gap_10);
         this.o = getContext().getResources().getDimensionPixelSize(R.dimen.default_gap_8);
@@ -116,16 +116,16 @@ public class FrsWaterFallItem extends LinearLayout {
                         }
                     }
                     if (this.e == -1) {
-                        this.e = (width - ((int) Math.ceil(com.baidu.adp.lib.h.g.a((Paint) this.a, this.d)))) - this.j;
+                        this.e = (width - ((int) Math.ceil(com.baidu.adp.lib.g.g.a((Paint) this.a, this.d)))) - this.j;
                     }
                     canvas.drawText(this.d, this.e, height - ceil, this.a);
                     width = this.e;
                 }
                 if (this.e != -1) {
                     if (this.q == 1) {
-                        a = com.baidu.tieba.util.m.a((int) R.drawable.icon_little_comment_s_1);
+                        a = com.baidu.tieba.util.n.a((int) R.drawable.icon_little_comment_s_1);
                     } else {
-                        a = com.baidu.tieba.util.m.a((int) R.drawable.icon_little_comment_s);
+                        a = com.baidu.tieba.util.n.a((int) R.drawable.icon_little_comment_s);
                     }
                     this.f = this.e - a.getWidth();
                     width = this.f - this.i;
@@ -136,7 +136,7 @@ public class FrsWaterFallItem extends LinearLayout {
                 } else {
                     this.a.setColor(getContext().getResources().getColor(R.color.listview_item_author_time_text));
                 }
-                this.c = com.baidu.adp.lib.h.g.a(this.a, bcVar.a(), width - (this.j * 2));
+                this.c = com.baidu.adp.lib.g.g.a(this.a, bcVar.a(), width - (this.j * 2));
                 canvas.drawText(this.c, this.k + this.j, height - ceil, this.a);
                 if (this.q == 1) {
                     this.a.setColor(getContext().getResources().getColor(R.color.frs_header_divider_bg_1));
@@ -153,7 +153,7 @@ public class FrsWaterFallItem extends LinearLayout {
                 }
                 int ceil2 = (int) Math.ceil(this.a.getFontMetrics().ascent);
                 if (this.b == null) {
-                    this.b = com.baidu.adp.lib.h.g.a(this.a, bcVar.c(), ((getWidth() - getPaddingLeft()) - getPaddingRight()) - (this.j * 2));
+                    this.b = com.baidu.adp.lib.g.g.a(this.a, bcVar.c(), ((getWidth() - getPaddingLeft()) - getPaddingRight()) - (this.j * 2));
                 }
                 canvas.drawText(this.b, this.k + this.j, (((getHeight() - getPaddingBottom()) - (this.l * 2)) + this.m) - ceil2, this.a);
             }

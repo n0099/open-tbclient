@@ -1,29 +1,31 @@
 package com.baidu.tieba.im.message;
-
-import com.baidu.tieba.data.MaskData;
-import java.util.LinkedList;
-import protobuf.GetMaskInfo.GetMaskInfoRes;
 /* loaded from: classes.dex */
-public class bl extends cc implements com.baidu.tieba.im.coder.f {
-    private MaskData a;
+public abstract class bl extends cr implements com.baidu.tieba.im.coder.f {
+    private long a;
+    private long b;
+    private String c;
 
-    public void a(MaskData maskData) {
-        this.a = maskData;
+    public long a() {
+        return this.a;
     }
 
-    @Override // com.baidu.tieba.im.coder.f
-    public void a(LinkedList<o> linkedList, byte[] bArr, int i) {
-        GetMaskInfoRes.GetMaskInfoResIdl parseFrom = GetMaskInfoRes.GetMaskInfoResIdl.parseFrom(bArr);
-        e(i);
-        g(parseFrom.getError().getErrorno());
-        c(parseFrom.getError().getUsermsg());
-        linkedList.add(this);
-        if (!i()) {
-            GetMaskInfoRes.DataRes data = parseFrom.getData();
-            MaskData maskData = new MaskData();
-            maskData.setIsMask(data.getIsMask());
-            maskData.setList(maskData.getList());
-            a(maskData);
-        }
+    public void a(long j) {
+        this.a = j;
+    }
+
+    public long b() {
+        return this.b;
+    }
+
+    public void b(long j) {
+        this.b = j;
+    }
+
+    public String c() {
+        return this.c;
+    }
+
+    public void a(String str) {
+        this.c = str;
     }
 }

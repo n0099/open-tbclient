@@ -65,9 +65,9 @@ public class ToolMoreView extends LinearLayout {
     public void setOnClickListener(View.OnClickListener onClickListener) {
         this.c.setOnClickListener(onClickListener);
         this.d.setOnClickListener(onClickListener);
+        this.g.setOnClickListener(onClickListener);
         this.e.setOnClickListener(onClickListener);
         this.h.setOnClickListener(onClickListener);
-        this.g.setOnClickListener(onClickListener);
         this.j.setOnClickListener(onClickListener);
     }
 

@@ -4,8 +4,9 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.text.TextUtils;
+import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tieba.util.DatabaseService;
-import com.baidu.tieba.util.bo;
+import com.baidu.tieba.util.p;
 import java.io.InputStream;
 import java.util.LinkedList;
 import java.util.List;
@@ -38,8 +39,8 @@ public class j {
             a2.insert("emotion_group", null, contentValues);
             return true;
         } catch (Throwable th) {
-            bo.b("EmotionsDBManager", "addEmotionGroup", th.getMessage());
-            DatabaseService.a(th);
+            com.baidu.adp.lib.g.e.b("EmotionsDBManager", "addEmotionGroup", th.getMessage());
+            DatabaseService.a(th, "EmotionsDBManager.addEmotionGroup");
             return false;
         }
     }
@@ -61,11 +62,11 @@ public class j {
             } catch (Throwable th2) {
                 th = th2;
                 try {
-                    bo.b("EmotionsDBManager", "getEmotionGroup", th.getMessage());
-                    DatabaseService.a(th);
+                    com.baidu.adp.lib.g.e.b("EmotionsDBManager", "getEmotionGroup", th.getMessage());
+                    DatabaseService.a(th, "EmotionsDBManager.getEmotionGroup");
                     return emotionGroupData;
                 } finally {
-                    com.baidu.tieba.util.o.a(cursor);
+                    p.a(cursor);
                 }
             }
         }
@@ -83,10 +84,10 @@ public class j {
             }
         } catch (Throwable th) {
             try {
-                bo.b("EmotionsDBManager", "listAllEmotionGroups", th.getMessage());
-                DatabaseService.a(th);
+                com.baidu.adp.lib.g.e.b("EmotionsDBManager", "listAllEmotionGroups", th.getMessage());
+                DatabaseService.a(th, "EmotionsDBManager.listAllEmotionGroups");
             } finally {
-                com.baidu.tieba.util.o.a(cursor);
+                p.a(cursor);
             }
         }
         return linkedList;
@@ -126,8 +127,8 @@ public class j {
             a2.insert("emotions", null, contentValues);
             return true;
         } catch (Throwable th) {
-            bo.b("EmotionsDBManager", "addEmotion", th.getMessage());
-            DatabaseService.a(th);
+            com.baidu.adp.lib.g.e.b("EmotionsDBManager", "addEmotion", th.getMessage());
+            DatabaseService.a(th, "EmotionsDBManager.addEmotion");
             return false;
         }
     }
@@ -143,10 +144,10 @@ public class j {
             }
         } catch (Throwable th) {
             try {
-                bo.b("EmotionsDBManager", "listEmotionByGroup", th.getMessage());
-                DatabaseService.a(th);
+                com.baidu.adp.lib.g.e.b("EmotionsDBManager", "listEmotionByGroup", th.getMessage());
+                DatabaseService.a(th, "EmotionsDBManager.listEmotionByGroup");
             } finally {
-                com.baidu.tieba.util.o.a(cursor);
+                p.a(cursor);
             }
         }
         return linkedList;
@@ -168,14 +169,14 @@ public class j {
         try {
             a2.delete("user_emotions", "uid = ? and groupId = ?", new String[]{str, emotionGroupData.groupId});
             ContentValues contentValues = new ContentValues();
-            contentValues.put("uid", str);
+            contentValues.put(SapiAccountManager.SESSION_UID, str);
             contentValues.put("groupId", emotionGroupData.groupId);
             contentValues.put("updateTime", Long.valueOf(System.currentTimeMillis()));
             a2.insert("user_emotions", null, contentValues);
             return true;
         } catch (Throwable th) {
-            bo.b("EmotionsDBManager", "addToMyEmotion", th.getMessage());
-            DatabaseService.a(th);
+            com.baidu.adp.lib.g.e.b("EmotionsDBManager", "addToMyEmotion", th.getMessage());
+            DatabaseService.a(th, "EmotionsDBManager.addToMyEmotion");
             return false;
         }
     }
@@ -188,8 +189,8 @@ public class j {
             DatabaseService.a().delete("user_emotions", "uid = ? and groupId = ?", new String[]{myEmotionGroupData.uid, myEmotionGroupData.groupId});
             return true;
         } catch (Throwable th) {
-            bo.b("EmotionsDBManager", "addToMyEmotion", th.getMessage());
-            DatabaseService.a(th);
+            com.baidu.adp.lib.g.e.b("EmotionsDBManager", "addToMyEmotion", th.getMessage());
+            DatabaseService.a(th, "EmotionsDBManager.deleteMyEmotion");
             return false;
         }
     }
@@ -200,23 +201,23 @@ public class j {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             try {
                 cursor = DatabaseService.a().rawQuery("SELECT * FROM user_emotions where uid = ? and groupId = ? ", new String[]{str, str2});
-                try {
-                    if (cursor.moveToNext()) {
-                        myEmotionGroupData = c(cursor);
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    try {
-                        bo.b("EmotionsDBManager", "getMyEmotion", th.getMessage());
-                        DatabaseService.a(th);
-                        return myEmotionGroupData;
-                    } finally {
-                        com.baidu.tieba.util.o.a(cursor);
-                    }
+            } catch (Throwable th) {
+                th = th;
+                cursor = null;
+            }
+            try {
+                if (cursor.moveToNext()) {
+                    myEmotionGroupData = c(cursor);
                 }
             } catch (Throwable th2) {
                 th = th2;
-                cursor = null;
+                try {
+                    com.baidu.adp.lib.g.e.b("EmotionsDBManager", "getMyEmotion", th.getMessage());
+                    DatabaseService.a(th, "EmotionsDBManager.getMyEmotion");
+                    return myEmotionGroupData;
+                } finally {
+                    p.a(cursor);
+                }
             }
         }
         return myEmotionGroupData;
@@ -233,10 +234,10 @@ public class j {
                 }
             } catch (Throwable th) {
                 try {
-                    bo.b("EmotionsDBManager", "listMyEmotions", th.getMessage());
-                    DatabaseService.a(th);
+                    com.baidu.adp.lib.g.e.b("EmotionsDBManager", "listMyEmotions", th.getMessage());
+                    DatabaseService.a(th, "EmotionsDBManager.listMyEmotions");
                 } finally {
-                    com.baidu.tieba.util.o.a(cursor);
+                    p.a(cursor);
                 }
             }
         }
@@ -246,7 +247,7 @@ public class j {
     protected MyEmotionGroupData c(Cursor cursor) {
         MyEmotionGroupData myEmotionGroupData = new MyEmotionGroupData();
         myEmotionGroupData.id = cursor.getInt(cursor.getColumnIndex("id"));
-        myEmotionGroupData.uid = cursor.getString(cursor.getColumnIndex("uid"));
+        myEmotionGroupData.uid = cursor.getString(cursor.getColumnIndex(SapiAccountManager.SESSION_UID));
         myEmotionGroupData.groupId = cursor.getString(cursor.getColumnIndex("groupId"));
         myEmotionGroupData.updateTime = cursor.getLong(cursor.getColumnIndex("updateTime"));
         return myEmotionGroupData;

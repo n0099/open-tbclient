@@ -32,7 +32,7 @@ public class bj {
             a(new JSONObject(str));
         } catch (Exception e) {
             this.d = false;
-            com.baidu.tieba.util.bo.b("MentionModel", "parserJson", "error = " + e.getMessage());
+            com.baidu.adp.lib.g.e.b("MentionModel", "parserJson", "error = " + e.getMessage());
         }
     }
 
@@ -51,7 +51,7 @@ public class bj {
             this.b.a(jSONObject.optJSONObject("page"));
         } catch (Exception e) {
             this.d = false;
-            com.baidu.tieba.util.bo.b("MentionModel", "parserJson", "error = " + e.getMessage());
+            com.baidu.adp.lib.g.e.b("MentionModel", "parserJson", "error = " + e.getMessage());
         }
     }
 }

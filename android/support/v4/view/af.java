@@ -8,7 +8,7 @@ public class af extends DataSetObserver implements bp, bq {
     private int b;
 
     @Override // android.support.v4.view.bq
-    public void onPageScrolled(int i, float f, int i2) {
+    public void a(int i, float f, int i2) {
         if (f > 0.5f) {
             i++;
         }
@@ -16,7 +16,7 @@ public class af extends DataSetObserver implements bp, bq {
     }
 
     @Override // android.support.v4.view.bq
-    public void onPageSelected(int i) {
+    public void a_(int i) {
         float f;
         if (this.b == 0) {
             this.a.a(this.a.a.getCurrentItem(), this.a.a.getAdapter());
@@ -26,7 +26,7 @@ public class af extends DataSetObserver implements bp, bq {
     }
 
     @Override // android.support.v4.view.bq
-    public void onPageScrollStateChanged(int i) {
+    public void b(int i) {
         this.b = i;
     }
 

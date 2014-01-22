@@ -295,7 +295,7 @@ public class BDImageView extends ImageView {
             this.g = new SparseArray<>();
         }
         if (this.g.indexOfKey(this.b) <= -1 || (softReference = this.g.get(this.b)) == null || (dVar = softReference.get()) == null) {
-            d dVar2 = new d(com.baidu.adp.lib.h.a.a().a(this.b), false, null);
+            d dVar2 = new d(com.baidu.adp.lib.g.a.a().a(this.b), false, null);
             this.g.put(this.b, new SoftReference<>(dVar2));
             return dVar2;
         }

@@ -1,11 +1,11 @@
 package com.baidu.tieba.util.a;
 
-import com.baidu.tieba.log.k;
-import com.baidu.tieba.util.at;
+import com.baidu.tieba.log.j;
+import com.baidu.tieba.util.ax;
 import com.baidu.tieba.util.i;
 import com.baidu.tieba.util.l;
-import com.baidu.tieba.util.m;
-import com.baidu.tieba.util.o;
+import com.baidu.tieba.util.n;
+import com.baidu.tieba.util.p;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 /* loaded from: classes.dex */
@@ -35,7 +35,7 @@ public class b implements com.baidu.adp.lib.e.g {
             if (lVar == null || str3 == null || bool == null) {
                 return null;
             }
-            if (lVar.j) {
+            if (lVar.n) {
                 return null;
             }
             if (bool.booleanValue()) {
@@ -61,10 +61,10 @@ public class b implements com.baidu.adp.lib.e.g {
         String str3 = (String) d.a("em_sharp_text");
         Boolean bool = (Boolean) d.a("em_load_gif");
         String str4 = (String) d.a("em_img_url");
-        if (str2 == null || lVar == null || str3 == null || bool == null || str4 == null || lVar.j) {
+        if (str2 == null || lVar == null || str3 == null || bool == null || str4 == null || lVar.n) {
             return null;
         }
-        lVar.a = new at(iVar.a, str4);
+        lVar.a = new ax(iVar.a, str4);
         int i = 1;
         if (bool.booleanValue()) {
             i = 2;
@@ -73,60 +73,60 @@ public class b implements com.baidu.adp.lib.e.g {
         lVar.a.d(false);
         lVar.a.f(true);
         long currentTimeMillis = System.currentTimeMillis();
-        byte[] k = lVar.a.k();
-        if (k == null || !lVar.a.c()) {
-            if (!lVar.j) {
-                com.baidu.tieba.log.a.b(k.a(str4, String.valueOf(System.currentTimeMillis() - currentTimeMillis), String.valueOf(lVar.a.b()), lVar.a.f() + ":" + lVar.a.g(), "IS_CDN=true|download error"));
+        byte[] l = lVar.a.l();
+        if (l == null || !lVar.a.d()) {
+            if (!lVar.n) {
+                com.baidu.tieba.log.a.b(j.a(str4, String.valueOf(System.currentTimeMillis() - currentTimeMillis), String.valueOf(lVar.a.c()), lVar.a.g() + ":" + lVar.a.h(), "IS_CDN=true|download error"));
             }
             return null;
-        } else if (lVar.j) {
+        } else if (lVar.n) {
             return null;
         } else {
-            synchronized (m.a) {
-                if (lVar.j) {
+            synchronized (n.a) {
+                if (lVar.n) {
                     return null;
                 }
                 if (bool.booleanValue()) {
                     String a = com.baidu.tieba.data.emotions.d.a(str3, bool.booleanValue());
-                    ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(k);
+                    ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(l);
                     com.baidu.tieba.data.emotions.d.a(str2, a, byteArrayInputStream);
-                    o.a((InputStream) byteArrayInputStream);
+                    p.a((InputStream) byteArrayInputStream);
                     lVar.i = com.baidu.tieba.data.emotions.l.a().b(str2, str3);
                     if (lVar.i == null) {
-                        if (!lVar.j) {
-                            com.baidu.tieba.log.a.b(k.a(str4, String.valueOf(System.currentTimeMillis() - currentTimeMillis), String.valueOf(lVar.a.b()), lVar.a.f() + ":" + lVar.a.g(), "IS_CDN=true|gif decode error"));
+                        if (!lVar.n) {
+                            com.baidu.tieba.log.a.b(j.a(str4, String.valueOf(System.currentTimeMillis() - currentTimeMillis), String.valueOf(lVar.a.c()), lVar.a.g() + ":" + lVar.a.h(), "IS_CDN=true|gif decode error"));
                         }
                         return null;
                     }
                 } else {
                     com.baidu.tbadk.imageManager.d.a().c(80000);
-                    lVar.e = m.a(k);
+                    lVar.e = n.a(l);
                     if (lVar.e == null) {
-                        if (!lVar.j) {
-                            com.baidu.tieba.log.a.b(k.a(str4, String.valueOf(System.currentTimeMillis() - currentTimeMillis), String.valueOf(lVar.a.b()), lVar.a.f() + ":" + lVar.a.g(), "IS_CDN=true|decode error"));
+                        if (!lVar.n) {
+                            com.baidu.tieba.log.a.b(j.a(str4, String.valueOf(System.currentTimeMillis() - currentTimeMillis), String.valueOf(lVar.a.c()), lVar.a.g() + ":" + lVar.a.h(), "IS_CDN=true|decode error"));
                         }
                         return null;
-                    } else if (lVar.j) {
+                    } else if (lVar.n) {
                         return null;
                     } else {
                         lVar.i = new com.baidu.adp.widget.ImageView.d(lVar.e, lVar.h, str4);
                         com.baidu.tieba.data.emotions.l.a().a(str3, lVar.i, false);
                     }
                 }
-                if (lVar.j) {
+                if (lVar.n) {
                     return null;
                 }
                 eVar.d(lVar);
-                if (lVar.j) {
+                if (lVar.n) {
                     return null;
                 }
                 if (!bool.booleanValue()) {
-                    ByteArrayInputStream byteArrayInputStream2 = new ByteArrayInputStream(k);
+                    ByteArrayInputStream byteArrayInputStream2 = new ByteArrayInputStream(l);
                     try {
                         com.baidu.tieba.data.emotions.d.a(str2, com.baidu.tieba.data.emotions.d.a(str3, bool.booleanValue()), byteArrayInputStream2);
                     } catch (Throwable th) {
                     }
-                    o.a((InputStream) byteArrayInputStream2);
+                    p.a((InputStream) byteArrayInputStream2);
                 }
                 return lVar.i;
             }

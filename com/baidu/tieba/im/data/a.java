@@ -1,14 +1,14 @@
 package com.baidu.tieba.im.data;
 
-import com.baidu.tieba.util.ap;
+import com.baidu.tieba.util.as;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class a extends ap {
+public class a extends as {
     private int a;
     private String b;
     private String c;
 
-    @Override // com.baidu.tieba.util.ap, com.baidu.tieba.util.ar
+    @Override // com.baidu.tieba.util.as, com.baidu.tieba.util.au
     public LinkedList<String> getPhotoUrl() {
         LinkedList<String> linkedList = new LinkedList<>();
         linkedList.add(c());

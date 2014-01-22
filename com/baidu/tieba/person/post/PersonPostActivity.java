@@ -4,9 +4,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import com.baidu.mobstat.StatService;
 import com.baidu.tieba.BaseFragmentActivity;
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.util.by;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class PersonPostActivity extends BaseFragmentActivity implements View.OnClickListener {
@@ -70,15 +70,15 @@ public class PersonPostActivity extends BaseFragmentActivity implements View.OnC
         }
     }
 
-    public String b() {
+    public String c() {
         return this.b;
     }
 
-    public String c() {
+    public String d() {
         return this.c;
     }
 
-    public String d() {
+    public String e() {
         return this.d;
     }
 
@@ -90,40 +90,36 @@ public class PersonPostActivity extends BaseFragmentActivity implements View.OnC
 
     @Override // com.baidu.tieba.BaseFragmentActivity
     protected void a(int i) {
-        this.g.a(i);
+        this.g.c(i);
     }
 
     private void c(int i) {
         switch (i) {
             case 1:
-                this.g.b(i);
+                this.g.d(i);
                 return;
             case 2:
-                this.g.b(i);
+                this.g.d(i);
                 return;
             default:
                 return;
         }
     }
 
-    public String e() {
-        return this.f ? getString(R.string.person_post_lv_empty_host) : String.format(getString(R.string.person_post_lv_empty_guest), c());
+    public String f() {
+        return this.f ? getString(R.string.person_post_lv_empty_host) : String.format(getString(R.string.person_post_lv_empty_guest), d());
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.reply /* 2131100635 */:
-                if (TiebaApplication.g().s()) {
-                    StatService.onEvent(this, this.f ? "pp_my_reply" : "pp_his_reply", "click", 1);
-                }
+            case R.id.reply /* 2131100733 */:
+                by.a(this, this.f ? "pp_my_reply" : "pp_his_reply", "click", 1, new Object[0]);
                 c(2);
                 this.g.b.setCurrentItem(1);
                 return;
-            case R.id.thread /* 2131100830 */:
-                if (TiebaApplication.g().s()) {
-                    StatService.onEvent(this, this.f ? "pp_my_thread" : "pp_his_thread", "click", 1);
-                }
+            case R.id.thread /* 2131100943 */:
+                by.a(this, this.f ? "pp_my_thread" : "pp_his_thread", "click", 1, new Object[0]);
                 c(1);
                 this.g.b.setCurrentItem(0);
                 return;

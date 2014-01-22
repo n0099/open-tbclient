@@ -22,7 +22,7 @@ public class n {
                 this.b = jSONObject.optString("errmsg");
                 this.c = jSONObject.optString("usermsg");
             } catch (Exception e) {
-                com.baidu.tieba.util.bo.b(getClass().getName(), "parserJson", e.getMessage());
+                com.baidu.adp.lib.g.e.b(getClass().getName(), "parserJson", e.getMessage());
             }
         }
     }

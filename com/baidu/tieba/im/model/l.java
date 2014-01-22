@@ -1,46 +1,59 @@
 package com.baidu.tieba.im.model;
 
-import com.baidu.tieba.im.message.aw;
+import android.graphics.Bitmap;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tieba.im.model.LocalPicModel;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class l extends com.baidu.adp.a.d {
-    @Override // com.baidu.adp.a.d
-    public boolean cancelLoadData() {
-        return false;
+public class l extends BdAsyncTask<Object, Integer, LocalPicModel.ResponseData> {
+    final /* synthetic */ LocalPicModel a;
+
+    private l(LocalPicModel localPicModel) {
+        this.a = localPicModel;
     }
 
-    private com.baidu.tieba.im.message.ad b(int i) {
-        com.baidu.tieba.im.message.ad adVar = new com.baidu.tieba.im.message.ad();
-        adVar.a(i);
-        return adVar;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: d */
+    public LocalPicModel.ResponseData a(Object... objArr) {
+        String str;
+        String str2;
+        String str3;
+        String str4;
+        String str5 = "im_" + String.valueOf(System.currentTimeMillis());
+        str = this.a.mSPath;
+        str2 = this.a.mSName;
+        String a = com.baidu.tieba.util.ad.a(str, str2, com.baidu.tieba.im.j.c, str5 + "_send");
+        String str6 = str5 + "_display";
+        str3 = this.a.mDPath;
+        str4 = this.a.mDName;
+        String a2 = com.baidu.tieba.util.ad.a(str3, str4, com.baidu.tieba.im.j.c, str6);
+        Bitmap c = com.baidu.tieba.util.ad.c(com.baidu.tieba.im.j.c, str6);
+        if (a == null || a2 == null || c == null) {
+            return null;
+        }
+        return new LocalPicModel.ResponseData(c, a, a2);
     }
 
-    private aw b(int i, boolean z) {
-        aw awVar = new aw();
-        awVar.a(z);
-        awVar.a(i);
-        awVar.a("");
-        return awVar;
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        super.cancel(true);
+        this.a.mImageTask = null;
     }
 
-    public void a(int i) {
-        com.baidu.tieba.im.messageCenter.e.a().a(b(i));
-    }
-
-    public void a(int i, boolean z) {
-        com.baidu.tieba.im.messageCenter.e.a().a(b(i, z));
-    }
-
-    public void a(com.baidu.tieba.im.messageCenter.g gVar) {
-        com.baidu.tieba.im.messageCenter.e.a().a(104103, gVar);
-        com.baidu.tieba.im.messageCenter.e.a().a(104102, gVar);
-    }
-
-    public void b(com.baidu.tieba.im.messageCenter.g gVar) {
-        com.baidu.tieba.im.messageCenter.e.a().a(gVar);
-    }
-
-    @Override // com.baidu.adp.a.d
-    protected boolean LoadData() {
-        return false;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(LocalPicModel.ResponseData responseData) {
+        com.baidu.adp.a.g gVar;
+        com.baidu.adp.a.g gVar2;
+        super.a((l) responseData);
+        this.a.mImageTask = null;
+        gVar = this.a.mLoadDataCallBack;
+        if (gVar != null) {
+            gVar2 = this.a.mLoadDataCallBack;
+            gVar2.a(responseData);
+        }
     }
 }

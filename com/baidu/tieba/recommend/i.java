@@ -1,11 +1,10 @@
 package com.baidu.tieba.recommend;
 
 import android.text.TextUtils;
-import com.baidu.mobstat.StatService;
-import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.util.UtilHelper;
+import com.baidu.tieba.util.by;
 /* loaded from: classes.dex */
-class i implements com.baidu.tieba.view.l {
+class i implements com.baidu.tieba.view.p {
     final /* synthetic */ h a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,15 +12,13 @@ class i implements com.baidu.tieba.view.l {
         this.a = hVar;
     }
 
-    @Override // com.baidu.tieba.view.l
+    @Override // com.baidu.tieba.view.p
     public void a() {
-        if (this.a.g != null && this.a.g.a.size() > this.a.f.getCurrentItem()) {
-            String str = (String) this.a.g.a.get(this.a.f.getCurrentItem()).getTag();
+        if (h.a(this.a) != null && h.a(this.a).a.size() > h.b(this.a).getCurrentItem()) {
+            String str = (String) h.a(this.a).a.get(h.b(this.a).getCurrentItem()).getTag();
             if (!TextUtils.isEmpty(str)) {
-                UtilHelper.a(this.a.i, str, null, null);
-                if (TiebaApplication.g().s()) {
-                    StatService.onEvent(this.a.i, "recommend_banner", "click");
-                }
+                UtilHelper.a(h.c(this.a), str, null, null);
+                by.a(h.c(this.a), "recommend_banner", "click");
             }
         }
     }

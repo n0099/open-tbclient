@@ -1,9 +1,25 @@
 package com.baidu.tieba.view;
 
+import android.app.Activity;
 import android.view.View;
+import com.baidu.cloudsdk.social.core.SocialConstants;
+import com.baidu.tieba.flist.ForumListActivity;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public interface an {
-    void a(View view, int i, int i2);
+public class an implements View.OnClickListener {
+    final /* synthetic */ FrsHeaderView a;
 
-    void d();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public an(FrsHeaderView frsHeaderView) {
+        this.a = frsHeaderView;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Activity activity;
+        String str;
+        activity = this.a.A;
+        str = this.a.G;
+        ForumListActivity.a(activity, str, "2", SocialConstants.TRUE);
+    }
 }

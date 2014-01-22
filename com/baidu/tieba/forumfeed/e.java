@@ -4,42 +4,41 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import com.baidu.browser.webpool.BdWebPoolView;
 import com.baidu.tieba.BaseFragmentActivity;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.aj;
 import com.baidu.tieba.data.v;
 import com.baidu.tieba.data.w;
-import com.baidu.tieba.util.bn;
-import com.baidu.tieba.view.x;
+import com.baidu.tieba.util.bx;
+import com.baidu.tieba.view.af;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class e extends BaseAdapter {
     private v a;
     private Context b;
-    private x c;
+    private af c;
     private View.OnClickListener d;
     private com.baidu.tieba.util.i f;
     private int g;
     private boolean e = false;
-    private int h = BdWebPoolView.DELAYED_TIME;
+    private int h = 200;
     private boolean i = false;
     private float j = 0.4f;
     private boolean k = false;
 
     public void a(v vVar) {
-        b(bn.a().b());
+        b(bx.a().b());
         this.e = true;
         this.a = vVar;
     }
 
     public e(Context context) {
-        this.g = BdWebPoolView.DELAYED_TIME;
+        this.g = 200;
         this.b = context;
         this.f = new com.baidu.tieba.util.i(context);
-        this.g = com.baidu.adp.lib.h.g.b(context);
-        b(bn.a().b());
+        this.g = com.baidu.adp.lib.g.g.b(context);
+        b(bx.a().b());
     }
 
     @Override // android.widget.Adapter
@@ -86,20 +85,20 @@ public class e extends BaseAdapter {
             return a();
         }
         if (this.c == null) {
-            this.c = new x(this.b);
+            this.c = new af(this.b);
         }
         this.c.a(this.g, this.i, this.j);
         this.c.a(this.k);
         View a = (view == null || view.getTag() == null) ? this.c.a() : view;
         a.setPadding(0, i == 0 ? this.b.getResources().getDimensionPixelSize(R.dimen.forumfeed_first_item_margin_top) : 0, 0, 0);
-        int an = TiebaApplication.g().an();
+        int al = TiebaApplication.h().al();
         ArrayList<w> b = this.a.b();
         if (b != null && (wVar = b.get(i)) != null) {
             this.c.a(a, wVar);
-            this.c.a(an, a);
+            this.c.a(al, a);
         }
         BaseFragmentActivity baseFragmentActivity = (BaseFragmentActivity) this.b;
-        baseFragmentActivity.a().a(an == 1);
+        baseFragmentActivity.a().a(al == 1);
         baseFragmentActivity.a().a(a);
         return a;
     }
@@ -143,16 +142,16 @@ public class e extends BaseAdapter {
             if (this.h > 480) {
                 this.h = 480;
             }
-            if (this.h > com.baidu.adp.lib.h.g.a(this.b, 320.0f)) {
-                this.h = com.baidu.adp.lib.h.g.a(this.b, 320.0f);
+            if (this.h > com.baidu.adp.lib.g.g.a(this.b, 320.0f)) {
+                this.h = com.baidu.adp.lib.g.g.a(this.b, 320.0f);
             }
             this.f.b("_small");
         } else {
             if (this.h > this.j * 480.0f) {
                 this.h = (int) (this.j * 480.0f);
             }
-            if (this.h > com.baidu.adp.lib.h.g.a(this.b, 320.0f) * this.j) {
-                this.h = (int) (com.baidu.adp.lib.h.g.a(this.b, 320.0f) * this.j);
+            if (this.h > com.baidu.adp.lib.g.g.a(this.b, 320.0f) * this.j) {
+                this.h = (int) (com.baidu.adp.lib.g.g.a(this.b, 320.0f) * this.j);
             }
             this.f.b("_mobile");
         }

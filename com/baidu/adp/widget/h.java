@@ -3,6 +3,7 @@ package com.baidu.adp.widget;
 import android.os.SystemClock;
 import android.util.Log;
 import com.baidu.android.pushservice.PushConstants;
+import com.baidu.sapi2.shell.SapiErrorCode;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -62,7 +63,7 @@ public class h {
         this.h.f = (int) (aj.a(this.c, this.a, false) + this.d);
         this.h.invalidate();
         gVar = this.h.s;
-        gVar.sendEmptyMessageAtTime(-101, this.f);
+        gVar.sendEmptyMessageAtTime(SapiErrorCode.SENT_SUCCEED, this.f);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -85,7 +86,7 @@ public class h {
         this.h.f = (int) (aj.a(this.c, this.a, false) + this.d);
         this.h.invalidate();
         gVar = this.h.s;
-        gVar.sendEmptyMessageAtTime(-104, this.f);
+        gVar.sendEmptyMessageAtTime(SapiErrorCode.GETTING_CERT, this.f);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -108,7 +109,7 @@ public class h {
         this.h.f = (int) (aj.a(this.c, this.a, false) + this.d);
         this.h.invalidate();
         gVar = this.h.s;
-        gVar.sendEmptyMessageAtTime(-105, this.f);
+        gVar.sendEmptyMessageAtTime(SapiErrorCode.GET_CERT_FAIL, this.f);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -135,11 +136,11 @@ public class h {
         i2 = this.h.f;
         this.d = i2;
         gVar = this.h.s;
-        gVar.removeMessages(-104);
+        gVar.removeMessages(SapiErrorCode.GETTING_CERT);
         Log.d("Animator", "@animateTopOpen " + this.c);
         Log.d("Animator", "@animateTopOpen " + f);
         gVar2 = this.h.s;
-        gVar2.sendEmptyMessageAtTime(-104, this.f);
+        gVar2.sendEmptyMessageAtTime(SapiErrorCode.GETTING_CERT, this.f);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -168,9 +169,9 @@ public class h {
         Log.d("Animator", "@animateBottomOpen " + this.c);
         Log.d("Animator", "@animateBottomOpen " + f);
         gVar = this.h.s;
-        gVar.removeMessages(-105);
+        gVar.removeMessages(SapiErrorCode.GET_CERT_FAIL);
         gVar2 = this.h.s;
-        gVar2.sendEmptyMessageAtTime(-105, this.f);
+        gVar2.sendEmptyMessageAtTime(SapiErrorCode.GET_CERT_FAIL, this.f);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -232,8 +233,8 @@ public class h {
         Log.d("Animator", "@animateBottom " + this.c);
         Log.d("Animator", "@animateBottom " + f);
         gVar = this.h.s;
-        gVar.removeMessages(-101);
+        gVar.removeMessages(SapiErrorCode.SENT_SUCCEED);
         gVar2 = this.h.s;
-        gVar2.sendEmptyMessageAtTime(-101, this.f);
+        gVar2.sendEmptyMessageAtTime(SapiErrorCode.SENT_SUCCEED, this.f);
     }
 }

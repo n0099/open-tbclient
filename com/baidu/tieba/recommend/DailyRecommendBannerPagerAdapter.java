@@ -7,11 +7,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.view.an;
+import com.baidu.tieba.view.bb;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class DailyRecommendBannerPagerAdapter extends ae implements an {
+public class DailyRecommendBannerPagerAdapter extends ae implements bb {
     ArrayList<View> a = new ArrayList<>();
     public int b;
     public int c;
@@ -23,7 +23,7 @@ public class DailyRecommendBannerPagerAdapter extends ae implements an {
     public DailyRecommendBannerPagerAdapter(Activity activity, ArrayList<com.baidu.tieba.data.n> arrayList) {
         this.d = activity;
         this.e = activity.getResources();
-        this.b = (int) (com.baidu.adp.lib.h.g.b(activity) - (2.0f * this.e.getDimension(R.dimen.daily_recommend_banner_X_DIS)));
+        this.b = (int) (com.baidu.adp.lib.g.g.b(activity) - (2.0f * this.e.getDimension(R.dimen.daily_recommend_banner_X_DIS)));
         this.c = (int) ((this.b * this.e.getDimension(R.dimen.daily_recommend_banner_height)) / this.e.getDimension(R.dimen.daily_recommend_banner_width));
         this.g = new com.baidu.tieba.util.i(activity);
         this.g.a(this.b, this.c);
@@ -56,7 +56,7 @@ public class DailyRecommendBannerPagerAdapter extends ae implements an {
         tbImageView.setLayoutParams(layoutParams);
         linearLayout.addView(tbImageView);
         tbImageView.setTag(nVar.a());
-        this.g.a(nVar.a(), new t(this, tbImageView));
+        this.g.b(nVar.a(), new t(this, tbImageView));
         linearLayout.setTag(nVar.b());
         return linearLayout;
     }
@@ -77,21 +77,21 @@ public class DailyRecommendBannerPagerAdapter extends ae implements an {
         return view == obj;
     }
 
-    @Override // com.baidu.tieba.view.an
+    @Override // com.baidu.tieba.view.bb
     public void d() {
         if (this.g != null) {
             this.g.d();
         }
     }
 
-    @Override // com.baidu.tieba.view.an
+    @Override // com.baidu.tieba.view.bb
     public void a(View view, int i, int i2) {
         if (this.g != null && this.f != null) {
             int i3 = 0;
             while (true) {
                 int i4 = i3;
                 if (i4 < this.f.size()) {
-                    this.g.a(this.f.get(i4).a(), new u(this, view));
+                    this.g.b(this.f.get(i4).a(), new u(this, view));
                     i3 = i4 + 1;
                 } else {
                     return;

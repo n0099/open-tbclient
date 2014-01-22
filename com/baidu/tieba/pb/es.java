@@ -12,8 +12,6 @@ class es implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.a.a.canGoBack()) {
-            this.a.a.goBack();
-        }
+        this.a.a.reload();
     }
 }

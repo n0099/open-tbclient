@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.widget.FrameLayout;
 import com.baidu.android.pushservice.PushConstants;
+import com.baidu.sapi2.shell.SapiErrorCode;
 import java.util.List;
 /* loaded from: classes.dex */
 public class HorizontalTranslateLayout extends FrameLayout {
@@ -152,9 +153,9 @@ public class HorizontalTranslateLayout extends FrameLayout {
                     this.o = x;
                     this.p = y;
                     this.s.removeMessages(-100);
-                    this.s.removeMessages(-104);
-                    this.s.removeMessages(-101);
-                    this.s.removeMessages(-105);
+                    this.s.removeMessages(SapiErrorCode.GETTING_CERT);
+                    this.s.removeMessages(SapiErrorCode.SENT_SUCCEED);
+                    this.s.removeMessages(SapiErrorCode.GET_CERT_FAIL);
                     return false;
                 case 1:
                 default:

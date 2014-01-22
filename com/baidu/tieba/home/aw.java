@@ -73,7 +73,7 @@ public class aw extends BaseAdapter {
                 } catch (Exception e) {
                     view2 = view3;
                     exc = e;
-                    com.baidu.tieba.util.bo.b(getClass().getName(), "", "SearchAdapter.getView error = " + exc.getMessage());
+                    com.baidu.adp.lib.g.e.b(getClass().getName(), "", "SearchAdapter.getView error = " + exc.getMessage());
                     a(view2);
                     return view2;
                 }
@@ -89,7 +89,7 @@ public class aw extends BaseAdapter {
         if (item == null) {
             return view3;
         }
-        com.baidu.tieba.util.bl.b(ayVar.a, TiebaApplication.g().an());
+        com.baidu.tieba.util.bs.b(ayVar.a, TiebaApplication.h().al());
         String str = (String) item;
         if (this.d) {
             ayVar.a.setText(str.concat(this.c));
@@ -102,11 +102,11 @@ public class aw extends BaseAdapter {
     }
 
     private void a(View view) {
-        int an = TiebaApplication.g().an();
-        this.a.getLayoutMode().a(an == 1);
+        int al = TiebaApplication.h().al();
+        this.a.getLayoutMode().a(al == 1);
         this.a.getLayoutMode().a(view);
         View findViewById = view.findViewById(R.id.parent);
-        if (an == 1) {
+        if (al == 1) {
             if (findViewById != null) {
                 findViewById.setBackgroundResource(R.drawable.common_list_item_bg_selector_1);
             }

@@ -1,5 +1,13 @@
 package com.baidu.tieba.pb;
+
+import android.view.View;
 /* loaded from: classes.dex */
-public interface dx {
-    void a(com.baidu.tieba.data.ax axVar);
+class dx {
+    int a;
+    View b;
+
+    private dx(int i, View view) {
+        this.a = i;
+        this.b = view;
+    }
 }

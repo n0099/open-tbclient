@@ -1,29 +1,24 @@
 package com.baidu.tieba.im.chat;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
+import android.widget.AbsListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f implements com.baidu.tieba.im.a<LinkedList<String>> {
-    final /* synthetic */ ag a;
-    final /* synthetic */ a b;
+public class f implements AbsListView.OnScrollListener {
+    final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public f(a aVar, ag agVar) {
-        this.b = aVar;
-        this.a = agVar;
+    public f(a aVar) {
+        this.a = aVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    public void a(LinkedList<String> linkedList) {
-        ArrayList<String> arrayList = new ArrayList<>();
-        while (!linkedList.isEmpty()) {
-            String a = com.baidu.tieba.im.d.d.a(linkedList.removeLast(), true);
-            if (a != null) {
-                arrayList.add(a);
-            }
-        }
-        this.a.a(arrayList);
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+    }
+
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScrollStateChanged(AbsListView absListView, int i) {
+        this.a.P();
+        this.a.Q();
+        this.a.R();
     }
 }

@@ -37,7 +37,7 @@ public class a {
 
     public static boolean b(String str) {
         com.baidu.tieba.im.c.a.h().b((RecentChatFriendData) null);
-        ConcurrentHashMap<String, ImMessageCenterPojo> b = ad.a().b();
+        ConcurrentHashMap<String, ImMessageCenterPojo> b = ae.a().b();
         if (b != null && !TextUtils.isEmpty(str) && b.get(str) != null) {
             b.remove(str);
             return true;

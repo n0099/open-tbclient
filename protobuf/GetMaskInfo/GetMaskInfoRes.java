@@ -70,11 +70,11 @@ public final class GetMaskInfoRes {
                                     this.bitField0_ |= 1;
                                     this.name_ = codedInputStream.readBytes();
                                     break;
-                                case 18:
+                                case Im.GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
                                     this.bitField0_ |= 2;
                                     this.portrait_ = codedInputStream.readBytes();
                                     break;
-                                case 24:
+                                case Im.GroupInfo.ISHIDEPOSITION_FIELD_NUMBER /* 24 */:
                                     this.bitField0_ |= 4;
                                     this.uid_ = codedInputStream.readUInt32();
                                     break;
@@ -339,11 +339,11 @@ public final class GetMaskInfoRes {
                                     this.bitField0_ |= 1;
                                     this.isMask_ = codedInputStream.readUInt32();
                                     break;
-                                case 18:
+                                case Im.GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
                                     this.bitField0_ |= 2;
                                     this.list_ = codedInputStream.readBytes();
                                     break;
-                                case 26:
+                                case Im.GroupInfo.NICKNAME_FIELD_NUMBER /* 26 */:
                                     if (!(z2 & true)) {
                                         this.users_ = new ArrayList();
                                         z2 |= true;
@@ -621,7 +621,7 @@ public final class GetMaskInfoRes {
                                 this.bitField0_ |= 1;
                                 z = z2;
                                 break;
-                            case 18:
+                            case Im.GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
                                 j builder2 = (this.bitField0_ & 2) == 2 ? this.data_.toBuilder() : null;
                                 this.data_ = (DataRes) codedInputStream.readMessage(DataRes.PARSER, extensionRegistryLite);
                                 if (builder2 != null) {

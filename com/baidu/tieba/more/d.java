@@ -5,8 +5,8 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.bl;
-import com.baidu.tieba.util.bm;
+import com.baidu.tieba.util.bs;
+import com.baidu.tieba.util.bu;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
@@ -55,12 +55,12 @@ public class d extends com.baidu.adp.a.e {
         this.i = (SettingTextTipView) this.a.findViewById(R.id.about_guide);
         this.k = (ProgressBar) this.a.findViewById(R.id.about_progress);
         String j = com.baidu.tieba.data.h.j();
-        if (com.baidu.tieba.data.h.l() == 1 && !bm.c(com.baidu.tieba.data.h.k())) {
+        if (com.baidu.tieba.data.h.l() == 1 && !bu.c(com.baidu.tieba.data.h.k())) {
             j = j + "." + com.baidu.tieba.data.h.k();
         }
         this.e.setText(this.a.getString(R.string.setting_version_text) + " " + j);
         this.g = (TextView) this.a.findViewById(R.id.text_version_protoco);
-        a(TiebaApplication.g().an());
+        a(TiebaApplication.h().al());
     }
 
     private void a(ac acVar) {
@@ -90,16 +90,16 @@ public class d extends com.baidu.adp.a.e {
         this.j.a(i);
         this.i.a(i);
         if (i == 1) {
-            bl.e(this.h, (int) R.drawable.more_up_1);
-            bl.e(this.i, (int) R.drawable.more_down_1);
-            bl.e(this.j, (int) R.drawable.more_middle_1);
+            bs.e(this.h, (int) R.drawable.more_up_1);
+            bs.e(this.i, (int) R.drawable.more_down_1);
+            bs.e(this.j, (int) R.drawable.more_middle_1);
             this.g.setTextColor(this.a.getResources().getColor(R.color.skin_1_common_color));
             this.e.setTextColor(this.a.getResources().getColor(R.color.skin_1_common_color));
             this.f.setImageDrawable(this.a.getResources().getDrawable(R.drawable.setting_logo_desc_1));
         } else {
-            bl.e(this.h, (int) R.drawable.more_up);
-            bl.e(this.i, (int) R.drawable.more_down);
-            bl.e(this.j, (int) R.drawable.more_middle);
+            bs.e(this.h, (int) R.drawable.more_up);
+            bs.e(this.i, (int) R.drawable.more_down);
+            bs.e(this.j, (int) R.drawable.more_middle);
             this.g.setTextColor(this.a.getResources().getColor(R.color.c_555d68));
             this.e.setTextColor(this.a.getResources().getColor(R.color.c_262626));
             this.f.setImageDrawable(this.a.getResources().getDrawable(R.drawable.setting_logo_desc));

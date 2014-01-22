@@ -19,14 +19,14 @@ public class ar {
     private String j = null;
     private as k = null;
     private au l = null;
-    private com.baidu.tieba.frs.bk m = null;
-    private com.baidu.tieba.frs.bk n = null;
+    private com.baidu.tieba.frs.bg m = null;
+    private com.baidu.tieba.frs.bg n = null;
 
     public ar() {
-        g();
+        h();
     }
 
-    private void g() {
+    private void h() {
         this.a = new ForumData();
         this.b = new ArrayList<>();
         this.c = new ArrayList<>();
@@ -37,30 +37,34 @@ public class ar {
         this.h = new com.baidu.tieba.data.al();
     }
 
-    public ForumData a() {
+    public com.baidu.tieba.data.al a() {
+        return this.h;
+    }
+
+    public ForumData b() {
         return this.a;
     }
 
-    public ArrayList<com.baidu.tieba.data.bc> b() {
+    public ArrayList<com.baidu.tieba.data.bc> c() {
         return this.b;
     }
 
-    public ArrayList<String> c() {
+    public ArrayList<String> d() {
         return this.c;
     }
 
-    public int d() {
+    public int e() {
         return this.d;
     }
 
-    public AntiData e() {
+    public AntiData f() {
         return this.g;
     }
 
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                g();
+                h();
                 this.a.parserJson(jSONObject.optJSONObject("forum"));
                 this.h.a(jSONObject.optJSONObject("user"));
                 this.g.parserJson(jSONObject.optJSONObject("anti"));
@@ -113,7 +117,7 @@ public class ar {
         }
     }
 
-    public void f() {
+    public void g() {
         if (this.k != null) {
             this.k.cancel();
             this.k = null;
@@ -129,11 +133,11 @@ public class ar {
         this.j = str2;
     }
 
-    public void a(com.baidu.tieba.frs.bk bkVar) {
-        this.m = bkVar;
+    public void a(com.baidu.tieba.frs.bg bgVar) {
+        this.m = bgVar;
     }
 
-    public void b(com.baidu.tieba.frs.bk bkVar) {
-        this.n = bkVar;
+    public void b(com.baidu.tieba.frs.bg bgVar) {
+        this.n = bgVar;
     }
 }

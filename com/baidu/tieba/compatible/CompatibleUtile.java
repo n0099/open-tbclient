@@ -15,7 +15,6 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.FrameLayout;
 import android.widget.ListView;
-import com.baidu.zeus.NotificationProxy;
 /* loaded from: classes.dex */
 public class CompatibleUtile {
     private static CompatibleUtile mCompatibleUtile = null;
@@ -94,7 +93,7 @@ public class CompatibleUtile {
         if (memoryClass <= 0) {
             memoryClass = 16;
         }
-        return ((memoryClass * NotificationProxy.MAX_URL_LENGTH) * NotificationProxy.MAX_URL_LENGTH) / 2;
+        return ((memoryClass * 1024) * 1024) / 2;
     }
 
     public static int getActionMask() {
@@ -245,7 +244,7 @@ public class CompatibleUtile {
             Window window = this.mActivity.getWindow();
             WindowManager.LayoutParams attributes = window.getAttributes();
             if (z) {
-                attributes.flags |= NotificationProxy.MAX_URL_LENGTH;
+                attributes.flags |= 1024;
             } else {
                 attributes.flags &= -1025;
                 if (this.mCustomView != null) {

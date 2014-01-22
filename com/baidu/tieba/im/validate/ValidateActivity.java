@@ -13,7 +13,8 @@ import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.groupInfo.ae;
 import com.baidu.tieba.im.groupInfo.af;
 import com.baidu.tieba.im.groupInfo.ai;
-import com.baidu.tieba.im.message.cc;
+import com.baidu.tieba.im.message.cr;
+import com.baidu.tieba.im.message.q;
 import com.baidu.tieba.mention.s;
 import com.baidu.tieba.person.PersonInfoActivity;
 import com.baidu.tieba.util.UtilHelper;
@@ -204,7 +205,7 @@ public class ValidateActivity extends com.baidu.tieba.j implements AbsListView.O
                     aeVar.c(com.baidu.adp.lib.f.b.a(d, 0));
                     aeVar.c(String.valueOf(com.baidu.adp.lib.f.b.a(notice_id, 0L) / 100));
                     aeVar.d(1);
-                    com.baidu.adp.lib.h.e.d("pass apply: userid:" + aeVar.e() + "  groupId:" + aeVar.d() + " sysGid" + d + " mid:" + aeVar.h());
+                    com.baidu.adp.lib.g.e.d("pass apply: userid:" + aeVar.e() + "  groupId:" + aeVar.d() + " sysGid" + d + " mid:" + aeVar.h());
                     this.i = true;
                     com.baidu.tieba.im.messageCenter.e.a().a(aeVar);
                 }
@@ -223,38 +224,38 @@ public class ValidateActivity extends com.baidu.tieba.j implements AbsListView.O
             af afVar = new af();
             afVar.a(Integer.parseInt(com.baidu.tieba.im.c.m.a().d()));
             afVar.a("" + (Long.parseLong(validateItemData.getNotice_id()) / 100));
-            com.baidu.adp.lib.h.e.d("del group info request: gid" + validateItemData.getGroupId() + " msgid:" + validateItemData.getNotice_id() + " systemGid:" + afVar.b());
+            com.baidu.adp.lib.g.e.d("del group info request: gid" + validateItemData.getGroupId() + " msgid:" + validateItemData.getNotice_id() + " systemGid:" + afVar.b());
             this.i = true;
             com.baidu.tieba.im.messageCenter.e.a().a(afVar);
         }
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(com.baidu.tieba.im.message.o oVar) {
+    public void a(q qVar) {
         this.b.a(false);
         this.i = false;
-        if (oVar != null && (oVar instanceof cc)) {
-            int u = oVar.u();
-            if (u == 103111) {
-                cc ccVar = (cc) oVar;
-                ae aeVar = (ae) ccVar.l();
-                if (ccVar.i()) {
+        if (qVar != null && (qVar instanceof cr)) {
+            int w = qVar.w();
+            if (w == 103111) {
+                cr crVar = (cr) qVar;
+                ae aeVar = (ae) crVar.n();
+                if (crVar.k()) {
                     if (aeVar != null) {
-                        int j = ccVar.j();
-                        String k = ccVar.k();
-                        if (TextUtils.isEmpty(k)) {
+                        int l = crVar.l();
+                        String m = crVar.m();
+                        if (TextUtils.isEmpty(m)) {
                             showToast(R.string.validate_fail);
                         } else {
-                            showToast(k);
+                            showToast(m);
                         }
-                        com.baidu.adp.lib.h.e.d("errCode:" + j + "errMsg:" + k);
+                        com.baidu.adp.lib.g.e.d("errCode:" + l + "errMsg:" + m);
                         ValidateItemData a2 = a(aeVar.f());
                         if (a2 != null) {
                             a2.setPass(false);
                             a2.setShown(true);
                             l.a(this.d, a2);
                             this.b.g().notifyDataSetChanged();
-                            com.baidu.adp.lib.h.e.d("apply add group" + oVar.toString() + "err:" + j + " " + k);
+                            com.baidu.adp.lib.g.e.d("apply add group" + qVar.toString() + "err:" + l + " " + m);
                             return;
                         }
                         return;
@@ -266,22 +267,22 @@ public class ValidateActivity extends com.baidu.tieba.j implements AbsListView.O
                     a3.setPass(true);
                     a3.setShown(true);
                     l.a(this.d, a3);
-                    if (TextUtils.isEmpty(ccVar.k())) {
+                    if (TextUtils.isEmpty(crVar.m())) {
                         showToast(R.string.validate_succ);
                     } else {
-                        showToast(ccVar.k());
+                        showToast(crVar.m());
                     }
                     this.b.g().notifyDataSetChanged();
-                    com.baidu.adp.lib.h.e.d("apply add group" + oVar.toString());
+                    com.baidu.adp.lib.g.e.d("apply add group" + qVar.toString());
                 }
-            } else if (202004 == u) {
-                ai aiVar = (ai) oVar;
-                af afVar = (af) aiVar.l();
-                if (aiVar.i()) {
-                    com.baidu.adp.lib.h.e.a("del group info err:" + aiVar.k());
+            } else if (202004 == w) {
+                ai aiVar = (ai) qVar;
+                af afVar = (af) aiVar.n();
+                if (aiVar.k()) {
+                    com.baidu.adp.lib.g.e.a("del group info err:" + aiVar.m());
                     return;
                 }
-                com.baidu.adp.lib.h.e.d("del group info: gid" + afVar.b() + " msgid:" + afVar.c());
+                com.baidu.adp.lib.g.e.d("del group info: gid" + afVar.b() + " msgid:" + afVar.c());
                 l.a(this.f, this.d);
                 this.l--;
                 this.j--;

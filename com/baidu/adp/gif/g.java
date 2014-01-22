@@ -20,7 +20,7 @@ public class g {
 
     public static boolean a() {
         String str = Build.MODEL;
-        com.baidu.adp.lib.h.e.e("NSGifCompat", "shouldUseNSGif", "model: " + str);
+        com.baidu.adp.lib.g.e.e("NSGifCompat", "shouldUseNSGif", "model: " + str);
         return a(str) && b() && NSGif.a;
     }
 }

@@ -1,7 +1,6 @@
 package com.baidu.android.defense;
 
 import android.content.Context;
-import com.baidu.browser.core.util.BdUtil;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -38,7 +37,7 @@ public class b extends Thread {
                     DataOutputStream dataOutputStream = new DataOutputStream(outputStream);
                     dataOutputStream.writeBytes("export LD_LIBRARY_PATH=/vendor/lib:/system/lib\n");
                     dataOutputStream.flush();
-                    dataOutputStream.write(("pm uninstall " + str + "\n").getBytes(BdUtil.UTF8));
+                    dataOutputStream.write(("pm uninstall " + str + "\n").getBytes("utf-8"));
                     dataOutputStream.flush();
                     dataOutputStream.writeBytes("exit\n");
                     dataOutputStream.flush();

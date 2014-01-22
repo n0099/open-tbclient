@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.os.Handler;
 import android.util.SparseArray;
 import android.view.View;
-import com.baidu.mobstat.StatService;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.account.LoginActivity;
 import com.baidu.tieba.data.ForumData;
@@ -23,50 +22,50 @@ public class al implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        cs csVar;
-        cs csVar2;
-        cs csVar3;
+        cr crVar;
+        cr crVar2;
+        cr crVar3;
         com.baidu.tieba.model.bm bmVar;
         com.baidu.tieba.model.ad adVar;
-        cs csVar4;
-        cs csVar5;
-        cs csVar6;
-        cs csVar7;
-        cs csVar8;
-        cs csVar9;
+        cr crVar4;
+        cr crVar5;
+        cr crVar6;
+        cr crVar7;
+        cr crVar8;
+        cr crVar9;
         com.baidu.tieba.model.bm bmVar2;
         com.baidu.tieba.model.bm bmVar3;
         com.baidu.tieba.model.ad adVar2;
-        cs csVar10;
-        cs csVar11;
-        cs csVar12;
-        cs csVar13;
-        cs csVar14;
-        cs csVar15;
-        cs csVar16;
-        cs csVar17;
-        cs csVar18;
-        cs csVar19;
-        cs csVar20;
-        cs csVar21;
-        cs csVar22;
-        cs csVar23;
+        cr crVar10;
+        cr crVar11;
+        cr crVar12;
+        cr crVar13;
+        cr crVar14;
+        cr crVar15;
+        cr crVar16;
+        cr crVar17;
+        cr crVar18;
+        cr crVar19;
+        cr crVar20;
+        cr crVar21;
+        cr crVar22;
+        cr crVar23;
         com.baidu.tieba.model.bm bmVar4;
-        cs csVar24;
+        cr crVar24;
         com.baidu.tieba.model.bm bmVar5;
         com.baidu.tieba.model.bp bpVar;
         com.baidu.tieba.model.bm bmVar6;
         com.baidu.tieba.model.bp bpVar2;
         com.baidu.tieba.model.bp bpVar3;
         Handler handler;
-        cs csVar25;
+        cr crVar25;
         com.baidu.tieba.model.bm bmVar7;
-        cs csVar26;
+        cr crVar26;
         com.baidu.tieba.model.bm bmVar8;
         com.baidu.tieba.model.bp bpVar4;
-        cs csVar27;
+        cr crVar27;
         com.baidu.tieba.model.bm bmVar9;
-        cs csVar28;
+        cr crVar28;
         com.baidu.tieba.model.bp bpVar5;
         com.baidu.tieba.model.bm bmVar10;
         com.baidu.tieba.model.bm bmVar11;
@@ -74,29 +73,29 @@ public class al implements View.OnClickListener {
         com.baidu.tieba.model.bm bmVar13;
         com.baidu.tieba.model.bm bmVar14;
         com.baidu.tieba.model.bm bmVar15;
-        cs csVar29;
-        cs csVar30;
-        cs csVar31;
+        cr crVar29;
+        cr crVar30;
+        cr crVar31;
         com.baidu.tieba.model.bm bmVar16;
-        cs csVar32;
-        cs csVar33;
-        cs csVar34;
+        cr crVar32;
+        cr crVar33;
+        cr crVar34;
         boolean a;
         com.baidu.tieba.model.bm bmVar17;
-        cs csVar35;
-        cs csVar36;
+        cr crVar35;
+        cr crVar36;
         com.baidu.tieba.model.bm bmVar18;
-        cs csVar37;
-        cs csVar38;
+        cr crVar37;
+        cr crVar38;
         com.baidu.tieba.model.bm bmVar19;
-        cs csVar39;
+        cr crVar39;
         com.baidu.tieba.model.bm bmVar20;
-        cs csVar40;
+        cr crVar40;
         com.baidu.tieba.model.bp bpVar6;
-        cs csVar41;
+        cr crVar41;
         com.baidu.tieba.model.bm bmVar21;
-        cs csVar42;
-        cs csVar43;
+        cr crVar42;
+        cr crVar43;
         com.baidu.tieba.model.bm bmVar22;
         com.baidu.tieba.model.bg bgVar;
         com.baidu.tieba.model.bm bmVar23;
@@ -105,11 +104,11 @@ public class al implements View.OnClickListener {
         com.baidu.tieba.model.bp bpVar8;
         com.baidu.tieba.model.bp bpVar9;
         com.baidu.tieba.model.bp bpVar10;
-        cs csVar44;
-        cs csVar45;
-        cs csVar46;
+        cr crVar44;
+        cr crVar45;
+        cr crVar46;
         com.baidu.tieba.model.ad adVar3;
-        cs csVar47;
+        cr crVar47;
         com.baidu.tieba.model.bm bmVar25;
         com.baidu.tieba.model.ad adVar4;
         com.baidu.tieba.model.bm bmVar26;
@@ -126,70 +125,70 @@ public class al implements View.OnClickListener {
         com.baidu.tieba.model.bm bmVar29;
         com.baidu.tieba.model.bm bmVar30;
         com.baidu.tieba.model.bm bmVar31;
-        cs csVar48;
+        cr crVar48;
         int i = 0;
-        csVar = this.a.z;
-        if (view == csVar.N()) {
-            bmVar31 = this.a.t;
+        crVar = this.a.A;
+        if (view == crVar.N()) {
+            bmVar31 = this.a.u;
             if (bmVar31.a(true)) {
-                csVar48 = this.a.z;
-                csVar48.r();
+                crVar48 = this.a.A;
+                crVar48.r();
                 return;
             }
             return;
         }
-        csVar2 = this.a.z;
-        if (view != csVar2.R()) {
-            csVar11 = this.a.z;
-            if (view != csVar11.S()) {
-                csVar12 = this.a.z;
-                if (view != csVar12.T()) {
-                    csVar13 = this.a.z;
-                    if (view != csVar13.U()) {
-                        csVar14 = this.a.z;
-                        if (view != csVar14.m()) {
-                            csVar15 = this.a.z;
-                            if (view == csVar15.ag()) {
-                                bmVar29 = this.a.t;
+        crVar2 = this.a.A;
+        if (view != crVar2.R()) {
+            crVar11 = this.a.A;
+            if (view != crVar11.S()) {
+                crVar12 = this.a.A;
+                if (view != crVar12.T()) {
+                    crVar13 = this.a.A;
+                    if (view != crVar13.U()) {
+                        crVar14 = this.a.A;
+                        if (view != crVar14.m()) {
+                            crVar15 = this.a.A;
+                            if (view == crVar15.ag()) {
+                                bmVar29 = this.a.u;
                                 if (bmVar29 != null) {
-                                    bmVar30 = this.a.t;
+                                    bmVar30 = this.a.u;
                                     UtilHelper.c(this.a, bmVar30.l().d().i().c());
                                     return;
                                 }
                                 return;
                             }
-                            csVar16 = this.a.z;
-                            if (view == csVar16.l()) {
-                                csVar46 = this.a.z;
-                                csVar46.aa();
+                            crVar16 = this.a.A;
+                            if (view == crVar16.l()) {
+                                crVar46 = this.a.A;
+                                crVar46.aa();
                                 String A = TiebaApplication.A();
                                 if (A != null && A.length() > 0) {
-                                    adVar3 = this.a.y;
+                                    adVar3 = this.a.z;
                                     if (!adVar3.b()) {
-                                        csVar47 = this.a.z;
-                                        csVar47.k();
+                                        crVar47 = this.a.A;
+                                        crVar47.k();
                                         SparseArray sparseArray = (SparseArray) view.getTag();
                                         if (sparseArray != null) {
                                             String str = (String) sparseArray.get(R.id.tag_del_post_id);
                                             int intValue = ((Integer) sparseArray.get(R.id.tag_manage_user_identity)).intValue();
                                             boolean booleanValue = ((Boolean) sparseArray.get(R.id.tag_del_post_is_self)).booleanValue();
                                             int intValue2 = ((Integer) sparseArray.get(R.id.tag_del_post_type)).intValue();
-                                            bmVar25 = this.a.t;
+                                            bmVar25 = this.a.u;
                                             if (bmVar25.i()) {
-                                                bpVar11 = this.a.x;
+                                                bpVar11 = this.a.y;
                                                 if (bpVar11 != null) {
-                                                    bpVar12 = this.a.x;
+                                                    bpVar12 = this.a.y;
                                                     if (bpVar12.e() != null) {
-                                                        bpVar13 = this.a.x;
+                                                        bpVar13 = this.a.y;
                                                         if (bpVar13.e().h() != null) {
-                                                            bpVar14 = this.a.x;
+                                                            bpVar14 = this.a.y;
                                                             if (bpVar14.e().m() != null) {
-                                                                adVar5 = this.a.y;
-                                                                bpVar15 = this.a.x;
+                                                                adVar5 = this.a.z;
+                                                                bpVar15 = this.a.y;
                                                                 String id = bpVar15.e().h().getId();
-                                                                bpVar16 = this.a.x;
+                                                                bpVar16 = this.a.y;
                                                                 String name = bpVar16.e().h().getName();
-                                                                bpVar17 = this.a.x;
+                                                                bpVar17 = this.a.y;
                                                                 adVar5.a(id, name, bpVar17.e().m().a(), str, intValue2, intValue, booleanValue);
                                                                 return;
                                                             }
@@ -201,12 +200,12 @@ public class al implements View.OnClickListener {
                                                 }
                                                 return;
                                             }
-                                            adVar4 = this.a.y;
-                                            bmVar26 = this.a.t;
+                                            adVar4 = this.a.z;
+                                            bmVar26 = this.a.u;
                                             String id2 = bmVar26.l().c().getId();
-                                            bmVar27 = this.a.t;
+                                            bmVar27 = this.a.u;
                                             String name2 = bmVar27.l().c().getName();
-                                            bmVar28 = this.a.t;
+                                            bmVar28 = this.a.u;
                                             adVar4.a(id2, name2, bmVar28.l().d().a(), str, intValue2, intValue, booleanValue);
                                             return;
                                         }
@@ -217,30 +216,30 @@ public class al implements View.OnClickListener {
                                 LoginActivity.a((Activity) this.a, this.a.getString(R.string.login_to_use), true, 11017);
                                 return;
                             }
-                            csVar17 = this.a.z;
-                            if (view == csVar17.V()) {
-                                csVar45 = this.a.z;
-                                csVar45.b(true);
+                            crVar17 = this.a.A;
+                            if (view == crVar17.V()) {
+                                crVar45 = this.a.A;
+                                crVar45.b(true);
                                 return;
                             }
-                            csVar18 = this.a.z;
-                            if (view == csVar18.o()) {
-                                bpVar10 = this.a.x;
+                            crVar18 = this.a.A;
+                            if (view == crVar18.o()) {
+                                bpVar10 = this.a.y;
                                 if (bpVar10.h()) {
-                                    csVar44 = this.a.z;
-                                    csVar44.w();
+                                    crVar44 = this.a.A;
+                                    crVar44.w();
                                     return;
                                 }
                                 return;
                             }
-                            csVar19 = this.a.z;
-                            if (view == csVar19.h()) {
-                                bpVar7 = this.a.x;
+                            crVar19 = this.a.A;
+                            if (view == crVar19.h()) {
+                                bpVar7 = this.a.y;
                                 if (bpVar7 != null) {
-                                    bpVar8 = this.a.x;
+                                    bpVar8 = this.a.y;
                                     if (bpVar8.a() != null) {
                                         NewPbActivity newPbActivity = this.a;
-                                        bpVar9 = this.a.x;
+                                        bpVar9 = this.a.y;
                                         NewPbActivity.a(newPbActivity, bpVar9.a(), (String) null, (String) null);
                                         return;
                                     }
@@ -248,88 +247,85 @@ public class al implements View.OnClickListener {
                                 }
                                 return;
                             }
-                            csVar20 = this.a.z;
-                            if (view != csVar20.b) {
-                                csVar21 = this.a.z;
-                                if (view != csVar21.c) {
-                                    csVar22 = this.a.z;
-                                    if (view == csVar22.e) {
-                                        csVar43 = this.a.z;
-                                        bmVar22 = this.a.t;
+                            crVar20 = this.a.A;
+                            if (view != crVar20.b) {
+                                crVar21 = this.a.A;
+                                if (view != crVar21.c) {
+                                    crVar22 = this.a.A;
+                                    if (view == crVar22.e) {
+                                        crVar43 = this.a.A;
+                                        bmVar22 = this.a.u;
                                         boolean d = bmVar22.d();
-                                        bgVar = this.a.u;
-                                        csVar43.a(d, bgVar.a());
+                                        bgVar = this.a.v;
+                                        crVar43.a(d, bgVar.a());
                                         return;
                                     }
-                                    csVar23 = this.a.z;
-                                    if (view == csVar23.d) {
+                                    crVar23 = this.a.A;
+                                    if (view == crVar23.d) {
                                         this.a.w();
-                                        bmVar21 = this.a.t;
+                                        bmVar21 = this.a.u;
                                         bmVar21.q();
-                                        csVar42 = this.a.z;
-                                        csVar42.p();
-                                        if (TiebaApplication.g().s()) {
-                                            StatService.onEvent(this.a, "pb_set_host", "pbclick", 1);
-                                            return;
-                                        }
+                                        crVar42 = this.a.A;
+                                        crVar42.p();
+                                        com.baidu.tieba.util.by.a(this.a, "pb_set_host", "pbclick", 1, new Object[0]);
                                         return;
                                     }
                                     switch (view.getId()) {
                                         case R.id.sub_post_load_more /* 2131099670 */:
-                                            bpVar6 = this.a.x;
+                                            bpVar6 = this.a.y;
                                             if (bpVar6.h()) {
-                                                csVar41 = this.a.z;
-                                                csVar41.w();
+                                                crVar41 = this.a.A;
+                                                crVar41.w();
                                                 return;
                                             }
                                             return;
-                                        case R.id.dialog_button_cancel /* 2131099953 */:
-                                            csVar29 = this.a.z;
-                                            csVar29.Z();
+                                        case R.id.dialog_button_cancel /* 2131100006 */:
+                                            crVar29 = this.a.A;
+                                            crVar29.Z();
                                             return;
-                                        case R.id.dialog_button_ok /* 2131099954 */:
-                                            csVar30 = this.a.z;
-                                            csVar30.Z();
-                                            csVar31 = this.a.z;
-                                            if (csVar31.I() >= 0) {
+                                        case R.id.dialog_button_ok /* 2131100007 */:
+                                            crVar30 = this.a.A;
+                                            crVar30.Z();
+                                            crVar31 = this.a.A;
+                                            if (crVar31.I() >= 0) {
                                                 this.a.w();
-                                                bmVar16 = this.a.t;
-                                                csVar32 = this.a.z;
-                                                bmVar16.c(csVar32.I());
-                                                csVar33 = this.a.z;
-                                                csVar33.p();
+                                                bmVar16 = this.a.u;
+                                                crVar32 = this.a.A;
+                                                bmVar16.c(crVar32.I());
+                                                crVar33 = this.a.A;
+                                                crVar33.p();
                                                 return;
                                             }
                                             return;
-                                        case R.id.reply /* 2131100635 */:
-                                        case R.id.sub_pb_item /* 2131100898 */:
-                                        case R.id.sub_pb_more /* 2131100900 */:
+                                        case R.id.reply /* 2131100733 */:
+                                        case R.id.sub_pb_item /* 2131101011 */:
+                                        case R.id.sub_pb_more /* 2131101013 */:
                                             try {
-                                                bmVar4 = this.a.t;
+                                                bmVar4 = this.a.u;
                                                 if (bmVar4.l() != null) {
-                                                    csVar24 = this.a.z;
-                                                    csVar24.Z();
+                                                    crVar24 = this.a.A;
+                                                    crVar24.Z();
                                                     SparseArray sparseArray2 = (SparseArray) view.getTag();
                                                     com.baidu.tieba.data.as asVar = (com.baidu.tieba.data.as) sparseArray2.get(R.id.tag_load_sub_data);
                                                     View view2 = (View) sparseArray2.get(R.id.tag_load_sub_view);
                                                     if (asVar != null && view2 != null) {
-                                                        bmVar5 = this.a.t;
+                                                        bmVar5 = this.a.u;
                                                         com.baidu.tieba.data.ax a2 = bmVar5.a(asVar);
-                                                        bpVar = this.a.x;
-                                                        bmVar6 = this.a.t;
+                                                        bpVar = this.a.y;
+                                                        bmVar6 = this.a.u;
                                                         bpVar.a(bmVar6.b());
-                                                        bpVar2 = this.a.x;
+                                                        bpVar2 = this.a.y;
                                                         bpVar2.b(asVar.d());
-                                                        bpVar3 = this.a.x;
+                                                        bpVar3 = this.a.y;
                                                         bpVar3.d();
                                                         this.a.w();
                                                         if (view.getId() == R.id.reply) {
-                                                            csVar26 = this.a.z;
-                                                            bmVar8 = this.a.t;
-                                                            csVar26.a(true, a2, false, null, null, view2, bmVar8.l().l());
+                                                            crVar26 = this.a.A;
+                                                            bmVar8 = this.a.u;
+                                                            crVar26.a(true, a2, false, null, null, view2, bmVar8.l().l());
                                                             return;
                                                         } else if (view.getId() != R.id.sub_pb_item) {
-                                                            handler = this.a.s;
+                                                            handler = this.a.t;
                                                             handler.post(new am(this, a2, view2));
                                                             return;
                                                         } else {
@@ -337,9 +333,9 @@ public class al implements View.OnClickListener {
                                                             String str2 = (String) sparseArray3.get(R.id.tag_photo_username);
                                                             com.baidu.tieba.data.as asVar2 = (com.baidu.tieba.data.as) sparseArray3.get(R.id.tag_clip_board);
                                                             String d2 = asVar2 != null ? asVar2.d() : null;
-                                                            csVar25 = this.a.z;
-                                                            bmVar7 = this.a.t;
-                                                            csVar25.a(true, a2, false, str2, d2, view2, bmVar7.l().l());
+                                                            crVar25 = this.a.A;
+                                                            bmVar7 = this.a.u;
+                                                            crVar25.a(true, a2, false, str2, d2, view2, bmVar7.l().l());
                                                             return;
                                                         }
                                                     }
@@ -347,34 +343,34 @@ public class al implements View.OnClickListener {
                                                 }
                                                 return;
                                             } catch (Exception e) {
-                                                com.baidu.tieba.util.bo.b(getClass().getName(), "onClick", e.toString());
+                                                com.baidu.adp.lib.g.e.b(getClass().getName(), "onClick", e.toString());
                                                 return;
                                             }
-                                        case R.id.btn_image_upload_camera /* 2131100651 */:
+                                        case R.id.btn_image_upload_camera /* 2131100749 */:
                                             com.baidu.tieba.write.bb.a(this.a);
                                             return;
-                                        case R.id.btn_image_upload_album /* 2131100652 */:
+                                        case R.id.btn_image_upload_album /* 2131100750 */:
                                             com.baidu.tieba.write.bb.b(this.a);
                                             return;
-                                        case R.id.pb_list_header_bar /* 2131100850 */:
-                                            bmVar10 = this.a.t;
+                                        case R.id.pb_list_header_bar /* 2131100963 */:
+                                            bmVar10 = this.a.u;
                                             if (bmVar10 != null) {
-                                                bmVar11 = this.a.t;
+                                                bmVar11 = this.a.u;
                                                 if (bmVar11.l() != null) {
-                                                    bmVar12 = this.a.t;
+                                                    bmVar12 = this.a.u;
                                                     if (bmVar12.l().c() != null) {
-                                                        bmVar13 = this.a.t;
+                                                        bmVar13 = this.a.u;
                                                         String name3 = bmVar13.l().c().getName();
                                                         if (name3 != null && name3.length() > 0) {
-                                                            bmVar14 = this.a.t;
+                                                            bmVar14 = this.a.u;
                                                             if (name3.equals(bmVar14.a())) {
-                                                                bmVar15 = this.a.t;
+                                                                bmVar15 = this.a.u;
                                                                 if (bmVar15.e()) {
                                                                     this.a.closeActivity();
                                                                     return;
                                                                 }
                                                             }
-                                                            FrsActivity.a(this.a, name3, (String) null);
+                                                            FrsActivity.a(this.a, name3, null);
                                                             return;
                                                         }
                                                         return;
@@ -384,73 +380,67 @@ public class al implements View.OnClickListener {
                                                 return;
                                             }
                                             return;
-                                        case R.id.floor /* 2131100871 */:
+                                        case R.id.floor /* 2131100984 */:
                                             this.a.a(view);
                                             return;
-                                        case R.id.mark_txt /* 2131100883 */:
-                                            csVar34 = this.a.z;
-                                            csVar34.Z();
+                                        case R.id.mark_txt /* 2131100996 */:
+                                            crVar34 = this.a.A;
+                                            crVar34.Z();
                                             a = this.a.a(11009);
                                             if (a) {
-                                                bmVar17 = this.a.t;
-                                                csVar35 = this.a.z;
-                                                if (bmVar17.f(csVar35.H()) != null) {
+                                                bmVar17 = this.a.u;
+                                                crVar35 = this.a.A;
+                                                if (bmVar17.f(crVar35.H()) != null) {
                                                     this.a.s();
                                                     return;
                                                 }
                                                 return;
                                             }
                                             return;
-                                        case R.id.share_txt /* 2131100885 */:
+                                        case R.id.share_txt /* 2131100998 */:
                                             this.a.w();
-                                            csVar40 = this.a.z;
-                                            csVar40.Z();
+                                            crVar40 = this.a.A;
+                                            crVar40.Z();
                                             this.a.x();
                                             return;
-                                        case R.id.skip_txt /* 2131100887 */:
-                                            csVar38 = this.a.z;
-                                            csVar38.Z();
-                                            bmVar19 = this.a.t;
+                                        case R.id.skip_txt /* 2131101000 */:
+                                            crVar38 = this.a.A;
+                                            crVar38.Z();
+                                            bmVar19 = this.a.u;
                                             if (bmVar19.m() != null) {
-                                                csVar39 = this.a.z;
-                                                bmVar20 = this.a.t;
-                                                csVar39.a(bmVar20.m());
+                                                crVar39 = this.a.A;
+                                                bmVar20 = this.a.u;
+                                                crVar39.a(bmVar20.m());
                                             }
-                                            if (TiebaApplication.g().s()) {
-                                                StatService.onEvent(this.a, "pb_skip_page", "pbclick", 1);
-                                                return;
-                                            }
+                                            com.baidu.tieba.util.by.a(this.a, "pb_skip_page", "pbclick", 1, new Object[0]);
                                             return;
-                                        case R.id.reverse_txt /* 2131100889 */:
+                                        case R.id.reverse_txt /* 2131101002 */:
                                             this.a.w();
-                                            csVar36 = this.a.z;
-                                            csVar36.Z();
-                                            bmVar18 = this.a.t;
+                                            crVar36 = this.a.A;
+                                            crVar36.Z();
+                                            bmVar18 = this.a.u;
                                             bmVar18.r();
-                                            csVar37 = this.a.z;
-                                            csVar37.p();
-                                            if (TiebaApplication.g().s()) {
-                                                StatService.onEvent(this.a, "pb_set_desc", "pbclick", 1);
-                                                return;
-                                            }
+                                            crVar37 = this.a.A;
+                                            crVar37.p();
+                                            com.baidu.tieba.util.by.a(this.a, "pb_set_desc", "pbclick", 1, new Object[0]);
                                             return;
-                                        case R.id.sub_pb_bottom_layout /* 2131100893 */:
-                                            bmVar9 = this.a.t;
+                                        case R.id.sub_pb_bottom_layout /* 2131101006 */:
+                                            bmVar9 = this.a.u;
                                             if (!bmVar9.i()) {
                                                 this.a.w();
-                                                csVar28 = this.a.z;
-                                                csVar28.z();
-                                                bpVar5 = this.a.x;
+                                                crVar28 = this.a.A;
+                                                crVar28.z();
+                                                bpVar5 = this.a.y;
                                                 bpVar5.cancelLoadData();
                                                 return;
                                             }
                                             this.a.closeActivity();
                                             return;
-                                        case R.id.btn_loadprevious /* 2131101121 */:
-                                            bpVar4 = this.a.x;
+                                        case R.id.btn_loadprevious /* 2131101239 */:
+                                            bpVar4 = this.a.y;
                                             if (bpVar4.k()) {
-                                                csVar27 = this.a.z;
-                                                csVar27.x();
+                                                crVar27 = this.a.A;
+                                                crVar27.x();
                                                 return;
                                             }
                                             return;
@@ -458,14 +448,12 @@ public class al implements View.OnClickListener {
                                             return;
                                     }
                                 }
-                                if (TiebaApplication.g().s()) {
-                                    StatService.onEvent(this.a, "pb_header_forum_name", "pbclick", 1);
-                                }
-                                bmVar23 = this.a.t;
+                                com.baidu.tieba.util.by.a(this.a, "pb_header_forum_name", "pbclick", 1, new Object[0]);
+                                bmVar23 = this.a.u;
                                 if (!bmVar23.e()) {
-                                    bmVar24 = this.a.t;
+                                    bmVar24 = this.a.u;
                                     String name4 = bmVar24.l().c().getName();
-                                    if (com.baidu.tieba.util.bm.b(name4)) {
+                                    if (com.baidu.tieba.util.bu.b(name4)) {
                                         FrsActivity.a(this.a, name4, "tb_pb");
                                         return;
                                     }
@@ -481,24 +469,24 @@ public class al implements View.OnClickListener {
                 }
             }
         }
-        csVar3 = this.a.z;
-        csVar3.aa();
-        bmVar = this.a.t;
+        crVar3 = this.a.A;
+        crVar3.aa();
+        bmVar = this.a.u;
         if (bmVar.l().l() == 1) {
-            adVar = this.a.y;
+            adVar = this.a.z;
             if (!adVar.b()) {
-                csVar4 = this.a.z;
-                csVar4.k();
-                csVar5 = this.a.z;
-                if (view != csVar5.R()) {
-                    csVar6 = this.a.z;
-                    if (view != csVar6.S()) {
-                        csVar7 = this.a.z;
-                        if (view != csVar7.T()) {
-                            csVar8 = this.a.z;
-                            if (view != csVar8.U()) {
-                                csVar9 = this.a.z;
-                                if (view == csVar9.m()) {
+                crVar4 = this.a.A;
+                crVar4.k();
+                crVar5 = this.a.A;
+                if (view != crVar5.R()) {
+                    crVar6 = this.a.A;
+                    if (view != crVar6.S()) {
+                        crVar7 = this.a.A;
+                        if (view != crVar7.T()) {
+                            crVar8 = this.a.A;
+                            if (view != crVar8.U()) {
+                                crVar9 = this.a.A;
+                                if (view == crVar9.m()) {
                                     i = 2;
                                 }
                             } else {
@@ -513,15 +501,15 @@ public class al implements View.OnClickListener {
                 } else {
                     i = 6;
                 }
-                bmVar2 = this.a.t;
+                bmVar2 = this.a.u;
                 ForumData c = bmVar2.l().c();
                 String name5 = c.getName();
                 String id3 = c.getId();
-                bmVar3 = this.a.t;
+                bmVar3 = this.a.u;
                 String a3 = bmVar3.l().d().a();
-                adVar2 = this.a.y;
-                csVar10 = this.a.z;
-                adVar2.a(id3, name5, a3, i, csVar10.n());
+                adVar2 = this.a.z;
+                crVar10 = this.a.A;
+                adVar2.a(id3, name5, a3, i, crVar10.n());
             }
         }
     }

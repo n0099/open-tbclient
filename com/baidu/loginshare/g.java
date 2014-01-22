@@ -1,6 +1,6 @@
 package com.baidu.loginshare;
 
-import com.baidu.cloudsdk.social.core.SocialConstants;
+import com.baidu.sapi2.SapiAccountManager;
 /* loaded from: classes.dex */
 public class g {
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -45,12 +45,12 @@ public class g {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String i() {
-        return SocialConstants.PARAM_BDUSS;
+        return "bduss";
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String j() {
-        return "ptoken";
+        return SapiAccountManager.SESSION_PTOKEN;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

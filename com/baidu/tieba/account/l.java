@@ -27,7 +27,17 @@ public class l {
             this.b = new n(this);
             loginShareAssistant.setLoginShareListener(this.b);
         } catch (Error e) {
-            com.baidu.tieba.util.bo.b(getClass().getName(), "init", e.getMessage());
+            com.baidu.adp.lib.g.e.b(getClass().getName(), "init", e.getMessage());
+        }
+    }
+
+    public void a(Token token) {
+        try {
+            if (!TiebaApplication.n()) {
+                LoginShareAssistant.getInstance().valid(token);
+            }
+        } catch (Exception e) {
+            com.baidu.adp.lib.g.e.b(getClass().getName(), "valid", e.getMessage());
         }
     }
 
@@ -45,7 +55,7 @@ public class l {
                 }
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.bo.b(getClass().getName(), "invalid", e.getMessage());
+            com.baidu.adp.lib.g.e.b(getClass().getName(), "invalid", e.getMessage());
         }
     }
 
@@ -55,7 +65,7 @@ public class l {
                 LoginShareAssistant.getInstance().onActivityCreate();
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.bo.b(getClass().getName(), "onActivityCreate", e.getMessage());
+            com.baidu.adp.lib.g.e.b(getClass().getName(), "onActivityCreate", e.getMessage());
         }
     }
 
@@ -63,12 +73,12 @@ public class l {
         try {
             k c = a().c();
             if (c != null) {
-                if ("null".equals(c.c) || (!com.baidu.tieba.util.bm.c(str) && str.equals(c.c))) {
-                    TiebaApplication.g().aM();
+                if ("null".equals(c.c) || (!com.baidu.tieba.util.bu.c(str) && str.equals(c.c))) {
+                    TiebaApplication.h().aK();
                 }
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.bo.b(getClass().getName(), "tryToRemoveShareAccount", e.getMessage());
+            com.baidu.adp.lib.g.e.b(getClass().getName(), "tryToRemoveShareAccount", e.getMessage());
         }
     }
 
@@ -91,11 +101,11 @@ public class l {
             kVar = null;
         }
         if (!TiebaApplication.n()) {
-            String aN = TiebaApplication.g().aN();
-            if (!com.baidu.tieba.util.bm.c(aN)) {
+            String aL = TiebaApplication.h().aL();
+            if (!com.baidu.tieba.util.bu.c(aL)) {
                 kVar = new k();
                 try {
-                    split = aN.split(":");
+                    split = aL.split(":");
                     length = split.length;
                     z = length >= 1 ? SocialConstants.TRUE.equals(split[0]) : false;
                     if (length >= 2) {
@@ -104,7 +114,7 @@ public class l {
                         } catch (Exception e2) {
                             z2 = z;
                             e = e2;
-                            com.baidu.tieba.util.bo.b(getClass().getName(), "getShareAccountData", e.getMessage());
+                            com.baidu.adp.lib.g.e.b(getClass().getName(), "getShareAccountData", e.getMessage());
                             kVar2 = kVar;
                             if (kVar2 == null) {
                             }
@@ -148,6 +158,6 @@ public class l {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(boolean z, String str, String str2, String str3) {
-        TiebaApplication.g().s((z ? SocialConstants.TRUE : "2") + ":" + str + ":" + str2 + ":" + str3);
+        TiebaApplication.h().r((z ? SocialConstants.TRUE : "2") + ":" + str + ":" + str2 + ":" + str3);
     }
 }

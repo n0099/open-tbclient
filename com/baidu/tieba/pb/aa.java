@@ -16,7 +16,7 @@ public class aa implements Runnable {
     public void run() {
         EmotionTabHost emotionTabHost;
         KeyboardLayout keyboardLayout;
-        com.baidu.tieba.view.aw awVar;
+        com.baidu.tieba.view.bh bhVar;
         EmotionTabHost emotionTabHost2;
         emotionTabHost = this.a.o;
         if (emotionTabHost.getVisibility() != 0) {
@@ -24,7 +24,7 @@ public class aa implements Runnable {
             emotionTabHost2.setVisibility(0);
         }
         keyboardLayout = this.a.s;
-        awVar = this.a.T;
-        keyboardLayout.setOnkbdStateListener(awVar);
+        bhVar = this.a.U;
+        keyboardLayout.setOnkbdStateListener(bhVar);
     }
 }

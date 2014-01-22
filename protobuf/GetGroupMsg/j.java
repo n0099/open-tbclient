@@ -12,6 +12,7 @@ import protobuf.GetGroupMsg.GetGroupMsgRes;
 public final class j extends GeneratedMessageLite.Builder<GetGroupMsgRes.DataRes, j> implements k {
     private int a;
     private List<GetGroupMsgRes.GroupMsg> b = Collections.emptyList();
+    private int c;
 
     private j() {
         g();
@@ -30,6 +31,8 @@ public final class j extends GeneratedMessageLite.Builder<GetGroupMsgRes.DataRes
         super.clear();
         this.b = Collections.emptyList();
         this.a &= -2;
+        this.c = 0;
+        this.a &= -3;
         return this;
     }
 
@@ -65,6 +68,9 @@ public final class j extends GeneratedMessageLite.Builder<GetGroupMsgRes.DataRes
             this.a &= -2;
         }
         dataRes.groupMsg_ = this.b;
+        int i2 = (i & 2) != 2 ? 0 : 1;
+        dataRes.allowEggs_ = this.c;
+        dataRes.bitField0_ = i2;
         return dataRes;
     }
 
@@ -87,6 +93,9 @@ public final class j extends GeneratedMessageLite.Builder<GetGroupMsgRes.DataRes
                     list2 = dataRes.groupMsg_;
                     list4.addAll(list2);
                 }
+            }
+            if (dataRes.hasAllowEggs()) {
+                a(dataRes.getAllowEggs());
             }
         }
         return this;
@@ -140,5 +149,11 @@ public final class j extends GeneratedMessageLite.Builder<GetGroupMsgRes.DataRes
             this.b = new ArrayList(this.b);
             this.a |= 1;
         }
+    }
+
+    public j a(int i) {
+        this.a |= 2;
+        this.c = i;
+        return this;
     }
 }

@@ -46,7 +46,7 @@ public class ab extends BdAsyncTask<Integer, com.baidu.tieba.data.v, com.baidu.t
             return vVar;
         } catch (Exception e) {
             this.a.g = 0;
-            com.baidu.tieba.util.bo.b(aa.class.getName(), "GetForumFeedTask.doInBackground", e.getMessage().toString());
+            com.baidu.adp.lib.g.e.b(aa.class.getName(), "GetForumFeedTask.doInBackground", e.getMessage().toString());
             return null;
         }
     }

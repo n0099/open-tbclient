@@ -15,7 +15,7 @@ public class cg {
         try {
             a(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.tieba.util.bo.b("BarlistModel", "parserJson", "error = " + e.getMessage());
+            com.baidu.adp.lib.g.e.b("BarlistModel", "parserJson", "error = " + e.getMessage());
         }
     }
 
@@ -28,7 +28,7 @@ public class cg {
                 }
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.bo.b("BarlistModel", "parserJson", "error = " + e.getMessage());
+            com.baidu.adp.lib.g.e.b("BarlistModel", "parserJson", "error = " + e.getMessage());
         }
     }
 }

@@ -8,14 +8,14 @@ public class c extends BdAsyncTask<String, Integer, String> {
     final /* synthetic */ CreateBarActivity a;
     private String b;
     private String c;
-    private com.baidu.tieba.util.at d = null;
+    private com.baidu.tieba.util.ax d = null;
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         ProgressBar progressBar;
         super.cancel(true);
         if (this.d != null) {
-            this.d.j();
+            this.d.k();
         }
         progressBar = this.a.m;
         progressBar.setVisibility(8);
@@ -36,17 +36,17 @@ public class c extends BdAsyncTask<String, Integer, String> {
     public String a(String... strArr) {
         String str;
         try {
-            this.d = new com.baidu.tieba.util.at(com.baidu.tieba.data.h.a + "c/c/forum/create");
+            this.d = new com.baidu.tieba.util.ax(com.baidu.tieba.data.h.a + "c/c/forum/create");
             this.d.e(true);
             this.d.a("kw", this.b);
             this.d.a("vcode", this.c);
-            com.baidu.tieba.util.at atVar = this.d;
+            com.baidu.tieba.util.ax axVar = this.d;
             str = this.a.s;
-            atVar.a("vcode_md5", str);
-            this.d.l();
+            axVar.a("vcode_md5", str);
+            this.d.m();
             return null;
         } catch (Exception e) {
-            com.baidu.tieba.util.bo.b(getClass().getName(), "doInBackground", e.getMessage());
+            com.baidu.adp.lib.g.e.b(getClass().getName(), "doInBackground", e.getMessage());
             return null;
         }
     }
@@ -60,13 +60,13 @@ public class c extends BdAsyncTask<String, Integer, String> {
         progressBar = this.a.m;
         progressBar.setVisibility(8);
         this.a.o = null;
-        if (this.d.c()) {
+        if (this.d.d()) {
             CreateBarSuccessActivity.a(this.a, this.b);
             this.a.finish();
             return;
         }
-        this.a.showToast(this.d.i());
-        if (this.d.d()) {
+        this.a.showToast(this.d.j());
+        if (this.d.e()) {
             this.a.c();
         }
     }

@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.frsgroup;
 
 import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tieba.util.ak;
+import com.baidu.tieba.util.an;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements Runnable {
@@ -18,6 +18,6 @@ public class e implements Runnable {
         GroupListAdapter groupListAdapter;
         bdListView = this.a.d;
         groupListAdapter = this.a.h;
-        ak.a(bdListView, groupListAdapter.b(), 0, -1);
+        an.a(bdListView, groupListAdapter.b(), 0, -1);
     }
 }

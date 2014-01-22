@@ -5,7 +5,7 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* loaded from: classes.dex */
 public class az extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.ag> {
     final /* synthetic */ ax a;
-    private volatile com.baidu.tieba.util.at b;
+    private volatile com.baidu.tieba.util.ax b;
 
     private az(ax axVar) {
         this.a = axVar;
@@ -23,31 +23,31 @@ public class az extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.ag> {
         String str4;
         String str5;
         try {
-            this.b = new com.baidu.tieba.util.at(com.baidu.tieba.data.h.a + "c/c/forum/like");
+            this.b = new com.baidu.tieba.util.ax(com.baidu.tieba.data.h.a + "c/c/forum/like");
             StringBuilder append = new StringBuilder().append("mForumName:");
             str = this.a.a;
             StringBuilder append2 = append.append(str).append(" mForumid:");
             str2 = this.a.b;
-            com.baidu.tieba.util.bo.e("LikeModel", "doInBackground", append2.append(str2).toString());
-            com.baidu.tieba.util.at atVar = this.b;
+            com.baidu.adp.lib.g.e.e("LikeModel", "doInBackground", append2.append(str2).toString());
+            com.baidu.tieba.util.ax axVar = this.b;
             str3 = this.a.a;
-            atVar.a("kw", str3);
-            com.baidu.tieba.util.at atVar2 = this.b;
+            axVar.a("kw", str3);
+            com.baidu.tieba.util.ax axVar2 = this.b;
             str4 = this.a.b;
-            atVar2.a("fid", str4);
-            com.baidu.tieba.util.at atVar3 = this.b;
+            axVar2.a("fid", str4);
+            com.baidu.tieba.util.ax axVar3 = this.b;
             str5 = this.a.d;
-            atVar3.a("st_type", str5);
+            axVar3.a("st_type", str5);
             this.b.e(true);
-            String l = this.b.l();
-            com.baidu.tieba.util.bo.e("LikeModel", "doInBackground", "data:" + l);
-            if (this.b.c() && l != null) {
+            String m = this.b.m();
+            com.baidu.adp.lib.g.e.e("LikeModel", "doInBackground", "data:" + m);
+            if (this.b.d() && m != null) {
                 com.baidu.tieba.data.ag agVar = new com.baidu.tieba.data.ag();
-                agVar.a(l);
+                agVar.a(m);
                 return agVar;
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.bo.b(getClass().getName(), "doInBackground", e.getMessage());
+            com.baidu.adp.lib.g.e.b(getClass().getName(), "doInBackground", e.getMessage());
         }
         return null;
     }
@@ -61,10 +61,10 @@ public class az extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.ag> {
         String str;
         this.a.c = null;
         if (agVar == null && this.b != null) {
-            this.a.mErrorCode = this.b.e();
-            this.a.mErrorString = this.b.i();
+            this.a.mErrorCode = this.b.f();
+            this.a.mErrorString = this.b.j();
             str = this.a.mErrorString;
-            com.baidu.tieba.util.bo.e("LikeModel", "onPostExecute", str);
+            com.baidu.adp.lib.g.e.e("LikeModel", "onPostExecute", str);
         }
         gVar = this.a.mLoadDataCallBack;
         if (gVar != null) {
@@ -77,7 +77,7 @@ public class az extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.ag> {
     public void cancel() {
         com.baidu.adp.a.g gVar;
         if (this.b != null) {
-            this.b.j();
+            this.b.k();
             this.b = null;
         }
         this.a.c = null;

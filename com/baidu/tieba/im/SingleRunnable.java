@@ -2,6 +2,7 @@ package com.baidu.tieba.im;
 
 import android.os.Handler;
 import android.os.Looper;
+import com.baidu.tieba.util.by;
 /* loaded from: classes.dex */
 public abstract class SingleRunnable<T> implements Runnable {
     protected static UIHandler d = new UIHandler();
@@ -31,8 +32,8 @@ public abstract class SingleRunnable<T> implements Runnable {
         }
         long nanoTime2 = System.nanoTime() - nanoTime;
         if (nanoTime2 > 3000000000L) {
-            com.baidu.tieba.log.a.b(com.baidu.tieba.log.i.a("use too long time:" + getClass().getName(), "background", (nanoTime2 / 1000000) + "ms"));
-            com.baidu.adp.lib.h.e.a("后台" + getClass().getName() + "执行时间较长：" + (nanoTime2 / 1000000) + "ms");
+            by.b("use too long time:" + getClass().getName(), "background", (nanoTime2 / 1000000) + "ms");
+            com.baidu.adp.lib.g.e.a("后台" + getClass().getName() + "执行时间较长：" + (nanoTime2 / 1000000) + "ms");
         }
     }
 

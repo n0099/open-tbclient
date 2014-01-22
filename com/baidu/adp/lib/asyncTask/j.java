@@ -27,11 +27,11 @@ class j extends k {
                     Process.setThreadPriority(10);
                 }
             } catch (Exception e) {
-                com.baidu.adp.lib.h.e.a(e.getMessage());
+                com.baidu.adp.lib.g.e.a(e.getMessage());
             }
             a();
         } finally {
-            if (!h()) {
+            if (!i()) {
                 handler = this.a.i;
                 handler2 = this.a.i;
                 handler.sendMessageDelayed(handler2.obtainMessage(2, this), 1L);

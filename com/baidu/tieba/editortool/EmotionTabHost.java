@@ -49,7 +49,7 @@ public class EmotionTabHost extends LinearLayout implements s, com.baidu.tieba.i
         this.c = (EmotionTabWidgetView) findViewById(R.id.face_tab_widget);
         this.c.setOnTabSelectedListener(this);
         setOrientation(1);
-        this.g = TiebaApplication.g().an();
+        this.g = TiebaApplication.h().al();
         b(this.g);
         b();
     }
@@ -90,9 +90,9 @@ public class EmotionTabHost extends LinearLayout implements s, com.baidu.tieba.i
     @Override // android.view.View
     public void setVisibility(int i) {
         super.setVisibility(i);
-        int an = TiebaApplication.g().an();
-        if (an != this.g) {
-            this.g = an;
+        int al = TiebaApplication.h().al();
+        if (al != this.g) {
+            this.g = al;
             b(this.g);
         }
     }
@@ -141,8 +141,8 @@ public class EmotionTabHost extends LinearLayout implements s, com.baidu.tieba.i
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(com.baidu.tieba.im.message.o oVar) {
-        switch (oVar.u()) {
+    public void a(com.baidu.tieba.im.message.q qVar) {
+        switch (qVar.w()) {
             case -120:
                 a();
                 b();
@@ -159,7 +159,7 @@ public class EmotionTabHost extends LinearLayout implements s, com.baidu.tieba.i
 
     public void b(int i) {
         this.c.a(i);
-        this.b.a(i);
+        this.b.c(i);
     }
 
     public void setOnDataSelected(t tVar) {

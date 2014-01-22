@@ -1,25 +1,24 @@
 package com.baidu.tieba.im.message;
 
 import com.google.protobuf.MessageLite;
-import protobuf.GetMaskInfo.GetMaskInfoReq;
+import protobuf.CommitInviteMsg.CommitInviteMsgReq;
 /* loaded from: classes.dex */
-public class ad extends o implements com.baidu.tieba.im.coder.g {
-    private int a;
+public class ad extends q implements com.baidu.tieba.im.coder.g {
+    private CommitInviteMsgReq.DataReq a;
 
     public ad() {
-        e(104103);
+        e(205002);
+    }
+
+    public void a(CommitInviteMsgReq.DataReq dataReq) {
+        this.a = dataReq;
     }
 
     @Override // com.baidu.tieba.im.coder.g
     public MessageLite a() {
-        return GetMaskInfoReq.GetMaskInfoReqIdl.newBuilder().a(GetMaskInfoReq.DataReq.newBuilder().a(b()).build()).build();
-    }
-
-    public int b() {
-        return this.a;
-    }
-
-    public void a(int i) {
-        this.a = i;
+        if (this.a != null) {
+            return CommitInviteMsgReq.CommitInviteMsgReqIdl.newBuilder().a(this.a).build();
+        }
+        return null;
     }
 }

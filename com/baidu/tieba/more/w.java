@@ -9,7 +9,7 @@ import android.text.style.AbsoluteSizeSpan;
 import android.util.TypedValue;
 import android.widget.RelativeLayout;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.bl;
+import com.baidu.tieba.util.bs;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
@@ -74,19 +74,19 @@ public class w extends com.baidu.adp.a.e {
         this.k.a(i);
         if (i == 1) {
             this.d.setBackgroundColor(this.c.getResources().getColor(R.color.bg_page_setting_1));
-            bl.e(this.f, (int) R.drawable.more_all_1);
-            bl.e(this.h, (int) R.drawable.more_up_1);
-            bl.e(this.i, (int) R.drawable.more_middle_1);
-            bl.e(this.j, (int) R.drawable.more_down_1);
-            bl.e(this.k, (int) R.drawable.more_all_1);
+            bs.e(this.f, (int) R.drawable.more_all_1);
+            bs.e(this.h, (int) R.drawable.more_up_1);
+            bs.e(this.i, (int) R.drawable.more_middle_1);
+            bs.e(this.j, (int) R.drawable.more_down_1);
+            bs.e(this.k, (int) R.drawable.more_all_1);
             return;
         }
         this.d.setBackgroundColor(this.c.getResources().getColor(R.color.bg_page_setting));
-        bl.e(this.f, (int) R.drawable.more_all);
-        bl.e(this.h, (int) R.drawable.more_up);
-        bl.e(this.i, (int) R.drawable.more_middle);
-        bl.e(this.j, (int) R.drawable.more_down);
-        bl.e(this.k, (int) R.drawable.more_all);
+        bs.e(this.f, (int) R.drawable.more_all);
+        bs.e(this.h, (int) R.drawable.more_up);
+        bs.e(this.i, (int) R.drawable.more_middle);
+        bs.e(this.j, (int) R.drawable.more_down);
+        bs.e(this.k, (int) R.drawable.more_all);
     }
 
     public SettingTextTipView a() {
@@ -164,13 +164,13 @@ public class w extends com.baidu.adp.a.e {
     private void w() {
         if (this.m == null) {
             SpannableString spannableString = new SpannableString(this.c.getString(R.string.view_image_quality_auto_menu));
-            spannableString.setSpan(new AbsoluteSizeSpan(com.baidu.adp.lib.h.g.a(this.b, 12.0f)), 5, spannableString.length(), 18);
+            spannableString.setSpan(new AbsoluteSizeSpan(com.baidu.adp.lib.g.g.a(this.b, 12.0f)), 5, spannableString.length(), 18);
             SpannableString spannableString2 = new SpannableString(this.b.getString(R.string.view_image_quality_high_menu));
-            spannableString2.setSpan(new AbsoluteSizeSpan(com.baidu.adp.lib.h.g.a(this.b, 12.0f)), 1, spannableString2.length(), 18);
+            spannableString2.setSpan(new AbsoluteSizeSpan(com.baidu.adp.lib.g.g.a(this.b, 12.0f)), 1, spannableString2.length(), 18);
             SpannableString spannableString3 = new SpannableString(this.b.getString(R.string.view_image_quality_low_menu));
-            spannableString3.setSpan(new AbsoluteSizeSpan(com.baidu.adp.lib.h.g.a(this.b, 12.0f)), 1, spannableString3.length(), 18);
+            spannableString3.setSpan(new AbsoluteSizeSpan(com.baidu.adp.lib.g.g.a(this.b, 12.0f)), 1, spannableString3.length(), 18);
             SpannableString spannableString4 = new SpannableString(this.b.getString(R.string.view_image_quality_close_menu));
-            spannableString4.setSpan(new AbsoluteSizeSpan(com.baidu.adp.lib.h.g.a(this.b, 12.0f)), 2, spannableString4.length(), 18);
+            spannableString4.setSpan(new AbsoluteSizeSpan(com.baidu.adp.lib.g.g.a(this.b, 12.0f)), 2, spannableString4.length(), 18);
             this.m = new AlertDialog.Builder(this.c).setTitle(R.string.browser_image_quality).setItems(new CharSequence[]{spannableString, spannableString2, spannableString3, spannableString4}, this.r).create();
         }
     }
@@ -178,12 +178,12 @@ public class w extends com.baidu.adp.a.e {
     private void x() {
         if (this.l == null) {
             SpannableString spannableString = new SpannableString(this.c.getString(R.string.image_quality_auto_menu));
-            spannableString.setSpan(new AbsoluteSizeSpan(com.baidu.adp.lib.h.g.a(this.b, 12.0f)), 5, spannableString.length(), 18);
+            spannableString.setSpan(new AbsoluteSizeSpan(com.baidu.adp.lib.g.g.a(this.b, 12.0f)), 5, spannableString.length(), 18);
             SpannableString spannableString2 = new SpannableString(this.c.getString(R.string.image_quality_high_menu));
-            spannableString2.setSpan(new AbsoluteSizeSpan(com.baidu.adp.lib.h.g.a((Context) this.c, 12.0f)), 1, spannableString2.length(), 18);
+            spannableString2.setSpan(new AbsoluteSizeSpan(com.baidu.adp.lib.g.g.a((Context) this.c, 12.0f)), 1, spannableString2.length(), 18);
             SpannableString spannableString3 = new SpannableString(this.c.getString(R.string.image_quality_mid_menu));
             SpannableString spannableString4 = new SpannableString(this.c.getString(R.string.image_quality_low_menu));
-            spannableString4.setSpan(new AbsoluteSizeSpan(com.baidu.adp.lib.h.g.a((Context) this.c, 12.0f)), 1, spannableString4.length(), 18);
+            spannableString4.setSpan(new AbsoluteSizeSpan(com.baidu.adp.lib.g.g.a((Context) this.c, 12.0f)), 1, spannableString4.length(), 18);
             this.l = new AlertDialog.Builder(this.c).setTitle(R.string.upload_image_quality).setItems(new CharSequence[]{spannableString, spannableString2, spannableString3, spannableString4}, this.s).create();
         }
     }
@@ -203,7 +203,7 @@ public class w extends com.baidu.adp.a.e {
     private void z() {
         if (this.o == null) {
             SpannableString spannableString = new SpannableString(this.c.getString(R.string.is_wifiopen_dialog));
-            spannableString.setSpan(new AbsoluteSizeSpan(com.baidu.adp.lib.h.g.a(this.b, 12.0f)), 5, spannableString.length(), 18);
+            spannableString.setSpan(new AbsoluteSizeSpan(com.baidu.adp.lib.g.g.a(this.b, 12.0f)), 5, spannableString.length(), 18);
             this.o = new AlertDialog.Builder(this.c).setTitle(R.string.show_photo).setItems(new CharSequence[]{spannableString, new SpannableString(this.c.getString(R.string.is_alwaysopen)), new SpannableString(this.c.getString(R.string.is_close))}, this.t).create();
         }
     }
@@ -216,22 +216,22 @@ public class w extends com.baidu.adp.a.e {
 
     public void b(int i) {
         if (i == 1) {
-            if (TiebaApplication.g().an() != 1) {
-                TiebaApplication.g().e(i);
+            if (TiebaApplication.h().al() != 1) {
+                TiebaApplication.h().e(i);
                 a(i);
                 new com.baidu.tieba.account.av("eyeshield").start();
             } else {
                 return;
             }
         } else if (i == 0) {
-            if (TiebaApplication.g().an() != 0) {
-                TiebaApplication.g().e(i);
+            if (TiebaApplication.h().al() != 0) {
+                TiebaApplication.h().e(i);
                 a(i);
             } else {
                 return;
             }
         }
-        com.baidu.tieba.util.m.a();
+        com.baidu.tieba.util.n.a();
     }
 
     public void n() {
@@ -251,7 +251,7 @@ public class w extends com.baidu.adp.a.e {
     }
 
     public void p() {
-        if (TiebaApplication.g().an() == 1) {
+        if (TiebaApplication.h().al() == 1) {
             this.f.b();
         } else {
             this.f.a();
@@ -325,9 +325,9 @@ public class w extends com.baidu.adp.a.e {
     }
 
     public void t() {
-        if (TiebaApplication.g().aj() == 1) {
+        if (TiebaApplication.h().ai() == 1) {
             this.k.setTip(this.b.getString(R.string.font_size_big));
-        } else if (TiebaApplication.g().aj() == 2) {
+        } else if (TiebaApplication.h().ai() == 2) {
             this.k.setTip(this.b.getString(R.string.font_size_mid));
         } else {
             this.k.setTip(this.b.getString(R.string.font_size_small));

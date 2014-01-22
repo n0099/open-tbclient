@@ -1,5 +1,6 @@
 package com.baidu.adp.lib.asyncTask;
 
+import java.util.LinkedList;
 import java.util.concurrent.Executor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -7,14 +8,14 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public abstract class BdAsyncTask<Params, Progress, Result> {
     private static final g a = g.a();
     private static e b = new e(null);
-    private boolean l;
     private volatile BdAsyncTaskStatus e = BdAsyncTaskStatus.PENDING;
     private int f = 1;
-    private String g = null;
-    private String h = null;
-    private BdAsyncTaskType i = BdAsyncTaskType.MAX_PARALLEL;
-    private boolean j = false;
-    private final AtomicBoolean k = new AtomicBoolean();
+    private int g = 0;
+    private int h = 0;
+    private String i = null;
+    private BdAsyncTaskParallelType j = BdAsyncTaskParallelType.MAX_PARALLEL;
+    private boolean k = false;
+    private final AtomicBoolean l = new AtomicBoolean();
     private final f<Params, Result> c = new a(this);
     private final m<Result> d = new b(this, this.c, this);
 
@@ -32,24 +33,40 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
         b = new e(null);
     }
 
-    public static void removeAllTask(String str) {
-        a.a(str);
+    public static void removeAllTask(int i) {
+        a.a(i);
     }
 
-    public static void removeAllQueueTask(String str) {
-        a.b(str);
+    public static void removeAllTask(int i, String str) {
+        a.a(i, str);
+    }
+
+    public static void removeAllQueueTask(int i) {
+        a.b(i);
+    }
+
+    public static void removeAllQueueTask(int i, String str) {
+        a.b(i, str);
+    }
+
+    public static LinkedList<BdAsyncTask<?, ?, ?>> searchAllTask(int i) {
+        return a.c(i);
+    }
+
+    public static LinkedList<BdAsyncTask<?, ?, ?>> searchAllTask(int i, String str) {
+        return a.c(i, str);
     }
 
     public static BdAsyncTask<?, ?, ?> searchTask(String str) {
-        return a.c(str);
+        return a.a(str);
     }
 
     public static BdAsyncTask<?, ?, ?> searchWaitingTask(String str) {
-        return a.d(str);
+        return a.b(str);
     }
 
     public static BdAsyncTask<?, ?, ?> searchActivTask(String str) {
-        return a.e(str);
+        return a.c(str);
     }
 
     public int setPriority(int i) {
@@ -65,50 +82,53 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
         return this.f;
     }
 
-    public String getTag() {
+    public int getTag() {
         return this.g;
     }
 
-    public String setTag(String str) {
+    public int setTag(int i) {
         if (this.e != BdAsyncTaskStatus.PENDING) {
             throw new IllegalStateException("the task is already running");
         }
-        String str2 = this.g;
-        this.g = str;
-        return str2;
+        int i2 = this.g;
+        this.g = i;
+        return i2;
     }
 
     public String getKey() {
-        return this.h;
+        return this.i;
     }
 
     public String setKey(String str) {
         if (this.e != BdAsyncTaskStatus.PENDING) {
             throw new IllegalStateException("the task is already running");
         }
-        String str2 = this.h;
-        this.h = str;
+        String str2 = this.i;
+        this.i = str;
         return str2;
     }
 
-    public BdAsyncTaskType getType() {
-        return this.i;
+    public BdAsyncTaskParallelType getType() {
+        return this.j;
     }
 
-    public void setType(BdAsyncTaskType bdAsyncTaskType) {
+    public void setType(BdAsyncTaskParallelType bdAsyncTaskParallelType) {
         if (this.e != BdAsyncTaskStatus.PENDING) {
             throw new IllegalStateException("the task is already running");
         }
-        this.i = bdAsyncTaskType;
+        if (this.h == 0) {
+            throw new IllegalStateException("ParallelTag hasn't setted!");
+        }
+        this.j = bdAsyncTaskParallelType;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public Result c(Result result) {
         synchronized (this) {
-            if (this.k.get()) {
+            if (this.l.get()) {
                 result = null;
             } else {
-                this.k.set(true);
+                this.l.set(true);
                 b.obtainMessage(1, new d(this, result)).sendToTarget();
             }
         }
@@ -152,7 +172,7 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
     }
 
     public final boolean cancel(boolean z) {
-        if (!this.j) {
+        if (!this.k) {
             a.a((BdAsyncTask<?, ?, ?>) this);
         }
         boolean cancel = this.d.cancel(z);
@@ -206,21 +226,29 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
     }
 
     public boolean isSelfExecute() {
-        return this.j;
+        return this.k;
     }
 
     public void setSelfExecute(boolean z) {
         if (this.e != BdAsyncTaskStatus.PENDING) {
             throw new IllegalStateException("the task is already running");
         }
-        this.j = z;
+        this.k = z;
     }
 
     public void setImmediatelyExecut(boolean z) {
-        this.l = z;
+        this.f = 4;
     }
 
     public boolean isImmediatelyExecut() {
-        return this.l;
+        return this.f == 4;
+    }
+
+    public int getParallelTag() {
+        return this.h;
+    }
+
+    public void setParallelTag(int i) {
+        this.h = i;
     }
 }

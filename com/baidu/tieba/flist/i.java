@@ -2,8 +2,7 @@ package com.baidu.tieba.flist;
 
 import android.view.View;
 import android.widget.AdapterView;
-import com.baidu.mobstat.StatService;
-import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.util.by;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class i implements AdapterView.OnItemClickListener {
@@ -16,9 +15,7 @@ class i implements AdapterView.OnItemClickListener {
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        if (TiebaApplication.g().s()) {
-            StatService.onEvent(this.a, "forumlist_\tcatalog", "catalogclick", 1);
-        }
+        by.a(this.a, "forumlist_catalog", "catalogclick", 1, new Object[0]);
         this.a.c.t.dismiss();
         this.a.t = i;
         this.a.c.d();

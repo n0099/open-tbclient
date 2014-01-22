@@ -73,7 +73,7 @@ public class ah {
         this.j.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
         this.j.setDefaultResource(0);
         this.j.setNightDefaultResource(0);
-        this.j.setImageBitmap(com.baidu.tieba.util.m.a((int) R.drawable.person_photo));
+        this.j.setImageBitmap(com.baidu.tieba.util.n.a((int) R.drawable.person_photo));
     }
 
     public void a(ae aeVar) {
@@ -141,8 +141,8 @@ public class ah {
 
     public void c() {
         boolean z = true;
-        VersionData au = TiebaApplication.g().au();
-        if (au == null || au.getHas_new_ver() != 1) {
+        VersionData as = TiebaApplication.h().as();
+        if (as == null || as.getHas_new_ver() != 1) {
             z = false;
         }
         boolean a = com.baidu.tieba.sharedPref.b.a().a(SettingTextFunctionIntroView.a, false);
@@ -176,7 +176,7 @@ public class ah {
         if (aeVar != null && aeVar.a() != null && (portrait = aeVar.a().getPortrait()) != null && portrait.length() > 0) {
             com.baidu.adp.widget.ImageView.d c = aeVar.g().c(portrait);
             if (c == null) {
-                aeVar.g().b(portrait, new ai(this));
+                aeVar.g().c(portrait, new ai(this));
                 return;
             }
             this.j.setImageResource(0);

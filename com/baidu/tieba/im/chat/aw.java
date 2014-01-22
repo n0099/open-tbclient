@@ -1,17 +1,21 @@
 package com.baidu.tieba.im.chat;
 
-import android.view.View;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class aw implements View.OnClickListener {
-    final /* synthetic */ MsgleftView a;
+public class aw implements DialogInterface.OnClickListener {
+    final /* synthetic */ av a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aw(MsgleftView msgleftView) {
-        this.a = msgleftView;
+    public aw(av avVar) {
+        this.a = avVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.a.c.a(view, 2, this.a.f, 0L);
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        AlertDialog alertDialog;
+        alertDialog = this.a.e;
+        alertDialog.dismiss();
     }
 }

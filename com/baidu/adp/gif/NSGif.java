@@ -50,8 +50,11 @@ public class NSGif implements c {
     }
 
     protected void finalize() {
-        a();
-        super.finalize();
+        try {
+            a();
+            super.finalize();
+        } catch (Exception e) {
+        }
     }
 
     @Override // com.baidu.adp.gif.c

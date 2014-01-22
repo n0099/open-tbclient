@@ -1,48 +1,144 @@
 package com.baidu.tieba.im.model;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.util.bo;
-import org.apache.http.message.BasicNameValuePair;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.im.message.ax;
+import com.baidu.tieba.im.message.ay;
+import com.baidu.tieba.im.message.az;
+import com.baidu.tieba.im.message.ba;
+import com.baidu.tieba.im.message.bb;
+import com.baidu.tieba.im.message.bc;
+import com.baidu.tieba.im.message.cn;
 /* loaded from: classes.dex */
-public class ao extends BdAsyncTask<Object, Integer, String> {
-    final /* synthetic */ an a;
+public class ao extends com.baidu.adp.a.d {
+    private int a;
     private String b;
-    private long c;
-    private f d = new f();
+    private String c;
+    private String d;
+    private String e;
+    private String f;
+    private String g = null;
+    private int h = 0;
+    private ba i;
+    private cn j;
 
-    public ao(an anVar, String str, long j) {
-        this.a = anVar;
-        this.b = str;
-        this.c = j;
+    public int a() {
+        return this.a;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: d */
-    public String a(Object... objArr) {
-        String str;
-        try {
-            return this.d.a(this.b);
-        } catch (Exception e) {
-            str = an.a;
-            bo.b(str, "doInBackground", "errro: " + e.getMessage());
-            return null;
-        }
+    public void a(int i) {
+        this.a = i;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(long j) {
+        this.a = (int) j;
+    }
+
+    public String b() {
+        return this.b;
+    }
+
     public void a(String str) {
-        com.baidu.adp.a.g gVar;
-        com.baidu.adp.a.g gVar2;
-        super.a((ao) str);
-        gVar = this.a.mLoadDataCallBack;
-        if (gVar != null) {
-            gVar2 = this.a.mLoadDataCallBack;
-            gVar2.a(new BasicNameValuePair(String.valueOf(this.c), str));
+        this.b = str;
+    }
+
+    public String c() {
+        return this.c;
+    }
+
+    public void b(String str) {
+        this.c = str;
+    }
+
+    public String d() {
+        return this.d;
+    }
+
+    public void c(String str) {
+        this.d = str;
+    }
+
+    public String e() {
+        return this.e;
+    }
+
+    public void d(String str) {
+        this.e = str;
+    }
+
+    public String f() {
+        return this.f;
+    }
+
+    public void e(String str) {
+        this.f = str;
+    }
+
+    public String g() {
+        return this.g;
+    }
+
+    public void f(String str) {
+        this.g = str;
+    }
+
+    public int h() {
+        return this.h;
+    }
+
+    public void b(int i) {
+        this.h = i;
+    }
+
+    @Override // com.baidu.adp.a.d
+    protected boolean LoadData() {
+        return false;
+    }
+
+    @Override // com.baidu.adp.a.d
+    public boolean cancelLoadData() {
+        return false;
+    }
+
+    private ba d(int i) {
+        ba baVar = null;
+        switch (i) {
+            case 1:
+                baVar = new az(c());
+                break;
+            case 2:
+                baVar = new bb(b());
+                break;
+            case 3:
+                baVar = new ax(g());
+                break;
+            case 4:
+                baVar = new bc(d());
+                break;
+            case 5:
+                baVar = new ay(h(), e(), f());
+            default:
+                com.baidu.adp.lib.g.e.a("no right type");
+                break;
+        }
+        if (baVar != null) {
+            baVar.a(a());
+            baVar.b(i);
+        }
+        return baVar;
+    }
+
+    public void c(int i) {
+        this.i = d(i);
+        com.baidu.tieba.im.messageCenter.e.a().a(this.i);
+    }
+
+    public void i() {
+        if (this.i != null) {
+            com.baidu.tieba.im.messageCenter.e.a().b(this.i);
+            this.i = null;
+        }
+        if (this.j != null) {
+            com.baidu.tieba.im.messageCenter.e.a().b(this.j);
+            this.j = null;
         }
     }
 }

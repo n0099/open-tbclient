@@ -4,8 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import com.baidu.mobstat.StatService;
-import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.util.by;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -48,7 +47,7 @@ public class DailyRecommendActivity extends com.baidu.tieba.j {
 
     @Override // com.baidu.tieba.j, com.baidu.adp.a.a
     public void showToast(String str) {
-        com.baidu.adp.lib.h.g.a((Context) this, str);
+        com.baidu.adp.lib.g.g.a((Context) this, str);
     }
 
     private void d() {
@@ -65,15 +64,13 @@ public class DailyRecommendActivity extends com.baidu.tieba.j {
             this.e.postDelayed(this.f, 300L);
         }
         this.c.i();
-        if (TiebaApplication.g().s()) {
-            StatService.onEvent(this, "recommend_feature", "visit", 1);
-        }
+        by.a(this, "recommend_feature", "visit", 1, new Object[0]);
     }
 
     public void a(boolean z, String str) {
         c();
         if (str == null && z) {
-            StatService.onEvent(this.c.b(), "recommend_pull", "pull");
+            by.a(this.c.b(), "recommend_pull", "pull");
             this.d.a();
         } else if (str == null && !z) {
             this.d.b();

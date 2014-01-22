@@ -6,10 +6,11 @@ import android.content.ContentValues;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Process;
+import com.baidu.adp.lib.g.e;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.compatible.EditorHelper;
 import com.baidu.tieba.data.h;
-import com.baidu.tieba.util.bo;
 import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
@@ -26,7 +27,7 @@ public class b {
         f.put(a.a, "settings");
         f.put(a.b, "remote_settings");
         f.put(a.c, "bdservice_settings");
-        b = TiebaApplication.g().getContentResolver();
+        b = TiebaApplication.h().getContentResolver();
     }
 
     public static synchronized b a() {
@@ -47,7 +48,7 @@ public class b {
                 try {
                     return Boolean.parseBoolean(c);
                 } catch (NumberFormatException e) {
-                    bo.b("SharedPrefHelper", "getBoolean", "Convert error:" + c);
+                    e.b("SharedPrefHelper", "getBoolean", "Convert error:" + c);
                     return z;
                 }
             }
@@ -64,7 +65,7 @@ public class b {
                 try {
                     return Integer.parseInt(c);
                 } catch (NumberFormatException e) {
-                    bo.b("SharedPrefHelper", "getInt", "Convert error:" + c);
+                    e.b("SharedPrefHelper", "getInt", "Convert error:" + c);
                     return i;
                 }
             }
@@ -81,7 +82,7 @@ public class b {
                 try {
                     return Long.parseLong(c);
                 } catch (NumberFormatException e) {
-                    bo.b("SharedPrefHelper", "getLong", "Convert error:" + c);
+                    e.b("SharedPrefHelper", "getLong", "Convert error:" + c);
                     return j;
                 }
             }
@@ -106,9 +107,7 @@ public class b {
             return;
         }
         this.d = c();
-        SharedPreferences.Editor edit = this.d.edit();
-        edit.putBoolean(str, z);
-        edit.commit();
+        EditorHelper.putBoolean(this.d, str, z);
     }
 
     public void b(String str, String str2) {
@@ -117,9 +116,7 @@ public class b {
             return;
         }
         this.d = c();
-        SharedPreferences.Editor edit = this.d.edit();
-        edit.putString(str, str2);
-        edit.commit();
+        EditorHelper.putString(this.d, str, str2);
     }
 
     public void b(String str, int i) {
@@ -128,9 +125,7 @@ public class b {
             return;
         }
         this.d = c();
-        SharedPreferences.Editor edit = this.d.edit();
-        edit.putInt(str, i);
-        edit.commit();
+        EditorHelper.putInt(this.d, str, i);
     }
 
     public void b(String str, long j) {
@@ -139,9 +134,7 @@ public class b {
             return;
         }
         this.d = c();
-        SharedPreferences.Editor edit = this.d.edit();
-        edit.putLong(str, j);
-        edit.commit();
+        EditorHelper.putLong(this.d, str, j);
     }
 
     public void a(String str) {
@@ -150,9 +143,7 @@ public class b {
             return;
         }
         this.d = c();
-        SharedPreferences.Editor edit = this.d.edit();
-        edit.remove(str);
-        edit.commit();
+        EditorHelper.remove(this.d, str);
     }
 
     private boolean b(String str) {
@@ -215,11 +206,11 @@ public class b {
                 this.e = "settings";
             }
         }
-        return TiebaApplication.g().getSharedPreferences(this.e, 0);
+        return TiebaApplication.h().getSharedPreferences(this.e, 0);
     }
 
     private String d() {
-        ActivityManager activityManager = (ActivityManager) TiebaApplication.g().getSystemService("activity");
+        ActivityManager activityManager = (ActivityManager) TiebaApplication.h().getSystemService("activity");
         if (activityManager != null) {
             List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = activityManager.getRunningAppProcesses();
             int myPid = Process.myPid();
@@ -241,7 +232,7 @@ public class b {
     }
 
     public void b() {
-        SharedPreferences sharedPreferences = TiebaApplication.g().getSharedPreferences("settings", 0);
+        SharedPreferences sharedPreferences = TiebaApplication.h().getSharedPreferences("settings", 0);
         String string = sharedPreferences.getString("lase_version", "");
         String j = h.j();
         if (string != null && string.length() != 0 && j != null && j.length() != 0 && !string.equals(j) && "4.5.0".compareTo(string) > 0 && "4.5.0".compareTo(j) <= 0) {

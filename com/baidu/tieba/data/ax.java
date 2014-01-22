@@ -1,7 +1,6 @@
 package com.baidu.tieba.data;
 
 import android.content.Context;
-import com.baidu.tieba.util.bo;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -188,7 +187,7 @@ public class ax {
             c(optInt4);
             b(optInt);
         } catch (Exception e) {
-            bo.b("SubPbModel", "parseJson", "error = " + e.getMessage());
+            com.baidu.adp.lib.g.e.b("SubPbModel", "parseJson", "error = " + e.getMessage());
         }
     }
 

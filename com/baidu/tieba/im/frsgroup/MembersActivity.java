@@ -12,20 +12,20 @@ import android.widget.AbsListView;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.im.data.UserData;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
-import com.baidu.tieba.im.message.ai;
-import com.baidu.tieba.view.bw;
+import com.baidu.tieba.im.message.am;
+import com.baidu.tieba.view.cm;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class MembersActivity extends com.baidu.tieba.j implements View.OnClickListener, AbsListView.OnScrollListener, com.baidu.adp.widget.ListView.r, com.baidu.tieba.im.c.l {
-    private bw a;
-    private aa b;
-    private com.baidu.tieba.im.model.m c;
+    private cm a;
+    private ac b;
+    private com.baidu.tieba.im.model.n c;
     private Handler d;
-    private com.baidu.tieba.im.messageCenter.g e = new r(this);
-    private com.baidu.tieba.im.messageCenter.g f = new s(this);
-    private Runnable g = new l(this);
+    private com.baidu.tieba.im.messageCenter.g e = new t(this);
+    private com.baidu.tieba.im.messageCenter.g f = new u(this);
+    private Runnable g = new n(this);
 
     public static void a(Context context, long j) {
         Intent intent = new Intent(context, MembersActivity.class);
@@ -70,25 +70,25 @@ public class MembersActivity extends com.baidu.tieba.j implements View.OnClickLi
         this.c.d(this.f);
     }
 
-    public com.baidu.tieba.im.model.m b() {
+    public com.baidu.tieba.im.model.n b() {
         return this.c;
     }
 
     private void e() {
-        this.b = new aa(this);
+        this.b = new ac(this);
         BdListView l = this.b.l();
-        this.a = new bw(this);
-        this.a.a(new k(this, l));
+        this.a = new cm(this);
+        this.a.a(new m(this, l));
         l.setPullRefresh(this.a);
         l.setOnScrollListener(this);
         l.setOnSrollToBottomListener(this);
-        l.setOnItemClickListener(new m(this));
-        l.setOnItemLongClickListener(new n(this));
+        l.setOnItemClickListener(new o(this));
+        l.setOnItemLongClickListener(new p(this));
         this.b.a().setOnClickListener(this);
         this.b.e().setOnClickListener(this);
         this.b.f().setOnClickListener(this);
         this.b.b(false);
-        this.b.i().a(new q(this));
+        this.b.i().a(new s(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -113,7 +113,7 @@ public class MembersActivity extends com.baidu.tieba.j implements View.OnClickLi
 
     private void f() {
         this.c.b(false);
-        this.c.a((ai) null);
+        this.c.a((am) null);
         this.b.i().a(true);
         this.c.b(0);
         this.c.d(50);
@@ -123,7 +123,7 @@ public class MembersActivity extends com.baidu.tieba.j implements View.OnClickLi
     /* JADX INFO: Access modifiers changed from: private */
     public void g() {
         this.c.b(true);
-        this.c.a((ai) null);
+        this.c.a((am) null);
         this.b.i().a(false);
         this.c.b(0);
         this.c.d(50);
@@ -143,7 +143,7 @@ public class MembersActivity extends com.baidu.tieba.j implements View.OnClickLi
     }
 
     public void a(Bundle bundle) {
-        this.c = new com.baidu.tieba.im.model.m();
+        this.c = new com.baidu.tieba.im.model.n();
         if (bundle == null) {
             this.c.a(getIntent());
         } else {
@@ -199,7 +199,7 @@ public class MembersActivity extends com.baidu.tieba.j implements View.OnClickLi
     }
 
     private void k() {
-        com.baidu.tieba.im.d.b.a((Activity) this, (DialogInterface.OnClickListener) new t(this));
+        com.baidu.tieba.im.d.b.a((Activity) this, (DialogInterface.OnClickListener) new v(this));
     }
 
     private void l() {
@@ -220,7 +220,7 @@ public class MembersActivity extends com.baidu.tieba.j implements View.OnClickLi
         if (b.size() > 0) {
             ArrayList arrayList = new ArrayList();
             arrayList.addAll(b);
-            com.baidu.tieba.im.d.b.b(this, new u(this, arrayList), new v(this));
+            com.baidu.tieba.im.d.b.b((Activity) this, (DialogInterface.OnClickListener) new w(this, arrayList), (DialogInterface.OnClickListener) new x(this));
         }
     }
 

@@ -25,7 +25,7 @@ class b implements View.OnClickListener {
                 agVar.a(this.a.b.getText().toString());
                 agVar.a(this.a.r);
                 agVar.a(this.a.n);
-                com.baidu.adp.lib.h.e.d("groupId:" + this.a.k + "userMsg:" + this.a.b.getContext().toString());
+                com.baidu.adp.lib.g.e.d("groupId:" + this.a.k + "userMsg:" + this.a.b.getContext().toString());
                 this.a.f.setEnabled(false);
                 com.baidu.tieba.im.messageCenter.e.a().a(agVar);
             } else if (view.equals(this.a.e)) {

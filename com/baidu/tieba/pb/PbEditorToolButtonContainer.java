@@ -42,8 +42,8 @@ public class PbEditorToolButtonContainer extends com.baidu.tieba.editortool.a {
         super.onLayout(z, i, i2, i3, i4);
         if (this.b.getTip() != null) {
             TextView tip = this.b.getTip();
-            int right = this.b.getRight() - com.baidu.adp.lib.h.g.a(this.a, 14.0f);
-            int top = this.b.getTop() - com.baidu.adp.lib.h.g.a(this.a, 2.0f);
+            int right = this.b.getRight() - com.baidu.adp.lib.g.g.a(this.a, 14.0f);
+            int top = this.b.getTop() - com.baidu.adp.lib.g.g.a(this.a, 2.0f);
             this.b.getTip().layout(right, top, tip.getMeasuredWidth() + right, tip.getMeasuredHeight() + top);
         }
     }
@@ -120,6 +120,6 @@ public class PbEditorToolButtonContainer extends com.baidu.tieba.editortool.a {
     }
 
     protected View.OnClickListener a(com.baidu.tieba.editortool.t tVar) {
-        return new cn(this, tVar);
+        return new cm(this, tVar);
     }
 }

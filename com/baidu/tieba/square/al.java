@@ -18,7 +18,7 @@ public class al implements android.support.v4.view.bq {
     }
 
     @Override // android.support.v4.view.bq
-    public void onPageScrolled(int i, float f, int i2) {
+    public void a(int i, float f, int i2) {
         IndicatorView indicatorView;
         HotThreadPagerAdapter hotThreadPagerAdapter;
         ForumDetailData.ThreadInfo[] threadInfoArr;
@@ -50,11 +50,11 @@ public class al implements android.support.v4.view.bq {
     }
 
     @Override // android.support.v4.view.bq
-    public void onPageSelected(int i) {
+    public void a_(int i) {
     }
 
     @Override // android.support.v4.view.bq
-    public void onPageScrollStateChanged(int i) {
+    public void b(int i) {
         ViewPager viewPager;
         HotThreadPagerAdapter hotThreadPagerAdapter;
         ForumDetailData.ThreadInfo[] threadInfoArr;

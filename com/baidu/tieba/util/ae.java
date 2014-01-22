@@ -1,53 +1,93 @@
 package com.baidu.tieba.util;
 
-import android.location.Address;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.TiebaApplication;
+import java.io.File;
 /* loaded from: classes.dex */
-public class ae implements com.baidu.adp.lib.c.d {
-    final /* synthetic */ ad a;
+public class ae {
+    public static final String a = TiebaApplication.h().getFileStreamPath("").getAbsolutePath();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ae(ad adVar) {
-        this.a = adVar;
+    public static boolean a(String str) {
+        try {
+            return new File(new StringBuilder().append(a).append("/").append(str).toString()).exists();
+        } catch (Exception e) {
+            com.baidu.adp.lib.g.e.b("FileHelper", "checkFile", "error = " + e.getMessage());
+            by.a(e, "FileHelper.checkFile " + str);
+            return false;
+        }
     }
 
-    @Override // com.baidu.adp.lib.c.d
-    public void a(int i, String str, Address address) {
-        ag agVar;
-        ag agVar2;
-        com.baidu.tieba.im.model.ak akVar;
-        com.baidu.tieba.im.model.ak akVar2;
-        com.baidu.tieba.im.model.ak akVar3;
-        com.baidu.tieba.im.model.ak akVar4;
-        switch (i) {
-            case 0:
-                if (address != null) {
-                    this.a.b = address.getLatitude();
-                    this.a.a = address.getLongitude();
-                    akVar = this.a.c;
-                    akVar.b(String.valueOf(address.getLatitude()));
-                    akVar2 = this.a.c;
-                    akVar2.a(String.valueOf(address.getLongitude()));
-                    akVar3 = this.a.c;
-                    akVar3.a(0);
-                    akVar4 = this.a.c;
-                    akVar4.a();
-                    return;
-                }
-                return;
-            case 1:
-            case 2:
-            case 3:
-                agVar2 = this.a.d;
-                agVar2.b();
-                return;
-            case 4:
-            case 5:
-                agVar = this.a.d;
-                agVar.a();
-                return;
-            default:
-                return;
+    public static boolean b(String str) {
+        try {
+            File file = new File(a + "/" + str);
+            if (file.exists()) {
+                return false;
+            }
+            return file.createNewFile();
+        } catch (Exception e) {
+            com.baidu.adp.lib.g.e.b("FileHelper", "createFile", "error = " + e.getMessage());
+            by.a(e, "FileHelper.createFile " + str);
+            return false;
         }
+    }
+
+    public static void a(File file) {
+        try {
+            if (file.exists()) {
+                if (file.isDirectory()) {
+                    File[] listFiles = file.listFiles();
+                    int length = listFiles.length;
+                    for (int i = 0; i < length; i++) {
+                        if (listFiles[i].isFile()) {
+                            listFiles[i].delete();
+                        } else {
+                            a(listFiles[i]);
+                        }
+                    }
+                }
+                file.delete();
+            }
+        } catch (Exception e) {
+            com.baidu.adp.lib.g.e.b("FileHelper", "deleteFileOrDir", "error = " + e.getMessage());
+            by.a(e, "FileHelper.deleteFileOrDir");
+        }
+    }
+
+    public static boolean c(String str) {
+        try {
+            File file = new File(a + "/" + str);
+            if (file.exists()) {
+                if (!file.isDirectory()) {
+                    return false;
+                }
+                a(file);
+            }
+            return file.mkdirs();
+        } catch (Exception e) {
+            com.baidu.adp.lib.g.e.b("FileHelper", "cleanDirectory", "error = " + e.getMessage());
+            by.a(e, "FileHelper.cleanDirectory " + str);
+            return false;
+        }
+    }
+
+    public static String d(String str) {
+        String str2 = null;
+        try {
+            File file = new File(a + "/" + str);
+            if (file.exists() && file.isDirectory()) {
+                File[] listFiles = file.listFiles();
+                int length = listFiles.length;
+                long j = 0;
+                for (int i = 0; i < length; i++) {
+                    if (j > listFiles[i].lastModified()) {
+                        j = listFiles[i].lastModified();
+                        str2 = listFiles[i].getName();
+                    }
+                }
+            }
+        } catch (Exception e) {
+            com.baidu.adp.lib.g.e.b("FileHelper", "getLatestFileName", "error = " + e.getMessage());
+            by.a(e, "FileHelper.getLatestFileName " + str);
+        }
+        return str2;
     }
 }

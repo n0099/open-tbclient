@@ -14,7 +14,7 @@ public class ar implements Runnable {
         try {
             this.a.f();
         } catch (Exception e) {
-            com.baidu.adp.lib.h.e.b(getClass().getName(), "run", e.toString());
+            com.baidu.adp.lib.g.e.b(getClass().getName(), "run", e.toString());
         }
     }
 }

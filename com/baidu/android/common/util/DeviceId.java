@@ -9,7 +9,6 @@ import com.baidu.account.AccountProxy;
 import com.baidu.android.common.logging.Log;
 import com.baidu.android.common.security.AESUtil;
 import com.baidu.android.common.security.Base64;
-import com.baidu.browser.core.util.BdUtil;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -96,7 +95,7 @@ public final class DeviceId {
     }
 
     private static void checkPermission(Context context, String str) {
-        if (!(context.checkCallingOrSelfPermission(str) == 0)) {
+        if (!(context.checkCallingOrSelfPermission(str) == 0 ? true : DEBUG)) {
             throw new SecurityException("Permission Denial: requires permission " + str);
         }
     }
@@ -112,7 +111,7 @@ public final class DeviceId {
         checkPermission(context, "android.permission.WRITE_EXTERNAL_STORAGE");
         IMEIInfo iMEIInfo = IMEIInfo.getIMEIInfo(context);
         String str = iMEIInfo.IMEI;
-        boolean z = !iMEIInfo.CAN_READ_AND_WRITE_SYSTEM_SETTINGS;
+        boolean z = !iMEIInfo.CAN_READ_AND_WRITE_SYSTEM_SETTINGS ? true : DEBUG;
         String androidId = getAndroidId(context);
         if (z) {
             return Util.toMd5((AccountProxy.BAIDUACCOUNT_TYPE + androidId).getBytes(), true);
@@ -182,8 +181,8 @@ public final class DeviceId {
         File file = new File(Environment.getExternalStorageDirectory(), EXT_FILE);
         try {
             new File(file.getParent()).mkdirs();
-            FileWriter fileWriter = new FileWriter(file, false);
-            fileWriter.write(Base64.encode(AESUtil.encrypt(AES_KEY, AES_KEY, (str + "=" + str2).getBytes()), BdUtil.UTF8));
+            FileWriter fileWriter = new FileWriter(file, (boolean) DEBUG);
+            fileWriter.write(Base64.encode(AESUtil.encrypt(AES_KEY, AES_KEY, (str + "=" + str2).getBytes()), "utf-8"));
             fileWriter.flush();
             fileWriter.close();
         } catch (IOException e) {

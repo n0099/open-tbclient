@@ -8,10 +8,9 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
-import com.baidu.browser.explorer.BdWebErrorView;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.bl;
+import com.baidu.tieba.util.bs;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
@@ -107,7 +106,7 @@ public class al extends com.baidu.adp.a.e {
         }
         this.B.c(i);
         boolean z = i == 1;
-        int a = z ? bl.a(i) : b().getResources().getColor(R.color.more_color);
+        int a = z ? bs.a(i) : b().getResources().getColor(R.color.more_color);
         int i2 = z ? -11446171 : -5065030;
         int i3 = z ? R.drawable.more_all_1 : R.drawable.more_all;
         int i4 = z ? R.drawable.more_up_1 : R.drawable.more_up;
@@ -115,42 +114,42 @@ public class al extends com.baidu.adp.a.e {
         int i6 = z ? R.drawable.more_middle_1 : R.drawable.more_middle;
         BdSwitchView.SwitchStyle switchStyle = z ? BdSwitchView.SwitchStyle.NIGHT : BdSwitchView.SwitchStyle.DAY;
         if (this.f.getVisibility() != 0) {
-            bl.e(this.c, i3);
+            bs.e(this.c, i3);
         } else {
-            bl.e(this.c, i4);
+            bs.e(this.c, i4);
         }
-        bl.e(this.f, i5);
+        bs.e(this.f, i5);
         this.e.setSwitchStyle(switchStyle);
-        bl.e(this.G, i4);
-        bl.e(this.J, i5);
+        bs.e(this.G, i4);
+        bs.e(this.J, i5);
         if (this.l.getVisibility() != 0) {
-            bl.e(this.i, i3);
+            bs.e(this.i, i3);
         } else {
-            bl.e(this.i, i4);
+            bs.e(this.i, i4);
         }
-        bl.e((View) this.m, i6);
-        bl.e((View) this.n, i6);
-        bl.e((View) this.o, i6);
-        bl.e((View) this.p, i6);
-        bl.e((View) this.q, i5);
+        bs.e((View) this.m, i6);
+        bs.e((View) this.n, i6);
+        bs.e((View) this.o, i6);
+        bs.e((View) this.p, i6);
+        bs.e((View) this.q, i5);
         this.k.setSwitchStyle(switchStyle);
         if (this.u.getVisibility() != 0) {
-            bl.e(this.r, i3);
+            bs.e(this.r, i3);
         } else {
-            bl.e(this.r, i4);
+            bs.e(this.r, i4);
         }
-        bl.e(this.u, i5);
+        bs.e(this.u, i5);
         this.t.setSwitchStyle(switchStyle);
         int i7 = z ? R.drawable.icon_arrow_right_1 : R.drawable.icon_arrow_right;
         ((ImageView) this.f.findViewById(R.id.no_disturb_mode_time_arrow)).setImageResource(i7);
         ((ImageView) this.u.findViewById(R.id.sign_remind_arrow)).setImageResource(i7);
         ((ImageView) this.G.findViewById(R.id.no_disturb_start_time_arrow)).setImageResource(i7);
         ((ImageView) this.J.findViewById(R.id.no_disturb_end_time_arrow)).setImageResource(i7);
-        bl.e(this.x, i3);
+        bs.e(this.x, i3);
         this.z.setSwitchStyle(switchStyle);
-        bl.e(this.M, i4);
+        bs.e(this.M, i4);
         this.O.setSwitchStyle(switchStyle);
-        bl.e(this.P, i5);
+        bs.e(this.P, i5);
         this.R.setSwitchStyle(switchStyle);
         this.d.setTextColor(a);
         this.g.setTextColor(a);
@@ -229,7 +228,7 @@ public class al extends com.baidu.adp.a.e {
     }
 
     private void q() {
-        if (TiebaApplication.g().Q()) {
+        if (TiebaApplication.h().P()) {
             this.e.a();
             this.f.setVisibility(0);
             f();
@@ -240,25 +239,25 @@ public class al extends com.baidu.adp.a.e {
     }
 
     private void r() {
-        if (TiebaApplication.g().Y()) {
+        if (TiebaApplication.h().X()) {
             this.m.setChecked(true);
         }
-        if (TiebaApplication.g().X()) {
+        if (TiebaApplication.h().W()) {
             this.n.setChecked(true);
         }
-        if (TiebaApplication.g().W()) {
+        if (TiebaApplication.h().V()) {
             this.o.setChecked(true);
         }
-        if (TiebaApplication.g().Z()) {
+        if (TiebaApplication.h().Y()) {
             this.p.setChecked(true);
         }
-        if (TiebaApplication.g().aa()) {
+        if (TiebaApplication.h().Z()) {
             this.q.setChecked(true);
         }
     }
 
     private void s() {
-        if (TiebaApplication.g().P()) {
+        if (TiebaApplication.h().O()) {
             this.z.a();
         } else {
             this.z.b();
@@ -266,7 +265,7 @@ public class al extends com.baidu.adp.a.e {
     }
 
     private void t() {
-        if (TiebaApplication.g().ac()) {
+        if (TiebaApplication.h().ab()) {
             this.t.a();
             this.u.setVisibility(0);
             e();
@@ -277,12 +276,12 @@ public class al extends com.baidu.adp.a.e {
     }
 
     private void u() {
-        if (TiebaApplication.g().T()) {
+        if (TiebaApplication.h().S()) {
             this.O.a();
         } else {
             this.O.b();
         }
-        if (TiebaApplication.g().U()) {
+        if (TiebaApplication.h().T()) {
             this.R.a();
         } else {
             this.R.b();
@@ -290,7 +289,7 @@ public class al extends com.baidu.adp.a.e {
     }
 
     private void v() {
-        if (TiebaApplication.g().ab()) {
+        if (TiebaApplication.h().aa()) {
             this.k.a();
             this.l.setVisibility(0);
             return;
@@ -318,63 +317,63 @@ public class al extends com.baidu.adp.a.e {
     }
 
     public void a(boolean z) {
-        boolean z2 = TiebaApplication.g().an() == 1;
+        boolean z2 = TiebaApplication.h().al() == 1;
         int i = z2 ? R.drawable.more_all_1 : R.drawable.more_all;
         int i2 = z2 ? R.drawable.more_up_1 : R.drawable.more_up;
         int i3 = z2 ? R.drawable.more_down_1 : R.drawable.more_down;
         if (z) {
             this.f.setVisibility(0);
             f();
-            bl.e(this.c, i2);
-            bl.e(this.f, i3);
+            bs.e(this.c, i2);
+            bs.e(this.f, i3);
             return;
         }
         this.f.setVisibility(8);
-        bl.e(this.c, i);
+        bs.e(this.c, i);
     }
 
     public void b(boolean z) {
-        boolean z2 = TiebaApplication.g().an() == 1;
+        boolean z2 = TiebaApplication.h().al() == 1;
         int i = z2 ? R.drawable.more_all_1 : R.drawable.more_all;
         int i2 = z2 ? R.drawable.more_up_1 : R.drawable.more_up;
         int i3 = z2 ? R.drawable.more_down_1 : R.drawable.more_down;
         if (z) {
             this.u.setVisibility(0);
-            bl.e(this.r, i2);
-            bl.e(this.u, i3);
+            bs.e(this.r, i2);
+            bs.e(this.u, i3);
             return;
         }
         this.u.setVisibility(8);
-        bl.e(this.r, i);
+        bs.e(this.r, i);
     }
 
     public void c(boolean z) {
         if (this.T == null) {
-            this.T = new ao(this.l, BdWebErrorView.ERROR_CODE_500);
+            this.T = new ao(this.l, 500);
         }
-        boolean z2 = TiebaApplication.g().an() == 1;
+        boolean z2 = TiebaApplication.h().al() == 1;
         int i = z2 ? R.drawable.more_all_1 : R.drawable.more_all;
         int i2 = z2 ? R.drawable.more_up_1 : R.drawable.more_up;
         int i3 = z2 ? R.drawable.more_down_1 : R.drawable.more_down;
         int i4 = z2 ? R.drawable.more_middle_1 : R.drawable.more_middle;
         if (z) {
             this.T.a();
-            bl.e(this.i, i2);
-            bl.e((View) this.m, i4);
-            bl.e((View) this.n, i4);
-            bl.e((View) this.o, i4);
-            bl.e((View) this.p, i4);
-            bl.e((View) this.q, i3);
+            bs.e(this.i, i2);
+            bs.e((View) this.m, i4);
+            bs.e((View) this.n, i4);
+            bs.e((View) this.o, i4);
+            bs.e((View) this.p, i4);
+            bs.e((View) this.q, i3);
             return;
         }
         this.T.b();
-        bl.e(this.i, i);
+        bs.e(this.i, i);
     }
 
     public void e() {
-        TiebaApplication g = TiebaApplication.g();
-        if (g.ac()) {
-            this.w.setText(b().getString(R.string.sign_remind_time, g.ad() > 9 ? String.valueOf(g.ad()) : SocialConstants.FALSE + g.ad(), g.ae() > 9 ? String.valueOf(g.ae()) : SocialConstants.FALSE + g.ae()));
+        TiebaApplication h = TiebaApplication.h();
+        if (h.ab()) {
+            this.w.setText(b().getString(R.string.sign_remind_time, h.ac() > 9 ? String.valueOf(h.ac()) : SocialConstants.FALSE + h.ac(), h.ad() > 9 ? String.valueOf(h.ad()) : SocialConstants.FALSE + h.ad()));
             this.u.setVisibility(0);
             if (!this.t.c()) {
                 this.t.a();
@@ -390,9 +389,9 @@ public class al extends com.baidu.adp.a.e {
     }
 
     public void f() {
-        this.h.setText(TiebaApplication.g().R() + "-" + TiebaApplication.g().S());
-        this.I.setText(TiebaApplication.g().R());
-        this.L.setText(TiebaApplication.g().S());
+        this.h.setText(TiebaApplication.h().Q() + "-" + TiebaApplication.h().R());
+        this.I.setText(TiebaApplication.h().Q());
+        this.L.setText(TiebaApplication.h().R());
     }
 
     public View g() {

@@ -5,8 +5,8 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import com.baidu.mobstat.StatService;
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.util.by;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class f implements x {
@@ -32,7 +32,7 @@ public class f implements x {
     }
 
     public int f() {
-        return com.baidu.tieba.im.d.g.a(this.d);
+        return com.baidu.tieba.im.d.h.a(this.d);
     }
 
     public void a(boolean z) {
@@ -67,9 +67,7 @@ public class f implements x {
 
     @Override // com.baidu.tieba.im.creategroup.x
     public View a() {
-        if (TiebaApplication.g().s()) {
-            StatService.onEvent(this.a, "create_g_name", "pv", 1);
-        }
+        by.a(this.a, "create_g_name", "pv", 1, new Object[0]);
         return this.b;
     }
 
@@ -80,9 +78,9 @@ public class f implements x {
 
     @Override // com.baidu.tieba.im.creategroup.x
     public void i() {
-        this.a.getLayoutMode().a(TiebaApplication.g().an() == 1);
+        this.a.getLayoutMode().a(TiebaApplication.h().al() == 1);
         this.a.getLayoutMode().a(this.b);
-        if (TiebaApplication.g().an() == 1) {
+        if (TiebaApplication.h().al() == 1) {
             this.d.setHintTextColor(this.a.getResources().getColor(R.color.create_group_input_hintcolor_1));
         } else {
             this.d.setHintTextColor(this.a.getResources().getColor(R.color.create_group_input_hintcolor));

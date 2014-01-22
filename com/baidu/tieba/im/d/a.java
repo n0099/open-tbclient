@@ -15,16 +15,16 @@ public class a implements InputFilter {
         int i5 = i4 - i3;
         int length = this.a - (spanned.length() - i5);
         String obj = spanned.toString();
-        int a = g.a(obj);
+        int a = h.a(obj);
         if (i5 > 0) {
             int i6 = i3;
             while (i6 < i5 + i3 && obj.length() < i6) {
-                int a2 = a - g.a(obj.charAt(i6));
+                int a2 = a - h.a(obj.charAt(i6));
                 i6++;
                 a = a2;
             }
         } else {
-            a += g.a(charSequence.toString());
+            a += h.a(charSequence.toString());
         }
         if (a > this.a || length <= 0) {
             return "";

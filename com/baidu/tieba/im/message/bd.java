@@ -1,34 +1,47 @@
 package com.baidu.tieba.im.message;
 
-import java.util.LinkedList;
-import protobuf.CommitPersonalMsg.CommitPersonalMsgRes;
+import com.google.protobuf.MessageLite;
+import protobuf.UpdateMaskInfo.UpdateMaskInfoReq;
 /* loaded from: classes.dex */
-public class bd extends bc {
-    private String a = null;
+public class bd extends q implements com.baidu.tieba.im.coder.g {
+    private int a;
+    private int b;
+    private String c;
 
     public bd() {
-        e(205001);
+        e(104102);
     }
 
-    public String d() {
+    @Override // com.baidu.tieba.im.coder.g
+    public MessageLite a() {
+        return UpdateMaskInfoReq.UpdateMaskInfoReqIdl.newBuilder().a(UpdateMaskInfoReq.DataReq.newBuilder().a(b()).b(c()).a(d()).build()).build();
+    }
+
+    public int b() {
         return this.a;
     }
 
-    public void b(String str) {
-        this.a = str;
+    public void a(int i) {
+        this.a = i;
     }
 
-    @Override // com.baidu.tieba.im.coder.f
-    public void a(LinkedList<o> linkedList, byte[] bArr, int i) {
-        CommitPersonalMsgRes.CommitPersonalMsgResIdl parseFrom = CommitPersonalMsgRes.CommitPersonalMsgResIdl.parseFrom(bArr);
-        g(parseFrom.getError().getErrorno());
-        c(parseFrom.getError().getUsermsg());
-        linkedList.add(this);
-        if (!i()) {
-            a(com.baidu.tieba.im.chat.ah.b(parseFrom.getData().getMsgId()));
-            b(parseFrom.getData().getRecordId());
-            a(String.valueOf(parseFrom.getData().getGroupId()));
-            b(String.valueOf(parseFrom.getData().getToUid()));
-        }
+    public int c() {
+        return this.b;
+    }
+
+    public void b(int i) {
+        this.b = i;
+    }
+
+    public void a(boolean z) {
+        this.b = z ? 1 : 0;
+    }
+
+    public String d() {
+        return this.c;
+    }
+
+    public void a(String str) {
+        this.c = str;
     }
 }

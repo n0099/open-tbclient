@@ -1,12 +1,11 @@
 package android.support.v4.b;
 
 import android.util.Log;
-import com.baidu.zeus.bouncycastle.DERTags;
 import java.io.Writer;
 /* loaded from: classes.dex */
 public class b extends Writer {
     private final String a;
-    private StringBuilder b = new StringBuilder((int) DERTags.TAGGED);
+    private StringBuilder b = new StringBuilder(128);
 
     public b(String str) {
         this.a = str;

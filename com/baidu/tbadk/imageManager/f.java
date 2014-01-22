@@ -28,10 +28,10 @@ public class f extends com.baidu.adp.lib.d.a<String, com.baidu.adp.widget.ImageV
     public void a(boolean z, String str, com.baidu.adp.widget.ImageView.d dVar, com.baidu.adp.widget.ImageView.d dVar2) {
         com.baidu.adp.lib.d.a aVar;
         if (dVar != null) {
-            if (com.baidu.adp.lib.h.e.a()) {
+            if (com.baidu.adp.lib.g.e.a()) {
                 StringBuilder append = new StringBuilder().append("pic removed from cache:").append(dVar.j()).append(", size:").append(dVar.f()).append("/");
                 aVar = this.a.c;
-                com.baidu.adp.lib.h.e.d(append.append(aVar.c()).toString());
+                com.baidu.adp.lib.g.e.d(append.append(aVar.c()).toString());
             }
             dVar.g();
         }

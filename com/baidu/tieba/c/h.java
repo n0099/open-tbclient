@@ -2,7 +2,6 @@ package com.baidu.tieba.c;
 
 import android.os.Handler;
 import android.os.Message;
-import com.baidu.tieba.util.bo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h extends Handler {
@@ -29,7 +28,7 @@ public class h extends Handler {
                 aVar2.a(message.arg1);
                 aVar3 = g.b;
                 aVar3.b(message.arg2);
-                bo.c("download_file:" + message.arg1 + "/" + message.arg2);
+                com.baidu.adp.lib.g.e.d("download_file:" + message.arg1 + "/" + message.arg2);
                 aVar4 = g.b;
                 if (aVar4.m() != null) {
                     aVar5 = g.b;

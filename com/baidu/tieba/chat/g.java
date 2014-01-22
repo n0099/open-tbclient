@@ -22,7 +22,7 @@ public class g implements View.OnClickListener {
         Activity activity;
         Activity activity2;
         switch (view.getId()) {
-            case R.id.chat_head /* 2131099946 */:
+            case R.id.chat_head /* 2131099981 */:
                 HeadImageView headImageView = (HeadImageView) view;
                 String userId = headImageView.getUserId();
                 String userName = headImageView.getUserName();

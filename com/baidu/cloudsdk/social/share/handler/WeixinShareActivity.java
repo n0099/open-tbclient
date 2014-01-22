@@ -2,6 +2,7 @@ package com.baidu.cloudsdk.social.share.handler;
 
 import android.app.Activity;
 import android.os.Bundle;
+import com.am;
 import com.baidu.cloudsdk.social.core.util.Weixin;
 /* loaded from: classes.dex */
 public class WeixinShareActivity extends Activity {
@@ -16,7 +17,7 @@ public class WeixinShareActivity extends Activity {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public boolean handleIntent() {
-        return Weixin.handleIntent(getIntent(), new ao(this));
+        return Weixin.handleIntent(getIntent(), new am(this));
     }
 
     @Override // android.app.Activity

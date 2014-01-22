@@ -1,90 +1,78 @@
 package com.baidu.tieba.util;
 
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.net.Proxy;
-import com.baidu.mobstat.StatService;
-import com.baidu.tieba.TiebaApplication;
+import com.baidu.cloudsdk.social.core.SocialConstants;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bc {
-    public static int a;
-    private static bc b;
-    private static long d;
-    private static volatile int c = 0;
-    private static int e = 300000;
-    private static int f = 10;
+public class bc implements com.baidu.adp.lib.network.d {
+    final /* synthetic */ String a;
+    final /* synthetic */ long b;
+    final /* synthetic */ NetWorkCoreByBdHttp c;
 
-    private bc() {
-        a = TiebaApplication.g().aU();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bc(NetWorkCoreByBdHttp netWorkCoreByBdHttp, String str, long j) {
+        this.c = netWorkCoreByBdHttp;
+        this.a = str;
+        this.b = j;
     }
 
-    public static synchronized bc a() {
-        bc bcVar;
-        synchronized (bc.class) {
-            if (b == null) {
-                b = new bc();
-            }
-            bcVar = b;
-        }
-        return bcVar;
-    }
-
-    public ai a(bh bhVar) {
-        switch (a) {
-            case 0:
-                return new NetWorkCore(bhVar);
-            case 1:
-                return new NetWorkCoreByBdHttp(bhVar);
-            default:
-                return new NetWorkCoreByBdHttp(bhVar);
-        }
-    }
-
-    public static synchronized void b() {
-        synchronized (bc.class) {
-            if (a == 1) {
-                long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - d < e) {
-                    c++;
-                    bo.c(bc.class.getName(), "addError", "发生一次新网络内核不通畅警告！ errotime:" + c);
-                    if (c > f) {
-                        a = 0;
-                        bo.b(bc.class.getName(), "addError", "切换会老的网络内核");
-                        TiebaApplication.g().k(a);
-                        if (TiebaApplication.g().s()) {
-                            StatService.onEvent(TiebaApplication.g().getApplicationContext(), "network_core", "current Net：" + UtilHelper.g(TiebaApplication.g().getApplicationContext()) + ", TelType:" + com.baidu.adp.lib.network.g.c() + ", wap:" + c(), 1);
+    @Override // com.baidu.adp.lib.network.d
+    public void a(int i, HttpURLConnection httpURLConnection, OutputStream outputStream) {
+        bl blVar;
+        int i2;
+        boolean z = false;
+        if (httpURLConnection != null) {
+            try {
+                if (httpURLConnection.getInputStream() != null) {
+                    String headerField = httpURLConnection.getHeaderField("imgsrc");
+                    if (headerField != null && headerField.length() > 0) {
+                        z = true;
+                    }
+                    blVar = this.c.d;
+                    if (blVar.h || z) {
+                        byte[] bArr = new byte[23];
+                        int read = httpURLConnection.getInputStream().read(bArr, 0, 23);
+                        if (!new String(bArr, 0, bArr.length).equalsIgnoreCase("app:tiebaclient;type:0;")) {
+                            outputStream.write(bArr, 0, read);
                         }
                     }
-                } else {
-                    c = 0;
-                    d = currentTimeMillis;
-                }
-            }
-        }
-    }
-
-    public static String c() {
-        try {
-            NetworkInfo activeNetworkInfo = ((ConnectivityManager) TiebaApplication.g().getApplicationContext().getSystemService("connectivity")).getActiveNetworkInfo();
-            if (activeNetworkInfo.isAvailable()) {
-                if (activeNetworkInfo.getTypeName().equalsIgnoreCase("WIFI")) {
-                    return "wifi";
-                }
-                String defaultHost = Proxy.getDefaultHost();
-                if (defaultHost != null) {
-                    if (defaultHost.length() > 0) {
-                        return com.baidu.loginshare.e.d;
+                    if ("image/gif".equalsIgnoreCase(httpURLConnection.getHeaderField("Src-Content-Type"))) {
+                        this.c.f = true;
+                        i2 = this.c.i;
+                        if (i2 == 1) {
+                            this.c.i = 2;
+                            return;
+                        }
+                        return;
                     }
+                    this.c.f = false;
+                    return;
                 }
-                return com.baidu.loginshare.e.e;
+            } catch (IOException e) {
+                com.baidu.tieba.log.a.a(com.baidu.tieba.log.j.a(this.a, String.valueOf(System.currentTimeMillis() - this.b), SocialConstants.FALSE, e.getMessage(), "connection failed."));
+                try {
+                    com.baidu.tieba.log.a.a(com.baidu.tieba.log.j.a(this.a, String.valueOf(System.currentTimeMillis() - this.b), String.valueOf(httpURLConnection.getContentLength()), httpURLConnection.getResponseCode() + ":" + httpURLConnection.getHeaderFields(), "|download error|" + e.getMessage()));
+                } catch (IOException e2) {
+                    com.baidu.tieba.log.a.a(com.baidu.tieba.log.j.a(this.a, String.valueOf(System.currentTimeMillis() - this.b), String.valueOf(httpURLConnection.getContentLength()), "cann't get responseCode:" + httpURLConnection.getHeaderFields(), "|download error|" + e.getMessage()));
+                }
+                e.printStackTrace();
+                return;
             }
-            return null;
-        } catch (Exception e2) {
-            return null;
         }
+        com.baidu.tieba.log.a.a(com.baidu.tieba.log.j.a(this.a, String.valueOf(System.currentTimeMillis() - this.b), SocialConstants.FALSE, "failed to open connection.", "connection failed."));
     }
 
-    public static void a(int i) {
-        a = i;
+    @Override // com.baidu.adp.lib.network.d
+    public void a(int i, int i2, HttpURLConnection httpURLConnection) {
+    }
+
+    @Override // com.baidu.adp.lib.network.d
+    public void a(com.baidu.adp.lib.network.f fVar) {
+    }
+
+    @Override // com.baidu.adp.lib.network.d
+    public void a() {
     }
 }

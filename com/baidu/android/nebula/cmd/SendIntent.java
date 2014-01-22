@@ -8,7 +8,6 @@ import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.text.TextUtils;
 import com.baidu.android.moplus.util.NoProGuard;
-import com.baidu.browser.webpool.BdWebPoolView;
 import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Map;
@@ -94,7 +93,7 @@ public class SendIntent implements NoProGuard, n {
         aVar.a("text/javascript");
         aVar.a().put("Cache-Control", "no-cache");
         aVar.b(str + " && " + str + "(" + jSONObject.toString() + ");");
-        aVar.a(BdWebPoolView.DELAYED_TIME);
+        aVar.a(200);
         a.a(this.mErrcode);
     }
 

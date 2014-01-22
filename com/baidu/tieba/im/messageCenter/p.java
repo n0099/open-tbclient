@@ -2,6 +2,7 @@ package com.baidu.tieba.im.messageCenter;
 
 import android.os.Handler;
 import com.baidu.tieba.im.coder.CoderException;
+import com.baidu.tieba.util.by;
 import java.security.InvalidParameterException;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -10,7 +11,7 @@ public class p extends com.baidu.adp.lib.webSocket.d {
     private int b;
     private CoderException c;
     private boolean d;
-    private com.baidu.tieba.im.message.o e;
+    private com.baidu.tieba.im.message.q e;
     private int g;
     private boolean h;
     private i j;
@@ -21,7 +22,7 @@ public class p extends com.baidu.adp.lib.webSocket.d {
     private int l = 0;
     private int m = 0;
 
-    public p(com.baidu.tieba.im.message.o oVar, boolean z, int i, boolean z2, i iVar, int i2, boolean z3) {
+    public p(com.baidu.tieba.im.message.q qVar, boolean z, int i, boolean z2, i iVar, int i2, boolean z3) {
         this.b = 0;
         this.d = false;
         this.e = null;
@@ -29,10 +30,10 @@ public class p extends com.baidu.adp.lib.webSocket.d {
         this.h = false;
         this.j = null;
         this.n = true;
-        if (oVar == null) {
+        if (qVar == null) {
             throw new InvalidParameterException("SenderData msg null");
         }
-        this.e = oVar;
+        this.e = qVar;
         this.g = i;
         this.h = z2;
         this.d = z;
@@ -84,7 +85,7 @@ public class p extends com.baidu.adp.lib.webSocket.d {
 
     @Override // com.baidu.adp.lib.webSocket.aq
     public void c() {
-        com.baidu.tieba.log.a.b(com.baidu.tieba.log.i.a(this.e.u(), this.f, "socket", "SenderData: start send", null, 0, null, 0L, b() != null ? b().length : 0, null));
+        by.a(this.e.w(), this.f, "socket", "SenderData: start send", null, 0, null, 0L, b() != null ? b().length : 0, null);
         a.removeCallbacks(u());
         if (this.b > 0) {
             a.postDelayed(u(), this.b);
@@ -102,7 +103,7 @@ public class p extends com.baidu.adp.lib.webSocket.d {
 
     @Override // com.baidu.adp.lib.webSocket.aq
     public void d() {
-        com.baidu.tieba.log.a.b(com.baidu.tieba.log.i.a(this.e.u(), this.f, "socket", "SenderData: finish send", null, 0, null, 0L, b() != null ? b().length : 0, null));
+        by.a(this.e.w(), this.f, "socket", "SenderData: finish send", null, 0, null, 0L, b() != null ? b().length : 0, null);
         if (!this.d) {
             a.removeCallbacks(u());
         }
@@ -121,7 +122,7 @@ public class p extends com.baidu.adp.lib.webSocket.d {
         return this.g;
     }
 
-    public com.baidu.tieba.im.message.o j() {
+    public com.baidu.tieba.im.message.q j() {
         return this.e;
     }
 
@@ -129,7 +130,7 @@ public class p extends com.baidu.adp.lib.webSocket.d {
     protected byte[] a() {
         this.c = null;
         com.baidu.tieba.im.coder.c a2 = com.baidu.tieba.im.coder.c.a();
-        this.f = r.a().b();
+        this.f = this.e.v();
         try {
             return a2.a(this.e, this.f, this.h);
         } catch (CoderException e) {
@@ -140,7 +141,7 @@ public class p extends com.baidu.adp.lib.webSocket.d {
 
     public int k() {
         if (this.e != null) {
-            return this.e.u();
+            return this.e.w();
         }
         return 0;
     }

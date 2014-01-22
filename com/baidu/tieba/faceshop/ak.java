@@ -8,7 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.bm;
+import com.baidu.tieba.util.bu;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 import java.util.Date;
@@ -60,13 +60,13 @@ public class ak extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        int an = TiebaApplication.g().an();
+        int al = TiebaApplication.h().al();
         if (view == null) {
             view = b();
         }
         am amVar = (am) view.getTag();
         if (this.a instanceof com.baidu.tieba.j) {
-            ((com.baidu.tieba.j) this.a).getLayoutMode().a(an == 1);
+            ((com.baidu.tieba.j) this.a).getLayoutMode().a(al == 1);
             ((com.baidu.tieba.j) this.a).getLayoutMode().a(view);
         }
         a(i, amVar);
@@ -93,7 +93,7 @@ public class ak extends BaseAdapter {
             amVar.b.setText(facePurchasePackageData.pname);
             Date date = new Date();
             date.setTime(facePurchasePackageData.puyTime * 1000);
-            amVar.c.setText(bm.d(date));
+            amVar.c.setText(bu.c(date));
         }
     }
 }

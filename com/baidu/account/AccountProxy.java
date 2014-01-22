@@ -13,6 +13,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import com.baidu.sapi2.SapiAccountManager;
 /* loaded from: classes.dex */
 public class AccountProxy {
     public static final String BAIDUACCOUNT_ACTION = "com.baidu.account";
@@ -189,19 +190,19 @@ public class AccountProxy {
     }
 
     public String getBaiduAccountUID() {
-        Cursor query = this.mContext.getContentResolver().query(Uri.parse("content://com.baidu.account.provider.AccountInfoProvider/accountInfo"), new String[]{"uid"}, null, null, null);
+        Cursor query = this.mContext.getContentResolver().query(Uri.parse("content://com.baidu.account.provider.AccountInfoProvider/accountInfo"), new String[]{SapiAccountManager.SESSION_UID}, null, null, null);
         if (query == null || !query.moveToFirst()) {
             return "";
         }
-        return query.getString(query.getColumnIndex("uid"));
+        return query.getString(query.getColumnIndex(SapiAccountManager.SESSION_UID));
     }
 
     public String getBaiduAccountDisplayName() {
-        Cursor query = this.mContext.getContentResolver().query(Uri.parse("content://com.baidu.account.provider.AccountInfoProvider/accountInfo"), new String[]{"displayname"}, null, null, null);
+        Cursor query = this.mContext.getContentResolver().query(Uri.parse("content://com.baidu.account.provider.AccountInfoProvider/accountInfo"), new String[]{SapiAccountManager.SESSION_DISPLAYNAME}, null, null, null);
         if (query == null || !query.moveToFirst()) {
             return "";
         }
-        return query.getString(query.getColumnIndex("displayname"));
+        return query.getString(query.getColumnIndex(SapiAccountManager.SESSION_DISPLAYNAME));
     }
 
     public String getBaiduAccountPhone() {

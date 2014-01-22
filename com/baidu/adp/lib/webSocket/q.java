@@ -66,7 +66,7 @@ public class q extends Thread {
                 } catch (Throwable th) {
                     k = this.a.k();
                     if (k) {
-                        com.baidu.adp.lib.h.e.c("----WebSocketConnector error. e:" + th.getMessage());
+                        com.baidu.adp.lib.g.e.c("----WebSocketConnector error. e:" + th.getMessage());
                     }
                     this.a.b(new y(new Exception(th)));
                 }

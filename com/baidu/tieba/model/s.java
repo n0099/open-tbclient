@@ -6,7 +6,7 @@ import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class s extends BdAsyncTask<o, Integer, Boolean> {
     final /* synthetic */ o a;
-    private com.baidu.tieba.util.at b;
+    private com.baidu.tieba.util.ax b;
     private com.baidu.tieba.data.ba c;
 
     private s(o oVar) {
@@ -28,7 +28,7 @@ public class s extends BdAsyncTask<o, Integer, Boolean> {
         o oVar = new o();
         try {
             oVar.i();
-            this.b = new com.baidu.tieba.util.at();
+            this.b = new com.baidu.tieba.util.ax();
             this.b.a(com.baidu.tieba.data.h.a + "c/c/post/addstore");
             int k = this.a.k();
             if (oVar.g() - 1 <= k) {
@@ -38,8 +38,8 @@ public class s extends BdAsyncTask<o, Integer, Boolean> {
                 String a = oVar.a(k, 20);
                 this.b.a(new ArrayList<>());
                 this.b.a("data", a);
-                this.c.a(this.b.l());
-                if (!this.b.c() || this.c.a() != 0) {
+                this.c.a(this.b.m());
+                if (!this.b.d() || this.c.a() != 0) {
                     break;
                 }
                 k -= 20;
@@ -50,7 +50,7 @@ public class s extends BdAsyncTask<o, Integer, Boolean> {
             }
             return true;
         } catch (Exception e) {
-            com.baidu.tieba.util.bo.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
+            com.baidu.adp.lib.g.e.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
             return false;
         }
     }
@@ -59,7 +59,7 @@ public class s extends BdAsyncTask<o, Integer, Boolean> {
     public void cancel() {
         super.cancel(true);
         if (this.b != null) {
-            this.b.j();
+            this.b.k();
         }
         this.a.c = null;
         if (this.a.a != null) {
@@ -80,7 +80,7 @@ public class s extends BdAsyncTask<o, Integer, Boolean> {
             arrayList.clear();
             str = null;
             z = false;
-        } else if (this.b.c()) {
+        } else if (this.b.d()) {
             str = this.c.b();
             z = false;
         } else {

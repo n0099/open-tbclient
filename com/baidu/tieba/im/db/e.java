@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteException;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.tieba.im.SingleRunnable;
+import com.baidu.tieba.util.by;
 import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -41,23 +42,25 @@ public class e extends SingleRunnable<LinkedList<String>> {
         String str = "tb_group_msg_" + this.a;
         SQLiteDatabase a = s.a();
         try {
-        } catch (SQLiteException e) {
+        } catch (Exception e) {
             e.printStackTrace();
-        } catch (Exception e2) {
+            by.a(e, "GroupMsgDao.getAllByMsgType" + this.e, new Object[0]);
+        } catch (SQLiteException e2) {
             e2.printStackTrace();
+            by.a(e2, "GroupMsgDao.getAllByMsgType" + this.e, new Object[0]);
         } finally {
-            com.baidu.tieba.util.o.a(cursor);
+            com.baidu.tieba.util.p.a(cursor);
         }
         if (a == null) {
             return linkedList;
         }
         if (TextUtils.isEmpty(this.c)) {
             String str2 = "select * from " + str + " WHERE msg_type=? AND is_delete=? ORDER BY rid DESC LIMIT " + i;
-            com.baidu.adp.lib.h.e.d("sql:" + str2);
+            com.baidu.adp.lib.g.e.d("sql:" + str2);
             cursor = a.rawQuery(str2, new String[]{String.valueOf(this.e), String.valueOf(0)});
         } else {
             String str3 = "select * from " + str + " WHERE mid <=? AND msg_type=? AND is_delete=? ORDER BY rid DESC LIMIT " + i;
-            com.baidu.adp.lib.h.e.d("sql:" + str3);
+            com.baidu.adp.lib.g.e.d("sql:" + str3);
             cursor = a.rawQuery(str3, new String[]{this.c, String.valueOf(this.e), String.valueOf(0)});
         }
         if (cursor != null) {

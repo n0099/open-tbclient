@@ -5,7 +5,6 @@ import com.baidu.tieba.MainTabActivity;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.AccountData;
 import com.baidu.tieba.util.DatabaseService;
-import com.baidu.tieba.util.bo;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -57,7 +56,7 @@ public class j extends BdAsyncTask<Object, Integer, AccountData> {
                 this.c = 0;
             }
         } catch (Exception e) {
-            bo.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
+            com.baidu.adp.lib.g.e.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
         }
         return null;
     }

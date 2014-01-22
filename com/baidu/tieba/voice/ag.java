@@ -1,7 +1,7 @@
 package com.baidu.tieba.voice;
 
 import android.os.Handler;
-import com.baidu.tieba.util.bo;
+import com.baidu.tieba.util.by;
 import com.baidu.tieba.voice.VoiceManager;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -28,7 +28,7 @@ public class ag implements j {
         Handler handler2;
         Handler handler3;
         VoiceManager.VoiceModel voiceModel2;
-        com.baidu.adp.lib.h.e.a("VoiceManager", "Voice-Play-Succ", "");
+        com.baidu.adp.lib.g.e.a("VoiceManager", "Voice-Play-Succ", "");
         adVar = this.a.y;
         if (adVar != null) {
             voiceModel = this.a.v;
@@ -68,11 +68,12 @@ public class ag implements j {
         ad adVar2;
         VoiceManager.VoiceModel voiceModel;
         VoiceManager.VoiceModel voiceModel2;
-        bo.b("VoiceManager", "Voice-Play-Fail", " " + i + " " + str);
+        com.baidu.adp.lib.g.e.b("VoiceManager", "Voice-Play-Fail", " " + i + " " + str);
+        by.b("", i, str, "");
         adVar = this.a.y;
         if (adVar != null) {
             adVar2 = this.a.y;
-            adVar2.b(i, str);
+            adVar2.a(i, str);
             voiceModel = this.a.v;
             if (voiceModel != null) {
                 VoiceManager voiceManager = this.a;

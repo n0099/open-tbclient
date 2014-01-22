@@ -35,7 +35,7 @@ public class j extends com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.d> {
             linkedList3 = this.b.l;
             k kVar = (k) linkedList3.remove(0);
             if (kVar != null) {
-                this.b.a(kVar.a, kVar.c, kVar.b, kVar.d, false, kVar.e, kVar.f, kVar.g);
+                this.b.a(kVar.a, kVar.c, kVar.b, kVar.d, false, kVar.e, kVar.f, kVar.g, true);
             }
         }
     }
@@ -50,12 +50,15 @@ public class j extends com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.d> {
         super.a((j) dVar, str, fVar);
         linkedList = this.b.k;
         linkedList.remove(this.a);
-        if (!this.a.k && !this.a.a() && this.a.b != null) {
+        if (!this.a.o && !this.a.a() && this.a.b != null) {
             Iterator<com.baidu.tbadk.imageManager.c> it = this.a.b.iterator();
             while (it.hasNext()) {
                 com.baidu.tbadk.imageManager.c next = it.next();
                 if (next != null && this.a != null) {
-                    next.a(this.a.i, this.a.b(), this.a.f);
+                    if (dVar != null && this.a.i == null) {
+                        by.a("", -1008, "resource of onLoaded() is not null but task.img is null", dVar.j());
+                    }
+                    next.a(this.a.i == null ? dVar : this.a.i, this.a.b(), this.a.f);
                 }
             }
             this.a.a(true);
@@ -64,7 +67,10 @@ public class j extends com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.d> {
         if (linkedList2.size() > 0) {
             linkedList3 = this.b.l;
             k kVar = (k) linkedList3.remove(0);
-            this.b.a(kVar.a, kVar.c, kVar.b, kVar.d, false, kVar.e, kVar.f, kVar.g);
+            this.b.a(kVar.a, kVar.c, kVar.b, kVar.d, false, kVar.e, kVar.f, kVar.g, true);
+        }
+        if (!this.a.f) {
+            new br(this.a).execute(new String[0]);
         }
     }
 
@@ -72,8 +78,8 @@ public class j extends com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.d> {
     @Override // com.baidu.adp.lib.e.b
     public void a(Object... objArr) {
         super.a(objArr);
-        if ((this.a.k || this.a.i != null) && !this.a.a()) {
-            this.a.k = false;
+        if ((this.a.o || this.a.i != null) && !this.a.a()) {
+            this.a.o = false;
             if (this.a.b != null) {
                 Iterator<com.baidu.tbadk.imageManager.c> it = this.a.b.iterator();
                 while (it.hasNext()) {

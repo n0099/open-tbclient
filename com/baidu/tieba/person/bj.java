@@ -1,6 +1,6 @@
 package com.baidu.tieba.person;
 /* loaded from: classes.dex */
-class bj implements com.baidu.tieba.view.e {
+class bj implements com.baidu.tieba.view.a {
     final /* synthetic */ PersonImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -8,7 +8,7 @@ class bj implements com.baidu.tieba.view.e {
         this.a = personImageActivity;
     }
 
-    @Override // com.baidu.tieba.view.e
+    @Override // com.baidu.tieba.view.a
     public void a(int i) {
         if (i == 0) {
         }

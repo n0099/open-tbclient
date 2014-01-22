@@ -25,7 +25,7 @@ public class g implements com.baidu.adp.lib.e.a {
             case 273:
                 return new com.baidu.tieba.voice.a.g();
             default:
-                com.baidu.adp.lib.h.e.b("TiebaLoaderCreater", "getLoaderByType", "invalid type:" + i);
+                com.baidu.adp.lib.g.e.b("TiebaLoaderCreater", "getLoaderByType", "invalid type:" + i);
                 return null;
         }
     }

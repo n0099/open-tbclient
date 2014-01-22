@@ -11,11 +11,6 @@ public final class c extends GeneratedMessageLite.Builder<Im.Error, c> implement
     private int b;
     private Object c = "";
 
-    /* JADX DEBUG: Method not inlined, still used in: [protobuf.Im.Error.newBuilder():protobuf.c] */
-    public static /* synthetic */ c f() {
-        return h();
-    }
-
     private c() {
         g();
     }

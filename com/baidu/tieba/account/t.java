@@ -10,7 +10,7 @@ import com.baidu.tieba.data.RegistData;
 /* loaded from: classes.dex */
 public class t extends BdAsyncTask<String, Integer, Boolean> {
     final /* synthetic */ ActivationActivity a;
-    private com.baidu.tieba.util.at b;
+    private com.baidu.tieba.util.ax b;
 
     private t(ActivationActivity activationActivity) {
         this.a = activationActivity;
@@ -36,7 +36,7 @@ public class t extends BdAsyncTask<String, Integer, Boolean> {
             relativeLayout.setEnabled(true);
         }
         if (this.b != null) {
-            this.b.j();
+            this.b.k();
         }
         super.cancel(true);
     }
@@ -48,16 +48,16 @@ public class t extends BdAsyncTask<String, Integer, Boolean> {
         RegistData registData;
         boolean z = false;
         try {
-            this.b = new com.baidu.tieba.util.at(com.baidu.tieba.data.h.a + "c/s/getsmscode");
-            com.baidu.tieba.util.at atVar = this.b;
+            this.b = new com.baidu.tieba.util.ax(com.baidu.tieba.data.h.a + "c/s/getsmscode");
+            com.baidu.tieba.util.ax axVar = this.b;
             registData = this.a.p;
-            atVar.a("phonenum", registData.getPhone());
-            this.b.l();
-            if (this.b.c()) {
+            axVar.a("phonenum", registData.getPhone());
+            this.b.m();
+            if (this.b.d()) {
                 z = true;
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.bo.b(getClass().getName(), "doInBackground", e.getMessage());
+            com.baidu.adp.lib.g.e.b(getClass().getName(), "doInBackground", e.getMessage());
         }
         return Boolean.valueOf(z);
     }
@@ -84,12 +84,12 @@ public class t extends BdAsyncTask<String, Integer, Boolean> {
             this.a.a();
             return;
         }
-        String i = this.b.i();
-        if (i != null && i.length() > 0) {
+        String j = this.b.j();
+        if (j != null && j.length() > 0) {
             textView = this.a.h;
             textView.setVisibility(0);
             textView2 = this.a.h;
-            textView2.setText(i);
+            textView2.setText(j);
         }
     }
 

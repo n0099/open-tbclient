@@ -26,6 +26,6 @@ public class ag implements View.OnClickListener {
         InputMethodManager inputMethodManager2 = this.a.b;
         editText2 = this.a.p;
         loginActivity2.HidenSoftKeyPad(inputMethodManager2, editText2);
-        Register2Activity.a(this.a, 12007);
+        SapiFastRegActivity.a(this.a, 22002);
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.tieba.im.creategroup;
 
 import android.graphics.Bitmap;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.util.aa;
+import com.baidu.tieba.util.ad;
 /* loaded from: classes.dex */
 class j extends BdAsyncTask<Object, Integer, Bitmap> {
     final /* synthetic */ h a;
@@ -22,7 +22,7 @@ class j extends BdAsyncTask<Object, Integer, Bitmap> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: d */
     public Bitmap a(Object... objArr) {
-        return aa.c(null, "tieba_group_image");
+        return ad.c(null, "tieba_group_image");
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask

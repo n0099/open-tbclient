@@ -1,30 +1,21 @@
 package com.baidu.tieba.im.chat;
 
-import android.os.Handler;
-import android.os.Message;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bt extends Handler {
-    final /* synthetic */ bs a;
+public class bt implements View.OnLongClickListener {
+    final /* synthetic */ MsgleftView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bt(bs bsVar) {
-        this.a = bsVar;
+    public bt(MsgleftView msgleftView) {
+        this.a = msgleftView;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        Handler handler;
-        super.handleMessage(message);
-        switch (message.what) {
-            case 1:
-                handler = this.a.S;
-                handler.removeMessages(1);
-                this.a.m();
-                this.a.k();
-                return;
-            default:
-                return;
-        }
+    @Override // android.view.View.OnLongClickListener
+    public boolean onLongClick(View view) {
+        TouchType touchType;
+        touchType = this.a.v;
+        touchType.set(true);
+        return true;
     }
 }

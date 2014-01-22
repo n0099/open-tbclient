@@ -3,8 +3,8 @@ package com.baidu.tieba.im.mygroup;
 import android.text.TextUtils;
 import com.baidu.tieba.home.EnterForumGuideCenterView;
 import com.baidu.tieba.im.data.GroupInfoData;
-import com.baidu.tieba.im.message.bj;
-import com.baidu.tieba.im.message.o;
+import com.baidu.tieba.im.message.bt;
+import com.baidu.tieba.im.message.q;
 import java.util.List;
 /* loaded from: classes.dex */
 class g implements com.baidu.tieba.im.messageCenter.g {
@@ -16,7 +16,7 @@ class g implements com.baidu.tieba.im.messageCenter.g {
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(o oVar) {
+    public void a(q qVar) {
         h hVar;
         h hVar2;
         h hVar3;
@@ -27,18 +27,18 @@ class g implements com.baidu.tieba.im.messageCenter.g {
         if (this.a.i() != null && this.a.a != null) {
             hVar = this.a.c;
             if (hVar != null) {
-                if (oVar.u() == 103003) {
+                if (qVar.w() == 103003) {
                     this.a.a.a();
                 }
-                bj bjVar = (bj) oVar;
-                if (bjVar.i()) {
-                    if (bjVar.j() != 0 && !TextUtils.isEmpty(bjVar.k())) {
-                        this.a.a(bjVar.k());
+                bt btVar = (bt) qVar;
+                if (btVar.k()) {
+                    if (btVar.l() != 0 && !TextUtils.isEmpty(btVar.m())) {
+                        this.a.a(btVar.m());
                         return;
                     }
                     return;
                 }
-                List<GroupInfoData> a = bjVar.a();
+                List<GroupInfoData> a = btVar.a();
                 if (a != null) {
                     aVar = this.a.e;
                     aVar.a(a);
@@ -53,9 +53,9 @@ class g implements com.baidu.tieba.im.messageCenter.g {
                         enterForumGuideCenterView.setVisibility(0);
                     }
                 }
-                if (oVar.u() == 103003) {
+                if (qVar.w() == 103003) {
                     this.a.b = false;
-                } else if (oVar.u() == -106) {
+                } else if (qVar.w() == -106) {
                     hVar2 = this.a.c;
                     if (hVar2 != null) {
                         hVar3 = this.a.c;

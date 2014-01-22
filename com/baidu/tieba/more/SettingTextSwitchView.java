@@ -25,14 +25,14 @@ public class SettingTextSwitchView extends FrameLayout {
         this.b = context;
         d();
         a(attributeSet);
-        a(TiebaApplication.g().an());
+        a(TiebaApplication.h().al());
     }
 
     public SettingTextSwitchView(Context context) {
         super(context);
         this.b = context;
         d();
-        a(TiebaApplication.g().an());
+        a(TiebaApplication.h().al());
     }
 
     public SettingTextSwitchView(Context context, AttributeSet attributeSet, int i) {
@@ -40,7 +40,7 @@ public class SettingTextSwitchView extends FrameLayout {
         this.b = context;
         d();
         a(attributeSet);
-        a(TiebaApplication.g().an());
+        a(TiebaApplication.h().al());
     }
 
     @Override // android.view.View
@@ -110,7 +110,7 @@ public class SettingTextSwitchView extends FrameLayout {
     }
 
     private void a(AttributeSet attributeSet) {
-        TypedArray obtainStyledAttributes = this.b.obtainStyledAttributes(attributeSet, com.baidu.tieba.au.SettingView);
+        TypedArray obtainStyledAttributes = this.b.obtainStyledAttributes(attributeSet, com.baidu.tieba.ax.SettingView);
         String string = obtainStyledAttributes.getString(0);
         int color = obtainStyledAttributes.getColor(1, -1);
         float dimension = obtainStyledAttributes.getDimension(2, -1.0f);

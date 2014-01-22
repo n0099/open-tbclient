@@ -24,7 +24,7 @@ public class f extends BaseAdapter {
     public void a(List<ValidateItemData> list) {
         if (list != null) {
             this.c.addAll(list);
-            com.baidu.adp.lib.h.e.d("size:" + this.c.size());
+            com.baidu.adp.lib.g.e.d("size:" + this.c.size());
             notifyDataSetChanged();
         }
     }

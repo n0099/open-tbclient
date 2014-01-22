@@ -28,23 +28,23 @@ public class aq implements CompoundButton.OnCheckedChangeListener {
         TextView textView2;
         if (z) {
             compoundButton.setTextColor(this.a.getResources().getColor(R.color.white));
-            radioButton = this.a.j;
+            radioButton = this.a.i;
             if (compoundButton == radioButton) {
-                horizontalScrollView2 = this.a.f;
+                horizontalScrollView2 = this.a.e;
                 horizontalScrollView2.setVisibility(0);
-                linearLayout2 = this.a.l;
+                linearLayout2 = this.a.k;
                 linearLayout2.setVisibility(4);
-                textView2 = this.a.n;
+                textView2 = this.a.m;
                 textView2.setText(this.a.getString(R.string.beautify));
                 return;
             }
-            radioButton2 = this.a.k;
+            radioButton2 = this.a.j;
             if (compoundButton == radioButton2) {
-                horizontalScrollView = this.a.f;
+                horizontalScrollView = this.a.e;
                 horizontalScrollView.setVisibility(4);
-                linearLayout = this.a.l;
+                linearLayout = this.a.k;
                 linearLayout.setVisibility(0);
-                textView = this.a.n;
+                textView = this.a.m;
                 textView.setText(this.a.getString(R.string.rotate));
                 return;
             }

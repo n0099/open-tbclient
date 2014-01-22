@@ -18,6 +18,6 @@ public class bq implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         ((ClipboardManager) view.getContext().getSystemService("clipboard")).setText(this.a);
-        com.baidu.adp.lib.h.g.a(view.getContext(), view.getResources().getString(R.string.copy_pb_url_success));
+        com.baidu.adp.lib.g.g.a(view.getContext(), view.getResources().getString(R.string.copy_pb_url_success));
     }
 }

@@ -1,25 +1,30 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.im.SingleRunnable;
+import android.os.Handler;
+import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class b extends SingleRunnable<Void> {
-    final /* synthetic */ int a;
+public class b extends Handler {
+    final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public b(int i) {
-        this.a = i;
+    public b(a aVar) {
+        this.a = aVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.SingleRunnable
-    /* renamed from: a */
-    public Void b() {
-        if (TiebaApplication.G() != null) {
-            com.baidu.tieba.im.db.as.a().a(this.a);
-            return null;
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        Handler handler;
+        super.handleMessage(message);
+        switch (message.what) {
+            case 1:
+                handler = this.a.S;
+                handler.removeMessages(1);
+                this.a.o();
+                this.a.m();
+                return;
+            default:
+                return;
         }
-        return null;
     }
 }

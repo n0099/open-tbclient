@@ -1,34 +1,45 @@
 package com.baidu.tieba.im.frsgroup;
 
-import android.view.View;
-import android.widget.AdapterView;
-import com.baidu.tieba.im.data.UserData;
-import com.baidu.tieba.person.PersonInfoActivity;
+import com.baidu.adp.widget.ListView.BdListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class m implements AdapterView.OnItemClickListener {
-    final /* synthetic */ MembersActivity a;
+public class m implements com.baidu.adp.widget.ListView.b {
+    final /* synthetic */ BdListView a;
+    final /* synthetic */ MembersActivity b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(MembersActivity membersActivity) {
-        this.a = membersActivity;
+    public m(MembersActivity membersActivity, BdListView bdListView) {
+        this.b = membersActivity;
+        this.a = bdListView;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        aa aaVar;
-        aaVar = this.a.b;
-        w i2 = aaVar.i();
-        UserData userData = (UserData) i2.getItem(i);
-        if (userData != null) {
-            if (i2.d()) {
-                if (!userData.getPermission().isController()) {
-                    i2.a(Long.valueOf(userData.getUserId()));
-                    return;
-                }
+    @Override // com.baidu.adp.widget.ListView.b
+    public void a(boolean z) {
+        ac acVar;
+        boolean i;
+        com.baidu.tieba.im.model.n nVar;
+        com.baidu.tieba.im.model.n nVar2;
+        com.baidu.tieba.im.model.n nVar3;
+        com.baidu.tieba.im.model.n nVar4;
+        com.baidu.tieba.im.model.n nVar5;
+        acVar = this.b.b;
+        if (!acVar.i().d()) {
+            i = this.b.i();
+            if (i) {
+                nVar = this.b.c;
+                nVar2 = this.b.c;
+                long f = nVar2.f();
+                nVar3 = this.b.c;
+                int d = nVar3.d();
+                nVar4 = this.b.c;
+                int e = nVar4.e();
+                nVar5 = this.b.c;
+                nVar.a(f, d, e, nVar5.a());
                 return;
             }
-            PersonInfoActivity.a(this.a, userData.getUserId() + "", userData.getUserName());
+            this.b.g();
+            return;
         }
+        this.a.a();
     }
 }

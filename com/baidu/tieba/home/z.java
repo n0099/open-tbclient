@@ -6,36 +6,36 @@ import com.baidu.tieba.data.AccountData;
 /* loaded from: classes.dex */
 public class z {
     private static final String b = com.baidu.tieba.data.h.a + "c/f/forum/getforumlist";
-    private com.baidu.tieba.util.at a = null;
+    private com.baidu.tieba.util.ax a = null;
 
     public String a() {
-        AccountData F = TiebaApplication.F();
+        AccountData E = TiebaApplication.E();
         String str = null;
-        if (F != null) {
-            str = F.getID();
+        if (E != null) {
+            str = E.getID();
         }
-        this.a = new com.baidu.tieba.util.at(b);
+        this.a = new com.baidu.tieba.util.ax(b);
         this.a.a(PushConstants.EXTRA_USER_ID, str);
         this.a.c(true);
-        return this.a.l();
+        return this.a.m();
     }
 
     public void b() {
         if (this.a != null) {
-            this.a.j();
+            this.a.k();
         }
     }
 
     public boolean c() {
         if (this.a != null) {
-            return this.a.c();
+            return this.a.d();
         }
         return false;
     }
 
     public String d() {
         if (this.a != null) {
-            return this.a.i();
+            return this.a.j();
         }
         return null;
     }

@@ -9,7 +9,7 @@ import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class y extends BdAsyncTask<Object, com.baidu.tieba.data.t, com.baidu.tieba.data.t> {
     final /* synthetic */ x a;
-    private com.baidu.tieba.util.at b = null;
+    private com.baidu.tieba.util.ax b = null;
     private boolean c;
     private boolean d;
     private boolean e;
@@ -56,7 +56,7 @@ public class y extends BdAsyncTask<Object, com.baidu.tieba.data.t, com.baidu.tie
                     try {
                         tVar2.a(g);
                         if (!tVar2.a()) {
-                            com.baidu.tieba.util.bo.a("Like_Recommend_AsyncTask", "doInBackground", "cache data format err");
+                            com.baidu.adp.lib.g.e.a("Like_Recommend_AsyncTask", "doInBackground", "cache data format err");
                             if (this.e) {
                                 DatabaseService.b();
                                 z = false;
@@ -68,13 +68,13 @@ public class y extends BdAsyncTask<Object, com.baidu.tieba.data.t, com.baidu.tie
                             }
                         } else {
                             c((Object[]) new com.baidu.tieba.data.t[]{tVar2});
-                            com.baidu.tieba.util.bo.a("Like_Recommend_AsyncTask", "doInBackground", "cache data.size: " + String.valueOf(g.length()));
+                            com.baidu.adp.lib.g.e.a("Like_Recommend_AsyncTask", "doInBackground", "cache data.size: " + String.valueOf(g.length()));
                             z = true;
                         }
                     } catch (Exception e2) {
                         e = e2;
                         tVar = tVar2;
-                        com.baidu.tieba.util.bo.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
+                        com.baidu.adp.lib.g.e.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
                         if (this.a.getLoadDataMode() == 1) {
                             z.a().b(this.f);
                         }
@@ -97,28 +97,28 @@ public class y extends BdAsyncTask<Object, com.baidu.tieba.data.t, com.baidu.tie
             stringBuffer.append("c/f/forum/favocommend");
             ArrayList<BasicNameValuePair> arrayList = new ArrayList<>();
             arrayList.add(new BasicNameValuePair("ctime", String.valueOf(System.currentTimeMillis())));
-            this.b = new com.baidu.tieba.util.at(stringBuffer.toString());
+            this.b = new com.baidu.tieba.util.ax(stringBuffer.toString());
             this.b.a(arrayList);
-            String l = this.b.l();
-            if (!this.b.c() || l == null) {
+            String m = this.b.m();
+            if (!this.b.d() || m == null) {
                 tVar = null;
             } else {
                 tVar = new com.baidu.tieba.data.t();
                 try {
-                    tVar.a(l);
+                    tVar.a(m);
                     if (tVar.a()) {
                         this.e = tVar.b() == 1;
                         if (this.e) {
-                            DatabaseService.c(l);
+                            DatabaseService.c(m);
                         } else {
-                            DatabaseService.a(l, SocialConstants.FALSE);
+                            DatabaseService.a(m, SocialConstants.FALSE);
                         }
                     } else {
                         tVar = null;
                     }
                 } catch (Exception e4) {
                     e = e4;
-                    com.baidu.tieba.util.bo.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
+                    com.baidu.adp.lib.g.e.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
                     if (this.a.getLoadDataMode() == 1) {
                     }
                     return tVar;
@@ -154,7 +154,7 @@ public class y extends BdAsyncTask<Object, com.baidu.tieba.data.t, com.baidu.tie
         if (tVar == null) {
             z = false;
             if (this.b != null) {
-                this.a.mErrorString = this.b.i();
+                this.a.mErrorString = this.b.j();
             }
         } else {
             this.a.a = tVar;
@@ -168,7 +168,7 @@ public class y extends BdAsyncTask<Object, com.baidu.tieba.data.t, com.baidu.tie
     public void cancel() {
         com.baidu.adp.a.g gVar;
         if (this.b != null) {
-            this.b.j();
+            this.b.k();
             this.b = null;
         }
         this.a.b = null;

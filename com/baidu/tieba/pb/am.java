@@ -16,12 +16,12 @@ class am implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        cs csVar;
+        cr crVar;
         com.baidu.tieba.model.bm bmVar;
-        csVar = this.c.a.z;
+        crVar = this.c.a.A;
         com.baidu.tieba.data.ax axVar = this.a;
         View view = this.b;
-        bmVar = this.c.a.t;
-        csVar.a(false, axVar, true, null, null, view, bmVar.l().l());
+        bmVar = this.c.a.u;
+        crVar.a(false, axVar, true, null, null, view, bmVar.l().l());
     }
 }

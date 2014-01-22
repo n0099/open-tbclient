@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.util.bs;
 import com.baidu.tieba.view.HeadImageView;
 import com.slidingmenu.lib.R;
 import java.text.DecimalFormat;
@@ -47,26 +48,32 @@ public class j implements a {
 
     @Override // com.baidu.tieba.im.nearbygroups.a
     public void a(int i, Object obj) {
-        if (obj instanceof com.baidu.tieba.im.data.h) {
-            com.baidu.tieba.im.data.h hVar = (com.baidu.tieba.im.data.h) obj;
-            this.o.setTag(hVar.c());
-            this.e.setText(hVar.d());
-            this.f.setText(hVar.h() + "/" + hVar.g());
-            this.g.setText(hVar.e());
-            String f = hVar.f();
+        if (obj instanceof com.baidu.tieba.im.data.i) {
+            com.baidu.tieba.im.data.i iVar = (com.baidu.tieba.im.data.i) obj;
+            this.o.setTag(iVar.c());
+            this.e.setText(iVar.d());
+            this.f.setText(iVar.h() + "/" + iVar.g());
+            this.g.setText(iVar.e());
+            String f = iVar.f();
             this.d.setTag(null);
             this.d.setDefaultResource(R.drawable.avatar_poto_defaul140);
             this.d.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
             this.d.setDrawBorder(true);
-            this.d.setRadius(com.baidu.adp.lib.h.g.a((Context) this.b, 5.0f));
+            this.d.setRadius(com.baidu.adp.lib.g.g.a((Context) this.b, 5.0f));
             if (!TextUtils.isEmpty(f)) {
                 this.d.setTag(f);
             }
-            a(this.k, hVar.i());
-            String b = b(hVar.j());
+            if (iVar.m()) {
+                bs.a(this.e, R.color.im_group_vip_text, 1);
+            } else {
+                this.b.getLayoutMode().a(TiebaApplication.h().al() == 1);
+                this.b.getLayoutMode().a(this.e);
+            }
+            a(this.k, iVar.i(), iVar.m());
+            String b = b(iVar.j());
             this.m.setText(b);
             this.n.setText(b);
-            if (hVar.a()) {
+            if (iVar.a()) {
                 this.p.setVisibility(0);
                 this.m.setVisibility(0);
                 this.n.setVisibility(8);
@@ -75,12 +82,12 @@ public class j implements a {
                 this.m.setVisibility(8);
                 this.n.setVisibility(0);
             }
-            if (hVar.k()) {
+            if (iVar.k()) {
                 this.q.setVisibility(0);
             } else {
                 this.q.setVisibility(8);
             }
-            if (hVar.l()) {
+            if (iVar.l()) {
                 this.r.setVisibility(0);
             } else {
                 this.r.setVisibility(8);
@@ -99,7 +106,16 @@ public class j implements a {
         return this.s.format(i / 1000.0d) + "km";
     }
 
-    private void a(ImageView[] imageViewArr, int i) {
+    private void a(ImageView[] imageViewArr, int i, boolean z) {
+        if (z) {
+            bs.d(imageViewArr[1], (int) R.drawable.icon_vip_grade_big_small_s);
+            bs.d(imageViewArr[2], (int) R.drawable.icon_vip_grade_big_small_s);
+            bs.d(imageViewArr[3], (int) R.drawable.icon_vip_grade_big_small_s);
+        } else {
+            this.b.getLayoutMode().a(imageViewArr[1]);
+            this.b.getLayoutMode().a(imageViewArr[2]);
+            this.b.getLayoutMode().a(imageViewArr[3]);
+        }
         int i2 = i < 0 ? 0 : i;
         if (i2 > 3) {
             i2 = 3;
@@ -141,10 +157,10 @@ public class j implements a {
 
     public void a(int i) {
         this.b.getLayoutMode().a(i == 1);
-        this.b.getLayoutMode().a(this.a);
+        this.b.getLayoutMode().a((View) this.a);
     }
 
     public void c() {
-        a(TiebaApplication.g().an());
+        a(TiebaApplication.h().al());
     }
 }

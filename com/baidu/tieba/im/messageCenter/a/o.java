@@ -1,33 +1,34 @@
 package com.baidu.tieba.im.messageCenter.a;
 
+import com.baidu.sapi2.shell.SapiErrorCode;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.im.message.bj;
-import com.baidu.tieba.im.message.cc;
+import com.baidu.tieba.im.message.bt;
+import com.baidu.tieba.im.message.cr;
 /* loaded from: classes.dex */
 public class o extends com.baidu.tieba.im.messageCenter.d {
     @Override // com.baidu.tieba.im.messageCenter.d
-    public cc a(com.baidu.tieba.im.message.o oVar) {
-        bj bjVar;
-        if (oVar == null || !(oVar instanceof com.baidu.tieba.im.message.i)) {
+    public cr a(com.baidu.tieba.im.message.q qVar) {
+        bt btVar;
+        if (qVar == null || !(qVar instanceof com.baidu.tieba.im.message.k)) {
             return null;
         }
         String str = "";
-        if (TiebaApplication.F() != null) {
-            str = TiebaApplication.F().getID();
+        if (TiebaApplication.E() != null) {
+            str = TiebaApplication.E().getID();
         }
         byte[] a = com.baidu.tieba.b.a.a().r().a("p_group_info" + str);
-        bj bjVar2 = new bj();
+        bt btVar2 = new bt();
         if (a != null) {
             try {
-                bjVar = (bj) l.a(103003, a);
+                btVar = (bt) l.a(103003, a);
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            bjVar.e(-106);
-            return bjVar;
+            btVar.e(SapiErrorCode.SAVE_CERT_FAIL);
+            return btVar;
         }
-        bjVar = bjVar2;
-        bjVar.e(-106);
-        return bjVar;
+        btVar = btVar2;
+        btVar.e(SapiErrorCode.SAVE_CERT_FAIL);
+        return btVar;
     }
 }

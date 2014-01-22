@@ -21,7 +21,7 @@ public class z {
                 th = th;
                 try {
                     this.a.a(th);
-                    com.baidu.adp.lib.h.e.b("BdNameSpaceDBManager", str, th.getMessage());
+                    com.baidu.adp.lib.g.e.b("BdNameSpaceDBManager", str, th.getMessage());
                     com.baidu.adp.lib.f.a.a(cursor);
                     return null;
                 } finally {
@@ -59,7 +59,7 @@ public class z {
             }
         } catch (Throwable th) {
             this.a.a(th);
-            com.baidu.adp.lib.h.e.a("BdNameSpaceDBManager", "failed to insert " + nVar.a + " to db.", th);
+            com.baidu.adp.lib.g.e.a("BdNameSpaceDBManager", "failed to insert " + nVar.a + " to db.", th);
         }
     }
 

@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.AccountData;
 import com.baidu.tieba.data.RegistData;
@@ -148,20 +149,20 @@ public class ActivationActivity extends com.baidu.tieba.j {
         this.c.setBackgroundResource(R.drawable.pass_input);
         this.c.setPadding(this.w, 0, this.x, 0);
         this.v = (TextView) findViewById(R.id.no_receive_code);
-        ShowSoftKeyPadDelay(this.i, 150);
+        ShowSoftKeyPadDelay(this.i, SocialAPIErrorCodes.ERROR_AUTHORIZATION_CANCELED);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        com.baidu.tieba.util.bl.a(this.r, i);
-        com.baidu.tieba.util.bl.d(this.t, i);
-        com.baidu.tieba.util.bl.a(this.b, i);
-        com.baidu.tieba.util.bl.e(this.s, i);
-        com.baidu.tieba.util.bl.a(this.u, i);
-        com.baidu.tieba.util.bl.a(this.g, i);
-        com.baidu.tieba.util.bl.b(this.v, i);
+        com.baidu.tieba.util.bs.a(this.r, i);
+        com.baidu.tieba.util.bs.d(this.t, i);
+        com.baidu.tieba.util.bs.a(this.b, i);
+        com.baidu.tieba.util.bs.e(this.s, i);
+        com.baidu.tieba.util.bs.a(this.u, i);
+        com.baidu.tieba.util.bs.a(this.g, i);
+        com.baidu.tieba.util.bs.b(this.v, i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

@@ -9,13 +9,10 @@ import protobuf.Im;
 public final class r extends GeneratedMessageLite.Builder<Im.MaskInfo, r> implements s {
     private int a;
     private long b;
-    private Object c = "";
     private int d;
-
-    /* JADX DEBUG: Method not inlined, still used in: [protobuf.Im.MaskInfo.newBuilder():protobuf.r] */
-    public static /* synthetic */ r f() {
-        return h();
-    }
+    private int f;
+    private Object c = "";
+    private Object e = "";
 
     private r() {
         g();
@@ -38,6 +35,10 @@ public final class r extends GeneratedMessageLite.Builder<Im.MaskInfo, r> implem
         this.a &= -3;
         this.d = 0;
         this.a &= -5;
+        this.e = "";
+        this.a &= -9;
+        this.f = 0;
+        this.a &= -17;
         return this;
     }
 
@@ -78,6 +79,14 @@ public final class r extends GeneratedMessageLite.Builder<Im.MaskInfo, r> implem
             i2 |= 4;
         }
         maskInfo.remindMask_ = this.d;
+        if ((i & 8) == 8) {
+            i2 |= 8;
+        }
+        maskInfo.maskUids_ = this.e;
+        if ((i & 16) == 16) {
+            i2 |= 16;
+        }
+        maskInfo.shieldStatus_ = this.f;
         maskInfo.bitField0_ = i2;
         return maskInfo;
     }
@@ -86,17 +95,26 @@ public final class r extends GeneratedMessageLite.Builder<Im.MaskInfo, r> implem
     /* renamed from: a */
     public r mergeFrom(Im.MaskInfo maskInfo) {
         Object obj;
+        Object obj2;
         if (maskInfo != Im.MaskInfo.getDefaultInstance()) {
             if (maskInfo.hasUserId()) {
                 a(maskInfo.getUserId());
             }
             if (maskInfo.hasMaskGids()) {
                 this.a |= 2;
-                obj = maskInfo.maskGids_;
-                this.c = obj;
+                obj2 = maskInfo.maskGids_;
+                this.c = obj2;
             }
             if (maskInfo.hasRemindMask()) {
                 a(maskInfo.getRemindMask());
+            }
+            if (maskInfo.hasMaskUids()) {
+                this.a |= 8;
+                obj = maskInfo.maskUids_;
+                this.e = obj;
+            }
+            if (maskInfo.hasShieldStatus()) {
+                b(maskInfo.getShieldStatus());
             }
         }
         return this;
@@ -154,6 +172,12 @@ public final class r extends GeneratedMessageLite.Builder<Im.MaskInfo, r> implem
     public r a(int i) {
         this.a |= 4;
         this.d = i;
+        return this;
+    }
+
+    public r b(int i) {
+        this.a |= 16;
+        this.f = i;
         return this;
     }
 }

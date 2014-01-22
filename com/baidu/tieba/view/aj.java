@@ -1,25 +1,51 @@
 package com.baidu.tieba.view;
 
-import android.app.Activity;
+import android.content.Context;
 import android.view.View;
-import com.baidu.cloudsdk.social.core.SocialConstants;
-import com.baidu.tieba.flist.ForumListActivity;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.FrameLayout;
+import android.widget.TextView;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class aj implements View.OnClickListener {
-    final /* synthetic */ ag a;
+public class aj {
+    View a;
+    private View b;
+    private FrameLayout c;
+    private TextView d;
+    private Context e;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public aj(ag agVar) {
-        this.a = agVar;
+    public aj(View view, Context context) {
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        this.d = null;
+        this.e = null;
+        this.e = context;
+        this.a = view;
+        this.b = this.a.findViewById(R.id.frs_header_divider_fortune);
+        this.c = (FrameLayout) this.a.findViewById(R.id.frs_fortune_layout);
+        this.d = (TextView) this.a.findViewById(R.id.frs_header_fortune_arrow);
+        this.d.setText("");
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Activity activity;
-        String str;
-        activity = this.a.D;
-        str = this.a.ad;
-        ForumListActivity.a(activity, str, "2", SocialConstants.TRUE);
+    public void a(String str) {
+        this.d.setText(String.format(this.e.getResources().getString(R.string.frs_fu_text), str));
+    }
+
+    public void a() {
+        this.b.setVisibility(0);
+        this.c.setVisibility(0);
+    }
+
+    public void b() {
+        this.b.setVisibility(8);
+        this.c.setVisibility(8);
+    }
+
+    public void a(View.OnClickListener onClickListener) {
+        this.c.setOnClickListener(onClickListener);
+    }
+
+    public boolean a(View view) {
+        return view != null && view.equals(this.c);
     }
 }

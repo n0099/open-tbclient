@@ -31,7 +31,7 @@ public class o implements k {
 
     public o() {
         if (k()) {
-            com.baidu.adp.lib.h.e.d("created");
+            com.baidu.adp.lib.g.e.d("created");
         }
         a();
     }
@@ -42,7 +42,7 @@ public class o implements k {
         }
         if (this.r != null || !f()) {
             if (k()) {
-                com.baidu.adp.lib.h.e.d("mWebSocketSendData not null");
+                com.baidu.adp.lib.g.e.d("mWebSocketSendData not null");
             }
             if (dVar != null) {
                 dVar.a(1);
@@ -64,7 +64,7 @@ public class o implements k {
 
     public void a(int i, String str) {
         if (k()) {
-            com.baidu.adp.lib.h.e.d("fail connection [code = " + i + ", reason = " + str);
+            com.baidu.adp.lib.g.e.d("fail connection [code = " + i + ", reason = " + str);
         }
         this.o = false;
         this.q = true;
@@ -93,12 +93,12 @@ public class o implements k {
                 lVar.a(i, str);
             } catch (Exception e2) {
                 if (k()) {
-                    com.baidu.adp.lib.h.e.d(e2.getMessage());
+                    com.baidu.adp.lib.g.e.d(e2.getMessage());
                 }
             }
         }
         if (k()) {
-            com.baidu.adp.lib.h.e.d("worker threads stopped");
+            com.baidu.adp.lib.g.e.d("worker threads stopped");
         }
     }
 
@@ -170,7 +170,7 @@ public class o implements k {
         handlerThread.start();
         this.c = new WebSocketWriter(handlerThread.getLooper(), this.a, this.d, this.e);
         if (k()) {
-            com.baidu.adp.lib.h.e.d("WS writer created and started");
+            com.baidu.adp.lib.g.e.d("WS writer created and started");
         }
     }
 
@@ -179,7 +179,7 @@ public class o implements k {
         this.b = new an(this.a, this.d, this.e, "WebSocketReader");
         this.b.start();
         if (k()) {
-            com.baidu.adp.lib.h.e.d("WS reader created and started");
+            com.baidu.adp.lib.g.e.d("WS reader created and started");
         }
     }
 

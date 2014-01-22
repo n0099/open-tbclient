@@ -1,49 +1,32 @@
 package com.baidu.tieba.im.message;
 
-import com.baidu.tieba.im.data.GroupLevelInfo;
-import java.util.ArrayList;
 import java.util.LinkedList;
-import protobuf.Im;
-import protobuf.QueryGroupGrade.QueryGroupGradeRes;
+import protobuf.CheckMaskUser.CheckMaskUserRes;
 /* loaded from: classes.dex */
-public class bi extends cc implements com.baidu.tieba.im.coder.f {
-    private GroupLevelInfo a;
+public class bi extends cr implements com.baidu.tieba.im.coder.f {
+    private boolean a;
 
     public bi() {
-        super(103006);
-    }
-
-    public GroupLevelInfo a() {
-        return this.a;
-    }
-
-    public void a(GroupLevelInfo groupLevelInfo) {
-        this.a = groupLevelInfo;
+        super(104104);
+        this.a = false;
     }
 
     @Override // com.baidu.tieba.im.coder.f
-    public void a(LinkedList<o> linkedList, byte[] bArr, int i) {
-        QueryGroupGradeRes.QueryGroupGradeResIdl parseFrom = QueryGroupGradeRes.QueryGroupGradeResIdl.parseFrom(bArr);
+    public void a(LinkedList<q> linkedList, byte[] bArr, int i) {
+        CheckMaskUserRes.CheckMaskUserResIdl parseFrom = CheckMaskUserRes.CheckMaskUserResIdl.parseFrom(bArr);
         g(parseFrom.getError().getErrorno());
         c(parseFrom.getError().getUsermsg());
         linkedList.add(this);
-        if (!i()) {
-            a(new GroupLevelInfo());
-            a().setGroupId(parseFrom.getData().getGroupInfo().getGroupId());
-            a().setName(parseFrom.getData().getGroupInfo().getName());
-            a().setGrade(parseFrom.getData().getGroupInfo().getGrade());
-            a().setActiveDay(parseFrom.getData().getGroupInfo().getActiveDay());
-            a().setLevelInfos(new ArrayList());
-            int gradeInfosCount = parseFrom.getData().getGradeInfosCount();
-            for (int i2 = 0; i2 < gradeInfosCount; i2++) {
-                GroupLevelInfo.LevelInfo levelInfo = new GroupLevelInfo.LevelInfo();
-                a().getLevelInfos().add(levelInfo);
-                Im.GradeInfo gradeInfos = parseFrom.getData().getGradeInfos(i2);
-                levelInfo.setGrade(gradeInfos.getGrade());
-                levelInfo.setIntro(gradeInfos.getIntro());
-                levelInfo.setThresholdDay(gradeInfos.getThresholdDay());
-                levelInfo.setMaxMemberNum(gradeInfos.getMaxMemberNum());
-            }
+        if (!k()) {
+            a(parseFrom.getData().getIsMask() == 1);
         }
+    }
+
+    public boolean a() {
+        return this.a;
+    }
+
+    public void a(boolean z) {
+        this.a = z;
     }
 }

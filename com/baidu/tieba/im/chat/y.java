@@ -1,27 +1,21 @@
 package com.baidu.tieba.im.chat;
-
-import com.slidingmenu.lib.R;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class y implements com.baidu.tieba.im.messageCenter.g {
-    final /* synthetic */ GroupSettingActivity a;
+public class y implements com.baidu.tieba.im.a<Boolean> {
+    final /* synthetic */ com.baidu.tieba.im.message.u a;
+    final /* synthetic */ q b;
 
-    public y(GroupSettingActivity groupSettingActivity) {
-        this.a = groupSettingActivity;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public y(q qVar, com.baidu.tieba.im.message.u uVar) {
+        this.b = qVar;
+        this.a = uVar;
     }
 
-    @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(com.baidu.tieba.im.message.o oVar) {
-        if (oVar != null && oVar.u() == 103103) {
-            if (!(oVar instanceof com.baidu.tieba.im.message.bv)) {
-                this.a.showToast(R.string.group_report_fail);
-                return;
-            }
-            com.baidu.tieba.im.message.bv bvVar = (com.baidu.tieba.im.message.bv) oVar;
-            if (bvVar.i()) {
-                this.a.a(bvVar.k(), bvVar.j());
-            } else {
-                this.a.showToast(R.string.group_report_success);
-            }
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.a
+    public void a(Boolean bool) {
+        this.a.g(System.currentTimeMillis());
+        com.baidu.tieba.im.messageCenter.e.a().a(this.a);
+        com.baidu.adp.lib.g.e.d("SHANG sendMessage to queue");
     }
 }

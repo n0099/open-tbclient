@@ -1,18 +1,12 @@
 package com.baidu.tieba.frs;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import android.app.Activity;
 /* loaded from: classes.dex */
-public class bp implements com.baidu.tieba.view.d {
-    final /* synthetic */ bo a;
+public class bp {
+    Activity a;
+    int b = 0;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bp(bo boVar) {
-        this.a = boVar;
-    }
-
-    @Override // com.baidu.tieba.view.d
-    public void a(boolean z) {
-        if (z) {
-            this.a.F();
-        }
+    public bp(Activity activity) {
+        this.a = activity;
     }
 }

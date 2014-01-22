@@ -1,22 +1,19 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tieba.im.model.MsglistModel;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bn implements Runnable {
-    final /* synthetic */ String a;
-    final /* synthetic */ ba b;
+public class bn implements View.OnLongClickListener {
+    final /* synthetic */ bk a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bn(ba baVar, String str) {
-        this.b = baVar;
-        this.a = str;
+    public bn(bk bkVar) {
+        this.a = bkVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        MsglistModel msglistModel;
-        msglistModel = this.b.h;
-        msglistModel.c(this.a);
+    @Override // android.view.View.OnLongClickListener
+    public boolean onLongClick(View view) {
+        this.a.d.b(view, 4, this.a.f, 0L);
+        return true;
     }
 }

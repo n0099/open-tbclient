@@ -7,18 +7,18 @@ import com.baidu.tieba.compatible.CompatibleUtile;
 /* loaded from: classes.dex */
 public class GalleryViewPager extends BaseViewPager {
     private PointF a;
-    private q b;
-    private q c;
+    private u b;
+    private u c;
 
     public GalleryViewPager(Context context) {
         super(context);
     }
 
-    public void setCurrentView(q qVar) {
-        this.b = qVar;
+    public void setCurrentView(u uVar) {
+        this.b = uVar;
     }
 
-    public q getCurrentView() {
+    public u getCurrentView() {
         return this.b;
     }
 
@@ -51,10 +51,10 @@ public class GalleryViewPager extends BaseViewPager {
             return super.onTouchEvent(motionEvent);
         }
         if (a != null && this.b.h() && a[0] < 0.0f) {
-            com.baidu.tieba.util.bo.a(getClass().getName(), "onTouchEvent", "right");
+            com.baidu.adp.lib.g.e.a(getClass().getName(), "onTouchEvent", "right");
             return super.onTouchEvent(motionEvent);
         } else if (a != null && this.b.i() && a[0] > 0.0f) {
-            com.baidu.tieba.util.bo.a(getClass().getName(), "onTouchEvent", "left");
+            com.baidu.adp.lib.g.e.a(getClass().getName(), "onTouchEvent", "left");
             return super.onTouchEvent(motionEvent);
         } else if (a == null) {
             if (this.b.i() || this.b.h()) {
@@ -93,11 +93,11 @@ public class GalleryViewPager extends BaseViewPager {
         return false;
     }
 
-    public void setSelectedView(q qVar) {
-        this.c = qVar;
+    public void setSelectedView(u uVar) {
+        this.c = uVar;
     }
 
-    public q getSelectedView() {
+    public u getSelectedView() {
         return this.c;
     }
 }

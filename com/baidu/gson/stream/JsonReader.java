@@ -4,11 +4,11 @@ import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import com.baidu.gson.internal.JsonReaderInternalAccess;
 import com.baidu.gson.internal.bind.JsonTreeReader;
 import com.baidu.location.BDLocation;
-import com.baidu.zeus.NotificationProxy;
 import java.io.Closeable;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.Reader;
+import protobuf.Im;
 /* loaded from: classes.dex */
 public class JsonReader implements Closeable {
     private static final long MIN_INCOMPLETE_INTEGER = -922337203685477580L;
@@ -45,7 +45,7 @@ public class JsonReader implements Closeable {
     private String peekedString;
     private int stackSize;
     private boolean lenient = false;
-    private final char[] buffer = new char[NotificationProxy.MAX_URL_LENGTH];
+    private final char[] buffer = new char[1024];
     private int pos = 0;
     private int limit = 0;
     private int lineNumber = 0;
@@ -235,7 +235,7 @@ public class JsonReader implements Closeable {
             }
             int nextNonWhitespace = nextNonWhitespace(true);
             switch (nextNonWhitespace) {
-                case 34:
+                case Im.GroupInfo.ISMEMBERGROUP_FIELD_NUMBER /* 34 */:
                     this.peeked = 13;
                     return 13;
                 case 39:
@@ -290,7 +290,7 @@ public class JsonReader implements Closeable {
             throw new IllegalStateException("JsonReader is closed");
         }
         switch (nextNonWhitespace(true)) {
-            case 34:
+            case Im.GroupInfo.ISMEMBERGROUP_FIELD_NUMBER /* 34 */:
                 if (this.stackSize == 1) {
                     checkLenient();
                 }
@@ -447,7 +447,7 @@ public class JsonReader implements Closeable {
                         return 0;
                     }
                 case 'E':
-                case 'e':
+                case SocialAPIErrorCodes.ERROR_INVALID_CLIENT_ID /* 101 */:
                     if (c3 == 2 || c3 == 4) {
                         c2 = 5;
                         z = z4;
@@ -538,7 +538,7 @@ public class JsonReader implements Closeable {
             case '\n':
             case '\f':
             case '\r':
-            case ' ':
+            case Im.GroupInfo.ISNEWLYCREATE_FIELD_NUMBER /* 32 */:
             case ',':
             case ':':
             case '[':
@@ -744,7 +744,7 @@ public class JsonReader implements Closeable {
                     case '\n':
                     case '\f':
                     case '\r':
-                    case ' ':
+                    case Im.GroupInfo.ISNEWLYCREATE_FIELD_NUMBER /* 32 */:
                     case ',':
                     case ':':
                     case '[':
@@ -836,7 +836,7 @@ public class JsonReader implements Closeable {
                     case '\n':
                     case '\f':
                     case '\r':
-                    case ' ':
+                    case Im.GroupInfo.ISNEWLYCREATE_FIELD_NUMBER /* 32 */:
                     case ',':
                     case ':':
                     case '[':
@@ -1118,7 +1118,7 @@ public class JsonReader implements Closeable {
                 return c;
             case 'b':
                 return '\b';
-            case 'f':
+            case SocialAPIErrorCodes.ERROR_INVALID_SESSION_KEY /* 102 */:
                 return '\f';
             case SocialAPIErrorCodes.ERROR_MISS_ACCESS_TOKEN /* 110 */:
                 return '\n';

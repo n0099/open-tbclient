@@ -1,6 +1,5 @@
 package com.baidu.tieba.data;
 
-import com.baidu.tieba.util.bo;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ag {
@@ -36,7 +35,7 @@ public class ag {
         try {
             a(new JSONObject(str).optJSONObject("info"));
         } catch (Exception e) {
-            bo.b("LikeReturnData", "parserJson", "error = " + e.getMessage());
+            com.baidu.adp.lib.g.e.b("LikeReturnData", "parserJson", "error = " + e.getMessage());
         }
     }
 
@@ -51,7 +50,7 @@ public class ag {
                 f(jSONObject.optInt("levelup_score", 0));
                 e(jSONObject.optInt("cur_score", 0));
             } catch (Exception e) {
-                bo.b("LikeReturnData", "parserJson", "error = " + e.getMessage());
+                com.baidu.adp.lib.g.e.b("LikeReturnData", "parserJson", "error = " + e.getMessage());
             }
         }
     }

@@ -1,10 +1,10 @@
 package com.baidu.tieba.im.message;
 /* loaded from: classes.dex */
-public class c extends o {
+public class c extends cr {
     private String a;
 
     public c() {
-        super.e(-117);
+        e(-119);
     }
 
     public String a() {

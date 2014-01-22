@@ -6,8 +6,10 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteStatement;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.PushConstants;
+import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tieba.im.SingleRunnable;
 import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
+import com.baidu.tieba.util.by;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -27,8 +29,8 @@ public class g extends SingleRunnable<Boolean> {
         this.c = z;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [606=4] */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:52:0x02c8 */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [620=4] */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:52:0x02d0 */
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r1v1, types: [java.lang.String] */
@@ -44,7 +46,7 @@ public class g extends SingleRunnable<Boolean> {
         if (TextUtils.isEmpty(this.a) || this.b == null || this.b.size() == 0) {
             return false;
         }
-        if (!TextUtils.isEmpty(this.a) && this.a.equals(String.valueOf(com.baidu.tieba.im.chat.a.a))) {
+        if (!TextUtils.isEmpty(this.a) && this.a.equals(String.valueOf(com.baidu.tieba.im.chat.q.a))) {
             return false;
         }
         StringBuilder append = new StringBuilder().append("tb_group_msg_");
@@ -62,7 +64,7 @@ public class g extends SingleRunnable<Boolean> {
                     cursor = a.rawQuery("select * from " + sb + " ORDER BY mid desc limit 1000, 1", null);
                     try {
                         String string = cursor.moveToNext() ? cursor.getString(cursor.getColumnIndex("mid")) : null;
-                        com.baidu.tieba.util.o.a(cursor);
+                        com.baidu.tieba.util.p.a(cursor);
                         if (string != null) {
                             a.delete(sb, "mid<?", new String[]{string});
                         }
@@ -71,16 +73,17 @@ public class g extends SingleRunnable<Boolean> {
                     } catch (Exception e) {
                         e = e;
                         e.printStackTrace();
+                        by.a(e, "GroupMsgDao.insertOrUpdate", new Object[0]);
                         Boolean.valueOf(false);
-                        com.baidu.tieba.util.o.a(cursor);
-                        com.baidu.tieba.util.o.a(sQLiteStatement);
+                        com.baidu.tieba.util.p.a(cursor);
+                        com.baidu.tieba.util.p.a(sQLiteStatement);
                         a.endTransaction();
                         return true;
                     }
                 } else {
                     cursor = null;
                 }
-                sQLiteStatement = a.compileStatement(" INSERT INTO " + sb + "(" + PushConstants.EXTRA_CONTENT + ",create_time,ext,mid,msg_status,msg_type,uid,user_info,rid,read_flag,is_delete) VALUES(?,?,?,?,?,?,?,?,?,?,?);");
+                sQLiteStatement = a.compileStatement(" INSERT INTO " + sb + "(" + PushConstants.EXTRA_CONTENT + ",create_time,ext,mid,msg_status,msg_type," + SapiAccountManager.SESSION_UID + ",user_info,rid,read_flag,is_delete) VALUES(?,?,?,?,?,?,?,?,?,?,?);");
                 Iterator it = this.b.iterator();
                 while (it.hasNext()) {
                     CommonMsgPojo commonMsgPojo = (CommonMsgPojo) it.next();
@@ -94,7 +97,7 @@ public class g extends SingleRunnable<Boolean> {
                     contentValues.put("mid", Long.valueOf(commonMsgPojo.getMid()));
                     contentValues.put("msg_status", Integer.valueOf(commonMsgPojo.getMsg_status()));
                     contentValues.put("msg_type", Integer.valueOf(commonMsgPojo.getMsg_type()));
-                    contentValues.put("uid", commonMsgPojo.getUid());
+                    contentValues.put(SapiAccountManager.SESSION_UID, commonMsgPojo.getUid());
                     contentValues.put("user_info", commonMsgPojo.getUser_info());
                     contentValues.put("rid", Long.valueOf(commonMsgPojo.getRid()));
                     contentValues.put("read_flag", Integer.valueOf(commonMsgPojo.getRead_flag()));
@@ -116,8 +119,8 @@ public class g extends SingleRunnable<Boolean> {
                     }
                 }
                 a.setTransactionSuccessful();
-                com.baidu.tieba.util.o.a(cursor);
-                com.baidu.tieba.util.o.a(sQLiteStatement);
+                com.baidu.tieba.util.p.a(cursor);
+                com.baidu.tieba.util.p.a(sQLiteStatement);
                 a.endTransaction();
             } catch (Exception e2) {
                 e = e2;
@@ -125,8 +128,8 @@ public class g extends SingleRunnable<Boolean> {
             } catch (Throwable th) {
                 th = th;
                 r1 = 0;
-                com.baidu.tieba.util.o.a((Cursor) r1);
-                com.baidu.tieba.util.o.a((SQLiteStatement) null);
+                com.baidu.tieba.util.p.a((Cursor) r1);
+                com.baidu.tieba.util.p.a((SQLiteStatement) null);
                 a.endTransaction();
                 throw th;
             }

@@ -8,8 +8,8 @@ import android.view.MotionEvent;
 /* loaded from: classes.dex */
 public class BaseViewPager extends ViewPager implements GestureDetector.OnGestureListener {
     private GestureDetector a;
-    private e b;
-    private e c;
+    private a b;
+    private a c;
 
     public BaseViewPager(Context context) {
         super(context);
@@ -27,12 +27,12 @@ public class BaseViewPager extends ViewPager implements GestureDetector.OnGestur
         g();
     }
 
-    public void setOnFlipOutListener(e eVar) {
-        this.b = eVar;
+    public void setOnFlipOutListener(a aVar) {
+        this.b = aVar;
     }
 
-    public void setOnScrollOutListener(e eVar) {
-        this.c = eVar;
+    public void setOnScrollOutListener(a aVar) {
+        this.c = aVar;
     }
 
     @Override // android.support.v4.view.ViewPager, android.view.View

@@ -42,7 +42,7 @@ public class bi implements DialogInterface.OnClickListener {
                         }
                         return;
                     } catch (Exception e) {
-                        com.baidu.adp.lib.h.e.a("PersonImageActivity click save  error" + e.getMessage());
+                        com.baidu.adp.lib.g.e.a("PersonImageActivity click save  error" + e.getMessage());
                         return;
                     }
                 case 1:

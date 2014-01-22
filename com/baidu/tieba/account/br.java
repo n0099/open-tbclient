@@ -9,7 +9,7 @@ import com.baidu.tieba.data.RegistData;
 /* loaded from: classes.dex */
 public class br extends BdAsyncTask<String, Integer, com.baidu.tieba.model.be> {
     final /* synthetic */ Register2Activity a;
-    private com.baidu.tieba.util.at b;
+    private com.baidu.tieba.util.ax b;
 
     private br(Register2Activity register2Activity) {
         this.a = register2Activity;
@@ -25,7 +25,7 @@ public class br extends BdAsyncTask<String, Integer, com.baidu.tieba.model.be> {
     public void cancel() {
         ProgressBar progressBar;
         if (this.b != null) {
-            this.b.j();
+            this.b.k();
         }
         this.a.O = null;
         progressBar = this.a.D;
@@ -42,7 +42,7 @@ public class br extends BdAsyncTask<String, Integer, com.baidu.tieba.model.be> {
         com.baidu.tieba.model.be beVar = new com.baidu.tieba.model.be();
         try {
             m = this.a.m();
-            this.b = new com.baidu.tieba.util.at(com.baidu.tieba.data.h.a + "c/s/regreal");
+            this.b = new com.baidu.tieba.util.ax(com.baidu.tieba.data.h.a + "c/s/regreal");
             this.b.a("un", m.getName());
             this.b.a("phonenum", m.getPhone());
             this.b.a("passwd", m.getPsw());
@@ -52,15 +52,15 @@ public class br extends BdAsyncTask<String, Integer, com.baidu.tieba.model.be> {
             if (m.getVcodeMd5() != null) {
                 this.b.a("vcode_md5", m.getVcodeMd5());
             }
-            String l = this.b.l();
-            if ((this.b.d() && (this.b.e() == 0 || this.b.e() == 36)) || this.b.e() == 5) {
+            String m2 = this.b.m();
+            if ((this.b.e() && (this.b.f() == 0 || this.b.f() == 36)) || this.b.f() == 5) {
                 com.baidu.tieba.model.be beVar2 = new com.baidu.tieba.model.be();
-                beVar2.a(l);
+                beVar2.a(m2);
                 return beVar2;
             }
             return beVar;
         } catch (Exception e) {
-            com.baidu.tieba.util.bo.b(getClass().getName(), "doInBackground", e.getMessage());
+            com.baidu.adp.lib.g.e.b(getClass().getName(), "doInBackground", e.getMessage());
             return null;
         }
     }
@@ -80,31 +80,31 @@ public class br extends BdAsyncTask<String, Integer, com.baidu.tieba.model.be> {
         progressBar.setVisibility(8);
         this.a.l();
         this.a.P = beVar;
-        if (!this.b.d()) {
+        if (!this.b.e()) {
             this.a.K = -1;
-            this.a.L = this.b.i();
+            this.a.L = this.b.j();
             this.a.k();
-        } else if (this.b.e() == 36) {
+        } else if (this.b.f() == 36) {
             this.a.a(beVar.c());
             Register2Activity register2Activity = this.a;
             i3 = Register2Activity.d;
             register2Activity.K = i3;
-            this.a.L = this.b.i();
+            this.a.L = this.b.j();
             this.a.k();
-        } else if (this.b.e() == 5) {
+        } else if (this.b.f() == 5) {
             Register2Activity register2Activity2 = this.a;
             i2 = Register2Activity.g;
             register2Activity2.K = i2;
             this.a.a(true);
-        } else if (this.b.e() == 0) {
+        } else if (this.b.f() == 0) {
             m = this.a.m();
             Register2Activity register2Activity3 = this.a;
             i = Register2Activity.c;
             ActivationActivity.a(register2Activity3, m, i);
             this.a.a(false);
         } else {
-            this.a.K = this.b.e();
-            this.a.L = this.b.i();
+            this.a.K = this.b.f();
+            this.a.L = this.b.j();
             this.a.k();
         }
     }

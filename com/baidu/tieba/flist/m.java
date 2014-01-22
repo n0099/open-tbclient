@@ -41,20 +41,20 @@ class m extends com.baidu.adp.a.g {
                 if (i == 0) {
                     sVar3 = this.b.D;
                     sVar3.notifyDataSetChanged();
-                    TiebaApplication g = TiebaApplication.g();
+                    TiebaApplication h = TiebaApplication.h();
                     ForumInfoData[] forumInfoDataArr = this.a;
                     sVar4 = this.b.D;
-                    g.f(forumInfoDataArr[sVar4.a].forum_name);
+                    h.e(forumInfoDataArr[sVar4.a].forum_name);
                     return;
                 }
                 i2 = this.b.p;
                 if (i2 == 1) {
                     sVar = this.b.E;
                     sVar.notifyDataSetChanged();
-                    TiebaApplication g2 = TiebaApplication.g();
+                    TiebaApplication h2 = TiebaApplication.h();
                     ForumInfoData[] forumInfoDataArr2 = this.a;
                     sVar2 = this.b.E;
-                    g2.f(forumInfoDataArr2[sVar2.a].forum_name);
+                    h2.e(forumInfoDataArr2[sVar2.a].forum_name);
                 }
             }
         }

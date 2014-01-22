@@ -5,8 +5,7 @@ import android.os.Handler;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.util.NetWorkCore;
-import com.baidu.tieba.util.bh;
-import com.baidu.tieba.util.bo;
+import com.baidu.tieba.util.bl;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l extends BdAsyncTask<String, Integer, String> {
@@ -27,25 +26,25 @@ public class l extends BdAsyncTask<String, Integer, String> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public String a(String... strArr) {
-        bo.a(getClass().getName(), "doBackGround", "send active...");
+        com.baidu.adp.lib.g.e.a(getClass().getName(), "doBackGround", "send active...");
         try {
-            this.a = new NetWorkCore(new bh());
+            this.a = new NetWorkCore(new bl());
             this.a.b("http://114.113.149.3:8086/partnersService");
             this.a.a(this.b.getApplicationContext());
-            this.a.a("apk", TiebaApplication.g().getPackageName());
-            this.a.a("imei", TiebaApplication.g().p());
+            this.a.a("apk", TiebaApplication.h().getPackageName());
+            this.a.a("imei", TiebaApplication.h().p());
             this.a.a("model", Build.MODEL);
             this.a.a("edition", com.baidu.tieba.data.h.j());
             this.a.a("system", Build.VERSION.SDK);
             this.a.e(false);
-            String s = this.a.s();
-            if (this.a.p()) {
-                bo.a(getClass().getName(), "task", "data=" + s);
-                return s;
+            String u = this.a.u();
+            if (this.a.q()) {
+                com.baidu.adp.lib.g.e.a(getClass().getName(), "task", "data=" + u);
+                return u;
             }
         } catch (Exception e) {
             com.baidu.tieba.sharedPref.b.a().b("active", 1);
-            bo.b(getClass().getName(), "doInBackground", e.getMessage());
+            com.baidu.adp.lib.g.e.b(getClass().getName(), "doInBackground", e.getMessage());
         }
         return null;
     }
@@ -54,7 +53,7 @@ public class l extends BdAsyncTask<String, Integer, String> {
     public void cancel() {
         this.b.a = null;
         if (this.a != null) {
-            this.a.r();
+            this.a.s();
         }
         super.cancel(true);
     }
@@ -85,7 +84,7 @@ public class l extends BdAsyncTask<String, Integer, String> {
                 this.b.stopSelf();
             }
         }
-        bo.a(getClass().getName(), "onPostExecute", "send active ok");
+        com.baidu.adp.lib.g.e.a(getClass().getName(), "onPostExecute", "send active ok");
         com.baidu.tieba.sharedPref.b.a().b("active", 2);
         this.b.stopSelf();
     }

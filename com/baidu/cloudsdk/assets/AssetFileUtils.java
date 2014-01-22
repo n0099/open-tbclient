@@ -2,7 +2,6 @@ package com.baidu.cloudsdk.assets;
 
 import android.content.Context;
 import android.content.res.Resources;
-import com.baidu.browser.core.util.BdUtil;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -20,10 +19,10 @@ public final class AssetFileUtils {
         InputStream resourceAsStream = AssetFileUtils.class.getResourceAsStream("/com/baidu/cloudsdk/assets/" + str);
         if (resourceAsStream == null) {
             try {
-                return context.getAssets().open(str);
+                return context.getApplicationContext().getAssets().open(str);
             } catch (IOException e) {
                 try {
-                    return context.getResources().openRawResource(context.getResources().getIdentifier(str, "raw", context.getPackageName()));
+                    return context.getApplicationContext().getResources().openRawResource(context.getApplicationContext().getResources().getIdentifier(str, "raw", context.getPackageName()));
                 } catch (Resources.NotFoundException e2) {
                     try {
                         return new FileInputStream(new File(str));
@@ -45,7 +44,7 @@ public final class AssetFileUtils {
         StringBuilder sb = new StringBuilder();
         try {
             try {
-                bufferedReader = new BufferedReader(new InputStreamReader(fileAsStream, BdUtil.UTF8));
+                bufferedReader = new BufferedReader(new InputStreamReader(fileAsStream, "utf-8"));
             } finally {
                 try {
                     fileAsStream.close();

@@ -26,20 +26,20 @@ public class ap implements View.OnClickListener {
         Bitmap bitmap3;
         Bitmap bitmap4;
         boolean b2;
-        z = this.a.y;
+        z = this.a.x;
         if (!z) {
-            i = this.a.z;
+            i = this.a.y;
             if (i == 12003) {
                 Intent intent = new Intent();
                 intent.putExtra("delete", true);
                 this.a.setResult(-1, intent);
             } else {
                 Intent intent2 = new Intent();
-                z2 = this.a.x;
+                z2 = this.a.w;
                 if (z2) {
-                    bitmap = this.a.p;
+                    bitmap = this.a.o;
                     if (bitmap != null) {
-                        bitmap2 = this.a.p;
+                        bitmap2 = this.a.o;
                         if (!bitmap2.isRecycled()) {
                             String str = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
                             b = this.a.b(str);
@@ -62,11 +62,11 @@ public class ap implements View.OnClickListener {
             return;
         }
         Intent intent3 = new Intent();
-        z3 = this.a.x;
+        z3 = this.a.w;
         if (z3) {
-            bitmap3 = this.a.p;
+            bitmap3 = this.a.o;
             if (bitmap3 != null) {
-                bitmap4 = this.a.p;
+                bitmap4 = this.a.o;
                 if (!bitmap4.isRecycled()) {
                     String str2 = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
                     b2 = this.a.b(str2);

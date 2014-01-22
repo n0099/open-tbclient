@@ -1,22 +1,29 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tieba.im.SingleRunnable;
+import java.util.ArrayList;
+import java.util.LinkedList;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class v extends SingleRunnable<Void> {
-    final /* synthetic */ GroupSettingActivity a;
+public class v implements com.baidu.tieba.im.a<LinkedList<String>> {
+    final /* synthetic */ az a;
+    final /* synthetic */ q b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public v(GroupSettingActivity groupSettingActivity) {
-        this.a = groupSettingActivity;
+    public v(q qVar, az azVar) {
+        this.b = qVar;
+        this.a = azVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.SingleRunnable
-    /* renamed from: a */
-    public Void b() {
-        z zVar;
-        zVar = this.a.b;
-        com.baidu.tieba.im.db.a.a(zVar.c());
-        return null;
+    @Override // com.baidu.tieba.im.a
+    public void a(LinkedList<String> linkedList) {
+        ArrayList<String> arrayList = new ArrayList<>();
+        while (!linkedList.isEmpty()) {
+            String a = com.baidu.tieba.im.d.d.a(linkedList.removeLast(), true);
+            if (a != null) {
+                arrayList.add(a);
+            }
+        }
+        this.a.a(arrayList);
     }
 }

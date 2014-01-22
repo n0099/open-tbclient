@@ -1,16 +1,13 @@
 package com.baidu.tieba.im.message;
 
-import java.util.List;
+import com.baidu.sapi2.shell.SapiErrorCode;
 /* loaded from: classes.dex */
-public class n extends cc {
+public class n extends cr {
     private String a;
-    private List<b> c;
-    private boolean d;
-    private long b = 0;
-    private int e = 0;
+    private String b;
 
     public n() {
-        e(-105);
+        e(SapiErrorCode.INVALID_ARG);
     }
 
     public String a() {
@@ -21,35 +18,11 @@ public class n extends cc {
         this.a = str;
     }
 
-    public List<b> b() {
-        return this.c;
-    }
-
-    public void a(List<b> list) {
-        this.c = list;
-    }
-
-    public boolean c() {
-        return this.d;
-    }
-
-    public void a(boolean z) {
-        this.d = z;
-    }
-
-    public long d() {
+    public String b() {
         return this.b;
     }
 
-    public void a(long j) {
-        this.b = j;
-    }
-
-    public int e() {
-        return this.e;
-    }
-
-    public void a(int i) {
-        this.e = i;
+    public void b(String str) {
+        this.b = str;
     }
 }

@@ -1,9 +1,9 @@
 package com.baidu.tieba.im.messageCenter;
 
-import com.baidu.tieba.im.message.cc;
+import com.baidu.tieba.im.message.cr;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f implements com.baidu.tieba.im.a<cc> {
+public class f implements com.baidu.tieba.im.a<cr> {
     final /* synthetic */ e a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,7 +13,7 @@ public class f implements com.baidu.tieba.im.a<cc> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.a
-    public void a(cc ccVar) {
-        this.a.e(ccVar);
+    public void a(cr crVar) {
+        this.a.e(crVar);
     }
 }

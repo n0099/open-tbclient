@@ -3,6 +3,7 @@ package com.baidu.tieba.person;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.AccountData;
 import com.baidu.tieba.util.DatabaseService;
@@ -11,7 +12,7 @@ import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class ag extends BdAsyncTask<Boolean, ae, ae> {
     final /* synthetic */ ae a;
-    private com.baidu.tieba.util.at b;
+    private com.baidu.tieba.util.ax b;
     private ae c;
     private volatile boolean d;
     private boolean e;
@@ -43,26 +44,26 @@ public class ag extends BdAsyncTask<Boolean, ae, ae> {
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
-                com.baidu.tieba.util.bo.b(getClass().getName(), "doInBackground", e2.getMessage());
+                com.baidu.adp.lib.g.e.b(getClass().getName(), "doInBackground", e2.getMessage());
             }
         }
         if (!this.d && this.a.b() != null) {
-            this.b = new com.baidu.tieba.util.at(com.baidu.tieba.data.h.a + "c/u/user/profile");
-            this.b.a("uid", this.a.b());
-            String l = this.b.l();
-            if (this.b.c()) {
+            this.b = new com.baidu.tieba.util.ax(com.baidu.tieba.data.h.a + "c/u/user/profile");
+            this.b.a(SapiAccountManager.SESSION_UID, this.a.b());
+            String m = this.b.m();
+            if (this.b.d()) {
                 context2 = this.a.e;
                 this.c = new ae(context2);
-                this.c.c(l);
+                this.c.c(m);
                 if (this.c.a() != null) {
-                    DatabaseService.h(l);
-                    AccountData F = TiebaApplication.F();
-                    if (F == null) {
+                    DatabaseService.h(m);
+                    AccountData E = TiebaApplication.E();
+                    if (E == null) {
                         return null;
                     }
                     if (!TextUtils.isEmpty(this.c.a().getPortrait())) {
-                        DatabaseService.c(F.getAccount(), this.c.a().getPortrait());
-                        F.setPortrait(this.c.a().getPortrait());
+                        DatabaseService.c(E.getAccount(), this.c.a().getPortrait());
+                        E.setPortrait(this.c.a().getPortrait());
                     }
                 }
             }
@@ -95,7 +96,7 @@ public class ag extends BdAsyncTask<Boolean, ae, ae> {
         super.cancel();
         this.d = true;
         if (this.b != null) {
-            this.b.j();
+            this.b.k();
             this.b = null;
         }
         this.a.b = null;
@@ -125,7 +126,7 @@ public class ag extends BdAsyncTask<Boolean, ae, ae> {
         }
         this.a.k = false;
         if (this.b != null && this.e) {
-            this.a.setErrorString(this.b.i());
+            this.a.setErrorString(this.b.j());
         } else {
             ae aeVar2 = this.a;
             context = this.a.e;

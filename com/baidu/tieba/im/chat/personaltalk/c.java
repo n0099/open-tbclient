@@ -12,8 +12,6 @@ class c implements DialogInterface.OnClickListener {
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
-        k kVar;
-        kVar = this.a.b;
-        kVar.b(false);
+        dialogInterface.dismiss();
     }
 }

@@ -12,14 +12,15 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.adp.lib.h.g;
+import com.baidu.adp.lib.g.e;
 import com.baidu.gson.Gson;
-import com.baidu.tieba.au;
+import com.baidu.tieba.ax;
+import com.baidu.tieba.im.chat.q;
 import com.baidu.tieba.im.d.d;
 import com.baidu.tieba.im.data.VoiceMsgData;
-import com.baidu.tieba.im.db.as;
+import com.baidu.tieba.im.db.au;
 import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
-import com.baidu.tieba.im.message.e;
+import com.baidu.tieba.im.message.g;
 import com.baidu.tieba.voice.VoiceManager;
 import com.baidu.tieba.voice.ad;
 import com.baidu.tieba.voice.af;
@@ -52,7 +53,7 @@ public class ChatVoiceView extends LinearLayout implements View.OnClickListener,
         this.c = null;
         this.d = null;
         this.e = null;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, au.ChatVoiceView, 0, 0);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ax.ChatVoiceView, 0, 0);
         if (obtainStyledAttributes != null ? obtainStyledAttributes.getBoolean(0, true) : true) {
             LayoutInflater.from(context).inflate(R.layout.widget_left_voice_view, (ViewGroup) this, true);
         } else {
@@ -106,15 +107,15 @@ public class ChatVoiceView extends LinearLayout implements View.OnClickListener,
             if (f != null && f.getHas_read() != 1) {
                 f.setHas_read(1);
                 this.g.a("[" + new Gson().toJson(f) + "]");
-                if (this.g instanceof e) {
-                    e eVar = (e) this.g;
+                if (this.g instanceof g) {
+                    g gVar = (g) this.g;
                     LinkedList<CommonMsgPojo> linkedList = new LinkedList<>();
-                    linkedList.add(new CommonMsgPojo(eVar));
-                    if (!eVar.t().equals(String.valueOf(com.baidu.tieba.im.chat.a.a))) {
-                        com.baidu.tieba.im.db.d.a().a(eVar.t(), linkedList, false, (com.baidu.tieba.im.a<Boolean>) new a(this));
+                    linkedList.add(new CommonMsgPojo(gVar));
+                    if (!gVar.u().equals(String.valueOf(q.a))) {
+                        com.baidu.tieba.im.db.d.a().a(gVar.u(), linkedList, false, (com.baidu.tieba.im.a<Boolean>) new a(this));
                         return;
                     } else {
-                        as.a().a(eVar.l(), eVar.b(), linkedList, false, (com.baidu.tieba.im.a<Boolean>) new b(this));
+                        au.a().a(gVar.m(), gVar.c(), linkedList, false, (com.baidu.tieba.im.a<Boolean>) new b(this));
                         return;
                     }
                 }
@@ -171,8 +172,8 @@ public class ChatVoiceView extends LinearLayout implements View.OnClickListener,
     }
 
     public void setData(com.baidu.tieba.im.message.b bVar) {
-        if (bVar != null && bVar.n() != null) {
-            this.f = bVar.n().getVoice_model();
+        if (bVar != null && bVar.o() != null) {
+            this.f = bVar.o().getVoice_model();
             if (this.f == null) {
                 this.f = new VoiceManager.VoiceModel();
             }
@@ -192,7 +193,7 @@ public class ChatVoiceView extends LinearLayout implements View.OnClickListener,
 
     private void setBubbleLength(int i) {
         int i2;
-        int b = g.b(getContext());
+        int b = com.baidu.adp.lib.g.g.b(getContext());
         if (i <= 10) {
             int i3 = (int) (b * 0.1875d);
             i2 = (((((int) (b * 0.4125d)) - i3) * (i - 1)) / 10) + i3;
@@ -209,7 +210,7 @@ public class ChatVoiceView extends LinearLayout implements View.OnClickListener,
             }
             this.h.setLayoutParams(new LinearLayout.LayoutParams(i2, -2));
         } catch (Exception e) {
-            com.baidu.adp.lib.h.e.c("----" + e.getMessage());
+            e.c("----" + e.getMessage());
         }
     }
 
@@ -233,8 +234,8 @@ public class ChatVoiceView extends LinearLayout implements View.OnClickListener,
     }
 
     @Override // com.baidu.tieba.voice.ad
-    public void b(int i, String str) {
-        g.b(getContext(), str);
+    public void a(int i, String str) {
+        com.baidu.adp.lib.g.g.b(getContext(), str);
     }
 
     @Override // com.baidu.tieba.voice.ad

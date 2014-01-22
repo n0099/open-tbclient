@@ -9,6 +9,7 @@ import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.Parser;
 import java.io.IOException;
 import java.io.InputStream;
+import protobuf.Im;
 /* loaded from: classes.dex */
 public final class QueryGroupLocationReq {
 
@@ -70,7 +71,7 @@ public final class QueryGroupLocationReq {
                                     this.bitField0_ |= 2;
                                     this.lng_ = codedInputStream.readDouble();
                                     break;
-                                case 25:
+                                case Im.GroupInfo.FORUMNAME_FIELD_NUMBER /* 25 */:
                                     this.bitField0_ |= 4;
                                     this.lat_ = codedInputStream.readDouble();
                                     break;

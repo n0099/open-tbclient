@@ -19,9 +19,9 @@ public class SettingTextFunctionIntroView extends SettingTextTipView {
 
     public void a() {
         boolean z = true;
-        boolean z2 = TiebaApplication.g().an() == 1;
-        VersionData au = TiebaApplication.g().au();
-        if (au == null || au.getHas_new_ver() != 1) {
+        boolean z2 = TiebaApplication.h().al() == 1;
+        VersionData as = TiebaApplication.h().as();
+        if (as == null || as.getHas_new_ver() != 1) {
             z = false;
         }
         boolean a2 = com.baidu.tieba.sharedPref.b.a().a(a, false);

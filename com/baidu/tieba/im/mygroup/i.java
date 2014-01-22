@@ -34,7 +34,7 @@ public class i extends com.baidu.adp.a.e {
         this.a.a().a(i == 1);
         this.a.a().a(this.d);
         this.e.c(i);
-        this.c.c(i);
+        this.c.d(i);
         this.f.a(i);
     }
 

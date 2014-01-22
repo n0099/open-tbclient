@@ -1,28 +1,34 @@
 package com.baidu.tieba.im.message;
 
-import java.util.LinkedList;
-import protobuf.DelGroup.DelGroupRes;
+import com.google.protobuf.MessageLite;
+import protobuf.UpgradeMemberGroup.UpgradeMemberGroupReq;
 /* loaded from: classes.dex */
-public class be extends cc implements com.baidu.tieba.im.coder.f {
+public class be extends q implements com.baidu.tieba.im.coder.g {
     private long a;
+    private int b = 1;
 
-    public long a() {
+    public be() {
+        e(103105);
+    }
+
+    public long b() {
         return this.a;
+    }
+
+    public void a(boolean z) {
+        if (z) {
+            this.b = 1;
+        } else {
+            this.b = 0;
+        }
     }
 
     public void a(long j) {
         this.a = j;
     }
 
-    @Override // com.baidu.tieba.im.coder.f
-    public void a(LinkedList<o> linkedList, byte[] bArr, int i) {
-        DelGroupRes.DelGroupResIdl parseFrom = DelGroupRes.DelGroupResIdl.parseFrom(bArr);
-        g(parseFrom.getError().getErrorno());
-        c(parseFrom.getError().getUsermsg());
-        e(i);
-        linkedList.add(this);
-        if (!i()) {
-            a(parseFrom.getData().getGroupId());
-        }
+    @Override // com.baidu.tieba.im.coder.g
+    public MessageLite a() {
+        return UpgradeMemberGroupReq.UpgradeMemberGroupReqIdl.newBuilder().a(UpgradeMemberGroupReq.DataReq.newBuilder().a((int) this.a).b(this.b).build()).build();
     }
 }

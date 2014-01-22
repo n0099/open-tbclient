@@ -161,7 +161,7 @@ public class InitGuideView extends RelativeLayout {
     }
 
     public void e() {
-        a(TiebaApplication.g().an());
+        a(TiebaApplication.h().al());
     }
 
     public void f() {

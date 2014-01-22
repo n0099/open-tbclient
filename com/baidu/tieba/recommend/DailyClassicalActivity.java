@@ -14,14 +14,13 @@ import android.widget.TextView;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.bl;
-import com.baidu.tieba.util.bo;
+import com.baidu.tieba.util.bs;
 import com.baidu.tieba.view.BaseWebView;
 import com.slidingmenu.lib.R;
 import java.net.URLDecoder;
 @Deprecated
 /* loaded from: classes.dex */
-public class DailyClassicalActivity extends com.baidu.tieba.j implements com.baidu.tieba.view.h {
+public class DailyClassicalActivity extends com.baidu.tieba.j implements com.baidu.tieba.view.d {
     private static boolean o = false;
     private static long p = 0;
     private ImageView a = null;
@@ -42,7 +41,7 @@ public class DailyClassicalActivity extends com.baidu.tieba.j implements com.bai
 
     @Override // com.baidu.tieba.j
     public boolean getGpuSwitch() {
-        return TiebaApplication.g().u();
+        return TiebaApplication.h().u();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -80,12 +79,12 @@ public class DailyClassicalActivity extends com.baidu.tieba.j implements com.bai
     @Override // com.baidu.tieba.j
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        bl.a(this.b, i);
-        bl.d(this.c, i);
-        bl.e(this.d, i);
-        bl.a(this.a, i);
+        bs.a(this.b, i);
+        bs.d(this.c, i);
+        bs.e(this.d, i);
+        bs.a(this.a, i);
         if (this.f != null) {
-            bl.a(this.f, i);
+            bs.a(this.f, i);
             a();
         }
     }
@@ -97,7 +96,7 @@ public class DailyClassicalActivity extends com.baidu.tieba.j implements com.bai
     }
 
     public void a() {
-        if (TiebaApplication.g().ao() == 0 && !f()) {
+        if (TiebaApplication.h().am() == 0 && !f()) {
             this.m.setVisibility(0);
             return;
         }
@@ -125,9 +124,9 @@ public class DailyClassicalActivity extends com.baidu.tieba.j implements com.bai
         }
     }
 
-    @Override // com.baidu.tieba.view.h
+    @Override // com.baidu.tieba.view.d
     public boolean a(WebView webView, String str) {
-        if (!ab.a(this, str)) {
+        if (!WebviewHelper.commonJumpHelper(this, str)) {
             if (str.contains("jumptoapp_browser=classic_everyday")) {
                 if (str.contains("pn=")) {
                     String a = a(str, "pn=");
@@ -166,7 +165,7 @@ public class DailyClassicalActivity extends com.baidu.tieba.j implements com.bai
                     super.showToast(getString(R.string.web_view_corrupted));
                 } else {
                     this.f = new BaseWebView(this);
-                    bl.a(this.f, TiebaApplication.g().an());
+                    bs.a(this.f, TiebaApplication.h().al());
                     this.f.setOnLoadUrlListener(this);
                     this.f.setHorizontalScrollBarEnabled(false);
                     this.f.setHorizontalScrollbarOverlay(false);
@@ -177,7 +176,7 @@ public class DailyClassicalActivity extends com.baidu.tieba.j implements com.bai
                 }
                 return z;
             } catch (Exception e) {
-                bo.b(getClass().getName(), "", "TabContentActivity.refreshFrs error = " + e.getMessage());
+                com.baidu.adp.lib.g.e.b(getClass().getName(), "", "TabContentActivity.refreshFrs error = " + e.getMessage());
                 return z;
             }
         }

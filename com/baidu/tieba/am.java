@@ -1,22 +1,29 @@
 package com.baidu.tieba;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import android.os.Handler;
+import com.baidu.tieba.util.DatabaseService;
 /* loaded from: classes.dex */
-public class am implements u {
-    final /* synthetic */ MainTabActivity a;
+class am extends Thread {
+    final /* synthetic */ LogoActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public am(MainTabActivity mainTabActivity) {
-        this.a = mainTabActivity;
+    public am(LogoActivity logoActivity) {
+        this.a = logoActivity;
     }
 
-    @Override // com.baidu.tieba.u
-    public void a(int i, int i2) {
-        w wVar;
-        if (i == 4) {
-            this.a.r = true;
-            this.a.s = true;
-            wVar = this.a.l;
-            wVar.c.setVisibility(8);
+    @Override // java.lang.Thread, java.lang.Runnable
+    public void run() {
+        Handler handler;
+        Handler handler2;
+        super.run();
+        try {
+            DatabaseService.t();
+            DatabaseService.w();
+            this.a.a(this.a.getCacheDir());
+        } catch (Exception e) {
         }
+        handler = this.a.i;
+        handler2 = this.a.i;
+        handler.sendMessage(handler2.obtainMessage());
     }
 }

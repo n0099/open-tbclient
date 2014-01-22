@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import com.ai;
 import com.baidu.cloudsdk.BaiduException;
 import com.baidu.cloudsdk.Build;
 import com.baidu.cloudsdk.IBaiduListener;
@@ -34,7 +35,7 @@ public class QQFriendShareReceiverActivity extends Activity {
             finish();
             return;
         }
-        this.b = ak.a();
+        this.b = ai.a();
         String uri2 = uri.toString();
         Bundle a2 = a(uri2.substring(uri2.indexOf("#") + 1));
         String string = a2.getString("action");

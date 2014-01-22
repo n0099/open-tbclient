@@ -1,33 +1,19 @@
 package com.baidu.tieba.view;
 
-import android.app.Activity;
-import android.view.View;
-import com.baidu.mobstat.StatService;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.square.SquareSearchActivity;
-import com.slidingmenu.lib.R;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.drawable.BitmapDrawable;
 /* loaded from: classes.dex */
-class bn implements View.OnClickListener {
-    final /* synthetic */ SearchBoxView a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bn(SearchBoxView searchBoxView) {
-        this.a = searchBoxView;
+public class bn extends BitmapDrawable {
+    public bn(Bitmap bitmap) {
+        super(bitmap);
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Activity activity;
-        Activity activity2;
-        String str;
-        if (view.getId() == R.id.search_bg_layout) {
-            if (TiebaApplication.g().s()) {
-                activity2 = this.a.a;
-                str = this.a.b;
-                StatService.onEvent(activity2, str, "click", 1);
-            }
-            activity = this.a.a;
-            SquareSearchActivity.a(activity, "");
+    @Override // android.graphics.drawable.BitmapDrawable, android.graphics.drawable.Drawable
+    public void draw(Canvas canvas) {
+        Bitmap bitmap = getBitmap();
+        if (bitmap != null) {
+            canvas.drawBitmap(bitmap, 0.0f, 0.0f, getPaint());
         }
     }
 }

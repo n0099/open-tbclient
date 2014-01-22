@@ -45,8 +45,8 @@ public abstract class FragmentStatePagerAdapter extends ae {
             while (this.mFragments.size() <= i) {
                 this.mFragments.add(null);
             }
-            FragmentCompat.setMenuVisibility(item, false);
-            FragmentCompat.setUserVisibleHint(item, false);
+            FragmentCompat.setMenuVisibility(item, DEBUG);
+            FragmentCompat.setUserVisibleHint(item, DEBUG);
             this.mFragments.set(i, item);
             this.mCurTransaction.add(viewGroup.getId(), item);
             return item;
@@ -73,8 +73,8 @@ public abstract class FragmentStatePagerAdapter extends ae {
         Fragment fragment = (Fragment) obj;
         if (fragment != this.mCurrentPrimaryItem) {
             if (this.mCurrentPrimaryItem != null) {
-                FragmentCompat.setMenuVisibility(this.mCurrentPrimaryItem, false);
-                FragmentCompat.setUserVisibleHint(this.mCurrentPrimaryItem, false);
+                FragmentCompat.setMenuVisibility(this.mCurrentPrimaryItem, DEBUG);
+                FragmentCompat.setUserVisibleHint(this.mCurrentPrimaryItem, DEBUG);
             }
             if (fragment != null) {
                 FragmentCompat.setMenuVisibility(fragment, true);
@@ -95,7 +95,10 @@ public abstract class FragmentStatePagerAdapter extends ae {
 
     @Override // android.support.v4.view.ae
     public boolean isViewFromObject(View view, Object obj) {
-        return ((Fragment) obj).getView() == view;
+        if (((Fragment) obj).getView() == view) {
+            return true;
+        }
+        return DEBUG;
     }
 
     @Override // android.support.v4.view.ae
@@ -141,7 +144,7 @@ public abstract class FragmentStatePagerAdapter extends ae {
                         while (this.mFragments.size() <= parseInt) {
                             this.mFragments.add(null);
                         }
-                        FragmentCompat.setMenuVisibility(fragment, false);
+                        FragmentCompat.setMenuVisibility(fragment, DEBUG);
                         this.mFragments.set(parseInt, fragment);
                     } else {
                         Log.w(TAG, "Bad fragment at key " + str);

@@ -9,8 +9,9 @@ import com.baidu.adp.lib.webSocket.m;
 import com.baidu.adp.lib.webSocket.r;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.im.i;
 import com.baidu.tieba.im.j;
-import com.baidu.tieba.log.i;
+import com.baidu.tieba.util.by;
 import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
@@ -26,30 +27,38 @@ public class TiebaSocketLinkService extends Service {
 
     private boolean c(String str) {
         com.baidu.tieba.im.messageCenter.e.a().a(false);
-        com.baidu.tieba.log.a.b(i.a(str, "TiebaSocketLinkService:begin open", null));
-        com.baidu.adp.lib.h.e.d("启动连接");
+        by.b(str, "TiebaSocketLinkService:begin open", null);
+        com.baidu.adp.lib.g.e.d("启动连接");
         c.removeMessages(1);
         f.a().c();
         c.sendEmptyMessageDelayed(1, f.a().d());
-        return m.a().b();
+        try {
+            return m.a().b();
+        } catch (Throwable th) {
+            th.printStackTrace();
+            com.baidu.adp.lib.g.e.a(th.getMessage());
+            return false;
+        }
     }
 
     public static void a() {
         ArrayList arrayList = new ArrayList();
         arrayList.add(new BasicNameValuePair("Content-Type", "application/octet-stream"));
-        arrayList.add(new BasicNameValuePair(SocialConstants.PARAM_CUID, com.baidu.tieba.im.i.a()));
+        arrayList.add(new BasicNameValuePair(SocialConstants.PARAM_CUID, i.a()));
         m.a().a(j.a, "im_version=2.1", null, arrayList);
         m.a().a(d);
     }
 
     public static void a(String str) {
+        by.a("TiebaSocketLinkService", 0, 0, "close():" + str, 0);
         a(1, str);
     }
 
     public static void a(int i, String str) {
         if (!b()) {
-            com.baidu.tieba.log.a.b(i.a(str, "TiebaSocketLinkService:close", null, i, null));
-            com.baidu.adp.lib.h.e.d("关闭连接");
+            by.a(str, "TiebaSocketLinkService:close", (String) null, i, (String) null);
+            by.a("TiebaSocketLinkService", 0, 0, "close():" + str, i);
+            com.baidu.adp.lib.g.e.d("关闭连接");
             c.removeMessages(1);
             m.a().a(i);
         }
@@ -76,10 +85,10 @@ public class TiebaSocketLinkService extends Service {
     }
 
     public static void a(boolean z, String str) {
-        Intent intent = new Intent(TiebaApplication.g(), TiebaSocketLinkService.class);
+        Intent intent = new Intent(TiebaApplication.h(), TiebaSocketLinkService.class);
         intent.putExtra("reopen", z);
         intent.putExtra("reason", str);
-        com.baidu.adp.lib.f.c.a(TiebaApplication.g(), intent);
+        com.baidu.adp.lib.f.c.a(TiebaApplication.h(), intent);
     }
 
     @Override // android.app.Service
@@ -91,11 +100,11 @@ public class TiebaSocketLinkService extends Service {
                 stringExtra = "--";
             }
             if (intent.getBooleanExtra("reopen", false)) {
-                com.baidu.adp.lib.h.e.d("进行重连" + stringExtra);
+                com.baidu.adp.lib.g.e.d("进行重连" + stringExtra);
                 a(stringExtra);
                 c(stringExtra);
             } else if (!m.a().e() && !m.a().f()) {
-                com.baidu.adp.lib.h.e.d("进行连接" + stringExtra);
+                com.baidu.adp.lib.g.e.d("进行连接" + stringExtra);
                 a(stringExtra);
                 c(stringExtra);
             }

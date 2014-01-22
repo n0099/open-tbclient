@@ -1,145 +1,22 @@
 package com.baidu.tieba.square;
 
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.ListAdapter;
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tieba.BaseFragment;
-import com.baidu.tieba.BaseFragmentActivity;
-import com.baidu.tieba.view.NoNetworkView;
-import com.baidu.tieba.view.SearchBoxView;
-import com.baidu.zeus.Headers;
-import com.slidingmenu.lib.R;
+import android.widget.TextView;
+import com.baidu.tieba.view.HeadImageView;
 /* loaded from: classes.dex */
-public class by extends com.baidu.adp.a.e {
-    public static String a = "top_nav_all_folder";
-    com.baidu.tieba.view.bw c;
-    private BaseFragmentActivity d;
-    private BaseFragment e;
-    private View f;
-    private BdListView g;
-    private LinearLayout h;
-    private SearchBoxView i;
-    private NoNetworkView j;
-    private ay k;
+class by {
+    TextView a;
+    HeadImageView b;
+    TextView c;
+    TextView d;
+    TextView e;
+    final /* synthetic */ bw f;
 
-    public by(BaseFragmentActivity baseFragmentActivity, BaseFragment baseFragment, View.OnKeyListener onKeyListener) {
-        super(baseFragmentActivity);
-        this.d = null;
-        this.g = null;
-        this.h = null;
-        this.c = null;
-        this.k = null;
-        this.d = baseFragmentActivity;
-        this.e = baseFragment;
-        this.f = baseFragment.q();
-        this.h = (LinearLayout) this.f.findViewById(R.id.container);
-        this.i = (SearchBoxView) this.f.findViewById(R.id.view_searchbox);
-        this.g = (BdListView) this.f.findViewById(R.id.square_list);
-        this.g.setOnKeyListener(onKeyListener);
-        this.g.setOnItemClickListener(baseFragment);
-        this.g.setOnScrollListener(baseFragment);
-        this.k = new ay(baseFragmentActivity);
-        this.g.setAdapter((ListAdapter) this.k);
-        this.c = new com.baidu.tieba.view.bw(baseFragmentActivity);
-        this.g.setPullRefresh(this.c);
-        this.j = (NoNetworkView) this.f.findViewById(R.id.view_no_network);
-        com.baidu.tieba.view.w wVar = new com.baidu.tieba.view.w(this.b);
-        wVar.setHeightDip(30);
-        this.g.addFooterView(wVar);
+    private by(bw bwVar) {
+        this.f = bwVar;
     }
 
-    public void a(ar arVar) {
-        if (arVar != null) {
-            try {
-                this.k.a(arVar);
-                this.k.notifyDataSetChanged();
-            } catch (Exception e) {
-                com.baidu.tieba.util.bo.b(getClass().getName(), Headers.REFRESH, e.getMessage());
-            }
-        }
-    }
-
-    public void a() {
-        if (this.g != null) {
-            int headerViewsCount = this.g.getHeaderViewsCount() + 1;
-            int firstVisiblePosition = this.g.getFirstVisiblePosition();
-            int lastVisiblePosition = this.g.getLastVisiblePosition();
-            if (firstVisiblePosition > 0) {
-                firstVisiblePosition -= headerViewsCount;
-                lastVisiblePosition -= headerViewsCount;
-            }
-            this.k.a(this.g, firstVisiblePosition, lastVisiblePosition);
-        }
-    }
-
-    public void e() {
-        this.g.a();
-    }
-
-    public void a(boolean z, String str) {
-        e();
-        if (!z && str != null) {
-            this.d.a(str);
-        }
-    }
-
-    public SearchBoxView f() {
-        return this.i;
-    }
-
-    public void g() {
-        this.g.b();
-    }
-
-    public void h() {
-        this.j.setVisibility(0);
-    }
-
-    public void i() {
-        this.j.setVisibility(8);
-    }
-
-    public void a(com.baidu.tieba.view.bf bfVar) {
-        this.j.a(bfVar);
-    }
-
-    public void b(com.baidu.tieba.view.bf bfVar) {
-        this.j.b(bfVar);
-    }
-
-    public void j() {
-        this.k.d();
-    }
-
-    public void k() {
-        NetworkInfo activeNetworkInfo;
-        com.baidu.tieba.util.bo.e("SquareView", "onResume", "onResume");
-        this.k.a();
-        if (this.j != null && this.j.getVisibility() == 0 && (activeNetworkInfo = ((ConnectivityManager) this.d.getSystemService("connectivity")).getActiveNetworkInfo()) != null && activeNetworkInfo.isAvailable()) {
-            this.j.setVisible(false);
-        }
-    }
-
-    public void l() {
-        this.k.b();
-    }
-
-    public void m() {
-    }
-
-    public void a(int i) {
-        this.d.a().a(i == 1);
-        this.d.a().a(this.h);
-        this.k.a(i);
-        this.c.a(i);
-        this.j.a(i);
-        this.i.a(i);
-    }
-
-    public void a(com.baidu.adp.widget.ListView.b bVar) {
-        this.c.a(bVar);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ by(bw bwVar, bx bxVar) {
+        this(bwVar);
     }
 }

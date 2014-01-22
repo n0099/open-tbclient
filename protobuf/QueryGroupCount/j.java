@@ -6,10 +6,10 @@ import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
 import protobuf.QueryGroupCount.QueryGroupCountRes;
 /* loaded from: classes.dex */
-public final class j extends GeneratedMessageLite.Builder<QueryGroupCountRes.DataRes, j> implements k {
+public final class j extends GeneratedMessageLite.Builder<QueryGroupCountRes.Banner, j> implements k {
     private int a;
-    private int b;
-    private int c;
+    private Object b = "";
+    private Object c = "";
 
     private j() {
         g();
@@ -26,9 +26,9 @@ public final class j extends GeneratedMessageLite.Builder<QueryGroupCountRes.Dat
     /* renamed from: a */
     public j clear() {
         super.clear();
-        this.b = 0;
+        this.b = "";
         this.a &= -2;
-        this.c = 0;
+        this.c = "";
         this.a &= -3;
         return this;
     }
@@ -41,14 +41,14 @@ public final class j extends GeneratedMessageLite.Builder<QueryGroupCountRes.Dat
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
     /* renamed from: c */
-    public QueryGroupCountRes.DataRes getDefaultInstanceForType() {
-        return QueryGroupCountRes.DataRes.getDefaultInstance();
+    public QueryGroupCountRes.Banner getDefaultInstanceForType() {
+        return QueryGroupCountRes.Banner.getDefaultInstance();
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
     /* renamed from: d */
-    public QueryGroupCountRes.DataRes build() {
-        QueryGroupCountRes.DataRes buildPartial = buildPartial();
+    public QueryGroupCountRes.Banner build() {
+        QueryGroupCountRes.Banner buildPartial = buildPartial();
         if (!buildPartial.isInitialized()) {
             throw newUninitializedMessageException(buildPartial);
         }
@@ -57,28 +57,34 @@ public final class j extends GeneratedMessageLite.Builder<QueryGroupCountRes.Dat
 
     @Override // com.google.protobuf.MessageLite.Builder
     /* renamed from: e */
-    public QueryGroupCountRes.DataRes buildPartial() {
-        QueryGroupCountRes.DataRes dataRes = new QueryGroupCountRes.DataRes(this);
+    public QueryGroupCountRes.Banner buildPartial() {
+        QueryGroupCountRes.Banner banner = new QueryGroupCountRes.Banner(this);
         int i = this.a;
         int i2 = (i & 1) != 1 ? 0 : 1;
-        dataRes.userGroupCount_ = this.b;
+        banner.link_ = this.b;
         if ((i & 2) == 2) {
             i2 |= 2;
         }
-        dataRes.localGroupCount_ = this.c;
-        dataRes.bitField0_ = i2;
-        return dataRes;
+        banner.picUrl_ = this.c;
+        banner.bitField0_ = i2;
+        return banner;
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public j mergeFrom(QueryGroupCountRes.DataRes dataRes) {
-        if (dataRes != QueryGroupCountRes.DataRes.getDefaultInstance()) {
-            if (dataRes.hasUserGroupCount()) {
-                a(dataRes.getUserGroupCount());
+    public j mergeFrom(QueryGroupCountRes.Banner banner) {
+        Object obj;
+        Object obj2;
+        if (banner != QueryGroupCountRes.Banner.getDefaultInstance()) {
+            if (banner.hasLink()) {
+                this.a |= 1;
+                obj2 = banner.link_;
+                this.b = obj2;
             }
-            if (dataRes.hasLocalGroupCount()) {
-                b(dataRes.getLocalGroupCount());
+            if (banner.hasPicUrl()) {
+                this.a |= 2;
+                obj = banner.picUrl_;
+                this.c = obj;
             }
         }
         return this;
@@ -96,46 +102,34 @@ public final class j extends GeneratedMessageLite.Builder<QueryGroupCountRes.Dat
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public j mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
-        QueryGroupCountRes.DataRes dataRes;
+        QueryGroupCountRes.Banner banner;
         Throwable th;
         try {
             try {
-                QueryGroupCountRes.DataRes parsePartialFrom = QueryGroupCountRes.DataRes.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                QueryGroupCountRes.Banner parsePartialFrom = QueryGroupCountRes.Banner.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
                 if (parsePartialFrom != null) {
                     mergeFrom(parsePartialFrom);
                 }
                 return this;
             } catch (Throwable th2) {
                 th = th2;
-                dataRes = null;
-                if (dataRes != null) {
-                    mergeFrom(dataRes);
+                banner = null;
+                if (banner != null) {
+                    mergeFrom(banner);
                 }
                 throw th;
             }
         } catch (InvalidProtocolBufferException e) {
-            QueryGroupCountRes.DataRes dataRes2 = (QueryGroupCountRes.DataRes) e.getUnfinishedMessage();
+            QueryGroupCountRes.Banner banner2 = (QueryGroupCountRes.Banner) e.getUnfinishedMessage();
             try {
                 throw e;
             } catch (Throwable th3) {
-                dataRes = dataRes2;
+                banner = banner2;
                 th = th3;
-                if (dataRes != null) {
+                if (banner != null) {
                 }
                 throw th;
             }
         }
-    }
-
-    public j a(int i) {
-        this.a |= 1;
-        this.b = i;
-        return this;
-    }
-
-    public j b(int i) {
-        this.a |= 2;
-        this.c = i;
-        return this;
     }
 }

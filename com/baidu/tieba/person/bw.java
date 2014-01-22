@@ -31,14 +31,14 @@ public class bw implements Runnable {
                     UserData userData = (UserData) cdVar2.getItem(i);
                     if (userData != null && userData.getPortrait() != null) {
                         cdVar3 = this.a.e;
-                        cdVar3.c().b(userData.getPortrait(), new bx(this));
+                        cdVar3.c().c(userData.getPortrait(), new bx(this));
                     }
                 } else {
                     return;
                 }
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.bo.b(getClass().getName(), "mGetImageRunnble.run", e.getMessage());
+            com.baidu.adp.lib.g.e.b(getClass().getName(), "mGetImageRunnble.run", e.getMessage());
         }
     }
 }

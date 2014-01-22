@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -36,7 +37,7 @@ public class MoreDiscoveryWidget extends FrameLayout {
         this.b = (TextView) findViewById(R.id.widget_text);
         this.c = (ImageView) findViewById(R.id.widget_new);
         this.d = (ImageView) findViewById(R.id.widget_remind);
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, com.baidu.tieba.au.moreTabWidget);
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, com.baidu.tieba.ax.moreTabWidget);
         this.b.setText(obtainStyledAttributes.getString(1));
         this.a.setImageDrawable(obtainStyledAttributes.getDrawable(0));
         this.f[0] = obtainStyledAttributes.getResourceId(0, 0);
@@ -46,9 +47,9 @@ public class MoreDiscoveryWidget extends FrameLayout {
 
     public void a(int i) {
         if (this.e instanceof com.baidu.tieba.j) {
-            ((com.baidu.tieba.j) this.e).getLayoutMode().a(this);
+            ((com.baidu.tieba.j) this.e).getLayoutMode().a((View) this);
         } else if (this.e instanceof BaseFragmentActivity) {
-            ((BaseFragmentActivity) getContext()).a().a(this);
+            ((BaseFragmentActivity) getContext()).a().a((View) this);
         }
         if (1 == i) {
             this.a.setImageResource(this.f[1]);

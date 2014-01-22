@@ -1,44 +1,70 @@
 package com.baidu.tieba.im.message;
 
 import com.google.protobuf.MessageLite;
-import protobuf.QueryHotGroups.QueryHotGroupsReq;
+import protobuf.QueryGroupsByFid.QueryGroupsByFidReq;
 /* loaded from: classes.dex */
-public class ag extends o implements com.baidu.tieba.im.coder.g {
-    private int a;
-    private int b;
-    private int c;
-    private int d;
+public class ag extends q implements com.baidu.tieba.im.coder.g {
+    private String a;
+    private String b;
+    private String c;
+    private String d;
+    private int e;
+    private int f;
 
-    public ag(int i, int i2, int i3, int i4) {
-        super.e(103012);
-        this.a = i;
-        this.b = i2;
-        this.c = i3;
-        this.d = i4;
+    public ag() {
+        e(103002);
     }
 
     public int b() {
-        return this.c;
+        return this.e;
+    }
+
+    public void a(int i) {
+        this.e = i;
     }
 
     public int c() {
+        return this.f;
+    }
+
+    public void b(int i) {
+        this.f = i;
+    }
+
+    public String d() {
         return this.a;
     }
 
-    public int d() {
+    public void a(String str) {
+        this.a = str;
+    }
+
+    public String e() {
         return this.b;
     }
 
-    public int e() {
+    public void b(String str) {
+        this.b = str;
+    }
+
+    public String f() {
+        return this.c;
+    }
+
+    public void c(String str) {
+        this.c = str;
+    }
+
+    public String g() {
         return this.d;
     }
 
-    public boolean f() {
-        return this.d == 0;
+    public void d(String str) {
+        this.d = str;
     }
 
     @Override // com.baidu.tieba.im.coder.g
     public MessageLite a() {
-        return QueryHotGroupsReq.QueryHotGroupsReqIdl.newBuilder().a(QueryHotGroupsReq.DataReq.newBuilder().c(d()).a(e()).b(b()).d(c()).build()).build();
+        return QueryGroupsByFidReq.QueryGroupsByFidReqIdl.newBuilder().a(QueryGroupsByFidReq.DataReq.newBuilder().a(com.baidu.adp.lib.f.b.a(d(), 0)).c(com.baidu.adp.lib.f.b.a(f(), 0)).d(com.baidu.adp.lib.f.b.a(g(), 0)).b(com.baidu.adp.lib.f.b.a(e(), 0)).f(b()).e(c()).build()).build();
     }
 }

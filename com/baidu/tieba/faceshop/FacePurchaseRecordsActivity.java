@@ -6,13 +6,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import com.baidu.tieba.util.UtilHelper;
+import com.baidu.tieba.view.br;
 /* loaded from: classes.dex */
 public class FacePurchaseRecordsActivity extends com.baidu.tieba.j {
     private aq a;
     private an b;
     private String c;
     private com.baidu.adp.a.g d = new ai(this);
-    private com.baidu.tieba.view.bf e = new aj(this);
+    private br e = new aj(this);
 
     public static void a(Context context, String str) {
         Intent intent = new Intent(context, FacePurchaseRecordsActivity.class);

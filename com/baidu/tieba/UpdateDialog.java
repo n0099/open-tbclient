@@ -12,7 +12,7 @@ import com.baidu.tieba.service.TiebaUpdateService;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class UpdateDialog extends j {
-    private av c;
+    private ay c;
     private VersionData a = null;
     private CombineDownload b = null;
     private Dialog d = null;
@@ -26,8 +26,8 @@ public class UpdateDialog extends j {
             intent.putExtra("data", versionData);
             intent.putExtra("combineDownload", combineDownload);
             context.startActivity(intent);
-            TiebaApplication.g().u(true);
-            TiebaApplication.g().a(combineDownload);
+            TiebaApplication.h().u(true);
+            TiebaApplication.h().a(combineDownload);
         }
     }
 
@@ -59,10 +59,10 @@ public class UpdateDialog extends j {
             String.format(getString(R.string.update_client), this.a.getNew_version());
         }
         if (this.a.getHas_new_ver() == 1) {
-            this.c = new av(this, R.style.common_alert_dialog);
-            this.c.a(this.a, this.b, new bm(this));
-            this.c.setOnCancelListener(new bn(this));
-            this.c.setOnDismissListener(new bo(this));
+            this.c = new ay(this, R.style.common_alert_dialog);
+            this.c.a(this.a, this.b, new bo(this));
+            this.c.setOnCancelListener(new bp(this));
+            this.c.setOnDismissListener(new bq(this));
             this.c.show();
         }
     }
@@ -89,8 +89,8 @@ public class UpdateDialog extends j {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
-        if (!com.baidu.tieba.util.aa.a()) {
-            showToast(com.baidu.tieba.util.aa.b());
+        if (!com.baidu.tieba.util.ad.a()) {
+            showToast(com.baidu.tieba.util.ad.b());
             return;
         }
         Intent intent = new Intent(this, TiebaUpdateService.class);
@@ -101,8 +101,8 @@ public class UpdateDialog extends j {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str) {
-        if (!com.baidu.tieba.util.aa.a()) {
-            showToast(com.baidu.tieba.util.aa.b());
+        if (!com.baidu.tieba.util.ad.a()) {
+            showToast(com.baidu.tieba.util.ad.b());
             return;
         }
         Intent intent = new Intent(this, TiebaUpdateService.class);

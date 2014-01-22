@@ -285,7 +285,7 @@ public class e extends BaseAdapter {
                 view3 = this.b.getView(i2, view, viewGroup);
             } catch (Exception e) {
                 e.printStackTrace();
-                com.baidu.adp.lib.h.e.a(e.getMessage());
+                com.baidu.adp.lib.g.e.a(e.getMessage());
                 view3 = null;
             }
             if (view3 == null) {
@@ -296,7 +296,7 @@ public class e extends BaseAdapter {
         try {
             view2 = this.d.get(i2 - i3).a;
         } catch (Exception e2) {
-            com.baidu.adp.lib.h.e.a(e2.getMessage());
+            com.baidu.adp.lib.g.e.a(e2.getMessage());
             view2 = null;
         }
         if (view2 == null) {
@@ -308,7 +308,7 @@ public class e extends BaseAdapter {
     private View e() {
         TextView textView = new TextView(this.a);
         textView.setText("资源加载失败！");
-        int a = com.baidu.adp.lib.h.g.a(this.a, 15.0f);
+        int a = com.baidu.adp.lib.g.g.a(this.a, 15.0f);
         textView.setPadding(a, a, a, a);
         return textView;
     }

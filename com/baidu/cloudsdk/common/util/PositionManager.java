@@ -6,10 +6,10 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.os.Handler;
-import com.baidu.zeus.Headers;
+import com.bk;
+import com.bl;
 /* loaded from: classes.dex */
 public class PositionManager {
-    public static PositionManager mInstance;
     private LocationManager a;
     private Location b;
     private a c;
@@ -27,7 +27,7 @@ public class PositionManager {
     public class a extends AsyncTask {
         private String b;
         private IPositionManagerListener c;
-        private LocationListener d = new bs(this);
+        private LocationListener d = new bl(this);
 
         public a(String str, IPositionManagerListener iPositionManagerListener) {
             this.b = str;
@@ -80,21 +80,14 @@ public class PositionManager {
         }
     }
 
-    private PositionManager(Context context) {
+    public PositionManager(Context context) {
         Validator.notNull(context, "context");
-        this.a = (LocationManager) context.getSystemService(Headers.LOCATION);
+        this.a = (LocationManager) context.getApplicationContext().getSystemService("location");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static boolean b(Location location) {
         return location != null && System.currentTimeMillis() - location.getTime() < 60000;
-    }
-
-    public static PositionManager getInstance(Context context) {
-        if (mInstance == null) {
-            mInstance = new PositionManager(context);
-        }
-        return mInstance;
     }
 
     public boolean isRunning() {
@@ -137,7 +130,7 @@ public class PositionManager {
             }
             this.c = new a(str, iPositionManagerListener);
             this.c.execute(new Void[0]);
-            this.e.postDelayed(new br(this), 3000L);
+            this.e.postDelayed(new bk(this), 3000L);
         }
     }
 }

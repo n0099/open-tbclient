@@ -1,6 +1,5 @@
 package com.google.zxing.qrcode.decoder;
 
-import com.baidu.zeus.bouncycastle.DERTags;
 import com.google.zxing.DecodeHintType;
 import com.google.zxing.FormatException;
 import com.google.zxing.common.BitSource;
@@ -249,7 +248,7 @@ final class DecodedBitStreamParser {
 
     private static int parseECIValue(BitSource bitSource) {
         int readBits = bitSource.readBits(8);
-        if ((readBits & DERTags.TAGGED) == 0) {
+        if ((readBits & 128) == 0) {
             return readBits & 127;
         }
         if ((readBits & 192) == 128) {

@@ -3,7 +3,7 @@ package com.baidu.tieba.im.a;
 import android.location.Address;
 import android.text.TextUtils;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.im.message.x;
+import com.baidu.tieba.im.message.z;
 import com.baidu.tieba.im.messageCenter.e;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -24,34 +24,34 @@ public class c implements com.baidu.adp.lib.c.d {
         d dVar5;
         d dVar6;
         if (i != 0) {
-            dVar = this.a.f;
+            dVar = this.a.h;
             if (dVar != null) {
-                dVar2 = this.a.f;
+                dVar2 = this.a.h;
                 dVar2.a();
-                dVar3 = this.a.f;
+                dVar3 = this.a.h;
                 dVar3.G();
             }
         } else if (address != null) {
             String valueOf = String.valueOf(address.getLatitude());
             String valueOf2 = String.valueOf(address.getLongitude());
-            TiebaApplication.g().y(valueOf);
-            TiebaApplication.g().z(valueOf2);
-            TiebaApplication.g().A(address.getAdminArea());
-            if (TextUtils.isEmpty(TiebaApplication.g().bf()) || TextUtils.isEmpty(TiebaApplication.g().bg())) {
-                dVar4 = this.a.f;
+            TiebaApplication.h().x(valueOf);
+            TiebaApplication.h().y(valueOf2);
+            TiebaApplication.h().z(address.getAdminArea());
+            if (TextUtils.isEmpty(TiebaApplication.h().bf()) || TextUtils.isEmpty(TiebaApplication.h().bh())) {
+                dVar4 = this.a.h;
                 if (dVar4 != null) {
-                    dVar5 = this.a.f;
+                    dVar5 = this.a.h;
                     dVar5.a();
-                    dVar6 = this.a.f;
+                    dVar6 = this.a.h;
                     dVar6.G();
                     return;
                 }
                 return;
             }
-            x xVar = new x();
-            xVar.b(TiebaApplication.g().bf());
-            xVar.a(TiebaApplication.g().bg());
-            e.a().a(xVar);
+            z zVar = new z();
+            zVar.b(TiebaApplication.h().bf());
+            zVar.a(TiebaApplication.h().bh());
+            e.a().a(zVar);
         }
     }
 }

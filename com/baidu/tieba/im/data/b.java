@@ -1,28 +1,43 @@
 package com.baidu.tieba.im.data;
 
-import com.baidu.tieba.im.message.o;
+import com.baidu.android.pushservice.PushConstants;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class b extends o {
-    private GroupIdTypeData a;
-    private e b;
+public class b {
+    public String a;
+    public int b;
+    public int c;
+    public String d;
+    public String e;
+    public int f;
+    public int g;
+    public int h;
+    public String i;
+    public String j;
 
-    public b(int i) {
-        super.e(i);
+    private b(String str) {
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            this.a = jSONObject.optString("userMsg");
+            this.h = com.baidu.adp.lib.f.b.a(jSONObject.optString("eventId"), 0);
+            JSONObject optJSONObject = jSONObject.optJSONObject("eventParam");
+            if (optJSONObject != null) {
+                this.b = com.baidu.adp.lib.f.b.a(optJSONObject.optString("groupId"), 0);
+                this.c = com.baidu.adp.lib.f.b.a(optJSONObject.optString("userId"), 0);
+                this.f = com.baidu.adp.lib.f.b.a(optJSONObject.optString("userNum"), 0);
+                this.g = com.baidu.adp.lib.f.b.a(optJSONObject.optString("maxUserNum"), 0);
+                this.j = optJSONObject.optString("title");
+                this.i = optJSONObject.optString(PushConstants.EXTRA_CONTENT);
+                this.d = optJSONObject.optString("userName");
+                this.e = optJSONObject.optString("portrait");
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 
-    public GroupIdTypeData a() {
-        return this.a;
-    }
-
-    public void a(GroupIdTypeData groupIdTypeData) {
-        this.a = groupIdTypeData;
-    }
-
-    public e b() {
-        return this.b;
-    }
-
-    public void a(e eVar) {
-        this.b = eVar;
+    public static b a(String str) {
+        return new b(str);
     }
 }

@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.util.ce;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class q extends BaseAdapter {
@@ -41,11 +42,11 @@ public class q extends BaseAdapter {
         int itemViewType = getItemViewType(i);
         if (view == null) {
             view = a(viewGroup, itemViewType);
-            com.baidu.tieba.util.bu.b(view);
+            ce.b(view);
         }
-        com.baidu.tieba.util.bu.a(view);
+        ce.a(view);
         if (itemViewType != 3) {
-            int an = TiebaApplication.g().an();
+            int al = TiebaApplication.h().al();
             View findViewById = view.findViewById(R.id.container);
             View findViewById2 = view.findViewById(R.id.item_up);
             View findViewById3 = view.findViewById(R.id.item_down);
@@ -59,7 +60,7 @@ public class q extends BaseAdapter {
                 findViewById2.setVisibility(8);
                 findViewById3.setVisibility(8);
             }
-            com.baidu.tieba.util.bu.a(findViewById, itemViewType, an);
+            ce.a(findViewById, itemViewType, al);
             a(viewGroup, (s) view.getTag(), i);
         }
         return view;

@@ -2,7 +2,6 @@ package com.baidu.android.nebula.d;
 
 import com.baidu.android.nebula.c.e;
 import com.baidu.android.nebula.cmd.h;
-import com.baidu.browser.explorer.BdWebErrorView;
 /* loaded from: classes.dex */
 public class b implements e {
     @Override // com.baidu.android.nebula.c.e
@@ -13,7 +12,7 @@ public class b implements e {
     @Override // com.baidu.android.nebula.c.e
     public void a(com.baidu.android.nebula.c.d dVar, Exception exc) {
         com.baidu.android.nebula.a.a aVar = new com.baidu.android.nebula.a.a();
-        aVar.a(BdWebErrorView.ERROR_CODE_500);
+        aVar.a(500);
         ((com.baidu.android.nebula.a.b) dVar).a(aVar);
     }
 

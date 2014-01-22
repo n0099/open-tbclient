@@ -1,11 +1,9 @@
 package com.baidu.tieba;
 
-import android.content.DialogInterface;
-import com.baidu.browser.webpool.BdWebPoolView;
-import com.baidu.tieba.data.VersionData;
+import com.baidu.tieba.data.CombineDownload;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bo implements DialogInterface.OnDismissListener {
+public class bo implements bb {
     final /* synthetic */ UpdateDialog a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,15 +11,21 @@ public class bo implements DialogInterface.OnDismissListener {
         this.a = updateDialog;
     }
 
-    @Override // android.content.DialogInterface.OnDismissListener
-    public void onDismiss(DialogInterface dialogInterface) {
-        av avVar;
-        VersionData versionData;
-        avVar = this.a.c;
-        avVar.dismiss();
-        versionData = this.a.a;
-        if (versionData.getForce_update() == 1) {
-            MainTabActivity.a(this.a, (int) BdWebPoolView.DELAYED_TIME);
+    @Override // com.baidu.tieba.bb
+    public void a(boolean z) {
+        CombineDownload combineDownload;
+        if (!z) {
+            this.a.a();
+        } else {
+            UpdateDialog updateDialog = this.a;
+            combineDownload = this.a.b;
+            updateDialog.a(combineDownload.getAppUrl());
         }
+        this.a.finish();
+    }
+
+    @Override // com.baidu.tieba.bb
+    public void a() {
+        this.a.finish();
     }
 }

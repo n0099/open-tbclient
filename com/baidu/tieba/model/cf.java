@@ -57,7 +57,7 @@ public class cf {
             this.b.c(optInt4);
             this.b.b(optInt);
         } catch (Exception e) {
-            com.baidu.tieba.util.bo.b("SubPbModel", "parseJson", "error = " + e.getMessage());
+            com.baidu.adp.lib.g.e.b("SubPbModel", "parseJson", "error = " + e.getMessage());
         }
     }
 

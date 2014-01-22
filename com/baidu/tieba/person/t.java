@@ -20,14 +20,14 @@ public class t implements View.OnClickListener {
     public void onClick(View view) {
         ProgressBar progressBar;
         String str;
-        progressBar = this.c.o;
+        progressBar = this.c.n;
         if (progressBar.getVisibility() != 0) {
             String str2 = this.a;
-            str = this.c.C;
+            str = this.c.B;
             if (!str2.equals(str)) {
                 this.c.a(this.a);
                 this.c.b(this.a);
-                this.c.A = this.b;
+                this.c.z = this.b;
             }
         }
     }

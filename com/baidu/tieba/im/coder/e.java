@@ -32,16 +32,16 @@ public class e {
         this.d = null;
         try {
             this.d = new SparseBooleanArray();
-            PublicKey a2 = com.baidu.tieba.im.d.e.a(j.a());
-            String a3 = com.baidu.tieba.im.d.e.a(32);
+            PublicKey a2 = com.baidu.tieba.im.d.f.a(j.a());
+            String a3 = com.baidu.tieba.im.d.f.a(32);
             byte[] bArr = new byte[a3.length()];
             for (int i = 0; i < a3.length(); i++) {
                 bArr[i] = (byte) a3.charAt(i);
             }
-            this.b = com.baidu.tieba.im.d.e.a(a3);
-            this.c = com.baidu.tieba.im.d.e.a(a2, bArr);
-        } catch (Exception e) {
-            com.baidu.adp.lib.h.e.a(e.getMessage());
+            this.b = com.baidu.tieba.im.d.f.a(a3);
+            this.c = com.baidu.tieba.im.d.f.a(a2, bArr);
+        } catch (Throwable th) {
+            com.baidu.adp.lib.g.e.a(th.getMessage());
             this.b = null;
             this.c = new byte[0];
         }

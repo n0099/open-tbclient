@@ -18,6 +18,10 @@ public class d {
         this.c = new f(this, 0);
     }
 
+    public int b() {
+        return this.c.d();
+    }
+
     public void a(int i, int i2) {
         a(i);
         b(i2);
@@ -31,21 +35,17 @@ public class d {
         this.c.c(i);
     }
 
-    public int b() {
-        return this.c.d();
-    }
-
     public void a(String str, com.baidu.adp.widget.ImageView.d dVar) {
-        if (dVar != null && this.b != null) {
-            this.b.a(str, dVar);
-        }
+        a(str, dVar, false);
     }
 
     public void a(String str, com.baidu.adp.widget.ImageView.d dVar, boolean z) {
-        if (z) {
-            str = d(str).a;
+        if (dVar != null && this.b != null) {
+            if (z) {
+                str = d(str).a;
+            }
+            this.b.a(str, dVar);
         }
-        a(str, dVar);
     }
 
     public boolean c(int i) {
@@ -54,8 +54,8 @@ public class d {
 
     public void b(String str, com.baidu.adp.widget.ImageView.d dVar, boolean z) {
         if (dVar != null && this.c != null) {
-            if (com.baidu.adp.lib.h.e.a()) {
-                com.baidu.adp.lib.h.e.d("image joined cache:" + dVar.j() + ", size:" + dVar.f());
+            if (com.baidu.adp.lib.g.e.a()) {
+                com.baidu.adp.lib.g.e.d("image joined cache:" + dVar.j() + ", size:" + dVar.f());
             }
             this.c.a(str, dVar);
         }

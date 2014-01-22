@@ -2,10 +2,9 @@ package com.baidu.tieba.forumdetail;
 
 import android.content.Context;
 import android.view.View;
-import com.baidu.mobstat.StatService;
-import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.switchs.SwitchKey;
+import com.baidu.tieba.util.by;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements View.OnClickListener {
@@ -22,12 +21,10 @@ public class g implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        boolean z;
         Context context;
-        if (TiebaApplication.g().s()) {
-            context = this.c.a;
-            StatService.onEvent(context, "detail_enter_forum", "click", 1);
-        }
+        boolean z;
+        context = this.c.a;
+        by.a(context, "detail_enter_forum", "click", 1, new Object[0]);
         z = this.c.g;
         if (z) {
             this.a.finish();

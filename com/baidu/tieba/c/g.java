@@ -2,8 +2,7 @@ package com.baidu.tieba.c;
 
 import android.os.Handler;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.aa;
-import com.baidu.tieba.util.bo;
+import com.baidu.tieba.util.ad;
 import com.slidingmenu.lib.R;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -38,7 +37,7 @@ public class g {
         }
         if (i2 >= i) {
             aVar.a(2);
-            aVar.d(TiebaApplication.g().getString(R.string.download_fail_over_max));
+            aVar.d(TiebaApplication.h().getString(R.string.download_fail_over_max));
             if (aVar.m() != null) {
                 aVar.m().b(aVar);
                 return;
@@ -50,8 +49,8 @@ public class g {
 
     public void a(a aVar) {
         if (aVar != null) {
-            if (!aa.a()) {
-                aVar.d(TiebaApplication.g().getString(R.string.download_fail_no_sd));
+            if (!ad.a()) {
+                aVar.d(TiebaApplication.h().getString(R.string.download_fail_no_sd));
                 aVar.a(2);
             }
             if (aVar.f() == 2) {
@@ -86,7 +85,7 @@ public class g {
         if (b == null && !c.isEmpty()) {
             b = c.get(0);
             if (b != null) {
-                bo.c("download_file:start:" + b.d());
+                com.baidu.adp.lib.g.e.d("download_file:start:" + b.d());
                 this.d = new i(this);
                 this.d.execute(b);
             }

@@ -20,7 +20,7 @@ public abstract class a implements com.baidu.adp.lib.e.g {
         if (iVar == null || lVar == null) {
             return null;
         }
-        if (lVar.j) {
+        if (lVar.n) {
             return null;
         }
         return a(str, iVar);
@@ -37,7 +37,7 @@ public abstract class a implements com.baidu.adp.lib.e.g {
         if (iVar == null || lVar == null) {
             return null;
         }
-        if (lVar.g && !lVar.j) {
+        if (lVar.g && !lVar.n) {
             return a(str, eVar, iVar, lVar);
         }
         return null;
@@ -54,7 +54,7 @@ public abstract class a implements com.baidu.adp.lib.e.g {
         if (iVar == null || lVar == null) {
             return null;
         }
-        if (lVar.j) {
+        if (lVar.n) {
             return null;
         }
         return b(str, eVar, iVar, lVar);

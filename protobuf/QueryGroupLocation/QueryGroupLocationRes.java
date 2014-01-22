@@ -70,7 +70,7 @@ public final class QueryGroupLocationRes {
                                     this.bitField0_ |= 1;
                                     this.position_ = codedInputStream.readBytes();
                                     break;
-                                case 18:
+                                case Im.GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
                                     if (!(z2 & true)) {
                                         this.business_ = new LazyStringArrayList();
                                         z2 |= true;
@@ -319,7 +319,7 @@ public final class QueryGroupLocationRes {
                                 this.bitField0_ |= 1;
                                 z = z2;
                                 break;
-                            case 18:
+                            case Im.GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
                                 j builder2 = (this.bitField0_ & 2) == 2 ? this.data_.toBuilder() : null;
                                 this.data_ = (DataRes) codedInputStream.readMessage(DataRes.PARSER, extensionRegistryLite);
                                 if (builder2 != null) {

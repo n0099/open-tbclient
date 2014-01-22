@@ -2,14 +2,13 @@ package com.baidu.tieba.flist;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.at;
-import com.baidu.tieba.util.bo;
+import com.baidu.tieba.util.ax;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e extends BdAsyncTask<Object, Integer, com.baidu.tieba.square.t> {
     com.baidu.tieba.square.t a;
     final /* synthetic */ c b;
-    private at c;
+    private ax c;
 
     private e(c cVar) {
         this.b = cVar;
@@ -43,15 +42,15 @@ public class e extends BdAsyncTask<Object, Integer, com.baidu.tieba.square.t> {
         String str;
         String str2;
         String str3;
-        String l;
+        String m;
         String str4;
         String str5;
         String str6 = null;
-        com.baidu.adp.lib.cache.s<String> m = com.baidu.tieba.b.a.a().m();
-        if (m != null) {
+        com.baidu.adp.lib.cache.s<String> m2 = com.baidu.tieba.b.a.a().m();
+        if (m2 != null) {
             StringBuilder append = new StringBuilder().append(TiebaApplication.A()).append("_");
             str5 = this.b.c;
-            str6 = m.a(append.append(str5).append("_dir").toString());
+            str6 = m2.a(append.append(str5).append("_dir").toString());
         }
         if (str6 != null) {
             this.a.b(str6);
@@ -59,34 +58,34 @@ public class e extends BdAsyncTask<Object, Integer, com.baidu.tieba.square.t> {
             c((Object[]) new Integer[0]);
         }
         try {
-            this.c = new at(com.baidu.tieba.data.h.a + "c/f/forum/seconddir");
-            at atVar = this.c;
+            this.c = new ax(com.baidu.tieba.data.h.a + "c/f/forum/seconddir");
+            ax axVar = this.c;
             str = this.b.c;
-            atVar.a("menu_name", str);
-            at atVar2 = this.c;
+            axVar.a("menu_name", str);
+            ax axVar2 = this.c;
             str2 = this.b.d;
-            atVar2.a("menu_type", str2);
-            at atVar3 = this.c;
+            axVar2.a("menu_type", str2);
+            ax axVar3 = this.c;
             str3 = this.b.e;
-            atVar3.a("menu_id", str3);
-            l = this.c.l();
+            axVar3.a("menu_id", str3);
+            m = this.c.m();
         } catch (Exception e) {
             this.a.a(e.getMessage());
-            bo.b(getClass().getName(), "doInBackground", e.getMessage());
+            com.baidu.adp.lib.g.e.b(getClass().getName(), "doInBackground", e.getMessage());
         }
-        if (l == null) {
+        if (m == null) {
             return this.a;
         }
-        if (this.c.c()) {
-            this.a.b(l);
+        if (this.c.d()) {
+            this.a.b(m);
             this.b.f = true;
-            if (m != null) {
+            if (m2 != null) {
                 StringBuilder append2 = new StringBuilder().append(TiebaApplication.A()).append("_");
                 str4 = this.b.c;
-                m.a(append2.append(str4).append("_dir").toString(), l, 86400000L);
+                m2.a(append2.append(str4).append("_dir").toString(), m, 86400000L);
             }
         } else {
-            this.a.a(this.c.i());
+            this.a.a(this.c.j());
             this.b.f = false;
         }
         return this.a;
@@ -101,18 +100,18 @@ public class e extends BdAsyncTask<Object, Integer, com.baidu.tieba.square.t> {
         boolean z2;
         f fVar2;
         boolean z3;
-        bo.e("DirMenuTask", "onPost", "start");
+        com.baidu.adp.lib.g.e.e("DirMenuTask", "onPost", "start");
         z = this.b.f;
         if (!z) {
-            bo.e("DirMenuTask", "onPost", " not ok start");
+            com.baidu.adp.lib.g.e.e("DirMenuTask", "onPost", " not ok start");
             fVar2 = this.b.b;
             String c = tVar.c();
             z3 = this.b.g;
             fVar2.a(false, -1, null, c, z3);
-            bo.e("DirMenuTask", "onPost", "not ok end");
+            com.baidu.adp.lib.g.e.e("DirMenuTask", "onPost", "not ok end");
             return;
         }
-        bo.e("DirMenuTask", "onPost", "ok");
+        com.baidu.adp.lib.g.e.e("DirMenuTask", "onPost", "ok");
         if (tVar.d() != null) {
             fVar = this.b.b;
             int a = tVar.a();
@@ -121,14 +120,14 @@ public class e extends BdAsyncTask<Object, Integer, com.baidu.tieba.square.t> {
             z2 = this.b.g;
             fVar.a(true, a, d, c2, z2);
         }
-        bo.e("DirMenuTask", "onPost", "ok end");
+        com.baidu.adp.lib.g.e.e("DirMenuTask", "onPost", "ok end");
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         super.cancel(true);
         if (this.c != null) {
-            this.c.j();
+            this.c.k();
             this.c = null;
         }
     }

@@ -3,9 +3,8 @@ package com.baidu.tieba.im.groupInfo;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.util.as;
-import com.baidu.tieba.util.bm;
-import com.baidu.tieba.util.bo;
+import com.baidu.tieba.util.aw;
+import com.baidu.tieba.util.bu;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -29,29 +28,29 @@ public class h extends BdAsyncTask<String, Integer, String> {
         String str;
         try {
             if (this.a != null && this.a.length() > 0 && this.b != null) {
-                if (!com.baidu.adp.lib.h.g.a(this.b)) {
+                if (!com.baidu.adp.lib.g.g.a(this.b)) {
                     str = ".jpg";
                 } else {
                     str = ".gif";
                 }
-                String f = bm.f(this.a);
+                String f = bu.f(this.a);
                 if (f == null) {
                     return this.c.getString(R.string.save_error);
                 }
                 String str2 = f + str;
-                for (int i = 0; com.baidu.tieba.util.aa.b(str2) && i < 10000; i++) {
+                for (int i = 0; com.baidu.tieba.util.ad.b(str2) && i < 10000; i++) {
                     str2 = f + String.valueOf(Math.round(Math.random() * 9.9999999E7d)) + str;
                 }
-                String a = com.baidu.tieba.util.aa.a(str2, this.b);
+                String a = com.baidu.tieba.util.ad.a(str2, this.b);
                 if (a != null) {
-                    new as(this.c).a(a);
+                    new aw(this.c).a(a);
                     return this.c.getString(R.string.save_image_to_album);
                 }
-                return com.baidu.tieba.util.aa.b();
+                return com.baidu.tieba.util.ad.b();
             }
             return this.c.getString(R.string.save_error);
         } catch (Exception e) {
-            bo.b("SaveImageAsyncTask", "doInBackground", "error" + e.getMessage());
+            com.baidu.adp.lib.g.e.b("SaveImageAsyncTask", "doInBackground", "error" + e.getMessage());
             return this.c.getString(R.string.save_error);
         }
     }

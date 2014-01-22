@@ -21,10 +21,10 @@ public class w extends com.baidu.adp.a.d {
     public w() {
         this.j = 0;
         this.k = 0;
-        TiebaApplication g = TiebaApplication.g();
-        this.j = com.baidu.adp.lib.h.g.b(g);
-        this.k = com.baidu.adp.lib.h.g.c(g);
-        this.l = g.getResources().getDisplayMetrics().density;
+        TiebaApplication h = TiebaApplication.h();
+        this.j = com.baidu.adp.lib.g.g.b(h);
+        this.k = com.baidu.adp.lib.g.g.c(h);
+        this.l = h.getResources().getDisplayMetrics().density;
     }
 
     public FacePackageDetailData a() {

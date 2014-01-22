@@ -1,68 +1,23 @@
 package com.baidu.tieba.im.message;
 
-import com.baidu.tieba.im.data.GroupInfoData;
-import com.baidu.tieba.im.data.GroupPermData;
-import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
-import protobuf.Im;
-import protobuf.QueryGroupsByUid.QueryGroupsByUidRes;
+import protobuf.CommitGroupMsg.CommitGroupMsgRes;
 /* loaded from: classes.dex */
-public class bj extends cc implements com.baidu.tieba.im.coder.f {
-    private List<GroupInfoData> a;
-    private GroupPermData b;
-
+public class bj extends bl {
     public bj() {
-        super(103003);
-    }
-
-    public List<GroupInfoData> a() {
-        return this.a;
-    }
-
-    public void a(List<GroupInfoData> list) {
-        this.a = list;
-    }
-
-    public void a(GroupPermData groupPermData) {
-        this.b = groupPermData;
+        e(202001);
     }
 
     @Override // com.baidu.tieba.im.coder.f
-    public void a(LinkedList<o> linkedList, byte[] bArr, int i) {
-        QueryGroupsByUidRes.QueryGroupsByUidResIdl parseFrom = QueryGroupsByUidRes.QueryGroupsByUidResIdl.parseFrom(bArr);
+    public void a(LinkedList<q> linkedList, byte[] bArr, int i) {
+        CommitGroupMsgRes.CommitGroupMsgResIdl parseFrom = CommitGroupMsgRes.CommitGroupMsgResIdl.parseFrom(bArr);
         g(parseFrom.getError().getErrorno());
         c(parseFrom.getError().getUsermsg());
         linkedList.add(this);
-        if (!i()) {
-            a(new ArrayList());
-            int groupsCount = parseFrom.getData().getGroupsCount();
-            for (int i2 = 0; i2 < groupsCount; i2++) {
-                Im.GroupInfo groups = parseFrom.getData().getGroups(i2);
-                GroupInfoData groupInfoData = new GroupInfoData();
-                groupInfoData.setGroupId(groups.getGroupId());
-                groupInfoData.setAuthorId(groups.getAuthorId());
-                groupInfoData.setAuthorName(groups.getAuthorName());
-                groupInfoData.setForumId(groups.getForumId());
-                groupInfoData.setGrade(groups.getGrade());
-                groupInfoData.setIntro(groups.getIntro());
-                groupInfoData.setName(groups.getName());
-                groupInfoData.setIsGroupManager(groups.getIsGroupManager());
-                groupInfoData.setMaxMemberNum(groups.getMaxMemberNum());
-                groupInfoData.setMemberNum(groups.getMemberNum());
-                groupInfoData.setPortrait(groups.getPortrait());
-                a().add(groupInfoData);
-            }
-            Im.GroupPermission groupPerm = parseFrom.getData().getGroupPerm();
-            GroupPermData groupPermData = new GroupPermData();
-            groupPermData.setCanCreateNormal(groupPerm.getCanCreateNormal());
-            groupPermData.setCanCreateOfficial(groupPerm.getCanCreateOfficial());
-            groupPermData.setCanCreatePersonal(groupPerm.getCanCreatePersonal());
-            groupPermData.setCreateNormalTip(groupPerm.getCreateNormalTip());
-            groupPermData.setCreateOfficialTip(groupPerm.getCreateOfficialTip());
-            groupPermData.setCreatePersonalTip(groupPerm.getCreatePersonalTip());
-            groupPermData.setIsManager(groupPerm.getIsForumManager());
-            a(groupPermData);
+        if (!k()) {
+            a(com.baidu.tieba.im.chat.ba.b(parseFrom.getData().getMsgId()));
+            b(parseFrom.getData().getRecordId());
+            a(String.valueOf(parseFrom.getData().getGroupId()));
         }
     }
 }

@@ -1,45 +1,206 @@
 package com.baidu.adp.lib.g;
 
-import com.baidu.adp.lib.network.e;
-import java.io.ByteArrayOutputStream;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import org.apache.http.message.BasicNameValuePair;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.os.Environment;
+import android.os.StatFs;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.OutputStream;
 /* loaded from: classes.dex */
-public class b implements Runnable {
-    final /* synthetic */ a a;
+public class b {
+    private static String b = "baidu";
+    public static final File a = Environment.getExternalStorageDirectory();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public b(a aVar) {
-        this.a = aVar;
+    public static boolean a() {
+        return Environment.getExternalStorageState().equals("mounted");
     }
 
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:17:0x0043 -> B:21:0x0035). Please submit an issue!!! */
-    @Override // java.lang.Runnable
-    public void run() {
-        byte[] g;
-        try {
-            g = this.a.g();
-            if (g != null && g.length > 0) {
-                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                com.baidu.adp.lib.h.d.a(g, byteArrayOutputStream);
-                try {
-                    e a = com.baidu.adp.lib.network.d.a().a("http://or.baidu.com/or/api/get", (ArrayList<BasicNameValuePair>) null, "monitor", byteArrayOutputStream.toByteArray(), 2, (com.baidu.adp.lib.network.c) null, (com.baidu.adp.lib.network.a) null, (LinkedList<BasicNameValuePair>) null);
-                    if (a == null || a.a != 200) {
-                        this.a.d();
-                    } else {
-                        this.a.e();
-                    }
-                } catch (Exception e) {
-                    this.a.d();
-                    e.printStackTrace();
-                }
-            }
-        } catch (Exception e2) {
-            this.a.d();
-            e2.printStackTrace();
+    public static String a(String str) {
+        if (str != null) {
+            return a + "/" + b + "/" + str + "/";
         }
-        this.a.n = false;
+        return a + "/" + b + "/";
+    }
+
+    public static String a(String str, String str2) {
+        if (str != null) {
+            return a + "/" + b + "/" + str + "/" + str2;
+        }
+        return a + "/" + b + "/" + str2;
+    }
+
+    public static boolean b() {
+        try {
+            StatFs statFs = new StatFs(a.getPath());
+            return ((((long) statFs.getAvailableBlocks()) * ((long) statFs.getBlockSize())) / 1024) / 1024 > 2;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public static String b(String str) {
+        return a((String) null, str);
+    }
+
+    public static boolean c(String str) {
+        String a2 = a(str);
+        if (a()) {
+            File file = new File(a2);
+            if (!file.exists() && !file.mkdirs()) {
+                e.b("FileHelper", "checkDir", "error fulldirObj.mkdirs:" + a2);
+                return false;
+            }
+            return true;
+        }
+        return false;
+    }
+
+    private static String g(String str) {
+        int lastIndexOf = str.lastIndexOf("/");
+        if (lastIndexOf <= 0 || lastIndexOf >= str.length()) {
+            return null;
+        }
+        return str.substring(0, lastIndexOf);
+    }
+
+    public static boolean b(String str, String str2) {
+        String g = g(a(str, str2));
+        File file = new File(g);
+        if (!file.exists()) {
+            try {
+                if (!file.mkdirs()) {
+                    e.b("FileHelper", "checkAndMkdirs", "error fulldirObj.mkdirs:" + g);
+                    return false;
+                }
+            } catch (Exception e) {
+                e.b("FileHelper", "checkAndMkdirs", "error fulldirObj.mkdirs error:" + e.getMessage() + " " + g);
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static File c(String str, String str2) {
+        if (c(str)) {
+            try {
+                return new File(a(str, str2));
+            } catch (SecurityException e) {
+                e.b("FileHelper", "GetFile", "error = " + e.getMessage());
+                return null;
+            }
+        }
+        return null;
+    }
+
+    public static File d(String str, String str2) {
+        File file = null;
+        if (!c(str)) {
+            e.b("FileHelper", "CreateFile", "error checkDir");
+        } else {
+            try {
+                if (!b(str, str2)) {
+                    e.b("FileHelper", "CreateFile", "error checkAndMkdirs");
+                } else {
+                    File c = c(str, str2);
+                    if (c.exists() && !c.delete()) {
+                        e.b("FileHelper", "CreateFile", "error file.delete");
+                    } else if (c.createNewFile()) {
+                        file = c;
+                    } else {
+                        e.b("FileHelper", "CreateFile", "error createNewFile" + str + str2);
+                    }
+                }
+            } catch (Exception e) {
+                e.b("FileHelper", "CreateFile", "error = " + e.getMessage() + " input:" + str + str2);
+            }
+        }
+        return file;
+    }
+
+    public static File e(String str, String str2) {
+        if (c(str)) {
+            try {
+                File c = c(str, str2);
+                if (c.exists()) {
+                    return c;
+                }
+                if (c.createNewFile()) {
+                    return c;
+                }
+                return null;
+            } catch (Exception e) {
+                e.b("FileHelper", "CreateFile", "error = " + e.getMessage());
+                return null;
+            }
+        }
+        return null;
+    }
+
+    public static File d(String str) {
+        return e(null, str);
+    }
+
+    public static boolean f(String str, String str2) {
+        if (c(str)) {
+            File c = c(str, str2);
+            try {
+                if (c.exists()) {
+                    return c.delete();
+                }
+                return false;
+            } catch (Exception e) {
+                e.b("FileHelper", "DelFile", "error = " + e.getMessage());
+                return false;
+            }
+        }
+        return false;
+    }
+
+    public static boolean e(String str) {
+        return f(null, str);
+    }
+
+    public static void a(OutputStream outputStream) {
+        outputStream.write(new byte[]{35, 33, 65, 77, 82, 10}, 0, 6);
+    }
+
+    public static long a(String str, boolean z) {
+        return a(new File(str), z);
+    }
+
+    public static long a(File file, boolean z) {
+        long length;
+        long j = 0;
+        File[] listFiles = file.listFiles();
+        for (int i = 0; i < listFiles.length; i++) {
+            if (listFiles[i].isDirectory() && !z) {
+                length = a(listFiles[i], false);
+            } else {
+                length = listFiles[i].length();
+            }
+            j += length;
+        }
+        return j;
+    }
+
+    public static void f(String str) {
+        try {
+            File file = new File(str);
+            if (!file.exists()) {
+                file.mkdir();
+            }
+        } catch (Exception e) {
+            e.b("BdFileHelper", "makeRootDirectory", "error = " + e.getMessage());
+        }
+    }
+
+    public static long a(File file) {
+        try {
+            if (file.exists()) {
+                return new FileInputStream(file).available();
+            }
+            return 0L;
+        } catch (Exception e) {
+            return 0L;
+        }
     }
 }

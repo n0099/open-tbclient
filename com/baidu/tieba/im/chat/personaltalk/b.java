@@ -1,17 +1,21 @@
 package com.baidu.tieba.im.chat.personaltalk;
 
-import android.content.DialogInterface;
+import com.baidu.tieba.im.SingleRunnable;
 /* loaded from: classes.dex */
-class b implements DialogInterface.OnClickListener {
-    final /* synthetic */ PersonalTalkSettingActivity a;
+final class b extends SingleRunnable<Boolean> {
+    final /* synthetic */ String a;
+    final /* synthetic */ String b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public b(PersonalTalkSettingActivity personalTalkSettingActivity) {
-        this.a = personalTalkSettingActivity;
+    public b(String str, String str2) {
+        this.a = str;
+        this.b = str2;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        dialogInterface.dismiss();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.SingleRunnable
+    /* renamed from: a */
+    public Boolean b() {
+        return Boolean.valueOf(a.b(this.a, this.b));
     }
 }

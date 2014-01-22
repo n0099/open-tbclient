@@ -1,6 +1,5 @@
 package com.baidu.tieba.data;
 
-import com.baidu.tieba.util.bo;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class bc {
@@ -42,7 +41,7 @@ public class bc {
                 }
                 this.e.a(jSONObject.optJSONObject("photo"));
             } catch (Exception e) {
-                bo.b("HotspotData", "parserJson", "error = " + e.getMessage());
+                com.baidu.adp.lib.g.e.b("HotspotData", "parserJson", "error = " + e.getMessage());
             }
         }
     }

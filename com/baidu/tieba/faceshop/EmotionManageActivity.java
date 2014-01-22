@@ -13,7 +13,7 @@ import android.widget.ListAdapter;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.bl;
+import com.baidu.tieba.util.bs;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 import java.util.Iterator;
@@ -70,7 +70,7 @@ public class EmotionManageActivity extends com.baidu.tieba.j implements com.baid
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.f.c(i);
-        bl.f((View) this.h, (int) R.drawable.navi_del_text_bg);
+        bs.f((View) this.h, (int) R.drawable.navi_del_text_bg);
     }
 
     private void a() {
@@ -89,8 +89,8 @@ public class EmotionManageActivity extends com.baidu.tieba.j implements com.baid
         this.l.addFooterView(this.n);
         this.m = (TextView) this.n.findViewById(R.id.emotion_manage_enter_record);
         this.m.setOnClickListener(this.q);
-        getLayoutMode().a(TiebaApplication.g().an() == 1);
-        getLayoutMode().a(this.e);
+        getLayoutMode().a(TiebaApplication.h().al() == 1);
+        getLayoutMode().a((View) this.e);
         getLayoutMode().a(this.n);
         e();
     }
@@ -181,11 +181,11 @@ public class EmotionManageActivity extends com.baidu.tieba.j implements com.baid
 
     private void f() {
         int size = this.b.size();
-        int an = TiebaApplication.g().an();
+        int al = TiebaApplication.h().al();
         this.h.setText(getString(R.string.delete) + "(" + size + ")");
         if (size == 0) {
             this.h.setEnabled(false);
-            if (an == 1) {
+            if (al == 1) {
                 this.h.setTextColor(getResources().getColor(R.color.emotion_manage_del_disable_1));
                 return;
             } else {
@@ -194,7 +194,7 @@ public class EmotionManageActivity extends com.baidu.tieba.j implements com.baid
             }
         }
         this.h.setEnabled(true);
-        if (an == 1) {
+        if (al == 1) {
             this.h.setTextColor(getResources().getColor(R.color.emotion_manage_del_enable_1));
         } else {
             this.h.setTextColor(getResources().getColor(R.color.emotion_manage_del_enable));
@@ -220,8 +220,8 @@ public class EmotionManageActivity extends com.baidu.tieba.j implements com.baid
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(com.baidu.tieba.im.message.o oVar) {
-        if (oVar.u() == -120) {
+    public void a(com.baidu.tieba.im.message.q qVar) {
+        if (qVar.w() == -120) {
             this.c = new f(this, null);
             this.c.execute(new String[0]);
         }

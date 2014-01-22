@@ -1,323 +1,158 @@
 package com.baidu.tieba.util;
 
-import android.util.Log;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.util.Date;
+import android.graphics.Bitmap;
+import android.text.TextUtils;
+import com.baidu.tieba.im.chat.LocalViewSize;
 /* loaded from: classes.dex */
 public class bo {
-    private static int a = 0;
-    private static int b = 0;
-    private static int c = 0;
-    private static int d = 0;
+    private static bo a;
 
-    public static int a(String str, String str2, String str3) {
-        if (com.baidu.tieba.data.h.v()) {
-            StringBuilder sb = new StringBuilder(100);
-            sb.append(str);
-            sb.append(":");
-            sb.append(str2);
-            sb.append(":");
-            sb.append(str3);
-            return Log.i("TiebaLog", sb.toString());
+    public static synchronized bo a() {
+        bo boVar;
+        synchronized (bo.class) {
+            if (a == null) {
+                a = new bo();
+            }
+            boVar = a;
         }
-        return 0;
+        return boVar;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:28:0x008c A[Catch: Exception -> 0x0090, TRY_LEAVE, TryCatch #0 {Exception -> 0x0090, blocks: (B:26:0x0087, B:28:0x008c), top: B:45:0x0087 }] */
-    /* JADX WARN: Removed duplicated region for block: B:45:0x0087 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    private static void d(String str) {
-        BufferedWriter bufferedWriter;
-        FileWriter fileWriter;
-        String str2;
-        String message;
-        FileWriter fileWriter2 = null;
-        long currentTimeMillis = System.currentTimeMillis();
-        File g = aa.g("log_" + bm.c(new Date()));
-        if (g != null) {
-            try {
-                fileWriter = new FileWriter(g, true);
-                try {
-                    bufferedWriter = new BufferedWriter(fileWriter);
-                    try {
-                        bufferedWriter.write(bm.a(currentTimeMillis) + "\t\t" + str);
-                        bufferedWriter.newLine();
-                        bufferedWriter.flush();
-                    } catch (Exception e) {
-                        e = e;
-                        fileWriter2 = fileWriter;
-                        try {
-                            Log.d("tieba", e.getMessage());
-                            if (fileWriter2 != null) {
-                                try {
-                                    fileWriter2.close();
-                                } catch (Exception e2) {
-                                    str2 = "tieba";
-                                    message = e2.getMessage();
-                                    Log.d(str2, message);
-                                    return;
-                                }
+    public void a(String str, String str2, boolean z, boolean z2, boolean z3) {
+        if (str2 != null && str != null) {
+            String f = bu.f(str);
+            bt.a().a(str2, f);
+            if (z || z2 || z3) {
+                synchronized (n.a) {
+                    int c = bt.a().c(f);
+                    if (c > 0) {
+                        if (z) {
+                            Bitmap a2 = bt.a().a(f);
+                            com.baidu.tbadk.imageManager.d.a().c(c);
+                            if (a2 != null) {
+                                a(str, a2, z2, bt.a().b(f), z3, f);
                             }
-                            if (bufferedWriter != null) {
-                                bufferedWriter.close();
-                                return;
-                            }
-                            return;
-                        } catch (Throwable th) {
-                            th = th;
-                            fileWriter = fileWriter2;
-                            if (fileWriter != null) {
-                                try {
-                                    fileWriter.close();
-                                } catch (Exception e3) {
-                                    Log.d("tieba", e3.getMessage());
-                                    throw th;
-                                }
-                            }
-                            if (bufferedWriter != null) {
-                                bufferedWriter.close();
-                            }
-                            throw th;
                         }
-                    } catch (Throwable th2) {
-                        th = th2;
-                        if (fileWriter != null) {
-                        }
-                        if (bufferedWriter != null) {
-                        }
-                        throw th;
                     }
-                } catch (Exception e4) {
-                    e = e4;
-                    bufferedWriter = null;
-                    fileWriter2 = fileWriter;
-                } catch (Throwable th3) {
-                    th = th3;
-                    bufferedWriter = null;
                 }
-            } catch (Exception e5) {
-                e = e5;
-                bufferedWriter = null;
-            } catch (Throwable th4) {
-                th = th4;
-                bufferedWriter = null;
-                fileWriter = null;
-            }
-        } else {
-            bufferedWriter = null;
-            fileWriter = null;
-        }
-        if (fileWriter != null) {
-            try {
-                fileWriter.close();
-            } catch (Exception e6) {
-                str2 = "tieba";
-                message = e6.getMessage();
-                Log.d(str2, message);
-                return;
             }
         }
-        if (bufferedWriter != null) {
-            bufferedWriter.close();
-        }
     }
 
-    public static int b(String str, String str2, String str3) {
-        if (com.baidu.tieba.data.h.v()) {
-            StringBuilder sb = new StringBuilder(100);
-            sb.append(str);
-            sb.append(":");
-            sb.append(str2);
-            sb.append(":");
-            sb.append(str3);
-            d(sb.toString());
-            return Log.e("TiebaLog", sb.toString());
-        }
-        return 0;
+    public void b(String str, String str2, boolean z, boolean z2, boolean z3) {
+        new bp(this, str2, str2, z3, z3, z3).execute(new String[0]);
     }
 
-    public static int c(String str, String str2, String str3) {
-        if (com.baidu.tieba.data.h.v()) {
-            StringBuilder sb = new StringBuilder(100);
-            sb.append(str);
-            sb.append(":");
-            sb.append(str2);
-            sb.append(":");
-            sb.append(str3);
-            return Log.w("TiebaLog", sb.toString());
-        }
-        return 0;
+    public Bitmap a(Bitmap bitmap) {
+        return a(bitmap, true);
     }
 
-    public static int d(String str, String str2, String str3) {
-        if (com.baidu.tieba.data.h.v()) {
-            StringBuilder sb = new StringBuilder(100);
-            sb.append(str);
-            sb.append(":");
-            sb.append(str2);
-            sb.append(":");
-            sb.append(str3);
-            return Log.v("TiebaLog", sb.toString());
-        }
-        return 0;
-    }
-
-    public static int e(String str, String str2, String str3) {
-        if (com.baidu.tieba.data.h.v()) {
-            StringBuilder sb = new StringBuilder(100);
-            sb.append(str);
-            sb.append(":");
-            sb.append(str2);
-            sb.append(":");
-            sb.append(str3);
-            return Log.d("TiebaLog", sb.toString());
-        }
-        return 0;
-    }
-
-    public static int a(int i, String str) {
-        if (com.baidu.tieba.data.h.v()) {
-            StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
-            if (stackTrace.length < 5) {
-                return -1;
-            }
-            StackTraceElement stackTraceElement = stackTrace[4];
-            String methodName = stackTraceElement.getMethodName();
-            String className = stackTraceElement.getClassName();
-            if (i == 0) {
-                b(className, methodName, str);
-            } else if (i == 1) {
-                c(className, methodName, str);
-            } else if (i == 2) {
-                a(className, methodName, str);
-            } else if (i == 3) {
-                e(className, methodName, str);
-            } else {
-                d(className, methodName, str);
-            }
-            return 0;
-        }
-        return -1;
-    }
-
-    public static int a(String str) {
-        return a(0, str);
-    }
-
-    public static int b(String str) {
-        return a(2, str);
-    }
-
-    public static int c(String str) {
-        return a(3, str);
-    }
-
-    public static void a(int i, String str, String str2, String str3) {
-        FileWriter fileWriter;
-        Throwable th;
-        boolean z = false;
-        FileWriter fileWriter2 = null;
-        switch (i) {
-            case 1:
-                if (a < 10) {
-                    a++;
-                    z = true;
-                    break;
-                }
-                break;
-            case 2:
-                if (b < 10) {
-                    b++;
-                    z = true;
-                    break;
-                }
-                break;
-            case 3:
-                if (c < 10) {
-                    c++;
-                    z = true;
-                    break;
-                }
-                break;
-            case 4:
-                if (d < 10) {
-                    d++;
-                    z = true;
-                    break;
-                }
-                break;
-        }
+    public Bitmap a(Bitmap bitmap, boolean z) {
         try {
-            if (com.baidu.tieba.data.h.v() || z) {
-                StringBuilder sb = new StringBuilder(100);
-                sb.append(new Date().getTime() / 1000);
-                sb.append("\t");
-                sb.append(i);
-                sb.append("\t");
-                sb.append(str2);
-                if (str3 != null) {
-                    sb.append(":");
-                    sb.append(str3.replace("\n", " ").replace("\t", " "));
-                }
-                sb.append("\t");
-                sb.append(str);
-                sb.append("\t");
-                sb.append(0);
-                sb.append("\n");
-                String sb2 = sb.toString();
-                if (com.baidu.tieba.data.h.v()) {
-                    Log.e("TiebaLog", sb2);
-                }
-                if (z) {
-                    File g = aa.g("log_error.log");
-                    if (sb2 != null && g != null && g.length() < 204800) {
-                        fileWriter = new FileWriter(g, true);
-                        try {
-                            fileWriter.append((CharSequence) sb2);
-                            fileWriter.flush();
-                            fileWriter2 = fileWriter;
-                        } catch (Exception e) {
-                            fileWriter2 = fileWriter;
-                            if (fileWriter2 != null) {
-                                try {
-                                    fileWriter2.close();
-                                    return;
-                                } catch (Exception e2) {
-                                    e = e2;
-                                    e.printStackTrace();
-                                }
-                            }
-                            return;
-                        } catch (Throwable th2) {
-                            th = th2;
-                            if (fileWriter != null) {
-                                try {
-                                    fileWriter.close();
-                                } catch (Exception e3) {
-                                    e3.printStackTrace();
-                                }
-                            }
-                            throw th;
-                        }
-                    }
-                }
+            com.baidu.tieba.util.a.c a2 = a(bitmap.getWidth(), bitmap.getHeight(), z);
+            int i = a2.b;
+            int i2 = a2.c;
+            if (i != bitmap.getWidth() || i2 != bitmap.getHeight()) {
+                Bitmap b = n.b(bitmap, i, i2);
+                return b != null ? b : bitmap;
             }
-            if (fileWriter2 != null) {
-                try {
-                    fileWriter2.close();
-                } catch (Exception e4) {
-                    e = e4;
-                    e.printStackTrace();
-                }
+            return bitmap;
+        } catch (Exception e) {
+            ac acVar = new ac();
+            if (bitmap == null) {
+                acVar.a("bitmap", "null");
+            } else {
+                acVar.a("bitW", Integer.valueOf(bitmap.getWidth()));
+                acVar.a("bitH", Integer.valueOf(bitmap.getHeight()));
             }
-        } catch (Exception e5) {
-        } catch (Throwable th3) {
-            fileWriter = null;
-            th = th3;
+            by.a("", -1005, "getResizedBitmap error: " + e.toString(), acVar.toString());
+            return bitmap;
         }
+    }
+
+    private static void a(String str, com.baidu.adp.widget.ImageView.d dVar) {
+        com.baidu.tbadk.imageManager.d.a().b(str, dVar);
+    }
+
+    public Bitmap a(Bitmap bitmap, boolean z, boolean z2, String str) {
+        Bitmap bitmap2;
+        Bitmap a2 = z2 ? a(bitmap) : bitmap;
+        if (!z || a2 == null) {
+            bitmap2 = a2;
+        } else {
+            float f = 10.0f;
+            bitmap2 = n.a(a2, (a2.getHeight() < 100 || a2.getWidth() < 100) ? 5.0f : 5.0f);
+        }
+        if (!TextUtils.isEmpty(str)) {
+            bt.a().a(str, n.c(bitmap2, 100));
+        }
+        return bitmap2;
+    }
+
+    private void a(String str, Bitmap bitmap, boolean z, boolean z2, boolean z3, String str2) {
+        try {
+            Bitmap a2 = a(bitmap, z, z3, str2);
+            if (a2 != null) {
+                a(str, new com.baidu.adp.widget.ImageView.d(a2, z2));
+            }
+        } catch (Exception e) {
+            by.a("", -1006, "addPicMemoryCache error: " + e.toString(), str);
+        }
+    }
+
+    public com.baidu.tieba.util.a.c a(int i, int i2, boolean z) {
+        boolean z2;
+        int i3;
+        int i4;
+        int i5;
+        int i6 = 70;
+        int e = LocalViewSize.a().e();
+        if (z) {
+            if (i / i2 >= 3) {
+                z2 = true;
+                i3 = i / 2;
+                i4 = i;
+            } else if (i2 / i >= 3) {
+                i4 = i2 / 2;
+                z2 = true;
+                i3 = i2;
+            }
+            if (i4 <= i3 && i4 > e) {
+                i3 = (int) (i3 / (i4 / e));
+            } else if (i3 > i4 || i3 <= e) {
+                e = i4;
+            } else {
+                e = (int) (i4 / (i3 / e));
+                i3 = e;
+            }
+            if (z2 && i <= e && i2 <= i3) {
+                e = (int) (e * 0.9d);
+                i3 = (int) (i3 * 0.9d);
+            }
+            if (e < 70 || i3 >= 70) {
+                i6 = i3;
+                i5 = e;
+            } else {
+                i5 = 70;
+            }
+            return new com.baidu.tieba.util.a.c(i5, i6, z2);
+        }
+        z2 = false;
+        i3 = i2;
+        i4 = i;
+        if (i4 <= i3) {
+        }
+        if (i3 > i4) {
+        }
+        e = i4;
+        if (z2) {
+            e = (int) (e * 0.9d);
+            i3 = (int) (i3 * 0.9d);
+        }
+        if (e < 70) {
+        }
+        i6 = i3;
+        i5 = e;
+        return new com.baidu.tieba.util.a.c(i5, i6, z2);
     }
 }

@@ -1,18 +1,15 @@
 package com.baidu.tieba.util;
 
-import com.baidu.tieba.BaiduAccount.BaiduAccount;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class au implements BaiduAccount.CallbackListener {
-    final /* synthetic */ at a;
+public interface au {
+    LinkedList<String> getForumPhotoUrl();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public au(at atVar) {
-        this.a = atVar;
-    }
+    LinkedList<String> getImageUrl();
 
-    @Override // com.baidu.tieba.BaiduAccount.BaiduAccount.CallbackListener
-    public void callback() {
-        this.a.w();
-    }
+    LinkedList<at> getImagesWithEmotions();
+
+    LinkedList<String> getPhotoUrl();
+
+    boolean isSupportImageSize();
 }

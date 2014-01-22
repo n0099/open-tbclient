@@ -10,7 +10,6 @@ import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.pb.NewPbActivity;
 import com.baidu.tieba.person.post.PersonPostThreadModel;
-import com.baidu.tieba.util.bo;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class q extends BaseAdapter implements c, g {
@@ -74,7 +73,7 @@ public class q extends BaseAdapter implements c, g {
     public View getView(int i, View view, ViewGroup viewGroup) {
         s sVar;
         if (view == null) {
-            bo.e("PersonThreadAdapter", "getView", "create convertView");
+            com.baidu.adp.lib.g.e.e("PersonThreadAdapter", "getView", "create convertView");
             view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.person_post_item_thread, viewGroup, false);
             s sVar2 = new s(view);
             view.setTag(sVar2);
@@ -125,33 +124,33 @@ public class q extends BaseAdapter implements c, g {
             sVar.h.setVisibility(8);
         }
         sVar.a(this);
-        sVar.a(TiebaApplication.g().an());
+        sVar.a(TiebaApplication.h().al());
         return view;
     }
 
     @Override // com.baidu.tieba.person.post.c
     public void a(View view) {
         switch (view.getId()) {
-            case R.id.portrait /* 2131099863 */:
+            case R.id.portrait /* 2131099861 */:
                 this.e.finish();
                 return;
-            case R.id.item_header /* 2131100159 */:
-            case R.id.item_content /* 2131101023 */:
+            case R.id.item_header /* 2131100217 */:
+            case R.id.item_content /* 2131101138 */:
                 String[] strArr = (String[]) view.getTag();
                 if (strArr != null) {
                     NewPbActivity.a(view.getContext(), strArr[0], strArr[1], "person_post");
-                    bo.e("PersonThreadAdapter", "on", "start thread = " + strArr[0] + " post_id = " + strArr[1]);
+                    com.baidu.adp.lib.g.e.e("PersonThreadAdapter", "on", "start thread = " + strArr[0] + " post_id = " + strArr[1]);
                     return;
                 }
                 return;
-            case R.id.forum_name /* 2131101027 */:
+            case R.id.forum_name /* 2131101142 */:
                 String str = (String) view.getTag();
                 if (str != null) {
                     FrsActivity.a(view.getContext(), str, "");
                     return;
                 }
                 return;
-            case R.id.username /* 2131101029 */:
+            case R.id.username /* 2131101144 */:
                 this.e.finish();
                 return;
             default:

@@ -56,16 +56,12 @@ public class ae extends BaseAdapter {
             agVar.a = (TbImageView) view.findViewById(R.id.image);
             view.setTag(agVar);
         }
-        ag agVar2 = (ag) view.getTag();
         view.setLayoutParams(new AbsListView.LayoutParams(measuredWidth, measuredWidth));
         String obj = getItem(i).toString();
-        agVar2.a.setTag(obj);
-        com.baidu.adp.widget.ImageView.d d = this.c.d(obj);
-        if (d == null) {
-            this.c.a(obj, new af(this, viewGroup));
-        } else {
-            d.a(agVar2.a);
-            agVar2.a.setTag(null);
+        ((ag) view.getTag()).a.setTag(obj);
+        this.c.b(obj, new af(this, viewGroup));
+        if (i == getCount() - 1) {
+            viewGroup.invalidate();
         }
         return view;
     }

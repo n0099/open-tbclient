@@ -11,16 +11,16 @@ public class bf implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        cs csVar;
-        cs csVar2;
-        cs csVar3;
-        csVar = this.a.z;
-        if (!csVar.y()) {
-            csVar3 = this.a.z;
-            csVar3.b(false);
+        cr crVar;
+        cr crVar2;
+        cr crVar3;
+        crVar = this.a.A;
+        if (!crVar.y()) {
+            crVar3 = this.a.A;
+            crVar3.b(false);
             return;
         }
-        csVar2 = this.a.z;
-        csVar2.b(true);
+        crVar2 = this.a.A;
+        crVar2.b(true);
     }
 }

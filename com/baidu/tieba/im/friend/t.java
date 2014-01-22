@@ -9,11 +9,11 @@ import android.widget.ListAdapter;
 import android.widget.ProgressBar;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.ak;
+import com.baidu.tieba.util.an;
 import com.baidu.tieba.view.NavigationBar;
 import com.baidu.tieba.view.NoNetworkView;
 import com.baidu.tieba.view.SearchBar;
-import com.baidu.tieba.view.bl;
+import com.baidu.tieba.view.cb;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
@@ -67,18 +67,18 @@ public class t extends com.baidu.adp.a.e implements s {
         b(0);
     }
 
-    public void a(bl blVar) {
-        this.g.setHandler(blVar);
+    public void a(cb cbVar) {
+        this.g.setHandler(cbVar);
     }
 
     public void a() {
-        int an = TiebaApplication.g().an();
-        this.a.getLayoutMode().a(an == 1);
+        int al = TiebaApplication.h().al();
+        this.a.getLayoutMode().a(al == 1);
         this.a.getLayoutMode().a(this.e);
-        this.d.c(an);
-        this.a.getLayoutMode().a(this.g);
-        this.g.a(an);
-        if (an == 1) {
+        this.d.c(al);
+        this.a.getLayoutMode().a((View) this.g);
+        this.g.a(al);
+        if (al == 1) {
             this.o.setBackgroundResource(R.drawable.invite_friend_list_item_bg_color_1);
         } else {
             this.o.setBackgroundResource(R.drawable.invite_friend_list_item_bg_color);
@@ -86,7 +86,7 @@ public class t extends com.baidu.adp.a.e implements s {
     }
 
     public void e() {
-        ak.a(this.h, this.i.a(), null, this.q, null, 0, 1);
+        an.a(this.h, this.i.a(), null, this.q, null, 0, 1);
     }
 
     public void f() {
@@ -110,7 +110,7 @@ public class t extends com.baidu.adp.a.e implements s {
         return this.l.getDataList();
     }
 
-    public void a(com.baidu.tieba.im.data.d dVar) {
+    public void a(com.baidu.tieba.im.data.e eVar) {
         if (this.i == null) {
             this.i = new o(this.a);
             this.i.a(this);
@@ -118,9 +118,9 @@ public class t extends com.baidu.adp.a.e implements s {
             this.h.setAdapter((ListAdapter) this.i);
             this.l.setImageLoader(this.i.a());
         }
-        if (dVar != null) {
-            ArrayList<com.baidu.tieba.im.data.c> a = dVar.a();
-            if (!dVar.b() && (a == null || a.size() <= 0)) {
+        if (eVar != null) {
+            ArrayList<com.baidu.tieba.im.data.d> a = eVar.a();
+            if (!eVar.b() && (a == null || a.size() <= 0)) {
                 this.j.setVisibility(0);
                 this.h.setVisibility(8);
                 this.m.setVisibility(8);
@@ -128,9 +128,8 @@ public class t extends com.baidu.adp.a.e implements s {
             }
             this.j.setVisibility(8);
             this.h.setVisibility(0);
-            this.i.a(dVar.a());
+            this.i.a(eVar.a());
             this.i.notifyDataSetChanged();
-            e();
             this.m.setVisibility(0);
         }
     }
@@ -142,17 +141,17 @@ public class t extends com.baidu.adp.a.e implements s {
         this.h.addFooterView(this.o);
     }
 
-    public void a(com.baidu.tieba.im.data.c cVar) {
-        if (cVar != null) {
-            this.l.a(cVar);
+    public void a(com.baidu.tieba.im.data.d dVar) {
+        if (dVar != null) {
+            this.l.a(dVar);
             b(this.l.getItemLength());
             q();
         }
     }
 
-    public void b(com.baidu.tieba.im.data.c cVar) {
-        if (cVar != null) {
-            this.l.c(cVar);
+    public void b(com.baidu.tieba.im.data.d dVar) {
+        if (dVar != null) {
+            this.l.c(dVar);
             b(this.l.getItemLength());
             q();
         }
@@ -167,7 +166,7 @@ public class t extends com.baidu.adp.a.e implements s {
     }
 
     public void k() {
-        com.baidu.adp.lib.h.g.a(this.a, this.g.getEditText());
+        com.baidu.adp.lib.g.g.a(this.a, this.g.getEditText());
     }
 
     private void b(int i) {
@@ -192,9 +191,9 @@ public class t extends com.baidu.adp.a.e implements s {
     }
 
     @Override // com.baidu.tieba.im.friend.s
-    public void a(View view, com.baidu.tieba.im.data.c cVar) {
-        if (cVar != null) {
-            this.l.b(cVar);
+    public void a(View view, com.baidu.tieba.im.data.d dVar) {
+        if (dVar != null) {
+            this.l.b(dVar);
         }
     }
 }

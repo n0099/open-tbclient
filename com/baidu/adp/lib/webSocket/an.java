@@ -37,7 +37,7 @@ public class an extends Thread {
         this.k = null;
         this.h = 1;
         if (h()) {
-            com.baidu.adp.lib.h.e.d("created");
+            com.baidu.adp.lib.g.e.d("created");
         }
     }
 
@@ -308,7 +308,7 @@ public class an extends Thread {
                 String[] split2 = str2.split(": ");
                 if (split2.length == 2) {
                     hashMap.put(split2[0], split2[1]);
-                    com.baidu.adp.lib.h.e.b(String.format("'%s'='%s'", split2[0], split2[1]));
+                    com.baidu.adp.lib.g.e.b(String.format("'%s'='%s'", split2[0], split2[1]));
                 }
             }
         }
@@ -340,7 +340,7 @@ public class an extends Thread {
         this.d.get(bArr, 0, i8);
         String str = new String(bArr, "UTF-8");
         if (h()) {
-            com.baidu.adp.lib.h.e.b(String.format("Status: %d (%s)", Integer.valueOf(i4), str));
+            com.baidu.adp.lib.g.e.b(String.format("Status: %d (%s)", Integer.valueOf(i4), str));
         }
         return new Pair<>(Integer.valueOf(i4), str);
     }
@@ -362,10 +362,10 @@ public class an extends Thread {
         try {
             this.b.a();
         } catch (Exception e) {
-            com.baidu.adp.lib.h.e.a("error:" + e.getMessage());
+            com.baidu.adp.lib.g.e.a("error:" + e.getMessage());
         }
         if (h()) {
-            com.baidu.adp.lib.h.e.d("quit");
+            com.baidu.adp.lib.g.e.d("quit");
         }
     }
 
@@ -373,7 +373,7 @@ public class an extends Thread {
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         if (h()) {
-            com.baidu.adp.lib.h.e.d("running");
+            com.baidu.adp.lib.g.e.d("running");
         }
         try {
             this.d.clear();
@@ -390,7 +390,7 @@ public class an extends Thread {
                         } while (g());
                     } else if (a < 0) {
                         if (h()) {
-                            com.baidu.adp.lib.h.e.d("run() : ConnectionLost");
+                            com.baidu.adp.lib.g.e.d("run() : ConnectionLost");
                         }
                         a(new w(new SocketException("len < 0")));
                         this.g = true;
@@ -405,25 +405,25 @@ public class an extends Thread {
             } while (!this.g);
         } catch (WebSocketException e2) {
             if (h()) {
-                com.baidu.adp.lib.h.e.d("run() : WebSocketException (" + e2.toString() + ")");
+                com.baidu.adp.lib.g.e.d("run() : WebSocketException (" + e2.toString() + ")");
             }
             a(new ae(e2));
         } catch (Exception e3) {
             if (h()) {
-                com.baidu.adp.lib.h.e.d("run() : Exception (" + e3.toString() + ")");
-                com.baidu.adp.lib.h.e.c("----WebSocketReader.handleMessage error. e:" + e3.getMessage());
+                com.baidu.adp.lib.g.e.d("run() : Exception (" + e3.toString() + ")");
+                com.baidu.adp.lib.g.e.c("----WebSocketReader.handleMessage error. e:" + e3.getMessage());
             }
             a(new y(e3));
         } catch (SocketException e4) {
             if (h()) {
-                com.baidu.adp.lib.h.e.d("run() : SocketException (" + e4.toString() + ")");
+                com.baidu.adp.lib.g.e.d("run() : SocketException (" + e4.toString() + ")");
             }
             a(new w(e4));
         } finally {
             this.g = true;
         }
         if (h()) {
-            com.baidu.adp.lib.h.e.d("quit");
+            com.baidu.adp.lib.g.e.d("quit");
         }
     }
 

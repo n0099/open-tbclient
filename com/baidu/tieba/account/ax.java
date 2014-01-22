@@ -14,7 +14,7 @@ public class ax implements AccountProxy.TokenCallback {
 
     @Override // com.baidu.account.AccountProxy.TokenCallback
     public void callBack(String str) {
-        com.baidu.tieba.util.bo.e("BaiduAccountProxy", "getAccountData", "token = " + str);
+        com.baidu.adp.lib.g.e.e("BaiduAccountProxy", "getAccountData", "token = " + str);
         if (str != null) {
             this.a.a(BaiduAccount.get(this.a).getCurrentAccount(), str);
             return;

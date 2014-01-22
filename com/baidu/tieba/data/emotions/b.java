@@ -16,7 +16,7 @@ public class b implements com.baidu.tbadk.imageManager.c {
         if (dVar != null) {
             this.b.a(dVar);
             this.b.b(dVar);
-            if (this.b.b()) {
+            if (this.b.b() && !z) {
                 this.a.a(this.b);
             }
         }

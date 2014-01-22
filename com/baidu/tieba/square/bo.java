@@ -1,10 +1,9 @@
 package com.baidu.tieba.square;
 
-import android.view.KeyEvent;
-import android.widget.TextView;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bo implements TextView.OnEditorActionListener {
+public class bo implements View.OnFocusChangeListener {
     final /* synthetic */ SquareSearchActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,21 +11,10 @@ public class bo implements TextView.OnEditorActionListener {
         this.a = squareSearchActivity;
     }
 
-    @Override // android.widget.TextView.OnEditorActionListener
-    public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
-        int i2;
-        String str;
-        if (i == 2) {
-            i2 = this.a.D;
-            if (i2 == 0) {
-                this.a.d();
-                return true;
-            }
-            SquareSearchActivity squareSearchActivity = this.a;
-            str = this.a.C;
-            squareSearchActivity.a(1, str);
-            return true;
+    @Override // android.view.View.OnFocusChangeListener
+    public void onFocusChange(View view, boolean z) {
+        if (!z) {
+            com.baidu.adp.lib.g.g.a(this.a, view);
         }
-        return false;
     }
 }

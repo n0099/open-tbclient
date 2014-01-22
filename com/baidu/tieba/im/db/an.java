@@ -6,24 +6,50 @@ import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes.dex */
 public class an implements com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMessageCenterPojo>> {
     final /* synthetic */ String a;
-    final /* synthetic */ ag b;
+    final /* synthetic */ ImMessageCenterPojo b;
+    final /* synthetic */ ah c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public an(ag agVar, String str) {
-        this.b = agVar;
+    public an(ah ahVar, String str, ImMessageCenterPojo imMessageCenterPojo) {
+        this.c = ahVar;
         this.a = str;
+        this.b = imMessageCenterPojo;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.a
     public void a(ConcurrentHashMap<String, ImMessageCenterPojo> concurrentHashMap) {
         ImMessageCenterPojo imMessageCenterPojo = concurrentHashMap.get(this.a);
-        if (imMessageCenterPojo != null) {
-            imMessageCenterPojo.setLast_rid(0L);
-            imMessageCenterPojo.setPulled_msgId(0L);
-            imMessageCenterPojo.setIs_delete(1);
-            return;
+        if (imMessageCenterPojo == null) {
+            imMessageCenterPojo = new ImMessageCenterPojo();
+            imMessageCenterPojo.setGid(this.a);
         }
-        com.baidu.adp.lib.h.e.a("删除gid失败");
+        imMessageCenterPojo.setExt(this.b.getExt());
+        imMessageCenterPojo.setGroup_ext(this.b.getGroup_ext());
+        imMessageCenterPojo.setGroup_head(this.b.getGroup_head());
+        imMessageCenterPojo.setGroup_name(this.b.getGroup_name());
+        imMessageCenterPojo.setGroup_type(this.b.getGroup_type());
+        imMessageCenterPojo.setIs_delete(this.b.getIs_delete());
+        imMessageCenterPojo.setIs_hidden(this.b.getIs_hidden());
+        imMessageCenterPojo.setLast_content_time(this.b.getLast_content_time());
+        imMessageCenterPojo.setLast_content(this.b.getLast_content());
+        imMessageCenterPojo.setLast_user_name(this.b.getLast_user_name());
+        imMessageCenterPojo.setOrderCol(this.b.getOrderCol());
+        imMessageCenterPojo.setType(this.b.getType());
+        imMessageCenterPojo.setUnread_count(this.b.getUnread_count());
+        if (this.b.getLast_rid() > imMessageCenterPojo.getLast_rid()) {
+            imMessageCenterPojo.setLast_rid(this.b.getLast_rid());
+        }
+        long pulled_msgId = imMessageCenterPojo.getPulled_msgId();
+        long pulled_msgId2 = this.b.getPulled_msgId();
+        if (pulled_msgId <= pulled_msgId2) {
+            imMessageCenterPojo.setPulled_msgId(pulled_msgId2);
+            long last_rid = imMessageCenterPojo.getLast_rid();
+            long last_rid2 = this.b.getLast_rid();
+            if (last_rid <= last_rid2) {
+                imMessageCenterPojo.setLast_rid(last_rid2);
+                concurrentHashMap.put(imMessageCenterPojo.getGid(), imMessageCenterPojo);
+            }
+        }
     }
 }

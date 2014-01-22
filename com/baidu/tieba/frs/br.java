@@ -1,29 +1,25 @@
 package com.baidu.tieba.frs;
 
 import android.view.View;
-import android.widget.AbsListView;
-import com.baidu.tieba.view.CommonImageLayout;
-import com.baidu.tieba.voice.PlayVoiceBnt;
-import com.slidingmenu.lib.R;
+import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class br implements AbsListView.RecyclerListener {
-    final /* synthetic */ bo a;
+public class br implements com.baidu.adp.widget.BdSwitchView.c {
+    final /* synthetic */ bq a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public br(bo boVar) {
-        this.a = boVar;
+    public br(bq bqVar) {
+        this.a = bqVar;
     }
 
-    @Override // android.widget.AbsListView.RecyclerListener
-    public void onMovedToScrapHeap(View view) {
-        PlayVoiceBnt playVoiceBnt = (PlayVoiceBnt) view.findViewById(R.id.abstract_voice);
-        if (playVoiceBnt != null) {
-            playVoiceBnt.d();
+    @Override // com.baidu.adp.widget.BdSwitchView.c
+    public void a(View view, BdSwitchView.SwitchState switchState) {
+        if (switchState == BdSwitchView.SwitchState.ON) {
+            com.baidu.tieba.e.a.a().c(0);
+            com.baidu.tieba.e.a.a().a(true);
+        } else {
+            com.baidu.tieba.e.a.a().a(false);
         }
-        CommonImageLayout commonImageLayout = (CommonImageLayout) view.findViewById(R.id.abstract_img_layout);
-        if (commonImageLayout != null) {
-            commonImageLayout.a();
-        }
+        this.a.q = true;
     }
 }

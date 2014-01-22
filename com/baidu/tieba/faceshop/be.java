@@ -22,10 +22,10 @@ public class be extends com.baidu.adp.a.d {
     public be() {
         this.f = 0;
         this.g = 0;
-        TiebaApplication g = TiebaApplication.g();
-        this.f = com.baidu.adp.lib.h.g.b(g);
-        this.g = com.baidu.adp.lib.h.g.c(g);
-        this.h = g.getResources().getDisplayMetrics().density;
+        TiebaApplication h = TiebaApplication.h();
+        this.f = com.baidu.adp.lib.g.g.b(h);
+        this.g = com.baidu.adp.lib.g.g.c(h);
+        this.h = h.getResources().getDisplayMetrics().density;
     }
 
     public FaceShopData a() {

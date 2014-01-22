@@ -8,9 +8,10 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
+import com.baidu.sapi2.shell.SapiErrorCode;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.account.LoginActivity;
-import com.baidu.tieba.ap;
+import com.baidu.tieba.as;
 import com.baidu.tieba.im.chat.GroupChatActivity;
 import com.baidu.tieba.im.chat.GroupSettingActivity;
 import com.baidu.tieba.im.creategroup.GroupAddressLocateActivity;
@@ -22,10 +23,11 @@ import com.baidu.tieba.im.frsgroup.FrsGroupActivity;
 import com.baidu.tieba.im.frsgroup.GroupLevelActivity;
 import com.baidu.tieba.im.frsgroup.MembersActivity;
 import com.baidu.tieba.im.groupCard.GroupCardActivity;
-import com.baidu.tieba.im.model.am;
+import com.baidu.tieba.im.model.ao;
 import com.baidu.tieba.im.updategroup.UpdateGroupActivity;
 import com.baidu.tieba.person.EditHeadActivity;
 import com.baidu.tieba.person.PersonInfoActivity;
+import com.baidu.tieba.util.bo;
 import com.baidu.tieba.write.bb;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
@@ -34,8 +36,8 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class GroupInfoActivity extends com.baidu.tieba.j implements View.OnClickListener, View.OnLongClickListener, com.baidu.tieba.im.c.l, y, z {
     private m f;
-    private com.baidu.tieba.im.model.d g;
-    private am h;
+    private com.baidu.tieba.im.model.e g;
+    private ao h;
     private k i;
     private final int a = 1;
     private final int b = 2;
@@ -89,7 +91,7 @@ public class GroupInfoActivity extends com.baidu.tieba.j implements View.OnClick
     private void a() {
         this.i = new k(this, null);
         com.baidu.tieba.im.messageCenter.e.a().a(103004, this.i);
-        com.baidu.tieba.im.messageCenter.e.a().a(-102, this.i);
+        com.baidu.tieba.im.messageCenter.e.a().a(SapiErrorCode.NOT_INIT, this.i);
         com.baidu.tieba.im.messageCenter.e.a().a(103102, this.i);
         com.baidu.tieba.im.messageCenter.e.a().a(103112, this.i);
         com.baidu.tieba.im.messageCenter.e.a().a(103110, this.i);
@@ -98,6 +100,7 @@ public class GroupInfoActivity extends com.baidu.tieba.j implements View.OnClick
         com.baidu.tieba.im.c.m.a().a("group_name_change", this);
         com.baidu.tieba.im.messageCenter.e.a().a(103104, this.i);
         com.baidu.tieba.im.c.m.a().a("dismiss_group", this);
+        com.baidu.tieba.im.messageCenter.e.a().a(103105, this.i);
     }
 
     @Override // android.app.Activity
@@ -131,23 +134,24 @@ public class GroupInfoActivity extends com.baidu.tieba.j implements View.OnClick
         this.f.a(this.k);
     }
 
-    private void c() {
+    /* JADX INFO: Access modifiers changed from: private */
+    public void c() {
         this.f.r();
         this.g.b(this.g.d(), this.g.e());
     }
 
     public void a(Bundle bundle, Intent intent) {
-        this.g = new com.baidu.tieba.im.model.d();
+        this.g = new com.baidu.tieba.im.model.e();
         if (bundle == null) {
-            com.baidu.tieba.im.model.d dVar = this.g;
+            com.baidu.tieba.im.model.e eVar = this.g;
             if (intent == null) {
                 intent = getIntent();
             }
-            dVar.a(intent);
+            eVar.a(intent);
         } else {
             this.g.a(bundle);
         }
-        this.h = new am();
+        this.h = new ao();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -166,7 +170,7 @@ public class GroupInfoActivity extends com.baidu.tieba.j implements View.OnClick
     public void onClick(View view) {
         if (view == this.f.s()) {
             if (this.g.g().g()) {
-                ap.a(this, "edit_place_at_groupinfo");
+                as.a(this, "edit_place_at_groupinfo");
                 GroupAddressLocateActivity.a(this, 21001, this.g.g().a().getPosition(), this.g.g().a().getBusiness(), (this.g.g().a().getFlag() & 1) == 1);
             }
         } else if (view == this.f.p()) {
@@ -182,7 +186,7 @@ public class GroupInfoActivity extends com.baidu.tieba.j implements View.OnClick
         } else if (view == this.f.n()) {
             GroupLevelActivity.a(this, this.g.d());
         } else if (view == this.f.l()) {
-            com.baidu.adp.lib.h.e.d("botton click");
+            com.baidu.adp.lib.g.e.d("botton click");
             if (TextUtils.isEmpty(TiebaApplication.A())) {
                 LoginActivity.a((Activity) this, "", true, 3);
             } else if (this.g.g() != null) {
@@ -312,11 +316,11 @@ public class GroupInfoActivity extends com.baidu.tieba.j implements View.OnClick
                     }
                     return;
                 case 12001:
-                    EditHeadActivity.a(this, 12001, 12010, null, TiebaApplication.F(), 2);
+                    EditHeadActivity.a(this, 12001, 12010, null, TiebaApplication.E(), 2);
                     return;
                 case 12002:
                     if (intent != null) {
-                        EditHeadActivity.a(this, 12002, 12009, intent.getData(), TiebaApplication.F(), 2);
+                        EditHeadActivity.a(this, 12002, 12009, intent.getData(), TiebaApplication.E(), 2);
                         return;
                     }
                     return;
@@ -324,7 +328,7 @@ public class GroupInfoActivity extends com.baidu.tieba.j implements View.OnClick
                 case 12010:
                     PhotoUrlData photoUrlData = (PhotoUrlData) intent.getSerializableExtra(EditHeadActivity.b);
                     if (photoUrlData != null) {
-                        com.baidu.tieba.util.a.d.a(photoUrlData.getSmallurl(), com.baidu.tieba.util.aa.c("tieba_group_image"), true, false, true);
+                        bo.a().b(photoUrlData.getSmallurl(), com.baidu.tieba.util.ad.c("tieba_group_image"), true, false, true);
                     }
                     b(photoUrlData);
                     return;
@@ -480,7 +484,7 @@ public class GroupInfoActivity extends com.baidu.tieba.j implements View.OnClick
                 String string = jSONObject.getJSONObject("eventParam").getString("groupId");
                 if (jSONObject.getString("eventId").equals("107") && string.equals(String.valueOf(this.g.d()))) {
                     finish();
-                    com.baidu.adp.lib.h.e.d("dismiss suc");
+                    com.baidu.adp.lib.g.e.d("dismiss suc");
                 }
             } catch (JSONException e) {
                 e.printStackTrace();

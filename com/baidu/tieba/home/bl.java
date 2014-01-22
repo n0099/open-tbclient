@@ -41,7 +41,7 @@ public class bl {
             try {
                 a(new JSONObject(str));
             } catch (Exception e) {
-                com.baidu.tieba.util.bo.b(getClass().getName(), "parserJson", e.getMessage());
+                com.baidu.adp.lib.g.e.b(getClass().getName(), "parserJson", e.getMessage());
             }
         }
     }
@@ -65,7 +65,7 @@ public class bl {
                     }
                 }
             } catch (Exception e) {
-                com.baidu.tieba.util.bo.b(getClass().getName(), "parserJson", e.getMessage());
+                com.baidu.adp.lib.g.e.b(getClass().getName(), "parserJson", e.getMessage());
             }
         }
     }

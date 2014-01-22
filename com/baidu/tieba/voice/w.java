@@ -12,7 +12,7 @@ class w implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        this.a.c.a.b(4, this.a.c.d.getString(R.string.voice_error_file_md5));
+        this.a.c.a.a(4, this.a.c.d.getString(R.string.voice_error_file_md5));
         this.a.c.H = 1;
     }
 }

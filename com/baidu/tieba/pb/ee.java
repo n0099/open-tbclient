@@ -1,18 +1,26 @@
 package com.baidu.tieba.pb;
 
+import android.content.DialogInterface;
+import android.os.Handler;
 import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ee implements View.OnClickListener {
-    final /* synthetic */ ed a;
+class ee implements DialogInterface.OnClickListener {
+    final /* synthetic */ String a;
+    final /* synthetic */ int b;
+    final /* synthetic */ View c;
+    final /* synthetic */ ed d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ee(ed edVar) {
-        this.a = edVar;
+    public ee(ed edVar, String str, int i, View view) {
+        this.d = edVar;
+        this.a = str;
+        this.b = i;
+        this.c = view;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.a.q();
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        dialogInterface.dismiss();
+        new Handler().postDelayed(new ef(this), 200L);
     }
 }

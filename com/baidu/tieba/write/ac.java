@@ -15,7 +15,7 @@ class ac implements bc {
     @Override // com.baidu.tieba.model.bc
     public void a(com.baidu.tieba.data.ah ahVar) {
         LinearLayout linearLayout;
-        linearLayout = this.a.D;
+        linearLayout = this.a.B;
         ImageView imageView = (ImageView) linearLayout.findViewWithTag(ahVar.d);
         if (imageView != null) {
             imageView.setImageBitmap(ahVar.e);

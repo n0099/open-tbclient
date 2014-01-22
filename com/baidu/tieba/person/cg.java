@@ -2,6 +2,7 @@ package com.baidu.tieba.person;
 
 import android.app.Activity;
 import android.view.View;
+import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import com.baidu.tieba.TiebaApplication;
 /* loaded from: classes.dex */
 public class cg {
@@ -22,11 +23,11 @@ public class cg {
     public void a(View view) {
         if (!a() && TiebaApplication.B()) {
             com.baidu.adp.lib.guide.g gVar = new com.baidu.adp.lib.guide.g();
-            gVar.a(view).a(150).b(true);
+            gVar.a(view).a(SocialAPIErrorCodes.ERROR_AUTHORIZATION_CANCELED).b(true);
             ch chVar = new ch(this);
             gVar.a(chVar).a(new ci(this));
             gVar.a().a(this.a);
-            com.baidu.adp.lib.h.e.e("PersonPhotoCover", "show", "done");
+            com.baidu.adp.lib.g.e.e("PersonPhotoCover", "show", "done");
             b();
         }
     }

@@ -3,7 +3,7 @@ package com.baidu.tieba.im.nearbygroups;
 import android.text.TextUtils;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.im.data.NearbyGroupsData;
-import com.baidu.tieba.im.model.ad;
+import com.baidu.tieba.im.model.af;
 import com.baidu.tieba.util.UtilHelper;
 /* loaded from: classes.dex */
 class d implements com.baidu.adp.widget.ListView.b {
@@ -16,27 +16,27 @@ class d implements com.baidu.adp.widget.ListView.b {
 
     @Override // com.baidu.adp.widget.ListView.b
     public void a(boolean z) {
-        ad adVar;
+        af afVar;
         k kVar;
         k kVar2;
         k kVar3;
-        ad adVar2;
-        ad adVar3;
-        ad adVar4;
-        ad adVar5;
-        String bf = TiebaApplication.g().bf();
-        String bg = TiebaApplication.g().bg();
-        adVar = this.a.c;
-        if (!adVar.c() && !TextUtils.isEmpty(bf) && !TextUtils.isEmpty(bg)) {
-            adVar3 = this.a.c;
-            adVar3.b(bf);
-            adVar4 = this.a.c;
-            adVar4.a(bg);
-            adVar5 = this.a.c;
-            adVar5.f();
+        af afVar2;
+        af afVar3;
+        af afVar4;
+        af afVar5;
+        String bf = TiebaApplication.h().bf();
+        String bh = TiebaApplication.h().bh();
+        afVar = this.a.c;
+        if (!afVar.c() && !TextUtils.isEmpty(bf) && !TextUtils.isEmpty(bh)) {
+            afVar3 = this.a.c;
+            afVar3.b(bf);
+            afVar4 = this.a.c;
+            afVar4.a(bh);
+            afVar5 = this.a.c;
+            afVar5.f();
         } else if (UtilHelper.b()) {
-            adVar2 = this.a.c;
-            adVar2.c(true);
+            afVar2 = this.a.c;
+            afVar2.c(true);
             com.baidu.adp.lib.c.a.a().a(true, this.a.a);
         } else {
             kVar = this.a.b;

@@ -17,54 +17,54 @@ class av implements com.baidu.tieba.model.bt {
 
     @Override // com.baidu.tieba.model.bt
     public void a(boolean z, String str, com.baidu.tieba.data.bf bfVar, WriteData writeData, AntiData antiData) {
-        cs csVar;
-        cs csVar2;
+        cr crVar;
+        cr crVar2;
         com.baidu.tieba.model.bs bsVar;
         com.baidu.tieba.model.bs bsVar2;
         com.baidu.tieba.model.bs bsVar3;
         com.baidu.tieba.model.bm bmVar;
         com.baidu.tieba.model.bm bmVar2;
         com.baidu.tieba.model.bm bmVar3;
-        cs csVar3;
+        cr crVar3;
         com.baidu.tieba.model.bp bpVar;
         com.baidu.tieba.model.bm bmVar4;
-        cs csVar4;
+        cr crVar4;
         com.baidu.tieba.model.bm bmVar5;
         this.a.w();
-        csVar = this.a.z;
-        csVar.a(z);
+        crVar = this.a.A;
+        crVar.a(z);
         if (z) {
-            csVar2 = this.a.z;
-            csVar2.Z();
-            bsVar = this.a.v;
+            crVar2 = this.a.A;
+            crVar2.Z();
+            bsVar = this.a.w;
             WriteData a = bsVar.a();
-            bsVar2 = this.a.v;
+            bsVar2 = this.a.w;
             bsVar2.a((WriteData) null);
-            bsVar3 = this.a.v;
+            bsVar3 = this.a.w;
             bsVar3.a(false);
-            bmVar = this.a.t;
+            bmVar = this.a.u;
             bmVar.v();
             this.a.a(antiData, str);
-            bmVar2 = this.a.t;
+            bmVar2 = this.a.u;
             if (!bmVar2.i()) {
-                bmVar5 = this.a.t;
+                bmVar5 = this.a.u;
                 PbEditorCacheModel.a(bmVar5.b(), "", null);
             }
             if (a != null) {
                 String floor = a.getFloor();
                 if (a == null || a.getType() != 2) {
-                    bmVar3 = this.a.t;
+                    bmVar3 = this.a.u;
                     if (bmVar3.n()) {
-                        csVar3 = this.a.z;
-                        csVar3.p();
+                        crVar3 = this.a.A;
+                        crVar3.p();
                         return;
                     }
                     return;
                 }
-                bpVar = this.a.x;
+                bpVar = this.a.y;
                 bpVar.i();
                 if (floor != null) {
-                    bmVar4 = this.a.t;
+                    bmVar4 = this.a.u;
                     com.baidu.tieba.data.ao l = bmVar4.l();
                     Iterator<com.baidu.tieba.data.as> it = l.e().iterator();
                     while (true) {
@@ -77,8 +77,8 @@ class av implements com.baidu.tieba.model.bt {
                             break;
                         }
                     }
-                    csVar4 = this.a.z;
-                    csVar4.a(l);
+                    crVar4 = this.a.A;
+                    crVar4.a(l);
                 }
             }
         } else if (bfVar == null || writeData == null || bfVar.b() == null) {

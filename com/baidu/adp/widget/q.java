@@ -94,10 +94,10 @@ public class q implements am {
         int i11 = i10 + (max * i4);
         StringBuilder append = new StringBuilder().append("drawable intrinsic width = ");
         drawable3 = this.a.f;
-        com.baidu.adp.lib.h.e.e("IndicatorView$IndicatorView", "@measureWidth", append.append(drawable3.getIntrinsicWidth()).toString());
+        com.baidu.adp.lib.g.e.e("IndicatorView$IndicatorView", "@measureWidth", append.append(drawable3.getIntrinsicWidth()).toString());
         StringBuilder append2 = new StringBuilder().append("selector intrinsic width = ");
         drawable4 = this.a.g;
-        com.baidu.adp.lib.h.e.e("IndicatorView$IndicatorView", "@measureWidth", append2.append(drawable4.getIntrinsicWidth()).toString());
+        com.baidu.adp.lib.g.e.e("IndicatorView$IndicatorView", "@measureWidth", append2.append(drawable4.getIntrinsicWidth()).toString());
         switch (i8) {
             case Integer.MIN_VALUE:
                 int min = Math.min(i9, i11);

@@ -42,9 +42,9 @@ class c extends com.baidu.adp.a.g {
                     this.c.b(this.a, this.b);
                 } else if (((ag) obj) != null) {
                     this.c.c();
-                    TiebaApplication g = TiebaApplication.g();
+                    TiebaApplication h = TiebaApplication.h();
                     tRForumListData3 = this.c.f;
-                    g.f(tRForumListData3.forum_list[this.a].forum_name);
+                    h.e(tRForumListData3.forum_list[this.a].forum_name);
                 } else {
                     this.c.b(this.a, this.b);
                 }

@@ -1,11 +1,11 @@
 package com.baidu.tieba.im.data;
 
 import com.baidu.tieba.data.IconData;
-import com.baidu.tieba.util.ap;
+import com.baidu.tieba.util.as;
 import java.io.Serializable;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class UserData extends ap implements Serializable {
+public class UserData extends as implements Serializable {
     private static final long serialVersionUID = -4483304441506804594L;
     private long inTime;
     private long lastReplyTime;
@@ -116,7 +116,7 @@ public class UserData extends ap implements Serializable {
         this.lastReplyTime = j;
     }
 
-    @Override // com.baidu.tieba.util.ap, com.baidu.tieba.util.ar
+    @Override // com.baidu.tieba.util.as, com.baidu.tieba.util.au
     public LinkedList<String> getPhotoUrl() {
         LinkedList<String> linkedList = new LinkedList<>();
         linkedList.add(this.portrait);
@@ -148,5 +148,9 @@ public class UserData extends ap implements Serializable {
         public boolean isController() {
             return getIsGroupManager() || getIsGroupOwner();
         }
+    }
+
+    public String toString() {
+        return "UserData{userId=" + this.userId + ", userName='" + this.userName + "', portrait='" + this.portrait + "', sex=" + this.sex + ", position='" + this.position + "', lng='" + this.lng + "', lat='" + this.lat + "', inTime=" + this.inTime + ", loginTime=" + this.loginTime + ", lastReplyTime=" + this.lastReplyTime + ", permission=" + this.permission + ", mTShowIconInfo=" + this.mTShowIconInfo + '}';
     }
 }

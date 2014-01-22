@@ -3,7 +3,6 @@ package com.baidu.android.nebula.cmd;
 import android.content.Context;
 import com.baidu.android.moplus.util.NoProGuard;
 import com.baidu.android.nebula.util.BDLocationManager;
-import com.baidu.browser.webpool.BdWebPoolView;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import java.util.Map;
 import java.util.Timer;
@@ -22,7 +21,7 @@ public class GeoLocation implements NoProGuard, n {
     private BDLocationManager mLocMgr = null;
     private com.baidu.android.nebula.util.e mLocListener = null;
     private Timer mTimeoutTm = null;
-    private boolean mGpsEnabled = false;
+    private boolean mGpsEnabled = DEBUG;
 
     public GeoLocation() {
         a.a();
@@ -109,7 +108,7 @@ public class GeoLocation implements NoProGuard, n {
             this.mLocMgr.b(this.mLocListener);
         }
         if (this.mLocMgr != null) {
-            this.mLocMgr.a(false);
+            this.mLocMgr.a(DEBUG);
         }
         JSONObject jSONObject = new JSONObject();
         try {
@@ -126,7 +125,7 @@ public class GeoLocation implements NoProGuard, n {
         aVar.a("text/javascript");
         aVar.a().put("Cache-Control", "no-cache");
         aVar.b(str + " && " + str + "(" + jSONObject.toString() + ");");
-        aVar.a(BdWebPoolView.DELAYED_TIME);
+        aVar.a(200);
         a.a(this.mErrcode);
     }
 

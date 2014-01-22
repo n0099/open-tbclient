@@ -1,6 +1,7 @@
 package com.baidu.tieba.im.validate;
 
 import android.view.View;
+import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import com.baidu.tieba.view.HeadImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -20,6 +21,6 @@ public class i implements View.OnClickListener {
         validateActivity = this.a.i;
         headImageView = this.a.d;
         validateItemData = this.a.j;
-        validateActivity.a(headImageView, 101, 0, 0L, validateItemData);
+        validateActivity.a(headImageView, SocialAPIErrorCodes.ERROR_INVALID_CLIENT_ID, 0, 0L, validateItemData);
     }
 }

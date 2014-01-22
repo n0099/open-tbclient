@@ -9,15 +9,15 @@ public class PbEditorCacheModel {
         SET
     }
 
-    public static void a(String str, cm cmVar) {
-        if (!com.baidu.tieba.util.bm.c(str)) {
-            new cl(OP_TYPE.GET, str, cmVar, null).execute(new String[0]);
+    public static void a(String str, cl clVar) {
+        if (!com.baidu.tieba.util.bu.c(str)) {
+            new ck(OP_TYPE.GET, str, clVar, null).execute(new String[0]);
         }
     }
 
-    public static void a(String str, String str2, cm cmVar) {
-        if (!com.baidu.tieba.util.bm.c(str)) {
-            new cl(OP_TYPE.SET, str, cmVar, str2).execute(new String[0]);
+    public static void a(String str, String str2, cl clVar) {
+        if (!com.baidu.tieba.util.bu.c(str)) {
+            new ck(OP_TYPE.SET, str, clVar, str2).execute(new String[0]);
         }
     }
 }

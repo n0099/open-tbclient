@@ -4,6 +4,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
 import com.baidu.cloudsdk.social.core.SocialConstants;
+import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tieba.TiebaApplication;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
@@ -36,7 +37,7 @@ public class LoggerItem extends LinkedHashMap<String, String> {
         put(SocialConstants.PARAM_CUID, TextUtils.isEmpty(a2) ? "" : a2);
         put("model", TextUtils.isEmpty(str) ? "" : str);
         put("network", TextUtils.isEmpty(b) ? "" : b);
-        put("uid", TextUtils.isEmpty(A) ? "" : A);
+        put(SapiAccountManager.SESSION_UID, TextUtils.isEmpty(A) ? "" : A);
         put("version", TextUtils.isEmpty(j) ? "" : j);
     }
 

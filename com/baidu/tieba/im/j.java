@@ -17,6 +17,6 @@ public class j {
     }
 
     public static int a(Context context) {
-        return com.baidu.adp.lib.h.g.a(context, 300.0f);
+        return com.baidu.adp.lib.g.g.a(context, 300.0f);
     }
 }

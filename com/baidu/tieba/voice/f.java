@@ -13,7 +13,7 @@ public class f {
     public static boolean a(String str, int i, r rVar) {
         long currentTimeMillis = System.currentTimeMillis() - e;
         if (currentTimeMillis < 1000) {
-            com.baidu.adp.lib.h.e.c("----start duration......" + currentTimeMillis);
+            com.baidu.adp.lib.g.e.c("----start duration......" + currentTimeMillis);
             return false;
         }
         e = System.currentTimeMillis();
@@ -25,18 +25,18 @@ public class f {
             d = rVar;
             if (b.a(str, i)) {
                 a = 3;
-                com.baidu.adp.lib.h.e.c("----start record......");
+                com.baidu.adp.lib.g.e.c("----start record......");
                 new Thread(b).start();
                 return true;
             }
             return false;
         }
-        com.baidu.adp.lib.h.e.c("----start record state......" + a);
+        com.baidu.adp.lib.g.e.c("----start record state......" + a);
         return false;
     }
 
     public static void a() {
-        com.baidu.adp.lib.h.e.c("----stop record......");
+        com.baidu.adp.lib.g.e.c("----stop record......");
         if (b != null) {
             b.a();
         }
@@ -44,7 +44,7 @@ public class f {
     }
 
     public static void b() {
-        com.baidu.adp.lib.h.e.c("----cancel record......");
+        com.baidu.adp.lib.g.e.c("----cancel record......");
         if (b != null) {
             b.b();
         }

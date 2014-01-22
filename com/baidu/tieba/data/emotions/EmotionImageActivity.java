@@ -57,8 +57,8 @@ public class EmotionImageActivity extends com.baidu.tieba.j {
 
     private void a(Bundle bundle) {
         float f = getResources().getDisplayMetrics().density;
-        this.n = ((double) f) < 1.5d ? 134 : 200;
-        this.o = ((double) f) >= 1.5d ? 200 : 134;
+        this.n = ((double) f) < 1.5d ? 160 : 240;
+        this.o = ((double) f) >= 1.5d ? 240 : 160;
         if (bundle != null) {
             this.f = bundle.getString("pid");
             this.g = bundle.getString("panme");
@@ -85,7 +85,7 @@ public class EmotionImageActivity extends com.baidu.tieba.j {
 
     private void a() {
         FrameLayout.LayoutParams layoutParams;
-        com.baidu.adp.widget.ImageView.d g;
+        com.baidu.adp.widget.ImageView.d i;
         this.a = (NavigationBar) findViewById(R.id.navigation_bar);
         this.a.a(getString(R.string.emotion_image_title));
         this.a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new f(this));
@@ -103,14 +103,11 @@ public class EmotionImageActivity extends com.baidu.tieba.j {
         }
         this.c = (BDImageView) findViewById(R.id.emotion_icon);
         if (!TextUtils.isEmpty(this.h)) {
-            com.baidu.adp.widget.ImageView.d a2 = this.p.a(this.h, new h(this));
-            if (a2 != null) {
-                a2.a(this.c);
-            }
+            this.p.b(this.h, new h(this));
         } else {
             WritableEmotionGroup c2 = l.a().c(this.f);
-            if (c2 != null && (g = c2.g()) != null) {
-                g.a(this.c);
+            if (c2 != null && (i = c2.i()) != null) {
+                i.a(this.c);
             }
         }
         this.d = (TextView) findViewById(R.id.emotion_pname);

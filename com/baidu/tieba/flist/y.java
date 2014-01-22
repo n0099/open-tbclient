@@ -17,7 +17,7 @@ import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.view.NavigationBar;
-import com.baidu.tieba.view.bw;
+import com.baidu.tieba.view.cm;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class y {
@@ -41,8 +41,8 @@ public class y {
     LinearLayout o;
     TextView p;
     ImageView q;
-    bw r;
-    bw s;
+    cm r;
+    cm s;
     PopupWindow t;
     View u;
     ForumListActivity v;
@@ -66,8 +66,8 @@ public class y {
         this.j.setOnClickListener(forumListActivity);
         this.k = (TextView) forumListActivity.findViewById(R.id.tab_hot);
         this.k.setOnClickListener(forumListActivity);
-        this.r = new bw(forumListActivity);
-        this.s = new bw(forumListActivity);
+        this.r = new cm(forumListActivity);
+        this.s = new cm(forumListActivity);
         this.l = (LinearLayout) forumListActivity.getLayoutInflater().inflate(R.layout.forum_list_forum_footer, (ViewGroup) null);
         this.b = this.l.findViewById(R.id.footer_background);
         this.m = (TextView) this.l.findViewById(R.id.footer_text);
@@ -94,7 +94,7 @@ public class y {
 
     public void a(AdapterView.OnItemClickListener onItemClickListener) {
         if (!this.B) {
-            if (TiebaApplication.g().an() == 1) {
+            if (TiebaApplication.h().al() == 1) {
                 this.z.setImageResource(R.drawable.btn_allsproutpop_up_1);
             } else {
                 this.z.setImageResource(R.drawable.btn_allsproutpop_up);
@@ -103,19 +103,19 @@ public class y {
             if (this.u == null) {
                 this.u = a(0, onItemClickListener);
             }
-            int a = (com.baidu.adp.lib.h.g.a((Context) this.v, 160.0f) - this.y.getWidth()) / 2;
+            int a = (com.baidu.adp.lib.g.g.a((Context) this.v, 160.0f) - this.y.getWidth()) / 2;
             if (this.t == null) {
-                this.t = new PopupWindow(this.u, com.baidu.adp.lib.h.g.a((Context) this.v, 160.0f), -2, true);
+                this.t = new PopupWindow(this.u, com.baidu.adp.lib.g.g.a((Context) this.v, 160.0f), -2, true);
                 this.t.setBackgroundDrawable(new ColorDrawable(17170445));
                 if (this.C > 6) {
-                    this.t.setHeight(com.baidu.adp.lib.h.g.a((Context) this.v, 272.0f));
+                    this.t.setHeight(com.baidu.adp.lib.g.g.a((Context) this.v, 272.0f));
                 }
             }
             this.t.setOutsideTouchable(true);
             this.t.setFocusable(true);
             this.u.setFocusable(true);
             this.u.setFocusableInTouchMode(true);
-            this.t.showAsDropDown(this.y, 0 - a, com.baidu.adp.lib.h.g.a((Context) this.v, 0.0f));
+            this.t.showAsDropDown(this.y, 0 - a, com.baidu.adp.lib.g.g.a((Context) this.v, 0.0f));
             this.u.setOnKeyListener(new z(this));
             this.u.setOnTouchListener(new aa(this));
             this.t.setOnDismissListener(new ab(this));

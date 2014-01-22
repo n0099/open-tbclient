@@ -1,6 +1,6 @@
 package com.baidu.tieba.voice;
 
-import com.baidu.tieba.util.bo;
+import com.baidu.tieba.util.by;
 import com.baidu.tieba.voice.VoiceManager;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -31,7 +31,7 @@ public class ai implements com.baidu.tieba.voice.a.c {
         if (voiceModel != null) {
             adVar = this.a.y;
             if (adVar != null) {
-                if (!com.baidu.adp.lib.h.m.a(str) && !com.baidu.adp.lib.h.m.a(str2)) {
+                if (!com.baidu.adp.lib.g.m.a(str) && !com.baidu.adp.lib.g.m.a(str2)) {
                     voiceModel3 = this.a.v;
                     if (voiceModel3.voiceId.equals(str2)) {
                         voiceModel4 = this.a.v;
@@ -45,13 +45,14 @@ public class ai implements com.baidu.tieba.voice.a.c {
                     }
                     return;
                 }
-                bo.a(4, "VoiceManager", "VoiceLoaderCallback::voiceLoaded", "error code:" + i + " error msg:" + str3);
-                if (i <= 0 || com.baidu.adp.lib.h.m.a(str3) || (i != 2 && i != 4 && i != 3 && i != 7)) {
+                com.baidu.adp.lib.g.e.b("VoiceManager", "VoiceLoaderCallback::voiceLoaded", "error code:" + i + " error msg:" + str3);
+                by.b("", i, str3, str);
+                if (i <= 0 || com.baidu.adp.lib.g.m.a(str3) || (i != 2 && i != 4 && i != 3 && i != 7)) {
                     adVar2 = this.a.y;
-                    adVar2.b(5, ak.a(R.string.voice_err_load_fail));
+                    adVar2.a(5, ak.a(R.string.voice_err_load_fail));
                 } else {
                     adVar3 = this.a.y;
-                    adVar3.b(5, str3);
+                    adVar3.a(5, str3);
                 }
                 VoiceManager voiceManager2 = this.a;
                 voiceModel2 = this.a.v;

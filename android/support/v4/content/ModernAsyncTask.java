@@ -1,6 +1,5 @@
 package android.support.v4.content;
 
-import com.baidu.zeus.bouncycastle.DERTags;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.Executor;
 import java.util.concurrent.FutureTask;
@@ -13,7 +12,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 abstract class ModernAsyncTask<Params, Progress, Result> {
     private static final ThreadFactory a = new j();
     private static final BlockingQueue<Runnable> b = new LinkedBlockingQueue(10);
-    public static final Executor d = new ThreadPoolExecutor(5, (int) DERTags.TAGGED, 1, TimeUnit.SECONDS, b, a);
+    public static final Executor d = new ThreadPoolExecutor(5, 128, 1, TimeUnit.SECONDS, b, a);
     private static final o c = new o(null);
     private static volatile Executor e = d;
     private volatile Status h = Status.PENDING;

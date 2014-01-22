@@ -31,7 +31,7 @@ class a implements TextWatcher {
             if (30 < length) {
                 this.a.f.setEnabled(false);
                 editable.delete(selectionStart - 1, selectionEnd);
-                com.baidu.adp.lib.h.e.d("start:" + selectionStart + " end:" + selectionEnd);
+                com.baidu.adp.lib.g.e.d("start:" + selectionStart + " end:" + selectionEnd);
                 this.a.b.setText(editable);
                 this.a.b.setSelection(selectionStart);
                 length = 30;

@@ -17,7 +17,7 @@ import com.baidu.tieba.voice.VoiceManager;
 import com.slidingmenu.lib.R;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
-public class PbEditor extends LinearLayout implements com.baidu.tieba.view.av {
+public class PbEditor extends LinearLayout {
     private static final Pattern f = Pattern.compile("#\\([^#\\)\\(]+\\)$");
     protected Context a;
     protected PbEditorToolView b;
@@ -130,22 +130,14 @@ public class PbEditor extends LinearLayout implements com.baidu.tieba.view.av {
         this.b.getEditText().setSelection(this.b.getEditText().getText().length());
     }
 
-    @Override // com.baidu.tieba.view.av
-    public void a(int i) {
-        this.c.a(i);
-        if (i == 1 && !h()) {
-            new Handler().postDelayed(new cg(this), 0L);
-        }
-    }
-
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(int i, com.baidu.tieba.editortool.z zVar) {
         this.b.getEditText().requestFocus();
         this.c.b(this.b.getEditText());
-        b(i);
+        a(i);
     }
 
-    protected void b(int i) {
+    protected void a(int i) {
         if (i == 5) {
             this.c.n();
         } else if (i == 8) {
@@ -158,37 +150,37 @@ public class PbEditor extends LinearLayout implements com.baidu.tieba.view.av {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void c(int i) {
+    public void b(int i) {
         if (this.c.j()) {
-            b(i);
+            a(i);
             return;
         }
         this.e = false;
         if (this.c.u()) {
             this.c.b(this.b.getEditText());
         }
-        new Handler().postDelayed(new ch(this, i), 200L);
+        new Handler().postDelayed(new cg(this, i), 200L);
     }
 
     public void setOnActionListener(com.baidu.tieba.editortool.t tVar) {
         if (tVar != null) {
             this.d = tVar;
-            this.b.setOnActionListener(new cj(this, tVar));
-            this.c.setOnActionListener(new ck(this, tVar));
+            this.b.setOnActionListener(new ci(this, tVar));
+            this.c.setOnActionListener(new cj(this, tVar));
         }
     }
 
-    public void d(int i) {
+    public void c(int i) {
         this.b.a(i);
-        this.c.b(i);
+        this.c.a(i);
         if (this.a instanceof com.baidu.tieba.j) {
             ((com.baidu.tieba.j) this.a).getLayoutMode().a(i == 1);
-            ((com.baidu.tieba.j) this.a).getLayoutMode().a(this.b);
-            ((com.baidu.tieba.j) this.a).getLayoutMode().a(this.c);
+            ((com.baidu.tieba.j) this.a).getLayoutMode().a((View) this.b);
+            ((com.baidu.tieba.j) this.a).getLayoutMode().a((View) this.c);
         } else if (this.a instanceof BaseFragmentActivity) {
             ((BaseFragmentActivity) this.a).a().a(i == 1);
-            ((BaseFragmentActivity) this.a).a().a(this.b);
-            ((BaseFragmentActivity) this.a).a().a(this.c);
+            ((BaseFragmentActivity) this.a).a().a((View) this.b);
+            ((BaseFragmentActivity) this.a).a().a((View) this.c);
         }
     }
 

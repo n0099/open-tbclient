@@ -10,14 +10,13 @@ import android.graphics.Rect;
 import android.os.Handler;
 import android.util.AttributeSet;
 import android.view.View;
-import com.baidu.zeus.bouncycastle.DERTags;
 import com.google.zxing.ResultPoint;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public final class ViewfinderView extends View {
-    private static final int[] a = {0, 64, DERTags.TAGGED, 192, 255, 192, DERTags.TAGGED, 64};
+    private static final int[] a = {0, 64, 128, 192, 255, 192, 128, 64};
     private com.baidu.tieba.barcode.a.f b;
     private final Paint c;
     private Bitmap d;

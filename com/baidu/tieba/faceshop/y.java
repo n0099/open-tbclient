@@ -3,12 +3,12 @@ package com.baidu.tieba.faceshop;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.gson.GsonBuilder;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.bm;
+import com.baidu.tieba.util.bu;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class y extends BdAsyncTask<Object, String, FacePackageDetailData> {
     final /* synthetic */ w a;
-    private com.baidu.tieba.util.at b;
+    private com.baidu.tieba.util.ax b;
     private volatile boolean c;
 
     private y(w wVar) {
@@ -42,39 +42,39 @@ public class y extends BdAsyncTask<Object, String, FacePackageDetailData> {
                         StringBuilder append = new StringBuilder().append(TiebaApplication.A());
                         str5 = this.a.d;
                         String a = w.a(append.append(str5).toString());
-                        if (!bm.c(a)) {
+                        if (!bu.c(a)) {
                             c((Object[]) new String[]{a});
                         }
                     }
-                    this.b = new com.baidu.tieba.util.at(com.baidu.tieba.data.h.a + "c/e/faces/getfacelist");
-                    com.baidu.tieba.util.at atVar = this.b;
+                    this.b = new com.baidu.tieba.util.ax(com.baidu.tieba.data.h.a + "c/e/faces/getfacelist");
+                    com.baidu.tieba.util.ax axVar = this.b;
                     i = this.a.j;
-                    atVar.a("scr_w", String.valueOf(i));
-                    com.baidu.tieba.util.at atVar2 = this.b;
+                    axVar.a("scr_w", String.valueOf(i));
+                    com.baidu.tieba.util.ax axVar2 = this.b;
                     i2 = this.a.k;
-                    atVar2.a("scr_h", String.valueOf(i2));
-                    com.baidu.tieba.util.at atVar3 = this.b;
+                    axVar2.a("scr_h", String.valueOf(i2));
+                    com.baidu.tieba.util.ax axVar3 = this.b;
                     f = this.a.l;
-                    atVar3.a("scr_dip", String.valueOf(f));
-                    com.baidu.tieba.util.at atVar4 = this.b;
+                    axVar3.a("scr_dip", String.valueOf(f));
+                    com.baidu.tieba.util.ax axVar4 = this.b;
                     str3 = this.a.d;
-                    atVar4.a("pid", str3);
-                    com.baidu.tieba.util.at atVar5 = this.b;
+                    axVar4.a("pid", str3);
+                    com.baidu.tieba.util.ax axVar5 = this.b;
                     str4 = this.a.c;
-                    atVar5.a("st_type", str4);
-                    String l = this.b.l();
+                    axVar5.a("st_type", str4);
+                    String m = this.b.m();
                     gsonBuilder = this.a.g;
-                    facePackageDetailData = (FacePackageDetailData) gsonBuilder.create().fromJson(l, (Class<Object>) FacePackageDetailData.class);
+                    facePackageDetailData = (FacePackageDetailData) gsonBuilder.create().fromJson(m, (Class<Object>) FacePackageDetailData.class);
                     if (facePackageDetailData != null) {
                         try {
                             if (facePackageDetailData.facePackage != null) {
-                                a(l);
+                                a(m);
                                 return facePackageDetailData;
                             }
                             return facePackageDetailData;
                         } catch (Exception e2) {
                             e = e2;
-                            com.baidu.adp.lib.h.e.b(getClass().getName(), "doInBackground", e.toString());
+                            com.baidu.adp.lib.g.e.b(getClass().getName(), "doInBackground", e.toString());
                             return facePackageDetailData;
                         }
                     }
@@ -131,7 +131,7 @@ public class y extends BdAsyncTask<Object, String, FacePackageDetailData> {
         super.cancel(true);
         this.c = true;
         if (this.b != null) {
-            this.b.j();
+            this.b.k();
             this.b = null;
         }
         this.a.i = null;

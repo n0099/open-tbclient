@@ -12,7 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
-import com.baidu.mobstat.StatService;
 import com.baidu.tieba.BaseFragment;
 import com.baidu.tieba.BaseFragmentActivity;
 import com.baidu.tieba.MainTabActivity;
@@ -47,7 +46,7 @@ public class EnterForumActivity extends BaseFragment implements AbsListView.OnSc
                 case 0:
                     if (this.d != null) {
                         String b = this.d.b();
-                        if (com.baidu.tieba.util.bm.b(b)) {
+                        if (com.baidu.tieba.util.bu.b(b)) {
                             FrsActivity.a(this.g, b, "tb_forumlist");
                             return;
                         }
@@ -148,7 +147,7 @@ public class EnterForumActivity extends BaseFragment implements AbsListView.OnSc
             menu.findItem(4).setVisible(true);
             menu.findItem(5).setVisible(true);
         } catch (Exception e) {
-            com.baidu.tieba.util.bo.b("HomeActivity", "onPrepareOptionsMenu", "exp: " + e.toString());
+            com.baidu.adp.lib.g.e.b("HomeActivity", "onPrepareOptionsMenu", "exp: " + e.toString());
         }
         super.a(menu);
     }
@@ -198,10 +197,8 @@ public class EnterForumActivity extends BaseFragment implements AbsListView.OnSc
             }
             if (aeVar != null) {
                 String b = aeVar.b();
-                if (com.baidu.tieba.util.bm.b(b)) {
-                    if (TiebaApplication.g().s()) {
-                        StatService.onEvent(this.g, "ef_recent", "click", 1);
-                    }
+                if (com.baidu.tieba.util.bu.b(b)) {
+                    com.baidu.tieba.util.by.a(this.g, "ef_recent", "click", 1, new Object[0]);
                     FrsActivity.a(this.g, b, "tb_forumlist");
                 }
             }
@@ -217,7 +214,7 @@ public class EnterForumActivity extends BaseFragment implements AbsListView.OnSc
                 this.d = aeVar;
                 String b = aeVar.b();
                 int e = aeVar.e();
-                if (com.baidu.tieba.util.bm.b(b)) {
+                if (com.baidu.tieba.util.bu.b(b)) {
                     if (e == 1) {
                         this.a.p();
                     } else {
@@ -235,8 +232,8 @@ public class EnterForumActivity extends BaseFragment implements AbsListView.OnSc
     }
 
     @Override // com.baidu.tieba.BaseFragment
-    public void c(int i) {
-        super.c(i);
+    public void d(int i) {
+        super.d(i);
         this.a.c(i);
     }
 
@@ -253,7 +250,7 @@ public class EnterForumActivity extends BaseFragment implements AbsListView.OnSc
         boolean z3;
         if (this.c != null) {
             boolean booleanValue = this.f.booleanValue();
-            this.f = Boolean.valueOf((TiebaApplication.A() == null || TiebaApplication.G() == null) ? false : true);
+            this.f = Boolean.valueOf((TiebaApplication.A() == null || TiebaApplication.F() == null) ? false : true);
             if (this.e) {
                 this.e = false;
                 z2 = true;
@@ -265,26 +262,26 @@ public class EnterForumActivity extends BaseFragment implements AbsListView.OnSc
                 z2 = false;
                 z3 = false;
             }
-            if (TiebaApplication.g().M()) {
-                TiebaApplication.g().h(false);
+            if (TiebaApplication.h().L()) {
+                TiebaApplication.h().h(false);
                 z3 = true;
             }
             boolean z4 = z ? true : z3;
-            if (TiebaApplication.g().j() > 0) {
+            if (TiebaApplication.h().j() > 0) {
                 if (this.c != null && this.c.a() != null && this.c.a().d() != null) {
                     Iterator<com.baidu.tieba.data.ae> it = this.c.a().d().a().iterator();
                     while (it.hasNext()) {
                         com.baidu.tieba.data.ae next = it.next();
-                        if (TiebaApplication.g().b(next.b())) {
+                        if (TiebaApplication.h().a(next.b())) {
                             next.a(1);
-                            int d = TiebaApplication.g().d(next.b());
-                            if (d > 0) {
-                                next.b(d);
+                            int c = TiebaApplication.h().c(next.b());
+                            if (c > 0) {
+                                next.b(c);
                             }
                         }
                     }
                 }
-                TiebaApplication.g().i();
+                TiebaApplication.h().i();
                 String A = TiebaApplication.A();
                 if (A != null && A.length() > 0) {
                     DatabaseService.f(A);

@@ -4,11 +4,11 @@ import android.app.Activity;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.mobstat.StatService;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.account.LoginActivity;
 import com.baidu.tieba.forumdetail.ForumDetailActivity;
@@ -16,6 +16,7 @@ import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.model.ax;
 import com.baidu.tieba.model.ci;
 import com.baidu.tieba.switchs.SwitchKey;
+import com.baidu.tieba.util.by;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class ItemFootNavView extends LinearLayout {
@@ -63,7 +64,7 @@ public class ItemFootNavView extends LinearLayout {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(com.baidu.tieba.j jVar) {
-        boolean z = (TiebaApplication.A() == null || TiebaApplication.G() == null) ? false : true;
+        boolean z = (TiebaApplication.A() == null || TiebaApplication.F() == null) ? false : true;
         Object tag = this.c.getTag();
         boolean z2 = (tag == null || ((Integer) tag).intValue() != 2) ? true : true;
         if (!z && !z2) {
@@ -78,9 +79,7 @@ public class ItemFootNavView extends LinearLayout {
         } else if (intValue == 1) {
             a(jVar, this.g);
         }
-        if (TiebaApplication.g().s()) {
-            StatService.onEvent(this.a, intValue == 1 ? "detail_care_add" : "detail_care_cancel", "click", 1);
-        }
+        by.a(this.a, intValue == 1 ? "detail_care_add" : "detail_care_cancel", "click", 1, new Object[0]);
     }
 
     private void a(com.baidu.tieba.j jVar, boolean z) {
@@ -110,9 +109,9 @@ public class ItemFootNavView extends LinearLayout {
         int i2;
         int i3;
         int i4;
-        int an = TiebaApplication.g().an();
+        int al = TiebaApplication.h().al();
         if (z) {
-            if (an == 1) {
+            if (al == 1) {
                 i4 = R.drawable.icon_brief_cancel_1;
             } else {
                 i4 = R.drawable.icon_brief_cancel;
@@ -121,7 +120,7 @@ public class ItemFootNavView extends LinearLayout {
             i2 = i4;
             i3 = R.string.forum_detail_fans_cancel;
         } else {
-            if (an == 1) {
+            if (al == 1) {
                 i = R.drawable.icon_brief_attention_1;
             } else {
                 i = R.drawable.icon_brief_attention;
@@ -136,7 +135,7 @@ public class ItemFootNavView extends LinearLayout {
 
     public void a(com.baidu.tieba.j jVar, int i) {
         jVar.getLayoutMode().a(i == 1);
-        jVar.getLayoutMode().a(this);
+        jVar.getLayoutMode().a((View) this);
     }
 
     public void a(com.baidu.tieba.j jVar) {

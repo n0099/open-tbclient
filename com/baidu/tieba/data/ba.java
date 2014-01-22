@@ -1,6 +1,5 @@
 package com.baidu.tieba.data;
 
-import com.baidu.tieba.util.bo;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ba {
@@ -19,7 +18,7 @@ public class ba {
         try {
             a(new JSONObject(str).optJSONObject("error"));
         } catch (Exception e) {
-            bo.b(getClass().getName(), "parserJson", e.toString());
+            com.baidu.adp.lib.g.e.b(getClass().getName(), "parserJson", e.toString());
         }
     }
 
@@ -28,7 +27,7 @@ public class ba {
             this.a = jSONObject.optInt("errno");
             this.b = jSONObject.optString("usermsg");
         } catch (Exception e) {
-            bo.b(getClass().getName(), "parserJson", e.toString());
+            com.baidu.adp.lib.g.e.b(getClass().getName(), "parserJson", e.toString());
         }
     }
 }

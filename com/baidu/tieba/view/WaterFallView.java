@@ -10,15 +10,16 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.Scroller;
 import com.baidu.adp.widget.ScrollView.BdPullRefreshScrollView;
+import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class WaterFallView extends BdPullRefreshScrollView {
     private int b;
     private LinearLayout c;
     private LinearLayout d;
-    private cl e;
+    private db e;
     private LinearLayout f;
-    private cl g;
+    private db g;
     private View h;
     private View i;
     private int j;
@@ -26,7 +27,7 @@ public class WaterFallView extends BdPullRefreshScrollView {
     private int l;
     private int m;
     private int n;
-    private cm o;
+    private dc o;
 
     public WaterFallView(Context context) {
         super(context);
@@ -66,8 +67,8 @@ public class WaterFallView extends BdPullRefreshScrollView {
         h();
     }
 
-    public void setOnScrollListener(cm cmVar) {
-        this.o = cmVar;
+    public void setOnScrollListener(dc dcVar) {
+        this.o = dcVar;
     }
 
     public void a(View view) {
@@ -102,15 +103,15 @@ public class WaterFallView extends BdPullRefreshScrollView {
     }
 
     private void h() {
-        this.e = new cl(this);
-        this.g = new cl(this);
-        this.n = com.baidu.adp.lib.h.g.a(getContext(), 20.0f);
-        this.b = com.baidu.adp.lib.h.g.a(getContext(), 3.0f);
+        this.e = new db(this);
+        this.g = new db(this);
+        this.n = com.baidu.adp.lib.g.g.a(getContext(), 20.0f);
+        this.b = com.baidu.adp.lib.g.g.a(getContext(), 3.0f);
         this.c = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.water_fall_view, (ViewGroup) null);
         addView(this.c);
         this.d = (LinearLayout) this.c.findViewById(R.id.line1);
         this.f = (LinearLayout) this.c.findViewById(R.id.line2);
-        measure(View.MeasureSpec.makeMeasureSpec(com.baidu.adp.lib.h.g.b(getContext()), 1073741824), 0);
+        measure(View.MeasureSpec.makeMeasureSpec(com.baidu.adp.lib.g.g.b(getContext()), 1073741824), 0);
         this.j = this.d.getMeasuredWidth();
         i();
     }
@@ -120,22 +121,22 @@ public class WaterFallView extends BdPullRefreshScrollView {
     }
 
     private void i() {
-        this.k = new ck(this);
+        this.k = new da(this);
     }
 
     @Override // android.view.View
     protected void onScrollChanged(int i, int i2, int i3, int i4) {
         super.onScrollChanged(i, i2, i3, i4);
-        this.k.removeMessages(101);
+        this.k.removeMessages(SocialAPIErrorCodes.ERROR_INVALID_CLIENT_ID);
         boolean z = this.m - this.l == i2;
         if (i2 == 0 || z) {
             try {
-                Object obj = com.baidu.adp.lib.h.g.a(this, "mScroller").get(this);
+                Object obj = com.baidu.adp.lib.g.g.a(this, "mScroller").get(this);
                 if (obj != null && (obj instanceof Scroller)) {
                     ((Scroller) obj).abortAnimation();
                 }
             } catch (Exception e) {
-                com.baidu.tieba.util.bo.b(getClass().getName(), "onScrollChanged", e.getMessage());
+                com.baidu.adp.lib.g.e.b(getClass().getName(), "onScrollChanged", e.getMessage());
             }
         }
         if (this.o != null) {
@@ -145,7 +146,7 @@ public class WaterFallView extends BdPullRefreshScrollView {
                 this.o.a();
             }
             this.o.c();
-            this.k.sendMessageDelayed(this.k.obtainMessage(101), 300L);
+            this.k.sendMessageDelayed(this.k.obtainMessage(SocialAPIErrorCodes.ERROR_INVALID_CLIENT_ID), 300L);
         }
     }
 
@@ -205,8 +206,8 @@ public class WaterFallView extends BdPullRefreshScrollView {
         if (z) {
             this.l = i4 - i2;
         }
-        this.k.removeMessages(101);
-        this.k.sendMessageDelayed(this.k.obtainMessage(101), 300L);
+        this.k.removeMessages(SocialAPIErrorCodes.ERROR_INVALID_CLIENT_ID);
+        this.k.sendMessageDelayed(this.k.obtainMessage(SocialAPIErrorCodes.ERROR_INVALID_CLIENT_ID), 300L);
     }
 
     public void d(int i) {

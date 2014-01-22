@@ -55,7 +55,7 @@ public class CarouselRecommendView extends FrameLayout {
         this.j = context.getResources().getDimensionPixelSize(R.dimen.square_caroucel_paddingTop);
         this.i = context.getResources().getDimensionPixelSize(R.dimen.square_caroucel_paddingBottom);
         this.k = context.getResources().getDimensionPixelSize(R.dimen.square_page_padding);
-        this.f = com.baidu.adp.lib.h.g.b(context) - (this.k * 2);
+        this.f = com.baidu.adp.lib.g.g.b(context) - (this.k * 2);
         this.g = (int) (0.5f + (this.f * this.h));
         ViewGroup.LayoutParams layoutParams = this.c.getLayoutParams();
         layoutParams.width = this.f;
@@ -114,7 +114,7 @@ public class CarouselRecommendView extends FrameLayout {
     }
 
     /* loaded from: classes.dex */
-    public class CarouselRecommendPagerAdapter extends android.support.v4.view.ae implements com.baidu.tbadk.imageManager.c, com.baidu.tieba.view.an {
+    public class CarouselRecommendPagerAdapter extends android.support.v4.view.ae implements com.baidu.tbadk.imageManager.c, com.baidu.tieba.view.bb {
         private Context f;
         private com.baidu.tieba.util.i g;
         private int h;
@@ -136,7 +136,7 @@ public class CarouselRecommendView extends FrameLayout {
             this.f = context;
             this.k = LayoutInflater.from(context);
             this.g = new com.baidu.tieba.util.i(context);
-            this.h = com.baidu.adp.lib.h.g.b(context);
+            this.h = com.baidu.adp.lib.g.g.b(context);
             this.i = (int) (0.5f + (this.h * this.j));
             this.g.a(this.h, this.i);
         }
@@ -206,14 +206,14 @@ public class CarouselRecommendView extends FrameLayout {
             notifyDataSetChanged();
         }
 
-        @Override // com.baidu.tieba.view.an
+        @Override // com.baidu.tieba.view.bb
         public void d() {
             if (this.g != null) {
                 this.g.d();
             }
         }
 
-        @Override // com.baidu.tieba.view.an
+        @Override // com.baidu.tieba.view.bb
         public void a(View view, int i, int i2) {
             this.l = view;
             if (this.g != null && this.c != null) {
@@ -226,7 +226,7 @@ public class CarouselRecommendView extends FrameLayout {
                         if (this.l != null) {
                             ((HeadImageView) this.l.findViewWithTag(a)).setDefaultScaleType(ImageView.ScaleType.CENTER);
                         }
-                        this.g.a(this.c.get(i4).a(), this);
+                        this.g.b(this.c.get(i4).a(), this);
                         i3 = i4 + 1;
                     } else {
                         return;

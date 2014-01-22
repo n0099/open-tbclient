@@ -2,10 +2,10 @@ package com.baidu.tieba.account;
 
 import android.app.Activity;
 import com.baidu.loginshare.Token;
-import com.baidu.mobstat.StatService;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.AccountData;
 import com.baidu.tieba.util.UtilHelper;
+import com.baidu.tieba.util.by;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a {
@@ -49,7 +49,7 @@ public class a {
                 return token;
             } catch (Exception e2) {
                 e = e2;
-                com.baidu.tieba.util.bo.b("AccountShareHelper", "parseBDUSS", e.getMessage());
+                com.baidu.adp.lib.g.e.b("AccountShareHelper", "parseBDUSS", e.getMessage());
                 return token;
             }
         } catch (Exception e3) {
@@ -63,15 +63,15 @@ public class a {
         if (UtilHelper.b()) {
             this.b = activity;
             this.d = z;
-            AccountData F = TiebaApplication.F();
-            if (F != null && (a2 = a(F.getBDUSS())) != null) {
-                bd.a(F.getAccount(), a2.mBduss, a2.mPtoken, this.h, false);
+            AccountData E = TiebaApplication.E();
+            if (E != null && (a2 = a(E.getBDUSS())) != null) {
+                bd.a(E.getAccount(), a2.mBduss, a2.mPtoken, this.h, false);
             }
         }
     }
 
     public void a(Activity activity, int i) {
-        if (UtilHelper.b() && TiebaApplication.F() == null) {
+        if (UtilHelper.b() && TiebaApplication.E() == null) {
             this.g = true;
             this.b = activity;
             this.c = i;
@@ -107,7 +107,7 @@ public class a {
 
     private k a(AccountData accountData) {
         Token a2;
-        if (accountData == null || accountData.getAccount().equals(TiebaApplication.G()) || (a2 = a(accountData.getBDUSS())) == null) {
+        if (accountData == null || accountData.getAccount().equals(TiebaApplication.F()) || (a2 = a(accountData.getBDUSS())) == null) {
             return null;
         }
         k kVar = new k();
@@ -131,9 +131,7 @@ public class a {
 
     public void b(String str) {
         try {
-            if (TiebaApplication.g().s()) {
-                StatService.onEvent(TiebaApplication.g(), str, "click", 1);
-            }
+            by.a(TiebaApplication.h(), str, "click", 1, new Object[0]);
         } catch (Exception e) {
             e.printStackTrace();
         }

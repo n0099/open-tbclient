@@ -2,10 +2,10 @@ package com.baidu.tieba.im.groupCard;
 
 import android.graphics.Bitmap;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.util.aa;
-import com.baidu.tieba.util.as;
-import com.baidu.tieba.util.bm;
-import com.baidu.tieba.util.bo;
+import com.baidu.adp.lib.g.e;
+import com.baidu.tieba.util.ad;
+import com.baidu.tieba.util.aw;
+import com.baidu.tieba.util.bu;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -38,25 +38,25 @@ public class c extends BdAsyncTask<String, Integer, String> {
                 groupCardActivity2 = this.c.b;
                 return groupCardActivity2.getString(R.string.save_error);
             }
-            String f = bm.f(this.a);
+            String f = bu.f(this.a);
             if (f == null) {
                 groupCardActivity5 = this.c.b;
                 return groupCardActivity5.getString(R.string.save_error);
             }
             String str = f + ".jpg";
-            for (int i = 0; aa.b(str) && i < 10000; i++) {
+            for (int i = 0; ad.b(str) && i < 10000; i++) {
                 str = f + String.valueOf(Math.round(Math.random() * 9.9999999E7d)) + ".jpg";
             }
-            String a = aa.a((String) null, str, this.b, 80);
+            String a = ad.a((String) null, str, this.b, 80);
             if (a != null) {
                 groupCardActivity3 = this.c.b;
-                new as(groupCardActivity3).a(a);
+                new aw(groupCardActivity3).a(a);
                 groupCardActivity4 = this.c.b;
                 return groupCardActivity4.getString(R.string.save_image_to_album);
             }
-            return aa.b();
+            return ad.b();
         } catch (Exception e) {
-            bo.b("SaveImageAsyncTask", "doInBackground", "error" + e.getMessage());
+            e.b("SaveImageAsyncTask", "doInBackground", "error" + e.getMessage());
             groupCardActivity = this.c.b;
             return groupCardActivity.getString(R.string.save_error);
         }

@@ -47,7 +47,7 @@ public class TbFaceManager {
     private com.baidu.adp.widget.ImageView.d a(int i, String str) {
         Bitmap a2;
         com.baidu.adp.widget.ImageView.d c = d.a().c(str);
-        if (c == null && (a2 = com.baidu.adp.lib.h.a.a().a(this.b, i)) != null) {
+        if (c == null && (a2 = com.baidu.adp.lib.g.a.a().a(this.b, i)) != null) {
             com.baidu.adp.widget.ImageView.d dVar = new com.baidu.adp.widget.ImageView.d(a2, false, str);
             d.a().b(str, dVar);
             return dVar;

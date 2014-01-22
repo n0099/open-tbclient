@@ -14,16 +14,263 @@ import protobuf.Im;
 public final class QueryGroupCountRes {
 
     /* loaded from: classes.dex */
-    public final class DataRes extends GeneratedMessageLite implements k {
+    public final class Banner extends GeneratedMessageLite implements k {
+        public static final int LINK_FIELD_NUMBER = 1;
+        public static final int PICURL_FIELD_NUMBER = 2;
+        private static final long serialVersionUID = 0;
+        private int bitField0_;
+        private Object link_;
+        private byte memoizedIsInitialized;
+        private int memoizedSerializedSize;
+        private Object picUrl_;
+        public static Parser<Banner> PARSER = new i();
+        private static final Banner a = new Banner(true);
+
+        private Banner(GeneratedMessageLite.Builder builder) {
+            super(builder);
+            this.memoizedIsInitialized = (byte) -1;
+            this.memoizedSerializedSize = -1;
+        }
+
+        private Banner(boolean z) {
+            this.memoizedIsInitialized = (byte) -1;
+            this.memoizedSerializedSize = -1;
+        }
+
+        public static Banner getDefaultInstance() {
+            return a;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.google.protobuf.MessageLiteOrBuilder
+        public Banner getDefaultInstanceForType() {
+            return a;
+        }
+
+        private Banner(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
+            this.memoizedIsInitialized = (byte) -1;
+            this.memoizedSerializedSize = -1;
+            a();
+            boolean z = false;
+            while (!z) {
+                try {
+                    try {
+                        try {
+                            int readTag = codedInputStream.readTag();
+                            switch (readTag) {
+                                case 0:
+                                    z = true;
+                                    break;
+                                case 10:
+                                    this.bitField0_ |= 1;
+                                    this.link_ = codedInputStream.readBytes();
+                                    break;
+                                case Im.GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
+                                    this.bitField0_ |= 2;
+                                    this.picUrl_ = codedInputStream.readBytes();
+                                    break;
+                                default:
+                                    if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
+                                        z = true;
+                                        break;
+                                    } else {
+                                        break;
+                                    }
+                            }
+                        } catch (IOException e) {
+                            throw new InvalidProtocolBufferException(e.getMessage()).setUnfinishedMessage(this);
+                        }
+                    } catch (InvalidProtocolBufferException e2) {
+                        throw e2.setUnfinishedMessage(this);
+                    }
+                } finally {
+                    makeExtensionsImmutable();
+                }
+            }
+        }
+
+        static {
+            a.a();
+        }
+
+        @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
+        public Parser<Banner> getParserForType() {
+            return PARSER;
+        }
+
+        public boolean hasLink() {
+            return (this.bitField0_ & 1) == 1;
+        }
+
+        public String getLink() {
+            Object obj = this.link_;
+            if (obj instanceof String) {
+                return (String) obj;
+            }
+            ByteString byteString = (ByteString) obj;
+            String stringUtf8 = byteString.toStringUtf8();
+            if (byteString.isValidUtf8()) {
+                this.link_ = stringUtf8;
+            }
+            return stringUtf8;
+        }
+
+        public ByteString getLinkBytes() {
+            Object obj = this.link_;
+            if (obj instanceof String) {
+                ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
+                this.link_ = copyFromUtf8;
+                return copyFromUtf8;
+            }
+            return (ByteString) obj;
+        }
+
+        public boolean hasPicUrl() {
+            return (this.bitField0_ & 2) == 2;
+        }
+
+        public String getPicUrl() {
+            Object obj = this.picUrl_;
+            if (obj instanceof String) {
+                return (String) obj;
+            }
+            ByteString byteString = (ByteString) obj;
+            String stringUtf8 = byteString.toStringUtf8();
+            if (byteString.isValidUtf8()) {
+                this.picUrl_ = stringUtf8;
+            }
+            return stringUtf8;
+        }
+
+        public ByteString getPicUrlBytes() {
+            Object obj = this.picUrl_;
+            if (obj instanceof String) {
+                ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
+                this.picUrl_ = copyFromUtf8;
+                return copyFromUtf8;
+            }
+            return (ByteString) obj;
+        }
+
+        private void a() {
+            this.link_ = "";
+            this.picUrl_ = "";
+        }
+
+        @Override // com.google.protobuf.MessageLiteOrBuilder
+        public final boolean isInitialized() {
+            byte b = this.memoizedIsInitialized;
+            if (b != -1) {
+                return b == 1;
+            }
+            this.memoizedIsInitialized = (byte) 1;
+            return true;
+        }
+
+        @Override // com.google.protobuf.MessageLite
+        public void writeTo(CodedOutputStream codedOutputStream) {
+            getSerializedSize();
+            if ((this.bitField0_ & 1) == 1) {
+                codedOutputStream.writeBytes(1, getLinkBytes());
+            }
+            if ((this.bitField0_ & 2) == 2) {
+                codedOutputStream.writeBytes(2, getPicUrlBytes());
+            }
+        }
+
+        @Override // com.google.protobuf.MessageLite
+        public int getSerializedSize() {
+            int i = this.memoizedSerializedSize;
+            if (i == -1) {
+                i = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeBytesSize(1, getLinkBytes()) : 0;
+                if ((this.bitField0_ & 2) == 2) {
+                    i += CodedOutputStream.computeBytesSize(2, getPicUrlBytes());
+                }
+                this.memoizedSerializedSize = i;
+            }
+            return i;
+        }
+
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.google.protobuf.GeneratedMessageLite
+        public Object writeReplace() {
+            return super.writeReplace();
+        }
+
+        public static Banner parseFrom(ByteString byteString) {
+            return PARSER.parseFrom(byteString);
+        }
+
+        public static Banner parseFrom(ByteString byteString, ExtensionRegistryLite extensionRegistryLite) {
+            return PARSER.parseFrom(byteString, extensionRegistryLite);
+        }
+
+        public static Banner parseFrom(byte[] bArr) {
+            return PARSER.parseFrom(bArr);
+        }
+
+        public static Banner parseFrom(byte[] bArr, ExtensionRegistryLite extensionRegistryLite) {
+            return PARSER.parseFrom(bArr, extensionRegistryLite);
+        }
+
+        public static Banner parseFrom(InputStream inputStream) {
+            return PARSER.parseFrom(inputStream);
+        }
+
+        public static Banner parseFrom(InputStream inputStream, ExtensionRegistryLite extensionRegistryLite) {
+            return PARSER.parseFrom(inputStream, extensionRegistryLite);
+        }
+
+        public static Banner parseDelimitedFrom(InputStream inputStream) {
+            return PARSER.parseDelimitedFrom(inputStream);
+        }
+
+        public static Banner parseDelimitedFrom(InputStream inputStream, ExtensionRegistryLite extensionRegistryLite) {
+            return PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
+        }
+
+        public static Banner parseFrom(CodedInputStream codedInputStream) {
+            return PARSER.parseFrom(codedInputStream);
+        }
+
+        public static Banner parseFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
+            return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
+        }
+
+        public static j newBuilder() {
+            return j.f();
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.google.protobuf.MessageLite
+        public j newBuilderForType() {
+            return newBuilder();
+        }
+
+        public static j newBuilder(Banner banner) {
+            return newBuilder().mergeFrom(banner);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.google.protobuf.MessageLite
+        public j toBuilder() {
+            return newBuilder(this);
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public final class DataRes extends GeneratedMessageLite implements n {
+        public static final int BANNER_FIELD_NUMBER = 3;
         public static final int LOCALGROUPCOUNT_FIELD_NUMBER = 2;
         public static final int USERGROUPCOUNT_FIELD_NUMBER = 1;
         private static final long serialVersionUID = 0;
+        private Banner banner_;
         private int bitField0_;
         private int localGroupCount_;
         private byte memoizedIsInitialized;
         private int memoizedSerializedSize;
         private int userGroupCount_;
-        public static Parser<DataRes> PARSER = new i();
+        public static Parser<DataRes> PARSER = new l();
         private static final DataRes a = new DataRes(true);
 
         private DataRes(GeneratedMessageLite.Builder builder) {
@@ -48,40 +295,58 @@ public final class QueryGroupCountRes {
         }
 
         private DataRes(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
+            j jVar;
+            boolean z;
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
             a();
-            boolean z = false;
-            while (!z) {
+            boolean z2 = false;
+            while (!z2) {
                 try {
                     try {
-                        try {
-                            int readTag = codedInputStream.readTag();
-                            switch (readTag) {
-                                case 0:
+                        int readTag = codedInputStream.readTag();
+                        switch (readTag) {
+                            case 0:
+                                z = true;
+                                break;
+                            case 8:
+                                this.bitField0_ |= 1;
+                                this.userGroupCount_ = codedInputStream.readInt32();
+                                z = z2;
+                                break;
+                            case 16:
+                                this.bitField0_ |= 2;
+                                this.localGroupCount_ = codedInputStream.readInt32();
+                                z = z2;
+                                break;
+                            case Im.GroupInfo.NICKNAME_FIELD_NUMBER /* 26 */:
+                                if ((this.bitField0_ & 4) != 4) {
+                                    jVar = null;
+                                } else {
+                                    jVar = this.banner_.toBuilder();
+                                }
+                                this.banner_ = (Banner) codedInputStream.readMessage(Banner.PARSER, extensionRegistryLite);
+                                if (jVar != null) {
+                                    jVar.mergeFrom(this.banner_);
+                                    this.banner_ = jVar.buildPartial();
+                                }
+                                this.bitField0_ |= 4;
+                                z = z2;
+                                break;
+                            default:
+                                if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
                                     z = true;
                                     break;
-                                case 8:
-                                    this.bitField0_ |= 1;
-                                    this.userGroupCount_ = codedInputStream.readInt32();
+                                } else {
+                                    z = z2;
                                     break;
-                                case 16:
-                                    this.bitField0_ |= 2;
-                                    this.localGroupCount_ = codedInputStream.readInt32();
-                                    break;
-                                default:
-                                    if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
-                                        z = true;
-                                        break;
-                                    } else {
-                                        break;
-                                    }
-                            }
-                        } catch (IOException e) {
-                            throw new InvalidProtocolBufferException(e.getMessage()).setUnfinishedMessage(this);
+                                }
                         }
-                    } catch (InvalidProtocolBufferException e2) {
-                        throw e2.setUnfinishedMessage(this);
+                        z2 = z;
+                    } catch (InvalidProtocolBufferException e) {
+                        throw e.setUnfinishedMessage(this);
+                    } catch (IOException e2) {
+                        throw new InvalidProtocolBufferException(e2.getMessage()).setUnfinishedMessage(this);
                     }
                 } finally {
                     makeExtensionsImmutable();
@@ -114,9 +379,18 @@ public final class QueryGroupCountRes {
             return this.localGroupCount_;
         }
 
+        public boolean hasBanner() {
+            return (this.bitField0_ & 4) == 4;
+        }
+
+        public Banner getBanner() {
+            return this.banner_;
+        }
+
         private void a() {
             this.userGroupCount_ = 0;
             this.localGroupCount_ = 0;
+            this.banner_ = Banner.getDefaultInstance();
         }
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -138,6 +412,9 @@ public final class QueryGroupCountRes {
             if ((this.bitField0_ & 2) == 2) {
                 codedOutputStream.writeInt32(2, this.localGroupCount_);
             }
+            if ((this.bitField0_ & 4) == 4) {
+                codedOutputStream.writeMessage(3, this.banner_);
+            }
         }
 
         @Override // com.google.protobuf.MessageLite
@@ -147,6 +424,9 @@ public final class QueryGroupCountRes {
                 i = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeInt32Size(1, this.userGroupCount_) : 0;
                 if ((this.bitField0_ & 2) == 2) {
                     i += CodedOutputStream.computeInt32Size(2, this.localGroupCount_);
+                }
+                if ((this.bitField0_ & 4) == 4) {
+                    i += CodedOutputStream.computeMessageSize(3, this.banner_);
                 }
                 this.memoizedSerializedSize = i;
             }
@@ -199,32 +479,32 @@ public final class QueryGroupCountRes {
             return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
 
-        public static j newBuilder() {
-            return j.f();
+        public static m newBuilder() {
+            return m.f();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public j newBuilderForType() {
+        public m newBuilderForType() {
             return newBuilder();
         }
 
-        public static j newBuilder(DataRes dataRes) {
+        public static m newBuilder(DataRes dataRes) {
             return newBuilder().mergeFrom(dataRes);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public j toBuilder() {
+        public m toBuilder() {
             return newBuilder(this);
         }
     }
 
     /* loaded from: classes.dex */
-    public final class QueryGroupCountResIdl extends GeneratedMessageLite implements n {
+    public final class QueryGroupCountResIdl extends GeneratedMessageLite implements q {
         public static final int DATA_FIELD_NUMBER = 2;
         public static final int ERROR_FIELD_NUMBER = 1;
-        public static Parser<QueryGroupCountResIdl> PARSER = new l();
+        public static Parser<QueryGroupCountResIdl> PARSER = new o();
         private static final QueryGroupCountResIdl a = new QueryGroupCountResIdl(true);
         private static final long serialVersionUID = 0;
         private int bitField0_;
@@ -278,8 +558,8 @@ public final class QueryGroupCountRes {
                                 this.bitField0_ |= 1;
                                 z = z2;
                                 break;
-                            case 18:
-                                j builder2 = (this.bitField0_ & 2) == 2 ? this.data_.toBuilder() : null;
+                            case Im.GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
+                                m builder2 = (this.bitField0_ & 2) == 2 ? this.data_.toBuilder() : null;
                                 this.data_ = (DataRes) codedInputStream.readMessage(DataRes.PARSER, extensionRegistryLite);
                                 if (builder2 != null) {
                                     builder2.mergeFrom(this.data_);
@@ -419,23 +699,23 @@ public final class QueryGroupCountRes {
             return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
 
-        public static m newBuilder() {
-            return m.f();
+        public static p newBuilder() {
+            return p.f();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public m newBuilderForType() {
+        public p newBuilderForType() {
             return newBuilder();
         }
 
-        public static m newBuilder(QueryGroupCountResIdl queryGroupCountResIdl) {
+        public static p newBuilder(QueryGroupCountResIdl queryGroupCountResIdl) {
             return newBuilder().mergeFrom(queryGroupCountResIdl);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public m toBuilder() {
+        public p toBuilder() {
             return newBuilder(this);
         }
     }

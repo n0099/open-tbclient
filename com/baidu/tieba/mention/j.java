@@ -8,9 +8,10 @@ import android.support.v4.app.Fragment;
 import android.view.ViewGroup;
 import android.widget.ListAdapter;
 import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.ap;
-import com.baidu.tieba.aq;
+import com.baidu.tieba.as;
+import com.baidu.tieba.at;
 import com.baidu.tieba.model.bj;
 import com.baidu.tieba.pb.NewPbActivity;
 import java.util.ArrayList;
@@ -29,7 +30,7 @@ public class j {
     private int h = 1;
     private q k = null;
     private r l = null;
-    private aq m = null;
+    private at m = null;
     private String o = null;
     AlertDialog a = null;
     private Handler p = new Handler();
@@ -69,8 +70,8 @@ public class j {
         this.o = str;
     }
 
-    public void a(aq aqVar) {
-        this.m = aqVar;
+    public void a(at atVar) {
+        this.m = atVar;
     }
 
     public void a() {
@@ -88,17 +89,17 @@ public class j {
         if (uVar != null) {
             if (uVar.j()) {
                 if (this.i == 2) {
-                    ap.a(this.c, "new_at_me_visit_post");
+                    as.a(this.c, "new_at_me_visit_post");
                 } else if (this.i == 1) {
-                    ap.a(this.c, "new_my_reply_visit_post");
+                    as.a(this.c, "new_my_reply_visit_post");
                 }
                 b(uVar);
                 return;
             }
             if (this.i == 2) {
-                ap.a(this.c, "new_at_me_visit_pb");
+                as.a(this.c, "new_at_me_visit_pb");
             } else if (this.i == 1) {
-                ap.a(this.c, "new_my_reply_visit_pb");
+                as.a(this.c, "new_my_reply_visit_pb");
             }
             NewPbActivity.a(this.c, uVar.g(), uVar.h(), "mention");
         }
@@ -108,7 +109,7 @@ public class j {
         this.h = 1;
         this.f = new f(this.c, null);
         this.f.a(this.i);
-        this.f.b(TiebaApplication.g().aj());
+        this.f.b(TiebaApplication.h().ai());
         this.e.setAdapter((ListAdapter) this.f);
         this.e.setOnItemClickListener(new m(this));
         this.e.setOnScrollListener(new n(this));
@@ -148,7 +149,7 @@ public class j {
         stringBuffer.append(com.baidu.tieba.data.h.a);
         stringBuffer.append(this.o);
         ArrayList arrayList = new ArrayList();
-        arrayList.add(new BasicNameValuePair("uid", TiebaApplication.A()));
+        arrayList.add(new BasicNameValuePair(SapiAccountManager.SESSION_UID, TiebaApplication.A()));
         arrayList.add(new BasicNameValuePair("pn", String.valueOf(this.h)));
         if (this.n == 4 && this.g != null && (b = this.g.b()) != null && b.size() > 0) {
             com.baidu.tieba.data.u uVar = b.get(b.size() - 1);
@@ -199,9 +200,9 @@ public class j {
                     }
                     if (this.b.n()) {
                         if (this.b instanceof AtMeFragment) {
-                            ((AtMeFragment) this.b).c(TiebaApplication.g().an());
+                            ((AtMeFragment) this.b).d(TiebaApplication.h().al());
                         } else if (this.b instanceof ReplyMeFragment) {
-                            ((ReplyMeFragment) this.b).c(TiebaApplication.g().an());
+                            ((ReplyMeFragment) this.b).d(TiebaApplication.h().al());
                         }
                     }
                 }
@@ -223,8 +224,8 @@ public class j {
     }
 
     public void e() {
-        if (this.f != null && this.f.d() != TiebaApplication.g().aj()) {
-            this.f.b(TiebaApplication.g().aj());
+        if (this.f != null && this.f.d() != TiebaApplication.h().ai()) {
+            this.f.b(TiebaApplication.h().ai());
             this.f.notifyDataSetChanged();
         }
     }

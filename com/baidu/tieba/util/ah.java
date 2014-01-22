@@ -1,62 +1,53 @@
 package com.baidu.tieba.util;
 
-import com.baidu.zeus.NotificationProxy;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.util.zip.GZIPInputStream;
-import java.util.zip.GZIPOutputStream;
+import android.location.Address;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ah {
-    public static void a(InputStream inputStream, OutputStream outputStream) {
-        GZIPOutputStream gZIPOutputStream;
-        try {
-            gZIPOutputStream = new GZIPOutputStream(outputStream);
-        } catch (Throwable th) {
-            th = th;
-            gZIPOutputStream = null;
-        }
-        try {
-            byte[] bArr = new byte[NotificationProxy.MAX_URL_LENGTH];
-            while (true) {
-                int read = inputStream.read(bArr, 0, NotificationProxy.MAX_URL_LENGTH);
-                if (read != -1) {
-                    gZIPOutputStream.write(bArr, 0, read);
-                } else {
-                    gZIPOutputStream.flush();
-                    o.a((OutputStream) gZIPOutputStream);
-                    return;
-                }
-            }
-        } catch (Throwable th2) {
-            th = th2;
-            o.a((OutputStream) gZIPOutputStream);
-            throw th;
-        }
+public class ah implements com.baidu.adp.lib.c.d {
+    final /* synthetic */ ag a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ah(ag agVar) {
+        this.a = agVar;
     }
 
-    public static void b(InputStream inputStream, OutputStream outputStream) {
-        GZIPInputStream gZIPInputStream;
-        try {
-            gZIPInputStream = new GZIPInputStream(inputStream);
-        } catch (Throwable th) {
-            th = th;
-            gZIPInputStream = null;
-        }
-        try {
-            byte[] bArr = new byte[NotificationProxy.MAX_URL_LENGTH];
-            while (true) {
-                int read = gZIPInputStream.read(bArr, 0, NotificationProxy.MAX_URL_LENGTH);
-                if (read != -1) {
-                    outputStream.write(bArr, 0, read);
-                } else {
-                    o.a((InputStream) gZIPInputStream);
+    @Override // com.baidu.adp.lib.c.d
+    public void a(int i, String str, Address address) {
+        aj ajVar;
+        aj ajVar2;
+        com.baidu.tieba.im.model.am amVar;
+        com.baidu.tieba.im.model.am amVar2;
+        com.baidu.tieba.im.model.am amVar3;
+        com.baidu.tieba.im.model.am amVar4;
+        switch (i) {
+            case 0:
+                if (address != null) {
+                    this.a.b = address.getLatitude();
+                    this.a.a = address.getLongitude();
+                    amVar = this.a.c;
+                    amVar.b(String.valueOf(address.getLatitude()));
+                    amVar2 = this.a.c;
+                    amVar2.a(String.valueOf(address.getLongitude()));
+                    amVar3 = this.a.c;
+                    amVar3.a(0);
+                    amVar4 = this.a.c;
+                    amVar4.a();
                     return;
                 }
-            }
-        } catch (Throwable th2) {
-            th = th2;
-            o.a((InputStream) gZIPInputStream);
-            throw th;
+                return;
+            case 1:
+            case 2:
+            case 3:
+                ajVar2 = this.a.d;
+                ajVar2.b();
+                return;
+            case 4:
+            case 5:
+                ajVar = this.a.d;
+                ajVar.a();
+                return;
+            default:
+                return;
         }
     }
 }

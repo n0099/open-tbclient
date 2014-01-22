@@ -6,7 +6,6 @@ import android.text.SpannableString;
 import android.text.style.ImageSpan;
 import com.baidu.location.LocationClientOption;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.bo;
 import com.baidu.tieba.voice.VoiceManager;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
@@ -14,7 +13,7 @@ import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class bb extends com.baidu.tieba.util.ap {
+public class bb extends com.baidu.tieba.util.as {
     private SpannableString t;
     private int y;
     private int z;
@@ -202,7 +201,7 @@ public class bb extends com.baidu.tieba.util.ap {
                     }
                 }
             } catch (Exception e) {
-                bo.b("ThreadData", "parserJson", "error = " + e.getMessage());
+                com.baidu.adp.lib.g.e.b("ThreadData", "parserJson", "error = " + e.getMessage());
             }
         }
     }
@@ -219,7 +218,7 @@ public class bb extends com.baidu.tieba.util.ap {
         SpannableString spannableString;
         if (this.e != null) {
             ArrayList arrayList = new ArrayList();
-            if (TiebaApplication.g().an() == 1) {
+            if (TiebaApplication.h().al() == 1) {
                 if (f() == 1) {
                     arrayList.add(Integer.valueOf((int) R.drawable.icon_top_1));
                 } else if (f() == 2) {
@@ -261,7 +260,7 @@ public class bb extends com.baidu.tieba.util.ap {
                 SpannableString spannableString2 = new SpannableString(sb.toString() + this.e);
                 int i2 = 0;
                 for (int i3 = 0; i3 < arrayList.size(); i3++) {
-                    Bitmap a = com.baidu.tieba.util.m.a(((Integer) arrayList.get(i3)).intValue());
+                    Bitmap a = com.baidu.tieba.util.n.a(((Integer) arrayList.get(i3)).intValue());
                     BitmapDrawable bitmapDrawable = new BitmapDrawable(a);
                     bitmapDrawable.setBounds(0, 0, a.getWidth(), a.getHeight());
                     spannableString2.setSpan(new ImageSpan(bitmapDrawable, 1), i2, i2 + 1, 33);
@@ -275,7 +274,7 @@ public class bb extends com.baidu.tieba.util.ap {
         }
     }
 
-    @Override // com.baidu.tieba.util.ap, com.baidu.tieba.util.ar
+    @Override // com.baidu.tieba.util.as, com.baidu.tieba.util.au
     public LinkedList<String> getImageUrl() {
         ArrayList<aj> p = p();
         if (p == null || s()) {

@@ -9,7 +9,8 @@ import android.widget.AdapterView;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.account.LoginActivity;
 import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.bm;
+import com.baidu.tieba.util.bu;
+import com.baidu.tieba.view.br;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -20,7 +21,7 @@ public class FaceShopActivity extends com.baidu.tieba.j implements com.baidu.tie
     private be b;
     private j c;
     private HashMap<String, com.baidu.tieba.c.a> d = new HashMap<>();
-    private com.baidu.tieba.view.bf e = new av(this);
+    private br e = new av(this);
     private com.baidu.adp.a.g f = new aw(this);
 
     public static void a(Context context, String str) {
@@ -56,7 +57,7 @@ public class FaceShopActivity extends com.baidu.tieba.j implements com.baidu.tie
             stringExtra = bundle.getString("st_type");
         } else {
             stringExtra = getIntent().getStringExtra("st_type");
-            com.baidu.tieba.ap.a(this, stringExtra);
+            com.baidu.tieba.as.a(this, stringExtra);
         }
         this.b.a(stringExtra);
         this.b.setLoadDataCallBack(this.f);
@@ -185,7 +186,7 @@ public class FaceShopActivity extends com.baidu.tieba.j implements com.baidu.tie
                 String stringExtra = intent.getStringExtra("tag_order_id");
                 FacePackageData facePackageData = (FacePackageData) this.a.a().getItem(intExtra);
                 if (facePackageData != null) {
-                    String str = bm.c(stringExtra) ? facePackageData.orderId : stringExtra;
+                    String str = bu.c(stringExtra) ? facePackageData.orderId : stringExtra;
                     this.a.i();
                     this.c = new j();
                     this.c.setLoadDataCallBack(new ax(this, intExtra));
@@ -208,14 +209,14 @@ public class FaceShopActivity extends com.baidu.tieba.j implements com.baidu.tie
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(com.baidu.tieba.im.message.o oVar) {
+    public void a(com.baidu.tieba.im.message.q qVar) {
         FaceShopData a;
         ay a2;
         if (this.b != null && this.a != null && (a = this.b.a()) != null && a.packList != null) {
-            if (oVar.u() == -122) {
-                if (oVar instanceof com.baidu.tieba.c.b) {
+            if (qVar.w() == -122) {
+                if (qVar instanceof com.baidu.tieba.c.b) {
                     this.d.clear();
-                    List<com.baidu.tieba.c.a> a3 = ((com.baidu.tieba.c.b) oVar).a();
+                    List<com.baidu.tieba.c.a> a3 = ((com.baidu.tieba.c.b) qVar).a();
                     if (a3 != null && (a2 = this.a.a()) != null) {
                         for (com.baidu.tieba.c.a aVar : a3) {
                             this.d.put(aVar.a(), aVar);
@@ -230,7 +231,7 @@ public class FaceShopActivity extends com.baidu.tieba.j implements com.baidu.tie
                                     next.downloaded = 1;
                                     next.downloading = 0;
                                 } else if (f == 2 || f == 4) {
-                                    if (!bm.c(aVar2.n())) {
+                                    if (!bu.c(aVar2.n())) {
                                         showToast(aVar2.n());
                                     }
                                     a2.c();
@@ -247,7 +248,7 @@ public class FaceShopActivity extends com.baidu.tieba.j implements com.baidu.tie
                         a2.a(a);
                     }
                 }
-            } else if (oVar.u() == -120) {
+            } else if (qVar.w() == -120) {
                 ArrayList<String> arrayList = new ArrayList<>();
                 Iterator<FacePackageData> it2 = a.packList.iterator();
                 while (it2.hasNext()) {

@@ -21,7 +21,12 @@ public class SystemHelpSettingActivity extends com.baidu.tieba.j implements com.
         super.onCreate(bundle);
         this.a = new az(this);
         this.b = new av();
-        if (TiebaApplication.g().ak()) {
+        if (TiebaApplication.h().aj()) {
+            this.a.e().a();
+        } else {
+            this.a.e().b();
+        }
+        if (TiebaApplication.h().bg()) {
             this.a.a().a();
         } else {
             this.a.a().b();
@@ -42,11 +47,11 @@ public class SystemHelpSettingActivity extends com.baidu.tieba.j implements com.
 
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.a.e()) {
+        if (view == this.a.f()) {
             if (this.b != null) {
                 new AlertDialog.Builder(this).setTitle(R.string.alerm_title).setIcon((Drawable) null).setCancelable(false).setMessage(R.string.alert_clear_all_cache).setPositiveButton(R.string.alert_yes_button, new as(this)).setNegativeButton(R.string.alert_no_button, new ar(this)).create().show();
             }
-        } else if (view == this.a.f()) {
+        } else if (view == this.a.g()) {
             new AlertDialog.Builder(this).setTitle(R.string.alerm_title).setIcon((Drawable) null).setCancelable(false).setMessage(R.string.alert_clear_cache).setPositiveButton(R.string.alert_yes_button, new au(this)).setNegativeButton(R.string.alert_no_button, new at(this)).create().show();
         }
     }
@@ -58,11 +63,19 @@ public class SystemHelpSettingActivity extends com.baidu.tieba.j implements com.
 
     @Override // com.baidu.adp.widget.BdSwitchView.c
     public void a(View view, BdSwitchView.SwitchState switchState) {
-        if (view != null && view.equals(this.a.a())) {
-            if (BdSwitchView.SwitchState.ON == switchState) {
-                this.b.a(true);
-            } else {
-                this.b.a(false);
+        if (view != null) {
+            if (view.equals(this.a.e())) {
+                if (BdSwitchView.SwitchState.ON == switchState) {
+                    this.b.a(true);
+                } else {
+                    this.b.a(false);
+                }
+            } else if (view.equals(this.a.a())) {
+                if (BdSwitchView.SwitchState.ON == switchState) {
+                    TiebaApplication.h().z(true);
+                } else {
+                    TiebaApplication.h().z(false);
+                }
             }
         }
     }

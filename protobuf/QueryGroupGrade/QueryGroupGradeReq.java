@@ -9,6 +9,7 @@ import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.Parser;
 import java.io.IOException;
 import java.io.InputStream;
+import protobuf.Im;
 /* loaded from: classes.dex */
 public final class QueryGroupGradeReq {
 
@@ -245,7 +246,7 @@ public final class QueryGroupGradeReq {
                             case 0:
                                 z = true;
                                 break;
-                            case 34:
+                            case Im.GroupInfo.ISMEMBERGROUP_FIELD_NUMBER /* 34 */:
                                 if ((this.bitField0_ & 1) != 1) {
                                     cVar = null;
                                 } else {

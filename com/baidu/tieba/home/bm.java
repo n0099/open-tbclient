@@ -44,7 +44,7 @@ public class bm {
                 this.f = jSONObject.optInt("sign_day_count");
                 this.g = jSONObject.optInt("cur_score");
             } catch (Exception e) {
-                com.baidu.tieba.util.bo.b(getClass().getName(), "parserJson", e.getMessage());
+                com.baidu.adp.lib.g.e.b(getClass().getName(), "parserJson", e.getMessage());
             }
         }
     }

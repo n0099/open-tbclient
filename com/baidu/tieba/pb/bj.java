@@ -1,6 +1,6 @@
 package com.baidu.tieba.pb;
 /* loaded from: classes.dex */
-class bj implements dx {
+class bj implements dv {
     final /* synthetic */ NewPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -8,17 +8,17 @@ class bj implements dx {
         this.a = newPbActivity;
     }
 
-    @Override // com.baidu.tieba.pb.dx
+    @Override // com.baidu.tieba.pb.dv
     public void a(com.baidu.tieba.data.ax axVar) {
         com.baidu.tieba.model.bp bpVar;
         com.baidu.tieba.model.bp bpVar2;
-        cs csVar;
-        bpVar = this.a.x;
+        cr crVar;
+        bpVar = this.a.y;
         if (bpVar != null) {
-            bpVar2 = this.a.x;
+            bpVar2 = this.a.y;
             if (bpVar2.h()) {
-                csVar = this.a.z;
-                csVar.w();
+                crVar = this.a.A;
+                crVar.w();
             }
         }
     }

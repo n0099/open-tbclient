@@ -8,7 +8,7 @@ import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class bc extends BdAsyncTask<String, Integer, AccountData> {
     final /* synthetic */ ReLoginActivity a;
-    private volatile com.baidu.tieba.util.at b = null;
+    private volatile com.baidu.tieba.util.ax b = null;
     private String c;
     private String d;
 
@@ -34,13 +34,13 @@ public class bc extends BdAsyncTask<String, Integer, AccountData> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public AccountData a(String... strArr) {
         String f;
-        this.b = new com.baidu.tieba.util.at();
+        this.b = new com.baidu.tieba.util.ax();
         if (this.d != null) {
-            com.baidu.tieba.util.at atVar = this.b;
+            com.baidu.tieba.util.ax axVar = this.b;
             String str = this.c;
             StringBuilder append = new StringBuilder().append(this.d).append('|');
             f = this.a.f();
-            return com.baidu.tieba.f.a(atVar, str, append.append(f).toString());
+            return com.baidu.tieba.f.a(axVar, str, append.append(f).toString());
         }
         return null;
     }
@@ -58,7 +58,7 @@ public class bc extends BdAsyncTask<String, Integer, AccountData> {
         super.a((bc) accountData);
         this.a.i = accountData;
         if (this.b != null) {
-            this.a.l = this.b.i();
+            this.a.l = this.b.j();
         }
         str = this.a.l;
         if (str == null) {
@@ -84,7 +84,7 @@ public class bc extends BdAsyncTask<String, Integer, AccountData> {
     public void cancel() {
         super.cancel(true);
         if (this.b != null) {
-            this.b.j();
+            this.b.k();
         }
         this.a.b = null;
     }
