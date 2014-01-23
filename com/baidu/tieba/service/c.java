@@ -7,7 +7,7 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tieba.LogoActivity;
 import com.baidu.tieba.MainTabActivity;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.as;
+import com.baidu.tieba.ao;
 import com.baidu.tieba.util.UtilHelper;
 import com.baidu.tieba.util.by;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -132,7 +132,7 @@ public class c extends BdAsyncTask<String, Integer, String> {
             default:
                 return;
             case 14:
-                as.a(this.a.getBaseContext(), "notify_group_event_click");
+                ao.a(this.a.getBaseContext(), "notify_group_event_click");
                 return;
         }
     }

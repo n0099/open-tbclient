@@ -1,26 +1,16 @@
 package com.baidu.tieba;
-
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ar extends BroadcastReceiver {
-    final /* synthetic */ MainTabActivity a;
-
-    private ar(MainTabActivity mainTabActivity) {
-        this.a = mainTabActivity;
+class ar extends Thread {
+    private ar() {
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ar(MainTabActivity mainTabActivity, ap apVar) {
-        this(mainTabActivity);
-    }
-
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
-        if (intent.getAction().equals("com.baidu.tieba.broadcast.newversion")) {
-            this.a.p();
-        }
+    @Override // java.lang.Thread, java.lang.Runnable
+    public void run() {
+        super.run();
+        com.baidu.tieba.util.ax axVar = new com.baidu.tieba.util.ax(com.baidu.tieba.data.h.a + "c/m/register");
+        axVar.c(false);
+        axVar.a("channel_id", TiebaApplication.h().bb());
+        axVar.a("channel_uid", TiebaApplication.h().ba());
+        axVar.m();
     }
 }

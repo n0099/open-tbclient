@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.chat.snapGroup;
 
 import android.content.DialogInterface;
-import com.baidu.tieba.as;
+import com.baidu.tieba.ao;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements DialogInterface.OnClickListener {
@@ -16,7 +16,7 @@ public class j implements DialogInterface.OnClickListener {
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
-        as.a(this.b.b(), "snap_chat_exit_room");
+        ao.a(this.b.b(), "snap_chat_exit_room");
         this.a.getIntent().putExtra("need_freeze_user", true);
         this.a.finish();
     }

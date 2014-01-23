@@ -36,7 +36,7 @@ public class bh implements View.OnClickListener {
             }
             bwVar.a(this.a.b(), str);
             context = this.c.c;
-            com.baidu.tieba.as.a(context, "signall_resign_click");
+            com.baidu.tieba.ao.a(context, "signall_resign_click");
         }
     }
 }

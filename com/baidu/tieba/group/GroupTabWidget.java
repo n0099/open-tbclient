@@ -12,7 +12,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tieba.BaseFragmentActivity;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.ax;
+import com.baidu.tieba.at;
 import com.baidu.tieba.j;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
@@ -64,7 +64,7 @@ public class GroupTabWidget extends RelativeLayout {
         this.d = (ImageView) findViewById(R.id.left_icon);
         this.e = (TextView) findViewById(R.id.text);
         this.f = (ImageView) findViewById(R.id.right_arraw);
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, ax.groupTabWidget);
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, at.groupTabWidget);
         this.e.setText(obtainStyledAttributes.getString(1));
         this.d.setImageDrawable(obtainStyledAttributes.getDrawable(0));
         this.g[0] = obtainStyledAttributes.getResourceId(0, 0);

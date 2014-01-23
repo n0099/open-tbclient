@@ -91,7 +91,7 @@ public class PushMessageReceiver extends BroadcastReceiver {
                             if (optString3 != null) {
                                 TiebaApplication.h().w(optString3);
                             }
-                            new av().start();
+                            new ar().start();
                         }
                     } catch (Exception e2) {
                         e2.printStackTrace();

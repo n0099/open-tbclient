@@ -150,8 +150,8 @@ public class bh {
                 jsonArray.add(jsonObject);
             }
             return jsonArray.toString();
-        } catch (Exception e) {
-            com.baidu.adp.lib.g.e.a(e.getMessage());
+        } catch (Throwable th) {
+            com.baidu.adp.lib.g.e.a(th.getMessage());
             return null;
         }
     }

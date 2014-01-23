@@ -108,7 +108,7 @@ public class PersonalChatActivity extends MsglistActivity {
     public void onClick(View view) {
         super.onClick(view);
         if (view == this.d.z()) {
-            com.baidu.tieba.as.a(this, "personal_chat_page_morebutton");
+            com.baidu.tieba.ao.a(this, "personal_chat_page_morebutton");
             PersonalTalkSettingActivity.a(this.e.b().getUserId());
         }
     }

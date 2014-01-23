@@ -1,19 +1,30 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import android.location.Address;
+import android.text.TextUtils;
 /* loaded from: classes.dex */
-class ba implements View.OnClickListener {
-    final /* synthetic */ ay a;
+class ba implements com.baidu.adp.lib.c.d {
+    final /* synthetic */ TiebaApplication a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ba(ay ayVar) {
-        this.a = ayVar;
+    public ba(TiebaApplication tiebaApplication) {
+        this.a = tiebaApplication;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        bb bbVar;
-        bbVar = this.a.h;
-        bbVar.a();
+    @Override // com.baidu.adp.lib.c.d
+    public void a(int i, String str, Address address) {
+        if (i == 0 && address != null) {
+            try {
+                String valueOf = String.valueOf(address.getLatitude());
+                String valueOf2 = String.valueOf(address.getLongitude());
+                if (!TextUtils.isEmpty(valueOf) && !TextUtils.isEmpty(valueOf2)) {
+                    this.a.x(valueOf);
+                    this.a.y(valueOf2);
+                    this.a.z(address.getAddressLine(0));
+                }
+            } catch (IllegalStateException e) {
+                com.baidu.adp.lib.g.e.a(e.getMessage());
+            }
+        }
     }
 }

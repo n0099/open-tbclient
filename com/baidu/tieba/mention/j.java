@@ -10,8 +10,8 @@ import android.widget.ListAdapter;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.as;
-import com.baidu.tieba.at;
+import com.baidu.tieba.ao;
+import com.baidu.tieba.ap;
 import com.baidu.tieba.model.bj;
 import com.baidu.tieba.pb.NewPbActivity;
 import java.util.ArrayList;
@@ -30,7 +30,7 @@ public class j {
     private int h = 1;
     private q k = null;
     private r l = null;
-    private at m = null;
+    private ap m = null;
     private String o = null;
     AlertDialog a = null;
     private Handler p = new Handler();
@@ -70,8 +70,8 @@ public class j {
         this.o = str;
     }
 
-    public void a(at atVar) {
-        this.m = atVar;
+    public void a(ap apVar) {
+        this.m = apVar;
     }
 
     public void a() {
@@ -89,17 +89,17 @@ public class j {
         if (uVar != null) {
             if (uVar.j()) {
                 if (this.i == 2) {
-                    as.a(this.c, "new_at_me_visit_post");
+                    ao.a(this.c, "new_at_me_visit_post");
                 } else if (this.i == 1) {
-                    as.a(this.c, "new_my_reply_visit_post");
+                    ao.a(this.c, "new_my_reply_visit_post");
                 }
                 b(uVar);
                 return;
             }
             if (this.i == 2) {
-                as.a(this.c, "new_at_me_visit_pb");
+                ao.a(this.c, "new_at_me_visit_pb");
             } else if (this.i == 1) {
-                as.a(this.c, "new_my_reply_visit_pb");
+                ao.a(this.c, "new_my_reply_visit_pb");
             }
             NewPbActivity.a(this.c, uVar.g(), uVar.h(), "mention");
         }

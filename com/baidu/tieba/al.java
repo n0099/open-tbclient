@@ -1,30 +1,22 @@
 package com.baidu.tieba;
-
-import android.view.animation.Animation;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class al implements Animation.AnimationListener {
-    final /* synthetic */ LogoActivity a;
+public class al implements u {
+    final /* synthetic */ MainTabActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public al(LogoActivity logoActivity) {
-        this.a = logoActivity;
+    public al(MainTabActivity mainTabActivity) {
+        this.a = mainTabActivity;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        boolean z;
-        this.a.b = true;
-        z = this.a.c;
-        if (z) {
-            this.a.a(this.a.getBaseContext());
+    @Override // com.baidu.tieba.u
+    public void a(int i, int i2) {
+        w wVar;
+        if (i == 4) {
+            this.a.r = true;
+            this.a.s = true;
+            wVar = this.a.l;
+            wVar.c.setVisibility(8);
         }
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
     }
 }

@@ -1,8 +1,9 @@
 package com.baidu.tieba;
 
 import android.os.Handler;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ad implements Runnable {
+public class ad implements Runnable {
     final /* synthetic */ GuideActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,7 +14,7 @@ class ad implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
         Handler handler;
-        handler = this.a.n;
-        handler.sendEmptyMessage(3);
+        handler = this.a.m;
+        handler.sendEmptyMessage(1);
     }
 }

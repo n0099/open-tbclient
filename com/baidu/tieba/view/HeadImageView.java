@@ -51,7 +51,7 @@ public class HeadImageView extends TbImageView {
         this.p = 0;
         this.q = 0;
         this.r = false;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.baidu.tieba.ax.HeadImageView);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.baidu.tieba.at.HeadImageView);
         this.k = obtainStyledAttributes.getFloat(0, -1.0f);
         obtainStyledAttributes.recycle();
         this.j = com.baidu.adp.lib.g.g.a(context, 5.0f);
@@ -68,7 +68,7 @@ public class HeadImageView extends TbImageView {
         this.f = new Paint();
         this.f.setColor(1275068416);
         this.f.setAntiAlias(true);
-        TypedArray obtainStyledAttributes2 = context.obtainStyledAttributes(attributeSet, com.baidu.tieba.ax.HeadImageView);
+        TypedArray obtainStyledAttributes2 = context.obtainStyledAttributes(attributeSet, com.baidu.tieba.at.HeadImageView);
         if (obtainStyledAttributes2.getBoolean(1, true)) {
             setIsRound(this.n);
         }

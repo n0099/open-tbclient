@@ -140,7 +140,7 @@ public class HorizontalPanelView extends LinearLayout implements View.OnClickLis
             if (view instanceof HeadImageView) {
                 HeadImageView headImageView = (HeadImageView) view;
                 if (!TextUtils.isEmpty(headImageView.getUserId())) {
-                    com.baidu.tieba.as.a(getContext(), "snap_chat_member_head_click");
+                    com.baidu.tieba.ao.a(getContext(), "snap_chat_member_head_click");
                     PersonInfoActivity.a(this.a, headImageView.getUserId(), headImageView.getUserName());
                     return;
                 }

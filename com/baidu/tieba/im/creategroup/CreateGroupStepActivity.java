@@ -10,7 +10,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.CompoundButton;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.as;
+import com.baidu.tieba.ao;
 import com.baidu.tieba.im.data.GroupAddressInfoData;
 import com.baidu.tieba.person.EditHeadActivity;
 import com.baidu.tieba.util.aj;
@@ -184,7 +184,7 @@ public class CreateGroupStepActivity extends com.baidu.tieba.j implements TextWa
         } else if (view == this.a.j() || view == this.a.k()) {
             this.a.P();
         } else if (view == this.a.s()) {
-            as.a(this, "edit_place_at_creatgroup");
+            ao.a(this, "edit_place_at_creatgroup");
             switch (this.a.t()) {
                 case 0:
                     GroupAddressEditActivity.a(this, 21001, this.e.getAddressList(), this.f, false);

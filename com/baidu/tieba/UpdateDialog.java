@@ -12,7 +12,7 @@ import com.baidu.tieba.service.TiebaUpdateService;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class UpdateDialog extends j {
-    private ay c;
+    private au c;
     private VersionData a = null;
     private CombineDownload b = null;
     private Dialog d = null;
@@ -59,10 +59,10 @@ public class UpdateDialog extends j {
             String.format(getString(R.string.update_client), this.a.getNew_version());
         }
         if (this.a.getHas_new_ver() == 1) {
-            this.c = new ay(this, R.style.common_alert_dialog);
-            this.c.a(this.a, this.b, new bo(this));
-            this.c.setOnCancelListener(new bp(this));
-            this.c.setOnDismissListener(new bq(this));
+            this.c = new au(this, R.style.common_alert_dialog);
+            this.c.a(this.a, this.b, new bk(this));
+            this.c.setOnCancelListener(new bl(this));
+            this.c.setOnDismissListener(new bm(this));
             this.c.show();
         }
     }

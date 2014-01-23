@@ -83,7 +83,7 @@ class k implements View.OnClickListener {
                         bkVar6 = this.a.n;
                         com.baidu.tieba.view.ao p = bkVar6.p();
                         if ((o != null && o.b(view)) || (p != null && p.b(view))) {
-                            com.baidu.tieba.as.a(this.a.getParent(), "forum_fortune_click");
+                            com.baidu.tieba.ao.a(this.a.getParent(), "forum_fortune_click");
                             FrsActivity frsActivity = this.a;
                             StringBuilder append = new StringBuilder().append(com.baidu.tieba.data.h.a).append("/mo/q/fudaiindex").append("?fid=");
                             akVar = this.a.w;
@@ -236,7 +236,7 @@ class k implements View.OnClickListener {
                 StringBuilder append2 = new StringBuilder().append("http://tieba.baidu.com/mo/q/bawuindex?fn=");
                 str4 = this.a.f;
                 String sb = append2.append(str4).append("&fid=").append(str8).toString();
-                com.baidu.tieba.as.a(this.a.getParent(), "forum_management_click");
+                com.baidu.tieba.ao.a(this.a.getParent(), "forum_management_click");
                 UtilHelper.c(this.a, sb);
                 return;
             case R.id.add_to_window_layout /* 2131100399 */:

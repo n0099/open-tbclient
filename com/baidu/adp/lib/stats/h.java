@@ -292,7 +292,7 @@ public class h {
     }
 
     public void a(e eVar) {
-        if (eVar != null && !eVar.g()) {
+        if (eVar != null && !eVar.g() && eVar.h()) {
             eVar.e(true);
             new Thread(new j(this, eVar)).start();
         }

@@ -11,7 +11,7 @@ import com.baidu.tieba.BaseFragment;
 import com.baidu.tieba.BaseFragmentActivity;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.account.LoginActivity;
-import com.baidu.tieba.as;
+import com.baidu.tieba.ao;
 import com.baidu.tieba.barcode.CaptureActivity;
 import com.baidu.tieba.im.creategroup.CreateGroupStepActivity;
 import com.baidu.tieba.im.data.GroupPermData;
@@ -135,7 +135,7 @@ public class GroupActivity extends BaseFragment implements com.baidu.tieba.im.a.
                     CaptureActivity.a(i(), 16003);
                     return;
                 case 6:
-                    as.a(this.d, "rand_chat_enter_button");
+                    ao.a(this.d, "rand_chat_enter_button");
                     if (!TiebaApplication.B()) {
                         LoginActivity.a((Activity) i(), "", true, 2);
                         return;

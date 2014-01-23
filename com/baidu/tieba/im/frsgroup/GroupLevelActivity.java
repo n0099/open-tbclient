@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import com.baidu.tieba.as;
+import com.baidu.tieba.ao;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class GroupLevelActivity extends com.baidu.tieba.j {
@@ -26,7 +26,7 @@ public class GroupLevelActivity extends com.baidu.tieba.j {
     @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        as.b(this, "im_group_level_visit");
+        ao.b(this, "im_group_level_visit");
         a(bundle);
         b(bundle);
         a();
@@ -49,7 +49,7 @@ public class GroupLevelActivity extends com.baidu.tieba.j {
         if (view == this.b.a()) {
             closeActivity();
         } else if (view == this.b.e()) {
-            as.a(this, "im_group_level_upgrade_mem");
+            ao.a(this, "im_group_level_upgrade_mem");
             this.c.b();
         }
     }

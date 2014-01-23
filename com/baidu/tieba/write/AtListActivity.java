@@ -21,7 +21,7 @@ import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class AtListActivity extends com.baidu.tieba.j {
     public static ArrayList<MetaData> a = new ArrayList<>();
-    private com.baidu.tieba.at m;
+    private com.baidu.tieba.ap m;
     private NavigationBar n;
     private LinearLayout o;
     private LinearLayout p;
@@ -60,7 +60,7 @@ public class AtListActivity extends com.baidu.tieba.j {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.at_list_activity);
-        this.m = new com.baidu.tieba.at(this, (int) R.drawable.individual_center_like, (int) R.drawable.individual_center_like_1);
+        this.m = new com.baidu.tieba.ap(this, (int) R.drawable.individual_center_like, (int) R.drawable.individual_center_like_1);
         a(bundle);
         a();
         a((String) null);

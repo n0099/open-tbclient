@@ -10,7 +10,7 @@ import android.widget.LinearLayout;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.BaseFragment;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.at;
+import com.baidu.tieba.ap;
 import com.baidu.tieba.view.cm;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
@@ -18,7 +18,7 @@ public class ReplyMeFragment extends BaseFragment implements com.baidu.adp.widge
     private cm c;
     private LinearLayout d;
     private com.baidu.tieba.home.o e;
-    private at f;
+    private ap f;
     private int g;
     private j a = null;
     private BdListView b = null;
@@ -31,7 +31,7 @@ public class ReplyMeFragment extends BaseFragment implements com.baidu.adp.widge
         this.c = new cm(i());
         this.c.a(this);
         this.d = (LinearLayout) inflate.findViewById(R.id.bodyNotLogin);
-        this.f = new at(inflate, (int) R.drawable.pic_blank_page_search, (int) R.drawable.pic_blank_page_search_1);
+        this.f = new ap(inflate, (int) R.drawable.pic_blank_page_search, (int) R.drawable.pic_blank_page_search_1);
         this.b = (BdListView) inflate.findViewById(R.id.replyme_lv);
         this.b.setPullRefresh(this.c);
         this.a = new j(this, 1, new ac(this));

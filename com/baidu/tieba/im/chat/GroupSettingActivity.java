@@ -190,7 +190,7 @@ public class GroupSettingActivity extends com.baidu.tieba.j implements com.baidu
                     a(crVar.m(), crVar.l());
                     return;
                 }
-                com.baidu.tieba.as.a(this, "dismiss_group_success");
+                com.baidu.tieba.ao.a(this, "dismiss_group_success");
                 com.baidu.tieba.im.db.a.a(this.b.c(), null);
                 showToast(R.string.group_dismiss_success, false);
                 finish();

@@ -8,7 +8,6 @@ import com.baidu.tieba.log.j;
 import com.baidu.tieba.util.DatabaseService;
 import com.baidu.tieba.util.UtilHelper;
 import com.baidu.tieba.util.ac;
-import com.baidu.tieba.util.ad;
 import com.baidu.tieba.util.ax;
 import com.baidu.tieba.util.bo;
 import com.baidu.tieba.util.bt;
@@ -49,7 +48,7 @@ public class d extends a {
                                     lVar.h = true;
                                 }
                                 if (!lVar.h) {
-                                    lVar.h = ad.b("image", str2);
+                                    lVar.h = bt.a().b(str2);
                                 }
                             }
                         }

@@ -1,9 +1,8 @@
 package com.baidu.tieba.faceshop;
 
 import android.content.DialogInterface;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class q implements DialogInterface.OnClickListener {
+class q implements DialogInterface.OnClickListener {
     final /* synthetic */ FaceBuyWebViewActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */

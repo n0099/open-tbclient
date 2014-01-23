@@ -1,20 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.data.AccountData;
+import com.baidu.tieba.data.chat.RecentChatFriendData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class bf implements Runnable {
-    final /* synthetic */ AccountData a;
-    final /* synthetic */ TiebaApplication b;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bf(AccountData accountData, TiebaApplication tiebaApplication) {
-        this.a = accountData;
-        this.b = tiebaApplication;
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        TiebaApplication.b(this.a, this.b);
+public final class bf implements com.baidu.tieba.im.a<Void> {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.a
+    public void a(Void r4) {
+        com.baidu.tieba.im.c.a.h().f();
+        com.baidu.tieba.im.c.a.h().b((RecentChatFriendData) null);
+        com.baidu.tieba.im.c.a.h().c((RecentChatFriendData) null);
+        com.baidu.tieba.im.c.a.h().b(false, (com.baidu.tieba.im.a<Void>) null);
     }
 }

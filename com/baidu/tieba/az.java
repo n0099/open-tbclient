@@ -1,22 +1,20 @@
 package com.baidu.tieba;
-
-import android.view.View;
-import com.baidu.tieba.util.by;
 /* loaded from: classes.dex */
-class az implements View.OnClickListener {
-    final /* synthetic */ ay a;
+class az implements com.baidu.bdcvf.c {
+    final /* synthetic */ TiebaApplication a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public az(ay ayVar) {
-        this.a = ayVar;
+    public az(TiebaApplication tiebaApplication) {
+        this.a = tiebaApplication;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        bb bbVar;
-        boolean isChecked = this.a.e.isChecked();
-        by.a(this.a.getContext(), "upgrade_channel", isChecked ? "withOtherApp" : "withoutOtherApp", 1, new Object[0]);
-        bbVar = this.a.h;
-        bbVar.a(isChecked);
+    @Override // com.baidu.bdcvf.c
+    public void a() {
+        this.a.V = true;
+    }
+
+    @Override // com.baidu.bdcvf.c
+    public void a(int i) {
+        this.a.V = false;
     }
 }

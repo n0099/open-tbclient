@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.chat.personaltalk;
 
 import android.content.DialogInterface;
-import com.baidu.tieba.as;
+import com.baidu.tieba.ao;
 /* loaded from: classes.dex */
 class j implements DialogInterface.OnClickListener {
     final /* synthetic */ PersonalTalkSettingActivity a;
@@ -14,7 +14,7 @@ class j implements DialogInterface.OnClickListener {
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
         l lVar;
-        as.a(this.a, "personalchat_morepage_addblack");
+        ao.a(this.a, "personalchat_morepage_addblack");
         lVar = this.a.b;
         lVar.b(true);
     }

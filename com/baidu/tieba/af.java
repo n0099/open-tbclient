@@ -1,20 +1,34 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* loaded from: classes.dex */
-public class af implements Runnable {
+class af extends BdAsyncTask<String, Integer, Boolean> {
     final /* synthetic */ GuideActivity a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public af(GuideActivity guideActivity) {
+    private af(GuideActivity guideActivity) {
         this.a = guideActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        Handler handler;
-        handler = this.a.n;
-        handler.sendEmptyMessage(2);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ af(GuideActivity guideActivity, aa aaVar) {
+        this(guideActivity);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public Boolean a(String... strArr) {
+        boolean d;
+        d = this.a.d();
+        return Boolean.valueOf(d);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(Boolean bool) {
+        if (!bool.booleanValue()) {
+            this.a.c();
+        }
     }
 }

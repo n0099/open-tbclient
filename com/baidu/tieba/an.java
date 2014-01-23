@@ -1,38 +1,26 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.view.animation.AlphaAnimation;
-import android.widget.ImageView;
-import com.slidingmenu.lib.R;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class an implements Runnable {
-    final /* synthetic */ LogoActivity a;
+public class an extends BroadcastReceiver {
+    final /* synthetic */ MainTabActivity a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public an(LogoActivity logoActivity) {
-        this.a = logoActivity;
+    private an(MainTabActivity mainTabActivity) {
+        this.a = mainTabActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        Bitmap bitmap;
-        ImageView imageView;
-        ImageView imageView2;
-        Bitmap bitmap2;
-        ImageView imageView3;
-        AlphaAnimation alphaAnimation;
-        this.a.e = com.baidu.tieba.util.n.a(this.a, (int) R.drawable.logo);
-        bitmap = this.a.e;
-        if (bitmap != null) {
-            imageView = this.a.d;
-            if (imageView != null) {
-                imageView2 = this.a.d;
-                bitmap2 = this.a.e;
-                imageView2.setImageBitmap(bitmap2);
-                imageView3 = this.a.d;
-                alphaAnimation = this.a.f;
-                imageView3.startAnimation(alphaAnimation);
-            }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ an(MainTabActivity mainTabActivity, al alVar) {
+        this(mainTabActivity);
+    }
+
+    @Override // android.content.BroadcastReceiver
+    public void onReceive(Context context, Intent intent) {
+        if (intent.getAction().equals("com.baidu.tieba.broadcast.newversion")) {
+            this.a.p();
         }
     }
 }

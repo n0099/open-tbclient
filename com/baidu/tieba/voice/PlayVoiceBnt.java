@@ -14,8 +14,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.location.LocationClientOption;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.as;
-import com.baidu.tieba.ax;
+import com.baidu.tieba.ao;
+import com.baidu.tieba.at;
 import com.baidu.tieba.voice.VoiceManager;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
@@ -44,7 +44,7 @@ public class PlayVoiceBnt extends RelativeLayout implements View.OnClickListener
     public PlayVoiceBnt(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.a = 0;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ax.Voice_play_type);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, at.Voice_play_type);
         this.a = obtainStyledAttributes.getInteger(0, 0);
         obtainStyledAttributes.recycle();
         a(context);
@@ -195,7 +195,7 @@ public class PlayVoiceBnt extends RelativeLayout implements View.OnClickListener
                 voiceManager.b(true);
                 voiceManager.b(this);
             }
-            as.a(getContext(), this.b.from);
+            ao.a(getContext(), this.b.from);
         }
     }
 

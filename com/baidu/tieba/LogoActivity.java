@@ -26,9 +26,9 @@ public class LogoActivity extends j {
     private AlphaAnimation f = null;
     private boolean g = false;
     private boolean h = false;
-    private Handler i = new ak(this);
-    private Runnable j = new an(this);
-    private Runnable k = new ao(this);
+    private Handler i = new ag(this);
+    private Runnable j = new aj(this);
+    private Runnable k = new ak(this);
 
     public static void a(boolean z) {
         a = z;
@@ -88,14 +88,14 @@ public class LogoActivity extends j {
         }
         this.f = new AlphaAnimation(1.0f, 1.0f);
         this.f.setDuration(500L);
-        this.f.setAnimationListener(new al(this));
+        this.f.setAnimationListener(new ah(this));
         this.g = TiebaApplication.h().aF();
         if (this.g) {
             a(getBaseContext());
         } else {
             this.i.post(this.j);
         }
-        new am(this).start();
+        new ai(this).start();
         b();
         if (TiebaApplication.h().w()) {
             UtilHelper.e(getBaseContext());

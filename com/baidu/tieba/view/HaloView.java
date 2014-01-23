@@ -37,7 +37,7 @@ public class HaloView extends View {
         this.c = context;
         this.b = new Paint();
         this.b.setAntiAlias(true);
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.baidu.tieba.ax.HaloView);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.baidu.tieba.at.HaloView);
         this.d = obtainStyledAttributes.getBoolean(0, false);
         obtainStyledAttributes.recycle();
         if (this.d) {

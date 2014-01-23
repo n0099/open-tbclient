@@ -17,7 +17,7 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.as;
+import com.baidu.tieba.ao;
 import com.baidu.tieba.im.data.RandChatRoomData;
 import com.baidu.tieba.im.data.UserData;
 import com.baidu.tieba.im.model.ar;
@@ -60,7 +60,7 @@ public class WaittingActivity extends com.baidu.tieba.j {
         i();
         this.b.a(this.i);
         this.c.a(this.i);
-        as.b(this, "rand_chat_wait_page_start");
+        ao.b(this, "rand_chat_wait_page_start");
     }
 
     @Override // android.app.Activity
@@ -88,7 +88,7 @@ public class WaittingActivity extends com.baidu.tieba.j {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
-        as.a(this, "rand_chat_wait_page_quit");
+        ao.a(this, "rand_chat_wait_page_quit");
         this.a.a().a();
         showLoadingDialog(getString(R.string.rand_chat_waiting_quit_loading));
         this.b.a(this.b.f().d(), false, 0);
@@ -355,8 +355,8 @@ public class WaittingActivity extends com.baidu.tieba.j {
         waitButton.setOnClickListener(new r(this));
         g.setVisibility(0);
         this.h = type;
-        switch (type) {
-            case TOPIC_UPDATE:
+        switch (m.a[type.ordinal()]) {
+            case 1:
                 tipText.setText(getString(R.string.rand_chat_waiting_update_topic));
                 tipImageHead.setImageBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.icon_choice_join));
                 tipText.setVisibility(0);
@@ -369,7 +369,7 @@ public class WaittingActivity extends com.baidu.tieba.j {
                 waitButton.setVisibility(8);
                 quitButton.setVisibility(8);
                 return;
-            case ORIGINAL_ENTER:
+            case 2:
                 tipText.setText(getString(R.string.rand_chat_waiting_first_enter_success, new Object[]{Integer.valueOf(((Integer) objArr[0]).intValue())}));
                 tipImageHead.setImageBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.icon_choice_join));
                 tipText.setVisibility(0);
@@ -382,7 +382,7 @@ public class WaittingActivity extends com.baidu.tieba.j {
                 waitButton.setVisibility(8);
                 quitButton.setVisibility(8);
                 return;
-            case PERSON_ENTER:
+            case 3:
                 int intValue = ((Integer) objArr[0]).intValue();
                 String str = (String) objArr[1];
                 String str2 = (String) objArr[2];
@@ -406,7 +406,7 @@ public class WaittingActivity extends com.baidu.tieba.j {
                 tipImageText.setVisibility(8);
                 quitButton.setVisibility(8);
                 return;
-            case PERSONS_READY:
+            case 4:
                 tipText.setText((int) R.string.rand_chat_waiting_ready_chat);
                 tipImageText.setBackgroundResource(R.drawable.bg_choice_join_s);
                 tipImageText.setText(R.string.loading_view_ready);
@@ -420,7 +420,7 @@ public class WaittingActivity extends com.baidu.tieba.j {
                 waitButton.setVisibility(8);
                 quitButton.setVisibility(8);
                 return;
-            case WAIT_LONG:
+            case 5:
                 tipText.setText((int) R.string.rand_chat_waiting_drop_down_tip);
                 tipText.setVisibility(0);
                 circelBgView.setVisibility(8);
@@ -432,7 +432,7 @@ public class WaittingActivity extends com.baidu.tieba.j {
                 waitButton.setVisibility(0);
                 quitButton.setVisibility(0);
                 return;
-            case PERSON_LEAVE:
+            case 6:
                 String str3 = (String) objArr[0];
                 String str4 = (String) objArr[1];
                 SpannableString spannableString2 = new SpannableString(str3 + getString(R.string.rand_chat_waiting_quit));
@@ -455,7 +455,7 @@ public class WaittingActivity extends com.baidu.tieba.j {
                 waitButton.setVisibility(8);
                 quitButton.setVisibility(8);
                 return;
-            case WAIT_TIP:
+            case 7:
                 long longValue = ((Long) objArr[0]).longValue();
                 if (longValue < 60) {
                     tipText.setText(getString(R.string.rand_chat_waiting_wait_time_second, new Object[]{String.valueOf(longValue)}));
@@ -474,7 +474,7 @@ public class WaittingActivity extends com.baidu.tieba.j {
                 waitButton.setVisibility(8);
                 quitButton.setVisibility(8);
                 return;
-            case WAIT_TIP_RAND:
+            case 8:
                 tipText.setText(this.b.b());
                 tipImageHead.setImageBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.icon_choice_date));
                 tipText.setVisibility(0);
@@ -487,7 +487,7 @@ public class WaittingActivity extends com.baidu.tieba.j {
                 waitButton.setVisibility(8);
                 quitButton.setVisibility(8);
                 return;
-            case CLEAR:
+            case 9:
                 g.setVisibility(8);
                 return;
             default:
@@ -519,7 +519,7 @@ public class WaittingActivity extends com.baidu.tieba.j {
         if (view == this.a.h()) {
             j();
         } else if (view == this.a.f()) {
-            as.a(this, "rand_chat_wait_page_change_button");
+            ao.a(this, "rand_chat_wait_page_change_button");
             k();
         } else {
             com.baidu.tieba.view.o e = this.a.e();

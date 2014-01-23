@@ -1,16 +1,14 @@
 package com.baidu.tieba;
-/* loaded from: classes.dex */
-class ao implements Runnable {
-    final /* synthetic */ LogoActivity a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ao(LogoActivity logoActivity) {
-        this.a = logoActivity;
+import android.content.Context;
+import com.baidu.tieba.util.by;
+/* loaded from: classes.dex */
+public class ao {
+    public static void a(Context context, String str) {
+        by.a(context, str, "click", 1, new Object[0]);
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        this.a.releaseResouce();
-        this.a.a(this.a.getBaseContext());
+    public static void b(Context context, String str) {
+        by.a(context, str, "visit", 1, new Object[0]);
     }
 }

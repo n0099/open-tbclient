@@ -401,7 +401,7 @@ public class PersonInfoActivity extends BaseFragment implements com.baidu.tieba.
                     }
                 }
             } else if (view == this.b.f()) {
-                com.baidu.tieba.as.a(this.g, "person_info_send_message");
+                com.baidu.tieba.ao.a(this.g, "person_info_send_message");
                 new com.baidu.tieba.account.av("pchat", "3").start();
                 if (d != null) {
                     if (TiebaApplication.A() == null || TiebaApplication.A().length() <= 0) {

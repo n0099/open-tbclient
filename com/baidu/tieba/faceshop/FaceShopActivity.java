@@ -57,7 +57,7 @@ public class FaceShopActivity extends com.baidu.tieba.j implements com.baidu.tie
             stringExtra = bundle.getString("st_type");
         } else {
             stringExtra = getIntent().getStringExtra("st_type");
-            com.baidu.tieba.as.a(this, stringExtra);
+            com.baidu.tieba.ao.a(this, stringExtra);
         }
         this.b.a(stringExtra);
         this.b.setLoadDataCallBack(this.f);

@@ -1,6 +1,7 @@
 package com.baidu.tieba.person;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bj implements com.baidu.tieba.view.a {
+public class bj implements com.baidu.tieba.view.a {
     final /* synthetic */ PersonImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */

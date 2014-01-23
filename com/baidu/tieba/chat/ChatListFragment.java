@@ -20,7 +20,7 @@ import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tieba.BaseFragment;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.at;
+import com.baidu.tieba.ap;
 import com.baidu.tieba.data.chat.RecentChatFriendData;
 import com.baidu.tieba.im.chat.PersonalChatActivity;
 import com.baidu.tieba.im.chat.snapGroup.SnapGroupChatActivity;
@@ -35,7 +35,7 @@ public class ChatListFragment extends BaseFragment implements com.baidu.tbadk.im
     private ShutDownValidateTipView aa;
     private DialogInterface.OnClickListener ac;
     private LinearLayout ad;
-    private at ae;
+    private ap ae;
     private com.baidu.tieba.home.o af;
     private int ag;
     private com.baidu.tieba.model.i b = null;
@@ -215,7 +215,7 @@ public class ChatListFragment extends BaseFragment implements com.baidu.tbadk.im
     }
 
     private void a(View view) {
-        this.ae = new at(view, (int) R.drawable.individual_center_news, (int) R.drawable.individual_center_news_1);
+        this.ae = new ap(view, (int) R.drawable.individual_center_news, (int) R.drawable.individual_center_news_1);
         this.aa = (ShutDownValidateTipView) view.findViewById(R.id.view_no_validate);
         this.aa.setVisibility(8);
         this.aa.setShutDownClickListener(new f(this));

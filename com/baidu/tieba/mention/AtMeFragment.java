@@ -10,7 +10,7 @@ import android.widget.LinearLayout;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.BaseFragment;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.at;
+import com.baidu.tieba.ap;
 import com.baidu.tieba.view.cm;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
@@ -18,7 +18,7 @@ public class AtMeFragment extends BaseFragment implements com.baidu.adp.widget.L
     private cm c;
     private LinearLayout d;
     private com.baidu.tieba.home.o e;
-    private at f;
+    private ap f;
     private int g;
     private j a = null;
     private BdListView b = null;
@@ -33,7 +33,7 @@ public class AtMeFragment extends BaseFragment implements com.baidu.adp.widget.L
         this.b = (BdListView) inflate.findViewById(R.id.atme_lv);
         this.b.setPullRefresh(this.c);
         this.d = (LinearLayout) inflate.findViewById(R.id.bodyNotLogin);
-        this.f = new at(inflate, (int) R.drawable.individual_center_news, (int) R.drawable.individual_center_news_1);
+        this.f = new ap(inflate, (int) R.drawable.individual_center_news, (int) R.drawable.individual_center_news_1);
         this.a = new j(this, 2, new a(this));
         this.a.a(this.b);
         this.a.a(this.f);

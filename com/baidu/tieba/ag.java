@@ -1,34 +1,28 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import android.os.Handler;
+import android.os.Message;
+import com.baidu.tieba.util.DatabaseService;
 /* loaded from: classes.dex */
-class ag extends BdAsyncTask<String, Integer, Boolean> {
-    final /* synthetic */ GuideActivity a;
-
-    private ag(GuideActivity guideActivity) {
-        this.a = guideActivity;
-    }
+class ag extends Handler {
+    final /* synthetic */ LogoActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ag(GuideActivity guideActivity, aa aaVar) {
-        this(guideActivity);
+    public ag(LogoActivity logoActivity) {
+        this.a = logoActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public Boolean a(String... strArr) {
-        boolean d;
-        d = this.a.d();
-        return Boolean.valueOf(d);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(Boolean bool) {
-        if (!bool.booleanValue()) {
-            this.a.c();
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        boolean z;
+        this.a.c = true;
+        z = this.a.b;
+        if (z) {
+            if (!this.a.getDatabasePath("baidu_tieba.db").exists()) {
+                TiebaApplication.a(DatabaseService.n(), this.a.getBaseContext());
+            }
+            this.a.a(this.a.getBaseContext());
         }
+        super.handleMessage(message);
     }
 }

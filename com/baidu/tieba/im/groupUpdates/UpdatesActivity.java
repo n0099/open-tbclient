@@ -9,7 +9,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AbsListView;
 import cn.jingling.lib.file.Shared;
-import com.baidu.tieba.as;
+import com.baidu.tieba.ao;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.frsgroup.GroupLevelActivity;
 import com.baidu.tieba.im.groupInfo.GroupInfoActivity;
@@ -216,7 +216,7 @@ public class UpdatesActivity extends com.baidu.tieba.j implements AbsListView.On
                         GroupLevelActivity.a(this, Long.parseLong(groupId));
                     } else if (!updatesType.equals("dismiss_group")) {
                         if (updatesType.equals("group_event_info")) {
-                            as.a(this, "update_activity_group_event_click");
+                            ao.a(this, "update_activity_group_event_click");
                             UtilHelper.a(this, updatesItemData.getEventLink(), null, null);
                         } else {
                             GroupInfoActivity.a(this, Long.parseLong(groupId), 0);

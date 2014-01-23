@@ -12,7 +12,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.AbsListView;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.as;
+import com.baidu.tieba.ao;
 import com.baidu.tieba.im.c.l;
 import com.baidu.tieba.im.chat.GroupChatActivity;
 import com.baidu.tieba.im.chat.q;
@@ -162,7 +162,7 @@ public class SnapGroupChatActivity extends GroupChatActivity implements AbsListV
         r().T().setFinalText(getString(R.string.snap_group_chat_remaining));
         r().T().a();
         this.e.a(this);
-        as.b(getApplicationContext(), "snap_chat_activity");
+        ao.b(getApplicationContext(), "snap_chat_activity");
     }
 
     @Override // com.baidu.tieba.im.chat.GroupChatActivity, com.baidu.tieba.im.chat.MsglistActivity
@@ -197,7 +197,7 @@ public class SnapGroupChatActivity extends GroupChatActivity implements AbsListV
         showLoadingDialog(getString(R.string.group_tab_enterchatroom_loading), new e(this));
         this.p.a(this.q);
         com.baidu.tieba.im.d.c.a(String.valueOf(this.q));
-        as.a(getApplicationContext(), "snap_chat_change_room");
+        ao.a(getApplicationContext(), "snap_chat_change_room");
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

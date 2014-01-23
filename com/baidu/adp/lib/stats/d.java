@@ -13,7 +13,7 @@ public class d extends e {
 
     public d(Context context, Handler handler, String str) {
         super(context, handler, str);
-        this.a = true;
+        this.a = false;
         this.b = false;
         this.c = false;
         this.d = 50;

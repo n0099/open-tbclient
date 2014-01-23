@@ -87,7 +87,7 @@ public class SignAllForumActivity extends com.baidu.tieba.j implements com.baidu
         a();
         Intent intent = getIntent();
         if (intent.hasExtra("signall_noyify_click") && intent.getBooleanExtra("signall_noyify_click", false)) {
-            com.baidu.tieba.as.a(this, "signall_noyify_click");
+            com.baidu.tieba.ao.a(this, "signall_noyify_click");
         }
     }
 
@@ -185,7 +185,7 @@ public class SignAllForumActivity extends com.baidu.tieba.j implements com.baidu
                     showToast(R.string.neterror);
                 }
             }
-            com.baidu.tieba.as.a(this, "signall_click");
+            com.baidu.tieba.ao.a(this, "signall_click");
         }
     }
 
@@ -203,7 +203,7 @@ public class SignAllForumActivity extends com.baidu.tieba.j implements com.baidu
         v vVar;
         if (this.a.i().getItemViewType(i) == 0 && (vVar = this.a.h().j().get(i / 2)) != null) {
             FrsActivity.a(this, vVar.b(), "signallforum");
-            com.baidu.tieba.as.a(this, "signall_frs_click");
+            com.baidu.tieba.ao.a(this, "signall_frs_click");
         }
     }
 

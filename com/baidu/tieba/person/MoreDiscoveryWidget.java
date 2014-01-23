@@ -37,7 +37,7 @@ public class MoreDiscoveryWidget extends FrameLayout {
         this.b = (TextView) findViewById(R.id.widget_text);
         this.c = (ImageView) findViewById(R.id.widget_new);
         this.d = (ImageView) findViewById(R.id.widget_remind);
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, com.baidu.tieba.ax.moreTabWidget);
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, com.baidu.tieba.at.moreTabWidget);
         this.b.setText(obtainStyledAttributes.getString(1));
         this.a.setImageDrawable(obtainStyledAttributes.getDrawable(0));
         this.f[0] = obtainStyledAttributes.getResourceId(0, 0);

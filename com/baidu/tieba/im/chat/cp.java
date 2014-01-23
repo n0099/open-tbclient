@@ -192,6 +192,9 @@ public abstract class cp extends com.baidu.tieba.j implements View.OnTouchListen
 
     @Override // com.baidu.tbadk.widget.richText.j
     public ListView c() {
+        if (this.d == null) {
+            return null;
+        }
         return this.d.i();
     }
 

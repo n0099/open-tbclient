@@ -23,14 +23,14 @@ class au implements View.OnClickListener {
         button = this.a.b;
         if (view == button) {
             context2 = this.a.c;
-            com.baidu.tieba.as.a(context2, "group_tab_banner_close");
+            com.baidu.tieba.ao.a(context2, "group_tab_banner_close");
             this.a.e = true;
             this.a.setVisibility(8);
             TiebaApplication.h().f(System.currentTimeMillis());
             return;
         }
         context = this.a.c;
-        com.baidu.tieba.as.a(context, "group_tab_banner_click");
+        com.baidu.tieba.ao.a(context, "group_tab_banner_click");
         Context context3 = this.a.getContext();
         str = this.a.g;
         UtilHelper.a(context3, str, null, null);

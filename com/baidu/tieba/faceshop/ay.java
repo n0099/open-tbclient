@@ -295,7 +295,7 @@ public class ay extends BaseAdapter {
     }
 
     public void b(int i) {
-        com.baidu.tieba.as.a(this.c, "emotion_package_list_free");
+        com.baidu.tieba.ao.a(this.c, "emotion_package_list_free");
         FacePackageData facePackageData = (FacePackageData) getItem(i);
         if (facePackageData != null) {
             facePackageData.buyStatus = 1;
@@ -304,7 +304,7 @@ public class ay extends BaseAdapter {
     }
 
     public void c(int i) {
-        com.baidu.tieba.as.a(this.c, "emotion_package_list_buy");
+        com.baidu.tieba.ao.a(this.c, "emotion_package_list_buy");
         FacePackageData facePackageData = (FacePackageData) getItem(i);
         if (this.b != null) {
             com.baidu.tieba.j jVar = (com.baidu.tieba.j) this.c;

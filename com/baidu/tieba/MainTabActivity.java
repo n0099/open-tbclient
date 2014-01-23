@@ -65,9 +65,9 @@ public class MainTabActivity extends BaseFragmentActivity implements com.baidu.t
     private long v = 2000;
     private long w = 7200000;
     protected int b = -1;
-    private aq z = null;
+    private am z = null;
     private MentionActivity A = null;
-    private ar B = null;
+    private an B = null;
 
     private void a(Fragment fragment, int i, int i2, int i3, HashMap<String, w> hashMap) {
         v vVar = new v();
@@ -139,7 +139,7 @@ public class MainTabActivity extends BaseFragmentActivity implements com.baidu.t
         this.y = (FragmentTabHost) findViewById(R.id.tab_host);
         this.y.setup(getSupportFragmentManager());
         this.y.setTabWidgetBackgroundColor(getResources().getColor(R.color.maintab_bg));
-        this.y.setTabChangeListener(new ap(this));
+        this.y.setTabChangeListener(new al(this));
         c();
         Intent intent = new Intent();
         intent.putExtras(getIntent());
@@ -312,11 +312,11 @@ public class MainTabActivity extends BaseFragmentActivity implements com.baidu.t
     }
 
     private void m() {
-        this.B = new ar(this, null);
+        this.B = new an(this, null);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("com.baidu.tieba.broadcast.newrecommends");
         registerReceiver(this.B, intentFilter);
-        this.z = new aq(this, null);
+        this.z = new am(this, null);
         com.baidu.tieba.im.messageCenter.e.a().a(-124, this.z);
     }
 

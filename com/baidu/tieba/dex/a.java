@@ -324,6 +324,9 @@ public class a {
         } catch (InvocationTargetException e5) {
             e5.printStackTrace();
             e.a("load bd browser failed: InvocationTargetException");
+        } catch (Throwable th) {
+            th.printStackTrace();
+            e.a("Throwable e: " + th.getMessage());
         }
         return this.d;
     }

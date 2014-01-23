@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Parcelable;
 import android.support.v4.view.ViewPager;
+import android.support.v4.view.bq;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,11 +35,10 @@ public class GuideActivity extends j {
     private ImageView j;
     private List<View> k;
     private boolean l;
-    private ah m;
-    private ag b = null;
+    private af b = null;
     private String c = null;
-    private Handler n = new aa(this);
-    public View.OnClickListener a = new ac(this);
+    private Handler m = new aa(this);
+    public View.OnClickListener a = new ab(this);
 
     public static void a(Activity activity, String str) {
         Intent intent = new Intent(activity, GuideActivity.class);
@@ -50,9 +50,6 @@ public class GuideActivity extends j {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.guide_activity);
-        this.m = new ah(this, this);
-        this.m.a(new ab(this));
-        this.m.a();
         this.l = false;
         a();
         if (bundle != null) {
@@ -60,8 +57,8 @@ public class GuideActivity extends j {
         } else {
             this.c = getIntent().getStringExtra(d);
         }
-        if (this.c.equals("from_logo_page")) {
-            this.b = new ag(this, null);
+        if (this.c != null && this.c.equals("from_logo_page")) {
+            this.b = new af(this, null);
             this.b.setSelfExecute(true);
             this.b.execute(new String[0]);
             return;
@@ -91,8 +88,8 @@ public class GuideActivity extends j {
     @Override // com.baidu.tieba.j, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.n.removeMessages(1);
-        this.n.removeMessages(2);
+        this.m.removeMessages(1);
+        this.m.removeMessages(2);
         if (this.b != null) {
             this.b.cancel(true);
             this.b = null;
@@ -102,13 +99,13 @@ public class GuideActivity extends j {
     @Override // com.baidu.tieba.j, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.n.postDelayed(new ad(this), 200L);
+        this.m.postDelayed(new ac(this), 200L);
     }
 
     @Override // com.baidu.tieba.j, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.m.b();
+        b();
     }
 
     @Override // com.baidu.tieba.j, android.app.Activity, android.view.KeyEvent.Callback
@@ -230,7 +227,7 @@ public class GuideActivity extends j {
     }
 
     /* loaded from: classes.dex */
-    public class GuideOnPageChangeListener implements android.support.v4.view.bq {
+    public class GuideOnPageChangeListener implements bq {
         public GuideOnPageChangeListener() {
         }
 
@@ -274,13 +271,13 @@ public class GuideActivity extends j {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        this.n.postDelayed(new ae(this), 2000L);
+        this.m.postDelayed(new ad(this), 2000L);
         this.j.startAnimation(AnimationUtils.loadAnimation(this, R.anim.guide_horse_set));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f() {
-        this.n.postDelayed(new af(this), 1000L);
+        this.m.postDelayed(new ae(this), 1000L);
         this.i.startAnimation(AnimationUtils.loadAnimation(this, R.anim.guide_horse_view_trans));
         g();
         a(0);

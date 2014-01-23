@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tieba.account.av;
-import com.baidu.tieba.as;
+import com.baidu.tieba.ao;
 import com.baidu.tieba.data.chat.RecentChatFriendData;
 import com.baidu.tieba.im.chat.GroupChatActivity;
 import com.baidu.tieba.im.chat.PersonalChatActivity;
@@ -117,7 +117,7 @@ public class h implements AdapterView.OnItemClickListener {
         try {
             long parseLong = Long.parseLong(recentChatFriendData.getFriendId());
             activity = this.a.c;
-            as.a(activity, "tab_msg_personal_chat_click");
+            ao.a(activity, "tab_msg_personal_chat_click");
             new av("pchat", SocialConstants.TRUE).start();
             activity2 = this.a.c;
             PersonalChatActivity.a(activity2, parseLong, recentChatFriendData.getFriendName(), recentChatFriendData.getFriendPortrait(), 0, null);

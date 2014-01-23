@@ -4,8 +4,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import com.slidingmenu.lib.R;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class r implements com.baidu.adp.lib.guide.b {
+public class r implements com.baidu.adp.lib.guide.b {
     final /* synthetic */ p a;
 
     /* JADX INFO: Access modifiers changed from: package-private */

@@ -41,6 +41,7 @@ import com.baidu.tieba.switchs.SwitchModel;
 import com.baidu.tieba.util.DatabaseService;
 import com.baidu.tieba.util.NetWorkCore;
 import com.baidu.tieba.util.UtilHelper;
+import com.baidu.tieba.util.bq;
 import com.baidu.tieba.util.bu;
 import com.baidu.tieba.util.by;
 import com.baidu.tieba.util.bz;
@@ -81,8 +82,8 @@ public class TiebaApplication extends com.baidu.adp.a.b {
     private HashMap<String, SoftReference<com.baidu.adp.widget.ImageView.d>> g = null;
     private int h = 1;
     private boolean j = false;
-    private com.baidu.tieba.util.bq k = null;
-    private com.baidu.tieba.util.bq l = null;
+    private bq k = null;
+    private bq l = null;
     private String m = null;
     private int p = 0;
     private long q = 0;
@@ -99,8 +100,8 @@ public class TiebaApplication extends com.baidu.adp.a.b {
     private BDLocationListener B = null;
     private int C = 0;
     private Address E = null;
-    private bm F = null;
-    private ArrayList<SoftReference<bl>> G = null;
+    private bi F = null;
+    private ArrayList<SoftReference<bh>> G = null;
     private ExecutorService H = null;
     private int I = 0;
     private int J = 0;
@@ -132,8 +133,8 @@ public class TiebaApplication extends com.baidu.adp.a.b {
     private int al = -1;
     private int am = -1;
     private boolean an = false;
-    public Handler c = new Handler(new bc(this));
-    com.baidu.adp.lib.c.d d = new be(this);
+    public Handler c = new Handler(new ay(this));
+    com.baidu.adp.lib.c.d d = new ba(this);
     private int aq = 0;
     private boolean ar = true;
     private boolean as = true;
@@ -145,7 +146,7 @@ public class TiebaApplication extends com.baidu.adp.a.b {
     private boolean ay = false;
     private String az = "23:00";
     private String aA = "09:00";
-    private final LocationListener aB = new bk(this);
+    private final LocationListener aB = new bg(this);
     private boolean aC = false;
 
     public static void a(Intent intent) {
@@ -160,11 +161,11 @@ public class TiebaApplication extends com.baidu.adp.a.b {
     public void onCreate() {
         super.onCreate();
         if (!b()) {
-            com.baidu.bdcvf.a.a().a(this, new bd(this));
+            com.baidu.bdcvf.a.a().a(this, new az(this));
         }
         f = this;
         FrontiaApplication.initFrontia(getApplicationContext());
-        new bn(null).execute(new String[0]);
+        new bj(null).execute(new String[0]);
         NetWorkCore.F();
         bt();
         if (q()) {
@@ -211,8 +212,8 @@ public class TiebaApplication extends com.baidu.adp.a.b {
             }
             DatabaseService.v();
             m();
-            this.k = new com.baidu.tieba.util.bq(300);
-            this.l = new com.baidu.tieba.util.bq(100);
+            this.k = new bq(300);
+            this.l = new bq(100);
             com.baidu.tieba.mention.s.a().b();
             bA();
             this.G = new ArrayList<>();
@@ -817,14 +818,14 @@ public class TiebaApplication extends com.baidu.adp.a.b {
         if (com.baidu.adp.lib.g.g.b()) {
             b(accountData, tiebaApplication);
         } else if (h() != null) {
-            h().c.post(new bf(accountData, tiebaApplication));
+            h().c.post(new bb(accountData, tiebaApplication));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public static void b(AccountData accountData, TiebaApplication tiebaApplication) {
         com.baidu.tieba.mention.s.a().d();
-        com.baidu.tieba.im.m.a(new bg(), new bh(accountData, tiebaApplication));
+        com.baidu.tieba.im.m.a(new bc(), new bd(accountData, tiebaApplication));
         C();
         com.baidu.tieba.mention.s.a().k();
         com.baidu.tieba.data.emotions.l.a().b();
@@ -832,7 +833,7 @@ public class TiebaApplication extends com.baidu.adp.a.b {
 
     public static void C() {
         com.baidu.tieba.im.db.ae.a().c();
-        com.baidu.tieba.im.m.a(new bi(), new bj());
+        com.baidu.tieba.im.m.a(new be(), new bf());
     }
 
     public static String D() {
@@ -1330,7 +1331,7 @@ public class TiebaApplication extends com.baidu.adp.a.b {
         ac = z;
     }
 
-    public com.baidu.tieba.util.bq au() {
+    public bq au() {
         return this.k;
     }
 
@@ -1621,9 +1622,9 @@ public class TiebaApplication extends com.baidu.adp.a.b {
             while (true) {
                 int i4 = i3;
                 if (i4 < this.G.size()) {
-                    bl blVar = this.G.get(i4).get();
-                    if (blVar != null) {
-                        blVar.a(i2, str, address);
+                    bh bhVar = this.G.get(i4).get();
+                    if (bhVar != null) {
+                        bhVar.a(i2, str, address);
                     }
                     i3 = i4 + 1;
                 } else {

@@ -1,20 +1,23 @@
 package com.baidu.tieba;
+
+import com.baidu.tieba.data.AccountData;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bd implements com.baidu.bdcvf.c {
-    final /* synthetic */ TiebaApplication a;
+public final class bd implements com.baidu.tieba.im.a<Integer> {
+    final /* synthetic */ AccountData a;
+    final /* synthetic */ TiebaApplication b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bd(TiebaApplication tiebaApplication) {
-        this.a = tiebaApplication;
+    public bd(AccountData accountData, TiebaApplication tiebaApplication) {
+        this.a = accountData;
+        this.b = tiebaApplication;
     }
 
-    @Override // com.baidu.bdcvf.c
-    public void a() {
-        this.a.V = true;
-    }
-
-    @Override // com.baidu.bdcvf.c
-    public void a(int i) {
-        this.a.V = false;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.a
+    public void a(Integer num) {
+        com.baidu.tieba.im.chat.q.a = num.intValue();
+        com.baidu.tieba.im.i.a(this.a, this.b);
+        com.baidu.tieba.im.m.b();
     }
 }

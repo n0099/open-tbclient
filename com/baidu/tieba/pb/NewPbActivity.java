@@ -1059,7 +1059,7 @@ public class NewPbActivity extends com.baidu.tieba.j implements com.baidu.tbadk.
     public void a(Context context, String str, String str2) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             this.D = str;
-            com.baidu.tieba.as.a(this, "pb_show_phonedialog");
+            com.baidu.tieba.ao.a(this, "pb_show_phonedialog");
             if (str2.equals("2")) {
                 this.j.c(1).setVisibility(8);
             } else {

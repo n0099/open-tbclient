@@ -14,7 +14,7 @@ public class ae implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
         Handler handler;
-        handler = this.a.n;
-        handler.sendEmptyMessage(1);
+        handler = this.a.m;
+        handler.sendEmptyMessage(2);
     }
 }

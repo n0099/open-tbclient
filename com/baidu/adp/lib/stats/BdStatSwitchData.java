@@ -33,7 +33,7 @@ public class BdStatSwitchData implements Serializable {
         }
         common2.setIs_exact(true);
         common2.setIs_only_wifi(false);
-        common2.setIs_open(true);
+        common2.setIs_open(false);
         BdStatCommonSwitchData common3 = this.error.getCommon();
         if (common3 == null) {
             common3 = new BdStatCommonSwitchData();
@@ -41,7 +41,7 @@ public class BdStatSwitchData implements Serializable {
         }
         common3.setIs_exact(false);
         common3.setIs_only_wifi(false);
-        common3.setIs_open(true);
+        common3.setIs_open(false);
     }
 
     public int getError_code() {

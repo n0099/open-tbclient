@@ -16,7 +16,7 @@ public class f extends e {
 
     public f(Context context, Handler handler, String str) {
         super(context, handler, str);
-        this.a = true;
+        this.a = false;
         this.b = false;
         this.c = true;
         this.d = 10;

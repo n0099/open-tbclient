@@ -11,7 +11,6 @@ import android.view.View;
 import com.baidu.sapi2.shell.SapiErrorCode;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.account.LoginActivity;
-import com.baidu.tieba.as;
 import com.baidu.tieba.im.chat.GroupChatActivity;
 import com.baidu.tieba.im.chat.GroupSettingActivity;
 import com.baidu.tieba.im.creategroup.GroupAddressLocateActivity;
@@ -170,7 +169,7 @@ public class GroupInfoActivity extends com.baidu.tieba.j implements View.OnClick
     public void onClick(View view) {
         if (view == this.f.s()) {
             if (this.g.g().g()) {
-                as.a(this, "edit_place_at_groupinfo");
+                com.baidu.tieba.ao.a(this, "edit_place_at_groupinfo");
                 GroupAddressLocateActivity.a(this, 21001, this.g.g().a().getPosition(), this.g.g().a().getBusiness(), (this.g.g().a().getFlag() & 1) == 1);
             }
         } else if (view == this.f.p()) {

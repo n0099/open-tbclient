@@ -60,7 +60,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
         this.b = (TextView) findViewById(R.id.no_network_showmore);
         this.b.setOnClickListener(this);
         if (attributeSet != null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.baidu.tieba.ax.noNetworkView);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.baidu.tieba.at.noNetworkView);
             this.h = obtainStyledAttributes.getBoolean(0, false);
             obtainStyledAttributes.recycle();
         }

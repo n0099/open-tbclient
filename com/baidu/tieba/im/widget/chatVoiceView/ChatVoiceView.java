@@ -14,7 +14,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.g.e;
 import com.baidu.gson.Gson;
-import com.baidu.tieba.ax;
+import com.baidu.tieba.at;
 import com.baidu.tieba.im.chat.q;
 import com.baidu.tieba.im.d.d;
 import com.baidu.tieba.im.data.VoiceMsgData;
@@ -53,7 +53,7 @@ public class ChatVoiceView extends LinearLayout implements View.OnClickListener,
         this.c = null;
         this.d = null;
         this.e = null;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ax.ChatVoiceView, 0, 0);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, at.ChatVoiceView, 0, 0);
         if (obtainStyledAttributes != null ? obtainStyledAttributes.getBoolean(0, true) : true) {
             LayoutInflater.from(context).inflate(R.layout.widget_left_voice_view, (ViewGroup) this, true);
         } else {

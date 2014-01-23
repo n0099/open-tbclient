@@ -17,7 +17,7 @@ public class al implements DialogInterface.OnClickListener {
     public void onClick(DialogInterface dialogInterface, int i) {
         as asVar;
         as asVar2;
-        com.baidu.tieba.as.a(this.a, "clear_group_msg_at_gsetting");
+        com.baidu.tieba.ao.a(this.a, "clear_group_msg_at_gsetting");
         this.a.showLoadingDialog(this.a.getString(R.string.deleting));
         com.baidu.tieba.im.db.ae.a().a(new am(this));
         com.baidu.tieba.im.db.d a = com.baidu.tieba.im.db.d.a();

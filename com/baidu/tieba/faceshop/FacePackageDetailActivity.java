@@ -55,7 +55,7 @@ public class FacePackageDetailActivity extends com.baidu.tieba.j implements com.
             this.a.c(getIntent().getStringExtra("st_type"));
             this.a.b(getIntent().getStringExtra("pkg_id"));
             this.a.a(getIntent().getBooleanExtra("is_downloading", false));
-            com.baidu.tieba.as.a(this, getIntent().getStringExtra("st_type"));
+            com.baidu.tieba.ao.a(this, getIntent().getStringExtra("st_type"));
         }
         this.a.a(this.g);
     }
@@ -84,7 +84,7 @@ public class FacePackageDetailActivity extends com.baidu.tieba.j implements com.
                     switch (this.a.d()) {
                         case 2:
                         case 3:
-                            com.baidu.tieba.as.a(this, "emotion_package_detail_free");
+                            com.baidu.tieba.ao.a(this, "emotion_package_detail_free");
                             String b = this.a.b();
                             com.baidu.tieba.c.a aVar = new com.baidu.tieba.c.a(this.a.e());
                             aVar.a(1);
@@ -104,7 +104,7 @@ public class FacePackageDetailActivity extends com.baidu.tieba.j implements com.
                             }
                             break;
                         case 4:
-                            com.baidu.tieba.as.a(this, "emotion_package_detail_buy");
+                            com.baidu.tieba.ao.a(this, "emotion_package_detail_buy");
                             b();
                             break;
                     }

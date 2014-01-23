@@ -1,34 +1,30 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.IntentFilter;
+import android.view.animation.Animation;
 /* loaded from: classes.dex */
-public class ah {
-    final /* synthetic */ GuideActivity a;
-    private Context b;
-    private IntentFilter c = new IntentFilter("android.intent.action.CLOSE_SYSTEM_DIALOGS");
-    private aj d;
-    private ai e;
+class ah implements Animation.AnimationListener {
+    final /* synthetic */ LogoActivity a;
 
-    public ah(GuideActivity guideActivity, Context context) {
-        this.a = guideActivity;
-        this.b = context;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ah(LogoActivity logoActivity) {
+        this.a = logoActivity;
     }
 
-    public void a(aj ajVar) {
-        this.d = ajVar;
-        this.e = new ai(this);
-    }
-
-    public void a() {
-        if (this.e != null) {
-            this.b.registerReceiver(this.e, this.c);
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        boolean z;
+        this.a.b = true;
+        z = this.a.c;
+        if (z) {
+            this.a.a(this.a.getBaseContext());
         }
     }
 
-    public void b() {
-        if (this.e != null) {
-            this.b.unregisterReceiver(this.e);
-        }
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
     }
 }
